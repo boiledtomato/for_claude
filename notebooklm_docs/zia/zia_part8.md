@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 8)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 12
 
 ---
@@ -1989,13 +1989,13 @@ Zscaler DNS Security and Control services offer mechanisms to take control of yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/zscaler-endpoint-dlp-release-summary-2026","lastmod":"2026-10-08T18:39Z","nid":"1535357"} -->
+<!-- ZS-ARTICLE {"url":"/zia/zscaler-endpoint-dlp-release-summary-2026","lastmod":"2026-10-14T09:07Z","nid":"1535357"} -->
 ## Zscaler Endpoint DLP Release Summary (2026)
 
 - Source: https://help.zscaler.com/zia/zscaler-endpoint-dlp-release-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Zscaler Endpoint DLP Release Notes > Zscaler Endpoint DLP Release Summary (2026)
-- Last modified: 2026-10-08T18:39Z
+- Last modified: 2026-10-14T09:07Z
 - Summary: Zscaler Endpoint DLP release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for Zscaler Endpoint DLP.

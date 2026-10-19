@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 176
 
 ---
@@ -386,64 +386,6 @@ The compliance frameworks are displayed in a table. For each framework, you can 
 - **Type**: The type (**Predefined**or **Custom**) of framework.
 
 [Image: The Compliance dashboard displaying list of compliance frameworks in a table]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-center","lastmod":"2026-09-17T21:14Z","nid":"1526556"} -->
-## About On-Premises Data Centers
-
-- Source: https://help.zscaler.com/dspm/about-data-center
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > About On-Premises Data Centers
-- Last modified: 2026-09-17T21:14Z
-- Summary: Information about on-premises data centers in the Zscaler Admin Console.
-
-An on-premises data center refers to a facility that hosts various IT infrastructure components, including databases, servers, and networking applications, which are managed independently by the organization rather than a cloud service provider. These data centers are typically located within the premises of the organization. On-premises data centers provide organizations with complete control over their data, security, and infrastructure, making them an essential component of many hybrid and on-premises IT environments.
-
-DSPM scans the databases in these on-premises data centers, providing visibility into the sensitive data that is stored in the databases. This allows you to manage and secure the data and maintain a strong security posture.
-
-Onboarding on-premises data centers to DSPM provides the following benefits and enables you to:
-
-- Gain comprehensive visibility into data stored across all on-premises databases and systems.
-- Improve database security posture.
-- Have a unified view of data assets across hybrid environments (cloud and on-premise).
-- Centralize risk assessment and management of on-premises databases.
-
-Organizations can maintain consistent security policies and data protection measures across the hybrid infrastructure by integrating on-premises data centers with DSPM.
-
-## About the On-Premises Data Centers Page
-
-On the On-Premises Data Centers page (Data Security > DSPM > On-Premises Data Centers), you can do the following:
-
-1. Apply [filters](https://help.zscaler.com/unified/using-tables#filter) to view specific data.
-2. [Add an on-premises data center to DSPM](https://help.zscaler.com/dspm/managing-premises-data-center).
-3. View the list of on-premises data centers. For each on-premises data center, you can view:
-  - **Account**: The name of the data center. Click to view the data center details.
-    - Data Center Details
-  - **Location**: The regions where the data centers are located.
-  - **Business Unit**: The [business unit](https://help.zscaler.com/dspm/about-business-units) assigned to the data center.
-  - **Added By**: The user who added the data center.
-  - **Added On**: The date and time the data center was added.
-4. Sort the column data.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
-6. Click the **Action** icon to [edit](https://help.zscaler.com/dspm/editing-or-deleting-unmanaged-database) or [delete](https://help.zscaler.com/dspm/editing-or-deleting-unmanaged-database) the data centers.
-
-For each data center, you can:
-
-1. [Edit the data center configuration](https://help.zscaler.com/dspm/managing-premises-data-center).
-2. [Delete the data center configuration](https://help.zscaler.com/dspm/managing-premises-data-center).
-3. **Data Center**: View the following information for the data center:
-  - **Location**: The regions where the data centers are located.
-  - **Business Unit**: The business unit assigned to the data center.
-  - **Added On**: The date and time the data center was added.
-  - **Added By**: The user who added the data center.
-4. **Connected Scanners to the Data Center**: View the scanner connections configured for the data center:
-  - **On-Premises Scanners Integration**: View a list of scanner integrations linked to the data center.
-
-[Image: The On-Premises Data Center details page showing the configuration details and annotations on different sections]
-
-[Image: The On-Premises Data Centers page with a list of data centers and annotations on different parts of the page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -921,6 +863,64 @@ On the Investigation page (Data Security > DSPM > Investigation), you can do the
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/dspm/about-on-premises-data-centers","lastmod":"2026-10-12T02:21Z","nid":"1526556"} -->
+## About On-Premises Data Centers
+
+- Source: https://help.zscaler.com/dspm/about-on-premises-data-centers
+- Product: Data Security Posture Management (DSPM)
+- Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > About On-Premises Data Centers
+- Last modified: 2026-10-12T02:21Z
+- Summary: Information about on-premises data centers in the Zscaler Admin Console.
+
+An on-premises data center refers to a facility that hosts various IT infrastructure components, including databases, servers, and networking applications, which are managed independently by the organization rather than a cloud service provider. These data centers are typically located within the premises of the organization. On-premises data centers provide organizations with complete control over their data, security, and infrastructure, making them an essential component of many hybrid and on-premises IT environments.
+
+DSPM scans the databases in these on-premises data centers, providing visibility into the sensitive data that is stored in the databases. This allows you to manage and secure the data and maintain a strong security posture.
+
+Onboarding on-premises data centers to DSPM provides the following benefits and enables you to:
+
+- Gain comprehensive visibility into data stored across all on-premises databases and systems.
+- Improve database security posture.
+- Have a unified view of data assets across hybrid environments (cloud and on-premise).
+- Centralize risk assessment and management of on-premises databases.
+
+Organizations can maintain consistent security policies and data protection measures across the hybrid infrastructure by integrating on-premises data centers with DSPM.
+
+## About the On-Premises Data Centers Page
+
+On the On-Premises Data Centers page (Data Security > DSPM > On-Premises Data Centers), you can do the following:
+
+1. Apply [filters](https://help.zscaler.com/unified/using-tables#filter) to view specific data.
+2. [Add an on-premises data center to DSPM](https://help.zscaler.com/dspm/managing-premises-data-center).
+3. View the list of on-premises data centers. For each on-premises data center, you can view:
+  - **Account**: The name of the data center. Click to view the data center details.
+    - Data Center Details
+  - **Location**: The regions where the data centers are located.
+  - **Business Unit**: The [business unit](https://help.zscaler.com/dspm/about-business-units) assigned to the data center.
+  - **Added By**: The user who added the data center.
+  - **Added On**: The date and time the data center was added.
+4. Sort the column data.
+5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables#hide).
+6. Click the **Action** icon to [edit](https://help.zscaler.com/dspm/editing-or-deleting-unmanaged-database) or [delete](https://help.zscaler.com/dspm/editing-or-deleting-unmanaged-database) the data centers.
+
+For each data center, you can:
+
+1. [Edit the data center configuration](https://help.zscaler.com/dspm/managing-premises-data-center).
+2. [Delete the data center configuration](https://help.zscaler.com/dspm/managing-premises-data-center).
+3. **Data Center**: View the following information for the data center:
+  - **Location**: The regions where the data centers are located.
+  - **Business Unit**: The business unit assigned to the data center.
+  - **Added On**: The date and time the data center was added.
+  - **Added By**: The user who added the data center.
+4. **Connected Scanners to the Data Center**: View the scanner connections configured for the data center:
+  - **On-Premises Scanners Integration**: View a list of scanner integrations linked to the data center.
+
+[Image: The On-Premises Data Center details page showing the configuration details and annotations on different sections]
+
+[Image: The On-Premises Data Centers page with a list of data centers and annotations on different parts of the page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/dspm/about-premises-scanner-integrations","lastmod":"2026-09-17T01:54Z","nid":"1532039"} -->
 ## About On-Premises Scanner Integrations
 
@@ -1312,13 +1312,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-09-17T01:55Z","nid":"1517561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-10-12T23:56Z","nid":"1517561"} -->
 ## About Service Registration
 
 - Source: https://help.zscaler.com/dspm/about-service-registration
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > About Service Registration
-- Last modified: 2026-09-17T01:55Z
+- Last modified: 2026-10-12T23:56Z
 - Summary: Information about service registration in the Zscaler Admin Console.
 
 [Watch a video about Service Registration in DSPM](https://fast.wistia.net/embed/iframe/2bz2pm1yh4) (shows legacy UI).
@@ -1522,7 +1522,6 @@ For each Databricks account, you can view:
   - **Added By**: The user who added the Databricks account.
   - **Added On**: The date and time the Databricks account was added.
   - **Cloud Type**: The cloud service provider associated with the Databricks account.
-  - **Workspace ID**: The unique identifier assigned to the Databricks account.
   - **Account**: The account name under which the account is registered.
 2. **Integration Details**:
   - **DSPM Integration Alias**: The unique alias used for DSPM integration.
@@ -10195,13 +10194,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-09-14T22:35Z","nid":"1486391"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-10-16T03:46Z","nid":"1486391"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/dspm/iam-roles-and-permissions-aws
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-09-14T22:35Z
+- Last modified: 2026-10-16T03:46Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organization) process, you need to deploy the DSPM templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between DSPM, the [orchestrator account](https://help.zscaler.com/dspm/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -10238,14 +10237,6 @@ The resource discovery role is required for DSPM to discover resources within th
 | Permission | Effect | Scope | Purpose |
 | --- | --- | --- | --- |
 | `logs:ListLogDeliveries` | Allow | Monitored Accounts | To list the log delivery settings for a specific log group |
-| `memorydb:DescribeAcls` | Allow | Monitored Accounts | To describe the access control lists (ACLs) associated with a MemoryDB cluster |
-| `memorydb:DescribeUsers` | Allow | Monitored Accounts | To describe the users associated with a MemoryDB cluster |
-| `redshift-serverless:GetWorkgroup` | Allow | Monitored Accounts | To retrieve information about a specific Amazon Redshift Serverless workgroup |
-| `redshift-serverless:ListNamespaces` | Allow | Monitored Accounts | To list all the namespaces in an Amazon Redshift Serverless account |
-| `redshift-serverless:GetNamespace` | Allow | Monitored Accounts | To retrieve information about a specific namespace in Amazon Redshift Serverless |
-| `redshift-serverless:GetWorkgroup` | Allow | Monitored Accounts | To retrieve information about a specific workgroup in Amazon Redshift Serverless |
-| `redshift-serverless:ListWorkgroups` | Allow | Monitored Accounts | To list all the workgroups in an Amazon Redshift Serverless account |
-| `elasticache:DescribeReplicationGroups` | Allow | Monitored Accounts | To describe the replication groups associated with an Amazon ElastiCache cluster |
 | `wafv2:ListResourcesForWebACL` | Allow | Monitored Accounts | To list all the resources that are associated with a specific AWS WAFv2 web ACL |
 | `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
 | `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by DSPM (based on tags) | To update Zscaler DSPM’s Auto Scaling group |
@@ -16717,13 +16708,13 @@ DSPM defines the following threat categories:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/updating-gcp-service-account","lastmod":"2026-10-07T09:03Z","nid":"1498116"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/updating-gcp-service-account","lastmod":"2026-10-16T07:06Z","nid":"1498116"} -->
 ## Updating the GCP Service Account
 
 - Source: https://help.zscaler.com/dspm/updating-gcp-service-account
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Organization > Updating the GCP Service Account
-- Last modified: 2026-10-07T09:03Z
+- Last modified: 2026-10-16T07:06Z
 - Summary: Information on updating the GCP project service accounts in the Zscaler Admin Console.
 
 While onboarding a GCP organization or a project, a service account is created within the GCP account. The service account defines the policies and permissions required for DSPM to access specific resources within the onboarded GCP account.
@@ -16909,13 +16900,13 @@ To validate all accounts in the organization:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-access-levels","lastmod":"2026-09-30T02:11Z","nid":"1478251"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-access-levels","lastmod":"2026-10-16T07:06Z","nid":"1478251"} -->
 ## Viewing the Access Levels
 
 - Source: https://help.zscaler.com/dspm/viewing-access-levels
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Access Levels
-- Last modified: 2026-09-30T02:11Z
+- Last modified: 2026-10-16T07:06Z
 - Summary: Information on the entities that can access the cloud resources that are scanned by DSPM.
 
 Access level refers to the identity and access management (IAM) permissions granted to the entities (user, application, service, etc.) that are associated with the cloud resources. While scanning the cloud resources for sensitive data and vulnerabilities, DSPM also detects the entities and the permissions they have to access the cloud resources.

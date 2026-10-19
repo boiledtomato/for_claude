@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 216
 
 ---
@@ -804,13 +804,13 @@ Enable to allow **Full**or **Read Only** access to the following **VPN (For Lega
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-agent-groups","lastmod":"2026-10-08T08:56Z","nid":"1531956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-agent-groups","lastmod":"2026-10-16T10:52Z","nid":"1531956"} -->
 ## Configuring Agent Groups
 
 - Source: https://help.zscaler.com/zpa/configuring-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Configuring Agent Groups
-- Last modified: 2026-10-08T08:56Z
+- Last modified: 2026-10-16T10:52Z
 - Summary: How to configure agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Agents in Microsegmentation are installed on servers' workloads, such as virtual machines, bare metal servers, or Kubernetes clusters. You can install agents using most configuration management tools that accommodate Windows `.msi` files or Linux `.deb` and `.rpm` files. Agent groups allow admins to group together different agents to organize them depending on different local machines they are deployed to.
@@ -1732,7 +1732,7 @@ See image.
 
 - Source: https://help.zscaler.com/zpa/configuring-appzones
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > AppZones > Configuring AppZones
+- Path: Private Access (ZPA) Help > Microsegmentation > AppZone Management > Configuring AppZones
 - Last modified: 2026-09-08T07:20Z
 - Summary: How to configure AppZones for Microsegmentation in the Zscaler Admin Console.
 
@@ -2084,13 +2084,13 @@ An access token can only be used once, and is invalid if used or expired. Separa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-business-continuity-settings","lastmod":"2026-09-17T09:57Z","nid":"1507016"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-business-continuity-settings","lastmod":"2026-10-13T11:28Z","nid":"1507016"} -->
 ## Configuring Business Continuity Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-business-continuity-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Configuring Business Continuity Settings
-- Last modified: 2026-09-17T09:57Z
+- Last modified: 2026-10-13T11:28Z
 - Summary: How to configure Business Continuity settings in the Zscaler Admin Console.
 
 Business Continuity provides access to your applications during Private Access (ZPA)-related cloud outages or Internet Service Provider (ISP) outages. Configuring the Business Continuity settings in Private Access is the first step in enabling Business Continuity for your organization. To learn more about additional prerequisites and an overview of the feature, see [Understanding Business Continuity](https://help.zscaler.com/zpa/understanding-business-continuity).
@@ -2446,13 +2446,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-client-forwarding-policies","lastmod":"2026-10-06T08:47Z","nid":"1484381"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-client-forwarding-policies","lastmod":"2026-10-16T05:10Z","nid":"1484381"} -->
 ## Configuring Client Forwarding Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-client-forwarding-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Client Forwarding Policy > Configuring Client Forwarding Policies
-- Last modified: 2026-10-06T08:47Z
+- Last modified: 2026-10-16T05:10Z
 - Summary: How to configure a client forwarding policy rule within the Zscaler Admin Console.
 
 Client forwarding policy rules enable you to define when application requests are forwarded to Private Access (ZPA) from Zscaler Client Connector. For a complete list of ranges and limits for client forwarding policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -2475,7 +2475,7 @@ The **Add Rule** window appears.
 
 The Bypass Private Access action is not port specific. When selected, applications are marked and bypassed for Private Access on all ports.
 
-- **Only Forward Allowed Applications**: If you only want Zscaler Client Connector to learn about and forward traffic for applications that a user is allowed to access, select this action. The list of applications that the user has access to is determined by the access policy. To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policies). When Zscaler Client Connector sets up a connection to Private Access, the service determines the list of applications that a user is allowed to access and only downloads this list to Zscaler Client Connector for forwarding traffic to Private Access. For other applications that are not present on the list, Zscaler Client Connector forwards requests for them on the local network. So, requests for these applications are not logged in Private Access.
+- **Only Forward Allowed Applications**: If you only want Zscaler Client Connector to learn about and forward traffic for applications that a user is allowed to access, select this action. The list of applications that the user has access to is determined by the access policy. To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policies). When Zscaler Client Connector sets up a connection to Private Access, the service determines the list of applications that a user is allowed to access and only downloads this list to Zscaler Client Connector for forwarding traffic to Private Access. For other applications that are not present on the list, Zscaler Client Connector forwards requests for them on the local network. So, requests for these applications are not logged in Private Access. If a Client Forwarding Policy is set to **Only Forward Allowed Applications** for a specific FQDN application segment (e.g., `**abc.example.com**`) with an access policy set to **Block**, and a wildcard application segment (e.g., `*.example.com`) with an access policy set to **Allow** also exists, Zscaler Client Connector still forwards traffic for `abc.example.com` to the Private Service Edge because it matches the wildcard domain. The Private Service Edge then blocks the request based on the more specific FQDN application segment's block policy.
 - **Forward to ZPA**: If selected, Zscaler Client Connector forwards application requests to Private Access. This includes requests to applications that the user is not authorized to access. This is selected by default.
 
 If you have multiple client forwarding policies with both **Bypass ZPA** and **Forward to ZPA** rules for a given domain with different ports, the **Bypass ZPA** rule action takes precedence.
@@ -3081,7 +3081,7 @@ See image.
 
 - Source: https://help.zscaler.com/zpa/configuring-default-microsegmentation-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Configuring the Default Microsegmentation Policy
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Configuring the Default Microsegmentation Policy
 - Last modified: 2026-09-09T14:25Z
 - Summary: How to configure the default Microsegmentation policy.
 
@@ -3104,13 +3104,13 @@ To enable and configure the default Microsegmentation policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-defined-application-segments","lastmod":"2026-10-05T08:54Z","nid":"1483606"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-defined-application-segments","lastmod":"2026-10-14T11:57Z","nid":"1483606"} -->
 ## Configuring Defined Application Segments
 
 - Source: https://help.zscaler.com/zpa/configuring-defined-application-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Application Management > Application Segments > Configuring Defined Application Segments
-- Last modified: 2026-10-05T08:54Z
+- Last modified: 2026-10-14T11:57Z
 - Summary: How to configure defined application segments and manage applications within the Zscaler Admin Console.
 
 When defining a new application within an application segment, you can:
@@ -3254,7 +3254,7 @@ Client-based remote assistance is only available for end users connecting to Pri
 1. Click **Add More** to add more domains or IP addresses for each application you want to define. When two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. If there is no match in this application segment, Zscaler Client Connector bypasses Private Access and sends traffic directly. To learn more, see [About Application Access](https://help.zscaler.com/zpa/about-application-access).
 
 1. **Default Port Ranges**: Enter the port ranges to set as the default for the application segment.
-2. **TCP Keepalive**: Enables the App Connector to periodically send TCP keepalives to an application server when a user has accessed that server on a TCP port. This setting is disabled by default. To learn more, see [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
+2. **TCP Keepalive**: Enables the App Connector to periodically send TCP keepalives to an application server when a user has accessed that server on a TCP port. This setting is disabled by default. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
 3. **TCP Port Ranges**: Enter the TCP port ranges that can be used to access the application. For example, if you want to specify the port range 80 to 90, for **From...** enter `80`, and for **To...**, enter `90`. If you only want to specify one port, you can enter the same number (e.g., `80`) for **From...** and **To...**. If you selected **Browser Access** for any application, the port range must include the port specified. Click **Add More** to add more TCP port ranges.
 4. **UDP Port Ranges**: Enter the UDP port ranges that can be used to access the application.
 
@@ -3278,6 +3278,7 @@ Zscaler recommends excluding DNS traffic (port 53) from TCP and UDP port ranges.
   - If an application is blocked based on an [access policy](https://help.zscaler.com/zpa/about-access-policy), Zscaler Client Connector creates a new Microtunnel request for every ICMP echo request.
   - ICMP does not work with Double Encryption, so you might not want to enable Double Encryption for application segments where you enabled ICMP.
 4. **Bypass during Reauthentication**: Choose whether application access during reauthentication bypasses Private Access (**Enabled**) or not (**Disabled**). For example, if your IdP is configured to do multi-factor authentication (MFA) for off-premises users, enabling this option redirects the user to the IdP via the internet where the IdP prompts the user for MFA. For on-premises users, enabling this option redirects the user to the IdP via the internet where the IdP prompts them for MFA. This feature requires Zscaler Client Connector version 4.3 or later for Windows, macOS, and iOS.
+5. **Multimatch**: Enable to configure inclusive policies that allow an application request to match multiple application segments. To learn more, see [Using Application Segment Multimatch](https://help.zscaler.com/zpa/using-app-segment-multimatch). Multimatch is not supported for applications that have Source IP Anchoring enabled. If Multimatch is enabled, Health Reporting on an app segment can only be set to **On Access** or **None**. To learn more about limitations, see [Using Application Segment Multimatch](https://help.zscaler.com/zpa/using-app-segment-multimatch).
 
 See image.
 
@@ -3292,7 +3293,7 @@ See image.
 1. **Health Reporting**: Choose whether the App Connector reports the health status of all applications within an application segment continuously (**Continuous**), while a user is accessing it (**On Access**), or not at all (**None**). The default setting is **On Access**. If you are creating the segment for an extranet application, select **None**. You can see the status of the application on the [Health dashboard](https://help.zscaler.com/zpa/about-dashboard/health). To learn more, see [Understanding Health Reporting](https://help.zscaler.com/zpa/understanding-health-reporting). You can't choose **Continuous** health reporting for applications configured with more than 10 ports or if any of the applications in the application segment are defined with only a wildcard (e.g., *). Additionally, if an application has client hostname validation enabled to facilitate client-to-client remote assistance, then the application is not shown on the Health Dashboard. To learn more, see [Validating a Client Hostname](https://help.zscaler.com/zpa/validating-client-hostname).
 2. **App Connector Selection Method**: Choose **Closer to Application** if you prefer the App Connector is closest to the application to be selected. By default, Private Access chooses the App Connector as closest to the user (**Closer to User**). After you make a selection, Private Access selects an App Connector that has the shortest round-trip time towards the requested application. This setting supports TCP and UDP applications. The limit for the number of targets that check the health of the defined applications at the App Connector is 6,000. If this limit is exceeded, then the **Health Reporting** of the application is set to **None**, and a random selection of App Connectors is chosen. If Health Reporting is set to **None**, the **App Connector Selection Method** feature cannot be enabled and an error message appears. To enable **Closer to Application**for UDP, contact Zscaler Support.
 3. **Client Connector can receive CNAME**: Choose whether App Connectors resolve CNAME records. This setting is enabled by default, and Zscaler Client Connector receives CNAME DNS records from the App Connector. Disabling means App Connectors do not send CNAME DNS records. This setting is not applicable for Browser Access applications, and Private Access functions as if the option is disabled. If Zscaler Client Connector is on a macOS or an iOS device and the application needs to be accessed by CNAME, it is best to disable this setting.
-4. **Multimatch**: Enable to configure inclusive policies that allow an application request to match multiple application segments. To learn more, see [Using Application Segment Multimatch](https://help.zscaler.com/zpa/using-app-segment-multimatch). Multimatch is not supported for applications that have Source IP Anchoring enabled. If Multimatch is enabled, Health Reporting on an app segment can only be set to **On Access** or **None**. To learn more about limitations, see [Using Application Segment Multimatch](https://help.zscaler.com/zpa/using-app-segment-multimatch).
+4. **Adaptive Traffic Steering**: Enable to automatically redirect traffic in the event of regional disruptions or fiber cuts affecting long-distance internet paths. This failover mechanism helps prevent service disruptions and maintains high availability by routing traffic to healthy resources. To learn more, see [Understanding Adaptive Traffic Steering](https://help.zscaler.com/zpa/understanding-adaptive-traffic-steering). Adaptive Traffic Steering is only available for organizations that have Business Continuity configured. To learn more, see [Understanding Business Continuity](https://help.zscaler.com/zpa/understanding-business-continuity).
 
 See image.
 
@@ -3304,7 +3305,7 @@ See image.
 
 [Image: Client Connector Access section for Define Applications in the Add Application Segment window within the Zscaler Admin Console]
 
-[Image: Enable or disable the following options.]
+[Image: Common Configuration settings]
 
 You must identify the segment group to which this application segment belongs. Placing the application segment in a segment group allows you to configure user [access policies](https://help.zscaler.com/zpa/about-policies) based on that group.
 
@@ -3419,13 +3420,13 @@ If you do not need to make any policy changes, click **Cancel**.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-diagnostics-settings","lastmod":"2026-09-28T08:30Z","nid":"1532456"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-diagnostics-settings","lastmod":"2026-10-12T21:06Z","nid":"1532456"} -->
 ## Configuring Diagnostics Settings
 
 - Source: https://help.zscaler.com/zpa/configuring-diagnostics-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Configuring Diagnostics Settings
-- Last modified: 2026-09-28T08:30Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: How to configure the diagnostics settings in the Zscaler Admin Console.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
@@ -4126,13 +4127,13 @@ If a Machine group is selected, **Machine Tunnel** as a client type is also requ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-log-receiver","lastmod":"2026-10-06T08:22Z","nid":"1483946"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-log-receiver","lastmod":"2026-10-15T13:30Z","nid":"1483946"} -->
 ## Configuring a Log Receiver
 
 - Source: https://help.zscaler.com/zpa/configuring-log-receiver
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Configuring a Log Receiver
-- Last modified: 2026-10-06T08:22Z
+- Last modified: 2026-10-15T13:30Z
 - Summary: How to add log receivers and configure log stream policies for the Private Access (ZPA) Log Streaming Service (LSS).
 
 A log receiver is a storage location that can receive information about App Connectors and users. Your App Connectors must be deployed prior to configuring a log receiver. To learn more, see the [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms).
@@ -4608,13 +4609,13 @@ The**Add** **Network Segment**drawer appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-10-02T13:21Z","nid":"1485441"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-notifications","lastmod":"2026-10-15T16:47Z","nid":"1485441"} -->
 ## Configuring Notifications
 
 - Source: https://help.zscaler.com/zpa/configuring-notifications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Notification Management > Configuring Notifications
-- Last modified: 2026-10-02T13:21Z
+- Last modified: 2026-10-15T16:47Z
 - Summary: How to add and configure a new notification within the Zscaler Admin Console.
 
 You can create notifications in the Zscaler Admin Console.
@@ -4638,7 +4639,7 @@ The **Add Notification**page appears.
 On the **General Information**tab:
 
 1. **Name**: Enter the name of the notification.
-2. **Status**: Select the status of the notification (i.e., **Enabled** or **Disabled**). By default, the status is set to **Enabled**.
+2. **Status**: The status of the notification (i.e., **Enabled** or **Disabled**). By default, the status is set to **Enabled**.
 3. **Component**: Select a software component from the drop-down menu. The following software components are available: If you are within a [Microtenant](https://help.zscaler.com/zpa/about-microtenants), you can only create notifications for App Connectors, Private Service Edges for Private Access (ZPA), or Private Cloud Controllers. After a component is selected, additional drop-down menus appear for **Categories**, **Priorities**, and selection of the components. [Image: Additional notification options for components] Select a component from the drop-down menu. You can search for a specific component or select an individual component in the drop-down menu. Click the selected component to remove it. A drop-down menu for component selection is not available for **Backup and Restore**, **Federation**, and **Zscaler Client Connector**.
   - **App Connectors**: To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors).
   - **Backup and Restore**: To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore).
@@ -4647,6 +4648,7 @@ On the **General Information**tab:
   - **Network Connectors**: To learn more, see [About Network Connectors](https://help.zscaler.com/zpa/about-network-connectors).
   - **Private Cloud Controller**: To learn more, see [About Private Cloud Controllers](https://help.zscaler.com/zpa/about-private-cloud-controllers).
   - **Private Service Edges**: To learn more, see [About Private Service Edges](https://help.zscaler.com/zpa/about-zpa-private-service-edges).
+  - **VPN (for Legacy Apps)**: To learn more, see [About VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges).
   - **Zscaler Client Connector**: To learn more, see [What Is Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
 
 1. **Categories**: Select a category from the drop-down menu. You can select an individual category, click **Select All**to select all categories displayed in the drop-down menu, or click **Remove All** to remove all selections. All categories are selected by default. The following categories are available:
@@ -4658,6 +4660,7 @@ On the **General Information**tab:
   - **Partner Federation Configuration**: Indicates events related to partner federation configurations.
   - **System Resource**: Indicates notifications regarding the component system resources.
   - **Usage Metrics**: Indicates notifications regarding the component usage metrics.
+  - **VPN (for Legacy Apps)**: Indicates notifications regarding the Border Gateway Protocol (BGP) network routes and peers.
 2. **Priorities**: Select the priority of the notification (i.e., **Low**, **Medium**, or **High**). You can select an individual priority, click **Select All**to select all priorities displayed in the drop-down menu, or click **Remove All**to remove all selections. All priorities are selected by default.
 3. Click **Next**.
 
@@ -4684,16 +4687,21 @@ The following table provides a list of events, as well as the category and compo
 | Backup Completed | Backup Configuration | Backup and Restore | An event indicating when the backup is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | Backup Failed | Backup Configuration | Backup and Restore | An event indicating when the backup has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | Bandwidth Utilization Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's bandwidth utilization has exceeded the limit. The Bandwidth Utilization Exceeded Limit value must be an integer greater than or equal to 250 Mbps. The default value is set to 250. |
+| BGP Established Peers Count Dropped | Connectivity and Upgrade | VPN (for Legacy Apps) | An event indicating the number of BGP peers that have dropped from the Established state. |
+| BGP Network Routes Peers Count Dropped | Connectivity and Upgrade | VPN (for Legacy Apps) | An event indicating the number of network sessions with BGP peers that have dropped or had routes withdrawn. |
+| BGP Peer Disconnected | Connectivity and Upgrade | VPN (for Legacy Apps) | An event indicating that the session between BGP peers ended. |
+| BGP Peer Extended Downtime | Connectivity and Upgrade | VPN (for Legacy Apps) | An event indicating that a BGP session has been down for an extended period of time. |
+| BGP Peer Flapping | Connectivity and Upgrade | VPN (for Legacy Apps) | An event indicating that a BGP peer session is unstable and repeatedly goes down and comes back up. |
 | Control Connection Disconnected | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the control connection for a component disconnects. |
-| CPU Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's CPU utilization has exceeded the limit. The CPU Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#cpu) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
+| CPU Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, VPN Service Edges | An event indicating when the component's CPU utilization has exceeded the limit. The CPU Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#cpu) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
 | CPU Starvation | System Resource | App Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's CPU is missing resources needed for operations. |
-| Disk Space Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's available disk space is less than the indicated threshold. The Disk Space Exceeded Limit value must be an integer between 0 and 2048 MB. The default value is set to 2048. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
+| Disk Space Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, VPN Service Edges | An event indicating when the component's available disk space is less than the indicated threshold. The Disk Space Exceeded Limit value must be an integer between 0 and 2048 MB. The default value is set to 2048. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
 | Enrollment Certificate Expired | Enrollment | App Connectors, Network Connectors, Private Service Edges | An event indicating when an enrollment certificate has expired for the selected component. To learn more, see [About Enrollment (CA) Certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates). |
 | Enrollment Completed | Enrollment | App Connectors, Network Connectors,Private Cloud Controllers, Private Service Edges, Cloud Connectors | An event indicating when the enrollment of the component is completed. |
 | Enrollment Failed | Enrollment | App Connectors, Network Connectors, Private Service Edges | An event indicating when the enrollment for the selected component has failed. |
 | Federated Access Policy Updated | Federated Policy Configuration | Federation | An event indicating when the configuration of the access policy for federated applications is created, updated, or deleted. |
 | Federated Application Updated | Federated Application Configuration | Federation | An event indicating when the configuration of the federated application is created, updated, or deleted. |
-| File Descriptors Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's file descriptors are exhausted. The File Descriptors Exhausted value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#filedscrpt) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
+| File Descriptors Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, VPN Service Edges | An event indicating when the component's file descriptors are exhausted. The File Descriptors Exhausted value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#filedscrpt) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
 | Invalid System Listen IP Configuration | System Resource | Private Cloud Controllers, Private Service Edges | An event indicating when the listen IP address configuration for a Private Service Edge or Private Cloud Controller is invalid. |
 | Last Component Disconnected | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating that all components in a group are disconnected. |
 | Outdated Component Manager Version | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating the Manager software version is outdated for the selected components. |
@@ -4702,8 +4710,8 @@ The following table provides a list of events, as well as the category and compo
 | Restore Completed | Backup Configuration | Backup and Restore | An event indicating when the restore is completed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | Restore Failed | Backup Configuration | Backup and Restore | An event indicating when the restore has failed. To learn more, see [About Backup and Restore](https://help.zscaler.com/zpa/about-backup-and-restore) and [Restoring Policies and Configurations from a Backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup). |
 | SCIM Users Successfully Deleted | Enrollment | Zscaler Client Connector | An event indicating when SCIM users are deleted successfully. |
-| Source Port Consumption Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's source TCP or UDP ports are exhausted. The exhausted values must be an integer between 75% and 99%. The default value is set to 75. |
-| System Memory Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when the component's system memory has exceeded the limit. The System Memory Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#memory) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
+| Source Port Consumption Exhausted | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, VPN Service Edges | An event indicating when the component's source TCP or UDP ports are exhausted. The exhausted values must be an integer between 75% and 99%. The default value is set to 75. |
+| System Memory Exceeded Limit | Usage Metrics | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges, VPN Service Edges | An event indicating when the component's system memory has exceeded the limit. The System Memory Exceeded Limit value must be an integer between 75% and 99%. The default value is set to 75. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#memory) and [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance). |
 | Upgrade Complete | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when an upgrade is complete for the selected components. |
 | Upgrade Failed | Connectivity and Upgrade | App Connectors, Network Connectors, Private Cloud Controllers, Private Service Edges | An event indicating when an upgrade fails for the selected components. |
 
@@ -4881,13 +4889,13 @@ Choose a specific SCIM group from the drop-down menu to apply the rule action to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-private-cloud-controllers","lastmod":"2026-09-17T10:17Z","nid":"1507131"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-private-cloud-controllers","lastmod":"2026-10-13T11:53Z","nid":"1507131"} -->
 ## Configuring Private Cloud Controllers
 
 - Source: https://help.zscaler.com/zpa/configuring-private-cloud-controllers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controllers > Configuring Private Cloud Controllers
-- Last modified: 2026-09-17T10:17Z
+- Last modified: 2026-10-13T11:53Z
 - Summary: How to add and configure a new Private Cloud Controller in the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can create Private Cloud Controllers, Private Cloud Controller groups, and provisioning keys. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -4988,13 +4996,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-private-clouds","lastmod":"2026-09-17T10:14Z","nid":"1507146"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-private-clouds","lastmod":"2026-10-13T11:43Z","nid":"1507146"} -->
 ## Configuring Private Clouds
 
 - Source: https://help.zscaler.com/zpa/configuring-private-clouds
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Clouds > Configuring Private Clouds
-- Last modified: 2026-09-17T10:14Z
+- Last modified: 2026-10-13T11:43Z
 - Summary: How to configure Private Clouds in the Zscaler Admin Console
 
 To configure Private Clouds:
@@ -6961,38 +6969,34 @@ After the Zscaler Assigned version profile is deactivated, individual software c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-access-policies","lastmod":"2026-10-08T13:23Z","nid":"1533883"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-access-policies","lastmod":"2026-10-15T10:16Z","nid":"1533883"} -->
 ## Configuring VPN Access Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-vpn-access-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Configuring VPN Access Policies
-- Last modified: 2026-10-08T13:23Z
+- Last modified: 2026-10-15T10:16Z
 - Summary: How to configure a VPN access policy rule.
 
 VPN access policy rules enable you to allow or block network traffic on VPN Service Edges. VPN (for Legacy Apps) supports a maximum of 1,000 policy rules. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
 
 Per Private Access (ZPA) policy evaluation, VPN (for Legacy Apps) evaluates access policy rules using a top-down, specific-match principle. Traffic that doesn't match any access policy rule is blocked by default. If you are new to VPN (for Legacy Apps), you must create a policy rule to allow any traffic through the VPN tunnel.
 
-Before you configure an access policy rule, consider configuring [IP address objects](https://help.zscaler.com/zpa/about-address-book) for grouping Classless Inter-Domain Routings (CIDRs) and IP addresses that can be used as a source or destination network in multiple policy rules to help organize the network resources to protect.
+Before you configure an access policy rule, consider configuring [IP address objects](https://help.zscaler.com/zpa/about-IP-address-object) for grouping Classless Inter-Domain Routings (CIDRs) and IP addresses that can be used as a source or destination network in multiple policy rules to help organize the network resources to protect.
 
 To configure an access policy rule:
 
 1. Go to **Private Access**>**VPN (for Legacy Apps)**>**VPN Access Policy**.
 2. Click **Add Rule**. The **Add Rule** page appears.
 3. On the**Add Rule**page: See image.
-  - In **Source Networks**, choose one of the following:
-    - **IP Addresses**
-      - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
+  - For **Source Networks**, choose one of the following:
+    - **IP Addresses:**Select and enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define sources from a predefined list.
     - **IdP Attributes**
-      - **Select** **IdP:** Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs.
-      - **Import IdP Attribute Object:** Apply a preconfigured set of IdP criteria.
-  - In **Destination Networks**, choose one of the following:
-    - **IP Addresses**
-      - **IP Address**: Enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
+      - **Select** **IdP:** Select to create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs. You can also click **Import IdP Attribute Object**to applya preconfigured set of IdP criteria.
+  - For **Destination Networks**, choose one of the following:
+    - **IP Addresses:**Select and enter an IP address, and click **Add**. A maximum of 64 IP addresses or IP subnets is allowed. You can also click **Import LAN/Client Subnets**or**Address Book**to define destinations from a predefined list.
     - **IdP Attributes**
-      - **Select** **IdP:** Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs.
-      - **Import IdP Attribute Object:** Apply a preconfigured set of IdP criteria.
+      - **Select** **IdP:** Create granular access rules based on user identity information provided by your IdP. You can build rules that rely on a single attribute or multiple attributes from the same IdP, or you use a combination of attributes spanning different IdPs. You can also click **Import IdP Attribute Object**to apply a preconfigured set of IdP criteria.
   - **Protocols**: Select an IP protocol for communication.
   - **Action**: Select one of the following actions when the traffic matches the rule:
     - **Allow**: Allows access to the network.
@@ -7006,13 +7010,13 @@ To configure an access policy rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-diagnostics-sessions","lastmod":"2026-10-09T11:47Z","nid":"1530796"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-vpn-diagnostic-sessions","lastmod":"2026-10-12T10:16Z","nid":"1530796"} -->
 ## Configuring VPN Diagnostic Sessions
 
-- Source: https://help.zscaler.com/zpa/configuring-vpn-diagnostics-sessions
+- Source: https://help.zscaler.com/zpa/configuring-vpn-diagnostic-sessions
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Configuring VPN Diagnostic Sessions
-- Last modified: 2026-10-09T11:47Z
+- Last modified: 2026-10-12T10:16Z
 - Summary: How to add VPN diagnostic sessions on the Support Information page in VPN (for Legacy Apps).
 
 You can add VPN diagnostic sessions that run commands on VPN Service Edges, Network Connectors, and Network Connector groups. You can then filter and view the outputs of these sessions to assist in troubleshooting.
@@ -7232,13 +7236,13 @@ Choose a specific SCIM group name from the drop-down menu to apply the rule acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-10-11T07:06Z","nid":"1485211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-websocket-controls","lastmod":"2026-10-18T07:06Z","nid":"1485211"} -->
 ## Configuring WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/configuring-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Configuring WebSocket Controls
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to add and configure a new set of WebSocket custom controls for AppProtection profiles within the Zscaler Admin Console.
 
 You can add WebSocket Controls to use as part of your [AppProtection profiles](https://help.zscaler.com/zpa/about-appprotection-profiles) in the Zscaler Admin Console. To learn more, see [About WebSocket Controls](https://help.zscaler.com/zpa/about-websocket-controls).
@@ -9813,13 +9817,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-prerequisites","lastmod":"2026-08-24T09:44Z","nid":"1484111"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/connector-deployment-prerequisites","lastmod":"2026-10-12T08:59Z","nid":"1484111"} -->
 ## App Connector Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/connector-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Prerequisites
-- Last modified: 2026-08-24T09:44Z
+- Last modified: 2026-10-12T08:59Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for App Connectors, including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to App Connector deployment.
 
 Before deploying an App Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -9940,7 +9944,7 @@ Zscaler recommends treating access to App Connectors as privileged, so only auth
 
 The App Connector VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the App Connector VMs to ensure that memory growth does not have an impact on App Connector performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for the platform you're using.
 
-Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Update Software Components System Software](https://help.zscaler.com/zpa/managing-software-components#Updating).
+Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Because vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting App Connectors using firewall policies. Additionally, if you've installed the App Connector as a package, Zscaler recommends that you take similar precautions.
 
@@ -10692,13 +10696,13 @@ Example - California driver's license number:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-agent-groups","lastmod":"2026-10-08T08:57Z","nid":"1531958"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-agent-groups","lastmod":"2026-10-16T10:51Z","nid":"1531958"} -->
 ## Deleting Agent Groups
 
 - Source: https://help.zscaler.com/zpa/deleting-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Deleting Agent Groups
-- Last modified: 2026-10-08T08:57Z
+- Last modified: 2026-10-16T10:51Z
 - Summary: How to delete agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [configure](https://help.zscaler.com/zpa/configuring-agent-groups), [edit](https://help.zscaler.com/zpa/editing-agent-groups), and delete agent groups as needed.
@@ -10750,13 +10754,13 @@ The page refreshes and removes the agent provisioning key from the list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/deleting-agents","lastmod":"2026-10-08T08:55Z","nid":"1531954"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/deleting-agents","lastmod":"2026-10-16T10:19Z","nid":"1531954"} -->
 ## Deleting Agents
 
 - Source: https://help.zscaler.com/zpa/deleting-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Deleting Agents
-- Last modified: 2026-10-08T08:55Z
+- Last modified: 2026-10-16T10:19Z
 - Summary: How to delete agents for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [edit](https://help.zscaler.com/zpa/editing-agents) and delete agents as needed.
@@ -10781,7 +10785,7 @@ Deleting an agent does not remove it from the Agent list, because it still exist
 
 - Source: https://help.zscaler.com/zpa/deleting-appzones
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > AppZones > Deleting AppZones
+- Path: Private Access (ZPA) Help > Microsegmentation > AppZone Management > Deleting AppZones
 - Last modified: 2026-09-08T07:16Z
 - Summary: How to delete AppZones for Microsegmentation in the Zscaler Admin Console.
 
@@ -10874,7 +10878,7 @@ See image.
 
 - Source: https://help.zscaler.com/zpa/deleting-microsegmentation-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Deleting a Microsegmentation Policy
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Deleting a Microsegmentation Policy
 - Last modified: 2026-09-09T14:40Z
 - Summary: How to delete a Microsegmentation policy.
 
@@ -11559,13 +11563,13 @@ To edit an IP address object:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-agent-groups","lastmod":"2026-10-08T08:57Z","nid":"1531957"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-agent-groups","lastmod":"2026-10-16T10:53Z","nid":"1531957"} -->
 ## Editing Agent Groups
 
 - Source: https://help.zscaler.com/zpa/editing-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Editing Agent Groups
-- Last modified: 2026-10-08T08:57Z
+- Last modified: 2026-10-16T10:53Z
 - Summary: How to edit agent groups for Microsegmentation in the Zscaler Admin Console.
 
 Admins can [configure](https://help.zscaler.com/zpa/configuring-agent-groups), edit, and [delete](https://help.zscaler.com/zpa/deleting-agent-groups) agent groups as needed.
@@ -11616,13 +11620,13 @@ Your updated provisioning key appears in the list of agent provisioning keys.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-agents","lastmod":"2026-10-08T08:54Z","nid":"1531953"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-agents","lastmod":"2026-10-16T10:20Z","nid":"1531953"} -->
 ## Editing Agents
 
 - Source: https://help.zscaler.com/zpa/editing-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Editing Agents
-- Last modified: 2026-10-08T08:54Z
+- Last modified: 2026-10-16T10:20Z
 - Summary: How to edit agents for Microsegmentation in the Zscaler Admin Console.
 
 Admins can edit and [delete](https://help.zscaler.com/zpa/deleting-agents) agents as needed.
@@ -11643,25 +11647,25 @@ Your updated agent appears in the list of Agents.
 
 [Image: Edit icon]
 
-[Image: The Edit Agent window details.]
+[Image: The Edit Agent window details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-api-keys","lastmod":"2026-09-09T15:23Z","nid":"1484756"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-api-keys","lastmod":"2026-10-12T15:55Z","nid":"1484756"} -->
 ## Editing API Keys
 
 - Source: https://help.zscaler.com/zpa/editing-api-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > API Key Management > Editing API Keys
-- Last modified: 2026-09-09T15:23Z
+- Last modified: 2026-10-12T15:55Z
 - Summary: How to edit an API key within the Zscaler Admin Console.
 
 To edit an API key:
 
-1. Go to **Administration**>**API**>**Private Access API**. If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read-only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
-2. In the table, locate the key you want to modify and click the **Edit** icon. The **Edit API Key**window appears.
-3. In the **Edit API Key**window, modify fields as necessary. To learn more about each field, see [Adding an API Key](https://help.zscaler.com/zpa/adding-api-key). [Image: Editing an API key]
+1. Go to **Administration**>**API**>**Private Access API**. If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+2. Locate the key you want to edit, and click the **Edit** icon. The **Edit API Keys**drawer opens.
+3. In the **Edit API Keys**drawer, modify fields as necessary. To learn more about each field, see [Adding API Keys](https://help.zscaler.com/zpa/adding-api-keys). [Image: Editing an API key]
 4. Click **Save**.
 <!-- /ZS-ARTICLE -->
 
@@ -11723,7 +11727,7 @@ The **Edit AppProtection Profile** window appears.
 
 - Source: https://help.zscaler.com/zpa/editing-appzones
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > AppZones > Editing AppZones
+- Path: Private Access (ZPA) Help > Microsegmentation > AppZone Management > Editing AppZones
 - Last modified: 2026-09-08T07:15Z
 - Summary: How to edit AppZones for Microsegmentation in the Zscaler Admin Console.
 
@@ -12118,13 +12122,13 @@ To edit a deployed Network Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-deployed-private-cloud-controller","lastmod":"2026-09-17T10:18Z","nid":"1507151"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-deployed-private-cloud-controller","lastmod":"2026-10-13T11:54Z","nid":"1507151"} -->
 ## Editing a Deployed Private Cloud Controller
 
 - Source: https://help.zscaler.com/zpa/editing-deployed-private-cloud-controller
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controllers > Editing a Deployed Private Cloud Controller
-- Last modified: 2026-09-17T10:18Z
+- Last modified: 2026-10-13T11:54Z
 - Summary: How to edit a deployed Private Cloud Controller in the Zscaler Admin Console.
 
 To edit a deployed Private Cloud Controller:
@@ -12424,7 +12428,7 @@ Only keys that can be viewed or exported after creation appear in the table.
 
 - Source: https://help.zscaler.com/zpa/editing-microsegmentation-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Editing a Microsegmentation Policy
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Editing a Microsegmentation Policy
 - Last modified: 2026-09-09T14:37Z
 - Summary: How to edit a Microsegmentation policy.
 
@@ -12558,6 +12562,63 @@ To edit a Network segment:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/editing-network-settings","lastmod":"2026-10-14T14:14Z","nid":"1546758"} -->
+## Editing Network Settings
+
+- Source: https://help.zscaler.com/zpa/editing-network-settings
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Editing Network Settings
+- Last modified: 2026-10-14T14:14Z
+- Summary: How to edit network settings for software components.
+
+To edit network settings:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to the desired software component page:
+  - For App Connector groups: **Private Access**>**Private Infrastructure** > **App Connector Groups**
+  - For Private Service Edges groups: **Private Access**>**Private Infrastructure** > **Private Service Edge Groups**
+  - For Private Cloud Controller groups: **Infrastructure**>**Business Continuity**> **Private Cloud Controller Groups**
+  - For Network Connector groups: **Private Access**>**VPN (for Legacy Apps)** > **Network Connector Groups**
+2. Locate the group you want to edit, and click the **Network Settings**icon. For App Connector groups, click the column menu to display this option.
+3. On the **Edit Network Settings** page:
+  1. **Operating System SSH Setting**: Enable or disable SSH on the host OS.
+  2. **Secure Shell (SSH)**: Enable to allow SSH clients to connect to SSH servers. This setting only appears if **Operating System SSH Setting** is enabled.
+  3. Click **Add Settings**and select one or more of the following options: [Image: Editing network settings]
+    - Domain Name System (DNS) Resolver
+    - Network Time Protocol (NTP) Servers
+    - Static Routing
+    - Explicit Proxy
+    - TCP Keepalive
+    - Split DNS Zone
+4. Click **Save**.
+
+- **Server**: Enter the IP address of the DNS server to resolve domain names into IP addresses.
+- **Interface**: Enter the specific network interface to send DNS queries to the configured DNS server. DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
+
+- **Server**: Enter the hostname or IP address of an NTP server to synchronize the system clock. Enter an accurate time for better logging and authentication.
+- **Options**: Enter additional configuration parameters for the NTP client. You can specify a preferred server or other timing-related settings.
+
+- **CIDR**: Enter the Classless Inter-Domain Routing (CIDR) notation for the destination network (e.g., `192.168.100.0/24`). This defines the range of IP addresses for the static route.
+- **Gateway**: Enter the IP address of the next router to send traffic to the specified destination CIDR.
+- **Interface**: Enter the outgoing network interface for the Network Connector that will be used for this static route.
+
+- **Proxy Host Name or IP Address**: Enter the hostname or IP address of the proxy server.
+- **Proxy Port**: Enter the TCP port number on which the proxy server is listening for connections.
+- **Proxy Bypass - IP Address, Subnet, Domains or Domain with Prefix**: Enter a list of destinations that should be accessed directly by bypassing the proxy server. This is useful for internal resources or services that do not require proxying.
+
+- **Time (seconds)**: Enter the duration of inactivity in seconds for a TCP connection before the first keepalive probe is sent.
+- **Interval (seconds)**: Enter the time in seconds between subsequent keepalive probes if the previous probe is not acknowledged.
+- **Probes**: Enter the number of unacknowledged keepalive probes to send before considering the connection to be dead and terminating it.
+
+- **Access Control IP Netblock:**Enter a range of IP addresses permitted to use for name resolution. If a DNS query comes from an IP address outside this block, these rules do not apply.
+- **Interface:**Enter the specific network interface to handle the DNS queries for this zone.
+- **Snooping:**Enable to inspect DNS traffic and discover the IP addresses associated with domains. This can be used for more granular policy control.
+- **DNSSEC Support:**Enable DNS Security Extensions (DNSSEC) validation for the specified zone to verify the authenticity and integrity of DNS responses.
+- **Forward Zone Name:**Enter the domain name for the special DNS forwarding rule.
+- **Forward Address or Host Name:**Enter the IP address or hostname of the specific DNS server that handles queries for the Forward Zone Name.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/editing-perimeter-policy","lastmod":"2026-09-18T10:11Z","nid":"1545486"} -->
 ## Editing a Perimeter Policy
 
@@ -12580,13 +12641,13 @@ To edit a perimeter policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-private-cloud-controller-groups","lastmod":"2026-07-08T09:12Z","nid":"1507156"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-private-cloud-controller-groups","lastmod":"2026-10-13T11:57Z","nid":"1507156"} -->
 ## Editing Private Cloud Controller Groups
 
 - Source: https://help.zscaler.com/zpa/editing-private-cloud-controller-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Groups > Editing Private Cloud Controller Groups
-- Last modified: 2026-07-08T09:12Z
+- Last modified: 2026-10-13T11:57Z
 - Summary: How to edit existing Private Cloud Controller groups in the Zscaler Admin Console.
 
 To edit a configured Private Cloud Controller group:
@@ -12634,13 +12695,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-private-clouds","lastmod":"2026-09-17T10:15Z","nid":"1507161"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-private-clouds","lastmod":"2026-10-13T11:43Z","nid":"1507161"} -->
 ## Editing Private Clouds
 
 - Source: https://help.zscaler.com/zpa/editing-private-clouds
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Clouds > Editing Private Clouds
-- Last modified: 2026-09-17T10:15Z
+- Last modified: 2026-10-13T11:43Z
 - Summary: How to edit a Private Cloud in the Zscaler Admin Console.
 
 To edit a Private Cloud:
@@ -13291,13 +13352,13 @@ To replace an expired certificate, you must upload a new one. To learn more, see
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-10-11T07:06Z","nid":"1485206"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/editing-websocket-controls","lastmod":"2026-10-18T07:06Z","nid":"1485206"} -->
 ## Editing WebSocket Controls
 
 - Source: https://help.zscaler.com/zpa/editing-websocket-controls
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > AppProtection for Private Application Traffic > WebSocket Controls > Editing WebSocket Controls
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to edit a WebSocket custom control within the Zscaler Admin Console.
 
 All [WebSocket custom controls](https://help.zscaler.com/zpa/about-websocket-controls) can be edited, even ones currently in use by an [AppProtection profile](https://help.zscaler.com/zpa/about-inspection-profiles).
@@ -13517,13 +13578,13 @@ Users may encounter a connection error in the Zscaler Client Connector when enab
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/entering-and-exiting-business-continuity","lastmod":"2026-07-27T14:58Z","nid":"1507936"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/entering-and-exiting-business-continuity","lastmod":"2026-10-13T11:29Z","nid":"1507936"} -->
 ## Entering and Exiting Business Continuity
 
 - Source: https://help.zscaler.com/zpa/entering-and-exiting-business-continuity
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Entering and Exiting Business Continuity
-- Last modified: 2026-07-27T14:58Z
+- Last modified: 2026-10-13T11:29Z
 - Summary: Information on entering and exiting Business Continuity.
 
 You can enter and exit Business Continuity after the [prerequisites](https://help.zscaler.com/zpa/understanding-business-continuity) are met.
@@ -13815,20 +13876,26 @@ To learn more about using SAML attributes for defining policies, see [About Poli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-10-08T08:54Z","nid":"1531951"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/installing-upgrading-agent-manager","lastmod":"2026-10-16T10:12Z","nid":"1531951"} -->
 ## Installing & Upgrading the Agent Manager
 
 - Source: https://help.zscaler.com/zpa/installing-upgrading-agent-manager
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > Installing & Upgrading the Agent Manager
-- Last modified: 2026-10-08T08:54Z
+- Last modified: 2026-10-16T10:12Z
 - Summary: How to install the Zscaler Microsegmentation agent manager.
 
 The agent manager installs the Zscaler Microsegmentation agent service onto your device. It performs initial installation of the agent as well as agent upgrades.
 
 ## Prerequisites
 
-Before you install the agent manager, create a [signing certificate](https://help.zscaler.com/zpa/creating-certificate-signing-requests-enrollment-ca-certificates) to be used for Microsegmentation agents. To learn more, contact your Microsegmentation admin.
+Before you install the agent manager, create a signing certificate to be used for Microsegmentation agents.
+
+A common practice is to generate a new signing certificate named Microsegmentation, which is an intermediate type with the root certificate as its parent. When generating this certificate, set the **Client Certificate Type** to **None**.
+
+See image.
+
+To learn more, see [Creating Certificate Signing Requests for Enrollment (CA) Certificates](https://help.zscaler.com/zpa/creating-certificate-signing-requests-enrollment-ca-certificates).
 
 Microsegmentation agents and Zscaler Client Connector are not compatible and should not be installed on the same host.
 
@@ -13836,25 +13903,55 @@ Microsegmentation agents and Zscaler Client Connector are not compatible and sho
 
 To install the agent manager:
 
-1. Create a new [agent group](https://help.zscaler.com/zpa/configuring-agent-groups) to download the agent manager installer to your device. You can also download it directly from the Agent Groups page. To learn more, see [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
-2. After the agent manager is installed, the manager automatically downloads and installs the agent version selected in the Agent Group’s Version Profile. After the agent is downloaded and installed onto your device, the agent initiates a connection to the Zscaler Zero Trust Exchange (ZTE), and the setup is complete.
+1. Download the agent manager installer and view the installation instructions by doing either of the following: See image.
+  - Create a new agent group. To learn more, see [Configuring Agent Groups](https://help.zscaler.com/zpa/configuring-agent-groups).
+  - If an appropriate agent group already exists, go to **Zero Trust Cloud** > **Microsegmentation** > **Agent Groups** and click the **Download** icon in the **Actions** column. To learn more, see [About Agent Groups](https://help.zscaler.com/zpa/about-agent-groups).
+2. After the agent manager is installed, the manager automatically downloads and installs the agent version selected in the agent group’s version profile. After the agent is downloaded and installed onto your device, the agent initiates a connection to the Zscaler Zero Trust Exchange (ZTE), and the setup is complete.
 
-If the service fails to start or the agent fails to register with the ZTE, it is likely that a firewall or security appliance is interfering with the agent’s outbound mTLS connection. Ensure that this outbound connectivity to Port 443 is permitted, and that this connectivity is not subjected to DPI or similar security measures.
+If the service fails to start or the agent fails to register with the ZTE, it is likely that a firewall or security appliance is interfering with the agent’s outbound mTLS connection. Ensure that this outbound connectivity to Port 443 is permitted, and that this connectivity is not subjected to DPI or similar security measures. To learn more, see [Zscaler Config](https://config.zscaler.com/private.zscaler.com/micro-segmentation).
 
 ## Upgrading the Agent
 
 To configure automatic upgrades to the agent:
 
-1. Edit an existing Agent Group. To learn more, see [Editing Agent Groups](https://help.zscaler.com/zpa/editing-agent-groups).
-2. In the selected Agent Group, expand **Agent software updates**.
+1. Edit an existing agent group. To learn more, see [Editing Agent Groups](https://help.zscaler.com/zpa/editing-agent-groups).
+2. In the selected agent group, expand **Agent software updates**.
 3. For **Version Profile**, select the preferred option:
   - **Latest**: The most recent release.
   - **Default**: One or two versions older than the Latest release.
-4. Enable **Auto Update**.
-5. Complete the remaining steps for [editing the agent group](https://help.zscaler.com/zpa/editing-agent-groups).
-6. Click **Save**.
+4. Enable **Auto Update**. See image.
+5. Complete the remaining steps for editing the agent group.
+6. Click **Save**. The agent manager downloads and installs the specified agent version to your device.
 
-The agent manager downloads and installs the specified agent version to your device.
+## Uninstalling the Agent & Agent Manager
+
+To uninstall the agent and agent manager, see the following steps based on your operating system:
+
+For Linux Debian, run the following command:
+
+```
+apt remove -y eyez-agentmanager eyez-agent
+```
+
+For Linux RPM, run the following command:
+
+```
+yum remove -y eyez-agentmanager eyez-agent
+```
+
+For Windows:
+
+1. Go to your applications. There are multiple locations in Windows from which to access your applications. To learn more, refer to the [Microsoft documentation](https://support.microsoft.com/en-us/windows/uninstall-or-remove-apps-and-programs-in-windows-4b55f974-2cc6-2d2b-d092-5905080eaf98).
+2. Uninstall the **EyezAgent**.
+3. Uninstall the **EyezAgentManager**. See image.
+
+[Image: Generate Microsegmentation certificate]
+
+[Image: Agent Groups page]
+
+[Image: Agent software updates]
+
+[Image: Uninstall the agent and agent manager in Windows]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13879,13 +13976,13 @@ To learn more about Private Access error and policy block codes, including possi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/managing-agent-groups","lastmod":"2026-10-08T08:57Z","nid":"1540845"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/managing-agent-groups","lastmod":"2026-10-16T10:53Z","nid":"1540845"} -->
 ## Managing Agent Groups
 
 - Source: https://help.zscaler.com/zpa/managing-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > Managing Agent Groups
-- Last modified: 2026-10-08T08:57Z
+- Last modified: 2026-10-16T10:53Z
 - Summary: How to manage agent groups for Microsegmentation in the Zscaler Admin Console.
 
 [Agent groups](https://help.zscaler.com/zpa/about-agent-groups) are agents that are manually organized together based on upgrade plan and location. You can make bulk updates to a set of agents by managing a single agent group.
@@ -13942,13 +14039,13 @@ To delete a Chrome posture profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/managing-deployed-software-components","lastmod":"2026-09-24T15:33Z","nid":"1540995"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/managing-deployed-software-components","lastmod":"2026-10-12T07:06Z","nid":"1540995"} -->
 ## Managing Deployed Software Components
 
 - Source: https://help.zscaler.com/zpa/managing-deployed-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Managing Deployed Software Components
-- Last modified: 2026-09-24T15:33Z
+- Last modified: 2026-10-12T07:06Z
 - Summary: How to manage App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors after deployment, including checking status and sizing as well as updating system software and software packages.
 
 After you deploy a software component and complete the proper networking configurations, perform the following procedures to verify that the software component is running and healthy. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
@@ -15832,286 +15929,4 @@ If the number of file descriptors is not sufficient on the App Connector host, t
 ```
 sudo sysctl -w fs.file-max=1000000
 ```
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/monitoring-private-service-edge-performance","lastmod":"2026-10-01T21:06Z","nid":"1485371"} -->
-## Monitoring Private Service Edge Performance
-
-- Source: https://help.zscaler.com/zpa/monitoring-private-service-edge-performance
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Monitoring Private Service Edge Performance
-- Last modified: 2026-10-01T21:06Z
-- Summary: Detailed information on how to monitor Private Service Edges for Private Access (ZPA) and their performance.
-
-There are a variety of things to consider when monitoring Private Service Edges for Private Access (ZPA) and their performance. The most important thing is to make sure your Private Service Edges are deployed in a manner that follows Zscaler's recommendations for image sizing and scalability, supported platform requirements, deployment best practices, networking configurations, and other essential guidelines. To learn more, see [Private Service Edge Deployment Prerequisites](https://help.zscaler.com/zpa/service-edge-deployment-prerequisites) and [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
-
-Within the Zscaler Admin Console, you can use the [Private Service Edge Dashboard](https://help.zscaler.com/zpa/viewing-private-service-edge-dashboard) to help monitor your organization's Private Service Edges.
-
-When monitoring Private Service Edges directly, consider the following:
-
-- CPU Utilization
-- Memory Utilization
-- Data Throughput
-- Source Port Consumption
-- Host Application Access
-- Disk Space Utilization
-- File Descriptors Exhaustion
-
-Peak sustained CPU utilization should be less than 70%. The value needs to take into account all Private Service Edges in the group. The CPU utilization of the group's Private Service Edges should be able to manage additional load and allow each Private Service Edge to operate under 70% utilization in the event that one of the Private Service Edges becomes unavailable. For example, if you only have two Private Service Edges and they are both at 50%, this is below the 70% threshold. However, if one Private Service Edge goes down, then the other Private Service Edge runs above 70%.
-
-To monitor CPU utilization:
-
-- Review Private Service Edge Status Logs in the Log Streaming Service
-- Review Private Service Edge Status Logs on the Host
-- Use CLI Commands on the Private Service Edge Host
-- Use Simple Network Management Protocol
-
-To reduce the CPU utilization on individual Private Service Edge hosts, consider the following:
-
-- Deploy an additional Private Service Edge into the Private Service Edge group to distribute users across additional Private Service Edges.
-- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
-
-The CPU steal percentage is the CPU time stolen from the VM by a Hypervisor and is reported every minute in the status log. When the CPU steal percentage is high, the Hypervisor is busy, resulting in degraded performance for the Private Service Edge.
-
-Private Service Edge Status logs can be streamed to a SIEM or a syslog server using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). PPrivate Service Edge Status logs are generated periodically for each Private Service Edge, and the field **CPUUtilization** displays the Private Service Edge host’s CPU utilization at that instance. For more information, see [About Private Service Edge Metrics Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-metrics-log-fields).
-
-Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities.
-
-To reduce and balance the load among the VMs:
-
-- Ensure the Hypervisor is healthy.
-- Change the Hypervisor setup accordingly.
-
-Linux provides several utilities to view CPU utilization using Command Line Interface (CLI) commands. For example:
-
-- The `top` command reports the sum of utilization across all cores on all processors.
-- The `sysstat` package contains different tools for performance and usage.
-
-You can also create a script that periodically reports the Private Service Edge host’s CPU utilization to a separate statistics collection server.
-
-If the CPU utilization is more than 100%, it may be due to multiple CPU cores on the Private Service Edge host. For example, if there are 4 cores, the top output shows usage at 400%. Use the `lscpu` command to check the number of CPU cores. In this case, the calculation of the peak CPU should be normalized across the number of cores.
-
-Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. CPU information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
-
-Some of the well-known SNMP OIDs for monitoring CPU utilization on a Linux OS are:
-
-- Percentage of user CPU time: .1.3.6.1.4.1.2021.11.9.0
-- Raw user CPU time: .1.3.6.1.4.1.2021.11.50.0
-- Percentage of system CPU time: .1.3.6.1.4.1.2021.11.10.0
-- Raw system CPU time: .1.3.6.1.4.1.2021.11.52.0
-- Percentage of idle CPU time: .1.3.6.1.4.1.2021.11.11.0
-- Raw idle CPU time: .1.3.6.1.4.1.2021.11.53.0
-
-Peak sustained memory utilization should be less than 80%. The value needs to take into account all Private Service Edges in the group. The memory of the group's Private Service Edge should be able to manage additional loads and allow each Private Service Edge to operate under 80% utilization in the event one of the Private Service Edges becomes unavailable. For example, if you only have two Private Service Edges and they are both at 50%, this is below the 80% threshold. However, if one Private Service Edge goes down, then the otherPrivate Service Edge runs above 80%
-
-To monitor memory:
-
-- Review Private Service Edge Status Logs in the Log Streaming Service
-- Review Private Service Edge Status Logs on the Host
-- Use CLI Commands on the Private Service Edge Host
-- Use Simple Network Management Protocol
-
-To reduce memory utilization on individual Private Service Edge hosts, consider the following:
-
-- Increase the amount of available memory on the Private Service Edge host.
-- Deploy additional Private Service Edges into the Private Service Edge group to distribute users across additional Private Service Edges.
-- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
-
-Private Service Edge Status logs can be streamed to a SIEM or a syslog server using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). Private Service Edge Status logs are generated periodically for each Private Service Edge, and the field **MemUtilization** displays the Private Service Edge host’s memory utilization at that instance. For more information, see [About Private Service Edge Status Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-status-log-fields).
-
-Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities.
-
-To reduce and balance the load among the VMs:
-
-- Ensure the Hypervisor is healthy.
-- Change the Hypervisor setup accordingly.
-
-Linux provides several utilities such as `free`, `top`, `cat/proc/meminfo`, `htop`, and others to view memory utilization using CLI commands. You can create a script that periodically reports the Private Service Edge host’s memory utilization to a separate statistics collection server.
-
-Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Memory information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
-
-Some of the well-known SNMP OIDs for monitoring memory on a Linux OS are:
-
-- Total RAM in machine: .1.3.6.1.4.1.2021.4.5.0
-- Total RAM used: .1.3.6.1.4.1.2021.4.6.0
-- Total RAM Free: .1.3.6.1.4.1.2021.4.11.0
-
-Peak sustained throughput based on recommended Private Service Edge specifications should be less than 500 Mbps.
-
-500 Mbps of throughput is an aggregate of multiple streams of traffic.
-
-To monitor Private Service Edge throughput:
-
-- Review Private Service Edge Status Logs in the Log Streaming Service
-- Review Private Service Edge Status Logs on the Host
-- Use CLI Commands on the Private Service Edge Host
-- Use Simple Network Management Protocol
-
-To reduce data throughput on individual Private Service Edge hosts, consider the following:
-
-- Deploy an additional Private Service Edge into the Private Service Edge group to distribute users across additional Private Service Edges.
-- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
-
-Private Service Edge Status logs can be streamed to a SIEM or a syslog server using [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). Private Service Edge Status logs are generated periodically for each Private Service Edge, and the fields **TotalBytesRx** and **TotalBytesTx**display the Private Service Edge host’s throughput at that instance. For more information, see [About Private Service Edge Status Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-status-log-fields).
-
-Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities. The CPU steal percentage is the CPU time stolen from the VM by a Hypervisor and is reported every minute in the status log. When the CPU steal percentage is high, the Hypervisor is busy, resulting in degraded performance for the Private Service Edge.
-
-To reduce and balance the load among the VMs:
-
-- Ensure the Hypervisor is healthy.
-- Change the Hypervisor setup accordingly.
-
-Linux provides several utilities such as `nload`, `iftop`, `nethogs`, `bmon`, and others to view bandwidth statistics on the Private Service Edge host interface using CLI commands. You can create a script that periodically reports the host’s bandwidth utilization to a separate statistics collection server.
-
-Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Data throughput information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
-
-Some of the well-known SNMP OIDs for monitoring Private Service Edge throughput on a Linux OS are:
-
-- The total number of bytes received on the interface: .1.3.6.1.2.1.2.2.1.10
-- The total number of bytes transmitted on the interface: .1.3.6.1.2.1.2.2.1.16
-
-The number of used and free ports can be obtained from the Private Service Edge host by using the following command. In the following example, 11 is the number of UDP ports and 13 is the number of TCP ports in use.
-
-```
-[root@ip-10-0-0-116 admin]# sudo su
-[root@ip-10-0-0-116 admin]# ss -uln | wc -l && ss -tn state connected | wc -l
-11
-13
-```
-
-If the in-use count for either TCP or UDP ports is equal or close to the available ports, the Private Service Edge host is likely to experience port exhaustion and the Private Service Edge may not be able to connect to the applications.
-
-In the following example, the command is still used. It shows the difference of 60999-32768=28231, which indicates the number of ports available for use on this Private Service Edge host. The count of in-use UDP and TCP ports must be lower than 28231.
-
-```
-[root@ip-10-0-0-116 admin]# sysctl net.ipv4.ip_local_port_range
-net.ipv4.ip_local_port_range = 32768 60999
-[root@ip-10-0-0-116 admin]#
-```
-
-To adjust port usage, consider the following:
-
-- Increase the Available Maximum Number of Ports
-
-For a non-permanent increase in ports, which does not persist across the Private Service Edge host restart, use one of the following options. The text in red is an example of port ranges:
-
-- Use `echo`
-
-```
-echo
-32768 65000
-> /proc/sys/net/ipv4/ip_local_port_range
-```
-
-- Use `sysctl`
-
-```
-sysctl -w net.ipv4.ip_local_port_range="
-32768 65000
-"
-```
-
-For a permanent increase in ports, add the following to `/etc/sysctl.conf`. The text in red is an example of port ranges:
-
-```
-net.ipv4.ip_local_port_range =
-32768 65000
-```
-
-There may be degraded application performance if an excessive number of applications are accessed from a smaller number of Private Service Edges within a group. Too many applications accessed from a given Private Service Edge may result in increased application latency or higher amounts of CPU or memory used on the Private Service Edge.
-
-To reduce the number of applications per Private Service Edge, consider the following:
-
-- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
-- Zscaler recommends that you add additional Private Service Edges to the existing Private Service Edge groups to support excess applications.
-
-Private Service Edges generate logs that are stored on the disk during the normal course of operation. To ensure adequate disk space is available for Private Service Edge logs and software updates, monitor the disk space for consumption.
-
-The Private Service Edge process restarts if there is less than 100 MB of disk space left, and generates a log in the `/var/log/message` file to reflect the cause of the restart. This ensures that the software updates for the Private Service Edge can download successfully.
-
-If the Private Service Edge runs other software, it can generate large volumes of logs that can fill up the disk space.
-
-To monitor disk space:
-
-- Review the Amount of Free Disk Space
-- Check the Top Process that Consumes Disk Space
-- Review the Number of System Log Lines Generated
-- Use Simple Network Management Protocol
-
-To reduce disk space on individual Private Service Edge hosts, use the following options:
-
-- Archive the Files
-- Remove the Files
-- Create More Log Space
-
-Zscaler recommends at least disabling `rsyslogd` to reduce disk space.
-
-The `sudo df -h` command displays free disk space on the Private Service Edge host. For example:
-
-```
-[admin@ip-10-0-0-228 ~]$ sudo df -h 
-Filesystem Size Used Avail Use% Mounted on 
-/dev/nvme0n1p1 8.0G 1.7G 6.4G 21% / 
-devtmpfs 1.9G 0 1.9G 0% /dev 
-tmpfs 1.9G 0 1.9G 0% /dev/shm 
-tmpfs 1.9G 181M 1.7G 10% /run 
-tmpfs 1.9G 0 1.9G 0% /sys/fs/cgroup 
-tmpfs 375M 0 375M 0% /run/user/1000
-```
-
-Use the following command to see the top process that consumes disk space:
-
-```
-sudo du -a /| sort -n -r | head -n 20
-```
-
-Use the following command to get a rough estimate of the lines of `syslogd` written by the Private Service Edge process:
-
-```
-sudo grep -v "zpa-service-edge" /var/log/messages | wc -l 
-sudo grep "zpa-service-edge" /var/log/messages | wc -l
-```
-
-Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Disk space information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
-
-Some of the well-known SNMP OIDs for monitoring disk space utilization on a Linux OS are:
-
-- Available space on the disk: .1.3.6.1.4.1.2021.9.1.7.1
-- Used space on the disk: .1.3.6.1.4.1.2021.9.1.8.1
-- Percentage of space used on disk: .1.3.6.1.4.1.2021.9.1.9.1
-- Percentage of inodes used on disk: .1.3.6.1.4.1.2021.9.1.10.1
-- Path where the disk is mounted: .1.3.6.1.4.1.2021.9.1.2.1
-- Path of the device for the partition: .1.3.6.1.4.1.2021.9.1.3.1
-- Total size of the disk/partition (kBytes): .1.3.6.1.4.1.2021.9.1.6.1
-
-Use a Linux utility like `logrotate` to archive files on a regular basis (e.g., daily, weekly, or monthly) with the `/etc/logrotate.conf` command.
-
-Some ways to use `logrotate` for archiving are:
-
-- Archive log files daily: `daily`
-- Keep 7 days worth of logs: `rotate 7`
-- Create new (empty) log files after archiving old ones: `create`
-- Use a date as a suffix of the archived file: `dateext`
-- Un-comment to compress log files: `compress`
-
-Run a cron job to delete log files or use the `rm` command to remove any files you think are not necessary, including archived files. For example, there is no functional implication for deleting `/var/log/messages`. Before deleting, check if you require the files for Private Service Edge troubleshooting.
-
-If you archive files to reduce disk space, you do not need to remove files as well.
-
-To create more space in `/var/log/journal`, use the `vacuum-size` or the `vacuum-time` commands. For example:
-
-```
-sudo journalctl --vacuum-size=100m 
-sudo journalctl --vacuum-time=1d
-```
-
-If the number of file descriptors is not sufficient on the Private Service Edge host, transactions can fail due to file descriptor exhaustion. To address this, increase the `SYSTEM_FD` limit by executing the following command:
-
-```
-sudo sysctl -w fs.file-max=1000000
-```
-
-To learn more, see [About the Private Service Edge Dashboard](https://help.zscaler.com/zpa/viewing-private-service-edge-dashboard#TopWidgets).
 <!-- /ZS-ARTICLE -->

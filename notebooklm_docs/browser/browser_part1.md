@@ -1,7 +1,7 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 54
 
 ---
@@ -496,13 +496,13 @@ Bandwidth Control is disabled for all traffic from the isolated browser destined
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-10-08T21:06Z","nid":"1447211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas","lastmod":"2026-10-15T07:09Z","nid":"1447211"} -->
 ## Creating Isolation Profiles for Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Internet & SaaS Profiles > Creating Isolation Profiles for Internet & SaaS
-- Last modified: 2026-10-08T21:06Z
+- Last modified: 2026-10-15T07:09Z
 - Summary: How to create an isolation profile for Internet & SaaS.
 
 [Watch a video about creating a Internet & SaaS Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/qjllwn7ytu)
@@ -521,16 +521,16 @@ Before creating an isolation profile for Internet & SaaS, ensure the following:
 To create an isolation profile for Internet & SaaS:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Internet Access**>**Isolation Profile & Banner**>**Isolation Profiles**.
-2. Click **Add Isolation Profile**. See image. The **Add Isolation Profile** window appears.
-3. In the **Add Isolation Profile** window:
+2. Click **Add Isolation Profile**. See image. The **Add Isolation Profile** wizard appears.
+3. In the **Add Isolation Profile** wizard:
   1. On the **General Information** tab: Click **Next**. See image.
     - **Name**: Enter a name for the Internet & SaaS isolation profile.
     - **Turbo Mode**: Enable or disable Turbo Mode. To learn more, see [Using Turbo Mode for Isolation](https://help.zscaler.com/zero-trust-browser/understanding-turbo-mode-isolation).
-    - **Description**: (Optional) Enter a description of the profile
+    - **Description**: (Optional) Enter a description of the profile.
   2. On the **Company Settings** tab: Click **Next**. See image.
     - **PAC File URL**: Choose to use either therecommended PAC file URL or your own manually configured PAC file URL. If you select **Use recommended PAC file URL**, the**Automatic proxy configuration URL**field is populated by default with the recommended PAC file from your [Hosted PAC Files](https://help.zscaler.com/zia/about-hosted-pac-files) list in Internet & SaaS. The isolation browser configures the PAC file within the endpoint experience containers, and any traffic to the internet from the isolated browser is also forwarded through the Internet & SaaS cloud.
     - **Override PAC file and return traffic to ZIA Public Service Edge**: Enable or disable this setting. The Public Service Edges for Internet & SaaS use auto-geoproximity, meaning that the traffic is returned to the Service Edge closest to the location of the user, not the location of the isolation browser. To see the full list of Public Service Edges for Internet & SaaS, refer to the [Zscaler Configuration Portal](https://config.zscaler.com/zscaler.net/cenr?_gl=1*1hlfti1*_gcl_au*MTA2ODE5OTQ4NS4xNzIxMDY2MjU5*_ga*MTA0ODcwOTQ4My4xNzA1NDMwMjk4*_ga_10SPJ4YJL9*MTcyNzEyNTIyMC4zMDkuMS4xNzI3MTI5MzYwLjYwLjAuMTc5MDE2OTU4OQ..).
-    - **Enable Debug Mode**: Enable or disable this setting. If you enable it, you must set a password for the ZIP file that is created at the end of a debug troubleshoot. Make sure to share the password with the user associated with the isolation profile. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
+    - **Enable Debug Mode**: Enable or disable Debug Mode. If you enable it, you can set a password for the ZIP file that is created at the end of a debug troubleshoot. Make sure to share the password with the user associated with the isolation profile. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
     - **File (.pem)**: Select at least one root certificate. The **Zscaler Root Certificate** that Internet & SaaS uses for SSL inspection appears in the drop-down menu by default. If your organization uses custom root certificates for SSL inspection, you can add them before creating isolation profiles. You can [add](https://help.zscaler.com/zero-trust-browser/adding-root-certificates-zero-trust-browser-internet-and-saas) up to 10 root certificates for your organization. To learn more, see [About Root Certificates for Zero Trust Browser in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-internet-and-saas).
   3. On the **Security** tab: Click **Next**. See image.
     - **Allow Copy & Paste From**: Enable or disable the following settings:
@@ -545,15 +545,20 @@ To create an isolation profile for Internet & SaaS:
     - **Enable Original URL**: Enable or disable this setting. If enabled, it shows the original URL in the browser bar.
     - **Allow microphone and camera**: (Optional) Enable this setting for users to access their device's microphone and camera while in an isolated session. You must also enable Turbo Mode to enable this setting. This setting is not supported on mobile devices.
     - **Allow Application Deep Linking**:Enabling this setting allows the user to open applications from their local machine via the rendered deep link data on an isolated web page. From there, the user can click the rendered link in the isolated browser and open the application for use on their machine. If you enable this setting, add the specific links for the allowed applications to the list. If you disable this feature for the isolation profile, or an application is not on the list in the isolation profile, the user sees an error message explaining that the application isn't allowed by policy. See image.
-    - **Redactive Sensitive Text** **Based on DLP Engines**: Enable or disable redaction. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable it, configure the following settings:
-      - **Redact**: Select DLP engines from the drop-down menu.
-      - For each DLP engine, select the DLP dictionaries you want redacted during an isolation session.
     - **Enable Votiro CDR**: (Optional) Enable the Votiro Content Disarm and Reconstruction (CDR) integration, then configure the following settings:
       - **Download**: Enable or disable Votiro sanitizing files that you download.
       - **Upload**: Enable or disable Votiro sanitizing files that you upload.
       - **Votiro Policy Name**: Select the Votiro policy to enforce the sanitization. If you do not select a policy, a default Votiro policy is applied. To learn more, see [Understanding Votiro Integration for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/understanding-votiro-integration-zero-trust-browser) and [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
-  4. On the **Regions** tab, select at least two regions. The isolation containers are leased to the user only from the selected regions based on the least network latency. Click **Next**. See image.
-  5. On the**Experience** tab: Click **Next**. See image.
+  4. On the **Data Redaction** tab, optionally enable **Redactive Sensitive Text Based on DLP Engines**. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable redaction, configure the following settings: Click **Next**. See image.
+    - **DLP Engine**: Select the DLP engines containing sensitive text that you want redacted during an isolation session.
+    - **Dictionaries to Redact**: For each DLP engine, select the DLP dictionaries that you want redacted.
+    - **Web Pages**: Enable or disable redaction of web pages.
+    - **Redact Editable Fields**: (Optional) If you enable redaction of web pages, enable redaction of editable fields rendered within isolated web pages.
+    - **Clipboard Data**: Enable or disable redaction of clipboard data. You can configure this setting only if you enable **Allow Copy & Paste From** settingson the **Security** tab.
+    - **Redaction Message**: Enter a redaction message to display to users during an isolation session.
+    - **Display last 4 characters**: Enable this setting to display the last four characters of the sensitive text (i.e., partial redaction).
+  5. On the **Regions** tab, select at least two regions. The isolation containers are leased to the user only from the selected regions based on the least network latency. Click **Next**. See image.
+  6. On the**Experience** tab: Click **Next**. See image.
     - **Isolation Banner**:Select an Isolation banner. The banner you choose shows a preview in the window. Choose from existing banners, or create custom isolation banners to use for your isolation profiles. To learn more, see [Adding a Banner Theme for the Isolation End User Notification in Internet & SaaS](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-internet-and-saas).
     - **Isolation Experience**: Select one of the following modes:
       - **Native browser experience**: This mode provides the user with a browsing experience similar to accessing the native web page with a typical browser. The user can customize this view.
@@ -562,19 +567,21 @@ To create an isolation profile for Internet & SaaS:
     - **Enable Watermarking**: Enable or disable this setting to use a watermark while in isolation. Admins can enable watermarking per isolation profile and choose to display the **User ID**, **Date & Timestamp** (in UTC), and a custom **Watermark Message**.
     - **Enable Persistent State**: (Optional) Enabling this setting causes the data from a user's active session to carry over to their new session each time they enter an isolated session. If you enable it, the **Enable Persistent State**window displays a consent message for you to read before confirming enablement. Click **OK**. If you do not enable it, the data does not persist, meaning it is destroyed with the container when the user logs out or exceeds the session timeout. To learn more, see [Using Persistent State for Isolation](https://help.zscaler.com/zero-trust-browser/using-persistent-state-isolation). See image.
     - **Enable Language Translation**: (Optional) Enabling this setting allows the user to translate any text from isolated web pages to the language of the user's choice. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience).
-  6. On the **Review** tab, review your isolation profile and click **Save**. See image.
+  7. On the **Review** tab, review your isolation profile and click **Save**. See image.
 
 After you save your isolation profile, it appears in the list of Internet & SaaS isolation profiles. You can edit or delete isolation profiles at any time. To learn more, see [Editing Your Internet & SaaS Isolation Profile](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-internet-and-saas) and [Deleting Your Internet & SaaS Isolation Profile](https://help.zscaler.com/zero-trust-browser/deleting-your-isolation-profile-internet-and-saas).
 
 You can use this isolation profile to create a policy in Internet & SaaS to allow traffic forwarding through browser isolation. To learn more, see [Configuring Internet & SaaS for Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser).
 
-[Image: The Isolation Profiles page shows a list of configured isolation profiles for Internet & SaaS users]
+[Image: The Isolation Profiles tab on the Browser Isolation page shows a list of configured isolation profiles for Internet & SaaS users]
 
-[Image: A view of the Add Isolation Profile window]
+[Image: he Add Isolation Profile wizard]
 
 [Image: Make your selections in the PAC File URL fields of the Company Settings tab]
 
 [Image: Enable or disable the options on the Security tab]
+
+[Image: Enable and configure Data Redaction settings for the isolation profile]
 
 [Image: Select at least two regions for the isolation profile]
 
@@ -589,13 +596,13 @@ You can use this isolation profile to create a policy in Internet & SaaS to allo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-10-02T08:14Z","nid":"1447731"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-10-16T21:06Z","nid":"1447731"} -->
 ## Creating Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
-- Last modified: 2026-10-02T08:14Z
+- Last modified: 2026-10-16T21:06Z
 - Summary: How to create an isolation profile for Private Access.
 
 [Watch a video about creating a Private Access Isolation Profile for Zero Trust Browser (shows legacy UI).](https://fast.wistia.net/embed/iframe/bbh6zk55s2)

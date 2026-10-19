@@ -1,183 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 61
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-summaries","lastmod":"2026-09-24T21:06Z","nid":"1535401"} -->
-## Managing Incident Summaries
-
-- Source: https://help.zscaler.com/workflow-automation/managing-incident-summaries
-- Product: Workflow Automation
-- Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Summaries
-- Last modified: 2026-09-24T21:06Z
-- Summary: Information on how to manage incident summaries in Workflow Automation.
-
-On the Incident Summary page, you can view aggregate incident counts for a specified date range by using various selectable attributes and filters. Workflow Automation provides several attributes (i.e., summary criteria) that you can use to summarize the number of incidents that have occurred in your organization. This page provides a table that lists the summary criteria attributes, the total incident count for the summary criteria, and the total incident count broken out by either the incident priority or incident severity.
-
-## Viewing Incident Summaries
-
-To view incident summaries:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Summary**. The **Incident Summary** page appears, with no information displayed. See image.
-2. [Select a date range for the incidents that you want to summarize on the Incident Summary page.](https://help.zscaler.com/workflow-automation/managing-incident-summaries#date-range-filter)
-3. (Optional) Filter the incidents you want to summarize by selecting one or more filter options. The filter options are the same as those on the **Incidents** page. To learn more, see [Using Incident Filters in Workflow Automation](https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation). To reset the filter options, click the **Reset** icon.
-4. Configure the summary criteria for the incident summary. On the **Incident Summary** page:
-  1. **Group by**: Select how you want to break out and display the total incident counts that appear in the incident summary. If you want to break out the incident counts by incident priority (e.g., Critical, High, Medium, and Low), select **Priority**. If you want to break out the incident counts by incident severity (e.g., High, Medium, Low, and Info), select **Severity**.
-  2. **Summary Criteria**: From the drop-down menu, select the first summary criterion for the incident summary. You can select a maximum of two criteria. Summary criteria are:
-    - **Action**: The action taken in the incident.
-    - **Application Category**: The category of the application associated with the incident.
-    - **Application Name**: The name of the application associated with the incident.
-    - **Attachments**: Whether the incident has attachments or not. Values are **Yes** and **No**.
-    - **DLP Type**: The type of DLP incident associated with the incident.
-    - **Department**: The department of the end user who caused the incident.
-    - **Destination Type**: The Endpoint DLP destination type for the incident.
-    - **Dictionary**: The DLP dictionary associated with an incident.
-    - **Engine**: The DLP engine associated with an incident.
-    - **File Name**: The name of the file associated with the incident.
-    - **File Source Location**: The path of the file associated with the incident.
-    - **File Type**: The type or extension of the file associated with the incident.
-    - **Home Location**: The home location of the end user responsible for the incident.
-    - **Originating User Email**: The email address of the user responsible for the incident.
-    - **Referrer URL**: The URL of the previous page a user was on before they performed the action that caused the incident.
-    - **Remediation Owner Email**: The email address of the person responsible for remediating the incident.
-    - **Rule**: The DLP rule associated with an incident.
-    - **Source DLP Type**: The type of DLP policy that the incident violated. Source DLP types are **Inline**, **Email**, **Endpoint**, and **SaaS Security**.
-    - **URL**: The URL of the application associated with the incident.
-    - **Work Location**: The work location of the end user responsible for the incident.
-  3. (Optional) Add another summary criterion: To reorder the summary criteria, click the **Reorder** icon next to a criterion field and drag and drop the criterion in the order that you want. To delete summary criteria, click the **Delete** icon next to a criterion field. See image.
-    1. Under the first summary criterion that you added, click **Add More**.
-    2. From the drop-down menu, select the second summary criterion.
-5. Click **Submit**. The matching incidentsappear on the page in a table format. See image. Each one of the summary criteria values you configured appears as a column in the table. In addition, the table contains a column for the total incident count for those incidents that match the given criteria, along with columns for the total incident count broken out by incident priority or the severity of the incident. Each row in the table is a specific combination of the summary criteria that triggered incidents along with the total incident count for that combination. This table can display up to 10,000 rows. In the table, you can view the following information: When you click any of these links, a new tab opens, displaying the **Selected Criteria** page. The tab is labeled with the criteria associated with the link. This page displays the criteria associated with the link in the **Selected Criteria** section of the page, and lists the actual incidents with the relevant filters applied for that combination of criteria. This page is similar to the **Incidents** page except that no action can be taken on an incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents). See image.
-  - **Summary Criteria**: The first one or two columns in the table are titled with the names of the summary criteria you configured for the incident summary (e.g., **Dictionary** and **Engine**). The incident values associated with these summary criteria appear in those table columns.
-  - **Total**: The total number of incidents that match the given summary criteria.
-  - **Critical**: The total number of incidents with a critical priority that match the given summary criteria. If you selected to group by severity, this column does not appear.
-  - **High**: The total number of incidents with either a high priority or a high severity that match the given summary criteria. This column depends on the option you selected in the **Group by**field.
-  - **Medium**: The total number of incidents with either a medium priority or a medium severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
-  - **Low**: The total number of incidents with either a low priority or a low severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
-  - **Info**: The total number of incidents with an info severity that match the given summary criteria. If you selected to group by priority, this column does not appear.
-
-## Managing Incident Summaries
-
-The Incident Summary page allows you to perform certain actions to manage the incident summaries.
-
-- Apply Time Range Filter
-- Export an Incident Summary
-- Manage Summary Criteria
-- Modify Items Per Page
-
-You can filter the incidents summarized on the Incident Summary page by the date and time of occurrence. By default, this page summarizes information about the incidents that occurred in the current calendar week (Sunday through Saturday). Time ranges are:
-
-- Hours
-  - Current Hour
-  - Last Hour
-  - Last 2 Hours
-  - Last 6 Hours
-  - Last 12 Hours
-- Days
-  - Current Day
-  - Last Day
-- Weeks
-  - Current Week
-  - Last Week
-- Months
-  - Current Month
-  - Last Month
-- Custom Date Range To view the incidents that occurred in a specific date range, you can use the **Custom Date Range** option and specify the start and end dates and times. To specify a custom date range: The **Custom Date Range** option only supports incidents that are up to 6 months old, and you can only search for a maximum of a three-month window.
-  1. Select the **Custom Date Range** option. A calendar appears with the current date selected. To the right of the calendar, three columns appear, displaying the hours, minutes, and seconds for a day. See image.
-  2. Select the start date on the calendar, and then in the columns to the right, select the start time (i.e., hour, minute, and second). As you select the date and time, they appear in the **Start date** field under the calendar. See image.
-  3. Click **OK**. The date and time you selected appear in the **Start date** field, and the **End date** field is selected.
-  4. Select the end date in the calendar, and then in the columns to the right, select the end time (i.e., hour, minute, and second). See image.
-  5. Click **OK**.
-
-See image.
-
-You can export the information that appears in the Incident Summary table to a CSV file. To export the incident summary:
-
-1. On the **Incident Summary** page, configure the summary criteria.
-2. Click **Submit**. The Incident Summary table appears.
-3. Click the **Export** icon at the top right of the table. A CSV file is created and downloaded to your local system. The CSV file lists the information that is in the incident summary table. See image.
-
-On the Incident Summary page, you can manage the summary criteria for the incident summaries that appear on the page. You can do the following:
-
-- Save Summary Criteria
-- Apply Saved Summary Criteria
-- Update Saved Summary Criteria
-- Delete Saved Summary Criteria
-
-To save summary criteria:
-
-1. On the **Incident Summary** page, configure the summary criteria.
-2. Click **Save**. The **Save Criteria** dialog window appears.
-3. In the **Save Criteria** dialog window, enter a name for the combination of summary criteria in the **Name** field.
-4. (Optional) If you want the summary criteria combination to appear by default on the **Incident Summary** page, select **Set as default**. See image.
-5. Click **Save As**. The set of summary criteria is saved and appears in the **Saved Criteria** field. After you save the summary criteria combination, you can reuse it by selecting it from the **Saved** **Criteria** drop-down menu at the top of the page. If you set it as the default criteria, the system automatically selects it in the **Saved** **Criteria** drop-down menu when you access the page at a later date.
-
-To apply saved summary criteria, select the saved summary criteria name from the **Saved Criteria** drop-down menu at the top of the page. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page.
-
-See image.
-
-To update saved summary criteria:
-
-1. On the **Incident Summary** page, select the saved summary criteria from the **Saved Criteria** drop-down menu. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page. See image.
-2. Modify the summary criteria. You can: See image.
-  - Change the **Group by** option.
-  - Delete existing summary criteria.
-  - Add new summary criteria. You can only add another criterion if there is already one criterion saved.
-  - Rearrange the order of the summary criteria.
-3. Click **Update**.
-
-To delete saved summary criteria:
-
-1. On the **Incident Summary** page, from the **Saved** **Criteria** drop-down menu, click the **Delete** icon next to the saved summary criteria that you want to delete. A message appears asking whether you are sure that you want to delete the saved summary criteria. See image.
-2. Click **Yes**. The saved summary criteria are deleted.
-
-To modify the number of items displayed per page, click the **Items per page** drop-down menu and select the number of items. Options are **10**, **20**, **25**, **50**, and **100**. The default display is **10**.
-
-See image.
-
-[Image: Viewing the Incident Summary page with no summary information displayed]
-
-[Image: Viewing the Summary Criteria section on the Incident Summary page]
-
-[Image: Viewing the Incident Summary page with the summary criteria information entered and the Incident Summary table populated with data]
-
-[Image: Viewing the Selected Criteria page for a Total link]
-
-[Image: Selecting the time range to apply for the incidents displayed on the Incident Summary page]
-
-[Image: Viewing the calendar and time columns that appear after selecting the Custom Date Range option in the Time Range drop-down menu on the Incident Summary page. The current date and time columns for hours, minutes, and seconds are highlighted.]
-
-[Image: Viewing the calendar and time columns after a date and time have been selected for the start date. The start date (January 1) is highlighted on the calendar, the time (6:30 AM) is highlighted in the time options, and the start date field (2026-01-01 06:30:00) under the calendar is highlighted to show the date and time selected.]
-
-[Image: Viewing the calendar and time columns after a date and time have been selected for the end date. The end date (January 15) is highlighted in the calendar, the time (6:30 AM) is highlighted in the time options, and the end date field (2026-01-15 06:30:00) is highlighted to show the date and time selected.]
-
-[Image: Viewing the Incident Summary page with the Export icon highlighted at the top of the Incident Summary table]
-
-[Image: Viewing the Save Criteria dialog window]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu. The Saved Criteria field is highlighted and the summary criteria fields associated with that saved criteria are displayed and highlighted on the left side of the page.]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu]
-
-[Image: Viewing the Incident Summary page after the Saved Criteria is selected and updated. The saved criteria section on the left side of the page and the Update button are highlighted.]
-
-[Image: Viewing the Incident Summary page with the Saved Criteria drop-down menu showing all the available saved criteria. The Delete icon next to a saved criterion is highlighted along with the message that is displayed after you click the Delete icon.]
-
-[Image: Viewing the Items per page drop-down menu on the Incident Summary page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-10-11T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-10-18T07:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -337,10 +172,12 @@ To perform actions:
   - Assign to Me
   - Assign Priority
   - Close Incident
-  - Notify User
-  - Investigating
+  - Delete
   - Escalate
+  - Investigating
   - Label
+  - Notify User
+  - Release Email Quarantine
   - Update Incident Group
 
 See image.
@@ -459,6 +296,24 @@ To update incident groups assigned to multiple incidents:
   - If you updated the admin assignment to use a different incident group, the **DLP Admin** field for the incidents displays the name of the admin derived from that incident group.
   - If you assigned a default incident group to support unassigned incidents, the **DLP Admin** field for those incidents displays the name of the admin derived from the default incident group.
   - The **Last Change** field for each incident displays the latest state change that occurred for the incident group updates.
+
+On the Incidents page, for incidents with a Source DLP type of Email in which the emails are quarantined (i.e., action is Quarantine), you can use the Release Release Quarantine action to release the quarantined emails to all recipients for one or more incidents.
+
+To release the quarantined emails to their recipients:
+
+1. Select **Email** **Release Quarantine**. The **Email** **Release Quarantine** window appears. See image.
+2. (Optional) If the quarantined email incidents are false positives, select the **False Positive** checkbox.
+3. (Optional) In the **Notes** field, enter notes regarding the release of the quarantined emails to their recipients.
+4. Click **Release**. For incidents with Source DLP type Email and a Quarantine action, the emails are released from quarantine and the emails are sent to all the email recipients. If you select this action for incidents of Source DLP type Email with an action other than Quarantine, or other Source DLP type (e.g., Inline, Endpoint, SaaS Security) incidents, the action completes successfully, but the action is not taken against those incidents. After the action is completed, an **Error Details** window appears, displaying those incidents and the reason why the action failed for each incident. Reasons are: See image.
+  - Quarantine action is not supported for the Source DLP Type: <`Source DLP type`>
+  - Source action should be Quarantine to process quarantine email action
+
+You can delete incidents in any status. The delete action is only available for admins who are assigned to a role that has delete access permission for the Incidents category. To learn more, see [Managing Roles and Permissions.](https://help.zscaler.com/workflow-automation/managing-roles-and-permissions)
+
+To delete incidents:
+
+1. Select **Delete**. The **Delete** dialog window appears, displaying a message asking whether you are sure you want to delete the selected incidents.
+2. Click **Yes**. The incidents are deleted. This action permanently deletes the incidents, and you can't recover the deleted incidents later.
 
 To perform bulk actions:
 
@@ -590,6 +445,10 @@ See image.
 [Image: Adding optional notes or information to start investigating the incident in the Investigating window]
 
 [Image: Adding a Label and Value to the incidents in the Add or Remove Label window]
+
+[Image: Viewing the Release Email Quarantine window]
+
+[Image: Viewing the Error Details window. This window contains a table with an Incident ID column that lists the incidents where the Email Release Quarantine action failed and a Reason column that displays the reason why the email release quarantine action failed for each incident.]
 
 [Image: Bulk Actions - Selecting new DLP Admin for the all incidents in the Assign DLP Admin window]
 
@@ -1422,13 +1281,13 @@ The API key is deleted permanently.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-10-02T21:06Z","nid":"1461951"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-jira-software","lastmod":"2026-10-15T07:52Z","nid":"1461951"} -->
 ## Managing Workflow Automation Integration with Jira Software
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-jira-software
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Jira Software
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-15T07:52Z
 - Summary: Information about Workflow Automation integration with Jira Software.
 
 Workflow Automation can integrate with Jira Software, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a Jira ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign the ticket to in Jira Software and specifies the Jira project where the ticket is created in Jira Software. The user they select must exist in Jira Software and must have already been added to the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
@@ -1448,7 +1307,7 @@ Before you can integrate Workflow Automation with Jira Software, you must:
 
 To integrate Workflow Automation with Jira Software:
 
-1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **SaaS Application Tenants**.
 2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
 3. On the **Add Tenant** page, configure and add Jira Software as a SaaS application tenant using the Jira Software admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox in the **Select Features** section. This process authorizes Jira Software with Internet & SaaS (ZIA) and integrates Jira Software with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the Jira Cloud tile appears in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
 
@@ -1636,13 +1495,13 @@ To view Jira Software integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-10-01T21:06Z","nid":"1461676"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-microsoft-teams","lastmod":"2026-10-15T07:49Z","nid":"1461676"} -->
 ## Managing Workflow Automation Integration with Microsoft Teams
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-microsoft-teams
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Microsoft Teams
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-15T07:49Z
 - Summary: Information about Workflow Automation integration with Microsoft Teams.
 
 Workflow Automation can integrate with Microsoft Teams, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Microsoft Teams application, these notifications can be delivered through Teams messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -1662,7 +1521,7 @@ To learn more, refer to the [Microsoft Teams admin documentation](https://learn.
 
 To integrate Workflow Automation with Microsoft Teams:
 
-1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **SaaS Application Tenants**.
 2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
 3. On the **Add Tenant** page, add the Microsoft Teams application as a SaaS application tenant using the Microsoft Teams admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Select Features** section. This process authorizes the Microsoft Teams application with Internet & SaaS (ZIA) and integrates the Microsoft Teams application with Workflow Automation. You can now select the Teams channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
@@ -1673,13 +1532,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-10-02T21:06Z","nid":"1457511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-servicenow","lastmod":"2026-10-15T07:51Z","nid":"1457511"} -->
 ## Managing Workflow Automation Integration with ServiceNow
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-servicenow
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with ServiceNow
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-15T07:51Z
 - Summary: Information about Workflow Automation integration with ServiceNow.
 
 Workflow Automation can integrate with ServiceNow, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins can create and assign a ServiceNow ticket to an incident on the Incident Details drawer. When the ticket action is initiated on the Incident Details drawer for an incident, the admin selects the user to assign to the ticket in ServiceNow. The user they select must exist in the ServiceNow application and must have already been added on the Integration Users page in Workflow Automation. To learn more, see [Managing Integration Users](https://help.zscaler.com/workflow-automation/managing-integration-users) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
@@ -1699,7 +1558,7 @@ Before you can integrate Workflow Automation with ServiceNow, you must:
 
 To integrate Workflow Automation with ServiceNow:
 
-1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **SaaS Application Tenants**.
 2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
 3. On the **Add Tenant** page, configure and add the ServiceNow application as a SaaS application tenant using the ServiceNow admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox in the **Select Features**section. This process authorizes the ServiceNow application with Internet & SaaS (ZIA) and integrates the ServiceNow application with Workflow Automation. On the **Integrations** dashboard in Workflow Automation, the ServiceNow application appears as a tile in the **Connected Apps** section. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
 
@@ -1789,13 +1648,13 @@ To view ServiceNow integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-10-01T21:06Z","nid":"1457291"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-automation-integration-slack","lastmod":"2026-10-15T07:47Z","nid":"1457291"} -->
 ## Managing Workflow Automation Integration with Slack
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-automation-integration-slack
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing Workflow Automation Integration with Slack
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-15T07:47Z
 - Summary: Information about Workflow Automation integration with Slack.
 
 Workflow Automation can integrate with Slack, a sanctioned Software as a Service (SaaS) application for Zscaler. During the remediation process for a data protection incident in Workflow Automation, admins or the application can initiate different notifications (user, escalation, and digest) to remediate the incident. When Workflow Automation is integrated with the Slack application, these notifications can be delivered through Slack messages to the appropriate users or admins associated with the incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents), [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments), and [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings).
@@ -1815,7 +1674,7 @@ To learn more, refer to the [Slack help center](https://slack.com/help).
 
 To integrate Workflow Automation with Slack:
 
-1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **Configuration** > **SaaS Application Tenants**.
+1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **DSPM** > **SaaS Application Tenants**.
 2. On the **Manage Tenants** tab, click **Add.** The **Add Tenant** page appears.
 3. On the **Add Tenant** page, add the Slack application as a SaaS application tenant using the Slack admin credentials. When adding the tenant, ensure that you select the **Workflow Automation** checkbox under the **Select Features** section. This process authorizes the Slack application with Internet & SaaS (ZIA) and integrates the Slack application with Workflow Automation. You can now select the Slack channel for the notifications initiated within Workflow Automation. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
 
@@ -1826,13 +1685,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-09-17T06:25Z","nid":"1455966"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflow-mappings","lastmod":"2026-10-13T08:08Z","nid":"1455966"} -->
 ## Managing Workflow Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflow-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflow Mappings
-- Last modified: 2026-09-17T06:25Z
+- Last modified: 2026-10-13T08:08Z
 - Summary: How to manage workflow mappings in Workflow Automation.
 
 A workflow mapping specifies the incidents that are associated with the workflow. Only admins with full access to Workflow Automation can map the workflows. Incidents are mapped to workflows, which are based on one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers and performs the actions that the workflow specifies.
@@ -1972,8 +1831,7 @@ The following is a list of the workflow mapping properties:
 - **Referrer URL**
 - **Url**
 
-- **Additional Info**
-  - **SaaS Tenant Name**
+- **Additional Info**:**SaaS Tenant Name**
 - **Category**
 - **Component**
 - **Content Location**
@@ -1985,15 +1843,13 @@ The following is a list of the workflow mapping properties:
 - **Url**
 - **Workspace**
 
-- **Additional Info**
-  - **Tenant**
+- **Additional Info**:**Tenant**
 - **Category**
 - **Hostname Or Application**
 - **Name**
 - **Url**
 
-- **Additional Info**
-  - **DLP MD5**
+- **Additional Info**:**DLP MD5**
 - **File Name**
 - **File Type**
 
@@ -2003,8 +1859,7 @@ The following is a list of the workflow mapping properties:
   - **Bucket Owner**
   - **Channel Name**
   - **Code Repository**
-  - **Collaboration Scope**
-    - **Values**
+  - **Collaboration Scope**:**Values**
   - **DLP MD5**
   - **Email Sender**
   - **External Collaborators**
@@ -2066,11 +1921,9 @@ The following is a list of the workflow mapping properties:
   - **Name**
   - **Rule**
 - **Other Rules**
-  - **Other Rules**
-    - **Rule Name**
+  - **Other Rules**:**Rule Name**
   - **Total Other Rules**
-- **Rules**
-  - **Name**
+- **Rules**:**Name**
 
 - **Dictionaries**
   - **Match Count**
@@ -2079,8 +1932,7 @@ The following is a list of the workflow mapping properties:
 - **Engines**
   - **Name**
   - **Rule**
-- **Rules**
-  - **Name**
+- **Rules**:**Name**
 
 - **Dictionaries**
   - **Assigned To Hit Rule**
@@ -2096,8 +1948,7 @@ The following is a list of the workflow mapping properties:
     - **Rule ID**
     - **Rule Name**
   - **Total Other Rules**
-- **Rules**
-  - **Name**
+- **Rules**: **Name**
 
 - **Dictionaries**
   - **Assigned To Hit Rule**
@@ -2126,10 +1977,8 @@ The following is a list of the workflow mapping properties:
   - **Match Count**
   - **Name**
   - **Name Match Count**
-- **Engines**
-  - **Name**
-- **Rules**
-  - **Name**
+- **Engines**:**Name**
+- **Rules**: **Name**
 
 The following table lists the operations and their descriptions:
 
@@ -2944,13 +2793,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-10-06T16:45Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-10-16T08:18Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-06T16:45Z
+- Last modified: 2026-10-16T08:18Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -3024,13 +2873,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-10-11T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-10-18T07:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4342,13 +4191,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-10-11T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-10-18T07:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -4967,7 +4816,7 @@ See image.
 
 To reopen an incident, from the **Actions** drop-down menu, select **Reopen**. The incident is reopened, and the status of the incident changes from Resolved to Investigating.
 
-You can delete an incident only from the Incident Details drawer, and you can delete an incident in any status. The delete action is only available for admins who are assigned to a role that has delete access permission for the Incidents category. To learn more, see [Managing Roles and Permissions.](https://help.zscaler.com/workflow-automation/managing-roles-and-permissions)
+You can delete an incident in any status. You can delete multiple incidents at the same time on the [Incidents](https://help.zscaler.com/zia/about-incidents) page. The delete action is only available for admins who are assigned to a role that has delete access permission for the Incidents category. To learn more, see [Managing Roles and Permissions.](https://help.zscaler.com/workflow-automation/managing-roles-and-permissions)
 
 To delete an incident:
 
@@ -5002,7 +4851,7 @@ To update incident groups:
     - If you updated the admin assignment to use a different incident group, the **DLP Admin** field displays the name of the admin derived from that incident group.
   - The **State Changes** tab displays all the state changes that were made to the incident when you updated the incident groups for the incident.
 
-In the Incident Details drawer, for an incident with a Source DLP type of Email in which the email is quarantined, you can use the Release Email Quarantine action to release the email to one or more of its recipients. The Release Email Quarantine action is only available for incidents with a Source DLP type of Email with a quarantine action.
+In the Incident Details drawer, for an incident with a Source DLP type of Email in which the email is quarantined, you can use the Release Email Quarantine action to release the email to one or more of its recipients. The Release Email Quarantine action is only available for incidents with a Source DLP type of Email with a quarantine action. You can release the quarantined emails to all recipients for multiple incidents at the same time on the [Incidents](https://help.zscaler.com/zia/about-incidents) page.
 
 You also have the option to allow the end user or approver/manager of a quarantined email incident to release the email to one or more of its recipients from an end user notification or an escalation notification. To enable this feature for an end user notification, select **Enable Email Quarantine Release for End Users** in the **Incident Management** section on the **Account Settings** page. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings#incident-management-quarantine-settings), [Responding to an End User Notification](https://help.zscaler.com/workflow-automation/responding-end-user-notification), and [Responding to an Escalation Notification](https://help.zscaler.com/workflow-automation/responding-escalation-notification).
 

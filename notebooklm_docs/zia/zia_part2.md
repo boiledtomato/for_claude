@@ -1,8 +1,89 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 111
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-10-06T02:06Z","nid":"1457606"} -->
+## Accessing and Navigating the 3rd-Party App Governance Admin Portal
+
+- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
+- Last modified: 2026-10-06T02:06Z
+- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
+
+Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
+
+## Signing In to the 3rd-Party App Governance Admin Portal
+
+You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
+
+To access 3rd-Party App Governance:
+
+1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
+
+The 3rd-Party App Governance sign-in page appears.
+
+See image.
+
+1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
+
+The 3rd-Party App Governance dashboard appears.
+
+Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
+
+On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
+
+A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
+
+[Image: Screenshot of Sign-in Page]
+
+## Accessing 3rd-Party App Governance from the Zscaler Admin Console
+
+You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+
+To access the 3rd-Party App Governance Admin Portal from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
+
+See image.
+
+You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
+
+[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
+
+## Navigating within the 3rd-Party App Governance Admin Portal
+
+The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
+
+- App Dashboard
+- Apps
+- Users
+- Policies
+- Reports
+- Audit Log
+- Settings
+- Log Out
+
+Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
+
+Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
+
+Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
+
+Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
+
+Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
+
+Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
+
+Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
+
+Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
+
+[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -296,13 +377,13 @@ If you need to revert from SCIM to AD provisioning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-10-09T04:16Z","nid":"1459041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-10-16T01:26Z","nid":"1459041"} -->
 ## Adding an AI & ML Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an AI & ML Applications Rule for Cloud App Control
-- Last modified: 2026-10-09T04:16Z
+- Last modified: 2026-10-16T01:26Z
 - Summary: Information on how to add a rule for AI & ML Applications cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -415,8 +496,9 @@ Choose to allow the users to access the selected applications.
 
 The following applications support additional granular actions, which you can **Allow** or **Block**:
 
-- For **ChatGPT**, the granular actions include **Chatting**, **Uploading**, **Downloading**, **Deleting**, **Sharing**, and **Inviting**.
-- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, and **Renaming**.
+- For **ChatGPT**, the granular actions include **Chatting**, **Deleting**, **Downloading**, **Inviting**, **Login**, **Sharing**, and **Uploading**.
+  - **Domain Profiles**: Choose **Allow**or **Block** for the **Login** granular action to permit or restrict logins to the domains in the selected domain profiles, respectively. You can select up to 8 domain profiles, and you can search for domain profiles. Selecting no profiles applies the granular action to all the profiles.
+- For **Google Gemini**, the granular actions include **Chatting**, **Downloading**, **Renaming**, and **Uploading**.
 - For **Microsoft Copilot**, the granular actions include **Chatting**, **Deleting**, **Renaming**, **Sharing**, and **Uploading**.
 - For **Perplexity**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
 - For **Poe**, the granular actions include **Chatting**, **Deleting**, **Sharing**, and **Uploading**.
@@ -502,13 +584,13 @@ To subscribe and receive the alerts through email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-09-30T13:12Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-10-14T21:06Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-09-30T13:12Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
 [Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
@@ -753,13 +835,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-09-29T13:44Z","nid":"1399011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-10-13T21:06Z","nid":"1399011"} -->
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
-- Last modified: 2026-09-29T13:44Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: How to add auditors in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -1989,13 +2071,13 @@ To configure a Cloud NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-10-09T04:19Z","nid":"1400146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-10-16T01:45Z","nid":"1400146"} -->
 ## Adding a Collaboration & Online Meetings Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
-- Last modified: 2026-10-09T04:19Z
+- Last modified: 2026-10-16T01:45Z
 - Summary: How to add a rule for Collaboration and Online Meeting cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -2111,11 +2193,13 @@ Choose to allow the users to access the selected applications.
 The following applications support additional granular actions, which you can **Allow** or **Block**:
 
 - For **Webex Meetings**, the granular actions include **Sharing**, **Editing**, **Creating**, **Downloading**, **Chatting**, **Uploading**, **Inviting**, and **Meeting**.
-- For **Slack**, the granular actions include **Editing**, **Creating**, **Downloading**, **Deleting**, **Chatting**, **Uploading**, **Inviting**, and **Huddle**.
+- For **Slack**, the granular actions include **Chatting**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Huddle**, **Inviting**, **Login**, and **Uploading**.
+  - **Domain Profiles**: Choose **Allow**or **Block** for the **Login** granular action to permit or restrict logins to the domains in the selected domain profiles, respectively. You can select up to 8 domain profiles, and you can search for domain profiles. Selecting no profiles applies the granular action to all the profiles.
+- For **Nulab**, the granular action includes **Login**.
 - For **SharePoint Online**, the granular actions include **Sharing**, **Editing**, **Renaming**, **Creating**, **Downloading**, **Deleting**, and **Uploading**.
 - For **Microsoft Teams**, the granular actions include **Chatting** and **Screen Sharing**.
 
-If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
+If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
 
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
@@ -3291,13 +3375,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-11T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-18T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
@@ -3495,13 +3579,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-01T15:20Z","nid":"1398866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-15T21:06Z","nid":"1398866"} -->
 ## Adding Departments
 
 - Source: https://help.zscaler.com/zia/adding-departments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Adding Departments
-- Last modified: 2026-10-01T15:20Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add a department for your users in the Zscaler Admin Console.
 
 [Watch a video about User Management, including how to add a department](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -4366,13 +4450,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-11T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-18T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4547,13 +4631,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-10-09T04:30Z","nid":"1400696"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-10-16T02:15Z","nid":"1400696"} -->
 ## Adding a File Sharing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a File Sharing Rule for Cloud App Control
-- Last modified: 2026-10-09T04:30Z
+- Last modified: 2026-10-16T02:15Z
 - Summary: How to add a rule for File Sharing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4664,11 +4748,13 @@ Choose to allow the users to access the selected applications.
 
 The following applications support additional granular actions, which you can **Allow** or **Block**:
 
-- For **Box**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Login**, **Renaming**, and **Sharing**.
-- For **Dropbox**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Renaming**, and **Sharing**.
-- For **OneDrive**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Renaming**, and **Sharing**.
-- For **OneDrive (Personal)**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, and **Renaming**.
-- For **Google Drive**, the granular actions include **Uploading**, **Creating**, **Deleting**, **Downloading**, **Editing**, **Form Sharing**, **Renaming**, and **Sharing**.
+- For **Box**, the granular actions include **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Login**, **Renaming**and, **Sharing**.
+- For **Dropbox**, the granular actions include **Creating**, **Deleting**, **Downloading**, **Editing**, **Inviting**, **Renaming**and, **Sharing**.
+- For **OneDrive**, the granular actions include **Creating**, **Deleting**, **Downloading**, **Editing**, **Renaming**and, **Sharing**.
+- For **OneDrive (Personal)**, the granular actions include **Creating**, **Deleting**, **Downloading**, **Editing**and, **Renaming**.
+- For **Google Drive**, the granular actions include **Creating**, **Deleting**, **Downloading**, **Editing**, **Form Sharing**, **Renaming**and, **Sharing**.
+  - **Form Sharing**: Choose **Allow**or **Block** for the **Form Sharing** granular action to permit or restrict the forms from being shared, respectively. You can search for forms. Selecting no form applies the granular action to all the forms.
+  - **Sharing**: Choose **Allow**or **Block** for the **Sharing** granular action to permit or restrict the files from being shared, respectively. You can search for files. Selecting no file applies the granular action to all the files.
 
 If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
 
@@ -4883,13 +4969,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-01T14:51Z","nid":"1398831"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-15T21:06Z","nid":"1398831"} -->
 ## Adding Groups
 
 - Source: https://help.zscaler.com/zia/adding-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Adding Groups
-- Last modified: 2026-10-01T14:51Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add a group for your users in the ZIA Admin Portal.
 
 [Watch a video about User Management, including how to add a group](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -5242,28 +5328,32 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-insertion-profile","lastmod":"2026-09-24T08:00Z","nid":"1517436"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-insertion-profile","lastmod":"2026-10-15T02:42Z","nid":"1517436"} -->
 ## Adding an HTTP Header Insertion Profile
 
 - Source: https://help.zscaler.com/zia/adding-http-header-insertion-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > Adding an HTTP Header Insertion Profile
-- Last modified: 2026-09-24T08:00Z
+- Last modified: 2026-10-15T02:42Z
 - Summary: Information on how to add an HTTP header insertion profile in the Zscaler Admin Console.
 
 The [HTTP header insertion profile](https://help.zscaler.com/zia/about-http-header-insertion-profile) allows you to add custom HTTP request headers and modify existing HTTP request headers. It consists of two parts: adding HTTP header insertion profiles and associating them to a URL Filtering policy rule.
 
 To add an HTTP header insertion profile:
 
-1. Go to **Policies** >**Access Control** > **Internet & SaaS** > **HTTP Header Control**> **HTTP Header Insertion Profile**.
-2. On the **HTTP Header Insertion Profile** tab, click **Add HTTP Header Insertion Profile**. The **Add HTTP Header Insertion Profile**window appears.
-3. In the **Add HTTP Header Insertion Profile**window: See image.
-  - **Name**: Enter the name of the HTTP header insertion profile. This is displayed when configuring the URL Filtering policy rules.
-  - **HTTP Header**: Enter the key for the HTTP header. It has a limit of 128 characters. Ensure to enter only request headers.
-    - A list of HTTP header keys that are not allowed.
-  - **Value**: Enter the value for the HTTP header. It has a limit of 1,024 characters. You can add up to 16 HTTP headers by clicking the **Add Header** button.
-  - **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** >**Policy** > **HTTP Header Control**.
+2. Select the**HTTP Header Insertion Profile**tab.
+3. On the **HTTP Header Insertion Profile** tab, click **Add HTTP Header Insertion Profile**. The **Add HTTP Header Insertion Profile**page appears.
+4. On the **Add HTTP Header Insertion Profile**page: See image.
+  1. **Name**: Enter the name of the HTTP header insertion profile. This is displayed when configuring the URL Filtering policy rules.
+  2. **Description (optional)**: Enter any additional comments or information. The description cannot exceed 10,240 characters.
+  3. In the **Headers**section, click **Add**. The **Add HTTP Header** drawer appears.
+  4. In the **Add HTTP Header** drawer: You can add up to 16 HTTP headers by clicking the **Add** button.
+    1. **HTTP Header**: Enter the key for the HTTP header. It has a limit of 128 characters. Ensure to enter only request headers.
+      - A list of HTTP header keys that are not allowed.
+    2. **Value**: Enter the value for the HTTP header. It has a limit of 1,024 characters.
+    3. Click **Save**.
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 - content-security-policy
 - etag
@@ -5282,18 +5372,18 @@ To add an HTTP header insertion profile:
 - x-content-type-options
 - x-frame-options
 
-[Image: Add HTTP Header Insertion Profile window with header criteria]
+[Image: Add HTTP Header Insertion Profile page showing the required fields]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-profile","lastmod":"2026-09-24T07:52Z","nid":"1517126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-http-header-profile","lastmod":"2026-10-15T02:35Z","nid":"1517126"} -->
 ## Adding an HTTP Header Profile
 
 - Source: https://help.zscaler.com/zia/adding-http-header-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > Adding an HTTP Header Profile
-- Last modified: 2026-09-24T07:52Z
+- Last modified: 2026-10-15T02:35Z
 - Summary: Information on how to add an HTTP header profile in the Zscaler Admin Console.
 
 The [HTTP header profile](https://help.zscaler.com/zia/about-http-header-profile) allows you to create criteria for various HTTP request headers and create policies based on the HTTP headers.
@@ -5310,16 +5400,20 @@ For example, if 5 HTTP header criteria (i.e., two Origins, a Referer, and two Us
 
 To add an HTTP header profile:
 
-1. Go to **Policies** > **Access Control** > **Internet & SaaS** > **HTTP Header Control**.
-2. On the **HTTP Header Profile** tab, click **Add HTTP Header Profile**. The **Add HTTP Header Profile**window appears.
-3. In the **Add HTTP Header Profile**window: See image.
-  - **Name**: Enter the name of the HTTP header profile. This is displayed when configuring the URL Filtering policy rules.
-  - **HTTP Header**: Select one of the following HTTP headers: You can add up to 16 HTTP header criteria by clicking the **Add Header Criterion** button.
-    - Origin
-    - Referer
-    - User Agent
-  - **Description**: (Optional) Enter any additional comments or information. The description cannot exceed 10,240 characters.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Policy**>**HTTP Header Control**.
+2. Select the **HTTP Header Profile**tab.
+3. On the **HTTP Header Profile** tab, click **Add HTTP Header Profile**. The **Add HTTP Header Profile**page appears.
+4. On the **Add HTTP Header Profile**page: See image.
+  1. **Name**: Enter the name of the HTTP header profile. This is displayed when configuring the URL Filtering policy rules.
+  2. **Description** **(optional)**: Enter any additional comments or information. The description cannot exceed 10,240 characters.
+  3. In the **Criteria** section, click **Add**. The **Add Header Criterion** drawer appears.
+  4. In the **Add Header Criterion**drawer: You can add up to 16 HTTP header criteria by clicking the **Add** button.
+    1. **HTTP Header**: Select one of the following HTTP headers:
+      - User Agent
+      - Origin
+      - Referer
+    2. Click **Save**.
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 Select this header to add the cloud applications or URL categories from which the request originates. The following fields appear when you select this header:
 
@@ -5331,13 +5425,13 @@ Select this header to add the cloud applications or URL categories that refer to
 - **Cloud Applications**: Select the cloud applications or cloud application categories that apply to the HTTP header profile.
 - **URL Categories**: Select the URL categories that apply to the HTTP header profile.
 
-Select this header to control access to user agents. The following fields appear when you select this header:
+Select this header to control access to browsers. The following fields appear when you select this header:
 
-- **User Agent**: Choose a user agent for which you want to control access. You can enter a custom user agent by selecting the **Other** option.
-- **Operator**: Choose an operator (i.e., **>**, **<**, **=**, or **≠**) or **Any** to create an expression between the user agent and its versions. **Any** implies all the versions for the user agent.
-- **Version**: Choose a version for the selected user agent.
+- **Browser**: Choose a browser for which you want to control access. You can enter a custom browser by selecting the **Other** option.
+- **Operator**: Choose an operator (i.e., **>**, **<**, **=**, or **≠**) or **Any** to create an expression between the browser and its versions. **Any** implies all the versions for the browser.
+  - **Version**: Choose a version for the selected browser. This field doesn't appear when you select **Any** for the **Operator** field.
 
-[Image: The Add HTTP Header Profile window with the header criteria]
+[Image: The Add HTTP Header Profile page with the header criteria]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6689,13 +6783,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-internet-saas-admin-roles","lastmod":"2026-09-30T12:28Z","nid":"1399711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-internet-saas-admin-roles","lastmod":"2026-10-14T21:06Z","nid":"1399711"} -->
 ## Adding Internet & SaaS Admin Roles
 
 - Source: https://help.zscaler.com/zia/adding-internet-saas-admin-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Internet & SaaS Admin Roles
-- Last modified: 2026-09-30T12:28Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to add administrator roles for Internet & SaaS in the Zscaler Admin Console.
 
 [Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI).
@@ -7029,13 +7123,13 @@ To add an IP pool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-10-08T23:48Z","nid":"1400636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-10-16T03:08Z","nid":"1400636"} -->
 ## Adding an IT Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an IT Services Rule for Cloud App Control
-- Last modified: 2026-10-08T23:48Z
+- Last modified: 2026-10-16T03:08Z
 - Summary: Information on how to add a rule for IT Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7143,6 +7237,14 @@ See image.
   - **Critical**: Level with user risk scores ranging from 80 to 100
 
 Choose to allow the users to access the selected applications.
+
+The following applications support additional granular action, which you can **Allow** or **Block**:
+
+- For **Google Login Services**, the granular action includes **Login**. This granular action applies to the following applications: Gmail, Google Drive, Google Gemini, and YouTube, which are part of the **Google Login Services** application.
+  - **Domain Profiles**: Choose **Allow**or **Block** for the **Login** granular action to permit or restrict logins to the domains in the selected domain profiles, respectively. You can select up to 8 domain profiles, and you can search for domain profiles. Selecting no profiles applies the granular action to all the profiles.
+- For **Yahoo Login Services**, the granular action includes **Login**. This granular action applies to Yahoo! Mail, which is part of the **Yahoo Login Services** application.
+
+If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
 
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
@@ -7594,13 +7696,13 @@ To show all notes again, click the **Show Notes**icon.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-07-31T11:23Z","nid":"1463361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-10-13T17:17Z","nid":"1463361"} -->
 ## Adding NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Collector Servers
-- Last modified: 2026-07-31T11:23Z
+- Last modified: 2026-10-13T17:17Z
 - Summary: Information on how to configure an NSS Collector server in the Zscaler Admin Console.
 
 The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
@@ -7609,7 +7711,7 @@ You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-
 
 To add an NSS Collector server:
 
-1. Go to **Logs** > **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
 2. From the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
 3. In the **Add NSS Collector Server** window:
 
@@ -7626,14 +7728,14 @@ When the NSS Collector server is added to the Zscaler Admin Console, Zscaler gen
 To download the packaged software and the SSL certificate for the server:
 
 1. Click the **Edit** icon displayed against the NSS Collector server.
-2. In the **Edit NSS Server** window:
+2. In the **Edit NSS Collector Server** window:
 
 - Under the **SSL Certificate** field, you can download the SSL certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
-- Under the **Software** field, you can download the packaged software generated for the server. This packaged software must be deployed in your organization's network perimeter. To learn more about the deployment procedure, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
+- Under the **Software Package** field, you can download the packaged software generated for the server. This packaged software must be deployed in your organization's network perimeter. To learn more about the deployment procedure, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
 
 See image.
 
-You can also download the SSL certificate directly from the NSS Collector Servers table by clicking the **Download** button against the required NSS Collector server under the **SSL Certificate** column.
+You can also download the SSL certificate directly from the NSS Collector Servers table by clicking the **Download** button for the required NSS Collector server under the **SSL Certificate** column.
 
 See image.
 
@@ -7648,13 +7750,13 @@ An organization can have up to 4 NSS Collector servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-07-31T11:21Z","nid":"1400036"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-10-14T12:37Z","nid":"1400036"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-07-31T11:21Z
+- Last modified: 2026-10-14T12:37Z
 - Summary: How to add an NSS server in the Zscaler Admin Console.
 
 Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
@@ -7668,7 +7770,7 @@ Before reading this article, see the Nanolog Streaming Service (NSS) deployment 
 
 To add an NSS server:
 
-1. Go to **Logs** > **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
 2. From the **NSS Servers**tab, click **Add NSS Server**.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -7797,13 +7899,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-10-08T23:42Z","nid":"1400151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-10-16T05:52Z","nid":"1400151"} -->
 ## Adding a Productivity & CRM Tools Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Productivity & CRM Tools Rule for Cloud App Control
-- Last modified: 2026-10-08T23:42Z
+- Last modified: 2026-10-16T05:52Z
 - Summary: Information on how to add a rule for Productivity and CRM cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7912,11 +8014,13 @@ See image.
 
 Choose to allow the users to access the selected applications.
 
+The **Zendesk** application supports additional granular action that includes **Login**, which you can **Allow** or **Block**. For the granular action to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+
 - **Embedded AI**: Select **Allow** to use the embedded AI applications on Atlassian sites or **Block** to prevent the use of embedded AI applications on Atlassian sites. By default, this feature is set to **Allow**. These options appear only if Gen AI is enabled for your organization.
   - **Embedded AI Prompts**: Enabling this feature allows Zscaler to store end-user prompts up to 2 KB in size in logs for up to 6 months, or for the period defined by your organization. Authorized users with access to Zscaler logs are able to view the prompts entered by end users in the Gen AI applications embedded in the Atlassian application.
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
 - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
@@ -7942,7 +8046,7 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 - **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
 - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 [Image: Criteria menu on the Productivity & CRM Tools page]
@@ -8442,13 +8546,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-09T06:23Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-15T11:41Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-10-09T06:23Z
+- Last modified: 2026-10-15T11:41Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -8744,7 +8848,7 @@ See image.
 
 [Image: Provide admin credentials.]
 
-Zscaler and Box are technology partners. To learn more about the Zscaler and Box integration, see the [Zscaler and Box Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-box-deployment-guide).To learn more about the prerequisites and permissions for onboarding Box, see [Permissions for Onboarding SaaS Apps for SSPM](https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM).
+Zscaler and Box are technology partners. To learn more about the Zscaler and Box integration, see the [Zscaler and Box Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-box-deployment-guide). To learn more about the prerequisites and permissions for onboarding Box, see [Permissions for Onboarding SaaS Apps for SSPM](https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM).
 
 To configure Box:
 
@@ -10146,9 +10250,7 @@ See image.
 
 To create a custom Salesforce Connector, you must first configure permissions in Salesforce so that you can provide the client ID, client secret, username of integration user, instance URL, and quarantine library names (if using DLP and Malware scanning) for the Salesforce account in the Zscaler Admin Console. To learn more, see [Authorizing a Custom Zscaler Connector for Salesforce](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-salesforce).
 
-Zscaler and ServiceNow are technology partners. To learn more about the Zscaler and ServiceNow integration, see the [Zscaler and ServiceNow Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-servicenow-deployment-guide).
-
-To configure ServiceNow as a tenant, you must have a ServiceNow user account with an admin role.
+Zscaler and ServiceNow are technology partners. To learn more about the Zscaler and ServiceNow integration, see the [Zscaler and ServiceNow Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-servicenow-deployment-guide). To configure ServiceNow as a tenant, you must have a ServiceNow user account with an admin role.
 
 To configure ServiceNow:
 
@@ -10157,13 +10259,9 @@ To configure ServiceNow:
 - c. Configure an OAuth Client Application
 - d. Add ServiceNow as a Tenant
 
-To learn more about the steps in ServiceNow, refer to the [ServiceNow documentation](https://docs.servicenow.com/).
+To learn more about the steps in ServiceNow, refer to the [ServiceNow documentation](https://docs.servicenow.com/). To learn more about adding additional object types for ServiceNow tenants, see [Adding Object Types for ServiceNow Tenants](https://help.zscaler.com/zia/adding-object-types-servicenow-tenants). To learn more about the prerequisites and permissions for onboarding ServiceNow, see [Permissions for Onboarding SaaS Apps for SSPM](https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM).
 
-To learn more about adding additional object types for ServiceNow tenants, see [Adding Object Types for ServiceNow Tenants](https://help.zscaler.com/zia/adding-object-types-servicenow-tenants).
-
-To learn more about the prerequisites and permissions for onboarding ServiceNow, see [Permissions for Onboarding SaaS Apps for SSPM](https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM).
-
-To verify the the OAuth 2.0 plugin is installed and active:
+To verify the OAuth 2.0 plugin is installed and active:
 
 1. Log in to your ServiceNow instance.
 2. Go to **System Applications** > **All Available Applications** > **All**. See image.
@@ -10257,7 +10355,7 @@ To configure Slack:
 4. Under **Authorize Access to a Slack Bot**, click **Create a Bot**. See image.
 5. Review the required permissions for the Zscaler service to send notifications to users through the custom Slack bot, and click **Allow**. See image.
 
-To create a custom Slack connector, you must first configure permissions in Slack. This authorizes your Slack account within the Zscaler Admin Console, allowing the Zscaler service to securely access the application. To learn more, see [Authorizing a Custom Zscaler Connector for Slack](https://help.zscaler.com/tech-pubs-drafts/authorizing-custom-zscaler-connector-slack-draft-doc-65006).
+To create a custom Slack connector, you must first configure permissions in Slack. This authorizes your Slack account within the Zscaler Admin Console, allowing the Zscaler service to securely access the application. To learn more, see [Authorizing a Custom Zscaler Connector for Slack](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-slack).
 
 - Some necessary scopes (like discovery scopes) require the Slack team's approval, which can take 3–5 business days. Zscaler recommends securing these approvals before configuring your custom Slack connector. Refer to the [Slack documentation](https://slack.com/intl/en-gb/help/articles/360002079527-A-guide-to-Slack%E2%80%99s-Discovery-APIs) to raise a support request.
 - Slack custom connector is only available for DLP and Malware scanning.
@@ -10308,7 +10406,7 @@ To configure Snowflake:
 3. Create a new worksheet.
 4. Set the **Role**to **Account Admin**or equivalent.
 5. Run the following SQL script: `USER ROLE ACCOUNTADMIN; CREATE OR REPLACE SECURITY INTEGRATION my_snowflake_oauth TYPE = OAUTH ENABLED = TRUE OAUTH_CLIENT = CUSTOM OAUTH_CLIENT_TYPE = 'CONFIDENTIAL' OAUTH_REDIRECT_URI = 'https://10.65.31.120' OAUTH_ISSUE_REFRESH_TOKENS = TRUE;`
-6. Run the following commands to fetch the client ID and client secret: `DESC SECURITY INTEGRATION my_snowflake_oauth; SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('MY_SNOWFLAKE_OAUTH');`This returns the following response: `{"OAUTH_CLIENT_SECRET_2":"yTSgf9FoM3rQgre/Qu9BiXBjN/9TIVTllerpF41Fn0w="," OAUTH_CLIENT_SECRET":"kDcvia8WbphKTHCHH7jkWpcO94z5oNXNhBJoN42q1YM=","OAUTH_CLIENT_ID":"E5x4P5c9YavVFqIn3C4C6lrToKA="}`
+6. Run the following commands to fetch the client ID and client secret: `DESC SECURITY INTEGRATION my_snowflake_oauth; SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('MY_SNOWFLAKE_OAUTH');`Copy the client ID and clientSecret2 from the following response: `{"OAUTH_CLIENT_SECRET_2":"clientSecret2","OAUTH_CLIENT_SECRET":"clientSecret","OAUTH_CLIENT_ID":"clientId"}`
 7. To view the privileges assigned to a role, run the following command: `SHOW GRANTS TO ROLE ACCOUNTADMIN;`
 8. To assign privileges to a role, run the following script: `USE ROLE ACCOUNTADMIN; GRANT MONITOR SECURITY ON ACCOUNT TO ROLE "SVC_ROLE_MYAPP"; GRANT MONITOR USAGE ON ACCOUNT TO ROLE "SVC_ROLE_MYAPP"; GRANT MONITOR ON ACCOUNT TO ROLE SVC_ROLE_MYAPP; GRANT ROLE TRUST_CENTER_VIEWER_ROLE TO ROLE SVC_ROLE_MYAPP;`
 
@@ -10920,13 +11018,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-09-29T14:22Z","nid":"1400626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-10-13T21:06Z","nid":"1400626"} -->
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
-- Last modified: 2026-09-29T14:22Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
 To add an SD-WAN partner API client:
@@ -10951,13 +11049,13 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-09-30T13:05Z","nid":"1400621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-10-14T21:06Z","nid":"1400621"} -->
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
-- Last modified: 2026-09-30T13:05Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
 
 [Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI).
@@ -10999,13 +11097,13 @@ To add an SD-WAN partner API role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-10-09T05:48Z","nid":"1400166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-10-16T03:17Z","nid":"1400166"} -->
 ## Adding a Social Networking Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
-- Last modified: 2026-10-09T05:48Z
+- Last modified: 2026-10-16T03:17Z
 - Summary: How to add a rule for Social Networking cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11124,7 +11222,13 @@ See image.
 
 Choose to allow the users to view and post on the selected applications.
 
-The **LinkedIn** application supports additional granular actions that include **Posting**,**Chatting**,**Commenting**,**Creating**,**Editing**,**Sharing**,and**Uploading**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+The following applications support additional granular actions, which you can **Allow** or **Block**:
+
+- For **LinkedIn**, the granular actions include **Chatting**, **Commenting**,**Creating**,**Editing**, **Posting**, **Sharing**and, **Uploading**.
+- For **X (Formerly Twitter)**, the granular action includes **Login**.
+- For **Facebook**, the granular action includes **Login**.
+
+If these applications are selected together, only the common granular actions among them appear. For the granular actions to work as expected for an application, enable SSL/TLS Inspection for the application.
 
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
@@ -11378,13 +11482,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-10-09T05:24Z","nid":"1400176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-10-16T01:59Z","nid":"1400176"} -->
 ## Adding a System & Development Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a System & Development Rule for Cloud App Control
-- Last modified: 2026-10-09T05:24Z
+- Last modified: 2026-10-16T01:59Z
 - Summary: Information on how to add a rule for System and Development cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11493,7 +11597,7 @@ See image.
 
 Choose to allow the users to view or upload content to the selected applications.
 
-The **GitHub** application supports additional granular actions that include **Creating**, **Editing**, **Sharing**, **Commenting**, and **Reaction**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
+The **GitHub** application supports additional granular actions that include **Commenting**, **Creating**, **Editing**, **Login**, **Reaction**, and **Sharing**, which you can **Allow** or **Block**. For the granular actions to work as expected for an application, ensure to enable SSL/TLS Inspection for the application.
 
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
@@ -12178,162 +12282,4 @@ To configure a TCP NSS feed for SaaS Security activity logs:
   - **Activity**: Filter logs based on specific activity. You can specify multiple types of activity.
   - **Object 1 Type**and **Object 2 Type**: Filter logs based on the type of object (e.g., Organization). You can search for specific object types. If applicable, the activity can have a second object listed. The default option is **None**.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-06-23T06:49Z","nid":"1401471"} -->
-## Adding TCP NSS Feeds for SaaS Security Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
-- Last modified: 2026-06-23T06:49Z
-- Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
-
-You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
-
-Before you start configuring a feed for SaaS Security logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for SaaS Security logs:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **SaaS Security**.
-  - **Application Category**: Choose an application category to limit the data to a specific category:
-    - **Collaboration**
-      - Microsoft Teams
-      - Slack
-      - Webex Teams
-      - Zoom
-    - **CRM**
-      - Salesforce
-      - Microsoft Dynamics 365
-    - **Email**
-      - Gmail
-      - Microsoft Exchange
-    - **File**
-      - Box
-      - Citrix ShareFile
-      - Confluence
-      - Dropbox
-      - Google Drive
-      - Microsoft OneDrive
-      - Microsoft SharePoint
-      - Smartsheet
-    - **Gen AI**
-      - ChatGPT
-    - **ITSM**
-      - Jira Software
-      - ServiceNow
-    - **Public Cloud Storage**
-      - Amazon S3
-      - Google Cloud Platform
-      - Microsoft Azure
-    - **Repository**
-      - Bitbucket
-      - GitHub
-      - GitLab
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM can parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that are displayed in the output. Edit the default list. If you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SaaS Security Logs](https://help.zscaler.com/zia/nss-feed-output-format-saas-security-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Action
-  - Who
-  - Collaboration
-  - CRM
-  - Email
-  - File
-  - ITSM
-  - Public Cloud Storage
-  - Repository
-  - DLP
-  - Malware
-  - Application
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Policy Type**: Filter logs based on the specific policy type. You can specify multiple policies. By default, the **DLP** and **Malware** policy types are not selected. Therefore, all incidents and violations with or without a rule name are exported through the NSS. You must explicitly select **DLP** and **Malware** policy types from the list to export only the incidents with valid rule names through the NSS.
-- **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
-- **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet & SaaS (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
-  - **Any**: Any type of event in the scan.
-  - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
-  - **Scan**: No violation was detected in the scan. The scan is considered normal.
-  - **Violation**: A violation was detected in the scan (i.e., either a DLP engine was matched or malware was detected.)
-
-- **User**: Filter logs to specific users that generated transactions. You can search for users by username or email address. There's no limit to the number of users that you can select. Users that are deleted after they are selected appear with a strikethrough line.
-- **Departments**: Filter logs to specific departments that generated transactions. You can search for departments. There's no limit to the number of departments that you can select. Departments that are deleted after they are selected appear with a strikethrough line.
-
-- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
-- **Internal Recipients**: Filter logs to specific recipients within your organization. Multiple selections are allowed.
-- **Channel Name**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Object Type**: Choose **Any**to inspect all object types or choose an object type.
-- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
-
-- **Message Size**: Filter logs by the size of the email message.
-- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
-- **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Object Type**: Choose **Any**to inspect all object types or choose an object type
-- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
-- **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
-
-- **DLP Engines**: Filter logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
-- **DLP Dictionaries**: Filter logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
-- **Severity**: Choose the severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-
-- **Malware Classes**: Filter logs based on the specific malware class. You can specify multiple malware classes.
-- **Malware Names**: Filter logs based on the specific malware names. You can specify multiple malware names.
-- **Threat Name**: Filter logs based on specific threats that were detected. You can specify multiple threat names separated by commas.
-
-- **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
-- **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
 <!-- /ZS-ARTICLE -->

@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 202
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 196
 
 ---
 
@@ -7524,13 +7524,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-09-03T04:26Z","nid":"1539939"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-10-14T07:52Z","nid":"1539939"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-aws
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-09-03T04:26Z
+- Last modified: 2026-10-14T07:52Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization) process, you need to deploy the AI Security templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between AI Security, the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -7540,7 +7540,6 @@ As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aw
 AI Security creates the following IAM roles to access the AWS accounts:
 
 - Resource Discovery Role
-- Zscaler Access Role
 - Orchestrator Instance Profile Role
 - Scanner Instance Profile Role
 - Target Role
@@ -7568,40 +7567,27 @@ The resource discovery role is required for AI Security to discover resources wi
 | Permission | Effect | Scope | Purpose |
 | --- | --- | --- | --- |
 | `logs:ListLogDeliveries` | Allow | Monitored Accounts | To list the log delivery settings for a specific log group |
-| `memorydb:DescribeAcls` | Allow | Monitored Accounts | To describe the access control lists (ACLs) associated with a MemoryDB cluster |
-| `memorydb:DescribeUsers` | Allow | Monitored Accounts | To describe the users associated with a MemoryDB cluster |
-| `redshift-serverless:GetWorkgroup` | Allow | Monitored Accounts | To retrieve information about a specific Amazon Redshift Serverless workgroup |
-| `redshift-serverless:ListNamespaces` | Allow | Monitored Accounts | To list all the namespaces in an Amazon Redshift Serverless account |
-| `redshift-serverless:GetNamespace` | Allow | Monitored Accounts | To retrieve information about a specific namespace in Amazon Redshift Serverless |
-| `redshift-serverless:GetWorkgroup` | Allow | Monitored Accounts | To retrieve information about a specific workgroup in Amazon Redshift Serverless |
-| `redshift-serverless:ListWorkgroups` | Allow | Monitored Accounts | To list all the workgroups in an Amazon Redshift Serverless account |
-| `elasticache:DescribeReplicationGroups` | Allow | Monitored Accounts | To describe the replication groups associated with an Amazon ElastiCache cluster |
 | `wafv2:ListResourcesForWebACL` | Allow | Monitored Accounts | To list all the resources that are associated with a specific AWS WAFv2 web ACL |
+| `bedrock:List*` | Allow | Monitored Accounts | To list all Amazon Bedrock resources such as models, agents, and knowledge bases |
+| `bedrock:Get*` | Allow | Monitored Accounts | To retrieve detailed configuration and metadata for Amazon Bedrock resources |
+| `s3:GetReplicationConfiguration` | Allow | Monitored Accounts | To retrieve the replication configuration set on an S3 bucket |
+| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
+| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by AI Security (based on tags) | To update Zscaler AI Security’s Auto Scaling group |
+| `ec2:TerminateInstances` | Allow | Only resources created by AI Security (based on tags) | To terminate one or more Zscaler AI Security’s Amazon EC2 instances |
+| `kms:GenerateDataKey` | Allow | Only resources created by AI Security (based on tags) | To generate a data key for Zscaler AI Security’s key that can be used to encrypt data |
+| `kms:Decrypt` | Allow | Only resources created by AI Security (based on tags) | To decrypt ciphertext that was encrypted using Zscaler AI Security’s key in the AWS Key Management Service (KMS) |
+| `sqs:PurgeQueue` | Allow | Only resources created by AI Security (based on tags) | To purge the messages from AI Security-created queues |
 | `s3:GetObject` | Deny | Monitored Accounts |  |
 | `dynamodb:BatchGetItem` | Deny | Monitored Accounts |  |
 | `dynamodb:GetItem` | Deny | Monitored Accounts |  |
 | `dynamodb:Query` | Deny | Monitored Accounts |  |
 | `dynamodb:Scan` | Deny | Monitored Accounts |  |
 
-The AI Security access role is required for AI Security to perform operations in Simple Queue Service (SQS) that is created as part of the template deployment. The role has the following permissions:
-
-| Permission | Effect | Scope | Purpose |
-| --- | --- | --- | --- |
-| `sts:AssumeRole` | Allow | Orchestrator Account | To assume a role in AWS |
-| `autoscaling:Describe*` | Allow | Orchestrator Account | To retrieve information about Auto Scaling resources |
-| `ec2:Describe*` | Allow | Orchestrator Account | To retrieve information about Amazon EC2 resources |
-| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
-| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by AI Security (based on tags) | To update Zscaler AI Security’s Auto Scaling group |
-| `ec2:TerminateInstances` | Allow | Only resources created by AI Security (based on tags) | To terminate one or more Zscaler AI Security’s Amazon EC2 instances |
-| `kms:GenerateDataKey` | Allow | Only resources created by AI Security (based on tags) | To generate a data key for Zscaler AI Security’s key that can be used to encrypt data |
-| `kms:Decrypt` | Allow | Only resources created by AI Security (based on tags) | To decrypt ciphertext that was encrypted using Zscaler AI Security’s key in the AWS Key Management Service (KMS) |
-
 The orchestrator instance profile role is used by the orchestrator instance present in the primary region to organize data scanning. The role has the following permissions:
 
 | Permission | Effect | Scope | Purpose |
 | --- | --- | --- | --- |
 | `sqs:ReceiveMessage` | Allow | Orchestrator Account | To retrieve one or more messages from an SQS queue |
-| `sqs:Get*` | Allow | Orchestrator Account | To retrieve information about an SQS queue, including its attributes and permissions |
 | `sqs:List*` | Allow | Orchestrator Account | To list SQS queues and their attributes |
 | `rds:RestoreDBClusterFromSnapshot` | Allow | Orchestrator Account | To restore database cluster from a snapshot of an RDS database cluster |
 | `rds:RestoreDBInstanceFromDBSnapshot` | Allow | Orchestrator Account | To restore database instance from a snapshot of an RDS database instance |
@@ -7626,7 +7612,6 @@ The orchestrator instance profile role is used by the orchestrator instance pres
 | `s3:DeleteObjectVersion` | Allow | Only resources created by AI Security (based on tags) | To delete the specific version of the S3 object from resources created by AI Security (based on tags) |
 | `s3:ListBucket` | Allow | Only resources created by AI Security (based on tags) | To list the objects in resources created by AI Security (based on tags) |
 | `s3:DeleteObject` | Allow | Only resources created by AI Security (based on tags) | To delete an S3 object from resources created by AI Security (based on tags) |
-| `sts:AssumeRole` | Allow | Orchestrator Account | To assume a role in AWS |
 | `iam:PassRole` | Allow | Orchestrator Account | To pass an IAM role |
 | `ec2:RunInstance*` | Allow | Only resources created by AI Security (based on tags) | To start the scanner instance |
 | `ec2:StartInstances` | Allow | Only resources created by AI Security (based on tags) | To start the scanner instance |
@@ -7634,7 +7619,6 @@ The orchestrator instance profile role is used by the orchestrator instance pres
 | `ec2:CreateTags` | Allow | Orchestrator Account | To create tags for EC2 resources |
 | `ec2:CreateSnapshot*` | Allow | Orchestrator Account | To create snapshot of EC2 volumes |
 | `ec2:List*` | Allow | Orchestrator Account | To list the EC2 resources |
-| `ec2:Describe*` | Allow | Orchestrator Account | To describe the EC2 resources |
 | `ec2:Get*` | Allow | Orchestrator Account | To get EC2 resources |
 | `kms:Decrypt` | Allow | Orchestrator Account | To decrypt ciphertext that was encrypted using a KMS key |
 | `kms:Encrypt` | Allow | Orchestrator Account | To encrypt plaintext using a KMS key |
@@ -7674,11 +7658,9 @@ The scanner instance profile role is used by the scanner instances to perform da
 
 | Permission | Allow | Scope | Purpose |
 | --- | --- | --- | --- |
-| `sts:AssumeRole` | Allow | All resources | To assume a role in AWS |
 | `secretsmanager:GetSecretValue` | Allow | Only resources created by AI Security (based on tags) | To get the value of a secret |
 | `sqs:ReceiveMessage` | Allow | AI Security Queues | To retrieve one or more messages from an SQS queue |
 | `sqs:DeleteMessage` | Allow | Only resources created by AI Security (based on tags) | To delete a message from an SQS queue |
-| `sqs:Get*` | Allow | AI Security Queues | To retrieve information about an SQS queue, including its attributes and permissions |
 | `sqs:List*` | Allow | AI Security Queues | To list SQS queues and their attributes |
 | `kms:Decrypt` | Allow | All resources | To decrypt ciphertext that was encrypted using a KMS key |
 | `s3:GetObjectAcl` | Allow | Only resources created by AI Security (based on tags) | To retrieve the access control list (ACL) of an S3 object from AI Security export bucket |
@@ -7730,7 +7712,6 @@ The target role is an IAM role created in the target accounts containing permiss
 | `ec2:CreateSnapshot*` | Workload | Monitored Accounts | To create a snapshot of an EC2 instance's root volume or a specific volume |
 | `ec2:CreateTags` | Workload | Monitored Accounts | To create tags for EC2 resources |
 | `ec2:List*` | Workload | Monitored Accounts | To list various EC2 resources |
-| `ec2:Describe*` | Workload | Monitored Accounts | To describe various EC2 resources |
 | `ec2:Get*` | Workload | Monitored Accounts | To retrieve various EC2 resources |
 | `ec2:CopySnapshot` | Workload | Monitored Accounts | To copy an EC2 snapshot |
 | `kms:Decrypt` | Workload | Monitored Accounts | To decrypt ciphertext that was encrypted using a KMS key |
@@ -7918,13 +7899,13 @@ This service account is used by AI Security to discover resources in the GCP pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-microsoft-azure","lastmod":"2026-07-14T08:44Z","nid":"1540254"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-microsoft-azure","lastmod":"2026-10-15T08:36Z","nid":"1540254"} -->
 ## IAM Roles and Permissions for Microsoft Azure
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-microsoft-azure
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > IAM Roles and Permissions for Microsoft Azure
-- Last modified: 2026-07-14T08:44Z
+- Last modified: 2026-10-15T08:36Z
 - Summary: Information about the roles created and permissions assigned while onboarding Azure subscriptions.
 
 As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-entra-tenant) process, you need to deploy the AI Security templates in the Microsoft Entra tenant. These templates create a service principal (enterprise application), custom roles, and managed identities in Microsoft Entra ID. AI Security requires these roles to connect to the Microsoft Entra tenant, discover the resources, and collect metadata.
@@ -7941,6 +7922,32 @@ AI Security creates the following IAM roles to access the Azure subscriptions:
 - Custom Network Configuration Role
 - Encryption Role
 - Custom Role (AI Agent)
+- Service Principal API Permissions
+
+The following API permissions are required for the AI Security service principal registered in Microsoft Entra ID:
+
+| Permission | Type | Purpose |
+| --- | --- | --- |
+| `Application.Read.All` | Application | To read all applications |
+| `AuditLog.Read.All` | Application | To read all audit log data |
+| `Directory.Read.All` | Application | To read directory data |
+| `Organization.Read.All` | Application | To read organization information |
+| `Reports.Read.All` | Application | To read all usage reports |
+| `RoleManagement.Read.Directory` | Application | To read all directory RBAC settings |
+| `RoleManagementPolicy.Read.Directory` | Application | To read all policies for privileged role assignments of your company's directory |
+| `User.Read` | Delegate | To sign in and read user profile |
+| `UserAuthenticationMethod.Read.All` | Application | To read all users' authentication methods |
+
+This role is used by the Local Scanner Platform to perform the CMK encryption related tasks on instances.
+
+| Permission | Scope | Type | Purpose |
+| --- | --- | --- | --- |
+| `Microsoft.KeyVault/vaults/keys/read` | AI Security resource group | Actions | To list the keys in a specified vault |
+| `Microsoft.KeyVault/vaults/keys/unwrap/action` | AI Security resource group | DataActions | To unwrap a symmetric key with a Key Vault key |
+| `Microsoft.KeyVault/vaults/keys/wrap/action` | AI Security resource group | DataActions | To wrap a symmetric key with a Key Vault key |
+| `Microsoft.KeyVault/vaults/keys/read` | AI Security resource group | DataActions | To list the keys in a specified vault |
+| `Microsoft.KeyVault/vaults/keys/decrypt/action` | AI Security resource group | DataActions | To decrypt ciphertext with a key |
+| `Microsoft.KeyVault/vaults/keys/encrypt/action` | AI Security resource group | DataActions | To encrypt plaintext with a key |
 
 This role is used by the Local Scanner Platform to perform the CMK encryption related tasks on instances.
 
@@ -8064,7 +8071,6 @@ The following API permissions are required for MIP labeling:
 | --- | --- | --- | --- | --- |
 | Azure Rights Management Services | `Content.Writer` | Orchestrator Managed Identity | Application | To create protected content |
 | Microsoft Information Protection Sync Service | `UnifiedPolicy.Tenant.Read` | Orchestrator Managed Identity | Application | To read all unified policies of the tenant |
-| Microsoft Graph | `InformationProtectionPolicy.Read.All` | Orchestrator Managed Identity | Application | To read all published labels and label policies for an organization |
 
 The custom role is required to collect data from AI services. Assign this role to the Tree Discovery service principal, created by the [Tree Discovery template](https://help.zscaler.com/ai-asset-mgmt/deploying-tree-discovery-template), for each subscription.
 
@@ -9358,13 +9364,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-08T23:11Z","nid":"1542892"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-16T02:17Z","nid":"1542892"} -->
 ## Onboarding an Azure Subscription
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
-- Last modified: 2026-10-08T23:11Z
+- Last modified: 2026-10-16T02:17Z
 - Summary: Information on how to onboard a single Azure subscription.
 
 You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
@@ -9575,6 +9581,8 @@ In the **Resource Tags** section, configure custom tags to identify the resource
 
 Download and deploy the orchestrator templates. Orchestrator template includes policies and permissions to create custom roles that provide AI Security with access to the resources in the tenant.
 
+If you select a private endpoint, run `terraform apply` from a VM that has network access to the key vaults.
+
 To deploy the templates:
 
 - a. Download and modify the template.
@@ -9721,14 +9729,265 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 [Image: The output of Terraform apply command to confirm the IP address]
 
 [Image: The output of Terraform apply command to confirm the actions]
+<!-- /ZS-ARTICLE -->
 
-[Image: The Add role assignment page with Members tab selected]
+---
 
-[Image: The Select members drawer with the application selected for User Access Administrator role]
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-tenant-or-management-group","lastmod":"2026-10-14T06:36Z","nid":"1546645"} -->
+## Onboarding Azure Tenant or Management Group
 
-[Image: The Add role assignment page with Conditions tab selected]
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-tenant-or-management-group
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Zscaler Hosted Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Onboarding Azure Tenant or Management Group
+- Last modified: 2026-10-14T06:36Z
+- Summary: Information on how to onboard an Azure tenant and management group.
 
-[Image: The Add role assignment page with the Role tab selected]
+You can onboard an Azure tenant or management group and their associated subscriptions. AI Security monitors and scans the data stores (e.g., virtual machines, storage accounts) in the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding an Azure tenant or management group, ensure you have completed the following:
+
+- Create the following in the Microsoft Entra ID:
+  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
+  2. Client secret: If you want to create an integration using client secret which is a confidential string that is used as a password for the application created. See instructions.
+  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
+- Ensure you have the following roles to deploy the templates and grant API permissions.
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
+
+## Onboarding an Azure Tenant or Management Group
+
+To onboard an Azure tenant or management group:
+
+- 1. Select a Deployment Mode.
+- 2. Select an Onboarding Scope.
+- 3. Select a Configuration Creation Mode.
+- 4. Complete Tenant Discovery.
+- 5. Define Scope Selection.
+- 6. Configure Business Unit Mapping.
+- 7. Select Services.
+- 8. Provide Configuration Details.
+- 9. Review & Deploy.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
+4. On the **Register an application** page, provide the following details and click **Register**.
+  - **Name**: Enter a unique name for the application.
+  - **Supported account types**: Select the subscription.
+
+The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
+
+See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
+5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
+6. In the **Add a client secret** drawer:
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+7. Click **Add**.
+8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **API permissions**.
+5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
+6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+8. In the **Grand admin consent confirmation** window, click **Yes**.
+
+Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+To create a resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
+2. Click **+Create**. See image. The **Create a resource group** drawer appears
+3. In the **Create a resource group** drawer, on the **Basics** tab:
+  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
+  2. **Resource group**: Enter a unique name for the resource group.
+  3. **Region**: Select a region where the resource group must be created.
+4. Click **Review + create**. See image.
+
+Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
+To create a storage account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Click **+Create**. See image. The **Create a storage account** drawer appears.
+3. In the **Create a storage account** window, on the **Basics** tab:
+  1. **Subscription**: Select your Azure subscription.
+  2. **Resource group**: Select the resource group that you created.
+  3. **Storage account name**: Enter a unique name for the storage account.
+  4. **Region**: Select location where the storage account must be created.
+4. Click **Review + create**. See image.
+
+A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+
+To create a storage account container:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Locate the storage account you created and click the storage account.
+3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
+4. Click **+Container**. See image.
+5. In the **New container** drawer: See image.
+  1. **Name**: Enter a unique name for the container.
+  2. **Anonymous access level**: Select the access level for the container.
+6. Click **Create**.
+
+| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
+| --- | --- | --- | --- |
+| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
+| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
+| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
+| Windows - Command line | v1.7.5 | 2.67.0 | NA |
+| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+
+| Scope | Role |
+| --- | --- |
+| Root Tenant Management Group Target Subscription | User Access Administrator (Based on your onboarding scope) |
+| Storage account | Storage Account Contributor (For Terraform State File) |
+| Microsoft Entra ID | Privileged Role Administrator (For granting the API permission) |
+
+To onboard an Azure tenant or management group, you must first select the deployment mode.
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window, for **Select Cloud Type**, click the**Azure** tile. See image.
+4. Click **Next**.
+5. In the **Select Deployment Mode** window, choose Zscaler Hosted. See image.
+6. Click **Next**.
+
+In the **Select Onboarding Scope** section, select one of the following and click **Next**.
+
+- **Tenant:** To onboard the entire Azure AD tenant. A role assignment is created at the tenant root management group, enabling discovery of every subscription in the tenant.
+- **Management Group:** To onboard subscriptions under a specific management group and its descendants. This is the recommended approach when Zscaler coverage is needed for only part of the tenant.
+- **Subscription:**To onboard a single Azure subscription without requiring tenant enumeration. See image.
+
+In the **Configuration Creation Mode** section, select one of the following and click **Next**.
+
+- **Automated Role Creation:** To allow Zscaler to generate Terraform modules for the custom role and role assignment using the `azurerm` provider. See image.
+- **Manual Role Creation:** To create a custom role and assign roles using the existing workflow.
+
+In the **Tenant Discovery** section, provide the following Azure AD tenant details so Zscaler can enumerate management groups and subscriptions in scope and click **Next**.
+
+1. **Azure Tenant Details:**
+  - **Integration Alias:** Enter a user-friendly name for the subscription.
+  - **Tenant ID:** Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
+    1. Sign in to the **Azure portal**.
+    2. On the top right, select your account and then click **Switch directory**.
+    3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
+  - **Zscaler App (Client) ID:** Enter the application or client ID.
+  - **Management Group ID:** Enter the Management Group ID. This field appears if you have selected **Management Group** as an option in the **Select Onboarding Scope** section. You can find the management group ID under **Resource Manager > Organization > Management groups**in Azure Portal. See image.
+  - **Notification Emails (Optional):** Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+2. **App Registration Credentials:** This is required for Zscaler to authenticate your Azure AD app registration before the tenant enumeration begins. Select from one of the following
+  - Client Secret
+  - Certificate
+3. **Grant Reader Role to Zscaler:** Copy the PowerShell one-liner and run it in the **Azure Portal** to assign the built-in **Reader** role to the Zscaler service principal at the tenant root scope. See image. Discovery in the next step fails if this step is not completed. Ensure the Az PowerShell module is installed, and you are signed in with Connect-AzAccount as a User Access Administrator or Owner on the target scope. The Zscaler app must also have admin consent granted in your Azure AD.
+4. **Discover Tenant Hierarchy:** Click **Discover** to enumerate the management groups and subscriptions that Zscaler has read access to. If discovery fails, click **Re-Discover.**
+
+In the **Scope selection** section, select the management groups and subscriptions to include in the scan. Enable autodetection on any management group where all current subscriptions are selected to automatically onboard future subscriptions.
+
+See image.
+
+Custom role definitions are created at the tenant root level and propagate to the selected subscriptions. You can add or remove subscriptions from the integration's Accounts tab with re-onboarding required.
+
+To use client secret as authentication for app registration, do the following:
+
+1. **Client Secret:** Enter the client secret generated as a pre-requisite in the Azure portal.
+2. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID. See image.
+
+Zscaler Generate the client certificate to use a certificate-based authentication for app registration. To generate a client certificate, do the following:
+
+1. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID.
+2. **Download and Validate the Certificate:** Download the client certificate generated by Zscaler for this integration. Upload it to your **Azure AD app registration** under **Certificates & secrets > Certificates**.
+
+See image.
+
+In the **Business Unit Mapping** section, you can do the following and click **Next**.
+
+1. Select a subscription to map a subscription to a business unit for filtering and reporting inside Zscaler.
+2. Click **+ New Business Unit** to add a new business unit.
+3. All subscriptions are assigned to a business unit. If no mapping is specified, then the **Default** option is applied. See image.
+
+In the **Service Selection** section, select the scanning services you want to enable for this integration. Each service you enable adds a specific, scoped set of Azure permissions to the Scanning custom role, ensuring that only the permissions required for the selected services are granted.
+
+See image.
+
+In the **Configuration**section, provide the following details and click **Next**.
+
+1. **Integration and Identity**:
+  - **Integration Alias:** User name set at the time of tenant discovery is autopopulated.
+  - **Application (Client ID):**The application or client ID set at the time of tenant discovery is autopopulated.
+2. **Custom Roles**
+  - **If you choose automated role creation:** The following role names are used for the Azure custom role by the Terraform modules: See image.
+    - Asset Discovery Role Name
+    - Scanning Role Name
+  - **If you choose manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope. Use the Application (Client) ID name as the `principalld`. Ensure your custom role is defined at the Management Group or Tenant scope depending on your onboarding scope. The role assignment is performed at the Subscription scope. See image.
+3. **Evidence Storage (Optional):** AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. See image.
+  - **Evidence Role Name:**The name of the evidence role.
+  - **Storage Account Resource ID:**The resource ID of the storage account.
+  - **Container Name:** The name of the container.
+  - **In case of manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope so it can write evidence collected during scans. Use the **Application (Client) ID** above as the principalId. Ensure your custom role is defined at the Storage account Subscription scope and the role assignment is performed at the evidence Storage accoun
+4. **Tags (Optional):** Configure custom tags to identify the resources created by AI Security.
+  - **Click Add Tag**, and enter key-value pairs to add more tags.
+
+In the **Review & Deploy**section, do the following:
+
+- If you have selected **Automated Role Creation**option**:**Download and deploy the Terraform modules in your Azure environment and then validate that Zscaler can access the scoped APIs before completing onboarding. See image. After deploying the Terraform module against the target scope, click **Save & Complete Onboarding**.
+- If you have selected the **Manual Role Creation** option: Zscaler authenticates using the Application (Client) ID and validates that each custom role assignment grants the required permissions. See image. After creating the custom roles and assigning them at the target scope, click **Save & Complete Onboarding**.
+
+[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
+
+[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
+
+[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
+
+[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
+
+[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
+
+[Image: A storage account page with the annotation around the Container option]
+
+[Image: New container drawer with fields filled out]
+
+[Image: The app registrations page with annotation around Application ID]
+
+[Image: The Certificate and Secrets page with annotations around New client secret]
+
+[Image: The Client secrets page with annotation around value]
+
+[Image: Select the Cloud Type]
+
+[Image: Select Zscaler Hosted in the Deployment Mode window]
+
+[Image: Select the Onboarding Scope as Tenant.]
+
+[Image: Select Automated Role Creation to allow Zscaler to generate the Terraform modules.]
+
+[Image: Add Azure Tenant Details in the Tenant Discovery section.]
+
+[Image: Select Certificate if you want to perform tenant discovery using client certificate.]
+
+[Image: The Request API permissions drawer with the list of Application permissions]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10073,18 +10332,18 @@ Run the following commands to initialize the template. This is required to manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-github-tenant","lastmod":"2026-08-15T07:06Z","nid":"1541396"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-github-tenant","lastmod":"2026-10-11T22:14Z","nid":"1541396"} -->
 ## Onboarding GitHub Tenant
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-github-tenant
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Code Repository Onboarding > Onboarding GitHub Tenant
-- Last modified: 2026-08-15T07:06Z
+- Last modified: 2026-10-11T22:14Z
 - Summary: Information about adding GitHub tenant and select repositories in the AI Security Admin Portal.
 
 Onboarding a GitHub tenant to AI Security Admin Portal connects your organization’s GitHub environment (enterprise, organizations, and repositories) to the AI Security Admin Portal. This connection enables AI Security to discover, assess, and help you govern AI-related activity and risks across your codebase and developer workflows. The system checks for new repositories twice daily, at 12:00 AM and 12:00 PM UTC.
 
-The supported agentic frameworks are CrewAI, n8n, OpenAI Agents, Langchain, and Pydantic AI.
+The following agentic frameworks are supported: CrewAI, n8n, OpenAI Agents, Langchain, Pydantic AI, Google ADK, LlamaIndex, DeepAgents, Strands, Microsoft Agent Framework and Haystack.
 
 To onboard a GitHub tenant, do the following:
 
@@ -10529,13 +10788,255 @@ To onboard an AWS account:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-06T20:00Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-zscaler-hosted-single-azure-subscription","lastmod":"2026-10-14T06:37Z","nid":"1546717"} -->
+## Onboarding Zscaler Hosted Single Azure Subscription
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-zscaler-hosted-single-azure-subscription
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Zscaler Hosted Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Onboarding Zscaler Hosted Single Azure Subscription
+- Last modified: 2026-10-14T06:37Z
+- Summary: Information on how to onboard a Zscaler Hosted single Azure subscription.
+
+You can onboard a single Azure subscription.
+
+## Prerequisites
+
+Before onboarding a single Azure subscription, ensure you have completed the following:
+
+- Create the following in the Microsoft Entra ID:
+  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
+  2. Client secret: If you want to create an integration using client secret which is a confidential string that is used as a password for the application created. See instructions.
+  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
+- Ensure you have the following roles to deploy the templates and grant API permissions.
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
+
+## Onboarding a Zscaler Hosted Single Azure Subscription
+
+To onboard a single Azure subscription:
+
+- 1. Select a Deployment Mode.
+- 2. Select an Onboarding Scope.
+- 3. Select a Configuration Creation Mode.
+- 4. Select Services.
+- 5. Provide Configuration Details.
+- 6. Configure Business Unit Mapping.
+- 7. Review & Deploy.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
+4. On the **Register an application** page, provide the following details and click **Register**.
+  - **Name**: Enter a unique name for the application.
+  - **Supported account types**: Select the subscription.
+
+The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
+
+See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
+5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
+6. In the **Add a client secret** drawer:
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+7. Click **Add**.
+8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **API permissions**.
+5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
+6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**. You must have the Privileged Role Administrator role in the Microsoft Entra ID to grant API permissions.
+8. In the **Grand admin consent confirmation** window, click **Yes**.
+
+Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+To create a resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
+2. Click **+Create**. See image. The **Create a resource group** drawer appears
+3. In the **Create a resource group** drawer, on the **Basics** tab:
+  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
+  2. **Resource group**: Enter a unique name for the resource group.
+  3. **Region**: Select a region where the resource group must be created.
+4. Click **Review + create**. See image.
+
+Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
+To create a storage account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Click **+Create**. See image. The **Create a storage account** drawer appears.
+3. In the **Create a storage account** window, on the **Basics** tab:
+  1. **Subscription**: Select your Azure subscription.
+  2. **Resource group**: Select the resource group that you created.
+  3. **Storage account name**: Enter a unique name for the storage account.
+  4. **Region**: Select location where the storage account must be created.
+4. Click **Review + create**. See image.
+
+A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+
+To create a storage account container:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Locate the storage account you created and click the storage account.
+3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
+4. Click **+Container**. See image.
+5. In the **New container** drawer: See image.
+  1. **Name**: Enter a unique name for the container.
+  2. **Anonymous access level**: Select the access level for the container.
+6. Click **Create**.
+
+| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
+| --- | --- | --- | --- |
+| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
+| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
+| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
+| Windows - Command line | v1.7.5 | 2.67.0 | NA |
+| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+
+| Scope | Role |
+| --- | --- |
+| Root Tenant Management Group Target Subscription | User Access Administrator (Based on your onboarding scope) |
+| Storage account | Storage Account Contributor (For Terraform State File) |
+| Microsoft Entra ID | Privileged Role Administrator (For granting the API permission) |
+
+To onboard an Azure single subscription, you must first select the deployment mode.
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window, for **Select Cloud Type**, click the**Azure** tile. See image.
+4. Click **Next**.
+5. In the **Select Deployment Mode** section, choose **Zscaler Hosted**. See image.
+6. Click **Next**.
+
+In the **Select Onboarding Scope** section, select **Subscription**to onboard a single Azure subscription without requiring tenant enumeration and click **Next**.
+
+See image.
+
+In the **Configuration Creation Mode** section, select one of the following and click **Next**.
+
+- **Automated Role Creation:** To allow Zscaler to generate Terraform modules for the custom role and role assignment using the `azurerm` provider.
+- **Manual Role Creation:** To create a custom role and assign roles using the existing workflow. See image.
+
+In the **Business Unit Mapping** section, you can do the following and click **Next**.
+
+1. Select a subscription to map a subscription to a business unit for filtering and reporting inside Zscaler.
+2. Click **+ New Business Unit** to add a new business unit.
+3. All subscriptions are assigned to a business unit. If no mapping is specified, then the **Default** option is applied. See image.
+
+In the **Service Selection** section, select the scanning services you want to enable for this integration. Each service you enable adds a specific, scoped set of Azure permissions to the Scanning custom role, ensuring that only the permissions required for the selected services are granted.
+
+See image.
+
+In the **Configuration**section, provide the following details and click **Next**.
+
+1. **Azure Tenant Details:**
+  1. **Integration Alias:** Enter a user-friendly name for the subscription.
+  2. **Tenant ID:** Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
+    1. Sign in to the **Azure portal**.
+    2. On the top right, select your account and then click **Switch directory**.
+    3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
+  3. **Zscaler App (Client) ID:** Enter the application or client ID.
+  4. **Subscription ID:** Enter the Subscription ID. You can find the **Subscription ID** under **Subscriptions**in the **Azure Portal**. See image.
+  5. **Subscription Name (Optional):** Enter a subscription name.
+  6. **Notification Emails (Optional):** Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+2. **App Registration Credentials:** This is required for Zscaler to authenticate your Azure AD app registration before the tenant enumeration begins. Select from one of the following
+  - Client Secret
+  - Certificate
+3. **Custom Roles**
+  - **If you choose automated role creation:**The following role names are used for the Azure custom role by the Terraform modules:
+    - Asset Discovery Role Name
+    - Scanning Role Name See image.
+  - **If you choose manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscalerservice principal at your target scope. Use the Application (Client) ID name as the `principalld`. Ensure your custom role is defined at the subscription scope depending on your onboarding scope. The role assignment is performed at the Subscription scope. See image.
+4. **Evidence Storage (Optional):** AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. See image.
+  - **Evidence Role Name:**The name of the evidence role.
+  - **Storage Account Resource ID:**The resource ID of the storage account.
+  - **Container Name:** The name of the container.
+  - **In case of manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope so it can write evidence collected during scans. Use the **Application (Client) ID** above as the principalId. Ensure your custom role is defined in the Storage account Subscription scope and the role assignment is performed at the evidence Storage account.
+5. **Tags (Optional):** Configure custom tags to identify the resources created by AI Security.
+  - **Click Add Tag**, and enter key-value pairs to add more tags.
+
+In the **Review & Deploy**section, do the following:
+
+- If you have selected **Automated Role Creation**option**:**Download and deploy the Terraform modules in your Azure environment and then validate that Zscaler can access the scoped APIs before completing onboarding. See image. After deploying the Terraform module against the target scope, click **Save & Complete Onboarding**.
+- If you have selected the **Manual Role Creation** option: Zscaler authenticates using the **Application (Client) ID** and validates that each custom role assignment grants the required permissions. See image. After creating the custom roles and assigning them at the target scope, click **Save & Complete Onboarding**.
+
+To use client secret as authentication for app registration, do the following:
+
+1. **Client Secret:** Enter the client secret generated as a pre-requisite in the Azure portal.
+2. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID. See image.
+
+Zscaler generates the client certificate to use a certificate-based authentication for app registration. To generate a client certificate, do the following:
+
+1. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID.
+2. **Download and Validate the Certificate:** Download the client certificate generated by Zscaler for this integration. Upload it to your **Azure AD app registration** under **Certificates & secrets > Certificates**.
+
+See image.
+
+[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
+
+[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
+
+[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
+
+[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
+
+[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
+
+[Image: A storage account page with the annotation around the Container option]
+
+[Image: New container drawer with fields filled out]
+
+[Image: The app registrations page with annotation around Application ID]
+
+[Image: The Certificate and Secrets page with annotations around New client secret]
+
+[Image: The Client secrets page with annotation around value]
+
+[Image: Select the Cloud Type]
+
+[Image: Select Zscaler Hosted in the Deployment Mode window]
+
+[Image: Select the Onboarding Scope as Tenant.]
+
+[Image: Select Automated Role Creation to allow Zscaler to generate the Terraform modules.]
+
+[Image: Add Azure Tenant Details in the Tenant Discovery section.]
+
+[Image: Select Certificate if you want to perform tenant discovery using client certificate.]
+
+[Image: The Request API permissions drawer with the list of Application permissions]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-14T10:01Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-06T20:00Z
+- Last modified: 2026-10-14T10:01Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.
@@ -10674,13 +11175,13 @@ To run an On-Demand scan, complete the following steps in the AI Security Admin 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/selecting-orchestrator-and-monitoring-scope","lastmod":"2026-06-18T21:06Z","nid":"1540184"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/selecting-orchestrator-and-monitoring-scope","lastmod":"2026-10-16T02:13Z","nid":"1540184"} -->
 ## Selecting the Orchestrator and Monitoring Scope
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/selecting-orchestrator-and-monitoring-scope
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Selecting the Orchestrator and Monitoring Scope
-- Last modified: 2026-06-18T21:06Z
+- Last modified: 2026-10-16T02:13Z
 - Summary: Information on how to select the orchestrator and monitoring scope in the AI Security Admin Portal.
 
 After deploying the [tree discovery template](https://help.zscaler.com/ai-asset-mgmt/deploying-tree-discovery-template) when [onboarding a Microsoft Entra tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-entra-tenant), select orchestrator and monitoring scope.
@@ -10740,7 +11241,7 @@ To configure the orchestrator, click **Configure Orchestrator**.
   - **Subnet ID**: Enter the subnet where the orchestrator instances must be launched.
   - **Network Security Group ID**: Enter the network security group for the orchestrator instance.
   - **Storage Account Name**: Enter a unique name for the storage account. This storage account is created while deploying the onboarding template and is used to store the activity logs of the target subscriptions. AI Security validates the uniqueness of the storage account name if Microsoft.Storage is registered. If the storage account name already exists, AI Security displays an error message. The storage account name cannot exceed 16 characters.
-  - Select the **Deploy private endpoint for secure communication** checkbox to establish a private connection between AI Security and Azure resources. This restricts communication over public IP addresses. You can also establish or remove the private connection after onboarding the tenant. On the **Overview**page, select **Manage Private Endpoint** from the **Manage**drop-down menu, and then select or deselect the checkbox.
+  - Select the **Deploy private endpoint for secure communication** checkbox to establish a private connection between AI Security and Azure resources. This restricts communication over public IP addresses. You can also establish or remove the private connection after onboarding the tenant. On the **Overview**page, select **Manage Private Endpoint** from the **Manage**drop-down menu, and then select or deselect the checkbox. If you select a private endpoint, ensure that `terraform apply` is executed from a VM with a network line-of-sight to the key vaults.
 2. Click **Next**.
 3. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. Select the **Leverage MIP Label** checkbox to allow AI Security to apply Microsoft Information Protection (MIP) sensitivity labels to Azure File Share. AI Security automatically excludes Azure Storage accounts used for storing logs.
 4. On the **Configure Regions for monitoring and scanner's configuration** page: Remember the regionsthat you selected as you need to specify them while deploying the orchestrator template.
@@ -15475,409 +15976,4 @@ See image.
 [Image: Lookalike domain details page showing key information in the EASM Admin Portal]
 
 [Image: Lookalike domain status change in the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/what-zscaler-easm","lastmod":"2025-01-06T23:56Z","nid":"1503636"} -->
-## What Is Zscaler EASM?
-
-- Source: https://help.zscaler.com/easm/what-zscaler-easm
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Getting Started > What Is Zscaler EASM?
-- Last modified: 2025-01-06T23:56Z
-- Summary: Information on Zscaler External Attack Surface Management (EASM), its features, benefits, and use cases for securing internet-facing assets.
-
-In today's digital landscape, organizations face an ever-expanding attack surface due to rapid cloud adoption, the proliferation of shadow IT, and the continuous evolution of cyber threats. Zscaler External Attack Surface Management (EASM) addresses these challenges to help organizations gain visibility into and protect their internet-facing digital assets.
-
-External Attack Surface Management refers to the continuous discovery, inventory, classification, and monitoring of an organization's digital assets that are exposed to the internet. These assets include domains, IP addresses, subdomains, SSL/TLS certificates, and more. EASM tools are crucial because they provide a real-time view of the external attack surface, helping organizations identify and mitigate vulnerabilities before they can be exploited by malicious actors.
-
-Zscaler EASM distinguishes itself by integrating advanced scanning techniques and intelligence gathering with Zscaler's Zero Trust Exchange (ZTE) platform. This integration allows the tool to not only identify exposed assets but also prioritize vulnerabilities based on the likelihood of exploitation and the potential impact on the organization.
-
-## Key Features and Benefits
-
-The key features and benefits offered by EASM for managing and securing your external attack surface are as follows:
-
-- **Comprehensive Asset Discovery**: EASM uses both passive and active scanning methods to continuously discover and inventory all internet-facing assets. This includes not only known assets but also forgotten or unknown assets in your digital infrastructure that might have been overlooked.
-- **Risk-Based Prioritization**: Unlike traditional vulnerability management tools that focus solely on severity, EASM employs a risk-based approach. It considers factors such as exploit likelihood, derived from sources like the CISA KEV catalog, to prioritize remediation efforts.
-- **Real-Time Monitoring**: EASM continuously monitors the discovered assets for changes or new vulnerabilities, providing real-time alerts to security teams. This proactive approach ensures that organizations can respond swiftly to emerging threats.
-- **Actionable Insights**: EASM not only identifies vulnerabilities but also provides detailed remediation guidance. This includes suggestions for mitigating risks associated with misconfigurations, outdated software, and other security issues.
-
-## EASM Use Cases
-
-The following use cases highlight how EASM empowers organizations in different scenarios to enhance their security posture:
-
-- **Security Posture Management**: By providing a complete view of the external attack surface, EASM helps organizations manage their security posture effectively, ensuring that all internet-facing assets are secure and compliant.
-- **M&A Diligence**: During mergers and acquisitions, EASM can be used to assess the security posture of the target company's digital footprint, identifying any potential risks that need to be addressed.
-- **Continuous Compliance Monitoring**: EASM supports compliance efforts by continuously monitoring and reporting on the organization's external assets, helping to meet regulatory requirements.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
-## About Alerts
-
-- Source: https://help.zscaler.com/identity-protection/about-alerts
-- Product: Identity Protection
-- Path: Identity Protection Help > Alerts > About Alerts
-- Last modified: 2026-07-12T07:06Z
-- Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
-
-Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
-
-Alerts provide the following benefits and enable you to:
-
-- Review alerts aggregated from different sources to get in-depth insights about identity-related threats across your organization.
-- Review the alert details and remediate the issues.
-
-## About the Alerts Page
-
-On the Alerts page (Identities > Alerts), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for an alert.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
-5. See the number of alerts triggered for each integrated product.
-6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
-7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
-8. Select alerts from the list, and click **Update**to change the following settings:
-  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
-  - **Title**: Enter the title for the alert.
-  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
-9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
-10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
-11. Refresh the alerts table to reflect the most current information.
-12. Export the list of alerts and their associated details as a CSV file.
-13. Modify the columns displayed in the table.
-14. Click an alert to view its details. For each alert, you can see:
-  - **ID**: The unique identifier of the alert.
-  - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Severity Score**: The severity score of the alert.
-  - **Title**: The title of the alert.
-  - **Created**: The date the alert was created.
-  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
-  - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
-  - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
-
-[Image: The Alerts page in the Identities app]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-identity-findings","lastmod":"2026-05-17T07:06Z","nid":"1538792"} -->
-## About Identity Findings
-
-- Source: https://help.zscaler.com/identity-protection/about-identity-findings
-- Product: Identity Protection
-- Path: Identity Protection Help > Identity Findings > About Identity Findings
-- Last modified: 2026-05-17T07:06Z
-- Summary: Information about identity findings in Identity Protection.
-
-Identity Findings provide visibility into identity-related security issues detected across connected identity providers and directories. These findings highlight misconfigurations, insecure authentication methods, exposed credentials, and other identity risks that attackers could exploit. Security teams can review the security risks and prioritize remediation based on severity.
-
-Identity Findings provides the following benefits and enables you to:
-
-- Identify identity-related security risks such as exposed credentials, insecure authentication methods, and misconfigured settings.
-- Prioritize remediation based on severity.
-- Monitor identity security posture over time using severity trends and distribution insights.
-- Investigate affected identity entities such as users, groups, or applications associated with each finding.
-- Understand potential attack paths through mapped adversary tactics and techniques associated with identity risks.
-
-## About the Identity Findings Page
-
-On the Identity Findings page (Identities > Identity Findings), you can do the following:
-
-1. [Filter identity findings based on different parameters](https://help.zscaler.com/identity-protection/using-filters) (e.g., **Title**, **Tenant Name**, and **MITRE ATT&CK ID**).
-2. Search for an identity finding based on keywords.
-3. View the summary of identity findings in the following widgets:
-  - **Identity Findings Severity Over Time**: Displays the trend of identity findings across severity levels (**Critical**, **High**, **Medium**, or **Low**) over a period of time.
-  - **Identity Findings Severity**: Displays the distribution of identity findings by severity level (**Critical**, **High**, **Medium**, or **Low**).
-4. View the list of identity findings across tenants of identity providers and directories. For each finding, you can see:
-  - **ID:**The unique identifier for the identity finding.
-  - **Severity Score**: The risk level of the finding based on the severity score.
-  - **Title**: The title of the finding.
-  - **Tenant**: The tenant where the finding was detected.
-  - **Affected Entities**: The count and type of the impacted entities.
-  - **Vulnerability Exploit Ease**: How easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
-  - **Techniques**: The relevant MITRE techniques associated with the risk.
-  - **Last Seen**: When the finding was first and most recently detected.
-  - **Vulnerability Remediate Ease**: How easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
-5. Group the list of identity findings based on specific parameters (e.g., **Identity Finding ID**, **Identity Finding First Seen**, **Identity Finding Last Seen**).
-6. Refresh the data in the identity findings list.
-7. Export the identity findings list as a CSV file.
-8. Customize the identity findings list by including or excluding specific columns.
-9. [View detailed information for each identity finding](https://help.zscaler.com/identity-protection/viewing-identity-finding-details).
-10. Display a different page of the identity findings list.
-
-[Image: About the Identity Findings page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-remediation-dashboard","lastmod":"2026-10-06T10:07Z","nid":"1545650"} -->
-## About the Remediation Dashboard
-
-- Source: https://help.zscaler.com/identity-protection/about-remediation-dashboard
-- Product: Identity Protection
-- Path: Identity Protection Help > Analytics > About the Remediation Dashboard
-- Last modified: 2026-10-06T10:07Z
-- Summary: Information on the Remediation dashboard in Identity Protection.
-
-The Remediation dashboard in Identity Protection provides insights into critical identity risks such as insecure account management, credential exposure, etc. You can view metrics related to severity distribution, exploitability, remediation ease, and findings across tenant, type, and identities. This helps security teams to assess the risks, prioritize recurring issues, and remediate quickly.
-
-The Remediation dashboard provides the following benefits and enables you to:
-
-- Have consolidated visibility into identity risks across tenants, categories, and user types.
-- Prioritize vulnerabilities based on exploit and remediation ease.
-- Strengthen security posture with actionable insights, including configuration changes, privilege adjustments, and alternative control applications.
-
-## About the Remediation Dashboard
-
-On the Remediation dashboard (Identities > Remediation), you can do the following:
-
-1. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific data and [save a view](https://help.zscaler.com/unified/creating-managing-saved-views).
-2. Click the **Export** icon to download the data as a PDF.
-3. View statistics of critical findings in the following widgets:
-  - Statistics
-  - Critical Findings By Tenant
-  - Critical Findings By Type
-  - Critical Findings By Remediation Ease
-  - Critical Findings By Exploit Ease
-  - Critical Findings By Admin
-  - Findings By User Type
-  - Admin Related Critical Findings By Exploit Ease
-
-View the total critical findings that can be easily exploited and remediated, and newly detected critical findings.
-
-See image.
-
-[Image: Critical identity findings overview]
-
-View the distribution of identity risks across tenants in a bar chart. Each bar represents tenants and the number of critical findings detected.
-
-See image.
-
-[Image: Critical findings distribution across tenants]
-
-View the identity risks categorized by vulnerability type, such as insecure password and group management, weak authentication measures, insecure permissions, etc.
-
-See image.
-
-[Image: Critical findings based on type]
-
-View the identity risks based on the effort required to fix them. The donut chart divides critical findings into easy, moderate, and difficult. This breakdown helps you understand both the scale of critical issues and the effort required to address them.
-
-The chart shows the proportion of findings in each category, while the table lists vulnerabilities, such as exposed passwords, legacy authentication, or missing MFA, along with their remediation ease.
-
-See image.
-
-[Image: Critical findings based on remediation ease and vulnerability]
-
-View identity vulnerabilities based on how easily an attacker can exploit them. The donut chart divides critical findings into exploitable levels, such as easy, moderate, and difficult. The chart shows the distribution across these categories, while the table lists specific vulnerabilities, such as excessive access groups, exposed passwords, or legacy authentication, along with their exploit ease rating. Easily exploitable represents the highest risk because these findings require minimal attacker effort, where difficulty demands more advanced attack techniques.
-
-See image.
-
-View the distribution of critical identity findings across different categories of users. The donut chart provides a quick visual breakdown of internal users, external users, and other identities, with the total number of findings displayed at the center.
-
-See image.
-
-[Image: Critical findings based on exploit ease and severity]
-
-View the identity vulnerabilities associated with administrative accounts. The donut chart shows the proportion of admin accounts with active critical findings, indicating risk spread. The table breaks down the type of vulnerabilities detected, such as weak authentication measures, insecure permissions, privilege management issues, etc.
-
-See image.
-
-[Image: Critical findings based on admin account and vulnerability]
-
-[Image: Remediation Dashboard with critical findings, filters, downloads, and widgets]
-
-[Image: Critical findings based on user type]
-
-View vulnerabilities associated with administrative accounts, indicating ease level of attack and number of active critical findings. The table helps security teams identify which admin-related risks are most susceptible to attack by categorizing issues into exploitability levels, such as Easy or Moderate, and pairing them with severity and counts.
-
-See image.
-
-[Image: Critical findings for admins based on exploit ease]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-10-02T21:06Z","nid":"1538950"} -->
-## About Tenants
-
-- Source: https://help.zscaler.com/identity-protection/about-tenants
-- Product: Identity Protection
-- Path: Identity Protection Help > Tenants > About Tenants
-- Last modified: 2026-10-02T21:06Z
-- Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
-
-You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
-
-Managing tenants provides the following benefits and enables you to:
-
-- Identify high-risk tenants and impacted identities.
-- View tenant details and identity findings for each tenant.
-
-## About the Tenants Page
-
-On the Tenants page (Identities > Tenants), you can do the following:
-
-1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
-2. Search for a tenant.
-3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
-4. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific information.
-5. View the number of tenants grouped by severity level (e.g., **Critical**, **High**, **Medium**, and **Low**).
-6. View the total identity findings across all tenants.
-7. View the total active identity providers with identity findings.
-8. Group tenants by category (e.g., **Tenant First Seen**, **Tenant Last Seen**, **Tenant Tags**, etc).
-9. Refresh the table to reflect the most current information.
-10. Export the list of tenants and their associated details as a CSV file.
-11. [Modify the columns displayed in the table](https://help.zscaler.com/unified/managing-table-columns).
-12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
-  - **ID**: The unique identifier of the tenant.
-  - **Name**: The name of the tenant.
-  - **Severity Score**: The severity score of the tenant.
-  - **Total Identity Findings**: The total number of critical, high, medium, and low identity findings for the tenant.
-  - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
-  - **Last Seen**: The date of the most recent activity.
-  - **State**: The state of the tenant's account (**Active**or **Inactive**).
-  - **Identity Provider**: The identity provider configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
-  - **Next Scan**: The date and time of the next scan for a data sync.
-
-[Image: Tenants page in the Identities app.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-09-07T03:55Z","nid":"1538791"} -->
-## Managing ITDR Configurations
-
-- Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
-- Product: Identity Protection
-- Path: Identity Protection Help > Managing ITDR Configurations
-- Last modified: 2026-09-07T03:55Z
-- Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
-
-You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
-
-The ITDR Config page is organized into the following sections:
-
-- ITDR Manage
-- ITDR Settings
-- Endpoint Settings
-- Server Agent Settings
-
-Configure identity scans and policies for posture, change detection, credential exposure, and identity threats across AD, Entra ID, and Okta.
-
-- **Active Directory (AD) Posture Scan**: You can configure AD posture scans by choosing attributes, selecting domain controllers, defining scan timeouts, and running scans on demand. To learn more, see [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture-scan).
-- **Active Directory Privileged Account Tracking**: Track high-risk AD accounts by defining which privileged users to monitor for misuse and threats. This enables monitoring of sensitive accounts to detect suspicious activity or privilege abuse. To learn more, see [About Active Directory Privileged Account Tracking](https://help.zscaler.com/itdr/about-active-directory-privileged-account-tracking).
-- **Endpoint Credential Exposure Scan**: Scan endpoints for exposed credentials and secrets to uncover theft and privilege-escalation risks. This feature strengthens detection of credential harvesting from user systems. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
-- **Entra ID Posture Scan**: Connect Entra ID tenants, deploy scanners, and run posture checks on identities and configurations. This provides visibility into misconfigurations and risky identity settings within Entra ID environments. To learn more, see [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
-- **Threat Detection Policies**: Configure and tune threat detection policies to monitor identity attacks, define detection scope, evaluate findings, and protect Active Directory. These policies determine how identity threats are identified and evaluated across the environment. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
-- **Okta**: Integrate with Okta to enrich the identity metadata, identify real-time changes to an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
-- **Active Directory Change Detection**: Configure and manage AD change detection policies to monitor critical directory changes and trigger security alerts. This helps track risky modifications in AD objects and configurations. To learn more, see [About Active Directory Change Detection Policies](https://help.zscaler.com/itdr/about-active-directory-change-detection-policies).
-- **Entra Change Detection**: Configure Entra ID change detection policies to track critical directory changes, apply custom rules, and trigger alerts on risky activities. This provides real-time visibility into high-impact changes within Entra ID. To learn more, see [About Entra ID Change Detection Policies](https://help.zscaler.com/itdr/about-entra-id-change-detection-policies).
-
-You can use the ITDR Settings section to configure safelists for AD and Entra ID issues and objects. Safelists allow you to exclude known, trusted, or accepted issues and objects from being accounted for risk scores and reduce alert noise.
-
-- **Active Directory Issue Safelist:** Exclude known, accepted AD issues from posture scans and alerts. To learn more, see [About the Active Directory Issue Safelist](https://help.zscaler.com/itdr/about-active-directory-issue-safelist).
-- **Active Directory Object Safelist**: Exclude trusted AD objects from identity issues, alerts, and posture findings. To learn more, see [About the Active Directory Object Safelist](https://help.zscaler.com/itdr/about-active-directory-object-safelist).
-- **Active Directory Change Detection Issue Safelist**: Add, view, and manage safelisted change-detection issues to suppress expected alerts and focus on real identity risks. To learn more, see [Adding a Change Detection Issue to the Safelist](https://help.zscaler.com/itdr/adding-change-detection-issue-safelist).
-- **Active Directory Change Detection Object Safelist**: Exclude specific AD objects from change detection issues to reduce alert noise. To learn more, see [About the AD Change Detection Object Safelist](https://help.zscaler.com/itdr/about-ad-change-detection-object-safelist).
-- **Entra ID Issue Safelist**: Suppress known Entra ID findings so change detection focuses on relevant identity risks. To learn more, see [About the Entra ID Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-issue-safelist).
-- **Entra ID Object Safelist**: Exclude known safe Entra ID objects from detection to reduce false positives. To learn more, see [About the Entra ID Object Safelist](https://help.zscaler.com/itdr/about-entra-id-object-safelist).
-- **Entra ID Change Detection Issue Safelist:** Suppress alerts for known Entra ID change-detection issues while maintaining visibility into real threats. To learn more, see [About the Entra ID Change Detection Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-issue-safelist).
-- **Entra ID Change Detection Object Safelist**: Exclude trusted objects from Entra ID change detection so expected changes do not trigger issues. To learn more, see [About the Entra ID Change Detection Object Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-object-safelist).
-
-You can use the Endpoint Settings section to configure and control endpoint agents, monitor user systems, run targeted scans, and detect identity threats.
-
-- Agents: Monitor and manage all endpoint agents. You can view device details, check policy status, review logs, and take action directly when needed.
-- Agent Configuration: Customize how agents behave by renaming services, adding descriptions, automatically cleaning up duplicates. This improves manageability of deployed agents.
-- Agent Update Groups: Control agent updates by, grouping endpoints, rolling out updates in phases, tracking update progress, and exporting update details. This allows controlled and phased deployment of endpoint agent updates.
-
-To learn more, see [About Endpoint Settings](https://help.zscaler.com/itdr/about-endpoint-settings).
-
-You can use the Server Agent Settings section to configure and control server agents, manage domain settings, monitor authentication activity, and detect identity threats.
-
-- **Domains**: Manage domains and controllers to track domain health, monitor logons, identify weak or compromised passwords. This provides centralized visibility into domain-level identity security.
-- **Agents**: Monitor and manage server agents. You can view system's status, review policies and logs, take action directly when needed.
-- **Agent Update Groups**: Control server agent updates by grouping servers, managing phased rollouts, monitoring update status, etc.
-- **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
-
-To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-09-23T01:49Z","nid":"1539537"} -->
-## Release Upgrade Summary (2026)
-
-- Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
-- Product: Identity Protection
-- Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-23T01:49Z
-- Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
-
-This article provides a summary of all new features and enhancements for Identity Protection.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-24T23:24Z","nid":"1543189"} -->
-## Step-by-Step Configuration Guide for Identity Protection
-
-- Source: https://help.zscaler.com/identity-protection/step-step-configuration-guide-identity-protection
-- Product: Identity Protection
-- Path: Identity Protection Help > Step-by-Step Configuration Guide for Identity Protection
-- Last modified: 2026-09-24T23:24Z
-- Summary: How to configure Identity Protection, set up identity scans, and configure threat detection.
-
-This guide explains the configuration steps that you need to complete to begin using Identity Protection for your organization.
-
-Before you begin configuring Identity Protection, Zscaler recommends reading the following articles:
-
-- [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
-- [Understanding Identity Protection Architecture](https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture)
-- [What Is the Agentic Security Operations Platform?](https://help.zscaler.com/unified/what-security-operations-platform)
-- [MITRE ATT&CK Overview](https://attack.mitre.org/)
-
-## Configuring Identity Protection
-
-To configure Identity Protection, complete the following steps:
-
-- Step 1: Set Up Your Account
-- Step 2: Configure Users & Roles
-- Step 3: Assess the Security Threats
-- Step 4: Monitor Threats Using Dashboards and Reports
-- Step 5: Remediate Identity Risks
-
-After your organization is provisioned for the Agentic Security Operations Platform (SecOps Platform), you will receive an email at your registered email address with a username and password to sign in to the Agentic SecOps Platform Admin Portal. To learn more, see [Signing In to the Agentic Security Operations Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal).
-
-Add users and assign roles to control their level of access to the SecOps Platform. To learn more, see [User Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-administration/account-management/user-management).
-
-Identity Protection includes comprehensive charts, tables, and graphs that provide visibility into the identity threats in your organization. You can use the interconnected data points to easily switch from macro to micro views, and drill down to view granular details (e.g., click identity findings on the dashboard to show the identity details).
-
-Use the following basic workflow to assess threat risks:
-
-- a. Evaluate overall findings.
-- b. View a list of users.
-- c. View a list of tenants.
-- d. Assess identity‑related security risks.
-- e. Review the alerts associated with identity findings.
-
-TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately.
-
-View a list of users, their identity types, and the total number of critical or high-severity findings to take the necessary action. To learn more, see [About Users in the Agentic Security Operations Platform](https://help.zscaler.com/unified/about-users-security-operations-platform).
-
-View a list of tenant accounts and the total identity findings with their severity levels for all active tenants. To learn more, see [About Tenants](https://help.zscaler.com/identity-protection/about-tenants).
-
-View a list of identity-related security issues detected across connected identity sources, such as Active Directory or Entra ID. These findings help you analyze misconfigurations, exposed credentials, and other risks. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings).
-
-View alerts from all source applications on the Alerts page. To learn more, see [About Alerts](https://help.zscaler.com/identity-protection/about-alerts).
-
-After you've examined the identity data, you can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to better analyze threat data in your organization.
-
-View the identity findings categorized by tenant, admins, user types, ease of remediation, etc. To learn more, see [About the Remediation Dashboard](https://help.zscaler.com/identity-protection/viewing-remediation-dashboard).
 <!-- /ZS-ARTICLE -->

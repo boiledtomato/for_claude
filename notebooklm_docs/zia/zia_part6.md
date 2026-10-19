@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 112
 
 ---
@@ -8282,13 +8282,13 @@ To learn more about the configuration steps, refer to the [Okta documentation](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-09-29T13:05Z","nid":"1402326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-10-13T21:06Z","nid":"1402326"} -->
 ## Obfuscating Device Information for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-device-information-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating Device Information for Admins
-- Last modified: 2026-09-29T13:05Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: How to obfuscate device information for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether device information (i.e., device hostname, device owner, and device name) are visible or obfuscated for an admin when they view dashboards, reports, or insights.
@@ -8355,13 +8355,13 @@ For convenience, Zscaler recommends creating the admin role first so you can ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-09-29T13:04Z","nid":"1399736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-10-13T21:06Z","nid":"1399736"} -->
 ## Obfuscating User Names for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-user-names-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating User Names for Admins
-- Last modified: 2026-09-29T13:04Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: How to obfuscate user names for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether real user names are visible or obfuscated for an admin when they view dashboards, reports, or insights. You can also obfuscate user names in NSS feeds. To learn more, see [Adding NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-nss-feeds-web-logs), [Adding NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs), and [Adding NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-nss-feeds-dns-logs).
@@ -8428,13 +8428,13 @@ For convenience, Zscaler recommends creating the admin role first so you can ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-10-09T05:36Z","nid":"1532890"} -->
+<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-10-15T01:12Z","nid":"1532890"} -->
 ## Permissions for Onboarding SaaS Apps for SSPM
 
 - Source: https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Permissions for Onboarding SaaS Apps for SSPM
-- Last modified: 2026-10-09T05:36Z
+- Last modified: 2026-10-15T01:12Z
 - Summary: Information on the read-only permissions for SaaS apps.
 
 You can onboard Software as a Service (SaaS) applications for the SaaS Security Posture Management (SSPM) scan with read-only permissions. SSPM typically requires read-only access to perform posture assessments.
@@ -8600,110 +8600,110 @@ A System Administrator User is required to onboard Salesforce for SSPM.
 
 | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Permission Sets** >**App Permissions**: Query All Files | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | Yes | No | Yes | Yes | To execute SOQL to fetch Salesforce organization metadata. |
-| **Permission Sets** >**App Permissions**: Query All Files **Permission Sets** > **System Permissions**: View Health Check; Manage Sharing; Manage Certificates | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | Yes | Yes | To read organization settings and metadata. Manage Sharing, Manage Certificates are not read only and inevitable since Salesforce does not have any granular permission related to them due to the permission model of Salesforce. |
-| **Permission Sets** > **System Permissions**: Modify Meta-data through Meta-data API Func-tions; Custo-mize Appl-ication | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | Yes | Yes | To fetch and remedy salesforce metadata like remote site settings, connected apps etc. This permission is inevitable since there is no read-only equivalent permission to access metadata API. |
-| **Permission Sets** > **System Permissions**: Modify All Data | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | No | Yes | To perform remediation. |
+| **Permission Sets** >**App Permissions**: Query All Files | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | Yes | No | Yes | Yes | To execute SOQL to fetch Salesforce organization metadata |
+| **Permission Sets** >**App Permissions**: Query All Files **Permission Sets** > **System Permissions**: View Health Check; Manage Sharing; Manage Certificates | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | Yes | Yes | To read organization settings and metadata Manage Sharing, Manage Certificates are not read only and inevitable since Salesforce does not have any granular permission related to them due to the permission model of Salesforce. |
+| **Permission Sets** > **System Permissions**: Modify Metadata through Metadata API Functions; Customize Application | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | Yes | Yes | To fetch and remedy Salesforce metadata like remote site settings, connected apps, etc. This permission is inevitable since there is no read-only equivalent permission to access metadata API. |
+| **Permission Sets** > **System Permissions**: Modify All Data | User with  **License**: Salesforce/Salesforce API Integration **Profile**: System Administrator/Minimum Access - API Only Integrations | No | No | No | Yes | To perform remediation |
 
 **Prerequisite**
 An Integration System User is required to onboard Workday for SSPM.
 
 | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
 | --- | --- | --- | --- | --- | --- | --- |
-| Workday Query Language | Integration System User | Yes | Yes | Yes | No | To execute the `SELECT`query via the WQL endpoint to retrieve account metadata. |
-| Workday Accounts | Integration System User | Yes | Yes | Yes | No | To view account-level security settings, including `accountDisabledOrExpired`, `sessionTimeoutMinutes`, and `isIntegrationUser`. |
-| Security Administration | Integration System User | Yes | Yes | Yes | No | To read security policies, MFA settings (`one_TimePasscode...`), and authentication exclusions. |
-| System Auditing | Integration System User | Yes | No | Yes | No | To read access to system logs and audit trails, specifically for the `timeOfMostRecentSignOn` field. |
-| Worker Data: Public Worker Reports | Integration System User | Yes | Yes | Yes | No | To provide access to basic identity fields like `username` and `emailAddress` for reporting. |
-| Purge Person Data | Integration System User | Yes | No | Yes | No | To view data retention flags and determine if an account is marked for deletion (`isEligibleForPurge`). |
-| Worker Data: Current Staffing Information | Integration System User | Yes | Yes | Yes | No | To view current job profiles and employment status to verify if accounts belong to active workers. |
-| Worker Data: Staffing | Integration System User | Yes | No | Yes | No | To provide general read access to worker profiles and business processes related to staffing. |
-| Staffing | Integration System User | Yes | Yes | Yes | No | (Broad Category) To cover core worker identity and employment status links. |
-| System | Integration System User | Yes | No | Yes | No | (Broad Category) To enable technical data retrieval and access to the WQL engine. |
-| Integration | Integration System User | Yes | No | Yes | No | To provide view-only access to audit Integration System Users (ISUs) and their specific flags. |
-| Organization and Roles | Integration System User | Yes | No | Yes | No | To read organizational hierarchies to contextualize account permissions and role assignments. |
+| Workday Query Language | Integration System User | Yes | Yes | Yes | No | To execute the `SELECT`query via the WQL endpoint to retrieve account metadata |
+| Workday Accounts | Integration System User | Yes | Yes | Yes | No | To view account-level security settings, including `accountDisabledOrExpired`, `sessionTimeoutMinutes`, and `isIntegrationUser` |
+| Security Administration | Integration System User | Yes | Yes | Yes | No | To read security policies, MFA settings (`one_TimePasscode...`), and authentication exclusions |
+| System Auditing | Integration System User | Yes | No | Yes | No | To provide read access to system logs and audit trails, specifically for the `timeOfMostRecentSignOn` field |
+| Worker Data: Public Worker Reports | Integration System User | Yes | Yes | Yes | No | To provide access to basic identity fields like `username` and `emailAddress` for reporting |
+| Purge Person Data | Integration System User | Yes | No | Yes | No | To view data-retention flags and determine if an account is marked for deletion (`isEligibleForPurge`) |
+| Worker Data: Current Staffing Information | Integration System User | Yes | Yes | Yes | No | To view current job profiles and employment status to verify if accounts belong to active workers |
+| Worker Data: Staffing | Integration System User | Yes | No | Yes | No | To provide general read access to worker profiles and business processes related to staffing |
+| Staffing | Integration System User | Yes | Yes | Yes | No | (Broad Category) To cover core worker identity and employment status links |
+| System | Integration System User | Yes | No | Yes | No | (Broad Category) To enable technical data retrieval and access to the WQL engine |
+| Integration | Integration System User | Yes | No | Yes | No | To provide view-only access to audit Integration System Users and their specific flags |
+| Organization and Roles | Integration System User | Yes | No | Yes | No | To read organizational hierarchies to contextualize account permissions and role assignments |
 
 **Prerequisite**
 A user with Administrator privileges is required to onboard Box for SSPM.
 
 | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
 | --- | --- | --- | --- | --- | --- | --- |
-| Manage Enterprise | Admin | No | No | Yes | Yes | To retrieve a list of all users or details for a specific user within the enterprise. |
-| Manage Enterprise | Admin | No | Yes | Yes | No | To retrieve the list of domains allowed for collaboration (allowlist). |
-| Manage Enterprise | Admin | No | Yes | No | No | To fetch a stream of events (user/file activity) for monitoring and auditing. |
-| Manage Enterprise | Admin | No | No | No | No | To retrieve a list of all user groups defined in the enterprise. |
-| Manage Enterprise | Admin | No | No | No | No | To retrieve the list of users belonging to a specific group. |
-| Manage Enterprise Properties | Admin | No | No | No | No | To attach a metadata template or specific metadata values to a file. |
-| Manage Enterprise Properties | Admin | No | No | No | No | To retrieve the metadata values applied to a specific file. |
-| Read and Write all files and folders | Admin | No | No | No | No | To retrieve metadata and information about a specific file. |
-| Read and Write all files and folders | Admin | No | No | No | No | To retrieve metadata and information about a specific folder. |
-| Read and Write all files and folders | Admin | No | No | No | No | To list the files and subfolders contained within a specific folder. |
-| Read and Write all files and folders | Admin | No | No | No | No | To promote a specific historical version of a file to the current or active version. |
-| Read and Write all files and folders | Admin | No | No | No | No | To permanently remove a specific version of a file from the version history. |
-| Read and Write all files and folders | Admin | No | No | No | No | To update file details, move files, or manage shared link settings. |
-| Read and Write all files and folders | Admin | No | No | No | No | To move a specific file to the trash. |
-| Read and Write all files and folders | Admin | No | No | No | No | To permanently delete a file from the trash (cannot be undone). |
-| Read and Write all files and folders | Admin | No | No | No | No | To search for files and folders based on keywords, file types, or metadata. |
-| Manage Collaboration | Admin | No | No | No | No | To retrieve a list of all collaborations (shared access) within the enterprise. |
-| Manage Collaboration | Admin | No | No | No | No | To list all collaborators and their access levels for a specific file. |
-| Manage Collaboration | Admin | No | No | No | No | To invite a user or a group to collaborate on a specific file or folder. |
-| Manage Collaboration | Admin | No | No | No | No | To remove a specific collaborator's access to a file or a folder. |
-| Manage Collaboration | Admin | No | No | No | No | To update the access level or role of an existing collaborator. |
+| Manage Enterprise | Admin | No | No | Yes | Yes | To retrieve a list of all users or details for a specific user within the enterprise |
+| Manage Enterprise | Admin | No | Yes | Yes | No | To retrieve the list of domains allowed for collaboration (allowlist) |
+| Manage Enterprise | Admin | No | Yes | No | No | To fetch a stream of events (user/file activity) for monitoring and auditing |
+| Manage Enterprise | Admin | No | No | No | No | To retrieve a list of all user groups defined in the enterprise |
+| Manage Enterprise | Admin | No | No | No | No | To retrieve the list of users belonging to a specific group |
+| Manage Enterprise Properties | Admin | No | No | No | No | To attach a metadata template or specific metadata values to a file |
+| Manage Enterprise Properties | Admin | No | No | No | No | To retrieve the metadata values applied to a specific file |
+| Read and Write all files and folders | Admin | No | No | No | No | To retrieve metadata and information about a specific file |
+| Read and Write all files and folders | Admin | No | No | No | No | To retrieve metadata and information about a specific folder |
+| Read and Write all files and folders | Admin | No | No | No | No | To list the files and subfolders contained within a specific folder |
+| Read and Write all files and folders | Admin | No | No | No | No | To promote a specific historical version of a file to the current or active version |
+| Read and Write all files and folders | Admin | No | No | No | No | To permanently remove a specific version of a file from the version history |
+| Read and Write all files and folders | Admin | No | No | No | No | To update file details, move files, or manage shared link settings |
+| Read and Write all files and folders | Admin | No | No | No | No | To move a specific file to the trash |
+| Read and Write all files and folders | Admin | No | No | No | No | To permanently delete a file from the trash (cannot be undone) |
+| Read and Write all files and folders | Admin | No | No | No | No | To search for files and folders based on keywords, file types, or metadata |
+| Manage Collaboration | Admin | No | No | No | No | To retrieve a list of all collaborations (shared access) within the enterprise |
+| Manage Collaboration | Admin | No | No | No | No | To list all collaborators and their access levels for a specific file |
+| Manage Collaboration | Admin | No | No | No | No | To invite a user or a group to collaborate on a specific file or folder |
+| Manage Collaboration | Admin | No | No | No | No | To remove a specific collaborator's access to a file or a folder |
+| Manage Collaboration | Admin | No | No | No | No | To update the access level or role of an existing collaborator |
 
 **Prerequisite**
 A user with Administrator privileges is required to onboard Twilio for SSPM.
 
 | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
 | --- | --- | --- | --- | --- | --- | --- |
-| NA | Admin | NA | Yes | No | No | To verify if the Account Sid and Secret is able to fetch the account details |
-| NA | Admin | NA | No | Yes | No | To configure triggers |
-| NA | Admin | NA | No | Yes | No | To get IP related security policies |
-| NA | Admin | NA | No | Yes | No | To get authentication related policies |
-| NA | Admin | NA | No | Yes | No | To configure alerts |
+| N/A | Admin | N/A | Yes | No | No | To verify if the Account Sid and Secret are able to fetch the account details |
+| N/A | Admin | N/A | No | Yes | No | To configure triggers |
+| N/A | Admin | N/A | No | Yes | No | To get IP-related security policies |
+| N/A | Admin | N/A | No | Yes | No | To get authentication-related policies |
+| N/A | Admin | N/A | No | Yes | No | To configure alerts |
 
 **Prerequisite**
-A System Administrator User is required to configure the mentioned Access Control Lists (ACLs).
+A System Administrator User is required to configure the mentioned Access Control Lists (ACLs) to onboard ServiceNow for SSPM.
 
 | Scope Requested | Onboarding User Role | Read-Only Scope | Required for Onboarding Validation | Required for SSPM Scan | Required for SSPM Remediation Support | Why do we need the permissions? |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Table**: v_plugin **ACL**: read **Type**: record **Operation**: read **Name**: v_plugin **Requires role**: zscaler_admin | admin/non-admin role eg: zscaler_admin | Yes | Yes | Yes | Yes | To fetch plugin information and verify that recommended plugins are installed and configured properly |
-| **Table**: ip_access **ACL**: read **Type**: record **Operation**: read **Name**: ip_access **Requires role**: zscaler_admin | admin/non-admin role eg: zscaler_admin | Yes | Yes | Yes | Yes | To verify that IP addresses are configured to prevent DDoS and other such attacks |
-| **Table**: sys_properties **ACL**: read **Type**: record **Operation**: read **Name**: sys_properties **Requires role**: zscaler_admin | admin/non-admin role eg: zscaler_admin | Yes | Yes | Yes | Yes | To get ServiceNow org level and system configurations |
-| **Table**: sys_properties **ACL**: write **Type**: record **Operation**: read **Name**: sys_properties **Requires role**: zscaler_admin | admin/non-admin role eg: zscaler_admin | No | Yes | No | Yes | To update configurations as per policy recommendation during remediation |
-| **Edit below individual system property's read role**: glide.security.use_csrf_token glide.ui.forgetme glide.ui.attachment.force_download_all_mime_types glide.ip.authenticate.strict glide.html.sanitize_all_fields Dglide.image_provider.security_enabled glide.login.no_blank_password glide.security.file.mime_type.validation glide.ui.rotate_sessions glide.ui.secure_cookies glide.login.autocomplete glide.communications.trustmanager_trust_all glide.outbound.sslv3.disabled glide.authenticate.multifactor glide.sg.allow_rooted_jailbroken_device glide.guest.session_timeout glide.unauthorized.session_timeout password_reset.captcha.ignore Dcom.glide.snap.enable_scan glide.enable.password_policy glide.ui.session_timeout glide.ui.security.codetag.allow_script glide.ui.escape_html_list_field Dglide.html.escape_script glide.soap.strict_security glide.basicauth.required.scriptedprocessor glide.basicauth.required.soap glide.basicauth.required.unl glide.cms.catalog_uri_relative glide.security.csrf.strict.validation.mode com glide.communications.httpclient.verify_hostname com. glide.communications.httpclient.verify_revoked_certificate glide.ui.escape_text glide.security.strict.updates glide.basicauth.required.csv glide.enable.blacklist_password glide.apply.password_policy.on_login glide.basicauth.required.excel glide.basicauth.required.wsdl glide.basicauth.required.importprocessor glide.basicauth.required.pdf Dglide.basicauth.required.rss glide.basicauth.required.xml glide.basicauth.required.xsd glide.ui.security.allow_codetag glide.script.allow.ajaxevaluate glide.soap.require_content_type_xml **Read roles**: zscaler_admin | admin/non-admin role eg: zscaler_admin | No | Yes | Yes | Yes | To fetch individual configuration list used for policy evaluations |
-| System Properties defined in previous row  Edit individual system property's read & write roles: **Read roles**: zscaler_admin **Write roles**: zscaler_admin | admin/non-admin role eg: zscaler_admin | No | Yes | Yes | Yes | To edit permission on individual configuration for manual remediation |
-| **Table**: sys_attachment **ACL**: Read **Type**: record **Operation**: read **Name**: sys_attachment | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To read and download file metadata |
-| **Table**: sys_journal_field **ACL**: Read **Type**: record **Operation**: read **Name**: sys_journal_field | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get comments |
-| **Table**: task **ACL**: Read **Type**: record **Operation**: read **Name**: task | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get task metadata and description |
-| **Table**: kb_knowledge **ACL**: Read **Type**: record **Operation**: read **Name**: kb_knowledge | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get knowledge metadata and descriptions |
-| **Table**: live_message **ACL**: Read **Type**: record **Operation**: read **Name**: live_message | live_feed_admin | Yes | Yes | No | No | To get metadata of live message |
-| **Table**: sc_request **ACL**: Read **Type**: record **Operation**: read **Name**: sc_request | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get service request data |
-| **Table**: change_request **ACL**: Read **Type**: record **Operation**: read **Name**: change_request | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get complete and individual change request data |
-| **Table**: problem **ACL**: Read  **Type**: record **Operation**: read **Name**: problem | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get complete and individual problem data |
-| **Table**: cmdb_ci_service **ACL**: Read **Type**: record **Operation**: read **Name**: cmdb_ci_service | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get CMDB Service class data |
-| **Table**: kb_social_qa_question **ACL**: Read **Type**: record **Operation**: read **Name**: kb_social_qa_question | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get Social Q&A/Community related data |
-| **Table**: kb_social_qa_answer **ACL**: Read **Type**: record **Operation**: read **Name**: kb_social_qa_answer | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get Social Q&A/Community related data |
-| **Table**: question_answer **ACL**: Read **Type**: record **Operation**: read **Name**: question_answer | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get question answer data related to service catalog feature |
-| **Table**: question **ACL**: Read **Type**: record **Operation**: read **Name**: question | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | No | No | No | To get question data related to service catalog feature |
-| **Table**: sys_user **ACL**: Read **Type**: record **Operation**: read **Name**: sys_user | admin/non-admin role eg: zscaler_admin with read ACLs | No | No | No | No | To get users details like name, email etc. during DLP scanning required for collaboration identification etc. |
-| **Table**: sys_db_object **ACL**: Read **Type**: record **Operation**: read **Name**: sys_db_object | admin/non-admin role eg: zscaler_admin with read ACLs | No | No | No | No | To get table details in the system |
-| **Table**: sys_app_application **ACL**: Write **Type**: record **Operation**: write, delete **Name**: sys_app_application | admin/non-admin role eg: zscaler_admin with read ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: sys_app_module **ACL**: Write **Type**: record **Operation**: write, delete **Name**: sys_app_module | admin/non-admin role eg: zscaler_admin with read ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: sys_app_category **ACL**: Write **Type**: record **Operation**: write, delete **Name**: sys_app_category | admin/non-admin role eg: zscaler_admin with read ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: incident **ACL**: Read **Type**: record **Operation**: read **Name**: incident | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get incident details |
-| **Table**: sn_customerservice_case **ACL**: Read **Type**: record **Operation**: read **Name**: sn_customerservice_case | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get CSM case records |
-| **Table**: csm_order_case **ACL**: Read **Type**: record **Operation**: read **Name**: csm_order_case | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get order operation details for scanning |
-| **Table**: sc_req_item **ACL**: Read **Type**: record **Operation**: read **Name**: sc_req_item | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get service request item details |
-| **Table**: ticket **ACL**: Read **Type**: record **Operation**: read **Name**: ticket | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get legacy ticket data if any |
-| **Table**: sc_task **ACL**: Read **Type**: record **Operation**: read Name: sc_task | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get service catalog task details |
-| **Table**: sn_hr_core_case_operations **ACL**: Read **Type**: record **Operation**: read **Name**: sn_hr_core_case_operations | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get HR case details |
-| **Table**: sysapproval_group **ACL**: Read **Type**: record **Operation**: read **Name**: sysapproval_group | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To get group level track data |
-| **Table**: sysevent **ACL**: Read **Type**: record  **Operation**: read **Name**: sys_event | admin/non-admin role eg: zscaler_admin with read ACLs | Yes | Yes | No | No | To report activities |
-| **Table**: sys_attachment **ACL**: Write **Type**: record **Operation**: write,delete **Name**: sys_attachment | admin/non-admin role eg: zscaler_admin with write ACLs | No | No | No | No | To delete or quarantine attachment |
-| **Table**: sys_db_object **ACL**: Write **Type**: record **Operation**: write,delete **Name**: sys_db_object | admin/non-admin role eg: zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: sys_app_application  **ACL**: Write **Type**: record **Operation**: write,delete **Name**: sys_app_application | admin/non-admin role eg: zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: sys_app_module **ACL**: Write **Type**: record **Operation**: write,delete **Name**: sys_app_module | admin/non-admin role eg: zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
-| **Table**: sys_app_category **ACL**: Write **Type**: record **Operation**: write,delete **Name**: sys_app_category | admin/non-admin role eg: zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: v_plugin **ACL**: read **Type**: record **Operation**: read **Name**: v_plugin **Requires role**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | Yes | Yes | Yes | Yes | To fetch plugin information and verify that recommended plugins are installed and configured properly |
+| **Table**: ip_access **ACL**: read **Type**: record **Operation**: read **Name**: ip_access **Requires role**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | Yes | Yes | Yes | Yes | To verify that IP addresses are configured to prevent DDoS and other such attacks |
+| **Table**: sys_properties **ACL**: read **Type**: record **Operation**: read **Name**: sys_properties **Requires role**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | Yes | Yes | Yes | Yes | To get ServiceNow org level and system configurations |
+| **Table**: sys_properties **ACL**: write **Type**: record **Operation**: read **Name**: sys_properties **Requires role**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | No | Yes | No | Yes | To update configurations as per policy recommendation during remediation |
+| **Edit below individual system property's read role**: glide.security.use_csrf_token glide.ui.forgetme glide.ui.attachment.force_download_all_mime_types glide.ip.authenticate.strict glide.html.sanitize_all_fields Dglide.image_provider.security_enabled glide.login.no_blank_password glide.security.file.mime_type.validation glide.ui.rotate_sessions glide.ui.secure_cookies glide.login.autocomplete glide.communications.trustmanager_trust_all glide.outbound.sslv3.disabled glide.authenticate.multifactor glide.sg.allow_rooted_jailbroken_device glide.guest.session_timeout glide.unauthorized.session_timeout password_reset.captcha.ignore Dcom.glide.snap.enable_scan glide.enable.password_policy glide.ui.session_timeout glide.ui.security.codetag.allow_script glide.ui.escape_html_list_field Dglide.html.escape_script glide.soap.strict_security glide.basicauth.required.scriptedprocessor glide.basicauth.required.soap glide.basicauth.required.unl glide.cms.catalog_uri_relative glide.security.csrf.strict.validation.mode com glide.communications.httpclient.verify_hostname com. glide.communications.httpclient.verify_revoked_certificate glide.ui.escape_text glide.security.strict.updates glide.basicauth.required.csv glide.enable.blacklist_password glide.apply.password_policy.on_login glide.basicauth.required.excel glide.basicauth.required.wsdl glide.basicauth.required.importprocessor glide.basicauth.required.pdf Dglide.basicauth.required.rss glide.basicauth.required.xml glide.basicauth.required.xsd glide.ui.security.allow_codetag glide.script.allow.ajaxevaluate glide.soap.require_content_type_xml **Read roles**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | No | Yes | Yes | Yes | To fetch individual configuration list used for policy evaluations |
+| System Properties defined in previous row  Edit individual system property's read & write roles: **Read roles**: zscaler_admin **Write roles**: zscaler_admin | admin/non-admin role e.g., zscaler_admin | No | Yes | Yes | Yes | To edit permission on individual configuration for manual remediation |
+| **Table**: sys_attachment **ACL**: read **Type**: record **Operation**: read **Name**: sys_attachment | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To read and download file metadata |
+| **Table**: sys_journal_field **ACL**: read **Type**: record **Operation**: read **Name**: sys_journal_field | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get comments |
+| **Table**: task **ACL**: read **Type**: record **Operation**: read **Name**: task | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get task metadata and description |
+| **Table**: kb_knowledge **ACL**: read **Type**: record **Operation**: read **Name**: kb_knowledge | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get knowledge metadata and descriptions |
+| **Table**: live_message **ACL**: read **Type**: record **Operation**: read **Name**: live_message | live_feed_admin | Yes | Yes | No | No | To get metadata of live message |
+| **Table**: sc_request **ACL**: read **Type**: record **Operation**: read **Name**: sc_request | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get service request data |
+| **Table**: change_request **ACL**: read **Type**: record **Operation**: read **Name**: change_request | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get complete and individual change request data |
+| **Table**: problem **ACL**: read  **Type**: record **Operation**: read **Name**: problem | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get complete and individual problem data |
+| **Table**: cmdb_ci_service **ACL**: read **Type**: record **Operation**: read **Name**: cmdb_ci_service | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get CMDB Service class data |
+| **Table**: kb_social_qa_question **ACL**: read **Type**: record **Operation**: read **Name**: kb_social_qa_question | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get Social Q&A/Community related data |
+| **Table**: kb_social_qa_answer **ACL**: read **Type**: record **Operation**: read **Name**: kb_social_qa_answer | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get Social Q&A/Community related data |
+| **Table**: question_answer **ACL**: read **Type**: record **Operation**: read **Name**: question_answer | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get question answer data related to service catalog feature |
+| **Table**: question **ACL**: read **Type**: record **Operation**: read **Name**: question | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | No | No | No | To get question data related to service catalog feature |
+| **Table**: sys_user **ACL**: read **Type**: record **Operation**: read **Name**: sys_user | admin/non-admin role e.g., zscaler_admin with read ACLs | No | No | No | No | To get user's details like name, email, etc. during DLP scanning required for collaboration, identification, etc. |
+| **Table**: sys_db_object **ACL**: read **Type**: record **Operation**: read **Name**: sys_db_object | admin/non-admin role e.g., zscaler_admin with read ACLs | No | No | No | No | To get table details in the system |
+| **Table**: sys_app_application **ACL**: write **Type**: record **Operation**: write, delete **Name**: sys_app_application | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: sys_app_module **ACL**: write **Type**: record **Operation**: write, delete **Name**: sys_app_module | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: sys_app_category **ACL**: write **Type**: record **Operation**: write, delete **Name**: sys_app_category | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: incident **ACL**: read **Type**: record **Operation**: read **Name**: incident | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get incident details |
+| **Table**: sn_customerservice_case **ACL**: read **Type**: record **Operation**: read **Name**: sn_customerservice_case | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get CSM case records |
+| **Table**: csm_order_case **ACL**: read **Type**: record **Operation**: read **Name**: csm_order_case | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get order operation details for scanning |
+| **Table**: sc_req_item **ACL**: read **Type**: record **Operation**: read **Name**: sc_req_item | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get service request item details |
+| **Table**: ticket **ACL**: read **Type**: record **Operation**: read **Name**: ticket | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get legacy ticket data (if any) |
+| **Table**: sc_task **ACL**: read **Type**: record **Operation**: read Name: sc_task | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get service catalog task details |
+| **Table**: sn_hr_core_case_operations **ACL**: read **Type**: record **Operation**: read **Name**: sn_hr_core_case_operations | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get HR case details |
+| **Table**: sysapproval_group **ACL**: read **Type**: record **Operation**: read **Name**: sysapproval_group | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To get group-level track data |
+| **Table**: sysevent **ACL**: read **Type**: record  **Operation**: read **Name**: sys_event | admin/non-admin role e.g., zscaler_admin with read ACLs | Yes | Yes | No | No | To report activities |
+| **Table**: sys_attachment **ACL**: write **Type**: record **Operation**: write,delete **Name**: sys_attachment | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To delete or quarantine attachment |
+| **Table**: sys_db_object **ACL**: write **Type**: record **Operation**: write,delete **Name**: sys_db_object | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: sys_app_application  **ACL**: write **Type**: record **Operation**: write,delete **Name**: sys_app_application | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: sys_app_module **ACL**: write **Type**: record **Operation**: write,delete **Name**: sys_app_module | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
+| **Table**: sys_app_category **ACL**: write **Type**: record **Operation**: write,delete **Name**: sys_app_category | admin/non-admin role e.g., zscaler_admin with write ACLs | No | No | No | No | To perform quarantine actions |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9705,13 +9705,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-10-06T21:50Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-10-16T11:50Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-06T21:50Z
+- Last modified: 2026-10-16T11:50Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9943,13 +9943,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-10-09T21:06Z","nid":"1399741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-10-13T11:17Z","nid":"1399741"} -->
 ## Role-Based Administration Configuration Examples
 
 - Source: https://help.zscaler.com/zia/role-based-administration-configuration-examples
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role-Based Administration Configuration Examples
-- Last modified: 2026-10-09T21:06Z
+- Last modified: 2026-10-13T11:17Z
 - Summary: Information on common examples of role-based administration in the Zscaler Admin Console.
 
 With [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration), organizations can assign specific [roles](https://help.zscaler.com/zia/adding-admin-roles) to admins with different levels of access to the Zscaler Admin Console features.
@@ -9982,12 +9982,12 @@ To configure an admin with the preceding specifications:
 - 2. Add the US admin account.
 - 3. Add the UK admin account.
 
-1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - In the **Permissions**section:
+  - In the **Permissions**section: See image.
     - **Admin Rank**: Select an admin rank lower than 2. For example, select **3**.
     - **Logs Limit (Days)**:Select**Unrestricted**.
     - **Dashboard Access**:Select **Full**.
@@ -10014,8 +10014,8 @@ This role can be assigned to both admins since they are performing the same task
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS (ZIA) service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Legacy Admin Management** > **Internet & SaaS** > **Administrators**.
-4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Legacy Admin Management** > **Internet & SaaS**.
+4. On the **Administrators**tab, click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Location**.
     - **Locations**: Select your US office location. In this example, it is **USA Office**.
@@ -10026,8 +10026,8 @@ This role can be assigned to both admins since they are performing the same task
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration** > **Legacy Admin Management** > **Internet & SaaS** > **Administrators**.
-4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Legacy Admin Management** > **Internet & SaaS**.
+4. On the **Administrators**tab, click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Location**.
     - **Locations**: Select your UK office location. In this example, it is **UK Office**.
@@ -10064,12 +10064,12 @@ To configure an admin with the preceding specifications:
 - 3. Add the CISO admin account.
 - 4. Add the Security Response Manager admin account.
 
-1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - In the **Permissions**section:
+  - In the **Permissions**section: See image.
     - **Admin Rank**: Select an admin rank lower than 1. For example, select **2**.
     - **Logs Limit (Days)**:Select**Unrestricted**.
     - **Dashboard Access**:Select **Full**.
@@ -10094,12 +10094,14 @@ To configure an admin with the preceding specifications:
 
 To learn more about configuring admin roles with different permissions and scope, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles).
 
-1. Go to **Administration** > **Role Management** > **Internet & SaaS**.
+[Image: Example for the Permissions section configuration]
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
   - **Enable Permissions for Executive Insights**: Disable this option.
-  - In the **Permissions**section:
+  - In the **Permissions**section: See image.
     - **Admin Rank**: Select an admin rank lower than the CISO admin. For example, select **3**.
     - **Logs Limit (Days)**:Select**30**.
     - **Dashboard Access**:Select **Full**.
@@ -10126,8 +10128,8 @@ To learn more about configuring admin roles with different permissions and scope
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
-4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Legacy Admin Management > Internet & SaaS**.
+4. On the **Administrators**tab, click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator** window: See image.
   - **Scope**: Choose **Organization**.
   - **Security Updates**: Enable this option.
@@ -10135,10 +10137,12 @@ To learn more about configuring admin roles with different permissions and scope
   - **Product Updates**: Enable this option.
 6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
+[Image: Example for the Permissions section configuration]
+
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
-4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Legacy Admin Management > Internet & SaaS**.
+4. On the **Administrators**tab, click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator**window: See image.
   1. **Scope**: Choose **Organization**.
   2. **Security Updates**: Enable this option.
@@ -10161,7 +10165,7 @@ To configure an admin with the preceding specifications:
 - 1. Add the admin role.
 - 2. Add the admin.
 
-1. Go to **Administration > Role Management > Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Role Management > Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window:
   - **Name**:Enter a name for the admin role.
@@ -10194,14 +10198,16 @@ To learn more about configuring admin roles with different permissions and scope
 
 1. Follow the steps to [add a user with Authentication Service](https://help.zscaler.com/zidentity/adding-users).
 2. After the user has been added, [assign them an entitlement to the Internet & SaaS service](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups). Make sure to choose the role you added previously.
-3. Go to **Administration > Legacy Admin Management > Internet & SaaS > Administrators**.
-4. Click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
+3. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > Legacy Admin Management > Internet & SaaS**.
+4. On the **Administrators**tab, click the **Edit** icon for the admin you added. The **Edit Administrator** window appears.
 5. In the **Edit Administrator**window: See image.
   - **Scope**: Choose **Organization**.
   - **Security Updates**: Disable this option.
   - **Service Updates**: Disable this option.
   - **Product Updates**: Disable this option.
 6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: Example for the Permissions section configuration]
 
 [Image: The Edit Administrator window displaying configurations for HR-Access Control]
 
@@ -14085,13 +14091,13 @@ To learn more, see [About the Email Security Report](https://help.zscaler.com/zi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/supported-cipher-suites-ssltls-inspection","lastmod":"2026-05-21T20:50Z","nid":"1400231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/supported-cipher-suites-ssltls-inspection","lastmod":"2026-10-11T23:13Z","nid":"1400231"} -->
 ## Supported Cipher Suites in SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/supported-cipher-suites-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Supported Cipher Suites in SSL/TLS Inspection
-- Last modified: 2026-05-21T20:50Z
+- Last modified: 2026-10-11T23:13Z
 - Summary: Information on the cipher suites supported for the different TLS protocols and configuring the SSL/TLS Inspection policy to allow or block undecryptable traffic.
 
 Zscaler supports hardware-based inspection with TLS versions 1.3, 1.2, 1.1 and 1.0, as well as Perfect Forward Secrecy (PFS) cipher suites across all TLS versions. The Public Service Edge for Internet & SaaS (ZIA) prefers and proposes the highest TLS version and strongest cipher suites on the client side (client to Public Service Edge) and server side (Public Service Edge to server) connections, respectively.
@@ -14847,13 +14853,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/syslog-overview","lastmod":"2026-05-19T12:28Z","nid":"1401366"} -->
+<!-- ZS-ARTICLE {"url":"/zia/syslog-overview","lastmod":"2026-10-14T12:37Z","nid":"1401366"} -->
 ## Syslog Overview
 
 - Source: https://help.zscaler.com/zia/syslog-overview
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Syslog Overview
-- Last modified: 2026-05-19T12:28Z
+- Last modified: 2026-10-14T12:37Z
 - Summary: Information on syslog formatting and the syslog formats used by security information and event management (SIEM) systems.
 
 This article provides an overview of the log messages that are being streamed through the Nanolog Streaming Service (NSS) to your security information and event management (SIEM) system. To learn more about syslog and syslog formatting, refer to the [syslog Wikipedia page](https://en.wikipedia.org/wiki/Syslog).
@@ -15107,13 +15113,13 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-kerberos-authentication","lastmod":"2025-01-03T14:11Z","nid":"1399591"} -->
+<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-kerberos-authentication","lastmod":"2026-10-16T03:24Z","nid":"1399591"} -->
 ## Troubleshooting Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/troubleshooting-kerberos-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Troubleshooting Kerberos Authentication
-- Last modified: 2025-01-03T14:11Z
+- Last modified: 2026-10-16T03:24Z
 - Summary: How to troubleshoot Kerberos authentication on your domain controller and user devices.
 
 Kerberos authentication can be affected by some network configuration parameters, such as time synchronization. This article provides guidelines for troubleshooting Kerberos on your domain controller and on your users' devices.
@@ -15854,13 +15860,13 @@ The following table outlines how admin scope impacts the ability to access Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-09-27T23:17Z","nid":"1529876"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-advanced-dlp-private-service-edge-internet-saas","lastmod":"2026-10-12T21:06Z","nid":"1529876"} -->
 ## Understanding Advanced DLP Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-advanced-dlp-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Understanding Advanced DLP Private Service Edge for Internet & SaaS
-- Last modified: 2026-09-27T23:17Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information on the prerequisites and deployment methods for properly configuring and installing Advanced Data Loss Prevention (DLP) – Private Service Edge for Internet & SaaS (ZIA) on the Zscaler cloud.
 
 Zscaler can extend its patented Advanced Data Loss Prevention (DLP) architecture to an organization's premises by providing Advanced DLP Private Service Edge for Internet & SaaS (ZIA) devices. While using the same hardware as a normal [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-zscaler-enforcement-nodes), the Advanced DLP Private Service Edge is a complementary, dedicated hardware role within the Zscaler cloud that can be deployed to provide on-premises support for Private Service Edge customers who also require Advanced DLP product features, such as [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Data Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match). It communicates with other nodes in the Zscaler cloud, such as the Zscaler Central Authority (CA) and DLP Configuration nodes for EDM and IDM policy updates, and can generate and transmit [ICAP traffic](https://help.zscaler.com/zia/about-icap-receivers-dlp), as well. To learn more about Private Service Edges without Advanced DLP, see [Understanding Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas).

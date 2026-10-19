@@ -1,18 +1,18 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 296
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-account-settings","lastmod":"2026-09-18T02:33Z","nid":"1542253"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-account-settings","lastmod":"2026-10-16T01:12Z","nid":"1542253"} -->
 ## About Account Settings
 
 - Source: https://help.zscaler.com/deception/about-account-settings
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Account Settings > About Account Settings
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-16T01:12Z
 - Summary: Information about the Account Settings page, including how to reset two-factor authentication, edit user profile, change password, and configure email notification preferences in the Zscaler Deception Admin Portal.
 
 The **Account Settings** icon ([Image: Icon for Account Settings]) in the left-side navigation enables you to manage your user profile and notification preferences.
@@ -14576,13 +14576,13 @@ To delete an AWS decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/managing-azure-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542484"} -->
+<!-- ZS-ARTICLE {"url":"/deception/managing-azure-decoys","lastmod":"2026-10-13T00:59Z","nid":"1542484"} -->
 ## Managing Azure Decoys
 
 - Source: https://help.zscaler.com/deception/managing-azure-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Managing Azure Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-13T00:59Z
 - Summary: Information on how to manage Azure decoys.
 
 You can manage your Microsoft Azure decoys from the Zscaler Deception Admin Portal. All decoys created from the Deception Admin Portal are tabulated under their respective decoy category tabs. Each table shows the details associated with each decoy in the category and also shows its deployment status. You can also edit or delete decoys by using the respective options from the decoys table.
@@ -16009,13 +16009,13 @@ To reset 2FA:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/restricted-file-paths-lures-and-decoys","lastmod":"2026-10-09T03:51Z","nid":"1546704"} -->
+<!-- ZS-ARTICLE {"url":"/deception/restricted-file-paths-lures-and-decoys","lastmod":"2026-10-12T07:43Z","nid":"1546704"} -->
 ## Restricted File Paths for Lures and Decoys
 
 - Source: https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Endpoint Deception With Zscaler Client Connector > Restricted File Paths for Lures and Decoys
-- Last modified: 2026-10-09T03:51Z
+- Last modified: 2026-10-12T07:43Z
 - Summary: List of restricted file paths for landmine-based lures and decoys.
 
 Beginning with Zscaler Client Connector-integrated Agent 6.1, landmine validates certain file paths specified in policies before creating or managing path-based lures and decoys. Paths that target the operating system, security, credential, or other protected locations are rejected. The blocked paths vary depending on the endpoint operating system.

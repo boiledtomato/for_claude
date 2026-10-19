@@ -1,8 +1,566 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 104
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 113
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-enrollment-certificate-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484951"} -->
+## Obtaining Enrollment Certificate Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-enrollment-certificate-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Enrollment Certificate Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information on enrollment certificate use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for managing Zscaler Private Access (ZPA) [enrollment certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All Enrollment Certificates
+
+To get all enrollment certificates:
+
+1. Send a `GET` request to the following endpoint in the enrollment-cert-controller: `/mgmtconfig/v2/admin/customers/{customerId}/enrollmentCert`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/enrollmentCert`.
+
+- View an example response
+
+```
+{
+  "totalPages": "15",
+  "list": [
+    {
+      "id": "22143",
+      "creationTime": "1563925306",
+      "modifiedBy": "217246660302995849",
+      "description": "2",
+      "name": "1",
+      "allowSigning": false,
+      "privateKeyPresent": true,
+      "clientCertType": "NONE",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICwTCCAakCAQAwSjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxHTAbBgNVBAMTFG15LW1vY2tjb21wYW55LmN\n-----END CERTIFICATE REQUEST-----\n"
+    },
+    {
+      "id": "22144",
+      "modifiedTime": "1580448229",
+      "creationTime": "1563925326",
+      "modifiedBy": "217246660303023681",
+      "cName": "my-mockcompany.com/12345",
+      "validFromInEpochSec": "1563838926",
+      "validToInEpochSec": "2510005326",
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdm\n-----END CERTIFICATE-----",
+      "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+      "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+      "serialNo": "333243810239587973493898071045372878801",
+      "description": "2",
+      "name": "12345\"&lt;&gt;",
+      "allowSigning": true,
+      "privateKeyPresent": true,
+      "clientCertType": "NONE",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG15LW1vY2tjb21wYW55Lm\n-----END CERTIFICATE REQUEST-----\n"
+    },
+    {
+      "id": "23164",
+      "creationTime": "1612417564",
+      "modifiedBy": "72057594037973665",
+      "cName": "root.zscaler.com/clien2",
+      "validFromInEpochSec": "1612331164",
+      "validToInEpochSec": "2558497564",
+      "certificate": "----BEGIN CERTIFICATE----\nMIIDSjCCAjKgAwIBAgIRAJePjUG/811dcldsFg74MxUwDQYJKoZIhvcNAQELBQAw\nTTEQMA4GA1UEChM\n----END CERTIFICATE----\n",
+      "issuedTo": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/clien2",
+      "issuedBy": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/clien2",
+      "serialNo": "201458790843283302225978988853372400405",
+      "name": "clien2",
+      "allowSigning": true,
+      "privateKeyPresent": true,
+      "clientCertType": "ZAPP_CLIENT",
+      "csr": "----BEGIN CERTIFICATE REQUEST----\nMIICxDCCAawCAQAwTTEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxIDAenk\n-----END CERTIFICATE REQUEST-----\n"
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+To get enrollment certificates for use with creating provisioning keys, provide the `privateKeyPresent EQ` as set to `true` in the search parameters. For example: `privateKeyPresent EQ true`.
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/enrollmentCert?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`, the ZPA tenant ID of the customer, in the request endpoint.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/enrollmentCert?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "15",
+  "list": [
+    {
+      "id": "22143",
+      "modifiedTime": "1646153872",
+      "creationTime": "1563925306",
+      "modifiedBy": "72057594038009308",
+      "description": "2",
+      "name": "1",
+      "allowSigning": false,
+      "privateKeyPresent": true,
+      "clientCertType": "NONE",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICwTCCAakCAQAwSjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxM\n-----END CERTIFICATE REQUEST-----\n"
+    },
+    {
+      "id": "22144",
+      "modifiedTime": "1646153872",
+      "creationTime": "1563925326",
+      "modifiedBy": "72057594038009308",
+      "cName": "my-testcompany.com/12345",
+      "validFromInEpochSec": "1563838926",
+      "validToInEpochSec": "2510005326",
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcj\n-----END CERTIFICATE-----",
+      "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+      "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+      "serialNo": "333243810239587973493898071045372878801",
+      "description": "2",
+      "name": "12345\"&lt;&gt;",
+      "allowSigning": true,
+      "privateKeyPresent": true,
+      "clientCertType": "NONE",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG=\n-----END CERTIFICATE REQUEST-----\n"
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports a search option to search by features and fields. To search by features and fields:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/enrollmentCert&search={searchString}`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the `test` filter value.
+
+For example: `/mgmtconfig/v1/admin/customers/73186051597795328/enrollmentCert&search=name%20LIKE%20test`.
+
+- View an example response
+
+```
+{
+  "totalPages": "15",
+  "totalCount": "15",
+  "list": [
+    {
+      "id": "23841",
+      "modifiedTime": "1646194497",
+      "creationTime": "1614304266",
+      "modifiedBy": "72057594038009308",
+      "cName": "root.zscaler.com/Isolation Cert Test",
+      "validFromInEpochSec": "1614217866",
+      "validToInEpochSec": "2560384266",
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDZDCCAkygAwIBAgIRAJWAvoGLsEiEGgOHCRoGwT4wDQYJKoZIhvcNAQELBQAw\nWjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0ZSBBY2Nlc3MxLTAr\nBgNVBAMTJHJvb3QuenNjYWxlci5jb20vSXNvbGF0aW9uIENlcnQgVGVzdDAgFw0y\nMTAyMjUwMTUxMDZaGA8yMDUxMDIxOTAxNTEwNlowWjEQMA4GA1UEChMHWnNjYWxl\ncjEXMBUGA1UECxMOUHJpdmF0ZSBBY2Nlc3MxLTArBgNVBAMTJHJvb3QuenNjYWxl\nci5jb20vSXNvbGF0aW9uIENlcnQgVGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEP\nADCCAQoCggEBANlcrFANmS4c8VDsQTD8j+N083qOryHzf02tUJnQG3SxqL9U7LSz\nJXkBzZqaTdPbitBYUQipwQdANJ76/ckNHPkJD0U0BMhcCxABRlOv/3gkKbDsP0GP\nSeIi/ZthsNkXfDwBydB4uKypmsPan5sNPtQfDKQb8vbzEZ6+YRdI24untMNHGYDV\n7xo5Pg50AVQIC4pZuvr0x3+67C5Hbx7NNrdWkagbYgtML3FkLxQ+EaPzVbvKohde\njtd6uqjb/ou9lJtVPImd5JmZCmeV+gFceHbccVi4MdsNqILeILD59WHKeo5BJkb1\nXz5TBErBk9LM63Nt9oTr7RpUuhxsSKQOOQMCAwEAAaMjMCEwDwYDVR0TAQH/BAUw\nAwEB/zAOBgNVHQ8BAf8EBAMCAQYwDQYJKoZIhvcNAQELBQADggEBAH0MrPIFr3KD\n7RH5D0IjgQNloBn+2cQlf0wLh3kcgldqBHZWUlXJRiVsIWZiVTW7hwUZ9WXHj8aYF2fLPxD7EBUBXlBJIEI3oyzwk\n6iAJ/0tu2vs=\n-----END CERTIFICATE-----\n",
+      "issuedTo": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/Isolation Cert Test",
+      "issuedBy": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/Isolation Cert Test",
+      "serialNo": "198723449291334110913249869031511867710",
+      "name": "Isolation Cert Test",
+      "allowSigning": true,
+      "privateKeyPresent": true,
+      "clientCertType": "NONE",
+      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIIC0TCCAbkCAQAwWjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxLTArBgNVBAMTJHJvb3QuenNjYWxlci5jb20vSXNvbGF0aW9uIENl\ncnQgVGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANlcrFANmS4c\n8VDsQTD8j+N083qOryHzf02tUJnQG3SxqL9U7LSzJXkBzZqaTdPbitBYUQipwQdA\nNJ76/ckNHPkJD0U0BMhcCxABRlOv/3gkKbDsP0GPSeIi/ZthsNkXfDwBydB4uKyp\nmsPan5sNPtQfDKQb8vbzEZ6+YRdI24untMNHGYDV7xo5Pg50AVQIC4pZuvr0x3+6\n7C5Hbx7NNrdWkagbYgtML3FkLxQ+EaPzVbvKohdejtd6uqjb/ou9lJtVPImd5JmZ\nCmeV+gFceHbccVi4MdsNqILeILD59WHKeo5BJkb1Xz5TBErBk9LM63Nt9oTr7RpU\nuhxsSKQOOQMCAwEAAaAyMDAGCSqGSIb3DQEJDjEjMCEwDwYDVR0TAQH/BAUwAwEB\n-----END CERTIFICATE REQUEST-----\n"
+    }
+  ]
+}
+```
+
+If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details of a Particular Enrollment Certificate
+
+To get details of a particular enrollment certificate:
+
+1. Send a `GET` request to the following endpoint in the enrollment-cert-controller: `/mgmtconfig/v1/admin/customers/{customerId}/enrollmentCert/{enrollmentCertId}`.
+2. Provide the following parameters in the request:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `enrollmentCertId`: The ID of the enrollment certificate.
+
+For example: `/mgmtconfig/v1/admin/customers/217246660302995456/enrollmentCert/22144`.
+
+- View an example response
+
+```
+{
+  "id": "22144",
+  "modifiedTime": "1580448229",
+  "creationTime": "1563925326",
+  "modifiedBy": "217246660303023681",
+  "cName": "my-mockcompany.com/12345",
+  "validFromInEpochSec": "1563838926",
+  "validToInEpochSec": "2510005326",
+  "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0ZSBB\n-----END CERTIFICATE-----",
+  "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+  "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
+  "serialNo": "333243810239587973493898071045372878801",
+  "description": "2",
+  "name": "12345\"&lt;&gt;",
+  "allowSigning": true,
+  "privateKeyPresent": true,
+  "clientCertType": "NONE",
+  "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG15LW1vY2tjb21wYW55LmNvbS8x\n-----END CERTIFICATE REQUEST-----\n"
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-external-iam-idp-details-using-api","lastmod":"2026-10-09T14:51Z","nid":"1546147"} -->
+## Obtaining External IAM IdP Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-external-iam-idp-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining External IAM IdP Details Using API
+- Last modified: 2026-10-09T14:51Z
+- Summary: Information on external IdP attributes configured in Authentication Service that are applicable to Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information for obtaining Zscaler Private Access (ZPA) external IAM identity provider (IdP) details using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+The external IAM IdP is an external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
+
+## Getting Details of All External IAM IdPs
+
+To get details of all external IAM IdPs for a specific customer:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/iamidpmapping`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73189906330943488/iamidpmapping`.
+
+- View an example response.
+
+```
+{
+	"id": "3",
+	"iamIdpIdToIamIdMapping": {
+		"mappings": [
+			{
+				"idpName": "example IdP name",
+				"iamIdpId": "j39aksw98dn2q",
+				"idpId": "349187452093847561"
+			},
+			{
+				"idpName": "example IdP name 2",
+				"iamIdpId": "p2ls9dk47ah1v",
+				"idpId": "829374015629384710"
+			},
+			{
+				"idpName": "example IdP name 3",
+				"iamIdpId": "x7mt3wb19ky5s",
+				"idpId": "503928174620593847"
+			},
+			{
+				"idpName": "example IdP name 4",
+				"iamIdpId": "q8rz5pl23mo9c",
+				"idpId": "293847105928374615"
+			}
+		],
+		"deliveryTag": "0",
+		"orgId": "145311968901726208"
+	},
+	"sequence": "9"
+}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-idp-configuration-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484821"} -->
+## Obtaining IdP Configuration Details Using API
+
+- Source: https://help.zscaler.com/legacy-apis/obtaining-idp-configuration-details-using-api
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining IdP Configuration Details Using API
+- Last modified: 2026-01-06T23:49Z
+- Summary: Information about IdP configuration use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
+
+This article provides information on managing Zscaler Private Access (ZPA) [IdP configurations](https://help.zscaler.com/zpa/about-idp-configuration) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
+
+## Getting Details for All IdPs V2
+
+To get the configured IdP details:
+
+1. Send a `GET` request to the following endpoint in the idp-controller: `/mgmtconfig/v2/admin/customers/{customerId}/idp`.
+2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/idp`.
+
+- View an example response
+
+```
+{
+  "totalPages": "3",
+  "list": [
+    {
+      "id": "217246660303022670",
+      "modifiedTime": "1619718855",
+      "creationTime": "1547402803",
+      "modifiedBy": "217246660303024869",
+      "name": "Custom entityId IDP configuration - User sso - do NOT delete Changed",
+      "loginUrl": "https://mockcompany2.okta.com/app/mockcompany2_mymockcomanydomusersso_1/exkli5sevfsnKhh6n0x7/sso/saml",
+      "idpEntityId": "http://www.okta.com/exkli5sevfsnKhh6n0x7",
+      "autoProvision": "0",
+      "signSamlRequest": "1",
+      "ssoType": [
+        "USER"
+      ],
+      "domainList": [
+        "mockcompany.com"
+      ],
+      "useCustomSPMetadata": false,
+      "scimEnabled": false,
+      "enableScimBasedPolicy": false,
+      "disableSamlBasedPolicy": false,
+      "reauthOnUserUpdate": false,
+      "userSpSigningCertId": "0",
+      "adminSpSigningCertId": "0",
+      "scimSharedSecretExists": false,
+      "forceAuth": false,
+      "enabled": true,
+      "redirectBinding": false
+    },
+    {
+      "id": "217246660303022599",
+      "modifiedTime": "1624663236",
+      "creationTime": "1542394689",
+      "modifiedBy": "72057594037928105",
+      "name": "IDP Config - Admin SSO",
+      "loginUrl": "https://mockcompany2.okta.com/app/mockcompany2_zpaadminsso_1/exkgdl7ctkw3I3cWW0x7/sso/saml",
+      "idpEntityId": "http://www.okta.com/exkgdl7ctkw3I3cWW0x7",
+      "autoProvision": "0",
+      "signSamlRequest": "0",
+      "ssoType": [
+        "ADMIN"
+      ],
+      "domainList": [
+        "mockcompany.com"
+      ],
+      "useCustomSPMetadata": false,
+      "scimEnabled": false,
+      "enableScimBasedPolicy": false,
+      "disableSamlBasedPolicy": false,
+      "reauthOnUserUpdate": false,
+      "adminSpSigningCertId": "0",
+      "scimSharedSecretExists": false,
+      "forceAuth": false,
+      "enabled": true,
+      "redirectBinding": true
+    }
+  ]
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports pagination. To get a paginated response:
+
+1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/idp?page=1&pagesize=20`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid values for page and page size parameters.
+
+For example: `/mgmtconfig/v2/admin/customers/217246660302995456/idp?page=1&pagesize=2.`
+
+- View an example response
+
+```
+{
+  "totalPages": "3",
+  "list": [
+    {
+      "id": "217246660303022670",
+      "modifiedTime": "1648147227",
+      "creationTime": "1547402803",
+      "modifiedBy": "72057594038052745",
+      "name": "Test entityId IDP configuration - User sso",
+      "loginUrl": "https://testcompany.okta.com/app/testcompany_mytestcomanydomusersso_1/exkli5sevfsnKhh6n0x/sso/saml",
+      "idpEntityId": "http://www.okta.com/exkli5sevfsnKhh6n0x7",
+      "autoProvision": "0",
+      "signSamlRequest": "1",
+      "ssoType": [
+        "USER"
+      ],
+      "domainList": [
+        "mockcompany.com"
+      ],
+      "useCustomSPMetadata": false,
+      "scimEnabled": false,
+      "enableScimBasedPolicy": false,
+      "disableSamlBasedPolicy": false,
+      "reauthOnUserUpdate": false,
+      "userSpSigningCertId": "0",
+      "adminSpSigningCertId": "0",
+      "scimSharedSecretExists": false,
+      "forceAuth": false,
+      "enabled": true,
+      "redirectBinding": false
+    },
+    {
+      "id": "217246660303022599",
+      "modifiedTime": "1624663236",
+      "creationTime": "1542394689",
+      "modifiedBy": "72057594037928105",
+      "name": "IDP Config - Admin SSO",
+      "loginUrl": "https://testcompany.com/app/testcompany_zpaadminsso_1/exkgdl7ctkw3I3cWW0x7/sso/saml",
+      "idpEntityId": "http://www.okta.com/exkgdl7ctkw3I3cWW0x7",
+      "autoProvision": "0",
+      "signSamlRequest": "0",
+      "ssoType": [
+        "ADMIN"
+      ],
+      "domainList": [
+        "mockcompany.com"
+      ],
+      "useCustomSPMetadata": false,
+      "scimEnabled": false,
+      "enableScimBasedPolicy": false,
+      "disableSamlBasedPolicy": false,
+      "reauthOnUserUpdate": false,
+      "adminSpSigningCertId": "0",
+      "scimSharedSecretExists": false,
+      "forceAuth": false,
+      "enabled": true,
+      "redirectBinding": true
+    }
+  ]
+}
+```
+
+If not provided, the default page size is 20. The maximum page size is 500.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+This API supports a search option to search by features and fields. To search by features and fields:
+
+1. Send a GET request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/idp&search={searchString}`.
+2. Provide the following in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the `test` filter value.
+
+For example: `/mgmtconfig/v1/admin/customers/73186051597795328/idp&search=name%20LIKE%20test`.
+
+- View an example response
+
+```
+{
+  "totalPages": "2",
+  "totalCount": "2",
+  "list": [
+    {
+      "id": "72057594037961373",
+      "modifiedTime": "1668808938",
+      "creationTime": "1572496367",
+      "modifiedBy": "72057594038006517",
+      "name": "test2",
+      "loginUrl": "http://test.com/sso",
+      "idpEntityId": "https://test1.com",
+      "autoProvision": "0",
+      "signSamlRequest": "1",
+      "ssoType": [
+        "USER"
+      ],
+      "domainList": [
+        "1467901757270.com"
+      ],
+      "useCustomSPMetadata": true,
+      "scimEnabled": true,
+      "enableScimBasedPolicy": true,
+      "disableSamlBasedPolicy": false,
+      "reauthOnUserUpdate": false,
+      "userSpSigningCertId": "0",
+      "enableArbitraryAuthDomains": "0",
+      "scimSharedSecretExists": false,
+      "forceAuth": false,
+      "loginHint": true,
+      "enabled": true,
+      "redirectBinding": true
+    }
+  ]
+}
+```
+
+If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+
+## Getting Details for a Particular IdP
+
+To get details for a particular IdP:
+
+1. Send a `GET` request to following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}` in the idp-controller.
+2. Provide the following values in the request endpoint:
+
+- `customerId`: The ZPA tenant ID of the customer.
+- `idpId`: The ID of the desired IdP.
+
+For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/72057615512764510`.
+
+- View an example response
+
+```
+{
+  "id": "72057615512764510",
+  "modifiedTime": "1571334125",
+  "creationTime": "1571334045",
+  "modifiedBy": "72057615512764417",
+  "name": "AAD",
+  "certificates": [
+    {
+      "cName": "Microsoft Azure Federated SSO Certificate",
+      "serialNo": "52394493998477153587022235475127474407",
+      "certificate": "-----BEGIN CERTIFICATE-----\nMIIC8DCCAdigAwIBAgIQJ2rP/22CQ6BDYyU1iU6Y5zANBgkqhkiG9w0BAQsFADA0\nMTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZp\nY2F0ZTAeFw0xOTEwMTcxNzM5NTZaFw0yMjEwMTcxNzM5NTZaMDQxMjAwBgNVBAMT\nKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjAN\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmom8BuAvTHJ6Oj69fH4t2iFHNDrh\nE4MUs2TkeH474ogEPG1ilGS2qJW1XBc0XDny5Kior1GC6+q92OL6/VeNHQD1vDPd\nC2u5P+qui6SacjHV/3sM7pDfI01hCF3BxRLo3zEk9ir44lKmRo3B81L+ioGRVgJg\nJj3mbGez8v6YUnHkoSnBrU74Px4wB8DmyeZkZvwyey8+yKse03zC5nzwTDKalOvz\nu1NT09tWQXjvqfn3xyT8RCzo4ukZCF/Fn4CzhldvhO2ERcRlxPY8SxvJTkm26BCr\nrPTlOwY5D3XXEtJdamfziUO2hOdi/GmfC7PIbg7HOF+hTl9uDf+o6C+PSwIDAQAB\nMA0GCSqGSIb3DQEBCwUAA4IBAQBLqHfmFXnDCbVd6ZFkc6NmHE5IK2rCC5tpt3+i\nwjcHYCAScnI+lxmf3snb2E8kBvD7YVA45DUHEI1N1IiF76z1CkxAOIDjgeCFslQ5\nawnVJzHu17J/cTYCD579J9YWdDyz0AaD+lmwRrUP0QoxNZRtjq8dFLh8NGXW87wo\nlAhNXZEIo71Z0dbuAJLKHMSYLGwRG6jBmBzKp0rO4Z8nF3MLJ+bVhX5aYvVKSR8k\nmt/ZAkwqc1ePiiWeru/7VyDypz26fBFJk4UaLz0F9NMDkICR//zWQdfXXDTiKm53\nY/9cwLyFLj3fjRI3f/Qa2gkKU8f1WAqHXhBIPS/4XPaDU4IJ\n-----END CERTIFICATE-----\n",
+      "validFromInSec": "1571333996",
+      "validToInSec": "1666028396"
+    }
+  ],
+  "loginUrl": "https://login.microsoftonline.com/fe4036f5-76ad-4232-9bda-313544c3ad54/saml2",
+  "idpEntityId": "https://sts.windows.net/fe4036f5-76ad-4232-9bda-313544c3ad54/",
+  "autoProvision": "0",
+  "signSamlRequest": "1",
+  "ssoType": [
+    "USER"
+  ],
+  "domainList": [
+    "lanuk.net"
+  ],
+  "useCustomSPMetadata": true,
+  "scimEnabled": true,
+  "enableScimBasedPolicy": false,
+  "disableSamlBasedPolicy": false,
+  "reauthOnUserUpdate": false,
+  "userMetadata": {
+    "spEntityId": "https://samlsp.zpabeta.net/auth/metadata/72057615512764510",
+    "spPostUrl": "https://samlsp.zpabeta.net/auth/72057615512764510/sso",
+    "certificateUrl": "https://samlsp.zpabeta.net/auth/certificate",
+    "spMetadataUrl": "https://samlsp.zpabeta.net/auth/72057615512764510/metadata"
+  },
+  "scimServiceProviderEndpoint": "https://scim1.zpabeta.net/scim/1/72057615512764510/v2",
+  "scimSharedSecretExists": true,
+  "forceAuth": false,
+  "enabled": true,
+  "redirectBinding": true
+}
+```
+
+A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -9600,6 +10158,62 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/predefined-ip-based-application-controller","lastmod":"2026-10-14T00:22Z","nid":"1546785"} -->
+## Predefined IP Based Application Controller
+
+- Source: https://help.zscaler.com/legacy-apis/predefined-ip-based-application-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Predefined IP Based Application Controller
+- Last modified: 2026-10-14T00:22Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/predefined-ip-based-apps`
+
+**List predefined IP-based applications**
+
+Retrieves a list of predefined IP-based applications with pagination support.
+
+- Operation ID: `listPredefinedIPBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/predefined-ip-based-apps/{appId}`
+
+**Get predefined IP-based application**
+
+Retrieves a specific predefined IP-based application by its ID.
+
+- Operation ID: `getPredefinedIPBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | The unique identifier of the predefined IP-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/private-cloud-controller-group-management","lastmod":"2026-01-06T23:49Z","nid":"1532092"} -->
 ## Private Cloud Controller Group Management
 
@@ -12130,6 +12744,325 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/process-based-application-controller","lastmod":"2026-10-14T00:29Z","nid":"1546786"} -->
+## Process Based Application Controller
+
+- Source: https://help.zscaler.com/legacy-apis/process-based-application-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Process Based Application Controller
+- Last modified: 2026-10-14T00:29Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/process-based-apps/{appId}`
+
+**Retrieve process-based application**
+
+Retrieves the process-based application using application ID.
+
+- Operation ID: `getProcessBasedApplicationById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/process-based-apps/{appId}`
+
+**Update process-based application**
+
+Updates the process-based application using application ID.
+
+- Operation ID: `updateProcessBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based application. |
+
+**Request body:** `application/json` → PublicProcessBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/process-based-apps/{appId}`
+
+**Delete process-based application**
+
+Deletes the process-based application using application ID.
+
+- Operation ID: `deleteProcessBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/process-based-apps/{appId}`
+
+**Patch process-based application**
+
+Updates specific properties of the process-based application using application ID.
+
+- Operation ID: `patchProcessBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based application. |
+
+**Request body:** `application/json` → PublicProcessBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/process-based-apps`
+
+**List process-based applications**
+
+Retrieves a list of process-based applications with optional keyword filtering and pagination support.
+
+- Operation ID: `listProcessBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+| `keyword` | query | no | string | Search keyword to filter process-based applications by name or other attributes. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/process-based-apps`
+
+**Create process-based application**
+
+Creates a new process-based application with specified configuration.
+
+- Operation ID: `createProcessBasedApplication`
+
+**Request body:** `application/json` → PublicProcessBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`PublicProcessBasedApplication`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `fileNames` | array<string> | no |
+| `filePaths` | array<string> | no |
+| `matchingCriteria` | string (enum: NONE, SHA2_SIGNATURE, CERTIFICATE_SIGNER, CERTIFICATE_SUBJECT, SHA2_SIGNATURE_CERTIFICATE_SIGNER, SHA2_SIGNATURE_CERTIFICATE_SUBJECT, NOT_ASSIGNED) | no |
+| `signaturePayload` | array<PublicBypassSignaturePayload> | no |
+| `certificateThumbprintPayload` | array<PublicCertificateThumbprintPayload> | no |
+| `certificateSubjectPayload` | array<PublicCertificateSubjectPayload> | no |
+
+**`PublicBypassSignaturePayload`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `signatureName` | string | no |
+| `signatureValue` | string | no |
+
+**`PublicCertificateThumbprintPayload`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `certificateName` | string | no |
+| `certificateThumbprint` | string | no |
+
+**`PublicCertificateSubjectPayload`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `certificateName` | string | no |
+| `certificateSubject` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/process-based-macos-application-controller","lastmod":"2026-10-14T00:35Z","nid":"1546787"} -->
+## Process Based macOS Application Controller
+
+- Source: https://help.zscaler.com/legacy-apis/process-based-macos-application-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Process Based macOS Application Controller
+- Last modified: 2026-10-14T00:35Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/process-based-mac-apps/{appId}`
+
+**Retrieve process-based macOS application**
+
+Retrieves the process-based macOS application using application ID.
+
+- Operation ID: `getProcessBasedMacApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based macOS application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/process-based-mac-apps/{appId}`
+
+**Update process-based macOS application**
+
+Updates the process-based macOS application using application ID.
+
+- Operation ID: `updateProcessBasedMacApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based macOS application. |
+
+**Request body:** `application/json` → PublicProcessBasedMacApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/process-based-mac-apps/{appId}`
+
+**Delete process-based macOS application**
+
+Deletes the process-based macOS application using application ID.
+
+- Operation ID: `deleteProcessBasedMacApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based macOS application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/process-based-mac-apps/{appId}`
+
+**Patch process-based macOS application**
+
+Updates specific properties of the process-based macOS application using application ID.
+
+- Operation ID: `patchProcessBasedMacApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based macOS application. |
+
+**Request body:** `application/json` → PublicProcessBasedMacApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/process-based-mac-apps`
+
+**List process-based macOS applications**
+
+Retrieves a list of process-based macOS applications with pagination support.
+
+- Operation ID: `listProcessBasedMacApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/process-based-mac-apps`
+
+**Create process-based macOS application**
+
+Creates a new process-based macOS application with specified configuration.
+
+- Operation ID: `createProcessBasedMacApplication`
+
+**Request body:** `application/json` → PublicProcessBasedMacApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`PublicProcessBasedMacApplication`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `appIdentifier` | array<string> | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/provisioning","lastmod":"2026-01-06T23:49Z","nid":"1450261"} -->
 ## Provisioning
 
@@ -12736,93 +13669,163 @@ Gets the provisioning key details for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/public-api-controller","lastmod":"2026-06-09T04:15Z","nid":"1417361"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/public-api-controller","lastmod":"2026-10-13T23:57Z","nid":"1417361"} -->
 ## Public API Controller
 
 - Source: https://help.zscaler.com/legacy-apis/public-api-controller
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Public API Controller
-- Last modified: 2026-06-09T04:15Z
+- Last modified: 2026-10-13T23:57Z
 
 Api Documentation
 
-**Servers:** `http://mobileadmin.zscalerbeta.net:80`
+**Servers:** `http://localhost:8080/papi`
 
-### `GET /papi/public/v1/downloadDevices`
+### `PUT /public/v1/webTrustedNetwork/edit`
 
-Downloads or exports device information as a CSV file.
+**updateTrustedNetwork**
 
-- Operation ID: `downloadEnrolledDevicesUsingGET`
+Updates a trusted network.
 
-**Parameters:**
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `osTypes` | query | no | string | Filter the list of devices by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS; 2 - Android; 3 - Windows; 4 - macOS; 5 - Linux A sample API call: https://api-mobile.zscalerbeta.net/papi/public/v1/downloadDevices?osTypes=1,2 |
-| `registrationTypes` | query | no | string | Filter the list of devices by registration types or states. The following values represent different device states: 0 - All states except Removed; 1 - Registered; 3 - Removal pending; 4 - Unregistered; 5 - Removed; 6 - Quarantined A sample API call: https://api-mobile.zscalerbeta.net/papi/public/v1/downloadDevices?registrationTypes=1,3 |
+- Operation ID: `updateTrustedNetwork`
 
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/downloadDisableReasons`
-
-Downloads or exports a report as a CSV file showing the disable reasons of a device.
-
-- Operation ID: `asyncDownloadServiceDisabledReasonsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `Time-Zone` | header | no | string | Time-Zone |
-| `osTypes` | query | no | string | Filter the list of entries by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS2 - Android3 - Windows4 - macOS5 - Linux |
-| `startDate` | query | yes | string | startDate |
-| `endDate` | query | no | string | endDate |
+**Request body:** `application/json` → TrustedNetworkContract
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `GET /papi/public/v1/downloadServiceStatus`
+### `PUT /public/v1/webFailOpenPolicy/edit`
 
-Downloads service status of all devices as a CSV file.
+**updateFailOpenPolicy**
 
-- Operation ID: `downloadServiceStatusForDevicesUsingGET`
+Updates a specific FailOpen policy for the company.
 
-**Parameters:**
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `osTypes` | query | no | string | Filter the list by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS; 2 - Android; 3 - Windows; 4 - macOS; 5 - Linux A sample API call: https://api-mobile.zscalerbeta.net/papi/public/v1/downloadServiceStatus?osTypes=1,2 |
-| `registrationTypes` | query | no | string | Filter the list by registration types or states. The following values represent different device states: 0 - All states except Removed; 1 - Registered; 3 - Removal pending; 4 - Unregistered; 5 - Removed; 6 - Quarantined A sample API call: https://api-mobile.zscalerbeta.net/papi/public/v1/downloadServiceStatus?registrationTypes=1,3 |
+- Operation ID: `updateFailOpenPolicy`
+
+**Request body:** `application/json` → WebFailOpenPolicyContract
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PUT /papi/public/v1/editAdminUser`
+### `PUT /public/v1/web/policy/edit`
+
+**editPolicy**
+
+Adds or updates a policy or app profile for the company by platform (iOS, Android, Windows, macOS, and Linux).
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `editPolicy`
+
+**Request body:** `application/json` → WebPolicyEditRequestContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/web/policy/activate`
+
+**activateWebPolicy**
+
+Enables or disables a policy or app profile for the company by platform (iOS, Android, Windows, macOS, and Linux).
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `activateWebPolicy`
+
+**Request body:** `application/json` → WebPolicyActivateRequestContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/updateZpaGroupEntitlement`
+
+**updateGroupEntitlementZpa**
+
+Updates Private Access (ZPA) entitlement for user groups.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `updateGroupEntitlementZpa`
+
+**Request body:** `application/json` → GroupZPAEntitlementUpdateContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/updateZdxGroupEntitlement`
+
+**updateGroupEntitlementUpm**
+
+Updates Digital Experience (ZDX) entitlement for user groups.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `updateGroupEntitlementUpm`
+
+**Request body:** `application/json` → GroupListServiceUpdateContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/setWebPrivacyInfo`
+
+**updatePrivacyInfo**
+
+Adds or updates the configuration information for end user and device-related PII.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `updatePrivacyInfo`
+
+**Request body:** `application/json` → WebPrivacyContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/setDeviceCleanupInfo`
+
+**setDeviceCleanupInfo**
+
+Adds or updates the configuration for device cleanup.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `setDeviceCleanupInfo`
+
+**Request body:** `application/json` → WebDeviceCleanupContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v1/editAdminUser`
 
 **editAdminUser**
 
@@ -12830,7 +13833,7 @@ Updates a specific admin user.
 
 **⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-- Operation ID: `editAdminUserUsingPUT`
+- Operation ID: `editAdminUser`
 
 **Request body:** `application/json` → AdminAccountsContract
 
@@ -12839,15 +13842,112 @@ Updates a specific admin user.
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `POST /papi/public/v1/forceRemoveDevices`
+### `POST /public/v1/webTrustedNetwork/create`
 
-Force removes the enrolled device from the portal. You can only remove devices that are in registered or device removal pending state. At least one criterion (username, Zscaler Client Connector version, OS type, or UDID) must be specified to remove devices.
+**createTrustedNetwork**
+
+Adds a new trusted network to the company configuration.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `createTrustedNetwork_1`
+
+**Request body:** `application/json` → TrustedNetworkContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/webForwardingProfile/edit`
+
+**editForwardingProfile**
+
+Updates a forwarding profile.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `editForwardingProfile`
+
+**Request body:** `application/json` → WebForwardingProfileContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/userIdsByUserName`
+
+**Get user IDs by user names**
+
+Retrieves user IDs for a list of provided user names.
+
+- Operation ID: `userIdsByUserNames`
+
+**Request body:** `application/json` → UserNames2IdsRequestContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/syncZpaAdminUsers`
+
+**adminUsersZpaSyncInfo**
+
+Synchronizes the local copy of the Private Access (ZPA) admin users.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `adminUsersZpaSyncInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/syncZiaZdxAdminUsers`
+
+**adminUsersZiaZdxSyncInfo**
+
+Synchronizes the local copy of all the Internet & SaaS (ZIA) and Digital Experience (ZDX) admin users.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `adminUsersZiaZdxSyncInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/removeMachineTunnel`
+
+**removeMachineTunnelDevices**
+
+Remove machine tunnel devices.
+
+**Note:** For the parameters described below, you can specify either hostName or machineToken, but not both.
+
+- Operation ID: `removeMachineTunnelDevices`
+
+**Request body:** `application/json` → MachineTunnelDeviceRemoveContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/removeDevices`
+
+Soft removes the enrolled device from the Zscaler Admin Console. The soft removal marks the device state as device removal pending. At least one criterion (username, Zscaler Client Connector version, OS type, or UDID) must be specified to remove devices.
 
 The following are the valid values for the `osType` attribute. The default value is null, which represents ALL OS types.
 
@@ -12857,352 +13957,7 @@ The following are the valid values for the `osType` attribute. The default value
 - 4 - macOS
 - 5 - Linux
 
-- Operation ID: `forceRemoveDevicesUsingPOST`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 30. |
-
-**Request body:** `application/json` → DeviceRemoveContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getAdminRoles`
-
-**getAdminRoles**
-
-List of admin roles in your organization.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getAdminRolesUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getAdminUsers`
-
-**getAdminUsers**
-
-Gets the list of admin users in your organization.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getAdminUsersUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `userType` | query | no | string(byte) | userType |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getAdminUsersSyncInfo`
-
-**adminUsersSyncInfo**
-
-Synchronizes the local copy of admin users.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `adminUsersSyncInfoUsingGET`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getCompanyInfo`
-
-**getCompanyInfo**
-
-Gets information about your organization such as the name of the business, domains, etc.
-
-**⚠ This API endpoint is allowed if called via OneAPI or if the token has admin or read-only admin privileges.**
-
-- Operation ID: `getCompanyInfoUsingGET`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getDeviceCleanupInfo`
-
-**getDeviceCleanupInfo**
-
-Gets the configuration for device cleanup.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getDeviceCleanupInfoUsingGET`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getDeviceDetails`
-
-Lists device details of enrolled devices of your organization.
-
-- Operation ID: `getDeviceDetailsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `udid` | query | no | string | Filter by unique device identifier. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getDevices`
-
-Lists all enrolled devices of your organization and their basic details.
-
-- Operation ID: `getDevicesUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `username` | query | no | string | Filter by enrolled user name for the device. |
-| `osType` | query | no | string(byte) | Filter by device operating system type. |
-| `page` | query | no | integer(int32) | Specifies the page number. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 50. The max page size is 5000. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getOtp`
-
-Gets the one-time password (OTP) for a specific device. These single-use passwords are unique and tied to the device Unique Device Identifier (UDID). It is made of 10 random alphanumeric characters and can only be used once.
-
-- Operation ID: `getOtpUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `udid` | query | no | string | Unique device identifier. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getPasswords`
-
-Gets the app profile password for a specific device. You can determine the assigned global passwords by using the username and OS type of a device.
-
-- Operation ID: `getPasswordsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `username` | query | no | string | Enrolled user for the device. |
-| `osType` | query | no | integer(int32) | Device operating system. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `POST /papi/public/v1/managePass`
-
-Updates profile policy rule passwords. The JSON Web Token (JWT) passed in as a header must be associated with a user who has Full access to Zscaler Client Connector App Profiles with an API key created with Write access. To learn more, see [Adding Roles](https://help.zscaler.com/client-connector/adding-roles) and [Adding an API Key](https://help.zscaler.com/client-connector/adding-api-key).
-
-- Operation ID: `managePassUsingPOST`
-
-**Request body:** `application/json` → ManagePasswordContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getWebPrivacyInfo`
-
-**getPrivacyInfo**
-
-Gets the configuration information for end user and device-related PII.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getPrivacyInfoUsingGET`
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getZdxGroupEntitlements`
-
-**getUpmGroupEntitlementEnabled**
-
-Gets the list of ZDX entitlements for user groups.
-
-- Operation ID: `getUpmGroupEntitlementEnabledUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/getZpaGroupEntitlements`
-
-**getGroupEntitlementEnabled**
-
-Gets the list of Private Access (ZPA) entitlements for user groups.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getGroupEntitlementEnabledUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `POST /papi/public/v1/removeDevices`
-
-Soft removes the enrolled device from the portal. The soft removal marks the device state as device removal pending. At least one criterion (username, Zscaler Client Connector version, OS type, or UDID) must be specified to remove devices.
-
-The following are the valid values for the `osType` attribute. The default value is null, which represents ALL OS types.
-
-- 1 - iOS
-- 2 - Android
-- 3 - Windows
-- 4 - macOS
-- 5 - Linux
-
-- Operation ID: `removeDevicesUsingPOST`
+- Operation ID: `removeDevices`
 
 **Parameters:**
 
@@ -13216,226 +13971,149 @@ The following are the valid values for the `osType` attribute. The default value
 
 | Code | Description |
 | --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
+| 201 | CREATED |
 
-### `POST /papi/public/v1/removeMachineTunnel`
+### `POST /public/v1/managePass`
 
-**removeMachineTunnelDevices**
+Updates profile policy rule passwords. The JSON Web Token (JWT) passed in as a header must be associated with a user who has Full access to Zscaler Client Connector App Profiles with an API key created with Write access. To learn more, see [Adding Roles](https://help.zscaler.com/client-connector/adding-roles) and [Adding an API Key](https://help.zscaler.com/client-connector/adding-api-key).
 
-Remove machine tunnel devices.
+- Operation ID: `managePass`
 
-**Note:** For the parameters described below, you can specify either hostName or machineToken but not both.
+**Request body:** `application/json` → ManagePasswordContract
 
-- Operation ID: `removeMachineTunnelDevicesUsingPOST`
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `POST /public/v1/forceRemoveDevices`
+
+Force removes the enrolled device from the Zscaler Admin Console. You can only remove devices that are in registered or device removal pending state. At least one criterion (username, Zscaler Client Connector version, OS type, or UDID) must be specified to remove devices.
+
+The following are the valid values for the `osType` attribute. The default value is null, which represents ALL OS types.
+
+- 1 - iOS
+- 2 - Android
+- 3 - Windows
+- 4 - macOS
+- 5 - Linux
+
+- Operation ID: `forceRemoveDevices`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `hostName` | query | no | string | Comma-separated list of hostnames for the device. |
-| `machineToken` | query | no | string | Machine token. |
+| `pageSize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 30. |
 
-**Request body:** `application/json` → MachineTunnelDeviceRemoveContract
+**Request body:** `application/json` → DeviceRemoveContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `GET /public/v1/webTrustedNetwork/listByCompany`
+
+**getMultipleTrustedNetworks**
+
+Retrieves the list of trusted networks by company.
+
+- Operation ID: `getMultipleTrustedNetworks`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Page number for pagination. Use to navigate through paginated results. The default value is 1. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
+| `search` | query | no | string | Search term to filter trusted networks. Supports partial name matching in a case-insensitive manner. |
+| `searchType` | query | no | string | Specifies the field to search on. The default value is 'fileName'. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PUT /papi/public/v1/setDeviceCleanupInfo`
+### `GET /public/v1/webForwardingProfile/listByCompany`
 
-**setDeviceCleanupInfo**
+**forwardingProfilesByCompanyId**
 
-Adds or updates the configuration for device cleanup.
+Retrieves the list of forwarding profiles by company.
 
 **⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-- Operation ID: `setDeviceCleanupInfoUsingPUT`
+- Operation ID: `forwardingProfilesByCompanyId`
 
-**Request body:** `application/json` → WebDeviceCleanupContract
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Page number for pagination. Use to navigate through paginated results. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
+| `search` | query | no | string | Search term to filter forwarding profiles by name or other attributes. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PUT /papi/public/v1/setWebPrivacyInfo`
+### `GET /public/v1/webFailOpenPolicy/listByCompany`
 
-**updatePrivacyInfo**
+**getFailOpenPolicy**
 
-Adds or updates the configuration information for end user and device-related PII.
+Retrieves the list of FailOpen policies for the company.
 
 **⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-- Operation ID: `updatePrivacyInfoUsingPUT`
+- Operation ID: `getFailOpenPolicy`
 
-**Request body:** `application/json` → WebPrivacyContract
+**Parameters:**
 
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `POST /papi/public/v1/syncZiaZdxAdminUsers`
-
-**adminUsersZiaZdxSyncInfo**
-
-Synchronizes the local copy of all the Internet & SaaS (ZIA) and ZDX admin users.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `adminUsersZiaZdxSyncInfoUsingPOST`
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Page number for pagination to navigate through paginated results. |
+| `pageSize` | query | no | integer(int32) | Number of records per page. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `POST /papi/public/v1/syncZpaAdminUsers`
+### `GET /public/v1/webAppService/listByCompany`
 
-**adminUsersZpaSyncInfo**
+**getAppServiceInfoByCompanyId**
 
-Synchronizes the local copy of the Private Access (ZPA) admin users.
+Retrieves the list of applications to bypass Zscaler, such as Zoom, Microsoft Teams, etc.
 
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+**⚠ This API is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-- Operation ID: `adminUsersZpaSyncInfoUsingPOST`
+- Operation ID: `getAppServiceInfoByCompanyId`
 
-**Responses:**
+**Parameters:**
 
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `PUT /papi/public/v1/updateZdxGroupEntitlement`
-
-**updateGroupEntitlementUpm**
-
-Updates ZDX entitlement for user groups.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `updateGroupEntitlementUpmUsingPUT`
-
-**Request body:** `application/json` → GroupListServiceUpdateContract
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Page number for pagination to navigate through paginated results. |
+| `pageSize` | query | no | integer(int32) | Number of records per page. |
+| `search` | query | no | string | Search query string to filter applications by name or identifier. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PUT /papi/public/v1/updateZpaGroupEntitlement`
-
-**updateGroupEntitlementZpa**
-
-Updates Private Access (ZPA) entitlement for user groups.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `updateGroupEntitlementZpaUsingPUT`
-
-**Request body:** `application/json` → GroupZPAEntitlementUpdateContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `PUT /papi/public/v1/web/policy/activate`
-
-**activateWebPolicy**
-
-Enables or disables a policy or app profile for the company by platform (iOS, Android, Windows, macOS, and Linux).
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `activateWebPolicyUsingPUT`
-
-**Request body:** `application/json` → WebPolicyActivateRequestContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `PUT /papi/public/v1/web/policy/edit`
-
-**editPolicy**
-
-Adds or updates a policy or app profile for the company by platform (iOS, Android, Windows, macOS, and Linux).
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `editPolicyUsingPUT`
-
-**Request body:** `application/json` → WebPolicyEditRequestContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/web/policy/listByCompany`
+### `GET /public/v1/web/policy/listByCompany`
 
 **getPolicyListByCompanyId**
+
+Retrieves a list of web policies configured for the company.
 
 **⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
@@ -13447,30 +14125,370 @@ The following are the valid values for the deviceType attribute:
 - 4 - macOS
 - 5 - Linux
 
-- Operation ID: `getPolicyListByCompanyIdUsingGET`
+- Operation ID: `getPolicyListByCompanyId`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
-| `searchType` | query | no | string | searchType |
-| `deviceType` | query | no | integer(int32) | deviceType |
+| `page` | query | no | integer(int32) | Page number for pagination. The default value is set as 1 for the first page. Use to navigate through paginated results. |
+| `pageSize` | query | no | integer(int32) | Number of records per page. The default value is 50. |
+| `search` | query | no | string | Search query string to filter policies. |
+| `searchType` | query | no | string | Specifies the field to search in when filtering policies. |
+| `deviceType` | query | no | integer(int32) | Filters policies by device platform. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `DELETE /papi/public/v1/web/policy/{policyId}/delete`
+### `GET /public/v1/getZpaGroupEntitlements`
+
+**getGroupEntitlementEnabled**
+
+Retrieves the list of Private Access (ZPA) entitlements for user groups.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `getGroupEntitlementEnabled`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | The page number for paginated results. The default value is 1. |
+| `pageSize` | query | no | integer(int32) | The number of results per page. The default value is 50. |
+| `search` | query | no | string | Search term to filter results by group name. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getZdxGroupEntitlements`
+
+**getUpmGroupEntitlementEnabled**
+
+Retrieves the list of Digital Experience (ZDX) entitlements for user groups.
+
+- Operation ID: `getUpmGroupEntitlementEnabled`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | The page number for paginated results. |
+| `pageSize` | query | no | integer(int32) | The number of results per page. |
+| `search` | query | no | string | Search term to filter results by group name. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getWebPrivacyInfo`
+
+**getPrivacyInfo**
+
+Retrieves the configuration information for end user and device-related PII.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `getPrivacyInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getPasswords`
+
+**getPasswords**
+
+Retrieves the app profile password for a specific device. You can determine the assigned global passwords by using the username and OS type of a device.
+
+- Operation ID: `getPasswords`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `username` | query | no | string | The username of the enrolled user for the device. |
+| `osType` | query | no | integer(int32) | The operating system type of the device. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getOtp`
+
+**getOtp**
+
+Retrieves the one-time password (OTP) for a specific device. These single-use passwords are unique and tied to the device Unique Device Identifier (UDID). It is made of 10 random alphanumeric characters and can only be used once.
+
+- Operation ID: `getOtp`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `udid` | query | no | string | The UDID for which to generate the OTP. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getDevices`
+
+**getDevices**
+
+Retrieves all enrolled devices of your organization and their basic details.
+
+- Operation ID: `getDevices`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `username` | query | no | string | Filter results by enrolled user name for the device. |
+| `osType` | query | no | string(byte) | Filter results by device operating system type. |
+| `page` | query | no | integer(int32) | The page number for paginated results. The default value is 1. |
+| `pageSize` | query | no | integer(int32) | The number of results per page. The default value is 50. The maximum page size is 5000. |
+| `sortBy` | query | no | string | Sort results by the specified field. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getDeviceDetails`
+
+**getDeviceDetails**
+
+Retrieves device details of enrolled devices of your organization.
+
+- Operation ID: `getDeviceDetails`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `udid` | query | no | string | Filter results by unique device identifier (UDID). |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getDeviceCleanupInfo`
+
+**getDeviceCleanupInfo**
+
+Retrieves the configuration for device cleanup.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `getDeviceCleanupInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getCompanyInfo`
+
+**getCompanyInfo**
+
+Retrieves information about your organization such as the name of the business, domains, etc.
+
+**⚠ This API endpoint is allowed if called via OneAPI or if the token has admin or read-only admin privileges.**
+
+- Operation ID: `getCompanyInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getAdminUsers`
+
+**getAdminUsers**
+
+Retrieves the list of admin users in your organization.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `getAdminUsers`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | The page number for paginated results. The default value is 1. |
+| `pageSize` | query | no | integer(int32) | The number of results per page. The default value is 50. |
+| `userType` | query | no | string(byte) | Filter results by user type. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getAdminUsersSyncInfo`
+
+**adminUsersSyncInfo**
+
+Synchronizes the local copy of admin users.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `adminUsersSyncInfo`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/getAdminRoles`
+
+**getAdminRoles**
+
+Retrieves a list of admin roles in your organization.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `getAdminRoles`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | The page number for paginated results. The default value is 1. |
+| `pageSize` | query | no | integer(int32) | The number of results per page. The default value is 50. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/downloadServiceStatus`
+
+Downloads or exports the service status of all devices to a CSV file.
+
+- Operation ID: `asyncDownloadServiceStatusForDevices`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `osTypes` | query | no | string(byte) | Filter the list by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS; 2 - Android; 3 - Windows; 4 - macOS; 5 - Linux A sample API call: https://api-mobile.zscalerbeta.net/public/v1/downloadServiceStatus?osTypes=1,2 |
+| `registrationTypes` | query | no | string(byte) | Filter the list by registration types or states. The following values represent different device states: 0 - All states except Removed; 1 - Registered; 3 - Removal pending; 4 - Unregistered; 5 - Removed; 6 - Quarantined A sample API call: https://api-mobile.zscalerbeta.net/public/v1/downloadServiceStatus?registrationTypes=1,3 |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/downloadDisableReasons`
+
+Downloads or exports a report as a CSV file showing the reasons why device services were disabled.
+
+- Operation ID: `asyncDownloadServiceDisabledReasons`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `Time-Zone` | header | no | string | The time zone to use for date and time values in the report. |
+| `osTypes` | query | no | string(byte) | Filter the list of entries by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS2 - Android3 - Windows4 - macOS5 - Linux |
+| `startDate` | query | yes | string | The start date for the report. |
+| `endDate` | query | no | string | The end date for the report. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/downloadDevices`
+
+Downloads or exports device information as a CSV file.
+
+- Operation ID: `asyncDownloadEnrolledDevices`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `osTypes` | query | no | string(byte) | Filter the list of devices by operating systems. The default value is null, which represents ALL OS types. The following values represent different OS types: 1 - iOS; 2 - Android; 3 - Windows; 4 - macOS; 5 - Linux A sample API call: https://api-mobile.zscalerbeta.net/public/v1/downloadDevices?osTypes=1,2 |
+| `registrationTypes` | query | no | string(byte) | Filter the list of devices by registration types or states. The following values represent different device states: 0 - All states except Removed; 1 - Registered; 3 - Removal pending; 4 - Unregistered; 5 - Removed; 6 - Quarantined A sample API call: https://api-mobile.zscalerbeta.net/public/v1/downloadDevices?registrationTypes=1,3 |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v1/webTrustedNetwork/{networkId}/delete`
+
+**deleteTrustedNetwork**
+
+Deletes a trusted network.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `deleteTrustedNetwork_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `networkId` | path | yes | integer(int64) | Unique identifier of the trusted network to delete. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `DELETE /public/v1/webForwardingProfile/{profileId}/delete`
+
+**deleteForwardingProfile**
+
+Deletes a forwarding profile.
+
+**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+
+- Operation ID: `deleteForwardingProfile_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `profileId` | path | yes | integer(int32) | Unique identifier of the forwarding profile to delete. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `DELETE /public/v1/web/policy/{policyId}/delete`
 
 **deletePolicy**
 
@@ -13478,114 +14496,917 @@ Deletes a policy or app profile for the company by platform (iOS, Android, Windo
 
 **⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
 
-- Operation ID: `deletePolicyUsingDELETE`
+- Operation ID: `deletePolicy`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `policyId` | path | yes | integer(int32) | policyId |
+| `policyId` | path | yes | integer(int32) | Unique identifier of the policy to delete. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
+| 204 | DELETED |
 
-### `GET /papi/public/v1/webAppService/listByCompany`
+### Schemas
 
-**getAppServiceInfoByCompanyId**
+**`TrustedNetworkContract`**
 
-Gets the list of applications to bypass Zscaler such as Zoom, Microsoft Teams, etc.
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `companyId` | string | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `guid` | string | no |
+| `networkName` | string | no |
+| `conditionType` | integer(int32) | no |
+| `dnsServers` | string | no |
+| `dnsSearchDomains` | string | no |
+| `hostnames` | string | no |
+| `resolvedIpsForHostname` | string | no |
+| `ssids` | string | no |
+| `trustedSubnets` | string | no |
+| `trustedGateways` | string | no |
+| `trustedDhcpServers` | string | no |
+| `trustedEgressIps` | string | no |
+| `active` | boolean | no |
 
-**⚠ This API is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+**`CommonResponseContract`**
 
-- Operation ID: `getAppServiceInfoByCompanyIdUsingGET`
+| Property | Type | Required |
+| --- | --- | --- |
+| `success` | string | no |
+| `errorCode` | string | no |
+| `errorMessage` | string | no |
+| `companyIds` | array<integer(int32)> | no |
+| `errorInfoArguments` | array<string> | no |
+| `responseData` | object | no |
+
+**`WebFailOpenPolicyContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `companyId` | string | no |
+| `active` | string | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `captivePortalWebSecDisableMinutes` | integer(int32) | no |
+| `enableWebSecOnProxyUnreachable` | string | no |
+| `tunnelFailureRetryCount` | integer(int32) | no |
+| `enableWebSecOnTunnelFailure` | string | no |
+| `enableCaptivePortalDetection` | string(byte) | no |
+| `enableFailOpen` | string(byte) | no |
+| `enableStrictEnforcementPrompt` | string(byte) | no |
+| `strictEnforcementPromptDelayMinutes` | integer(int32) | no |
+| `strictEnforcementPromptMessage` | string | no |
+
+**`WebPolicyEditRequestContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `active` | string | no |
+| `name` | string | no |
+| `description` | string | no |
+| `ruleOrder` | string | no |
+| `logMode` | string | no |
+| `logLevel` | string | no |
+| `logFileSize` | string | no |
+| `groupIds` | array<integer(int32)> | no |
+| `deviceGroupIds` | array<integer(int64)> | no |
+| `deviceGroupNames` | array<string> | no |
+| `userIds` | array<integer(int64)> | no |
+| `groupNames` | array<string> | no |
+| `userNames` | array<string> | no |
+| `androidPolicy` | WebPolicyEditRequestAndroidExtensionContract | no |
+| `iosPolicy` | WebPolicyEditRequestIOSExtensionContract | no |
+| `macPolicy` | WebPolicyEditRequestMacExtensionContract | no |
+| `linuxPolicy` | WebPolicyEditRequestLinuxExtensionContract | no |
+| `windowsPolicy` | WebPolicyEditRequestWindowsExtensionContract | no |
+| `forwardingProfileId` | integer(int64) | no |
+| `policyExtension` | WebPolicyExtensionContract | no |
+| `disasterRecovery` | WebPolicyDisasterRecoveryContract | no |
+| `reactivateWebSecurityMinutes` | string | no |
+| `highlightActiveControl` | string(byte) | no |
+| `sendDisableServiceReason` | string(byte) | no |
+| `refreshKerberosToken` | string(byte) | no |
+| `enableDeviceGroups` | string(byte) | no |
+| `allowUnreachablePac` | boolean | no |
+| `tunnelZappTraffic` | string | no |
+| `groupAll` | string | no |
+| `appServiceIds` | array<integer(int64)> | no |
+| `appServiceNames` | array<string> | no |
+| `ziaPostureConfigId` | integer(int32) | no |
+| `bypassAppIds` | array<integer(int64)> | no |
+| `appIdentityNames` | array<string> | no |
+| `bypassCustomAppIds` | array<integer(int64)> | no |
+| `notificationTemplateId` | integer(int64) | no |
+| `pac_url` | string | no |
+| `device_type` | string | no |
+| `reauth_period` | string | no |
+
+**`WebPolicyActivateRequestContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyId` | integer(int32) | no |
+| `oneApi` | boolean | no |
+| `ziaTenantId` | integer(int32) | no |
+| `transactionId` | string | no |
+| `policyId` | integer(int32) | no |
+| `deviceType` | integer(int32) | no |
+
+**`GroupZPAEntitlementUpdateContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupIds` | array<integer(int32)> | no |
+| `groupNames` | array<string> | no |
+| `deviceGroupIds` | array<integer(int64)> | no |
+| `deviceGroupNames` | array<string> | no |
+| `enableForAll` | integer(int32) | no |
+| `computeDeviceGroups` | integer(int32) | no |
+| `machineTunEnabledForAll` | integer(int32) | no |
+
+**`GroupListServiceUpdateContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupIds` | array<integer(int32)> | no |
+| `groupNames` | array<string> | no |
+| `deviceGroupIds` | array<integer(int64)> | no |
+| `deviceGroupNames` | array<string> | no |
+| `enableForAll` | integer(int32) | no |
+| `computeDeviceGroups` | integer(int32) | no |
+| `logoutZCC` | integer(int32) | no |
+
+**`WebPrivacyContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `active` | string | no |
+| `collectUserInfo` | string | no |
+| `collectMachineHostname` | string | no |
+| `collectZdxLocation` | string | no |
+| `enablePacketCapture` | string | no |
+| `disableCrashlytics` | string | no |
+| `overrideT2ProtocolSetting` | string | no |
+| `restrictRemotePacketCapture` | string | no |
+| `grantAccessToZscalerLogFolder` | string | no |
+| `exportLogsForNonAdmin` | string | no |
+| `enableAutoLogSnippet` | string | no |
+
+**`WebDeviceCleanupContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `companyId` | string | no |
+| `active` | string | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `forceRemoveType` | string | no |
+| `deviceExceedLimit` | string | no |
+| `autoRemovalDays` | string | no |
+| `autoPurgeDays` | string | no |
+| `forceRemoveTypeString` | string | no |
+
+**`AdminAccountsContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int32) | no |
+| `companyId` | string | no |
+| `userName` | string | no |
+| `accountEnabled` | string | no |
+| `editEnabled` | string | no |
+| `isDefaultAdmin` | string | no |
+| `serviceType` | string(byte) | no |
+| `companyRole` | AdminRolesContract | no |
+
+**`WebForwardingProfileContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `active` | string | no |
+| `name` | string | no |
+| `conditionType` | integer(int32) | no |
+| `dnsServers` | string | no |
+| `dnsSearchDomains` | string | no |
+| `enableLWFDriver` | string | no |
+| `hostname` | string | no |
+| `resolvedIpsForHostname` | string | no |
+| `trustedSubnets` | string | no |
+| `trustedGateways` | string | no |
+| `trustedDhcpServers` | string | no |
+| `trustedEgressIps` | string | no |
+| `predefinedTrustedNetworks` | boolean | no |
+| `predefinedTnAll` | boolean | no |
+| `trustedNetworkIds` | array<integer(int64)> | no |
+| `trustedNetworks` | array<string> | no |
+| `forwardingProfileActions` | array<ForwardingProfileActionContractv2> | no |
+| `forwardingProfileZpaActions` | array<ForwardingProfileActionContractZpaV2> | no |
+| `enableAllDefaultAdaptersTN` | string(byte) | no |
+| `enableSplitVpnTN` | string(byte) | no |
+| `skipTrustedCriteriaMatch` | string(byte) | no |
+| `enableUnifiedTunnel` | string(byte) | no |
+| `unifiedTunnel` | array<UnifiedTunnelContract> | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+
+**`UserNames2IdsRequestContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyId` | integer(int32) | no |
+| `oneApi` | boolean | no |
+| `ziaTenantId` | integer(int32) | no |
+| `transactionId` | string | no |
+| `userNames` | array<string> | no |
+
+**`UserNames2IdsResponseContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `userIds` | array<integer(int64)> | no |
+
+**`MachineTunnelDeviceRemoveContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyId` | integer(int32) | no |
+| `oneApi` | boolean | no |
+| `ziaTenantId` | integer(int32) | no |
+| `transactionId` | string | no |
+| `hostNames` | array<string> | no |
+| `machineToken` | string | no |
+
+**`DeviceRemoveResponseContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `devicesRemoved` | integer(int32) | no |
+| `errorMsg` | string | no |
+
+**`DeviceRemoveContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyId` | integer(int32) | no |
+| `oneApi` | boolean | no |
+| `ziaTenantId` | integer(int32) | no |
+| `transactionId` | string | no |
+| `udids` | array<string> | no |
+| `userName` | string | no |
+| `osType` | integer(int32) | no |
+| `clientConnectorVersion` | array<string> | no |
+| `page` | integer(int32) | no |
+| `pageSize` | integer(int32) | no |
+
+**`ManagePasswordContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyId` | integer(int32) | no |
+| `oneApi` | boolean | no |
+| `ziaTenantId` | integer(int32) | no |
+| `transactionId` | string | no |
+| `exitPass` | string | no |
+| `logoutPass` | string | no |
+| `uninstallPass` | string | no |
+| `zadDisablePass` | string | no |
+| `zdpDisablePass` | string | no |
+| `zpaDisablePass` | string | no |
+| `zdxDisablePass` | string | no |
+| `ziaDisablePass` | string | no |
+| `policyName` | string | yes |
+| `deviceType` | integer(int32) | yes |
+
+**`ManagePassResponseContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `errorMessage` | string | no |
+
+**`TrustedNetworksWrapperContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalCount` | integer(int64) | no |
+| `trustedNetworkContracts` | array<TrustedNetworkContract> | no |
+
+**`AppServiceContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `appVersion` | integer(int32) | no |
+| `appSvcId` | integer(int32) | no |
+| `appName` | string | no |
+| `active` | boolean | no |
+| `uid` | string | no |
+| `appDataBlob` | array<AppServiceBlobContract> | no |
+| `appDataBlobV6` | array<AppServiceBlobContractV6> | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `editedTimestamp` | string | no |
+| `zappDataBlob` | string | no |
+| `zappDataBlobV6` | string | no |
+| `version` | integer(int32) | no |
+
+**`GroupListServiceEntitlementContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalCount` | integer(int64) | no |
+| `zpaEnableForAll` | integer(int32) | no |
+| `computeDeviceGroupsForZPA` | integer(int32) | no |
+| `machineTunEnabledForAll` | integer(int32) | no |
+| `groupList` | array<GroupServiceEntitlementContract> | no |
+| `deviceGroupList` | array<GroupServiceEntitlementContract> | no |
+
+**`GroupListUpmServiceEntitlementContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `totalCount` | integer(int64) | no |
+| `upmEnableForAll` | integer(int32) | no |
+| `logoutZCCForZDXService` | integer(int32) | no |
+| `computeDeviceGroupsForZDX` | integer(int32) | no |
+| `upmGroupList` | array<UpmGroupServiceEntitlementContract> | no |
+| `upmDeviceGroupList` | array<UpmGroupServiceEntitlementContract> | no |
+| `collectZdxLocation` | integer(int32) | no |
+
+**`UserPasswordResponse`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logoutPass` | string | no |
+| `exitPass` | string | no |
+| `ziaDisablePass` | string | no |
+| `zpaDisablePass` | string | no |
+| `zdxDisablePass` | string | no |
+| `uninstallPass` | string | no |
+| `zdSettingsAccessPass` | string | no |
+
+**`DeviceOTPContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `otp` | string | no |
+| `deviceOtpArray` | array<string> | no |
+| `logoutOtp` | string | no |
+| `revertOtp` | string | no |
+| `uninstallOtp` | string | no |
+| `exitOtp` | string | no |
+| `ziaDisableOtp` | string | no |
+| `zpaDisableOtp` | string | no |
+| `zdxDisableOtp` | string | no |
+| `antiTemperingDisableOtp` | string | no |
+| `zdpDisableOtp` | string | no |
+| `deceptionSettingsOtp` | string | no |
+
+**`DeviceListResponseContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `companyName` | string | no |
+| `type` | string(byte) | no |
+| `state` | string(byte) | no |
+| `udid` | string | no |
+| `macAddress` | string | no |
+| `user` | string | no |
+| `detail` | string | no |
+| `policyName` | string | no |
+| `last_seen_time` | string | no |
+| `osVersion` | string | no |
+| `agentVersion` | string | no |
+| `registrationState` | string | no |
+| `owner` | string | no |
+| `machineHostname` | string | no |
+| `manufacturer` | string | no |
+| `download_count` | integer(int32) | no |
+| `registration_time` | string | no |
+| `deregistrationTimestamp` | string | no |
+| `config_download_time` | string | no |
+| `keepAliveTime` | string | no |
+| `hardwareFingerprint` | string | no |
+| `tunnelVersion` | string | no |
+| `vpnState` | string(byte) | no |
+| `upmVersion` | string | no |
+| `zappArch` | string | no |
+| `unifiedTunnelStatus` | string | no |
+
+**`AdminRolesContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `roleName` | string | no |
+| `isEditable` | boolean | no |
+| `companyId` | string | no |
+| `dashboard` | string | no |
+| `enrolledDevicesGroup` | string | no |
+| `deviceOverview` | string | no |
+| `machineTunnel` | string | no |
+| `partnerDeviceOverview` | string | no |
+| `appProfileGroup` | string | no |
+| `windowsProfile` | string | no |
+| `macProfile` | string | no |
+| `linuxProfile` | string | no |
+| `iosProfile` | string | no |
+| `androidProfile` | string | no |
+| `administratorGroup` | string | no |
+| `clientConnectorAppStore` | string | no |
+| `clientConnectorNotifications` | string | no |
+| `clientConnectorSupport` | string | no |
+| `clientConnectorIdp` | string | no |
+| `auditLogs` | string | no |
+| `forwardingProfile` | string | no |
+| `trustedNetwork` | string | no |
+| `zscalerEntitlement` | string | no |
+| `userAgent` | string | no |
+| `devicePosture` | string | no |
+| `appBypass` | string | no |
+| `locationBased` | string | no |
+| `zccTheme` | string | no |
+| `dedicatedProxyPorts` | string | no |
+| `authSetting` | string | no |
+| `publicApi` | string | no |
+| `deviceGroups` | string | no |
+| `zpaPartnerLogin` | string | no |
+| `zscalerDeception` | string | no |
+| `ddilConfiguration` | string | no |
+| `adminManagement` | string | no |
+| `obfuscateData` | string | no |
+| `createdBy` | string | no |
+| `updatedBy` | string | no |
+
+- `StreamingResponseBody`: object
+
+**`WebPolicyEditRequestAndroidExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enforced` | string | no |
+| `quota_in_roaming` | string | no |
+| `install_ssl_certs` | string | no |
+| `limit` | string | no |
+| `billing_day` | string | no |
+| `allowed_apps` | string | no |
+| `bypass_android_apps` | string | no |
+| `bypass_mms_apps` | string | no |
+| `custom_text` | string | no |
+| `logout_password` | string | no |
+| `uninstall_password` | string | no |
+| `disable_password` | string | no |
+| `wifi_ssid` | string | no |
+| `enableVerboseLog` | string | no |
+| `cacheSystemProxy` | integer(int32) | no |
+| `disableParallelIpv4andIpv6` | integer(int32) | no |
+| `prioritizeIPv4` | integer(int32) | no |
+
+**`WebPolicyEditRequestIOSExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `passcode` | string | no |
+| `logout_password` | string | no |
+| `uninstall_password` | string | no |
+| `disable_password` | string | no |
+| `showVPNTunNotification` | string(byte) | no |
+| `ipv6Mode` | string(byte) | no |
+| `useTunnelSDK4_3` | string(byte) | no |
+
+**`WebPolicyEditRequestMacExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logout_password` | string | no |
+| `disable_password` | string | no |
+| `uninstall_password` | string | no |
+| `install_ssl_certs` | string | no |
+| `addIfscopeRoute` | string | no |
+| `clearArpCache` | string | no |
+| `dnsPriorityOrdering` | string | no |
+| `dnsPriorityOrderingForTrustedDnsCriteria` | string | no |
+| `cacheSystemProxy` | string | no |
+| `enableZscalerFirewall` | string | no |
+| `persistentZscalerFirewall` | string | no |
+| `enableApplicationBasedBypass` | string | no |
+| `captivePortalConfig` | string | no |
+| `browserAuthType` | string | no |
+| `useDefaultBrowser` | string | no |
+
+**`WebPolicyEditRequestLinuxExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logout_password` | string | no |
+| `disable_password` | string | no |
+| `uninstall_password` | string | no |
+| `install_ssl_certs` | string | no |
+
+**`WebPolicyEditRequestWindowsExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logout_password` | string | no |
+| `disable_password` | string | no |
+| `uninstall_password` | string | no |
+| `install_ssl_certs` | string | no |
+| `disableLoopBackRestriction` | integer(int32) | no |
+| `removeExemptedContainers` | integer(int32) | no |
+| `overrideWPAD` | integer(int32) | no |
+| `restartWinHttpSvc` | integer(int32) | no |
+| `cacheSystemProxy` | integer(int32) | no |
+| `prioritizeIPv4` | integer(int32) | no |
+| `pacType` | integer(int32) | no |
+| `registryPath` | string | no |
+| `registryName` | string | no |
+| `pacDataPath` | string | no |
+| `disableParallelIpv4andIpv6` | string(byte) | no |
+| `sccmConfig` | string | no |
+| `wfpDriver` | integer(int32) | no |
+| `flowLoggerConfig` | string | no |
+| `triggerDomainProfleDetection` | integer(int32) | no |
+| `domainProfileDetectionConfig` | string | no |
+| `allInboundTrafficConfig` | string | no |
+| `installWindowsFirewallInboundRule` | integer(int32) | no |
+| `captivePortalConfig` | string | no |
+| `forceLocationRefreshSccm` | integer(int32) | no |
+| `enableZscalerFirewall` | string | no |
+
+**`WebPolicyExtensionContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `rscModeOnAllAdapters` | integer(int32) | no |
+| `enableAdapterHardwareOffloading` | string | no |
+| `sourcePortBasedBypasses` | string | no |
+| `vpnGateways` | string | no |
+| `packetTunnelExcludeList` | string | no |
+| `packetTunnelIncludeList` | string | no |
+| `customDNS` | string | no |
+| `packetTunnelDnsIncludeList` | string | no |
+| `packetTunnelDnsExcludeList` | string | no |
+| `nonce` | string | no |
+| `machineToken` | string | no |
+| `machineIdpAuth` | boolean | no |
+| `exitPassword` | string | no |
+| `useV8JsEngine` | string | no |
+| `zdxDisablePassword` | string | no |
+| `zdDisablePassword` | string | no |
+| `zpaDisablePassword` | string | no |
+| `zdpDisablePassword` | string | no |
+| `followRoutingTable` | string | no |
+| `useWsaPollForZpa` | string | no |
+| `useDefaultAdapterForDNS` | string | no |
+| `useZscalerNotificationFramework` | string | no |
+| `switchFocusToNotification` | string | no |
+| `fallbackToGatewayDomain` | string | no |
+| `enableZCCRevert` | string | no |
+| `zccRevertPassword` | string | no |
+| `zpaAuthExpOnSleep` | string(byte) | no |
+| `zpaAuthExpOnSysRestart` | string(byte) | no |
+| `zpaAuthExpOnNetIpChange` | string(byte) | no |
+| `instantForceZPAReauthStateUpdate` | string(byte) | no |
+| `zpaAuthExpOnWinLogonSession` | string(byte) | no |
+| `zpaAuthExpOnWinSessionLock` | string(byte) | no |
+| `zpaAuthExpSessionLockStateMinTimeInSecond` | integer(int32) | no |
+| `packetTunnelExcludeListForIPv6` | string | no |
+| `packetTunnelIncludeListForIPv6` | string | no |
+| `enableSetProxyOnVPNAdapters` | string(byte) | no |
+| `disableDNSRouteExclusion` | string(byte) | no |
+| `advanceZpaReauth` | boolean | no |
+| `advanceZpaReauthTime` | integer(int32) | no |
+| `useProxyPortForT1` | string | no |
+| `useProxyPortForT2` | string | no |
+| `allowPacExclusionsOnly` | string | no |
+| `interceptZIATrafficAllAdapters` | string | no |
+| `enableAntiTampering` | string | no |
+| `overrideATCmdByPolicy` | string | no |
+| `reactivateAntiTamperingTime` | integer(int32) | no |
+| `enforceSplitDNS` | string(byte) | no |
+| `dropQuicTraffic` | string(byte) | no |
+| `enableZdpService` | string | no |
+| `updateDnsSearchOrder` | string(byte) | no |
+| `truncateLargeUDPDNSResponse` | string(byte) | no |
+| `prioritizeDnsExclusions` | string(byte) | no |
+| `purgeKerberosPreferredDCCache` | string | no |
+| `deleteDHCPOption121Routes` | string | no |
+| `enableLocationPolicyOverride` | string(byte) | no |
+| `enableCustomTheme` | string(byte) | no |
+| `locationRulesetPolicies` | LocationRulesetPolicies | no |
+| `generateCliPasswordContract` | GenerateCliPasswordContract | no |
+| `zdxLiteConfigObj` | string | no |
+| `ddilConfig` | string | no |
+| `zccFailCloseSettingsIpBypasses` | string | no |
+| `zccFailCloseSettingsAppByPassIds` | array<integer(int64)> | no |
+| `zccFailCloseSettingsExitUninstallPassword` | string | no |
+| `zccFailCloseSettingsLockdownOnTunnelProcessExit` | string(byte) | no |
+| `zccFailCloseSettingsLockdownOnFirewallError` | string(byte) | no |
+| `zccFailCloseSettingsLockdownOnDriverError` | string(byte) | no |
+| `zccFailCloseSettingsThumbPrint` | string | no |
+| `zccFailCloseSettingsAppByPassNames` | array<string> | no |
+| `zccAppFailOpenPolicy` | string(byte) | no |
+| `zccTunnelFailPolicy` | string(byte) | no |
+| `followGlobalForPartnerLogin` | string | no |
+| `userAllowedToAddPartner` | string | no |
+| `partnerDomains` | string | no |
+| `allowClientCertCachingForWebView2` | string | no |
+| `showConfirmationDialogForCachedCert` | string | no |
+| `enableFlowBasedTunnel` | string(byte) | no |
+| `enableNetworkTrafficProcessMapping` | string(byte) | no |
+| `enableLocalPacketCapture` | string | no |
+| `oneIdMTDeviceAuthEnabled` | string | no |
+| `enableCustomProxyDetection` | string | no |
+| `preventAutoReauthDuringDeviceLock` | string | no |
+| `useEndPointLocationForDCSelection` | string | no |
+| `enableCrashReporting` | string(byte) | no |
+| `recacheSystemProxy` | string | no |
+| `followGlobalForZpaReauth` | string | no |
+| `zpaReauthConfig` | string | no |
+| `zpaAutoReauthTimeout` | integer(int32) | no |
+| `enableAutomaticPacketCapture` | string(byte) | no |
+| `enableAPCforCriticalSections` | string(byte) | no |
+| `enableAPCforOtherSections` | string(byte) | no |
+| `enablePCAdditionalSpace` | string(byte) | no |
+| `pcAdditionalSpace` | integer(int32) | no |
+| `clientConnectorUiLanguage` | integer(int32) | no |
+| `blockPrivateRelay` | string | no |
+| `bypassDNSTrafficUsingUDPProxy` | string(byte) | no |
+| `reconnectTunOnWakeup` | string(byte) | no |
+| `zccFailCloseSettingsAppByPasses` | array<AppIdentityContract> | no |
+| `browserAuthType` | string | no |
+| `useDefaultBrowser` | string | no |
+
+**`LocationRulesetPolicies`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `offTrusted` | RulesetDetailContract | no |
+| `trusted` | RulesetDetailContract | no |
+| `vpnTrusted` | RulesetDetailContract | no |
+| `splitVpnTrusted` | RulesetDetailContract | no |
+
+**`RulesetDetailContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`GenerateCliPasswordContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `policyId` | integer(int64) | no |
+| `enableCli` | boolean | no |
+| `allowZpaDisableWithoutPassword` | boolean | no |
+| `allowZiaDisableWithoutPassword` | boolean | no |
+| `allowZdxDisableWithoutPassword` | boolean | no |
+| `cliPasswordType` | integer(int32) | no |
+
+**`AppIdentityContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `appName` | string | no |
+| `fileNames` | array<string> | no |
+| `filePaths` | array<string> | no |
+| `matchingCriteria` | string(byte) | no |
+| `signaturePayload` | string | no |
+| `certificatePayload` | string | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `editedTimestamp` | string | no |
+
+**`WebPolicyDisasterRecoveryContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `policyId` | string | no |
+| `enableZiaDR` | boolean | no |
+| `enableZpaDR` | boolean | no |
+| `ziaDRMethod` | integer(int32) | no |
+| `ziaCustomDbUrl` | string | no |
+| `useZiaGlobalDb` | boolean | no |
+| `ziaGlobalDbUrl` | string | no |
+| `ziaGlobalDbUrlv2` | string | no |
+| `ziaDomainName` | string | no |
+| `ziaRSAPubKeyName` | string | no |
+| `ziaRSAPubKey` | string | no |
+| `zpaDomainName` | string | no |
+| `zpaRSAPubKeyName` | string | no |
+| `zpaRSAPubKey` | string | no |
+| `allowZiaTest` | boolean | no |
+| `allowZpaTest` | boolean | no |
+
+**`ForwardingProfileActionContractv2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string(byte) | no |
+| `actionType` | string(byte) | no |
+| `systemProxy` | string(byte) | no |
+| `customPac` | string | no |
+| `enablePacketTunnel` | string(byte) | no |
+| `systemProxyData` | WebSystemProxyDataContract | no |
+| `primaryTransport` | string(byte) | no |
+| `DTLSTimeout` | integer(int32) | no |
+| `UDPTimeout` | integer(int32) | no |
+| `TLSTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `blockUnreachableDomainsTraffic` | string(byte) | no |
+| `allowTLSFallback` | string(byte) | no |
+| `tunnel2FallbackType` | string(byte) | no |
+| `sendAllDNSToTrustedServer` | string(byte) | no |
+| `v4FailCloseTrustedDNSServer` | string | no |
+| `v6FailCloseTrustedDNSServer` | string | no |
+| `dropIpv6Traffic` | string(byte) | no |
+| `redirectWebTraffic` | string(byte) | no |
+| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
+| `useTunnel2ForProxiedWebTraffic` | string(byte) | no |
+| `useTunnel2ForUnencryptedWebTraffic` | string(byte) | no |
+| `pathMtuDiscovery` | string(byte) | no |
+| `latencyBasedZenEnablement` | string(byte) | no |
+| `zenProbeInterval` | integer(int32) | no |
+| `zenProbeSampleSize` | integer(int32) | no |
+| `zenThresholdLimit` | integer(int32) | no |
+| `dropIpv6TrafficInIpv6Network` | string(byte) | no |
+| `optimiseForUnstableConnections` | string(byte) | no |
+| `useZIABCCOnTunnel2Failures` | string(byte) | no |
+
+**`WebSystemProxyDataContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `proxyAction` | string(byte) | no |
+| `enableAutoDetect` | integer(int32) | no |
+| `enablePAC` | integer(int32) | no |
+| `pacURL` | string | no |
+| `enableProxyServer` | integer(int32) | no |
+| `proxyServerAddress` | string | no |
+| `proxyServerPort` | string | no |
+| `bypassProxyForPrivateIP` | integer(int32) | no |
+| `performGPUpdate` | integer(int32) | no |
+| `pacDataPath` | string | no |
+
+**`ForwardingProfileActionContractZpaV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string(byte) | no |
+| `actionType` | string(byte) | no |
+| `primaryTransport` | string(byte) | no |
+| `DTLSTimeout` | integer(int32) | no |
+| `TLSTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `sendTrustedNetworkResultToZpa` | string(byte) | no |
+| `partnerInfo` | ForwardingProfileActionContractPartnerLogin | no |
+| `latencyBasedServerEnablement` | string(byte) | no |
+| `lbsProbeInterval` | integer(int32) | no |
+| `lbsProbeSampleSize` | integer(int32) | no |
+| `lbsThresholdLimit` | integer(int32) | no |
+| `latencyBasedServerMTEnablement` | integer(int32) | no |
+
+**`ForwardingProfileActionContractPartnerLogin`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `primaryTransport` | string(byte) | no |
+| `allowTlsFallback` | string(byte) | no |
+| `mtuForZadapter` | integer(int32) | no |
+
+**`UnifiedTunnelContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string(byte) | no |
+| `actionTypeZIA` | string(byte) | no |
+| `actionTypeZPA` | string(byte) | no |
+| `primaryTransport` | string(byte) | no |
+| `DTLSTimeout` | integer(int32) | no |
+| `TLSTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `sendTrustedNetworkResultToZpa` | string(byte) | no |
+| `allowTLSFallback` | string(byte) | no |
+| `pathMtuDiscovery` | string(byte) | no |
+| `optimiseForUnstableConnections` | string(byte) | no |
+| `tunnel2FallbackType` | string(byte) | no |
+| `redirectWebTraffic` | string(byte) | no |
+| `dropIpv6Traffic` | string(byte) | no |
+| `dropIpv6TrafficInIpv6Network` | string(byte) | no |
+| `blockUnreachableDomainsTraffic` | string(byte) | no |
+| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
+| `sendAllDNSToTrustedServer` | string(byte) | no |
+| `v4FailCloseTrustedDNSServer` | string | no |
+| `v6FailCloseTrustedDNSServer` | string | no |
+| `systemProxyData` | WebSystemProxyDataContract | no |
+| `sameAsOnTrusted` | string(byte) | no |
+
+**`AppServiceBlobContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `proto` | string | no |
+| `port` | string | no |
+| `ipaddr` | string | no |
+| `fqdn` | string | no |
+
+**`AppServiceBlobContractV6`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `proto` | string | no |
+| `port` | string | no |
+| `ipaddr` | string | no |
+| `fqdn` | string | no |
+
+**`GroupServiceEntitlementContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupId` | integer(int32) | no |
+| `groupName` | string | no |
+| `authType` | string | no |
+| `active` | integer(int32) | no |
+| `zpaEnabled` | integer(int32) | no |
+
+**`UpmGroupServiceEntitlementContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `groupId` | integer(int32) | no |
+| `groupName` | string | no |
+| `authType` | string | no |
+| `active` | integer(int32) | no |
+| `upmEnabled` | integer(int32) | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/public-api-controller-2","lastmod":"2026-10-14T00:17Z","nid":"1546773"} -->
+## Public API Controller 2
+
+- Source: https://help.zscaler.com/legacy-apis/public-api-controller-2
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Public API Controller 2
+- Last modified: 2026-10-14T00:17Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v1/forwarding-profiles/{profileId}`
+
+**getCompleteForwardingProfileDetails**
+
+Retrieves the complete list of forwarding profile details using profile ID.
+
+- Operation ID: `getCompleteForwardingProfileDetails`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PUT /papi/public/v1/webFailOpenPolicy/edit`
+### `PATCH /public/v1/forwarding-profiles/{profileId}`
 
-**updateFailOpenPolicy**
+**patchForwardingProfile**
 
-Updates a specific FailOpen policy for the company.
+Updates the properties of the forwarding profile using profile ID.
 
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
+The following fields are invalid for forwarding-profiles.
 
-- Operation ID: `updateFailOpenPolicyUsingPUT`
+- trustedNetworks
+- id
+- forwardingProfileActions.networkType
+- forwardingProfileZpaActions.networkType
+- unifiedTunnel.networkType
 
-**Request body:** `application/json` → WebFailOpenPolicyContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/webFailOpenPolicy/listByCompany`
-
-**getFailOpenPolicy**
-
-Gets the list of FailOpen policies for the company.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `getFailOpenPolicyUsingGET`
+- Operation ID: `patchForwardingProfile_1`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `POST /papi/public/v1/webForwardingProfile/edit`
-
-**editForwardingProfile**
-
-Updates a forwarding profile.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `editForwardingProfileUsingPOST`
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
 
 **Request body:** `application/json` → WebForwardingProfileContract
 
@@ -13594,205 +15415,14 @@ Updates a forwarding profile.
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `GET /papi/public/v1/webForwardingProfile/listByCompany`
-
-**forwardingProfilesByCompanyId**
-
-Gets the list of forwarding profiles by company.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `forwardingProfilesByCompanyIdUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `DELETE /papi/public/v1/webForwardingProfile/{profileId}/delete`
-
-**deleteForwardingProfile**
-
-Deletes a forwarding profile.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `deleteForwardingProfileUsingDELETE`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `profileId` | path | yes | integer(int32) | profileId |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `POST /papi/public/v1/webTrustedNetwork/create`
-
-**createTrustedNetwork**
-
-Adds a new trusted network.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `createTrustedNetworkUsingPOST`
-
-**Request body:** `application/json` → TrustedNetworkContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `PUT /papi/public/v1/webTrustedNetwork/edit`
-
-**updateTrustedNetwork**
-
-Updates a trusted network.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `updateTrustedNetworkUsingPUT`
-
-**Request body:** `application/json` → TrustedNetworkContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/webTrustedNetwork/listByCompany`
-
-**getMultipleTrustedNetworks**
-
-Gets the list of trusted networks by company.
-
-- Operation ID: `getMultipleTrustedNetworksUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | page |
-| `pageSize` | query | no | integer(int32) | pageSize |
-| `search` | query | no | string | search |
-| `searchType` | query | no | string | searchType |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `DELETE /papi/public/v1/webTrustedNetwork/{networkId}/delete`
-
-**deleteTrustedNetwork**
-
-Deletes a trusted network.
-
-**⚠ This API endpoint is accessible only via [OneAPI](https://help.zscaler.com/oneapi).**
-
-- Operation ID: `deleteTrustedNetworkUsingDELETE`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `networkId` | path | yes | integer(int64) | networkId |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/application-profiles`
-
-**getPolicyList**
-
-Retrieves the list of application profile policies.
-
-- Operation ID: `getPolicyListUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | Specifies the page offset. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. The default size is 50. |
-| `search` | query | no | string | The search string used to match against the policies. |
-| `searchType` | query | no | string | The search string used to match against the search type. This is enabled only for filename, name, policyToken, ruleset, or groups. |
-| `deviceType` | query | no | integer(int32) | The search string used to match against the device type. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/application-profiles/{profileId}`
+### `GET /public/v1/application-profiles/{profileId}`
 
 **getCompletePolicyDetails**
 
 Retrieves the list of policies for application profiles.
 
-- Operation ID: `getCompletePolicyDetailsUsingGET`
+- Operation ID: `getCompletePolicyDetails`
 
 **Parameters:**
 
@@ -13805,13 +15435,8 @@ Retrieves the list of policies for application profiles.
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `PATCH /papi/public/v1/application-profiles/{profileId}`
+### `PATCH /public/v1/application-profiles/{profileId}`
 
 **patchPolicyDetails**
 
@@ -13838,7 +15463,7 @@ The following fields are invalid for application-profiles.
 - policyExtension.zccFailCloseSettingsAppByPassNames
 - disasterRecovery.policyId
 
-- Operation ID: `patchPolicyDetailsUsingPATCH`
+- Operation ID: `patchPolicyDetails`
 
 **Parameters:**
 
@@ -13846,1391 +15471,423 @@ The following fields are invalid for application-profiles.
 | --- | --- | --- | --- | --- |
 | `profileId` | path | yes | string | ID of the profile |
 
-**Request body:** `application/json` → PublicWebPolicyResponseBaseContractReq
+**Request body:** `application/json` → object
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
-### `GET /papi/public/v1/custom-ip-based-apps`
-
-**getCustomIPBasedApplications**
-
-Retrieves the list of custom IP-based applications.
-
-- Operation ID: `getCustomIPBasedApplicationsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | Specifies the page offset. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. |
-| `search` | query | no | string | The search string used to match against the policies. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/custom-ip-based-apps/{appId}`
-
-**getCustomIPBasedApplicationById**
-
-Retrieves the custom IP-based application using app ID.
-
-- Operation ID: `getCustomIPBasedApplicationByIdUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `appId` | path | yes | string | ID of the application. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/forwarding-profiles`
-
-**forwardingProfilesByCompanyId**
-
-Retrieves the list of forwarding profiles by company ID.
-
-- Operation ID: `forwardingProfilesByCompanyIDUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | Specifies the page offset. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. |
-| `search` | query | no | string | The search string used to match against the policies. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/forwarding-profiles/{profileId}`
-
-**getCompleteForwardingProfileDetails**
-
-Retrieves the complete list of forwarding profile details using profile ID.
-
-- Operation ID: `getCompleteForwardingProfileDetailsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `profileId` | path | yes | string | ID of the forwarding profile. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `PATCH /papi/public/v1/forwarding-profiles/{profileId}`
-
-**patchForwardingProfile**
-
-Updates the properties of the forwarding profile using profile ID.
-
-The following fields are invalid for forwarding-profiles.
-
-- trustedNetworks
-- id
-- forwardingProfileActions.networkType
-- forwardingProfileZpaActions.networkType
-- unifiedTunnel.networkType
-
-- Operation ID: `patchForwardingProfileUsingPATCH`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `profileId` | path | yes | string | ID of the forwarding profile. |
-
-**Request body:** `application/json` → WebForwardingProfileContract
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/predefined-ip-based-apps`
-
-**getPredefinedIPBasedApplications**
-
-Retrieves the list of predefined IP-based applications.
-
-- Operation ID: `getPredefinedIPBasedApplicationsUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `page` | query | no | integer(int32) | Specifies the page offset. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. |
-| `search` | query | no | string | The search string used to match against the policies. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/predefined-ip-based-apps/{appId}`
-
-**getPredefinedIPBasedApplicationById**
-
-Retrieves the predefined IP-based application using application ID.
-
-- Operation ID: `getPredefinedIPBasedApplicationByIdUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `appId` | path | yes | string | ID of the application. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/process-based-apps`
+### `GET /public/v1/process-based-apps`
 
 **getProcessBasedApplications**
 
 Retrieves the list of process-based applications.
 
-- Operation ID: `getProcessBasedApplicationsUsingGET`
+- Operation ID: `getProcessBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page number for pagination. Starts from 1. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
+| `search` | query | no | string | The search string used to match against process-based applications. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/process-based-apps/{appId}`
+
+**getProcessBasedApplicationById**
+
+Retrieves the process-based application using appID.
+
+- Operation ID: `getProcessBasedApplicationById_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the process-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/predefined-ip-based-apps`
+
+**getPredefinedIPBasedApplications**
+
+Retrieves the list of predefined IP-based applications.
+
+- Operation ID: `getPredefinedIPBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Page number for pagination (1-indexed). |
+| `pageSize` | query | no | integer(int32) | Number of results per page. |
+| `search` | query | no | string | Search keyword to filter predefined IP-based applications by name or other attributes. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/predefined-ip-based-apps/{appId}`
+
+**getPredefinedIPBasedApplicationById**
+
+Retrieves the predefined IP-based application using application ID.
+
+- Operation ID: `getPredefinedIPBasedApplicationById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the predefined IP-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/forwarding-profiles`
+
+**forwardingProfilesByCompanyId**
+
+Retrieves the list of forwarding profiles by company ID.
+
+- Operation ID: `forwardingProfilesByCompanyId_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page number for pagination. Starts from 1. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
+| `search` | query | no | string | The search string used to match against forwarding profiles. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/custom-ip-based-apps`
+
+**getCustomIPBasedApplications**
+
+Retrieves the list of custom IP-based applications.
+
+- Operation ID: `getCustomIPBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `page` | query | no | integer(int32) | Specifies the page number for pagination. Starts from 1. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
+| `search` | query | no | string | The search string used to match against custom IP-based applications. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/custom-ip-based-apps/{appId}`
+
+**getCustomIPBasedApplicationById**
+
+Retrieves the custom IP-based application using app ID.
+
+- Operation ID: `getCustomIPBasedApplicationById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the custom IP-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v1/application-profiles`
+
+**getPolicyList**
+
+Retrieves the list of application profile policies.
+
+- Operation ID: `getPolicyList`
 
 **Parameters:**
 
 | Name | In | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | `page` | query | no | integer(int32) | Specifies the page offset. |
-| `pageSize` | query | no | integer(int32) | Specifies the page size. |
+| `pageSize` | query | no | integer(int32) | Specifies the number of records per page. The default value is 50. |
 | `search` | query | no | string | The search string used to match against the policies. |
+| `searchType` | query | no | string | The search string used to match against the search type. This is enabled only for filename, name, policyToken, ruleset, or groups. |
+| `deviceType` | query | no | integer(int32) | The search string used to match against the device type. |
 
 **Responses:**
 
 | Code | Description |
 | --- | --- |
 | 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
-
-### `GET /papi/public/v1/process-based-apps/{appId}`
-
-**getProcessBasedApplicationById**
-
-Retrieves the process-based application using appID.
-
-- Operation ID: `getProcessBasedApplicationByIdUsingGET`
-
-**Parameters:**
-
-| Name | In | Required | Type | Description |
-| --- | --- | --- | --- | --- |
-| `appId` | path | yes | string | ID of the application. |
-
-**Responses:**
-
-| Code | Description |
-| --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 429 | Too Many Requests |
 
 ### Schemas
-
-- `StreamingResponseBody`: object
-
-**`AdminAccountsContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `accountEnabled` | string | no |
-| `companyId` | string | no |
-| `companyRole` | AdminRolesContract | no |
-| `editEnabled` | string | no |
-| `id` | integer(int32) | no |
-| `isDefaultAdmin` | string | no |
-| `serviceType` | string(byte) | no |
-| `userName` | string | no |
-
-**`CommonResponseContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `companyIds` | array<integer(int32)> | no |
-| `errorCode` | string | no |
-| `errorInfoArguments` | array<string> | no |
-| `errorMessage` | string | no |
-| `responseData` | object | no |
-| `success` | string | no |
-
-**`DeviceRemoveContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `clientConnectorVersion` | array<string> | no |
-| `osType` | integer(int32) | no |
-| `udids` | array<string> | no |
-| `userName` | string | no |
-
-**`DeviceRemoveResponseContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `devicesRemoved` | integer(int32) | no |
-| `errorMsg` | string | no |
-
-**`AdminRolesContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `adminManagement` | string | no |
-| `administratorGroup` | string | no |
-| `androidProfile` | string | no |
-| `appBypass` | string | no |
-| `appProfileGroup` | string | no |
-| `auditLogs` | string | no |
-| `authSetting` | string | no |
-| `clientConnectorAppStore` | string | no |
-| `clientConnectorIdp` | string | no |
-| `clientConnectorNotifications` | string | no |
-| `clientConnectorSupport` | string | no |
-| `companyId` | string | no |
-| `createdBy` | string | no |
-| `dashboard` | string | no |
-| `ddilConfiguration` | string | no |
-| `dedicatedProxyPorts` | string | no |
-| `deviceGroups` | string | no |
-| `deviceOverview` | string | no |
-| `devicePosture` | string | no |
-| `enrolledDevicesGroup` | string | no |
-| `forwardingProfile` | string | no |
-| `id` | string | no |
-| `iosProfile` | string | no |
-| `isEditable` | boolean | no |
-| `linuxProfile` | string | no |
-| `macProfile` | string | no |
-| `machineTunnel` | string | no |
-| `obfuscateData` | string | no |
-| `partnerDeviceOverview` | string | no |
-| `publicApi` | string | no |
-| `roleName` | string | no |
-| `trustedNetwork` | string | no |
-| `updatedBy` | string | no |
-| `userAgent` | string | no |
-| `windowsProfile` | string | no |
-| `zpaPartnerLogin` | string | no |
-| `zscalerDeception` | string | no |
-| `zscalerEntitlement` | string | no |
-
-**`WebDeviceCleanupContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | string | no |
-| `autoPurgeDays` | string | no |
-| `autoRemovalDays` | string | no |
-| `companyId` | string | no |
-| `createdBy` | string | no |
-| `deviceExceedLimit` | string | no |
-| `editedBy` | string | no |
-| `forceRemoveType` | string | no |
-| `forceRemoveTypeString` | string | no |
-| `id` | string | no |
-
-**`DeviceDetailResponseContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `agent_version` | string | no |
-| `carrier` | string | no |
-| `config_download_time` | string | no |
-| `deregistration_time` | string | no |
-| `devicePolicyName` | string | no |
-| `device_locale` | string | no |
-| `download_count` | integer(int32) | no |
-| `external_model` | string | no |
-| `hardwareFingerprint` | string | no |
-| `keep_alive_time` | string | no |
-| `last_seen_time` | string | no |
-| `mac_address` | string | no |
-| `machineHostname` | string | no |
-| `manufacturer` | string | no |
-| `os_version` | string | no |
-| `owner` | string | no |
-| `registration_time` | string | no |
-| `rooted` | integer(int32) | no |
-| `state` | string(byte) | no |
-| `tunnelVersion` | string | no |
-| `type` | string(byte) | no |
-| `unique_id` | string | no |
-| `upmVersion` | string | no |
-| `user_name` | string | no |
-| `zadVersion` | string | no |
-| `zappArch` | string | no |
-
-**`DeviceListResponseContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `agentVersion` | string | no |
-| `companyName` | string | no |
-| `config_download_time` | string | no |
-| `deregistrationTimestamp` | string | no |
-| `detail` | string | no |
-| `download_count` | integer(int32) | no |
-| `hardwareFingerprint` | string | no |
-| `keepAliveTime` | string | no |
-| `last_seen_time` | string | no |
-| `macAddress` | string | no |
-| `machineHostname` | string | no |
-| `manufacturer` | string | no |
-| `osVersion` | string | no |
-| `owner` | string | no |
-| `policyName` | string | no |
-| `registrationState` | string | no |
-| `registration_time` | string | no |
-| `state` | string(byte) | no |
-| `tunnelVersion` | string | no |
-| `type` | string(byte) | no |
-| `udid` | string | no |
-| `upmVersion` | string | no |
-| `user` | string | no |
-| `vpnState` | string(byte) | no |
-| `zappArch` | string | no |
-
-**`DeviceOTPContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `antiTemperingDisableOtp` | string | no |
-| `deceptionSettingsOtp` | string | no |
-| `exitOtp` | string | no |
-| `logoutOtp` | string | no |
-| `otp` | string | no |
-| `revertOtp` | string | no |
-| `uninstallOtp` | string | no |
-| `zdpDisableOtp` | string | no |
-| `zdxDisableOtp` | string | no |
-| `ziaDisableOtp` | string | no |
-| `zpaDisableOtp` | string | no |
-
-**`UserPasswordResponse`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `exitPass` | string | no |
-| `logoutPass` | string | no |
-| `uninstallPass` | string | no |
-| `zdSettingsAccessPass` | string | no |
-| `zdxDisablePass` | string | no |
-| `ziaDisablePass` | string | no |
-| `zpaDisablePass` | string | no |
-
-**`ManagePasswordContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `companyId` | integer(int32) | no |
-| `deviceType` | integer(int32) | yes |
-| `exitPass` | string | no |
-| `logoutPass` | string | no |
-| `policyName` | string | yes |
-| `uninstallPass` | string | no |
-| `zadDisablePass` | string | no |
-| `zdpDisablePass` | string | no |
-| `zdxDisablePass` | string | no |
-| `ziaDisablePass` | string | no |
-| `zpaDisablePass` | string | no |
-
-**`ManagePassResponseContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `errorMessage` | string | no |
-
-**`WebPrivacyContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | string | no |
-| `collectMachineHostname` | string | no |
-| `collectUserInfo` | string | no |
-| `collectZdxLocation` | string | no |
-| `disableCrashlytics` | string | no |
-| `enablePacketCapture` | string | no |
-| `exportLogsForNonAdmin` | string | no |
-| `grantAccessToZscalerLogFolder` | string | no |
-| `id` | string | no |
-| `overrideT2ProtocolSetting` | string | no |
-| `restrictRemotePacketCapture` | string | no |
-
-**`GroupListUpmServiceEntitlementContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `collectZdxLocation` | integer(int32) | no |
-| `computeDeviceGroupsForZDX` | integer(int32) | no |
-| `logoutZCCForZDXService` | integer(int32) | no |
-| `totalCount` | integer(int64) | no |
-| `upmDeviceGroupList` | array<UpmGroupServiceEntitlementContract> | no |
-| `upmEnableForAll` | integer(int32) | no |
-| `upmGroupList` | array<UpmGroupServiceEntitlementContract> | no |
-
-**`GroupListServiceEntitlementContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `computeDeviceGroupsForZPA` | integer(int32) | no |
-| `deviceGroupList` | array<GroupServiceEntitlementContract> | no |
-| `groupList` | array<GroupServiceEntitlementContract> | no |
-| `machineTunEnabledForAll` | integer(int32) | no |
-| `totalCount` | integer(int64) | no |
-| `zpaEnableForAll` | integer(int32) | no |
-
-**`MachineTunnelDeviceRemoveContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `hostNames` | array<string> | no |
-| `machineToken` | string | no |
-
-**`GroupListServiceUpdateContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `computeDeviceGroups` | integer(int32) | no |
-| `deviceGroupIds` | array<integer(int64)> | no |
-| `deviceGroupNames` | array<string> | no |
-| `enableForAll` | integer(int32) | no |
-| `groupIds` | array<integer(int32)> | no |
-| `groupNames` | array<string> | no |
-| `logoutZCC` | integer(int32) | no |
-
-**`GroupZPAEntitlementUpdateContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `computeDeviceGroups` | integer(int32) | no |
-| `deviceGroupIds` | array<integer(int64)> | no |
-| `deviceGroupNames` | array<string> | no |
-| `enableForAll` | integer(int32) | no |
-| `groupIds` | array<integer(int32)> | no |
-| `groupNames` | array<string> | no |
-| `machineTunEnabledForAll` | integer(int32) | no |
-
-**`WebPolicyActivateRequestContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `deviceType` | integer(int32) | no |
-| `policyId` | integer(int32) | no |
-
-**`WebPolicyEditRequestContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | string | no |
-| `allowUnreachablePac` | boolean | no |
-| `androidPolicy` | WebPolicyEditRequestAndroidExtensionContract | no |
-| `appIdentityNames` | array<string> | no |
-| `appServiceIds` | array<integer(int64)> | no |
-| `appServiceNames` | array<string> | no |
-| `bypassAppIds` | array<integer(int64)> | no |
-| `bypassCustomAppIds` | array<integer(int64)> | no |
-| `description` | string | no |
-| `deviceGroupIds` | array<integer(int64)> | no |
-| `deviceGroupNames` | array<string> | no |
-| `device_type` | string | no |
-| `disasterRecovery` | WebPolicyDisasterRecoveryContract | no |
-| `enableDeviceGroups` | string(byte) | no |
-| `forwardingProfileId` | integer(int64) | no |
-| `groupAll` | string | no |
-| `groupIds` | array<integer(int32)> | no |
-| `groupNames` | array<string> | no |
-| `highlightActiveControl` | string(byte) | no |
-| `id` | string | no |
-| `iosPolicy` | WebPolicyEditRequestIOSExtensionContract | no |
-| `linuxPolicy` | WebPolicyEditRequestLinuxExtensionContract | no |
-| `logFileSize` | string | no |
-| `logLevel` | string | no |
-| `logMode` | string | no |
-| `macPolicy` | WebPolicyEditRequestMacExtensionContract | no |
-| `name` | string | no |
-| `pac_url` | string | no |
-| `policyExtension` | WebPolicyExtensionContract | no |
-| `reactivateWebSecurityMinutes` | string | no |
-| `reauth_period` | string | no |
-| `ruleOrder` | string | no |
-| `sendDisableServiceReason` | string(byte) | no |
-| `tunnelZappTraffic` | string | no |
-| `userIds` | array<integer(int64)> | no |
-| `userNames` | array<string> | no |
-| `windowsPolicy` | WebPolicyEditRequestWindowsExtensionContract | no |
-| `ziaPostureConfigId` | integer(int32) | no |
-
-**`AppServiceContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | boolean | no |
-| `appDataBlob` | array<AppServiceBlobContract> | no |
-| `appDataBlobV6` | array<AppServiceBlobContractV6> | no |
-| `appName` | string | no |
-| `appSvcId` | integer(int32) | no |
-| `appVersion` | integer(int32) | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `editedTimestamp` | string | no |
-| `id` | integer(int64) | no |
-| `uid` | string | no |
-| `version` | integer(int32) | no |
-
-**`WebFailOpenPolicyContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | string | no |
-| `captivePortalWebSecDisableMinutes` | integer(int32) | no |
-| `companyId` | string | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `enableCaptivePortalDetection` | string(byte) | no |
-| `enableFailOpen` | string(byte) | no |
-| `enableStrictEnforcementPrompt` | string(byte) | no |
-| `enableWebSecOnProxyUnreachable` | string | no |
-| `enableWebSecOnTunnelFailure` | string | no |
-| `id` | string | no |
-| `strictEnforcementPromptDelayMinutes` | integer(int32) | no |
-| `strictEnforcementPromptMessage` | string | no |
-| `tunnelFailureRetryCount` | integer(int32) | no |
 
 **`WebForwardingProfileContract`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `active` | string | no |
-| `conditionType` | integer(int32) | no |
-| `dnsSearchDomains` | string | no |
-| `dnsServers` | string | no |
-| `enableAllDefaultAdaptersTN` | string(byte) | no |
-| `enableLWFDriver` | string | no |
-| `enableSplitVpnTN` | string(byte) | no |
-| `enableUnifiedTunnel` | string(byte) | no |
-| `forwardingProfileActions` | array<ForwardingProfileActionContractv2> | no |
-| `forwardingProfileZpaActions` | array<ForwardingProfileActionContractZpaV2> | no |
-| `hostname` | string | no |
 | `id` | string | no |
+| `active` | string | no |
 | `name` | string | no |
-| `predefinedTnAll` | boolean | no |
-| `predefinedTrustedNetworks` | boolean | no |
+| `conditionType` | integer(int32) | no |
+| `dnsServers` | string | no |
+| `dnsSearchDomains` | string | no |
+| `enableLWFDriver` | string | no |
+| `hostname` | string | no |
 | `resolvedIpsForHostname` | string | no |
-| `skipTrustedCriteriaMatch` | string(byte) | no |
+| `trustedSubnets` | string | no |
+| `trustedGateways` | string | no |
 | `trustedDhcpServers` | string | no |
 | `trustedEgressIps` | string | no |
-| `trustedGateways` | string | no |
+| `predefinedTrustedNetworks` | boolean | no |
+| `predefinedTnAll` | boolean | no |
 | `trustedNetworkIds` | array<integer(int64)> | no |
 | `trustedNetworks` | array<string> | no |
-| `trustedSubnets` | string | no |
+| `forwardingProfileActions` | array<ForwardingProfileActionContractv2> | no |
+| `forwardingProfileZpaActions` | array<ForwardingProfileActionContractZpaV2> | no |
+| `enableAllDefaultAdaptersTN` | string(byte) | no |
+| `enableSplitVpnTN` | string(byte) | no |
+| `skipTrustedCriteriaMatch` | string(byte) | no |
+| `enableUnifiedTunnel` | string(byte) | no |
 | `unifiedTunnel` | array<UnifiedTunnelContract> | no |
-
-**`TrustedNetworkContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | boolean | no |
-| `companyId` | string | no |
-| `conditionType` | string(byte) | no |
 | `createdBy` | string | no |
-| `dnsSearchDomains` | string | no |
-| `dnsServers` | string | no |
 | `editedBy` | string | no |
-| `guid` | string | no |
-| `hostnames` | string | no |
-| `id` | string | no |
-| `networkName` | string | no |
-| `resolvedIpsForHostname` | string | no |
-| `ssids` | string | no |
-| `trustedDhcpServers` | string | no |
-| `trustedEgressIps` | string | no |
-| `trustedGateways` | string | no |
-| `trustedSubnets` | string | no |
 
 **`WebPolicyContract`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `policies` | array<PublicWebPolicyResponseBaseContractRes> | no |
 | `totalCount` | integer(int64) | no |
-
-**`PublicWebPolicyResponseBaseContractReq`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | integer(int32) | no |
-| `appServiceIds` | array<string> | no |
-| `appServices` | array<AppServiceContractReq> | no |
-| `bypassAppIds` | array<string> | no |
-| `bypassApps` | array<AppIdentityContract> | no |
-| `bypassCustomAppIds` | array<string> | no |
-| `bypassCustomApps` | array<CustomAppContract> | no |
-| `description` | string | no |
-| `deviceGroupIds` | array<string> | no |
-| `deviceGroups` | array<PublicWebDeviceGroupContract> | no |
-| `deviceType` | string (enum: DEVICE_TYPE_ANDROID, DEVICE_TYPE_IOS, DEVICE_TYPE_LINUX, DEVICE_TYPE_MAC, DEVICE_TYPE_OTHER, DEVICE_TYPE_WINDOWS) | no |
-| `disasterRecovery` | WebPolicyDisasterRecoveryContract | no |
-| `enableDeviceGroups` | string(byte) | no |
-| `forwardingProfileId` | integer(int64) | no |
-| `groupAll` | integer(int32) | no |
-| `groupIds` | array<string> | no |
-| `groups` | array<PublicGroupContract> | no |
-| `highlightActiveControl` | string(byte) | no |
-| `id` | integer(int64) | no |
-| `logFileSize` | integer(int32) | no |
-| `logLevel` | integer(int32) | no |
-| `logMode` | integer(int32) | no |
-| `name` | string | no |
-| `notificationTemplateContract` | PublicNotificationTemplateContract | no |
-| `notificationTemplateId` | integer(int64) | no |
-| `onNetPolicy` | PublicWebForwardingProfileContract | no |
-| `pac_url` | string | no |
-| `policyExtension` | WebPolicyExtensionContract | no |
-| `policyToken` | string | no |
-| `prioritizeIPv4` | integer(int32) | no |
-| `reactivateWebSecurityMinutes` | string | no |
-| `reauth_period` | string | no |
-| `refreshKerberosToken` | string(byte) | no |
-| `ruleOrder` | integer(int32) | no |
-| `sendDisableServiceReason` | string(byte) | no |
-| `tunnelZappTraffic` | integer(int32) | no |
-| `userIds` | array<string> | no |
-| `users` | array<PublicUserContract> | no |
-| `ziaPostureConfig` | PublicWebZIAPostureProfileContract | no |
-| `ziaPostureConfigId` | integer(int32) | no |
-
-**`UpmGroupServiceEntitlementContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | integer(int32) | no |
-| `authType` | string | no |
-| `groupId` | integer(int32) | no |
-| `groupName` | string | no |
-| `upmEnabled` | integer(int32) | no |
-
-**`GroupServiceEntitlementContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | integer(int32) | no |
-| `authType` | string | no |
-| `groupId` | integer(int32) | no |
-| `groupName` | string | no |
-| `zpaEnabled` | integer(int32) | no |
-
-**`WebPolicyEditRequestAndroidExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `allowedApps` | string | no |
-| `billingDay` | string | no |
-| `bypassAndroidApps` | string | no |
-| `bypassMmsApps` | string | no |
-| `customText` | string | no |
-| `disablePassword` | string | no |
-| `enableVerboseLog` | string | no |
-| `enforced` | string | no |
-| `installCerts` | string | no |
-| `limit` | string | no |
-| `logoutPassword` | string | no |
-| `quotaRoaming` | string | no |
-| `uninstallPassword` | string | no |
-| `wifissid` | string | no |
-
-**`WebPolicyDisasterRecoveryContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `allowZiaTest` | boolean | no |
-| `allowZpaTest` | boolean | no |
-| `enableZiaDR` | boolean | no |
-| `enableZpaDR` | boolean | no |
-| `policyId` | string | no |
-| `useZiaGlobalDb` | boolean | no |
-| `ziaCustomDbUrl` | string | no |
-| `ziaDRMethod` | integer(int32) | no |
-| `ziaDomainName` | string | no |
-| `ziaGlobalDbUrl` | string | no |
-| `ziaGlobalDbUrlv2` | string | no |
-| `ziaRSAPubKey` | string | no |
-| `ziaRSAPubKeyName` | string | no |
-| `zpaDomainName` | string | no |
-| `zpaRSAPubKey` | string | no |
-| `zpaRSAPubKeyName` | string | no |
-
-**`WebPolicyEditRequestIOSExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `disablePassword` | string | no |
-| `ipv6Mode` | string(byte) | no |
-| `logoutPassword` | string | no |
-| `passcode` | string | no |
-| `showVPNTunNotification` | string(byte) | no |
-| `uninstallPassword` | string | no |
-
-**`WebPolicyEditRequestLinuxExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `disablePassword` | string | no |
-| `installCerts` | string | no |
-| `logoutPassword` | string | no |
-| `uninstallPassword` | string | no |
-
-**`WebPolicyEditRequestMacExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `addIfscopeRoute` | string | no |
-| `cacheSystemProxy` | string | no |
-| `clearArpCache` | string | no |
-| `disablePassword` | string | no |
-| `dnsPriorityOrdering` | string | no |
-| `dnsPriorityOrderingForTrustedDnsCriteria` | string | no |
-| `enableApplicationBasedBypass` | string | no |
-| `enableZscalerFirewall` | string | no |
-| `installCerts` | string | no |
-| `logoutPassword` | string | no |
-| `persistentZscalerFirewall` | string | no |
-| `uninstallPassword` | string | no |
-
-**`WebPolicyExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `advanceZpaReauth` | boolean | no |
-| `advanceZpaReauthTime` | integer(int32) | no |
-| `allowClientCertCachingForWebView2` | string | no |
-| `allowPacExclusionsOnly` | string | no |
-| `blockPrivateRelay` | string | no |
-| `browserAuthType` | string | no |
-| `bypassDNSTrafficUsingUDPProxy` | string(byte) | no |
-| `clientConnectorUiLanguage` | integer(int32) | no |
-| `customDNS` | string | no |
-| `ddilConfig` | string | no |
-| `deleteDHCPOption121Routes` | string | no |
-| `disableDNSRouteExclusion` | string(byte) | no |
-| `dropQuicTraffic` | string(byte) | no |
-| `enableAPCforCriticalSections` | string(byte) | no |
-| `enableAPCforOtherSections` | string(byte) | no |
-| `enableAdapterHardwareOffloading` | string | no |
-| `enableAntiTampering` | string | no |
-| `enableAutomaticPacketCapture` | string(byte) | no |
-| `enableCrashReporting` | string(byte) | no |
-| `enableCustomProxyDetection` | string | no |
-| `enableCustomTheme` | string(byte) | no |
-| `enableFlowBasedTunnel` | string(byte) | no |
-| `enableLocalPacketCapture` | string | no |
-| `enableLocationPolicyOverride` | string(byte) | no |
-| `enableNetworkTrafficProcessMapping` | string(byte) | no |
-| `enablePCAdditionalSpace` | string(byte) | no |
-| `enableSetProxyOnVPNAdapters` | string(byte) | no |
-| `enableZCCRevert` | string | no |
-| `enableZdpService` | string | no |
-| `enforceSplitDNS` | string(byte) | no |
-| `exitPassword` | string | no |
-| `fallbackToGatewayDomain` | string | no |
-| `followGlobalForPartnerLogin` | string | no |
-| `followGlobalForZpaReauth` | string | no |
-| `followRoutingTable` | string | no |
-| `generateCliPasswordContract` | GenerateCliPasswordContract | no |
-| `instantForceZPAReauthStateUpdate` | string(byte) | no |
-| `interceptZIATrafficAllAdapters` | string | no |
-| `locationRulesetPolicies` | LocationRulesetPolicies | no |
-| `machineIdpAuth` | boolean | no |
-| `machineToken` | string | no |
-| `nonce` | string | no |
-| `oneIdMTDeviceAuthEnabled` | string | no |
-| `overrideATCmdByPolicy` | string | no |
-| `packetTunnelDnsExcludeList` | string | no |
-| `packetTunnelDnsIncludeList` | string | no |
-| `packetTunnelExcludeList` | string | no |
-| `packetTunnelExcludeListForIPv6` | string | no |
-| `packetTunnelIncludeList` | string | no |
-| `packetTunnelIncludeListForIPv6` | string | no |
-| `partnerDomains` | string | no |
-| `pcAdditionalSpace` | integer(int32) | no |
-| `preventAutoReauthDuringDeviceLock` | string | no |
-| `prioritizeDnsExclusions` | string(byte) | no |
-| `purgeKerberosPreferredDCCache` | string | no |
-| `reactivateAntiTamperingTime` | integer(int32) | no |
-| `recacheSystemProxy` | string | no |
-| `reconnectTunOnWakeup` | string(byte) | no |
-| `rscModeOnAllAdapters` | integer(int32) | no |
-| `showConfirmationDialogForCachedCert` | string | no |
-| `sourcePortBasedBypasses` | string | no |
-| `switchFocusToNotification` | string | no |
-| `truncateLargeUDPDNSResponse` | string(byte) | no |
-| `updateDnsSearchOrder` | string(byte) | no |
-| `useDefaultAdapterForDNS` | string | no |
-| `useDefaultBrowser` | string | no |
-| `useEndPointLocationForDCSelection` | string | no |
-| `useProxyPortForT1` | string | no |
-| `useProxyPortForT2` | string | no |
-| `useV8JsEngine` | string | no |
-| `useWsaPollForZpa` | string | no |
-| `useZscalerNotificationFramework` | string | no |
-| `userAllowedToAddPartner` | string | no |
-| `vpnGateways` | string | no |
-| `zccAppFailOpenPolicy` | string(byte) | no |
-| `zccFailCloseSettingsAppByPassIds` | array<integer(int64)> | no |
-| `zccFailCloseSettingsAppByPassNames` | array<string> | no |
-| `zccFailCloseSettingsAppByPasses` | array<AppIdentityContract> | no |
-| `zccFailCloseSettingsExitUninstallPassword` | string | no |
-| `zccFailCloseSettingsIpBypasses` | string | no |
-| `zccFailCloseSettingsLockdownOnDriverError` | string(byte) | no |
-| `zccFailCloseSettingsLockdownOnFirewallError` | string(byte) | no |
-| `zccFailCloseSettingsLockdownOnTunnelProcessExit` | string(byte) | no |
-| `zccFailCloseSettingsThumbPrint` | string | no |
-| `zccRevertPassword` | string | no |
-| `zccTunnelFailPolicy` | string(byte) | no |
-| `zdDisablePassword` | string | no |
-| `zdpDisablePassword` | string | no |
-| `zdxDisablePassword` | string | no |
-| `zdxLiteConfigObj` | string | no |
-| `zpaAuthExpOnNetIpChange` | string(byte) | no |
-| `zpaAuthExpOnSleep` | string(byte) | no |
-| `zpaAuthExpOnSysRestart` | string(byte) | no |
-| `zpaAuthExpOnWinLogonSession` | string(byte) | no |
-| `zpaAuthExpOnWinSessionLock` | string(byte) | no |
-| `zpaAuthExpSessionLockStateMinTimeInSecond` | integer(int32) | no |
-| `zpaAutoReauthTimeout` | integer(int32) | no |
-| `zpaDisablePassword` | string | no |
-| `zpaReauthConfig` | string | no |
-
-**`GenerateCliPasswordContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `allowZdxDisableWithoutPassword` | boolean | no |
-| `allowZiaDisableWithoutPassword` | boolean | no |
-| `allowZpaDisableWithoutPassword` | boolean | no |
-| `cliPasswordType` | integer(int32) | no |
-| `enableCli` | boolean | no |
-| `policyId` | integer(int64) | no |
-
-**`LocationRulesetPolicies`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `offTrusted` | RulesetDetailContract | no |
-| `splitVpnTrusted` | RulesetDetailContract | no |
-| `trusted` | RulesetDetailContract | no |
-| `vpnTrusted` | RulesetDetailContract | no |
-
-**`RulesetDetailContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `id` | integer(int64) | no |
-| `name` | string | no |
-
-**`AppIdentityContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `appName` | string | no |
-| `certificatePayload` | string | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `editedTimestamp` | string | no |
-| `fileNames` | array<string> | no |
-| `filePaths` | array<string> | no |
-| `id` | integer(int64) | no |
-| `matchingCriteria` | string(byte) | no |
-| `signaturePayload` | string | no |
-
-**`WebPolicyEditRequestWindowsExtensionContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `cacheSystemProxy` | integer(int32) | no |
-| `captivePortalConfig` | string | no |
-| `disableLoopBackRestriction` | integer(int32) | no |
-| `disableParallelIpv4andIpv6` | string(byte) | no |
-| `disablePassword` | string | no |
-| `flowLoggerConfig` | string | no |
-| `forceLocationRefreshSccm` | integer(int32) | no |
-| `installCerts` | string | no |
-| `installWindowsFirewallInboundRule` | integer(int32) | no |
-| `logoutPassword` | string | no |
-| `overrideWPAD` | integer(int32) | no |
-| `pacDataPath` | string | no |
-| `pacType` | integer(int32) | no |
-| `prioritizeIPv4` | integer(int32) | no |
-| `removeExemptedContainers` | integer(int32) | no |
-| `restartWinHttpSvc` | integer(int32) | no |
-| `triggerDomainProfleDetection` | integer(int32) | no |
-| `uninstallPassword` | string | no |
-| `wfpDriver` | integer(int32) | no |
-
-**`AppServiceBlobContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `fqdn` | string | no |
-| `ipaddr` | string | no |
-| `port` | string | no |
-| `proto` | string | no |
-
-**`AppServiceBlobContractV6`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `fqdn` | string | no |
-| `ipaddr` | string | no |
-| `port` | string | no |
-| `proto` | string | no |
+| `policies` | array<object> | no |
 
 **`ForwardingProfileActionContractv2`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `DTLSTimeout` | integer(int32) | no |
-| `TLSTimeout` | integer(int32) | no |
-| `UDPTimeout` | integer(int32) | no |
-| `actionType` | string(byte) | no |
-| `allowTLSFallback` | string(byte) | no |
-| `blockUnreachableDomainsTraffic` | string(byte) | no |
-| `customPac` | string | no |
-| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
-| `dropIpv6Traffic` | string(byte) | no |
-| `dropIpv6TrafficInIpv6Network` | string(byte) | no |
-| `enablePacketTunnel` | string(byte) | no |
-| `latencyBasedZenEnablement` | string(byte) | no |
-| `mtuForZadapter` | integer(int32) | no |
 | `networkType` | string(byte) | no |
-| `optimiseForUnstableConnections` | string(byte) | no |
-| `pathMtuDiscovery` | string(byte) | no |
-| `primaryTransport` | string(byte) | no |
-| `redirectWebTraffic` | string(byte) | no |
-| `sendAllDNSToTrustedServer` | string(byte) | no |
+| `actionType` | string(byte) | no |
 | `systemProxy` | string(byte) | no |
+| `customPac` | string | no |
+| `enablePacketTunnel` | string(byte) | no |
 | `systemProxyData` | WebSystemProxyDataContract | no |
+| `primaryTransport` | string(byte) | no |
+| `DTLSTimeout` | integer(int32) | no |
+| `UDPTimeout` | integer(int32) | no |
+| `TLSTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `blockUnreachableDomainsTraffic` | string(byte) | no |
+| `allowTLSFallback` | string(byte) | no |
 | `tunnel2FallbackType` | string(byte) | no |
-| `useTunnel2ForProxiedWebTraffic` | string(byte) | no |
-| `useTunnel2ForUnencryptedWebTraffic` | string(byte) | no |
+| `sendAllDNSToTrustedServer` | string(byte) | no |
 | `v4FailCloseTrustedDNSServer` | string | no |
 | `v6FailCloseTrustedDNSServer` | string | no |
+| `dropIpv6Traffic` | string(byte) | no |
+| `redirectWebTraffic` | string(byte) | no |
+| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
+| `useTunnel2ForProxiedWebTraffic` | string(byte) | no |
+| `useTunnel2ForUnencryptedWebTraffic` | string(byte) | no |
+| `pathMtuDiscovery` | string(byte) | no |
+| `latencyBasedZenEnablement` | string(byte) | no |
 | `zenProbeInterval` | integer(int32) | no |
 | `zenProbeSampleSize` | integer(int32) | no |
 | `zenThresholdLimit` | integer(int32) | no |
+| `dropIpv6TrafficInIpv6Network` | string(byte) | no |
+| `optimiseForUnstableConnections` | string(byte) | no |
+| `useZIABCCOnTunnel2Failures` | string(byte) | no |
 
 **`WebSystemProxyDataContract`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `bypassProxyForPrivateIP` | integer(int32) | no |
+| `proxyAction` | string(byte) | no |
 | `enableAutoDetect` | integer(int32) | no |
 | `enablePAC` | integer(int32) | no |
-| `enableProxyServer` | integer(int32) | no |
-| `pacDataPath` | string | no |
 | `pacURL` | string | no |
-| `performGPUpdate` | integer(int32) | no |
-| `proxyAction` | string(byte) | no |
+| `enableProxyServer` | integer(int32) | no |
 | `proxyServerAddress` | string | no |
 | `proxyServerPort` | string | no |
+| `bypassProxyForPrivateIP` | integer(int32) | no |
+| `performGPUpdate` | integer(int32) | no |
+| `pacDataPath` | string | no |
 
 **`ForwardingProfileActionContractZpaV2`**
 
 | Property | Type | Required |
 | --- | --- | --- |
+| `networkType` | string(byte) | no |
+| `actionType` | string(byte) | no |
+| `primaryTransport` | string(byte) | no |
 | `DTLSTimeout` | integer(int32) | no |
 | `TLSTimeout` | integer(int32) | no |
-| `actionType` | string(byte) | no |
-| `latencyBasedServerMTEnablement` | integer(int32) | no |
-| `latencyBasedZpaServerEnablement` | string(byte) | no |
-| `lbsZpaProbeInterval` | integer(int32) | no |
-| `lbsZpaProbeSampleSize` | integer(int32) | no |
-| `lbsZpaThresholdLimit` | integer(int32) | no |
 | `mtuForZadapter` | integer(int32) | no |
-| `networkType` | string(byte) | no |
-| `partnerInfo` | ForwardingProfileActionContractPartnerLogin | no |
-| `primaryTransport` | string(byte) | no |
 | `sendTrustedNetworkResultToZpa` | string(byte) | no |
+| `partnerInfo` | ForwardingProfileActionContractPartnerLogin | no |
+| `latencyBasedServerEnablement` | string(byte) | no |
+| `lbsProbeInterval` | integer(int32) | no |
+| `lbsProbeSampleSize` | integer(int32) | no |
+| `lbsThresholdLimit` | integer(int32) | no |
+| `latencyBasedServerMTEnablement` | integer(int32) | no |
 
 **`ForwardingProfileActionContractPartnerLogin`**
 
 | Property | Type | Required |
 | --- | --- | --- |
+| `primaryTransport` | string(byte) | no |
 | `allowTlsFallback` | string(byte) | no |
 | `mtuForZadapter` | integer(int32) | no |
-| `primaryTransport` | string(byte) | no |
 
 **`UnifiedTunnelContract`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `DTLSTimeout` | integer(int32) | no |
-| `TLSTimeout` | integer(int32) | no |
+| `networkType` | string(byte) | no |
 | `actionTypeZIA` | string(byte) | no |
 | `actionTypeZPA` | string(byte) | no |
+| `primaryTransport` | string(byte) | no |
+| `DTLSTimeout` | integer(int32) | no |
+| `TLSTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `sendTrustedNetworkResultToZpa` | string(byte) | no |
 | `allowTLSFallback` | string(byte) | no |
-| `blockUnreachableDomainsTraffic` | string(byte) | no |
-| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
+| `pathMtuDiscovery` | string(byte) | no |
+| `optimiseForUnstableConnections` | string(byte) | no |
+| `tunnel2FallbackType` | string(byte) | no |
+| `redirectWebTraffic` | string(byte) | no |
 | `dropIpv6Traffic` | string(byte) | no |
 | `dropIpv6TrafficInIpv6Network` | string(byte) | no |
-| `mtuForZadapter` | integer(int32) | no |
-| `networkType` | string(byte) | no |
-| `optimiseForUnstableConnections` | string(byte) | no |
-| `pathMtuDiscovery` | string(byte) | no |
-| `primaryTransport` | string(byte) | no |
-| `redirectWebTraffic` | string(byte) | no |
-| `sameAsOnTrusted` | string(byte) | no |
+| `blockUnreachableDomainsTraffic` | string(byte) | no |
+| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
 | `sendAllDNSToTrustedServer` | string(byte) | no |
-| `systemProxyData` | WebSystemProxyDataContract | no |
-| `tunnel2FallbackType` | string(byte) | no |
 | `v4FailCloseTrustedDNSServer` | string | no |
 | `v6FailCloseTrustedDNSServer` | string | no |
+| `systemProxyData` | WebSystemProxyDataContract | no |
+| `sameAsOnTrusted` | string(byte) | no |
+<!-- /ZS-ARTICLE -->
 
-**`PublicWebPolicyResponseBaseContractRes`**
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/rate-limit-controller","lastmod":"2026-10-14T00:32Z","nid":"1546789"} -->
+## Rate Limit Controller
+
+- Source: https://help.zscaler.com/legacy-apis/rate-limit-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Rate Limit Controller
+- Last modified: 2026-10-14T00:32Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `POST /ratelimit/v1/save`
+
+**Save rate limits for company**
+
+Saves or updates rate limit configuration for a company.
+
+- Operation ID: `saveRateLimitsForCompany`
+
+**Request body:** `application/json` → CompanyRateLimitSaveRequest
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### `GET /ratelimit/v1/getRateLimit`
+
+**Get rate limit information**
+
+Retrieves the rate limit configuration and usage information for a specific company.
+
+- Operation ID: `getRateLimit`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `companyId` | query | yes | integer(int32) | The company ID for which to retrieve rate limit information. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /ratelimit/v1/deleteRateLimit`
+
+**Delete rate limit configuration**
+
+Deletes a rate limit configuration for a specific company and rate limit type.
+
+- Operation ID: `deleteRateLimit`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `companyId` | query | yes | integer(int32) | The company ID for which to delete the rate limit configuration. |
+| `rateLimitType` | query | yes | string(byte) | The type of rate limit to delete (e.g., API_CALLS, REQUESTS_PER_SECOND). |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### Schemas
+
+**`CompanyRateLimitSaveRequest`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `active` | integer(int32) | no |
-| `appServiceIds` | array<string> | no |
-| `appServices` | array<AppServiceContractRes> | no |
-| `bypassAppIds` | array<string> | no |
-| `bypassApps` | array<AppIdentityContract> | no |
-| `bypassCustomAppIds` | array<string> | no |
-| `bypassCustomApps` | array<CustomAppContract> | no |
-| `description` | string | no |
-| `deviceGroupIds` | array<string> | no |
-| `deviceGroups` | array<PublicWebDeviceGroupContract> | no |
-| `deviceType` | string (enum: DEVICE_TYPE_ANDROID, DEVICE_TYPE_IOS, DEVICE_TYPE_LINUX, DEVICE_TYPE_MAC, DEVICE_TYPE_OTHER, DEVICE_TYPE_WINDOWS) | no |
-| `disasterRecovery` | WebPolicyDisasterRecoveryContract | no |
-| `enableDeviceGroups` | string(byte) | no |
-| `groupAll` | integer(int32) | no |
-| `groupIds` | array<string> | no |
-| `groups` | array<PublicGroupContract> | no |
-| `highlightActiveControl` | string(byte) | no |
-| `id` | integer(int64) | no |
-| `logFileSize` | integer(int32) | no |
-| `logLevel` | integer(int32) | no |
-| `logMode` | integer(int32) | no |
-| `name` | string | no |
-| `notificationTemplateContract` | PublicNotificationTemplateContract | no |
-| `notificationTemplateId` | integer(int64) | no |
-| `onNetPolicy` | PublicWebForwardingProfileContract | no |
-| `pac_url` | string | no |
-| `policyExtension` | WebPolicyExtensionContract | no |
-| `policyToken` | string | no |
-| `reactivateWebSecurityMinutes` | string | no |
-| `reauth_period` | string | no |
-| `ruleOrder` | integer(int32) | no |
-| `sendDisableServiceReason` | string(byte) | no |
-| `tunnelZappTraffic` | integer(int32) | no |
-| `userIds` | array<string> | no |
-| `users` | array<PublicUserContract> | no |
-| `ziaPostureConfig` | PublicWebZIAPostureProfileContract | no |
-| `ziaPostureConfigId` | integer(int32) | no |
-
-**`AppServiceContractRes`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | boolean | no |
-| `appDataBlob` | array<AppServiceBlobContract> | no |
-| `appDataBlobV6` | array<AppServiceBlobContractV6> | no |
-| `appName` | string | no |
-| `appSvcId` | integer(int32) | no |
-| `appVersion` | integer(int32) | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `editedTimestamp` | string | no |
-| `id` | integer(int64) | no |
-| `uid` | string | no |
-| `version` | integer(int32) | no |
-| `zappDataBlob` | string | no |
-| `zappDataBlobV6` | string | no |
-
-**`CustomAppContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | boolean | no |
-| `appDataBlob` | array<AppServiceBlobContract> | no |
-| `appDataBlobV6` | array<AppServiceBlobContractV6> | no |
-| `appName` | string | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `editedTimestamp` | string | no |
-| `id` | integer(int64) | no |
-| `uid` | string | no |
-| `zappDataBlob` | string | no |
-| `zappDataBlobV6` | string | no |
-
-**`PublicWebDeviceGroupContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `companyId` | string | no |
-| `description` | string | no |
-| `devicePosture` | string | no |
 | `id` | string | no |
-| `name` | string | no |
-| `platformType` | string(byte) | no |
+| `rateLimitConfig` | array<RateLimitConfigItem> | no |
 
-**`PublicGroupContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | integer(int32) | no |
-| `authType` | string | no |
-| `id` | integer(int32) | no |
-| `lastModification` | string | no |
-| `name` | string | no |
-
-**`PublicNotificationTemplateContract`**
+**`CompanyRateLimitResponse`**
 
 | Property | Type | Required |
 | --- | --- | --- |
 | `companyId` | integer(int32) | no |
-| `createdBy` | string | no |
-| `customTimer` | integer(int32) | no |
-| `defaultTemplate` | string | no |
-| `doNotDisturb` | string | no |
-| `editedBy` | string | no |
-| `enableAppUpdatesNotification` | string | no |
-| `enableClientNotification` | string | no |
-| `enableNotificationForZPAReauth` | string | no |
-| `enablePersistantNotification` | string | no |
-| `enableServiceStatusNotification` | string | no |
-| `enableZiaNotification` | string | no |
-| `id` | integer(int64) | no |
-| `showDevicePostureFailureNotification` | string | no |
-| `templateName` | string | no |
-| `ziaDNS` | string | no |
-| `ziaDNSPopup` | string | no |
-| `ziaFirewall` | string | no |
-| `ziaFirewallPopup` | string | no |
-| `ziaIPS` | string | no |
-| `ziaIPSPopup` | string | no |
-| `ziaNotificationPersistant` | string | no |
-| `zpaReauthNotificationTime` | integer(int32) | no |
+| `rateLimitConfig` | array<RateLimitConfigItem> | no |
 
-**`PublicWebForwardingProfileContract`**
+**`RateLimitConfigItem`**
 
 | Property | Type | Required |
 | --- | --- | --- |
-| `active` | string | no |
-| `companyId` | string | no |
-| `conditionType` | integer(int32) | no |
-| `createdBy` | string | no |
-| `dnsSearchDomains` | string | no |
-| `dnsServers` | string | no |
-| `editedBy` | string | no |
-| `enableAllDefaultAdaptersTN` | string(byte) | no |
-| `enableLWFDriver` | string | no |
-| `enableSplitVpnTN` | string(byte) | no |
-| `enableUnifiedTunnel` | string(byte) | no |
-| `forwardingProfileActions` | array<PublicForwardingProfileActionContractv2> | no |
-| `forwardingProfileZpaActions` | array<PublicForwardingProfileActionContractZpaV2> | no |
-| `hostname` | string | no |
-| `id` | string | no |
-| `name` | string | no |
-| `predefinedTnAll` | boolean | no |
-| `predefinedTrustedNetworks` | boolean | no |
-| `resolvedIpsForHostname` | string | no |
-| `skipTrustedCriteriaMatch` | string(byte) | no |
-| `trustedDhcpServers` | string | no |
-| `trustedEgressIps` | string | no |
-| `trustedGateways` | string | no |
-| `trustedNetworkIds` | array<integer(int64)> | no |
-| `trustedNetworks` | array<string> | no |
-| `trustedSubnets` | string | no |
-
-**`PublicForwardingProfileActionContractv2`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `DTLSTimeout` | integer(int32) | no |
-| `TLSTimeout` | integer(int32) | no |
-| `UDPTimeout` | integer(int32) | no |
-| `actionType` | string(byte) | no |
-| `allowTLSFallback` | string(byte) | no |
-| `blockUnreachableDomainsTraffic` | string(byte) | no |
-| `customPac` | string | no |
-| `dropIpv6IncludeTrafficInT2` | string(byte) | no |
-| `dropIpv6Traffic` | string(byte) | no |
-| `dropIpv6TrafficInIpv6Network` | string(byte) | no |
-| `enablePacketTunnel` | string(byte) | no |
-| `latencyBasedZenEnablement` | string(byte) | no |
-| `mtuForZadapter` | integer(int32) | no |
-| `networkType` | string(byte) | no |
-| `optimiseForUnstableConnections` | string(byte) | no |
-| `pathMtuDiscovery` | string(byte) | no |
-| `primaryTransport` | string(byte) | no |
-| `redirectWebTraffic` | string(byte) | no |
-| `sendAllDNSToTrustedServer` | string(byte) | no |
-| `systemProxy` | string(byte) | no |
-| `systemProxyData` | PublicWebSystemProxyDataContract | no |
-| `tunnel2FallbackType` | string(byte) | no |
-| `useTunnel2ForProxiedWebTraffic` | string(byte) | no |
-| `useTunnel2ForUnencryptedWebTraffic` | string(byte) | no |
-| `v4FailCloseTrustedDNSServer` | string | no |
-| `v6FailCloseTrustedDNSServer` | string | no |
-| `zenProbeInterval` | integer(int32) | no |
-| `zenProbeSampleSize` | integer(int32) | no |
-| `zenThresholdLimit` | integer(int32) | no |
-
-**`PublicWebSystemProxyDataContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `bypassProxyForPrivateIP` | integer(int32) | no |
-| `enableAutoDetect` | integer(int32) | no |
-| `enablePAC` | integer(int32) | no |
-| `enableProxyServer` | integer(int32) | no |
-| `pacDataPath` | string | no |
-| `pacURL` | string | no |
-| `performGPUpdate` | integer(int32) | no |
-| `proxyAction` | string(byte) | no |
-| `proxyServerAddress` | string | no |
-| `proxyServerPort` | string | no |
-
-**`PublicForwardingProfileActionContractZpaV2`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `DTLSTimeout` | integer(int32) | no |
-| `TLSTimeout` | integer(int32) | no |
-| `actionType` | string(byte) | no |
-| `latencyBasedServerEnablement` | string(byte) | no |
-| `latencyBasedServerMTEnablement` | integer(int32) | no |
-| `lbsProbeInterval` | integer(int32) | no |
-| `lbsProbeSampleSize` | integer(int32) | no |
-| `lbsThresholdLimit` | integer(int32) | no |
-| `mtuForZadapter` | integer(int32) | no |
-| `networkType` | string(byte) | no |
-| `partnerInfo` | PublicForwardingProfileActionContractPartnerLogin | no |
-| `primaryTransport` | string(byte) | no |
-| `sendTrustedNetworkResultToZpa` | string(byte) | no |
-
-**`PublicForwardingProfileActionContractPartnerLogin`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `allowTlsFallback` | string(byte) | no |
-| `mtuForZadapter` | integer(int32) | no |
-| `primaryTransport` | string(byte) | no |
-
-**`PublicUserContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | integer(int32) | no |
-| `companyId` | string | no |
-| `id` | string | no |
-| `lastModification` | string | no |
-| `loginName` | string | no |
-
-**`PublicWebZIAPostureProfileContract`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `companyId` | string | no |
-| `high` | string | no |
-| `id` | string | no |
-| `low` | string | no |
-| `medium` | string | no |
-| `name` | string | no |
-| `platformType` | string(byte) | no |
-
-**`AppServiceContractReq`**
-
-| Property | Type | Required |
-| --- | --- | --- |
-| `active` | boolean | no |
-| `appDataBlob` | array<AppServiceBlobContract> | no |
-| `appDataBlobV6` | array<AppServiceBlobContractV6> | no |
-| `appName` | string | no |
-| `appSvcId` | integer(int32) | no |
-| `appVersion` | integer(int32) | no |
-| `createdBy` | string | no |
-| `editedBy` | string | no |
-| `editedTimestamp` | string | no |
-| `id` | integer(int64) | no |
-| `uid` | string | no |
-| `zappDataBlob` | string | no |
-| `zappDataBlobV6` | string | no |
+| `rateLimitType` | integer(int32) | no |
+| `rateLimitValue` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16283,13 +16940,13 @@ Deletes the rule label for the specified ID.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/saas-security-api","lastmod":"2026-09-15T07:06Z","nid":"1529817"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/saas-security-api","lastmod":"2026-10-16T07:06Z","nid":"1529817"} -->
 ## SaaS Security API
 
 - Source: https://help.zscaler.com/legacy-apis/saas-security-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > SaaS Security API
-- Last modified: 2026-09-15T07:06Z
+- Last modified: 2026-10-16T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -22061,6 +22718,167 @@ Stop the score analysis that is currently running.
 | `display_name` | string | no |
 | `prev` | string | no |
 | `curr` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/trusted-network-controller","lastmod":"2026-10-14T00:18Z","nid":"1546782"} -->
+## Trusted Network Controller
+
+- Source: https://help.zscaler.com/legacy-apis/trusted-network-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Trusted Network Controller
+- Last modified: 2026-10-14T00:18Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/trusted-networks/{id}`
+
+**Get trusted network**
+
+Retrieves a specific trusted network by its ID.
+
+- Operation ID: `getTrustedNetwork`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | The unique identifier of the trusted network. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/trusted-networks/{id}`
+
+**Update trusted network**
+
+Updates an existing trusted network with the provided configuration. This operation replaces the entire trusted network resource.
+
+- Operation ID: `putTrustedNetwork`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | The unique identifier of the trusted network to update. |
+
+**Request body:** `application/json` → TrustedNetworkContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/trusted-networks/{id}`
+
+**Delete trusted network**
+
+Deletes a specific trusted network by its ID.
+
+- Operation ID: `deleteTrustedNetwork`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | The unique identifier of the trusted network to delete. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/trusted-networks/{id}`
+
+**Partially update trusted network**
+
+Partially updates a trusted network with the provided configuration. Only specified fields are updated.
+
+- Operation ID: `patchTrustedNetwork`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | The unique identifier of the trusted network to update. |
+
+**Request body:** `application/json` → TrustedNetworkContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/trusted-networks`
+
+**List trusted networks**
+
+Retrieves a list of trusted networks with optional filtering by keyword, type, and pagination.
+
+- Operation ID: `listTrustedNetwork`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `keyword` | query | no | string | Search keyword to filter trusted networks by name or other attributes. |
+| `type` | query | no | string (enum: NAME, DNS_SERVERS, DNS_SEARCH_DOMAINS, HOST_NAME_IP, TRUSTED_SUBNETS, TRUSTED_GATEWAYS, TRUSTED_DHCP_SERVERS, TRUSTED_EGRESS_IPS) | Type of trusted network to filter by. |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/trusted-networks`
+
+**Create trusted network**
+
+Creates a new trusted network with specified configuration.
+
+- Operation ID: `createTrustedNetwork`
+
+**Request body:** `application/json` → TrustedNetworkContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`TrustedNetworkContractV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `companyId` | integer(int32) | no |
+| `zpaId` | string | no |
+| `createdBy` | string | no |
+| `editedBy` | string | no |
+| `name` | string | no |
+| `conditionType` | string (enum: ALL, ANY) | no |
+| `dnsServerIps` | array<string> | no |
+| `dnsSearchDomains` | array<string> | no |
+| `hostname` | string | no |
+| `resolvedIpsForHostname` | array<string> | no |
+| `trustedSubnetIps` | array<string> | no |
+| `trustedGatewayIps` | array<string> | no |
+| `trustedDhcpServersIps` | array<string> | no |
+| `trustedEgressIps` | array<string> | no |
+| `active` | boolean | no |
 <!-- /ZS-ARTICLE -->
 
 ---

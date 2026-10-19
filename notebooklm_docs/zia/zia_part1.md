@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 178
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 177
 
 ---
 
@@ -397,13 +397,13 @@ Sync activities apply to only File Sharing applications such as OneDrive and Sha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-administrators-internet-saas","lastmod":"2026-09-29T14:18Z","nid":"1399846"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-administrators-internet-saas","lastmod":"2026-10-13T21:06Z","nid":"1399846"} -->
 ## About Administrators for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-administrators-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > About Administrators for Internet & SaaS
-- Last modified: 2026-09-29T14:18Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: Information on using role-based administration for Internet & SaaS administrators in the Zscaler Admin Console.
 
 Zscaler’s Internet & SaaS (ZIA) [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration) enables you to control what different Internet & SaaS admins can do in the Zscaler Admin Console. You can delegate responsibilities among admins and granularly control their level of access to the Zscaler Admin Console to ensure they do not create conflicting policies and settings. To learn more about other use cases for role-based administration, see [Role-Based Administration Configuration Examples](https://help.zscaler.com/zia/examples-role-based-administration).
@@ -1918,13 +1918,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-09-29T13:42Z","nid":"1399001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-auditors","lastmod":"2026-10-13T21:06Z","nid":"1399001"} -->
 ## About Auditors
 
 - Source: https://help.zscaler.com/zia/about-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Auditors
-- Last modified: 2026-09-29T13:42Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: Information on the Zscaler Auditors page and its features in the Zscaler Admin Console.
 
 [Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
@@ -1970,14 +1970,14 @@ On the Auditors page (Administration > Legacy Admin Management > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-authentication-default-settings","lastmod":"2026-09-30T18:54Z","nid":"1400051"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-authentication-default-settings","lastmod":"2026-10-15T12:28Z","nid":"1400051"} -->
 ## About Authentication Default Settings
 
 - Source: https://help.zscaler.com/zia/about-authentication-default-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > About Authentication Default Settings
-- Last modified: 2026-09-30T18:54Z
-- Summary: Information on the authentication Default Settings page in the Zscaler Admin Console.
+- Last modified: 2026-10-15T12:28Z
+- Summary: Information on the Default Settings tab on the Internet Authentication Settings page in the Zscaler Admin Console.
 
 Zscaler supports different types of [provisioning and authentication methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can configure the default authentication profile according to the authentication method you choose. To learn more about authenticating users, see [Understanding User Provisioning and Authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users).
 
@@ -2001,13 +2001,13 @@ On the Default Settings page (Administration > Internet & SaaS Authentication > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-authentication-profiles","lastmod":"2026-09-30T19:05Z","nid":"1458911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-authentication-profiles","lastmod":"2026-10-14T21:06Z","nid":"1458911"} -->
 ## About Authentication Profiles
 
 - Source: https://help.zscaler.com/zia/about-authentication-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > About Authentication Profiles
-- Last modified: 2026-09-30T19:05Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information about the Authentication Profiles page in the Zscaler Admin Console.
 
 Zscaler allows for granular control of the authentication timeout on a per-location basis. You can create and manage custom authentication profiles on this page. To learn more, see [Configuring Custom Authentication Timeout Profiles](https://help.zscaler.com/zia/configuring-custom-authentication-timeout-profiles).
@@ -2041,13 +2041,13 @@ On the Authentication Profiles page (Administration > Internet & SaaS Authentica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-10-11T07:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-10-18T07:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information about backing up and restoring policies and configuration settings in the Zscaler Admin Console.
 
 [Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
@@ -2879,14 +2879,14 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-10-06T20:59Z","nid":"1400501"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-cloud-service-api-key","lastmod":"2026-10-17T07:06Z","nid":"1400501"} -->
 ## About Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/about-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About Cloud Service API Key
-- Last modified: 2026-10-06T20:59Z
-- Summary: Information on cloud service API key (and Sandbox Submission API token) management within the Zscaler Admin Console.
+- Last modified: 2026-10-17T07:06Z
+- Summary: Information on cloud service API key management within the Zscaler Admin Console.
 
 You can authenticate with the cloud service API using a combination of API key (an alphanumeric key of 12 characters in length) and Internet & SaaS (ZIA) admin credentials (i.e., username and password).
 
@@ -2910,15 +2910,15 @@ Adding, editing, or regenerating an API key, immediately invalidates the old key
 On the Cloud Service API Key page (Administration > API > Internet & SaaS API > Cloud Service API Key), you can do the following:
 
 1. View the base URL for the cloud service API.
-2. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 3. View information regarding your organization's cloud service API key. For the key, you can see:
   - **Key:** The API key string.
   - **Last Modified By:** Admin that last modified the key.
   - **Last Modified On:** The date and time the key was last modified.
   - **Actions:**The add, regenerate, or delete actions that you can perform on the API key.
-4. [Edit the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#EditKey)
-5. [Regenerate the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#RegenerateKey)
-6. [Delete the API key.](https://help.zscaler.com/zia/managing-cloud-service-api-key#DeleteKey)
+4. [Edit the API key](https://help.zscaler.com/zia/managing-cloud-service-api-key#EditKey).
+5. [Regenerate the API key](https://help.zscaler.com/zia/managing-cloud-service-api-key#RegenerateKey).
+6. [Delete the API key](https://help.zscaler.com/zia/managing-cloud-service-api-key#DeleteKey).
 7. Go to the [OAuth 2.0 Authorization Servers](https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers) and [Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token) pages.
 
 [Image: Cloud Service API Key page]
@@ -4605,13 +4605,13 @@ On the Device Control page (Analytics > Endpoint Data Scan > Device Control), yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-10-06T02:22Z","nid":"1402251"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-10-12T10:22Z","nid":"1402251"} -->
 ## About Device Groups
 
 - Source: https://help.zscaler.com/zia/about-device-groups
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Device Management > About Device Groups
-- Last modified: 2026-10-06T02:22Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Device Groups
+- Last modified: 2026-10-12T10:22Z
 - Summary: Information on the Device Groups page in the Zscaler Admin Console.
 
 The Device Groups page displays a list of predefined groups. These groups are defined based on the OS types of the devices in your organization. The devices that have Zscaler Client Connector deployed are categorized under respective groups based on their OS type.
@@ -4690,13 +4690,13 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-10-07T22:52Z","nid":"1402246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-10-12T10:22Z","nid":"1402246"} -->
 ## About Devices
 
 - Source: https://help.zscaler.com/zia/about-devices
 - Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Device Management > About Devices
-- Last modified: 2026-10-07T22:52Z
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Devices
+- Last modified: 2026-10-12T10:22Z
 - Summary: Information on the Device Management page in the Zscaler Admin Console.
 
 The Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
@@ -4850,13 +4850,13 @@ On the DLP Dictionaries page (Data Security > Common Resources > Dictionaries & 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-10-08T21:06Z","nid":"1541422"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-endpoint-resources","lastmod":"2026-10-15T12:58Z","nid":"1541422"} -->
 ## About DLP & Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/about-dlp-endpoint-resources
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > About DLP & Endpoint Resources
-- Last modified: 2026-10-08T21:06Z
+- Last modified: 2026-10-15T12:58Z
 - Summary: Information on how Zscaler Endpoint & Data Loss Prevention (DLP) resources help your organization monitor different channels to prevent data loss on endpoints.
 
 The page for Data Loss Prevention (DLP) and Endpoint resources (Data Security > Endpoint DLP > Endpoint DLP Resources) has slightly different names based on the Zscaler products licensed for your organization:
@@ -4901,7 +4901,7 @@ On the **DLP Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resou
 - Removable Storage Devices
 - Applications
 
-On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Network Shares), you can do the following:
 
 1. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
 2. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -4915,13 +4915,13 @@ On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Reso
 8. Go to the **Printers** page.
 9. Go to the **Printer Tags** page.
 10. Go to the **Removable Storage Devices** page.
-11. Go to the **Removable Storage Devices** **Tags**page.
+11. Go to the **Removable Storage Device** **Tags**page.
 12. Go to the **Endpoint Applications** page.
-13. Go to the **Endpoint Applications** page.
+13. Go to the **Endpoint Application Tags** page.
 
 [Image: About Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
 
 1. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
 2. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -4935,17 +4935,17 @@ On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources)
   - Search for a network printer.
 5. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 6. Search for a Printer.
-7. Go to the **Network Shares** page.
+7. Go to the **Network Share** page.
 8. Go to the **Network Shares Tags** page.
 9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
 11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
-13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: About Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Removable Storage Devices), you can do the following:
 
 1. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
 2. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -4959,18 +4959,18 @@ On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoi
 5. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 6. Search for a removable storage device.
 7. Go to the **Network Shares** page.
-8. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 9. Go to the **Printers** page.
 10. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 12. Go to the **Endpoint Applications**page.
-13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: `About Removeable Storage Devices in Endpoint DLP Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Endpoint Applications), you can do the following:
 
 1. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
@@ -5052,7 +5052,7 @@ On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Reso
 
 [Image: Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
 
 1. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Import network printers](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
@@ -5072,7 +5072,7 @@ On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources)
 
 [Image: Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources Removable Storage Devices), you can do the following:
 
 1. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 2. [Import removable storage devices](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
@@ -5094,7 +5094,7 @@ On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoi
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Applications), you can do the following:
 
 1. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
 2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-resources#add-application-single).
@@ -5447,13 +5447,13 @@ On the DLP Engines page (Data Security > Common Resources > Dictionaries & Engin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-09-28T12:30Z","nid":"1400021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-notification-templates","lastmod":"2026-10-12T21:06Z","nid":"1400021"} -->
 ## About DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/about-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About DLP Notification Templates
-- Last modified: 2026-09-28T12:30Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information on Data Loss Prevention (DLP) notification templates. These are sent to your organization’s auditors when a DLP policy triggers in the Zscaler service.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
@@ -5855,13 +5855,13 @@ On the EDNS Client Subnet Prefix Objects page (Internet Access > Resources > EDN
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-10-11T07:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-10-18T07:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -6143,13 +6143,13 @@ On the Endpoint Data Scan page (Analytics > Endpoint Data Scan > Endpoint Data S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp","lastmod":"2026-09-17T10:40Z","nid":"1463226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-endpoint-dlp","lastmod":"2026-10-14T04:05Z","nid":"1463226"} -->
 ## About Endpoint Data Loss Prevention
 
 - Source: https://help.zscaler.com/zia/about-endpoint-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > About Endpoint Data Loss Prevention
-- Last modified: 2026-09-17T10:40Z
+- Last modified: 2026-10-14T04:05Z
 - Summary: Information on how the Zscaler Endpoint Data Loss Prevention (DLP) policy protects your organization from data loss by monitoring or blocking data using Zscaler DLP engines.
 
 You can use the Zscaler Endpoint Data Loss Prevention (DLP) policy to protect your organization from data loss on endpoints. Endpoint DLP policy complements [Zscaler DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) by extending the monitoring of sensitive data to the activities that end users take on endpoints (i.e., printing, saving to removable storage devices, saving to network shares, or uploading to personal cloud storage accounts).
@@ -6166,7 +6166,7 @@ Endpoint DLP policy provides the following benefits and allows you to:
 
 ## About the Endpoint Data Loss Prevention Page
 
-On the Endpoint Data Loss Prevention page (Data Security > Endpoint DLP > Endpoint DLP Web), you can do the following:
+On the Endpoint Data Loss Prevention page (Data Security > Endpoint DLP > Endpoint DLP Policy), you can do the following:
 
 1. Select one or more labels from the **Rule Label** drop-down menu to filter results in the table. You can click **Clear** to remove any selected rule labels.
 
@@ -6330,13 +6330,13 @@ On the Exact Data Match page (Data Security > Common Resources > Index Templates
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-extranet","lastmod":"2026-09-30T16:05Z","nid":"1508656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-extranet","lastmod":"2026-10-14T21:06Z","nid":"1508656"} -->
 ## About Extranet
 
 - Source: https://help.zscaler.com/zia/about-extranet
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Extranet > About Extranet
-- Last modified: 2026-09-30T16:05Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on the Extranet page in the Zscaler Admin Console.
 
 Zscaler Extranet Application Support allows Private Access (ZPA) users to access private applications hosted on a business partner's network, and it gives partners access to secured applications on your organization's network, eliminating the need to install any application connectors on the partner's network or connect a data center to the partner. With Zscaler Extranet Application Support, your organization's partners can establish [IPSec tunnels](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) directly to the Zero Trust Exchange (ZTE).
@@ -6822,13 +6822,13 @@ On the GRE Tunnels page (Infrastructure > Location Management > Static IPs & GRE
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-groups","lastmod":"2026-10-01T15:05Z","nid":"1399886"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-groups","lastmod":"2026-10-15T21:06Z","nid":"1399886"} -->
 ## About Groups
 
 - Source: https://help.zscaler.com/zia/about-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > About Groups
-- Last modified: 2026-10-01T15:05Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information on the Zscaler Groups page and its features in the ZIA Admin Portal.
 
 [Watch a video about User Management](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -6913,18 +6913,18 @@ On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Hosted PAC File
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-http-header-insertion-profile","lastmod":"2026-09-24T07:56Z","nid":"1517226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-http-header-insertion-profile","lastmod":"2026-10-15T05:44Z","nid":"1517226"} -->
 ## About HTTP Header Insertion Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-insertion-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Insertion Profile
-- Last modified: 2026-09-24T07:56Z
+- Last modified: 2026-10-15T05:44Z
 - Summary: Information about how to use the HTTP header insertion profile in the Zscaler Admin Console.
 
 To enable the HTTP Header Control feature, contact Zscaler Support.
 
-The HTTP header insertion profile allows you to add custom HTTP request headers and modify existing HTTP request headers. It consists of two parts: adding HTTP header insertion profiles and associating them to a URL Filtering policy rule.
+The HTTP header insertion profile allows you to add custom HTTP request headers and modify existing HTTP request headers. This feature consists of adding HTTP header insertion profiles and associating them to a URL Filtering policy rule.
 
 The HTTP header insertion profile provides the following benefits and enables you to:
 
@@ -6933,16 +6933,16 @@ The HTTP header insertion profile provides the following benefits and enables yo
 
 ## About the HTTP Header Insertion Profile Page
 
-On the HTTP Header Insertion Profile page (Policies > Access Control > Internet & SaaS > HTTP Header Control > HTTP Header Insertion Profile), you can do the following:
+On the HTTP Header Insertion Profile page (Internet Access > Policy > HTTP Header Control > HTTP Header Insertion Profile), you can do the following:
 
-1. [Add an HTTP header insertion profile.](https://help.zscaler.com/zia/adding-http-header-insertion-profile)
-2. Search for a configured HTTP header insertion profile.
-3. View a list of all the configured HTTP header insertion profiles. For each HTTP header insertion profile, you can see:
+1. Search for a configured HTTP header insertion profile.
+2. [Add an HTTP header insertion profile](https://help.zscaler.com/zia/adding-http-header-insertion-profile).
+3. [Modify the column option to view the HTTP header insertion profiles accordingly](https://help.zscaler.com/unified/using-tables).
+4. View a list of all the configured HTTP header insertion profiles. For each HTTP header insertion profile, you can see:
   - **Name**: The name of the HTTP header insertion profile that is displayed when configuring a policy rule.
   - **HTTP Headers**: The HTTP headers (i.e., key-value pairs) that are added to the profile.
   - **Description**: The description of the HTTP header insertion profile if available.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. [Edit an HTTP header insertion profile.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+5. [Edit or delete an HTTP header insertion profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 6. [View the HTTP Header Profile page](https://help.zscaler.com/zia/about-http-header-profile).
 
 [Image: HTTP Header Insertion Profile page with annotations for labels and buttons]
@@ -6950,18 +6950,18 @@ On the HTTP Header Insertion Profile page (Policies > Access Control > Internet 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-http-header-profile","lastmod":"2026-09-24T07:50Z","nid":"1517121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-http-header-profile","lastmod":"2026-10-15T05:19Z","nid":"1517121"} -->
 ## About HTTP Header Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Profile
-- Last modified: 2026-09-24T07:50Z
+- Last modified: 2026-10-15T05:19Z
 - Summary: Information on how to use HTTP header profiles in the Zscaler Admin Console.
 
 To enable the HTTP Header Control feature, contact Zscaler Support.
 
-The HTTP header profile allows you to create criteria for various HTTP request headers. It consists of two parts: adding HTTP header profiles and associating them to a URL Filtering policy rule.
+The HTTP header profile allows you to create criteria for various HTTP request headers. It consists of adding HTTP header profiles and associating them to a URL Filtering policy rule.
 
 The HTTP header profile provides the following benefits and enables you to:
 
@@ -6970,16 +6970,16 @@ The HTTP header profile provides the following benefits and enables you to:
 
 ## About the HTTP Header Profile Page
 
-On the HTTP Header Profile page (Policies > Access Control > Internet & SaaS > HTTP Header Control), you can do the following:
+On the HTTP Header Profile page (Internet Access > Policy > HTTP Header Control > HTTP Header Profile), you can do the following:
 
-1. [Add an HTTP header profile.](https://help.zscaler.com/zia/adding-http-header-profile)
-2. Search for a configured HTTP header profile.
-3. View a list of all the configured HTTP header profiles. For each HTTP header profile, you can see:
+1. Search for a configured HTTP header profile.
+2. [Add an HTTP header profile](https://help.zscaler.com/zia/adding-http-header-profile).
+3. [Modify the column option to view the HTTP header profiles accordingly](https://help.zscaler.com/unified/using-tables).
+4. View a list of all the configured HTTP header profiles. For each HTTP header profile, you can see:
   - **Name**: The name of the HTTP header profile that is displayed when configuring a policy rule.
   - **Criteria**: The criteria (i.e., Origin, Referer, and User Agent) of the HTTP header profile.
   - **Description**: The description of the HTTP header profile if available.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. [Edit an HTTP header profile.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+5. [Edit or delete an HTTP header profile](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 6. [View the HTTP Header Insertion Profile page](https://help.zscaler.com/zia/about-http-header-insertion-profile).
 
 [Image: HTTP Header Profile page with annotated fields and buttons]
@@ -7152,13 +7152,13 @@ On the Identity Proxy Settings page (Administration > Identity > Internet & SaaS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-10-11T07:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-10-18T07:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7770,13 +7770,13 @@ You cannot delete a draft or the default intermediate CA certificate.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-role-management","lastmod":"2026-09-30T12:21Z","nid":"1399851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-internet-saas-role-management","lastmod":"2026-10-14T21:06Z","nid":"1399851"} -->
 ## About Internet & SaaS Role Management
 
 - Source: https://help.zscaler.com/zia/about-internet-saas-role-management
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > About Internet & SaaS Role Management
-- Last modified: 2026-09-30T12:21Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on managing Internet & SaaS admin roles in the Zscaler Admin Console, including admin rank, permissions, and functional scope.
 
 [Watch a video About Admin Roles](https://fast.wistia.net/embed/iframe/0wtybm3jod) (shows legacy UI).
@@ -8254,13 +8254,13 @@ Additionally, the following are required in a Windows environment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-09-29T05:52Z","nid":"1400541"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-location-groups","lastmod":"2026-10-16T05:38Z","nid":"1400541"} -->
 ## About Location Groups
 
 - Source: https://help.zscaler.com/zia/about-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > About Location Groups
-- Last modified: 2026-09-29T05:52Z
+- Last modified: 2026-10-16T05:38Z
 - Summary: Information on location groups and how they are used to managing locations and sublocations in the Zscaler service.
 
 If you have many locations and associated sublocations within your organization, consider using location groups. You can create manual location groups or dynamic location groups:
@@ -8278,24 +8278,24 @@ The following conditions apply when configuring manual or dynamic location group
 
 On the Location Groups page (Infrastructure > Location Management > Location Groups), you can do the following:
 
-1. [Add a manual location group](https://help.zscaler.com/zia/configuring-location-groups)
-2. [Add a dynamic location group](https://help.zscaler.com/zia/configuring-dynamic-location-groups)
-3. Search for a location group by **Name**, **Description**, **Last Modified By**, **Group Type**, and **Locations**
-4. View a list of all location groups that were configured for your organization. For location groups, you can see the following:
+1. [Add a manual location group](https://help.zscaler.com/zia/configuring-manual-location-groups).
+2. [Add a dynamic location group](https://help.zscaler.com/zia/configuring-dynamic-location-groups).
+3. Search for a location group by **Name**, **Description**, **Last Modified By**, **Group Type**, and **Locations.**
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View more information about a location group.
+6. [Edit a location group](https://help.zscaler.com/zia/configuring-location-groups#EditLocationGrp), including the ability to delete a group.
+7. View a list of all location groups that were configured for your organization. For location groups, you can see the following:
   - **Name**: The name of the group. You can sort this column.
-  - **Type**: Shows if the group is a manual or dynamic location group
+  - **Type**: Shows if the group is a manual or dynamic location group.
   - **Number of Locations and Sub-Locations**: The number of locations associated with the group. Clicking the number displays the locations (and their sublocations, if applicable) within the [Locations](https://help.zscaler.com/zia/about-locations#Page) page. You can sort this column.
   - **Last Modified By**: The last admin user to modify the group. You can sort this column.
   - **Last Modified On**: The date and time the group was last modified.
-  - **Description**: The description of the group, if available
-5. [Modify the table and its columns](https://help.zscaler.com/zia/using-tables)
-6. [Edit a location group](https://help.zscaler.com/zia/configuring-location-groups#EditLocationGrp), including the ability to delete a group
-7. View more information about a location group
-8. From the navigation pane on the left, you can:
+  - **Description**: The description of the group, if available.
+8. From the left-side navigation pane, you can:
   1. Go to the [Locations](https://help.zscaler.com/zia/about-locations#Page) page, to configure new locations and their sublocations or manage existing locations.
-  2. Go to the [Azure Virtual WAN Locations](https://help.zscaler.com/zia/configuring-azure-vwan-locations) page, to view and manage your synced Microsoft Azure hub site locations. This tab is only displayed if you have a Microsoft Azure Virtual WAN integration with Zscaler. To learn more, see [About Partner Integrations](https://help.zscaler.com/zia/about-partner-integration-management).
+  2. Go to the [Azure Virtual WAN Locations](https://help.zscaler.com/zia/configuring-azure-vwan-locations) page, to view and manage your synced Microsoft Azure hub site locations. This tab is only displayed if you have a Microsoft Azure Virtual WAN integration with Zscaler. To learn more, see [About Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
 
-[Image: Screenshot showing location groups page]
+[Image: Image showing the location groups page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8979,13 +8979,13 @@ On the Network Services page (Internet Access > Resources > Network Services > S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-07-31T11:22Z","nid":"1463371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-10-13T16:58Z","nid":"1463371"} -->
 ## About NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Collector Servers
-- Last modified: 2026-07-31T11:22Z
+- Last modified: 2026-10-13T16:58Z
 - Summary: Information on NSS Collectors that are used to collect logs from third-party security devices in your organization's network perimeter and stream them to the Zscaler cloud in near real time.
 
 The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
@@ -9004,20 +9004,21 @@ Zscaler supports log ingestion from Palo Alto Networks, Blue Coat, and Fortinet.
 
 ## About the NSS Collector Servers Page
 
-On the NSS Collector Servers page (Logs > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
+On the NSS Collector Servers page (Data Explorer > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
 
 1. [Add an NSS Collector server.](https://help.zscaler.com/zia/adding-nss-collector-servers)
-2. View the list of all configured NSS Collector servers. By default, the table displays the following information:
+2. Search for an NSS Collector server.
+3. View the list of all configured NSS Collector servers. By default, the table displays the following information:
 
 - **Server Name**: The name of the NSS Collector server.
 - **Vendor**: The third-party vendor of the firewall or web proxy services used by your organization.
 - **Status**: The server status that indicates whether it is enabled or disabled.
 - **SSL Certificate**: The option to download the SSL certificate for the server.
 
-1. Download the SSL certificate for an NSS Collector server.
-2. [Edit an NSS Collector server.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
-3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-4. Search for an NSS Collector server.
+1. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+2. Download the SSL certificate for an NSS Collector server.
+3. [Add a new SSL Certificate for an NSS Collector Server.](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers)
+4. [Edit an NSS Collector server.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
 5. Go to the [NSS Servers](https://help.zscaler.com/zia/about-nss-servers), [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), or [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds) tabs.
 
 [Image: A screenshot of the NSS Collector Servers page]
@@ -9068,13 +9069,13 @@ On the NSS Feeds page (Logs > Log Streaming > Internet Log Streaming - Nanolog S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-10-09T15:15Z","nid":"1402076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-10-14T12:22Z","nid":"1402076"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-10-09T15:15Z
+- Last modified: 2026-10-14T12:22Z
 - Summary: Information on the NSS Servers page in the Zscaler Admin Console.
 
 An NSS server is the representation of the NSS virtual machine (VM) in the Zscaler Admin Console. After you create a server, Zscaler issues a client certificate and private key that you can install on the NSS VM so that it can authenticate to the Zscaler service.
@@ -9099,22 +9100,23 @@ On the NSS Servers page (Data Explorer > Log Streaming > Internet Log Streaming 
   - **State**: The health state of the server.
   - **SSL Certificate**: The option to download the SSL certificate.
 6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. [Edit an NSS server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+7. Download the SSL Certificate for an NSS server.
 8. [Add a new SSL Certificate for an NSS Server.](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers)
-9. [View the NSS Feeds page.](https://help.zscaler.com/zia/about-nss-feeds)
+9. [Edit an NSS server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+10. Go to the [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds), or [NSS Collector Servers](https://help.zscaler.com/zia/about-nss-collector-servers) tabs.
 
 ****[Image: NSS Servers page]****
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-oauth-2.0-authorization-servers","lastmod":"2026-10-07T22:01Z","nid":"1415061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-oauth-2.0-authorization-servers","lastmod":"2026-10-16T00:13Z","nid":"1415061"} -->
 ## About OAuth 2.0 Authorization Servers
 
 - Source: https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About OAuth 2.0 Authorization Servers
-- Last modified: 2026-10-07T22:01Z
+- Last modified: 2026-10-16T00:13Z
 - Summary: Information about OAuth 2.0 authorization servers that can be added to the Zscaler Admin Console.
 
 When using the [OAuth 2.0 authentication](https://help.zscaler.com/zia/securing-zia-apis-oauth-2.0) model, the Zscaler service needs to validate the access token (JSON Web Token (JWT)) in API requests to accept the requests. To allow Zscaler to perform this validation, you need to add your OAuth 2.0 authorization servers to the Zscaler Admin Console. After the authorization server is added, the Zscaler service can obtain the public key set from the authorization server’s JSON Web Key Set (JWKS) endpoint and cryptographically verify the JWT signature.
@@ -9136,8 +9138,8 @@ After verifying the authenticity of the JWT, the Zscaler service evaluates the s
 On the OAuth 2.0 Authorization Servers page (Administration > API > Internet & SaaS API > OAuth 2.0 Authorization Servers), you can do the following:
 
 1. View the base URL for the cloud service API.
-2. [Add a third-party OAuth 2.0 authorization server.](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#add-auth-server)
-3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+2. [Add a third-party OAuth 2.0 authorization server](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#add-auth-server).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View information regarding your authorization server. For each authorization server, you can view:
   - **Authorization Server Name:** The name provided for the authorization server configuration.
   - **Status:** The status of the authorization server configuration (enabled or disabled).
@@ -9146,8 +9148,8 @@ On the OAuth 2.0 Authorization Servers page (Administration > API > Internet & S
   - **Actions**: The add or delete actions that you can perform on the authorization server.
 5. [Edit the authorization server](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#edit-auth-server).
 6. [Delete the authorization server](https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers#delete-auth-server).
-7. Go to the [Cloud Service API Key](https://help.zscaler.com/zia/about-cloud-service-api-key) page.
-8. Go to the [Sandbox API Token](https://help.zscaler.com/zia/about-sandbox-api-token) page.
+7. [Go to the Cloud Service API Key page](https://help.zscaler.com/zia/about-cloud-service-api-key).
+8. [Go to the Sandbox API Token page](https://help.zscaler.com/zia/about-sandbox-api-token).
 
 [Image: A screenshot of OAuth 2.0 Authorization Servers page]
 <!-- /ZS-ARTICLE -->
@@ -9528,13 +9530,13 @@ On the Private Access GW page (Infrastructure > Internet & SaaS > Private Access
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-09-28T12:30Z","nid":"1452706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-file-templates","lastmod":"2026-10-12T21:06Z","nid":"1452706"} -->
 ## About Quarantine Tombstone File Templates
 
 - Source: https://help.zscaler.com/zia/about-quarantine-tombstone-file-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About Quarantine Tombstone File Templates
-- Last modified: 2026-09-28T12:30Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: About quarantine notification template options within the Zscaler Admin Console.
 
 When a file is quarantined, a tombstone file is created to give the user an idea of why this happened. You are able to customize tombstone file templates and can reference one of them when configuring the malware and DLP detection policy rules. To learn more, see [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy).
@@ -10706,13 +10708,13 @@ When you select this data type, the **Application Category** section automatical
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights-logs","lastmod":"2026-09-25T03:02Z","nid":"1401431"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-saas-security-insights-logs","lastmod":"2026-10-15T21:55Z","nid":"1401431"} -->
 ## About SaaS Security Insights Logs
 
 - Source: https://help.zscaler.com/zia/about-saas-security-insights-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > About SaaS Security Insights Logs
-- Last modified: 2026-09-25T03:02Z
+- Last modified: 2026-10-15T21:55Z
 - Summary: Information on Zscaler's SaaS Security Insights Logs page and the different sections and filters on the page.
 
 The Zscaler service provides real-time log consolidation across the globe, so you can view every scan performed by the Zscaler SaaS Connector of data based on your SaaS application tenant.
@@ -10730,47 +10732,39 @@ Interactive reports support UTF-8 characters enabling the display of special cha
 
 ## About the SaaS Security Insights Logs Page
 
-On the SaaS Security Insights Logs page(Logs > SaaS Security Insights> Logs), you can do the following:
+On the SaaS Security Insights Logs page(Data Explorer > Internet & SaaS > SaaS Security Insights), you can do the following:
 
 1. Clear all filters. You are redirected to the default Insights page.
 2. Click to show or hide the left pane.
-3. Choose a predefined time frame or select **Custom** to use the calendar and time menus to define your own time frame. In **Custom**, the end date can be up to 92 days after start date.
-4. View the records in a log table. You can search for specific entries wherever you see a magnifying glass on a column field name. You can also sort certain columns by ascending or descending order. To customize the column fields:
+3. Download the data to a CSV file.
+4. Choose a predefined time frame or select **Custom** to use the calendar and time menus to define your own time frame. In **Custom**, the end date can be up to 92 days after start date.
+5. View the records in a log table. You can search for specific entries wherever you see a magnifying glass on a column field name. You can also sort certain columns by ascending or descending order. To customize the column fields:
   - Click the icon (#5 in the following image) on the top right of the logs to list the available fields for display. Tick a box to add a column or clear it to remove a column. Alternatively, click **Select all** or **Deselect all** to display or remove all columns.
   - Drag a column to another location.
   - Resize a column by positioning the cursor on its border and dragging it to the desired width.
-5. Customize your log view by selecting or deselecting which column fields you want to see.
-
-Each application category has its own set of columns.
-
-- Collaboration Columns
-- CRM Columns
-- Email Columns
-- File Columns
-- Gen AI Columns
-- ITSM Columns
-- Public Cloud Storage Columns
-- Repository Columns
-
-1. Filter the data by application category. You can filter by **Collaboration**, **CRM**, **Email**, **File**, **Gen AI**, **ITSM**, or **Repository**. Depending on the application category you select, certain filters change accordingly.
-2. Define filters to narrow down the list or to find records, such as those associated with a specific URL. Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Threat Super Category** and others.
-
-Each application category has its own set of log filters.
-
-- Collaboration Log Filters
-- CRM Log Filters
-- Email Log Filters
-- File Log Filters
-- Gen AI Log Filters
-- ITSM Log Filters
-- Public Cloud Storage Log Filters
-- Repository Log Filters
-
-1. You can either download the list of transactions as a CSV file or keep it displayed on your screen. When you download the list, the Zscaler service only exports visible columns. It exports up to 100K lines of data at a time. You can continue to use the service while the export is in progress. The limit for the number of times you can export is 20 requests/hour. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations#Reporting).
-2. Choose the number of records that you want displayed on the page.
-3. Always click **Apply Filters** to activate your changes.
-4. View the weblog time, which appears at the bottom of every window. The Nanolog servers collect the logs of all users worldwide, and then consolidates and correlates them. The weblog time displays the date and time of the logs that are being processed by the Nanolog servers..
-5. Go to the [Insights page](https://help.zscaler.com/zia/saas-security-insights).
+6. Customize your log view by selecting or deselecting which column fields you want to see. Each application category has its own set of columns.
+  - Collaboration Columns
+  - CRM Columns
+  - Email Columns
+  - File Columns
+  - Gen AI Columns
+  - ITSM Columns
+  - Public Cloud Storage Columns
+  - Repository Columns
+7. Filter the data by application category. You can filter by **Collaboration**, **CRM**, **Email**, **File**, **Gen AI**, **ITSM**, or **Repository**. Depending on the application category you select, certain filters change accordingly.
+8. Define filters to narrow down the list or to find records, such as those associated with a specific URL. Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Threat Super Category** and others. Each application category has its own set of log filters.
+  - Collaboration Log Filters
+  - CRM Log Filters
+  - Email Log Filters
+  - File Log Filters
+  - Gen AI Log Filters
+  - ITSM Log Filters
+  - Public Cloud Storage Log Filters
+  - Repository Log Filters
+9. You can either download the list of transactions as a CSV file or keep it displayed on your screen. When you download the list, the Zscaler service only exports visible columns. It exports up to 100K lines of data at a time. You can continue to use the service while the export is in progress. The limit for the number of times you can export is 20 requests/hour. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#internet-saas).
+10. Choose the number of records that you want displayed on the page.
+11. Click **Run Query** to display the logs.
+12. Go to the [Insights page](https://help.zscaler.com/zia/saas-security-insights).
 
 [Image: The SaaS Security Insights Logs page with the different labeled parts.]
 
@@ -10900,13 +10894,13 @@ Each application category has its own set of log filters.
 - **Event**: Use this filter to view records associated with the type of event. The default option for this filter is **All**. The following events appear under this filter:
   - **Incidents**: Violations against either a DLP or Malware policy. This is caused when a file is scanned for the first time or when a change in the file violates the policy.
   - **Scans**: Inspections of a file.
-- **Non-Provisioned Owner**:Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS ZIA services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**:Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS (ZIA) service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **External Recipients**: Use this filter to view records associated with specific recipients outside your organization. The default option for this filter is **None**. You can search for specific external recipients.
 - **File ID**: Use this filter to view records associated with a file ID. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: Use this filter to view records associated with the MD5 hash of a file.
 - **File Size**: Use this filter to view records associated with a file's size. You can put in a file size range.
 - **Internal Recipients**: Use this filter to view records associated with specific recipients within your organization. The default option for this filter is **None**. You can search for specific internal recipients.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Label**: The Microsoft Purview Information Protection (MIP) label applied to the asset.
 - **Message ID**: Use this filter to view records associated with the email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
 - **Number of External Recipients**:Use this filter to view records associated with the number of recipients outside your organization. You can put in your own range.
 - **Number of Internal Recipients**: Use this filter to view records associated with the number of recipients within your organization. You can put in your own range.
@@ -11101,7 +11095,7 @@ Each application category has its own set of log filters.
   - **Scans**: Inspections of a file.
 - **External Recipients**: Use this filter to view records associated with specific email recipients outside your organization. The default option for this filter is **None**. You can search for specific external recipients.
 - **Internal Recipients**: Use this filter to view records associated with specific email recipients within your organization. The default option for this filter is **None**. You can search for specific internal recipients.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Label**: The Microsoft Purview Information Protection (MIP) label applied to the asset.
 - **Message ID**: Use this filter to view records associated with the email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
 - **Message Size**: Use this filter to view records associated with the size of the email message. The default option for this filter is **All Sizes**. The following size ranges appear under this filter:
   - 0 - 1KB
@@ -11113,7 +11107,7 @@ Each application category has its own set of log filters.
   - 50MB - 100MB
   - Above 100MB
   - Custom
-- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **Number of External Recipients**:Use this filter to view records associated with the number of recipients outside your organization. You can put in your own range.
 - **Number of Internal Recipients**: Use this filter to view records associated with the number of recipients within your organization. You can put in your own range.
 - **Owner Name**: Use this filter to view records associated with the owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware). The default option for this filter is **Any**. You can search for specific owners. You can choose to include or exclude certain owners.
@@ -11278,7 +11272,7 @@ Each application category has its own set of log filters.
   - **Scans**: Inspections of a file.
 - **External Collaborators**: Use this filter to view records associated with specific collaborators outside your organization. The default option for this filter is **None**. You can search for specific external collaborators.
 - **External Collaborator Group**: Use this filter to view records associated with specific collaborator groups outside your organization. You can search for specific external collaborators. You can filter by **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
-- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **File ID**: Use this filter to view records associated with a file ID. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: Use this filter to view records associated with the MD5 hash of a file.
 - **File Name**: Use this filter to view records associated with the file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
@@ -11286,7 +11280,7 @@ Each application category has its own set of log filters.
 - **File Source Location**: Use this filter to view records associated with the file source location. You can filter by **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
 - **Internal Collaborators**: Use this filter to view records associated with specific collaborators within your organization. The default option for this filter is **None**. You can search for specific internal collaborators.
 - **Internal Collaborator Group**: Use this filter to view records associated with specific collaborator groups within your organization. You can search for specific internal collaborators.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Label**: The Microsoft Purview Information Protection (MIP) label applied to the asset.
 - **Last Modified User**: Use this filter to view the records pertaining to the user who last modified the file that triggered the DLP violation. The default option for this filter is **None**.
 - **Last Shared User**: Use this filter to view the records pertaining to the user who last shared the file that triggered the DLP violation. The default option for this filter is **None**.
 - **Number of External Collaborators**: Use this filter to view records associated with the number of collaborators outside your organization. You can put in your own range.
@@ -11322,6 +11316,47 @@ Each application category has its own set of log filters.
   - Sandbox
   - Spyware
   - Virus
+- **Transaction Message**: Use this filter to view failed transactions based on the error reason. The default option for this filter is **Any**. You can search for a specific error type. The following errors appear under this filter:
+  - Account Inactive - The user account is deleted, inactive, or marked as spam
+  - Backup Not Found - Backup for file not found
+  - Bad Gateway
+  - Bad Request
+  - Conflict - A resource with this value already exists, or path not accessible
+  - Decrypt Failed - Failed to decrypt an object (e.g., from CloudTrail)
+  - Error Applying Label - Error while applying label
+  - Error Copying Quarantine File - Error while copying file to quarantine location
+  - Error Deleting File - Error while deleting the file
+  - Error Fetching File Metadata - Error while fetching file metadata
+  - Error File Encrypted - Default format doesn't support writing properties without protection
+  - Error File is Locked - Error while accessing file
+  - Error Finding Quarantine Folder - Error while finding quarantine folder
+  - Error Getting Member Count - Error while fetching group member count
+  - Error Getting SharePoint Members - Error while fetching SharePoint online group membership
+  - Error Moving File - Error while moving file
+  - Error Privileged Label - Can't override privileged label
+  - Error Reading File Content - Error while reading file content
+  - Error Uploading File - Error while uploading file
+  - Error Uploading Tombstone File - Error while uploading file to tombstone file
+  - Forbidden - Access denied to the requested resource
+  - Gateway Timeout
+  - Gone - The requested resource is no longer available
+  - Inherited Permission Error - Action cannot be performed on this sharing type
+  - Internal Server Error
+  - Invalid Arguments - Invalid arguments passed to the endpoint
+  - Invalid Grant
+  - Invalid Path - The specified path (e.g., for CloudTrail) is invalid or not found
+  - Invitation Failed - Error while re-adding valid user invitation to the file
+  - Not Found - The requested resource does not exist or is not available
+  - Operation Timed Out
+  - Permission Deletion Failed - Sharing permission could not be deleted
+  - Permission Denied - Invalid license, subscription, or scope
+  - Resource Locked - The resource that is being accessed is locked
+  - Restore Operation Failed - Error while moving file to original location
+  - Service Unavailable
+  - Too Many Requests - Application has been throttled or rate limit exceeded
+  - Unauthorized - Required authentication information is either missing or invalid for the requested resource
+  - Unknown Method - The requested API method not found
+  - Unprocessable Entity - The resource does not exist or no permission to view it
 - **User**: Use this filter to view records associated with the owner of the questionable file. The default option for this filter is **Any**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific file owners. You can choose to include or exclude certain file owners.
 - **User Group**: Use this filter to view records associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
 
@@ -11414,7 +11449,7 @@ Each application category has its own set of log filters.
 - **File Size**: Use this filter to view records associated with a file's size. You can type in a file size range.
 - **File Type**: The type of file that was either uploaded or downloaded.
 - **Message ID**: Use this filter to view records associated with the email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
-- **Non-Provisioned Owner**:Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**:Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **Policy Type and Rule Name**: Use this filter to view records associated with the policy and rule that took action. The following policy types appear under this filter:
   - DLP
   - Malware
@@ -11574,7 +11609,7 @@ Each application category has its own set of log filters.
   - **Incidents**: Violations against either a DLP or Malware policy. This is caused when a file is scanned for the first time or when a change in the file violates the policy.
   - **Scans**: Inspections of a file.
 - **External Collaborators**: Use this filter to view records associated with specific collaborators outside your organization. The default option for this filter is **None**. You can search for specific external collaborators.
-- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **File MD5**: Use this filter to view records associated with the MD5 hash of a file.
 - **File Message ID**: Use this filter to view records associated with the file's message ID. Enter all or part of the file message ID in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
 - **File Name**: Use this filter to view records associated with the file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
@@ -11739,7 +11774,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
 - **Event**: Use this filter to view records associated with the type of event. The default option for this filter is **All**. The following events appear under this filter:
   - **Incidents**: Violations against either a DLP or Malware policy. This is caused when a file is scanned for the first time or when a change in the file violates the policy.
   - **Scans**: Inspections of a file.
-- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **File ID**: Use this filter to view records associated with a file ID. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: Use this filter to view records associated with the MD5 hash of a file.
 - **File Name**: Use this filter to view records associated with the file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
@@ -11900,7 +11935,7 @@ To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organiz
   - **Incidents**: Violations against either a DLP or Malware policy. This is caused when a file is scanned for the first time or when a change in the file violates the policy.
   - **Scans**: Inspections of a file.
 - **External Collaborators**: Use this filter to view records associated with specific collaborators outside your organization. The default option for this filter is **None**. You can search for specific external collaborators.
-- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services. The default option for this filter is **None**. You can search for specific non-provisioned owners.
+- **Non-Provisioned Owner**: Use this filter to view records associated with file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. The default option for this filter is **None**. You can search for specific non-provisioned owners.
 - **File ID**: Use this filter to view records associated with a file ID. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: Use this filter to view records associated with the MD5 hash of a file.
 - **File Name**: Use this filter to view records associated with the file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
@@ -11956,9 +11991,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Department**: The department to which the user belongs. As with the **User** field, if authentication is not required and the traffic comes from a location specified in the service, this field displays the name of the gateway location. You can sort and search through this column.
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **External Recipients**: Theemail recipients outside your organization.
 - **File ID**: The ID of a file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
@@ -11989,7 +12024,7 @@ When a non-provisioned file owner within your organization is later provisioned 
 No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS application detects the malware. If SaaS application detects the malware, the Zscaler service does not run its anti-virus.
 
 - **Advanced Threat Category**: If the service detected a threat in the record, it displays the virus or spyware type, if applicable.
-- **Application**: The type of sanctioned SaaS application (e.g., Salesforce and Dynamic 365).
+- **Application**: The type of sanctioned SaaS application (e.g., Salesforce).
 - **Application Category**: The type of application category.
 - **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
@@ -12000,13 +12035,13 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
 - **External Collaborators**: The collaborators outside your organization.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **File MD5**: The MD5 hash for the file.
-- **File Message ID**
-- **File Message Modification Time**
+- **File Message ID**: The file's message ID.
+- **File Message Modification Time**: The date and time when a file message was modified.
 - **File Name**: The name of the suspicious file detected by Data at Rest Scanning policy.
 - **File Size**: The size of the file.
 - **File Source Location**: The source location of the files containing sensitive data that were detected by the Data at Rest Scanning DLP or Malware Detection policy.
@@ -12036,7 +12071,7 @@ When a non-provisioned file owner within your organization is later provisioned 
 No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS application detects the malware. If SaaS application detects the malware, the Zscaler service does not run its anti-virus.
 
 - **Advanced Threat Category**: If the service detected a threat in the record, it displays the virus or spyware type, if applicable.
-- **Application**: The type of sanctioned SaaS application (e.g., Exchange, Gmail, etc.).
+- **Application**: The type of sanctioned SaaS application (e.g., Exchange).
 - **Application Category**: The type of application category.
 - **Attachments:**The attachments within the email message.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
@@ -12047,9 +12082,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
 - **Email Direction**:The direction of the email (Inbound or Outbound).
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **External Recipients**: Theemail recipients outside your organization.
 - **Internal Recipients**: The email recipients within your organization.
@@ -12079,7 +12114,7 @@ When a non-provisioned file owner within your organization is later provisioned 
 No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS application detects the malware. If SaaS application detects the malware, the Zscaler service does not run its anti-virus.
 
 - **Advanced Threat Category**: If the service detected a threat in the record, it displays the virus or spyware type, if applicable.
-- **Application**: The type of sanctioned SaaS application (e.g., Box, Microsoft OneDrive, SharePoint, etc.).
+- **Application**: The type of sanctioned SaaS application (e.g., Box).
 - **Application Category**: The type of application category.
 - **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
@@ -12113,8 +12148,7 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
   - Confluence
   - Smartsheet
 - **Logged Time:**The incident logged time, which is when we perform a scan and evaluate policies and log results. You can sort by ascending or descending order.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-  - When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 - **Number of External Collaborators**: The number of collaborators outside your organization.
 - **Number of Internal Collaborators**: The number of collaborators within your organization.
 - **Policy Type**:The type of policy that took action during the record.
@@ -12148,9 +12182,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Department**: The department to which the user belongs. As with the **User** field, if authentication is not required and the traffic comes from a location specified in the service, this field displays the name of the gateway location. You can sort and search through this column.
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **File ID**: The ID of a file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: The MD5 hash for the file.
@@ -12170,6 +12204,7 @@ When a non-provisioned file owner within your organization is later provisioned 
 - **Tenant**: The sanctioned SaaS application that is [integrated](https://help.zscaler.com/zia/about-saas-application-tenants) with the Zscaler service.
 - **Threat Name**:If the service detected a threat in the record, it displays the name of the threat. Click to read more information about the threat in the Zscaler Threat Library.
 - **Threat Super Category**:If the service detected a threat in the record, it displays the Virus and Spyware super category, if applicable.
+- **Transaction Message**: The reason explaining why the transaction failed. Shows **N/A** for successful transactions.
 - **User**:The email address of the user who performed the record. If an internet gateway location is specified and authentication is not required, this field displays the name of the gateway location. You can sort and search through this column.
 
 - **Action**: The Data at Rest Scanning DLP policy rule action.
@@ -12189,9 +12224,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
 - **External Collaborators**: The collaborators outside your organization.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **File MD5**: The MD5 hash for the file.
 - **File Message**: The message of the file.
@@ -12236,9 +12271,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **DLP Identifier**: Used to search for the records using this DLP identifier. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors. Use it as a filter to locate the exact record.
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **File ID**: The ID of a file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: The MD5 hash for the file.
@@ -12268,7 +12303,7 @@ When a non-provisioned file owner within your organization is later provisioned 
 No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS application detects the malware. If SaaS application detects the malware, the Zscaler service does not run its anti-virus.
 
 - **Advanced Threat Category**: If the service detected a threat in the record, it displays the virus or spyware type, if applicable.
-- **Application**: The type of sanctioned SaaS application (e.g., GitHub and GitLab).
+- **Application**: The type of sanctioned SaaS application (e.g., GitHub).
 - **Application Category**: The type of application category.
 - **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
@@ -12279,9 +12314,9 @@ No Data at Rest Scanning DLP / Malware policy rule action is performed if a SaaS
 - **Document Type**: The type of document uploaded or downloaded during the transaction.
 - **Download Time**: The download time of the suspicious file detected by Data at Rest Scanning.
 - **External Collaborators**: The collaborators outside your organization.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS service.
 
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS service, the service begins to log the file owner under the **User**column.
 
 - **File ID**: The ID of a file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
 - **File MD5**: The MD5 hash for the file.
@@ -12867,13 +12902,13 @@ Malicious files downloaded due to the **Allow & Scan** policy action are [patien
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-api-token","lastmod":"2026-10-07T23:40Z","nid":"1415066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-sandbox-api-token","lastmod":"2026-10-15T22:12Z","nid":"1415066"} -->
 ## About Sandbox API Token
 
 - Source: https://help.zscaler.com/zia/about-sandbox-api-token
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About Sandbox API Token
-- Last modified: 2026-10-07T23:40Z
+- Last modified: 2026-10-15T22:12Z
 - Summary: Information about the API token used for authenticating Sandbox Submission API.
 
 You can authenticate the Sandbox Submission API using a combination of API token and Internet & SaaS (ZIA) admin credentials (i.e., username and password).
@@ -12897,16 +12932,16 @@ Adding, or regenerating an API token, immediately invalidates the old token. If 
 On the Sandbox API Token page (Administration > API > Internet & SaaS API > Sandbox API Token), you can do the following:
 
 1. View the base URL for the Sandbox Submission API.
-2. [Add a new Sandbox API token.](https://help.zscaler.com/zia/managing-sandbox-api-token#AddToken) You must delete the existing token before adding a new one.
-3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+2. [Add a new Sandbox API token](https://help.zscaler.com/zia/managing-sandbox-api-token#AddToken). You must delete the existing token before adding a new one.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View information regarding your organization's sandbox API token. For the token, you can see:
   - **Sandbox API Token:** The API token string, displayed upon clicking the eye icon.
   - **Last Modified By:** The last admin to modify the token.
   - **Last Modified On:** The date and time the token was last modified.
   - **Actions:**The add, regenerate, or delete actions that you can perform on the sandbox API token.
 5. Edit token name.
-6. [Regenerate the API token.](https://help.zscaler.com/zia/managing-sandbox-api-token#RegenerateToken)
-7. [Delete the API token.](https://help.zscaler.com/zia/managing-sandbox-api-token#DeleteToken)
+6. [Regenerate the API token](https://help.zscaler.com/zia/managing-sandbox-api-token#RegenerateToken).
+7. [Delete the API token](https://help.zscaler.com/zia/managing-sandbox-api-token#DeleteToken).
 8. Go to the [Cloud Service API Key](https://help.zscaler.com/zia/about-cloud-service-api-key) and [OAuth 2.0 Authorization Servers](https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers) pages.
 
 [Image: Sandbox API Token page]
@@ -13040,13 +13075,13 @@ A super admin can view and edit all scheduled reports. Other administrators can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-scim-event-logs","lastmod":"2026-09-29T14:07Z","nid":"1403226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-scim-event-logs","lastmod":"2026-10-13T21:06Z","nid":"1403226"} -->
 ## About SCIM Event Logs
 
 - Source: https://help.zscaler.com/zia/about-scim-event-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About SCIM Event Logs
-- Last modified: 2026-09-29T14:07Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: Information about the SCIM Events Logs page in the Zscaler Admin Console.
 
 The SCIM Event Logs page lists all the recorded SCIM client activity, such as creating, updating, deleting, etc. user or group accounts in the Zscaler Admin Console. This page also displays the SCIM client's logs (timestamps, error codes, status codes, etc.) and any configuration changes made by them.
@@ -13969,16 +14004,70 @@ On the TLD Categories page (Internet Access > Resources > URL Categories > TLD C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-policy","lastmod":"2026-09-30T16:11Z","nid":"1532181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-essentials","lastmod":"2026-10-16T12:23Z","nid":"1463526"} -->
+## About Traffic Capture Essentials
+
+- Source: https://help.zscaler.com/zia/about-traffic-capture-essentials
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Traffic Capture > About Traffic Capture Essentials
+- Last modified: 2026-10-16T12:23Z
+- Summary: Information about the Traffic Capture Essential page in the Zscaler Admin Console.
+
+Zscaler offers multiple ways to capture network traffic. With Zscaler Traffic Capture Essentials, you can capture traffic as PCAP files, which can be accessed later through an Amazon S3 bucket managed by your organization, for supported actions with the following policies:
+
+- [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy)
+- [File Type Control](https://help.zscaler.com/zia/configuring-file-type-control-policy)
+- [Firewall Filtering](https://help.zscaler.com/zia/configuring-firewall-filtering-policy)
+- [DNS Filtering](https://help.zscaler.com/zia/configuring-dns-control-policy)
+- [IPS Control](https://help.zscaler.com/zia/configuring-ips-control-policy)
+- [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy)
+- [URL Filtering](https://help.zscaler.com/zia/configuring-url-filtering-policy)
+
+If your organization has Traffic Capture for Network Detection and Response (NDR), you can capture traffic as PCAPNG files with the Traffic Capture policy. To learn more, see [About Traffic Capture Policy](https://help.zscaler.com/zia/about-traffic-capture-policy).
+
+Traffic Capture Essentials provides the following benefits and enables you to:
+
+- Save time and effort by integrating Traffic Capture Essentials directly into Internet & SaaS (ZIA) policies.
+- Reduce the storage footprint of captured traffic data with granular control over sampling, the storage limit, and the type of traffic captured at the policy level.
+- Keep capture data secure and limited to those who have the necessary administrative privileges.
+- Limit exposure of personally identifiable information (PII) with information obfuscation.
+
+## About the Traffic Capture Essential Page
+
+On the Traffic Capture Essential settings tab (Internet Access > Traffic Capture > Settings > Traffic Capture Essential), you can do the following:
+
+1. Edit the settings for Traffic Capture Essentials.
+2. Enable Traffic Capture Essentials. To learn more, see [Configuring Traffic Capture Essentials](https://help.zscaler.com/zia/configuring-traffic-capture-essentials).
+3. Connect or manage an Amazon S3 storage bucket. For the settings, you can see:
+  - **AWS Access ID**: The ID associated with your connected S3 bucket.
+  - **AWS Secret Key**: The password associated with your connected S3 bucket.
+  - **S3 Folder URL**: The URL associated with your connected S3 bucket.
+  - **HTTP Headers**: Optional strings that add metadata to the Amazon S3 REST request:
+    - **Key**: The case-sensitive name of the HTTP header.
+    - **Value**: The parameters for the HTTP header.
+4. Edit limits for Traffic Capture Essentials:
+  - **Storage Limit**: The maximum amount of data to be kept in the file when a policy configured for Traffic Capture Essentials triggers.
+  - **Sampling**: The percentage of traffic that is sampled for capturing when Traffic Capture Essentials is triggered.
+5. Obfuscate information in Traffic Capture Essentials data:
+  - **Usernames**: Choose whether usernames are **Visible** or **Obfuscated** in created PCAP files.
+  - **Devices**: Choose whether device information is **Visible** or **Obfuscated**in created PCAP files.
+6. Go to the Traffic Capture tab. To learn more, see [Configuring Settings for the Traffic Capture Policy](https://help.zscaler.com/zia/configuring-settings-traffic-capture-policy).
+
+[Image: Settings for Traffic Capture Essentials]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-policy","lastmod":"2026-10-16T12:50Z","nid":"1532181"} -->
 ## About Traffic Capture Policy
 
 - Source: https://help.zscaler.com/zia/about-traffic-capture-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Traffic Capture > About Traffic Capture Policy
-- Last modified: 2026-09-30T16:11Z
+- Last modified: 2026-10-16T12:50Z
 - Summary: Information on the Traffic Capture policy page in the Zscaler Admin Console.
 
-Traffic Capture policy rules enable you to capture and store network traffic in PCAPNG file format with granular control of match criteria and how much traffic is captured. You must enable Traffic Capture in the Traffic Capture Settings, and link an Amazon S3 bucket to use the Traffic Capture policy. To learn more, see [Configuring Traffic Capture Settings](https://help.zscaler.com/zia/configuring-traffic-capture).
+With Zscaler Traffic Capture for Network Detection and Response (NDR), you can create Traffic Capture policy rules to capture network traffic in PCAPNG file format with granular control of match criteria and how much traffic is captured. Before using the Traffic Capture policy, you must enable Traffic Capture and configure a cloud storage destination to forward captured traffic to. To learn more, see [Configuring Settings for the Traffic Capture Policy](https://help.zscaler.com/zia/configuring-settings-traffic-capture-policy).
 
 Traffic Capture policy rules can only be used on locations that have Firewall enabled.
 
@@ -14033,59 +14122,6 @@ On the Traffic Capture page (Internet Access > Traffic Capture > Traffic Capture
 - **Destination Addresses**: The destination IP addresses selected for the rule to apply to.
 - **Destination Countries**: The destination countries selected for the rule to apply to.
 - **Action**: Displays either the action for the policy rule (Capture or Skip), or that the rule is disabled.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-traffic-capture-settings","lastmod":"2026-09-30T16:01Z","nid":"1463526"} -->
-## About Traffic Capture Settings
-
-- Source: https://help.zscaler.com/zia/about-traffic-capture-settings
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Traffic Capture > About Traffic Capture Settings
-- Last modified: 2026-09-30T16:01Z
-- Summary: Information about the Traffic Capture Settings page in the Zscaler Admin Console.
-
-Zscaler offers multiple ways to capture network traffic, which can be accessed later through an Amazon S3 bucket managed by your organization. With Zscaler Traffic Capture Essentials, you can capture traffic as PCAP files for supported actions with the following policies:
-
-- Advanced Threat Protection
-- File Type Control
-- Firewall Filtering
-- DNS Filtering
-- IPS Control
-- Malware Protection
-- URL Filtering
-
-With Traffic Capture for Network Detection and Response (NDR), you can capture traffic as PCAPNG files with the Traffic Capture policy (Infrastructure > Internet & SaaS > Traffic Capture > Traffic Capture Policy). To learn more, see [About Traffic Capture Policy](https://help.zscaler.com/zia/about-traffic-capture-policy).
-
-The Traffic Capture settings provide the following benefits and enable you to:
-
-- Save time and effort by integrating Zscaler Traffic Capture Essentials directly into Internet & SaaS (ZIA) policies.
-- Reduce the storage footprint of captured traffic data with granular control over sampling, the storage limit, and the type of traffic captured at the policy level.
-- Keep capture data secure and limited to those who have the necessary administrative privileges.
-- Limit exposure of personal identifying information (PII) with information obfuscation for Traffic Capture for NDR.
-
-## About the Traffic Capture Settings Page
-
-On the Traffic Capture Settings page (Internet Access > Traffic Capture > Traffic Capture Settings), you can do the following:
-
-1. [Enable Traffic Capture](https://help.zscaler.com/zia/configuring-traffic-capture). This enables both Traffic Capture Essentials and Traffic Capture for NDR.
-2. Connect or manage an Amazon S3 storage bucket. For the settings, you can see:
-  - **AWS Access ID**: The ID associated with your connected S3 bucket.
-  - **AWS Secret Key**: The password associated with your connected S3 bucket.
-  - **S3 Folder URL**: The URL associated with your connected S3 bucket.
-  - **HTTP Headers**: Optional strings that add metadata to the Amazon S3 REST request:
-    - **Key**: The case-sensitive name of the HTTP header.
-    - **Value**: The parameters for the HTTP header.
-3. Edit limits for Traffic Capture Essentials:
-  - **Storage Limit**: The maximum amount of data to be kept in the file when a policy configured for Traffic Capture Essentials triggers.
-  - **Sampling**: The percentage of traffic that is sampled for capturing when Traffic Capture Essentials is triggered.
-4. Obfuscate information in Traffic Capture for NDR data:
-  - **User Names**: Choose whether the username is **Visible** or **Obfuscated** in created PCAPNG files.
-  - **Devices**: Choose whether the device name is **Visible** or **Obfuscated**in created PCAPNG files.
-5. Save and [activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) or cancel.
-
-[Image: The Traffic Capture Settings show AWS S3 settings and limits for event-based Traffic Capture]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15047,13 +15083,13 @@ On the Workload Groups (Internet Access > Resources > Workload Groups) page, you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-09-30T19:20Z","nid":"1399631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-zscaler-authentication-bridge","lastmod":"2026-10-14T21:06Z","nid":"1399631"} -->
 ## About the Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/about-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > About the Zscaler Authentication Bridge
-- Last modified: 2026-09-30T19:20Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on the Zscaler Authentication Bridge, a virtual appliance that you can use to provision and authenticate users.
 
 The Zscaler Authentication Bridge (ZAB) is a virtual appliance that you can use to [provision as well as authenticate users](https://help.zscaler.com/zia/provisioning-and-authenticating-users). You can use the ZAB to automatically import user information from an Active Directory (AD) or a Lightweight Directory Access Protocol (LDAP) server to the Zscaler database, without requiring inbound connections to your directory server. The ZAB can be used solely as a provisioning tool in conjunction with another authentication mechanism, such as [SAML](https://help.zscaler.com/zia/configuring-saml) or [Kerberos](https://help.zscaler.com/zia/about-kerberos-authentication). Alternatively, it can be used for authentication using [LDAP](https://help.zscaler.com/zia/understanding-ldap-user-synchronization) with SSL client certificates.
@@ -15224,85 +15260,4 @@ On the Zscaler Incident Receiver page (Data Security > Common Resources > DLP In
 11. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
 
 [Image: The Zscaler Incident Receiver page shows a list Incident Receivers and details about each one]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-10-06T02:06Z","nid":"1457606"} -->
-## Accessing and Navigating the 3rd-Party App Governance Admin Portal
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
-- Last modified: 2026-10-06T02:06Z
-- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
-
-Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
-
-## Signing In to the 3rd-Party App Governance Admin Portal
-
-You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
-
-To access 3rd-Party App Governance:
-
-1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
-
-The 3rd-Party App Governance sign-in page appears.
-
-See image.
-
-1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
-
-The 3rd-Party App Governance dashboard appears.
-
-Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
-
-On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
-
-A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
-
-[Image: Screenshot of Sign-in Page]
-
-## Accessing 3rd-Party App Governance from the Zscaler Admin Console
-
-You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
-
-To access the 3rd-Party App Governance Admin Portal from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
-
-See image.
-
-You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
-
-[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
-
-## Navigating within the 3rd-Party App Governance Admin Portal
-
-The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
-
-- App Dashboard
-- Apps
-- Users
-- Policies
-- Reports
-- Audit Log
-- Settings
-- Log Out
-
-Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
-
-Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
-
-Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
-
-Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
-
-Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
-
-Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
-
-Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
-
-Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
-
-[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
 <!-- /ZS-ARTICLE -->

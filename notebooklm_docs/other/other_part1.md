@@ -1,7 +1,7 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 18
 
 ---
@@ -718,51 +718,64 @@ This article provides a summary of all new features and enhancements for Agentic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/step-by-step-config-guide-agentic-soc","lastmod":"2026-09-02T09:32Z","nid":"1534195"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/step-by-step-config-guide-agentic-soc","lastmod":"2026-10-13T15:58Z","nid":"1534195"} -->
 ## Step-by-Step Configuration Guide for Agentic SOC
 
 - Source: https://help.zscaler.com/agentic-soc/step-by-step-config-guide-agentic-soc
 - Product: Agentic SOC
 - Path: Agentic SOC Help > Step-by-Step Configuration Guide for Agentic SOC
-- Last modified: 2026-09-02T09:32Z
+- Last modified: 2026-10-13T15:58Z
 - Summary: How to use Zscaler Agentic SOC to track and prevent data breaches in your organization.
 
-This guide explains the basic high-level steps for how to use Zscaler Agentic SOC and provides links to more information. Agentic SOC ingests data from other Zscaler tools, as well as many third-party applications, so you should familiarize yourself with various product integrations to better understand the data that Agentic SOC uses to identify threats to your organization. In addition, Agentic SOC uses the MITRE ATT&CK framework to give you a clear and instant picture of how threats are progressing in your organization. Zscaler recommends reading the following articles before you begin using Agentic SOC:
+This guide outlines key steps for getting started with Zscaler Agentic SOC, the core threat operations layer of the Agentic Security Operations Platform. Agentic SOC transforms fragmented alerts into prioritized threat stories by unifying zero trust telemetry from Zscaler controls and third-party applications with business context, asset records, and user identity. Powered by AI agents and structured around the MITRE ATT&CK framework, it accelerates threat triage, investigation, and response across your organization.
 
-- [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture)
-- [What Is Zscaler Deception?](https://help.zscaler.com/deception/what-zscaler-deception)
+Before using Agentic SOC, we recommend reviewing the following resources:
+
 - [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention)
 - [MITRE ATT&CK Overview](https://attack.mitre.org/)
+- [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture)
+- [Understanding the Zscaler Deception Architecture](https://help.zscaler.com/deception/understanding-zscaler-deception-architecture)
+- [What is Zscaler Internet & SaaS?](https://help.zscaler.com/zia/what-internet-saas)
+- [What is Zscaler Deception?](https://help.zscaler.com/deception/understanding-zscaler-deception-architecture)
 
 ## Configuring Agentic SOC
 
-To configure Agentic SOC:
+To configure Agentic SOC, complete the following steps:
 
-- Step 1: Ensure Completion of Prerequisite Tasks
+- Step 1: Complete Prerequisite Tasks
 - Step 2: Assess the Security Threats to Your Organization
 - Step 3: Use Agentic SOC Dashboards and Reports to Further Analyze Data
-- Step 4: Configure the Zscaler Agentic Security Operations Platform
+- Step 4: Customize the Zscaler Agentic Security Operations Platform
 
-1. License Agentic SOC: Agentic SOC is a standalone product that is licensed separately from other parts of the Zscaler ecosystem. To learn more about provisioning Agentic SOC for your organization, contact your Zscaler Account team.
-2. [Configure Internet & SaaS (ZIA)](https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas): To ensure that Internet & SaaS logs are available for Agentic SOC, Internet & SaaS must be fully configured for your organization. If your organization already uses Internet & SaaS, no extra configuration is required for Agentic SOC to access Internet & SaaS logs.
-3. [Configure Deception](https://help.zscaler.com/deception/step-step-configuration-guide-zscaler-deception): To ensure that Deception logs are available for Agentic SOC, Deception must be fully configured for your organization. If your organization already uses Deception, no extra configuration is required for Agentic SOC to access Deception logs.
-4. Integrate with third-party applications: Agentic SOC also ingests log data from third-party sources like CrowdStrike and Gmail. To learn more about application integrations, see [Data Sources & Outegrations Integration Guides](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides).
+1. **License Agentic SOC**: Agentic SOC is a standalone product that is licensed separately from other parts of the Zscaler ecosystem. To learn more about provisioning Agentic SOC for your organization, contact your Zscaler Account team.
+2. **Configure Internet & SaaS (ZIA)**: To ensure that Internet & SaaS logs are available for Agentic SOC, Internet & SaaS must be fully configured for your organization. If your organization already uses Internet & SaaS, no extra configuration is required for Agentic SOC to access Internet & SaaS logs. To learn more, see [Step-by-Step Configuration Guide for Internet & SaaS](https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas).
+3. **Configure Deception**: To ensure that Deception logs are available for Agentic SOC, Deception must be fully configured for your organization. If your organization already uses Deception, no extra configuration is required for Agentic SOC to access Deception logs. To learn more, see [Step-by-Step Configuration Guide for Zscaler Deception](https://help.zscaler.com/deception/v9.0/step-step-configuration-guide-zscaler-deception).
+4. **Integrate with third-party applications**: Agentic SOC also ingests log data from third-party sources like CrowdStrike and Gmail. To learn more, see [Data Sources & Outegrations Integration Guides](https://help.zscaler.com/uvm/data-sources-outegration-configuration-guides).
 
-Agentic SOC uses easy-to-understand charts, tables, and graphs to give you visibility into vast amounts of threat data across your organization. As you navigate the Agentic SecOps Platform Admin Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking incident information on the **Agentic SOC** dashboard opens the list of incidents associated with the verdict or criticality level). Throughout the admin portal, you can drill down to get granular detail, including AI summaries, entity information, threat data, etc. You can use the following basic workflow to assess your threat risk:
+Agentic SOC uses easy-to-understand charts, tables, and graphs to give you visibility into vast amounts of threat data across your organization. As you navigate the Agentic SecOps Platform Admin Portal, you can use the interconnected data points to easily switch from macro to micro views of the data (e.g., clicking incident information on the Agentic SOC dashboard opens the list of incidents associated with the verdict or criticality level). Throughout the admin portal, you can drill down to get granular detail, including AI summaries, entity information, threat data, etc. You can use the following basic workflow to assess your threat risk:
 
 - a. Evaluate your overall threat landscape on the Agentic SOC dashboard.
 - b. Examine the incidents affecting your organization.
 - c. Look at the alerts associated with incidents.
+- d. Review assets associated with incidents.
+- e. Use response playbooks to respond to incidents.
 
-After you've examined the Agentic SOC data for your organization, you might need to move beyond the dashboards and reports available by default. You can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to help your SOC team better analyze threat data across your organization.
+After reviewing the threat data available in Agentic SOC, use the dashboards and reports that best fit your analysis needs:
 
-Using the Agentic SecOps Platform Admin Portal, you can customize and manage the data in the platform, including data sources, integrations, and outbound integrations (i.e., outegrations). To learn more, see [Data Sources, Outegrations, & Data Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/data-sources-outegrations-data-management).
+- **Measure agent activity and impact**: On the Agents page, review metrics such as alerts investigated, time saved, and resolution rates to understand agent performance and demonstrate its impact to stakeholders. To learn more, see [About Agents](https://help.zscaler.com/agentic-soc/about-agents).
+- **Create custom dashboards and reports**: If the default dashboards and reports don’t provide the views you need, set up custom dashboards and reports to analyze threat data across your organization. To learn more, see [About Dashboards](https://help.zscaler.com/unified/about-dashboards) and [About Reports](https://help.zscaler.com/unified/about-reports).
 
-On the [Agentic SOC dashboard](https://help.zscaler.com/soc-workbench/about-agentic-soc), you can not only see an overview of the alerts in your environment, but also how many alerts have actually become incidents. Additionally, you can see high-level triage information about each incident, including its verdict (e.g., Malicious, Benign, etc.) and criticality (e.g., Critical, High, Medium, etc.). The **Agentic SOC** dashboard is the starting point each time you access the Agentic SecOps Platform Admin Portal.
+You can use the Agentic SecOps Platform Admin Portal to customize and manage the data in the platform, including data sources, integrations, and outbound integrations (i.e., outegrations). To learn more, see [Data Sources, Outegrations, & Data Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/data-sources-outegrations-data-management).
 
-On the [Incidents](https://help.zscaler.com/soc-workbench/about-incidents) page, you can see an overview of risk metrics across incidents, incidents categorized by assignees, and a list of specific incidents. Clicking an incident lets you drill down to see more granular data, including an AI-based summary that explains what's happening, affected users and assets, specific recommended actions, and additional details about how the incident is affecting your organization. The **Incidents** page lets you focus on real threats instead of being distracted by alert overload.
+On the [Agentic SOC dashboard](https://help.zscaler.com/agentic-soc/about-agentic-soc), you can see an overview of the alerts in your environment as well as how many alerts have become incidents. Additionally, you can see high-level triage information about each incident, including its verdict (e.g., Malicious, Benign) and criticality (e.g., Critical, Low). The Agentic SOC dashboard is the starting point each time you access the Agentic SecOps Platform Admin Portal.
 
-The [Alerts](https://help.zscaler.com/soc-workbench/about-alerts) page brings all alerts from all source applications into a single place. When you click on an alert, you can see its source, how often it has occurred, its MITRE ATT&CK tactic and technique, the entities associated with it, and its risk score. The **Alerts** page is designed to help your SOC team make sense of all the alerts coming from different sources across your organization.
+On the [Incidents](https://help.zscaler.com/agentic-soc/about-incidents) page, you can see an overview of risk metrics across incidents, incidents categorized by assignees, and a list of specific incidents. Clicking an incident lets you drill down to see more granular data, including an AI-based summary that explains what's happening, affected users and assets, specific recommended actions, and additional details about how the incident is affecting your organization. The Incidents page lets you focus on real threats instead of being distracted by alert overload.
+
+The [Alerts](https://help.zscaler.com/agentic-soc/about-alerts) page brings all alerts from all source applications into a single place. When you click an alert, you can see its source, how often it has occurred, its MITRE ATT&CK tactic and technique, the entities associated with it, and its risk score. The Alerts page is designed to help your SOC team make sense of all the alerts coming from different sources across your organization.
+
+The [Assets](https://help.zscaler.com/agentic-soc/about-assets-agentic-soc) page provides a centralized view of assets in your environment, with each asset unified and enriched using information from multiple sources. Review an asset’s risk score, ownership, findings, source records, and related tickets to understand its context and potential impact.
+
+When viewing an incident or alert, you can run a [playbook](https://help.zscaler.com/unified/about-playbooks) manually or configure an automation rule to trigger it automatically. A playbook groups one or more response actions to help standardize incident response, automate repetitive tasks, and reduce manual effort and response time. Depending on your configured integrations, actions might include blocking an IP address, isolating a host, or resetting a password.
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -1,8 +1,413 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 168
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 189
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/what-zscaler-easm","lastmod":"2025-01-06T23:56Z","nid":"1503636"} -->
+## What Is Zscaler EASM?
+
+- Source: https://help.zscaler.com/easm/what-zscaler-easm
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > What Is Zscaler EASM?
+- Last modified: 2025-01-06T23:56Z
+- Summary: Information on Zscaler External Attack Surface Management (EASM), its features, benefits, and use cases for securing internet-facing assets.
+
+In today's digital landscape, organizations face an ever-expanding attack surface due to rapid cloud adoption, the proliferation of shadow IT, and the continuous evolution of cyber threats. Zscaler External Attack Surface Management (EASM) addresses these challenges to help organizations gain visibility into and protect their internet-facing digital assets.
+
+External Attack Surface Management refers to the continuous discovery, inventory, classification, and monitoring of an organization's digital assets that are exposed to the internet. These assets include domains, IP addresses, subdomains, SSL/TLS certificates, and more. EASM tools are crucial because they provide a real-time view of the external attack surface, helping organizations identify and mitigate vulnerabilities before they can be exploited by malicious actors.
+
+Zscaler EASM distinguishes itself by integrating advanced scanning techniques and intelligence gathering with Zscaler's Zero Trust Exchange (ZTE) platform. This integration allows the tool to not only identify exposed assets but also prioritize vulnerabilities based on the likelihood of exploitation and the potential impact on the organization.
+
+## Key Features and Benefits
+
+The key features and benefits offered by EASM for managing and securing your external attack surface are as follows:
+
+- **Comprehensive Asset Discovery**: EASM uses both passive and active scanning methods to continuously discover and inventory all internet-facing assets. This includes not only known assets but also forgotten or unknown assets in your digital infrastructure that might have been overlooked.
+- **Risk-Based Prioritization**: Unlike traditional vulnerability management tools that focus solely on severity, EASM employs a risk-based approach. It considers factors such as exploit likelihood, derived from sources like the CISA KEV catalog, to prioritize remediation efforts.
+- **Real-Time Monitoring**: EASM continuously monitors the discovered assets for changes or new vulnerabilities, providing real-time alerts to security teams. This proactive approach ensures that organizations can respond swiftly to emerging threats.
+- **Actionable Insights**: EASM not only identifies vulnerabilities but also provides detailed remediation guidance. This includes suggestions for mitigating risks associated with misconfigurations, outdated software, and other security issues.
+
+## EASM Use Cases
+
+The following use cases highlight how EASM empowers organizations in different scenarios to enhance their security posture:
+
+- **Security Posture Management**: By providing a complete view of the external attack surface, EASM helps organizations manage their security posture effectively, ensuring that all internet-facing assets are secure and compliant.
+- **M&A Diligence**: During mergers and acquisitions, EASM can be used to assess the security posture of the target company's digital footprint, identifying any potential risks that need to be addressed.
+- **Continuous Compliance Monitoring**: EASM supports compliance efforts by continuously monitoring and reporting on the organization's external assets, helping to meet regulatory requirements.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
+## About Alerts
+
+- Source: https://help.zscaler.com/identity-protection/about-alerts
+- Product: Identity Protection
+- Path: Identity Protection Help > Alerts > About Alerts
+- Last modified: 2026-07-12T07:06Z
+- Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
+
+Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
+
+Alerts provide the following benefits and enable you to:
+
+- Review alerts aggregated from different sources to get in-depth insights about identity-related threats across your organization.
+- Review the alert details and remediate the issues.
+
+## About the Alerts Page
+
+On the Alerts page (Identities > Alerts), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for an alert.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
+5. See the number of alerts triggered for each integrated product.
+6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
+7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
+8. Select alerts from the list, and click **Update**to change the following settings:
+  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
+  - **Title**: Enter the title for the alert.
+  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
+9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
+10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
+11. Refresh the alerts table to reflect the most current information.
+12. Export the list of alerts and their associated details as a CSV file.
+13. Modify the columns displayed in the table.
+14. Click an alert to view its details. For each alert, you can see:
+  - **ID**: The unique identifier of the alert.
+  - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  - **Severity Score**: The severity score of the alert.
+  - **Title**: The title of the alert.
+  - **Created**: The date the alert was created.
+  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
+  - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
+  - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
+
+[Image: The Alerts page in the Identities app]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-identity-findings","lastmod":"2026-05-17T07:06Z","nid":"1538792"} -->
+## About Identity Findings
+
+- Source: https://help.zscaler.com/identity-protection/about-identity-findings
+- Product: Identity Protection
+- Path: Identity Protection Help > Identity Findings > About Identity Findings
+- Last modified: 2026-05-17T07:06Z
+- Summary: Information about identity findings in Identity Protection.
+
+Identity Findings provide visibility into identity-related security issues detected across connected identity providers and directories. These findings highlight misconfigurations, insecure authentication methods, exposed credentials, and other identity risks that attackers could exploit. Security teams can review the security risks and prioritize remediation based on severity.
+
+Identity Findings provides the following benefits and enables you to:
+
+- Identify identity-related security risks such as exposed credentials, insecure authentication methods, and misconfigured settings.
+- Prioritize remediation based on severity.
+- Monitor identity security posture over time using severity trends and distribution insights.
+- Investigate affected identity entities such as users, groups, or applications associated with each finding.
+- Understand potential attack paths through mapped adversary tactics and techniques associated with identity risks.
+
+## About the Identity Findings Page
+
+On the Identity Findings page (Identities > Identity Findings), you can do the following:
+
+1. [Filter identity findings based on different parameters](https://help.zscaler.com/identity-protection/using-filters) (e.g., **Title**, **Tenant Name**, and **MITRE ATT&CK ID**).
+2. Search for an identity finding based on keywords.
+3. View the summary of identity findings in the following widgets:
+  - **Identity Findings Severity Over Time**: Displays the trend of identity findings across severity levels (**Critical**, **High**, **Medium**, or **Low**) over a period of time.
+  - **Identity Findings Severity**: Displays the distribution of identity findings by severity level (**Critical**, **High**, **Medium**, or **Low**).
+4. View the list of identity findings across tenants of identity providers and directories. For each finding, you can see:
+  - **ID:**The unique identifier for the identity finding.
+  - **Severity Score**: The risk level of the finding based on the severity score.
+  - **Title**: The title of the finding.
+  - **Tenant**: The tenant where the finding was detected.
+  - **Affected Entities**: The count and type of the impacted entities.
+  - **Vulnerability Exploit Ease**: How easily an attacker can exploit the vulnerability based on required skills, conditions, and available tools.
+  - **Techniques**: The relevant MITRE techniques associated with the risk.
+  - **Last Seen**: When the finding was first and most recently detected.
+  - **Vulnerability Remediate Ease**: How easily the vulnerability can be fixed based on required effort, changes, and potential impact on systems and operations.
+5. Group the list of identity findings based on specific parameters (e.g., **Identity Finding ID**, **Identity Finding First Seen**, **Identity Finding Last Seen**).
+6. Refresh the data in the identity findings list.
+7. Export the identity findings list as a CSV file.
+8. Customize the identity findings list by including or excluding specific columns.
+9. [View detailed information for each identity finding](https://help.zscaler.com/identity-protection/viewing-identity-finding-details).
+10. Display a different page of the identity findings list.
+
+[Image: About the Identity Findings page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-remediation-dashboard","lastmod":"2026-10-06T10:07Z","nid":"1545650"} -->
+## About the Remediation Dashboard
+
+- Source: https://help.zscaler.com/identity-protection/about-remediation-dashboard
+- Product: Identity Protection
+- Path: Identity Protection Help > Analytics > About the Remediation Dashboard
+- Last modified: 2026-10-06T10:07Z
+- Summary: Information on the Remediation dashboard in Identity Protection.
+
+The Remediation dashboard in Identity Protection provides insights into critical identity risks such as insecure account management, credential exposure, etc. You can view metrics related to severity distribution, exploitability, remediation ease, and findings across tenant, type, and identities. This helps security teams to assess the risks, prioritize recurring issues, and remediate quickly.
+
+The Remediation dashboard provides the following benefits and enables you to:
+
+- Have consolidated visibility into identity risks across tenants, categories, and user types.
+- Prioritize vulnerabilities based on exploit and remediation ease.
+- Strengthen security posture with actionable insights, including configuration changes, privilege adjustments, and alternative control applications.
+
+## About the Remediation Dashboard
+
+On the Remediation dashboard (Identities > Remediation), you can do the following:
+
+1. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific data and [save a view](https://help.zscaler.com/unified/creating-managing-saved-views).
+2. Click the **Export** icon to download the data as a PDF.
+3. View statistics of critical findings in the following widgets:
+  - Statistics
+  - Critical Findings By Tenant
+  - Critical Findings By Type
+  - Critical Findings By Remediation Ease
+  - Critical Findings By Exploit Ease
+  - Critical Findings By Admin
+  - Findings By User Type
+  - Admin Related Critical Findings By Exploit Ease
+
+View the total critical findings that can be easily exploited and remediated, and newly detected critical findings.
+
+See image.
+
+[Image: Critical identity findings overview]
+
+View the distribution of identity risks across tenants in a bar chart. Each bar represents tenants and the number of critical findings detected.
+
+See image.
+
+[Image: Critical findings distribution across tenants]
+
+View the identity risks categorized by vulnerability type, such as insecure password and group management, weak authentication measures, insecure permissions, etc.
+
+See image.
+
+[Image: Critical findings based on type]
+
+View the identity risks based on the effort required to fix them. The donut chart divides critical findings into easy, moderate, and difficult. This breakdown helps you understand both the scale of critical issues and the effort required to address them.
+
+The chart shows the proportion of findings in each category, while the table lists vulnerabilities, such as exposed passwords, legacy authentication, or missing MFA, along with their remediation ease.
+
+See image.
+
+[Image: Critical findings based on remediation ease and vulnerability]
+
+View identity vulnerabilities based on how easily an attacker can exploit them. The donut chart divides critical findings into exploitable levels, such as easy, moderate, and difficult. The chart shows the distribution across these categories, while the table lists specific vulnerabilities, such as excessive access groups, exposed passwords, or legacy authentication, along with their exploit ease rating. Easily exploitable represents the highest risk because these findings require minimal attacker effort, where difficulty demands more advanced attack techniques.
+
+See image.
+
+View the distribution of critical identity findings across different categories of users. The donut chart provides a quick visual breakdown of internal users, external users, and other identities, with the total number of findings displayed at the center.
+
+See image.
+
+[Image: Critical findings based on exploit ease and severity]
+
+View the identity vulnerabilities associated with administrative accounts. The donut chart shows the proportion of admin accounts with active critical findings, indicating risk spread. The table breaks down the type of vulnerabilities detected, such as weak authentication measures, insecure permissions, privilege management issues, etc.
+
+See image.
+
+[Image: Critical findings based on admin account and vulnerability]
+
+[Image: Remediation Dashboard with critical findings, filters, downloads, and widgets]
+
+[Image: Critical findings based on user type]
+
+View vulnerabilities associated with administrative accounts, indicating ease level of attack and number of active critical findings. The table helps security teams identify which admin-related risks are most susceptible to attack by categorizing issues into exploitability levels, such as Easy or Moderate, and pairing them with severity and counts.
+
+See image.
+
+[Image: Critical findings for admins based on exploit ease]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-tenants","lastmod":"2026-10-02T21:06Z","nid":"1538950"} -->
+## About Tenants
+
+- Source: https://help.zscaler.com/identity-protection/about-tenants
+- Product: Identity Protection
+- Path: Identity Protection Help > Tenants > About Tenants
+- Last modified: 2026-10-02T21:06Z
+- Summary: Information on how the Tenants page helps you monitor a tenant's activity in Identity Protection.
+
+You can view a consolidated list of tenant accounts and their identities on the Tenants page. You can also review the [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings) for each tenant and the total number of critical or high-severity findings so that you can take the necessary action. Only tenants in an active state are displayed on the Tenants page.
+
+Managing tenants provides the following benefits and enables you to:
+
+- Identify high-risk tenants and impacted identities.
+- View tenant details and identity findings for each tenant.
+
+## About the Tenants Page
+
+On the Tenants page (Identities > Tenants), you can do the following:
+
+1. Select from system-saved views or [views you previously saved](https://help.zscaler.com/identity-protection/managing-saved-views).
+2. Search for a tenant.
+3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
+4. [Apply filters](https://help.zscaler.com/unified/using-filters) to view specific information.
+5. View the number of tenants grouped by severity level (e.g., **Critical**, **High**, **Medium**, and **Low**).
+6. View the total identity findings across all tenants.
+7. View the total active identity providers with identity findings.
+8. Group tenants by category (e.g., **Tenant First Seen**, **Tenant Last Seen**, **Tenant Tags**, etc).
+9. Refresh the table to reflect the most current information.
+10. Export the list of tenants and their associated details as a CSV file.
+11. [Modify the columns displayed in the table](https://help.zscaler.com/unified/managing-table-columns).
+12. View the list of tenants. Click a tenant to [view detailed information](https://help.zscaler.com/identity-protection/viewing-tenant-details). For each tenant in the list, you can see:
+  - **ID**: The unique identifier of the tenant.
+  - **Name**: The name of the tenant.
+  - **Severity Score**: The severity score of the tenant.
+  - **Total Identity Findings**: The total number of critical, high, medium, and low identity findings for the tenant.
+  - **Sources**: The source of the identity finding (e.g., **ITDR Change Detection AD**, **ITDR Domains AD**, etc.).
+  - **Last Seen**: The date of the most recent activity.
+  - **State**: The state of the tenant's account (**Active**or **Inactive**).
+  - **Identity Provider**: The identity provider configured for the tenant (e.g., **AD**, **Entra ID**, etc.).
+  - **Next Scan**: The date and time of the next scan for a data sync.
+
+[Image: Tenants page in the Identities app.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/managing-itdr-configurations","lastmod":"2026-09-07T03:55Z","nid":"1538791"} -->
+## Managing ITDR Configurations
+
+- Source: https://help.zscaler.com/identity-protection/managing-itdr-configurations
+- Product: Identity Protection
+- Path: Identity Protection Help > Managing ITDR Configurations
+- Last modified: 2026-09-07T03:55Z
+- Summary: How to manage ITDR Configurations from the Zscaler Security Operations (SecOps) platform.
+
+You can access the ITDR settings for Identity Protection within the Zscaler Security Operations (SecOps) platform (Identities > ITDR Config). While the ITDR Config page is available on the SecOps platform, the detailed configuration is managed in the legacy Zscaler ITDR Admin Portal.
+
+The ITDR Config page is organized into the following sections:
+
+- ITDR Manage
+- ITDR Settings
+- Endpoint Settings
+- Server Agent Settings
+
+Configure identity scans and policies for posture, change detection, credential exposure, and identity threats across AD, Entra ID, and Okta.
+
+- **Active Directory (AD) Posture Scan**: You can configure AD posture scans by choosing attributes, selecting domain controllers, defining scan timeouts, and running scans on demand. To learn more, see [About Active Directory Posture Scan](https://help.zscaler.com/itdr/about-active-directory-posture-scan).
+- **Active Directory Privileged Account Tracking**: Track high-risk AD accounts by defining which privileged users to monitor for misuse and threats. This enables monitoring of sensitive accounts to detect suspicious activity or privilege abuse. To learn more, see [About Active Directory Privileged Account Tracking](https://help.zscaler.com/itdr/about-active-directory-privileged-account-tracking).
+- **Endpoint Credential Exposure Scan**: Scan endpoints for exposed credentials and secrets to uncover theft and privilege-escalation risks. This feature strengthens detection of credential harvesting from user systems. To learn more, see [About Endpoint Credential Exposure Scan](https://help.zscaler.com/itdr/about-endpoint-credential-exposure-scan).
+- **Entra ID Posture Scan**: Connect Entra ID tenants, deploy scanners, and run posture checks on identities and configurations. This provides visibility into misconfigurations and risky identity settings within Entra ID environments. To learn more, see [About Entra ID Posture Scan](https://help.zscaler.com/itdr/about-entra-id-posture-scan).
+- **Threat Detection Policies**: Configure and tune threat detection policies to monitor identity attacks, define detection scope, evaluate findings, and protect Active Directory. These policies determine how identity threats are identified and evaluated across the environment. To learn more, see [About Threat Detection Policies](https://help.zscaler.com/itdr/about-threat-detection-policies).
+- **Okta**: Integrate with Okta to enrich the identity metadata, identify real-time changes to an Okta identity, and perform actions on an Okta identity like activate user, suspend user, clear user sessions, etc. To learn more, see [Integrating with Okta](https://help.zscaler.com/itdr/integrating-itdr-okta).
+- **Active Directory Change Detection**: Configure and manage AD change detection policies to monitor critical directory changes and trigger security alerts. This helps track risky modifications in AD objects and configurations. To learn more, see [About Active Directory Change Detection Policies](https://help.zscaler.com/itdr/about-active-directory-change-detection-policies).
+- **Entra Change Detection**: Configure Entra ID change detection policies to track critical directory changes, apply custom rules, and trigger alerts on risky activities. This provides real-time visibility into high-impact changes within Entra ID. To learn more, see [About Entra ID Change Detection Policies](https://help.zscaler.com/itdr/about-entra-id-change-detection-policies).
+
+You can use the ITDR Settings section to configure safelists for AD and Entra ID issues and objects. Safelists allow you to exclude known, trusted, or accepted issues and objects from being accounted for risk scores and reduce alert noise.
+
+- **Active Directory Issue Safelist:** Exclude known, accepted AD issues from posture scans and alerts. To learn more, see [About the Active Directory Issue Safelist](https://help.zscaler.com/itdr/about-active-directory-issue-safelist).
+- **Active Directory Object Safelist**: Exclude trusted AD objects from identity issues, alerts, and posture findings. To learn more, see [About the Active Directory Object Safelist](https://help.zscaler.com/itdr/about-active-directory-object-safelist).
+- **Active Directory Change Detection Issue Safelist**: Add, view, and manage safelisted change-detection issues to suppress expected alerts and focus on real identity risks. To learn more, see [Adding a Change Detection Issue to the Safelist](https://help.zscaler.com/itdr/adding-change-detection-issue-safelist).
+- **Active Directory Change Detection Object Safelist**: Exclude specific AD objects from change detection issues to reduce alert noise. To learn more, see [About the AD Change Detection Object Safelist](https://help.zscaler.com/itdr/about-ad-change-detection-object-safelist).
+- **Entra ID Issue Safelist**: Suppress known Entra ID findings so change detection focuses on relevant identity risks. To learn more, see [About the Entra ID Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-issue-safelist).
+- **Entra ID Object Safelist**: Exclude known safe Entra ID objects from detection to reduce false positives. To learn more, see [About the Entra ID Object Safelist](https://help.zscaler.com/itdr/about-entra-id-object-safelist).
+- **Entra ID Change Detection Issue Safelist:** Suppress alerts for known Entra ID change-detection issues while maintaining visibility into real threats. To learn more, see [About the Entra ID Change Detection Issue Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-issue-safelist).
+- **Entra ID Change Detection Object Safelist**: Exclude trusted objects from Entra ID change detection so expected changes do not trigger issues. To learn more, see [About the Entra ID Change Detection Object Safelist](https://help.zscaler.com/itdr/about-entra-id-change-detection-object-safelist).
+
+You can use the Endpoint Settings section to configure and control endpoint agents, monitor user systems, run targeted scans, and detect identity threats.
+
+- Agents: Monitor and manage all endpoint agents. You can view device details, check policy status, review logs, and take action directly when needed.
+- Agent Configuration: Customize how agents behave by renaming services, adding descriptions, automatically cleaning up duplicates. This improves manageability of deployed agents.
+- Agent Update Groups: Control agent updates by, grouping endpoints, rolling out updates in phases, tracking update progress, and exporting update details. This allows controlled and phased deployment of endpoint agent updates.
+
+To learn more, see [About Endpoint Settings](https://help.zscaler.com/itdr/about-endpoint-settings).
+
+You can use the Server Agent Settings section to configure and control server agents, manage domain settings, monitor authentication activity, and detect identity threats.
+
+- **Domains**: Manage domains and controllers to track domain health, monitor logons, identify weak or compromised passwords. This provides centralized visibility into domain-level identity security.
+- **Agents**: Monitor and manage server agents. You can view system's status, review policies and logs, take action directly when needed.
+- **Agent Update Groups**: Control server agent updates by grouping servers, managing phased rollouts, monitoring update status, etc.
+- **Configuration**: Configure server agents to detect weak passwords, set custom keywords, simulate attacks, strengthen password security locally. This enhances detection capabilities within domain infrastructure.
+
+To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/about-server-agent-settings).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-09-23T01:49Z","nid":"1539537"} -->
+## Release Upgrade Summary (2026)
+
+- Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
+- Product: Identity Protection
+- Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
+- Last modified: 2026-09-23T01:49Z
+- Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
+
+This article provides a summary of all new features and enhancements for Identity Protection.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-24T23:24Z","nid":"1543189"} -->
+## Step-by-Step Configuration Guide for Identity Protection
+
+- Source: https://help.zscaler.com/identity-protection/step-step-configuration-guide-identity-protection
+- Product: Identity Protection
+- Path: Identity Protection Help > Step-by-Step Configuration Guide for Identity Protection
+- Last modified: 2026-09-24T23:24Z
+- Summary: How to configure Identity Protection, set up identity scans, and configure threat detection.
+
+This guide explains the configuration steps that you need to complete to begin using Identity Protection for your organization.
+
+Before you begin configuring Identity Protection, Zscaler recommends reading the following articles:
+
+- [What Is Identity Protection?](https://help.zscaler.com/identity-protection/what-identity-protection)
+- [Understanding Identity Protection Architecture](https://help.zscaler.com/identity-protection/understanding-identity-protection-architecture)
+- [What Is the Agentic Security Operations Platform?](https://help.zscaler.com/unified/what-security-operations-platform)
+- [MITRE ATT&CK Overview](https://attack.mitre.org/)
+
+## Configuring Identity Protection
+
+To configure Identity Protection, complete the following steps:
+
+- Step 1: Set Up Your Account
+- Step 2: Configure Users & Roles
+- Step 3: Assess the Security Threats
+- Step 4: Monitor Threats Using Dashboards and Reports
+- Step 5: Remediate Identity Risks
+
+After your organization is provisioned for the Agentic Security Operations Platform (SecOps Platform), you will receive an email at your registered email address with a username and password to sign in to the Agentic SecOps Platform Admin Portal. To learn more, see [Signing In to the Agentic Security Operations Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal).
+
+Add users and assign roles to control their level of access to the SecOps Platform. To learn more, see [User Management](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-administration/account-management/user-management).
+
+Identity Protection includes comprehensive charts, tables, and graphs that provide visibility into the identity threats in your organization. You can use the interconnected data points to easily switch from macro to micro views, and drill down to view granular details (e.g., click identity findings on the dashboard to show the identity details).
+
+Use the following basic workflow to assess threat risks:
+
+- a. Evaluate overall findings.
+- b. View a list of users.
+- c. View a list of tenants.
+- d. Assess identity‑related security risks.
+- e. Review the alerts associated with identity findings.
+
+TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately.
+
+View a list of users, their identity types, and the total number of critical or high-severity findings to take the necessary action. To learn more, see [About Users in the Agentic Security Operations Platform](https://help.zscaler.com/unified/about-users-security-operations-platform).
+
+View a list of tenant accounts and the total identity findings with their severity levels for all active tenants. To learn more, see [About Tenants](https://help.zscaler.com/identity-protection/about-tenants).
+
+View a list of identity-related security issues detected across connected identity sources, such as Active Directory or Entra ID. These findings help you analyze misconfigurations, exposed credentials, and other risks. To learn more, see [About Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings).
+
+View alerts from all source applications on the Alerts page. To learn more, see [About Alerts](https://help.zscaler.com/identity-protection/about-alerts).
+
+After you've examined the identity data, you can set up custom [dashboards and reports](https://help.zscaler.com/unified/getting-started-security-operations-platform/security-operations-platform-analytics) to better analyze threat data in your organization.
+
+View the identity findings categorized by tenant, admins, user types, ease of remediation, etc. To learn more, see [About the Remediation Dashboard](https://help.zscaler.com/identity-protection/viewing-remediation-dashboard).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -413,6 +818,141 @@ The Webhook tab (Alerts > Webhook) shows all the configured webhook integrations
 
 1. Filter the ongoing alerts by Name, Authentication Type, or Status.
 2. [Add webhook](https://help.zscaler.com/risk360/configuring-webhooks).
+3. View a list of configured integrations. For each integration, you can view:
+  - **Name**: The name of the integration.
+  - **URL**: The URL of the integration.
+  - **Authentication Type**: The authentication type configured for the integration (Basic or Token).
+  - **Authentication Status**: This shows the integration authentication status (Active, Error, or In Progress). Fix the configuration if the field displays an error.
+  - **Alert Status**: The status of the alert, whether enabled or disabled.
+4. Edit an integration.
+5. Delete an integration.
+
+The drawer consists of the following two tabs:
+
+### Details
+
+The Details tab shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+
+### Alert Cause History
+
+The Alert Cause History tab shows the history of whenever the alert is triggered for the change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor). The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. Click the dropdowns to view the change cause for that date.
+
+See image.
+
+The drawer shows the following information about the alert:
+
+- **Alert ID**: The unique ID assigned to the alert.
+- **Criteria**: The criteria added in the rule that triggers the alert.
+- **Throttling**: The time frame during which the criteria in the rule persisted.
+- **Alert Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+- **Cause**: The change in the risk score or potential loss at different levels (i.e., organization, category, factor group, and factor) in the last 24 hours. The red, green, and gray colors indicate an increase, decrease, and no change in the risk score or potential financial loss, respectively. See image.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/about-alerts-risk360","lastmod":"2026-10-14T00:08Z","nid":"1546777"} -->
+## About Alerts in Risk360
+
+- Source: https://help.zscaler.com/risk360/about-alerts-risk360
+- Product: Risk360
+- Path: Risk360 Help > Alerts > About Alerts in Risk360
+- Last modified: 2026-10-14T00:08Z
+- Summary: Information on Alerting for Risk360.
+
+Alerting helps you meet your security compliance requirements and reduce potential financial losses by getting timely notifications when the configured criteria in the alert rule are met. This also helps take swift action towards events impacting your organization's risk exposure.
+
+Alerts provide the following benefits and enable you to:
+
+- Configure alert rules that help trigger alerts when an alert rule is activated.
+- Configure rules for various criteria (i.e., change in risk score at the organization, factor group, and factor levels, and change in potential financial loss).
+- Receive triggered notifications sent via emails and webhooks.
+- Get actionable recommendations as part of alerts to tackle security events.
+
+## How Alerting Works
+
+1. When the alert rule's criteria is satisfied for the throttling period defined in the alert rule, the alert becomes an ongoing alert and starts to get displayed on the Ongoing Alerts tab.
+2. The users receive an alert notification in the form of an email and webhook, depending on the configured delivery method.
+3. The Started On field in the alert notification shows the date and time when the alert started and the Ended On field shows Ongoing because the alert is still persisting.
+4. Users receive a daily alert notification as long as the alert criteria are true and until the alert rule is not modified, disabled, deleted, or muted.
+  - Disabling an alert rule causes the alerting engine not to evaluate the alert criteria. However, the alert rule stays configured on the Alert Rules tab. You can enable the alert at a later time based on your alert requirement.
+  - Deleting an alert removes the alert rule from the Alert Rules page.
+  - Muting an ongoing alert stops sending alert notifications. However, it doesn't impact the evaluation of the alert, and you can still track the ongoing alert on the Ongoing Alerts tab.
+5. When the criteria of the alert are no longer satisfied, the alert stops and is listed under the Alert History tab. Subsequently, the users receive an alert notification with the Ended On field in the notification showing the date and time when the alert ended.
+
+## About the Alerts Page
+
+The Alerts page contains the following 4 tabs to manage various alerting stages:
+
+- Ongoing Alerts
+- Alerts History
+- Alert Rules
+- Webhooks
+
+The Ongoing Alerts tab (Analytics > Risk360 > Alerts > Ongoing Alerts) shows alerts that are currently being triggered and persisting. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter the ongoing alerts by Severity or Rule Name.
+3. View a list of ongoing alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Muted?**: Whether the alert is currently on mute or not.
+  - **Started On**: The date and time when the alert started. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert History tab (Analytics > Risk360 > Alerts > Alert History) shows all the historically configured alerts. On this page, you can do the following:
+
+1. Filter the data on the page for the last 1 day, 2, 5, 7, or 14 days.
+2. Filter completed alerts by Severity, Rule Name, or Status.
+3. View a list of completed alerts. For each alert, you can view:
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Rule Name**: The name of the rule.
+  - **Criteria**: The criteria added in the rule that triggers the rule.
+  - **Alert ID**: The unique ID assigned to the alert.
+  - **Cause**: The reason the criteria in the rule were satisfied and the alert was triggered. Alert rules can be defined at the following 4 levels: The cause of an alert is due to risk score or financial loss changes at one level below the defined alert criteria. For example, if the criteria is defined at the organization level, then the cause is due to changes in the 4 attack stages. When the alert criteria is a composite rule with the criteria at different levels, the alerting engine breaks the rule into each element and derives the cause for each element separately. For example, if the rule criteria has an Org level and factor group elements, the causes would be due to changes at the 4 attack stages of the attack and the changes in the factors under the factor group.
+    - Organization
+    - Category
+    - Factor group
+    - Factor
+  - **Throttling**: The time frame during which the criteria in the rule persisted.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Started On**: The date and time when the alert started.
+  - **Ended On**: The date and time when the alert ended. Click an alert to view the following information in the drawer view.
+    - Drawer
+
+The Alert Rules tab (Analytics > Risk360 > Alerts > Alert Rules) shows all the configured alerts. On this page, you can do the following:
+
+1. Filter the alerts by Severity or Rule Name.
+2. [Add an alert rule](https://help.zscaler.com/unified/configuring-alert-rule-risk360).
+3. View a list of alerts. For each alert, you can view:
+  - **Rule Name**: The name of the rule.
+  - **Severity**: The severity of the alert rule (Critical, High, Medium, or Low).
+  - **Criteria**: The criteria added in the rule that triggers the rule alert.
+  - **Throttling**: The time frame during which the criteria in the rule were satisfied.
+  - **Delivery Method**: The method by which the alert was delivered to the recipients (i.e., Webhook or Email).
+  - **Status**: The status of the alert, whether enabled or disabled.
+4. Edit a rule.
+5. Mute or unmute notifications from an alert rule. This ensures the rule is enabled, but no notification is initiated when the alert is triggered.
+6. Delete an alert rule or clone the rule to configure a new alert rule.
+
+The Webhook tab (Analytics > Risk360 > Alerts > Webhook) shows all the configured webhook integrations. You can use integrations into an alert rule from the third-party provider to receive alerts. On this page, you can do the following:
+
+1. Filter the ongoing alerts by Name, Authentication Type, or Status.
+2. [Add webhook](https://help.zscaler.com/unified/configuring-alert-webhooks-risk360).
 3. View a list of configured integrations. For each integration, you can view:
   - **Name**: The name of the integration.
   - **URL**: The URL of the integration.
@@ -875,13 +1415,13 @@ On the Insights page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-09-29T08:08Z","nid":"1456991"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-10-16T01:42Z","nid":"1456991"} -->
 ## About Role Management
 
 - Source: https://help.zscaler.com/risk360/about-role-management-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > About Role Management
-- Last modified: 2026-09-29T08:08Z
+- Last modified: 2026-10-16T01:42Z
 - Summary: Information on managing roles in the Zscaler Admin Console.
 
 [Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
@@ -900,30 +1440,30 @@ On the Role Management page (Administration > Role Management > Risk360), you ca
 
 1. [Add an admin role](https://help.zscaler.com/risk360/adding-admin-roles-risk360).
 2. Search for a configured admin role.
-3. View a list of all admin roles configured for your organization. For each role, you can view the following information:
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all admin roles configured for your organization. For each role, you can view the following information:
   - **Name**: The name of the role.
   - **Full Access**: The areas of Risk360 where admins with this role have full access.
   - **View-Only Access**: The areas of Risk360 where admins with this role have view-only access.
-  - **Risk360 User Device Name Access**: This shows whether the user names are visible or obfuscated within the Zscaler service
+  - **Risk360 User Device Name Access**: This shows whether the user names are visible or obfuscated within the Zscaler service.
   - **Device Information**: This shows whether the device information is visible or obfuscated within Risk360 features.
   - **Functional Scope**: The features of Risk360 that admins with this role can access.
   - **Type**: The type of role. Currently, there is only one role type.
-4. Modify the table and its columns.
-5. Edit a configured admin role with lesser scope.
-6. View a configured admin role.
+5. View a configured admin role.
+6. Edit a configured admin role with lesser scope.
 
-[Image: Role Management Page in Risk360 Admin Portal]
+[Image: Role Management Page for Risk360]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-09-29T08:15Z","nid":"1504376"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-10-16T01:44Z","nid":"1504376"} -->
 ## About Seeds Management
 
 - Source: https://help.zscaler.com/risk360/about-seeds-management
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > About Seeds Management
-- Last modified: 2026-09-29T08:15Z
+- Last modified: 2026-10-16T01:44Z
 - Summary: Information on managing domains for external surface attack analysis in the Zscaler Admin Console].
 
 [Watch a video about Seeds Management in Risk360.](https://fast.wistia.net/embed/iframe/el04010hfk)
@@ -938,7 +1478,7 @@ Seeds Management provides the following benefits and allows you to:
 
 ## About the Seeds Management Page
 
-On the Seeds Management Page (Administration > Legacy Admin Management > Risk360), you can do the following:
+On the Seeds Management page (Administration > Legacy Admin Management > Risk360), you can do the following:
 
 1. View scan frequency that detects external surface vulnerabilities of the domains.
 2. [Add a domain](https://help.zscaler.com/risk360/adding-domain-external-attack-surface-analysis).
@@ -951,13 +1491,13 @@ On the Seeds Management Page (Administration > Legacy Admin Management > Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-09-29T08:11Z","nid":"1456996"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-10-16T01:21Z","nid":"1456996"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/risk360/adding-admin-roles-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > Adding Admin Roles
-- Last modified: 2026-09-29T08:11Z
+- Last modified: 2026-10-16T01:21Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
 
 [Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
@@ -1023,7 +1563,7 @@ Choose one of the following permissions:
 - **View** **Only**: Allows admins to view the User Management page.
 - **None**: Doesn’t allow access to the User Management page.
 
-In **Remote Assistance Management**, admins can allow Zscaler Support to securely and remotely log in to your Admin Portal.
+In **Remote Assistance Management**, admins can allow Zscaler Support to securely and remotely log in to your Zscaler Admin Console.
 
 Choose one of the following permissions:
 
@@ -1031,7 +1571,7 @@ Choose one of the following permissions:
 - **View** **Only**: Allows admins to view the Remote Assistance.
 - **None**: Doesn’t allow access to the Remote Assistance.
 
-[Image: Add Risk360 Roles Window]
+[Image: Add Risk360 Role Window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1060,16 +1600,16 @@ The domain is added successfully. The Risk360 service takes up to 24–48 hours 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-domains-using-csv","lastmod":"2026-09-29T08:18Z","nid":"1504411"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-domains-using-csv","lastmod":"2026-10-16T01:48Z","nid":"1504411"} -->
 ## Adding Domains Using a CSV
 
 - Source: https://help.zscaler.com/risk360/adding-domains-using-csv
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > Adding Domains Using a CSV
-- Last modified: 2026-09-29T08:18Z
+- Last modified: 2026-10-16T01:48Z
 - Summary: Information on how to add domains for external attack surface analysis in the Zscaler Admin Console.
 
-You can add domains on the Seeds Management page to run frequent scans on them to detect vulnerabilities for external attack surfaces. The Risk360 service then quantifies the risk determined on various parameters on exposed assets for potential breach and visualizes them as factors on the [Factors](https://help.zscaler.com/unified/viewing-risk-factors) page.
+You can add domains on the Seeds Management page to run frequent scans on them to detect vulnerabilities for external attack surfaces. The Risk360 service then quantifies the risk determined on various parameters on exposed assets for potential breach and visualizes them as factors on the [Factors](https://help.zscaler.com/risk360/viewing-risk-factors) page.
 
 To add domains:
 
@@ -1077,7 +1617,7 @@ To add domains:
 2. In the **Domains** field, click **Upload File**.
 3. Click **Download CSV Template**. A CSV template for uploading the domains is downloaded to your device. See image.
 4. Update the file with the list of domains that you want to scan for external attack surface analysis. You can add up to 10 domains. See image.
-5. Click **Upload CSV**, go to the file on your device, and select the file.
+5. Click **Upload File**, go to the file on your device, and select the file.
 6. After a successful upload message is displayed, click **Save**. If an error message is displayed, ensure that the domains are added in the correct format in the CSV file and reupload the file. The [Seeds Management](https://help.zscaler.com/risk360/about-seeds-management) page displays all the domains from the CSV file. The Risk360 service takes up to 24–48 hours to scan and analyze the domains.
 
 [Image: Upload CSV window]
@@ -1175,18 +1715,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/assessing-compliance","lastmod":"2026-03-08T23:27Z","nid":"1532479"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/assessing-compliance","lastmod":"2026-10-15T22:23Z","nid":"1546771"} -->
 ## Assessing Compliance
 
 - Source: https://help.zscaler.com/risk360/assessing-compliance
 - Product: Risk360
-- Path: Assessing Compliance
-- Last modified: 2026-03-08T23:27Z
-- Summary: Information about risk frameworks and how Zscaler's Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
+- Path: Risk360 Help > Dashboard & Analytics > Assessing Compliance
+- Last modified: 2026-10-15T22:23Z
+- Summary: Information about risk frameworks and how Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
 
 The integration of various risk frameworks with Risk360 helps you identify, assess, mitigate, and monitor risk, ensuring informed decision-making and abiding by regulatory compliance mandated or recommended based on your organization's geography and industry.
 
-The Risk360 service supports the following risk frameworks:
+The Risk360 service supports the following risk frameworks (Analytics > Risk360 > [select a framework]):
 
 - ISO27001
 - MITRE ATT&CK
@@ -1197,20 +1737,25 @@ The Risk360 service supports the following risk frameworks:
 - HIPAA
 - PCI DSS
 - CIS
+- CAF
+- HITRUST
+- HECVAT
+- SOC 2
+- GDPR
 
 ## Analyzing the Framework
 
-The framework page (Analytics > Risk360> Frameworks > select a framework) shows all the control IDs, maps these IDs to your current Zscaler protections, and provides you with a holistic overview of your organization's risk, as well as in-depth analysis for each technique. The page also shows any policy misconfigurations that are refraining you from securing techniques that can be reconfigured to strengthen your security stance.
+The framework page shows all the control IDs and maps these IDs to your current Zscaler protections and provides you with a holistic, as well as in-depth analysis for each technique. The page also shows any policy misconfigurations that are refraining you from securing techniques that can be reconfigured to strengthen your security stance.
 
 Each tile shows the name of the technique and the ID. When you click a tile, it opens all the sub-techniques under it. The tiles highlighted in blue indicate that they are covered by Zscaler protection, and the green or red color at the right side of these tiles indicates whether the protection is configured correctly or not.
 
-You can search for a technique by its name or the factor mapped to it. Click the **Save**icon () to download the framework as a CSV file.
+You can search for a technique by its name or the factor mapped to it.
 
 ### Overview
 
 The Legend section provides the following overview:
 
-- The donut chart shows the split between the number of techniques covered by the Zscaler service and those that are not. The center of the donut chart shows the total percentage of technique coverage.
+- The donut chart shows the split between the number of techniques covered by Zscaler and those that are not. The center of the donut chart shows the total percentage of technique coverage.
 - **Configurations**: This section shows the number of configurations or policies that are misconfigured and configured correctly for your organization.
 - You can show or hide this section by using the arrow at the top right of this section.
 
@@ -1223,10 +1768,9 @@ Click a technique or sub-technique to view the following information in a drawer
 - Techniques
 - Sub-Techniques
 
-The ISO 27001 is a set of standards for establishing, implementing, maintaining, and continually improving an information security management system (ISMS) for any organization. This helps your organization become more resilient to cyber attacks, maintain data integrity, confidentiality, and availability, while also achieving significant cost savings.
+The ISO 27001 is a set of standards for establishing, implementing, maintaining, and continually improving an information security management system (ISMS) for any organization. This helps your organization become more resilient to cyberattacks, maintain data integrity, confidentiality, and availability, while also achieving significant cost savings.
 
-MITRE ATT&CK is a cybersecurity framework funded by the US government that is used to detect, identify, and classify various tactics, techniques, and procedures (TTPs) used for cyber attacks by attackers. It helps you assess your organization's security posture and calculate the risk of a cyber attack.
-
+MITRE ATT&CK is a cybersecurity framework funded by the US government that is used to detect, identify, and classify various tactics, techniques, and procedures (TTPs) used for cyberattacks by attackers. It helps you assess your organization's security posture and calculate the risk of a cyberattack.
 The MITRE ATT&CK framework assumes the attacker's point of view to navigate through your organization's network. This helps in highlighting the attacker's journey from the point of access to a potential data exfiltration, among other harmful acts.
 
 To learn more, refer to the [MITRE ATT&CK website](https://attack.mitre.org/).
@@ -1234,15 +1778,14 @@ To learn more, refer to the [MITRE ATT&CK website](https://attack.mitre.org/).
 The National Institute of Standards and Technology (NIST) cybersecurity framework (CSF) is a set of recommendations and processes that you can implement and follow to strengthen your organization's security posture against malicious attackers that also provides guidance on how to respond and recover from a security breach event.
 The NIST CSF is considered a very high-standard risk management tool across the industry as it provides great value at any stage of your cybersecurity journey. The Risk360 service supports both versions of NIST CSF (1.1 and 2.0) in the Zscaler Admin Console. You can use both versions of the framework to manage your organization's risk.
 
-The National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 is a set of structured security and privacy controls applicable specifically to federal information systems and organizations. It provides guidance on how to implement, assess, and strengthen an organization's security posture against malicious attackers while also making them breach ready with respond and recovery catalogs. NIST SP 800-53 helps federal agencies and organizations comply with the mandatory Federal Information Security Management Act (FISMA) and other applicable laws and regulations for security.
-
+The National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 is a set of structured security and privacy controls applicable specifically to federal information systems and organizations. It provides guidance on how to implement, assess, and strengthen an organization's security posture against malicious attackers while also making them breach ready with respond and recovery catalogs. The NIST SP 800-53 helps federal agencies and organizations comply with the mandatory Federal Information Security Management Act (FISMA) and other applicable laws and regulations for security.
 While NIST CSF provides a comprehensive set of best practices for organizations to follow, the NIST SP 800-53 provides specific security controls that must be implemented by federal agencies and organizations.
 
-The Network and Information Security Directive 2 (NIS2) is a European Union (EU) law that aims to improve cybersecurity across member states. It is a set of firm requirements for organizations in essential sectors, including risk management, incident reporting, and supply chain security, to create a common, high level of network and information security throughout the EU.
+The Network and Information Security Directive 2 (NIS2) is a European Union (EU) law that aims to improve cybersecurity across member states. A set of firm requirements for organizations in essential sectors, including risk management, incident reporting, and supply chain security, to create a common, high level of network and information security throughout the EU.
 
 To learn more, refer to the [NIS2 Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022L2555).
 
-The Digital Operational Resilience Act (DORA) is a European Union (EU) regulation for the financial sector that mandates strong cybersecurity resilience and risk management for financial entities and critical Information and Communication Technology (ICT) third-party providers.
+The Digital Operational Resilience Act (DORA), a European Union (EU) regulation for the financial sector that mandates strong cybersecurity resilience and risk management for financial entities and critical Information and Communication Technology (ICT) third-party providers.
 
 To learn more, refer to the [DORA Directive Document](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554&from=EN).
 
@@ -1258,22 +1801,41 @@ The Center for Internet Security (CIS) Critical Security Controls are a prescrip
 
 To learn more, refer to the [CIS Website](https://www.cisecurity.org/controls).
 
-- The name of the technique, its ID, and the state of the sub-techniques (i.e., whether they are Zscaler protected or not).
-- **Details**: A link that opens a PDF file that explains the technique in detail.
+The Cyber Assessment Framework (CAF) is a standardized, outcome-focused compliance developed by the UK's National Cyber Security Centre (NCSC) in 2018 to help organizations evaluate and improve their cyber resilience.
+
+To learn more, refer to the [National Cyber Security Centre Website](https://www.ncsc.gov.uk/collection/cyber-assessment-framework).
+
+The HITRUST compliance is a comprehensive and certifiable security framework that integrates with multiple standards to help organizations with risk compliance and cyber resilience.
+
+To learn more, refer to the [HITRUST Website](https://hitrustalliance.net/).
+
+The Higher Education Community Vendor Assessment Toolkit (HECVAT) is developed by EDUCAUSE as a questionnaire framework intended for colleges and universities to evaluate compliance of their vendors.
+
+To learn more, refer to the [EDUCAUSE Website](https://www.educause.edu/higher-education-community-vendor-assessment-toolkit).
+
+System and Organization Controls 2 is a compliance standard for organizations that handle customer data, such as cloud providers and Software as a Service vendors. Based on the American Institute of Certified Public Accountants (AICPA) Trust Services Criteria, it focuses on controls for security, availability, processing integrity, confidentiality, and privacy.
+
+To learn more, refer to the [AICPA Website](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services).
+
+The General Data Protection Regulation (GDPR) is a European Union (EU) regulation that protects the personal data and privacy of individuals in the EU. It applies to any organization that processes the personal data of EU residents, regardless of where the organization is located. Non-compliance can result in significant penalties.
+
+To learn more, refer to the [GDPR Website](https://gdpr.eu/what-is-gdpr/).
+
+- The name of the technique, its ID, and the state of the sub-techniques (i.e., whether it is Zscaler-protected or not).
+- **Details**: A link that opens the PDF file where the technique is explained in detail.
 - **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description).
-- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of the Zscaler progressive protection portfolios. If the mitigation strategy isn't available, this field shows no information.
+- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
 - **TTP to Zscaler Product Mapping**: Maps the attack technique to the Zscaler feature responsible for protecting against these attack techniques, whether the features that are responsible for protecting against these tactics, techniques, and procedures (TTPs) are licensed by your organization or not, and the Risk360 category that the TTP falls under.
-- **TTP to Risk360 Factor Mapping**: Maps all the attack sub-techniques to the [Risk360 Factors](https://help.zscaler.com/risk360/about-factors) and shows the status of each sub-technique.
-- **Notes**: Any notes that you added for the technique. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
+- **TTP to Risk360 Factor Mapping**: Maps all the attack sub-techniques to the [Risk360 Factors](https://help.zscaler.com/risk360/viewing-risk-factors) and shows the status of each sub-technique.
+- **Notes**: Any notes that you added for the technique.
 
 See image.
 
-- The name of the sub-technique, its ID, and its state, whether or not Zscaler protects against it.
+- The name of the technique, its ID, and the state of the sub-technique, whether it is covered by Zscaler protection or not.
 - **Details**: A link that opens the PDF file where the technique is explained in detail.
-- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description)
-- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of the Zscaler progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
+- **Description**: A description of the technique. This field name differs depending on the framework you're viewing (e.g., NIST Description and ISO 27001 Description).
+- **Zscaler Comment**: A note on how Zscaler can help mitigate the risk from this attack technique by using one of Zscaler's progressive protection portfolios. This field shows no information if the mitigation strategy isn't available.
 - **TTP to 3rd Party Tools Mapping**: Shows whether the sub-technique is securely configured, misconfigured, or not covered by the any third-party security control policies.
-- **Notes**: Any notes that you added for the technique. Click the **Edit**or **Delete**icon to modify or delete the note, respectively.
 
 See image.
 
@@ -1281,9 +1843,9 @@ See image.
 
 Hover over a technique or sub-technique tile to view the following information:
 
-- Whether Zscaler protects your organization against this attack technique, and if so, whether the protections against these attack techniques are configured correctly.
+- Whether the protections against these attack techniques are misconfigured or configured correctly and if Zscaler protects your organization against this attack technique.
 - **Zscaler Control**: The Zscaler feature that is responsible for helping protect against these attack techniques.
-- **Related Risk360 Factors**: The [Risk360 Factors](https://help.zscaler.com/risk360/about-factors) that are related to the attack.
+- **Related Risk360 Factors**: The [Risk360 Factors](https://help.zscaler.com/risk360/viewing-risk-factors) that are related to the attack.
 - **Licensed?**: Whether or not you are subscribed to the Zscaler feature that protects against these attacks.
 - **Notes**: Any notes that you added for the technique.
 
@@ -1347,6 +1909,89 @@ In the **Configure Delivery Method**section:
 - Click **Add**.
 
 See image.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-rule-risk360","lastmod":"2026-10-14T00:10Z","nid":"1546778"} -->
+## Configuring an Alert Rule for Risk360
+
+- Source: https://help.zscaler.com/risk360/configuring-alert-rule-risk360
+- Product: Risk360
+- Path: Risk360 Help > Alerts > Configuring an Alert Rule for Risk360
+- Last modified: 2026-10-14T00:10Z
+- Summary: How to configure alert rules in Risk360.
+
+You can configure alert rules for various criteria (i.e., financial loss or risk score changes at organization, category, factor group, or factor levels) that trigger an email or webhook notification to the recipients.
+
+To configure an alert rule:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Risk360** > **Alerts** > **Rules**.
+2. Click **Add Alert Rule**.
+3. Choose an existing rule template or start configuring from the beginning by clicking **Create New**. See image. The **Add Alert Rule** wizard appears.
+4. In the **Add Alert Rule** wizard, complete the following steps: The alert rule is successfully created.
+  - a. Define Criteria & Throttling
+  - b. Configure Delivery Method
+
+If you've selected a rule template, the service skips to the Configure Delivery Method section. However, you can click **Back**to edit the predefined values in the **Define Criteria &** **Throttling** section. In this section:
+
+- **Criteria**: Set the criteria for the alert rule to be triggered:
+  1. Select **All** or **Any** from the drop-down menu.
+  2. Select the item for which you want to trigger the alert from **Org**, **Category**, **Factor Group**, or**Factor**.
+  3. Based on your selection, the next drop-down menus are auto-populated. Select the required options.
+  4. Select the operator for the criteria, i.e., equal to (**=**), greater than (**>**), less than (**<**), greater than or equal to (**≥**), less than or equal to (**≤**), **increases by**, or **decreases by**.
+  5. Enter the value for the operator.
+  6. Click **Add** to add another criterion to the rule. For example, see the following GIF to understand how to set the criteria for an alert to be triggered when the risk score for the Data Loss category exceeds 55. See image.
+- **Expression Preview**: You can view a logical preview for the criteria set in the preceding fields. This field is uneditable.
+- **Minimum Alert Throttling Criteria**: Enter the number of days the criteria must persist before triggering the alert notification.
+- Click **Next**.
+
+See image.
+
+In the **Configure Delivery Method**section:
+
+- **Rule Name**: Enter a name to identify the rule.
+- **Severity**: Select the severity of the rule from **Critical**, **High**, **Medium**, or **Low**.
+- **Status**: Select **Enabled** or **Disabled** for the rule.
+- **Delivery Method**: Select the alert delivery methods from **Email**and**Webhook.**
+- **Webhooks**: Select from the existing configured webhooks or configure a new webhook by clicking **Configure Webhooks** to receive alerts via webhooks. To learn more, see [Configuring Alert Webhooks](https://help.zscaler.com/risk360/configuring-alert-webhooks-risk360).
+- **Email Recipient**: Enter the email address to which you want the alerts to be sent. To learn more about the information sent, see [Understanding the Alert Email](https://help.zscaler.com/risk360/understanding-alert-email-risk360).
+- **Custom Message**: Enter a custom message that is displayed within the alert notification when this alert is triggered. This message is applicable for both email and webhooks.
+- Click **Add**.
+
+See image.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-webhooks-risk360","lastmod":"2026-10-14T00:11Z","nid":"1546779"} -->
+## Configuring Alert Webhooks for Risk360
+
+- Source: https://help.zscaler.com/risk360/configuring-alert-webhooks-risk360
+- Product: Risk360
+- Path: Risk360 Help > Alerts > Configuring Alert Webhooks for Risk360
+- Last modified: 2026-10-14T00:11Z
+- Summary: Information on configuring webhooks to deliver alerts in Risk360.
+
+You can configure and use webhooks in an alert rule and assign multiple alert rules to the same webhook from your third-party provider for alert delivery.
+
+To configure a webhook:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Risk360** > **Alerts**> **Webhooks** > **Add Webhook**. The **Add New Webhook** drawer appears.
+2. In the **Add New Webhook** drawer:
+  - **Name**: Enter the name of the webhook.
+  - **Status**: Select **Enabled** or **Disabled**for the webhook.
+  - **URL**: Enter the URL of the webhook provider. Ensure the URL does not include any spaces.
+  - **Authentication Type**: Select the authentication type for the webhook from **Basic**or **Token**. The webhook provider determines the authentication type used. Refer to your provider for details. See image.
+    - Basic
+    - Token
+3. Click **Save** to save the webhook configuration. If the webhook is configured successfully, the [Alert Status](https://help.zscaler.com/risk360/about-alerts-risk360) field on the Webhooks page displays **Active**. If not, the field displays **Error**. To resolve the error, check for issues in the **URL** or the **Authentication Type** fields.
+
+Enter a **Username**and**Password**. Password information is hidden by default. You can view it by clicking the **View** icon.
+
+Enter the bearer token. A bearer token is a unique alphanumeric string used for authentication. You can obtain the bearer token from your webhook provider.
+
+[Image: Add Webhook Drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1494,24 +2139,24 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/downloading-risk-reports","lastmod":"2025-11-16T06:06Z","nid":"1461841"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/downloading-risk-reports","lastmod":"2026-10-14T00:47Z","nid":"1546770"} -->
 ## Downloading Risk Reports
 
 - Source: https://help.zscaler.com/risk360/downloading-risk-reports
 - Product: Risk360
-- Path: Downloading Risk Reports
-- Last modified: 2025-11-16T06:06Z
-- Summary: Information about how to download various risk reports in the Risk360 Admin Portal.
+- Path: Risk360 Help > Dashboard & Analytics > Downloading Risk Reports
+- Last modified: 2026-10-14T00:47Z
+- Summary: Information about how to download various risk reports in the Admin Portal.
 
-You can download various risk-related reports from the Reports page. The page contains the following reports and documents:
+You can download various risk-related reports from the Reports page (Analytics > Reports > Risk360 Reports). The page contains the following reports and documents:
 
 - **CISO Board Slides**: The slides provide customers with extensive insight into how Risk360 is helping quantify and measure risk in their network. A new slide is generated for a period of 7 days. The reports are securely stored as a PowerPoint file.
 - **Attack Surface Report**: A report that provides you with the details of your organization's exposed applications and servers to a public network, such as the internet, and their possible exploitation.
 - **Cybersecurity Maturity Assessment**: A report that provides a holistic view of your zero trust journey. It is generated by a custom large language model (LLM) developed by Zscaler.
 - **SEC Disclosures**: A document with a sample format and content that can be a helpful starting point for security and legal teams in addressing the Securities and Exchange Commission's (SEC's) new cyber risk reporting regulations.
-- **Miscellaneous**: Various materials on risk management, including books published on how board members can manage cyber risk.
+- **Miscellaneous**: Various materials on risk management, including books published on how board members can manage cyber risk and how translating cybersecurity into financial terms enables strategic decision-making.
 - **Risk Management Mitigation Strategy Report**: A report that outlines the mitigation strategy for important risk factors impacting your organization's risk. This report is autogenerated once a week.
-- **Operating Entity Risk**: A weekly and on-demand report for portfolio risk assessment by quantifying risk at the operating entity level. You can click the **Settings**icon to change the entity source for the report. To learn more, see [Managing Operating Entity Risk Report Settings](https://help.zscaler.com/risk360/managing-operating-entity-risk-report-settings).
+- **Operating Entity Risk**: A weekly and on-demand report for portfolio risk assessment by quantifying risk at the operating entity level.
 - **Cyber Insurance Addendum**: A comprehensive quarterly and on-demand report of your zero trust security posture for cyber insurance underwriters.
 
 Click **View All** to view all the reports for a specific category.
@@ -1581,64 +2226,36 @@ Click the Investigate link available for each section and you're redirected to t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors","lastmod":"2025-07-27T07:06Z","nid":"1529546"} -->
-## Integrating 3rd-Party Connectors for Risk Factors
+<!-- ZS-ARTICLE {"url":"/risk360/exploring-risk-problems","lastmod":"2026-10-13T23:40Z","nid":"1546766"} -->
+## Exploring Risk Problems
 
-- Source: https://help.zscaler.com/risk360/integrating-3rd-party-connectors-risk-factors
+- Source: https://help.zscaler.com/risk360/exploring-risk-problems
 - Product: Risk360
-- Path: Integrating 3rd-Party Connectors for Risk Factors
-- Last modified: 2025-07-27T07:06Z
-- Summary: Information about 3rd-party app integration for risk factors in the Risk360 Admin Portal.
+- Path: Risk360 Help > Dashboard & Analytics > Exploring Risk Problems
+- Last modified: 2026-10-13T23:40Z
+- Summary: Information on how to explore a risk problem on the Explore page in the Admin Portal.
 
-The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
+The Explore page (Analytics > Risk360 > Insights > [click the Explore link on a problem card]) shows in-depth analysis of a problem by presenting multiple sections highlighting the affected areas within your organization. The following screenshot illustrates an example problem analyzed on the Explore page. You can scroll down to view all the sections available for that problem.
 
-The following out-of-the-box risk factors based on third-party data sources are available in the Risk360 Admin Portal with a connector configuration:
+[Image: The Explore page in the Risk360 Portal]
 
-| Factor Name | Connector Name |
-| --- | --- |
-| CrowdStrike - Zero Trust Score | CrowdStrike Crowdscore |
-| CrowdStrike - Endpoint Security CrowdScore | CrowdStrike Crowdscore |
-| CrowdStrike - Unsupported Devices | CrowdStrike Environment Assets |
-| CrowdStrike - Unmanaged Devices | CrowdStrike Environment Assets |
-| CrowdStrike - End-of-Life Operating System | CrowdStrike Environment Assets |
-| CrowdStrike - Critical Domain Users Having High Privileges | CrowdStrike Identity Protection - Domain Users |
-| CrowdStrike - Identity Protection for Active Directory | CrowdStrike Identity Protection - Security Assessment |
-| CrowdStrike - Critical and High Incidents | CrowdStrike Incidents |
-| CrowdStrike - High Severity XDR Detections | CrowdStrike Alerts |
-| Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-| Highly Exploitable Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-| Unaddressed Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-
-Reach out to your Zscaler Account team to define and implement custom risk factors not listed in the preceding table to serve your organization's specific requirements.
-
-Refer to the following deployment guides for configuring connectors in Zscaler Data Fabric to implement the preceding factors:
-
-- Configuration Guides
-
-| Connector | Configuration Guide |
-| --- | --- |
-| Microsoft Defender for Endpoints - Vulnerabilities | [Zscaler UVM and Microsoft Services Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-services-deployment-guide) |
-| CrowdStrike Incidents CrowdStrike Alerts CrowdStrike Environment Assets CrowdStrike Vulnerabilities | [Zscaler and CrowdStrike Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide) |
-| Qualys Vulnerabilities | [Zscaler UVM and Qualys Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-qualys-deployment-guide) |
-| Tenable Vulnerability Management | [Zscaler UVM and Tenable Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-tenable-deployment-guide) |
-| Wiz Vulnerability Findings | [Zscaler UVM and Wiz Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-wiz-deployment-guide) |
-| Rapid7 InsightVM | [Zscaler and Rapid7 Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-rapid7-deployment-guide) |
+Click the Investigate link available for each section and you're redirected to the [Investigate](https://help.zscaler.com/risk360/investigating-sections-risk-problem) page where you can view detailed data for the sections in a tabular form.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors-0","lastmod":"2026-10-05T22:53Z","nid":"1546620"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-10-14T09:03Z","nid":"1546620"} -->
 ## Integrating 3rd-Party Connectors for Risk Factors
 
-- Source: https://help.zscaler.com/risk360/integrating-3rd-party-connectors-risk-factors-0
+- Source: https://help.zscaler.com/risk360/integrating-3rd-party-connectors-risk-factors
 - Product: Risk360
 - Path: Risk360 Help > 3rd-Party Integration > Integrating 3rd-Party Connectors for Risk Factors
-- Last modified: 2026-10-05T22:53Z
+- Last modified: 2026-10-14T09:03Z
 - Summary: Information about 3rd-party app integration for risk factors in the Risk360.
 
 The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
 
-Third-party integration is available with the Risk360 Advanced license.
+Reach out to your Zscaler Account team to define and implement third-party custom risk factors to serve your organization's specific requirements. Third-party integration is available with the Risk360 Advanced license.
 
 The following out-of-the-box risk factors based on third-party data sources are available in the Risk360 Admin Portal with a connector configuration:
 
@@ -1656,9 +2273,7 @@ The following out-of-the-box risk factors based on third-party data sources are 
 | Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
 | Highly Exploitable Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
 | Unaddressed Critical and High Severity Vulnerabilities | CrowdStrike Vulnerabilities Qualys Vulnerabilities Tenable Vulnerability Management Rapid7 InsightVM Wiz Vulnerability Findings Microsoft Defender for Endpoints - Vulnerabilities |
-| Is WAF Enabled Is WAF Enforced Is DDoS Protection Enabled Reach out to your Zscaler Account team to implement these factors. | F5 WAF Data |
-
-Reach out to your Zscaler Account team to define and implement custom risk factors not listed in the preceding table to serve your organization's specific requirements.
+| Is WAF Enabled Is WAF Enforced Is DDoS Protection Enabled | F5 WAF Data |
 
 Refer to the following deployment guides for configuring connectors in Zscaler Data Fabric to implement the preceding factors:
 
@@ -1701,27 +2316,52 @@ The following screenshot illustrates an example section from a problem analyzed 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/managing-financial-risk-settings","lastmod":"2025-09-11T23:02Z","nid":"1504426"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/investigating-sections-risk-problem","lastmod":"2026-10-13T23:43Z","nid":"1546767"} -->
+## Investigating Sections of a Risk Problem
+
+- Source: https://help.zscaler.com/risk360/investigating-sections-risk-problem
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Investigating Sections of a Risk Problem
+- Last modified: 2026-10-13T23:43Z
+- Summary: Information about how to investigate the Explore page sections in the Admin Portal.
+
+When you click on the Investigate link for a section on the [Explore](https://help.zscaler.com/risk360/exploring-risk-problems) page, you are redirected to the Investigate page where you can view the data shown in the section in detail for each asset involved in the section (e.g., server, ports, etc.). You can filter the table using the available filter options to narrow your search. The filter options vary based on the section that you investigate.
+
+If available, you can include or exclude an entity in the table from risk score computation by providing an explanation:
+
+1. Enable or disable the **Include** toggle of your choice. See image.
+2. Click **Save**. The **Entity Override Note** window appears.
+3. In the **Entity Override Note** window, provide an explanation as to why you chose to include or exclude the entity. See image.
+4. Click **Save**. You can modify the **Include** toggle for multiple entities at once and provide an explanation in the same **Entity Override Note** window.
+
+The changes made by the admin are captured in the [audit logs](https://help.zscaler.com/risk360/about-audit-logs) with the username and reason provided for the override.
+
+The following screenshot illustrates an example section from a problem analyzed on its Investigate page:
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/managing-financial-risk-settings","lastmod":"2026-10-14T00:49Z","nid":"1546775"} -->
 ## Managing Financial Risk Settings
 
 - Source: https://help.zscaler.com/risk360/managing-financial-risk-settings
 - Product: Risk360
-- Path: Managing Financial Risk Settings
-- Last modified: 2025-09-11T23:02Z
-- Summary: Information on managing financial risk settings in the Risk360 Admin Portal.
+- Path: Risk360 Help > Financial Risk > Managing Financial Risk Settings
+- Last modified: 2026-10-14T00:49Z
+- Summary: Information on managing financial risk settings in the Admin Portal.
 
-You can customize the parameters of the financial model that determines the financial exposure of your organization in Risk360.
+You can customize the parameters of the financial model that determines the financial exposure of your organization.
 
 To customize the parameters:
 
-1. Go to the **Financial Risk** > **Settings**page. The **Financial Risk Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Risk360 > Financial Risk** > **Settings**. The **Financial Risk Settings** drawer appears.
 2. Under the**Default Values**, you can view the default values set for your organization during onboarding. To customize these values, under **Customized Values**: See image.
   - **Industry Vertical**: Select the industry vertical that best represents your organization.
   - **Industry Annual Revenue Range**: Select the annual revenue range for the organization's industry vertical.
   - **Financial Loss Range**: Enter the lower and upper bounds of the financial loss, in case your organization faces a breach. These values are used for simulating financial loss estimations within the set range.
 3. Click **Save**. You can click **Reset to Default** if you want the Risk360 service to use the default values for calculation.
 
-The [Financial Risk](https://help.zscaler.com/risk360/about-financial-risk) model inherits the latest values from the preceding settings to perform loss estimations.
+The [Financial Risk](https://help.zscaler.com/unified/viewing-financial-risk) model inherits the latest values from the preceding settings to perform loss estimations.
 
 [Image: The Financial Risk Settings showing the fields for the Default Values and Customized Values]
 <!-- /ZS-ARTICLE -->
@@ -1754,16 +2394,16 @@ The settings are successfully saved, and the next [Operating Entity Risk Report]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/managing-peer-score-settings","lastmod":"2025-08-15T07:06Z","nid":"1529151"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/managing-peer-score-settings","lastmod":"2026-10-14T00:49Z","nid":"1546772"} -->
 ## Managing Peer Score Settings
 
 - Source: https://help.zscaler.com/risk360/managing-peer-score-settings
 - Product: Risk360
-- Path: Managing Peer Score Settings
-- Last modified: 2025-08-15T07:06Z
-- Summary: Information on managing peer score settings in the Risk360 Admin Portal.
+- Path: Risk360 Help > Dashboard & Analytics > Managing Peer Score Settings
+- Last modified: 2026-10-14T00:49Z
+- Summary: Information on managing peer score settings in the Risk360 Dashboard.
 
-The Peer Score Settings drawer (Dashboard > click the Settings icon in the Risk Score Trend section) shows the strategy selected for calculating your industry's peer risk score. The defaultstrategy is Zscaler-defined. You can add, modify, or delete custom strategies for peer score calculation.
+The Peer Score Settings drawer (Analytics > Risk360 > click the Settings icon in the Risk Score Trend section) shows the strategy selected for calculating your industry's peer risk score. The defaultstrategy is Zscaler-defined. You can add, modify, or delete custom strategies for peer score calculation.
 
 ## Adding a Strategy
 
@@ -1841,13 +2481,13 @@ You can update the operating entity settings to set the entity source based on w
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/quantifying-loss-monte-carlo-simulation","lastmod":"2025-06-30T22:20Z","nid":"1472081"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/quantifying-loss-monte-carlo-simulation","lastmod":"2026-10-14T00:50Z","nid":"1546776"} -->
 ## Quantifying Loss With Monte Carlo Simulation
 
 - Source: https://help.zscaler.com/risk360/quantifying-loss-monte-carlo-simulation
 - Product: Risk360
-- Path: Quantifying Loss With Monte Carlo Simulation
-- Last modified: 2025-06-30T22:20Z
+- Path: Risk360 Help > Financial Risk > Quantifying Loss With Monte Carlo Simulation
+- Last modified: 2026-10-14T00:50Z
 - Summary: Information about Monte Carlo Simulation and how it helps you quantify the probability of exceeding loss in millions of dollars.
 
 The Monte Carlo Simulation is a renowned method to determine the probability of an outcome from a range of outcomes with a random set of variables as the source of uncertainty. This simulation helps organizations quantify various risk-related parameters.
@@ -1861,14 +2501,14 @@ The Risk360 service runs the Monte Carlo simulations 1,000 times. In each simula
 
 ## Analyzing the Monte Carlo Simulation
 
-The Monte Carlo Simulation page (Financial Risk > Monte Carlo Simulation) consists of the following metrics to help you analyze the simulated results:
+The Monte Carlo Simulation page (Analytics > Risk360 > Financial Risk > Monte Carlo Simulation) consists of the following metrics to help you analyze the simulated results:
 
 ### Loss Exceedance
 
 This graph shows the probability of exceeding loss values (in percentage) in millions of dollars. The graph shows the simulation across 4 risk parameters:
 
 - **Inherent Risk (Current Risk Score)**: This simulation is based on your current organization's risk score. This shows the probability of loss based on your overall organization risk score.
-- **Residual Risk (Risk score after addressing top 10 factors)**: The residual risk is the risk score obtained after rectifying the 10 [Risk360 Factors](https://help.zscaler.com/risk360/about-factors). This simulation helps you see the financial impact of addressing the top 10 [Risk360 Factors](https://help.zscaler.com/risk360/about-factors).
+- **Residual Risk (Risk score after addressing top 10 factors)**: The residual risk is the risk score obtained after rectifying the 10 [Risk360 Factors](https://help.zscaler.com/risk360/viewing-risk-factors). This simulation helps you see the financial impact of addressing the top 10 [Risk360 Factors](https://help.zscaler.com/risk360/viewing-risk-factors).
 - **Last 30 Days Average Risk**: This simulation is based on the average risk of the last 30 days. This helps you see the impact of changes in risk score for the last 30 days.
 - **Industry Peer Risk**: This simulation is based on the industry peer risk score. This helps you in comparing loss probability to your industry peers.
 
@@ -2488,6 +3128,469 @@ The search provides auto-complete suggestions as you enter your search.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/risk360/servicenow-webhook-configuration-guide-risk360","lastmod":"2026-10-14T00:12Z","nid":"1546780"} -->
+## ServiceNow Webhook Configuration Guide for Risk360
+
+- Source: https://help.zscaler.com/risk360/servicenow-webhook-configuration-guide-risk360
+- Product: Risk360
+- Path: Risk360 Help > Alerts > ServiceNow Webhook Configuration Guide for Risk360
+- Last modified: 2026-10-14T00:12Z
+- Summary: How to configure webhooks using ServiceNow with a ServiceNow Developer account.
+
+This guide provides information on configuring webhooks using ServiceNow for alerts in Risk360. This article provides a sample configuration that can be built on per user requirements. The following ServiceNow webhook sample configuration uses a ServiceNow developer configuration.
+
+To configure webhook using ServiceNow:
+
+1. Create a ServiceNow developer account at [https://developer.servicenow.com/](https://developer.servicenow.com/).
+2. Create a developer instance. See image. This instance automatically hibernates, so you must wake it every 24 hours. Also, the instance is reclaimed if you don’t use it for 10 days.
+3. In the **Filter Navigator**search window on the left sidebar, enter `rest`.
+4. Under **Scripted Web Services**, click **Scripted REST APIs**.
+5. Click **New** at the top of the page to create a new resource. See image.
+6. Enter the API name and click **Submit**. The API appears on the page.
+7. Click the API name to open it.
+8. At the bottom of the page, under the **Resources**tab, select **New**. See image.
+9. Based on the authentication type you want to configure the webhook, choose one of the following methods:
+  - Basic Authentication
+  - Token authentication
+10. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Risk360** > **Alerts** > **Webhooks** > **Add Webhooks**.
+11. Complete the following fields:
+  1. **Name**: Enter the name of the webhook.
+  2. **Status**: Select **Enabled** or **Disabled** for the webhook.
+  3. **URL**: Enter the ServiceNow developer instance hostname concatenated with the API name from the Scripted REST APIs page in the ServiceNow instance (e.g., `https://dev91028.service-now.com/api/516508/alertsincident`).
+  4. **Authentication Type**: Select the authentication type for the webhook from Basic or Token.
+    - Basic
+    - Token
+12. Click **Save**. The webhook is successfully configured. Whenever an alert is triggered, a webhook notification is sent, thereby creating an entry in the ServiceNow Incident table.
+
+To view the webhook notification:
+
+1. Go to the ServiceNow instance.
+2. Enter `incidents` in the **Filter Navigator**search box on the left side of the page.
+3. Click **Incidents**. The Incidents page appears, showing the list of incidents (alerts). Click an incident to view more details about the alert.
+
+[Image: ServiceNow Developer Instance]
+
+[Image: Create a new ServiceNow API]
+
+[Image: Select to fill in the API name]
+
+1. Enter your preferred name and select **POST** as the http method.
+2. Check the authentication box.
+3. Paste the following script in the Script field and click **Submit**. See image. To use basic authentication for your webhook, you must create a non-admin user on ServiceNow so that admin credentials need not be shared.
+  - Script for Basic authentication
+4. Enter `Users` in the **Filter Navigator** search box on the left side of the page.
+5. Select **Users** under **Users and Groups**.
+6. Click **New** on the top bar to open a new user page.
+7. Enter the username and password for this user. See image.
+
+1. Enter your preferred name and select **POST** as the http method.
+2. Disable the authentication box.
+3. Paste the script under **Token Authentication** in the Script field and click **Submit**.
+  - Script for Token authentication
+4. Edit the token in your script to the one used for the webhook configuration in the Experience Center. The resource is populated on the **Scripted REST Service** page.
+
+```
+(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+// implement resource here
+var reqData = request.body.dataString;
+var jData = new global.JSON().decode(reqData);
+var alertId = jData.alertId;
+var ruleName = jData.ruleName;
+if (ruleName.equalsIgnoreCase("test")) {
+// test webhook
+return;
+}
+var alertstatus = jData.status;
+var url = '[code]<a href="' + jData.url + '" target="_blank">View alert in Risk360</a>[/code]';
+var startTime = jData.startTime;
+var endTime = jData.endTime;
+var state;
+if (alertstatus == "STARTED" || alertstatus == "ONGOING")
+state = 2; // in progress
+else if (alertstatus == "ENDED_ON_RULE_DEL" || alertstatus == "ENDED_ON_RULE_MODIFY")
+state = 8; // cancelled
+else
+state = 6; // resolved
+var impact = 1;
+if (jData.severity == "High" || jData.severity == "Critical")
+impact = 1;
+else if (jData.severity == "Medium")
+impact = 2;
+else if (jData.severity == "Low")
+impact = 3;
+var gdt = new GlideDateTime();
+var criteria = jData.criteriaString;
+//based on type of alert cause
+var orgAlertCauses = [];
+var categoryAlertCauses = [];
+var factorgroupAlertCauses = [];
+var factorAlertCauses = [];
+// Manually iterate through the alert causes and categorize them
+for (var i = 0; i < jData.alert_causes.length; i++) {
+var cause = jData.alert_causes[i];
+if (cause.type === "Org") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+orgAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "Category") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+categoryAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "FactorGroup") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+factorgroupAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "Factor") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+factorAlertCauses.push({
+id: cause.id,
+status: status
+});
+}
+}
+// Initialize a string to hold the output
+var output = "";
+var numbering = 1;
+// Build the output string dynamically for "Org" type
+if (orgAlertCauses.length > 0) {
+output += numbering + ". Organization Level Change\n";
+for (var j = 0; j < orgAlertCauses.length; j++) {
+output += "\t. " + orgAlertCauses[j].id + " (" + orgAlertCauses[j].status + ")\n";
+}
+numbering++;
+}
+// Build the output string dynamically for "Category" type
+if (categoryAlertCauses.length > 0) {
+output += "\n" + numbering + ". Category Level Change\n";
+for (var k = 0; k < categoryAlertCauses.length; k++) {
+output += "\t. " + categoryAlertCauses[k].id + " (" + categoryAlertCauses[k].status + ")\n";
+}
+numbering++;
+}
+if (factorgroupAlertCauses.length > 0) {
+output += "\n" + numbering + ". Factor Group Level Change\n";
+for (var l = 0; l < factorgroupAlertCauses.length; l++) {
+output += "\t. " + factorgroupAlertCauses[l].id + " (" + factorgroupAlertCauses[l].status + ")\n";
+}
+numbering++;
+}
+if (factorAlertCauses.length > 0) {
+output += "\n" + numbering + ". Factor Level Change\n";
+for (var m = 0; m < factorAlertCauses.length; m++) {
+output += "\t. " + factorAlertCauses[m].id + " (" + factorAlertCauses[m].status + ")\n";
+}
+}
+if (jData.custom_msg == undefined || jData.custom_msg === null) {
+jData.custom_msg = "";
+}
+var desc = "";
+desc = "Rule Name: " + ruleName + "\n\nCriteria: \n" + criteria + "\n\nAlert Cause:\n" + output + "\nCustom Message:\n" + jData.custom_msg;
+var gr = new GlideRecord('incident');
+gr.addQuery('short_description', 'CONTAINS', alertId);
+gr.query();
+if (gr.next()) {
+gr.state = state;
+gr.impact = impact;
+if (state == 6) {
+gr.close_code = "Alert resolved";
+} else if (state == 8) {
+gr.close_code = "Rule deleted or modified";
+}
+gr.close_notes = " ";
+var sd = gr.short_description;
+gr.short_description = "Risk360 Alert " + alertId;
+gr.description = desc;
+gr.work_notes = url;
+gdt.setValue(startTime * 1000);
+gr.work_start = gdt.getDisplayValue();
+if (alertstatus == "STARTED" || alertstatus == "ONGOING") {
+gr.work_end = "";
+} else {
+gdt.setValue(endTime * 1000);
+gr.work_end = gdt.getDisplayValue();
+}
+//gr.caller_id = e9f176e2db54101087f7478239961941;
+gr.update();
+} else {
+gr.newRecord();
+if (state == 2) // in progress
+state = 1; // new
+gr.state = state;
+gr.impact = impact;
+if (state == 6) {
+gr.close_code = "Alert resolved";
+} else if (state == 8) {
+gr.close_code = "Rule deleted or modified";
+}
+gr.close_notes = " ";
+gr.short_description = "Risk360 Alert " + alertId;
+gr.description = desc;
+gr.work_notes = url;
+gdt.setValue(startTime * 1000);
+gr.work_start = gdt.getDisplayValue();
+if (alertstatus == "STARTED" || alertstatus == "ONGOING") {
+gr.work_end = "";
+} else {
+gdt.setValue(endTime * 1000);
+gr.work_end = gdt.getDisplayValue();
+}
+//gr.caller_id = e9f176e2db54101087f7478239961941;
+var result = gr.insert();
+}
+})(request, response);
+```
+
+```
+(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+// implement resource here
+var headers = request.headers;
+var authHeader = request.getHeader('authorization');
+var token = authHeader.split(" ");
+if (token[1] != gs.getProperty("risk.360.token"))
+response.setError(new sn_ws_err.BadRequestError('Bad token'));
+var reqData = request.body.dataString;
+var jData = new global.JSON().decode(reqData);
+var alertId = jData.alertId;
+var ruleName = jData.ruleName;
+if (ruleName.equalsIgnoreCase("test")) {
+// test webhook
+return;
+}
+var alertstatus = jData.status;
+var url = '[code]<a href="' + jData.url + '" target="_blank">View alert in Risk360</a>[/code]';
+var startTime = jData.startTime;
+var endTime = jData.endTime;
+var state;
+if (alertstatus == "STARTED" || alertstatus == "ONGOING")
+state = 2; // in progress
+else if (alertstatus == "ENDED_ON_RULE_DEL" || alertstatus == "ENDED_ON_RULE_MODIFY")
+state = 8; // cancelled
+else
+state = 6; // resolved
+var impact = 1;
+if (jData.severity == "High" || jData.severity == "Critical")
+impact = 1;
+else if (jData.severity == "Medium")
+impact = 2;
+else if (jData.severity == "Low")
+impact = 3;
+var gdt = new GlideDateTime();
+var criteria = jData.criteriaString;
+//based on type of alert cause
+var orgAlertCauses = [];
+var categoryAlertCauses = [];
+var factorgroupAlertCauses = [];
+var factorAlertCauses = [];
+// Manually iterate through the alert causes and categorize them
+for (var i = 0; i < jData.alert_causes.length; i++) {
+var cause = jData.alert_causes[i];
+if (cause.type === "Org") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+orgAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "Category") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+categoryAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "FactorGroup") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+factorgroupAlertCauses.push({
+id: cause.id,
+status: status
+});
+} else if (cause.type === "Factor") {
+var status;
+if (cause.prev < 0)
+prev = 0;
+if (cause.cur > cause.prev) {
+status = "Increase";
+} else if (cause.cur < cause.prev) {
+status = "Decrease";
+} else {
+status = "No Change";
+}
+factorAlertCauses.push({
+id: cause.id,
+status: status
+});
+}
+}
+// Initialize a string to hold the output
+var output = "";
+var numbering = 1;
+// Build the output string dynamically for "Org" type
+if (orgAlertCauses.length > 0) {
+output += numbering + ". Organization Level Change\n";
+for (var j = 0; j < orgAlertCauses.length; j++) {
+output += "\t. " + orgAlertCauses[j].id + " (" + orgAlertCauses[j].status + ")\n";
+}
+numbering++;
+}
+// Build the output string dynamically for "Category" type
+if (categoryAlertCauses.length > 0) {
+output += "\n" + numbering + ". Category Level Change\n";
+for (var k = 0; k < categoryAlertCauses.length; k++) {
+output += "\t. " + categoryAlertCauses[k].id + " (" + categoryAlertCauses[k].status + ")\n";
+}
+numbering++;
+}
+if (factorgroupAlertCauses.length > 0) {
+output += "\n" + numbering + ". Factor Group Level Change\n";
+for (var l = 0; l < factorgroupAlertCauses.length; l++) {
+output += "\t. " + factorgroupAlertCauses[l].id + " (" + factorgroupAlertCauses[l].status + ")\n";
+}
+numbering++;
+}
+if (factorAlertCauses.length > 0) {
+output += "\n" + numbering + ". Factor Level Change\n";
+for (var m = 0; m < factorAlertCauses.length; m++) {
+output += "\t. " + factorAlertCauses[m].id + " (" + factorAlertCauses[m].status + ")\n";
+}
+}
+if (jData.custom_msg == undefined || jData.custom_msg === null) {
+jData.custom_msg = "";
+}
+var desc = "";
+desc = "Rule Name: " + ruleName + "\n\nCriteria: \n" + criteria + "\n\nAlert Cause:\n" + output + "\nCustom Message:\n" + jData.custom_msg;
+var gr = new GlideRecord('incident');
+gr.addQuery('short_description', 'CONTAINS', alertId);
+gr.query();
+if (gr.next()) {
+gr.state = state;
+gr.impact = impact;
+if (state == 6) {
+gr.close_code = "Alert resolved";
+} else if (state == 8) {
+gr.close_code = "Rule deleted or modified";
+}
+gr.close_notes = " ";
+var sd = gr.short_description;
+gr.short_description = "Risk360 Alert " + alertId;
+gr.description = desc;
+gr.work_notes = url;
+gdt.setValue(startTime * 1000);
+gr.work_start = gdt.getDisplayValue();
+if (alertstatus == "STARTED" || alertstatus == "ONGOING") {
+gr.work_end = "";
+} else {
+gdt.setValue(endTime * 1000);
+gr.work_end = gdt.getDisplayValue();
+}
+//gr.caller_id = e9f176e2db54101087f7478239961941;
+gr.update();
+} else {
+gr.newRecord();
+if (state == 2) // in progress
+state = 1; // new
+gr.state = state;
+gr.impact = impact;
+if (state == 6) {
+gr.close_code = "Alert resolved";
+} else if (state == 8) {
+gr.close_code = "Rule deleted or modified";
+}
+gr.close_notes = " ";
+gr.short_description = "Risk360 Alert " + alertId;
+gr.description = desc;
+gr.work_notes = url;
+gdt.setValue(startTime * 1000);
+gr.work_start = gdt.getDisplayValue();
+if (alertstatus == "STARTED" || alertstatus == "ONGOING") {
+gr.work_end = "";
+} else {
+gdt.setValue(endTime * 1000);
+gr.work_end = gdt.getDisplayValue();
+}
+//gr.caller_id = e9f176e2db54101087f7478239961941;
+var result = gr.insert();
+}
+})(request, response);
+```
+
+[Image: Basic Authentication in ServiceNow]
+
+[Image: Create a Non-Admin User]
+
+Enter the **Username**and**Password** for the user in ServiceNow.
+
+Enter the same bearer token used in the script. A bearer token is a unique alphanumeric string used for authentication.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/risk360/step-step-configuration-guide-risk360","lastmod":"2026-06-03T22:18Z","nid":"1532608"} -->
 ## Step-by-Step Configuration Guide for Risk360
 
@@ -2545,6 +3648,32 @@ The alert email shows the following details:
 - **Customer Message**: The custom message specified when the rule was configured.
 
 Click **View Alerts in Risk360** to view further details in the Risk360 Admin Portal.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/understanding-alert-email-risk360","lastmod":"2026-10-14T00:13Z","nid":"1546781"} -->
+## Understanding Alert Email for Risk360
+
+- Source: https://help.zscaler.com/risk360/understanding-alert-email-risk360
+- Product: Risk360
+- Path: Risk360 Help > Alerts > Understanding Alert Email for Risk360
+- Last modified: 2026-10-14T00:13Z
+- Summary: Information about the alert email sent for Risk360 alerts.
+
+Alert notifications are sent via email if this option is chosen when configuring the alert rule. To learn more, see [Configuring an Alert Rule](https://help.zscaler.com/risk360/configuring-alert-rule).
+
+The alert email shows the following details:
+
+- **Alert Rule Name**: The name of the alert rule. Click the name of the alert rule to view further details in the Admin Portal.
+- **Alert Severity**: The level of severity for this alert rule. The severity is set when the rule is configured.
+- **Alert Criteria**: These are the criteria selected when the alert rule was configured. If one or more alert criteria are met, then it is highlighted.
+- **Started On**: This indicates the alert start time.
+- **Ended On**: The alert end time. If the alert end time has not ended, then it indicates Ongoing.
+- **Alert Cause**: The activity that triggered the criteria in the rule.
+- **Customer Message**: The custom message specified when the rule was configured.
+
+Click **View Alerts in Risk360** to view further details in the Admin Portal.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2679,6 +3808,494 @@ You can resize the Help Browser to expand videos, pictures, and content. When yo
 There are a variety of font sizes for the Help Browser. You can click the **Font** icons to increase or decrease the text size.
 
 **[Image: Screenshot showing the Font icons in the Help Browser]**
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-asset-level-risk","lastmod":"2026-10-13T23:45Z","nid":"1546768"} -->
+## Viewing Asset-Level Risk
+
+- Source: https://help.zscaler.com/risk360/viewing-asset-level-risk
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Viewing Asset-Level Risk
+- Last modified: 2026-10-13T23:45Z
+- Summary: Information about assets and their risk score significance in your organization's overall risk.
+
+Asset-level risk (Analytics > Risk360 > Assets) aggregates and visualizes the total number of assets in your organization, highlights risky assets, and further provides drill-downs on these risky assets to understand what's driving the risk. In progression to Risk360's organizational-level risk score representation, and over 100 factors that can drill down to show specific users and locations at risk, asset-level risk helps view the risk score assigned at the asset level. It facilitates the monitoring and remediation of risky assets.
+
+Zscaler’s asset-level risk scoring model considers more than 65 indicators that influence the risk score. The model accounts for the fact that not all indicators are equal; each indicator variably contributes to the risk score based on the severity and frequency of the associated threat. Hence, these indicators are separated into three major categories:
+
+- Pre-infection Behavior
+- Post-infection Behavior
+- Suspicious Behavior
+
+## Assets Page Widgets
+
+- Overview
+- Distribution of Assets by Authentication Status
+- Authenticated Assets
+- Risky Asset Inventory
+
+View your assets in the following ways:
+
+- Risk Score
+- Location
+
+The pie chart shows the percentage split between the number of authenticated and unauthenticated assets. The total number of assets is displayed at the center of the pie chart.
+
+See image.
+
+The chart shows the types of assets available in your organization's traffic with their count. This data is for authenticated assets only.
+
+See image.
+
+The table shows the top 1,000 risky asset details. For each asset, you can view the following information:
+
+- **Asset ID**: The unique ID assigned to the asset by the Zscaler service.
+- **Private IP Address**: The IP address of the asset.
+- **Egress IP Address**: The client's gateway IP address that sends the local network traffic to other networks on the internet.
+- **Username**: The user responsible or owns the asset.
+- **Asset Type**: The type of asset (iOS, Android OS, etc.).
+- **Authentication Status**: Indicates whether the asset is authenticated or not.
+- **Risk Score**: The risk score computed for the asset.
+- **Last Seen**: The time and date when the last activity was observed on the asset.
+- **Location**: The city where the asset is located. Displays Road Warrior if the asset isn't tied to a location. Click an asset row to view additional details about the risky assets on the [Asset Details](https://help.zscaler.com/unified/viewing-assets-risk) page. You can use the following operators for the table:
+  - Filter the data for specific Asset ID, Asset Type, or Location.
+  - Download the table data into a CSV file.
+  - Search for a specific asset using the asset ID.
+  - Use the arrows at the bottom of the table to go to the next page. You can also select the number of entries you want to view on a page.
+
+See image.
+
+The Location view shows all the assets in your organization spread across the globe. The map shows the country where the assets are located. Hover over the country to view the number of assets in them. The size of the bubble signifies the number of assets present, relative to other locations. The top-left of the section displays the number of assets with unknown locations.
+
+The **Top Risky Locations** section at the bottom-left displays the locations with the highest percentage of risky assets in descending order.
+
+See image.
+
+The Risk Score view displays a three-dimensional graph with the Risk Score, Asset Count, and Days. This helps you analyze the number of assets under each severity for a select date:
+
+- Each risk severity is highlighted with a unique color code:
+  - No Risk (0–1)
+  - Low (>1–25)
+  - Medium (>25–50)
+  - High (>50–75)
+  - Critical (>75–100)
+- Your organization's total number of assets is displayed at the top of the section.
+- You can view the data for specific severities using the severity checkboxes.
+- Hover over the severity dots in the graph to view the number of assets under specific severity for that day. This helps you view the number of assets under each severity for a particular date.
+- You can left-click, hold the mouse, and then move the graph to the position in which you want to view the data. Click **Reset Chart Position**to set the graph to its original position.
+- You can use your mouse scroll to increase or decrease the size of the graph.
+
+See image.
+
+[Image: Assets Page: Risk Score View]
+
+[Image: Location View]
+
+Pre-infection behavior indicators encompass a range of blocked actions that could lead to an asset infection, such as blocked malware, known and suspected malicious URLs, phishing sites, pages with browser exploits, and more. Some sample indicators for asset risk scoring include:
+
+- Malware blocked by Zscaler’s Advanced Threat Protection or inline Sandbox
+- Blocked known and suspected malicious URLs
+- Blocked websites with known and suspected phishing content
+- Blocked pages with known browser exploits
+- Blocked known and suspected adware and spyware
+- Blocked pages with a high PageRisk score
+- Quarantined pages
+- Blocked files with known vulnerabilities
+- Blocked emails containing viruses
+- Detected mobile app vulnerabilities
+
+Post-infection behavior indicators include a range of blocked actions that are attempted after an asset is infected. Some sample indicators for asset risk scoring include:
+
+- Botnet traffic
+- Command-and-control traffic
+
+Suspicious behavior indicators are similar to pre-infection indicators, with less severity and less guarantee of leading to infection. This includes policy violations, risky activities like browsing deny-listed URLs, DLP compliance violations, and anonymizing sites that could lead to an infected asset. Some sample indicators for asset risk scoring include:
+
+- URLs that are denylisted
+- DLP compliance violations
+- Pages with known dangerous ActiveX controls
+- Pages vulnerable to cross-site scripting attacks
+- Possible browser cookie theft
+- Internet Relay Chat (IRC) tunneling use
+- Anonymizing sites
+- Blocks or warnings from secure browsing about an outdated/disallowed component
+- Peer-to-peer (P2P) site denials
+- Webspam sites
+- Attempts to browse blocked URL categories
+- Mobile app issues that include denial of the mobile app, insecure user credentials, location information leaks, personally identifiable information (PII), information identifying the asset, or communication with unknown servers.
+- Tunnel blocks
+- Fake proxy authentication
+- SMTP (email) issues including rejected password-encrypted attachments, unscannable attachments, detected or suspected spam, rejected recipients, DLP blocks or quarantines, and blocked attachments.
+- IPS blocks of cryptomining & blockchain traffic
+- Reputation-based blocks of suspected adware/spyware sites
+- Disallowed use of a DNS-over-HTTPS site
+
+[Image: Authenticated Assets Section]
+
+[Image: Distribution of Assets by Authentication Status Section]
+
+[Image: Risky Asset Inventory Section]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-assets-risk","lastmod":"2026-10-13T23:46Z","nid":"1546769"} -->
+## Viewing an Asset's Risk
+
+- Source: https://help.zscaler.com/risk360/viewing-assets-risk
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Viewing an Asset's Risk
+- Last modified: 2026-10-13T23:46Z
+- Summary: Information on analyzing risk for an asset in the Admin Portal.
+
+When you click an asset on the [Assets](https://help.zscaler.com/risk360/viewing-asset-level-risk) page (Analytics > Risk360 > Assets), you are redirected to the Asset Details page where you can view the asset's risk score, its risk score trend, location, events that contributed to the risk score change, metadata information, etc. Asset-level risk monitoring is vital in maintaining a healthy risk score and protecting your organization from various security incidents specific to the asset type, location, user, and other parameters that malicious actors can potentially target.
+
+## Asset Risk Widgets
+
+- Asset Risk Score
+- Asset Risk Score Trend
+- Asset Details
+- Asset Location
+- Events Contributing to Risk Score for Last 7 Days
+
+This section shows the Zscaler-computed risk score for the asset. The following severities appear for the score ranges:
+
+- Low (1–25)
+- Medium (26–50)
+- High (51–75)
+- Critical (76–100)
+
+See image.
+
+The graph shows the Zscaler-computed risk score trend. Hover over a point in the graph to view the risk score for that date.
+
+See image.
+
+This section shows the following metadata for the asset:
+
+- **Asset ID**: The unique ID assigned to the asset by the Zscaler service.
+- **Username**: The name of the user with whom the asset is associated.
+- **Private IP**: The IP address of the asset.
+- **Egress IP**: The gateway IP address that sends the local network traffic to other networks on the internet.
+- **Location**: The location ID assigned to the asset's workplace. Displays Road Warrior if the asset isn't tied to a location.
+- **Department**: The department to which the asset belongs.
+- **Asset Type**: The type of asset (iOS, Android OS, etc.).
+- **Last Seen**: The time and date when the last activity was observed on the asset.
+- **Authentication Status**: Indicates whether the asset is authenticated or not.
+- **Enrolled Device Type Version**: The Zscaler Client Connector version installed on the asset.
+- **Device Hostname**: The unique ID assigned to the asset to identify it on the internet.
+- **OS Type**: The asset's operating system.
+- **OS Version**: The operating system version information.
+
+See image.
+
+This section shows where the asset is located on the map. Hover over the asset to view the city and country information.
+
+See image.
+
+This section lists the top events observed within the last 7 days that have contributed to the risk score change of the asset. These events are listed in ascending order with the timestamp. For each event, you can view the:
+
+- Threat Category
+- Threat Name
+- URL Category
+- URL Name
+
+You can click the **Export**icon () to download the risky events to a CSV file and click **View All Events** to view all the risky events in a drawer.
+
+See image.
+
+[Image: Asset Risk Score]
+
+[Image: Asset Risk Score Trend]
+
+[Image: Asset Details]
+
+[Image: Asset Location]
+
+[Image: Events Contributing to Risk for Last 7 Days Section]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-financial-risk","lastmod":"2026-10-13T23:58Z","nid":"1546774"} -->
+## Viewing Financial Risk
+
+- Source: https://help.zscaler.com/risk360/viewing-financial-risk
+- Product: Risk360
+- Path: Risk360 Help > Financial Risk > Viewing Financial Risk
+- Last modified: 2026-10-13T23:58Z
+- Summary: Information on the financial factors affecting your organization financially in the Admin Portal.
+
+The Financial Risk page (Analytics > Risk360 > Financial Risk) gives visibility into your organization's potential financial loss exposure for your current risk score. You can also analyze the factors affecting financial loss exposure and view the loss curve over time to take appropriate actions to mitigate your organization's financial risks.
+
+## Filtering
+
+1. **Settings**: You can manage the financial risk calculation parameters. To learn more, see [Managing Financial Risk Settings](https://help.zscaler.com/risk360/managing-financial-risk-settings).
+2. Download the complete list of factors affecting the financial risk to a CSV file.
+
+## Financial Risk Page Widgets
+
+- Financial Summary
+- Loss Curve
+- Top 10 Financial Contributing Factors
+
+View our organization's risk score-based financial exposure and the exposure without Zscaler. The section also provides an estimate of how much of this financial risk exposure can be reduced by implementing the recommended actions from the Top 10 Financial Contributing Factors section.
+
+See image.
+
+The graph shows the loss estimate change over the last 6 months.
+
+See image.
+
+View the top 10 factors contributing to your organization's financial risk exposure. For each factor, you can see:
+
+- **Financial Exposure**: The financial loss estimate is in US dollars.
+- **Factor Name**: The name of the contributing factor affecting the risk exposure.
+- **Category**: The category the factor falls under.
+- **Your Score**: The total score assigned to the factor and your score based on the configuration (0 being a healthy score). The total score for a factor depends on its severity.
+- **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+- **Recommended Actions**: The recommended action that needs implementation to reduce your financial risk exposure.
+
+Click on a financial contributing factor; you are redirected to the [Factors](https://help.zscaler.com/risk360/viewing-risk360-dashboard) page where you can see all the factors and analyze them.
+
+See image.
+
+[Image: Financial Summary Section]
+
+[Image: Loss Curve Section]
+
+[Image: Top 10 Financial Contributing Factors Section]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk-factors","lastmod":"2026-10-13T23:36Z","nid":"1546764"} -->
+## Viewing Risk Factors
+
+- Source: https://help.zscaler.com/risk360/viewing-risk-factors
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Viewing Risk Factors
+- Last modified: 2026-10-13T23:36Z
+- Summary: Information about the factors affecting your risk score in the Admin Portal.
+
+The Factors page (Analytics > Risk360 > Factors) shows the list of contributing factors that are affecting your organization's risk score. The Risk360 service quantifies each factor according to its risk weight, which then adds to your overall organization risk score and also maps these factors to various renowned risk and security frameworks like MITRE, NIST, etc.
+
+## Contributing Factors to Organizational Risk Score
+
+From the top right of the page, you can select how you want to view the page. Based on your selection, the page updates to the following views:
+
+- Attack-Based
+- Entity-Based
+
+The attack view shows the factors in a single list.
+
+In this view, you can:
+
+1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
+2. Switch to the entity-based view (**Tree View**).
+3. View the category-based risk score for your organization.
+4. Search for a factor.
+5. View a list of all the contributing factors to your organization's risk score. For each factor, you can see:
+  - **Factor Name**: The name of the contributing factor affecting the risk score.
+  - **Category**: The category the factor falls under.
+  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+  - **Last 30 Days**: The graph showing the last 30-day score trend for that factor.
+  - **Entities**: The entities affected by the factor.
+  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+  - **Recommended Actions**: The recommended action proposed to attain a healthy risk score. Click on any of the columns (except Licensed?, Include, and Entities) to view more information about the factor in the drawer view:
+    - Drawer
+6. Disable this option to remove the factor from risk score computation by providing an explanation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes made by the admin are captured in the [audit logs](https://help.zscaler.com/risk360/about-risk360-audit-logs) with the username and reason provided for the change. See image.
+
+[Image: Contributing Factors to Organizational Risk Score]
+
+The drawer consists of the following tabs:
+
+### Details
+
+On the Details tab, you can view the following information:
+
+- The name of the factor.
+- **Severity**: The severity of the factor.
+- **Recommended Actions**: The recommended action proposed to attain a healthy risk score.
+- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the Zscaler service's admin portal that is responsible for the factor, if available.
+- **Related Recommendation Cards**: The related discovered problems and their recommendations.
+
+Each problem or factor affecting your organization's risk is visualized in the form of Cards on the Insights Page.
+
+[Image: The Drawer view for the factors in the Risk360 Portal]
+
+### Compliance
+
+On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. Click on the control ID; you're redirected to the framework's website where the control IDs are explained in detail.
+
+[Image: Compliance tab in the Factors tab]
+
+The entity-based view shows the factors listed within their category.
+
+In this view, you can:
+
+1. Export the factors contributing to your organization's risk score into a CSV file. The downloaded file shows all the factors contributing to your organization's risk score, irrespective of any filter selected at the time of the download.
+2. Switch to the attack-based view (**List View**).
+3. Filter factors for specific entities by clicking the entity tiles. To deselect an entity, click on it again.
+4. View the contributing factors to your organization's risk score. For each factor, you can see:
+  - **Factor Name**: The name of the contributing factor affecting the risk score.
+  - **Recommended Actions**: The recommended action proposed to attain a healthy risk score.
+  - **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+  - **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+  - **Last 30 Days**: The graph shows the last 30-day score trend for the factor.
+  - **Include**: Whether the factor is enabled for risk score computation. Click on any of the columns (except Licensed? and Include) to view more information about the factor in the drawer view:
+    - Drawer
+5. Disable this option to remove the factor from risk score computation by providing an explanation. By default, this option is enabled for all factors. You can exclude a factor if you have a compensating control over the factor or any other reason. Compensating controls are supplementary security measures that are implemented to protect against identified risks or threats (e.g., multi-factor authentication, firewalls, antivirus software). The changes made by the admin are captured in the [audit logs](https://help.zscaler.com/risk360/about-risk360-audit-logs) with the username and reason provided for the change. See image.
+6. Show or hide the factors for a specific category.
+
+The drawer consists of the following tabs:
+
+### Details
+
+On the Details tab, you can view the following information:
+
+- The name of the factor.
+- **Severity**: The severity of the factor.
+- **Recommended Actions**: The recommended action proposed to attain a healthy risk score.
+- **Description**: Detailed information about the factor, useful help article links, and a link that redirects you to the Zscaler service's admin portal that is responsible for the factor, if available.
+- **Related Recommendation Cards**: The related discovered problems and their recommendations.
+
+[Image: The Drawer view for the factors in the Risk360 Portal]
+
+### Compliance
+
+On the Compliance tab, you can view a list of recognized cybersecurity frameworks and their control IDs mapped to the factor. Click on the control ID; you're redirected to the framework's website where the control IDs are explained in detail.
+
+[Image: Compliance tab in the drawer]
+
+[Image: Factor Override Note WIndow]
+
+[Image: Factor Override Note WIndow]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk-insights","lastmod":"2026-10-13T23:38Z","nid":"1546765"} -->
+## Viewing Risk Insights
+
+- Source: https://help.zscaler.com/risk360/viewing-risk-insights
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Viewing Risk Insights
+- Last modified: 2026-10-13T23:38Z
+- Summary: Information on Risk360 Insights, the different types of problems causing higher risk scores and further analyze them with interactive widgets.
+
+The Insights page (Analytics > Risk360 > Insights) gives visibility into your organization's current risks and vulnerabilities. The page keeps updating in real time with the latest risks and recommendations discovered within your Zscaler environment.
+
+## Viewing Insights
+
+- View the category-based risk score for your organization at the top of the page.
+- View a list of all problems discovered by the Risk360 service. For each problem, you can see the following information:
+  - The problem title, its category, and the day it was generated.
+  - **Problem**: The statement explaining the problem.
+  - **Recommendation**: The recommendation to remediate the problem.
+  - **Trend**: The section shows the problem trend (if applicable).
+- Analyze the problem further using the Explore link. To learn more, see [Exploring Risk Problems](https://help.zscaler.com/risk360/exploring-risk-problems).
+
+See image.
+
+[Image: Inisghts page showing problem cards]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk360-dashboard","lastmod":"2026-10-13T23:32Z","nid":"1546763"} -->
+## Viewing the Risk360 Dashboard
+
+- Source: https://help.zscaler.com/risk360/viewing-risk360-dashboard
+- Product: Risk360
+- Path: Risk360 Help > Dashboard & Analytics > Viewing the Risk360 Dashboard
+- Last modified: 2026-10-13T23:32Z
+- Summary: Information on the Risk360 dashboard and widgets accessible within the Admin Portal.
+
+The Risk360 Dashboard (Analytics > Risk360) gives visibility and insight into your organization's risk score, contributed by various underlying factors such as exposed servers, recent malware outbreaks, segmentation posture, and data uploads to risky applications. Zscaler's architecture quantifies these events across 4 major categories, such as exposure of attack surfaces, asset compromise, lateral propagation, and sensitive data loss. You can study how your organization's risk score has changed over time and compare your score against industry peers. Different risk factors bear different weights on the score. For example, an active infection is more severe than a blocked access attempt to a blocked destination.
+
+## Dashboard Widgets
+
+- Organization Risk Score
+- Risk Score Trend
+- Risk Event by Location
+- Contributing Factors by Entity
+- Top 10 Factors
+- High Impact Recommendations
+
+The section shows the Zscaler-computed risk score for your organization and the industry peer average risk score. Your organization's risk score is an average risk score across 4 categories, i.e., External Attack Surface, Compromise, Lateral Propagation, and Data Loss. You can study how the risk score has changed over time and compare your score against your industry peers. The following severities appear for the score ranges:
+
+- Low (0–25)
+- Medium (26–50)
+- High (51–75)
+- Critical (76–100)
+
+Hover over the dollar symbol to view the financial risk estimates. You can click **View Details**to further analyze it; you are redirected to the [Financial Risk](https://help.zscaler.com/risk360/viewing-financial-risk) page.
+
+See image.
+
+The graph shows the Zscaler-computed and industry peer average risk score trend for the last 90 days. Hover over a point in the graph to view the risk score for that date. You can select to view the risk trend for a specific risk score type by using the checkboxes at the bottom of the graph.
+
+See image.
+
+Click **Key Events** to view significant events that contributed to your risk score in an enlarged view.
+
+- Enlarged View
+
+The map shows a category-based number of risky events from geolocation coordinates derived by looking at the client or server IP. As geo-IP lookups are only possible for a subset of overall risky events, the location visualizations represent a small fraction of overall risky events, but the map view allows you to visualize the geospatial distribution of risky events wherever possible. Hover over a location to view the number of risky events across each category. Use the mouse to drag within the maps or zoom in (+) and out (-). The bottom left of the section shows the top risky locations with the percentage of risky events in descending order.
+
+See image.
+
+This section shows the total number of contributing factors from each entity. The circle chart shows the segregation across each category affected by these factors:
+
+- **Workforce**: The factors contributing to the risk score due to risky user activity.
+- **3rd Parties**: The factors contributing to the risk score due to activities by 3rd-party users (e.g., contract workers).
+- **Applications**: The factors contributing to the risk score due to the usage of unsanctioned or less secure SaaS applications.
+- **Assets**: The factors contributing to the risk score due to exposed organizational assets.
+
+Hover over the circle chart to view the number of factors from each category and the percentage contribution to the total number of factors in that entity. You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360//viewing-risk-factors) page.
+
+See image.
+
+View top 10 factors contributing to your organization's risk score. For each factor, you can view the following information:
+
+- **Category**: The category the factor falls under.
+- **Factor Name**: The name of the contributing factor affecting the risk score.
+- **Your Score**: The score for the contributing factor. The total score for a factor depends on its severity (0 being a healthy score).
+- **Last 30 Days**: The graph showing the last 30-day score trend for that factor.
+- **Entities**: The entities affected by the factor.
+- **Licensed?**: Whether you are subscribed to the required feature to implement the recommended action (**Y** for Yes and **N** for No).
+- **Recommended Actions**: The recommended action required to lower the risk score.
+
+You can click **View All**to further analyze it; you are redirected to the[Factors](https://help.zscaler.com/risk360//viewing-risk-factors) page.
+
+See image.
+
+The section shows top factors with high impact on your risk score and the recommendation to lower your organization's risk score. Each recommendation consists of the category name, the day it was discovered, the consequence of not implementing the recommendation, and the trend (if applicable). You can click **Explore**to further analyze a particular recommendation or click **View All** to view the list of all the recommended actions; you are redirected to the [Insights](https://help.zscaler.com/risk360/viewing-risk-insights) page.
+
+See image.
+
+The **Risk Score Trend** graph shows the top 10 events impacting the risk score. Hover over an event to view the change in the risk score because of the event and the list of contributing [factors](https://help.zscaler.com/risk360//viewing-risk-factors) within the event.
+
+The **Top 10 Events** section lists the top 10 events observed within the last 90 days. These events are numbered in the order of their occurrence. Click **View All Events** to go to the [Score Change Log](https://help.zscaler.com/risk360/viewing-risk360-score-change-logs) page, where you can view *all* the events that contributed to the risk score change in detail.
+
+See image.
+
+[Image: Enlarged-View]
+
+[Image: Organization Risk Score Section]
+
+[Image: Risk Score Trend Section]
+
+[Image: Risk Events by Location Section]
+
+[Image: Contributing Factors by Entity Section]
+
+[Image: Top 10 Factors Section]
+
+[Image: High Impact Recommendations Section]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4922,6 +6539,119 @@ Set the Cloud Provider drop-down menu filters and specifications. Select the clo
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-falcon-insights-connector","lastmod":"2026-10-16T10:50Z","nid":"1546630"} -->
+## Configuring the CrowdStrike Falcon Insights Connector
+
+- Source: https://help.zscaler.com/uvm/configuring-crowdstrike-falcon-insights-connector
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the CrowdStrike Falcon Insights Connector
+- Last modified: 2026-10-16T10:50Z
+- Summary: How to configure the CrowdStrike Falcon Insights connector, including setting up authentication and data retrieval filters and specifications.
+
+The CrowdStrike Falcon Insights connector integrates with your CrowdStrike platform to retrieve raw telemetry, system events, and alerts for use within the Agentic SOC application in the Agentic Security Operations Platform (Agentic SecOps Platform). This allows Agentic SOC to detect and respond to endpoint-based threats, including malware, ransomware, and credential theft.
+
+## Prerequisites
+
+To configure the CrowdStrike Falcon Insights connector, ensure that you have active Internet & SaaS (ZIA) and Agentic SOC accounts. You also need an active Falcon Data Replicator add-on subscription from CrowdStrike and the source authentication configuration. To create the API keys and Falcon Data Replicator feed, you need to have a Falcon Administrator role or be assigned the correct permissions.
+
+The following parameters are required:
+
+- Falcon Data Replicator Feed Client ID, Secret, and Notifications URL
+- API Client ID and Secret
+
+Falcon Data Replicator forwards your CrowdStrike data to an S3 bucket.
+
+To create a Falcon Data Replicator feed:
+
+1. Log in to the CrowdStrike console.
+2. Go to **Menu** > **Support and resources**> **Falcon data replicator**.
+3. Click **Create feed**. The **Create feed** window appears.
+4. In the **Create feed** window:
+  1. **Feed name**: Enter a name.
+  2. **Feed**: Enable to activate the feed.
+5. Click **Next**.
+6. Review the feed's default settings. Changing the default settings can result in Agentic SOC not having the necessary data to make proper threat analysis, limiting its ability to protect your environment.
+7. Click **Create feed**.
+8. Copy the client ID, secret, and notifications URL to be used in the connector setup process. Save the secret securely as you cannot copy or view it later.
+
+To learn more, refer to the [CrowdStrike documentation](https://docs.crowdstrike.com/r/en-US/pclqa2q2/h1a78ba6).
+
+To generate the API client ID and secret:
+
+1. Log in to the CrowdStrike console.
+2. Go to **Menu** > **Support and resources** > **Client Management**.
+3. Click **Create API client**. The **Create API client** window appears.
+4. In the **Create API client**window:
+  1. **Client Name**: Enter a name.
+  2. **Description**: Enter a description.
+  3. In the **Scope** table, set the following permissions:
+    1. **Alerts**: Read and Write
+    2. **Detections**: Read and Write
+    3. **Hosts**: Read and Write
+    4. **Host Groups**: Read
+    5. **NGSIEM**: Read and Write
+    6. **Threatgraph**: Read
+5. Click **Create**.
+6. Copy the client ID and secret to be used in the connector setup process. Save the secret securely as you cannot copy or view it later.
+
+To learn more, refer to the [CrowdStrike documentation](https://docs.crowdstrike.com/r/en-US/g6auvcg3/g56aa040).
+
+To learn more, see [Zscaler and CrowdStrike Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide).
+
+## Configuring the Connector
+
+To create the CrowdStrike Falcon Insights data source in the Agentic SecOps Platform:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Click **Create**. The **Create New Data Source** page appears.
+4. On the **Create New Data Source** page, search for and select the **CrowdStrike Falcon Insights** connector tile from the available data sources. See image.
+
+[Image: CrowdStrike Falcon Insights connector tile]
+
+### Configuring Retrieval Filters and Specifications
+
+After you create the CrowdStrike Falcon Insights data source, enter the following information in the source setup Retrieval section:
+
+- Authentication
+- CID
+- FDR Notification URL
+- FDR Client ID
+- Cloud Region
+
+1. In the **Authentication** section, click **Create New**. The **CrowdStrike FDR Authentication**window appears.
+2. In the**CrowdStrike FDR Authentication** window, enter the information from the Prerequisites section. See image.
+3. Click **Create**. After the data source is saved, you can't change its authentication. To use a different authentication, delete the existing data source and create a new one.
+
+To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations) and [Managing Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations).
+
+To find your Customer ID (CID) in CrowdStrike:
+
+1. Log in to the CrowdStrike console.
+2. Click the user icon, then click your email address. The **User** **profile** page appears. The CID details are displayed at the bottom of the page.
+
+Agentic SOC supports multi-CID accounts where each CID has its own FDR feed and S3 bucket. Because of the CrowdStrike integration technical requirements, Agentic SOC cannot support an aggregated Falcon Data Replicator feed for multi-CID accounts. You must create new CrowdStrike Falcon Insight connectors for each CID you want to integrate.
+
+Enter the information from the Prerequisites section.
+
+Enter the information from the Prerequisites section.
+
+You can specify your CrowdStrike cloud region and corresponding base URL from the Cloud Region drop-down menu. The supported CrowdStrike cloud regions and their corresponding base URLs are listed in the following table.
+
+| **Region** | **Base URL** |
+| --- | --- |
+| US1 | `https://api.crowdstrike.com` |
+| US2 | `https://api.us-2.crowdstrike.com` |
+| EU1 | `https://api.eu-1.crowdstrike.com` |
+| USGOV1 | `https://api.laggar.gcw.crowdstrike.com` |
+
+[Image: CrowdStrike FDR Authentication window]
+
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-crowdstrike-identity-protection-connector","lastmod":"2026-08-18T01:49Z","nid":"1530837"} -->
 ## Configuring the CrowdStrike Identity Protection Connector
 
@@ -6423,7 +8153,7 @@ Use the App ID, Installation ID, private key (PEM), and organization when creati
 
 ## Configuring the Connector
 
-To create the GitHub Repositories data source in the Security Operations Platform (SecOps Platform):
+To create the GitHub Repositories data source in the Agentic Security Operations Platform (SecOps Platform):
 
 1. Go to **Configure** > **Sources**.
 2. Click **Create**.
@@ -8653,13 +10383,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-okta-workforce-identity-connector","lastmod":"2026-10-05T07:48Z","nid":"1546010"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-okta-workforce-identity-connector","lastmod":"2026-10-15T08:06Z","nid":"1546010"} -->
 ## Configuring the Okta Workforce Identity Connector
 
 - Source: https://help.zscaler.com/uvm/configuring-okta-workforce-identity-connector
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Okta Workforce Identity Connector
-- Last modified: 2026-10-05T07:48Z
+- Last modified: 2026-10-15T08:06Z
 - Summary: How to configure the Okta Workforce Identity connector.
 
 The Okta Workforce Identity connector integrates with your Okta platform to retrieve crucial identity and device data for use within the Agentic SOC application in the Agentic Security Operations Platform (Agentic SecOps Platform). This allows Agentic SOC to detect and respond to identity-based threats, including credential compromise. It retrieves system log activity (e.g., application, device, group, system, user authentication, user lifecycle, user multi-factor authentication (MFA), and zone activity) from Okta as telemetry and analyzes this data for suspicious activity.

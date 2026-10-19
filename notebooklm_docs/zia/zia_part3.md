@@ -1,8 +1,166 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 98
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 101
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-06-23T06:49Z","nid":"1401471"} -->
+## Adding TCP NSS Feeds for SaaS Security Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
+- Last modified: 2026-06-23T06:49Z
+- Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
+
+You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
+
+Before you start configuring a feed for SaaS Security logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for SaaS Security logs:
+
+1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination:
+    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
+  - **Log Type**:Choose **SaaS Security**.
+  - **Application Category**: Choose an application category to limit the data to a specific category:
+    - **Collaboration**
+      - Microsoft Teams
+      - Slack
+      - Webex Teams
+      - Zoom
+    - **CRM**
+      - Salesforce
+      - Microsoft Dynamics 365
+    - **Email**
+      - Gmail
+      - Microsoft Exchange
+    - **File**
+      - Box
+      - Citrix ShareFile
+      - Confluence
+      - Dropbox
+      - Google Drive
+      - Microsoft OneDrive
+      - Microsoft SharePoint
+      - Smartsheet
+    - **Gen AI**
+      - ChatGPT
+    - **ITSM**
+      - Jira Software
+      - ServiceNow
+    - **Public Cloud Storage**
+      - Amazon S3
+      - Google Cloud Platform
+      - Microsoft Azure
+    - **Repository**
+      - Bitbucket
+      - GitHub
+      - GitLab
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM can parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that are displayed in the output. Edit the default list. If you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SaaS Security Logs](https://help.zscaler.com/zia/nss-feed-output-format-saas-security-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Action
+  - Who
+  - Collaboration
+  - CRM
+  - Email
+  - File
+  - ITSM
+  - Public Cloud Storage
+  - Repository
+  - DLP
+  - Malware
+  - Application
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Policy Type**: Filter logs based on the specific policy type. You can specify multiple policies. By default, the **DLP** and **Malware** policy types are not selected. Therefore, all incidents and violations with or without a rule name are exported through the NSS. You must explicitly select **DLP** and **Malware** policy types from the list to export only the incidents with valid rule names through the NSS.
+- **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
+- **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet & SaaS (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
+  - **Any**: Any type of event in the scan.
+  - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
+  - **Scan**: No violation was detected in the scan. The scan is considered normal.
+  - **Violation**: A violation was detected in the scan (i.e., either a DLP engine was matched or malware was detected.)
+
+- **User**: Filter logs to specific users that generated transactions. You can search for users by username or email address. There's no limit to the number of users that you can select. Users that are deleted after they are selected appear with a strikethrough line.
+- **Departments**: Filter logs to specific departments that generated transactions. You can search for departments. There's no limit to the number of departments that you can select. Departments that are deleted after they are selected appear with a strikethrough line.
+
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific recipients within your organization. Multiple selections are allowed.
+- **Channel Name**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type.
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **Message Size**: Filter logs by the size of the email message.
+- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
+- **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
+
+- **DLP Engines**: Filter logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
+- **DLP Dictionaries**: Filter logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
+- **Severity**: Choose the severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+
+- **Malware Classes**: Filter logs based on the specific malware class. You can specify multiple malware classes.
+- **Malware Names**: Filter logs based on the specific malware names. You can specify multiple malware names.
+- **Threat Name**: Filter logs based on specific threats that were detected. You can specify multiple threat names separated by commas.
+
+- **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
+- **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -304,13 +462,13 @@ To configure a TCP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-09-28T21:15Z","nid":"1401746"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tenant-profiles","lastmod":"2026-10-16T05:42Z","nid":"1401746"} -->
 ## Adding Tenant Profiles
 
 - Source: https://help.zscaler.com/zia/adding-tenant-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Tenant Restriction > Adding Tenant Profiles
-- Last modified: 2026-09-28T21:15Z
+- Last modified: 2026-10-16T05:42Z
 - Summary: Information on how to add a tenant profile in the Zscaler Admin Console.
 
 Zscaler's tenancy restriction feature allows you to restrict access either to personal accounts, business accounts, or both for certain cloud applications. The feature consists of two parts: creating [tenant profiles](https://help.zscaler.com/zia/about-tenant-profiles) and associating the profiles with the [Cloud App Control policy rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy).
@@ -323,6 +481,7 @@ To add a tenant profile:
   - Amazon Web Services
   - ChatGPT
   - Claude
+  - Docusign
   - Dropbox
   - GitHub
   - Google
@@ -591,6 +750,14 @@ The service intercepts requests related to Claude (claude.ai and claude.com) and
 
 To learn more about associating Claude tenant profiles with the Cloud App Control policy rule, see [Adding an AI & ML Applications Rule for Cloud App Control](https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control).
 
+To configure a tenant profile for Docusign, in the **Account ID for Docusign** field, enter the account ID (e.g., `39zyx869-df2d-4zyx-b64d-573111wzyx06`) associated with the X-Docusign-Allow-Organization header for Docusign and click **Add Items**. To learn more, refer to the [Docusign documentation](https://support.docusign.com/s/document-item?language=en_US&bundleId=rrf1583359212854&topicId=mee1606866850692.html&_LANG=enus).
+
+To enter multiple entries, press `Enter` after each entry, then click **Add Items**. You can add up to 16 account IDs per profile. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). For item lists, you can filter the list by searching for a word, phrase, or number contained in an item, and you can remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+The service intercepts requests related to docusign.com or docusign.net and adds the HTTP header X-Docusign-Allow-Organization (values of the **Account ID for Docusign** field).
+
+To learn more about associating Docusign tenant profiles with the Cloud App Control policy rule, see [Adding a Productivity & CRM Tools Rule for Cloud App Control](https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control).
+
 [Image: Add Tenant Profile drawer]
 <!-- /ZS-ARTICLE -->
 
@@ -691,13 +858,13 @@ To learn how this policy fits into the overall order of policy enforcement, see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-users","lastmod":"2026-10-01T11:53Z","nid":"1398816"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-users","lastmod":"2026-10-15T21:06Z","nid":"1398816"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/zia/adding-users
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Adding Users
-- Last modified: 2026-10-01T11:53Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add user accounts in the ZIA Admin Portal.
 
 [Watch a video about User Management, including how to add a user](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -795,22 +962,22 @@ To add a Virtual Service Edge instance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-vpn-credentials","lastmod":"2026-09-23T23:34Z","nid":"1399486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-vpn-credentials","lastmod":"2026-10-12T05:58Z","nid":"1399486"} -->
 ## Adding VPN Credentials
 
 - Source: https://help.zscaler.com/zia/adding-vpn-credentials
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Adding VPN Credentials
-- Last modified: 2026-09-23T23:34Z
+- Last modified: 2026-10-12T05:58Z
 - Summary: How to add VPN credentials when configuring an IPSec VPN tunnel for the Zscaler service.
 
-Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel). You can add up to 16,000 credentials. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). You can also add or remove multiple VPN credentials by [importing a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
+Configuring a VPN credential is one of the tasks you must complete when [configuring an IPSec VPN tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel). You can add up to 16,000 credentials. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). You can also add or remove multiple VPN credentials by [importing VPN credentials from a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
 
 To add a VPN credential:
 
-1. Go to **Infrastructure > Location Management > VPN Credentials**.
-2. Click **Add VPN Credential**. The **Add VPN Credential** drawer appears. See Image.
-3. Choose the **Application Type**that is used to identify the peer, and configure it accordingly: You can edit or delete an existing XAUTH VPN credential from the Zscaler Admin Console. However, you cannot add a new XAUTH VPN credential.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > VPN Credentials**.
+2. Click **Add VPN Credential**. The **Add VPN Credential** drawer appears. See image.
+3. Choose the **Authentication Type**that is used to identify the peer, and configure it accordingly: You can edit or delete an existing XAUTH VPN credential from the Zscaler Admin Console. However, you cannot add a new XAUTH VPN credential.
   - FQDN
   - IP
 4. Click the **Status**to enable or disable the VPN credential.
@@ -827,7 +994,7 @@ To add a VPN credential:
   - **Confirm Post-Quantum Pre-Shared Key (PPK)**: Re-enter the post-quantum pre-shared key (PPK).
 - **Comments**: (Optional) Enter additional notes or information.
 
-See Image.
+See image.
 
 - **VPN Credentials**:
   - **IP Address**: Choose the IP address of your local gateway. The static IP addresses that appear in the drop-down menu are the addresses that are provisioned for your organization. To learn more, see [Self-Provisioning of Static IP Addresses](https://help.zscaler.com/zia/self-provisioning-static-ip-addresses). If you want Zscaler to provision your static IP addresses, submit them to Zscaler Support so that they can be properly added to the menu under **IP Address**.
@@ -839,9 +1006,9 @@ See Image.
   - **Confirm Post-Quantum Pre-Shared Key (PPK)**: Re-enter the post-quantum pre-shared key (PPK).
 - **Comments**: (Optional) Enter additional notes or information.
 
-See Image.
+See image.
 
-[Image: Add VPN Credential drawer on the VPN Credential page]
+[Image: The Add VPN Credential button on the VPN Credential page]
 
 [Image: FQDN Option on the Add VPN Credential drawer]
 
@@ -1059,13 +1226,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-authentication-bridge","lastmod":"2026-09-30T19:27Z","nid":"1400016"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-authentication-bridge","lastmod":"2026-10-14T21:06Z","nid":"1400016"} -->
 ## Adding a Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/adding-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Adding a Zscaler Authentication Bridge
-- Last modified: 2026-09-30T19:27Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to add a Zscaler Authentication Bridge, a virtual machine, in the Zscaler Admin Console.
 
 Configuring a Zscaler Authentication Bridge (ZAB) is one of the tasks you must complete when deploying a ZAB. For a complete list of tasks, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge).
@@ -1426,6 +1593,41 @@ The following sections are available on the Data at Rest page:
 8. [Modify columns in the table](https://help.zscaler.com/unified/using-tables).
 
 [Image: Data at Rest tab in User Investigation]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/analyzing-endpoint-dlp-scan-user-overview","lastmod":"2026-10-08T10:39Z","nid":"1480106"} -->
+## Analyzing Endpoint DLP Scan for a User: Overview
+
+- Source: https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user-overview
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Analyzing Endpoint DLP Scan for a User: Overview
+- Last modified: 2026-10-08T10:39Z
+- Summary: Information about the Endpoint DLP scan details for a user on the User Investigation page.
+
+The Overview page (Analytics > Endpoint Data Scan > User Investigation > click a user > Overview) provides a user-centric view of Data Loss Prevention (DLP) activity. It highlights key insights about the selected user, including the devices they use, the sensitive data discovered on their endpoints, the sensitive data that was exfiltrated, and the destination details for the user you select on the [User Investigation](https://help.zscaler.com/zia/about-user-investigation) page.
+
+The following sections are available on the Overview page:
+
+1. **User Details**: Shows the following user details:
+  - The name of the user.
+  - The email address of the user.
+  - **User Risk Profile**: The risk profile assigned to the user (Low, Medium, High, or Critical). Zscaler analyzes your organization's user behavior trends and builds a risk profile dynamically by assigning a user risk score to each user. To learn more, see [Understanding User Risk Score](https://help.zscaler.com/zia/understanding-user-risk-score).
+  - **Department**: The name of the department that the user belongs to.
+  - **Groups**: The name of the groups that the user belongs to.
+  - **Last Update**: The date and time when the Endpoint DLP service was last updated for the user.
+2. **Inventory**: Shows the count for the following user inventory: Click the number to view the full list of the devices.
+  - **Endpoints**: The number of endpoints for the user.
+  - **Printers**: The number of printers for the user.
+  - **Removable Storage**: The number of removable storage for the user.
+  - **Portable Device**: The number of portable devices for the user.
+3. **Indicators of Intent**: Shows a list of intent rules triggered by the user in the last 30 days. You can also see the count for each rule. Click a rule to further analyze the behavior on the [Timeline](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user-timeline) page. This section is currently in Limited Availability.
+4. **Data at Rest**: Shows total sensitive files found on the endpoints from the last scan and the number of files discovered for each DLP engine and AI & ML category. You can also view the number of files discovered for eachDLP engine and AI & ML category on the endpoints. Click **View All** to view data for all DLP engines and AI & ML categories in a drawer.
+5. **Exfiltrated Data**: Shows total exfiltration attempts by the user (allowed and blocked) for activities and incidents for the last 30 days and the split between the DLP engine and AI & ML category. Click **View All** to view data for all DLP engines and AI & ML categories in a drawer.
+6. **Top Destinations**: Shows top destinations for activities, incidents, and intent performed by the user in the last 30 days. You can filter this section for a specific **Channel**, **Type**, or **DLP Engines**. Click **View All** to see all destinations and its total count in a drawer. Click a destination tile to go to the [Timeline](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user-timeline) tab filtered for the selected destination.
+
+[Image: Endpoint DLP Overview tab for User Investigation page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2236,13 +2438,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-10-11T07:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-10-18T07:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -3371,13 +3573,13 @@ Instructions for adding permissions can be found in the Create permission set se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-slack","lastmod":"2026-10-01T01:46Z","nid":"1546142"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-slack","lastmod":"2026-10-15T11:45Z","nid":"1546142"} -->
 ## Authorizing a Custom Zscaler Connector for Slack
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-slack
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Slack
-- Last modified: 2026-10-01T01:46Z
+- Last modified: 2026-10-15T11:45Z
 - Summary: Information on how to create a custom connector for Slack.
 
 The Zscaler service supports custom, client-side connector onboarding for access to specific Slack workspaces. With this functionality, you can enable selective monitoring of specific workspaces within your Slack enterprise account for DLP and Malware scanning.
@@ -3394,11 +3596,8 @@ To create a custom connector for Slack:
   - **Workspace**: Select a workspace from the available workspaces.
 5. Click **Create App** to create the connector. You're redirected to the **OAuth & Permissions** page under **Settings**.
 6. On the **OAuth & Permissions** page under **Redirect URLs**, click **Add New Redirect URL** and enter the URL for your Zscaler server. List of Zscaler URLs: See image.
-  - `https://admin.zscalerbeta.net`
-  - `https://admin.zscalertwo.net`
-  - `https://admin.zscalerthree.net`
-  - `https://admin.zscaler.net`
-  - `https://admin.zscloud.net`
+  - `https://beta.console.zscaler.com`
+  - `https://console.zscaler.com`
 7. Under **Scopes**, enter the following bot and user scopes:
   - Bot Token Scopes
   - User Token Scopes
@@ -5579,13 +5778,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-10-08T21:42Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-10-18T07:06Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-10-08T21:42Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -6188,18 +6387,18 @@ To configure an email notification:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-09-29T06:00Z","nid":"1400941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-azure-vwan-locations","lastmod":"2026-10-15T01:53Z","nid":"1400941"} -->
 ## Configuring Azure Virtual WAN Locations
 
 - Source: https://help.zscaler.com/zia/configuring-azure-vwan-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Azure Virtual WAN Locations
-- Last modified: 2026-09-29T06:00Z
+- Last modified: 2026-10-15T01:53Z
 - Summary: How to sync Microsoft Azure Virtual WAN (VWAN) hubs, as well as set up their tunnel configurations, locations, and VPN credentials information for the Zscaler service.
 
 To configure an Azure Virtual WAN (VWAN) location:
 
-You must complete the procedure for [Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) before you can sync and configure tunnels for your Azure hubs.
+You must complete the procedure for [Integrating with Microsoft Azure Virtual WAN](https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan) before you can sync and configure tunnels for your Azure hubs.
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Azure Virtual WAN Locations**.
 
@@ -6213,7 +6412,7 @@ The date and time of the **Last Sync** and **Last Refresh** are always displayed
 
 The **Edit Azure Hub** window appears.
 
-1. In the **Edit Azure Hub** window, click **Start Configuration**. Zscaler service will immediately begin to set up IPSec tunnel configuration objects for the selected Azure hub.
+1. In the **Edit Azure Hub** window, click **Start Configuration**. The Zscaler service will immediately begin to set up IPSec tunnel configuration objects for the selected Azure hub.
 
 See image.
 
@@ -6229,17 +6428,86 @@ When you start the configuration, the status changes to **In Progress**. During 
 
 1. Click **Done**.
 
-After the configuration completes, the **Tunnel Status** changes to **Configured** and the **IP Address** displays the relevant information for that IP. However, **VPN Connection** will remain unlisted, or is set as unknown, at this time.
+After the configuration completes, the **Tunnel Status** changes to **Configured** and the **IP Address** displays the relevant information for that IP address. However, **VPN Connection** will remain unlisted, or is set as unknown, at this time.
 
 1. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The **VPN Connection** column displays the primary tunnel status for the configured Azure hub locations.
 
-You can view all Azure hub locations from this tab under the **Locations** tab. The [Locations](https://help.zscaler.com/zia/about-locations) page allows you apply Zscaler service features, such as enforcing [authentication](https://help.zscaler.com/zia/provisioning-and-authenticating-users), enabling [SSL Inspection](https://help.zscaler.com/zia/about-ssl-inspection), etc. to any locations associated with the hubs.
+You can view all Azure hub locations from this tab under the **Locations** tab. The [Locations](https://help.zscaler.com/zia/about-locations) page allows you to apply Zscaler service features, such as enforcing [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users), enabling [SSL Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection), etc. to any locations associated with the hubs.
 
-[Image: Screenshot of the Azure Virtual WAN Locations tab within the Zscaler Admin Console]
+[Image: Image of the Azure Virtual WAN Locations tab within the Zscaler Admin Console]
 
 [Image: Edit Azure Hub window within the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-bandwidth-classes","lastmod":"2026-10-05T10:27Z","nid":"1399911"} -->
+## Configuring Bandwidth Classes
+
+- Source: https://help.zscaler.com/zia/configuring-bandwidth-classes
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring Bandwidth Classes
+- Last modified: 2026-10-05T10:27Z
+- Summary: How to add bandwidth classes by editing the predefined classes or by adding new ones in the Zscaler Admin Portal.
+
+[Watch a video about Bandwidth Classes](https://fast.wistia.net/embed/iframe/jjpc536mhm) (shows legacy UI).
+
+Bandwidth classes identify the URL categories and applications to which the service allocates bandwidth. You must configure the bandwidth classes before you can reference them in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy rules. To configure cloud application bandwidth classes, edit the predefined bandwidth classes or add new bandwidth classes (custom), then group URL categories, applications, or domains into the bandwidth classes.
+
+On the **Cloud Applications**tab:
+
+- You can add up to 245 custom bandwidth classes.
+- You can have up to 8 bandwidth classes with custom domains.
+- You can add up to 25,000 domains across all bandwidth classes (including URL categories).
+
+## Managing Predefined Bandwidth Classes
+
+The Cloud Applicationstab lists predefined bandwidth classes to which you can add URL domains. You can also add your own custom domains. To learn more about predefined bandwidth classes, see [About Bandwidth Classes](https://help.zscaler.com/zia/about-bandwidth-classes).
+
+The following are the predefined bandwidth classes:
+
+- **File Share**: Includes URLs that represent file-sharing sites.
+- **Finance:** Includes URLs that represent business-oriented, financial web-based applications or tools, such as Smith Barney or E*Trade.
+- **General Surfing:** Includes all URL categories and cloud apps that do not fall into the following categories: Webmail, Instant Messaging, Streaming Media/File Share, and Social Networks/Blogging. This class can't be edited.
+- **Sales/Support Apps:** Includes URLs that represent business-oriented, sales/support web-based applications or tools, such as Salesforce or NetSuite.
+- **Streaming Media:** Includes URLs that represent streaming sites.
+
+To manage domains to the predefined bandwidth classes:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources**> **Bandwidth Classes**.
+2. Go to the **Cloud Applications** tab.
+3. Click the **Edit** icon next to the bandwidth class you want to edit. The **Edit Bandwidth Class** drawerappears.
+4. In the **Edit Bandwidth Class**drawer: See image.
+  - **Domains:**Enter the URLs you want to include in the bandwidth class, andclick **Add**. Use the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines) for adding domains.
+  - Click the **Edit** or **Delete**icon to modify or remove an existing domain, respectively.
+5. Click **Save** and [activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You cannot delete a predefined bandwidth class.
+
+## Adding Custom Bandwidth Classes
+
+In addition to predefined bandwidth classes, you can add custom bandwidth classes and specify the URL categories and cloud applications. If you have created a custom bandwidth class that isn't being used in any policies for a location, then the custom class is added to the location’s default [Bandwidth Control](https://help.zscaler.com/zia/configuring-bandwidth-control-policy) rule. The default rule includes all internet traffic not covered by other rules. By default, it's not guaranteed any bandwidth, but it can consume up to 100% of the bandwidth when available.
+
+To add a custom bandwidth class:
+
+1. Go to **Internet Access** > **Resources**> **Bandwidth Classes**.
+2. Go to the **Cloud Applications**tab.
+3. Click **Add Bandwidth Class**. The **Add Bandwidth Class** drawer appears.
+4. In the **Add Bandwidth Class** drawer: See image.
+  - **Name:**Enter a name for the class.
+  - **Definition**: Displays custom in the field. This is a non-editable field.
+  - **URL Categories:**Select [URL categories](https://help.zscaler.com/zia/about-url-categories) to add to the bandwidth class.
+  - **Cloud Applications:** Select [cloud applications](https://help.zscaler.com/zia/understanding-cloud-app-categories) to add to the bandwidth class. You can select cloud application categories or individual cloud applications. See image.
+  - **Domains:**Enter the URLs that you want to include in the bandwidth class and click **Add Items**. You can enter multiple entries. Press `Enter` after each entry. You can add domains for up to 8 individual bandwidth classes. For guidance on entering URLs, see the [URL format guidelines](https://help.zscaler.com/zia/url-format-guidelines). For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove the first 25,000 items from the list (**Remove 25K Items**) or only items from a specific page (**Remove Page**). If you select **Remove 25K Items** or **Remove Page**, a confirmation window appears.
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Edit Bandwidth Class drawer for a predefined class]
+
+[Image: The Add Bandwidth Class drawer in the Cloud Applications tab]
+
+[Image: The Add Bandwidth Class drawer displaying the options for the Cloud Applications field]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6757,13 +7025,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-authentication-timeout-profiles","lastmod":"2026-09-30T19:07Z","nid":"1457561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-custom-authentication-timeout-profiles","lastmod":"2026-10-14T21:06Z","nid":"1457561"} -->
 ## Configuring Custom Authentication Timeout Profiles
 
 - Source: https://help.zscaler.com/zia/configuring-custom-authentication-timeout-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Configuring Custom Authentication Timeout Profiles
-- Last modified: 2026-09-30T19:07Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on configuring custom authentication timeout profiles in the Zscaler Admin Console.
 
 By default, the authentication timeout is shared across all locations; however, you can create and assign custom authentication timeout profiles to locations in your organization. You can create a maximum of 8 profiles, and assign each profile to any number of locations. To learn more, see [About Authentication Profiles](https://help.zscaler.com/zia/about-authentication-profiles).
@@ -8413,18 +8681,18 @@ To configure a gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-09-14T21:06Z","nid":"1399261"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dedicated-proxy-ports","lastmod":"2026-10-16T01:39Z","nid":"1399261"} -->
 ## Configuring Dedicated Proxy Ports
 
 - Source: https://help.zscaler.com/zia/configuring-dedicated-proxy-ports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dedicated Proxy Ports
-- Last modified: 2026-09-14T21:06Z
+- Last modified: 2026-10-16T01:39Z
 - Summary: How to enable dedicated proxy ports for the Zscaler service, that can then be associated with a location.
 
-Your organization can subscribe to one or more ports, associate them with a [location](https://help.zscaler.com/zia/how-do-i-add-location), and then forward your remote user traffic to those ports. Forwarding remote users to your subscribed ports enables the Zscaler service to do the following:
+Your organization can subscribe to one or more ports, associate them with a [location](https://help.zscaler.com/zia/configuring-locations), and then forward your remote user traffic to those ports. Forwarding remote users to your subscribed ports enables the Zscaler service to do the following:
 
-- When [SSL Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection) is enabled at the location, the service can apply all the SSL settings to remote user traffic, including the ability to exclude [URL categories](https://help.zscaler.com/zia/about-url-categories) and custom domains from decryption. Typically, the traffic of remote users is forwarded to port 9443 where the service does not apply the SSL exclusion settings. Additionally, this allows remote users to automatically authenticate using your SAML ID provider.
+- When [SSL Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) is enabled at the location, the service can apply all the SSL settings to remote user traffic, including the ability to exclude [URL categories](https://help.zscaler.com/zia/about-url-categories) and custom domains from decryption. Typically, the traffic of remote users is forwarded to port 9443 where the service does not apply the SSL exclusion settings. Additionally, this allows remote users to automatically authenticate using your SAML ID provider.
 - Apply the location's policies, instead of the default policy, to remote user traffic that cannot be authenticated, such as transactions that use unknown agents or non-HTTP protocols.
 - Support FTP over HTTP for remote users, enabling the antivirus engine of the service to scan content for viruses and spyware when a remote user's browser connects to FTP sites and downloads files.
 - Identify a remote user's organization and display its logo on the login page. In addition, if SAML authentication is used, remote users are not prompted to enter their login name.
@@ -8440,26 +8708,26 @@ Additionally, you can enable the service to map users to their external IP addre
 To configure your proxy ports:
 
 1. Contact Zscaler Support to subscribe to the proxy ports.
-2. After you receive the port numbers of the proxy ports from Zscaler, go to **Infrastructure**>**Locations**.
-3. [Add a new location](https://help.zscaler.com/zia/how-do-i-add-location) or [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) an existing location.
+2. After you receive the port numbers of the proxy ports from Zscaler, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**>**Legacy Locations**.
+3. [Add a new location](https://help.zscaler.com/zia/configuring-locations) or [edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) an existing location.
 4. In the **Add Location** or **Edit Location** window, under **Addressing**, choose the **Proxy Ports**you want to associate with the location.
 5. Under **Gateway Options**, select **Enforce Authentication**. See image.
 6. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-After you configure the proxy ports on the Zscaler Admin Console, edit the [PAC file](https://help.zscaler.com/zia/what-pac-file) for your remote users in order to forward their traffic to the subscribed proxy ports.
+After you configure the proxy ports on the Zscaler Admin Console, edit the [PAC file](https://help.zscaler.com/zia/understanding-pac-file) for your remote users in order to forward their traffic to the subscribed proxy ports.
 
 [Image: Edit locations page with Dedicated Proxy Ports Defined and Enforce Authentication enabled]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-default-authentication-profile","lastmod":"2026-09-30T18:56Z","nid":"1458901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-default-authentication-profile","lastmod":"2026-10-14T21:06Z","nid":"1458901"} -->
 ## Configuring the Default Authentication Profile
 
 - Source: https://help.zscaler.com/zia/configuring-default-authentication-profile
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Configuring the Default Authentication Profile
-- Last modified: 2026-09-30T18:56Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information about configuring the default authentication profile settings in the Zscaler Admin Console.
 
 In the Authentication Profile section on the Default Settings page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Default Settings), you can:
@@ -9676,13 +9944,13 @@ echo "🎉 All steps completed successfully! The combined PEM file is located at
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-09-28T12:30Z","nid":"1400041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-notification-templates","lastmod":"2026-10-12T21:06Z","nid":"1400041"} -->
 ## Configuring DLP Notification Templates
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-notification-templates
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > Configuring DLP Notification Templates
-- Last modified: 2026-09-28T12:30Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: How to configure Data Loss Prevention (DLP) notification templates within the Zscaler Admin Console.
 
 [Watch a video about Adding DLP Notification Templates](https://fast.wistia.net/embed/iframe/buqs745qjx) (shows legacy UI).
@@ -9937,13 +10205,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-10-11T07:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-10-18T07:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 [Watch a video about configuring Data Loss Prevention (DLP) Policy with or without content inspection](https://fast.wistia.net/embed/iframe/za6nr8ax7t) (shows legacy UI).
@@ -10114,13 +10382,13 @@ If you enabled the policy for unauthenticated users under[Advanced Settings](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-10-11T07:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-10-18T07:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -10646,13 +10914,13 @@ Otherwise, the information that Zscaler sends to your solution regarding a parti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-10-11T07:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-10-18T07:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -11133,13 +11401,13 @@ Iterative DNS requests from DNS servers should only transit Internet & SaaS (i.e
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-09-29T05:58Z","nid":"1401361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dynamic-location-groups","lastmod":"2026-10-15T01:45Z","nid":"1401361"} -->
 ## Configuring Dynamic Location Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dynamic-location-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Configuring Dynamic Location Groups
-- Last modified: 2026-09-29T05:58Z
+- Last modified: 2026-10-15T01:45Z
 - Summary: How to add, edit, and delete dynamic location groups within the Zscaler Admin Console.
 
 This article describes how to create a [dynamic location group](https://help.zscaler.com/zia/about-location-groups) and configure location attributes that locations or sublocations must match to be assigned to the dynamic group. You can add up to 256 groups, inclusive of dynamic and manual location groups. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -11179,8 +11447,9 @@ To add a dynamic location group:
         - **Guest Wi-Fi traffic**
         - **IoT traffic**
         - **Server traffic**
-        - **Workload traffic type** The **Workload traffic type** is automatically populated to a sublocation of a location created in the Zscaler Cloud & Branch Connector Admin Portal.
-        - **Extranet** **Extranet Resource**: All locations assigned to the extranet you select are added unless they are excluded by another condition.
+        - **Workload Traffic Type** The **Workload Traffic Type** is automatically populated to a sublocation of a location created in the Zscaler Admin Console.
+        - **Extranet**
+          - **Extranet Resource**: All locations assigned to the extranet you select are added unless they are excluded by another condition.
       - **Managed By**: Search for and select the SD-WAN partner name from the drop-down menu. Locations or sublocations managed by the partner are assigned to the group.
       - **Name**: Select a Boolean operator from the drop-down menu (e.g., **Contains**, **Ends With**, **Equals**, **Starts With**), and then enter the name. Locations or sublocations that have the specified name are assigned to the group.
       - **Use XFF from Client Request**: Enable or disable the switch. If enabled, locations or sublocations that have the **Use XFF from Client Request** setting turned on are assigned to the group. If disabled, locations or sublocations that have the setting turned off are assigned to the group.

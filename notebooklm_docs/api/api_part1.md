@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 87
 
 ---
@@ -8318,13 +8318,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-10-09T00:24Z","nid":"1500121"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-10-16T02:33Z","nid":"1500121"} -->
 ## Cloud App Control Policy
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-app-control-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud App Control Policy
-- Last modified: 2026-10-09T00:24Z
+- Last modified: 2026-10-16T02:33Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -9699,13 +9699,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-10-11T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-10-18T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -21448,13 +21448,13 @@ A successful response returns code 200. To learn more, see [API Response Codes a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-policy-groups-using-api","lastmod":"2026-10-09T11:55Z","nid":"1541529"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/configuring-policy-groups-using-api","lastmod":"2026-10-15T13:22Z","nid":"1541529"} -->
 ## Configuring Policy Groups Using API
 
 - Source: https://help.zscaler.com/legacy-apis/configuring-policy-groups-using-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Configuring Policy Groups Using API
-- Last modified: 2026-10-09T11:55Z
+- Last modified: 2026-10-15T13:22Z
 - Summary: Information on configuring policy groups using Zscaler Private Access (ZPA) cloud service API.
 
 This article provides information on configuring ZPA policy groups using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
@@ -21894,16 +21894,15 @@ A successful response returns code 201. To learn more, see [API Response Codes a
 
 To update a policy group within a policy group set:
 
-1. To update a policy group within a policy group set:
-2. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}`.
-3. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/73255551684837495/group/73255551684837496`.
+1. Send a `PUT` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/policyGroupSet/{groupSetId}/group/{groupId}`.
+2. Provide the following in the request endpoint: For example: `/mgmtconfig/v1/admin/customers/73255551684837376/policyGroupSet/73255551684837495/group/73255551684837496`.
   - `customerId`: The ZPA tenant ID of the customer.
   - `groupSetId`: The unique identifier of the policy group set. To learn more, see [Obtaining Policy Group Set Details Using API](https://help.zscaler.com/legacy-apis/obtaining-policy-group-set-details-using-api).
   - `groupId`: The unique identifier of the policy group. To learn more, see Getting All Policy Groups.
-4. Include the request headers to specify the following parameters about the request context:
+3. Include the request headers to specify the following parameters about the request context:
   - Content-Type: `application/json`
   - Authorization: `Bearer <access_token>`
-5. Use the following JSON payload and provide the following:
+4. Use the following JSON payload and provide the following:
   - `action`: The rule action. The supported values are:
     - `ALLOW`
     - `DENY`

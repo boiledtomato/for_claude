@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 25
 
 ---
@@ -429,13 +429,13 @@ View the external entities that can access the resource. These entities are part
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-09-25T10:25Z","nid":"1519951"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-azure-data-stores","lastmod":"2026-10-16T07:06Z","nid":"1519951"} -->
 ## Viewing the Graph for Azure Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
-- Last modified: 2026-09-25T10:25Z
+- Last modified: 2026-10-16T07:06Z
 - Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
 
 After DSPM scans an [Azure resource](https://help.zscaler.com/dspm/supported-data-stores), the Resource Inventory graph provides information about the primary resource, its associated resources, and its security posture. Depending on the resource, the graph displays details about sensitive data, entities that can access the resource, public exposure, vulnerabilities, and malware.

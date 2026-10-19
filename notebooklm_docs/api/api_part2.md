@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 94
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 95
 
 ---
 
@@ -4346,6 +4346,164 @@ Imports the end user attributes as a CSV file. Only a valid CSV file that is con
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/custom-ip-based-application-controller","lastmod":"2026-10-14T00:21Z","nid":"1546784"} -->
+## Custom IP Based Application Controller
+
+- Source: https://help.zscaler.com/legacy-apis/custom-ip-based-application-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Custom IP Based Application Controller
+- Last modified: 2026-10-14T00:21Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/custom-ip-based-apps/{appId}`
+
+**Retrieve custom IP-based application**
+
+Retrieves the custom IP-based application using application ID.
+
+- Operation ID: `getCustomIPBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the custom IP-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/custom-ip-based-apps/{appId}`
+
+**Update custom IP-based application**
+
+Updates the custom IP-based application using application ID.
+
+- Operation ID: `updateCustomIPBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the custom IP-based application. |
+
+**Request body:** `application/json` → PublicCustomIPBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/custom-ip-based-apps/{appId}`
+
+**Delete custom IP-based application**
+
+Deletes the custom IP-based application using application ID.
+
+- Operation ID: `deleteCustomIPBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the custom IP-based application. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/custom-ip-based-apps/{appId}`
+
+**Patch custom IP-based application**
+
+Updates specific properties of the custom IP-based application using application ID.
+
+- Operation ID: `patchCustomIPBasedApplication`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `appId` | path | yes | string | Unique identifier of the custom IP-based application. |
+
+**Request body:** `application/json` → PublicCustomIPBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/custom-ip-based-apps`
+
+**List custom IP-based applications**
+
+Retrieves a list of custom IP-based applications with pagination support.
+
+- Operation ID: `listCustomIPBasedApplications`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/custom-ip-based-apps`
+
+**Create custom IP-based application**
+
+Creates a new custom IP-based application with specified configuration.
+
+- Operation ID: `createCustomIPBasedApplication`
+
+**Request body:** `application/json` → PublicCustomIPBasedApplication
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`PublicCustomIPBasedApplication`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `isActive` | boolean | no |
+| `uid` | string | no |
+| `appData` | array<PublicAppServiceBlobContract> | no |
+| `appDataV6` | array<PublicAppServiceBlobContract> | no |
+
+**`PublicAppServiceBlobContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `protocol` | string | no |
+| `port` | string | no |
+| `ipAddress` | string | no |
+| `fqdn` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/customer-domain-management","lastmod":"2026-01-06T23:49Z","nid":"1532098"} -->
 ## Customer Domain Management
 
@@ -4641,13 +4799,13 @@ Gets a list of all locations for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-09-15T07:06Z","nid":"1402466"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/data-loss-prevention","lastmod":"2026-10-16T07:06Z","nid":"1402466"} -->
 ## Data Loss Prevention
 
 - Source: https://help.zscaler.com/legacy-apis/data-loss-prevention
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Data Loss Prevention
-- Last modified: 2026-09-15T07:06Z
+- Last modified: 2026-10-16T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -12106,6 +12264,276 @@ Deletes a ZIA gateway or Log and Control gateway based on the specified ID.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/forwarding-profile-controller","lastmod":"2026-10-14T00:20Z","nid":"1546783"} -->
+## Forwarding Profile Controller
+
+- Source: https://help.zscaler.com/legacy-apis/forwarding-profile-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Forwarding Profile Controller
+- Last modified: 2026-10-14T00:20Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/forwarding-profiles/{profileId}`
+
+**Retrieve forwarding profile**
+
+Retrieves the forwarding profile using profile ID.
+
+- Operation ID: `getForwardingProfileById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/forwarding-profiles/{profileId}`
+
+**Update forwarding profile**
+
+Updates the forwarding profile using profile ID.
+
+- Operation ID: `updateForwardingProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
+
+**Request body:** `application/json` → PublicWebForwardingProfileContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/forwarding-profiles/{profileId}`
+
+**Delete forwarding profile**
+
+Deletes the forwarding profile using profile ID.
+
+- Operation ID: `deleteForwardingProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/forwarding-profiles/{profileId}`
+
+**Patch forwarding profile**
+
+Updates a specific forwarding profile using profile ID.
+
+- Operation ID: `patchForwardingProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `profileId` | path | yes | string | Unique identifier of the forwarding profile. |
+
+**Request body:** `application/json` → PublicWebForwardingProfileContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/forwarding-profiles`
+
+**List forwarding profiles**
+
+Retrieves a list of forwarding profiles with optional keyword filtering and pagination support.
+
+- Operation ID: `listForwardingProfiles`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+| `keyword` | query | no | string | Search keyword to filter forwarding profiles by name or other attributes. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/forwarding-profiles`
+
+**Create forwarding profile**
+
+Creates a new forwarding profile with specified web forwarding configuration.
+
+- Operation ID: `createForwardingProfile`
+
+**Request body:** `application/json` → PublicWebForwardingProfileContract
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`PublicWebForwardingProfileContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `companyId` | string | no |
+| `isActive` | boolean | no |
+| `name` | string | no |
+| `conditionType` | string (enum: ALL, ANY) | no |
+| `dnsServers` | string | no |
+| `dnsSearchDomains` | string | no |
+| `enableLwfDriver` | boolean | no |
+| `hostname` | string | no |
+| `resolvedIpsForHostname` | string | no |
+| `trustedSubnets` | string | no |
+| `trustedGateways` | string | no |
+| `trustedDhcpServers` | string | no |
+| `trustedEgressIps` | string | no |
+| `enablePredefinedTrustedNetworks` | boolean | no |
+| `enableAllPredefinedTrustedNetworks` | boolean | no |
+| `trustedNetworkIds` | array<integer(int64)> | no |
+| `trustedNetworks` | array<string> | no |
+| `forwardingProfileActions` | array<PublicForwardingProfileActionContractv2> | no |
+| `forwardingProfileZpaActions` | array<PublicForwardingProfileActionContractZpaV2> | no |
+| `enableAllDefaultAdaptersForTrustedNetwork` | boolean | no |
+| `enableSplitVpnTrustedNetwork` | boolean | no |
+| `enableSkipTrustedCriteriaMatch` | boolean | no |
+| `enableUnifiedTunnel` | boolean | no |
+| `unifiedTunnels` | array<PublicUnifiedTunnelContract> | no |
+
+**`PublicForwardingProfileActionContractv2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string (enum: ON_TRUSTED_NETWORK, VPN_TRUSTED_NETWORK, OFF_TRUSTED_NETWORK, SPLIT_VPN_TRUSTED_NETWORK) | no |
+| `actionType` | string (enum: OTHER, NONE, TUNNEL, TUNNEL_LOCAL_PROXY, ENFORCE_PROXY) | no |
+| `systemProxy` | string (enum: DISABLED, ENABLED, NOT_ENFORCED) | no |
+| `packetTunnelVersion` | string (enum: Z_TUNNEL_1, Z_TUNNEL_2) | no |
+| `systemProxyData` | PublicWebSystemProxyDataContract | no |
+| `primaryTransport` | string (enum: DTLS, TLS, UDP) | no |
+| `dtlsTimeout` | integer(int32) | no |
+| `udpTimeout` | integer(int32) | no |
+| `tlsTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `enableBlockingUnreachableDomainsTraffic` | boolean | no |
+| `enableTlsFallback` | boolean | no |
+| `tunnel2FallbackType` | string (enum: FOLLOW_APP_FAILED_OPEN_SETTINGS, BYPASS_ALL, BLOCK_ALL) | no |
+| `enableSendAllDnsToTrustedServer` | boolean | no |
+| `v4FailCloseTrustedDnsServer` | string | no |
+| `v6FailCloseTrustedDnsServer` | string | no |
+| `enableDropIpv6Traffic` | boolean | no |
+| `enableRedirectWebTraffic` | boolean | no |
+| `enableDropIpv6IncludeTrafficInT2` | boolean | no |
+| `enableUseTunnel2ForProxiedWebTraffic` | boolean | no |
+| `enableUseTunnel2ForUnencryptedWebTraffic` | boolean | no |
+| `enablePathMtuDiscovery` | boolean | no |
+| `enableLatencyBasedZenEnablement` | boolean | no |
+| `zenProbeInterval` | integer(int32) | no |
+| `zenProbeSampleSize` | integer(int32) | no |
+| `zenThresholdLimit` | integer(int32) | no |
+| `enableDropIpv6TrafficInIpv6Network` | boolean | no |
+| `enableOptimiseForUnstableConnections` | boolean | no |
+| `enableUseZiaBccOnTunnel2Failures` | boolean | no |
+
+**`PublicWebSystemProxyDataContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `proxyAction` | string (enum: NEVER, ENFORCE, TRUSTED_NETWORK_CHANGE, ANY_NETWORK_CHANGE) | no |
+| `enableAutoDetect` | boolean | no |
+| `enablePac` | boolean | no |
+| `pacUrl` | string | no |
+| `enableProxyServer` | boolean | no |
+| `proxyServerAddress` | string | no |
+| `proxyServerPort` | string | no |
+| `enableBypassProxyForPrivateIp` | boolean | no |
+| `enablePerformingGpUpdate` | boolean | no |
+| `pacDataPath` | string | no |
+
+**`PublicForwardingProfileActionContractZpaV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string (enum: ON_TRUSTED_NETWORK, VPN_TRUSTED_NETWORK, OFF_TRUSTED_NETWORK, SPLIT_VPN_TRUSTED_NETWORK) | no |
+| `actionType` | string (enum: OTHER, NONE, TUNNEL, TUNNEL_LOCAL_PROXY, ENFORCE_PROXY) | no |
+| `primaryTransport` | string (enum: DTLS, TLS, UDP) | no |
+| `dtlsTimeout` | integer(int32) | no |
+| `tlsTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `enableSendTrustedNetworkResultToZpa` | boolean | no |
+| `partnerInfo` | PublicForwardingProfileActionContractPartnerLogin | no |
+| `enableLatencyBasedServerEnablement` | boolean | no |
+| `lbsProbeInterval` | integer(int32) | no |
+| `lbsProbeSampleSize` | integer(int32) | no |
+| `lbsThresholdLimit` | integer(int32) | no |
+| `enableLatencyBasedServerMtEnablement` | boolean | no |
+
+**`PublicForwardingProfileActionContractPartnerLogin`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `primaryTransport` | string (enum: DTLS, TLS, UDP) | no |
+| `enableTlsFallback` | boolean | no |
+| `mtuForZadapter` | integer(int32) | no |
+
+**`PublicUnifiedTunnelContract`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `networkType` | string (enum: ON_TRUSTED_NETWORK, VPN_TRUSTED_NETWORK, OFF_TRUSTED_NETWORK, SPLIT_VPN_TRUSTED_NETWORK) | no |
+| `actionTypeZia` | string (enum: OTHER, NONE, TUNNEL, TUNNEL_LOCAL_PROXY, ENFORCE_PROXY) | no |
+| `actionTypeZpa` | string (enum: OTHER, NONE, TUNNEL, TUNNEL_LOCAL_PROXY, ENFORCE_PROXY) | no |
+| `primaryTransport` | string (enum: DTLS, TLS, UDP) | no |
+| `dtlsTimeout` | integer(int32) | no |
+| `tlsTimeout` | integer(int32) | no |
+| `mtuForZadapter` | integer(int32) | no |
+| `enableTlsFallback` | boolean | no |
+| `enablePathMtuDiscovery` | boolean | no |
+| `enableOptimiseForUnstableConnections` | boolean | no |
+| `tunnel2FallbackType` | string (enum: FOLLOW_APP_FAILED_OPEN_SETTINGS, BYPASS_ALL, BLOCK_ALL) | no |
+| `enableRedirectWebTraffic` | boolean | no |
+| `enableDropIpv6Traffic` | boolean | no |
+| `enableDropIpv6TrafficInIpv6Network` | boolean | no |
+| `enableBlockUnreachableDomainsTraffic` | boolean | no |
+| `enableDropIpv6IncludeTrafficInT2` | boolean | no |
+| `enableSendAllDnsToTrustedServer` | boolean | no |
+| `v4FailCloseTrustedDnsServer` | string | no |
+| `v6FailCloseTrustedDnsServer` | string | no |
+| `systemProxyData` | PublicWebSystemProxyDataContract | no |
+| `enableSameAsOnTrusted` | boolean | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/ftp-control-policy","lastmod":"2026-01-06T23:49Z","nid":"1528941"} -->
 ## FTP Control Policy
 
@@ -15705,6 +16133,173 @@ Adds URLs to the exempted from SSL Inspection and policy evaluation list or remo
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/internet-saas-zia-posture-profile-controller","lastmod":"2026-10-14T00:32Z","nid":"1546790"} -->
+## Internet & SaaS (ZIA) Posture Profile Controller
+
+- Source: https://help.zscaler.com/legacy-apis/internet-saas-zia-posture-profile-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Internet & SaaS (ZIA) Posture Profile Controller
+- Last modified: 2026-10-14T00:32Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/zia-posture-profiles/{id}`
+
+Retrieves the Internet & SaaS (ZIA) posture profile using profile ID.
+
+- Operation ID: `getZIAPostureProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the Internet & SaaS (ZIA) posture profile. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/zia-posture-profiles/{id}`
+
+Updates the Internet & SaaS (ZIA) posture profile using profile ID.
+
+- Operation ID: `putZIAPostureProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the Internet & SaaS (ZIA) posture profile. |
+
+**Request body:** `application/json` → ZIAPostureProfileContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/zia-posture-profiles/{id}`
+
+Deletes the Internet & SaaS (ZIA) posture profile using profile ID.
+
+- Operation ID: `deleteZIAPostureProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the Internet & SaaS (ZIA) posture profile. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/zia-posture-profiles/{id}`
+
+Updates specific properties of the Internet & SaaS (ZIA) posture profile using profile ID.
+
+- Operation ID: `patchZIAPostureProfile`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the Internet & SaaS (ZIA) posture profile. |
+
+**Request body:** `application/json` → ZIAPostureProfileContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/zia-posture-profiles`
+
+**List Internet & SaaS (ZIA) posture profiles**
+
+Retrieves a list of Internet & SaaS (ZIA) posture profiles with optional filtering and pagination.
+
+- Operation ID: `listZIAPostureProfiles`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `keyword` | query | no | string | Search keyword to filter Internet & SaaS (ZIA) posture profiles by name or other attributes. |
+| `platformType` | query | no | integer(int32) | Platform type filter (0 for all platforms, or specific platform identifier). |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/zia-posture-profiles`
+
+**Create Internet & SaaS (ZIA) posture profile**
+
+Creates a new Internet & SaaS (ZIA) posture profile with specified trust criteria for different trust levels.
+
+- Operation ID: `createZIAPostureProfile`
+
+**Request body:** `application/json` → ZIAPostureProfileContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`ZIAPostureProfileContractV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `platform` | integer(int32) | no |
+| `highTrustCriteria` | TrustCriteria | no |
+| `mediumTrustCriteria` | TrustCriteria | no |
+| `lowTrustCriteria` | TrustCriteria | no |
+| `createdBy` | integer(int64) | no |
+| `editedBy` | integer(int64) | no |
+| `createTime` | string | no |
+| `updateTime` | string | no |
+
+**`TrustCriteria`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `conditionSets` | array<ConditionSet> | no |
+
+**`ConditionSet`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `conditions` | array<Condition> | no |
+
+**`Condition`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | string | no |
+| `name` | string | no |
+| `udid` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/inventory","lastmod":"2026-10-08T16:39Z","nid":"1471396"} -->
 ## Inventory
 
@@ -18317,23 +18912,31 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/login-controller","lastmod":"2026-01-06T23:49Z","nid":"1417276"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/login-controller","lastmod":"2026-10-13T23:54Z","nid":"1417276"} -->
 ## Login Controller
 
 - Source: https://help.zscaler.com/legacy-apis/login-controller
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Login Controller
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-10-13T23:54Z
 
 Api Documentation
 
-**Servers:** `http://mobileadmin.zscalerbeta.net:80`
+**Servers:** `http://localhost:8080/papi`
 
-### `POST /papi/auth/v1/login`
+### `POST /auth/v1/login`
 
-Authenticate using the `apikey` and the `secretKey`. The response returns a JSON Web Token (JWT), which must be used for authentication against other API calls in subsequent requests. To learn more, see [Locate your base URI.](https://help.zscaler.com/zscaler-client-connector/getting-started-client-connector-api#locate-your-base-url)
+Authenticate using the
 
-- Operation ID: `loginUsingPOST`
+`apikey`
+
+and the
+
+`secretKey`
+
+. The response returns a JSON Web Token (JWT), which must be used for authentication against other API calls in subsequent requests.
+
+- Operation ID: `login`
 
 **Request body:** `application/json` → PApiLoginRequest
 
@@ -18341,11 +18944,7 @@ Authenticate using the `apikey` and the `secretKey`. The response returns a JSON
 
 | Code | Description |
 | --- | --- |
-| 200 | OK |
-| 400 | Bad request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
+| 201 | CREATED |
 
 ### Schemas
 
@@ -27264,6 +27863,187 @@ Deletes the DNAT Control policy rule information based on the specified ID
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/notification-template-controller","lastmod":"2026-10-14T00:31Z","nid":"1546788"} -->
+## Notification Template Controller
+
+- Source: https://help.zscaler.com/legacy-apis/notification-template-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Notification Template Controller
+- Last modified: 2026-10-14T00:31Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/notification-templates/{id}`
+
+**Retrieve notification template**
+
+Retrieves the notification template using template ID.
+
+- Operation ID: `getNotificationTemplate`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the notification template. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/notification-templates/{id}`
+
+**Update notification template**
+
+Updates the notification template using template ID.
+
+- Operation ID: `putNotificationTemplate`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the notification template. |
+
+**Request body:** `application/json` → NotificationTemplateContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/notification-templates/{id}`
+
+**Delete notification template**
+
+Deletes the notification template using template ID.
+
+- Operation ID: `deleteNotificationTemplate`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the notification template. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | DELETED |
+
+### `PATCH /public/v2/notification-templates/{id}`
+
+**Patch notification template**
+
+Updates specific properties of the notification template using template ID.
+
+- Operation ID: `patchNotificationTemplate`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the notification template. |
+
+**Request body:** `application/json` → NotificationTemplateContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/notification-templates`
+
+**List notification templates**
+
+Retrieves a list of notification templates with optional keyword filtering and pagination support.
+
+- Operation ID: `listNotificationTemplates`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `keyword` | query | no | string | Search keyword to filter notification templates by name or other attributes. |
+| `offset` | query | no | integer(int32) | Number of results to skip for pagination. |
+| `limit` | query | no | integer(int32) | Maximum number of results to return per page. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/notification-templates`
+
+**Create notification template**
+
+Creates a new notification template with specified configuration for Internet & SaaS (ZIA) and Private Access (ZPA) notifications.
+
+- Operation ID: `createNotificationTemplate`
+
+**Request body:** `application/json` → NotificationTemplateContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | CREATED |
+
+### Schemas
+
+**`NotificationTemplateContractV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `isDefaultTemplate` | boolean | no |
+| `enableClient` | boolean | no |
+| `enableZia` | boolean | no |
+| `enableAppUpdates` | boolean | no |
+| `enableServiceStatus` | boolean | no |
+| `durationInSeconds` | integer(int32) | no |
+| `enablePersistent` | boolean | no |
+| `enableDoNotDisturb` | boolean | no |
+| `createdBy` | integer(int64) | no |
+| `editedBy` | integer(int64) | no |
+| `createTime` | string | no |
+| `updateTime` | string | no |
+| `ziaNotificationTemplate` | ZiaNotificationTemplateV2 | no |
+| `zpaNotificationTemplate` | ZpaNotificationTemplateV2 | no |
+
+**`ZiaNotificationTemplateV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableZiaFirewall` | boolean | no |
+| `enableZiaFirewallPopup` | boolean | no |
+| `enableZiaDNS` | boolean | no |
+| `enableZiaDNSPopup` | boolean | no |
+| `enableZiaIPS` | boolean | no |
+| `enableZiaIPSPopup` | boolean | no |
+| `enableZiaPersistent` | boolean | no |
+
+**`ZpaNotificationTemplateV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableDevicePostureFailure` | boolean | no |
+| `enableZpaReauth` | boolean | no |
+| `zpaReauthIntervalInMinutes` | integer(int32) | no |
+| `delayPostureFailureSeconds` | integer(int32) | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-access-policy-details-federated-applications-using-api","lastmod":"2026-09-20T07:06Z","nid":"1540991"} -->
 ## Obtaining Access Policy Details for Federated Applications Using API
 
@@ -27798,562 +28578,4 @@ To get authentication domains for the customer:
 ```
 
 A successful response returns code 200. To learn more, see [About Error Codes](https://help.zscaler.com/zpa/about-error-codes).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-enrollment-certificate-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484951"} -->
-## Obtaining Enrollment Certificate Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-enrollment-certificate-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining Enrollment Certificate Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information on enrollment certificate use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information for managing Zscaler Private Access (ZPA) [enrollment certificates](https://help.zscaler.com/zpa/about-enrollment-ca-certificates) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All Enrollment Certificates
-
-To get all enrollment certificates:
-
-1. Send a `GET` request to the following endpoint in the enrollment-cert-controller: `/mgmtconfig/v2/admin/customers/{customerId}/enrollmentCert`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/enrollmentCert`.
-
-- View an example response
-
-```
-{
-  "totalPages": "15",
-  "list": [
-    {
-      "id": "22143",
-      "creationTime": "1563925306",
-      "modifiedBy": "217246660302995849",
-      "description": "2",
-      "name": "1",
-      "allowSigning": false,
-      "privateKeyPresent": true,
-      "clientCertType": "NONE",
-      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICwTCCAakCAQAwSjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxHTAbBgNVBAMTFG15LW1vY2tjb21wYW55LmN\n-----END CERTIFICATE REQUEST-----\n"
-    },
-    {
-      "id": "22144",
-      "modifiedTime": "1580448229",
-      "creationTime": "1563925326",
-      "modifiedBy": "217246660303023681",
-      "cName": "my-mockcompany.com/12345",
-      "validFromInEpochSec": "1563838926",
-      "validToInEpochSec": "2510005326",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdm\n-----END CERTIFICATE-----",
-      "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-      "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-      "serialNo": "333243810239587973493898071045372878801",
-      "description": "2",
-      "name": "12345\"&lt;&gt;",
-      "allowSigning": true,
-      "privateKeyPresent": true,
-      "clientCertType": "NONE",
-      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG15LW1vY2tjb21wYW55Lm\n-----END CERTIFICATE REQUEST-----\n"
-    },
-    {
-      "id": "23164",
-      "creationTime": "1612417564",
-      "modifiedBy": "72057594037973665",
-      "cName": "root.zscaler.com/clien2",
-      "validFromInEpochSec": "1612331164",
-      "validToInEpochSec": "2558497564",
-      "certificate": "----BEGIN CERTIFICATE----\nMIIDSjCCAjKgAwIBAgIRAJePjUG/811dcldsFg74MxUwDQYJKoZIhvcNAQELBQAw\nTTEQMA4GA1UEChM\n----END CERTIFICATE----\n",
-      "issuedTo": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/clien2",
-      "issuedBy": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/clien2",
-      "serialNo": "201458790843283302225978988853372400405",
-      "name": "clien2",
-      "allowSigning": true,
-      "privateKeyPresent": true,
-      "clientCertType": "ZAPP_CLIENT",
-      "csr": "----BEGIN CERTIFICATE REQUEST----\nMIICxDCCAawCAQAwTTEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxIDAenk\n-----END CERTIFICATE REQUEST-----\n"
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-To get enrollment certificates for use with creating provisioning keys, provide the `privateKeyPresent EQ` as set to `true` in the search parameters. For example: `privateKeyPresent EQ true`.
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/enrollmentCert?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`, the ZPA tenant ID of the customer, in the request endpoint.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/enrollmentCert?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "15",
-  "list": [
-    {
-      "id": "22143",
-      "modifiedTime": "1646153872",
-      "creationTime": "1563925306",
-      "modifiedBy": "72057594038009308",
-      "description": "2",
-      "name": "1",
-      "allowSigning": false,
-      "privateKeyPresent": true,
-      "clientCertType": "NONE",
-      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICwTCCAakCAQAwSjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxM\n-----END CERTIFICATE REQUEST-----\n"
-    },
-    {
-      "id": "22144",
-      "modifiedTime": "1646153872",
-      "creationTime": "1563925326",
-      "modifiedBy": "72057594038009308",
-      "cName": "my-testcompany.com/12345",
-      "validFromInEpochSec": "1563838926",
-      "validToInEpochSec": "2510005326",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcj\n-----END CERTIFICATE-----",
-      "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-      "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-      "serialNo": "333243810239587973493898071045372878801",
-      "description": "2",
-      "name": "12345\"&lt;&gt;",
-      "allowSigning": true,
-      "privateKeyPresent": true,
-      "clientCertType": "NONE",
-      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG=\n-----END CERTIFICATE REQUEST-----\n"
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/enrollmentCert&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the `test` filter value.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/enrollmentCert&search=name%20LIKE%20test`.
-
-- View an example response
-
-```
-{
-  "totalPages": "15",
-  "totalCount": "15",
-  "list": [
-    {
-      "id": "23841",
-      "modifiedTime": "1646194497",
-      "creationTime": "1614304266",
-      "modifiedBy": "72057594038009308",
-      "cName": "root.zscaler.com/Isolation Cert Test",
-      "validFromInEpochSec": "1614217866",
-      "validToInEpochSec": "2560384266",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIDZDCCAkygAwIBAgIRAJWAvoGLsEiEGgOHCRoGwT4wDQYJKoZIhvcNAQELBQAw\nWjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0ZSBBY2Nlc3MxLTAr\nBgNVBAMTJHJvb3QuenNjYWxlci5jb20vSXNvbGF0aW9uIENlcnQgVGVzdDAgFw0y\nMTAyMjUwMTUxMDZaGA8yMDUxMDIxOTAxNTEwNlowWjEQMA4GA1UEChMHWnNjYWxl\ncjEXMBUGA1UECxMOUHJpdmF0ZSBBY2Nlc3MxLTArBgNVBAMTJHJvb3QuenNjYWxl\nci5jb20vSXNvbGF0aW9uIENlcnQgVGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEP\nADCCAQoCggEBANlcrFANmS4c8VDsQTD8j+N083qOryHzf02tUJnQG3SxqL9U7LSz\nJXkBzZqaTdPbitBYUQipwQdANJ76/ckNHPkJD0U0BMhcCxABRlOv/3gkKbDsP0GP\nSeIi/ZthsNkXfDwBydB4uKypmsPan5sNPtQfDKQb8vbzEZ6+YRdI24untMNHGYDV\n7xo5Pg50AVQIC4pZuvr0x3+67C5Hbx7NNrdWkagbYgtML3FkLxQ+EaPzVbvKohde\njtd6uqjb/ou9lJtVPImd5JmZCmeV+gFceHbccVi4MdsNqILeILD59WHKeo5BJkb1\nXz5TBErBk9LM63Nt9oTr7RpUuhxsSKQOOQMCAwEAAaMjMCEwDwYDVR0TAQH/BAUw\nAwEB/zAOBgNVHQ8BAf8EBAMCAQYwDQYJKoZIhvcNAQELBQADggEBAH0MrPIFr3KD\n7RH5D0IjgQNloBn+2cQlf0wLh3kcgldqBHZWUlXJRiVsIWZiVTW7hwUZ9WXHj8aYF2fLPxD7EBUBXlBJIEI3oyzwk\n6iAJ/0tu2vs=\n-----END CERTIFICATE-----\n",
-      "issuedTo": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/Isolation Cert Test",
-      "issuedBy": "O=Zscaler,OU=Private Access,CN=root.zscaler.com/Isolation Cert Test",
-      "serialNo": "198723449291334110913249869031511867710",
-      "name": "Isolation Cert Test",
-      "allowSigning": true,
-      "privateKeyPresent": true,
-      "clientCertType": "NONE",
-      "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIIC0TCCAbkCAQAwWjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxLTArBgNVBAMTJHJvb3QuenNjYWxlci5jb20vSXNvbGF0aW9uIENl\ncnQgVGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANlcrFANmS4c\n8VDsQTD8j+N083qOryHzf02tUJnQG3SxqL9U7LSzJXkBzZqaTdPbitBYUQipwQdA\nNJ76/ckNHPkJD0U0BMhcCxABRlOv/3gkKbDsP0GPSeIi/ZthsNkXfDwBydB4uKyp\nmsPan5sNPtQfDKQb8vbzEZ6+YRdI24untMNHGYDV7xo5Pg50AVQIC4pZuvr0x3+6\n7C5Hbx7NNrdWkagbYgtML3FkLxQ+EaPzVbvKohdejtd6uqjb/ou9lJtVPImd5JmZ\nCmeV+gFceHbccVi4MdsNqILeILD59WHKeo5BJkb1Xz5TBErBk9LM63Nt9oTr7RpU\nuhxsSKQOOQMCAwEAAaAyMDAGCSqGSIb3DQEJDjEjMCEwDwYDVR0TAQH/BAUwAwEB\n-----END CERTIFICATE REQUEST-----\n"
-    }
-  ]
-}
-```
-
-If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details of a Particular Enrollment Certificate
-
-To get details of a particular enrollment certificate:
-
-1. Send a `GET` request to the following endpoint in the enrollment-cert-controller: `/mgmtconfig/v1/admin/customers/{customerId}/enrollmentCert/{enrollmentCertId}`.
-2. Provide the following parameters in the request:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `enrollmentCertId`: The ID of the enrollment certificate.
-
-For example: `/mgmtconfig/v1/admin/customers/217246660302995456/enrollmentCert/22144`.
-
-- View an example response
-
-```
-{
-  "id": "22144",
-  "modifiedTime": "1580448229",
-  "creationTime": "1563925326",
-  "modifiedBy": "217246660303023681",
-  "cName": "my-mockcompany.com/12345",
-  "validFromInEpochSec": "1563838926",
-  "validToInEpochSec": "2510005326",
-  "certificate": "-----BEGIN CERTIFICATE-----\nMIIDSjCCAjKgAwIBAgIRAPq0bFzg30vMM3efHU83n9EwDQYJKoZIhvcNAQELBQAw\nTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0ZSBB\n-----END CERTIFICATE-----",
-  "issuedTo": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-  "issuedBy": "O=Zscaler,OU=Private Access,CN=my-mockcompany.com/12345",
-  "serialNo": "333243810239587973493898071045372878801",
-  "description": "2",
-  "name": "12345\"&lt;&gt;",
-  "allowSigning": true,
-  "privateKeyPresent": true,
-  "clientCertType": "NONE",
-  "csr": "-----BEGIN CERTIFICATE REQUEST-----\nMIICxTCCAa0CAQAwTjEQMA4GA1UEChMHWnNjYWxlcjEXMBUGA1UECxMOUHJpdmF0\nZSBBY2Nlc3MxITAfBgNVBAMTGG15LW1vY2tjb21wYW55LmNvbS8x\n-----END CERTIFICATE REQUEST-----\n"
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-external-iam-idp-details-using-api","lastmod":"2026-10-09T14:51Z","nid":"1546147"} -->
-## Obtaining External IAM IdP Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-external-iam-idp-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining External IAM IdP Details Using API
-- Last modified: 2026-10-09T14:51Z
-- Summary: Information on external IdP attributes configured in Authentication Service that are applicable to Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information for obtaining Zscaler Private Access (ZPA) external IAM identity provider (IdP) details using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-The external IAM IdP is an external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
-
-## Getting Details of All External IAM IdPs
-
-To get details of all external IAM IdPs for a specific customer:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/iamidpmapping`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v1/admin/customers/73189906330943488/iamidpmapping`.
-
-- View an example response.
-
-```
-{
-	"id": "3",
-	"iamIdpIdToIamIdMapping": {
-		"mappings": [
-			{
-				"idpName": "example IdP name",
-				"iamIdpId": "j39aksw98dn2q",
-				"idpId": "349187452093847561"
-			},
-			{
-				"idpName": "example IdP name 2",
-				"iamIdpId": "p2ls9dk47ah1v",
-				"idpId": "829374015629384710"
-			},
-			{
-				"idpName": "example IdP name 3",
-				"iamIdpId": "x7mt3wb19ky5s",
-				"idpId": "503928174620593847"
-			},
-			{
-				"idpName": "example IdP name 4",
-				"iamIdpId": "q8rz5pl23mo9c",
-				"idpId": "293847105928374615"
-			}
-		],
-		"deliveryTag": "0",
-		"orgId": "145311968901726208"
-	},
-	"sequence": "9"
-}
-```
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/legacy-apis/obtaining-idp-configuration-details-using-api","lastmod":"2026-01-06T23:49Z","nid":"1484821"} -->
-## Obtaining IdP Configuration Details Using API
-
-- Source: https://help.zscaler.com/legacy-apis/obtaining-idp-configuration-details-using-api
-- Product: Legacy Zscaler APIs
-- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Working with APIs > Obtaining IdP Configuration Details Using API
-- Last modified: 2026-01-06T23:49Z
-- Summary: Information about IdP configuration use cases applicable to the Zscaler Private Access (ZPA) cloud service API.
-
-This article provides information on managing Zscaler Private Access (ZPA) [IdP configurations](https://help.zscaler.com/zpa/about-idp-configuration) using APIs. All APIs are rate limited. To learn more, see [Understanding Rate Limiting](https://help.zscaler.com/zpa/understanding-rate-limiting).
-
-## Getting Details for All IdPs V2
-
-To get the configured IdP details:
-
-1. Send a `GET` request to the following endpoint in the idp-controller: `/mgmtconfig/v2/admin/customers/{customerId}/idp`.
-2. Provide the `customerId`, the ZPA tenant ID of the customer, in the request endpoint. For example: `/mgmtconfig/v2/admin/customers/217246660302995456/idp`.
-
-- View an example response
-
-```
-{
-  "totalPages": "3",
-  "list": [
-    {
-      "id": "217246660303022670",
-      "modifiedTime": "1619718855",
-      "creationTime": "1547402803",
-      "modifiedBy": "217246660303024869",
-      "name": "Custom entityId IDP configuration - User sso - do NOT delete Changed",
-      "loginUrl": "https://mockcompany2.okta.com/app/mockcompany2_mymockcomanydomusersso_1/exkli5sevfsnKhh6n0x7/sso/saml",
-      "idpEntityId": "http://www.okta.com/exkli5sevfsnKhh6n0x7",
-      "autoProvision": "0",
-      "signSamlRequest": "1",
-      "ssoType": [
-        "USER"
-      ],
-      "domainList": [
-        "mockcompany.com"
-      ],
-      "useCustomSPMetadata": false,
-      "scimEnabled": false,
-      "enableScimBasedPolicy": false,
-      "disableSamlBasedPolicy": false,
-      "reauthOnUserUpdate": false,
-      "userSpSigningCertId": "0",
-      "adminSpSigningCertId": "0",
-      "scimSharedSecretExists": false,
-      "forceAuth": false,
-      "enabled": true,
-      "redirectBinding": false
-    },
-    {
-      "id": "217246660303022599",
-      "modifiedTime": "1624663236",
-      "creationTime": "1542394689",
-      "modifiedBy": "72057594037928105",
-      "name": "IDP Config - Admin SSO",
-      "loginUrl": "https://mockcompany2.okta.com/app/mockcompany2_zpaadminsso_1/exkgdl7ctkw3I3cWW0x7/sso/saml",
-      "idpEntityId": "http://www.okta.com/exkgdl7ctkw3I3cWW0x7",
-      "autoProvision": "0",
-      "signSamlRequest": "0",
-      "ssoType": [
-        "ADMIN"
-      ],
-      "domainList": [
-        "mockcompany.com"
-      ],
-      "useCustomSPMetadata": false,
-      "scimEnabled": false,
-      "enableScimBasedPolicy": false,
-      "disableSamlBasedPolicy": false,
-      "reauthOnUserUpdate": false,
-      "adminSpSigningCertId": "0",
-      "scimSharedSecretExists": false,
-      "forceAuth": false,
-      "enabled": true,
-      "redirectBinding": true
-    }
-  ]
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports pagination. To get a paginated response:
-
-1. Send a `GET` request to the following endpoint: `/mgmtconfig/v2/admin/customers/{customerId}/idp?page=1&pagesize=20`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid values for page and page size parameters.
-
-For example: `/mgmtconfig/v2/admin/customers/217246660302995456/idp?page=1&pagesize=2.`
-
-- View an example response
-
-```
-{
-  "totalPages": "3",
-  "list": [
-    {
-      "id": "217246660303022670",
-      "modifiedTime": "1648147227",
-      "creationTime": "1547402803",
-      "modifiedBy": "72057594038052745",
-      "name": "Test entityId IDP configuration - User sso",
-      "loginUrl": "https://testcompany.okta.com/app/testcompany_mytestcomanydomusersso_1/exkli5sevfsnKhh6n0x/sso/saml",
-      "idpEntityId": "http://www.okta.com/exkli5sevfsnKhh6n0x7",
-      "autoProvision": "0",
-      "signSamlRequest": "1",
-      "ssoType": [
-        "USER"
-      ],
-      "domainList": [
-        "mockcompany.com"
-      ],
-      "useCustomSPMetadata": false,
-      "scimEnabled": false,
-      "enableScimBasedPolicy": false,
-      "disableSamlBasedPolicy": false,
-      "reauthOnUserUpdate": false,
-      "userSpSigningCertId": "0",
-      "adminSpSigningCertId": "0",
-      "scimSharedSecretExists": false,
-      "forceAuth": false,
-      "enabled": true,
-      "redirectBinding": false
-    },
-    {
-      "id": "217246660303022599",
-      "modifiedTime": "1624663236",
-      "creationTime": "1542394689",
-      "modifiedBy": "72057594037928105",
-      "name": "IDP Config - Admin SSO",
-      "loginUrl": "https://testcompany.com/app/testcompany_zpaadminsso_1/exkgdl7ctkw3I3cWW0x7/sso/saml",
-      "idpEntityId": "http://www.okta.com/exkgdl7ctkw3I3cWW0x7",
-      "autoProvision": "0",
-      "signSamlRequest": "0",
-      "ssoType": [
-        "ADMIN"
-      ],
-      "domainList": [
-        "mockcompany.com"
-      ],
-      "useCustomSPMetadata": false,
-      "scimEnabled": false,
-      "enableScimBasedPolicy": false,
-      "disableSamlBasedPolicy": false,
-      "reauthOnUserUpdate": false,
-      "adminSpSigningCertId": "0",
-      "scimSharedSecretExists": false,
-      "forceAuth": false,
-      "enabled": true,
-      "redirectBinding": true
-    }
-  ]
-}
-```
-
-If not provided, the default page size is 20. The maximum page size is 500.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-This API supports a search option to search by features and fields. To search by features and fields:
-
-1. Send a GET request to the following endpoint: `/mgmtconfig/v1/admin/customers/73186051597795328/idp&search={searchString}`.
-2. Provide the following in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- Valid search string values. The search string values are in the format `fieldName operator fieldValue`. Only search string values that correspond to the values for valid fields and filters are supported. For example, the string `name%20LIKE%20test` is supported for the **Name**filter, using the **Contains**(`LIKE`) operator, for the `test` filter value.
-
-For example: `/mgmtconfig/v1/admin/customers/73186051597795328/idp&search=name%20LIKE%20test`.
-
-- View an example response
-
-```
-{
-  "totalPages": "2",
-  "totalCount": "2",
-  "list": [
-    {
-      "id": "72057594037961373",
-      "modifiedTime": "1668808938",
-      "creationTime": "1572496367",
-      "modifiedBy": "72057594038006517",
-      "name": "test2",
-      "loginUrl": "http://test.com/sso",
-      "idpEntityId": "https://test1.com",
-      "autoProvision": "0",
-      "signSamlRequest": "1",
-      "ssoType": [
-        "USER"
-      ],
-      "domainList": [
-        "1467901757270.com"
-      ],
-      "useCustomSPMetadata": true,
-      "scimEnabled": true,
-      "enableScimBasedPolicy": true,
-      "disableSamlBasedPolicy": false,
-      "reauthOnUserUpdate": false,
-      "userSpSigningCertId": "0",
-      "enableArbitraryAuthDomains": "0",
-      "scimSharedSecretExists": false,
-      "forceAuth": false,
-      "loginHint": true,
-      "enabled": true,
-      "redirectBinding": true
-    }
-  ]
-}
-```
-
-If you use the ZPA API PortaI or the [Reference Guide](https://help.zscaler.com/zpa/zpa-api/api-developer-reference-guide/reference-guide) to make your API calls, the search field string does not require any characters. For example, `name%20LIKE%20test` is `name LIKE test`.
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
-
-## Getting Details for a Particular IdP
-
-To get details for a particular IdP:
-
-1. Send a `GET` request to following endpoint: `/mgmtconfig/v1/admin/customers/{customerId}/idp/{idpId}` in the idp-controller.
-2. Provide the following values in the request endpoint:
-
-- `customerId`: The ZPA tenant ID of the customer.
-- `idpId`: The ID of the desired IdP.
-
-For example: `/mgmtconfig/v1/admin/customers/72057615512764416/idp/72057615512764510`.
-
-- View an example response
-
-```
-{
-  "id": "72057615512764510",
-  "modifiedTime": "1571334125",
-  "creationTime": "1571334045",
-  "modifiedBy": "72057615512764417",
-  "name": "AAD",
-  "certificates": [
-    {
-      "cName": "Microsoft Azure Federated SSO Certificate",
-      "serialNo": "52394493998477153587022235475127474407",
-      "certificate": "-----BEGIN CERTIFICATE-----\nMIIC8DCCAdigAwIBAgIQJ2rP/22CQ6BDYyU1iU6Y5zANBgkqhkiG9w0BAQsFADA0\nMTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZp\nY2F0ZTAeFw0xOTEwMTcxNzM5NTZaFw0yMjEwMTcxNzM5NTZaMDQxMjAwBgNVBAMT\nKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjAN\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmom8BuAvTHJ6Oj69fH4t2iFHNDrh\nE4MUs2TkeH474ogEPG1ilGS2qJW1XBc0XDny5Kior1GC6+q92OL6/VeNHQD1vDPd\nC2u5P+qui6SacjHV/3sM7pDfI01hCF3BxRLo3zEk9ir44lKmRo3B81L+ioGRVgJg\nJj3mbGez8v6YUnHkoSnBrU74Px4wB8DmyeZkZvwyey8+yKse03zC5nzwTDKalOvz\nu1NT09tWQXjvqfn3xyT8RCzo4ukZCF/Fn4CzhldvhO2ERcRlxPY8SxvJTkm26BCr\nrPTlOwY5D3XXEtJdamfziUO2hOdi/GmfC7PIbg7HOF+hTl9uDf+o6C+PSwIDAQAB\nMA0GCSqGSIb3DQEBCwUAA4IBAQBLqHfmFXnDCbVd6ZFkc6NmHE5IK2rCC5tpt3+i\nwjcHYCAScnI+lxmf3snb2E8kBvD7YVA45DUHEI1N1IiF76z1CkxAOIDjgeCFslQ5\nawnVJzHu17J/cTYCD579J9YWdDyz0AaD+lmwRrUP0QoxNZRtjq8dFLh8NGXW87wo\nlAhNXZEIo71Z0dbuAJLKHMSYLGwRG6jBmBzKp0rO4Z8nF3MLJ+bVhX5aYvVKSR8k\nmt/ZAkwqc1ePiiWeru/7VyDypz26fBFJk4UaLz0F9NMDkICR//zWQdfXXDTiKm53\nY/9cwLyFLj3fjRI3f/Qa2gkKU8f1WAqHXhBIPS/4XPaDU4IJ\n-----END CERTIFICATE-----\n",
-      "validFromInSec": "1571333996",
-      "validToInSec": "1666028396"
-    }
-  ],
-  "loginUrl": "https://login.microsoftonline.com/fe4036f5-76ad-4232-9bda-313544c3ad54/saml2",
-  "idpEntityId": "https://sts.windows.net/fe4036f5-76ad-4232-9bda-313544c3ad54/",
-  "autoProvision": "0",
-  "signSamlRequest": "1",
-  "ssoType": [
-    "USER"
-  ],
-  "domainList": [
-    "lanuk.net"
-  ],
-  "useCustomSPMetadata": true,
-  "scimEnabled": true,
-  "enableScimBasedPolicy": false,
-  "disableSamlBasedPolicy": false,
-  "reauthOnUserUpdate": false,
-  "userMetadata": {
-    "spEntityId": "https://samlsp.zpabeta.net/auth/metadata/72057615512764510",
-    "spPostUrl": "https://samlsp.zpabeta.net/auth/72057615512764510/sso",
-    "certificateUrl": "https://samlsp.zpabeta.net/auth/certificate",
-    "spMetadataUrl": "https://samlsp.zpabeta.net/auth/72057615512764510/metadata"
-  },
-  "scimServiceProviderEndpoint": "https://scim1.zpabeta.net/scim/1/72057615512764510/v2",
-  "scimSharedSecretExists": true,
-  "forceAuth": false,
-  "enabled": true,
-  "redirectBinding": true
-}
-```
-
-A successful response returns code 200. To learn more, see [API Response Codes and Error Messages](https://help.zscaler.com/zpa/api-response-codes-and-error-messages).
 <!-- /ZS-ARTICLE -->

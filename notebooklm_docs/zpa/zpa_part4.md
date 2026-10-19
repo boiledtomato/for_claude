@@ -1,300 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 66
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-activity-log-fields","lastmod":"2026-07-17T16:22Z","nid":"1483961"} -->
-## Understanding User Activity Log Fields
-
-- Source: https://help.zscaler.com/zpa/understanding-user-activity-log-fields
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Activity Log Fields
-- Last modified: 2026-07-17T16:22Z
-- Summary: Information on the various Private Access User Activity log fields captured by Log Streaming Service (LSS) log receivers.
-
-The Log Streaming Service (LSS) can send User Activity log information to any third-party log analytics tool. By default, the User Activity log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
-
-- View an example User Activity log.
-
-```
-{"LogTimestamp": "Fri May 31 17:35:42 2019","Customer": "ANZ Team/zdemo in beta","SessionID": "SqyZIMkg0JTj7EABsvwA","ConnectionID": "SqyZIMkg0JTj7EABsvwA,Q+EjXGdrvbF2lPiBbedm","InternalReason": "","ConnectionStatus": "active","IPProtocol": 6,"DoubleEncryption": 0,"Username": "ZPA LSS Client","ServicePort": 10011,"ClientPublicIP": "34.209.189.218","ClientPrivateIP": "","ClientLatitude": 45.000000,"ClientLongitude": -119.000000,"ClientCountryCode": "US","ClientZEN": "broker1b.pdx2","Policy": "ANZ Lab Apps_1","Connector": "ZDEMO ANZ Lab-1","ConnectorZEN": "broker1b.pdx2","ConnectorIP": "192.168.1.53","ConnectorPort": 60266,"Host": "192.168.1.57","Application": "ANZ Lab Apps","AppGroup": "ANZ Lab Apps","Server": "0","ServerIP": "192.168.1.57","ServerPort": 10011,"PolicyProcessingTime": 28,"CAProcessingTime": 1330,"ConnectorZENSetupTime": 191017,"ConnectionSetupTime": 192397,"ServerSetupTime": 465,"AppLearnTime": 0,"TimestampConnectionStart": "2019-05-30T08:20:42.230Z","TimestampConnectionEnd": "","TimestampCATx": "2019-05-30T08:20:42.230Z","TimestampCARx": "2019-05-30T08:20:42.231Z","TimestampAppLearnStart": "","TimestampZENFirstRxClient": "2019-05-30T08:20:42.424Z","TimestampZENFirstTxClient": "","TimestampZENLastRxClient": "2019-05-31T17:34:27.348Z","TimestampZENLastTxClient": "","TimestampConnectorZENSetupComplete": "2019-05-30T08:20:42.422Z","TimestampZENFirstRxConnector": "","TimestampZENFirstTxConnector": "2019-05-30T08:20:42.424Z","TimestampZENLastRxConnector": "","TimestampZENLastTxConnector": "2019-05-31T17:34:27.348Z","ZENTotalBytesRxClient": 2406926,"ZENBytesRxClient": 7115,"ZENTotalBytesTxClient": 0,"ZENBytesTxClient": 0,"ZENTotalBytesRxConnector": 0,"ZENBytesRxConnector": 0,"ZENTotalBytesTxConnector": 2406926,"ZENBytesTxConnector": 7115,"Idp": "Example IDP Config", "ClientToClient": "0", "ClientCity": "San Jose", "MicroTenantID": "145257480799129312", "AppMicrotenantID": "145257480799129312", "Platform": "windows", "Hostname": "DESKTOP-P669MN4", "PRAApprovalID": "15787", "PRAConsolesPolicyID": "72057597259256663", "PRAConsoleType": "SSH", "PRACredentialUserName": "SafemarchUser", "PRACredentialLoginType": "Username-Password", "PRACredentialPolicyID": "72057597259256964", "PRAConnectionID": "$b381e220-fb0f-4dc5-9c2a-e3e0fb2e5efb", "PRAErrorStatus": "Upstream Error", "PRAFileTransferList": "{\"file_list\":[{\"name\":\"\\/d546509ab6670f9ff31783ed72875dfc0f37fa2b666bd5870eecaaed2ebea4a8.elf\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225544,\"end_ts\":1704225547,\"inspected\":\"True\",\"file_type\":\"elf\",\"md5\":\"4DDE761681684D7EDAD4E5E1FFDB940B\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"response OK\\\",\\n\\t\\\"virusName\\\": \\\"iot.trojan.gafgyt.botnet\\\",\\n\\t\\\"virusType\\\": \\\"Virus\\\",\\n\\t\\\"fileType\\\": \\\"elf\\\",\\n\\t\\\"md5\\\": \\\"4DDE761681684D7EDAD4E5E1FFDB940B\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"Virus\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/4ce39251817198bbec7b84782507394e7d68bfe3a79b89be363f0c1e05558ef1.zip\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225552,\"end_ts\":1704225557,\"inspected\":\"True\",\"file_type\":\"zip\",\"md5\":\"F5F7995BACD88A4BCF2D69DF063184AB\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"File not submitted to Sandbox\\\",\\n\\t\\\"fileType\\\": \\\"zip\\\",\\n\\t\\\"md5\\\": \\\"F5F7995BACD88A4BCF2D69DF063184AB\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"File not Submitted to Sandbox\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/4ce39251817198bbec7b84782507394e7d68bfe3a79b89be363f0c1e05558ef1.xlsx\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225568,\"end_ts\":1704225573,\"inspected\":\"True\",\"file_type\":\"xlsx\",\"md5\":\"FF43FB09E69439FCD3DD8196F5BCE11F\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"response OK\\\",\\n\\t\\\"virusName\\\": \\\"xls.downloader.qakbot\\\",\\n\\t\\\"virusType\\\": \\\"Sandbox Malware\\\",\\n\\t\\\"fileType\\\": \\\"xlsx\\\",\\n\\t\\\"md5\\\": \\\"FF43FB09E69439FCD3DD8196F5BCE11F\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"Sandbox Malware\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/Populate_Existing_Flags_And_Overrides.xlsx\",\"action\":\"Upload\",\"status\":\"Success\",\"start_ts\":1704225591,\"end_ts\":1704225593,\"inspected\":\"True\",\"file_type\":\"xlsx\",\"md5\":\"D1A0596352BE4A1260B0419C7046F8FA\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"No active content found. File not suspicious\\\",\\n\\t\\\"fileType\\\": \\\"xlsx\\\",\\n\\t\\\"md5\\\": \\\"D1A0596352BE4A1260B0419C7046F8FA\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"File not Submitted to Sandbox\\\"\\n}\",\"inspection_time\":\"less than 1 second\"}]}", "PRARecordingStatus": "Available", "PRASharedUserList": "{\"shared_user_list\":[{\"name\":\"lisa@zerotrust.to\"}]}", "PRASessionType": "PRA", "PRASharedMode": "control"}
-```
-
-The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
-
-| Field | Description | Supported Field Format Specifications |
-| --- | --- | --- |
-| AppGroup | The application group name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| AppLearnTime | The time in microseconds taken for App Connectors to learn about the requested application and report the learned information to the central authority | %[OPT]s; %[OPT]j; %[OPT]J |
-| Application | The application name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| AppMicroTenantID | The Microtenant ID of the application | %[OPT]s; %[OPT]j |
-| CAProcessingTime | The time in microseconds taken for processing in the central authority | %[OPT]s; %[OPT]j; %[OPT]J |
-| ClientCountryCode | The country code of the Zscaler Client Connector location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientLatitude | The latitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
-| ClientLongitude | The longitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
-| ClientPrivateIP | The private IP address of the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientPublicIP | The public IP address of the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientCity | The city of the client | %[OPT]s; %[OPT]j |
-| ClientToClient | The status of the client-to-client connection | %[OPT]s |
-| ClientZEN | The Public Service Edge for Private Access that received the request from the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectionID | The application connection ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectionSetupTime | The time taken by the App Connector to process a notification from the App Connector selection microservice and set up the connection to the application server | %[OPT]s; %[OPT]j; %[OPT]J |
-| ConnectionStatus | The status of the connection. The expected values for this field are: Open; Close; Active | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Connector | The App Connector name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectorIP | The source IP address of the App Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectorPort | The source port of the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ConnectorZEN | The Public Service Edge that sent the request from the App Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectorZENSetupTime | The time in microseconds taken for setting up the connection between the App Connector and Public Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
-| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| DoubleEncryption | The double encryption status. The expected values for this field are: On; Off | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Host | The destination host domain or IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Hostname | The name of the device as reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Idp | The name of the identity provider (IdP) as configured in the Zscaler Admin Console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| InternalReason | The internal reason for the status of the transaction | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| IPProtocol | The IP protocol number | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
-| MicroTenantID | The Microtenant ID of the user accessing the application | %[OPT]s; %[OPT]j |
-| Platform | The platform on the device as reported by Zscaler Client Connector (e.g., Windows) | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Policy | The access policy rule name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PolicyProcessingTime | The time in microseconds taken for processing the access policy associated with the application | %[OPT]s; %[OPT]j; %[OPT]J |
-| PRAApprovalID | The privileged approval ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| PRAConsolesPolicyID | The consoles policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| PRAConnectionID | The Privileged Remote Access (PRA) connection ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRAConsoleType | The privileged console type. The expected values for this field are: RDP; SSH; VNC | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRACredentialLoginType | The login type of the privileged credential. The expected values for this field are: Username/Password; SSH Key; Password | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRACredentialPolicyID | The privileged credential policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| PRACredentialUserName | The name of the user that is logged in to the target privileged console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRAErrorStatus | The PRA session error status, if available | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRAFileTransferList | The files transferred during the PRA session | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRARecordingStatus | The recording status of the PRA file transfer. The expected values for this field are: Available; Not Available; Started | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRASessionType | The PRA session type. The expected value is PRA. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRASharedMode | The PRA shared mode. The expected values for this field are: Monitor; Control | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRASharedUserList | The users that the PRA session was shared with | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Server | The server ID name. The server ID must be set to zero if Dynamic Server Discovery is enabled. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ServerIP | The destination IP address of the server | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ServerPort | The destination port of the server | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ServerSetupTime | The time in microseconds taken to set up the connection at the server | %[OPT]s; %[OPT]j; %[OPT]J |
-| ServicePort | The service port associated with the application request | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| SessionID | The TLS session ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| TimestampConnectionStart | The timestamp in microseconds when the Public Service Edge or Private Service Edge for Private Access received the initial request from Zscaler Client Connector to start the connection | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampConnectionEnd | The timestamp in microseconds when the Public Service Edge or Private Service Edge terminated the connection | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampCATx | The timestamp in microseconds when the central authority sent a request to the Public Service Edge or Private Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampCARx | The timestamp in microseconds when the central authority received a request from the Public Service Edge or Private Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampAppLearnStart | The timestamp in microseconds when Private Access services start the process to learn about an application | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampZENFirstRxClient | The timestamp in microseconds when the Public Service Edge received the first byte from the Zscaler Client Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| TimestampZENFirstTxClient | The timestamp in microseconds when the Public Service Edge sent the first byte to the Zscaler Client Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| TimestampZENLastRxClient | The timestamp in microseconds when the Public Service Edge received the last byte from the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampZENLastTxClient | The timestamp in microseconds when the Public Service Edge sent the last byte to the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampConnectorZENSetupComplete | The timestamp in microseconds when the Public Service Edge received a request from the App Connector to set up a data connection. The request from the App Connector is triggered by the initial request for a specific application from Zscaler Client Connector. | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampZENFirstRxConnector | The timestamp in microseconds when the Public Service Edge received the first byte from the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| TimestampZENFirstTxConnector | The timestamp in microseconds when the Public Service Edge sent the first byte to the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| TimestampZENLastRxConnector | The timestamp in microseconds when the Public Service Edge received the last byte from the App Connector | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampZENLastTxConnector | The timestamp in microseconds when the Public Service Edge sent the last byte to the App Connector | %[OPT]s; %[OPT]j; %[OPT]J |
-| Username | The username as entered into Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ZENBytesRxClient | The additional bytes received from Zscaler Client Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENBytesTxClient | The additional bytes transmitted to Zscaler Client Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENBytesRxConnector | The additional bytes received from the App Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENBytesTxConnector | The additional bytes transmitted by the App Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENTotalBytesRxClient | The total bytes received from Zscaler Client Connector by the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENTotalBytesTxClient | The total bytes transmitted to Zscaler Client Connector from the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENTotalBytesRxConnector | The total bytes received from the App Connector by the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| ZENTotalBytesTxConnector | The total bytes transmitted to the App Connector from the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-log-fields","lastmod":"2026-09-29T13:11Z","nid":"1483956"} -->
-## Understanding User Status Log Fields
-
-- Source: https://help.zscaler.com/zpa/understanding-user-status-log-fields
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status Log Fields
-- Last modified: 2026-09-29T13:11Z
-- Summary: Information on the various Private Access (ZPA) User Status log fields captured by Log Streaming Service (LSS) log receivers.
-
-The Log Streaming Service (LSS) can send User Status log information to any third-party log analytics tool. By default, the User Status log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
-
-- View an example User Status log.
-
-The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
-
-```
-{"LogTimestamp": "Fri May 31 17:34:48 2019","Customer": "ANZ Team/zdemo in beta","Username": "ZPA LSS Client","SessionID": "cKgzUERSLl09Y+ytH8v5","SessionStatus": "ZPN_STATUS_AUTHENTICATED","Version": "19.12.0-36-g87dad18","ZEN": "broker1b.pdx2","CertificateCN": "slogger1b.pdx2.zpabeta.net","PrivateIP": "","PublicIP": "34.216.108.5","Latitude": 45.000000,"Longitude": -119.000000,"CountryCode": "US","TimestampAuthentication": "2019-05-29T21:18:38.000Z","TimestampUnAuthentication": "","TotalBytesRx": 31274866,"TotalBytesTx": 25424152,"Idp": "Example IDP Config","Hostname": "DESKTOP-2K299HC","Platform": "windows","ClientType": "zpn_client_type_zapp","TrustedNetworks": "TN1_stc1","TrustedNetworksNames": "145248739466947538","SAMLAttributes": "myname:jdoe,myemail:jdoe@zscaler.com","PosturesHit": "sm-posture1,sm-posture2","PosturesMisses": "sm-posture11,sm-posture12","ZENLatitude": 47.000000,"ZENLongitude": -122.000000,"ZENCountryCode": "", "FQDNRegistered": "0","FQDNRegisteredError": "","City": "San Jose", "MicroTenantID": "145257480799129312"}
-```
-
-| Field | Description | Supported Field Format Specifications |
-| --- | --- | --- |
-| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
-| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Username | The user name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| SessionID | The TLS session ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| SessionStatus | The status of the session. The expected values for this field are: ZPN_STATUS_AUTHENTICATED: The user successfully authenticated in Private Access; ZPN_STATUS_AUTH_FAILED: The user failed to authenticate in Private Access; ZPN_STATUS_DISCONNECTED: The user connected from a Public Service Edge for Private Access or a Private Service Edge for Private Access | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Version | The Zscaler Client Connector version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ZEN | The Public Service Edge that was selected for the connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| CertificateCN | The certificate common name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PrivateIP | The private IP address of Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PublicIP | The public IP address of Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Latitude | The latitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
-| Longitude | The longitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
-| CountryCode | The country code of the Zscaler Client Connector location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| TimestampAuthentication | Timestamp in microseconds when Zscaler Client Connector was authenticated | %[OPT]s; %[OPT]j; %[OPT]J |
-| TimestampUnAuthentication | Timestamp in microseconds when Zscaler Client Connector was unauthenticated | %[OPT]s; %[OPT]j; %[OPT]J |
-| TotalBytesRx | The total bytes received | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| TotalBytesTx | The total bytes transmitted | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| Idp | The name of the identity provider (IdP) as configured in the Zscaler Admin Console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Hostname | The name of the device as reported by Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Platform | The platform on the device as reported by Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientType | The client type for the request (i.e., Zscaler Client Connector, ZPA LSS, or Web Browser) | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| TrustedNetworks | The unique IDs for the trusted networks that Zscaler Client Connector has determined for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| TrustedNetworksNames | The names for the trusted networks that Zscaler Client Connector has determined for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| SAMLAttributes | The list of SAML attributes reported by the IdP | %[OPT]s; %[OPT]j; %[OPT]J |
-| PosturesHit | The posture profiles that Zscaler Client Connector verified for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PosturesMiss | The posture profiles that Zscaler Client Connector failed to verify for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ZENLatitude | The latitude coordinates for the Public Service Edge | %[OPT]f; %[OPT]o |
-| ZENLongitude | The longitude coordinates for the Public Service Edge | %[OPT]f; %[OPT]o |
-| ZENCountryCode | The country code for the Public Service Edge | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| FQDNRegistered | The status of the hostname for the client-to-client connection. The expected values for this field are true or false. | %[OPT]s |
-| FQDNRegisteredError | The status of the registered hostname. The expected value if the hostname matches the regular expression is FQDN_MATCH. The expected values if the hostname does not match the regular expression are: FQDN_NO_MATCH: The hostname does not match with the configured regular expression; FQDN_BAD_SCHEMA: Client-to-client communication is disabled for the Public Service Edge; FQDN_BAD_REGEX: The configured regular expression in the Zscaler Admin Console is incorrect; FQDN_TOO_MANY_REGEX: Invalid regular expression configuration due to multiple configured regular expressions; FQDN_NO_ENTRIES: Your admin has not configured a regular expression in the Zscaler Admin Console; FQDN_EMPTY: The FQDN received from the Zscaler Client Connector is null or empty; BROKER_NOT_ENABLED: Client-to-client communication is disabled for the Public Service Edge; CUSTOMER_NOT_ENABLED: Client-to-client communication is disabled for the current customer | %[OPT]s |
-| City | The city of the client | %[OPT]s; %[OPT]j |
-| MicroTenantID | The Microtenant ID of the user accessing the application | %[OPT]s; %[OPT]j |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538669"} -->
-## Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
-
-- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
-- Last modified: 2026-10-02T07:06Z
-- Summary: Information on the various User Status -VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
-
-The Log Streaming Service (LSS) can send User Status - VPN Service Edge (IP Address Reservation) log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge (IP Address Reservation) log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
-
-You can use the shared `ConnectionID` key field to merge user status logs produced by both User Status - VPN Service Edge (IP Address Reservation) and [VPN Service Edge](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
-
-- View a User Status - VPN Service Edge (IP Address Reservation) log example.
-
-The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
-
-| Field | Description | Supported Field Format Specifications |
-| --- | --- | --- |
-| LogTimestamp | Timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
-| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Username | The username entered in Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| StatusCode | The status code of the VPN IP reservation transaction: Success; Error_bad_request; Error_no_gateway_available; Error_no_ip_available; Error_service_not_available; Error_stale_connection; Error_service_disabled | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Result | The VPN IP reservation attempt result: Success; Error | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ZPAServiceEdge | The Private Access (ZPA) Service Edge the user is connected to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNServiceEdge | The VPN Service Edge the assigned VPN client subnet belongs to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| CertificateCN | The certificate name of the user | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNClientIP | The VPN client's IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Action | The action on the transaction: Reserve; Promote; Release; Expire; Free; Invalidate | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNClientSubnet | The VPN client's subnet | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-
-```
-{"LogTimestamp": "Mon Mar 23 15:30:43 2026","Customer": "VishnuVarshitha Automation1","Username": "user1@vishnu1.uk","Hostname": "Disabled","ConnectionID": "acLgpN9es0LZAylRPHWe","StatusCode": "success","Version": "26.54.0-PR-13494-6-g484d548ee1-035","Result": "success","ZPAServiceEdge": "broker-np-cte-1a.pdx12.dev.zpath.net","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","VPNClientIP": "50.50.50.1","Action": "reserve","VPNClientSubnet": "50.50.50.0/24"}
-```
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538713"} -->
-## Understanding User Status - VPN Service Edge Log Fields
-
-- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge Log Fields
-- Last modified: 2026-10-02T07:06Z
-- Summary: Information on the various User Status - VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
-
-The Log Streaming Service (LSS) can send User Status - VPN Service Edge log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
-
-You can use the shared `ConnectionID` key field to merge user status logs produced by both VPN Service Edge and [VPN Service Edge (IP Address Reservation)](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
-
-- View a User Status - VPN Service Edge log example.
-
-The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
-
-| Field | Description | Supported Field Format Specifications |
-| --- | --- | --- |
-| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
-| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNState | The status of the VPN connection: Connecting; Connected; Disconnected | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNServiceEdge | The VPN Service Edge used for the traffic | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| CertificateCN | The Common Name component of the SSL/TLS certificate for identifying the primary identity | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| VPNClientIP | The client's VPN IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientPublicIP | The client's public IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| ClientPort | The port number for the client | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| LatestHandshakeTime | The latest handshake time | %[OPT]s; %[OPT]j; %[OPT]J |
-| BytesReceivedTotal | The total bytes of data received during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-| BytesSentTotal | The total bytes of data sent during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
-
-```
-{"LogTimestamp": "Mon Mar 23 15:01:49 2026","Customer": "VishnuVarshitha Automation1","ConnectionID": "4+QuTvrVsfUHHds3km5z","VPNState": "connected","Version": "26.54.0-PR-13494-6-g484d548ee1","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","Hostname": "","VPNClientIP": "50.50.50.1","ClientPublicIP": "199.168.150.161","ClientPort": 36196,"LatestHandshakeTime": "2026-03-23T14:59:39.000Z","BytesReceivedTotal": 24480,"BytesSentTotal": 28720}
-```
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-10-01T14:49Z","nid":"1540960"} -->
-## Understanding ZPA Appliances
-
-- Source: https://help.zscaler.com/zpa/understanding-zpa-appliances
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > ZPA Appliance > Understanding ZPA Appliances
-- Last modified: 2026-10-01T14:49Z
-- Summary: Information on ZPA appliances for App Connector and Private Service Edge.
-
-Private Access (ZPA) enables organizations to provide access to internal applications and services while ensuring the security of their networks. Private Access is an easier to deploy, more cost-effective, and more secure alternative to VPNs. Unlike VPNs, which require users to connect to your network to access your enterprise applications, Private Access allows you to give users policy-based secure access only to the internal apps they need. With Private Access, application access does not require network access.
-
-This feature is in limited availability. To learn more, contact your Zscaler Account team.
-
-While Private Access is for connecting users to an enterprise's internal applications, Internet & SaaS (ZIA) is for connecting users to public applications on the internet. To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
-
-Additionally, Private Access decouples applications from the physical network so you can provide seamless connectivity to private internal applications and assets, whether they are in the cloud, the data center, or both. It also adjusts dynamically to network changes, so you can move your resources without impacting user access.
-
-For customers who have multiple global sites with a need for high-performance connectivity between these sites (such as users accessing large files and medical records, without virtual computing power available), high-performance and high-throughput hardware appliances are available for Private Access App Connectors and Private Service Edges.
-
-The ZPA appliance is subject to maintenance or alterations, updates, enhancements, additions, or improvements at any time. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
-
-ZPA appliances include a single, high-performance App Connector or Private Service Edge with scaling to meet large throughput requirements. The following table shows appliance details:
-
-| Attributes | App Connector Appliance | Private Service Edge Appliance |
-| --- | --- | --- |
-| Hardware Model | ZS-ZPA-APPL-8010-APPC | ZS-ZPA-APPL-8010-PSE |
-| CPU / Memory / Storage | 16C / 128GB / 1TB | 16C / 128GB / 1TB |
-| Ports | 10x 1GbE 8x 10 GbE (SFP+) | 10x 1GbE 8x 10 GbE (SFP+) |
-| Form Factor | 1U (2 x PSU) | 1U (2 x PSU) |
-| Throughput | 3 Gbps | 3 Gbps |
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/universal-ztna-zscaler-private-access-private-service-edge","lastmod":"2022-12-05T12:25Z","nid":"1485496"} -->
-## Universal ZTNA with Zscaler Private Access Private Service Edge
-
-- Source: https://help.zscaler.com/zpa/universal-ztna-zscaler-private-access-private-service-edge
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Reference Architecture > Universal ZTNA with Zscaler Private Access Private Service Edge
-- Last modified: 2022-12-05T12:25Z
-- Summary: The Universal Zero Trust Network Access (ZTNA) with Zscaler Private Access (ZPA) Private Service Edge reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
-
-The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
-
-Zero trust network access (ZTNA), also known as the software-defined perimeter (SDP), is a set of technologies and functionalities that enable secure access to internal applications for users. It operates on an adaptive trust model, where trust is never implicit, and access is granted on a least privileged basis defined by granular policies. ZTNA gives remote users seamless, secure connectivity to private applications without ever placing them on the network or exposing apps to the internet. Zscaler Private Access (ZPA) delivers ZTNA to organizations that need to access internal applications in public clouds, private clouds, and in the organization's data centers, through policies made up of criteria you define.
-
-[Universal ZTNA with Zscaler Private Access Private Service Edge: Reference Architecture Guide](https://help.zscaler.com/downloads/zpa/reference-architecture/universal-ztna-zscaler-private-access-private-service-edge/Universal-ZTNA-with-Zscaler-Private-Access-Private-Service-Edge.pdf) [Download PDF](https://help.zscaler.com/downloads/zpa/reference-architecture/universal-ztna-zscaler-private-access-private-service-edge/Universal-ZTNA-with-Zscaler-Private-Access-Private-Service-Edge.pdf)
-<!-- /ZS-ARTICLE -->
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 60
 
 ---
 
@@ -1564,8 +1272,8 @@ See image.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer> Private Access > Private Diagnostics**.
+2. Click the **Settings** icon. The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
 
@@ -2400,13 +2108,13 @@ To learn more about reviewing policy recommendations for resource groups, see [A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-09-15T11:41Z","nid":"1531128"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage","lastmod":"2026-10-16T07:06Z","nid":"1531128"} -->
 ## Viewing Application Segments Usage
 
 - Source: https://help.zscaler.com/zpa/viewing-application-segments-usage
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage
-- Last modified: 2026-09-15T11:41Z
+- Last modified: 2026-10-16T07:06Z
 - Summary: Viewing and understanding the application usage by users and groups in the Application Segments Usage page.
 
 Application Segments Usage insights provide visibility into which application segments are being actively used or not. These insights can help you assess and determine unused application segments for improvement consideration. The Application Segments Usage insights provide:
@@ -2488,13 +2196,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2026-09-15T11:38Z","nid":"1531129"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-application-segments-usage-details","lastmod":"2026-10-16T07:06Z","nid":"1531129"} -->
 ## Viewing Application Segments Usage Details
 
 - Source: https://help.zscaler.com/zpa/viewing-application-segments-usage-details
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > Viewing Application Segments Usage Details
-- Last modified: 2026-09-15T11:38Z
+- Last modified: 2026-10-16T07:06Z
 - Summary: Application segments usage details include granular information for a specific application segment from the Application Segments Usage page.
 
 Application segment usage details are accessible from the following pages:
@@ -2534,20 +2242,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-09-23T13:21Z","nid":"1483451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-applications-dashboard","lastmod":"2026-10-12T11:55Z","nid":"1483451"} -->
 ## Viewing the Applications Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-applications-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Viewing the Applications Dashboard
-- Last modified: 2026-09-23T13:21Z
+- Last modified: 2026-10-12T11:55Z
 - Summary: Information on the Applications dashboard and widgets accessible within the Zscaler Admin Console.
 
 The Applications dashboard provides information about applications in your organization. To view the dashboard in the Zscaler Admin Console, go to **Private Access** > **Dashboards** > **Applications** from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal).
 
 See image.
 
-[Image: pplications dashboard in the Zscaler Admin Console]
+[Image: Applications dashboard in the Zscaler Admin Console]
 
 ## Dashboard Tools
 
@@ -2573,6 +2281,9 @@ See image.
 
 The Applications dashboard provides the following widgets:
 
+- Application Categories
+- Top 10 App Types by Applications
+- Top 10 App Types by Users
 - AI-Powered Recommendations by Attack Surface Reduction %
 - Recent Applications Accessed
 - Top Applications by Bandwidth
@@ -2583,9 +2294,26 @@ The Applications dashboard provides the following widgets:
 - Top Applications by Users
 - Applications Discovered in the Past 14 Days
 - App Configuration in Past 3 Months
-- Top Applications by Tunnel Count
 
 If you are using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming), the Users dashboard includes information for a ZPA LSS Client user. This user represents the LSS service, not an actual user. Also, each log receiver is displayed as an application to reflect the data coming in from the service. To learn more, including how to stop the LSS service from streaming ZPA LSS Client logs, see [Configuring a Log Receiver](https://help.zscaler.com/zpa/configuring-log-receiver#Step2).
+
+This widget displays the distribution of private applications across application categories. Categories are identified using App Type Fingerprinting and represent the functional classification of applications, such as Database, Finance, HR Management, AI/ML, Productivity Tools, and Developer Tools.
+
+The widget supports viewing application activity based on transactions or bytes. Hover over a category to display the category name and its corresponding value. Click a category to drill down and display the distribution of application types within the selected category.
+
+[Image: Application Categories widget]
+
+This widget displays the top 10 application types ranked by the number of discovered private applications. Application types are identified through App Type Fingerprinting and provide visibility into the most commonly deployed application types within the organization.
+
+Hover over a bar to display the application type and the corresponding application count.
+
+[Image: Top 10 App Types by Applications widget]
+
+This widget displays the top 10 application types ranked by the number of users accessing applications within each application type. Application types are identified through App Type Fingerprinting and help you understand user activity across different categories of applications.
+
+Hover over a bar to display the application type and the corresponding user count.
+
+[Image: Top 10 App Types by Users widget]
 
 This widget displays the total number of recommended application segments, grouped by their percentage of attack surface reduction. The attack surface reduction groups are broken up into 25% increments to show how many recommended application segments had higher attack surface reduction versus those that were lower. If you hover over the chart and click a specific section, a tooltip appears that specifies the attack surface reduction group for the percentage increment, the total number of AI-powered recommendations, and the percentage total. Clicking **View All** takes you to the [AI-Powered Recommendations](https://help.zscaler.com/zpa/about-ai-powered-recommendations-application-segments) page.
 
@@ -2719,15 +2447,6 @@ Hover over a graph bar to get detailed information for each two-week increment. 
 AI-Powered Recommendations must be activated to display the App Configuration in Past 3 Months widget and populate it with data. To activate this feature, click **Activate Recommendations** on the AI-Powered Recommendations page (Private Access > Private Applications > AI-Powered Recommendations).
 
 [Image: App Configuration in Past 3 Months widget]
-
-This widget displays the top applications by tunnel count in the selected time frame.
-
-[Image: Top Applications by Tunnel Count widget on the Applications dashboard]
-
-- Hover over an application to view:
-  - **Name**: The application name.
-  - **Number of MTunnel(s)**:The number of tunnel counts accessed by the application in the selected time frame, and the percentage that number represents of the applications shown in the widget.
-- Click an application to view more details in **Diagnostics**.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5022,13 +4741,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-10-06T19:05Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-10-14T14:49Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-10-06T19:05Z
+- Last modified: 2026-10-14T14:49Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

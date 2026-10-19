@@ -1,8 +1,47 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 155
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 157
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/deploying-managing-zscaler-client-connector-zia","lastmod":"2026-10-09T14:13Z","nid":"1401761"} -->
+## Deploying and Managing Zscaler Client Connector for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/deploying-managing-zscaler-client-connector-zia
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Zscaler Client Connector Deployment > Deploying and Managing Zscaler Client Connector for Internet & SaaS
+- Last modified: 2026-10-09T14:13Z
+- Summary: Information on how to properly deploy and manage Zscaler Client Connector for the Internet & SaaS service.
+
+To properly deploy and manage Zscaler Client Connector for the Internet & SaaS (ZIA) service, you must complete the following tasks in the Zscaler Admin Console:
+
+- Step 1: Manage Admin Access to Zscaler Client Connector
+- Step 2: Provision and Authenticate Users
+
+Optionally, you can complete the following tasks when deploying or managing Zscaler Client Connector for Internet & SaaS:
+
+- Configure SSL/TLS Inspection
+- Create Groups
+- Create and Host PAC Files
+
+Manage admin access to Zscaler Client Connector using role-based administration. To learn more, see [Adding Internet & SaaS Admin Roles](https://help.zscaler.com/zia/adding-internet-saas-admin-roles).
+
+To use the Zscaler service, you must have an authentication mechanism configured and users provisioned on the Internet & SaaS service. To learn more, see [Understanding User Provisioning and Authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users).
+
+If you do not have an authentication mechanism installed, you must use the Zscaler Admin Console as your [identity provider (IdP)](https://help.zscaler.com/zia/about-identity-providers) to provision and authenticate users. To learn more, see [Using the Zscaler Admin Console as an Identity Provider](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider).
+
+In order to enable [SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) for Zscaler Client Connector, you must first enable the feature in the Zscaler Admin Console for each relevant platform. To learn more, see [Configuring SSL Inspection for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector).
+
+For Zscaler Client Connector, you can apply certain policies or settings to specific user groups. To learn more, see [About User Groups](https://help.zscaler.com/authentication-service/about-user-groups).
+
+You can use PAC files in the [Zscaler Client Connector profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-profiles) and [forwarding profiles](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles) to determine how to direct your organization’s traffic.
+
+To create custom PAC files for these profiles, Zscaler highly recommends that you use the Zscaler Admin Console default PAC file and customize it as necessary. After you create a custom PAC file, you can [host it in the Zscaler Admin Console](https://help.zscaler.com/zia/about-hosted-pac-files).
+
+To learn more, see [Best Practices for Using PAC Files with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/best-practices-using-pac-files-zscaler-client-connector) and [Writing a PAC File](https://help.zscaler.com/zia/writing-pac-file).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -144,13 +183,13 @@ In general, client certificate authentication is part of the mutual TLS authenti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-authentication-bridge","lastmod":"2026-09-30T19:26Z","nid":"1399636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-authentication-bridge","lastmod":"2026-10-14T21:06Z","nid":"1399636"} -->
 ## Deploying a Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Deploying a Zscaler Authentication Bridge
-- Last modified: 2026-09-30T19:26Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to deploy a Zscaler Authentication Bridge (ZAB).
 
 The Zscaler Authentication Bridge (ZAB) is a virtual machine (VM) that you can use to [provision and authenticate users](https://help.zscaler.com/zia/about-provisioning-authenticating-users). To learn more, see [About the Zscaler Authentication Bridge](https://help.zscaler.com/zia/about-zscaler-authentication-bridge).
@@ -2024,13 +2063,13 @@ See sample files.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-department-information-csv-file","lastmod":"2026-10-01T15:25Z","nid":"1401116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-department-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401116"} -->
 ## Downloading Department Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-department-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Downloading Department Information to a CSV File
-- Last modified: 2026-10-01T15:25Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to obtain a list of departments configured in the Zscaler Admin Console.
 
 To download a CSV file of departments and their information:
@@ -2043,13 +2082,13 @@ This CSV file can't be used to [import departments](https://help.zscaler.com/zia
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-group-information-csv-file","lastmod":"2026-10-01T14:56Z","nid":"1401106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-group-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401106"} -->
 ## Downloading Group Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-group-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Downloading Group Information to a CSV File
-- Last modified: 2026-10-01T14:56Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to obtain a list of groups configured in the ZIA Admin Portal.
 
 To download a CSV file of groups and their information:
@@ -2062,13 +2101,13 @@ This CSV file can't be used to [import groups](https://help.zscaler.com/zia/impo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-location-info-to-CSV","lastmod":"2026-09-29T05:45Z","nid":"1399241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-location-info-to-CSV","lastmod":"2026-10-13T21:06Z","nid":"1399241"} -->
 ## Downloading Location and Sublocation Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-location-info-to-CSV
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Downloading Location and Sublocation Information to a CSV File
-- Last modified: 2026-09-29T05:45Z
+- Last modified: 2026-10-13T21:06Z
 - Summary: How to obtain a list of locations and sublocations that identify the various networks from which an organization sends its Internet traffic to the Zscaler service.
 
 To download a CSV file of locations and sublocations:
@@ -2082,13 +2121,13 @@ The CSV file you download here cannot be used to [import location and sublocatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-10-01T14:26Z","nid":"1401096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401096"} -->
 ## Downloading User Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-user-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Downloading User Information to a CSV File
-- Last modified: 2026-10-01T14:26Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to obtain a list of users configured in the Zscaler Admin Console.
 
 To download a CSV file of Internet & SaaS users and their information:
@@ -2151,13 +2190,13 @@ To download a Virtual Service Edge VM for each Virtual Service Edge in a cluster
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-09-30T19:29Z","nid":"1401126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-10-14T21:06Z","nid":"1401126"} -->
 ## Downloading the Zscaler Authentication Bridge VM
 
 - Source: https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Downloading the Zscaler Authentication Bridge VM
-- Last modified: 2026-09-30T19:29Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to download the Zscaler Authentication Bridge virtual machine in the Zscaler Admin Console.
 
 Downloading the Zscaler Authentication Bridge (ZAB) virtual machine (VM) is one of the tasks you must complete when deploying a ZAB. For a complete list of tasks, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge).
@@ -2176,13 +2215,13 @@ To download the ZAB VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-09-30T13:14Z","nid":"1401186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-10-14T21:06Z","nid":"1401186"} -->
 ## Editing the Default Executive Insights App Role
 
 - Source: https://help.zscaler.com/zia/editing-default-executive-insights-app-role
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Editing the Default Executive Insights App Role
-- Last modified: 2026-09-30T13:14Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to edit the default Executive Insights App role in the Zscaler Admin Console.
 
 The Executive Insights App admin role is one of the default roles Zscaler provides. It gives the admin the permissions and scope required to access the Executive Insights App, but not the Zscaler Admin Console. If you want to give an admin other permissions and functional scopes in the Zscaler Admin Console along with access to the Executive Insights App, you can create an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Executive Insights App Access** enabled, and then assign the new role to the admin.
@@ -2834,13 +2873,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-09-29T18:55Z","nid":"1535315"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-10-15T00:32Z","nid":"1535315"} -->
 ## Editing Locations
 
 - Source: https://help.zscaler.com/zia/editing-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
-- Last modified: 2026-09-29T18:55Z
+- Last modified: 2026-10-15T00:32Z
 - Summary: Information on editing locations in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -2858,7 +2897,7 @@ To edit an existing location:
 
 To delete an existing location:
 
-1. rom the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
 2. Click **Edit** for the location you want to delete. The **Edit Location** window appears.
 3. In the **Edit Location** window, click **Delete**. See image.
 4. Read the warning message that appears and then click **Confirm** to delete the location. See image.
@@ -4650,13 +4689,13 @@ The report contains the following widgets:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-09-30T19:11Z","nid":"1399536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-10-14T21:06Z","nid":"1399536"} -->
 ## Exempting URLs and Cloud Apps from Authentication
 
 - Source: https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Exempting URLs and Cloud Apps from Authentication
-- Last modified: 2026-09-30T19:11Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: How to exclude URLs and cloud apps from authentication.
 
 Some client applications and websites don't support [cookie-based authentication](https://help.zscaler.com/zia/about-zscaler-cookies) or don't respond when the Zscaler service sends an HTTP 307 code that redirects the browser to authenticate to the Zscaler service. For example, the AIM client application and some Microsoft 365 applications don't respond to the HTTP 307 redirect sent by the service. To enable users to access these applications and websites, you can add these URLs to an Authentication Exemptions list in the Zscaler Admin Console or add the URLs to your [PAC file](https://help.zscaler.com/zia/understanding-pac-file). Use tools like Fiddler or Wireshark to find the URL that the application or website is trying to access.
@@ -7552,13 +7591,13 @@ The trend toward cloud-based services, internet offloading, and protection for m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-department-information-csv-file-new","lastmod":"2026-10-01T15:22Z","nid":"1401121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-department-information-csv-file-new","lastmod":"2026-10-15T21:06Z","nid":"1401121"} -->
 ## Importing Department Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-department-information-csv-file-new
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Importing Department Information from a CSV File
-- Last modified: 2026-10-01T15:22Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add new departments, and modify existing departments, using a CSV file.
 
 You can import up to 3,000 departments using a CSV file. If you want to add multiple users to an existing department or change the department for multiple users, you must use the [user sample import CSV file](https://help.zscaler.com/zia/importing-user-information-csv-file).
@@ -7667,13 +7706,13 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-group-information-csv-file","lastmod":"2026-10-01T14:55Z","nid":"1401111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-group-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401111"} -->
 ## Importing Group Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-group-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Importing Group Information from a CSV File
-- Last modified: 2026-10-01T14:55Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add new groups, and modify existing groups, using a CSV file.
 
 You can import up to 3,000 user groups onto the Zscaler service at one time by using CSV files. Ensure that the CSV file is in a Zscaler-supported format before importing.
@@ -7707,22 +7746,22 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-09-29T05:46Z","nid":"1399256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-locations-using-a-csv","lastmod":"2026-10-15T23:30Z","nid":"1399256"} -->
 ## Importing Location and Sublocation Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-locations-using-a-csv
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Importing Location and Sublocation Information from a CSV File
-- Last modified: 2026-09-29T05:46Z
+- Last modified: 2026-10-15T23:30Z
 - Summary: How to import a CSV file in order to add, edit, or delete locations and sublocations for the Zscaler service using the Zscaler Admin Console.
 
-This article describes how to add, edit, or delete multiple locations and sublocations by importing a CSV file. You can add up to 32,000 locations and 2,000 sublocations per location. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+This article describes how to add, edit, or delete multiple locations and sublocations by importing a CSV file. You can add up to 32,000 locations and 16K sublocations per location. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
 To import a CSV file to add, edit, or delete locations and sublocations:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**>**Legacy Locations**.
-2. Click **Import Locations**. The **Import Location** window appears.
-3. In the **Import Location** window, click **Choose File**, navigate to the CSV file, then click **Open**. Make sure that the CSV file you are importing is in the same format as the **Sample Import CSV file** provided by Zscaler.
+2. Click **Import Locations**. The **Import Locations** window appears.
+3. In the **Import Locations** window, click **Choose File**, navigate to the CSV file, then click **Open**. Make sure that the CSV file you are importing is in the same format as the **Sample Import CSV file** provided by Zscaler.
 4. (Optional) If you want to update your existing locations, including deleting locations, as well as add new locations, select the **Override Existing Entries** checkbox. Do not select this option if you only want to add new locations. If you attempt to add a location that already exists and this option is not selected, the Zscaler service displays an error message stating that identical locations cannot be imported. If this occurs, review your CSV file and ensure that there is no duplication. To learn more, see [Configuring Multiple Locations and Sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
 5. Click **Import**.
 6. After the CSV file is successfully imported, click **Close**.
@@ -7772,13 +7811,13 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-user-information-csv-file","lastmod":"2026-10-01T14:23Z","nid":"1401101"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-user-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401101"} -->
 ## Importing User Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-user-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Importing User Information from a CSV File
-- Last modified: 2026-10-01T14:23Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to add new users, edit existing user information, and delete users with a CSV file.
 
 You can import up to 3,000 users using a CSV file.
@@ -7817,20 +7856,20 @@ To edit and import a CSV file :
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-vpn-credentials-csv-file","lastmod":"2026-09-23T23:35Z","nid":"1401091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-vpn-credentials-csv-file","lastmod":"2026-10-12T05:36Z","nid":"1401091"} -->
 ## Importing VPN Credentials from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-vpn-credentials-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Importing VPN Credentials from a CSV File
-- Last modified: 2026-09-23T23:35Z
+- Last modified: 2026-10-12T05:36Z
 - Summary: How to add or delete VPN credentials using a CSV file. VPN credentials must be added when configuring an IPSec VPN tunnel for the Zscaler service.
 
 Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel). You can import up to 3,000 entries per CSV file. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations). You can also [manually add VPN credentials](https://help.zscaler.com/zia/adding-individual-vpn-credentials) to the Zscaler Admin Console.
 
 To add or remove VPN credentials using a CSV file:
 
-1. Go to **Infrastructure > Location Management > VPN Credentials**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > VPN Credentials**.
 2. Click **Sample Import CSV file** to download a sample file, which can be used as a template for your VPN credentials.
 3. Within the CSV file, enter your VPN credential information. To learn more, see [Formatting CSV Files](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file#format_csv).
 4. Click **Import VPN Credentials**. The **Import VPN Credentials** window appears.
@@ -8329,13 +8368,13 @@ For a list of SIEMs that integrate with the VM-based NSS, see [Integrating VM-Ba
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-crowdstrike","lastmod":"2026-04-13T12:05Z","nid":"1401291"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-crowdstrike","lastmod":"2026-10-16T16:17Z","nid":"1401291"} -->
 ## Integrating with CrowdStrike
 
 - Source: https://help.zscaler.com/zia/integrating-crowdstrike
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with CrowdStrike
-- Last modified: 2026-04-13T12:05Z
+- Last modified: 2026-10-16T16:17Z
 - Summary: How to integrate the Zscaler service with CrowdStrike for endpoint detection and response visibility.
 
 Zscaler's integration leverages CrowdStrike APIs to provide endpoint detection and response (EDR) visibility for [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware. After the integration is configured, the Zscaler service calls the CrowdStrike Falcon API and requests information for endpoints that have been exposed to the malicious file. CrowdStrike uses the new file signature to detect compromised points throughout your organization's network.
@@ -8366,7 +8405,7 @@ To create an API client for CrowdStrike:
 To set up your CrowdStrike integration in the Zscaler Admin Console:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Policies**>**Cybersecurity**>**Partner Integrations**>**Crowdstrike**.
+2. Go to **Cyberthreat Protection**>**Partner Integrations**>**Crowdstrike**.
 3. Under **CrowdStrike Authentication Credentials**: Only alphanumeric symbols are accepted for the Customer ID. Remove any dashes from the value you enter. See image.
   - **API Auth FQDN**: The fully qualified domain name (FQDN) for the CrowdStrike OAuth API. It's typically api.crowdstrike.com. If your organization accesses APIs using a different FQDN, enter it instead.
   - **Client ID**: Enter your client ID.
@@ -8630,18 +8669,18 @@ Your Lucid organization is now connected. After integration is completed, a succ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-08-23T07:06Z","nid":"1400936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-10-16T15:50Z","nid":"1400936"} -->
 ## Integrating with Microsoft Azure Virtual WAN
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Azure Virtual WAN
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-10-16T15:50Z
 - Summary: How to integrate the Zscaler service with Microsoft Azure Virtual WAN (VWAN) to discover and configure Azure hubs.
 
 Zscaler's integration leverages Microsoft's Azure Virtual WAN (VWAN) APIs to discover and configure Azure hubs, including querying and configuring Azure VWAN. When the integration is configured, the Zscaler service can sync hub information from Azure. After hub information is synced to Zscaler, outbound IPSec tunnels from any of the hubs to the nearest Zscaler data center can be created using a one-click configuration process. The one-click process automatically configures the Azure hubs, and provisions [Locations](https://help.zscaler.com/zia/about-locations) and [VPN Credentials](https://help.zscaler.com/zia/about-vpn-credentials) for these hubs, within the Zscaler Admin Console.
 
-Zscaler and Microsoft are technology partners. For more information on integrating Zscaler and Azure Traffic Forwarding, see the [Zscaler and Azure Traffic Forwarding Deployment GuideZscaler and Azure Traffic Forwarding Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-azure-traffic-forwarding-deployment-guide).
+Zscaler and Microsoft are technology partners. For more information on integrating Zscaler and Azure Traffic Forwarding, see the [Zscaler and Azure Traffic Forwarding Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-azure-traffic-forwarding-deployment-guide).
 
 ## Prerequisites
 
@@ -8679,7 +8718,7 @@ There are some limitations to keep in mind while integrating Zscaler with your A
 ## Step 2: Set up your Azure VWAN integration on Zscaler
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure**> **Internet & SaaS** >**Traffic Forwarding** > **Partner Integrations: Azure Virtual WAN**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Partner Integrations** - **SDWAN**.
 3. In the **Azure Virtual WAN** tab, under **Azure AD Authentication Credentials**:
   1. Enter your **Application ID**.
   2. Enter your **Application Key**.
@@ -8699,7 +8738,7 @@ When your Azure AD authentication credentials are validated, click **Sync**. Thi
 
 See image.
 
-Clicking on the hub sites hyperlink takes you to the **Infrastructure** > **Locations** > **Azure Virtual WAN Locations**. On the [Azure Virtual WAN Locations](https://help.zscaler.com/zia/configuring-azure-vwan-locations) tab, all **Azure Hub** locations, along with the associated **Azure Region**, are displayed. Initially, the tunnel configuration is set to **Not Configured**, and the **Azure Sites**, **Zscaler Location**, **IP Address**, and **VPN Connection** columns are empty.
+Clicking on the hub sites hyperlink takes you to the **Infrastructure** > **Location Management** > **Azure Virtual WAN Locations**. On the [Azure Virtual WAN Locations](https://help.zscaler.com/zia/configuring-azure-vwan-locations) tab, all **Azure Hub** locations, along with the associated **Azure Region**, are displayed. Initially, the tunnel configuration is set to **Not Configured**, and the **Azure Sites**, **Zscaler Location**, **IP Address**, and **VPN Connection** columns are empty.
 
 See image.
 
@@ -8815,13 +8854,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-09-08T07:06Z","nid":"1398656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-10-14T13:29Z","nid":"1398656"} -->
 ## Integrating with Microsoft Cloud App Security
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Cloud App Security
-- Last modified: 2026-09-08T07:06Z
+- Last modified: 2026-10-14T13:29Z
 - Summary: How to integrate Zscaler service with Microsoft Cloud App Security (MCAS) to discover and sync cloud apps.
 
 This article provides configuration steps and examples for integrating Zscaler and Microsoft Cloud App Security (MCAS) (i.e., Microsoft Defender for Cloud Apps).
@@ -8897,7 +8936,7 @@ After you complete and validate the configuration on the Partner Integrations pa
 To configure an MCAS partner integration:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Policies** > **Data Protection** > **Common Resources** > **Microsoft Defender for Cloud Apps**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Resources** > **Microsoft Defender SaaS App**.
 3. On the **Microsoft Cloud App Security** tab:
   1. Under **Microsoft Cloud App Security (MCAS) Authentication Setup**, configure the following parameters and then click **Test**:
     - **Client ID**: Enter the Application (client) ID for the application that you created in Azure (e.g., `97b9XXXX-beXX-48XX-b5XX-8792cdXXXXXX`).
@@ -8939,7 +8978,7 @@ To start the NSS service in OAuth 2.0 mode:
 
 To verify your MCAS partner integration:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Access Control** > **Internet & SaaS**> **URL Categories**.
+1. In the Zscaler Admin Console, go to **Internet Access**>**Resources**> **URL Categories**.
 2. After the initial URL sync, verify that the **User-Defined** category called **MS Defender Unsanctioned Apps** is shown in the table on the page. See image.
 
 To verify automatic log uploads:
@@ -8980,13 +9019,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-08-23T07:06Z","nid":"1402156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-10-16T16:48Z","nid":"1402156"} -->
 ## Integrating with Microsoft Defender for Endpoint
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Defender for Endpoint
-- Last modified: 2026-08-23T07:06Z
+- Last modified: 2026-10-16T16:48Z
 - Summary: How to integrate the Zscaler service with Microsoft Defender for Endpoint for endpoint detection and response visibility.
 
 Zscaler's integration leverages Microsoft Defender for Endpoint APIs to provide endpoint detection and response (EDR) visibility for [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware. When the integration is configured, the Zscaler service calls the Microsoft Defender for Endpoint API and requests information for endpoints that have been exposed to the malicious file. Microsoft Defender for Endpoint uses the new file signature to detect compromised points throughout your organization's network.
@@ -9010,7 +9049,7 @@ To learn more, see the [Zscaler and Microsoft Defender Deployment Guide](https:/
 
 To integrate the Zscaler service with Microsoft Defender for Endpoint:
 
-1. Go to **Policies**> **Cybersecurity** > **Partner Integrations**>**Microsoft Defender For Endpoint**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Cyberthreat Protection** > **Partner Integrations**>**Microsoft Defender For Endpoint**.
 2. On the **Microsoft Defender for Endpoint** tab, under **Authorize Microsoft Defender for Endpoint**, click **Provide Admin Credentials**.
 
 See image.
@@ -10219,13 +10258,13 @@ If Kerberos authentication fails, the Zscaler service displays a page with an er
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-881-isr","lastmod":"2026-09-30T10:19Z","nid":"1399056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-881-isr","lastmod":"2026-10-12T06:06Z","nid":"1399056"} -->
 ## IPSec VPN Configuration Guide for Cisco 881 ISR
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-cisco-881-isr
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco 881 ISR
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:06Z
 - Summary: How to configure two IPSec VPN tunnels from a Cisco 881 Integrated Services Router (ISR) to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -10305,7 +10344,7 @@ Zscaler does not support Extended Sequence Number (ESN) based proposals during I
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the Cisco router, you can use the following troubleshooting commands while setting up the tunnels. Note the values in green while troubleshooting.
 
@@ -10841,13 +10880,13 @@ port 500
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx","lastmod":"2026-09-30T10:19Z","nid":"1399046"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx","lastmod":"2026-10-12T06:06Z","nid":"1399046"} -->
 ## IPSec VPN Configuration Guide for Cisco ASA 55xx
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco ASA 55xx
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:06Z
 - Summary: How to configure two IPSec VPN tunnels between a Cisco Adaptive Security Appliance (ASA) 55xx (5505, 5510, 5520, 5525-X, 5540, 5550, 5580-20, 5580-40) firewall and two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -11196,7 +11235,7 @@ nat (inside,outside) after-auto source dynamic any interface
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the Cisco router, you can use the following troubleshooting commands while setting up the tunnels. They apply to all tested ASA versions: 9.6 and 9.0. Note the values in green while troubleshooting.
 
@@ -11401,13 +11440,13 @@ Action: allow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-fortigate-firewall","lastmod":"2026-08-04T02:14Z","nid":"1399111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-fortigate-firewall","lastmod":"2026-10-12T05:40Z","nid":"1399111"} -->
 ## IPSec VPN Configuration Guide for FortiGate Firewall
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-fortigate-firewall
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for FortiGate Firewall
-- Last modified: 2026-08-04T02:14Z
+- Last modified: 2026-10-12T05:40Z
 - Summary: How to configure two IPSec VPN tunnels from a FortiGate firewall to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -11464,7 +11503,7 @@ Zscaler does not support Extended Sequence Number (ESN) based proposals during I
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Logs > Insights > Internet & SaaS - Tunnel Insightsto see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insightsto see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 In FortiOS, go to **VPN**>**Monitor**>**IPsec Monitor** to verify the status and that traffic is flowing through the primary tunnel.
 
@@ -11572,13 +11611,13 @@ If you want to forward only HTTP and HTTPS traffic to the Zscaler service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-srx","lastmod":"2026-09-30T10:19Z","nid":"1399071"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-srx","lastmod":"2026-10-12T06:05Z","nid":"1399071"} -->
 ## IPSec VPN Configuration Guide for Juniper SRX
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-juniper-srx
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Juniper SRX
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:05Z
 - Summary: How to configure two IPSec VPN tunnels from a Juniper SRX 300 firewall to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -11911,7 +11950,7 @@ st0.3
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 In Junos OS, you can use the following CLI commands to monitor and troubleshoot the IPSec VPN tunnels.
 
@@ -12772,13 +12811,13 @@ nat {
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-ssg-20","lastmod":"2026-09-30T10:19Z","nid":"1400766"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-juniper-ssg-20","lastmod":"2026-10-12T06:06Z","nid":"1400766"} -->
 ## IPSec VPN Configuration Guide for Juniper SSG 20
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-juniper-ssg-20
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Juniper SSG 20
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:06Z
 - Summary: How to configure two IPSec VPN tunnels from a Juniper SSG 20 firewall running ScreenOS 6.2.0r1.0 to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -12846,7 +12885,7 @@ You can test the configuration by browsing from the Trust zone (through the wire
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the SSG 20 device, you can use the following CLI commands to monitor and troubleshoot the IPSec VPN tunnels.
 
@@ -13348,13 +13387,13 @@ ssg5-serial-wlan-> clear sa 21
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall","lastmod":"2026-09-30T10:19Z","nid":"1399101"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall","lastmod":"2026-10-12T06:07Z","nid":"1399101"} -->
 ## IPSec VPN Configuration Guide for Palo Alto Networks Firewall
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-palo-alto-networks-firewall
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Palo Alto Networks Firewall
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:07Z
 - Summary: How to configure two IPSec VPN tunnels from a Palo Alto Networks appliance to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -13419,7 +13458,7 @@ You need to create some additional security policies on the firewall to allow th
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 On the PAN appliance, the following are some sample commands that you can use to monitor and troubleshoot the VPNs. Make an SSH connection to the PAN-OS and log in to the CLI to execute the commands.
 
@@ -13776,13 +13815,13 @@ id      destination           nexthop            flags  interface          mtu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350","lastmod":"2026-09-30T10:19Z","nid":"1401686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350","lastmod":"2026-10-12T06:07Z","nid":"1401686"} -->
 ## IPSec VPN Configuration Guide for SonicWall TZ 350
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-sonicwall-tz-350
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for SonicWall TZ 350
-- Last modified: 2026-09-30T10:19Z
+- Last modified: 2026-10-12T06:07Z
 - Summary: How to configure two IPSec VPN tunnels from a SonicWALL TZ 350 firewall to two Public Service Edges for Internet & SaaS (ZIA).
 
 This article uses only sample IP addresses in the configuration steps and screenshots. For tunnel interface configuration, you must use only RFC 1918 IP addresses and not APIPA addresses.
@@ -13834,7 +13873,7 @@ See image.
 
 ## Troubleshooting
 
-In the Zscaler Admin Console, you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), you can go to Data Explorer > Internet & SaaS > Tunnel Insights to see data as well as monitor the health and status of your configured IPSec VPN tunnels. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights) and [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
 
 To troubleshoot your configuration on the SonicWall GUI:
 
@@ -13910,6 +13949,34 @@ See image.
 [Image: The VPN Base settings in the SonicWall TZ 350 UI.]
 
 [Image: The Renegotiate button in the VPN Base settings page.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/israel-national-identification-number","lastmod":"2026-10-16T10:46Z","nid":"1546872"} -->
+## Israel National Identification Number
+
+- Source: https://help.zscaler.com/zia/israel-national-identification-number
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Israel National Identification Number
+- Last modified: 2026-10-16T10:46Z
+- Summary: Information on Israel National Identification Number.
+
+This dictionary detects the Israel Personal Identification Number (PIN), also known as *Mispar Zehut*. The popular format is a unique 9 or 10-digit number with a hyphen as the delimiter. For example, 12345678-9.
+
+There are two popular formats:
+
+- Plain format: NNNNNNNNN (9 digits with checksum as the 9th digit)
+- Hyphenated format: NNNNNNNN-C (8 digits + hyphen + checksum digit).
+
+The checksum for the Israel PIN uses the Israeli check-digit rule, which is a left-to-right Luhn variant. To verify the checksum, mMultiply the alternating PIN digits by 1,2,1,2...and so on. For products over 9, subtract 9 and then sum the results together. The final check digit is determined by (10 - sum % 10) % 10.
+
+The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if: The Israel PIN is in popular format and the pattern matches against regex \b(\d{9}\|\d{8}[-]\d)\b; The checksum can be validated. | The number formats that can trigger the dictionary are: 330470469; 255345340; 54370042-1The number formats that do not trigger the dictionary are: abc_255345340_xyz; 54370042---1; 54370042 1 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Israel PIN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:Mispar Zehut; idnumber#; identitynumber#; identity number; israeliidentitynumber; תעודת זהות | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Mispar Zehut 255345340; idnumber# 255345340; תעודת זהות 255345340The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 54370042-1 |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14890,20 +14957,20 @@ You can edit the default floppy disk rule, but you cannot delete it.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-forced-reauthentication","lastmod":"2026-09-30T19:02Z","nid":"1458906"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-forced-reauthentication","lastmod":"2026-10-15T12:16Z","nid":"1458906"} -->
 ## Managing Forced Reauthentication
 
 - Source: https://help.zscaler.com/zia/managing-forced-reauthentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Managing Forced Reauthentication
-- Last modified: 2026-09-30T19:02Z
+- Last modified: 2026-10-15T12:16Z
 - Summary: Information about forced reauthentication in the Zscaler Admin Console.
 
 You can force all users to reauthenticate on the Default Settings page (Administration > Internet & SaaS Authentication > Internet Authentication Settings > Default Settings).
 
-Instead of forcing reauthentication, Zscaler recommends using [SCIM](https://help.zscaler.com/zia/about-scim) [provisioning](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods) for complete user lifecycle management.
+Instead of forcing reauthentication, Zscaler recommends using [SCIM](https://help.zscaler.com/zia/about-scim) provisioning for complete user lifecycle management.
 
-The Force Reauthentication for All Users section shows the following information:
+The **Force Reauthentication for All Users** section shows the following information:
 
 - **Last Reauthentication**: Displays the last time **Force Reauthentication** was completed.
 - **Force Reauthentication**: Click **Start** to log out all users in your organization and force them to reauthenticate to the Zscaler service. This might take several minutes depending on the number of users in your organization. During this process, the Zscaler Central Authority (CA) invalidates all authentication cookies for the users in your organization. When your users try to access the internet, the Zscaler service detects that their authentication cookies have expired, and as a result, the users must log in again.
@@ -14914,14 +14981,9 @@ This feature doesn't apply to users with Zscaler Client Connector.
   - **Completed**: The CA logged out all users successfully. The **Last Reauthentication**field updates the time accordingly.
   - **In Progress**: The CA is in the process of logging out all users.
   - **Error**: The CA failed to log out all users. Under **Force Reauthentication**, an error message displays explaining why the logout failed. You can click **Retry** after the error is addressed.
-
-See image.
-
 - **None**: Displays if you have never executed **Force Reauthentication** in the Zscaler Admin Console.
 
 [Image: Image of the Force Reauthentication for All Users section]
-
-[Image: Reauthentication Status error message]
 <!-- /ZS-ARTICLE -->
 
 ---

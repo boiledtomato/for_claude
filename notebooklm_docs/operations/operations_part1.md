@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 94
 
 ---
@@ -1042,13 +1042,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-09T13:55Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-16T09:13Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
-- Last modified: 2026-10-09T13:55Z
+- Last modified: 2026-10-16T09:13Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1133,7 +1133,8 @@ These versions of Zscaler Client Connector for Android are supported by Zscaler,
 
 | Compatible OS | Supported Zscaler Client Connector Versions |  |  |
 | --- | --- | --- | --- |
-| OS Version | [4.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=Android&applicable_version=4.0) | [4.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Android&applicable_version=4.1) | [4.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Android&applicable_version=4.2) |
+| OS Version | [4.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Android&applicable_version=4.1) | [4.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Android&applicable_version=4.2) | [5.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=Android&applicable_version=5.0) |
+| Android 17 (Android SDK37) | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |
 | Android v9.0+ (Android SDK36) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | Android v9.0+ (Android SDK26 - 35) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 
@@ -1141,7 +1142,8 @@ These versions of Zscaler Client Connector for Android on ChromeOS are supported
 
 | Compatible OS | Supported Zscaler Client Connector Versions |  |  |
 | --- | --- | --- | --- |
-| OS Version | [4.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2025?applicable_category=ChromeOS&applicable_version=4.0) | [4.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=ChromeOS&applicable_version=4.1) | [4.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=ChromeOS&applicable_version=4.2) |
+| OS Version | [4.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=ChromeOS&applicable_version=4.1) | [4.2](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=ChromeOS&applicable_version=4.2) | [5.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=ChromeOS&applicable_version=5.0) |
+| Android 17 (Android SDK37) | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |
 | ChromeOS v137+ (Android SDK36) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | ChromeOS v139+ (Android SDK28 - 35) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 
@@ -1263,13 +1265,13 @@ As LTS is chosen from existing versions, the next LTS is a version already avail
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/access-denied-due-bad-server-certificate","lastmod":"2026-09-12T07:06Z","nid":"1538845"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/access-denied-due-bad-server-certificate","lastmod":"2026-10-13T07:06Z","nid":"1538845"} -->
 ## Access Denied Due to Bad Server Certificate
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/access-denied-due-bad-server-certificate
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Access Denied Due to Bad Server Certificate
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies deny a URL due to a bad server certificate.
 
 This issue implies the following scenarios for the website's server certificate:
@@ -1327,13 +1329,13 @@ The following steps provide solution options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/access-denied-due-domain-fronting","lastmod":"2026-09-12T07:06Z","nid":"1538961"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/access-denied-due-domain-fronting","lastmod":"2026-10-13T07:06Z","nid":"1538961"} -->
 ## Access Denied Due to Domain Fronting
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/access-denied-due-domain-fronting
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Access Denied Due to Domain Fronting
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: In a domain fronting attack, the domain used in the Server Name Indication (SNI) extension or in the Connect request is different from the one supplied later in the Host header. In other words, an attacker hides an HTTP request for a bad website inside a TLS connection to a good website.
 
 In a domain fronting attack, the domain used in Server Name Indication (SNI) extension or in the Connect request is different from the one supplied later in the Host header. In other words, an attacker hides an HTTP request to a bad website inside a TLS connection to a good website.
@@ -1375,13 +1377,13 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/allow-due-insufficient-app-data","lastmod":"2026-09-12T07:06Z","nid":"1539078"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/allow-due-insufficient-app-data","lastmod":"2026-10-13T07:06Z","nid":"1539078"} -->
 ## Allow Due to Insufficient App Data
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/allow-due-insufficient-app-data
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Firewall Issues > Allow Due to Insufficient App Data
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This action is logged by the Service Edge when its Deep Packet Inspection (DPI) engine could not identify the network application. This typically happens when the connection gets terminated before enough packets can be processed to extract the required data.
 
 This action is logged by the Service Edge when its Deep Packet Inspection (DPI) engine could not identify the network application. This typically happens when the connection gets terminated before enough packets can be processed to extract the required data.
@@ -1453,13 +1455,13 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/block-policy-configured-access-gets-allowed","lastmod":"2026-09-12T07:06Z","nid":"1538981"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/block-policy-configured-access-gets-allowed","lastmod":"2026-10-13T07:06Z","nid":"1538981"} -->
 ## Block Policy Configured but Access Gets Allowed
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/block-policy-configured-access-gets-allowed
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Block Policy Configured but Access Gets Allowed
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook articles describes how to determine and what steps to take when a block policy is configured but access is allowed anyway.
 
 This runbook article describes how to determine that a block policy is configured but access is allowed anyway, and what steps to take.
@@ -1546,13 +1548,13 @@ If none of these steps help, submit a case to [Zscaler Support](https://help.zsc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/blocked-due-bad-ssl-record","lastmod":"2026-09-12T07:06Z","nid":"1538846"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/blocked-due-bad-ssl-record","lastmod":"2026-10-13T07:06Z","nid":"1538846"} -->
 ## Blocked Due to Bad SSL Record
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/blocked-due-bad-ssl-record
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Blocked Due to Bad SSL Record
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies deny a URL due to a bad SSL record.
 
 In the following case, the SSL connection is blocked due to the forwarding of non-SSL traffic to the [ports configured for HTTPS Services](https://help.zscaler.com/zia/configuring-advanced-settings?referer=admin.zscaler.net#HTTP-Web-Proxy). This typically means either non-HTTP traffic encrypted using SSL or non-SSL traffic was sent to port 443.
@@ -1585,13 +1587,13 @@ The following are solution options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/blocked-due-server-probe-failure","lastmod":"2026-09-12T07:06Z","nid":"1538943"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/blocked-due-server-probe-failure","lastmod":"2026-10-13T07:06Z","nid":"1538943"} -->
 ## Blocked Due to Server Probe Failure
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/blocked-due-server-probe-failure
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Blocked Due to Server Probe Failure
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes if a policy action is triggered and the Zscaler Service Edge cannot make a successful TCP or TLS connection to the target web server. This happens when a web server either does not tolerate SSL Inspection or doesn't complete the TCP handshake with the ZZscaler Service Edge.
 
 This runbook article describes how to resolve a triggered policy action when the Zscaler Service Edge cannot successfully connect to the target website that triggered the policy action via TCP or TLS. This happens when a web server either does not tolerate SSL Inspection or doesn't complete the TCP handshake with the Zscaler Service Edge.
@@ -1621,13 +1623,13 @@ The following items are possible solutions for the issue:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/bypassed-due-missing-config","lastmod":"2026-09-12T07:06Z","nid":"1539088"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/bypassed-due-missing-config","lastmod":"2026-10-13T07:06Z","nid":"1539088"} -->
 ## Bypassed Due to Missing Config
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/bypassed-due-missing-config
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Firewall Issues > Bypassed Due to Missing Config
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This action is logged in the rare circumstances when the Zscaler Service Edge fails to establish a connection with the Central Authority and consequently some traffic is allowed through Zscaler Firewall without policy enforcement.
 
 This action is logged in the rare circumstances when the Public Service Edge fails to establish a connection with the Zscaler Central Authority (CA) and consequently some traffic is allowed through Zscaler Firewall without policy enforcement.
@@ -1665,13 +1667,13 @@ The Zscaler Engineering team is working on providing a solution to control these
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/cloud-app-block-action-configured-one-activity-all-activities-get-allowed-confirmed-web-logs","lastmod":"2026-09-12T07:06Z","nid":"1538970"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/cloud-app-block-action-configured-one-activity-all-activities-get-allowed-confirmed-web-logs","lastmod":"2026-10-13T07:06Z","nid":"1538970"} -->
 ## Cloud App: Block Action Is Configured for One Activity but All Activities Get Allowed as Confirmed by the Web Logs
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/cloud-app-block-action-configured-one-activity-all-activities-get-allowed-confirmed-web-logs
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Cloud App: Block Action Is Configured for One Activity but All Activities Get Allowed as Confirmed by the Web Logs
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This help article describes how to determine if a Block action is configured for one activity, but all activities get allowed as Confirmed by the Web logs.
 
 This help article describes how to determine whether a Block action is configured for one activity, but all activities get allowed as Confirmed by the Web logs.
@@ -1712,13 +1714,13 @@ The following is a list of troubleshooting options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-analyze-http-headers","lastmod":"2026-09-12T07:06Z","nid":"1539096"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-analyze-http-headers","lastmod":"2026-10-13T07:06Z","nid":"1539096"} -->
 ## How to Analyze HTTP Headers
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-analyze-http-headers
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Analyze HTTP Headers
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: Although most browsers allow exporting HTTP headers with or without data to a .har file, Fiddler typically saves them to a .saz file.
 
 Although most browsers allow exporting HTTP headers with or without data to a `.har` file, Fiddler typically saves them to a `.saz` file.
@@ -1762,13 +1764,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-capture-http-headers-har-file-client-system","lastmod":"2026-09-12T07:06Z","nid":"1538962"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-capture-http-headers-har-file-client-system","lastmod":"2026-10-13T07:06Z","nid":"1538962"} -->
 ## How to Capture HTTP Headers (HAR file) on the Client System
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-capture-http-headers-har-file-client-system
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Capture HTTP Headers (HAR file) on the Client System
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: The method to capture HTTP headers depends on how an end user accesses the website or the web application.
 
 The method to capture HTTP headers depends on how an end user accesses the website or the web application.
@@ -1832,13 +1834,13 @@ For instructions on what to do if Zscaler Client Connector is enabled on the sys
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-determine-if-website-using-quic","lastmod":"2026-09-12T07:06Z","nid":"1539099"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-determine-if-website-using-quic","lastmod":"2026-10-13T07:06Z","nid":"1539099"} -->
 ## How to Determine Whether a Website Is Using QUIC
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-determine-if-website-using-quic
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Determine Whether a Website Is Using QUIC
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: You can use any of the following approaches to determine if a website is using QUIC: Browser Developer tools, Firewall Insights logs, and Client packet capture.
 
 ## Make Sure No Transaction Uses QUIC
@@ -1887,13 +1889,13 @@ To use a client packet capture to verify QUIC:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-resolve-user-defined-category-conflicts","lastmod":"2026-09-12T07:06Z","nid":"1539100"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-resolve-user-defined-category-conflicts","lastmod":"2026-10-13T07:06Z","nid":"1539100"} -->
 ## How to Resolve User-Defined Category Conflicts
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-resolve-user-defined-category-conflicts
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Resolve User-Defined Category Conflicts
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: Sometimes you might notice that you have configured a URL or a keyword under a specific category but the expected category does not show up in the Web Insights logs for the URL even though the URL matches.
 
 Sometimes you might see that you have configured a URL or a keyword under a specific category, but the expected category does not show up in the Web Insights logs for the URL even though the URL matches.
@@ -1955,13 +1957,13 @@ Sometimes, the correct category gets selected for policy enforcement, but a diff
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-test-if-website-does-not-work-xff-header","lastmod":"2026-09-12T07:06Z","nid":"1539103"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-test-if-website-does-not-work-xff-header","lastmod":"2026-10-13T07:06Z","nid":"1539103"} -->
 ## How to Test Whether a Website Works with the XFF Header
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-test-if-website-does-not-work-xff-header
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Test Whether a Website Works with the XFF Header
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: X-Forwarded-For is an HTTP header. This header indicates to the destination web server that the web request is forwarded by a proxy on behalf of another IP. If the website is accessible only when SSL inspection is disabled, verify whether the website works well with the XFF header.
 
 If the website is accessible only when SSL inspection is disabled, verify whether the website works well with the XFF header.
@@ -2040,13 +2042,13 @@ Because XFF is a standard header, most web applications should fix their logic t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-validate-ssl-configuration-web-server","lastmod":"2026-09-12T07:06Z","nid":"1539104"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/how-validate-ssl-configuration-web-server","lastmod":"2026-10-13T07:06Z","nid":"1539104"} -->
 ## How to Validate the SSL Configuration of a Web Server
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-validate-ssl-configuration-web-server
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Validate the SSL Configuration of a Web Server
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes how to validate the SSL configuration of a web server.
 
 When the Internet & SaaS (ZIA) Public Service Edge either cannot complete the handshake with a web server or detects the certificate as untrusted or bad, it's best to cross-validate certain attributes of the public website's SSL configuration.
@@ -2097,13 +2099,13 @@ When the Internet & SaaS (ZIA) Public Service Edge either cannot complete the ha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/inspected-despite-do-not-inspect-action","lastmod":"2026-09-12T07:06Z","nid":"1538871"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/inspected-despite-do-not-inspect-action","lastmod":"2026-10-13T07:06Z","nid":"1538871"} -->
 ## Inspected Despite a Do Not Inspect Action
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/inspected-despite-do-not-inspect-action
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Inspected Despite a Do Not Inspect Action
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies inspected a URL despite a configured Do Not Inspect action.
 
 This article describes how to check why Internet & SaaS (ZIA) access policies inspected a URL despite a configured Do Not Inspect action.
@@ -5192,13 +5194,13 @@ Note that Zscaler supports up to 8 Security Protection Data per direction, and a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/not-allowed-browse-category","lastmod":"2026-09-12T07:06Z","nid":"1538928"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/not-allowed-browse-category","lastmod":"2026-10-13T07:06Z","nid":"1538928"} -->
 ## Not Allowed to Browse this Category
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/not-allowed-browse-category
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Browse this Category
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes what to do if you get a message saying that Zscaler blocked the site because its content falls into a category that your organization has restricted.
 
 This runbook article describes what to do if you get a message saying that the Zscaler service blocked the site because its content falls into a category that your organization has restricted.
@@ -5280,13 +5282,13 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/not-allowed-use-http-tunnel","lastmod":"2026-09-12T07:06Z","nid":"1538960"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/not-allowed-use-http-tunnel","lastmod":"2026-10-13T07:06Z","nid":"1538960"} -->
 ## Not Allowed to Use HTTP Tunnel
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/not-allowed-use-http-tunnel
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Use HTTP Tunnel
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook describes how to deal with URLs when they they are rejected by a policy action due to a Not allowed to user HTTP tunnel response.
 
 An HTTP tunneling attempt on a non-HTTP port was detected and blocked because the organization has enabled the option to Block tunneling to non-web ports.
@@ -6985,525 +6987,13 @@ The following section describes resolutions.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook","lastmod":"2026-10-09T15:12Z","nid":"1533933"} -->
-## Private Access Performance Support Troubleshooting Runbook
-
-- Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-performance-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Private Access Performance Support Troubleshooting Runbook
-- Last modified: 2026-10-09T15:12Z
-- Summary: This Zscaler runbook outlines troubleshooting steps for general Private Access performance issues, categorized into four scopes: issues accessing a applications, issues with all applications from a specific App Connector, issues that affect a specific location or locations, or an issue with a single broker or the whole data center.
-
-The Private Access Performance Support Troubleshooting Runbook outlines a systematic approach to troubleshooting performance slowness experienced by users. It emphasizes understanding the scope of issues, including isolating between affected applications types. The troubleshooting steps involve validating Private Access slowness check points, configurations, collecting and analyzing data through network diagnostic tools and Digital Experience (ZDX) (if available). By following this methodology, engineers can effectively identify the root causes of performance issues and implement corrective actions to optimize the user experience.
-
-## Review ZDX Information
-
-The ZDX service is built as a multi-tenant, cloud-based monitoring platform to probe, benchmark, and measure the digital experiences for every single user within your organization. ZDX lets you monitor granular details for users, devices, applications, and more.
-
-If your organization has a ZDX subscription, the following sections describe how to check for performance issues.
-
-Log In to the Zscaler Admin Console to View the ZDX probes
-
-Check the score of the Application that is having an issue.
-
-See image.
-
-If you observe [a low ZDX Score](https://help.zscaler.com/zdx/about-zdx-score), then verify the following:
-
-1. Ensure the [probes](https://help.zscaler.com/zdx/configuration/probes) are configured correctly. See image.
-2. Check the Path between the Client and the Application. See image.
-3. If any of the paths show an anomaly (e.g., high latency), then find the problematic hop and perform the following actions:
-  1. If the problematic hop is either one hop before Zscaler or on the Zscaler hop itself, then compile all the data evidence and open a [Zscaler Support](https://help.zscaler.com/contact-support) ticket.
-  2. If the problematic hop is before your egress gateway or on the intermediate hop to Zscaler, then work with your network team to investigate further. You can engage your ISP to check for path optimization.
-  3. If the Web probe is configured, then check the DNS resolution and time taken to load the page. See image.
-4. Check client health as provided by the ZDX dashboard if there is any potential issue on the client's workstation. See image.
-
-Take note of the details along with screenshots if you find any unusual data points on the ZDX.
-
-#### Using the ZDX Deep Tracing Feature
-
-If your organization has a [ZDX subscription that supports Diagnostics](https://help.zscaler.com/zdx/about-probes), you can enable [Deep Tracing](https://help.zscaler.com/zdx/about-deep-tracing) for the reported application.
-
-See image.
-
-You can configure the diagnostics between 5 and 60 mins.
-
-See image.
-
-The collected diagnostics data gives more insights that help in narrowing down the issue.
-
-See image.
-
-Slowness Accessing a Specific Application
-
-Follow the SMB Application or Other Applications section to start the troubleshooting on different checkpoints.
-
-#### SMB Application
-
-The Server Message Block (SMB) protocol is a client-server communication protocol used for sharing access to files, printers, serial ports, and other resources on a network. Known as a response-request protocol, the SMB protocol is one of the most common methods used for network communications. In this model, the client sends an SMB request to the server to initiate the connection. When the server receives the request, it replies by sending an SMB response back to the client, establishing the communication channel necessary for a two-way conversation.
-
-SMB as a protocol is extremely sensitive to latency. Introduction of additional hops in the network path can degrade performance.
-
-To learn more, see [Configuring Access to Distributed File Servers](https://help.zscaler.com/zpa/configuring-access-distributed-file-servers).
-
-#### Recommendations for Zscaler Client Connector
-
-The following sections describe recommendations for users with Zscaler Client Connector.
-
-##### Zscaler Client Connector Version Check
-
-Ensure Zscaler Client Connector version is 3.6.1.21 or later for Windows is configured in Windows Lightweight Filter (LWF) mode. You can change the Zscaler Client Connector log mode to Info.
-
-See image.
-
-##### Zscaler Client Connector Tunnel Protocol Check
-
-Ensure DTLS is not enabled and Zscaler Client Connector is running in TLS mode.
-
-See image.
-
-#### Recommendations for Private Access App Connectors
-
-The following sections describe recommendations for Private Access App Connectors.
-
-##### Enable Private Access App Connector’s TCP Quick Acknowledgment
-
-TCP Quick Acknowledgment is used to improve performance of applications that use specific protocols (e.g., SMB protocol). You should enable TCP Quick Acknowledgment for the App Connector group to perform TCP Quick Acknowledgment for applications.
-
-See image.
-
-If you don’t find this configuration on the [App Connector Groups](https://help.zscaler.com/zpa/editing-connector-groups), you can request for the feature by opening a [Zscaler Support](https://help.zscaler.com/contact-support) provisioning ticket.
-
-##### Recommendation for App Connector Groups
-
-The following sections describe recommendations for users with App Connector Groups.
-
-###### Enable TCP Quick Acknowledgment
-
-See the previous Enable Private Access App Connector’s TCP Quick Acknowledgment section.
-
-###### Adding Specific Private Infrastructure
-
-- App Connectors: Adding App Connectors specifically for the SMB traffic helps reduce congestion. This also helps to enable Quick Acknowledgment only for specific traffic rather than all traffic on the App Connectors
-- Private Service Edge: Consult with Zscaler Support where adding Private Service Edge might help reduce the latency compared with a Zscaler public data center.
-
-###### Recommendation for Windows Defender
-
-Microsoft Windows Defender is commonly used to protect endpoints against malware and viruses. By default, Microsoft Windows Defender scans all files acquired over the network. When it scans SMB transfers, it can add a lot of delay, likely due to the chatty nature of SMB protocol.
-
-To address this issue or to determine whether it is a contributing factor to slow performance, you can add an exclusion for the network share drive in the Defender settings. Remember that adding exclusions creates a potential security risk, so only exclude items you are certain are safe.
-
-The following are the steps to add an exclusion in the Defender settings:
-
-1. Search for `Windows Security` in the **Start Menu**. See image.
-2. Go to the **Virus and Threat Protection** menu and select **Manage settings** See image.
-3. Go to **Exclusions**and click **Add or remove exclusions**. See image.
-4. From the available options, select **Add an exclusion** and enter the drive letter of the network drive. See image.
-
-###### Recommendation from Microsoft
-
-SMB2 is a verbose protocol with many small TCP messages traversing back and forth. It offers room to enable request pipelining to improve latency. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/windows-server/administration/performance-tuning/role/file-server/).
-
-##### Other Applications
-
-The next section applies to other application performance issues reported for Private Access. Follow the troubleshooting steps based on each check point.
-
-###### Client Side
-
-It is important to find out the location of the application and user.
-
-From the Zscaler Admin Console:
-
-1. From the navigation menu, go to **Data Explorer**> **Private Access** > **Private Diagnostics**and select **User Activity**from the **Log Type**drop-down menu to identify the data path for a Private Access connection based on the following fields:
-  - User Location and Public IP address.
-  - Public Service Edge Name (Format: AA-AA-NNNN) or Private Service Edge Name (the format is dictated by your [Private Service Edge for Private Access Configuration](https://help.zscaler.com/zpa/about-zpa-private-service-edges)). See image.
-2. From Zscaler Client Connector, go to the **Private Access** tab, then take note of the **Broker IP address**. See image.
-
-You can collect My Traceroute (MTR) from the client workstation towards the Private Access Broker IP address.
-
-###### Review Client and Zscaler Data Center MTR
-
-The followings sections describe how to review client and Zscaler data center MTR.
-
-**Collecting MTR**
-
-From Zscaler Client Connector towards the Private Access Broker IP address:
-
-1. Use the WinMTR tool, which you can download from sites such as [sourceforge.net](https://sourceforge.net)or[winmtr.en.uptodown.com](https://winmtr.en.uptodown.com).
-2. Get the **Service Edge for Private Access IP address** from Zscaler Client Connector's **Private Access** tab. See image.
-3. Enter the **Service Edge for Private Access IP address** in the **Host**option in the WinMTR tool.
-4. Click **Start**. See image. Remember to deselect **Resolves names** before collecting this data so that you can see the IP addresses of all the **Hops**. See image.
-5. After the MTR is started, keep it running for at least 300 packets. You might run it for more packets as well. However, 300 is the minimum count needed. After it is complete, you can stop it. See image.
-6. Next, you must save this output. To do so, click **Export Text**. The following image is an example. See image. For Zscaler Client Connector in Zscaler Tunnel (Z-Tunnel) 2.0 mode, log out of Zscaler Client Connector first before you collect the MTR.
-
-**Analyzing MTR**
-
-When analyzing MTR:
-
-1. Verify latency. ICMP rate limiting can also create the appearance of latency. The latency between hops 4 and 5 draws attention. However, after the 5th hop, the latency drops drastically. The actual latency measured here is about 40ms. In cases like this, MTR draws attention to an issue that does not affect the service. Consider the latency to the final hop when evaluating an MTR report. See image.
-2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times (RTTs) remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
-3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
-4. There is 60% loss between hops 2 and 3 as well as between hops 3 and 4. You can assume that the 3rd and 4th hop are likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss is due to problems with the return route. Packets reach their destination without error but have a difficult time making the return trip. See image.
-
-**App Connector Side**
-
-From the Zscaler Admin Console:
-
-1. From the navigation menu, go to **Data Explorer**> **Private Access** > **Private Diagnostics**and select **User Activity**from the **Log Type** drop-down menu to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
-2. Based on all the App Connectors configured, observe if the App Connector that are serving the traffic is the best for serving this traffic in terms of Geo location and latency aspect.
-3. Go to **Private Access**> **Private Infrastructure** > **App Connectors** and select the App Connector **Name**. Scroll down to note the Public IP address of the particular App Connector. See image.
-
-###### Review App Connector and Zscaler Data Center and Application Server MTR
-
-The following sections describe how to review the App Connector and Zscaler data center and application server MTR.
-
-**Collecting MTR**
-
-You can collect MTR:
-
-- From the App Connector towards the Private Access Broker IP address.
-- From the App Connector towards the Application IP address.
-
-To collect MTR:
-
-1. Access the App Connector identified earlier using CLI or SSH.
-2. Run the following command to collect 300 packets of MTR towards the Private Service Edge for Private Access (Broker) IP address (in x.x.x.x format): `mtr -nrzc 300 x.x.x.x`
-3. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-4. Run the following command to collect 300 packets of MTR towards the application server IP address (in y.y.y.y format): `mtr -nrzc 300 y.y.y.y`
-5. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-
-**Analyzing MTR**
-
-To analyze the MTR:
-
-1. Verify latency. ICMP rate limiting can also create the appearance of latency. The latency between hops 4 and 5 draws attention. However, after the 5th hop, the latency drops drastically. The actual latency measured here is about 40ms. In cases like this, MTR draws attention to an issue that does not affect the service. Consider the latency to the final hop when evaluating an MTR report. See image.
-2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
-3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
-4. There is 60% loss between hops 2 and 3 as well as between hops 3 and 4. We can assume that the 3rd and 4th hop is likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss can is explained by problems in the return route. Packets reach their destination without error but have a difficult time making the return trip. See image.
-5. From the navigation menu, go to **Data Explorer**>**Private Access**>**Private Diagnostics**, and select **Events**from the **Log Type** drop-down menuto find any error reported for App Connectors. See image.
-6. Go to **Private Access > Private Infrastructure**> **App Connectors**, then select the App Connector name to see the **App Connector Details**and find any high utilization for Bandwidth Trends, CPU Trends, and Memory Utilization Trends. See image.
-7. Go to **Private Access**>**Private Infrastructure**> **App Connectors**, then select the App Connector name to see the **App Connector** **Details**and find any high TCP latency between the App Connectors and Service Edge for Private Access (Broker). See image.
-
-To learn more, see [App Connector Details](https://help.zscaler.com/zpa/viewing-app-connectors-dashboard).
-
-There are different types of RTTs:
-
-- App Connector to Service Edge Latency (app_rtt) corresponds to the RTT that is calculated at the start of a TCP connection (i.e., during TCP three-way handshake),
-- App Connector to Service Edge TCP Latency (tcp_rtt) corresponds to the continued RTT that is calculated after the said connection is established (i.e., as the connection progresses after the three-way handshake).
-- Connection Setup Time available under diagnostics is used to check the latency values.
-
-###### Application Side
-
-Check if all users connecting to this application are experiencing the same poor performance.
-
-Check with the Application team if the application service is present in optimal health.
-
-Issue Seen with All Applications from a Specific App Connector
-
-If the issue symptom resides on a specific App Connector, review the following troubleshooting guide on App Connector.
-
-#### App Connector Side
-
-From the Zscaler Admin Console:
-
-1. From the navigation menu, go to **Data Explorer**> **Private Diagnostics**and select **User Activity**from the **Log Type** to identify the App Connector for a Private Access connection based on the App Connector Name and IP address that is serving the traffic for that particular Private Access connection. See image.
-2. Based on all the App Connectors configured, observe if the App Connector that is serving the traffic is the best for serving this traffic in terms of Geo location and latency aspect.
-3. From the navigation menu, go to **Private Access**> **Private Infrastructure** > **App Connector** and select the configuration name, and note the Public IP address of the particular App Connector. See image.
-
-##### Review App Connector and Zscaler Data Center and Application Server MTR
-
-You can collect MTR:
-
-- From the App Connector towards the Private Access Broker IP address.
-- From the App Connector towards the Application IP address.
-
-To access the App Connector identified earlier using the CLI or SSH:
-
-1. Run the following command to collect 300 packets of MTR towards the Private Service Edge for Private Access (Broker) IP address (using the format x.x.x.x): `mtr -nrzc 300 x.x.x.x`
-2. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-3. Run the following command to collect 300 packets of MTR towards Application server IP address (using the format y.y.y.y): `mtr -nrzc 300 y.y.y.y`
-4. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-
-##### Analyzing MTR
-
-To analyze the MTR:
-
-1. Verify latency. ICMP rate limiting can also create the appearance of latency. The latency between hops 4 and 5 draws attention. However, after the 5th hop, the latency drops drastically. The actual latency measured here is about 40ms. In cases like this, MTR draws attention to an issue that does not affect the service. Consider the latency to the final hop when evaluating an MTR report. See image.
-2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
-3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
-4. There is a 60% loss between hops 2 and 3, as well as between hops 3 and 4. We can assume that the third and fourth hop is likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing a 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss is explained by problems with the return route. Packets reach their destination without error, but have a dificult time making the return trip. See image.
-5. From the navigation menu, go to **Data Explorer**> **Private Access**> **Private Diagnostics**and select **Events**from the **Log Type**drop-down menu to find any errors reported for App Connectors. See image. To learn more, see [Viewing and Managing Events Diagnostics](https://help.zscaler.com/zpa/viewing-and-managing-events-diagnostics).
-6. Go to the **Private Access**> **Private Infrastructure**> **App Connectors** and go to **App Connector Details** and find any high utilization for Bandwidth Trends, CPU Trends, or Memory Utilization Trends. See image.
-7. Go to **Private Access**>**Private Infrastructure**> **App Connectors**, then click the App Connector name to see the **App Connectors Details**and find any high TCP latency between the App Connectors and the Private Service Edge for Private Access (Broker). See image. To learn more, see [Viewing the App Connectors Dashboard](https://help.zscaler.com/zpa/viewing-app-connectors-dashboard).
-
-There are different types of RTTs:
-
-- App Connector to Service Edge Latency (app_rtt) corresponds to the RTT that is calculated at the start of a TCP connection (i.e., during TCP three-way handshake),
-- App Connector to Service Edge TCP Latency (tcp_rtt) corresponds to the continued RTT that is calculated after the said connection is established (i.e., as the connection progresses after the three-way handshake).
-- Connection Setup Time available under diagnostics are used to check the latency values.
-
-Does the Issue Affect All Locations or a Specific Location
-
-Follow the All Location or Specific Location section below to start the troubleshooting.
-
-#### All Locations
-
-If the Traffic Forwarding method is Z-Tunnel 2.0, you must first rule out if the performance issue is related to a specific Traffic Forwarding method. If the issue is only observed with Z-Tunnel 2.0, then focus the investigation and debugging on Zscaler Client Connector.
-
-To learn more, see the [Zscaler Client Connector Performance Support Troubleshooting Runbook](https://help.zscaler.com/troubleshooting-runbooks/zscaler-client-connector-performance-troubleshooting-runbook).
-
-#### Specific Location
-
-If the performance issue is only reported for specific locations, you must first validate if the Private Access traffic is routed over a private or public data center. After the data center type is identified, see Steps to Validate if Traffic is Routed to Private Infrastructure to start troubleshooting.
-
-##### Steps to Validate if Traffic is Routed to Private Infrastructure
-
-Review the Diagnostics log for an affected user and check the Service Edge Name (Public/Private) field. In the following image, the Service Edge is a Private Infrastructure. Enter the **Public Service Edge Name** (in the format AA-AA-NNNN) or **Private Service Edge Name** (in the format per your Private Service Edge for Private Access configuration).
-
-See image.
-
-###### Zscaler Public Data Center
-
-Assess the application access performance without Zscaler.
-
-Have an affected user connect to the non-Zscaler environment, such as direct LAN or a VPN Network connection and test the application access performance. This step helps isolate whether the performance problem is related to Zscaler or the destination application server.
-
-If the result is Slow Loading without Zscaler, then you can involve the application owner to investigate any ongoing issues with the application server.
-
-If the result is Normal Loading without Zscaler, then continue to collect Wireshark capture, browser's header trace, and MTR to the impacted application server for baseline measurements while accessing the domain directly.
-
-###### Check for Any Active Cloud Incidents on the Zscaler Trust Portal
-
-Check for any open cloud incidents for the affected domain or Zscaler data center on the [Trust Portal](https://trust.zscaler.com/zscaler.net). If an active incident trust post is found, check if the affected application server is working for a user who is able to access the applications through a different Zscaler data center.
-
-Potential Workaround: Request *Negative Constellation* for the impacted Zscaler data center which redirects the users to another Zscaler data center. Contact [Zscaler Support](https://help.zscaler.com/contact-support) to request a *Negative Constellation*.
-
-###### Review Client / App Connector and Zscaler Data Center MTR
-
-Collecting Forward MTR from Zscaler Client Connector towards the Private Access Broker IP address.
-
-1. Use a tool called WinMTR, which you can download from sites such as [sourceforge.net](https://sourceforge.net) or [winmtr.en.uptodown.com](https://winmtr.en.uptodown.com).
-2. Get the Service Edge for Private Access (Broker) IP address from Zscaler Client Connector’s **Private Access** tab. See image.
-3. Take note of the **Service Edge for Private Access (Broker) IP address** and enter this IP address in the **Host** option in the WinMTR tool. Then click **Start**. See image. Remember to deselect **Resolve names**before collecting this data so that you can see the IP addresses of all the **Hops**. See image.
-4. After the MTR is started, keep it running for at least 300 packets. You might run it for more packets as well. However, 300 is the minimum count needed. After it is complete, you can stop it. See image.
-5. Next, you must save this output. To do so, click **Export Text**. The sample output snippet is as follows: See image.
-6. For Zscaler Client Connector in Z-Tunnel 2.0 mode, log out of Zscaler Client Connector first before collecting the MTR.
-  - From the App Connector towards the Private Access Broker IP address.
-  - From the App Connector towards the Application IP address.
-7. Access the App Connector identified earlier using the CLI or SSH.
-8. Run the following command to collect 300 packets of MTR towards the Service Edge for Private Access (Broker) IP address (in the format x.x.x.x). `mtr -nrzc 300 x.x.x.x`
-9. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-
-##### Analyzing MTR
-
-1. Verify latency. ICMP rate limiting can also create the appearance of latency. The latency between hops 4 and 5 draws attention. However, after the 5th hop, the latency drops drastically. The actual latency measured here is about 40ms. In cases like this, MTR draws attention to an issue that does not affect the service. Consider the latency to the final hop when evaluating an MTR report. See image.
-2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
-3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
-4. There is 60% loss between hops 2 and 3 as well as between hops 3 and 4. We can assume that the third and fourth hop is likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss is explained by problems in the return route. Packets reach their destination without error but have a difficult time making the return trip. See image.
-5. If there are consistent high latency and packet loss between Zscaler and App Connector or between Zscaler and the User, compile all the data collected so far and contact [Zscaler Support](https://help.zscaler.com/contact-support).
-6. A potential workaround is to request *Negative Constellation* for the impacted Zscaler data center, which redirects the users to another Zscaler data center. Contact [Zscaler Support](https://help.zscaler.com/contact-support) to request for *Negative Constellation*.
-
-###### Private Infrastructure
-
-Assess the application access performance without Zscaler.
-
-1. Have an affected user connect to the non-Zscaler environment, such as direct LAN or a VPN connection and test the application access performance. This step helps isolate whether the performance problem is related to Zscaler or the destination application server.
-2. If the result is `Slow Loading without Zscaler`, then involve the application owner to investigate any ongoing issues with the application server.
-3. If the result is `Normal Loading without Zscaler`, then continue to collect Wireshark capture, browser's header trace, and MTR to the impacted application server for baseline measurements while accessing the domain directly.
-
-###### Review Client / App Connector and Private Service Edge for Private Access MTR
-
-The following sections describe reviewing client, Zscaler, and Private Service Edge for Private Access MTR.
-
-###### Collecting MTR
-
-From Zscaler Client Connector towards the Private Service Edge for Private Access Public IP address:
-
-1. Use a tool called WinMTR, which you can download from sites such as [sourceforge.net](https://sourceforge.net) or [winmtr.en.uptodown.com](https://winmtr.en.uptodown.com).
-2. Find out the Private Service Edge for Private Access Public IP address by going to **Private Access** > **Private Infrastructure** > **Private Service Edges**. Click the Private Service Edge**name**and scroll to the **Public IP**address. See image. To learn more, see [About Private Service Edges for Private Access](https://help.zscaler.com/zpa/about-zpa-private-service-edges).
-3. Take note of the Private Service Edge for Private Access Public IP address and enter this IP address in the Host option in the WinMTR tool. Then click **Start**. See image. Remember to deselect **Resolve names**before collecting this data so that you can see the IP addresses of all the Hops. See image.
-4. After the MTR is started, keep it running for at least 300 packets. You might run it for more packets as well. However, 300 is the minimum count needed. After it is complete, you can stop it. See image.
-5. Next, you must save this output. To do so, click **Export Text**. The sample output snippet is as follows: See image. For Zscaler Client Connector in Zscaler Tunnel (Z-Tunnel) 2.0 mode, log out of Zscaler Client Connector first before collecting the MTR.
-
-From Private Service Edge for Private Access (Broker) towards the App Connector Public IP address:
-
-1. Access the Private Service Edge for Private Access using the CLI or SSH.
-2. Run the following command to collect 300 packets of MTR towards App Connector Public IP address x.x.x.x. `mtr -nrzc 300 x.x.x.x`
-3. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-
-From App Connector towards the Private Service Edge for Private Access (Broker) Public IP address, ore from App Connector towards the Application IP address:
-
-1. Access the App Connector identified earlier using the CLI or SSH.
-2. Run the following command to collect 300 packets of MTR towards Service Edge for Private Access IP address x.x.x.x. `mtr -nrzc 300 x.x.x.x`
-3. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-4. Run the following command to collect 300 packets of MTR towards Application server IP address y.y.y.y. `mtr -nrzc 300 y.y.y.y`
-5. After the MTR report is ready, take a screenshot or save the MTR output in a text file. See image.
-
-###### Analyzing MTR
-
-1. Verify latency. ICMP rate limiting can also create the appearance of latency. The latency between hops 4 and 5 draws attention. However, after the 5th hop, the latency drops drastically. The actual latency measured here is about 40ms. In cases like this, MTR draws attention to an issue that does not affect the service. Consider the latency to the final hop when evaluating an MTR report. See image.
-2. The amount of latency jumps significantly between hops 3 and 4 remains high. This might point to a network latency issue as round trip times remain high after the 4th hop. While there is a large jump in latency between hosts 3 and 4, the latency does not increase unusually in any subsequent hops. From this, it is logical to assume that there is some issue with the 4th hop. See image.
-3. Verify packet loss. The loss reported between hops 1 and 2 is likely due to rate limiting on the second hop. If the loss continues for more than one hop, then it is possible that there are packet loss or routing issues. See image.
-4. There is 60% loss between hops 2 and 3 as well as between hops 3 and 4. We can assume that the third and fourth hop is likely to lose some amount of traffic because no subsequent host reports zero loss. However, some of the losses are due to rate limiting as several of the final hops are only experiencing 40% loss. When different amounts of loss are reported, always trust the reports from later hops. Some loss is explained by problems in the return route. Packets reach their destination without error but have a difficult time making the return trip. See image.
-
-If there are consistent high latency and packet loss between the App Connector and Private Service Edge for Private Access or App Connector and Application, work with your network team or the application owner to investigate further.
-
-## Further Steps
-
-Compile all the data collected and open a [Zscaler Support](https://help.zscaler.com/contact-support) ticket.
-
-[Image: Application ZDX Score][Image: Users Overview]
-
-[Image: Probes][Image: Probes]
-
-[Image: Client and Application Path][Image: Client and Application Path][Image: Client and Application Path]
-
-[Image: DNS Resolution Time]
-
-[Image: ZDX Dashboard]
-
-[Image: Deep Tracing]
-
-[Image: Start New Diagnostics Session]
-
-[Image: Deep Tracing Probe]
-
-[Image: Zscaler Client Connector App Version]
-
-[Image: Tunnel Protocol Check]
-
-[Image: Edit App Connector Group]
-
-[Image: Windows Security]
-
-[Image: Virus and Threat Protection]
-
-[Image: Exclusions]
-
-[Image: Exclude Folder]
-
-[Image: User Activity]
-
-[Image: Zscaler Client Connector Broker]
-
-[Image: WinMTR Start]
-
-[Image: WinMTR Options]
-
-[Image: WinMTR Resolve]
-
-[Image: WinMTR Sent]
-
-[Image: WinMTR Export Text]
-
-[Image: MTR Latency]
-
-[Image: MTR 4th Hop]
-
-[Image: MTR Packet Loss]
-
-[Image: MTR Return Trip]
-
-[Image: User Activity]
-
-[Image: App Connector IP]
-
-[Image: MTR Report]
-
-[Image: MTR Output]
-
-[Image: MTR Latency]
-
-[Image: MTR 4th Hop]
-
-[Image: MTR Packet Loss]
-
-[Image: MTR Return]
-
-[Image: Events]
-
-[Image: App Connector Details]
-
-[Image: App Connector Latency]
-
-[Image: User Activity]
-
-[Image: App Connector IP]
-
-[Image: MTR Latency]
-
-[Image: MTR 4th Hop]
-
-[Image: MTR Packet Loss]
-
-[Image: MTR Return]
-
-[Image: Events]
-
-[Image: App Connectors Details]
-
-[Image: App Connector Latency]
-
-[Image: Diagnostics]
-
-[Image: Zscaler Client Connector Broker]
-
-[Image: Win MTR Start]
-
-[Image: WinMTR Options]
-
-[Image: WinMTR Resolve]
-
-[Image: WinMTR Sent]
-
-[Image: WinMTR Text]
-
-[Image: MTR Latency]
-
-[Image: MTR 4th Hop]
-
-[Image: MTR Packet Loss]
-
-[Image: MTR Return]
-
-[Image: Private Service Edge]
-
-[Image: WinMTR Start]
-
-[Image: WinMTR Options][Image: WinMTR Resolve Names]
-
-[Image: WinMTR Sent]
-
-[Image: WinMTR Text]
-
-[Image: MTR Output]
-
-[Image: MTR Report]
-
-[Image: MTR Output]
-
-[Image: MTR Latency]
-
-[Image: MTR 4th Hop]
-
-[Image: MTR Packet Loss]
-
-[Image: MTR Return]
-
-[Image: MTR Report]
-
-[Image: MTR Output]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/specific-criteria-access-control-policy-do-not-match","lastmod":"2026-09-12T07:06Z","nid":"1538973"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/specific-criteria-access-control-policy-do-not-match","lastmod":"2026-10-13T07:06Z","nid":"1538973"} -->
 ## Specific Criteria in the Access Control Policy Do Not Match
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/specific-criteria-access-control-policy-do-not-match
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Specific Criteria in the Access Control Policy Do Not Match
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This help article defines how a URL gets rejected if the specific criteria in the access control policy do not match.
 
 This help article defines how a URL might get blocked if the specific criteria in the access control policy do not match.
@@ -7557,13 +7047,13 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/ssl-policy-reason-runbook","lastmod":"2026-09-12T07:06Z","nid":"1538875"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/ssl-policy-reason-runbook","lastmod":"2026-10-13T07:06Z","nid":"1538875"} -->
 ## SSL Policy Reason Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/ssl-policy-reason-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > SSL Policy Reason Runbook
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This Zscaler runbook discusses various SSL policies and how they are applied to URLs.
 
 The following sections of this Zscaler runbook discuss various SSL policies and how they are applied to URLs:
@@ -7789,13 +7279,13 @@ You can add a new SSL Inspection rule with the action **Inspect**and more specif
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/unable-access-specific-websites-or-applications","lastmod":"2026-09-12T07:06Z","nid":"1539012"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/unable-access-specific-websites-or-applications","lastmod":"2026-10-13T07:06Z","nid":"1539012"} -->
 ## Unable to Access Specific Websites or Applications
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/unable-access-specific-websites-or-applications
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Unable to Access Specific Websites or Applications
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes how to determine if a URL was blocked because the Zscaler service was unable to access specific websites or applications.
 
 This runbook article describes how to determine if a URL was blocked because the Zscaler service was unable to access specific websites or applications.
@@ -7881,13 +7371,13 @@ If none of the previous steps help, submit a case to [Zscaler Support](https://h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/undecryptable-traffic-block","lastmod":"2026-09-12T07:06Z","nid":"1538901"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/undecryptable-traffic-block","lastmod":"2026-10-13T07:06Z","nid":"1538901"} -->
 ## Undecryptable Traffic Block
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/undecryptable-traffic-block
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Undecryptable Traffic Block
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to determine whether a URL wasn't inspected due to an undecryptable traffic block.
 
 This article describes how to determine whether a URL wasn't inspected due to an undecryptable traffic block.
@@ -7920,13 +7410,13 @@ Possible solutions include:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/untrusted-server-certificate-gets-allowed","lastmod":"2026-09-12T07:06Z","nid":"1538902"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/untrusted-server-certificate-gets-allowed","lastmod":"2026-10-13T07:06Z","nid":"1538902"} -->
 ## Untrusted Server Certificate Gets Allowed
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/untrusted-server-certificate-gets-allowed
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Untrusted Server Certificate Gets Allowed
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to determine if URLs weren't inspected due to an untrusted server certificate that was allowed.
 
 This article describes how to determine whether URLs weren't inspected because an untrusted server certificate was allowed.
@@ -8704,13 +8194,13 @@ There are three types of actions you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-10-09T07:06Z","nid":"1495191"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-email-notification-templates","lastmod":"2026-10-16T08:09Z","nid":"1495191"} -->
 ## Adding Email Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-email-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Email Notification Templates
-- Last modified: 2026-10-09T07:06Z
+- Last modified: 2026-10-16T08:09Z
 - Summary: Information on how to configure various email notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various email notification templates using the email template builder to send notifications to the DLP admins, managers, approvers, and end users. The email template builder ensures that the email notification template displays properly to all email clients.
@@ -8995,7 +8485,7 @@ To add headings:
       - Format it using one or more of the format options. Format options are **Bold**, **Italic**, **Underline**, **Strikethrough**, **Superscript**, and **Subscript**.
       - Enter a link in the heading using the **Insert Link** option. When you click the **Insert Link** option, the **Insert/Edit Link** dialog window appears. In the **Insert/Edit Link** dialog window, configure the link using one of the following options:
         - Open Website
-          1. **Action Type**: From the drop-down menu, Select **Open Website**. The **URL**, **Target**, and **Special Links** fields appear.
+          1. **Action Type**: From the drop-down menu, select **Open Website**. The **URL**, **Target**, and **Special Links** fields appear.
           2. **URL**: Enter the URL for the website.
           3. **Target**: From the drop-down menu, select where the website opens when the link is selected. The targets are **New Tab** and **Same Tab**.
           4. (Optional) **Special Links**: From the drop-down menu, select a special link. The following are special links: After you select a special link, the special link appears in the **URL** field.
@@ -9563,6 +9053,7 @@ To duplicate column content:
 - **Protocol**
 - **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
+- **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Sender Email**
 - **Severity**
 - **Source**
@@ -9647,6 +9138,7 @@ To duplicate column content:
 - **Protocol**
 - **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
+- **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Sender Email**
 - **Severity**
 - **Source**
@@ -9731,6 +9223,7 @@ To duplicate column content:
 - **Protocol**
 - **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
+- **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Sender Email**
 - **Severity**
 - **Source**
@@ -9815,6 +9308,7 @@ To duplicate column content:
 - **Protocol**
 - **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Referral URL**
+- **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.
 - **Sender Email**
 - **Severity**
 - **Source**
@@ -9876,13 +9370,13 @@ You can also integrate Workflow Automation with SaaS applications sanctioned for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-09-07T07:06Z","nid":"1495211"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-10-16T08:16Z","nid":"1495211"} -->
 ## Adding Microsoft Teams Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-microsoft-teams-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Microsoft Teams Notification Templates
-- Last modified: 2026-09-07T07:06Z
+- Last modified: 2026-10-16T08:16Z
 - Summary: Information on how to configure various Microsoft Teams notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Microsoft Teams notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Microsoft Teams clients.
@@ -9905,7 +9399,7 @@ To add a Microsoft Teams notification template:
   - **HTML**: Add custom HTML.
   - **Lists**: Add a numbered list or a bulleted list.
   - **Link**: Apply a link to the text that you have entered.
-  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
+  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
   - **Select Special Link**: From the drop-down menu, select a special link. The following are special links:
     - **Incident Justification Magic Link**: Redirects the user to the Incident page, where they can view and enter justification details for an incident.
     - **Incident Escalation Magic Link**: Redirects the manager or approver to the Incident page, where they can view and enter justification details for an incident.
@@ -9922,13 +9416,13 @@ To add a Microsoft Teams notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-09-07T07:06Z","nid":"1495206"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-10-16T08:14Z","nid":"1495206"} -->
 ## Adding Slack Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-slack-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Slack Notification Templates
-- Last modified: 2026-09-07T07:06Z
+- Last modified: 2026-10-16T08:14Z
 - Summary: Information on how to configure various Slack notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Slack notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Slack clients.
@@ -9951,7 +9445,7 @@ To add a Slack notification template:
   - **HTML**: Add custom HTML.
   - **Lists**: Add a numbered list or a bulleted list.
   - **Link**: Apply a link to the text that you have entered.
-  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
+  - **Select Merge Tag**: From the drop-down menu, select a merge tag. You can use the merge tags that are provided by Workflow Automation to include incident attribute values in the notifications. Merge tags are: End User and Escalation Notification Templates; End User Digest Notification Templates; DLP Admin Digest Notification Templates; Digest Notification Templates (Type Not Specified) **Action**; **Activity Type**; **Category**; **Channel**; **Client IP**; **Component**; **Confirm Action**; **Content Location**; **Current Time**; **Customer ID**; **Date**; **Department**; **Destination**; **Destination Location**; **Destination Type**; **Device Name**; **Device OS**; **Device Trust Level**; **DLP Admin**; **Document Name**; **Document Type**; **Domains**; **Email Quarantine Status**; **Email Subject**; **Expected Action**; **External Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **External Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **File Link Expiry**; **File MD5**; **File Modified By**; **File Shared At**; **File Shared By**; **File Size**; **File Source Location**; **File Type**; **Hostname or Application**; **Incident ID**; **Internal Collaborators** A notification can contain a maximum of 10 collaborators. You can view the full list of collaborators for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Internal Recipients** A notification can contain a maximum of 10 recipients. You can view the full list of recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Is Copilot Accessible**; **Manager Email**; **Manager Name**; **Matched Files** A combination of file name and file size. A notification can contain a maximum of 10 files. You can view the full list of files for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Note to the User**; **Other Recipients**; **Priority**; **Protocol**; **Recipient Email** A notification can contain a maximum of 10 recipient emails. You can view the full list of recipient emails for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Referral URL**; **Rules and Recipients** A combination of rules and recipients is displayed together in the notification for incidents of Source DLP type Email. A notification can contain a maximum of 5 rules. Each rule can contain a maximum of 10 recipients. If there are more than 5 rules associated with the incident, after the rules and recipients are displayed in the notification, the **Partial list of rules and recipients** statement is displayed. If there are more than 10 recipients for any rule in the notification, after the recipients are displayed, the **Partial list of recipients** statement is displayed. You can view the full list of rules and recipients for an incident in the [Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details) drawer.; **Sender Email**; **Severity**; **Source**; **Source DLP Type**; **Source Location**; **Source Type**; **Subject**; **Time**; **URL**; **User Name**; **Violated Policy**; **Workspace** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **User Name** **Current Time**; **Customer ID**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name** **All Incidents Waiting For Feedback Count**; **Current Time**; **Customer ID**; **High Priority Incidents Waiting For Feedback Count**; **New Incidents Count**; **Open Incidents Count**; **State Changes Count**; **User Name**
   - **Select Special Link**: From the drop-down menu, select a special link. The following are special links:
     - **Incident Justification Magic Link**: Redirects the user to the Incident page, where they can view and enter justification details for an incident.
     - **Incident Escalation Magic Link**: Redirects the manager or approver to the Incident page, where they can view and enter justification details for an incident.
@@ -9968,13 +9462,13 @@ To add a Slack notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-06T12:45Z","nid":"1531125"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-14T12:35Z","nid":"1531125"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-10-06T12:45Z
+- Last modified: 2026-10-14T12:35Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Amazon Web Services (AWS) EC2 instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's AWS Simple Storage Service (S3) buckets in your AWS account without deploying appliances.
@@ -10084,7 +9578,7 @@ You can also use encryption on S3 and SNS with Customer Managed Keys (CMK) throu
 Zscaler recommends that the metadata bucket and SNS topic are always in the same region. If you want to grant S3 data bucket access so that Workflow Automation can generate presigned links, the data buckets must also be in the same region.
 
 1. Decide on the S3 bucket name prefix to use. The names of the S3 buckets are `<bucketNamePrefix>-data` and `<bucketNamePrefix>-metadata`. The bucket name prefix is also used as a property when adding a DLP Application Integration in Workflow Automation.
-2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
+2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Advanced Account Settings**and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
 3. On the **Create topic** page in the AWS console, create a standard SNS topic.
   1. Log in to the AWS console.
   2. In the AWS console, search for `**sns**`.
@@ -10285,7 +9779,7 @@ You can use the following resource creation template to manually create the supp
 6. In the **Zscaler DLP Integration** section:
   - **S3 Bucket Name Prefix**: Copy the S3 Bucket Name Prefix output of the CloudFormation stack and enter it here or enter the S3 Bucket Name Prefix that you manually created.
   - **SNS Topic ARN**: Copy the SNS Topic ARN output of the CloudFormation stack and enter it here or enter the SNS Topic ARN that you manually created.
-7. In the Privacy Settings section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
+7. In the **Privacy Settings** section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
   - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
   - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
   - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
@@ -10438,13 +9932,13 @@ To learn more, see [Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS](
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-10-01T21:06Z","nid":"1531124"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-10-14T12:30Z","nid":"1531124"} -->
 ## Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-amazon-web-services-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Amazon Web Services DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-14T12:30Z
 - Summary: Information on integrating Workflow Automation DLP Application with AWS using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver, you must deploy a Zscaler Incident Receiver (ZIR) Amazon Web Services (AWS) EC2 instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's AWS Simple Storage Service (S3) buckets.
@@ -10554,7 +10048,7 @@ You can also use encryption on S3 and SNS with Customer Managed Keys (CMK) throu
 Zscaler recommends that the metadata bucket and SNS topic are always in the same region. If you want to grant S3 data bucket access so that Workflow Automation can generate presigned links, the data buckets must also be in the same region.
 
 1. Decide on the S3 bucket name prefix to use. The names of the S3 buckets are `<bucketNamePrefix>-data` and `<bucketNamePrefix>-metadata`. The bucket name prefix is also used as a property when adding a DLP Application Integration in Workflow Automation.
-2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Advanced Account Settings** in the Zscaler Admin Console and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
+2. Find your Workflow Automation environment information (Workflow Automation AWS Account ID and Role Name) and customer GUID. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation**> **Advanced Account Settings**and expand the **Customer Information** section to see the **AWS Account**, **Role Name**, and **Customer GUID**. To learn more, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings). The AWS account, role name, and customer GUID are used when creating an IAM cross-account role that Workflow Automation uses to read DLP incidents. The AWS account is also used as the source owner when creating a standard SNS topic.
 3. On the **Create topic** page in the AWS console, create a standard SNS topic.
   1. Log in to the AWS console.
   2. In the AWS console, search for `**sns**`.
@@ -10755,7 +10249,7 @@ You can use the following resource creation template to manually create the supp
 6. In the **Zscaler DLP Integration** section:
   - **S3 Bucket Name Prefix**: Copy the `S3 Bucket Name Prefix` output of the CloudFormation stack and enter it here or enter the `S3 Bucket Name Prefix` that you manually created.
   - **SNS Topic ARN**: Copy the `SNS Topic ARN` output of the CloudFormation stack and enter it here or enter the `SNS Topic ARN` that you manually created.
-7. In the Privacy Settings section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
+7. In the **Privacy Settings** section: See image. If you disable Hide Evidence Data or Hide Trigger Data in the integration, but you did not enable read access to the S3 bucket when creating the CloudFormation stack, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
   - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
   - **Hide Trigger Data - Admin**: Select if you do not want admins to be able to see the trigger data for an incident on the **Violation Content** tab of the **Incident Details** drawer. Otherwise, they can see the trigger data. This checkbox is selected by default.
   - **Hide Policy Details - Admin**: Select if you do not want the admins to be able to view any of the policy details for the incident on the **Violation Details** tab of the **Incident Details** drawer. Otherwise, they can view the policy details for the incident. This checkbox is not selected by default.
@@ -11312,13 +10806,13 @@ To learn more, see [Managing DLP Azure Application Integrations in Workflow Auto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-09-29T09:13Z","nid":"1531119"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-10-14T12:44Z","nid":"1531119"} -->
 ## Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-09-29T09:13Z
+- Last modified: 2026-10-14T12:44Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver (ZIR), you must deploy a ZIR Azure instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's Azure storage containers in your Azure account.
@@ -11328,15 +10822,15 @@ To configure DLP application integration using Zscaler Incident Receiver:
 - 1. Create a resource in Microsoft Azure.
 - 2. (Optional) Set up Azure Front Door to access the storage account through a private endpoint.
 - 3. Install a container or upgrade the container in the Filewatcher VM.
-- 4. Add a DLP Azure application integration in Workflow Automation using the output from the bash script and the Azure resource manager stack.
+- 4. Add a DLP Azure application integration in Workflow Automation using the output from the Bash script and the Azure resource manager stack.
 - 5. Set Up the Zscaler Incident Receiver.
 
-You can create Microsoft Azure resources automatically by using a bash script in Azure, or you can create them manually.
+You can create Microsoft Azure resources automatically by using a Bash script in Azure, or you can create them manually.
 
-- Creating resources automatically using a bash script
+- Creating resources automatically using a Bash script
 - Creating resources manually using the Azure console
 
-- a. Download the Zscaler bash script and the Azure resource manager template files from the Zscaler Admin Console.
+- a. Download the Zscaler Bash script and the Azure resource manager template files from the Zscaler Admin Console.
 - b. Set up the resource manager stack in Azure using the script and template files that Zscaler provides.
 
 - a. Create the app registrations for the DLP Integration and the Filewatcher using Azure console.
@@ -11567,12 +11061,12 @@ You can view the newly created system topic on the **Events** tab of your storag
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
 2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
-3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the following links: The **run-filewatcher.sh** bash script is used when installing or upgrading the container in the Filewatcher VM. See image.
-  1. Click the **create-app-registration.sh**link to download the Zscaler bash script.
+3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the following links: The **run-filewatcher.sh** Bash script is used when installing or upgrading the container in the Filewatcher VM. See image.
+  1. Click the **create-app-registration.sh**link to download the Zscaler Bash script.
   2. Click the **ZscalerAzureIntegrationRM.json** link to download the Azure DLP Integration resource manager template.
   3. Click the **FileWatcherVM.json** link to download the Azure Filewatcher resource manager template.
 
-You can set up the resource manager stack in the Azure portal using the bash script and the template files you previously downloaded from the Zscaler Admin Console.
+You can set up the resource manager stack in the Azure portal using the Bash script and the template files you previously downloaded from the Zscaler Admin Console.
 
 To set up the resource manager stack:
 
@@ -11583,9 +11077,9 @@ To set up the resource manager stack:
 1. Log in to the Azure portal as a user with Owner permission in Azure.
 2. In the top right of the Azure portal, click the **Cloud Shell** icon and select **Bash** as a shell. The Cloud Shell virtual terminal appears at the bottom of the page. See image.
 3. At the top of Cloud Shell virtual terminal, click the **Upload/Download**icon. See image.
-4. Click **Upload** and select the bash script file (create-app-registration.sh) that you previously downloaded from the Zscaler Admin Console. A message appears in the bottom right when the upload is complete. See image.
+4. Click **Upload** and select the Bash script file (create-app-registration.sh) that you previously downloaded from the Zscaler Admin Console. A message appears in the bottom right when the upload is complete. See image.
 5. Enter the following command and press `Enter`: `bash create-app-registration.sh -d <customer display name> -y <number of years in which the secret is valid>`For example, `bash create-app-registration.sh -d zscaler-Azure-Integration - y 3`. This script creates the app registrations for both the DLP Integration and the Filewatcher, along with the client secrets for those apps. By default, the script creates a password/secret with one-year validity for the service principal, but you can change the number of years. The customer display name value that you enter in the command is used for the containers and storage accounts in Azure.
-6. Copy and save the output values you receive from the script for both the DLP Integration app registration and the Filewatcher registration. You use the output values for the DLP Integration app registration later when you set up the integration in Workflow Automation. You use the output values for the Filewatcher later when you set up the Docker container in the Filewatcher. The following is an example of output received from the DLP Integration app registration: `{ "applicationClientSecret": "k1r8Q~xxxxxxxxxxxxxxxxx.xxxxxxxxxxx", "tenantId": "aa698f79-a76e-4d05-8330-xxxxxxxxxx", "appName": "zscaler-Azure-Integration", "applicationObjectId": "929cbf20-c9ce-418b-xxxx-xxxxxxxxxx", "servicePrincipalObjectId": "5c4de7fb-xxxx-4b69-xxxx-xxxxxxxxxxx" }`The system enters the customer display name value that you entered in the bash command as the `appName` for the registration. The following is an example of the output received from the Filewatcher app registration: `{ "applicationClientSecret": "xxxx~xxxxxxxxxx_xxxxxxxxxxx", "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx", "appName": "zscaler-Azure-Integration-filewatcher", "applicationObjectId": "0d7e2f75-79a0-43e3-b5f9-xxxxxxxx", "applicationClientId": "28dfa6aa-3456-404f-b5da-xxxxxxxxx", "servicePrincipalObjectId": "xxxxxx-75d7-48f1-be7f-xxxxxxxxx" }`The system enters the customer display name value that you entered in the bash command as the `appName` for the registration along with the Filewatcher appended at the end. The output values from the script include credentials that you must protect and keep secure.
+6. Copy and save the output values you receive from the script for both the DLP Integration app registration and the Filewatcher registration. You use the output values for the DLP Integration app registration later when you set up the integration in Workflow Automation. You use the output values for the Filewatcher later when you set up the Docker container in the Filewatcher. The following is an example of output received from the DLP Integration app registration: `{ "applicationClientSecret": "k1r8Q~xxxxxxxxxxxxxxxxx.xxxxxxxxxxx", "tenantId": "aa698f79-a76e-4d05-8330-xxxxxxxxxx", "appName": "zscaler-Azure-Integration", "applicationObjectId": "929cbf20-c9ce-418b-xxxx-xxxxxxxxxx", "servicePrincipalObjectId": "5c4de7fb-xxxx-4b69-xxxx-xxxxxxxxxxx" }`The system enters the customer display name value that you entered in the Bash command as the `appName` for the registration. The following is an example of the output received from the Filewatcher app registration: `{ "applicationClientSecret": "xxxx~xxxxxxxxxx_xxxxxxxxxxx", "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx", "appName": "zscaler-Azure-Integration-filewatcher", "applicationObjectId": "0d7e2f75-79a0-43e3-b5f9-xxxxxxxx", "applicationClientId": "28dfa6aa-3456-404f-b5da-xxxxxxxxx", "servicePrincipalObjectId": "xxxxxx-75d7-48f1-be7f-xxxxxxxxx" }`The system enters the customer display name value that you entered in the Bash command as the `appName` for the registration along with the Filewatcher appended at the end. The output values from the script include credentials that you must protect and keep secure.
 
 1. Log in to the Azure portal as a user with Contributor permission in Azure.
 2. In the Azure portal, under Azure services, click the **Deploy a custom template**icon. The **Custom deployment** page appears. See image.
@@ -11719,16 +11213,16 @@ To install a new container:
 1. Download the `run-filewatcher.sh` script from the Zscaler Admin Console.
   1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
   2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
-  3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler bash script. See image.
+  3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler Bash script. See image.
 2. In Azure, go to the Filewatcher server by pasting the **hostPublicIP** field value (if created) or **hostPrivateIP** field value that you copied from the **Outputs** page when you deployed the Filewatcher template on the command line. Then press `Enter`.
 3. Enter the admin password you used when you deployed the Filewatcher template and press `Enter`.
-4. Copy the `run-filewatcher.sh` bash script that you previously downloaded to the Filewatcher VM in the user's home directory. This script assumes that the current user has permission to run Podman or Docker.
+4. Copy the `run-filewatcher.sh` Bash script that you previously downloaded to the Filewatcher VM in the user's home directory. This script assumes that the current user has permission to run Podman or Docker.
 5. Enter the following command and press `Enter`: `azure-user@filewatcher-vm:~$ bash run-filewatcher.sh`
-6. The script asks you for the following information: The script does the following: The following images are examples of the bash script using Podman and Docker. See image.
+6. The script asks you for the following information: The script does the following: The following images are examples of the Bash script using Podman and Docker. See image.
   - container_name_prefix=<`Storage Account Name`>
-  - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the bash script output for the Filewatcher App registration.
-  - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the bash script output for the Filewatcher App registration.
-  - AZURE_TENANT_ID=<`tenantID`>: The value from the bash script output for the Filewatcher App registration.
+  - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the Bash script output for the Filewatcher App registration.
+  - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the Bash script output for the Filewatcher App registration.
+  - AZURE_TENANT_ID=<`tenantID`>: The value from the Bash script output for the Filewatcher App registration.
   - image-version=`1.80.0`: The latest image version for the Filewatcher container.
   - source_folder=`/var/data`: Use the default value.
   - file_processor_thread_pool_size=`8`: The number of files that can be uploaded at a time. Use the default value.
@@ -11767,17 +11261,17 @@ To upgrade a container:
 1. Download the `run-filewatcher.sh` script from the Zscaler Admin Console.
   1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Workflow Automation** > **Integrations**. The **Integrations** dashboard appears, displaying a **DLP Azure** application tile. The **Tile View** icon is selected by default. See image.
   2. Click anywhere within the **DLP Azure** application tile. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image.
-  3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler bash script. See image.
+  3. Click the **Configuration Steps** tab. Under **Azure Resource Stack Setup**, click the **run-filewatcher.sh** link to download the Zscaler Bash script. See image.
 2. In Azure, go to the Filewatcher server by pasting the **hostPublicIP** field value (if created) or **hostPrivateIP** field value that you copied from the **Outputs** page when you deployed the Filewatcher template on the command line. Then press `Enter`.
 3. Enter the admin password you used when you deployed the Filewatcher template and press `Enter`.
-4. Copy the `run-filewatcher.sh` bash script that you previously downloaded to the Filewatcher VM in the user's home directory. This script assumes that the current user has permission to run Podman or Docker.
+4. Copy the `run-filewatcher.sh` Bash script that you previously downloaded to the Filewatcher VM in the user's home directory. This script assumes that the current user has permission to run Podman or Docker.
 5. Enter the following command and press `Enter`: `azure-user@filewatcher-vm:~$ bash run-filewatcher.sh`
 6. Ensure that your current directory contents looks similar to the following: [Image: Viewing the Current Directory Content in Azure]
-7. The script asks you for the following information: This script does the following: The following images are examples of the bash script using Podman and Docker. See image.
+7. The script asks you for the following information: This script does the following: The following images are examples of the Bash script using Podman and Docker. See image.
   - container_name_prefix=<`Storage Account Name`>
-  - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the bash script output for the Filewatcher App registration.
-  - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the bash script output for the Filewatcher App registration.
-  - AZURE_TENANT_ID=<`tenantID`>: The value from the bash script output for the Filewatcher App registration.
+  - AZURE_CLIENT_ID=<`applicationClientId`>: The value from the Bash script output for the Filewatcher App registration.
+  - AZURE_CLIENT_SECRET=<`applicationClientSecret`>: The value from the Bash script output for the Filewatcher App registration.
+  - AZURE_TENANT_ID=<`tenantID`>: The value from the Bash script output for the Filewatcher App registration.
   - image-version=`1.80.0`: The latest image version for the Filewatcher container.
   - source_folder=`/var/data`: Use the default value.
   - file_processor_thread_pool_size=`8`: The number of files that can be uploaded at a time. Use the default value.
@@ -11795,13 +11289,13 @@ To upgrade a container:
 3. After you select a view option, perform one of the following procedures:
   - In the tile view: In the DLP Azure application tile, click the **Add** icon. The add **Zscaler DLP Azure Integration** page appears.
   - In the list view:
-    1. Next to the DLP Azure application integration, click **Connect**. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration, a link to download the bash script, and links to download the Zscaler resource manager template files.
+    1. Next to the DLP Azure application integration, click **Connect**. The **Zscaler DLP Azure Integration** details page appears, displaying a **Configuration Steps** tab and a **Configuration** tab. See image. The **Configuration Steps** tab provides the instructions for configuring a DLP Azure application integration, a link to download the Bash script, and links to download the Zscaler resource manager template files.
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP Azure Integration** page appears.
 4. On the add **Zscaler DLP Azure Integration** page, in the **Zscaler Azure DLP Integration** section, enter an **Integration Name**.
 5. In the **Account Credentials** section:
-  - **Tenant ID**: Copy the `TenantId` output from the bash script for the DLP integration and enter it here.
-  - **Client ID**: Copy the `applicationClientId` output from the bash script for the DLP integration and enter it here.
-  - **Client Secret**: Copy the `applicationClientSecret` output from the bash script for the DLP integration and enter it here.
+  - **Tenant ID**: Copy the `TenantId` output from the Bash script for the DLP integration and enter it here.
+  - **Client ID**: Copy the `applicationClientId` output from the Bash script for the DLP integration and enter it here.
+  - **Client Secret**: Copy the `applicationClientSecret` output from the Bash script for the DLP integration and enter it here.
 6. In the **Zscaler Azure DLP Integration** section:
   - **Storage Account Name**: Copy the `storageAccountName` output from the deployment of the resource manager template for DLP integration and enter it here.
   - **Custom Storage Endpoint URL**: (Optional) If you do not want Workflow Automation to access the storage account through a default public endpoint, enter a custom storage endpoint URL in the format `https://<custom endpoint>`. If you want to use a public endpoint, leave the field blank.
@@ -12063,13 +11557,13 @@ After you configure the DLP application integration, the DLP incidents that occu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-10-06T12:52Z","nid":"1532057"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform","lastmod":"2026-10-14T12:59Z","nid":"1532057"} -->
 ## Configuring the DLP Application Integration Using Google Cloud Platform
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the DLP Application Integration Using Google Cloud Platform
-- Last modified: 2026-10-06T12:52Z
+- Last modified: 2026-10-14T12:59Z
 - Summary: How to configure DLP application integration using Google Cloud Platform.
 
 Google Cloud Platform (GCP) only supports the Cloud-to-Cloud Incident Forwarding method for DLP application integration in Workflow Automation.
@@ -12227,7 +11721,7 @@ Create a dedicated service account for the Zscaler integration. Zscaler uses thi
 - Using Google Cloud Console
 - Using Google Cloud CLI
 
-1. Log in to the Google Cloud console, go to **IAM & Admin** > **Service Accounts**. The **Service accounts** page appears, listing all the service accounts. See image.
+1. In to the Google Cloud console, go to **IAM & Admin** > **Service Accounts**. The **Service accounts** page appears, listing all the service accounts. See image.
 2. On the **Service accounts** page, click **Create service account**. The **Create service account** page appears.
 3. On the **Create service account** page, in the **Create service account** section: Skip granting project-level roles and access to the service account on this page. Later, in the Assign IAM Permissions step, you grant more specific permissions. See image.
   - **Service account name**: Enter a name for the service account—for example, `zscaler-sa-<``PREFIX``>`.
@@ -12422,7 +11916,7 @@ Configure the metadata bucket to send a notification to the Pub/Sub topic whenev
 - Using Google Cloud Console
 - Using Google Cloud CLI
 
-1. In the GCP Console, go to **Cloud Storage** > **Buckets**. The **Buckets** page appears, listing all the buckets.
+1. In the Google Cloud console, go to **Cloud Storage** > **Buckets**. The **Buckets** page appears, listing all the buckets.
 2. On the **Buckets** page, in the list of buckets, click the name of your metadata bucket. This corresponds to the METADATA_BUCKET_NAME environment value as indicated in the Prerequisites section. The **Bucket details** page appears.
 3. On the **Bucket details** page, click the **Notifications** tab. If this tab is not available, create the notification using the Google Cloud CLI.
 4. Click **Create Notification**. A configuration pane appears on the right side of the page.
@@ -12551,9 +12045,9 @@ To add a DLP GCP application integration using the GCP service account private k
     2. On the **Configuration** tab, click **Add New**. The add **Zscaler DLP GCP Integration** page appears.
 4. On the add **Zscaler DLP GCP Integration** page, in the **Zscaler GCP DLP Integration** section:
   - **Integration Name**: Enter a name for the integration.
-  - **Project ID**: From the JSON key downloaded from the GCP console, copy the `project_id` for the DLP integration and enter it here.
-  - **Private Key**: From the JSON key downloaded from the GCP console, copy the `private_key` for the DLP integration and enter it here.
-  - **Client Email**: From the JSON key downloaded from the GCP console, copy the `client_email` for the DLP integration and enter it here.
+  - **Project ID**: From the JSON key downloaded from the Google Cloud console, copy the `project_id` for the DLP integration and enter it here.
+  - **Private Key**: From the JSON key downloaded from the Google Cloud console, copy the `private_key` for the DLP integration and enter it here.
+  - **Client Email**: From the JSON key downloaded from the Google Cloud console, copy the `client_email` for the DLP integration and enter it here.
   - **Prefix for Bucket and Topic**: Enter a prefix for the storage bucket and topic.
 5. In the **Privacy Settings** section: See image. If you disable **Hide Evidence Data** or **Hide Trigger Data** in the integration, but you did not enable read access to the storage accounts when creating the cloud resources, no one can generate evidence links or view trigger data in the Zscaler Admin Console.
   - **Hide Evidence Data - Admin**: Select if you do not want admins to be able to generate presigned evidence links for an incident on the **Violation Content** tab of the**Incident Details** drawer. Otherwise, they can generate evidence links. This checkbox is selected by default.
@@ -12573,7 +12067,7 @@ To add a DLP GCP application integration using the GCP service account private k
 
 To learn more, see [Managing DLP GCP Application Integrations in Workflow Automation](https://help.zscaler.com/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation).
 
-After you add the DLP GCP application integration in Zscaler Admin Console, you can verify whether the DLP application integration was successful in the GCP Console.
+After you add the DLP GCP application integration in Zscaler Admin Console, you can verify whether the DLP application integration was successful in the Google Cloud console.
 
 To view the integration:
 
@@ -12626,13 +12120,13 @@ Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workf
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-09-23T21:06Z","nid":"1418021"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-10-12T09:29Z","nid":"1418021"} -->
 ## Managing Account Settings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-account-settings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Account Settings
-- Last modified: 2026-09-23T21:06Z
+- Last modified: 2026-10-12T09:29Z
 - Summary: How to manage account settings for Workflow Automation.
 
 Managing account settings is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can manage the account settings for Workflow Automation. In account settings, admins can:
@@ -13016,13 +12510,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-bulk-actions","lastmod":"2026-09-23T21:06Z","nid":"1487351"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-bulk-actions","lastmod":"2026-10-12T09:14Z","nid":"1487351"} -->
 ## Managing Bulk Actions
 
 - Source: https://help.zscaler.com/workflow-automation/managing-bulk-actions
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Bulk Actions
-- Last modified: 2026-09-23T21:06Z
+- Last modified: 2026-10-12T09:14Z
 - Summary: Information on the Bulk Actions page in Workflow Automation and managing Bulk Actions performed on the Incidents page.
 
 The Bulk Actions page allows you to monitor the progress of the bulk actions that Data Loss Prevention (DLP) admins perform on the incidents assigned to them. DLP admins with full access to Workflow Automation can perform bulk actions for all incidents that are available on the [Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) page. This activity is recorded on the Bulk Actions page, where you can view the status of your bulk action in real time.
@@ -13064,26 +12558,26 @@ To restart a bulk action:
   - For a partially complete bulk action, in the **Actions** column, click the**Resume** icon to restart the bulk action. The bulk action restarts, and the progress displays in the **Status** column. See image.
   - For a failed bulk action, in the **Actions** column, click the**Retry** icon to restart the bulk action. The bulk action restarts, and the progress displays in the **Status** column. See image.
 
-[Image: Viewing the Information icon for a failed bulk action on the My Activity page]
+[Image: Viewing the Information icon for a Failed bulk action on the Bulk Actions tab]
 
-[Image: Viewing the Resume icon for a partially complete bulk action on the Bulk Actions page. This page lists the bulk actions in a table. The table has columns for Status, Notes, and Actions.]
+[Image: Viewing the Resume icon for a Partially Complete bulk action on the Bulk Actions tab. This tab lists the bulk actions in a table. The table has columns for Status, Notes, and Actions.]
 
-[Image: Viewing the Retry icon for a failed bulk action on the Bulk Actions page. This page lists the bulk actions in a table. The table has columns for Status, Notes, and Actions.]
+[Image: Viewing the Retry icon for a Failed bulk action on the Bulk Actions tab. This tab lists the bulk actions in a table. The table has columns for Status, Notes, and Actions.]
 
-[Image: Bulk Actions page displaying the following message for a partially complete bulk action that has reached its maximum attempts: You have reached the maximum number of attempts to resume bulk action. Go to the Incidents page and perform the bulk action again.]
+[Image: Bulk Actions tab displaying the following message for a Partially Complete bulk action that has reached its maximum attempts: You have reached the maximum number of attempts to resume bulk action. Go to the Incidents page and perform the bulk action again.]
 
-[Image: Viewing the bulk actions on the My Activity page]
+[Image: Viewing the bulk actions on the Bulk Actions tab]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-custom-email-domains","lastmod":"2026-09-24T21:06Z","nid":"1517456"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-custom-email-domains","lastmod":"2026-10-12T09:35Z","nid":"1517456"} -->
 ## Managing Custom Email Domains
 
 - Source: https://help.zscaler.com/workflow-automation/managing-custom-email-domains
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Custom Email Domains
-- Last modified: 2026-09-24T21:06Z
+- Last modified: 2026-10-12T09:35Z
 - Summary: How to manage custom email domains in Workflow Automation.
 
 Adding custom email domains is optional when configuring Workflow Automation. Admins with access to Workflow Automation can manage custom email domains. Workflow Automation generates and sends email notifications for the various actions that you can perform, such as notifying the user of an incident, escalating an incident to an approver or manager, and performing bulk actions. By default, Workflow Automation uses notifications@zsworkflow.net as the sender for these email notifications. After you add a custom email domain, Workflow Automation can use that custom email domain as the sender.
@@ -13668,13 +13162,13 @@ To view DLP GCP application integrations in Workflow Automation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-downloads","lastmod":"2026-09-23T21:06Z","nid":"1488336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-downloads","lastmod":"2026-10-12T09:04Z","nid":"1488336"} -->
 ## Managing Downloads
 
 - Source: https://help.zscaler.com/workflow-automation/managing-downloads
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Downloads
-- Last modified: 2026-09-23T21:06Z
+- Last modified: 2026-10-12T09:04Z
 - Summary: Information on the Downloads page in Workflow Automation.
 
 The Downloads page allows you to download the incidents that you export on the Incidents page to a CSV file. When you export incidents from the Incidents page, the activity is transferred to the Downloads page, which logs the activity and displays the status of your download in real time. After the download process is completed, the incident file becomes a downloadable file. You can download it as a CSV file to your local system. The incident file is available to download for up to 7 days. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents).
@@ -13715,17 +13209,17 @@ To restart a download:
   - For a partially complete download, click the **Resume** icon in the **Actions** column to restart downloading the pending incidents. The download restarts, and the progress is displayed in the **Status** column. See image.
   - For a failed download, click the **Retry** icon in the **Actions** column to restart the download. The download restarts, and the progress is displayed in the **Status** column. See image.
 
-[Image: Viewing the My Activity Page - Downloads page in Workflow Automation]
+[Image: Viewing the My Activity page - Downloads tab]
 
-[Image: Viewing the Download icon in the My Activity > Downloads page]
+[Image: Viewing the Download icon on the Downloads tab]
 
-[Image: Viewing the Downloads page showing the Information icon for a Partially Complete download]
+[Image: Viewing the Downloads tab showing the Information icon for a Partially Complete download]
 
-[Image: Viewing the Downloads page showing the Resume icon for a Partially Complete download]
+[Image: Viewing the Downloads tab showing the Resume icon for a Partially Complete download]
 
-[Image: Viewing the Downloads page showing the Retry icon for Failed downloads]
+[Image: Viewing the Downloads tab showing the Retry icon for Failed downloads]
 
-[Image: Downloads page displaying the following message: You have reached the maximum number of attempts to resume download. Go to the Incidents page and perform the bulk action again.]
+[Image: Downloads tab displaying the following message: You have reached the maximum number of attempts to resume download. Go to the Incidents page and perform the bulk action again.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13884,13 +13378,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-11T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-18T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
@@ -14028,8 +13522,7 @@ The following is a list of the incident group mapping properties:
 - **Referrer URL**
 - **Url**
 
-- **Additional Info**
-  - **SaaS Tenant Name**
+- **Additional Info**:**SaaS Tenant Name**
 - **Category**
 - **Component**
 - **Content Location**
@@ -14041,15 +13534,13 @@ The following is a list of the incident group mapping properties:
 - **Url**
 - **Workspace**
 
-- **Additional Info**
-  - **Tenant**
+- **Additional Info**:**Tenant**
 - **Category**
 - **Hostname Or Application**
 - **Name**
 - **Url**
 
-- **Additional Info**
-  - **DLP MD5**
+- **Additional Info**:**DLP MD5**
 - **File Name**
 - **File Type**
 
@@ -14059,8 +13550,7 @@ The following is a list of the incident group mapping properties:
   - **Bucket Owner**
   - **Channel Name**
   - **Code Repository**
-  - **Collaboration Scope**
-    - **Values**
+  - **Collaboration Scope**:**Values**
   - **DLP MD5**
   - **Email Sender**
   - **External Collaborators**
@@ -14122,11 +13612,9 @@ The following is a list of the incident group mapping properties:
   - **Name**
   - **Rule**
 - **Other Rules**
-  - **Other Rules**
-    - **Rule Name**
+  - **Other Rules**:**Rule Name**
   - **Total Other Rules**
-- **Rules**
-  - **Name**
+- **Rules**:**Name**
 
 - **Dictionaries**
   - **Match Count**
@@ -14135,8 +13623,7 @@ The following is a list of the incident group mapping properties:
 - **Engines**
   - **Name**
   - **Rule**
-- **Rules**
-  - **Name**
+- **Rules**:**Name**
 
 - **Dictionaries**
   - **Assigned To Hit Rule**
@@ -14152,8 +13639,7 @@ The following is a list of the incident group mapping properties:
     - **Rule ID**
     - **Rule Name**
   - **Total Other Rules**
-- **Rules**
-  - **Name**
+- **Rules**:**Name**
 
 - **Dictionaries**
   - **Assigned To Hit Rule**
@@ -14182,10 +13668,8 @@ The following is a list of the incident group mapping properties:
   - **Match Count**
   - **Name**
   - **Name Match Count**
-- **Engines**
-  - **Name**
-- **Rules**
-  - **Name**
+- **Engines**:**Name**
+- **Rules**:**Name**
 
 The following table lists the operations and their descriptions:
 
@@ -14280,13 +13764,13 @@ To specify the default incident group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-groups","lastmod":"2026-09-24T21:06Z","nid":"1418041"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-groups","lastmod":"2026-10-15T13:24Z","nid":"1418041"} -->
 ## Managing Incident Groups
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-groups
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Groups
-- Last modified: 2026-09-24T21:06Z
+- Last modified: 2026-10-15T13:24Z
 - Summary: How to manage incident groups in Workflow Automation.
 
 Incident groups enable admins to group individual incidents together so that all of them can be managed together. Admins with Full or Restricted access to Workflow Automation can add incident groups, but only admins with Full access to Workflow Automation can map those incident groups. Incident groups are mapped to one or more of the incident attributes available in an incident transaction. After incident groups are configured, admins with Full access can then assign these incident groups to the various Restricted access admins that are going to be responsible for them on the Admins page in the Zscaler Admin Console. To learn more, see [Managing Admin Assignments.](https://help.zscaler.com/workflow-automation/managing-admin-assignments)
@@ -14306,7 +13790,7 @@ To add an incident group:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Group**.The **Incident Group** page appears, listing all the incident groups for your organization.
 2. On the **Incident Group** page, click **Add More**.
-3. On the **Add Incident Group** page:
+3. In the **Add Incident Group** window:
 
 - **Type**: From the drop-down menu, select an existing type or enter a new type for the incident group. To enter a new type:
   1. Select the **Type** drop-down menu.
@@ -14331,7 +13815,7 @@ To edit an incident group:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Group**. The **Incident Group** page appears, listing all the incident groups for your organization.
 2. (Optional) On the **Incident Group** page, use the **Search** field to locate the incident group you want to edit.
 3. Click the **Edit** icon for an incident group. See image.
-4. On the **Edit Incident Group** page, change any of the fields.
+4. In the **Edit Incident Group** window, change any of the fields.
 5. Click **Save**.
 
 To delete the incident group, click **Delete**on the **Edit Incident Group** page.
@@ -14340,8 +13824,8 @@ If the incident group is mapped, the incident group mappings must be deleted fir
 
 To view incident groups, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Group**. The **Incident Group** page appears, listing all the incident groups for your organization. For incident groups, you can view the following information:
 
-- **Incident Group Type**: The type of incident group.
-- **Incident Group Name**: The name of the incident group.
+- **Incident Group Type**: The type of incident group
+- **Incident Group Name**: The name of the incident group
 
 See image.
 
@@ -14353,21 +13837,186 @@ To view the mapping for an incident group:
 To view incident group details:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Group**.The **Incident Group** page appears, listing all the incident groups for your organization.
-2. On the **Incident Group** page, click anywhere in an incident group row. The **View Incident Group** page appears, displaying the details for the incident group. See image.
+2. On the **Incident Group** page, click anywhere in an incident group row. The **View Incident Group** window appears, displaying the details for the incident group. See image.
 
-[Image: Adding a new incident group type on the Add Incident Group page]
+[Image: Adding a new incident group type on the Add Incident Group window]
 
-[Image: Adding an incident group on the Incident Group page]
+[Image: Adding an incident group on the Add Incident Group window]
 
 [Image: Clicking the Add New Incident Group Mapping icon on the Incident Group page]
 
 [Image: Adding a mapping to an incident group using the Incident Group Mapping page]
 
-[Image: Editing an incident group on the Incident Group page]
+[Image: Viewing the Incident Group page with the Edit Incident Group icon highlighted]
 
 [Image: Viewing all incident groups on the Incident Group page]
 
 [Image: Accessing incident group mapping from the Incident Group page]
 
 [Image: Viewing incident group details on the View Incident Group window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-summaries","lastmod":"2026-09-24T21:06Z","nid":"1535401"} -->
+## Managing Incident Summaries
+
+- Source: https://help.zscaler.com/workflow-automation/managing-incident-summaries
+- Product: Workflow Automation
+- Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Summaries
+- Last modified: 2026-09-24T21:06Z
+- Summary: Information on how to manage incident summaries in Workflow Automation.
+
+On the Incident Summary page, you can view aggregate incident counts for a specified date range by using various selectable attributes and filters. Workflow Automation provides several attributes (i.e., summary criteria) that you can use to summarize the number of incidents that have occurred in your organization. This page provides a table that lists the summary criteria attributes, the total incident count for the summary criteria, and the total incident count broken out by either the incident priority or incident severity.
+
+## Viewing Incident Summaries
+
+To view incident summaries:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Workflow Automation** > **Incident Summary**. The **Incident Summary** page appears, with no information displayed. See image.
+2. [Select a date range for the incidents that you want to summarize on the Incident Summary page.](https://help.zscaler.com/workflow-automation/managing-incident-summaries#date-range-filter)
+3. (Optional) Filter the incidents you want to summarize by selecting one or more filter options. The filter options are the same as those on the **Incidents** page. To learn more, see [Using Incident Filters in Workflow Automation](https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation). To reset the filter options, click the **Reset** icon.
+4. Configure the summary criteria for the incident summary. On the **Incident Summary** page:
+  1. **Group by**: Select how you want to break out and display the total incident counts that appear in the incident summary. If you want to break out the incident counts by incident priority (e.g., Critical, High, Medium, and Low), select **Priority**. If you want to break out the incident counts by incident severity (e.g., High, Medium, Low, and Info), select **Severity**.
+  2. **Summary Criteria**: From the drop-down menu, select the first summary criterion for the incident summary. You can select a maximum of two criteria. Summary criteria are:
+    - **Action**: The action taken in the incident.
+    - **Application Category**: The category of the application associated with the incident.
+    - **Application Name**: The name of the application associated with the incident.
+    - **Attachments**: Whether the incident has attachments or not. Values are **Yes** and **No**.
+    - **DLP Type**: The type of DLP incident associated with the incident.
+    - **Department**: The department of the end user who caused the incident.
+    - **Destination Type**: The Endpoint DLP destination type for the incident.
+    - **Dictionary**: The DLP dictionary associated with an incident.
+    - **Engine**: The DLP engine associated with an incident.
+    - **File Name**: The name of the file associated with the incident.
+    - **File Source Location**: The path of the file associated with the incident.
+    - **File Type**: The type or extension of the file associated with the incident.
+    - **Home Location**: The home location of the end user responsible for the incident.
+    - **Originating User Email**: The email address of the user responsible for the incident.
+    - **Referrer URL**: The URL of the previous page a user was on before they performed the action that caused the incident.
+    - **Remediation Owner Email**: The email address of the person responsible for remediating the incident.
+    - **Rule**: The DLP rule associated with an incident.
+    - **Source DLP Type**: The type of DLP policy that the incident violated. Source DLP types are **Inline**, **Email**, **Endpoint**, and **SaaS Security**.
+    - **URL**: The URL of the application associated with the incident.
+    - **Work Location**: The work location of the end user responsible for the incident.
+  3. (Optional) Add another summary criterion: To reorder the summary criteria, click the **Reorder** icon next to a criterion field and drag and drop the criterion in the order that you want. To delete summary criteria, click the **Delete** icon next to a criterion field. See image.
+    1. Under the first summary criterion that you added, click **Add More**.
+    2. From the drop-down menu, select the second summary criterion.
+5. Click **Submit**. The matching incidentsappear on the page in a table format. See image. Each one of the summary criteria values you configured appears as a column in the table. In addition, the table contains a column for the total incident count for those incidents that match the given criteria, along with columns for the total incident count broken out by incident priority or the severity of the incident. Each row in the table is a specific combination of the summary criteria that triggered incidents along with the total incident count for that combination. This table can display up to 10,000 rows. In the table, you can view the following information: When you click any of these links, a new tab opens, displaying the **Selected Criteria** page. The tab is labeled with the criteria associated with the link. This page displays the criteria associated with the link in the **Selected Criteria** section of the page, and lists the actual incidents with the relevant filters applied for that combination of criteria. This page is similar to the **Incidents** page except that no action can be taken on an incident. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents). See image.
+  - **Summary Criteria**: The first one or two columns in the table are titled with the names of the summary criteria you configured for the incident summary (e.g., **Dictionary** and **Engine**). The incident values associated with these summary criteria appear in those table columns.
+  - **Total**: The total number of incidents that match the given summary criteria.
+  - **Critical**: The total number of incidents with a critical priority that match the given summary criteria. If you selected to group by severity, this column does not appear.
+  - **High**: The total number of incidents with either a high priority or a high severity that match the given summary criteria. This column depends on the option you selected in the **Group by**field.
+  - **Medium**: The total number of incidents with either a medium priority or a medium severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
+  - **Low**: The total number of incidents with either a low priority or a low severity that match the given summary criteria. This column depends on the option you selected in the **Group by** field.
+  - **Info**: The total number of incidents with an info severity that match the given summary criteria. If you selected to group by priority, this column does not appear.
+
+## Managing Incident Summaries
+
+The Incident Summary page allows you to perform certain actions to manage the incident summaries.
+
+- Apply Time Range Filter
+- Export an Incident Summary
+- Manage Summary Criteria
+- Modify Items Per Page
+
+You can filter the incidents summarized on the Incident Summary page by the date and time of occurrence. By default, this page summarizes information about the incidents that occurred in the current calendar week (Sunday through Saturday). Time ranges are:
+
+- Hours
+  - Current Hour
+  - Last Hour
+  - Last 2 Hours
+  - Last 6 Hours
+  - Last 12 Hours
+- Days
+  - Current Day
+  - Last Day
+- Weeks
+  - Current Week
+  - Last Week
+- Months
+  - Current Month
+  - Last Month
+- Custom Date Range To view the incidents that occurred in a specific date range, you can use the **Custom Date Range** option and specify the start and end dates and times. To specify a custom date range: The **Custom Date Range** option only supports incidents that are up to 6 months old, and you can only search for a maximum of a three-month window.
+  1. Select the **Custom Date Range** option. A calendar appears with the current date selected. To the right of the calendar, three columns appear, displaying the hours, minutes, and seconds for a day. See image.
+  2. Select the start date on the calendar, and then in the columns to the right, select the start time (i.e., hour, minute, and second). As you select the date and time, they appear in the **Start date** field under the calendar. See image.
+  3. Click **OK**. The date and time you selected appear in the **Start date** field, and the **End date** field is selected.
+  4. Select the end date in the calendar, and then in the columns to the right, select the end time (i.e., hour, minute, and second). See image.
+  5. Click **OK**.
+
+See image.
+
+You can export the information that appears in the Incident Summary table to a CSV file. To export the incident summary:
+
+1. On the **Incident Summary** page, configure the summary criteria.
+2. Click **Submit**. The Incident Summary table appears.
+3. Click the **Export** icon at the top right of the table. A CSV file is created and downloaded to your local system. The CSV file lists the information that is in the incident summary table. See image.
+
+On the Incident Summary page, you can manage the summary criteria for the incident summaries that appear on the page. You can do the following:
+
+- Save Summary Criteria
+- Apply Saved Summary Criteria
+- Update Saved Summary Criteria
+- Delete Saved Summary Criteria
+
+To save summary criteria:
+
+1. On the **Incident Summary** page, configure the summary criteria.
+2. Click **Save**. The **Save Criteria** dialog window appears.
+3. In the **Save Criteria** dialog window, enter a name for the combination of summary criteria in the **Name** field.
+4. (Optional) If you want the summary criteria combination to appear by default on the **Incident Summary** page, select **Set as default**. See image.
+5. Click **Save As**. The set of summary criteria is saved and appears in the **Saved Criteria** field. After you save the summary criteria combination, you can reuse it by selecting it from the **Saved** **Criteria** drop-down menu at the top of the page. If you set it as the default criteria, the system automatically selects it in the **Saved** **Criteria** drop-down menu when you access the page at a later date.
+
+To apply saved summary criteria, select the saved summary criteria name from the **Saved Criteria** drop-down menu at the top of the page. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page.
+
+See image.
+
+To update saved summary criteria:
+
+1. On the **Incident Summary** page, select the saved summary criteria from the **Saved Criteria** drop-down menu. The **Incident Summary** page appears, displaying the incident summary table and displaying the fields for the saved summary criteria on the left side of the page. See image.
+2. Modify the summary criteria. You can: See image.
+  - Change the **Group by** option.
+  - Delete existing summary criteria.
+  - Add new summary criteria. You can only add another criterion if there is already one criterion saved.
+  - Rearrange the order of the summary criteria.
+3. Click **Update**.
+
+To delete saved summary criteria:
+
+1. On the **Incident Summary** page, from the **Saved** **Criteria** drop-down menu, click the **Delete** icon next to the saved summary criteria that you want to delete. A message appears asking whether you are sure that you want to delete the saved summary criteria. See image.
+2. Click **Yes**. The saved summary criteria are deleted.
+
+To modify the number of items displayed per page, click the **Items per page** drop-down menu and select the number of items. Options are **10**, **20**, **25**, **50**, and **100**. The default display is **10**.
+
+See image.
+
+[Image: Viewing the Incident Summary page with no summary information displayed]
+
+[Image: Viewing the Summary Criteria section on the Incident Summary page]
+
+[Image: Viewing the Incident Summary page with the summary criteria information entered and the Incident Summary table populated with data]
+
+[Image: Viewing the Selected Criteria page for a Total link]
+
+[Image: Selecting the time range to apply for the incidents displayed on the Incident Summary page]
+
+[Image: Viewing the calendar and time columns that appear after selecting the Custom Date Range option in the Time Range drop-down menu on the Incident Summary page. The current date and time columns for hours, minutes, and seconds are highlighted.]
+
+[Image: Viewing the calendar and time columns after a date and time have been selected for the start date. The start date (January 1) is highlighted on the calendar, the time (6:30 AM) is highlighted in the time options, and the start date field (2026-01-01 06:30:00) under the calendar is highlighted to show the date and time selected.]
+
+[Image: Viewing the calendar and time columns after a date and time have been selected for the end date. The end date (January 15) is highlighted in the calendar, the time (6:30 AM) is highlighted in the time options, and the end date field (2026-01-15 06:30:00) is highlighted to show the date and time selected.]
+
+[Image: Viewing the Incident Summary page with the Export icon highlighted at the top of the Incident Summary table]
+
+[Image: Viewing the Save Criteria dialog window]
+
+[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu. The Saved Criteria field is highlighted and the summary criteria fields associated with that saved criteria are displayed and highlighted on the left side of the page.]
+
+[Image: Viewing the Incident Summary page after the Saved Criteria is selected in the Saved Criteria drop-down menu]
+
+[Image: Viewing the Incident Summary page after the Saved Criteria is selected and updated. The saved criteria section on the left side of the page and the Update button are highlighted.]
+
+[Image: Viewing the Incident Summary page with the Saved Criteria drop-down menu showing all the available saved criteria. The Delete icon next to a saved criterion is highlighted along with the message that is displayed after you click the Delete icon.]
+
+[Image: Viewing the Items per page drop-down menu on the Incident Summary page]
 <!-- /ZS-ARTICLE -->

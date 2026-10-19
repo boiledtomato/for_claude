@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 181
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 182
 
 ---
 
@@ -449,13 +449,13 @@ On the Agent Connection Status Logs page (Data Explorer > Microsegmentation > Ag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-agent-groups","lastmod":"2026-10-08T08:56Z","nid":"1531955"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-agent-groups","lastmod":"2026-10-16T10:52Z","nid":"1531955"} -->
 ## About Agent Groups
 
 - Source: https://help.zscaler.com/zpa/about-agent-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agent Groups > About Agent Groups
-- Last modified: 2026-10-08T08:56Z
+- Last modified: 2026-10-16T10:52Z
 - Summary: Information about the Agent Groups page for Microsegmentation in the Zscaler Admin Console.
 
 The Agent Groups page gives insight into your organization's agent group data. It allows you to monitor and analyze the data for all configured agent groups in your organization.
@@ -602,13 +602,13 @@ On the Agent Telemetry page (Data Explorer > Microsegmentation > Agent Telemetry
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-agents","lastmod":"2026-10-08T08:54Z","nid":"1531950"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-agents","lastmod":"2026-10-16T10:12Z","nid":"1531950"} -->
 ## About Agents
 
 - Source: https://help.zscaler.com/zpa/about-agents
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Agent Management > Agents > About Agents
-- Last modified: 2026-10-08T08:54Z
+- Last modified: 2026-10-16T10:12Z
 - Summary: Information about the Agents page for Microsegmentation in the Zscaler Admin Console.
 
 The Agents page gives insight into your organization's agent data. It allows you to monitor and analyze the data for all configured agents in your organization.
@@ -762,49 +762,45 @@ The ability to view the **Diagnostics**page for the recommended application segm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-api-key-management","lastmod":"2026-09-09T15:22Z","nid":"1484746"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-api-key-management","lastmod":"2026-10-15T09:21Z","nid":"1484746"} -->
 ## About API Key Management
 
 - Source: https://help.zscaler.com/zpa/about-api-key-management
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > API Key Management > About API Key Management
-- Last modified: 2026-09-09T15:22Z
+- Last modified: 2026-10-15T09:21Z
 - Summary: Information on ZPA API keys and the API Keys page within the Zscaler Admin Console.
 
-An API key is required in order to access the publicly available set of [ZPA APIs](https://help.zscaler.com/legacy-apis/understanding-zpa-api). An API key consists of a client ID and a client secret. Both are required for authentication prior to accessing the publicly available set of ZPA APIs.
+An API key is required to access the publicly available set of [ZPA APIs](https://help.zscaler.com/legacy-apis/understanding-zpa-api). An API key consists of a client ID and a client secret. Both are required for authentication prior to accessing the publicly available set of ZPA APIs.
 
 Generating an API key only occurs in the Zscaler Admin Console from the API Keys page. Client IDs are always accessible from the page. Client secrets are only displayed when the key is first created, and they are not available in the saved configuration.
 
 API keys provide the following benefits and enable you to:
 
 - Authenticate and access the ZPA APIs.
-- Generate the Client ID and Client Secret used to access the ZPA APIs.
+- Generate the client ID and client secret used to access the ZPA APIs.
 
 ## About the API Keys Page
 
 On the API Keys page (Administration > API > Private Access API), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filterData).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
-3. Refresh the API Keys page to reflect the most current information.
-4. Click the **Menu**icon ([Image: Menu icon]). Within the menu, you can:
-  - Copy your customer ID. The customer ID is needed for making API calls.
+1. Click **Copy ID**. Within the menu, you can:
+  - Copy your customer ID. The customer ID is needed for making AP calls.
   - Copy your Microtenant ID. The Microtenant ID is the unique identifier of the Microtenant, and is needed for making API calls if you're within a Microtenant. The **Copy Microtenant ID** action is only visible if you are within a Microtenant. If you are within a Microtenant, then you must pass the `microtenantId` when making an API call. To learn more, see [Getting Started](https://help.zscaler.com/legacy-apis/getting-started-zpa-api) and [Configuring Microtenants Using API](https://help.zscaler.com/zpa/configuring-microtenants-using-api).
-5. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filterData).
-6. [Add an API key](https://help.zscaler.com/zpa/adding-api-keys).
-7. View a list of API keys. For each key, you can see: If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read-only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+2. [Add an API key](https://help.zscaler.com/zpa/adding-api-keys).
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filterData).
+4. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+5. View a list of API keys. For each key, you can see: If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
   - **Name**: The name of the API key.
   - **Client ID**: The ID for the key. It is needed to access the ZPA API Portal.
   - **Status**: Indicates whether the key is enabled or disabled.
   - **Session Validity Interval (In Seconds)**: The amount of time in seconds that the key remains active before expiring.
   - **Creation Date**: The date and time the API key was created.
-  - **Role**: The predefined role or a custom role of the API key (e.g., full access, policy-only access, application-only access). Roles for API keys enforce granular role-based access control (RBAC) on all publicly available ZPA API operations. For each API key, you can select the **API Full Access** predefined role. This predefined role provides full access to the ZPA API. To learn more, see [Understanding Role-Based Access Control for ZPA API](https://help.zscaler.com/zpa/understanding-role-based-access-control-zpa-api), [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients), and [Adding an API Client](https://help.zscaler.com/authentication-service/adding-api-client).
-8. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-9. Copy a client ID.
-10. Unlock a locked API client. Locking occurs automatically after three unsuccessful attempts at API access and persists for 30 minutes.
-11. [Edit an API key](https://help.zscaler.com/zpa/editing-api-key).
-12. Delete an API key. If an API key is configured using Zscaler Deception, then the edit and delete options are unavailable.
-13. Display more rows or a different page of the table.
+  - **Role**: The predefined role or a custom role of the API key (e.g., **API Full Access**, **API Read Only**). Roles for API keys enforce granular role-based access control (RBAC) on all publicly available ZPA API operations. To learn more, see [Understanding Role-Based Access Control for ZPA API](https://help.zscaler.com/zpa/understanding-role-based-access-control-zpa-api), [Adding API Keys](https://help.zscaler.com/zpa/adding-api-keys), [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients), and [Adding an API Client](https://help.zscaler.com/authentication-service/adding-api-client).
+6. Copy a client ID.
+7. [Edit an API key](https://help.zscaler.com/zpa/editing-api-key).
+8. Delete an API key. If an API key is configured using Zscaler Deception, then the edit and delete options are unavailable.
+9. Display more rows or a different page of the table.
 
 [Image: Viewing the API Keys page]
 <!-- /ZS-ARTICLE -->
@@ -899,6 +895,46 @@ On the Application Catalog page (Zero Trust Cloud > Microsegmentation > Applicat
 [Image: A view of the Application Catalog page and its filters]
 
 [Image: Button to apply configured filters]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/about-application-inventory","lastmod":"2026-10-12T12:03Z","nid":"1546731"} -->
+## About Application Inventory
+
+- Source: https://help.zscaler.com/zpa/about-application-inventory
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > About Application Inventory
+- Last modified: 2026-10-12T12:03Z
+- Summary: Information about Application Inventory in the Zscaler Admin Console.
+
+Application Inventory provides a centralized inventory of predefined private application types available in your environment. It helps you discover supported application types, understand their classifications, and use consistent application definitions when configuring private applications.
+
+Application Inventory automatically discovers and classifies private application traffic to identify application types without relying on specific ports or protocols. It also works with SSL/TLS-encrypted traffic without requiring traffic decryption, enabling consistent application identification across your environment.
+
+Application Inventory provides the following benefits and enables you to:
+
+- Use standardized application definitions to simplify and maintain consistent private application configurations.
+- Gain deeper visibility into private application traffic to better understand your application environment.
+- Improve application security by enabling more accurate application identification and supporting consistent least-privilege access policies.
+- Automatically discover and classify private applications.
+
+During the current implementation phase, the inventory displays only predefined application types. Support for creating and managing custom application types will be introduced in a future release.
+
+## About the Application Inventory Page
+
+On the Application Inventory page (Private Access > Private Applications > Application Inventory), you can do the following:
+
+1. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+2. Show or hide filters to filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+3. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. View the predefined application types across all supported categories. For each application type, you can see:
+  - **App Type**: The predefined application type that determines the type of private application that can be configured. Before you [configure a new private application](https://help.zscaler.com/zpa/configuring-defined-application-segments), you can use the **App Type** filter to check if an application type already exists instead of defining a custom type.
+  - **Category**: The category associated with each application type. Categories make it easier to organize and locate related application types.
+  - **Definition**: The application type that was created.
+5. Display more rows or a different page of the table.
+
+[Image: Application Inventory page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2173,13 +2209,13 @@ On the Cloud Connectors page (Private Access > Private Infrastructure > Cloud Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-10-09T08:40Z","nid":"1483586"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-connector-groups","lastmod":"2026-10-13T14:20Z","nid":"1483586"} -->
 ## About App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Groups > About App Connector Groups
-- Last modified: 2026-10-09T08:40Z
+- Last modified: 2026-10-13T14:20Z
 - Summary: Information on App Connector groups and the App Connector Groups page within the Zscaler Admin Console.
 
 [Watch a video about App Connector Groups.](https://fast.wistia.net/embed/iframe/zbtq82bmh0)
@@ -2199,25 +2235,21 @@ App Connector groups provide the following benefits and enable you to:
 
 On the App Connector Groups page (Private Access > Private Infrastructure > App Connector Groups), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/zpa/using-tables#filterData).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to show the filters.
-3. View the App Connector groups as a table.
-4. View the App Connector groups in a map.
-5. Refresh the App Connector Groups page to reflect the most current information.
-6. Select a [version profile](https://help.zscaler.com/zpa/configuring-version-profile) for the App Connector group.
-7. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-8. [Add an App Connector group.](https://help.zscaler.com/zpa/configuring-app-connector-groups)
-9. View a list of all App Connector groups that are configured for your organization. For each App Connector group, you can see: If you accessed the App Connector Groups page from the Log Receivers page, then you only see groups with App Connectors that are set up for log streaming. The group also has a Log Streaming Service (LSS) icon next to the name within the table. See image.
+1. Select a [version profile](https://help.zscaler.com/zpa/configuring-version-profile) for the App Connector group.
+2. [Add an App Connector group.](https://help.zscaler.com/zpa/configuring-app-connector-groups)
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. Refresh the App Connector Groups page to reflect the most current information.
+5. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+6. View a list of all App Connector groups that are configured for your organization. For each App Connector group, you can see: If you accessed the App Connector Groups page from the Log Receivers page, then you only see groups with App Connectors that are set up for log streaming. The group also has a Log Streaming Service (LSS) icon next to the name within the table. See image.
   - **Name**: The name of the App Connector group. Click the name to view the details for the App Connector group.
     - View details for each deployed App Connector group.
   - **App Connector Count**: The number of enrolled App Connectors associated with this group.
   - **Status**: Indicates whether the App Connector group is enabled or disabled.
   - **Version Profile**: The profile used to specify an App Connector build for the group.
   - **Next Periodic Software Update**: The date and time of the next periodic software update for all of the App Connectors within the group.
-10. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-11. [View a configuration graph of connected objects.](https://help.zscaler.com/zpa/viewing-configuration-graphs)
-12. [Edit a configured App Connector group.](https://help.zscaler.com/zpa/editing-connector-groups)
-13. Edit network settings or delete an App Connector group.
+7. [View a configuration graph of connected objects.](https://help.zscaler.com/zpa/viewing-configuration-graphs)
+8. [Edit a configured App Connector group.](https://help.zscaler.com/zpa/editing-connector-groups)
+9. [Edit network settings](https://help.zscaler.com/zpa/editing-network-settings) or delete an App Connector group.
 
 If an App Connector group is configured using Zscaler Deception or is managed by Zscaler, then the edit and delete options are unavailable.
 
@@ -2228,9 +2260,9 @@ See image.
 - **Name**: The name of the App Connector group.
 - **Description**: The description of the App Connector group.
 - **Status**: Indicates whether the App Connector group is enabled or disabled.
-- **Enrollment Certificate**: The certificate the App Connector uses for enrollment. You can click the **Edit**icon to edit the properties of the certificate.
+- **Enrollment Certificate**: The certificate the App Connector uses for enrollment.
 - **DNS Resolution Option**: Indicates whether the App Connector group uses IPv4, IPv6, or a combination of the two IP addresses.
-- **Persist Local Version Profile**: Indicates whether the version profile set at the customer level is enabled for this App Connector group. To learn more, see [Configuring a Version Profile](https://help.zscaler.com/zpa/configuring-version-profile).
+- **Persist Local Version Profile**: Indicates whether the [version profile](https://help.zscaler.com/zpa/configuring-version-profile) set at the customer level is enabled for this App Connector group.
 - **Location**: The location where the App Connector group, which the App Connector belongs to, is set up.
 - **Location Coordinates**: The latitude and longitude coordinates where the App Connector group, which the App Connector belongs to, is set up.
 - **Disaster Recovery**: Indicates whether Disaster Recovery is enabled or disabled.
@@ -2328,13 +2360,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-connectors","lastmod":"2026-09-30T15:48Z","nid":"1483541"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-connectors","lastmod":"2026-10-13T13:39Z","nid":"1483541"} -->
 ## About App Connectors
 
 - Source: https://help.zscaler.com/zpa/about-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > About App Connectors
-- Last modified: 2026-09-30T15:48Z
+- Last modified: 2026-10-13T13:39Z
 - Summary: Information on App Connectors and the App Connectors page within the Zscaler Admin Console.
 
 [Watch a video about App Connectors](https://fast.wistia.net/embed/iframe/qatvjbrtwn) (shows legacy UI)
@@ -2395,7 +2427,7 @@ On the App Connectors page (Private Access > Private Infrastructure > App Connec
 8. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
 9. [View a configuration graph of connected objects.](https://help.zscaler.com/zpa/viewing-configuration-graphs)
 10. [Edit the configuration of a deployed App Connector.](https://help.zscaler.com/zpa/editing-deployed-connector) App Connectors that are managed by Zscaler are read only and cannot be edited or deleted.
-11. Delete a deployed App Connector configuration or update an App Connector now.
+11. Delete a deployed App Connector or update an App Connector now.
 
 To replace a [deployed App Connector](https://help.zscaler.com/zpa/about-deploying-connectors), you must delete the configuration and then re-enroll it. However, you can apply the new App Connector provisioning key to the virtual machine (VM) image that you already deployed by [replacing the old key](https://help.zscaler.com/zpa/managing-deployed-connectors#ReplaceProvisioningKey).
 
@@ -2635,13 +2667,13 @@ When a custom control is in use by an [AppProtection profile](https://help.zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-app-connector-groups","lastmod":"2026-09-22T12:27Z","nid":"1485401"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-app-connector-groups","lastmod":"2026-10-13T12:09Z","nid":"1485401"} -->
 ## About Disaster Recovery App Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-disaster-recovery-app-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > About Disaster Recovery App Connector Groups
-- Last modified: 2026-09-22T12:27Z
+- Last modified: 2026-10-13T12:09Z
 - Summary: Information on Disaster Recovery App Connector Groups and the Disaster Recovery App Connector Groups page within the Zscaler Admin Console.
 
 Disaster recovery App Connector groups are App Connector groups designated as available for disaster recovery to ensure business continuity in the scenario of a disaster event.
@@ -2672,13 +2704,13 @@ On the Disaster Recovery App Connector Groups page (Infrastructure > Business Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-application-segments","lastmod":"2026-09-22T08:59Z","nid":"1485426"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-application-segments","lastmod":"2026-10-13T12:08Z","nid":"1485426"} -->
 ## About Disaster Recovery Application Segments
 
 - Source: https://help.zscaler.com/zpa/about-disaster-recovery-application-segments
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > About Disaster Recovery Application Segments
-- Last modified: 2026-09-22T08:59Z
+- Last modified: 2026-10-13T12:08Z
 - Summary: Information on the Disaster Recovery Application Segments page within the Zscaler Admin Console.
 
 Disaster recovery application segments are application segments designated as available for disaster recovery. Application segments that are designated for disaster recovery ensure business continuity in the scenario of a disaster event. To learn more, see [Understanding Disaster Recovery](https://help.zscaler.com/zpa/understanding-disaster-recovery) and [Configuring Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
@@ -2707,13 +2739,13 @@ On the Disaster Recovery Application Segments page (Infrastructure > Business Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-private-service-edge-groups","lastmod":"2026-09-22T12:27Z","nid":"1485396"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-private-service-edge-groups","lastmod":"2026-10-13T12:10Z","nid":"1485396"} -->
 ## About Disaster Recovery Private Service Edge Groups
 
 - Source: https://help.zscaler.com/zpa/about-disaster-recovery-private-service-edge-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > About Disaster Recovery Private Service Edge Groups
-- Last modified: 2026-09-22T12:27Z
+- Last modified: 2026-10-13T12:10Z
 - Summary: Information on Disaster Recovery Private Service Edge groups and the Disaster Recovery Private Service Edge Groups page within the Zscaler Admin Console.
 
 Disaster recovery Private Service Edge groups for Private Access are Private Service Edge groups that are designated as available for disaster recovery to ensure business continuity in the event of a disaster scenario.
@@ -2746,13 +2778,13 @@ On the Disaster Recovery Private Service Edge Groups page (Infrastructure > Busi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-settings","lastmod":"2026-09-22T09:00Z","nid":"1485431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-disaster-recovery-settings","lastmod":"2026-10-13T12:07Z","nid":"1485431"} -->
 ## About Disaster Recovery Settings
 
 - Source: https://help.zscaler.com/zpa/about-disaster-recovery-settings
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > About Disaster Recovery Settings
-- Last modified: 2026-09-22T09:00Z
+- Last modified: 2026-10-13T12:07Z
 - Summary: Information on the Disaster Recovery Settings page within the Zscaler Admin Console.
 
 After you enable disaster recovery application segments, Private Service Edges for Private Access, and App Connector groups, you can set up the authentication validation window for Disaster Recovery Mode, enter the DNS name, and upload the DNS Public Key. To learn more, see [Understanding Disaster Recovery](https://help.zscaler.com/zpa/understanding-disaster-recovery).
@@ -3148,13 +3180,13 @@ On the Flow Log Aggregations page (Data Explorer > Microsegmentation > Flow Log 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-flow-logs","lastmod":"2026-09-14T06:32Z","nid":"1498211"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-flow-logs","lastmod":"2026-10-12T11:01Z","nid":"1498211"} -->
 ## About Flow Logs
 
 - Source: https://help.zscaler.com/zpa/about-flow-logs
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Analytics > About Flow Logs
-- Last modified: 2026-09-14T06:32Z
+- Last modified: 2026-10-12T11:01Z
 - Summary: Information about the Flow Logs page for Microsegmentation in the Zscaler Admin Console.
 
 Flow Logs give insight into your organization's network and agent flows. They allow you to monitor and analyze the flow data at an organizational level.
@@ -3168,7 +3200,7 @@ The Flow Logs page provides the following benefits and enables you to:
 
 ## About the Flow Logs Page
 
-On the Flow Logs page (Data Explorer > Microsegmentation > Flow Log), you can do the following:
+On the Flow Logs page (Data Explorer > Microsegmentation > Flow Logs), you can do the following:
 
 1. Filter the time range up to the last 14 days.
 2. Refresh the Flow Logs page to reflect the most current information.
@@ -3591,13 +3623,13 @@ On the Log Connector Groups page (Data Explorer > Log Streaming > Private Log St
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-10-06T08:23Z","nid":"1483941"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-10-15T13:26Z","nid":"1483941"} -->
 ## About the Log Streaming Service
 
 - Source: https://help.zscaler.com/zpa/about-log-streaming-service
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > About the Log Streaming Service
-- Last modified: 2026-10-06T08:23Z
+- Last modified: 2026-10-15T13:26Z
 - Summary: Information on how the Private Access Log Streaming Service (LSS) is deployed, including information on the log types captured by configured log receivers within the Zscaler Admin Console.
 
 [Watch a video about the Log Streaming Service](https://fast.wistia.net/embed/iframe/fycyoh6xk5) (shows legacy UI).
@@ -3654,25 +3686,22 @@ The following additional information also applies to obfuscated logs:
 
 On the Log Receivers page (Data Explorer > Log Streaming > Log Receivers), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
+1. [Add a new log receiver.](https://help.zscaler.com/zpa/configuring-log-receiver)
+2. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
 3. Refresh the Log Receivers page to reflect the most current information.
-4. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
-5. [Add a new log receiver.](https://help.zscaler.com/zpa/configuring-log-receiver)
-6. Expand all of the rows in the table to see more information about each log receiver.
-7. View a list of all log receivers that are configured for your organization. For each receiver, you can see:
-  - **Name**: The name of the receiver.
+4. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+5. View a list of all log receivers that are configured for your organization. For each receiver, you can see:
+  - **Name**: The name of the receiver. Click the name toview details for each Log Receiver.
   - **Domain Name or IP Address**: The domain name or IP address for the receiver.
   - **TCP Port**: The TCP port number for the receiver.
   - **TLS Encryption**: Indicates that TLS encryption is enabled or disabled for the receiver.
   - **Log Type**: The log type the receiver is capturing (e.g., **User Activity**, **User Status**, **App Connector Status**, **Browser Access**).
-8. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-9. [Copy a log receiver's configuration](https://help.zscaler.com/zpa/configuring-log-receiver#CopyLRConfig) and use it to create a new configuration.
-10. [Edit a log receiver.](https://help.zscaler.com/zpa/configuring-log-receiver#EditLRConfig)
-11. Delete a log receiver. If a log receiver is configured using Zscaler Deception, then the copy, edit, and delete options are unavailable.
-12. Display more rows or a different page of the table.
+6. [Copy a log receiver's configuration](https://help.zscaler.com/zpa/configuring-log-receiver#CopyLRConfig) and use it to create a new configuration.
+7. [Edit a log receiver.](https://help.zscaler.com/zpa/configuring-log-receiver#EditLRConfig)
+8. Delete a log receiver. If a log receiver is configured using Zscaler Deception, then the copy, edit, and delete options are unavailable.
+9. Display more rows or a different page of the table.
 
-[Image: Viewing and Managing Log Receivers]
+[Image: Viewing and Managing Log Receivers in the Zscaler Admin Console]
 
 - AppProtection: Information related to AppProtection policy activity in your organization. To learn more, see [Understanding AppProtection Log Fields](https://help.zscaler.com/zpa/understanding-appprotection-log-fields).
 - Audit Logs: Session information for all admins accessing the Zscaler Admin Console. To learn more, see [Understanding Audit Log Fields](https://help.zscaler.com/zpa/understanding-audit-log-fields) and [About Audit Logs](https://help.zscaler.com/zpa/about-audit-logs).
@@ -3713,6 +3742,15 @@ On the Log Receivers page (Data Explorer > Log Streaming > Log Receivers), you c
 - The following application data is excluded from guest partner logs:
   - Server ID
   - Workflow ID
+
+- **Name**: The name of the Log Receiver.
+- **Description**: The description of the log receiver.
+- **Domain Name or IP Address**: The destination address of the server that collects the logs (e.g., your SIEM collector).
+- **TCP Port**: The TCP port that the log receiver is listening on for incoming log streams.
+- **TLS Encryption**: The status of whether the log receiver is secured using TLS.
+- **Log Type**: The specific category of data you want to stream. Each type represents a different data source.
+- **App Connector Groups**: The App Connector group that sends the logs to the log receiver.
+- **Log Stream Content**: Defines the exact structure and fields included in each log message.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3821,7 +3859,7 @@ On the Machine Keys page (Administration > Private Access Authentication > Machi
 
 - Source: https://help.zscaler.com/zpa/about-microsegmentation-policies
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > About Microsegmentation Policies
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > About Microsegmentation Policies
 - Last modified: 2026-09-09T14:28Z
 - Summary: Information about Microsegmentation policies.
 
@@ -3871,13 +3909,13 @@ On the Resource Policies page (Zero Trust Cloud > Microsegmentation > Policy Rul
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-microtenants","lastmod":"2026-10-02T07:06Z","nid":"1485681"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-microtenants","lastmod":"2026-10-12T11:59Z","nid":"1485681"} -->
 ## About Microtenants
 
 - Source: https://help.zscaler.com/zpa/about-microtenants
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Delegated Tenant Administration > About Microtenants
-- Last modified: 2026-10-02T07:06Z
+- Last modified: 2026-10-12T11:59Z
 - Summary: Information on managing Microtenants in the Zscaler Admin Console.
 
 Contact Zscaler Support to enable this feature for your organization.
@@ -4169,13 +4207,13 @@ On the My Reviews page (PRA Portal > My Approvals icon > My Reviews), you can do
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-10-08T13:36Z","nid":"1529073"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-10-15T09:17Z","nid":"1529073"} -->
 ## About Network Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-network-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connector Groups > About Network Connector Groups
-- Last modified: 2026-10-08T13:36Z
+- Last modified: 2026-10-15T09:17Z
 - Summary: Information on Network Connector groups and the Network Connector Groups page in the Zscaler Admin Console.
 
 [Watch a video about Network Connector Groups.](https://fast.wistia.net/embed/iframe/dt7qtvdrqj)
@@ -4191,36 +4229,35 @@ Network Connector groups provide the following benefits and enable you to:
 
 On the Network Connector Groups page (Private Access > VPN (for Legacy Apps) > Network Connector Groups), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
-3. Select a [version profile](https://help.zscaler.com/zpa/configuring-network-version-profile) of the Network Connector group.
-4. View the Network Connector groups as a table.
-5. View the Network Connector groups in a map.
-6. Refresh the Network Connector Groups page to reflect the most current information.
-7. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-8. [Add a Network Connector group.](https://help.zscaler.com/zpa/configuring-network-connector-groups)
-9. View a list of all Network Connector groups that are configured for your organization. For each Network Connector group, you can see:
+1. Select a [version profile](https://help.zscaler.com/zpa/configuring-network-version-profile) of the Network Connector group.
+2. [Add a Network Connector group.](https://help.zscaler.com/zpa/configuring-network-connector-groups)
+3. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. Refresh the Network Connector Groups page to reflect the most current information.
+5. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+6. View a list of all Network Connector groups that are configured for your organization. For each Network Connector group, you can see:
   - **Name**: The name of the Network Connector group. Click the name toview details for each deployed Network Connector group.
   - **Network Connector Count**: The number of Network Connectors in the group.
-  - **Status**: Indicates whether the Network Connector group is enabled or disabled.
-  - **Version Profile**: Indicates the version profile of the Network Connector group.
+  - **Status**: The status of whether the Network Connector group is enabled or disabled.
+  - **Version Profile**: The version profile of the Network Connector group.
   - **Next Periodic Software Update**: The date and time of the next scheduled software update for the Network Connector group.
-10. [Edit a Network Connector group](https://help.zscaler.com/zpa/editing-network-connector-groups).
-11. Delete a Network Connector group.
-12. Display more rows or a different page of the table.
-
-[Image: Learning about the Network Connector groups page]
+7. [Edit a Network Connector group](https://help.zscaler.com/zpa/editing-network-connector-groups).
+8. [Edit the network settings for a Network Connector group](https://help.zscaler.com/zpa/editing-network-settings).
+9. Delete a Network Connector group.
+10. Display more rows or a different page of the table.
 
 - **Description**: The description of the Network Connector group.
-- **Location**: The location where the Network Connector group is set up.
 - **Status**: The current operational state of the Network Connector group.
 - **Enrollment Certificate:**The certificate used to authenticate Network Connectors during the enrollment process.
-- **DNS Resolution Option**: Specifies the IP protocol the Network Connectors in this group use for DNS lookups.
-- **Disaster Recovery**: Indicates whether the Network Connector group is designated for disaster recovery operations.
-- **Disable AppProtection**: Shows whether the AppProtection feature is disabled for the Network Connector group.
-- **Privileged Remote Access**: Indicates if the Network Connectors in the group are enabled for Privileged Remote Access (PRA) sessions.
+- **Persist Local Version Profile**: Indicates if the Network Connector group maintains its current software version even if the global version profile is updated.
+- **Location**: The location where the Network Connector group is set up.
+- **Location Coordinates**: The coordinates of the listed location.
+- **Redundant Mode**: Indicates if additional Network Connectors operate on standby to handle traffic.
 - **Version Profile**: The software update profile assigned to the Network Connector group, which controls the version of the software that the Network Connectors run.
 - **Next Periodic Software** **Update is on**: The scheduled maintenance window for the next automatic software update for the Network Connectors in the group.
+- **Network Connectors**: Click this tab to view a list of deployed Network Connectors that are included in the group.
+- **Network Settings**: Click to view the network settings for this group.
+
+[Image: Network Connector group page within the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4636,13 +4673,13 @@ On the Portals Policy page (Zero Trust Browser > Privileged Remote Access > Port
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-access-roles","lastmod":"2026-09-23T08:54Z","nid":"1483996"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-access-roles","lastmod":"2026-10-15T07:06Z","nid":"1483996"} -->
 ## About Private Access Roles
 
 - Source: https://help.zscaler.com/zpa/about-private-access-roles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Admins and Roles > About Private Access Roles
-- Last modified: 2026-09-23T08:54Z
+- Last modified: 2026-10-15T07:06Z
 - Summary: Information on role management, including predefined and custom roles, within the Zscaler Admin Console.
 
 You can create admin roles with specific access and permissions for Private Access (ZPA) in the Zscaler Admin Console.
@@ -4699,13 +4736,13 @@ On the Private Access page (Administration > Role Management > Private Access), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-cloud-controller-groups","lastmod":"2026-09-21T08:27Z","nid":"1507031"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-cloud-controller-groups","lastmod":"2026-10-13T15:46Z","nid":"1507031"} -->
 ## About Private Cloud Controller Groups
 
 - Source: https://help.zscaler.com/zpa/about-private-cloud-controller-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Groups > About Private Cloud Controller Groups
-- Last modified: 2026-09-21T08:27Z
+- Last modified: 2026-10-13T15:46Z
 - Summary: Information about Private Cloud Controller groups and the Private Cloud Controller Groups page in the Zscaler Admin Console.
 
 You can create new Private Cloud Controller groups whenever you add a new Private Cloud Controller using a new provisioning key. Every Private Cloud Controller belongs to a specific Private Cloud Controller group, and every Private Cloud Controller group must always be associated with at least one provisioning key to serve any application.
@@ -4723,31 +4760,31 @@ Private Cloud Controller groups provide the following benefits and enable you to
 
 On the Private Cloud Controller Groups page (Infrastructure > Business Continuity > Private Cloud Controller Groups), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters**to display the filters.
-3. View the Private Cloud Controller groups as a table.
-4. View the Private Cloud Controller groups on a map.
-5. Refresh the Private Cloud Controller Groups page to reflect the most current information.
-6. Select a [version profile](https://help.zscaler.com/zpa/configuring-version-profile) of the Private Cloud Controller group.
-7. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-8. Add a Private Cloud Controller group.
-9. View a list of all Private Cloud Controller groups that are configured for your organization. For each Private Cloud Controller group, you can see:
+1. Select a [version profile](https://help.zscaler.com/zpa/configuring-version-profile) for the Private Cloud Controller group.
+2. Add a Private Cloud Controller group.
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. Refresh the Private Cloud Controller Groups page to reflect the most current information.
+5. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+6. View a list of all Private Cloud Controller groups that are configured for your organization. For each Private Cloud Controller group, you can see:
   - **Name**: The name of the Private Cloud Controller group. Click the name of a Private Cloud Controller group to see its details.
-  - **Description**: The description of the Private Cloud Controller group.
   - **Private Cloud Controller Count**: The number of enrolled Private Cloud Controllers associated with this group.
   - **Status**: Indicates whether the Private Cloud Controller group is enabled or disabled.
-  - **Version** **Profile**: The profile used to specify an Private Cloud Controller build for the group.
+  - **Version** **Profile**: The profile used to specify a Private Cloud Controller build for the group.
   - **Next Periodic Software Update**: The date and time of the next periodic software update for all of the Private Cloud Controllers within the group.
-10. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-11. [Edit the configuration of a Private Cloud Controller group.](https://help.zscaler.com/zpa/editing-private-cloud-controller-groups)
-12. Delete a Private Cloud Controller group. Private Cloud Controller groups that are managed by Zscaler are read only and cannot be edited or deleted. To learn more, see [Understanding Zscaler-Managed Business Continuity Cloud](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud).
-13. Display more rows or a different page of the table.
+7. [Edit a Private Cloud Controller group](https://help.zscaler.com/zpa/editing-private-cloud-controller-groups).
+8. [Edit network settings for a Private Cloud Controller group](https://help.zscaler.com/zpa/editing-network-settings).
+9. Delete a Private Cloud Controller group. Private Cloud Controller groups that are managed by Zscaler are read only and cannot be edited or deleted. To learn more, see [Understanding Zscaler-Managed Business Continuity Cloud](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud).
+10. Display more rows or a different page of the table.
 
-- **Persist Local Version Profile**: Indicates whether a Private Cloud Controller group is enabled or disabled to persist the local Version Profile.
+- **Name**: The name of the Private Cloud Controller group.
+- **Description**: A description of the Private Cloud Controller group if available.
+- **Status**: Whether the Private Cloud Controller group is enabled or disabled.
+- **Enrollment Certificate**: The certificate the Private Cloud Controller uses for enrollment.
+- **Persist Local Version Profile**: Indicates whether the [version profile](https://help.zscaler.com/zpa/configuring-version-profile) set at the customer level is enabled for the Private Cloud Controller group.
 - **Location**: The location where the Private Cloud Controller group, which the Private Cloud Controller belongs to, is set up.
 - **Location Coordinates**: The latitude and longitude of the Private Cloud Controller group location.
-- **Private Cloud Controllers**: The list of deployed Private Cloud Controllers that are included in the group.
-- **Private Cloud Controller Provisioning Keys**: The key used to identify the Private Cloud Controller group to which a Private Cloud Controller must deploy.
+- **Version Profile**: The [version profile](https://help.zscaler.com/zpa/configuring-version-profile) that is applied to this Private Cloud Controller group.
+- **Next Periodic Software Update**: The date and time of the next periodic software update for all of the Private Cloud Controllers within the group.
 
 [Image: Viewing and managing Private Cloud Controller groups]
 <!-- /ZS-ARTICLE -->
@@ -4812,13 +4849,13 @@ On the Private Cloud Controller Provisioning Keys page (Infrastructure > Private
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-cloud-controllers","lastmod":"2026-09-17T10:16Z","nid":"1507026"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-cloud-controllers","lastmod":"2026-10-13T11:51Z","nid":"1507026"} -->
 ## About Private Cloud Controllers
 
 - Source: https://help.zscaler.com/zpa/about-private-cloud-controllers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controllers > About Private Cloud Controllers
-- Last modified: 2026-09-17T10:16Z
+- Last modified: 2026-10-13T11:51Z
 - Summary: Information about Private Cloud Controllers and the Private Cloud Controllers page in the Zscaler Admin Console.
 
 Private Cloud Controllers behave as a per-tenant controller for users, Private Service Edges for Private Access (ZPA), and App Connectors to leverage when the Private Access cloud is not available or reachable.
@@ -4887,13 +4924,13 @@ On the Private Cloud Controllers page (Infrastructure > Business Continuity > Pr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-clouds","lastmod":"2026-09-17T10:09Z","nid":"1507096"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-clouds","lastmod":"2026-10-13T11:38Z","nid":"1507096"} -->
 ## About Private Clouds
 
 - Source: https://help.zscaler.com/zpa/about-private-clouds
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Clouds > About Private Clouds
-- Last modified: 2026-09-17T10:09Z
+- Last modified: 2026-10-13T11:38Z
 - Summary: Information on Private Clouds and the Private Clouds page in the Zscaler Admin Console.
 
 Private Clouds are a logical grouping of Private Cloud Controller groups, App Connector groups, Private Service Edge for Private Access (ZPA) groups, and log receivers. [Configuring a Private Cloud](https://help.zscaler.com/zpa/configuring-private-clouds) is required for uninterrupted access to applications without any manual intervention via [Business Continuity](https://help.zscaler.com/zpa/understanding-business-continuity).
@@ -4938,13 +4975,13 @@ On the Private Clouds page (Infrastructure > Business Continuity > Private Cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-09-21T15:48Z","nid":"1484471"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-10-14T15:39Z","nid":"1484471"} -->
 ## About Private Service Edge Groups
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edge-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Groups > About Private Service Edge Groups
-- Last modified: 2026-09-21T15:48Z
+- Last modified: 2026-10-14T15:39Z
 - Summary: Information on Private Service Edge for Private Access (ZPA) groups and the Private Service Edge Groups page in the Zscaler Admin Console.
 
 [Watch a video about Private Service Edge Groups.](https://fast.wistia.net/embed/iframe/ahp2va5mtu)
@@ -4966,36 +5003,45 @@ Private Service Edge groups provide the following benefits and enable you to:
 
 On the Private Service Edge Groups page (Private Access > Private Infrastructure > Private Service Edge Groups), you can do the following:
 
-1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to show the filters.
-3. View a table of all the Private Service Edge groups.
-4. View a map of all the Private Service Edge groups.
-5. Refresh the Private Service Edge page to reflect the most current information.
-6. Select a Version Profile of the Private Service Edge group. To learn more, see [Configuring a Version Profile](https://help.zscaler.com/zpa/configuring-version-profile).
-7. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-8. Expand all of the rows in the table to see more information about each Private Service Edge group.
-9. View a list of all Private Service Edge groups that are configured for your organization. For each Private Service Edge group, you can see:
-  - **Name**: The name of the Private Service Edge group. Expand a Private Service Edge group in the table to see the following for that specific Private Service Edge group:
-    - **Persist Local Version Profile**: Indicates whether a Private Service Edge Group is enabled or disabled to persist the local Version Profile.
-    - **Location:** The location where the Private Service Edge group, which the Private Service Edge belongs to, is set up.
-    - **Location Coordinates:** The latitude and longitude of the Private Service Edge group location.
-    - **Publicly Accessible:** Choose if the Private Service Edge group with specific [trusted networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) mapping is also available publicly for all users outside of these trusted networks. It is important to ensure the Private Service Edge is reachable over a public IP address if you need remote users to be able to connect to it.
-    - **Client Connector Trusted Networks:** Your organization's [trusted networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) that are mapped to the Private Service Edge group. This is used to prioritize Private Service Edges matching the given [trusted network](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) when users connect from those trusted networks. To learn more, see [About Trusted Networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks). Trusted networks are available for Zscaler Client Connectors only. Trusted networks are not supported with Cloud & Branch Connectors.
-    - **Alternative Cloud Domain**: The alternative cloud domain that can override the default cloud domain for the Private Service Edge Group it is assigned to.
-    - **Private Service Edge Provisioning Keys:** The key used to identify the Private Service Edge group to which a Private Service Edge must deploy.
-    - **Private Service Edges:** List of deployed Private Service Edges that are included in the group.
-    - **Description:** The description of the Private Service Edge group if available.
-    - **Disaster Recovery**: Indicates the Private Service Edge group is [enabled for disaster recovery](https://help.zscaler.com/zpa/understanding-disaster-recovery).
-    - **Public Service Edge Proximity Override**: Indicates whether to allow this Private Service Edge group within a specified distance from the user to be prioritized over a closer Public Service Edge for Private Access.
-  - **Status**: Indicates whether the Private Service Edge group is enabled or disabled.
-  - **Version Profile**: Indicates the Version Profile of the Private Service Edge group.
+1. Select a [version profile](https://help.zscaler.com/zpa/configuring-version-profile) for the Private Service Edge group.
+2. Add a Private Service Edge group.
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. Refresh the Private Service Edge Groups page to reflect the most current information.
+5. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+6. View a list of all Private Service Edge groups that are configured for your organization. For each Private Service Edge group, you can see:
+  - **Name**: The name of the Private Service Edge group. Click the name to view details for this group. View details for each deployed Private Service Edge group.
+  - **Private Service Edge Count**: The number of Private Service Edges assigned to this group.
+  - **Status**: Whether the Private Service Edge group is enabled or disabled.
+  - **Version Profile**: The version profile of the Private Service Edge group.
   - **Next Periodic Software Update**: The date and time of the next periodic software update for all of the Private Service Edges within the group.
-10. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-11. [Edit a configured Private Service Edge group](https://help.zscaler.com/zpa/editing-service-edge-groups).
-12. Delete a Private Service Edge group. Private Service Edge groups that are managed by Zscaler are read only and cannot be edited or deleted.
-13. Display more rows or a different page of the table.
+7. [Edit a configured Private Service Edge group](https://help.zscaler.com/zpa/editing-service-edge-groups).
+8. [Edit network settings for the Private Service Edge group](https://help.zscaler.com/zpa/editing-network-settings).
+9. Delete a Private Service Edge group. Private Service Edge groups that are managed by Zscaler are read only and cannot be edited or deleted.
+10. Display more rows or a different page of the table.
 
 [Image: Private Service Edge Groups page in the Zscaler Admin Console]
+
+On the **Details**tab, you can view:
+
+- **Name**: The name of the Private Service Edge group.
+- **Description:** A description of the Private Service Edge group if available.
+- **Status**: Whether the Private Service Edge group is enabled or disabled.
+- **Enrollment Certificate**: The certificate the Private Service Edge uses for enrollment.
+- **Persist Local Version Profile**: Indicates whether the [version profile](https://help.zscaler.com/zpa/configuring-version-profile) set at the customer level is enabled for this Private Service Edge group.
+- **Location:** The location where the Private Service Edge group, which the Private Service Edge belongs to, is set up.
+- **Location Coordinates:** The latitude and longitude of the Private Service Edge group location.
+- **Publicly Accessible:** Indicates that the Private Service Edge group with specific [trusted networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) mapping is also available publicly for all users outside of these trusted networks. It is important to ensure the Private Service Edge is reachable over a public IP address if you need remote users to be able to connect to it.
+- **Trusted Networks:** Your organization's [trusted networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) that are mapped to the Private Service Edge group. This is used to prioritize Private Service Edges matching the given [trusted network](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks) when users connect from those trusted networks. To learn more, see [About Trusted Networks](https://help.zscaler.com/zscaler-client-connector/about-trusted-networks). Trusted networks are available for Zscaler Client Connectors only. Trusted networks are not supported with Cloud & Branch Connectors.
+- **Public Service Edge Proximity Override**: Indicates whether to allow this Private Service Edge group within a specified distance from the user to be prioritized over a closer Public Service Edge for Private Access.
+- **Disaster Recovery**: Indicates the Private Service Edge group is [enabled for disaster recovery](https://help.zscaler.com/zpa/understanding-disaster-recovery).
+- **Version Profile**: The version profile that is applied to this Private Service Edge group.
+- **Next Periodic Software Update**: The date and time of the next periodic software update for all of the Private Service Edges within the group.
+
+You can click **View All Private Service Edges** to open the [Private Service Edges page](https://help.zscaler.com/zpa/about-private-service-edges) to view all Private Service Edges regardless of the group.
+
+See image.
+
+[Image: Viewing the Private Service Edge Details tab]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6261,13 +6307,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-system-resource-groups","lastmod":"2026-10-02T11:49Z","nid":"1545488"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-system-resource-groups","lastmod":"2026-10-16T12:23Z","nid":"1545488"} -->
 ## About System Resource Groups
 
 - Source: https://help.zscaler.com/zpa/about-system-resource-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Microsegmentation > Resource Management > About System Resource Groups
-- Last modified: 2026-10-02T11:49Z
+- Last modified: 2026-10-16T12:23Z
 - Summary: Information on the System Resource Groups page for Microsegmentation in the Zscaler Admin Console.
 
 The System Resource Groups page lists unmanaged system-level resource groups. You can use these view-only resource groups to define policies. To learn more, see [Configuring Microsegmentation Policies](https://help.zscaler.com/zpa/configuring-microsegmentation-policies).
@@ -6584,13 +6630,13 @@ Jane reauthenticates and can access BudgetApp again. With this reauthentication,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-usage-insights","lastmod":"2026-10-09T14:12Z","nid":"1519181"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-usage-insights","lastmod":"2026-10-17T07:06Z","nid":"1519181"} -->
 ## About Usage Insights
 
 - Source: https://help.zscaler.com/zpa/about-usage-insights
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Applications & Users Monitoring > Applications & Users Insights > About Usage Insights
-- Last modified: 2026-10-09T14:12Z
+- Last modified: 2026-10-17T07:06Z
 - Summary: Overview information about Usage Insights in the Zscaler Admin Console.
 
 The Usage page provides actionable insights into an organization's usage patterns between users and applications. To provide more granular details, you can categorize the collected data based on application segments, segment groups, or user groups to review similarities across your organization.
@@ -6774,13 +6820,13 @@ On the User Risk Scores page (Administration > Authentication > User Risk Scores
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-10-08T13:22Z","nid":"1533872"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-10-15T09:58Z","nid":"1533872"} -->
 ## About VPN Access Policy
 
 - Source: https://help.zscaler.com/zpa/about-vpn-access-policy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About VPN Access Policy
-- Last modified: 2026-10-08T13:22Z
+- Last modified: 2026-10-15T09:58Z
 - Summary: Information on VPN access policy rules that enable you to implement network-based access control within the Zscaler Admin Console.
 
 VPN access policy rules enable you to allow or block network traffic on VPN Service Edges. Before you configure an access policy rule, configure the components that define the traffic's source and destination:
@@ -6798,7 +6844,7 @@ VPN (for Legacy Apps) evaluates access policy rules using a top-down, specific-m
 
 ## About the Access Policies Page
 
-On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access Policy), you can do the following:
+On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access Policies), you can do the following:
 
 1. Hide or show filters for the page.
 2. Search for an access policy rule by its name.
@@ -6814,12 +6860,12 @@ On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access
   - **Protocols**: The protocol used for traffic transportation.
   - **Rule Action**: The action to be triggered when the traffic matches the rule (**Allow** or **Block**).
   - **Status**: The status of the configured rule (**Enabled** or **Disabled**).
-6. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+6. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
 7. [Edit an access policy rule](https://help.zscaler.com/zpa/editing-vpn-access-policies).
 8. Delete an access policy rule.
 9. Display more rows or a different page of the table.
-10. Go to the [IP Address Object](https://help.zscaler.com/zpa/about-address-book) page to view and manage IP-based objects, which can be used as source and destination networks in your policy rules.
-11. Go to the [IdP Address Object](https://help.zscaler.com/zpa/about-idp-attribute-objects) page to view and manage IdP-based objects, which define user groups based on SAML and SCIM attributes for your policy rules.
+10. Go to the [IP Address Object](https://help.zscaler.com/zpa/about-address-book) page to view and manage IP-based objects.
+11. Go to the [IdP Attribute Object](https://help.zscaler.com/zpa/about-idp-attribute-objects) page to view and manage IdP-based objects.
 
 [Image: Navigating through the access policy page]
 <!-- /ZS-ARTICLE -->
@@ -7495,13 +7541,13 @@ You can block specific users from accessing specific applications and segment gr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-and-viewing-support-information","lastmod":"2026-09-23T13:13Z","nid":"1485056"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-and-viewing-support-information","lastmod":"2026-10-14T14:24Z","nid":"1485056"} -->
 ## Accessing and Viewing Support Information
 
 - Source: https://help.zscaler.com/zpa/accessing-and-viewing-support-information
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Accessing and Viewing Support Information
-- Last modified: 2026-09-23T13:13Z
+- Last modified: 2026-10-14T14:24Z
 - Summary: How to view and access information about the Support Information page in the Zscaler Admin Console.
 
 This article describes how to add, view, and filter data from App Connectors and Private Service Edges for Private Access. Using Support Information, you can create sessions that run commands on App Connectors and Private Service Edges, and then filter and view the outputs of these sessions to assist in troubleshooting. For a complete list of ranges and limits for Support Information, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
@@ -7619,7 +7665,7 @@ The following table provides a list of commands:
 | ICMP PING | The Internet Control Message Protocol (ICMP) ping command to test reachability of a host on an Internet Protocol (IP) network. | Examples of valid arguments: Jira.corp.com; 1.1.1.1; Google.com | Any alphanumeric without a port | ^[a-z0-9-_.]*[a-z]+[a-z0-9-_.]*(:[0-9]+)?$ |
 | TCP PING | The Transmission Control Protocol (TCP) ping command to test reachability to a port, or range of ports, for a list of hostnames or IP addresses. | Examples of valid arguments: Jira.corp.com:80; 1.1.1.1:443; Google.com:443; IP in IPv6 format with port: [2607:f8b0:400a:806:200]:80 | Any alphanumeric with optional port | ^[a-z0-9-_.]*[a-z]+[a-z0-9-_.]*(:[0-9]+)?$ |
 | PCAP | The PCAP (Packet Capture or TCP Dump) command to capture network traffic. This allows admins to troubleshoot connectivity between an App Connector, Private Service Edge, or Private Cloud Controller and Public Service Edge for Adaptive Access Engine, or between an App Connector, Private Service Edge, or Private Cloud Controller and applications. A maximum of one PCAP command per session is allowed. The maximum PCAP file size for a single session is 1 GB, while the maximum size of the individual PCAP files is 100 MB (e.g., if the PCAP capture is 350 MB, then three files are downloaded at 100 MB each, and then one file is downloaded at 50 MB). After the files are downloaded on the host machine, you can merge the files for analysis. After the PCAP session is complete, you can download the session output. To download the session output of the PCAP: Expand the PCAP session in the table.; Click the App Connector, Private Service Edge, or Private Cloud Controller.The **Session Output** window appears. In the **Session Output** window, click the **Download**icon. | Examples of valid arguments: Interfaces: eth0 (optional); Application: jira.corp.com (optional); 10.1.1.1 (optional); IP in IPv4 and IPv6 formats: [2607:f8b0:400a:806:200] and [2607:f8b0:400a:806:200]:80; FQDN: Fully resolvable by the device as done by tcpdump. The maximum allowed characters is 51; IP with port supported: 1.1.1.1:80; FQDN with port: abc.com:80 | Any alphanumeric with optional port | N/A |
-| GET NETWORK INTERFACES | The command to display all the interfaces or a specific target interface for an App Connector. | Argument is optional. If not provided, all interfaces are included. Examples when using the argument to target a specific interface: eth0; vpn_vrf1 | Any valid alphanumeric string (interface name) | N/A |
+| GET NETWORK INTERFACES | The command to display all the interfaces or a specific target interface for an App Connector, Private Service Edge, or Private Cloud Controller. | Argument is optional. If not provided, all interfaces are included. Examples when using the argument to target a specific interface: eth0; vpn_vrf1 | Any valid alphanumeric string (interface name) | N/A |
 | JOURNALCTL | The command to fetch service logs or full system logs for an App Connector, Private Service Edge, or Private Cloud Controller to help troubleshoot and diagnose issues. Docker-based App Connectors or Private Service Edges don't run `systemd` or `journald` so this command isn't available. Instead, collect logs via Docker logs or by exporting the containers' JSON logs on the host (`/var/lib/docker/containers/*/…json.log`). In general, logs are compressed into an LZ4-formatted file (e.g., `admin-probe-journalctl-<uuid>.lz4`). The compressed file is then uploaded to an AWS S3 bucket for storage. In the following instances, logs skip compression: If the log file size is below 4 KB (e.g., logs collected over a very short interval).; If the service is unavailable when the log is fetched.When compression is skipped, the log file is uploaded in its raw uncompressed format as `downloaded_file.log`. To download and decompress the log files: Expand the JOURNALCTL session in the table.; Click the **Download** icon.; Decompress the log file using an open-source LZ4 tool. | Examples of valid arguments: 50; 1,000 (default); 10,000; 100,000 (maximum) | Numeric positive integer value | N/A |
 
 The time when the component starts running commands. The time displayed is based on the time zone set.
@@ -7672,13 +7718,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-app-connector-status-diagnostics","lastmod":"2026-09-28T11:06Z","nid":"1483786"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-app-connector-status-diagnostics","lastmod":"2026-10-12T21:06Z","nid":"1483786"} -->
 ## Accessing App Connector Status Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-app-connector-status-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > App Connector Monitoring > Accessing App Connector Status Diagnostics
-- Last modified: 2026-09-28T11:06Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about App Connector Status diagnostics and event data, accessible within the Zscaler Admin Console.
 
 You can view and filter App Connector status data for past events.
@@ -8088,8 +8134,8 @@ See image.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer> Private Access > Private Diagnostics**.
+2. Click the **Settings** icon. The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
 
@@ -8190,13 +8236,13 @@ The Safe Browsing Protection Level column sorts requests by the Safe Browsing pr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-clientless-access-diagnostics","lastmod":"2026-09-28T12:20Z","nid":"1485616"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-clientless-access-diagnostics","lastmod":"2026-10-12T21:06Z","nid":"1485616"} -->
 ## Accessing Clientless Access Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-clientless-access-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Accessing Clientless Access Diagnostics
-- Last modified: 2026-09-28T12:20Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about Clientless Access diagnostics and transaction data, accessible within the Zscaler Admin Console.
 
 You can view and filter Clientless Access data for past browser session events.
@@ -8881,13 +8927,13 @@ After you've chosen your filters, click **Update** to apply them.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-private-cloud-controller-status-diagnostics","lastmod":"2026-09-28T08:31Z","nid":"1506381"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-private-cloud-controller-status-diagnostics","lastmod":"2026-10-12T21:06Z","nid":"1506381"} -->
 ## Accessing Private Cloud Controller Status Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-private-cloud-controller-status-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Private Cloud Controller Monitoring > Accessing Private Cloud Controller Status Diagnostics
-- Last modified: 2026-09-28T08:31Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about Private Cloud Controller Status diagnostics and event data, accessible within the Zscaler Admin Console.
 
 You can view and filter Private Cloud Controller status data for past events.
@@ -9112,13 +9158,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-files","lastmod":"2026-09-28T15:04Z","nid":"1508966"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-files","lastmod":"2026-10-12T21:06Z","nid":"1508966"} -->
 ## Accessing Privileged Remote Access Files
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-remote-access-files
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Privileged Remote Access Monitoring > Accessing Privileged Remote Access Files
-- Last modified: 2026-09-28T15:04Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about files uploaded in the Privileged Remote Access (PRA) Portal for the PRA File Transfer System.
 
 You can view and filter data for files uploaded to My Files as part of the Privileged Remote Access (PRA) File Transfer System. To view file data in the Zscaler Admin Console, go to **Data Explorer**> **Privileged Remote Access** > **Files**. You can also access this page from **Zero Trust Browser** > **Privileged Remote Access** > **Live Sessions** and clicking the **Files** tab.
@@ -9424,24 +9470,24 @@ If the VNC display is not working correctly, the end user needs to change the di
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-requests","lastmod":"2026-09-28T14:49Z","nid":"1520631"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-requests","lastmod":"2026-10-12T15:09Z","nid":"1520631"} -->
 ## Accessing Privileged Approval Requests
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-requests
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Privileged Remote Access Monitoring > Accessing Privileged Approval Requests
-- Last modified: 2026-09-28T14:49Z
+- Last modified: 2026-10-12T15:09Z
 - Summary: Information about privileged approval requests in the Privileged Remote Access (PRA) Portal for My Approvals.
 
 You can view and filter data for privileged approval requests as part of [My Approvals](https://help.zscaler.com/zpa/about-my-approvals). To view privileged approval request data, go to **Zero Trust Browser** > **Privileged Remote Access**> **Approval Requests**. You can also access this page from **Data Explorer** > **Privileged Remote Access**> **Files** and clicking the **Approval Requests** tab.
 
-## Requests Tools
+## Request Tools
 
 The Approval Requests page displays the following information and functionality:
 
-- **Time Range Filter**: View privileged approval request data over a period between 1 hour to 365 days. To change the time range, click the **Calendar** menu and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 365 days. The end date automatically sets to the system's current time. To change the time zone, click the current **Time Zone** button. This filter applies to all widgets on the Requests page. By default, the detailed activity for all privileged approval requests is displayed for My Approvals that occurred in the last 24 hours.
-- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
-- **Expand Icon**: Expand all rows in the table to see more information about each file.
+- **Time Range Filter**: View privileged approval request data over a period between 1 hour to 365 days. To change the time range, click the calendar range and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 365 days. The end date automatically sets to the system's current time. This filter applies to all widgets on the Approval Requests page. By default, the detailed activity for all privileged approval requests is displayed for My Approvals that occurred in the last 24 hours.
+- **Refresh icon**: Refresh the dashboard to reflect the most current information.
+- **Expand icon**: Expand all rows in the table to see more information about each file.
 
 See image.
 
@@ -9482,7 +9528,12 @@ You can also perform the following actions in the query builder:
 
 The table displays the following data for privileged approval requests:
 
-- **Requester**: The user who requested the privileged approval.
+- **Requester**: The user who requested the privileged approval.You can expand the row to view additional fields for the privileged approval request:
+  - **Policy Name**: The name of the access policy associated with the privileged approval request.
+  - **Approval ID**: Click the displayed ID to view the approval in a window. See image.
+  - **Start Time**: The set start time that the user has access to the Privileged Remote Access (PRA) Portal.
+  - **End Time**: The set end time that the user no longer has access to the PRA Portal.
+  - **Duration**: The length of time that the access for the privileged approval is available for.
 - **Console**: The privileged console that the privileged approval request was created for.
 - **Requested Duration**: The length of time that the access for the privileged approval is requested for.
 - **Approved Duration**: The length of time that the access for the privileged approval is available for.
@@ -9505,18 +9556,22 @@ See image.
 [Image: Approval Requests tools on the Approval Requests page in the [[variable:zscaler-admin-portal]]]
 
 [Image: Adding filters to the Files table on the Files page within the ZPA Admin Portal]
+
+[Image: View Approval pop-up window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-sessions","lastmod":"2026-09-28T15:36Z","nid":"1485716"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-sessions","lastmod":"2026-10-12T15:09Z","nid":"1485716"} -->
 ## Accessing Privileged Sessions
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-sessions
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Privileged Remote Access Monitoring > Accessing Privileged Sessions
-- Last modified: 2026-09-28T15:36Z
+- Last modified: 2026-10-12T15:09Z
 - Summary: Information about privileged session recordings for Privileged Remote Access (PRA) within the Zscaler Admin Console.
+
+After you have created a consoles policy, you can record the screen output of a privileged console session. Admins can view both live privileged sessions and recorded privileged sessions for malicious activity and error prevention. To learn more, see [Configuring Consoles Policies](https://help.zscaler.com/zpa/configuring-consoles-policies).
 
 To view the privileged session recordings for Privileged Remote Access (PRA), go to **Data Explorer** > **Privileged Remote Access** > **Recordings**. You can also access this page from **Zero Trust Browser** > **Privileged Remote Access** > **Live Sessions** and clicking the **Recordings**tab.
 
@@ -9524,22 +9579,22 @@ To view the privileged session recordings for Privileged Remote Access (PRA), go
 
 The Recordings page displays the following information and functionality:
 
-- **Time Range Filter**: View Privileged Sessions data over a period between 1 Hour to 365 Days. To change the time range, click the **Calendar** menu and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 365 days. The end date automatically sets to the system's current time. To change the time zone, click the current **Time Zone** button. This filter applies to all widgets on the Privileged Sessions page. By default, the detailed activity for all privileged session recordings is displayed for privileged sessions that occurred in the last 24 hours.
+- **Time Range Filter**: View Privileged Sessions data over a period between 1 Hour to 365 Days. To change the time range, click the **Calendar** menu and select a preset range or select **Custom Range**. If you use **Custom Range**, the start date must be within the last 365 days. The end date automatically sets to the system's current time. This filter applies to all widgets on the Privileged Sessions page. By default, the detailed activity for all privileged session recordings is displayed for privileged sessions that occurred in the last 24 hours.
 - **Play Offline Recording**: Available only on the Recordings page. Select this option to play privileged recordings that have already been downloaded.
-- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **Refresh icon**: Refresh the dashboard to reflect the most current information.
 
 See image.
 
 ## Viewing Live Privileged Sessions
 
-Privileged sessions that are currently live are displayed after navigating to the Live Sessions page (**Data Explorer** > **Privileged Remote Access** > **Recordings**>**Live Sessions**).
+Privileged sessions that are currently live are displayed on the Live Sessions page (Zero Trust Browser > Privileged Remote Access > Live Sessions).
 
-By default, the table displays the **Total** number of live privileged sessions. You can change this by choosing one of the following filters:
+By default, the table displays the total number of live privileged sessions. You can change this by choosing one of the following filters:
 
-- **RDP**: The total number of live privileged sessions for privileged consoles that are RDP-enabled.
-- **SSH**: The total number of live privileged sessions for privileged consoles that are SSH-enabled.
-- **VNC**: The total number of live privileged sessions for privileged consoles that are VNC-enabled.
-- **RealVNC**: The total number of live privileged sessions for privileged consoles that are RealVNC-enabled.
+- **RDP**: The total number of live privileged sessions for privileged consoles that are RDP enabled.
+- **SSH**: The total number of live privileged sessions for privileged consoles that are SSH enabled.
+- **VNC**: The total number of live privileged sessions for privileged consoles that are VNC enabled.
+- **RealVNC**: The total number of live privileged sessions for privileged consoles that are RealVNC enabled.
 
 See image.
 
@@ -9556,7 +9611,7 @@ To configure filters using the query builder:
 
 See image.
 
-Filters using the Contains operator allow a maximum of 7 entries. All filters using operators that require text input must use a semicolon (;) to separate multiple entries (e.g., `137`; `138`; `139`). When configuring multiple text entries and using the **Less Than** operator, the results show transactions starting from the largest entry provided. When configuring multiple text entries and using the **Greater Than** operator, the results show transactions starting from the smallest entry provided.
+Filters using the **Contains** operator allow a maximum of 7 entries. All filters using operators that require text input must use a semicolon (;) to separate multiple entries (e.g., `137`; `138`; `139`). When configuring multiple text entries and using the **Less Than** operator, the results show transactions starting from the largest entry provided. When configuring multiple text entries and using the **Greater Than** operator, the results show transactions starting from the smallest entry provided.
 
 1. Click **Apply**.
 
@@ -9572,28 +9627,28 @@ The table displays the following data for live privileged sessions:
 - **Policy**: The console's policy set for the user whose live privileged session it is.
 - **Host:** The name of the user whose live privileged session is displayed.
 - **Console**: The privileged console that the live privileged session is in.
-- **Console Type**: The protocol (RDP, SSH, RealVNC, or VNC) enabled for the associated privileged console.
+- **Console Type**: The protocol enabled for the associated privileged console (e.g., **RDP**, **SSH**, **RealVNC**, or **VNC**).
 - **Actions**: These icons only show if they have been enabled for the privileged console associated with the live privileged session.
   - **Monitor**: Click the **Monitor** icon to join the associated privileged session. Your administrator email is automatically added to the session, and a new tab is opened to connect to the live session using that email. It can take up to 30 seconds for the monitored session to be disconnected after the initial session is disconnected.
   - **Share**: Click the **Share** icon to invite another user to the session.
-  - **Terminate**: Click the **Terminate** icon to delete the privileged approval associated with the user in the listed live privileged session. This ends the live privileged session. Ending the session also stops the session for any current participants. The **Terminate** option only appears if the user listed for the live privileged session has an associated privileged approval.
+  - **Terminate**: Click the **Terminate** icon to delete the [privileged approval](https://help.zscaler.com/zpa/about-privileged-approvals) associated with the user in the listed live privileged session. This ends the live privileged session and stops the session for any current participants. The **Terminate** option only appears if the user listed for the live privileged session has an associated privileged approval. When a live privileged session is terminated, the Diagnostics logs do not display the participants.
 
-When a live privileged session is terminated using the **Terminate** icon on the Live Sessions page of Privileged Sessions within the Zscaler Admin Console, the Diagnostics logs do not display the participants.
+Session termination requires enabling the **Terminate All Sessions on Timeout** setting for the tenant. The option to enable or disable termination of all running application sessions upon timeout is available only for existing tenants. This option is hidden and automatically enabled for tenants created after November 3, 2022. For tenants created on or before November 3, 2022, an administrator must explicitly enable it, otherwise termination requests might not disconnect the active session. To learn more, see [About Timeout Policy](https://help.zscaler.com/zpa/about-timeout-policy).
 
 If you expand a row, you can see the participants for the live privileged session. Only the 10 most recent participants are shown.
 
 See image.
 
-## Viewing Recordings
+## Viewing Privileged Session Recordings
 
-Recordings for privileged sessions are automatically displayed after navigating to the Privileged Sessions page (**Data Explorer** > **Privileged Remote Access** > **Recordings**).
+Recordings for privileged sessions are displayed on the Recordings page (Data Explorer > Privileged Remote Access > Recordings).
 
-By default, the table displays the **Total** number of privileged session recordings. You can change this by choosing one of the following filters:
+By default, the table displays the total number of privileged session recordings. You can change this by choosing one of the following filters:
 
-- **RDP**: The total number of privileged session recordings for privileged consoles that are RDP-enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
-- **SSH**: The total number of privileged session recordings for privileged consoles that are SSH-enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
-- **VNC**: The total number of privileged session recordings for privileged consoles that are VNC-enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
-- **RealVNC**: The total number of privileged session recordings for privileged consoles that are RealVNC-enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
+- **RDP**: The total number of privileged session recordings for privileged consoles that are RDP enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
+- **SSH**: The total number of privileged session recordings for privileged consoles that are SSH enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
+- **VNC**: The total number of privileged session recordings for privileged consoles that are VNC enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
+- **RealVNC**: The total number of privileged session recordings for privileged consoles that are RealVNC enabled. The total byte size for the privileged session recordings for this privileged console type is also listed.
 
 See image.
 
@@ -9620,7 +9675,7 @@ You can also perform the following actions in the query builder:
 - Click the **Delete**icon ([Image: Delete icon in the Zscaler Admin Console]) to remove an added filter, and then click **Apply**.
 - Click **Clear All**to remove all filters.
 
-The table displays the following data for Privileged Sessions Recordings:
+The table displays the following information for privileged session recordings:
 
 - **Connection**: Displays the date and time that the privileged session began recording.
 - **Recording Duration**: The length of time that the privileged session was recorded.
@@ -9629,7 +9684,7 @@ The table displays the following data for Privileged Sessions Recordings:
   - **Completed**: The associated privileged session is completed, but the recording is not yet available.
   - **Available**: The recording is available to download and view. This privileged session is not ready for streaming. Click the **Transcode Now** icon in the Actions column to move the recording to higher priority in the transcode queue.
   - **Enqueued**: The recording is waiting in the queue with low priority to be transcoded.
-  - **Transcode Now**: The **Transcode Now** icon in the Actions column has been selected for this recording. The recording is at a higher priority to be transcoded in the queue.
+  - **Transcode Now**: The **Transcode Now** icon in the Actions column was clicked for this recording. The recording is at a higher priority to be transcoded in the queue.
   - **Enqueued On Priority**: The recording is waiting in the queue as a higher priority to be transcoded.
   - **Transcoding**: The recording file is currently being converted from a raw format to a streamable format.
   - **Ready for Streaming**: The transcoding of the privileged session is complete and ready to view.
@@ -9637,39 +9692,32 @@ The table displays the following data for Privileged Sessions Recordings:
 - **Policy**: The consoles policy set for the recorded privileged console.
 - **User**: The user who accessed the privileged console for that privileged session recording.
 - **Console**: The privileged console that the privileged session was recorded in.
-- **Console Type**: The protocol (RDP, SSH, RealVNC, and VNC) enabled for the recorded privileged console.
+- **Console Type**: The protocol enabled for the recorded privileged console (e.g., **RDP**, **SSH**, **RealVNC**, or **VNC**).
 - **Actions**: The actions that you can take related to the privileged session recording.
   - **Play**: Click the **Play** icon to play a recording.
-  - **Download**: When you click the **Download** icon, the recording is downloaded to the local system of the server. This option is available when [Session Recordings is set to Full Access when configuring an admin role](https://help.zscaler.com/zpa/configuring-administrator-roles).
-  - **Transcode Now**: Click the **Transcode Now** icon to begin formatting a raw privileged recording to streamable content. The status of the privileged recording updates to the **Transcode Now** status. This icon can only be selected when the privileged recording is in the **Available**, **Enqueued**, or **Transcoding Failed** status.
+  - **Download**: Click the **Download** icon to download the recording to your local system. This option is available when Session Recordings is set to Full Access when [configuring an admin role](https://help.zscaler.com/zpa/configuring-administrator-roles).
+  - **Transcode Now**: Click the **Transcode Now** icon to begin formatting a raw privileged recording to streamable content. The status of the privileged recording updates to the **Transcode Now** status. This option is only available when the privileged recording is in the **Available**, **Enqueued**, or **Transcoding Failed** status.
 
 See image.
 
 ### Playing a Session Recording
 
-When you expand the privileged session recording, some of the information from the Recordings table columns for that privileged session recording is displayed. If you select **Download**, similar to the **Download** icon in the Recordings table, the recording is downloaded to the local system of the server.
+When you expand the privileged session recording, some of the information from the Recordings table column for that privileged session recording is displayed. If you select **Download**, similar to the **Download** icon in the Recordings table, the recording is downloaded to the local system of the server.
 
 To play the privileged session recording:
 
-1. Click the **Play** icon in the Recordings table. If the recording is in **Ready for Streaming** status, then it starts to play. If it is in any other status besides **Failed**, **Completed**, or **Ready for Streaming**, follow the next steps to view the recording:
+1. Click the **Play** icon in the Recordings table. If the recording is in **Ready for Streaming** status, then it starts to play. If it is in any other status besides **Failed**, **Completed**, or **Ready for Streaming**, follow the next steps to view the recording.
 2. Click **Select File**. A window with the file where the recordings are downloaded appears.
-3. Select the recording you want to play.
+3. Select the recording you want to play. See image. The play window appears on the page.
+4. Click the **Play** button in the bottom-left corner of the screen. See image.
 
-See image.
+You can share the video with admins who have access to the same tenant and have Session Recording enabled by copying the URL at the top of the video page. After the admin enters the URL, they are taken directly to the video page for that specific privileged session recording. If you want to direct them to a specific time in the recording, you can copy and share the permalink. When the admin clicks the permalink, the video begins at the specified time rather than at the defaulted beginning time.
 
-The play window appears on the page.
-
-1. To play the video, click the **Play** button in the bottom left corner of the screen. You can also pause the video and click the video player bar to watch at a certain point.
-
-See image.
-
-You can share the video with admins who have access to the same tenant and have Session Recording enabled by copying the URL at the top of the video page. After the admin enters the URL, they are directly logged into the video page for that specific privileged session recording. If you want to direct them to a specific time in the recording, you can copy and share the permalink. When the user clicks the permalink, the video begins at the specified time rather than at the defaulted beginning time.
-
-Any privileged session recordings that an admin doesn't have access to won't be viewable.
+Any privileged session recordings that an admin doesn't have access to can't be viewed.
 
 - **Console**: See requests for a particular privileged console.
+- **Host**: See requests for a particular host.
 - **Policy**: See requests for a particular consoles policy rule.
-- **User**: See requests for a particular user.
 
 [Image: "Privileged Sessions tools on the Recordings page in the Zscaler Admin Console]
 
@@ -9690,19 +9738,19 @@ Any privileged session recordings that an admin doesn't have access to won't be 
 [Image: Participants listed in an expanded live privileged session connection in the Live Privileged Sessions table on the Privileged Sessions page in the Zscaler Admin Console]
 
 - **Console**: See requests for a particular privileged console.
+- **Host**: See requests for a particular host.
 - **Policy**: See requests for a particular console's policy rule.
-- **User**: See requests for a particular user.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-protocol-discovery-diagnostics","lastmod":"2026-09-28T11:43Z","nid":"1486016"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-protocol-discovery-diagnostics","lastmod":"2026-10-12T21:06Z","nid":"1486016"} -->
 ## Accessing Protocol Discovery Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-protocol-discovery-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Accessing Protocol Discovery Diagnostics
-- Last modified: 2026-09-28T11:43Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about Protocol Discovery diagnostics, accessible in the Zscaler Admin Console.
 
 You can view and filter Protocol Discovery data for the ports enabled with application segments associated with AppProtection.
@@ -10514,13 +10562,13 @@ As part of setting up the TLS session, Zscaler hosted Public Service Edge direct
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-zpa-service-edge-status-diagnostics","lastmod":"2026-09-28T11:20Z","nid":"1484516"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-zpa-service-edge-status-diagnostics","lastmod":"2026-10-12T21:06Z","nid":"1484516"} -->
 ## Accessing Private Service Edge Status Diagnostics
 
 - Source: https://help.zscaler.com/zpa/accessing-zpa-service-edge-status-diagnostics
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Dashboard & Diagnostics > Private Service Edge Monitoring > Accessing Private Service Edge Status Diagnostics
-- Last modified: 2026-09-28T11:20Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information about Private Service Edge Status diagnostics and event data, accessible within the Zscaler Admin Console.
 
 You can view and filter Private Service Edge for Private Access (ZPA) status data for past events.
@@ -10672,31 +10720,31 @@ The time that the Private Service Edge disconnected from the Zscaler cloud. The 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/adding-api-keys","lastmod":"2026-09-09T15:23Z","nid":"1484751"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/adding-api-keys","lastmod":"2026-10-12T15:51Z","nid":"1484751"} -->
 ## Adding API Keys
 
 - Source: https://help.zscaler.com/zpa/adding-api-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > API Key Management > Adding API Keys
-- Last modified: 2026-09-09T15:23Z
+- Last modified: 2026-10-12T15:51Z
 - Summary: How to add an API key within the Zscaler Admin Console.
 
 An [API key](https://help.zscaler.com/zpa/about-api-keys) is required for authenticating with the [ZPA API](https://help.zscaler.com/legacy-apis/understanding-zpa-api) to make API calls.
 
-If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi)endpoints, see [API Client Authentication](https://help.zscaler.com/authentication-service/integration/oneapi-authentication) in Authentication Service.
+If you need to obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [API Client Authentication](https://help.zscaler.com/authentication-service/integration/oneapi-authentication) in Authentication Service.
 
 To add a new API key:
 
-1. Go to **Administration**>**API** > **Private Access API**. If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read-only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
-2. Click **Add**. The **Add API Key** drawer appears.
-3. In the **Add API Key** drawer: See image.
-  - **Name**: Enter a name for the key.
-  - **Status**: Enable the key. If **Disabled**, the key will be unavailable to use. By default, this is enabled.
-  - **Session Validity Interval (In Seconds)**: The amount of time the key is available to use. The maximum amount of time is 3,600 seconds.
-  - **Role**: The predefined role or a custom role of the API key (e.g., full access, policy-only access, application-only access). Roles for API keys enforce granular role-based access control (RBAC) on all publicly available ZPA API operations. For each API key, you can select the **API Full Access** predefined role. This predefined role provides full access to the Private Access API. To learn more, see [Understanding Role-Based Access Control for Private Access API](https://help.zscaler.com/zpa/understanding-role-based-access-control-private-access-api), [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients), and [Adding an API Client](https://help.zscaler.com/authentication-service/adding-api-client).
+1. Go to **Administration**>**API** > **Private Access API**. If you are subscribed to Authentication Service and have it enabled for your tenant, API keys created in Authentication Service appear on the API Keys page in the Zscaler Admin Console and are read only. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+2. Click **Add**. The **Add API Keys** drawer opens.
+3. In the **Add API Keys** drawer: See image.
+  1. **Name**: Enter a name for the key.
+  2. **Status**: Enable the key. If **Disabled**, the key will be unavailable to use. By default, this is enabled.
+  3. **Session Validity Interval (In Seconds)**: The amount of time the key is available to use. The maximum amount of time is 3,600 seconds.
+  4. **Role**: The predefined role or a custom role of the API key (e.g., **API Read Only**, **API Full Access**). Roles for API keys enforce granular role-based access control (RBAC) on all publicly available ZPA API operations. For each API key, you can select the **API Full Access** predefined role to provide full access to the Private Access API. To learn more, see [Understanding Role-Based Access Control for Private Access API](https://help.zscaler.com/zpa/understanding-role-based-access-control-private-access-api), [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients), and [Adding an API Client](https://help.zscaler.com/authentication-service/adding-api-client).
 4. Click **Save**. The client secret for the key is displayed.
-5. Copy the client secret to your clipboard. You will need it for authentication. The client secret is only available to copy when creating an API key. It is not available to access in the Zscaler Admin Console after you close the window, so store it in a secure location.
-6. Close the window.
+5. Copy the client secret to your clipboard. You will need it for authentication. The client secret is only available to copy when creating an API key. It is not available to access in the Zscaler Admin Console after you close the drawer, so store it in a secure location.
+6. Close the drawer.
 
 [Image: Adding an API Key]
 <!-- /ZS-ARTICLE -->
@@ -10874,13 +10922,13 @@ The perimeter policy is added to the Perimeter Policies page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/adding-private-cloud-controller-existing-private-cloud-controller-group","lastmod":"2026-09-21T08:25Z","nid":"1507166"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/adding-private-cloud-controller-existing-private-cloud-controller-group","lastmod":"2026-10-13T11:56Z","nid":"1507166"} -->
 ## Adding a Private Cloud Controller to an Existing Private Cloud Controller Group
 
 - Source: https://help.zscaler.com/zpa/adding-private-cloud-controller-existing-private-cloud-controller-group
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controllers > Adding a Private Cloud Controller to an Existing Private Cloud Controller Group
-- Last modified: 2026-09-21T08:25Z
+- Last modified: 2026-10-13T11:56Z
 - Summary: How to add a Private Cloud Controller to an existing Private Cloud Controller group in the Zscaler Admin Console.
 
 To add a Private Cloud Controller to an existing Private Cloud Controller group:
@@ -12297,13 +12345,13 @@ The following table provides a list of Kubernetes App Connector Linux capabiliti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-09-30T16:37Z","nid":"1484561"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-10-12T07:06Z","nid":"1484561"} -->
 ## App Connector Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Linux
-- Last modified: 2026-09-30T16:37Z
+- Last modified: 2026-10-12T07:06Z
 - Summary: How to deploy an App Connector on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -12439,7 +12487,7 @@ Zscaler recommends treating access to App Connectors as privileged, so only auth
 
 The App Connector VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the App Connector VMs to ensure that memory growth does not have an impact on App Connector performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for the platform you're using.
 
-Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Update Software Components System Software](https://help.zscaler.com/zpa/managing-software-components#Updating).
+Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Because vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting App Connectors using firewall policies. Additionally, if you've installed the App Connector as a package, Zscaler recommends that you take similar precautions.
 
@@ -12827,18 +12875,13 @@ However, if you used the `sudo systemctl enable sshd` command previously, then e
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -12941,106 +12984,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -13068,105 +13011,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 <!-- /ZS-ARTICLE -->
 
 ---

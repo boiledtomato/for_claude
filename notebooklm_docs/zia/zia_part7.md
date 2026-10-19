@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 92
 
 ---
@@ -2538,13 +2538,13 @@ The following are a few benefits of using a GeoIP address:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-09-27T23:23Z","nid":"1400866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-global-public-service-edges-internet-saas","lastmod":"2026-10-12T21:06Z","nid":"1400866"} -->
 ## Understanding Global Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-global-public-service-edges-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Public Service Edge > Understanding Global Public Service Edges for Internet & SaaS
-- Last modified: 2026-09-27T23:23Z
+- Last modified: 2026-10-12T21:06Z
 - Summary: Information on Global Public Service Edges for Internet & SaaS (ZIA).
 
 Zscaler has configured several Global, or Ghost, Public Service Edges for Internet & SaaS (ZIA) across its clouds. The addresses of these Public Service Edges do not listen for traffic but are dummy addresses that all Public Service Edges know about. They can be useful when working in no default route environments. To learn more, see [Implementing Zscaler in No Default Route Environments](https://help.zscaler.com/zia/implementing-zscaler-no-default-route-environments).
@@ -2938,13 +2938,13 @@ The DPD behavior is the same for the IKEv1 and the IKEv2 protocols. DPD is integ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-09-30T10:00Z","nid":"1404786"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-10-12T04:04Z","nid":"1404786"} -->
 ## Understanding IPv6 Support
 
 - Source: https://help.zscaler.com/zia/understanding-ipv6-support
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Understanding IPv6 Support
-- Last modified: 2026-09-30T10:00Z
+- Last modified: 2026-10-12T04:04Z
 - Summary: Information on how to configure the Zscaler Admin Console to support security policies for IPv6 traffic.
 
 IPv6 support is in limited availability. To learn more, contact Zscaler Support.
@@ -3132,7 +3132,7 @@ The Zscaler service uses the well-known prefix and its default NAT64 and DNS64 p
 
 This table shows the expected types of DNS responses with different client configurations:
 
-| **Client** | **Destination** | **DNS A Response** | **DNS AAAA Response** |
+| Client | Destination | DNS A Response | DNS AAAA Response |
 | --- | --- | --- | --- |
 | IPv4 + IPv6 | IPv4 + IPv6 | Yes | Empty |
 | IPv4 + IPv6 | IPv4 | Yes | Empty |
@@ -3778,13 +3778,13 @@ To learn more about how to use PAC files to forward traffic to the Zscaler servi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-partner-integrations","lastmod":"2026-06-15T07:26Z","nid":"1400581"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-partner-integrations","lastmod":"2026-10-16T16:35Z","nid":"1400581"} -->
 ## Understanding Partner Integrations
 
 - Source: https://help.zscaler.com/zia/understanding-partner-integrations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Understanding Partner Integrations
-- Last modified: 2026-06-15T07:26Z
+- Last modified: 2026-10-16T16:35Z
 - Summary: Information on the available partner integrations with the Zscaler service.
 
 You can integrate the Zscaler service with the following partners and services from the Zscaler Admin Console:
@@ -3798,7 +3798,7 @@ You can integrate the Zscaler service with the following partners and services f
 
 ## Microsoft Cloud App Security (MCAS)
 
-[Integrate with MCAS](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security) (Policies > Data Protection > Common Resources > Microsoft Defender for Cloud Apps) to allow the Zscaler service to discover and sync cloud apps.
+[Integrate with MCAS](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security) (Internet Access > Resources > Microsoft Defender for Cloud Apps *or* Data Security > Inline CASB > Microsoft Defender SaaS App) to allow the Zscaler service to discover and sync cloud apps.
 
 Integrating with MCAS allows you to utilize the Zscaler service's policy management functionality (i.e., URL Filtering, Custom category, and Cloud App Control) for blocking non-sanctioned applications. Your policies within the Zscaler service include the list of applications to be blocked as provided by MCAS. The list consists of the following applications:
 
@@ -3811,7 +3811,7 @@ To learn more about Zscaler's SaaS Security technology partners, see the [SaaS S
 
 ## Software Defined-Wide Area Networking (SD-WAN)
 
-[Integrate SD-WAN partner API access](https://help.zscaler.com/zia/configuring-sdwan-integration) (Infrastructure > Internet & SaaS > Traffic Forwarding > Partner Integrations: SDWAN) for your organization's locations and VPN credential information.
+[Integrate SD-WAN partner API access](https://help.zscaler.com/zia/configuring-sdwan-integration) (Internet Access > Partner Integrations - SDWAN) for your organization's locations and VPN credential information.
 
 An SD-WAN partner key enables partner access to the following resources within the [cloud service API](https://help.zscaler.com/zia/about-api#SDWAN):
 
@@ -3824,7 +3824,7 @@ To learn more, see the [SD-WAN partner site](https://www.zscaler.com/partners/te
 
 ## Microsoft Azure Virtual WAN (VWAN)
 
-[Integrate with Azure VWAN](https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan) (Infrastructure > Internet & SaaS > Traffic Forwarding > Partner Integrations: Azure Virtual WAN) to forward traffic to the Zscaler service.
+[Integrate with Azure VWAN](https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan) (Internet Access > Partner Integrations - Azure Virtual WAN) to forward traffic to the Zscaler service.
 
 Azure VWAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can connect your branches to. To learn more, refer to the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about).
 
@@ -3832,7 +3832,7 @@ Zscaler's integration leverages Microsoft's Azure VWAN APIs to discover and conf
 
 ## CrowdStrike
 
-[Integrate with CrowdStrike](https://help.zscaler.com/zia/integrating-crowdstrike) (Policies > Cybersecurity > Partner Integrations > Crowdstrike) to enable immediate visibility, response, and containment to zero-day, [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware with the CrowdStrike endpoint protection platform.
+[Integrate with CrowdStrike](https://help.zscaler.com/zia/integrating-crowdstrike) (Cyberthreat Protection > Partner Integrations > Crowdstrike) to enable immediate visibility, response, and containment to zero-day, [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware with the CrowdStrike endpoint protection platform.
 
 Zscaler's integration leverages CrowdStrike APIs to identify traces of Sandbox-detected malware on CrowdStrike endpoint devices. This integration not only complements the Zscaler [patient 0 alerting and reporting](https://help.zscaler.com/zia/configuring-patient-0-alert) but provides network visibility for malware that spreads east-west or via a medium that doesn't traverse the Zscaler service (e.g., USB flash drives). Identified file traces include whether the malware execution was detected or prevented by the CrowdStrike Falcon agent. The integration calls the CrowdStrike Falcon API and provides a one-click action to quarantine or contain any endpoints that might be impacted by malware. You can also go to the CrowdStrike portal to further investigate an endpoint device.
 
@@ -3840,7 +3840,7 @@ To learn more about the Zscaler and CrowdStrike integration, see the [Zscaler an
 
 ## Microsoft Defender for Endpoint
 
-[Integrate with Microsoft Defender for Endpoint](https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint) (Policies > Cybersecurity > Partner Integrations > Microsoft Defender for Endpoint) to enable immediate visibility, response, and containment to zero-day, [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware with the Microsoft Defender for Endpoint security platform.
+[Integrate with Microsoft Defender for Endpoint](https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint) (Cyberthreat Protection > Partner Integrations > Microsoft Defender for Endpoint) to enable immediate visibility, response, and containment to zero-day, [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware with the Microsoft Defender for Endpoint security platform.
 
 Zscaler's integration leverages Microsoft Defender for Endpoint APIs to provide immediate visibility and containment for advanced persistent threats detected in the Zscaler Sandbox. Through the API integration between Zscaler and Microsoft Defender for Endpoint, Malware detected by the Sandbox is correlated with Microsoft Defender for Endpoint data to identify all endpoints with this file present. Malware can spread laterally across endpoints via malware propagation vectors such as USB or Bluetooth file transfer.
 
@@ -3850,7 +3850,7 @@ To learn more about the Zscaler and Microsoft Defender integration, see the [Zsc
 
 ## Votiro
 
-[Integrate with Votiro CDR](https://help.zscaler.com/zero-trust-browser/understanding-votiro-integration-isolation) (Policies > Cybersecurity > Partner Integrations > Votiro) to further sanitize files accessed through Zero Trust Browser.
+[Integrate with Votiro CDR](https://help.zscaler.com/zero-trust-browser/understanding-votiro-integration-isolation) (Zero Trust Browser > Chrome Enterprise Browser > Votiro) to further sanitize files accessed through Zero Trust Browser.
 
 Zero Trust Browser provides the necessary security coverage for organizations accessing internet content. As part of the security coverage provided, files downloaded from the internet are subjected to inline scanning to ensure that any malicious content is blocked. However, users who are consumers of Zero Trust Browser also use CDR services such as [Votiro](https://votiro.com/resource-center/?fwp_resource_categories=guides). Votiro allows any file downloaded or uploaded to or from internet destinations to be sanitized by the CDR services. These CDR services consume the original file being transacted, and return a file in the same format as the original file, but sanitized. This ensures that either the active content is stripped out, or active content itself is replaced with a sanitized model, ensuring the file itself cannot be used for malicious purposes.
 
@@ -4080,13 +4080,13 @@ By default, if a user requests a cloud app that you explicitly allow with Cloud 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-post-quantum-cryptography-visibility-report","lastmod":"2026-04-20T21:51Z","nid":"1532146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-post-quantum-cryptography-visibility-report","lastmod":"2026-10-11T23:12Z","nid":"1532146"} -->
 ## Understanding the Post-Quantum Cryptography Visibility Report
 
 - Source: https://help.zscaler.com/zia/understanding-post-quantum-cryptography-visibility-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Understanding the Post-Quantum Cryptography Visibility Report
-- Last modified: 2026-04-20T21:51Z
+- Last modified: 2026-10-11T23:12Z
 - Summary: Information on Post-Quantum Cryptography and key features and benefits of PQC logging in the Zscaler Admin Console.
 
 Quantum computers pose a significant future threat to current cryptographic systems used in TLS, SSH, and IPSec, enabling adversaries to store encrypted data today and decrypt it later. This is driving a global push for Post-Quantum Cryptography (PQC). PQC is a new class of cryptographic algorithms designed to protect data and communications against potential attacks from advanced, large-scale quantum computers. Organizations require visibility into traffic flows to determine PQC compliance and readiness.
@@ -4130,13 +4130,13 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-11T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-18T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-10-11T07:06Z
+- Last modified: 2026-10-18T07:06Z
 - Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
@@ -6092,14 +6092,14 @@ To enable Microsoft365 One Click Configuration:
 
 The **Enable Microsoft-Recommended Office 365 One Click Configuration** option should be disabled.
 
-1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to**Internet Access**>**Setting**> **Advanced Settings**.
 2. Click **Edit**.
 3. Select the **Enable Office 365 One Click Configuration**option.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 The **Office 365 One Click Configuration**option should be disabled.
 
-1. Go to**Internet Access**>**Setting**> **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to**Data Security**>**Inline CASB**> **Advanced Policy Settings**.
 2. Click **Edit**.
 3. Select **Enable Microsoft-Recommended One Click Office 365 Configuration**.
 4. Click **Save** then [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -7330,13 +7330,13 @@ If you want your web traffic to be forwarded to certain Public Service Edges and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-10-09T04:01Z","nid":"1399271"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-sublocations","lastmod":"2026-10-15T00:34Z","nid":"1399271"} -->
 ## Understanding Sublocations
 
 - Source: https://help.zscaler.com/zia/understanding-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Understanding Sublocations
-- Last modified: 2026-10-09T04:01Z
+- Last modified: 2026-10-15T00:34Z
 - Summary: Information on sublocations and how they are used within the Zscaler service.
 
 Sublocations enable an organization to create new locations that reference IP addresses that are encapsulated within a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) tunnel, or that are passed to the Zscaler service through X-Forwarded-For (XFF) headers.
@@ -9226,13 +9226,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-09-16T04:26Z","nid":"1532188"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-10-11T23:13Z","nid":"1532188"} -->
 ## Viewing the Post-Quantum Cryptography Visibility Report
 
 - Source: https://help.zscaler.com/zia/viewing-post-quantum-cryptography-visibility-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Post-Quantum Cryptography Visibility Report
-- Last modified: 2026-09-16T04:26Z
+- Last modified: 2026-10-11T23:13Z
 - Summary: Information on the Post-Quantum Cryptography Visibility report on the Interactive Reports page in the Zscaler Admin Console.
 
 To view the Post-Quantum Cryptography Visibility Report, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**>**Reports**> **Interactive Reports**> **Standard Reports**> **Web** **Activity**> **Post-Quantum Cryptography Visibility**.
@@ -9629,13 +9629,13 @@ The service lists users who are using vulnerable browsers, plugins, and applicat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-09-28T04:01Z","nid":"1531209"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-10-16T01:29Z","nid":"1531209"} -->
 ## Viewing Sublocations
 
 - Source: https://help.zscaler.com/zia/viewing-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Viewing Sublocations
-- Last modified: 2026-09-28T04:01Z
+- Last modified: 2026-10-16T01:29Z
 - Summary: Information on viewing the Sublocations table on the Locations page in the Zscaler Admin Console
 
 You can add sublocations to an existing parent location using your organization's internal IP address range. Organizations can leverage sublocations to implement various policies based on IP addresses, enforce authentication for selective networks, and enforce bandwidth control to ensure unused bandwidth is available for the parent location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
@@ -9649,6 +9649,7 @@ To view the sublocations created for the location:
 3. On the **View Sublocation** page, you can view the following for each sublocation:
   - **Name**: The name of the sublocation.
   - **IP Addresses**: The internal IP addresses for the sublocation.
+  - **Description**: Additional notes or information about the location.
   - **Proxy Ports**: The [subscribed proxy ports](https://help.zscaler.com/zia/configuring-dedicated-proxy-ports) for the parent location, if applicable.
   - **Use XFF from Client Request**: Whether the XFF header is enabled for the parent location.
   - **Authentication**: Whether the **Authentication** feature is enabled for the sublocation. If you are also using the **Enable IP Surrogates** feature, this column displays the specified **Idle Time to Disassociation**.
@@ -9658,7 +9659,6 @@ To view the sublocations created for the location:
   - **Group**: The location group assigned to the sublocation.
   - **Location Type**: The primary traffic type of the sublocation. <li> <strong>Scope Type</strong>: The scope type of the sublocation. This field is only available for the <strong>Workload traffic type</strong> location type. </li>
   - **Scope Type**: The scope type of the sublocation. This field is only available for the**Workload traffic type**location type.
-  - **Description**: Additional notes or information about the location.
 
 You can use the search bar to search for and select a specific sublocation.
 
@@ -12629,13 +12629,13 @@ Displays data for [Isolation Policy](https://help.zscaler.com/zpa/about-isolatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-columns","lastmod":"2026-10-09T07:06Z","nid":"1401046"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-columns","lastmod":"2026-10-15T22:33Z","nid":"1401046"} -->
 ## Web Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/web-insights-logs-columns
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Columns
-- Last modified: 2026-10-09T07:06Z
+- Last modified: 2026-10-15T22:33Z
 - Summary: Information on the different columns in the Web Insights Logs page in the Zscaler Admin Console.
 
 You can customize your web logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -12704,6 +12704,7 @@ You can select the following web column fields:
 - **Download File Name**: The name of downloaded files during the transaction.
 - **Download File Type**: The type of file downloaded during the transaction.
 - **Download User-Defined File Type**: The user-defined file type downloaded during the transaction.
+- **Email Recipients**: The email addresses of the message recipients. This column applies to email applications and displays up to 16 addresses.
 - **Enrolled Device app version**: The app version of the enrolled device.
 - **Event Time**:The date and time of the transaction. You can sort this column.
 - **Exempted DLP Identifier**: The unique DLP identifier of the transaction. This field is populated in cases where the DLP scan times out, exempting the transaction from policy enforcement. This field is not populated if the DLP Identifier is populated.
@@ -12762,6 +12763,7 @@ You can select the following web column fields:
 - **Response HTTP Version**: The response version of HTTP used for communication between the client and the server.
 - **Response Code**:The destination server’s response. For example, 200 OK means the request succeeded and 404 Not Found means the requested URL was not found.
 - **Risk Index**: The computed or assigned risk index for the application, with 1 being the lowest risk and 5 being the highest.
+- **SaaS Authenticated Username**: The username that the user utilizes when attempting to authenticate to the SaaS application.
 - **Sent Bytes**:Specifies the size, in bytes, of the HTTP request that was sent to the destination web server.
 - **Server Certificate Self Signed**:If the certificate presented by the Origin Content Server (web server) to the Public Service Edge was self-signed.
 - **Server Certificate Validation Type**:The validation type for the certificate presented by the server to the Public Service Edge (Extended Validation, Organization Validation, or Domain Validation).

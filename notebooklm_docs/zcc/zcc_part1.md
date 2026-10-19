@@ -1,18 +1,18 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 206
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 201
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/client-connector/implementing-zscaler-client-connector-no-default-route-environments","lastmod":"2026-10-05T21:06Z","nid":"1506796"} -->
+<!-- ZS-ARTICLE {"url":"/client-connector/implementing-zscaler-client-connector-no-default-route-environments","lastmod":"2026-10-14T14:04Z","nid":"1506796"} -->
 ## Implementing Zscaler Client Connector in No-Default Route Environments
 
 - Source: https://help.zscaler.com/client-connector/implementing-zscaler-client-connector-no-default-route-environments
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Implementing Zscaler Client Connector in No-Default Route Environments
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-14T14:04Z
 - Summary: Steps on how to implement Zscaler Client Connector in a no-default route environment.
 
 You can deploy Zscaler Client Connector in a no-default route environment to provide a greater level of protection for end users connecting to the internet with minimal changes to the environment. In a typical network, the default route determines how traffic is forwarded to a specific destination when a route for that destination isn't available. The default route usually points to the edge router, and eventually out to the internet.
@@ -37,11 +37,11 @@ In a typical environment, Zscaler Client Connector communicates with the followi
 
 | **Operation** | **Entity** | **Communication Details** |
 | --- | --- | --- |
-| Captive Portal Detection | Zscaler Admin Console | Probe to gateway.zscaler.net Probe to gateway.[cloudname].net |
-| Login Start | Zscaler Admin Console | API call to login.[cloudname].net |
+| Captive Portal Detection | Zscaler Admin Console | Probe to gateway.zscaler.net Probe to gateway.<cloudname>.net |
+| Login Start | Zscaler Admin Console | API call to login.<cloudname>.net |
 | Name Resolution | Internal DNS Servers | DNS resolution requests |
-| Policy Download | Zscaler Admin Console Zscaler PAC Server | API call to mobile.[cloudname].net Download App Profile PAC from pac.[cloudname].net |
-| Service Discovery & Enrollment | Zscaler Admin Console | API call to gateway.[cloudname].net API call to mobile.[cloudname].net |
+| Policy Download | Zscaler Admin Console Zscaler PAC Server | API call to mobile.<cloudname>.net Download App Profile PAC from pac.<cloudname>.net |
+| Service Discovery & Enrollment | Zscaler Admin Console | API call to gateway.<cloudname>.net API call to mobile.<cloudname>.net |
 | Tenant Cloud Discovery | Zscaler Admin Console | Probe to mobile.zscaler.net |
 | Internet & SaaS Authentication | Customer IdP Internet & SaaS SAML SP | SAML call to customer IdP SAML call to Internet & SaaS (SP) |
 | Internet & SaaS Traffic Forwarding | Public/Private Service Edge for Internet & SaaS | Forwarding using Tunnel with Local Proxy, Z-Tunnel 1.0 & 2.0 |
@@ -119,7 +119,7 @@ See image.
 
 [Image: Enforce authentication]
 
-Determine the Zscaler GVIP address Zscaler Client Connector connects to by selecting one from the bottom of the page at [https://config.zscaler.com/[cloudname].net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr.). For example, if your tenant is hosted in the zscalertwo cloud, use the configuration information from [https://config.zscaler.com/zscalertwo.net/cenr.](https://config.zscaler.com/zscalertwo.net/cenr.) The Zscaler GVIP address is located at the bottom of the page. The following image shows a list of GVIPs that you can use for forwarding traffic across the GRE/IPSec tunnel. This article uses 185.46.212.88 for all configurations except when forwarding traffic to a Private Service Edge for Internet & SaaS.
+Determine the Zscaler GVIP address Zscaler Client Connector connects to by selecting one from the bottom of the page at [https://config.zscaler.com/<cloudname>.net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr.). For example, if your tenant is hosted in the zscalertwo cloud, use the configuration information from [https://config.zscaler.com/zscalertwo.net/cenr.](https://config.zscaler.com/zscalertwo.net/cenr.) The Zscaler GVIP address is located at the bottom of the page. The following image shows a list of GVIPs that you can use for forwarding traffic across the GRE/IPSec tunnel. This article uses 185.46.212.88 for all configurations except when forwarding traffic to a Private Service Edge for Internet & SaaS.
 
 [Image: GVIPs used for forwarding traffic]
 
@@ -129,12 +129,12 @@ Using 185.46.212.88 as the Zscaler VIP, create the following DNS Type A records 
 
 | **DNS Record** | **Record Type** | **IP Address** | **Example Records for ZS2** |
 | --- | --- | --- | --- |
-| gateway.[cloudname].net | A | 185.46.212.88 | gateway.zscalertwo.net |
+| gateway.<cloudname>.net | A | 185.46.212.88 | gateway.zscalertwo.net |
 | gateway.zscaler.net | A | 185.46.212.88 | gateway.zscaler.net |
-| login.[cloudname].net | A | 185.46.212.88 | login.zscalertwo.net |
-| mobile.[cloudname].net | A | 185.46.212.88 | mobile.zscalertwo.net |
+| login.<cloudname>.net | A | 185.46.212.88 | login.zscalertwo.net |
+| mobile.<cloudname>.net | A | 185.46.212.88 | mobile.zscalertwo.net |
 | mobile.zscaler.net | A | 185.46.212.88 | mobile.zscaler.net |
-| pac.[cloudname].net | A | 185.46.212.88 | pac.zscalertwo.net |
+| pac.<cloudname>.net | A | 185.46.212.88 | pac.zscalertwo.net |
 
 Certain networks don't allow injection of public IP prefixes in internal routing tables. In those scenarios, you can use an internal IP address for DNS records instead of the Zscaler GVIP with an upstream router/firewall performing Destination NAT and translating the internal address to the Zscaler GVIP.
 
@@ -144,10 +144,10 @@ The following table shows the DNS records when an internal IP address is used in
 | --- | --- | --- | --- |
 | gateway.zscaler.net | A | 10.10.10.10 | gateway.zscaler.net |
 | mobile.zscaler.net | A | 10.10.10.10 | mobile.zscaler.net |
-| gateway.[cloudname].net | A | 10.10.10.10 | gateway.zscalertwo.net |
-| mobile.[cloudname].net | A | 10.10.10.10 | mobile.zscalertwo.net |
-| login.[cloudname].net | A | 10.10.10.10 | login.zscalertwo.net |
-| pac.[cloudname].net | A | 10.10.10.10 | pac.zscalertwo.net |
+| gateway.<cloudname>.net | A | 10.10.10.10 | gateway.zscalertwo.net |
+| mobile.<cloudname>.net | A | 10.10.10.10 | mobile.zscalertwo.net |
+| login.<cloudname>.net | A | 10.10.10.10 | login.zscalertwo.net |
+| pac.<cloudname>.net | A | 10.10.10.10 | pac.zscalertwo.net |
 
 A System PAC file is required for initial discovery, enrollment, authentication, app and forwarding profile policy and PAC file downloads. The System PAC enables Zscaler Client Connector to communicate with the Zscaler cloud in an explicit proxy mode. You can use a Zscaler GVIP address as the explicit proxy address or you can use a third-party proxy, as long as it meets the [configuration requirements](https://help.zscaler.com/client-connector/implementing-zscaler-client-connector-no-default-route-environments#config-requirements). After enrollment, the System PAC is no longer used by Zscaler Client Connector. Zscaler Client Connector restores the System PAC upon exit.
 
@@ -219,7 +219,7 @@ The following table shows the System PAC file code details:
 | --- | --- |
 | `var egressip = "${SRCIP}";` | Determines the client's public IP address using the ${SRCIP} macro which is only available when the PAC file is hosted in the Zscaler cloud. |
 | `if ((shExpMatch(host, "*.internaldomain.com")) \|\| (privateIP.test(resolved_ip))) return "DIRECT";` | Don't use proxy for internal domains and RFC-1918 addresses. Replace `internaldomain.com` with your internal domains. |
-| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0")))` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/[cloudname].net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) See image.  [Image: Zscaler aggregate IP address ranges] |
+| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0")))` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/<cloudname>.net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) See image.  [Image: Zscaler aggregate IP address ranges] |
 | `if ((dnsDomainIs(host, "1.2.3.4")) \|\| (shExpMatch(host, "*.zscaler.net")) \|\|` | Special URL checked by Zscaler Client Connector to enroll using an explicit proxy, in this case the Zscaler GVIP (185.46.212.88). |
 | `(shExpMatch(host, "*.zscalertwo.net")) \|\| //Service Discovery, Enrollment, Login` | Replace the wildcard domain with the one that matches the customer cloud. |
 | `(shExpMatch(host, "mobilesupport.zscaler.com")) \|\| //Support (shExpMatch(host, "*.zdxcloud.net")) \|\| //ZDX (shExpMatch(host, "*.digicert.com")) \|\| //Cert validation` | Required for support access, Digital Experience (ZDX) and certificate validation during discovery and enrollment. |
@@ -302,8 +302,7 @@ To create a forwarding profile for On-Trusted and Off-Trusted networks:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Forwarding Profile**.
 2. Click **Add Forwarding Profile**. The **Add Forwarding Profile** window appears.
 3. Enter a name for the profile.
-4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions. See image.
-  1. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default-route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector).
+4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default-route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector). See image.
 
 [Image: forwarding profile section]
 
@@ -375,7 +374,7 @@ Use the following PAC file code details:
 | --- | --- |
 | `var egressip = "${SRCIP}";` | Determines the client's public IP address using the ${SRCIP} macro which is only available when the PAC file is hosted in the Zscaler cloud. |
 | `if ((shExpMatch(host, "*.internaldomain.com")) \|\| (privateIP.test(resolved_ip))) return "DIRECT";` | Don't use proxy for internal domains and RFC-1918 addresses. Replace `internaldomain.com` with your internal domains. |
-| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 185.46.212.88:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/[cloudname].net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) See image.  [Image: Zscaler aggregate IP address ranges] |
+| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 185.46.212.88:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/<cloudname>.net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) See image.  [Image: Zscaler aggregate IP address ranges] |
 | `{ return "PROXY 185.46.212.88:80"; }` | If Zscaler Client Connector is at a no-default route location, it uses the Zscaler GVIP 185.46.212.88 as the explicit proxy address for service discovery, enrollment, authentication, and policy and pac downloads. Instead of using the Zscaler GVIP, use the internal IP address, e.g., 10.10.10.10 for No External Route Networks. |
 | `if (trust.test(host) \|\| iam.test(host) \|\| /^trust.zscaler.us$/.test(host) \|\| /^config.zscaler.com$/.test(host)) return "DIRECT"; // Bypasses for ZPA if ((isInNet(resolved_ip, "100.64.0.0", "255.255.0.0")) \|\| (shExpMatch(host, "*.private.zscaler.com")) \|\| (shExpMatch(host, "*.zpath.net"))) return "DIRECT";` | When Zscaler Client Connector is on an Off-Trusted Network use this criteria to bypass Zscaler. |
 | `return "PROXY ${GATEWAY_FX}:${ZS_CUSTOM_PORT}; PROXY ${SECONDARY_GATEWAY_FX}:${ZS_CUSTOM_PORT}; DIRECT"; }` | Use auto-assigned data centers to connect via Z-Tunnel 2.0 when on an Off-Trusted Network. |
@@ -439,8 +438,7 @@ Create a [Trusted Network Criteria](https://help.zscaler.com/zscaler-client-conn
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Forwarding Profile**.
 2. Click **Add Forwarding Profile**. The **Add Forwarding Profile** window appears.
 3. Enter a name for the profile.
-4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions.
-  1. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default-route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector). See image.
+4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default-route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector). See image.
 
 [Image: Edit forwarding profile]
 
@@ -454,8 +452,7 @@ Create a [Trusted Network Criteria](https://help.zscaler.com/zscaler-client-conn
 
 1. In the **Off-Trusted Network** section, select the forwarding mechanisms as per your organization's requirements. Zscaler supports all forwarding mechanism for Off-Trusted network users. The following example uses Z-Tunnel 2.0.
 2. For **Off-Trusted Network**, select **Tunnel**.
-3. For **Tunnel version selection**, select **Z-Tunnel 2.0**.
-4. See image.
+3. For **Tunnel version selection**, select **Z-Tunnel 2.0**. See image.
 
 [Image: Off-Trusted Network]
 
@@ -520,7 +517,7 @@ Refer to the following table for forwarding PAC file details.
 | --- | --- |
 | `var egressip = "${SRCIP}";` | Determines the client's public IP address using the ${SRCIP} macro which is only available when the PAC file is hosted in the Zscaler cloud. |
 | `if ((shExpMatch(host, "*.internaldomain.com")) \|\| (privateIP.test(resolved_ip))) return "DIRECT";` | Don't use proxy for internal domains and RFC-1918 addresses. Replace `internaldomain.com` with your internal domains. |
-| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 185.46.212.88:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: https://config.zscaler.com/[cloudname].net/cenr See image. [Image: Zscaler aggregate IP address ranges] |
+| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 185.46.212.88:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: https://config.zscaler.com/<cloudname>.net/cenr See image. [Image: Zscaler aggregate IP address ranges] |
 | `{ return "PROXY 185.46.212.88:80"; }` | If Zscaler Client Connector is at a no-default route location, it uses the Zscaler GVIP 185.46.212.88 as the explicit proxy address for service discovery, enrollment, authentication, and policy and pac downloads. Instead of using the Zscaler GVIP, use the internal IP address, e.g, . 10.10.10.10 for No External Route Networks. |
 | `if (trust.test(host) \|\| iam.test(host) \|\| /^trust.zscaler.us$/.test(host) \|\| /^config.zscaler.com$/.test(host)) return "DIRECT"; // Bypasses for ZPA if ((isInNet(resolved_ip, "100.64.0.0", "255.255.0.0")) \|\| (shExpMatch(host, "*.private.zscaler.com")) \|\| (shExpMatch(host, "*.zpath.net"))) return "DIRECT";` | When Zscaler Client Connector is on an Off-Trusted Network, use this criteria to bypass Zscaler. |
 | `return "PROXY ${GATEWAY_FX}:${ZS_CUSTOM_PORT}; PROXY ${SECONDARY_GATEWAY_FX}:${ZS_CUSTOM_PORT}; DIRECT"; }` | Use auto-assigned data centers to connect via Z-Tunnel 2.0 when on an Off-Trusted Network. |
@@ -603,8 +600,7 @@ Create a [Trusted Network Criteria](https://help.zscaler.com/zscaler-client-conn
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Client Connector** > **Forwarding Profile**.
 2. Click **Add Forwarding Profile**. The **Add Forwarding Profile** window appears.
 3. Enter a name for the profile.
-4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions.
-  1. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector).
+4. In the **Trusted Network Criteria** section, for **Add Condition**, select a condition, then select **Add Condition**. The **Predefined Trusted Networks** condition cannot be added with any other conditions. If you select **Predefined Trusted Networks** as the condition, for **Predefined Trusted Networks**, choose the **Selected** option. This allows Zscaler Client Connector to detect when it is in a no-default route environment. To learn more about trusted networks, see [Configuring Trusted Networks for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector).
 
 See image.
 
@@ -670,7 +666,7 @@ function FindProxyForURL(url, host) {
 | **PAC File Code Details** | **Notes** |
 | --- | --- |
 | `var egressip = "${SRCIP}";` | Determines the client's public IP address using the ${SRCIP} macro which is only available when the PAC file is hosted in the Zscaler cloud. |
-| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 10.10.10.50:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/[cloudname].net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) If Zscaler Client Connector is at a no-default route location with a GRE/IPSec tunnel, then connect to the Private Service Edge for Internet & SaaS VIP address at `10.10.10.50`. See image. [Image: Zscaler aggregate IP address ranges] |
+| `// Zscaler public egress subnets if ((isInNet(egressip, "58.220.95.0", "255.255.255.0")) \|\| (isInNet(egressip, "64.215.22.0", "255.255.255.0")) \|\| (isInNet(egressip, "87.58.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "94.188.131.0", "255.255.255.128")) \|\| (isInNet(egressip, "94.188.139.64", "255.255.255.192")) \|\| (isInNet(egressip, "94.188.248.64", "255.255.255.192")) \|\| (isInNet(egressip, "98.98.26.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.27.0", "255.255.255.0")) \|\| (isInNet(egressip, "98.98.28.0", "255.255.255.0")) \|\| (isInNet(egressip, "101.2.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "104.129.192.0", "255.255.240.0")) \|\| (isInNet(egressip, "112.137.170.0", "255.255.255.0")) \|\| (isInNet(egressip, "124.248.141.0", "255.255.255.0")) \|\| (isInNet(egressip, "128.177.125.0", "255.255.255.0")) \|\| (isInNet(egressip, "136.226.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "137.83.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "140.210.152.0", "255.255.254.0")) \|\| (isInNet(egressip, "147.161.128.0", "255.255.128.0")) \|\| (isInNet(egressip, "154.113.23.0", "255.255.255.0")) \|\| (isInNet(egressip, "165.225.0.0", "255.255.128.0")) \|\| (isInNet(egressip, "165.225.192.0", "255.255.192.0")) \|\| (isInNet(egressip, "167.103.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "170.85.0.0", "255.255.0.0")) \|\| (isInNet(egressip, "185.46.212.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.96.0", "255.255.240.0")) \|\| (isInNet(egressip, "194.9.112.0", "255.255.252.0")) \|\| (isInNet(egressip, "194.9.116.0", "255.255.255.0")) \|\| (isInNet(egressip, "196.23.154.64", "255.255.255.224")) \|\| (isInNet(egressip, "196.23.154.96", "255.255.255.224")) \|\| (isInNet(egressip, "197.98.201.0", "255.255.255.0")) \|\| (isInNet(egressip, "197.156.241.224", "255.255.255.224")) \|\| (isInNet(egressip, "198.14.64.0", "255.255.192.0")) \|\| (isInNet(egressip, "199.168.148.0", "255.255.254.0")) \|\| (isInNet(egressip, "209.55.128.0", "255.255.192.0")) \|\| (isInNet(egressip, "209.55.192.0", "255.255.224.0")) \|\| (isInNet(egressip, "211.144.19.0", "255.255.255.0")) \|\| (isInNet(egressip, "220.243.154.0", "255.255.254.0")) \|\| (isInNet(egressip, "221.122.91.0", "255.255.255.0"))) return "PROXY 10.10.10.50:80";` | List of Zscaler public IP addresses to detect whether Zscaler Client Connector is accessing the Zscaler cloud using a GRE/IPSec tunnel. These addresses are documented in the Zscaler Aggregate IP Address Ranges section: [https://config.zscaler.com/<cloudname>.net/cenr](https://config.zscaler.com/%5Bcloudname%5D.net/cenr) If Zscaler Client Connector is at a no-default route location with a GRE/IPSec tunnel, then connect to the Private Service Edge for Internet & SaaS VIP address at `10.10.10.50`. See image. [Image: Zscaler aggregate IP address ranges] |
 | `return "PROXY ${GATEWAY_FX}:${ZS_CUSTOM_PORT}; PROXY ${SECONDARY_GATEWAY_FX}:${ZS_CUSTOM_PORT}; DIRECT"; }` | Use auto-assigned data centers to connect via Z-Tunnel 2.0 when Off-Trusted Network. |
 
 Create an App Profileand associate the [previously created Forwarding Profile](https://help.zscaler.com/client-connector/implementing-zscaler-client-connector-no-default-route-environments#scenario-3-forwarding-profile-on-off-trusted) with it.
@@ -1062,13 +1058,13 @@ On the Device Posture page (Infrastructure > Client Connector > Device Posture),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-endpoint-integration-page","lastmod":"2026-10-01T00:43Z","nid":"1317661"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-endpoint-integration-page","lastmod":"2026-10-15T21:06Z","nid":"1317661"} -->
 ## About the Endpoint Integration Page
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-endpoint-integration-page
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Endpoint Integration > About the Endpoint Integration Page
-- Last modified: 2026-10-01T00:43Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information on where to configure how Zscaler Client Connector interacts with applications installed on the device.
 
 In the Zscaler Admin Console, you can configure how Zscaler Client Connector interacts with applications installed on the device.
@@ -1097,13 +1093,13 @@ On the Endpoint Integration page (Infrastructure > Advanced Settings > Endpoint 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-enrolled-devices","lastmod":"2026-10-06T21:45Z","nid":"1296746"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-enrolled-devices","lastmod":"2026-10-13T14:38Z","nid":"1296746"} -->
 ## About Enrolled Devices
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > About Enrolled Devices
-- Last modified: 2026-10-06T21:45Z
+- Last modified: 2026-10-13T14:38Z
 - Summary: Information on where to view a list of enrolled devices, device fingerprint information, and remove apps from devices in the Zscaler Admin Console.
 
 [Watch a video about Enrolled Devices.](https://fast.wistia.net/embed/iframe/whx9q771j7)
@@ -1154,13 +1150,13 @@ On the Device Management page (Infrastructure > Client Connector > Device Overvi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-failed-posture-devices","lastmod":"2026-10-06T21:06Z","nid":"1529280"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-failed-posture-devices","lastmod":"2026-10-13T14:41Z","nid":"1529280"} -->
 ## About Failed Posture Devices
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-failed-posture-devices
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > About Failed Posture Devices
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-13T14:41Z
 - Summary: Information on where to view a list of devices that failed posture checks in the Zscaler Admin Console.
 
 Failed Posture Devices is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
@@ -1197,13 +1193,13 @@ By default, each page shows up to 50 devices. View more devices by using the tab
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-forwarding-profiles","lastmod":"2026-10-02T21:06Z","nid":"1317646"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-forwarding-profiles","lastmod":"2026-10-16T16:57Z","nid":"1317646"} -->
 ## About Forwarding Profiles
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > About Forwarding Profiles
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T16:57Z
 - Summary: Information on forwarding profiles and where to configure them in the Zscaler Client Connector Portal.
 
 [Watch a video about forwarding profiles.](https://fast.wistia.net/embed/iframe/3gikxer9e2)
@@ -1301,13 +1297,13 @@ On the Internet & SaaS Posture Profiles page (Infrastructure > Client Connector 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-location-based-policies","lastmod":"2026-10-02T21:06Z","nid":"1532831"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-location-based-policies","lastmod":"2026-10-13T15:06Z","nid":"1532831"} -->
 ## About Location-Based Policies
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-location-based-policies
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > About Location-Based Policies
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-13T15:06Z
 - Summary: Information about using location-based policies to steer traffic and manage endpoint firewall rules.
 
 Location-based policies are rulesets that steer traffic and apply endpoint firewall rules based on a user’s network type (e.g, On-Trusted or Off-Trusted). These rulesets can include inbound and outbound endpoint firewall rules, DNS domain inclusions and exclusions, and bypasses for applications and IP addresses. Rulesets can include traffic steering only, endpoint firewall rules only, or a combination of both. You can add a ruleset for each network type and assign the rulesets to app profiles.
@@ -1355,13 +1351,13 @@ On the Location-Based Policies page (Infrastructure > Client Connector > Locatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-machine-tunnels","lastmod":"2026-10-02T14:54Z","nid":"1370131"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-machine-tunnels","lastmod":"2026-10-16T21:06Z","nid":"1370131"} -->
 ## About Machine Tunnels
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > About Machine Tunnels
-- Last modified: 2026-10-02T14:54Z
+- Last modified: 2026-10-16T21:06Z
 - Summary: Information on where to view a list of machine tunnels, details about each machine tunnel, and remove machine tunnels in the Zscaler Admin Console.
 
 A machine tunnel allows a user's Windows or macOS device to establish a connection to a service before the user is logged in to Zscaler Client Connector. Zscaler Client Connector doesn't support machine tunnels for iOS, Linux, Android, and Android on ChromeOS.
@@ -1411,13 +1407,13 @@ On the Machine Tunnel page (Infrastructure > Client Connector > Machine Tunnel),
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-network-performance","lastmod":"2026-09-30T23:55Z","nid":"1328966"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-network-performance","lastmod":"2026-10-15T21:06Z","nid":"1328966"} -->
 ## Configuring Traceroute Information Collection for Network Performance
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-network-performance
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Network Performance > Configuring Traceroute Information Collection for Network Performance
-- Last modified: 2026-09-30T23:55Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to collect traceroute information on the connection between devices and the Zscaler cloud to check network performance.
 
 You can use Zscaler Client Connector to collect traceroute information on the connection between devices and the Zscaler cloud, and store the results to check or troubleshoot network performance.
@@ -1440,13 +1436,13 @@ When Zscaler Client Connector collects traceroute information, it's stored local
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-one-time-passwords-enrolled-devices","lastmod":"2026-10-06T21:06Z","nid":"1334536"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-one-time-passwords-enrolled-devices","lastmod":"2026-10-13T14:40Z","nid":"1334536"} -->
 ## Accessing One-Time Passwords for Enrolled Devices
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-one-time-passwords-enrolled-devices
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Accessing One-Time Passwords for Enrolled Devices
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-13T14:40Z
 - Summary: Information on the one-time password for each enrolled device. This password is usable in place of passwords defined in the Zscaler Client Connector profile.
 
 You can view and copy the one-time password (OTP) for each [enrolled device](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). You can use this OTP in place of passwords defined in [app profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
@@ -1464,13 +1460,13 @@ To view and copy an OTP:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-partner-devices","lastmod":"2026-10-06T21:06Z","nid":"1420126"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-partner-devices","lastmod":"2026-10-13T14:41Z","nid":"1420126"} -->
 ## About Partner Devices
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-partner-devices
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > About Partner Devices
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-13T14:41Z
 - Summary: Information on where to view a list of partner devices with access to an organization's tenant in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can view a list of partner devices with access to your organization's tenant. You can give partner organizations access to your organization's tenant by enabling access. To learn more, see [EnablingPrivate Access Partner Logins](https://help.zscaler.com/zscaler-client-connector/enabling-zpa-partner-logins).
@@ -1520,13 +1516,13 @@ By default, each page shows up to 100 devices. View more devices by using the ta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-platform-settings","lastmod":"2026-09-30T21:06Z","nid":"1443706"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-platform-settings","lastmod":"2026-10-15T15:56Z","nid":"1443706"} -->
 ## About Platform Settings
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-platform-settings
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > About Platform Settings
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:56Z
 - Summary: About configurations users can make on the Platforms Settings page
 
 [Watch a video about Platform Settings.](https://fast.wistia.net/embed/iframe/ci0mpfxiy5)
@@ -1640,13 +1636,13 @@ On the Administration Management page (Administration > Role Management > Client
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-trusted-networks","lastmod":"2026-10-02T21:06Z","nid":"1345606"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-trusted-networks","lastmod":"2026-10-16T16:58Z","nid":"1345606"} -->
 ## About Trusted Networks
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-trusted-networks
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > About Trusted Networks
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T16:58Z
 - Summary: Information on where to predefine your networks in order to select multiple trusted networks in Zscaler Client Connector forwarding profile.
 
 [Watch a video about Trusted Networks.](https://fast.wistia.net/embed/iframe/uccu8mi4d4)
@@ -1677,13 +1673,13 @@ On the Trusted Networks page (Infrastructure > Location Management > Trusted Net
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-user-privacy","lastmod":"2026-10-01T00:02Z","nid":"1317656"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-user-privacy","lastmod":"2026-10-15T21:06Z","nid":"1317656"} -->
 ## About User Privacy
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-user-privacy
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > About User Privacy
-- Last modified: 2026-10-01T00:02Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information on where to configure the various user privacy settings from the Zscaler Admin Console.
 
 From the Zscaler Admin Console, you can configure user privacy for various settings.
@@ -1835,13 +1831,13 @@ On the Client Connector App Store page (Infrastructure > Client Connector > App 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-client-connector-idp","lastmod":"2026-09-30T21:06Z","nid":"1317676"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-client-connector-idp","lastmod":"2026-10-15T15:58Z","nid":"1317676"} -->
 ## About Zscaler Client Connector IdP
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-idp
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > About Zscaler Client Connector IdP
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:58Z
 - Summary: Information on using the Zscaler Admin Console as an identity provider for the Zscaler service and where to obtain items needed for this configuration.
 
 The Zscaler Admin Console can function as an identity provider (IdP) for the Zscaler service. With this feature, users do not need to be tied to your organization’s standard identity provider (IdP) in order to authenticate to the Zscaler service. Instead, if your organization uses SAML-based single sign-on (SSO), the app can use a device token to auto-provision and silently authenticate users and devices for the Zscaler service.
@@ -1917,13 +1913,13 @@ On the Client Connector Notification page (Administration > End User Notificatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-service-entitlement","lastmod":"2026-09-30T14:51Z","nid":"1328951"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/about-zscaler-service-entitlement","lastmod":"2026-10-14T21:06Z","nid":"1328951"} -->
 ## About Zscaler Service Entitlement
 
 - Source: https://help.zscaler.com/zscaler-client-connector/about-zscaler-service-entitlement
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > About Zscaler Service Entitlement
-- Last modified: 2026-09-30T14:51Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on where to configure selective entitlement for Zscaler Internet Access (ZIA), Zscaler Private Access (ZPA), Digital Experience (ZDX), and Zscaler Deception services.
 
 [Watch a video about Zscaler Service Entitlement.](https://fast.wistia.net/embed/iframe/v1tsymm1eh)
@@ -1991,13 +1987,13 @@ To add a new API key:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-application-ruleset","lastmod":"2026-10-05T21:06Z","nid":"1532885"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-application-ruleset","lastmod":"2026-10-13T15:09Z","nid":"1532885"} -->
 ## Adding an Application for a Ruleset
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-application-ruleset
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > Adding an Application for a Ruleset
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-13T15:09Z
 - Summary: How to add an application to use for endpoint firewall rules with location-based policies.
 
 You can add an application to use when adding a ruleset to manage endpoint firewall rules to use with location-based policies. To learn more, see [About Location-Based Policies](https://help.zscaler.com/zscaler-client-connector/about-location-based-policies).
@@ -2025,13 +2021,13 @@ You can enter a maximum of 300 applications to use in rulesets. After you create
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-domain-list","lastmod":"2026-10-05T21:06Z","nid":"1532879"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-domain-list","lastmod":"2026-10-13T15:08Z","nid":"1532879"} -->
 ## Adding a Domain List
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-domain-list
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > Adding a Domain List
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-13T15:08Z
 - Summary: How to add a list of domains to use for traffic steering with location-based policies.
 
 You can add a list of domains to use when adding a ruleset for traffic steering to use with location-based policies. To learn more, see [About Location-Based Policies](https://help.zscaler.com/zscaler-client-connector/about-location-based-policies).
@@ -2057,13 +2053,13 @@ You can enter a maximum of 300 domain lists. After you create a list, you can se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-firewall-ip-list","lastmod":"2026-10-05T21:06Z","nid":"1532880"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-firewall-ip-list","lastmod":"2026-10-13T15:09Z","nid":"1532880"} -->
 ## Adding a Firewall IP List
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-firewall-ip-list
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > Adding a Firewall IP List
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-13T15:09Z
 - Summary: How to add a list of IP addresses to use for endpoint firewall rules with location-based policies.
 
 You can add a list of host and remote IP addresses, ports, and protocols to use for inbound and outbound firewall rules when adding a ruleset to manage endpoint firewall rules to use with location-based policies. To learn more, see [About Location-Based Policies](https://help.zscaler.com/zscaler-client-connector/about-location-based-policies).
@@ -2175,6 +2171,82 @@ To add an IP-based application to bypass traffic:
 **[Image: IP-Based Application in Application Bypass]**
 
 [Image: Add Application window when adding an IP-based application in Application Bypass]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-partner-tenant-zscaler-client-connector-classic-ui","lastmod":"2026-10-13T16:27Z","nid":"1472836"} -->
+## Adding a Partner Tenant to Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/adding-partner-tenant-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Adding a Partner Tenant to Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-13T16:27Z
+- Summary: How to add a partner tenant in Zscaler Client Connector in the Classic UI.
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+You can add a partner tenant to the app so that you can access the partner's internal resources without needing to log out of and back in to Zscaler Client Connector.
+
+Before you can add a partner tenant, your organization and the partner organization must [enable Private Access partner logins](https://help.zscaler.com/zscaler-client-connector/enabling-zpa-partner-logins). If you use Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 5.0 and later for macOS, your organization can [enable partner logins by app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) and for specific domains. You can enable Private Access partner logins even if you do not use Private Access and use only Internet & SaaS.
+
+This article provides instructions on adding a partner tenant to Zscaler Client Connector based on the OS.
+
+- Windows
+- macOS
+
+To add a partner tenant using the Windows version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector and click **Private Access**. See image. If your organization does not use Private Access, the **Private Access** window displays only the **Add Partner Tenant** link and information about the partner tenant.
+2. Click **Add Partner Tenant**. The **Add Tenant** window appears.
+3. Based on your organization's partner tenant settings, you are prompted to complete one of the following steps:
+  1. In the **Add Tenant** window, enter your username for the partner tenant and click **Submit**. See image.
+  2. In the **Add Tenant** window:
+    1. Select the partner tenant to access and click **Connect**. See image.
+    2. Enter your username for the partner tenant, and click **Submit**.
+4. The identity provider page for the partner organization appears. In this example, the partner identity provider is Okta. See image.
+5. Enter your credentials for the partner tenant and log in. The **Private Access** window reappears and displays both your organization's tenant and the partner tenant. See image.
+
+After logging in to the partner organization, Zscaler Client Connector automatically turns off Private Access access to your organization. You can click **Turn On** for the main tenant to enable it and automatically turn off access to the partner organization.
+
+After you have added the partner tenant, the partner tenant remains on this window, and you can click **Turn On** for the partner tenant to enable Private Access access to the partner organization.
+
+[Image: Private Access window]
+
+[Image: The Add Tenant window of Zscaler Client Connector for Windows]
+
+[Image: Select a partner in the Add Tenant window]
+
+[Image: The authentication window of Zscaler Client Connector for Windows]
+
+[Image: Private Access window]
+
+To add a partner tenant using the macOS version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector and click **Private Access**. See image. If your organization does not use Private Access, the **Private Access** window displays only the **Add Partner Tenant** link and information about the partner tenant.
+2. Click **Add Partner Tenant**. The **Add Tenant** window appears. See image.
+3. Based on your organization's partner tenant settings, you are prompted to complete one of the following steps: The identity provider page for the partner organization appears. In this example, the partner identity provider is Okta. See image.
+  1. In the **Add Tenant** window, enter your username for the partner tenant and click **Submit**. See image.
+  2. In the **Add Tenant** window:
+    1. Select the partner tenant to access and click **Connect**. See image.
+    2. Enter your username for the partner tenant, and click **Submit**.
+4. Enter your credentials for the partner tenant and log in. The **Private Access** window reappears and displays both your organization's tenant and the partner tenant. See image.
+
+After logging in to the partner organization, Zscaler Client Connector automatically turns off Private Access access to your organization. You can click **Turn On** for the main tenant to enable it and automatically turn off access to the partner organization.
+
+After you have added the partner tenant, the partner tenant remains on this window, and you can click **Turn On** for the partner tenant to enable Private Access access to the partner organization.
+
+[Image: Private Access window]
+
+[Image: The Add Tenant window of Zscaler Client Connector for macOS]
+
+[Image: Add Tenant window (enter username)]
+
+[Image: Add Tenant window (select partner)]
+
+[Image: The authentication window of Zscaler Client Connector for macOS]
+
+[Image: Private Access window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2361,13 +2433,13 @@ The Sensitive Data section includes the option to obfuscate passwords and tokens
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-ruleset","lastmod":"2026-10-05T21:06Z","nid":"1532876"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-ruleset","lastmod":"2026-10-13T15:07Z","nid":"1532876"} -->
 ## Adding a Policy Ruleset
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-ruleset
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > Adding a Policy Ruleset
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-13T15:07Z
 - Summary: How to add a ruleset with traffic steering and endpoint firewall rules for location-based policies.
 
 You can add a policy ruleset that steers traffic and applies endpoint firewall rules based on a user’s network type (e.g, On-Trusted or Off-Trusted). You can add up to 300 rulesets. For each ruleset, you can enter one or both of the following:
@@ -2482,13 +2554,13 @@ You must select at least one Firewall IP List or Application. To reset to the de
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-traffic-steering-ip-list","lastmod":"2026-10-05T21:06Z","nid":"1532878"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-traffic-steering-ip-list","lastmod":"2026-10-13T15:07Z","nid":"1532878"} -->
 ## Adding a Traffic Steering IP List
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-traffic-steering-ip-list
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Location-Based Policies > Adding a Traffic Steering IP List
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-13T15:07Z
 - Summary: How to add a list of IP addresses to use for traffic steering with location-based policies.
 
 You can add a list of IP addresses to use for IP inclusions and exclusions when adding a ruleset for traffic steering to use with location-based policies. To learn more, see [About Location-Based Policies](https://help.zscaler.com/zscaler-client-connector/about-location-based-policies).
@@ -2528,13 +2600,13 @@ You can enter a maximum of 300 traffic steering IP lists. After you create a lis
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-vpn-service-name","lastmod":"2026-10-01T01:03Z","nid":"1458721"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/adding-vpn-service-name","lastmod":"2026-10-15T21:06Z","nid":"1458721"} -->
 ## Adding a VPN Service Name
 
 - Source: https://help.zscaler.com/zscaler-client-connector/adding-vpn-service-name
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Endpoint Integration > Adding a VPN Service Name
-- Last modified: 2026-10-01T01:03Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Adding a VPN Service Name in the Zscaler Admin Console for flow logging.
 
 By default, traffic that is bypassed from Zscaler Client Connector is not logged. When you enable and configure flow logging in [App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) and select **VPN**to capture traffic logs for bypassed data, you must add a VPN service name to classify traffic flow into a VPN tunnel if the VPN service is not already listed.
@@ -2553,13 +2625,13 @@ To add VPN services in the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/advanced-configuration-zscaler-client-connector","lastmod":"2026-10-01T01:10Z","nid":"1317666"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/advanced-configuration-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1317666"} -->
 ## Advanced Configuration for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/advanced-configuration-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Advanced Configuration > Advanced Configuration for Zscaler Client Connector
-- Last modified: 2026-10-01T01:10Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information on where to configure advanced settings for Zscaler Client Connector and the Zscaler Admin Console itself.
 
 In the Zscaler Admin Console, you can configure advanced settings for the Zscaler Admin Console itself and Zscaler Client Connector.
@@ -2576,13 +2648,13 @@ On the Advanced Configuration page (Infrastructure > Advanced Settings > Custom 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-non-administrators-access-client-connector-log-files","lastmod":"2026-10-01T00:25Z","nid":"1452936"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-non-administrators-access-client-connector-log-files","lastmod":"2026-10-15T21:06Z","nid":"1452936"} -->
 ## Allowing Non-Administrator Users Access to Zscaler Client Connector Log Files
 
 - Source: https://help.zscaler.com/zscaler-client-connector/allowing-non-administrators-access-client-connector-log-files
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Allowing Non-Administrator Users Access to Zscaler Client Connector Log Files
-- Last modified: 2026-10-01T00:25Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Allow Non-Administrators Access to the Program Data Folder so they can access Client Connector Log Files
 
 This feature enables Zscaler Admin Console administrators to grant Zscaler Client Connector log file access to users who don’t have administrator privileges. This allows non-administrator users to send specific log files to admins instead of having to send the entire log folder in a ZIP file, making the troubleshooting process more efficient.
@@ -2596,13 +2668,13 @@ To allow non-admin users access to the Zscaler program data folder to access log
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-traffic-id-federation-url-bypassing-zscaler-client-connector","lastmod":"2026-10-02T21:06Z","nid":"1285516"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-traffic-id-federation-url-bypassing-zscaler-client-connector","lastmod":"2026-10-14T12:10Z","nid":"1285516"} -->
 ## Allowing Traffic to the ID Federation URL by Bypassing Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/allowing-traffic-id-federation-url-bypassing-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Allowing Traffic to the ID Federation URL by Bypassing Zscaler Client Connector
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-14T12:10Z
 - Summary: How to allow users to bypass Zscaler Client Connector when they browse to the identity federation URL for authentication.
 
 To allow users to bypass Zscaler Client Connector when they browse to your organization’s identity federation URL for authentication, add a custom PAC file to their [app profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles):
@@ -2617,13 +2689,13 @@ To allow users to bypass Zscaler Client Connector when they browse to your organ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-users-override-z-tunnel-2-0-or-private-access-protocol-settings","lastmod":"2026-10-01T00:23Z","nid":"1411426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/allowing-users-override-z-tunnel-2-0-or-private-access-protocol-settings","lastmod":"2026-10-15T21:06Z","nid":"1411426"} -->
 ## Allowing Users to Override Z-Tunnel 2.0 or Private Access Protocol Settings
 
 - Source: https://help.zscaler.com/zscaler-client-connector/allowing-users-override-z-tunnel-2-0-or-private-access-protocol-settings
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Allowing Users to Override Z-Tunnel 2.0 or Private Access Protocol Settings
-- Last modified: 2026-10-01T00:23Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Configuring the Allow end user to override Zscaler Tunnel (Z-Tunnel) 2.0 or Private Access protocol setting in the Zscaler Admin Console.
 
 The Allow end user to override Z-Tunnel 2.0 or ZPA protocol settingsoption is disabled by default, to prevent end users from changing the default parameters for Zscaler Tunnel (Z-Tunnel) 2.0 or Private Access (ZPA) protocol settings. You can enable this option to allow end users to modify these settings.
@@ -4028,13 +4100,13 @@ When using the Google Chrome browser version 116 or Mozilla Firefox browser vers
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/bypassing-fqdn-subdomains-vpn-gateway-bypass","lastmod":"2026-10-01T00:39Z","nid":"1534116"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/bypassing-fqdn-subdomains-vpn-gateway-bypass","lastmod":"2026-10-15T21:06Z","nid":"1534116"} -->
 ## Bypassing FQDN Subdomains for VPN Gateway Bypass
 
 - Source: https://help.zscaler.com/zscaler-client-connector/bypassing-fqdn-subdomains-vpn-gateway-bypass
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Bypassing FQDN Subdomains for VPN Gateway Bypass
-- Last modified: 2026-10-01T00:39Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to disable bypassing the subdomains for FQDNs that are entered in VPN Gateway Bypass.
 
 You can control whether Zscaler Client Connector bypasses the subdomains for FQDNs that are entered in [VPN Gateway Bypass](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#global). Zscaler Client Connector bypasses the subdomains for Zscaler Tunnel (Z-Tunnel) 1.0 and Tunnel with Local Proxy by default unless you enable this option.
@@ -4075,6 +4147,29 @@ After clicking the **Sign in** button in Settings, Chromebook users running Zsca
 Instead, users can click **Open Captive Portal** in Zscaler Client Connector for either Internet & SaaS or [Private Access until this issue is resolved.
 
 [Image: Zscaler-Client-Connector-captive-portal-button]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/changing-display-language-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:44Z","nid":"1492641"} -->
+## Changing the Display Language for Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/changing-display-language-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Changing the Display Language for Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-07T11:44Z
+- Summary: How to change the language in which the Zscaler Client Connector app displays in the Classic UI.
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+If your organization has enabled the option, you can change the language in which the Zscaler Client Connector app displays.
+
+This feature is available only with Zscaler Client Connector version 4.8 and later for Windows. The default language is based on the app profile.
+
+To change the display language:
+
+1. Open Zscaler Client Connector and click **More**.
+2. Select a different **UI Language**. The app UI and pop-up notifications change to the language you selected. [Image: Select the language the app displays in]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4163,13 +4258,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-10-09T10:24Z","nid":"1535130"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/client-connector-app-release-summary-2026","lastmod":"2026-10-15T14:51Z","nid":"1535130"} -->
 ## Client Connector App Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Release Notes (per OS) > Client Connector App Release Summary (2026)
-- Last modified: 2026-10-09T10:24Z
+- Last modified: 2026-10-15T14:51Z
 - Summary: Zscaler Client Connector app release summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector app. To successfully update to the latest version of Zscaler Client Connector, see [Best Practices for Updating Latest Versions of Zscaler Client Connector Application](https://help.zscaler.com/zscaler-client-connector/best-practices-updating-latest-version-zscaler-client-connector-application).
@@ -4332,13 +4427,13 @@ To edit the default app store group policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automated-device-cleanup","lastmod":"2026-09-29T21:06Z","nid":"1296741"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automated-device-cleanup","lastmod":"2026-10-15T15:53Z","nid":"1296741"} -->
 ## Configuring Automated Device Cleanup
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-cleanup
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Managing Devices > Configuring Automated Device Cleanup
-- Last modified: 2026-09-29T21:06Z
+- Last modified: 2026-10-15T15:53Z
 - Summary: How to configure automated device removal for devices enrolled with Zscaler Client Connector.
 
 Zscaler Client Connector allows you to configure automatic device cleanup of old, inactive, and removed devices.
@@ -4357,13 +4452,13 @@ To configure automatic device cleanup:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-crash-reporting-zscaler-client-connector","lastmod":"2026-10-01T00:15Z","nid":"1333341"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-crash-reporting-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1333341"} -->
 ## Configuring Automatic Crash Reporting for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-automatic-crash-reporting-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Configuring Automatic Crash Reporting for Zscaler Client Connector
-- Last modified: 2026-10-01T00:15Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to automatically upload crash reports, which might contain user-identifiable information.
 
 For the Android version of Zscaler Client Connector, the app automatically uploads crash reports, which might contain user-identifiable information. You can enable or disable the app from uploading crash reports, allowing for compliance with General Data Protection Regulation (GDPR).
@@ -4379,25 +4474,25 @@ To configure whether the app uploads or does not upload crash reports:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-username-population-idp-authentication","lastmod":"2026-09-30T23:45Z","nid":"1349736"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-username-population-idp-authentication","lastmod":"2026-10-14T11:06Z","nid":"1349736"} -->
 ## Configuring Automatic Username Population for IdP Authentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-automatic-username-population-idp-authentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Supportability > Configuring Automatic Username Population for IdP Authentication
-- Last modified: 2026-09-30T23:45Z
+- Last modified: 2026-10-14T11:06Z
 - Summary: How to configure Zscaler Client Connector to automatically populate the username field for your organization's IdP login form.
 
-You can configure Zscaler Client Connector to automatically populate the username field for your organization’s IdP login form using either JavaScript or the `login_hint` parameter.
+You can configure Zscaler Client Connector to automatically populate the username field for your organization's IdP login form using either JavaScript or the `login_hint` parameter.
 
 To configure automatic username population:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Advanced Settings > App Supportability**.
 2. Enable **Automatically Populate Username for IdP Authentication**.
 3. Select from the following options: If you select both options, the `login_hint` parameter takes precedence over JavaScript. [Image: Automatically Populate Username for IdP Authentication options]
-  - **Using JavaScript**: Use this option to have Zscaler Client Connector use JavaScript in the IdP page during the SAML workflow to autofill the username field for your organization’s IdP login form.
+  - **Using JavaScript**: Use this option to have Zscaler Client Connector use JavaScript in the IdP page during the SAML workflow to autofill the username field for your organization's IdP login form. This option is not available for Zscaler Client Connector version 5.0 and later for macOS.
   - **Using login_hint SAML attribute**: Use this option to have Zscaler Client Connector send the `login_hint` parameter to both Internet & SaaS and Private Access during authentication. Internet & SaaS and Private Access pass the `login_hint` parameter to the IdP as a SAML Subject (`NAMEID`) to pre-populate the user name.
-  - **Username Format**: If Using login_hint SAML attribute is enabled, you can select which username format is sent: Applies only to Zscaler Client Connector version 4.9 and later for Windows. Contact Zscaler Support to enable this feature.
+  - **Username Format**: If **Using login_hint SAML attribute** is enabled, you can select which username format is sent: Applies only to Zscaler Client Connector version 4.9 and later for Windows. Contact Zscaler Support to enable this feature.
     - **SAM Account Name**: Send the security account manager account name combined with the registry domain (e.g., jsmith and safemarch.com combined into jsmith@safemarch.com)
     - **User Principal Name**: Send the signed-in identity from a domain-joined device. If the device is not domain-joined, Zscaler Client Connector sends the SAM account name. This option reduces disruptions in the single sign-on process caused when your IdP expects a user principal name (UPN).
 4. Click **Save**.
@@ -4405,13 +4500,13 @@ To configure automatic username population:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-zpa-reauthentication","lastmod":"2026-09-30T23:49Z","nid":"1364591"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-automatic-zpa-reauthentication","lastmod":"2026-10-15T21:06Z","nid":"1364591"} -->
 ## Configuring Automatic ZPA Reauthentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-automatic-zpa-reauthentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Supportability > Configuring Automatic ZPA Reauthentication
-- Last modified: 2026-09-30T23:49Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure the Zscaler Client Connector to automatically attempt ZPA reauthentication.
 
 You can enable Zscaler Client Connector to automatically attempt reauthentication for users with Private Access (ZPA). This article describes how to configure automatic Private Access reauthentication.
@@ -4744,13 +4839,13 @@ To configure a banner:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-dedicated-proxy-ports","lastmod":"2026-10-02T21:06Z","nid":"1374356"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-dedicated-proxy-ports","lastmod":"2026-10-16T17:00Z","nid":"1374356"} -->
 ## Configuring Dedicated Proxy Ports
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-dedicated-proxy-ports
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Configuring Dedicated Proxy Ports
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T17:00Z
 - Summary: Information about Dedicated Proxy Port settings.
 
 You can use and manage dedicated proxy ports in the Zscaler Admin Console. To learn more about dedicated proxy ports for Internet & SaaS, see [Configuring Dedicated Proxy Ports](https://help.zscaler.com/zia/configuring-dedicated-proxy-ports).
@@ -4790,13 +4885,13 @@ To configure the default UI experience:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-device-posture-profiles","lastmod":"2026-09-30T12:53Z","nid":"1296826"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-device-posture-profiles","lastmod":"2026-10-13T15:36Z","nid":"1296826"} -->
 ## Configuring Device Posture Profiles
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-device-posture-profiles
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Device Posture Profiles > Configuring Device Posture Profiles
-- Last modified: 2026-09-30T12:53Z
+- Last modified: 2026-10-13T15:36Z
 - Summary: Information on how to configure device posture profiles for adding posture profile trust levels for Internet & SaaS and for configuring access policies for Private Access.
 
 [Watch a video on Device Posture Profiles.](https://fast.wistia.net/embed/iframe/bt92oxczqo)
@@ -4816,7 +4911,7 @@ To configure a device posture profile for Zscaler Client Connector:
     - **Android**
     - **iOS**
   3. **Apply to Windows Machine Tunnel**: When selected, the posture type is evaluated and applied to the Private Access pre-Windows login machine tunnel. If not selected, the posture type is only evaluated for Private Access and Internet & SaaS tunnels. Applies to the following device postures for Windows: Client Certificate, Certificate Trust, File Path, Registry Key, Firewall, Full Disk Encryption, Domain Joined, AzureAD Domain Joined, Server Validated Client Certificate, OS Version and Zscaler Client Connector Version.
-  4. **Apply when added as Partner Tenant**: Applies to Zscaler Client Connector version 4.6 and later for Windows. When selected, the posture type is evaluated and applied to the Private Access tunnel used to connect to a partner tenant. If not selected, the posture type is only evaluated for Private Access and Internet & SaaS tunnels.
+  4. **Apply when added as Partner Tenant**: Applies to Zscaler Client Connector version 4.6 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS. When selected, the posture type is evaluated and applied to the Private Access tunnel used to connect to a partner tenant. If not selected, the posture type is only evaluated for Private Access and Internet & SaaS tunnels.
   5. **Apply to macOS Machine Tunnel**: When selected, the posture type is evaluated and applied to the Private Access pre-macOS login machine tunnel. If not selected, the posture type is only evaluated for Private Access and Internet & SaaS tunnels. Applies to the following device postures for macOS: CrowdStrike ZTA Score, Full Disk Encryption, File Path, Firewall, Domain Joined, OS Version, and Zscaler Client Connector Version.
   6. **Frequency (In Minutes)**: Applies to Zscaler Client Connector version 4.4 and later for Windows and Zscaler Client Connector version 4.5 and later for macOS. For each posture type, select how often Zscaler Client Connector evaluates device posture by selecting a value, in one-minute intervals, from the drop-down menu. The maximum default value is 15 minutes. The minimum value is 2 minutes. For the following posture checks, Zscaler Client Connector evaluates device posture immediately when the posture changes on a device, regardless of what is configured in the **Frequency (In Minutes)** field: However, Zscaler Client Connector continues to evaluate device posture according to the configuration in the **Frequency (in Minutes)** field. This feature is enabled by default. Contact Zscaler Support to disable this feature.
     - **Process Check**
@@ -4848,16 +4943,16 @@ To configure a device posture profile for Zscaler Client Connector:
     - CrowdStrike ZTA Device OS Score
     - CrowdStrike ZTA Sensor Setting Score
     - Zscaler Client Connector Version
-  8. **Message**: (Optional) A message that displays if an end user is blocked from a Private Access app due to the device posture failing. You can enter a custom message or keep the default message. You can click Restore Default to replace the custom message with the default message. If the device posture fails, the end user receives a standard pop-up notification with a Learn More link. If the user clicks Learn More, the Zscaler Client Connector app opens and displays this message in the [Notifications window](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector). The message displays only if the associated [access policy](https://help.zscaler.com/zpa/configuring-access-policies) has the Device Posture Failure Notification enabled and the user’s app profile includes a [notification template](https://help.zscaler.com/zscaler-client-connector/configuring-notification-templates-zscaler-client-connector) with Show Device Posture Failure Remediation Notification enabled. Applies only to Zscaler Client Connector version 4.8 and later for Windows. Contact Zscaler Support to enable this feature.
+  8. **Message**: (Optional) A message that displays if an end user is blocked from a Private Access app due to the device posture failing. You can enter a custom message or keep the default message. You can click Restore Default to replace the custom message with the default message. If the device posture fails, the end user receives a standard pop-up notification with a Learn More link. If the user clicks Learn More, the Zscaler Client Connector app opens and displays this message in the [Notifications window](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector). The message displays only if the associated [access policy](https://help.zscaler.com/zpa/configuring-access-policies) has the Device Posture Failure Notification enabled and the user's app profile includes a [notification template](https://help.zscaler.com/zscaler-client-connector/configuring-notification-templates-zscaler-client-connector) with Show Device Posture Failure Remediation Notification enabled. Applies only to Zscaler Client Connector version 4.8 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS. Contact Zscaler Support to enable this feature.
   9. **Website URL**: (Optional) Enter a website URL to include in the message that users can click to learn more about or implement the remediation steps.
-  10. (Optional) Enter a **Device Posture Description**.
-  11. Click **Save**.
+4. (Optional) Enter a **Device Posture Description**.
+5. Click **Save**.
 
 After configuring the posture profiles, you can use these profiles to [configure access policies](https://help.zscaler.com/zpa/configuring-access-policies) and [add posture profile trust levels](https://help.zscaler.com/zscaler-client-connector/adding-zia-posture-profiles) for Internet & SaaS.
 
 Applies to Windows, macOS, Linux, Android, or iOS. Select **Certificate Trust** from the drop-down menu and upload a certificate issued by an internal root Certificate Authority (CA) trusted by your organization's users. The user's device must trust the certificate to pass the posture validation check.
 
-For iOS, the certificate must be trusted directly by the device. An intermediate certificate doesn’t work.
+For iOS, the certificate must be trusted directly by the device. An intermediate certificate doesn't work.
 
 Zscaler accepts Base64-encoded .pem and .cer files, and you can upload any one of the following:
 
@@ -4968,7 +5063,7 @@ In the terminal window:
 4. Extract the certificates using the following command: `openssl x509 -noout -sha1 -fingerprint -inform pem -in codesign0.pem` You can change `-sha1` to `-sha256`.
 5. Remove the colons from the output.
 
-This is only applicable if you’re using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect Carbon Black**. The user must have Carbon Black running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect Carbon Black**. The user must have Carbon Black running on the device to pass the posture validation check.
 
 [Image: Carbon Black Posture Type]
 
@@ -5007,7 +5102,7 @@ If you are using an older version of Zscaler Client Connector, look at the thumb
 
 For Zscaler Client Connector version 4.3 and later for macOS, if there are no matching thumbprints, the posture check still passes if Carbon Black is installed and the process is running.
 
-This is only applicable if you’re using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect CrowdStrike**. The user must have CrowdStrike running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect CrowdStrike**. The user must have CrowdStrike running on the device to pass the posture validation check.
 
 [Image: Detect CrowdStrike Device Posture Type]
 
@@ -5048,15 +5143,15 @@ If you are using an older version of Zscaler Client Connector, look at the thumb
 
 For Zscaler Client Connector version 4.3 and later for macOS, if there are no matching thumbprints, the posture check still passes if CrowdStrike is installed and the process is running.
 
-This is only applicable if you’re using Zscaler Client Connector version 3.4 and later for Windows or macOS. Select **CrowdStrike ZTA Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 3.4 and later for Windows or macOS. Select **CrowdStrike ZTA Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
 
 Users must enable the CrowdStrike ZTA feature in CrowdStrike. Contact CrowdStrike Support to enable this feature.
 
-Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against an overall score (a combined score based on the device OS settings and sensor settings) assigned by CrowdStrike’s user agent. If that overall score is greater than or equal to the score you’ve entered, the posture check passes. If the overall score is less than the score you entered, the posture check fails. To learn more about the ZTA score, refer to the CrowdStrike documentation.
+Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against an overall score (a combined score based on the device OS settings and sensor settings) assigned by CrowdStrike's user agent. If that overall score is greater than or equal to the score you've entered, the posture check passes. If the overall score is less than the score you entered, the posture check fails. To learn more about the ZTA score, refer to the CrowdStrike documentation.
 
 [Image: CrowdStrike ZTA Score Device Posture Type]
 
-This is only applicable if you’re using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect SentinelOne**. The user must have SentinelOne running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 2.1.2 and later for Windows or macOS. Select **Detect SentinelOne**. The user must have SentinelOne running on the device to pass the posture validation check.
 
 [Image: Sentinel One Posture Type]
 
@@ -5097,7 +5192,7 @@ Applies to Android or iOS. Select **Ownership Variable** from the drop-down menu
 
 The user's device must have the variable to pass the posture validation check. Your device management solution pushes the variable to the device during installation.
 
-The Ownership Variable must be set through mobile device management when deploying Zscaler Client Connector. For successful deployment of Zscaler Client Connector to your users’ devices, see the following articles:
+The Ownership Variable must be set through mobile device management when deploying Zscaler Client Connector. For successful deployment of Zscaler Client Connector to your users' devices, see the following articles:
 
 - [Customizing Zscaler Client Connector with Install Options for Android](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-app-microsoft-intune-android#google-play-with-android-enterprise-enabled)
 - [Customizing Zscaler Client Connector with Install Options for iOS](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-ios)
@@ -5139,7 +5234,7 @@ The next table displays the signer certificate matching thumbprints supported fo
 | --- |
 | 2ED71A71E4BFC746CBB0C0B1C80AADCE899A67F2 7D4DE827C9FA532C2C65684AD5DDB003231DDF9F |
 
-This is only applicable if you’re using Zscaler Client Connector version 3.6 and later for Windows or macOS. Select **Detect Antivirus** from the drop-down menu.
+This is only applicable if you're using Zscaler Client Connector version 3.6 and later for Windows or macOS. Select **Detect Antivirus** from the drop-down menu.
 
 For Windows, you can enter the antivirus name in the **AV Name**field and enable **Check if AV Definitions Are Up-to-Date**. When enabled, Zscaler Client Connector detects if an antivirus is running on the system. If you specify an antivirus name, the antivirus must be running on the system for the posture check to pass. If you leave the **AV Name** field blank, Zscaler Client Connector detects any antivirus running on the system.
 
@@ -5178,9 +5273,11 @@ A device can be only Domain Joined, only AzureAD Domain Joined, or both AzureAD 
 
 [Image: AzureAD Domain-Joined]
 
-Applies only to Zscaler Client Connector version 4.4 and later for Windows. This posture is applicable to Private Access (ZPA) only.
+Applies only to Zscaler Client Connector version 4.4 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS. This posture is applicable to Private Access (ZPA) only.
 
 Select **Server Validated Client Certificate** from the drop-down menu and upload a CA certificate trusted by your organization's users. The client certificate must be either in the current user personal store or local computer personal store at the endpoint. The client certificate must be issued by the root CA or by an intermediate CA signed by the root CA, and you must upload the root CA certificate to the posture profile.
+
+On macOS clients, be sure to deploy the client certificate via MDM and enable **Allow all app access** in the MDM profile so that the private key can be accessed without being prompted. The client certificate must also be in the System keychain for posture evaluation. Certificates in the Login keychain are not supported at this time. Client certificates that require user interaction (e.g., smart cards with a PIN) are not supported.
 
 For this posture validation check, the server sends a challenge to the client. After locating the private key and the root CA on the certificate chain, the client sends the signed challenge back to the server to pass the validation.
 
@@ -5192,19 +5289,19 @@ If you upload a large number of certificates (more than 50), the response from t
 
 [Image: Server Certificate Device Posture Type]
 
-This is only applicable if you’re using Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 4.8 and later for macOS. Select **CrowdStrike ZTA Device OS Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 4.8 and later for macOS. Select **CrowdStrike ZTA Device OS Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
 
 Users must enable the CrowdStrike ZTA feature in CrowdStrike. Contact CrowdStrike Support to enable this feature.
 
-Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against the OS score assigned by CrowdStrike’s user agent. If that OS score is greater than or equal to the score you’ve entered, the posture check passes. If the OS score is less than the score you entered, the posture check fails. To learn more about the OS score, refer to the CrowdStrike documentation.
+Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against the OS score assigned by CrowdStrike's user agent. If that OS score is greater than or equal to the score you've entered, the posture check passes. If the OS score is less than the score you entered, the posture check fails. To learn more about the OS score, refer to the CrowdStrike documentation.
 
 [Image: CrowdStrike ZTA Score Device Posture Type]
 
-This is only applicable if you’re using Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 4.8 and later for macOS. Select **CrowdStrike ZTA Sensor Setting Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
+This is only applicable if you're using Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 4.8 and later for macOS. Select **CrowdStrike ZTA Sensor Setting Score**. The user must have CrowdStrike running on the device to pass the posture validation check.
 
 Users must enable the CrowdStrike ZTA feature in CrowdStrike. Contact CrowdStrike Support to enable this feature.
 
-Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against the sensor setting score assigned by CrowdStrike’s user agent. If that sensor setting score is greater than or equal to the score you’ve entered, the posture check passes. If the sensor setting score is less than the score you entered, the posture check fails. To learn more about the sensor setting score, refer to the CrowdStrike documentation.
+Enter a score between `1` and `100`. This number represents a risk score that helps determine the security level of the device. The higher the number you designate, the more secure you consider the device. Zscaler Client Connector compares this number against the sensor setting score assigned by CrowdStrike's user agent. If that sensor setting score is greater than or equal to the score you've entered, the posture check passes. If the sensor setting score is less than the score you entered, the posture check fails. To learn more about the sensor setting score, refer to the CrowdStrike documentation.
 
 [Image: CrowdStrike ZTA Score Device Posture Type]
 
@@ -5259,13 +5356,13 @@ Configure user notifications as follows:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-fail-open-settings-zscaler-client-connector","lastmod":"2026-09-30T23:58Z","nid":"1285436"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-fail-open-settings-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1285436"} -->
 ## Configuring Failover Settings for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-fail-open-settings-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Fail Open > Configuring Failover Settings for Zscaler Client Connector
-- Last modified: 2026-09-30T23:58Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to automatically disable its web security service and allow users to bypass the app and access the internet directly.
 
 There can be situations in which Zscaler Client Connector must automatically disable its Internet Security service and allow users to bypass the app and access the internet directly:
@@ -5302,13 +5399,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-firefox-integration-zscaler-client-connector","lastmod":"2026-10-01T00:47Z","nid":"1333331"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-firefox-integration-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1333331"} -->
 ## Configuring Firefox Integration for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-firefox-integration-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Endpoint Integration > Configuring Firefox Integration for Zscaler Client Connector
-- Last modified: 2026-10-01T00:47Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Firefox integration for Zscaler Client Connector.
 
 You can enable or disable Firefox integration for Zscaler Client Connector. If enabled, Zscaler Client Connector attempts to configure Firefox automatically to follow Zscaler settings for macOS and Windows devices by enabling the "Use system proxy settings" feature in Firefox. If disabled, Zscaler Client Connector ignores Firefox and does not overwrite or create any configurations.
@@ -5326,13 +5423,13 @@ If you choose not to use Firefox integration for Zscaler Client Connector, then 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector","lastmod":"2026-10-02T21:06Z","nid":"1285416"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector","lastmod":"2026-10-16T16:58Z","nid":"1285416"} -->
 ## Configuring Forwarding Profiles for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Configuring Forwarding Profiles for Zscaler Client Connector
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T16:58Z
 - Summary: Information on how to add and configure a new forwarding profile for Zscaler Client Connector.
 
 [Watch a video about forwarding profiles.](https://fast.wistia.net/embed/iframe/3gikxer9e2)
@@ -5626,13 +5723,13 @@ After you create a template, you can assign it to an [app profile](https://help.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-passwords-access-unattended-mode","lastmod":"2026-10-01T21:06Z","nid":"1472706"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-passwords-access-unattended-mode","lastmod":"2026-10-15T15:59Z","nid":"1472706"} -->
 ## Configuring Passwords for Access in Unattended Mode
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Configuring Passwords for Access in Unattended Mode
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-15T15:59Z
 - Summary: How to configure passwords for access to Zscaler Client Connector in unattended mode
 
 You can require a password when uninstalling, upgrading, or reverting Zscaler Client Connector in unattended mode. These passwords provide an extra layer of security if you use your own mechanism for deploying Zscaler Client Connector on your users' devices (e.g., GPO, SCCM, or other device management methods).
@@ -5657,13 +5754,13 @@ To configure the passwords for access in unattended mode:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector","lastmod":"2026-10-01T01:21Z","nid":"1328936"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1328936"} -->
 ## Configuring SSL Inspection for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Advanced Configuration > Configuring SSL Inspection for Zscaler Client Connector
-- Last modified: 2026-10-01T01:21Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler to perform SSL Inspection on traffic forwarded by Zscaler Client Connector.
 
 When you enable [SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection) for your Zscaler Client Connector devices, this allows the Zscaler service to decrypt and inspect HTTPS traffic to and from the browser to a device, and to and from the destination server. You can also exempt URLs from SSL inspection.
@@ -5756,13 +5853,13 @@ To learn more about deploying SSL Inspection, see [Deploying SSL/TLS Inspection]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector","lastmod":"2026-10-02T21:06Z","nid":"1345611"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector","lastmod":"2026-10-16T16:58Z","nid":"1345611"} -->
 ## Configuring Trusted Networks for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-trusted-networks-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Configuring Trusted Networks for Zscaler Client Connector
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T16:58Z
 - Summary: How to predefine your networks so you can select multiple trusted networks in Zscaler Client Connector forwarding profile.
 
 [Watch a video about configuring Trusted Networks.](https://fast.wistia.net/embed/iframe/uccu8mi4d4)
@@ -5850,13 +5947,13 @@ To learn more about other Zscaler Client Connector Support features, see [About 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-user-access-restart-and-repair-options-zscaler-client-connector","lastmod":"2026-09-30T23:38Z","nid":"1340876"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-user-access-restart-and-repair-options-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1340876"} -->
 ## Configuring User Access to the Restart and Repair Options for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-user-access-restart-and-repair-options-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Supportability > Configuring User Access to the Restart and Repair Options for Zscaler Client Connector
-- Last modified: 2026-09-30T23:38Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure user access to the Restart Service and Repair App options for Zscaler Client Connector.
 
 Users can troubleshoot the app by clicking **Restart Service** or **Repair App f**rom the **More** window of Zscaler Client Connector.
@@ -5880,13 +5977,13 @@ To configure user access to these options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-user-access-support-options-zscaler-client-connector","lastmod":"2026-09-30T23:30Z","nid":"1353981"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-user-access-support-options-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1353981"} -->
 ## Configuring User Access to Support Options for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-user-access-support-options-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Supportability > Configuring User Access to Support Options for Zscaler Client Connector
-- Last modified: 2026-09-30T23:30Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information on the features that allow users to request support for Zscaler Client Connector
 
 From the [App Supportability](https://help.zscaler.com/z-app/about-app-supportability) page, you can configure your users’ access to support options for Zscaler Client Connector. Your users can access these support options by clicking **Report an Issue** from the **More** window of Zscaler Client Connector or the Zscaler Client Connector system tray icon.
@@ -5928,13 +6025,13 @@ To learn more about other Zscaler Client Connector Support features, see [About 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-vpn-trusted-network-adapter-criteria","lastmod":"2026-10-01T00:59Z","nid":"1404736"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-vpn-trusted-network-adapter-criteria","lastmod":"2026-10-15T21:06Z","nid":"1404736"} -->
 ## Adding a VPN-Trusted Network Adapter Name
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-vpn-trusted-network-adapter-criteria
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Endpoint Integration > Adding a VPN-Trusted Network Adapter Name
-- Last modified: 2026-10-01T00:59Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Administrators can add VPN adapters to look for a VPN-Trusted Network.
 
 If your VPN isn't from a common vendor and the NIC adapter text doesn't match what is usually detected, you can add the name of your VPN so Zscaler Client Connector can accurately detect a VPN-Trusted Network.
@@ -7051,13 +7148,13 @@ The saved applications appear in the **Android Applications** **on** **Allowlist
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-device-owner-information","lastmod":"2026-10-01T00:06Z","nid":"1333326"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-device-owner-information","lastmod":"2026-10-15T21:06Z","nid":"1333326"} -->
 ## Configuring Zscaler Client Connector to Collect Device Owner Information
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-collect-device-owner-information
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Configuring Zscaler Client Connector to Collect Device Owner Information
-- Last modified: 2026-10-01T00:06Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to collect the device owner name from supported devices and store it in the Zscaler Admin Console database.
 
 Zscaler Client Connector collects the device owner name from supported devices and stores it in the Zscaler Admin Console database. You can enable or disable the app from collecting device owner information, allowing for compliance with General Data Protection Regulation (GDPR).
@@ -7075,13 +7172,13 @@ To see the collected device owner information, go to the **Enrolled Devices** pa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-hostnames","lastmod":"2026-10-01T00:10Z","nid":"1333351"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-hostnames","lastmod":"2026-10-15T21:06Z","nid":"1333351"} -->
 ## Configuring Zscaler Client Connector to Collect Hostnames
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-collect-hostnames
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Configuring Zscaler Client Connector to Collect Hostnames
-- Last modified: 2026-10-01T00:10Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to collect the hostname information from supported devices and store it in the Zscaler Admin Console database.
 
 You can enable Zscaler Client Connector to collect the hostname information from supported devices and store it in the Zscaler Admin Console database. This information is included in the CSV file when you export device fingerprint for the enrolled devices. To learn more[,](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) see[About Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -7099,13 +7196,13 @@ To see the collected hostname information, go to the**Enrolled Devices**page. Fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-zdx-location-information","lastmod":"2026-10-01T00:18Z","nid":"1380036"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-collect-zdx-location-information","lastmod":"2026-10-15T21:06Z","nid":"1380036"} -->
 ## Configuring Zscaler Client Connector to Collect ZDX Location Information
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-collect-zdx-location-information
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Configuring Zscaler Client Connector to Collect ZDX Location Information
-- Last modified: 2026-10-01T00:18Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to configure Zscaler Client Connector to collect geolocation information for users with Digital Experience (ZDX) enabled.
 
 You can configure Zscaler Client Connector to collect geolocation information from devices enabled with Digital Experience (ZDX). This setting works in conjunction with the ZDX settings in [Zscaler Service Entitlement](https://help.zscaler.com/zscaler-client-connector/about-zscaler-service-entitlement) and is enabled by default.
@@ -7149,13 +7246,13 @@ When installing Zscaler Client Connector in strict enforcement mode, use the app
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-synthetic-ip-range","lastmod":"2026-10-01T01:05Z","nid":"1450566"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/configuring-zscaler-client-connector-synthetic-ip-range","lastmod":"2026-10-15T21:06Z","nid":"1450566"} -->
 ## Configuring the Zscaler Client Connector Synthetic IP Range
 
 - Source: https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-synthetic-ip-range
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Endpoint Integration > Configuring the Zscaler Client Connector Synthetic IP Range
-- Last modified: 2026-10-01T01:05Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Enable Drop Non-Zscaler Packets in Synthetic IP Range to have Zscaler Client Connector block non-Zscaler packets destined for the synthetic IP range
 
 You can configure your organization to use a Zscaler Client Connector IP range beyond the default range of 100.64.0.0/16 for your Private Access applications.
@@ -7203,13 +7300,13 @@ You can copy a maximum of 10 profiles at the same time.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/copying-forwarding-profile","lastmod":"2026-10-02T21:06Z","nid":"1470366"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/copying-forwarding-profile","lastmod":"2026-10-16T17:00Z","nid":"1470366"} -->
 ## Copying a Forwarding Profile
 
 - Source: https://help.zscaler.com/zscaler-client-connector/copying-forwarding-profile
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Copying a Forwarding Profile
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T17:00Z
 - Summary: Instructions on how to copy a forwarding profile and edit it.
 
 You can copy an existing Forwarding Profile and customize the profile to fit your needs, instead of having to configure each setting in a new profile.
@@ -7241,13 +7338,13 @@ You can copy a maximum of 10 profiles at the same time.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/create-device-groups","lastmod":"2026-09-30T20:56Z","nid":"1408246"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/create-device-groups","lastmod":"2026-10-14T21:06Z","nid":"1408246"} -->
 ## Creating Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/create-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Creating Device Groups
-- Last modified: 2026-09-30T20:56Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Create device groups based on posture checks to enable or disable Zscaler Private Access (ZPA) or Zscaler Internet Access (ZIA) by default.
 
 [Watch a video about Creating Device Groups.](https://fast.wistia.net/embed/iframe/rwfvkb1k6o)
@@ -7276,13 +7373,13 @@ To create a device group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/creating-device-token","lastmod":"2026-09-30T21:06Z","nid":"1317681"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/creating-device-token","lastmod":"2026-10-15T15:58Z","nid":"1317681"} -->
 ## Creating a Device Token
 
 - Source: https://help.zscaler.com/zscaler-client-connector/creating-device-token
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Creating a Device Token
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:58Z
 - Summary: How to generate a device token in the Zscaler Admin Console.
 
 If you configure the Zscaler Admin Console as your identity provider (IdP), users automatically enroll with Zscaler Client Connector. Users and their devices authenticate using a device token generated in the Zscaler Admin Console.
@@ -8411,13 +8508,13 @@ For a complete list of the installation parameters, refer to Running the MSI wit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/customizing-zscaler-client-connector-theme","lastmod":"2026-05-31T07:06Z","nid":"1539677"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/customizing-zscaler-client-connector-theme","lastmod":"2026-10-13T11:53Z","nid":"1539677"} -->
 ## Customizing the Zscaler Client Connector Theme
 
 - Source: https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-theme
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Customizing the Zscaler Client Connector Theme
-- Last modified: 2026-05-31T07:06Z
+- Last modified: 2026-10-13T11:53Z
 - Summary: How to configure a custom theme to display your company's logo and name in the Zscaler Client Connector app.
 
 You can customize the Zscaler Client Connector app to display your company’s logo and company name instead of the Zscaler logo on the app header and in pop-up notifications.
@@ -8426,7 +8523,7 @@ This feature is available only for Zscaler Client Connector version 4.9 and late
 
 To customize a theme:
 
-1. Go to **Infrastructure** > **Connectors** > **Client** > **Zscaler Client Connector Theme**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **Client Connector Theme**.
 2. On the **Text Settings** tab, enter the name of your organization. This name is appended to the notification logo on pop-up notifications. If you don’t enter an organization name, notifications display the default Zscaler branding, even if you upload a notification logo. [Image: Zscaler Client Connector Theme Text Settings]
 3. On the **Windows Images** tab: You can upload a logo in one or both fields. [Image: Zscaler Client Connector Theme Images]
   - **Company Logo**: Click **Upload** and browse to or drag and drop the logo file to use in the top left of the Zscaler app header. The logo must be a .PNG file that does not exceed 50KB. Zscaler recommends using light or white text on a transparent background.
@@ -8448,13 +8545,13 @@ The custom theme doesn’t display for end user notifications (EUNs) from Intern
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/customizing-zscaler-client-connector-user-agent","lastmod":"2026-10-01T21:06Z","nid":"1328961"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/customizing-zscaler-client-connector-user-agent","lastmod":"2026-10-15T15:58Z","nid":"1328961"} -->
 ## Customizing the Zscaler Client Connector User Agent
 
 - Source: https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-user-agent
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Customizing the Zscaler Client Connector User Agent
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-15T15:58Z
 - Summary: How to configure suffixes to customize user agents used for IdP authentication.
 
 You can customize the User Agent with a suffix that the IdP reads as specific strings it expects during authentication to identify the user agent. You can create a user agent suffix globally or for each domain.
@@ -11837,6 +11934,31 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/deprovisioning-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T12:49Z","nid":"1397386"} -->
+## Deprovisioning Your Device from Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/deprovisioning-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Deprovisioning Your Device from Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-07T12:49Z
+- Summary: How to deprovision your device from Zscaler Client Connector in the Classic UI
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+After an admin [soft removes](https://help.zscaler.com/zscaler-client-connector/soft-removing-device-zscaler-client-connector-portal) your device from the Zscaler Admin Console, it can take an hour for the device to be completely removed. However, you can immediately remove the device from Zscaler Client Connector as an end user. When you remove a device, Zscaler Client Connector logs you out but does not uninstall the app from the device. To uninstall the app, see [Uninstalling Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector).
+
+To remove a device from Zscaler Client Connector as an end user:
+
+1. In Zscaler Client Connector, click **More**.
+2. Click **Update Policy**.
+
+[Image: Zscaler Client Connector screen showing the Update Policy option]
+
+You are logged out.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zscaler-client-connector/device-states-enrolled-devices","lastmod":"2026-07-24T16:55Z","nid":"1342396"} -->
 ## Device States for Enrolled Devices
 
@@ -12292,13 +12414,13 @@ To edit an API key:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-auto-system-info-and-log-fetch","lastmod":"2026-10-01T00:31Z","nid":"1529193"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-auto-system-info-and-log-fetch","lastmod":"2026-10-15T21:06Z","nid":"1529193"} -->
 ## Enabling Auto System Info and Log Fetch
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-auto-system-info-and-log-fetch
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Enabling Auto System Info and Log Fetch
-- Last modified: 2026-10-01T00:31Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to enable automatic retrieval and analyzing of Zscaler Client Connector log bundles
 
 This feature allows Zscaler to retrieve and analyze Zscaler Client Connector log bundles to expedite resolution of customer-reported issues and to proactively resolve internal issues. Zscaler recommends enabling this feature. When enabled, Zscaler Client Connector collects the information and holds it in secure cloud storage where only Zscaler Support can access it. This feature is disabled by default.
@@ -12314,13 +12436,13 @@ To enable this feature:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-browser-based-authentication","lastmod":"2026-09-30T21:06Z","nid":"1382586"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-browser-based-authentication","lastmod":"2026-10-15T15:57Z","nid":"1382586"} -->
 ## Enabling Browser-Based Authentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-browser-based-authentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Enabling Browser-Based Authentication
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:57Z
 - Summary: Information about authentication settings and where to enable them in the Zscaler Admin Console.
 
 If your organization uses advanced multi-factor authentication (MFA) for SAML, your users can authenticate using their browser instead of authenticating in Zscaler Client Connector. Zscaler Client Connector still manages traffic for Internet & SaaS and provides access to applications through Private Access.
@@ -12340,13 +12462,13 @@ Zscaler must enable this feature.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-device-groups","lastmod":"2026-09-30T21:02Z","nid":"1531080"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-device-groups","lastmod":"2026-10-14T21:06Z","nid":"1531080"} -->
 ## Enabling Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling Device Groups
-- Last modified: 2026-09-30T21:02Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Enable Device Groups and the assignment of service entitlements based on device posture
 
 This option applies to Zscaler Client Connector version 3.7 and later for Android and Zscaler Client Connector version 4.4 and later for iOS.
@@ -12377,13 +12499,13 @@ To enable **Use Device Groups in Service Entitlement**for iOS:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains","lastmod":"2026-09-30T21:06Z","nid":"1514376"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains","lastmod":"2026-10-15T15:58Z","nid":"1514376"} -->
 ## Enabling IPv6 Resolution for Zscaler Domains
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Enabling IPv6 Resolution for Zscaler Domains
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:58Z
 - Summary: How to enable IPv6 resolution
 
 You can use Zscaler Client Connector to connect to IPv6 Zscaler servers from an IPv6-only device.
@@ -12422,13 +12544,13 @@ To enable IPv6 support:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector","lastmod":"2026-10-01T00:13Z","nid":"1334736"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1334736"} -->
 ## Enabling Packet Capture for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Enabling Packet Capture for Zscaler Client Connector
-- Last modified: 2026-10-01T00:13Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to enable the packet capture feature and allow users to capture traffic specific to Zscaler Client Connector.
 
 The packet capture feature allows users to capture traffic specific to the Zscaler Client Connector app. When enabled, users can run a packet capture to generate packet capture files that are stored with Zscaler Client Connector logs.
@@ -12516,13 +12638,13 @@ However, these files are not exported to the archive that is generated when usin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-private-access-partner-logins","lastmod":"2026-10-06T15:22Z","nid":"1417541"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-private-access-partner-logins","lastmod":"2026-10-15T16:00Z","nid":"1417541"} -->
 ## Enabling Private Access Partner Logins
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-private-access-partner-logins
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Private Access Partner Login > Enabling Private Access Partner Logins
-- Last modified: 2026-10-06T15:22Z
+- Last modified: 2026-10-15T16:00Z
 - Summary: Information on how to manage multi-tenant logins for Private Access.
 
 A partner is a separate entity or company that owns a Private Access tenant. You can give partner organizations access to your organization's tenant. You can also allow your users to access a partner organization's tenant. A partner organization must have these same settings configured for their own tenant as well to ensure users from your organization and their organization can access each other's tenants.
@@ -12532,13 +12654,13 @@ To enable partner logins for Private Access:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access** > **B2B Exchange**> **Partner Login**.
 2. In **Allow Partner Login to This Tenant**:
   1. **No Access**: Select this option to disallow access to your tenant to any partner organizations.
-  2. **Specific Tenants**: Select this option to allow access to your tenant by specific tenants: The **Specific Tenants** option applies only to Zscaler Client Connector 4.7 and later for Windows.
+  2. **Specific Tenants**: Select this option to allow access to your tenant by specific tenants: The **Specific Tenants** option applies only to Zscaler Client Connector 4.7 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS.
     1. **Allow Following Primary Tenants to Connect to this Tenant**: Click **Add**, then complete the following:
       1. **Primary Tenant Domain**: Enter a fully qualified domain name (FQDN) for the partner tenant.
       2. **Cloud Name**: Optionally, add a cloudname. If no cloudname is entered, a user on the partner domain on any cloudname can access your tenant.
-    2. **Restrict Old Zscaler Client Connector Versions to Select to this Tenant**: Enable to allow only partner tenant devices using Zscaler Client Connector version 4.7 and later for Windows to log in to this tenant. If you enable this option, any existing partner tenants using Zscaler Client Connector for macOS or version 4.6 and earlier for Windows are unenrolled.
+    2. **Restrict Old Zscaler Client Connector Versions to Connect to this Tenant**: Enable to allow only partner tenant devices using Zscaler Client Connector version 4.7 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS to log in to this tenant. If you enable this option, any existing partner tenants using Zscaler Client Connector for macOS or version 4.6 and earlier for Windows are unenrolled.
   3. **All Tenants**: Select this option to give access to your tenant to all partner organizations.
-3. Enable **Allow Users of This Tenant to Log in to Other Tenants** to let your users access a partner's tenant. By default, this setting is disabled. If you use Zscaler Client Connector version 4.6 and later for Windows, you can configure access to a partner’s tenant on the [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). Partner login settings that are enabled on the app profile override these settings. See image.
+3. Enable **Allow Users of This Tenant to Log in to Other Tenants** to let your users access a partner's tenant. By default, this setting is disabled. If you use Zscaler Client Connector version 4.6 and later for Windows or Zscaler Client Connector version 5.0 and later for macOS, you can configure access to a partner's tenant on the [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles). Partner login settings that are enabled on the app profile override these settings. See image.
 4. Click **Save**.
 
 [Image: Enable partner login options, Specific Tenants selected]
@@ -12546,13 +12668,13 @@ To enable partner logins for Private Access:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-resizing-zscaler-client-connector-authentication-window","lastmod":"2026-09-30T21:06Z","nid":"1514226"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-resizing-zscaler-client-connector-authentication-window","lastmod":"2026-10-15T15:57Z","nid":"1514226"} -->
 ## Enabling Resizing of the Zscaler Client Connector Authentication Window
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-resizing-zscaler-client-connector-authentication-window
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Enabling Resizing of the Zscaler Client Connector Authentication Window
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:57Z
 - Summary: How to enable resizing of the Zscaler Client Connector authentication window
 
 You can configure Zscaler Client Connector to automatically resize when users are authenticating. This feature helps ensure users can see all the available options if you have configured a number of multi-factor authentication options. If you enable this feature, the app resizes the page as necessary to display all the options and then returns to its original dimensions after authentication.
@@ -12569,13 +12691,13 @@ To enable resizing of the authentication window:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-all-users","lastmod":"2026-09-30T17:19Z","nid":"1497836"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-all-users","lastmod":"2026-10-14T21:06Z","nid":"1497836"} -->
 ## Enabling ZDX for All Users
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-zdx-all-users
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZDX for All Users
-- Last modified: 2026-09-30T17:19Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on the Zscaler Service Entitlement feature and how to enable Digital Experience (ZDX) for all users.
 
 You can use Zscaler Service Entitlement to enable ZDX for all users.To learn more, see <a href="/zscaler-client-connector/add-device-groups-zscaler-private-access-zpa" target="_blank">Creating Device Groups</a>. </p>
@@ -12594,13 +12716,13 @@ This updates your users' devices the next time they connect. If they are already
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-device-groups","lastmod":"2026-09-30T20:39Z","nid":"1411311"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-device-groups","lastmod":"2026-10-14T21:06Z","nid":"1411311"} -->
 ## Enabling ZDX for Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-zdx-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZDX for Device Groups
-- Last modified: 2026-09-30T20:39Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Enable ZDX for Device Groups
 
 You can use Zscaler Service Entitlement to enroll Device Groups in Zscaler Digital Experience (ZDX). Configuring ZDX for device groups allows you to assign entitlements and policy settings based on ownership through device posture profiles. For example, one user can have two devices, one personal and one employer-provided. The personal device can be enrolled in ZDX, and the employer-provided device can be enrolled in ZDX and Zscaler Private Access (ZPA).
@@ -12629,13 +12751,13 @@ Your users' devices are updated the next time they connect. If users are already
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-module-upgrades-cli","lastmod":"2026-09-30T21:06Z","nid":"1529418"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zdx-module-upgrades-cli","lastmod":"2026-10-15T15:57Z","nid":"1529418"} -->
 ## Enabling ZDX Module Upgrades via the CLI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-zdx-module-upgrades-cli
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Enabling ZDX Module Upgrades via the CLI
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:57Z
 - Summary: How to enable ZDX Module upgrades via the CLI
 
 You can upgrade the Digital Experience (ZDX) Module for Windows via the CLI if you want to deploy an upgrade separately from a Zscaler Client Connector upgrade. Before you can use a [downloaded package](https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades) to [upgrade via the CLI](https://help.zscaler.com/zscaler-client-connector/interacting-zscaler-client-connector-remotely), you must enable this feature.
@@ -12652,13 +12774,13 @@ To enable ZDX Module upgrades via the CLI:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zia-device-groups","lastmod":"2026-09-30T23:15Z","nid":"1411316"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zia-device-groups","lastmod":"2026-10-15T21:06Z","nid":"1411316"} -->
 ## Enabling ZIA for Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-zia-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZIA for Device Groups
-- Last modified: 2026-09-30T23:15Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Enabling ZIA for Device Groups
 
 You can use Zscaler Service Entitlement to enroll Device Groups in Zscaler Internet Access (ZIA). Configuring ZIA using device groups allows you to assign entitlements and policy settings based on ownership through device posture profiles. For example, one user can have two devices, one personal and one employer-provided. The personal device can be enrolled in ZIA, and the employer-provided device can be enrolled in ZIA and Zscaler Private Access (ZPA).
@@ -12686,13 +12808,13 @@ Your users' devices are updated the next time they connect. If they're already c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zpa-device-groups","lastmod":"2026-09-30T17:14Z","nid":"1409571"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enabling-zpa-device-groups","lastmod":"2026-10-14T21:06Z","nid":"1409571"} -->
 ## Enabling ZPA for Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enabling-zpa-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZPA for Device Groups
-- Last modified: 2026-09-30T17:14Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Enable Zscaler Private Access (ZPA) for Device Groups
 
 You can use Zscaler Service Entitlement to enroll device groups in Zscaler Private Access (ZPA). Configuring ZPA using device groups allows you to assign entitlements and policy settings based on ownership through device posture profiles. For example, one user can have two devices, one personal and one employer-provided. The personal device can be enrolled in ZPA, and the employer-provided device can be enrolled in ZPA and Zscaler Internet Access (ZIA).
@@ -12778,13 +12900,13 @@ Your users’ devices are updated the next time they connect. If users are alrea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enforcing-secure-pac-urls","lastmod":"2026-10-01T00:36Z","nid":"1532829"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enforcing-secure-pac-urls","lastmod":"2026-10-15T21:06Z","nid":"1532829"} -->
 ## Enforcing Secure PAC URLs
 
 - Source: https://help.zscaler.com/zscaler-client-connector/enforcing-secure-pac-urls
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Enforcing Secure PAC URLs
-- Last modified: 2026-10-01T00:36Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Information about requiring administrators to use secure custom PAC URLs.
 
 You can require administrators to use secure URLs when adding custom PAC URLs. When enabled, administrators can only enter URLs with the https:// prefix (not http://) in the Custom PAC URL field on an [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#pac-proxy) and a [forwarding profile](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector#forwarding-profile-action-zia). You can use this feature to protect traffic from malicious PAC files by enforcing secure PAC URLs.
@@ -12832,6 +12954,196 @@ Currently, proxy awareness is supported in Zscaler Client Connector 1.2.4 for Wi
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/enrolling-zscaler-service-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:07Z","nid":"1363021"} -->
+## Enrolling in the Zscaler Service on Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/enrolling-zscaler-service-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Enrolling in the Zscaler Service on Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-07T11:07Z
+- Summary: How to enroll in the Zscaler service using the Zscaler Client Connector in the Classic UI.
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+This article provides instructions on enrolling in the Zscaler service using Zscaler Client Connector based on the OS.
+
+- Windows
+- macOS
+- Linux
+- Android
+- Android on ChromeOS
+- iOS
+
+After the app completes enrollment, it's ready for use. For information about Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
+
+To enroll in the Zscaler service using the Windows version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by right-clicking the Zscaler Client Connector system tray icon and selecting **Open Zscaler**. See image.
+2. An enrollment page appears. Click the menu in the top-right corner of the screen to:
+  - View the license agreement.
+  - View information about Zscaler Client Connector, including the version number. See image.
+3. Enter a usernameand click **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+4. Based on your organization’s authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and click **Login**. See image.
+  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in. The SSO provider in the following example is Okta. See image.
+5. If your organization has configured an Acceptable Use Policy (AUP), the AUP window appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+
+[Image: The Zscaler Client Connector tray icon options]
+
+[Image: The Zscaler Client Connector for Windows enrollment page]
+
+[Image: Logging in to Zscaler Client Connector for Windows]
+
+[Image: Logging in to Zscaler Client Connector for Windows through the organization's SSO form]
+
+[Image: The Acceptable Use Policy on Zscaler Client Connector for Windows]
+
+To enroll in the Zscaler service using the macOS version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by right-clicking the Zscaler Client Connector system tray icon and selecting **Open Zscaler**. See image.
+2. An enrollment page appears. Click the menu in the top-right corner of the screen to:
+  - View information about Zscaler Client Connector, including the version number.
+  - View the license agreement. See image.
+3. Enter a usernameand click **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+4. Based on your organization’s authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and click **Login**. See image.
+  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in. The SSO provider in the following example is Okta. See image.
+5. If your organization has configured an Acceptable Use Policy (AUP), the AUP window appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+
+[Image: The Zscaler Client Connector menu bar icon]
+
+[Image: The Zscaler Client Connector for macOS enrollment page]
+
+[Image: Logging in to Zscaler Client Connector for macOS]
+
+[Image: Logging in to Zscaler Client Connector for macOS through the organization's SSO form]
+
+[Image: The Acceptable Use Policy on Zscaler Client Connector for macOS]
+
+To enroll in the Zscaler service using the Linux version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by right-clicking the Zscaler Client Connector system tray icon and selecting **Open Zscaler**. See image. An enrollment page appears. Click the menu in the top-right corner of the screen to:
+  - View the license agreement.
+  - View information about Zscaler Client Connector, including the version number. See image.
+2. Enter a username and click **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+3. If your organization has configured an Acceptable Use Policy (AUP), the AUP window appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+4. Based on your organization's authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and click **Login**. See image.
+  - You might be redirected to your organization's single sign-on (SSO) form. Enter your credentials and log in. The SSO provider in the following example is Okta. See image.
+
+[Image: The Zscaler Client Connector tray icon options for Linux]
+
+[Image: The Zscaler Client Connector for Linux enrollment page]
+
+[Image: The Acceptable Use Policy on Zscaler Client Connector for linux]
+
+[Image: Logging in to Zscaler Client Connector for Linux]
+
+[Image: Logging in to Zscaler Client Connector for Linux through the organization's SSO form]
+
+To enroll in the Zscaler service using the Android version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by tapping the Zscaler Client Connector app icon on your mobile device:
+2. You are prompted to **Allow** Zscaler to send you notifications. The recommended setting is **Allow**. See image.
+3. Based on how your organization [installed Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/parameters-guide-zscaler-client-connector-android-and-android-chromeos), you might be prompted to **Allow** Zscaler to access your contacts. The recommended setting is **Allow**. See image.
+4. You are prompted that you don’t have post notification permission. The recommended setting is to allow post notification permission. See image.
+5. Click**OK**. An enrollment screen appears. Click the menu in the top-right corner of the screen to:
+  - Export logs.
+  - View the license agreement.
+  - View information about Zscaler Client Connector, including the version number.
+  - Enter the cloud name that you want to connect to. See image.
+6. Enter a usernameand tap **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+7. Based on your organization’s authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and tap **Login**. See image.
+  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in. See image.
+8. If your organization has configured an Acceptable Use Policy (AUP), the AUP screen appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+9. After the app completes enrollment, allow it to establish a VPN tunnel. If you do not allow the app to establish the VPN, you must restart the app to see this prompt again. See image.
+
+After the app establishes the VPN, the app is ready for use.
+
+[Image: Enrolling in Zscaler Client Connector Notifications prompt]
+
+[Image: Enrolling in Zscaler Client Connector Contacts prompt]
+
+[Image: Enrolling in Zscaler Client Connector for Android Permissions prompt]
+
+[Image: Enrollment Screen on Zscaler Client Connector for Android]
+
+[Image: Login Screen of Zscaler Client Connector Using Username and Password for Android]
+
+[Image: SSO Login Screen on Zscaler Client Connector for Android]
+
+[Image: AUP Screen for Android Device Enrollment on Zscaler Client Connector]
+
+[Image: VPN Tunnel Setup Screen on Zscaler Client Connector for Android]
+
+To enroll in the Zscaler service using the Android on ChromeOS version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by tapping the Zscaler Client Connector app icon on your Chrome device.
+2. You are prompted to **Allow** Zscaler to send you notifications. The recommended setting is **Allow**. See image.
+3. Based on how your organization [installed Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/parameters-guide-zscaler-client-connector-android-and-android-chromeos), you might be prompted to **Allow** Zscaler to access your contacts. The recommended setting is **Allow**. See image.
+4. You are prompted that you don’t have post notification permission. The recommended setting is to allow post notification permission. See image.
+5. An enrollment screen appears. Click the menu in the top-right corner of the screen to:
+  - Export logs.
+  - View the license agreement.
+  - View information about Zscaler Client Connector, including the version number.
+  - Enter the cloud name that you want to connect to.
+
+See image.
+
+1. Enter a usernameand tap **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+2. Based on your organization’s authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and tap **Login**. See image.
+  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in. See image.
+3. If your organization has configured an Acceptable Use Policy (AUP), the AUP screen appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+4. After the app completes enrollment, allow it to establish a VPN tunnel. If you do not allow the app to establish the VPN, you must restart the app to see this prompt again. See image.
+
+After the app establishes the VPN, the app is ready for use.
+
+[Image: Enrolling in Zscaler Client Connector Notifications prompt]
+
+[Image: Enrolling in Zscaler Client Connector Contacts prompt]
+
+[Image: Enrolling in Zscaler Client Connector for Android Permissions prompt]
+
+[Image: Chrome enrollment screen]
+
+[Image: Chrome login screen]
+
+[Image: Chrome SSO screen]
+
+[Image: Chrome Acceptable Use Policy screen]
+
+[Image: Chrome VPN screen]
+
+To enroll in the Zscaler service using the iOS version of Zscaler Client Connector:
+
+1. Open Zscaler Client Connector by tapping the Zscaler Client Connector app icon on your mobile device. An enrollment screen appears. Click the menu in the top-right corner of the screen to:
+  - Turn on or turn off notifications on the app icon.
+  - Troubleshoot Zscaler Client Connector.
+  - View information about Zscaler Client Connector, including the version number. See image.
+2. Enter a usernameand tap **Login**. The username must be in email format, unless your organization's admin configured the settings to log in without entering your organization's domain.
+3. Based on your organization’s authentication mechanism, you might be prompted to complete one of the following steps:
+  - You might be required to enter a password and tap **Login**. See image.
+  - You might be redirected to your organization’s single sign-on (SSO) form. Enter your credentials and log in. The SSO provider in the following example is Okta. See image.
+4. If your organization has configured an Acceptable Use Policy (AUP), the AUP screen appears. You must accept the AUP to proceed to enrollment. If your organization does not have an AUP, the app proceeds directly to enrollment. See image.
+5. After the app completes enrollment, allow it to establish a VPN tunnel. If you do not allow the app to establish the VPN, you must restart the app to see this prompt again. See image.
+
+After the app establishes the VPN, the app is ready for use.
+
+[Image: Enrollment Screen on Zscaler Client Connector for iOS]
+
+[Image: Login Screen of Zscaler Client Connector Using Username and Password for iOS]
+
+[Image: OKTA Login Screen on Zscaler Client Connector for iOS]
+
+[Image: AUP Screen for iOS Device Enrollment on Zscaler Client Connector]
+
+[Image: VPN Tunnel Setup Screen on Zscaler Client Connector for iOS]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zscaler-client-connector/firewall-posture-check-failure-macos-sequoia","lastmod":"2024-10-23T03:51Z","nid":"1505531"} -->
 ## Firewall Posture Check Failure on macOS Sequoia
 
@@ -12848,13 +13160,13 @@ Customers using earlier versions of Zscaler Client Connector must upgrade to Zsc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/force-removing-device-zscaler-admin-console","lastmod":"2026-09-30T21:06Z","nid":"1408176"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/force-removing-device-zscaler-admin-console","lastmod":"2026-10-15T15:54Z","nid":"1408176"} -->
 ## Force Removing a Device from the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/zscaler-client-connector/force-removing-device-zscaler-admin-console
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Managing Devices > Force Removing a Device from the Zscaler Admin Console
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:54Z
 - Summary: Procedure to force remove a device from the Zscaler Admin Console as an admin
 
 You can force remove devices to remove them from the Zscaler Admin Console. You can only force remove devices one at a time. If you want to remove multiple devices at once, see [Soft Removing a Device from the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/soft-removing-device-zscaler-admin-console). You can also configure the Zscaler Admin Console to automatically remove devices. To learn how to configure the number of devices threshold, see [Configuring Automated Device Removal](https://help.zscaler.com/zscaler-client-connector/configuring-automated-device-removal).
@@ -12872,13 +13184,13 @@ The device state changes to **Removed** immediately in the Zscaler Admin Console
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/interacting-zscaler-client-connector-remotely","lastmod":"2026-10-06T21:06Z","nid":"1474686"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/interacting-zscaler-client-connector-remotely","lastmod":"2026-10-13T17:36Z","nid":"1474686"} -->
 ## Interacting with Zscaler Client Connector Remotely
 
 - Source: https://help.zscaler.com/zscaler-client-connector/interacting-zscaler-client-connector-remotely
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Interacting with Zscaler Client Connector Remotely
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-13T17:36Z
 - Summary: How to interact with Zscaler Client Connector remotely.
 
 This feature is available only for Zscaler Client Connector version 4.4 and later for Windows and Zscaler Client Connector version 4.3 and later for macOS. Some options require later versions of Zscaler Client Connector for Windows.
@@ -12909,10 +13221,10 @@ To enable the CLI for Windows devices:
 
 Optionally, you can require a password when disabling a service using the CLI.
 
-To require a password when disabling the Private Access, Internet & SaaS, or ZDX service:
+To require a password when disabling the Private Access, Internet & SaaS, or Digital Experience service:
 
-- If you’re adding a new policy, you must first save your policy before generating a password.
-- If you’re editing an existing policy, you must first save your changes before generating a password.
+- If you're adding a new policy, you must first save your policy before generating a password.
+- If you're editing an existing policy, you must first save your changes before generating a password.
 
 1. In the **Disable Services** section, do one of the following:
   - Enable **Disable ZPA Password** to require a password when disabling the Private Access service using the CLI. The **Generate ZPA Disable Password** option appears.
@@ -12930,15 +13242,18 @@ To enable the CLI for macOS devices:
 3. In the **Command Line Interface Access** section of the **Add macOS Policy** window, enable the **Command Line Interface**.
 4. Click **Save**.
 
-Optionally, you can require a password when disabling Private Access using the CLI. The Private Access service is the only service that can require a password. The Internet & SaaS and ZDX services cannot require a password.
+Optionally, you can require a password when disabling a service using the CLI.
 
-To require a password when disabling the Private Access service:
+To require a password when disabling the Private Access, Internet & SaaS, or Digital Experience service:
 
-- If you’re adding a new policy, you must first save your policy before generating a password.
-- If you’re editing an existing policy, you must first save your changes before generating a password.
+- If you're adding a new policy, you must first save your policy before generating a password.
+- If you're editing an existing policy, you must first save your changes before generating a password.
 
-1. In the **Disable Services** section, enable **Disable ZPA Password** to require a password when disabling the Private Access service using the CLI. The **Generate ZPA Disable Password** option appears.
-2. Click **Generate Password** to generate a Private Access password. The generated password displays in the **Generate ZPA Disable Password**field.
+1. In the **Disable Services** section, do one of the following:
+  - Enable **Disable ZPA Password** to require a password when disabling the Private Access service using the CLI. The **Generate Password** option appears.
+  - Enable **Disable ZIA Password** to require a password when disabling the Internet & SaaS service using the CLI. The **Generate Password** option appears.
+  - Enable **Disable ZDX Password** to require a password when disabling the Digital Experience service using the CLI. The **Generate Password** option appears.
+2. Click **Generate Password** to generate a password. The generated password displays in the associated **Generate Password** field.
 3. Click **Copy** to copy the password to your clipboard. The password expires after two hours.
 
 [Image: CLI Access section for macOS]
@@ -12959,10 +13274,10 @@ To use CLI for Windows devices:
 3. Replace `<command>` with one of the following commands and press `Enter`. If a message displays indicating that the CLI is disabled from the policy, enable the **Command Line Interface** option in the app profile.
   | Command | Result | Notes |
   | --- | --- | --- |
-  | `enable -s``<service>` | Turn on the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Zscaler Digital Experience)If you are enabling Private Access for a partner tenant, add `-u``<partner username>` after `zpa`. Can be run 5 or fewer times per minute. |
-  | `disable -s``<service>` | Turn off the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Zscaler Digital Experience)If you enabled **Disable <Service> Password** and generated a password in app profiles, add `-p` `<disable password>` after `<service>`. Example: `ZSAcli.exe disable -s zpa -p``<disable password>` Can be run three or fewer times per minute. |
-  | `status -s``<service>` | Display the status in a JSON format of the entered service, or for all services if you enter `all`. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Zscaler Digital Experience); `deception`indicates Zscaler Deception); zep (indicates Anti-Tampering); `all`(indicates all services) |
-  | `params -u``<parameter name>``=``<new value>` | Update the specified installation parameter with the new value. | Possible values for `<parameter name>`: `cloudName`; `deviceToken`; `externalDeviceId`; `policyToken`; `strictEnforcement`; `userDomain`; `bcpConfigFilePath`To learn more about the parameters in the list, see [Supported Parameters for Zscaler Client Connector for Windows](https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows). To view the parameters available for updating and the current value (if set), enter `params -list`. To view a specific parameter and its value (if set), enter `params -get <parameter name>`. Can be run 5 or fewer times per minute. |
+  | `enable -s``<service>` | Turn on the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience)If you are enabling Private Access for a partner tenant, add `-u``<partner username>` after `zpa`. Can be run five or fewer times per minute. |
+  | `disable -s``<service>` | Turn off the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience)If you enabled **Disable <Service> Password** and generated a password in app profiles, add `-p` `<disable password>` after `<service>`. Example: `ZSAcli.exe disable -s zpa -p``<disable password>` Can be run three or fewer times per minute. |
+  | `status -s``<service>` | Display the status in a JSON format of the entered service, or for all services if you enter `all`. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience); `deception`(indicates Zscaler Deception); zep (indicates Anti-Tampering); `all`(indicates all services) |
+  | `params -u``<parameter name>``=``<new value>` | Update the specified installation parameter with the new value. | Possible values for `<parameter name>`: `cloudName`; `deviceToken`; `externalDeviceId`; `policyToken`; `strictEnforcement`; `userDomain`; `bcpConfigFilePath`To learn more about the parameters in the list, see [Supported Parameters for Zscaler Client Connector for Windows](https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows). To view the parameters available for updating and the current value (if set), enter `params -list`. To view a specific parameter and its value (if set), enter `params -get <parameter name>`. Can be run five or fewer times per minute. |
   | `help` | Displays help information about the CLI arguments. | N/A |
   | `update -s zdx -f``<path to ZDX package>``-c``<checksum>` | Upgrades the ZDX Module with the update package in the path you enter. | You must first [enable ZDX Module upgrades from the CLI](https://help.zscaler.com/zscaler-client-connector/enabling-zdx-module-upgrades-cli). You can [download the package](https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades) and copy the checksum on the Client Connector App Store page. |
   | `update -s zdx -u``<url>``-c``<checksum>` | Upgrades the ZDX Module with the update package located at the URL you enter. | You must first [enable ZDX Module upgrades from the CLI](https://help.zscaler.com/zscaler-client-connector/enabling-zdx-module-upgrades-cli). You can [download the package](https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades) and copy the checksum on the Client Connector App Store page. |
@@ -12974,9 +13289,9 @@ To use CLI for macOS devices:
 3. Replace `<command>` with one of the following commands and press `Enter`. If a message displays indicating that the CLI is disabled from the policy, enable the **Command Line Interface** option in the app profile.
   | Command | Result | Notes |
   | --- | --- | --- |
-  | `enable -s zpa` | Turn on Private Access. | If you are enabling Private Access for a partner tenant, add `-u``<partner username>` after `zpa`. Can be run five or fewer times per minute. |
-  | `disable -s zpa` | Turn off Private Access. | If you enabled **Disable ZPA Password** and generated a password in app profiles, add `-p` `<disable password>` after `zpa`. Example: `zscli disable -s zpa -p``<disable password>` Can be run three or fewer times per minute. |
-  | `status -s``<service>` | Display the status in a JSON format of the entered service, or for all services if you enter `all`. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Zscaler Digital Experience); `zdp` (indicates Endpoint Data Loss Prevention); `all` (indicates all services) |
+  | `enable -s``<service>` | Turn on the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience)If you are enabling Private Access for a partner tenant, add `-u``<partner username>` after `zpa`. Can be run five or fewer times per minute. |
+  | `disable -s``<service>` | Turn off the entered service. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience)If you enabled **Disable <Service> Password** and generated a password in app profiles, add `-p` `<disable password>` after `<service>`. Example: `zscli disable -s zpa -p``<disable password>` Can be run three or fewer times per minute. |
+  | `status -s``<service>` | Display the status in a JSON format of the entered service, or for all services if you enter `all`. | Possible values for `<service>`: `zia`(indicates Internet & SaaS); `zpa`(indicates Private Access); `zdx`(indicates Digital Experience); `zdp` (indicates Endpoint Data Loss Prevention); `all` (indicates all services) |
   | `help` | Displays help information about the CLI arguments. | Possible examples for `help`: `zscli -h`; `zscli enable -h`; `zscli disable -h`; `zscli status -h` |
   | `diagnose -r` | Runs diagnostics for Zscaler Client Connector and outputs a file location for the diagnostics. |  |
 <!-- /ZS-ARTICLE -->
@@ -13206,13 +13521,13 @@ To learn more, see [Customizing Zscaler Client Connector with Install Options fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/quarantining-device-zscaler-admin-console","lastmod":"2026-09-30T21:06Z","nid":"1529878"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/quarantining-device-zscaler-admin-console","lastmod":"2026-10-15T15:54Z","nid":"1529878"} -->
 ## Quarantining a Device in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/zscaler-client-connector/quarantining-device-zscaler-admin-console
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Managing Devices > Quarantining a Device in the Zscaler Admin Console
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:54Z
 - Summary: Description and instructions on how to quarantine and unquarantine a device
 
 You can quarantine devices that are determined to be a potential threat in the Zscaler Admin Console. This could occur if a device doesn’t meet security standards, such as running malware, violating company policy, or attempting to use a stolen device. Quarantining a device limits or blocks its access to Zscaler applications.
@@ -13275,13 +13590,13 @@ You can right-click the app icon in the system tray to view a list of options.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/registering-devices-zpa-idp-username","lastmod":"2026-09-30T23:52Z","nid":"1364596"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/registering-devices-zpa-idp-username","lastmod":"2026-10-15T21:06Z","nid":"1364596"} -->
 ## Registering Devices with the ZPA IdP Username
 
 - Source: https://help.zscaler.com/zscaler-client-connector/registering-devices-zpa-idp-username
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > App Supportability > Registering Devices with the ZPA IdP Username
-- Last modified: 2026-09-30T23:52Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: How to register devices with ZPA IdP username on Zscaler Client Connector.
 
 You can register a device in the Zscaler Admin Console with the username entered for Private Access (ZPA) authentication instead of the username that is used for enrollment in the app.
@@ -13380,13 +13695,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-10-09T13:30Z","nid":"1534303"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/release-upgrade-summary-2026","lastmod":"2026-10-16T10:17Z","nid":"1534303"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/release-upgrade-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector Portal Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-09T13:30Z
+- Last modified: 2026-10-16T10:17Z
 - Summary: Zscaler Client Connector Portal Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Client Connector service. Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -13423,6 +13738,220 @@ To remove users' devices in the Zscaler Admin Console, you can use either of the
 To learn how to soft remove a device, see [Soft Removing a Device from the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/soft-removing-device-zscaler-admin-console).
 
 To learn how to force remove a device, see [Force Removing a Device from the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/force-removing-device-zscaler-admin-console).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/reporting-issue-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:32Z","nid":"1363101"} -->
+## Reporting an Issue with Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Reporting an Issue with Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-07T11:32Z
+- Summary: Information on how to report an issue from Zscaler Client Connector in the Classic UI.
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+This article covers how to access the **Report an Issue** form and complete the form on different OSs. When you submit the form, depending on your organization's setup, Zscaler Client Connector might send an email to your organization's support admin or submit a ticket directly to Zscaler Support (your support admin receives a copy of this ticket as well). After you submit the form, you receive an email acknowledging the support request.
+
+The **Report an Issue**optionappears in the app user interface only if your IT admin has [enabled it in your Zscaler Client Connector support configuration](https://help.zscaler.com/zscaler-client-connector/configuring-user-access-support-options-zscaler-client-connector).
+
+- Windows
+- macOS
+- Linux
+- Android
+- Android on ChromeOS
+- iOS
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue** form, use one of the following options:
+
+- Open Zscaler Client Connector and click **More**. In the **Troubleshoot** section, click **Report an Issue**.
+
+[Image: The Report an Issue option on Zscaler Client Connector for Windows]
+
+- Right-click the Zscaler Client Connector system tray icon, then select **Report An Issue**.
+
+[Image: The Report an Issue option from the Zscaler Client Connector tray icon]
+
+To complete the **Report an Issue**form, specify the following information:
+
+[Image: The Report an Issue Form for Zscaler Client Connector for Windows]
+
+- **Name:**Enter your name. The field to the right of the **Name** fieldis prepopulated with the email addresses of your organization's designated support admins.
+- **CC:**If you want to copy anyone else on this support request, enter the email address here. If entering multiple addresses, separate them with commas. Your organization's support admins are always copied on support requests, even if you leave this field blank.
+- **Problem:**From the drop-down menu, select a category that describes the problem. **Other** is selected by default.
+  - **Authentication:**Select if you are having problems logging into the app.
+  - **User Interface:**Select if app features are not responding as expected.
+  - **Network Connectivity:**Select if the app is showing connectivity issues.
+  - **Private Access:** Select if you are having problems with the Private Access service.
+  - **Other:**Selectif you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Priority:**From the drop-down menu, select a severity level for the problem. **Normal** is selected by default.
+  - **Urgent:**App cannot be used at all.
+  - **High:** App can be partially used but critical functions are not working.
+  - **Normal:**App can be used but some functions are not working.
+  - **Low:**App can be used but minor functions are not working.
+- **Comments:**Enter additional comments to describe the issue.
+- **Attach File:**Attach an applicable file, e.g., a screenshot showing an error message.
+- **Show/Hide logs:**You can show or hide logs in the **Report an Issue**window. You can also see where encrypted logs are stored on your device Logs will always be automatically attached when you report an issue.
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue**form, use one of the following options.
+
+- Open Zscaler Client Connector and click **More**. In the **Troubleshoot**section, click **Report An Issue**.
+
+[Image: The Report an Issue option on Zscaler Client Connector for macOS]
+
+- Right-click the Zscaler Client Connector menu bar icon, then select **Report An Issue**.
+
+[Image: The Report an Issue option from the Zscaler Client Connector menu bar icon]
+
+To complete the **Report an Issue** form, specify the following information:
+
+[Image: The Report an Issue Form for Zscaler Client Connector for macOS]
+
+- **Name**:Enter your name. The field below the **Name** field is prepopulated with the email addresses of your organization's designated support admins.
+- **CC**:If you want to copy anyone else on this support request, enter the email address here. If entering multiple addresses, separate them with commas. Your organization's support admins are always copied on support requests, even if you leave this field blank.
+- **Problem**:From the drop-down menu, select a category that describes the problem. **Other** is selected by default.
+  - **Authentication**:Select if you are having problems logging into the app.
+  - **User Interface**:Select if app features are not responding as expected.
+  - **Network Connectivity**:Select if the app is showing connectivity issues.
+  - **Private Access**: Select if you are having problems with the Private Access service.
+  - **Other**:Selectif you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Priority**:From the drop-down menu, select a severity level for the problem. **Normal** is selected by default.
+  - **Urgent**:App cannot be used at all.
+  - **High**: App can be partially used but critical functions are not working.
+  - **Normal**:App can be used but some functions are not working.
+  - **Low**:App can be used but minor functions are not working.
+- **Comments**:Enter additional comments to describe the issue.
+- **Attach File**:Attach an applicable file, e.g, a screenshot showing an error message.
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue**form, use one of the following options.
+
+- Open Zscaler Client Connector and click **More**. In the **Troubleshoot**section, click **Report An Issue**.
+
+[Image: Report an issue from the app More window]
+
+- Right-click the Zscaler Client Connector menu bar icon, then select **Report An Issue**.
+
+[Image: Report an issue from the tray icon]
+
+To complete the **Report An Issue** form, specify the following information:
+
+[Image: Report an issue form]
+
+- **Name**:Enter your name. The field below the **Name** field is prepopulated with the email addresses of your organization's designated support admins.
+- **CC**:If you want to copy anyone else on this support request, enter the email address here. If entering multiple addresses, separate them with commas. Your organization's support admins are always copied on support requests, even if you leave this field blank.
+- **Problem**:From the drop-down menu, select a category that describes the problem. **Other** is selected by default.
+  - **Authentication**:Select if you are having problems logging into the app.
+  - **User Interface**:Select if app features are not responding as expected.
+  - **Network Connectivity**:Select if the app is showing connectivity issues.
+  - **Private Access**: Select if you are having problems with the Private Access service.
+  - **Other**:Selectif you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Priority**:From the drop-down menu, select a severity level for the problem. **Normal** is selected by default.
+  - **Urgent**:App cannot be used at all.
+  - **High**: App can be partially used but critical functions are not working.
+  - **Normal**:App can be used but some functions are not working.
+  - **Low**:App can be used but minor functions are not working.
+- **Comments**:Enter additional comments to describe the issue.
+- **Attach File**:Attach an applicable file, e.g, a screenshot showing an error message.
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue** form, tap **More** from the Zscaler Client Connector app. In the **Troubleshoot**section, tap **Report An Issue**.
+
+[Image: The Report an Issue option on Zscaler Client Connector for Android]
+
+To complete the **Report an Issue** form, specify the following information:
+
+[Image: The Report an Issue Form on Zscaler Client Connector for Android]
+
+- **Name**: Enter your name. The field below the **Name** field is prepopulated with the email address of your organization’s designated support admins.
+- **CC**: If you want to copy anyone else on this support request, you can enter the email address here (separate multiple addresses by commas.) Your organization’s support admins are always copied on support requests, even if you leave this field blank.
+- **Priority**: From the drop-down menu, select a severity level for the problem.
+  - **Urgent**: App cannot be used at all.
+  - **High**: App can be partially used but critical functions are not working.
+  - **Normal**: App can be used but some functions are not working.
+  - **Low**: App can be used but minor functions are not working.
+- **Problem**: From the drop-down menu, select a category that describes the problem.
+  - **Authentication**: Select if you are having problems logging into the app.
+  - **User Interface**: Select if app features are not responding as expected.
+  - **Network Connectivity**: Select if the app is showing connectivity issues.
+  - **Others**: Select if you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Comments**: Enter additional comments to describe the issue. The comments cannot exceed 250 characters.
+- **Attach File(<1MB)**:Attach an applicable file, e.g, a screenshot showing an error message. The size of the file should not exceed1 MB.
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue** form, tap **More** from the Zscaler Client Connector app. In the **Troubleshoot**section, tap **Report an Issue**.
+
+[Image: The Report an Issue option on Zscaler Client Connector for Android on ChromeOS]
+
+To complete the **Report an Issue** form, specify the following information:
+
+[Image: The Report an Issue Form on Zscaler Client Connector for Android on ChromeOS]
+
+- **Name**: Enter your name. The field below the **Name** field is prepopulated with the email address of your organization’s designated support admins.
+- **CC**: If you want to copy anyone else on this support request, you can enter the email address here. If entering multiple addresses, separate them with commas. Your organization’s support admins are always copied on support requests, even if you leave this field blank.
+- **Priority**: From the drop-down menu, select a severity level for the problem.
+  - **Urgent**: App cannot be used at all.
+  - **High**: App can be partially used but critical functions are not working.
+  - **Normal**: App can be used but some functions are not working.
+  - **Low**: App can be used but minor functions are not working.
+- **Problem**: From the drop-down menu, select a category that describes the problem.
+  - **Authentication**: Select if you are having problems logging into the app.
+  - **User Interface**: Select if app features are not responding as expected.
+  - **Network Connectivity**: Select if the app is showing connectivity issues.
+  - **Others**: Select if you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Comments**: Enter additional comments to describe the issue. The comments cannot exceed 250 characters.
+- **Attach File(<1MB)**:Attach an applicable file, e.g, a screenshot showing an error message. The size of the file should not exceed 1 MB.
+
+This section covers the following topics:
+
+- Access the Report an Issue Form
+- Complete the Report an Issue Form
+
+To open the **Report an Issue** form, tap **More** from the Zscaler Client Connector app. In the **Troubleshoot**section, tap **Report An Issue**.
+
+[Image: The Report an Issue Option on Zscaler Client Connector for iOS]
+
+To complete the **Report an Issue** form, specify the following information:
+
+[Image: The Report an Issue Form on Zscaler Client Connector for iOS]
+
+- **Name**: Enter your name containing alphabetic characters only. The field below the **Name** field is prepopulated with the email addresses of your organization’s designated support admins.
+- **CC**: If you want to copy anyone else on this support request, you can enter the email address here (separate multiple addresses by commas). Your organization’s support admins are always copied on support requests, even if you leave this field blank.
+- **Problem**: Enter a category that describes the problem.
+  - **Authentication**: Select if you are having problems logging into the app.
+  - **User Interface**: Select if app features are not responding as expected.
+  - **Network Connectivity**: Select if the app is showing connectivity issues.
+  - **Others**: Select if you are unsure of the problem, or if the problem does not relate to the categories above.
+- **Priority**: Enter a severity level for the problem.
+  - **Urgent**: App cannot be used at all.
+  - **High**: App can be partially used but critical functions are not working.
+  - **Normal**: App can be used but some functions are not working.
+  - **Low**: App can be used but minor functions are not working.
+- **Enter comments here**: Enter additional comments to describe the issue. The comments cannot exceed 1024 characters.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13544,13 +14073,13 @@ sudo ./config_vpn_dns.sh tun0 "10.11.12.13 10.11.12.14" corp.testco.com
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/restricting-remote-packet-capture","lastmod":"2026-10-01T00:28Z","nid":"1452876"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/restricting-remote-packet-capture","lastmod":"2026-10-15T21:06Z","nid":"1452876"} -->
 ## Restricting Remote Packet Capture
 
 - Source: https://help.zscaler.com/zscaler-client-connector/restricting-remote-packet-capture
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > User Privacy > Restricting Remote Packet Capture
-- Last modified: 2026-10-01T00:28Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Restricting Remote Packet Capture in Zscaler Client Connector Support
 
 Zscaler Client Connector uses the Npcap library to perform [packet capture](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector) for troubleshooting.
@@ -13670,13 +14199,13 @@ To clear the **Search**field, delete the search term you typed and press `Enter`
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-device-groups","lastmod":"2026-09-30T23:22Z","nid":"1444011"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-device-groups","lastmod":"2026-10-15T21:06Z","nid":"1444011"} -->
 ## Searching for Device Groups
 
 - Source: https://help.zscaler.com/zscaler-client-connector/searching-device-groups
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Searching for Device Groups
-- Last modified: 2026-09-30T23:22Z
+- Last modified: 2026-10-15T21:06Z
 - Summary: Searching for a Device Group on the Device Group page
 
 You can quickly locate a specific device group using the Searchfield.
@@ -13716,13 +14245,13 @@ To clear the **Search**field, delete the search term you typed and press `Enter`
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-forwarding-profile","lastmod":"2026-10-05T21:06Z","nid":"1443831"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-forwarding-profile","lastmod":"2026-10-16T16:58Z","nid":"1443831"} -->
 ## Searching for a Forwarding Profile
 
 - Source: https://help.zscaler.com/zscaler-client-connector/searching-forwarding-profile
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Searching for a Forwarding Profile
-- Last modified: 2026-10-05T21:06Z
+- Last modified: 2026-10-16T16:58Z
 - Summary: Searching for a Forwarding Profile
 
 You can quickly locate a specific forwarding profile using the Searchfield.
@@ -13758,13 +14287,13 @@ To clear the **Search**field, delete the search term you typed and press `Enter`
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-trusted-network","lastmod":"2026-10-02T21:06Z","nid":"1443956"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/searching-trusted-network","lastmod":"2026-10-16T16:59Z","nid":"1443956"} -->
 ## Searching for a Trusted Network
 
 - Source: https://help.zscaler.com/zscaler-client-connector/searching-trusted-network
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Forwarding Traffic Management > Searching for a Trusted Network
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-16T16:59Z
 - Summary: Search for a trusted network using search criteria
 
 You can quickly find a specific trusted network using the **Search** field by selecting different criteria to narrow your search results.
@@ -13854,13 +14383,13 @@ The following table provides possible configurations for the Zscaler Service Ent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/selective-entitlement-enabling-zdx-group-users","lastmod":"2026-09-30T20:16Z","nid":"1355776"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/selective-entitlement-enabling-zdx-group-users","lastmod":"2026-10-14T21:06Z","nid":"1355776"} -->
 ## Enabling ZDX for a Group of Users
 
 - Source: https://help.zscaler.com/zscaler-client-connector/selective-entitlement-enabling-zdx-group-users
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZDX for a Group of Users
-- Last modified: 2026-09-30T20:16Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on the Zscaler Service Entitlement feature and how to enable Zscaler Digital Experience (ZDX) for a group of users.
 
 You can use Zscaler Service Entitlement to select which users can enroll into ZDX. To enable ZDX for only a select group of users, you must deploy Zscaler Client Connector 2.2.1 or later.
@@ -13899,13 +14428,13 @@ The following table provides possible configurations for the Zscaler Service Ent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/selective-entitlement-enabling-zpa-group-users","lastmod":"2026-09-30T16:58Z","nid":"1334671"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/selective-entitlement-enabling-zpa-group-users","lastmod":"2026-10-14T21:06Z","nid":"1334671"} -->
 ## Enabling ZPA for a Group of Users
 
 - Source: https://help.zscaler.com/zscaler-client-connector/selective-entitlement-enabling-zpa-group-users
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Service Entitlement > Enabling ZPA for a Group of Users
-- Last modified: 2026-09-30T16:58Z
+- Last modified: 2026-10-14T21:06Z
 - Summary: Information on the Zscaler Service Entitlement feature and how to enable Zscaler Private Access (ZPA) for a group of users.
 
 You can use Zscaler Service Entitlement to select which users can enroll into Zscaler Private Access (ZPA). Configuring ZPA using a small subset of users allows for testing before rolling out the service to all users.
@@ -13947,13 +14476,56 @@ The following table provides possible configurations for the Zscaler Service Ent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/soft-removing-device-zscaler-admin-console","lastmod":"2026-09-30T21:06Z","nid":"1390891"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/self-service-notifications-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:29Z","nid":"1473946"} -->
+## Self Service Notifications in Zscaler Client Connector in the Classic UI
+
+- Source: https://help.zscaler.com/zscaler-client-connector/self-service-notifications-zscaler-client-connector-classic-ui
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Self Service Notifications in Zscaler Client Connector in the Classic UI
+- Last modified: 2026-10-07T11:29Z
+- Summary: How the Self Service notifications appear on Zscaler Client Connector in the Classic UI
+
+This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+
+After the admins have [configured the Self Service settings](https://help.zscaler.com/zdx/configuring-self-service-settings), users receive notifications when issues are detected and need attention. Each notification contains a brief diagnosis and recommendation that might resolve the CPU or Wi-Fi issue.
+
+For the minimum required version compatibility for Self Service, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
+
+### Enabling and Disabling Notifications in Zscaler Client Connector
+
+In Zscaler Client Connector, you can enable or disable the Self Service notifications:
+
+1. From the left-side navigation, click **More**.
+2. Under **Settings**, enable the toggle for **Show Self Service notification popups**.
+
+[Image: Self Service notification settings on Zscaler Client Connector]
+
+Self Service notifications appear as a dialog window on a user’s screen. For example:
+
+[Image: Self Service pop-up notification example]
+
+The notifications are also recorded on the **Notifications** page.
+
+[Image: Self Service notifications example]
+
+Click **Learn more** for more information on the notification. For example:
+
+[Image: Learn more about the Self Service notification]
+
+You can also provide feedback if you found the recommendation helpful.
+
+[Image: Feedback for Self Service notification recommendations]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/soft-removing-device-zscaler-admin-console","lastmod":"2026-10-15T15:54Z","nid":"1390891"} -->
 ## Soft Removing a Device from the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/zscaler-client-connector/soft-removing-device-zscaler-admin-console
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Managing Devices > Soft Removing a Device from the Zscaler Admin Console
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-15T15:54Z
 - Summary: Procedure to soft remove a device from the Zscaler Admin Console as an admin
 
 This article provides instructions on how to soft remove a device from the Zscaler Admin Console as an admin. Soft removing a device does not immediately remove it from the Zscaler Admin Console. To force remove a device, see [Force Removing a Device from the Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/force-removing-device-zscaler-admin-console). When you remove a device, Zscaler Client Connector logs out the user but does not uninstall the app from the device. To uninstall the app, see [Uninstalling Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector).
@@ -14318,612 +14890,4 @@ The Zscaler Client Connector groups sync with the Internet & SaaS groups every t
   - Manually sync directory groups between the Internet & SaaS and Zscaler Client Connector, by clicking **Sync Groups**.
 
 [Image: Check the next group sync time and perform a manual group sync]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:25Z","nid":"1546663"} -->
-## Troubleshooting Zscaler Client Connector in the Modern UI
-
-- Source: https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Troubleshooting Zscaler Client Connector in the Modern UI
-- Last modified: 2026-10-07T10:25Z
-- Summary: Information on the Troubleshooting window of Zscaler Client Connector.
-
-This article details the **Troubleshooting** page features of Zscaler Client Connector on different OSs:
-
-- Windows
-
-The **Troubleshooting** page includes the following features on Windows devices:
-
-## Actions
-
-This section displays the following actions:
-
-- **Restart Service:**Click **Restart** to restart the app. Restarting does not impact security enforcement.
-- **Repair App:**If you click **Repair**, the app attempts to repair itself by reinstalling app drivers and services. Zscaler recommends trying this option before reporting an issue.
-- **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. To modify the settings for Start Packet Capture, see [Enabling Packet Capture for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
-- **Report an Issue:**If your organization's admin enabled in-app support access, use this feature to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
-- **Advanced Settings**: Shows Zscaler Deception information if enabled for this user. To learn more, see [Deploying Endpoint Deception with Zscaler Client Connector for Windows](https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows).
-- **Revert App:** If your organization's admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization's policies, you might be required to enter a password.
-- **Disable Tamper Protection**: Click this option to disable anti-tampering protection. When prompted, provide the [Disable Anti-Tampering OTP](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). To learn more, see [Anti-Tampering for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector).
-
-[Image: Select options in the Actions section in the Troubleshooting window on Zscaler Client Connector]
-
-## Logs
-
-This section displays the following log options:
-
-- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization’s support admin.
-- **Clear Logs:**Click **Clear** to remove the existing application logs.
-- **Log Mode:**Change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode. To see where the logs are stored, click **Report an Issue** andthen click **Show/Hide logs**. To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
-  - **Error:**Logs only when the app encounters an error and functionality is affected.
-  - **Warn:**Logs when the app is functioning but is encountering potential issues, or logs when conditions for the Error log mode are met.
-  - **Info:**Logs general app activity, or logs when conditions for the Warn log mode are met.
-  - **Debug:** Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
-
-[Image: Select options in the Logs section in the Troubleshooting window on Zscaler Client Connector]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-alternative-cloud-domains","lastmod":"2026-03-31T13:09Z","nid":"1529036"} -->
-## Understanding Alternative Cloud Domains
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-alternative-cloud-domains
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Interoperability > Understanding Alternative Cloud Domains
-- Last modified: 2026-03-31T13:09Z
-- Summary: Information about using alternative cloud domains
-
-In China, only a content provider who is serving content from mainland China is required to have an Internet Content Provider (ICP) license. Zscaler does not generate or serve content in mainland China or offer additional encryption services. However, when a Zscaler Client Connector user in China connects to a Zscaler server also located in China, the connection might be blocked because the cloud on which your organization is provisioned is not registered in China.
-
-You can use an alternative cloud domain registered in China that can override the default cloud domain when connecting to the Internet & SaaS service and the Private Access service.
-
-## Prerequisites
-
-Make sure the following prerequisites are met:
-
-- Ensure Zscaler Client Connector is upgraded to one of the following versions:
-  - Zscaler Client Connector version 4.4 or later for Windows
-  - Zscaler Client Connector version 4.2 or later for macOS
-- If you use Internet & SaaS with Zscaler Tunnel (Z-Tunnel) 2.0, configure a forwarding profile with these settings:
-  - A Tunnel Driver Type of Packet Filter-Based (Zscaler Client Connector for Windows only)
-  - A forwarding profile action of Tunnel.
-  - A Tunnel Version Selection of Z-Tunnel 2.0
-
-## How it works
-
-When a Zscaler Client Connector user in China connects to the Zscaler service, Zscaler Client Connector determines whether an alternative cloud domain is configured as part of the Service Edge Discovery. Zscaler Client Connector then uses the alternative cloud domain that was discovered to connect to the Service Edge for Internet & SaaS and Service Edge for Private Access.
-
-Zscaler Client Connector automatically connects to the alternative cloud domain if you use a compatible version of the app. If required, you can disable this feature for your organization by contacting Zscaler Support.
-
-## Connecting to Specific Public Service Edges for Internet & SaaS
-
-If you use Zscaler Client Connector version 4.7 or later for Windows, Zscaler Client Connector locates the alternative cloud name in the default return statement of the PAC file associated with the app profile. If the PAC file uses the `${GATEWAY_FX}` macro or a similar macro, the PAC server replaces the macro with the alternative cloud domain along with the Public Service Edge for Internet & SaaS IP address and port.
-
-If the return statement does not include an alternative domain, Zscaler Client Connector uses the alternative domain in the HTTP response header of the PAC file and connects based on the Zscaler Client Connector location (and not the Service Edge location).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-10-06T21:06Z","nid":"1285451"} -->
-## Understanding Zscaler Client Connector App Downloads
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Understanding Zscaler Client Connector App Downloads
-- Last modified: 2026-10-06T21:06Z
-- Summary: How to navigate to the Zscaler Admin Console and manually download Zscaler Client Connector from the Zscaler Client Connector App Store page.
-
-IT Admins can download installation files to use when deploying Zscaler Client Connector to end users.
-
-There are no download links for Zscaler Client Connector in this article. This article applies only to admins for the Zscaler Admin Console. If you are an end user, contact your organization’s IT admin, IT support team, or equivalent for information about installing Zscaler Client Connector.
-
-If you are an IT Admin, you can download Zscaler Client Connector for Windows, macOS, Linux, or Android from the Zscaler Client Connector App Store in the Zscaler Admin Console. You can download either the latest version or one of the older versions still available for download.
-
-You cannot manually download and install the iOS version of Zscaler Client Connector from the Zscaler Admin Console. You must download and deploy the app with the Mobile Device Management (MDM) used by your organization. To learn more, see [Customizing Zscaler Client Connector with Install Options for iOS](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-ios).
-
-You can also configure app updates to automatically update Zscaler Client Connector for end users with Windows, Linux, or macOS devices. To learn more, see [Configuring an App Update in the Zscaler Client Connector App Store](https://help.zscaler.com/zscaler-client-connector/configuring-app-update-zscaler-client-connector-app-store).
-
-To download from the Zscaler Client Connector App Store:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **App Store**.
-2. On the **New Releases** tab, you can view and enable the latest Zscaler Client Connector versions for Windows, macOS, and Linux. In the**EXE URL** and**MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux, click the **Download** icon for the version you want to download. After you enable a particular build, it is listed under the **Registered Devices** tab. See image.
-3. On the **Registered Devices** tab, you can view the released versions of Zscaler Client Connector versions for Windows, macOS, Linux, and Android (SDK file only). Click the **Download** icon for the version you want to download in the **EXE URL** and **MSI URL** columns for Windows, the **Download APP** or **Download PKG** columns for macOS, or the **Download Link** column for Linux or Android. The most recent release is listed at the top of each table. Versions that are not grayed out are still available to download. To learn more, see [About the Zscaler Client Connector Store](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-store). See image.
-
-After downloading the file, you can use it to deploy Zscaler Client Connector to end users. To learn more, see the article that corresponds to the OS and any MDM used by your organization in the [Downloading and Deployment](https://help.zscaler.com/zscaler-client-connector/downloading-deployment) section.
-
-[Image: Download options for the Registered Devices tab]
-
-[Image: Download options for the New Releases tab]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-10-06T21:06Z","nid":"1296751"} -->
-## Understanding the Zscaler Client Connector Dashboard
-
-- Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Monitoring Usage > Understanding the Zscaler Client Connector Dashboard
-- Last modified: 2026-10-06T21:06Z
-- Summary: Information on the Zscaler Client Connector Portal Dashboard and its widgets, which display information about enrolled devices.
-
-The Zscaler Client Connector Dashboard provides information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
-
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Infrastructure**> **Platform Details**.
-
-## Dashboard
-
-The Dashboard option in the left-side navigation covers the following information:
-
-[Image: Zscaler Client Connector Dashboard]
-
-- Platform Details
-- Device Posture
-- Device Events
-
-This page provides OS platform details such as device model and device state.
-
-### Dashboard Filters
-
-Use the following filters to modify the content shown in the Platform Details page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
-
-- **States**: View data for devices with all device states, or a specific state (i.e., **Registered**, **Unregistered**, **Removal Pending**, **Removed**, **Quarantined**).
-- **OS**: View data for all operating systems or a specific operating system.
-
-### Widgets
-
-The Platform Details page provides the following details:
-
-- Version Distribution
-- Device Model
-- Device OS
-- Device State
-- Enrolled Devices by Platform
-- License Usage
-
-[Image: Zscaler Client Connector Dashboard]
-
-This widget displays your organization's subscription and license information.
-
-This widget only applies to Internet & SaaS. You won't see this widget if you only have Private Access.
-
-[Image: Zscaler Client Connector Dashboard - License Usage chart]
-
-- Hover over the chart to view the following: Licenses are calculated based on the unique username. For example, even if a user has Zscaler Client Connector installed on three devices, the user still has only one license.
-  - **Subscribed**: The number of user subscriptions for Zscaler Client Connector.
-  - **Used**: The number of users that are enrolled to Zscaler Client Connector.
-- To view a list of all enrolled devices, click a category in the chart.
-
-This widget displays the enrolled device models. It displays the top 5 device models and groups all other models in the Others category.
-
-[Image: Zscaler Client Connector Dashboard - Device Model chart]
-
-- Hover over the chart to view the following:
-  - The details for a specific device model, which includes:
-    - The model name
-    - The number of enrolled devices for the model
-    - The percentage of enrolled devices for the model
-  - The details for the Others category, which includes:
-    - The number of enrolled devices grouped under Others
-    - The percentage of enrolled devices grouped under Others
-- To view a list in **Enrolled Devices**for all devices for a specific model, click the model in the chart.
-- To view a list in **Enrolled Devices** for all devices in the Others category, click **Others**in the chart. The list of devices is organized by device model.
-
-This widget displays the enrolled devices operating systems. It displays the top 5 OSs and groups all other OSs in the Others category.
-
-[Image: Zscaler Client Connector Dashboard - Device OS chart]
-
-- Hover over the chart to view the following:
-  - The details for a specific OS, which includes:
-    - The OS name
-    - The number of enrolled devices for the OS
-    - The percentage of enrolled devices for the OS
-  - The details for the Other category, which includes:
-    - The number of enrolled devices grouped under Others
-    - The percentage of enrolled devices grouped under Others
-- To view a list in **Enrolled Devices** for all devices for a specific OS, click the OS in the chart.
-- To view a list in **Enrolled Devices** for all devices in the Others category, click **Others**in the chart. The list of devices is organized by OS.
-
-This widget displays the states of the enrolled devices and the [app profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles) applied to the devices.
-
-The possible device states are:
-
-- Registered
-- Unregistered
-- Removal Pending
-- Removed
-- Quarantined
-
-To learn more about device states, see [Device States for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/device-states-enrolled-devices).
-
-[Image: Zscaler Client Connector Dashboard - Device State chart]
-
-- Hover over the chart to view the following:
-  - The state name
-  - The number of enrolled devices for the state
-  - The percentage of enrolled devices for the state
-- To view a list in **Enrolled Devices** for all devices for a specific state, click the state in the chart.
-
-This widget displays the enrolled devices platforms.
-
-[Image: Zscaler Client Connector Dashboard - Enrolled Devices by Platform chart]
-
-- Hover over the chart to view the following:
-  - The platform name
-  - The number of enrolled devices for the platform
-- To view a list in **Enrolled Devices** for all devices for a specific platform, click the platform in the chart.
-
-This widget displays the number of devices installed with supported and unsupported versions of Zscaler Client Connector, defined as:
-
-- **Supported**: Zscaler Client Connector versions enabled on the [New Releases tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store and listed on the [Update Settings tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store.
-- **Unsupported**: Zscaler Client Connector versions enabled on the [New Releases tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store but are earlier than the supported versions listed on the [Update Settings tab](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-store) of the Client Connector App Store.
-
-[Image: Zscaler Client Connector Dashboard - Version Distribution chart]
-
-Hover over the chart to view the number of devices installed with supported and unsupported versions of Zscaler Client Connector, shown by percentage for each OS. Click the graph to view a list of all devices, by User ID, installed with either supported or unsupported versions of Zscaler Client Connector in [Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices). You can use this list to view which Zscaler Client Connector versions are installed and identify users who must update to a supported version of Zscaler Client Connector.
-
-This page provides information about Internet & SaaS and Private Access service status and about users turning off the services via passwords.
-
-This page is available for Windows users only. You must also have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
-
-### Dashboard Filter
-
-Use the **Time Range** filter to view data for the selected time range. After you select the filter, click**Apply** in the upper-right corner of the page.
-
-### Widgets
-
-The Device Events page provides the following widgets:
-
-- ZIA and ZPA Device Service Status
-- ZIA Service Turn Off
-- ZPA Service Turn Off
-- Number of Times ZIA and ZPA Turned Off
-- Password Usage
-- Password Usage By Type
-
-[Image: View the Device Events page of the Dashboard]
-
-This widget displays information about the total number of devices enrolled in each service. You can view the following:
-
-- **ZDX**: The number of enrolled devices with the ZDX service enabled.
-- **Non-ZDX**: The number of enrolled devices without the ZDX service enabled.
-- **ZIA**: The number of enrolled devices with the Internet & SaaS service enabled.
-- **ZPA**: The number of enrolled devices with the Private Access service enabled.
-- **Off ZIA**: The number of enrolled devices that have had the Internet & SaaS service turned off
-- **Off ZPA**: The number of enrolled devices that have had the Private Access service turned off.
-
-This widget displays information about the enrolled devices that have had the Internet & SaaS service turned off. You can view the following:
-
-- **Users**: The number of unique users who have turned off the service, even if they have turned it back on.
-- **Total Number**: The total number of times the service has been turned off by the users, even if a user has turned it back on.
-
-This widget displays information about the enrolled devices that have had the Private Access service turned off. You can view the following:
-
-- **Users**: The number of unique users who have turned off the service, even if they have turned it back on.
-- **Total Number**: The total number of times the service has been turned off by the users, even if a user has turned it back on.
-
-This widget displays information about the number of times Internet & SaaS and Private Access were turned off over the course of the past 24 hours. Hover over the graph lines to display the number of devices turned off per service for a particular time.
-
-This widget displays information about the passwords used to turn off the services. You can view the following:
-
-- **Users**: The number of individual users who have turned off the service.
-- **OTP**: The number of users who used the Disable ZIA OTP password or Disable ZPA OTP password from the [Device Details](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device) for the enrolled device.
-- **Master**: The number of users who used the Disable Password ZIA password or Disable Password ZPA password from the [app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
-
-This widget displays information about the passwords used to turn off the services. You can view the following:
-
-- **ZIA OTP**: The number of times ZIA was turned off using the Disable ZIA OTP password.
-- **ZPA OTP**:The number of times ZPA was turned off using the Disable ZPA OTP password.
-- **ZPA Master**: The number of times ZPA was turned off using the Disable Password ZPA password.
-- **ZIA Master**: The number of times ZIA was turned off using the Disable Password ZIA password.
-
-This page provides information about devices that fail their [device posture checks](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles).
-
-The Device Posture page is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
-
-### Dashboard Filters
-
-Use the following filters to modify the content shown in the Device Posture page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
-
-- **Time**: Modify the failed postures times ranging from three-hour intervals up to 24 hours. You can set the filter to show data up to the past 7 days.
-- **OS**: View devices for either Windows or macOS or for both of the operating systems. By default, both operating systems are shown.
-
-### Widgets
-
-The Device Posture page provides the following widgets:
-
-- Top 10 Failed Device Posture Trend
-- Top 50 Failed Posture Profiles
-- Top 10 Non-Compliant Devices
-- Compliant vs Non-Compliant
-
-This widget displays the trendline of the top 10 device posture profiles that have the highest number of devices failing their device posture checks. You can select a different set of up to 10 device posture profiles in the Top 50 Failed Posture Profiles widget to view the trendline for those profiles.
-
-This widget displays the top 50 device posture profiles that have the highest number of devices failing their posture checks. The trendline for the selected device posture profiles displays in the Top 10 Failed Device Posture Trend widget. You can click a device posture profile to view the failed devices on the [Failed Devices](https://help.zscaler.com/zscaler-client-connector/about-failed-posture-devices) page.
-
-This widget displays the total number of non-compliant devices for the top 10 device posture failures and the distribution of the devices by device posture profile. Hover over the chart to view the number of devices with posture failures for the specific device posture profile.
-
-This widget displays the number of devices with the top 10 failed device posture profiles that are compliant (passed the posture check) and non-compliant (failed the posture check). For the non-compliant devices, the widget displays the total number of posture failures and the upwards or downwards trend for each device posture profile.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uninstalling-zscaler-client-connector","lastmod":"2026-08-27T15:45Z","nid":"1285486"} -->
-## Uninstalling Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/uninstalling-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Uninstalling Zscaler Client Connector
-- Last modified: 2026-08-27T15:45Z
-- Summary: Information on various methods of uninstalling Zscaler Client Connector from a device.
-
-This article is for Zscaler Client Connector admin use only. If you are not a Zscaler Client Connector admin, contact your organization's support team about uninstalling Zscaler Client Connector.
-
-This article provides instructions for uninstalling Zscaler Client Connector. When [configuring the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles), you have the option of providing an **Uninstall Password** that users must enter to uninstall the app. You can also utilize a single-use Uninstall One-Time Password (OTP) in [Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device).
-
-You can manually uninstall the app from individual devices on each of the following platforms:
-
-- Manually Uninstall Zscaler Client Connector in Windows
-- Manually Uninstall Zscaler Client Connector in macOS
-- Manually Uninstall Zscaler Client Connector in Linux
-- Manually Uninstall Zscaler Client Connector in Android
-- Manually Uninstall Zscaler Client Connector in Android on ChromeOS
-- Manually Uninstall Zscaler Client Connector in iOS
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, go to **Zscaler >** **ZSAInstaller**.
-2. Double-click the **uninstall**application. [Image: The Zscaler Client Connector uninstall application for Windows]
-3. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. Go to the Zscaler folder on the device.
-2. Double-click **UninstallApplication**. [Image: The Zscaler Client Connector uninstall application for macOS]
-3. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. Run the following command: sudo /opt/zscaler/UninstallApplication
-2. Provide the **Uninstall Password** as [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles).
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, tap and hold the Zscaler Client Connector icon on the home screen.
-2. Drag the Zscaler Client Connector icon to the top of the home screen to the **Uninstall** icon.
-3. Click **OK** in the message that displays.
-
-[Image: Uninstalling the Zscaler Client Connector app from the Andriod home screen]
-
-A message appears at the bottom of the home screen indicating that the app was uninstalled.
-
-To uninstall Zscaler Client Connector:
-
-1. Locate Zscaler Client Connector on the device.
-2. Touch and hold Zscaler Client Connector, and then tap the **Uninstall**icon ([Image: The Uninstall icon for iOS]).
-3. Tap **Delete**. [Image: Uninstalling the Zscaler Client Connector on iOS]
-4. For iPhone X and later, tap **Done**. For iPhone 8 or earlier, tap the home button.
-
-To uninstall Zscaler Client Connector:
-
-1. On the device, right-click the Zscaler Client Connector icon and select the **Uninstall**icon.
-2. Click **Uninstall** in the message that displays.
-
-[Image: Uninstalling the Zscaler Client Connector app from Chromebook]
-
-The icon and app are removed from the device.
-
-You can also uninstall the app from your users' devices using one of the following options:
-
-- Uninstall from the command-line using the MSI file
-- Uninstall by removing the MST file from GPO
-- Uninstall in macOS with a shell script
-- Uninstall in Windows with a batch file
-- Uninstall in Windows with PowerShell
-
-If you are a Zscaler Client Connector admin and are unable to uninstall Zscaler Client Connector using the methods provided here, contact Zscaler Support.
-
-To uninstall Zscaler Client Connector from your user's device:
-
-1. Start a command prompt as an administrator.
-2. Enter the following command: msiexec /x <complete path> /quiet UNINSTALLPASSWORD=<uninstall password>[Image: Running the MSI file with a command-line option to uninstall Zscaler Client Connector]
-  - Replace <complete path> with the absolute pathname to the MSI install file (e.g., C:\Users\User\Downloads\Zscaler-windows-1.1.0.000213-installer.msi).
-  - Use the /quiet switch to uninstall the app in silent mode.
-  - Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles). In this example, the organization's password is safemarch123.
-  - If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `UNINSTALLPASSWORD` with `UNINSTALLPASSWORDCMDLINE`, and replace `<uninstall password>` with the uninstall **Password** that was generated in the platform settings.
-
-Ensure that the [password you added to the MST file](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-app-install-options-msi#uninstallpw) is the same as the **Uninstall Password** that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles) or, if you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), the uninstall **Password** that was generated in the platform settings.
-
-To remove the MST file from your users' devices in an Active Directory (AD) environment:
-
-1. Log in to the AD environment (Domain Controller) as an admin user.
-2. For your OU, right-click the GPO Policy and select **Edit**.
-3. Go to **User Configuration**>**Policies**>**Software Settings**>**Software installation**.
-4. Right-click the MST file, then select **All Tasks**> **Remove...**. [Image: Removing the MST file from GPO to uninstall Zscaler Client Connector]
-
-After the file is removed, the app is uninstalled from your users' devices.
-
-To uninstall Zscaler Client Connector from your user’s macOS device:
-
-1. Go to the **Utilities** folder.
-2. Double-click the **Terminal** icon.
-3. Enter the following command: sudo sh /Applications/Zscaler/.Uninstaller.sh <uninstall password>Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles). In this example, the organization's password is safemarch123. [Image: Using a shell script to uninstall the Zscaler Client Connector from macOS devices]
-
-To uninstall Zscaler Client Connector from your users’ Windows device:
-
-1. Create a `.bat` file with the following batch script: @ECHO OFF SET ZSCALER_PASSWORD=<uninstall password> IF EXIST ""%PROGRAMFILES(X86)%"\Zscaler\ZSAInstaller\uninstall.exe" ( "%PROGRAMFILES(X86)%"\Zscaler\ZSAInstaller\uninstall.exe --mode unattended ) ELSE ( "%PROGRAMFILES%"\Zscaler\ZSAInstaller\uninstall.exe --mode unattended )Replace <uninstall password> with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). In this example, the organization’s password is safemarch123. If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
-2. Start a command prompt as an administrator.
-3. To run the batch file, enter its absolute path. In this example, the batch file is Uninstall-Z-App.bat and its absolute path is C:\Users\Administrator\Desktop\batch\Uninstall-Z-App.bat [Image: Running the batch file to uninstall the Zscaler Client Connector]
-
-If you are still running into issues with batch file, consider using Windows PowerShell as an alternative to uninstalling Zscaler Client Connector. For example, if you are using complex passwords that include a combination of numbers, letters, and special characters (e.g., 123jsf%2!!@&jaK), then Windows PowerShell is more suitable to use.
-
-To uninstall Zscaler Client Connector via PowerShell from your user's device:
-
-1. Go to PowerShell.
-2. Enter the following command to ensure `ExecutionPolicy` is not restricted: Set-ExecutionPolicy RemoteSigned
-3. You can enter the commands individually or create a PowerShell script to start the uninstallation process.
-  - To enter the commands individually
-  - To create a PowerShell script in NotePad
-4. After uninstallation, enter the following to reset the password: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','', 'User')
-
-1. To set the variable to your <uninstall password>, enter the following: [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User')Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings.
-2. To confirm the variable is set correctly, enter the following: [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User')The `<uninstall password>` is returned.
-3. To start the uninstall process, enter the following. Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" "--mode unattended"You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
-
-1. In NotePad, create a PowerShell script with the following script. [Environment]::SetEnvironmentVariable('ZSCALER_PASSWORD','<uninstall password>','User') [Environment]::GetEnvironmentVariable('ZSCALER_PASSWORD', 'User') Start-Process -FilePath "C:\Program Files\Zscaler\ZSAInstaller\uninstall.exe" -ArgumentList "--mode unattended"Replace `<uninstall password>` with the password that was [configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-profiles). If you [configured a password for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode), replace `ZSCALER_PASSWORD` with `ZSCALER_UNINSTALL_PASSWORD_JWT`, and replace <uninstall password> with the uninstall **Password** that was generated in the platform settings. You might need to change the file path if it is incorrect. Check where your `Zscaler` folder is located to find the file path to `uninstall.exe`.
-2. Save it as `test.ps1`.
-3. Return to PowerShell to enter the following to start uninstallation. .\test.ps1
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-android-1.9","lastmod":"2024-10-23T03:51Z","nid":"1390666"} -->
-## Upgrading to Zscaler Client Connector version 1.9 for Android
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-android-1.9
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Zscaler Client Connector version 1.9 for Android
-- Last modified: 2024-10-23T03:51Z
-- Summary: Steps to take when upgrading to Zscaler Client Connector version 1.9 for Android.
-
-If you are currently running a 32-bit version, you must first remove the current version of Zscaler Client Connector (version 1.7.2 or earlier) before installing Zscaler Client Connector version 1.9 for Android on your device.
-
-To learn more, [see March 20, 2022 Release Notes: Zscaler Client Connector 1.9 for Android](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2022?applicable_category=Android&applicable_version=1.9&deployment_date=2022-04-20&id=1394271).
-
-If you already installed Zscaler Client Connector version 1.9 for Android on your device, but you are currently using Zscaler Client Connector version 1.7.2 or a version that did not originate from the Google Play Store, only the current version will run. You must remove the current version to run Zscaler Client Connector version 1.9 for Android.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-android-10","lastmod":"2024-10-23T03:55Z","nid":"1352181"} -->
-## Upgrading to Android 10
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-android-10
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Android 10
-- Last modified: 2024-10-23T03:55Z
-- Summary: Information on what steps to take for Zscaler Client Connector when upgrading to Android 10.
-
-If you want to upgrade to Android 10, you must:
-
-- Upgrade your devices (excluding Samsung devices) to Zscaler Client Connector 1.5.2 for Android. To learn more, see [January 6, 2020 Release Notes: Zscaler Client Connector 1.5.2 for Android](https://help.zscaler.com/zscaler-client-connector/january-6-2020-release-notes-zscaler-app-1.5.2-android).
-- Upgrade your Samsung devices to Zscaler Client Connector 1.5.3 for Android. To learn more, see [March 17, 2020 Release Notes: Zscaler Client Connector 1.5.3 for Android](https://help.zscaler.com/zscaler-client-connector/march-17-2020-release-notes-zscaler-app-1.5.3-android).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-macos-big-sur","lastmod":"2021-03-24T12:11Z","nid":"1370126"} -->
-## Upgrading to macOS Big Sur
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-macos-big-sur
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to macOS Big Sur
-- Last modified: 2021-03-24T12:11Z
-- Summary: Information on upgrading to macOS Big Sur.
-
-If you want to upgrade to macOS Big Sur, you must first upgrade Zscaler Client Connector to [version 2.2.4](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2020?applicable_category=macOS&applicable_version=2.2.4) or later.
-
-Also, on macOS Big Sur devices, Apple requires password confirmation for the user's account before Zscaler Client Connector can install and trust the root certificate. As a workaround, certificates can be installed via MDM for trust.
-
-To learn more, see the Security section of the [macOS Big Sur release notes](https://developer.apple.com/documentation/macos-release-notes/macos-big-sur-11_0_1-release-notes).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-macos-catalina","lastmod":"2023-11-28T15:30Z","nid":"1352046"} -->
-## Upgrading to macOS Catalina
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-macos-catalina
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to macOS Catalina
-- Last modified: 2023-11-28T15:30Z
-- Summary: Information on what steps to take for Zscaler Client Connector when upgrading to macOS Catalina.
-
-Zscaler Client Connector 2.1 and Catalina are no longer supported. To learn more, see [Supported Versions](https://help.zscaler.com/eos-eol/supported-versions).
-
-If you want to upgrade to macOS Catalina, you must use Zscaler Client Connector 2.1 or later. To learn more, see [(General Availability) Zscaler Client Connector 2.1.0.190 for macOS](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2020?applicable_category=macOS&applicable_version=2.1.0.190).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-windows-10-version-2004","lastmod":"2023-02-07T14:06Z","nid":"1356096"} -->
-## Upgrading to Windows 10, Version 2004
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-windows-10-version-2004
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Troubleshooting > Upgrading to Windows 10, Version 2004
-- Last modified: 2023-02-07T14:06Z
-- Summary: Information on the limitation that Windows 10, version 2004 introduced, which affects organizations using Zscaler Client Connector for Zscaler Private Access (ZPA).
-
-If you are using Zscaler Client Connector for Zscaler Private Access (ZPA), be aware of the new limitation that Windows 10 introduced in version 2004 and later. This new version of Windows only supports up to 50 DNS suffixes per system. So, when you configure DNS search domains in the ZPA Admin Portal, you must ensure that no system will exceed 50 DNS suffixes. To learn more, see [Adding DNS Search Domains](https://help.zscaler.com/zpa/about-applications/dnsDomains).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-zscaler-client-connector","lastmod":"2026-05-07T16:11Z","nid":"1472721"} -->
-## Upgrading Zscaler Client Connector
-
-- Source: https://help.zscaler.com/zscaler-client-connector/upgrading-zscaler-client-connector
-- Product: Client Connector
-- Path: Zscaler Client Connector Help > Downloading & Deployment > Upgrading Zscaler Client Connector
-- Last modified: 2026-05-07T16:11Z
-- Summary: How to upgrade Zscaler Client Connector using a command line
-
-This feature applies only to Zscaler Client Connector version 4.2.1 for Windows or later.
-
-You can require an upgrade password if you update Zscaler Client Connector in unattended mode on your users' devices (e.g., you use GPO, SCCM, or other device management methods).
-
-You can [configure update settings](https://help.zscaler.com/zscaler-client-connector/configuring-update-settings-zscaler-client-connector) to update Zscaler Client Connector automatically to the latest version or to a version you specify. If you disable the auto-update option, you can use this password to provide additional security.
-
-Before you can upgrade using the password, you need to configure it. To learn more, see [Configuring Passwords for Access in Unattended Mode.](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode)
-
-You can upgrade the app on your users' devices using one of the following options:
-
-- Create an MST and Deploy it Using GPO or a Compatible Device Management Tool
-- Upgrade From a CLI Using the MSI File
-- Upgrade Using the EXE Install File with CLI Options
-
-To create an MST file:
-
-1. Download the Zscaler Client Connector MSI installer file in the[Zscaler Admin Console](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-store).
-2. Follow the instructions to [create an MST file using Orca](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-msi), and add UPGRADEPASSWORDCMDLINE as one of the install options:
-  1. Click **Tables** from the top menu, and then click **Add Row**.
-  2. In the **Add Row** window:
-    1. For **Property**, enter `UPGRADEPASSWORDCMDLINE`.
-    2. Press `Enter` or click the **Value** field.
-    3. For **Value**, enter the [generated upgrade password from the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-3. Click **OK**.
-
-The install option appears on a new line.
-
-After creating the MST, you can use it when [deploying Zscaler Client Connector to your users with Active Directory](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-active-directory-windows).
-
-To upgrade from a CLI using the MSI file:
-
-1. Start a command prompt as an administrator.
-2. Enter the following command:
-
-```
-msiexec /i
-<complete path>
-/quiet UPGRADEPASSWORDCMDLINE=
-<upgrade password>
-```
-
-- Replace `complete path` with the absolute pathname to the MSI install file. For example, `C:\Users\User\Downloads\Zscaler-windows-1.1.0.000213-installer.msi`
-- Use the `/quiet` switch to upgrade the app in silent mode.
-- Replace `upgrade password` with the upgrade password that was [generated in the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-
-To upgrade using the EXE install file:
-
-1. Start a command prompt as an administrator.
-  1. Click **Start**.
-  2. In the **Start Search** box, enter `cmd`, then press `CTRL+SHIFT+ENTER`.
-  3. If the User Account Control (UAC) dialog window appears, confirm that you want to continue.
-2. Add the upgrade password install option to the absolute path. To add this option, enter `--upgradePasswordCmdLine``<upgrade password>`, and replace `<upgrade password>` with the upgrade password that was [generated in the platform settings](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).
-3. Add additional install options to customize the file based on your organization's needs. To learn more, see [Customizing Zscaler Client Connector Install Options for EXE](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-exe).
 <!-- /ZS-ARTICLE -->

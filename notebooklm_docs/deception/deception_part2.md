@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
+Generated: 2026-10-19 08:07 UTC
 Articles in this file: 28
 
 ---
@@ -1067,13 +1067,13 @@ To export event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-10-06T11:23Z","nid":"1542356"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-10-12T21:13Z","nid":"1542356"} -->
 ## Viewing and Managing Evidence
 
 - Source: https://help.zscaler.com/deception/viewing-managing-evidence
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Evidence
-- Last modified: 2026-10-06T11:23Z
+- Last modified: 2026-10-12T21:13Z
 - Summary: How to view and manage evidence files in the Zscaler Deception Admin Portal.
 
 When an attacker interacts with a decoy, Zscaler Deception generates evidence files that capture details of the attack. These files provide valuable information to investigate the incident and understand the attacker's tactics, techniques, and procedures (TTPs). They can be analyzed through integration with Zscaler Sandbox or third-party sandbox solutions, with reports available directly from the Zscaler Deception Admin Portal. Evidence files can also be downloaded in their original format for external analysis, and records of files generated for individual attack events can be exported for further review.
@@ -1096,11 +1096,11 @@ To view the evidence files:
     - HTTP Request (http_request)
   - **Metadata**: The attribute associated with each log file.
 
-For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both [TI decoys](https://help.zscaler.com/deception/v9.0/about-threat-intelligence-decoys) and internal decoys with [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page) Services type. You can download the evidence that contains the attacker's request payload as a text file.
+For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both [TI decoys](https://help.zscaler.com/deception/v9.0/about-threat-intelligence-decoys) and internal decoys with the [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page) Services type. You can download the evidence that contains the attacker's request payload as a text file.
 
 Provides a packet capture for a specific session where an attacker interacts with a decoy. It records the raw network traffic exchanged during the session, revealing the attacker's behavior and techniques for threat analysis.
 
-Video recordings of attacker interaction generated during an RDP session by capturing sequential screenshots. These attack screenshots are sent to the backend server, where they are combined and converted into downloadable mp4 and srt. (subtitle) files.
+Provides video recordings of attacker interaction generated during an RDP session by capturing sequential screenshots. These attack screenshots are sent to the backend server, where they are combined and converted into downloadable MP4 and SRT (subtitle) files.
 
 Identifies new files that an attacker copies to a Windows RDP decoy and makes them available for download for analysis.
 
@@ -1205,7 +1205,7 @@ To delete specific files:
 
 To delete all evidence files:
 
-1. From the **Actions** drop-down menu, select **Delete All**. See image. All evidence files for the specified time period on the[Deception Investigate Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) are permanently deleted from the Decoy Connectors.
+1. From the **Actions** drop-down menu, select **Delete All**. See image. All evidence files for the specified time period on the [Deception Investigate Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) are permanently deleted from the Decoy Connectors.
 2. In the confirmation window, click **OK**. All the evidence files are deleted.
 
 [Image: Delete selected evidence files]

@@ -1,8 +1,290 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-12 09:45 UTC
-Articles in this file: 104
+Generated: 2026-10-19 08:07 UTC
+Articles in this file: 112
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/monitoring-private-service-edge-performance","lastmod":"2026-10-01T21:06Z","nid":"1485371"} -->
+## Monitoring Private Service Edge Performance
+
+- Source: https://help.zscaler.com/zpa/monitoring-private-service-edge-performance
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Managing & Troubleshooting > Monitoring Private Service Edge Performance
+- Last modified: 2026-10-01T21:06Z
+- Summary: Detailed information on how to monitor Private Service Edges for Private Access (ZPA) and their performance.
+
+There are a variety of things to consider when monitoring Private Service Edges for Private Access (ZPA) and their performance. The most important thing is to make sure your Private Service Edges are deployed in a manner that follows Zscaler's recommendations for image sizing and scalability, supported platform requirements, deployment best practices, networking configurations, and other essential guidelines. To learn more, see [Private Service Edge Deployment Prerequisites](https://help.zscaler.com/zpa/service-edge-deployment-prerequisites) and [Networking Deployed Software Components](https://help.zscaler.com/zpa/networking-deployed-software-components).
+
+Within the Zscaler Admin Console, you can use the [Private Service Edge Dashboard](https://help.zscaler.com/zpa/viewing-private-service-edge-dashboard) to help monitor your organization's Private Service Edges.
+
+When monitoring Private Service Edges directly, consider the following:
+
+- CPU Utilization
+- Memory Utilization
+- Data Throughput
+- Source Port Consumption
+- Host Application Access
+- Disk Space Utilization
+- File Descriptors Exhaustion
+
+Peak sustained CPU utilization should be less than 70%. The value needs to take into account all Private Service Edges in the group. The CPU utilization of the group's Private Service Edges should be able to manage additional load and allow each Private Service Edge to operate under 70% utilization in the event that one of the Private Service Edges becomes unavailable. For example, if you only have two Private Service Edges and they are both at 50%, this is below the 70% threshold. However, if one Private Service Edge goes down, then the other Private Service Edge runs above 70%.
+
+To monitor CPU utilization:
+
+- Review Private Service Edge Status Logs in the Log Streaming Service
+- Review Private Service Edge Status Logs on the Host
+- Use CLI Commands on the Private Service Edge Host
+- Use Simple Network Management Protocol
+
+To reduce the CPU utilization on individual Private Service Edge hosts, consider the following:
+
+- Deploy an additional Private Service Edge into the Private Service Edge group to distribute users across additional Private Service Edges.
+- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
+
+The CPU steal percentage is the CPU time stolen from the VM by a Hypervisor and is reported every minute in the status log. When the CPU steal percentage is high, the Hypervisor is busy, resulting in degraded performance for the Private Service Edge.
+
+Private Service Edge Status logs can be streamed to a SIEM or a syslog server using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). PPrivate Service Edge Status logs are generated periodically for each Private Service Edge, and the field **CPUUtilization** displays the Private Service Edge host’s CPU utilization at that instance. For more information, see [About Private Service Edge Metrics Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-metrics-log-fields).
+
+Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities.
+
+To reduce and balance the load among the VMs:
+
+- Ensure the Hypervisor is healthy.
+- Change the Hypervisor setup accordingly.
+
+Linux provides several utilities to view CPU utilization using Command Line Interface (CLI) commands. For example:
+
+- The `top` command reports the sum of utilization across all cores on all processors.
+- The `sysstat` package contains different tools for performance and usage.
+
+You can also create a script that periodically reports the Private Service Edge host’s CPU utilization to a separate statistics collection server.
+
+If the CPU utilization is more than 100%, it may be due to multiple CPU cores on the Private Service Edge host. For example, if there are 4 cores, the top output shows usage at 400%. Use the `lscpu` command to check the number of CPU cores. In this case, the calculation of the peak CPU should be normalized across the number of cores.
+
+Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. CPU information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
+
+Some of the well-known SNMP OIDs for monitoring CPU utilization on a Linux OS are:
+
+- Percentage of user CPU time: .1.3.6.1.4.1.2021.11.9.0
+- Raw user CPU time: .1.3.6.1.4.1.2021.11.50.0
+- Percentage of system CPU time: .1.3.6.1.4.1.2021.11.10.0
+- Raw system CPU time: .1.3.6.1.4.1.2021.11.52.0
+- Percentage of idle CPU time: .1.3.6.1.4.1.2021.11.11.0
+- Raw idle CPU time: .1.3.6.1.4.1.2021.11.53.0
+
+Peak sustained memory utilization should be less than 80%. The value needs to take into account all Private Service Edges in the group. The memory of the group's Private Service Edge should be able to manage additional loads and allow each Private Service Edge to operate under 80% utilization in the event one of the Private Service Edges becomes unavailable. For example, if you only have two Private Service Edges and they are both at 50%, this is below the 80% threshold. However, if one Private Service Edge goes down, then the otherPrivate Service Edge runs above 80%
+
+To monitor memory:
+
+- Review Private Service Edge Status Logs in the Log Streaming Service
+- Review Private Service Edge Status Logs on the Host
+- Use CLI Commands on the Private Service Edge Host
+- Use Simple Network Management Protocol
+
+To reduce memory utilization on individual Private Service Edge hosts, consider the following:
+
+- Increase the amount of available memory on the Private Service Edge host.
+- Deploy additional Private Service Edges into the Private Service Edge group to distribute users across additional Private Service Edges.
+- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
+
+Private Service Edge Status logs can be streamed to a SIEM or a syslog server using the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). Private Service Edge Status logs are generated periodically for each Private Service Edge, and the field **MemUtilization** displays the Private Service Edge host’s memory utilization at that instance. For more information, see [About Private Service Edge Status Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-status-log-fields).
+
+Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities.
+
+To reduce and balance the load among the VMs:
+
+- Ensure the Hypervisor is healthy.
+- Change the Hypervisor setup accordingly.
+
+Linux provides several utilities such as `free`, `top`, `cat/proc/meminfo`, `htop`, and others to view memory utilization using CLI commands. You can create a script that periodically reports the Private Service Edge host’s memory utilization to a separate statistics collection server.
+
+Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Memory information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
+
+Some of the well-known SNMP OIDs for monitoring memory on a Linux OS are:
+
+- Total RAM in machine: .1.3.6.1.4.1.2021.4.5.0
+- Total RAM used: .1.3.6.1.4.1.2021.4.6.0
+- Total RAM Free: .1.3.6.1.4.1.2021.4.11.0
+
+Peak sustained throughput based on recommended Private Service Edge specifications should be less than 500 Mbps.
+
+500 Mbps of throughput is an aggregate of multiple streams of traffic.
+
+To monitor Private Service Edge throughput:
+
+- Review Private Service Edge Status Logs in the Log Streaming Service
+- Review Private Service Edge Status Logs on the Host
+- Use CLI Commands on the Private Service Edge Host
+- Use Simple Network Management Protocol
+
+To reduce data throughput on individual Private Service Edge hosts, consider the following:
+
+- Deploy an additional Private Service Edge into the Private Service Edge group to distribute users across additional Private Service Edges.
+- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
+
+Private Service Edge Status logs can be streamed to a SIEM or a syslog server using [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service). Private Service Edge Status logs are generated periodically for each Private Service Edge, and the fields **TotalBytesRx** and **TotalBytesTx**display the Private Service Edge host’s throughput at that instance. For more information, see [About Private Service Edge Status Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-status-log-fields).
+
+Private Service Edge logs can be viewed on the Private Service Edge host whenever the Private Service Edge is running. The information displayed in the [Private Service Edge logs](https://help.zscaler.com/zpa/managing-deployed-software-components) includes the log output of the Private Service Edge to the local system logging facilities. The CPU steal percentage is the CPU time stolen from the VM by a Hypervisor and is reported every minute in the status log. When the CPU steal percentage is high, the Hypervisor is busy, resulting in degraded performance for the Private Service Edge.
+
+To reduce and balance the load among the VMs:
+
+- Ensure the Hypervisor is healthy.
+- Change the Hypervisor setup accordingly.
+
+Linux provides several utilities such as `nload`, `iftop`, `nethogs`, `bmon`, and others to view bandwidth statistics on the Private Service Edge host interface using CLI commands. You can create a script that periodically reports the host’s bandwidth utilization to a separate statistics collection server.
+
+Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Data throughput information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
+
+Some of the well-known SNMP OIDs for monitoring Private Service Edge throughput on a Linux OS are:
+
+- The total number of bytes received on the interface: .1.3.6.1.2.1.2.2.1.10
+- The total number of bytes transmitted on the interface: .1.3.6.1.2.1.2.2.1.16
+
+The number of used and free ports can be obtained from the Private Service Edge host by using the following command. In the following example, 11 is the number of UDP ports and 13 is the number of TCP ports in use.
+
+```
+[root@ip-10-0-0-116 admin]# sudo su
+[root@ip-10-0-0-116 admin]# ss -uln | wc -l && ss -tn state connected | wc -l
+11
+13
+```
+
+If the in-use count for either TCP or UDP ports is equal or close to the available ports, the Private Service Edge host is likely to experience port exhaustion and the Private Service Edge may not be able to connect to the applications.
+
+In the following example, the command is still used. It shows the difference of 60999-32768=28231, which indicates the number of ports available for use on this Private Service Edge host. The count of in-use UDP and TCP ports must be lower than 28231.
+
+```
+[root@ip-10-0-0-116 admin]# sysctl net.ipv4.ip_local_port_range
+net.ipv4.ip_local_port_range = 32768 60999
+[root@ip-10-0-0-116 admin]#
+```
+
+To adjust port usage, consider the following:
+
+- Increase the Available Maximum Number of Ports
+
+For a non-permanent increase in ports, which does not persist across the Private Service Edge host restart, use one of the following options. The text in red is an example of port ranges:
+
+- Use `echo`
+
+```
+echo
+32768 65000
+> /proc/sys/net/ipv4/ip_local_port_range
+```
+
+- Use `sysctl`
+
+```
+sysctl -w net.ipv4.ip_local_port_range="
+32768 65000
+"
+```
+
+For a permanent increase in ports, add the following to `/etc/sysctl.conf`. The text in red is an example of port ranges:
+
+```
+net.ipv4.ip_local_port_range =
+32768 65000
+```
+
+There may be degraded application performance if an excessive number of applications are accessed from a smaller number of Private Service Edges within a group. Too many applications accessed from a given Private Service Edge may result in increased application latency or higher amounts of CPU or memory used on the Private Service Edge.
+
+To reduce the number of applications per Private Service Edge, consider the following:
+
+- Deploy dedicated Private Service Edge groups for specific application segments to reduce the number of applications that are requested through each Private Service Edge group.
+- Zscaler recommends that you add additional Private Service Edges to the existing Private Service Edge groups to support excess applications.
+
+Private Service Edges generate logs that are stored on the disk during the normal course of operation. To ensure adequate disk space is available for Private Service Edge logs and software updates, monitor the disk space for consumption.
+
+The Private Service Edge process restarts if there is less than 100 MB of disk space left, and generates a log in the `/var/log/message` file to reflect the cause of the restart. This ensures that the software updates for the Private Service Edge can download successfully.
+
+If the Private Service Edge runs other software, it can generate large volumes of logs that can fill up the disk space.
+
+To monitor disk space:
+
+- Review the Amount of Free Disk Space
+- Check the Top Process that Consumes Disk Space
+- Review the Number of System Log Lines Generated
+- Use Simple Network Management Protocol
+
+To reduce disk space on individual Private Service Edge hosts, use the following options:
+
+- Archive the Files
+- Remove the Files
+- Create More Log Space
+
+Zscaler recommends at least disabling `rsyslogd` to reduce disk space.
+
+The `sudo df -h` command displays free disk space on the Private Service Edge host. For example:
+
+```
+[admin@ip-10-0-0-228 ~]$ sudo df -h 
+Filesystem Size Used Avail Use% Mounted on 
+/dev/nvme0n1p1 8.0G 1.7G 6.4G 21% / 
+devtmpfs 1.9G 0 1.9G 0% /dev 
+tmpfs 1.9G 0 1.9G 0% /dev/shm 
+tmpfs 1.9G 181M 1.7G 10% /run 
+tmpfs 1.9G 0 1.9G 0% /sys/fs/cgroup 
+tmpfs 375M 0 375M 0% /run/user/1000
+```
+
+Use the following command to see the top process that consumes disk space:
+
+```
+sudo du -a /| sort -n -r | head -n 20
+```
+
+Use the following command to get a rough estimate of the lines of `syslogd` written by the Private Service Edge process:
+
+```
+sudo grep -v "zpa-service-edge" /var/log/messages | wc -l 
+sudo grep "zpa-service-edge" /var/log/messages | wc -l
+```
+
+Simple Network Management Protocol (SNMP) provides a well-defined interface for periodically monitoring performance metrics on host servers. Disk space information on the Private Service Edge host can be read using SNMP object identifiers (OIDs).
+
+Some of the well-known SNMP OIDs for monitoring disk space utilization on a Linux OS are:
+
+- Available space on the disk: .1.3.6.1.4.1.2021.9.1.7.1
+- Used space on the disk: .1.3.6.1.4.1.2021.9.1.8.1
+- Percentage of space used on disk: .1.3.6.1.4.1.2021.9.1.9.1
+- Percentage of inodes used on disk: .1.3.6.1.4.1.2021.9.1.10.1
+- Path where the disk is mounted: .1.3.6.1.4.1.2021.9.1.2.1
+- Path of the device for the partition: .1.3.6.1.4.1.2021.9.1.3.1
+- Total size of the disk/partition (kBytes): .1.3.6.1.4.1.2021.9.1.6.1
+
+Use a Linux utility like `logrotate` to archive files on a regular basis (e.g., daily, weekly, or monthly) with the `/etc/logrotate.conf` command.
+
+Some ways to use `logrotate` for archiving are:
+
+- Archive log files daily: `daily`
+- Keep 7 days worth of logs: `rotate 7`
+- Create new (empty) log files after archiving old ones: `create`
+- Use a date as a suffix of the archived file: `dateext`
+- Un-comment to compress log files: `compress`
+
+Run a cron job to delete log files or use the `rm` command to remove any files you think are not necessary, including archived files. For example, there is no functional implication for deleting `/var/log/messages`. Before deleting, check if you require the files for Private Service Edge troubleshooting.
+
+If you archive files to reduce disk space, you do not need to remove files as well.
+
+To create more space in `/var/log/journal`, use the `vacuum-size` or the `vacuum-time` commands. For example:
+
+```
+sudo journalctl --vacuum-size=100m 
+sudo journalctl --vacuum-time=1d
+```
+
+If the number of file descriptors is not sufficient on the Private Service Edge host, transactions can fail due to file descriptor exhaustion. To address this, increase the `SYSTEM_FD` limit by executing the following command:
+
+```
+sudo sysctl -w fs.file-max=1000000
+```
+
+To learn more, see [About the Private Service Edge Dashboard](https://help.zscaler.com/zpa/viewing-private-service-edge-dashboard#TopWidgets).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1614,13 +1896,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-10-06T19:10Z","nid":"1534309"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-release-summary-2026","lastmod":"2026-10-14T14:57Z","nid":"1534309"} -->
 ## Network Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/network-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Network Connector Release Notes > Network Connector Release Summary (2026)
-- Last modified: 2026-10-06T19:10Z
+- Last modified: 2026-10-14T14:57Z
 - Summary: Zscaler Private Access (ZPA) Network Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Network Connector version.
@@ -1655,29 +1937,24 @@ The following platforms support Network Connector software packages. Where appli
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-09-29T21:06Z","nid":"1541000"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/networking-deployed-software-components","lastmod":"2026-10-14T11:58Z","nid":"1541000"} -->
 ## Networking Deployed Software Components
 
 - Source: https://help.zscaler.com/zpa/networking-deployed-software-components
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Access Software Components > Private Access Software Component Deployment & Management > Networking Deployed Software Components
-- Last modified: 2026-09-29T21:06Z
+- Last modified: 2026-10-14T11:58Z
 - Summary: How to configure the networking for App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors after deployment, including configuring DHCP or static IP addressing, additional interfaces, DNS, etc.
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -1780,106 +2057,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -1907,105 +2084,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2829,13 +2907,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-google-cloud-platform","lastmod":"2026-10-09T07:06Z","nid":"1542974"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-google-cloud-platform","lastmod":"2026-10-13T12:00Z","nid":"1542974"} -->
 ## Private Cloud Controller Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-google-cloud-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Google Cloud Platform
-- Last modified: 2026-10-09T07:06Z
+- Last modified: 2026-10-13T12:00Z
 - Summary: How to deploy a Private Cloud Controller on Google Cloud Platform (GCP), including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an Private Cloud Controller on Google Cloud Platform (GCP), and post-deployment verification checks. For general information regarding Private Cloud Controller deployment, see [Deploying Private Cloud Controllers](https://help.zscaler.com/zpa/deploying-private-cloud-controllers).
@@ -2932,18 +3010,13 @@ Private Cloud Controllers require that the [Zscaler Client Connector](https://he
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -3046,106 +3119,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -3173,105 +3146,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 
 The following prerequisites must be met before deploying the Private Cloud Controller instance:
 
@@ -3535,13 +3409,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-09-24T15:38Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-10-13T11:58Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-09-24T15:38Z
+- Last modified: 2026-10-13T11:58Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -3638,18 +3512,13 @@ Private Cloud Controllers require that the [Zscaler Client Connector](https://he
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -3752,106 +3621,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -3879,105 +3648,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 
 To deploy a Private Cloud Controller, you need to download the RPM package on the Private Cloud Controller you're deploying. However in some cases, the Private Cloud Controller might be unable to download the package, and you'll have to download it on a server instead. Choose one of the following deployment options depending on your situation.
 
@@ -5026,13 +4696,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-10-06T19:05Z","nid":"1534308"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-release-summary-2026","lastmod":"2026-10-14T14:53Z","nid":"1534308"} -->
 ## Private Cloud Controller Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Cloud Controller Release Notes > Private Cloud Controller Release Summary (2026)
-- Last modified: 2026-10-06T19:05Z
+- Last modified: 2026-10-14T14:53Z
 - Summary: Zscaler Private Access (ZPA) Private Cloud Controller release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Cloud Controller version.
@@ -7951,7 +7621,7 @@ Private Service Edges are reachable over the internet for remote users in a disa
 
 In the scenario where a Private Service Edge is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Service Edge's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Service Edge. The firewall then translates the destination public IP address that Zscaler Client Connector connects to on the private IP address of the Private Service Edge. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a [publish IP](https://help.zscaler.com/zpa/about-private-service-edges#AbourSvcEdgePage) of the respective Private Service Edge. In the case of disaster recovery, you must add this IP address as the A record for that Private Service Edge.
 
-Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connector.
 
 The following conditions apply to each Private Service Edge that is placed behind a firewall:
 
@@ -7964,7 +7634,7 @@ After a Private Service Edge is enrolled, an outbound TLS tunnel over TCP port 4
 - Policy configuration download
 - Private Service Edge software upgrades (upgrades are completed based on a weekly schedule)
 
-You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
+You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [Deploying Private Service Edges](https://help.zscaler.com/zpa/deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
 
 After deployment, ensure that the Private Service Edge meets your sizing requirements. To learn more, see [Verify Private Service Edge Sizing Specifications](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing). If disk space fills up in the Private Service Edge, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance#diskspace_archive).
 
@@ -7999,7 +7669,7 @@ Private Service Edges can be deployed in different ways (as private cloud VMs, p
 
 The Private Service Edge VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the Private Service Edge and its VMs to ensure that memory growth does not have an impact on the Private Service Edge performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [Private Service Edge Deployment Guides](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for the platform you are using.
 
-Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Private Service Edges](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
+Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Due to the fact that vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting Private Service Edges using firewall policies. Additionally, if you've installed the Private Service Edge as a package, Zscaler recommends that you take similar precautions.
 
@@ -8013,7 +7683,7 @@ Because the service enforces TLS certificate pinning for both client and server 
 
 By design, certificate verification is not configurable to maintain the integrity of the service, so ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Private Service Edge. This is necessary for allowing the Private Service Edge to resolve and reach Public Service Edges. Private Service Edge requires your firewall configuration to accept the incoming connections from the users. Also, if you need to allowlist additional Zscaler IP addresses, refer to [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). It might be possible to allowlist based on Zscaler cloud hostnames instead of IP addresses.
 
-Private Service Edges require that the [Zscaler Client Connector](https://help.zscaler.com/z-app) be at least on version 2.1.2.
+Private Service Edges require that [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector) be at least on version 2.1.2.
 
 This procedure describes how to deploy a virtual appliance on Nutanix AHV.
 
@@ -8252,18 +7922,13 @@ $ systemctl start zpa-service-edge
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -8366,106 +8031,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -8493,105 +8058,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8652,7 +8118,7 @@ Private Service Edges are reachable over the internet for remote users in a disa
 
 In the scenario where a Private Service Edge is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Service Edge's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Service Edge. The firewall then translates the destination public IP address that Zscaler Client Connector connects to on the private IP address of the Private Service Edge. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a [publish IP](https://help.zscaler.com/zpa/about-private-service-edges#AbourSvcEdgePage) of the respective Private Service Edge. In the case of disaster recovery, you must add this IP address as the A record for that Private Service Edge.
 
-Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connector.
 
 The following conditions apply to each Private Service Edge that is placed behind a firewall:
 
@@ -8665,7 +8131,7 @@ After a Private Service Edge is enrolled, an outbound TLS tunnel over TCP port 4
 - Policy configuration download
 - Private Service Edge software upgrades (upgrades are completed based on a weekly schedule)
 
-You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
+You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [Deploying Private Service Edges](https://help.zscaler.com/zpa/deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
 
 After deployment, ensure that the Private Service Edge meets your sizing requirements. To learn more, see [Verify Private Service Edge Sizing Specifications](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing). If disk space fills up in the Private Service Edge, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance#diskspace_archive).
 
@@ -8700,7 +8166,7 @@ Private Service Edges can be deployed in different ways (as private cloud VMs, p
 
 The Private Service Edge VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the Private Service Edge and its VMs to ensure that memory growth does not have an impact on the Private Service Edge performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [Private Service Edge Deployment Guides](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for the platform you are using.
 
-Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Private Service Edges](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
+Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Due to the fact that vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting Private Service Edges using firewall policies. Additionally, if you've installed the Private Service Edge as a package, Zscaler recommends that you take similar precautions.
 
@@ -8714,22 +8180,17 @@ Because the service enforces TLS certificate pinning for both client and server 
 
 By design, certificate verification is not configurable to maintain the integrity of the service, so ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Private Service Edge. This is necessary for allowing the Private Service Edge to resolve and reach Public Service Edges. Private Service Edge requires your firewall configuration to accept the incoming connections from the users. Also, if you need to allowlist additional Zscaler IP addresses, refer to [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). It might be possible to allowlist based on Zscaler cloud hostnames instead of IP addresses.
 
-Private Service Edges require that the [Zscaler Client Connector](https://help.zscaler.com/z-app) be at least on version 2.1.2.
+Private Service Edges require that [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector) be at least on version 2.1.2.
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -8832,106 +8293,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -8959,105 +8320,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 
 This article provides migration instructions to replace CentOS 7 instances with Red Hat Enterprise Linux 9.x (RHEL 9.x). The enrollment and provisioning of new Private Service Edges for Private Access (ZPA) can be automated in a few steps using Terraform (IaC) or Container Orchestration to further simplify deployment.
 
@@ -9537,13 +8799,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-10-09T15:50Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-10-16T14:06Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-09T15:50Z
+- Last modified: 2026-10-16T14:06Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -9987,7 +9249,7 @@ The approval request is displayed as Rejected on the [My Approvals](https://help
 
 - Source: https://help.zscaler.com/zpa/reviewing-policy-recommendations-resource-groups
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > Reviewing Policy Recommendations for Resource Groups
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Reviewing Policy Recommendations for Resource Groups
 - Last modified: 2026-09-18T10:06Z
 - Summary: How to review policy recommendations for resource groups in the Zscaler Admin Console
 
@@ -11629,13 +10891,13 @@ Fill in the additional fields if necessary.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-09-15T11:54Z","nid":"1484511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-10-12T08:54Z","nid":"1484511"} -->
 ## Private Service Edge Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/service-edge-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Prerequisites
-- Last modified: 2026-09-15T11:54Z
+- Last modified: 2026-10-12T08:54Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Private Service Edges for Private Access (ZPA), including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to Private Service Edge deployment.
 
 Before deploying a Private Service Edge for Private Access (ZPA) on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -11672,7 +10934,7 @@ Private Service Edges are reachable over the internet for remote users in a disa
 
 In the scenario where a Private Service Edge is deployed behind a firewall, the firewall performs destination network address translation (DNAT) for the Private Service Edge's private IP address. In this case, the flow of traffic is from Zscaler Client Connector to the Private Service Edge. The firewall then translates the destination public IP address that Zscaler Client Connector connects to on the private IP address of the Private Service Edge. The firewall advertises a public IP address on the internet. It is necessary to configure the public IP address advertised by the firewall as a [publish IP](https://help.zscaler.com/zpa/about-private-service-edges#AbourSvcEdgePage) of the respective Private Service Edge. In the case of disaster recovery, you must add this IP address as the A record for that Private Service Edge.
 
-Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connectors.
+Your firewalls must be configured to let the Private Service Edge establish outbound connections to the IP addresses of the Public Service Edge for Private Access, and establish inbound connections from App Connectors and Zscaler Client Connector.
 
 The following conditions apply to each Private Service Edge that is placed behind a firewall:
 
@@ -11685,7 +10947,7 @@ After a Private Service Edge is enrolled, an outbound TLS tunnel over TCP port 4
 - Policy configuration download
 - Private Service Edge software upgrades (upgrades are completed based on a weekly schedule)
 
-You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [About Deploying Private Service Edges](https://help.zscaler.com/zpa/about-deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
+You can deploy additional Private Service Edges at any time, using the same provisioning key to add them to the existing Private Service Edge group, while ensuring network and internet connectivity. Private Service Edges are designed to scale elastically. You can deploy additional Private Service Edges in the same Private Service Edge group to increase the total throughput as required by your deployment. Zscaler recommends that you deploy Private Service Edges in pairs (N+1), where N is the number of Private Service Edges as per the sizing requirements. To learn more, see [Deploying Private Service Edges](https://help.zscaler.com/zpa/deploying-service-edges) and [Supported Platforms for Private Service Edges](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms).
 
 After deployment, ensure that the Private Service Edge meets your sizing requirements. To learn more, see [Verify Private Service Edge Sizing Specifications](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing). If disk space fills up in the Private Service Edge, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring Private Service Edge Performance](https://help.zscaler.com/zpa/monitoring-private-service-edge-performance#diskspace_archive).
 
@@ -11720,7 +10982,7 @@ Private Service Edges can be deployed in different ways (as private cloud VMs, p
 
 The Private Service Edge VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the Private Service Edge and its VMs to ensure that memory growth does not have an impact on the Private Service Edge performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [Private Service Edge Deployment Guides](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for the platform you are using.
 
-Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Private Service Edges](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
+Security Technical Implementation Guide (STIG) images are provided for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [Private Service Edge Software by Platform](https://help.zscaler.com/zpa/private-service-edge-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are essentially unmodified operating systems (currently based on RHEL 9.x). You can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Due to the fact that vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting Private Service Edges using firewall policies. Additionally, if you've installed the Private Service Edge as a package, Zscaler recommends that you take similar precautions.
 
@@ -11734,7 +10996,7 @@ Because the service enforces TLS certificate pinning for both client and server 
 
 By design, certificate verification is not configurable to maintain the integrity of the service, so ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the Private Service Edge. This is necessary for allowing the Private Service Edge to resolve and reach Public Service Edges. Private Service Edge requires your firewall configuration to accept the incoming connections from the users. Also, if you need to allowlist additional Zscaler IP addresses, refer to [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). It might be possible to allowlist based on Zscaler cloud hostnames instead of IP addresses.
 
-Private Service Edges require that the [Zscaler Client Connector](https://help.zscaler.com/z-app) be at least on version 2.1.2.
+Private Service Edges require that [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector) be at least on version 2.1.2.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13079,13 +12341,13 @@ To resolve this issue, manually restart the OAuth service.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-cloud-controllers","lastmod":"2026-07-09T13:22Z","nid":"1532031"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/troubleshooting-private-cloud-controllers","lastmod":"2026-10-13T12:01Z","nid":"1532031"} -->
 ## Troubleshooting Private Cloud Controllers
 
 - Source: https://help.zscaler.com/zpa/troubleshooting-private-cloud-controllers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Managing & Troubleshooting > Troubleshooting Private Cloud Controllers
-- Last modified: 2026-07-09T13:22Z
+- Last modified: 2026-10-13T12:01Z
 - Summary: Detailed information about troubleshooting Private Cloud Controllers.
 
 This article provides debugging commands in the Private Cloud Controller console to help with troubleshooting. To learn more about Private Cloud Controllers, see [About Private Cloud Controllers](https://help.zscaler.com/zpa/about-private-cloud-controllers). To configure Private Cloud Controllers, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers).
@@ -14282,13 +13544,48 @@ Installing the supporting files requires 150 MB of disk space for the initial in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-and-installing-zscaler-dns-record-generator","lastmod":"2026-09-22T12:30Z","nid":"1485411"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-adaptive-traffic-steering","lastmod":"2026-10-13T03:09Z","nid":"1546748"} -->
+## Understanding Adaptive Traffic Steering
+
+- Source: https://help.zscaler.com/zpa/understanding-adaptive-traffic-steering
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Understanding Adaptive Traffic Steering
+- Last modified: 2026-10-13T03:09Z
+- Summary: Information on how to use Adaptive Traffic Steering.
+
+Adaptive Traffic Steering in Private Access (ZPA) is a dynamic rerouting feature designed to maintain application availability and minimize service disruptions during network degradation. It addresses performance issues such as slow response times and connection timeouts caused by transient conditions, including packet loss and increased application round-trip time. By using real-time network health metrics, Adaptive Traffic Steering automatically redirects traffic to alternate paths when degradation is detected, reducing the need for manual failover interventions.
+
+Adaptive Traffic Steering ensures that application efficiency and uptime are preserved across both pinpointed and extensive infrastructure failures. It serves to mitigate the consequences of various network disruptions, such as:
+
+- Damage to subsea fiber optics
+- Anomalous routing cycles
+- Intermediate carrier service failures
+- Regional access failures, including wars or environmental disasters
+- Conflicts regarding interconnection agreements
+- Network congestion
+
+Adaptive Traffic Steering is only available for organizations that have Business Continuity configured. To learn more, see [Understanding Business Continuity](https://help.zscaler.com/zpa/understanding-business-continuity).
+
+## Adaptive Traffic Steering for Application Segments
+
+When you [configure a defined application segment](https://help.zscaler.com/zpa/configuring-defined-application-segments), Adaptive Traffic Steering can be enabled to prioritize mission-critical applications and dynamically route traffic along healthier paths.
+
+[Image: Adaptive Traffic Steering setting]
+
+When you enable Adaptive Traffic Steering for applications segments, a warning message appears alerting you that alternate routing paths can introduce higher latency compared to direct connections.
+
+[Image: Warning dialog when Adaptive Traffic Steering is enabled]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-and-installing-zscaler-dns-record-generator","lastmod":"2026-10-13T12:10Z","nid":"1485411"} -->
 ## Understanding and Installing the Zscaler DNS Record Generator
 
 - Source: https://help.zscaler.com/zpa/understanding-and-installing-zscaler-dns-record-generator
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > Understanding and Installing the Zscaler DNS Record Generator
-- Last modified: 2026-09-22T12:30Z
+- Last modified: 2026-10-13T12:10Z
 - Summary: Information on the Zscaler DNS Record Generator found in the Zscaler Admin Console.
 
 The Zscaler DNS Record Generator creates the DNS TXT records and the public and private keys for disaster recovery. The public key is used to verify the activation of Disaster Recovery Mode. The private key is used to sign the DNS TXT record.
@@ -15029,13 +14326,13 @@ To learn more, see [About the Log Streaming Service](https://help.zscaler.com/zp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity","lastmod":"2026-09-17T09:53Z","nid":"1507011"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity","lastmod":"2026-10-12T15:43Z","nid":"1507011"} -->
 ## Understanding Business Continuity
 
 - Source: https://help.zscaler.com/zpa/understanding-business-continuity
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Understanding Business Continuity
-- Last modified: 2026-09-17T09:53Z
+- Last modified: 2026-10-12T15:43Z
 - Summary: Information on Business Continuity for Private Access (ZPA).
 
 Business Continuity for Private Access (ZPA) allows users to continue to access applications during Private Access-related cloud outages or Internet Service Provider (ISP) outages. Business Continuity helps organizations achieve uninterrupted access to applications without any manual intervention.
@@ -15087,13 +14384,13 @@ The following limitations apply for Business Continuity:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity-event-log-fields","lastmod":"2026-08-25T08:37Z","nid":"1543031"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity-event-log-fields","lastmod":"2026-10-15T11:57Z","nid":"1543031"} -->
 ## Understanding Business Continuity Event Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Business Continuity Event Log Fields
-- Last modified: 2026-08-25T08:37Z
+- Last modified: 2026-10-15T11:57Z
 - Summary: Information on the various Business Continuity Event logs captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send Business Continuity Event log information to any third-party log analytics tool. By default, the Business Continuity Event log includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -15202,16 +14499,16 @@ Zscaler Client Connector support for multiple tenants is configured in Zscaler C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-disaster-recovery","lastmod":"2026-09-21T10:58Z","nid":"1485391"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-disaster-recovery","lastmod":"2026-10-13T12:02Z","nid":"1485391"} -->
 ## Understanding Disaster Recovery
 
 - Source: https://help.zscaler.com/zpa/understanding-disaster-recovery
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Disaster Recovery > Understanding Disaster Recovery
-- Last modified: 2026-09-21T10:58Z
+- Last modified: 2026-10-13T12:02Z
 - Summary: Information on disaster recovery and the Disaster Recovery page within the Zscaler Admin Console.
 
-Enabling disaster recovery ensures business continuity in the event of a disaster scenario that impacts the global Zscaler cloud infrastructure. Disaster recovery is for organizations that depend on the Zscaler cloud to remain operational during disaster events by providing users with access to critical applications.
+Enabling disaster recovery ensures Business Continuity in the event of a disaster scenario that impacts the global Zscaler cloud infrastructure. Disaster recovery is for organizations that depend on the Zscaler cloud to remain operational during disaster events by providing users with access to critical applications.
 
 Zscaler provides support for disaster recovery in both Private Access (ZPA) and Internet & SaaS (ZIA). The contents in this article are about disaster recovery in Private Access To learn more about disaster recovery in Internet & SaaS, see [About Disaster Recovery](https://help.zscaler.com/zia/about-disaster-recovery).
 
@@ -16564,13 +15861,13 @@ To learn more, see [Accessing Privileged Sessions](https://help.zscaler.com/zpa/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-role-based-access-control-zpa-api","lastmod":"2026-06-01T12:01Z","nid":"1524436"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-role-based-access-control-zpa-api","lastmod":"2026-10-12T09:33Z","nid":"1524436"} -->
 ## Understanding Role-Based Access Control for the ZPA API
 
 - Source: https://help.zscaler.com/zpa/understanding-role-based-access-control-zpa-api
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > API Key Management > Understanding Role-Based Access Control for the ZPA API
-- Last modified: 2026-06-01T12:01Z
+- Last modified: 2026-10-12T09:33Z
 - Summary: How to enforce RBAC for the publicly available ZPA API.
 
 Role-based access control (RBAC) for all ZPA API operations ensures that access to API endpoints is restricted or granted based on user roles and permissions.
@@ -16828,13 +16125,13 @@ App Connectors are licensed so that Zscaler can periodically update their softwa
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538714"} -->
-## Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields","lastmod":"2026-10-15T11:52Z","nid":"1538714"} -->
+## Understanding Traffic Flow for VPN (For Legacy Apps) Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields
-- Last modified: 2026-10-02T07:06Z
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Traffic Flow for VPN (For Legacy Apps) Log Fields
+- Last modified: 2026-10-15T11:52Z
 - Summary: Information on the various Traffic Flow log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send Traffic Flow VPN log information to any third-party log analytics tool. By default, the Traffic Flow VPN log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -16870,4 +16167,296 @@ The following table includes descriptions and supported field format specificati
 ```
 {"LogTimestamp": "Mon Mar 23 15:31:19 2026","Customer": "VishnuVarshitha Automation1","SessionID": "40","ConnectionID": "acLgpN9es0LZAylRPHWe","SessionState": "close","Version": "26.54.0-PR-13494-6-g484d548ee1","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","Username": "user1@vishnu1.uk","Hostname": "Disabled","Protocol": 6,"SourceIP": "50.50.50.1","SourcePort": 56673,"DestinationIP": "10.18.9.184","DestinationPort": 3020,"FlowStartTime": "2026-03-23T15:30:03.340Z","FlowEndTime": "2026-03-23T15:31:07.005Z","BytesReceivedTotal": 240,"BytesSentTotal": 240,"PacketsReceivedTotal": 4,"PacketsSentTotal": 4}
 ```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-activity-log-fields","lastmod":"2026-07-17T16:22Z","nid":"1483961"} -->
+## Understanding User Activity Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-activity-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Activity Log Fields
+- Last modified: 2026-07-17T16:22Z
+- Summary: Information on the various Private Access User Activity log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Activity log information to any third-party log analytics tool. By default, the User Activity log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+- View an example User Activity log.
+
+```
+{"LogTimestamp": "Fri May 31 17:35:42 2019","Customer": "ANZ Team/zdemo in beta","SessionID": "SqyZIMkg0JTj7EABsvwA","ConnectionID": "SqyZIMkg0JTj7EABsvwA,Q+EjXGdrvbF2lPiBbedm","InternalReason": "","ConnectionStatus": "active","IPProtocol": 6,"DoubleEncryption": 0,"Username": "ZPA LSS Client","ServicePort": 10011,"ClientPublicIP": "34.209.189.218","ClientPrivateIP": "","ClientLatitude": 45.000000,"ClientLongitude": -119.000000,"ClientCountryCode": "US","ClientZEN": "broker1b.pdx2","Policy": "ANZ Lab Apps_1","Connector": "ZDEMO ANZ Lab-1","ConnectorZEN": "broker1b.pdx2","ConnectorIP": "192.168.1.53","ConnectorPort": 60266,"Host": "192.168.1.57","Application": "ANZ Lab Apps","AppGroup": "ANZ Lab Apps","Server": "0","ServerIP": "192.168.1.57","ServerPort": 10011,"PolicyProcessingTime": 28,"CAProcessingTime": 1330,"ConnectorZENSetupTime": 191017,"ConnectionSetupTime": 192397,"ServerSetupTime": 465,"AppLearnTime": 0,"TimestampConnectionStart": "2019-05-30T08:20:42.230Z","TimestampConnectionEnd": "","TimestampCATx": "2019-05-30T08:20:42.230Z","TimestampCARx": "2019-05-30T08:20:42.231Z","TimestampAppLearnStart": "","TimestampZENFirstRxClient": "2019-05-30T08:20:42.424Z","TimestampZENFirstTxClient": "","TimestampZENLastRxClient": "2019-05-31T17:34:27.348Z","TimestampZENLastTxClient": "","TimestampConnectorZENSetupComplete": "2019-05-30T08:20:42.422Z","TimestampZENFirstRxConnector": "","TimestampZENFirstTxConnector": "2019-05-30T08:20:42.424Z","TimestampZENLastRxConnector": "","TimestampZENLastTxConnector": "2019-05-31T17:34:27.348Z","ZENTotalBytesRxClient": 2406926,"ZENBytesRxClient": 7115,"ZENTotalBytesTxClient": 0,"ZENBytesTxClient": 0,"ZENTotalBytesRxConnector": 0,"ZENBytesRxConnector": 0,"ZENTotalBytesTxConnector": 2406926,"ZENBytesTxConnector": 7115,"Idp": "Example IDP Config", "ClientToClient": "0", "ClientCity": "San Jose", "MicroTenantID": "145257480799129312", "AppMicrotenantID": "145257480799129312", "Platform": "windows", "Hostname": "DESKTOP-P669MN4", "PRAApprovalID": "15787", "PRAConsolesPolicyID": "72057597259256663", "PRAConsoleType": "SSH", "PRACredentialUserName": "SafemarchUser", "PRACredentialLoginType": "Username-Password", "PRACredentialPolicyID": "72057597259256964", "PRAConnectionID": "$b381e220-fb0f-4dc5-9c2a-e3e0fb2e5efb", "PRAErrorStatus": "Upstream Error", "PRAFileTransferList": "{\"file_list\":[{\"name\":\"\\/d546509ab6670f9ff31783ed72875dfc0f37fa2b666bd5870eecaaed2ebea4a8.elf\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225544,\"end_ts\":1704225547,\"inspected\":\"True\",\"file_type\":\"elf\",\"md5\":\"4DDE761681684D7EDAD4E5E1FFDB940B\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"response OK\\\",\\n\\t\\\"virusName\\\": \\\"iot.trojan.gafgyt.botnet\\\",\\n\\t\\\"virusType\\\": \\\"Virus\\\",\\n\\t\\\"fileType\\\": \\\"elf\\\",\\n\\t\\\"md5\\\": \\\"4DDE761681684D7EDAD4E5E1FFDB940B\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"Virus\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/4ce39251817198bbec7b84782507394e7d68bfe3a79b89be363f0c1e05558ef1.zip\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225552,\"end_ts\":1704225557,\"inspected\":\"True\",\"file_type\":\"zip\",\"md5\":\"F5F7995BACD88A4BCF2D69DF063184AB\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"File not submitted to Sandbox\\\",\\n\\t\\\"fileType\\\": \\\"zip\\\",\\n\\t\\\"md5\\\": \\\"F5F7995BACD88A4BCF2D69DF063184AB\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"File not Submitted to Sandbox\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/4ce39251817198bbec7b84782507394e7d68bfe3a79b89be363f0c1e05558ef1.xlsx\",\"action\":\"Upload\",\"status\":\"Inspection denied upload\",\"start_ts\":1704225568,\"end_ts\":1704225573,\"inspected\":\"True\",\"file_type\":\"xlsx\",\"md5\":\"FF43FB09E69439FCD3DD8196F5BCE11F\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"response OK\\\",\\n\\t\\\"virusName\\\": \\\"xls.downloader.qakbot\\\",\\n\\t\\\"virusType\\\": \\\"Sandbox Malware\\\",\\n\\t\\\"fileType\\\": \\\"xlsx\\\",\\n\\t\\\"md5\\\": \\\"FF43FB09E69439FCD3DD8196F5BCE11F\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"Sandbox Malware\\\"\\n}\",\"inspection_time\":\"less than 1 second\"},{\"name\":\"\\/Populate_Existing_Flags_And_Overrides.xlsx\",\"action\":\"Upload\",\"status\":\"Success\",\"start_ts\":1704225591,\"end_ts\":1704225593,\"inspected\":\"True\",\"file_type\":\"xlsx\",\"md5\":\"D1A0596352BE4A1260B0419C7046F8FA\",\"inspection_verdict\":\"{\\n\\t\\\"code\\\": 200,\\n\\t\\\"message\\\": \\\"No active content found. File not suspicious\\\",\\n\\t\\\"fileType\\\": \\\"xlsx\\\",\\n\\t\\\"md5\\\": \\\"D1A0596352BE4A1260B0419C7046F8FA\\\",\\n\\t\\\"sandboxSubmission\\\": \\\"File not Submitted to Sandbox\\\"\\n}\",\"inspection_time\":\"less than 1 second\"}]}", "PRARecordingStatus": "Available", "PRASharedUserList": "{\"shared_user_list\":[{\"name\":\"lisa@zerotrust.to\"}]}", "PRASessionType": "PRA", "PRASharedMode": "control"}
+```
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| AppGroup | The application group name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| AppLearnTime | The time in microseconds taken for App Connectors to learn about the requested application and report the learned information to the central authority | %[OPT]s; %[OPT]j; %[OPT]J |
+| Application | The application name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| AppMicroTenantID | The Microtenant ID of the application | %[OPT]s; %[OPT]j |
+| CAProcessingTime | The time in microseconds taken for processing in the central authority | %[OPT]s; %[OPT]j; %[OPT]J |
+| ClientCountryCode | The country code of the Zscaler Client Connector location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientLatitude | The latitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
+| ClientLongitude | The longitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
+| ClientPrivateIP | The private IP address of the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientPublicIP | The public IP address of the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientCity | The city of the client | %[OPT]s; %[OPT]j |
+| ClientToClient | The status of the client-to-client connection | %[OPT]s |
+| ClientZEN | The Public Service Edge for Private Access that received the request from the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionID | The application connection ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionSetupTime | The time taken by the App Connector to process a notification from the App Connector selection microservice and set up the connection to the application server | %[OPT]s; %[OPT]j; %[OPT]J |
+| ConnectionStatus | The status of the connection. The expected values for this field are: Open; Close; Active | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Connector | The App Connector name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectorIP | The source IP address of the App Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectorPort | The source port of the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ConnectorZEN | The Public Service Edge that sent the request from the App Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectorZENSetupTime | The time in microseconds taken for setting up the connection between the App Connector and Public Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| DoubleEncryption | The double encryption status. The expected values for this field are: On; Off | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Host | The destination host domain or IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device as reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Idp | The name of the identity provider (IdP) as configured in the Zscaler Admin Console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| InternalReason | The internal reason for the status of the transaction | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| IPProtocol | The IP protocol number | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| MicroTenantID | The Microtenant ID of the user accessing the application | %[OPT]s; %[OPT]j |
+| Platform | The platform on the device as reported by Zscaler Client Connector (e.g., Windows) | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Policy | The access policy rule name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PolicyProcessingTime | The time in microseconds taken for processing the access policy associated with the application | %[OPT]s; %[OPT]j; %[OPT]J |
+| PRAApprovalID | The privileged approval ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| PRAConsolesPolicyID | The consoles policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| PRAConnectionID | The Privileged Remote Access (PRA) connection ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRAConsoleType | The privileged console type. The expected values for this field are: RDP; SSH; VNC | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRACredentialLoginType | The login type of the privileged credential. The expected values for this field are: Username/Password; SSH Key; Password | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRACredentialPolicyID | The privileged credential policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| PRACredentialUserName | The name of the user that is logged in to the target privileged console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRAErrorStatus | The PRA session error status, if available | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRAFileTransferList | The files transferred during the PRA session | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRARecordingStatus | The recording status of the PRA file transfer. The expected values for this field are: Available; Not Available; Started | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRASessionType | The PRA session type. The expected value is PRA. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRASharedMode | The PRA shared mode. The expected values for this field are: Monitor; Control | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRASharedUserList | The users that the PRA session was shared with | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Server | The server ID name. The server ID must be set to zero if Dynamic Server Discovery is enabled. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ServerIP | The destination IP address of the server | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ServerPort | The destination port of the server | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ServerSetupTime | The time in microseconds taken to set up the connection at the server | %[OPT]s; %[OPT]j; %[OPT]J |
+| ServicePort | The service port associated with the application request | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| SessionID | The TLS session ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| TimestampConnectionStart | The timestamp in microseconds when the Public Service Edge or Private Service Edge for Private Access received the initial request from Zscaler Client Connector to start the connection | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampConnectionEnd | The timestamp in microseconds when the Public Service Edge or Private Service Edge terminated the connection | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampCATx | The timestamp in microseconds when the central authority sent a request to the Public Service Edge or Private Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampCARx | The timestamp in microseconds when the central authority received a request from the Public Service Edge or Private Service Edge | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampAppLearnStart | The timestamp in microseconds when Private Access services start the process to learn about an application | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampZENFirstRxClient | The timestamp in microseconds when the Public Service Edge received the first byte from the Zscaler Client Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| TimestampZENFirstTxClient | The timestamp in microseconds when the Public Service Edge sent the first byte to the Zscaler Client Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| TimestampZENLastRxClient | The timestamp in microseconds when the Public Service Edge received the last byte from the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampZENLastTxClient | The timestamp in microseconds when the Public Service Edge sent the last byte to the Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampConnectorZENSetupComplete | The timestamp in microseconds when the Public Service Edge received a request from the App Connector to set up a data connection. The request from the App Connector is triggered by the initial request for a specific application from Zscaler Client Connector. | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampZENFirstRxConnector | The timestamp in microseconds when the Public Service Edge received the first byte from the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| TimestampZENFirstTxConnector | The timestamp in microseconds when the Public Service Edge sent the first byte to the App Connector | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| TimestampZENLastRxConnector | The timestamp in microseconds when the Public Service Edge received the last byte from the App Connector | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampZENLastTxConnector | The timestamp in microseconds when the Public Service Edge sent the last byte to the App Connector | %[OPT]s; %[OPT]j; %[OPT]J |
+| Username | The username as entered into Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ZENBytesRxClient | The additional bytes received from Zscaler Client Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENBytesTxClient | The additional bytes transmitted to Zscaler Client Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENBytesRxConnector | The additional bytes received from the App Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENBytesTxConnector | The additional bytes transmitted by the App Connector since the last transaction log | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENTotalBytesRxClient | The total bytes received from Zscaler Client Connector by the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENTotalBytesTxClient | The total bytes transmitted to Zscaler Client Connector from the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENTotalBytesRxConnector | The total bytes received from the App Connector by the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| ZENTotalBytesTxConnector | The total bytes transmitted to the App Connector from the Public Service Edge | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-log-fields","lastmod":"2026-10-16T04:50Z","nid":"1483956"} -->
+## Understanding User Status Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-status-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status Log Fields
+- Last modified: 2026-10-16T04:50Z
+- Summary: Information on the various Private Access (ZPA) User Status log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Status log information to any third-party log analytics tool. By default, the User Status log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+- View an example User Status log.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+```
+{"LogTimestamp": "Fri May 31 17:34:48 2019","Customer": "ANZ Team/zdemo in beta","Username": "ZPA LSS Client","SessionID": "cKgzUERSLl09Y+ytH8v5","SessionStatus": "ZPN_STATUS_AUTHENTICATED","Version": "19.12.0-36-g87dad18","ZEN": "broker1b.pdx2","CertificateCN": "slogger1b.pdx2.zpabeta.net","PrivateIP": "","PublicIP": "34.216.108.5","Latitude": 45.000000,"Longitude": -119.000000,"CountryCode": "US","TimestampAuthentication": "2019-05-29T21:18:38.000Z","TimestampUnAuthentication": "","TotalBytesRx": 31274866,"TotalBytesTx": 25424152,"Idp": "Example IDP Config","Hostname": "DESKTOP-2K299HC","Platform": "windows","ClientType": "zpn_client_type_zapp","TrustedNetworks": "TN1_stc1","TrustedNetworksNames": "145248739466947538","SAMLAttributes": "myname:jdoe,myemail:jdoe@zscaler.com","PosturesHit": "sm-posture1,sm-posture2","PosturesMisses": "sm-posture11,sm-posture12","ZENLatitude": 47.000000,"ZENLongitude": -122.000000,"ZENCountryCode": "", "FQDNRegistered": "0","FQDNRegisteredError": "","City": "San Jose", "MicroTenantID": "145257480799129312"}
+```
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Username | The user name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SessionID | The TLS session ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SessionStatus | The status of the session. The expected values for this field are: ZPN_STATUS_AUTHENTICATED: The user successfully authenticated in Private Access; ZPN_STATUS_AUTH_FAILED: The user failed to authenticate in Private Access; ZPN_STATUS_DISCONNECTED: The user connected from a Public Service Edge for Private Access or a Private Service Edge for Private Access | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The Zscaler Client Connector version. If the connection is established through a Private Service Edge, the version sent is the version of the Private Service Edge. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ZEN | The Public Service Edge that was selected for the connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The certificate common name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PrivateIP | The private IP address of Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PublicIP | The public IP address of Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Latitude | The latitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
+| Longitude | The longitude coordinate of the Zscaler Client Connector location | %[OPT]f; %[OPT]o |
+| CountryCode | The country code of the Zscaler Client Connector location | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| TimestampAuthentication | Timestamp in microseconds when Zscaler Client Connector was authenticated | %[OPT]s; %[OPT]j; %[OPT]J |
+| TimestampUnAuthentication | Timestamp in microseconds when Zscaler Client Connector was unauthenticated | %[OPT]s; %[OPT]j; %[OPT]J |
+| TotalBytesRx | The total bytes received | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| TotalBytesTx | The total bytes transmitted | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| Idp | The name of the identity provider (IdP) as configured in the Zscaler Admin Console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device as reported by Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Platform | The platform on the device as reported by Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientType | The client type for the request (i.e., Zscaler Client Connector, ZPA LSS, or Web Browser) | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| TrustedNetworks | The unique IDs for the trusted networks that Zscaler Client Connector has determined for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| TrustedNetworksNames | The names for the trusted networks that Zscaler Client Connector has determined for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| SAMLAttributes | The list of SAML attributes reported by the IdP | %[OPT]s; %[OPT]j; %[OPT]J |
+| PosturesHit | The posture profiles that Zscaler Client Connector verified for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PosturesMiss | The posture profiles that Zscaler Client Connector failed to verify for this device | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ZENLatitude | The latitude coordinates for the Public Service Edge | %[OPT]f; %[OPT]o |
+| ZENLongitude | The longitude coordinates for the Public Service Edge | %[OPT]f; %[OPT]o |
+| ZENCountryCode | The country code for the Public Service Edge | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| FQDNRegistered | The status of the hostname for the client-to-client connection. The expected values for this field are true or false. | %[OPT]s |
+| FQDNRegisteredError | The status of the registered hostname. The expected value if the hostname matches the regular expression is FQDN_MATCH. The expected values if the hostname does not match the regular expression are: FQDN_NO_MATCH: The hostname does not match with the configured regular expression; FQDN_BAD_SCHEMA: Client-to-client communication is disabled for the Public Service Edge; FQDN_BAD_REGEX: The configured regular expression in the Zscaler Admin Console is incorrect; FQDN_TOO_MANY_REGEX: Invalid regular expression configuration due to multiple configured regular expressions; FQDN_NO_ENTRIES: Your admin has not configured a regular expression in the Zscaler Admin Console; FQDN_EMPTY: The FQDN received from the Zscaler Client Connector is null or empty; BROKER_NOT_ENABLED: Client-to-client communication is disabled for the Public Service Edge; CUSTOMER_NOT_ENABLED: Client-to-client communication is disabled for the current customer | %[OPT]s |
+| City | The city of the client | %[OPT]s; %[OPT]j |
+| MicroTenantID | The Microtenant ID of the user accessing the application | %[OPT]s; %[OPT]j |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields","lastmod":"2026-10-02T07:06Z","nid":"1538669"} -->
+## Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields
+- Last modified: 2026-10-02T07:06Z
+- Summary: Information on the various User Status -VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Status - VPN Service Edge (IP Address Reservation) log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge (IP Address Reservation) log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+You can use the shared `ConnectionID` key field to merge user status logs produced by both User Status - VPN Service Edge (IP Address Reservation) and [VPN Service Edge](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
+
+- View a User Status - VPN Service Edge (IP Address Reservation) log example.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | Timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Username | The username entered in Zscaler Client Connector | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| StatusCode | The status code of the VPN IP reservation transaction: Success; Error_bad_request; Error_no_gateway_available; Error_no_ip_available; Error_service_not_available; Error_stale_connection; Error_service_disabled | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Result | The VPN IP reservation attempt result: Success; Error | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ZPAServiceEdge | The Private Access (ZPA) Service Edge the user is connected to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNServiceEdge | The VPN Service Edge the assigned VPN client subnet belongs to | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The certificate name of the user | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientIP | The VPN client's IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Action | The action on the transaction: Reserve; Promote; Release; Expire; Free; Invalidate | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientSubnet | The VPN client's subnet | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+
+```
+{"LogTimestamp": "Mon Mar 23 15:30:43 2026","Customer": "VishnuVarshitha Automation1","Username": "user1@vishnu1.uk","Hostname": "Disabled","ConnectionID": "acLgpN9es0LZAylRPHWe","StatusCode": "success","Version": "26.54.0-PR-13494-6-g484d548ee1-035","Result": "success","ZPAServiceEdge": "broker-np-cte-1a.pdx12.dev.zpath.net","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","VPNClientIP": "50.50.50.1","Action": "reserve","VPNClientSubnet": "50.50.50.0/24"}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-status-vpn-service-edge-log-fields","lastmod":"2026-10-15T11:53Z","nid":"1538713"} -->
+## Understanding User Status - VPN Service Edge Log Fields
+
+- Source: https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Status - VPN Service Edge Log Fields
+- Last modified: 2026-10-15T11:53Z
+- Summary: Information on the various User Status - VPN Service Edge log fields captured by Log Streaming Service (LSS) log receivers.
+
+The Log Streaming Service (LSS) can send User Status - VPN Service Edge log information to any third-party log analytics tool. By default, the User Status - VPN Service Edge log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While configuring your log receiver, you can edit the default log stream content to capture only specific fields, and create a custom log template.
+
+You can use the shared `ConnectionID` key field to merge user status logs produced by both VPN Service Edge and [VPN Service Edge (IP Address Reservation)](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields). This common identifier enables SIEM servers to effectively link, correlate, and integrate the data from both sources.
+
+- View a User Status - VPN Service Edge log example.
+
+The following table includes descriptions and supported field format specifications for each field within the template. To learn more about the format specifications listed for each field, including examples, see [Understanding the Log Stream Content Format](https://help.zscaler.com/zpa/understanding-log-stream-content-format).
+
+| Field | Description | Supported Field Format Specifications |
+| --- | --- | --- |
+| LogTimestamp | The timestamp when the log was generated | %[OPT]s; %[OPT]j; %[OPT]J |
+| Customer | The customer name | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNState | The status of the VPN connection: Connecting; Connected; Disconnected | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Version | The VPN Service Edge version | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| Hostname | The name of the device reported by Zscaler Client Connector. This field only provides valid values for Zscaler Client Connector and machine tunnel client types. | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ConnectionID | The unique identifier for the user connection | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNServiceEdge | The VPN Service Edge used for the traffic | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| CertificateCN | The Common Name component of the SSL/TLS certificate for identifying the primary identity | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| VPNClientIP | The client's VPN IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientPublicIP | The client's public IP address | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| ClientPort | The port number for the client | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| LatestHandshakeTime | The latest handshake time | %[OPT]s; %[OPT]j; %[OPT]J |
+| BytesReceivedTotal | The total bytes of data received during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+| BytesSentTotal | The total bytes of data sent during the session | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
+
+```
+{"LogTimestamp": "Mon Mar 23 15:01:49 2026","Customer": "VishnuVarshitha Automation1","ConnectionID": "4+QuTvrVsfUHHds3km5z","VPNState": "connected","Version": "26.54.0-PR-13494-6-g484d548ee1","VPNServiceEdge": "varshitha txnVisibilty 1","CertificateCN": "dec1bb9059eb7f3392ad3630820f881939d6b3dd4b77795fddc7@vishnu1.uk","Hostname": "","VPNClientIP": "50.50.50.1","ClientPublicIP": "199.168.150.161","ClientPort": 36196,"LatestHandshakeTime": "2026-03-23T14:59:39.000Z","BytesReceivedTotal": 24480,"BytesSentTotal": 28720}
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-10-01T14:49Z","nid":"1540960"} -->
+## Understanding ZPA Appliances
+
+- Source: https://help.zscaler.com/zpa/understanding-zpa-appliances
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > ZPA Appliance > Understanding ZPA Appliances
+- Last modified: 2026-10-01T14:49Z
+- Summary: Information on ZPA appliances for App Connector and Private Service Edge.
+
+Private Access (ZPA) enables organizations to provide access to internal applications and services while ensuring the security of their networks. Private Access is an easier to deploy, more cost-effective, and more secure alternative to VPNs. Unlike VPNs, which require users to connect to your network to access your enterprise applications, Private Access allows you to give users policy-based secure access only to the internal apps they need. With Private Access, application access does not require network access.
+
+This feature is in limited availability. To learn more, contact your Zscaler Account team.
+
+While Private Access is for connecting users to an enterprise's internal applications, Internet & SaaS (ZIA) is for connecting users to public applications on the internet. To learn more, see [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
+
+Additionally, Private Access decouples applications from the physical network so you can provide seamless connectivity to private internal applications and assets, whether they are in the cloud, the data center, or both. It also adjusts dynamically to network changes, so you can move your resources without impacting user access.
+
+For customers who have multiple global sites with a need for high-performance connectivity between these sites (such as users accessing large files and medical records, without virtual computing power available), high-performance and high-throughput hardware appliances are available for Private Access App Connectors and Private Service Edges.
+
+The ZPA appliance is subject to maintenance or alterations, updates, enhancements, additions, or improvements at any time. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
+
+ZPA appliances include a single, high-performance App Connector or Private Service Edge with scaling to meet large throughput requirements. The following table shows appliance details:
+
+| Attributes | App Connector Appliance | Private Service Edge Appliance |
+| --- | --- | --- |
+| Hardware Model | ZS-ZPA-APPL-8010-APPC | ZS-ZPA-APPL-8010-PSE |
+| CPU / Memory / Storage | 16C / 128GB / 1TB | 16C / 128GB / 1TB |
+| Ports | 10x 1GbE 8x 10 GbE (SFP+) | 10x 1GbE 8x 10 GbE (SFP+) |
+| Form Factor | 1U (2 x PSU) | 1U (2 x PSU) |
+| Throughput | 3 Gbps | 3 Gbps |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/universal-ztna-zscaler-private-access-private-service-edge","lastmod":"2022-12-05T12:25Z","nid":"1485496"} -->
+## Universal ZTNA with Zscaler Private Access Private Service Edge
+
+- Source: https://help.zscaler.com/zpa/universal-ztna-zscaler-private-access-private-service-edge
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Reference Architecture > Universal ZTNA with Zscaler Private Access Private Service Edge
+- Last modified: 2022-12-05T12:25Z
+- Summary: The Universal Zero Trust Network Access (ZTNA) with Zscaler Private Access (ZPA) Private Service Edge reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
+
+The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
+
+Zero trust network access (ZTNA), also known as the software-defined perimeter (SDP), is a set of technologies and functionalities that enable secure access to internal applications for users. It operates on an adaptive trust model, where trust is never implicit, and access is granted on a least privileged basis defined by granular policies. ZTNA gives remote users seamless, secure connectivity to private applications without ever placing them on the network or exposing apps to the internet. Zscaler Private Access (ZPA) delivers ZTNA to organizations that need to access internal applications in public clouds, private clouds, and in the organization's data centers, through policies made up of criteria you define.
+
+[Universal ZTNA with Zscaler Private Access Private Service Edge: Reference Architecture Guide](https://help.zscaler.com/downloads/zpa/reference-architecture/universal-ztna-zscaler-private-access-private-service-edge/Universal-ZTNA-with-Zscaler-Private-Access-Private-Service-Edge.pdf) [Download PDF](https://help.zscaler.com/downloads/zpa/reference-architecture/universal-ztna-zscaler-private-access-private-service-edge/Universal-ZTNA-with-Zscaler-Private-Access-Private-Service-Edge.pdf)
 <!-- /ZS-ARTICLE -->
