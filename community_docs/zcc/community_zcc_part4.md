@@ -1,10 +1,568 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
-Posts in this file: 58
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 60
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025","lastmod":"2025-05-16T19:07:40.000Z","id":"0D5PJ00000XZsr50AD"} -->
+## 3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025
+- Type: Q&A
+- Last activity: 2025-05-16T19:07:40.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Bruno
+
+(Customer) asked a question.
+
+May 13, 2025 at 12:42 PM
+
+3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
+
+Almost four years now.
+
+The issue kept recurring whenever there was an ISP problem, but it was resolved by disabling Zscaler. This has been going on for about four years now, with no definitive solution other than to disable Zscaler.
+
+Since this issue is isolated to PLDT users and has persisted for four years, doesn't it make sense to consider that Zscaler might not be optimized for PLDT (or vice versa)? And yet, it seems like no one is taking any action.
+
+Client Connector
+
+4 answers
+
+758 views
+
+Ben_Garrison
+
+(Employee)
+
+a year ago
+
+Let me get someone with ZCC internally to take a look here and see what we can uncover.
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+I would suggest the ZCC logs check and validate the logs at the time of issues. There could be multiple reasons for this failure.
+
+Osho_Dwivedi
+
+(Employee)
+
+a year ago
+
+What are the ZS Public Service Edges that you're using to connect to?
+
+As referenced above there can be numerous reasons for this, one being ZS not having a POP nearby and peering issues with PLDT.
+
+Have there been a discussion of deploying a ZIA VSE/Private SE in Philippines in order to bring the POP home?
+
+Gianluca.bastia
+
+(Partner)
+
+a year ago
+
+Since there's no POP available, I'd suggest deploying a private service edge and that should help
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,895
+
+2895 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,385
+
+1385 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,578
+
+3578 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XaAJV0A3/verifying-zscaler-client-connector-installation-via-registry","lastmod":"2025-05-15T11:02:49.000Z","id":"0D5PJ00000XaAJV0A3"} -->
+## Verifying Zscaler Client Connector Installation via Registry
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000XaAJV0A3/verifying-zscaler-client-connector-installation-via-registry
+- Type: Q&A
+- Last activity: 2025-05-15T11:02:49.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+jiri.pesik
+
+(Customer) asked a question.
+
+May 13, 2025 at 1:50 PM
+
+Verifying Zscaler Client Connector Installation via Registry
+
+Hello,
+
+I am currently developing an automated verification process to check whether the Zscaler Client Connector is installed on our Windows computers and to confirm the installed version. I plan to utilize registry keys located under:
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+Could someone please clarify exactly what values I should expect for the following registry fields when Zscaler Client Connector is installed?
+
+DisplayName
+
+DisplayVersion
+
+Publisher
+
+Specifically, I'm interested in real-world examples of these fields to accurately detect the presence and exact version of the Zscaler Client Connector. If there are variations based on different versions or deployment methods, please mention that as well. If you have some general knowledge or experience with Zscaler Client Connector values in that registry keys, I will be happy to hear about it.
+
+Thank you very much! :-)
+
+Client Connector
+
+2 answers
+
+922 views
+
+Top Rated Answers
+
+Osho_Dwivedi
+
+(Employee)
+
+a year ago
+
+You can use the following with
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+DisplayName       -    Zscaler
+
+DisplayVersion   -    Rolled Out ZCC Version (eg. 4.6.0.200)
+
+Publisher                -    Zscaler Inc.
+
+Also check for
+
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Zscaler Inc.\Zscaler
+
+which let's you know that the Zscaler Client Connector exists on the Machine.
+
+If this response
+
+solves your
+
+question
+
+please use the
+
+Select as Best
+
+option
+
+.﻿
+
+Selected as Best
+
+2 likes
+
+All Answers
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+Check these registry values ,
+
+https://help.zscaler.com/zscaler-client-connector/zscaler-app-registry-keys
+
+, this would help you.
+
+Also , See this path, Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Zscaler Inc.\Zscaler . Install the ZCC on few test machines and capture the reg value as bench mark. Then decide which is more convenient option for you.
+
+2 likes
+
+Osho_Dwivedi
+
+(Employee)
+
+a year ago
+
+You can use the following with
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+DisplayName       -    Zscaler
+
+DisplayVersion   -    Rolled Out ZCC Version (eg. 4.6.0.200)
+
+Publisher                -    Zscaler Inc.
+
+Also check for
+
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Zscaler Inc.\Zscaler
+
+which let's you know that the Zscaler Client Connector exists on the Machine.
+
+If this response
+
+solves your
+
+question
+
+please use the
+
+Select as Best
+
+option
+
+.﻿
+
+Selected as Best
+
+2 likes
+
+Log In to Answer
+
+Associated Tags
+
+windows
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,377
+
+1377 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Verifying Zscaler Client Connector Installation via Registry
+<!-- /ZS-POST -->
 
 ---
 
@@ -12298,21 +12856,21 @@ How to get access to Public Previews for Zscaler Client Connector
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000w0O1Z0AU/zscaler-client-connector-audit","lastmod":"2026-06-27T12:09:08.000Z","id":"0D5PJ00000w0O1Z0AU"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000w0O1Z0AU/zscaler-client-connector-audit","lastmod":"2026-10-18T16:12:18.000Z","id":"0D5PJ00000w0O1Z0AU"} -->
 ## Zscaler client connector Audit
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000w0O1Z0AU/zscaler-client-connector-audit
 - Type: Q&A
-- Last activity: 2026-06-27T12:09:08.000Z
+- Last activity: 2026-10-18T16:12:18.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Client Connector
 
 skywalker
 
-(Partner) asked a question.
+(Partner) asked a question
 
-June 5, 2026 at 4:42 PM
+Edited June 10, 2026 at 9:10 PM
 
 Zscaler client connector Audit
 
@@ -12320,19 +12878,11 @@ hello , I am looking for some best practices guide for Zscaler client connector 
 
 Client Connector
 
-1 answer
-
-537 views
-
-avshch
-
-likes this.
-
 Ecruz lZ30030
 
 (Employee)
 
-a month ago
+4 months ago
 
 Hello @Anupam Gaur​ ,
 
@@ -12340,29 +12890,19 @@ Hope you are doing well!
 
 It may depend on your environment and requirements, but below are some general recommendations to consider regarding Z-Tunnel 2.0 setup:
 
-Z‑Tunnel 2.0 intercepts packets and sends them directly on the data channel:
-
-It does not act as a proxy, so App Profile PAC rules are not evaluated for that traffic by default. When you need domain-based decisions (for example, send certain domains DIRECT or to a different proxy), you must first route those web requests to the ZCC listening proxy. The way to do that in Z‑Tunnel 2.0 is via the Forwarding Profile PAC returning the Z-Tunnel 2.0 bypass micro (PROXY ${ZAPP_TUNNEL2_BYPASS}), which directs the flow to the local listener so the App Profile PAC can then apply the desired action (often DIRECT).
+*Z‑Tunnel 2.0 intercepts packets and sends them directly on the data channel:* It does not act as a proxy, so App Profile PAC rules are not evaluated for that traffic by default. When you need domain-based decisions (for example, send certain domains DIRECT or to a different proxy), you must first route those web requests to the ZCC listening proxy. The way to do that in Z‑Tunnel 2.0 is via the Forwarding Profile PAC returning the Z-Tunnel 2.0 bypass micro (PROXY ${ZAPP_TUNNEL2_BYPASS}), which directs the flow to the local listener so the App Profile PAC can then apply the desired action (often DIRECT).
 
 You need a Forwarding Profile PAC in Z-Tunnel 2.0 for the Domain-based bypasses for non-standard ports or traffic that is not automatically redirected to the listener require entries in both the Forwarding Profile PAC (to steer to the listener) and the App Profile PAC (to send DIRECT or to the desired destination).
 
-Prefer VPN Gateway Bypasses for highest priority/direct routing:
+*Prefer VPN Gateway Bypasses for highest priority/direct routing: * If you plan to add hostnames make sure they do not resolve to Dynamic IP Addresses. VPN Gateway Bypass works by resolving an FQDN to IPs once and then bypassing those IPs; when the FQDN later resolves to different IPs, traffic won’t be bypassed reliably. This leads to intermittent behavior and unintended side effects. This is because Zscaler Client Connector resolves each FQDN you add to VPN Gateway Bypass and creates bypass filters for the IPs returned at tunnel start or policy refresh. If the FQDN later resolves to new IPs, those new IPs are not covered, so traffic still goes through Zscaler instead of being bypassed, causing inconsistent results.
 
-If you plan to add hostnames make sure they do not resolve to Dynamic IP Addresses. VPN Gateway Bypass works by resolving an FQDN to IPs once and then bypassing those IPs; when the FQDN later resolves to different IPs, traffic won’t be bypassed reliably. This leads to intermittent behavior and unintended side effects. This is because Zscaler Client Connector resolves each FQDN you add to VPN Gateway Bypass and creates bypass filters for the IPs returned at tunnel start or policy refresh. If the FQDN later resolves to new IPs, those new IPs are not covered, so traffic still goes through Zscaler instead of being bypassed, causing inconsistent results.
+*Z-Tunnel 2.0 and GRE: * Avoid sending Z-Tunnel 2.0 through GRE in case you have or plans to configure GRE tunnels. This is because it adds double encapsulation and forces sub‑optimal processing at the Zscaler data center, which can degrade performance and even cause fragmentation.
 
-Z-Tunnel 2.0 and GRE:
+*DTLS vs TLS: *By default Z-Tunnel 2.0 uses DTLS as transport method to establish the connection. DTLS generally delivers better performance (lower latency/overhead), however, in case the network degrades UDP due to some ISPs or firewalls throttle/block UDP 443, in which case TLS will be more reliable. This can be configured in the Forwarding Profile.
 
-Avoid sending Z-Tunnel 2.0 through GRE in case you have or plans to configure GRE tunnels. This is because it adds double encapsulation and forces sub‑optimal processing at the Zscaler data center, which can degrade performance and even cause fragmentation.
+*Process-Based & IP-Based Bypasses:* You can also apply the built-in and also custom IP-Based Application bypasses for Tunnel 2.0 for specific services and enable built-in Process-Based bypass for services like ZOOM and Teams and also you can create you custom process-based bypass.
 
-DTLS vs TLS:
-
-By default Z-Tunnel 2.0 uses DTLS as transport method to establish the connection. DTLS generally delivers better performance (lower latency/overhead), however, in case the network degrades UDP due to some ISPs or firewalls throttle/block UDP 443, in which case TLS will be more reliable. This can be configured in the Forwarding Profile.
-
-Process-Based & IP-Based Bypasses:
-
-You can also apply the built-in and also custom IP-Based Application bypasses for Tunnel 2.0 for specific services and enable built-in Process-Based bypass for services like ZOOM and Teams and also you can create you custom process-based bypass.
-
-Belo aresome links for reference regarding the Best Practices for Deploying Z-Tunnel 2.0:
+*Belo aresome links for reference regarding the Best Practices for Deploying Z-Tunnel 2.0:*
 
 https://help.zscaler.com/zscaler-client-connector/best-practices-deploying-z-tunnel-2.0
 
@@ -12373,10 +12913,6 @@ https://help.zscaler.com/zscaler-client-connector/adding-ip-based-applications-b
 https://help.zscaler.com/zscaler-client-connector/adding-process-based-applications-bypass-traffic
 
 In case you have any questions, please let me know.
-
-1 like
-
-Log In to Answer
 
 Associated Tags
 
@@ -12404,9 +12940,9 @@ Client Connector
 
 cburge97
 
-2,886
+3,010
 
-2886 Views
+3010 Views
 
 0 Likes
 
@@ -12426,9 +12962,9 @@ Client Connector
 
 Mk001
 
-1,379
+1,464
 
-1379 Views
+1464 Views
 
 0 Likes
 
@@ -12446,9 +12982,9 @@ Client Connector
 
 hukel
 
-704
+767
 
-704 Views
+767 Views
 
 0 Likes
 
@@ -12466,13 +13002,13 @@ Client Connector
 
 brad
 
-3,572
+3,924
 
-3572 Views
+3924 Views
 
 0 Likes
 
-1 Comment
+2 Comments
 
 3/7/2022
 

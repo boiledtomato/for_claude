@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
+Generated: 2026-10-19 09:15 UTC
 Posts in this file: 73
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -12192,12 +12192,12 @@ Microsoft Sentinel Playbooks - OneAPI Integration
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler","lastmod":"2026-10-07T16:20:08.000Z","id":"0D5PJ000013ReKW0A0"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler","lastmod":"2026-10-16T16:54:51.000Z","id":"0D5PJ000013ReKW0A0"} -->
 ## Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler
 - Type: Q&A
-- Last activity: 2026-10-07T16:20:08.000Z
+- Last activity: 2026-10-16T16:54:51.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Forwarding
@@ -12206,7 +12206,7 @@ godevils89
 
 (Customer) asked a question
 
-Edited 4h ago
+Edited October 7, 2026 at 4:20 PM
 
 Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
 
@@ -12242,6 +12242,18 @@ architecture before the Zscaler rollout hits?
 
 ZPA - Forwarding
 
+mmckinley4810
+
+(Employee)
+
+9 days ago
+
+TLDR; Consider abandoning the push model and migrating to an ansible-pull architecture. While using ZPA Client-to-Client for Ansible push is conceptually possible, it is fraught with operational challenges and runs contrary to modern endpoint management principles, especially for a remote/roaming fleet. The ansible-pull model aligns perfectly with the Zero Trust, inside-out connection model of ZPA and will be far more reliable and scalable in the long run. Detailed Analysis Here is a breakdown of the two options. Option 1: Using ZPA Client-to-Client for Management (The "Keep Push" Model) Your understanding of how this would be configured is correct: Install the Zscaler Client Connector on the Ansible/admin server. Define a broad Application Segment for the target laptops (e.g., using a wildcard for hostnames). Create an Access Policy rule allowing the Ansible server (as a source) to connect to the laptop Application Segment (as the destination). However, your concerns about "major gotchas" are not only valid but are likely to be showstoppers for reliable, at-scale automation. Major Gotchas & Why This Is a Bad Idea for Automation: The #1 Problem: DNS & Dynamic IPs: This is the biggest hurdle. When an endpoint connects to ZPA, it is assigned a virtual IP address from within the Zscaler cloud. This IP is what ZPA uses to route traffic. Your Ansible server has no native way to know the current ZPA-assigned IP for
+
+laptop-123.company.com
+
+. Traditional DNS resolves to a public or corporate IP, which ZPA blocks. You cannot use it. To make this work, you would need to build a complex, fragile system that: Continuously queries the ZPA API to get a real-time list of connected clients and their assigned ZPA IPs. Dynamically updates a local hosts file or a custom DNS resolver that your Ansible server uses. Triggers Ansible runs immediately after an IP update. This is a brittle, custom-built solution that is likely to break and create a significant management burden. Idle Timeouts & Session Drops: ZPA policies have configurable timeouts for idle sessions. A long-running Ansible play or an SSH session left open could be terminated unexpectedly. While the Zscaler Client Connector is resilient in re-establishing its primary connection to the cloud, the brokered client-to-client session is not guaranteed to survive network flaps (e.g., a laptop switching from Wi-Fi to cellular). This makes the connection model unreliable for long or critical tasks. Performance and Scalability: All traffic is hair-pinned through the Zscaler cloud. While performance is generally excellent, it's not designed to be a high-throughput backbone for fleet-wide configuration management. Running simultaneous Ansible pushes to hundreds or thousands of clients via this method would introduce unnecessary latency and load on the Zscaler infrastructure. Ad-Hoc SSH vs. Automation: For its intended purpose—a single admin needing temporary, ad-hoc SSH access to a specific user's machine for troubleshooting—the Client-to-Client model can work (albeit with the manual step of looking up the client's ZPA IP in the admin portal). It does not scale to automated, multi-node management. Option 2: Migrating to an ansible-pull Architecture (The "Abandon Push" Model) This approach is the industry-standard best practice for managing a modern, distributed fleet of endpoints. It aligns perfectly with a Zero Trust security posture. How it Works: A Git repository hosts the Ansible playbooks and configuration manifests. Each Ubuntu laptop has a scheduled task (e.g., a systemd timer or cron job) that runs ansible-pull at a regular interval. The ansible-pull command initiates an outbound connection from the laptop to the Git repository, clones the latest configuration, and executes it locally. Why This Is the Recommended Solution: Aligns with Zero Trust (ZPA): The connection is initiated from the client outbound to a defined service (the Git repo). This is exactly the model ZPA is built to secure. You simply create an Application Segment for your Git server (e.g., git.company.com) and allow all clients to access it. It's clean, secure, and simple. Resilience and Reliability: This model is inherently resilient. If a laptop is offline, it simply misses a check-in. The next time it's online and the scheduled task runs, it will pull down the latest configuration and bring itself into compliance. It doesn't matter what network the laptop is on or what its IP address is. Scalability: This architecture scales almost infinitely. The central Ansible server is no longer a bottleneck initiating thousands of connections. The management load is distributed across the endpoints themselves. Asynchronous Operation: It's a perfect fit for a fleet that isn't always online. You don't need to worry about whether a laptop is reachable right now. It will get its updates when it's able. Recommendation Invest in migrating to an ansible-pull architecture before the Zscaler rollout. Phrase it as an opportunity to modernize your endpoint management strategy to align with a Zero Trust world. The "push" model is a legacy concept from a network-centric, castle-and-moat security era. The work to switch to ansible-pull will be far less than the work required to build and maintain a fragile, custom solution to force the push model over ZPA. You can retain the Client-to-Client connectivity model as a secondary, "break-glass" tool for manual, ad-hoc SSH troubleshooting by your administrators, but it should not be the foundation of your automated management strategy.
+
 Associated Tags
 
 automation
@@ -12270,9 +12282,9 @@ ZPA - Forwarding
 
 User16182582818315999266
 
-483
+516
 
-483 Views
+516 Views
 
 0 Likes
 
@@ -12290,9 +12302,9 @@ ZPA - Forwarding
 
 Athees
 
-374
+393
 
-374 Views
+393 Views
 
 0 Likes
 
@@ -12310,9 +12322,9 @@ ZPA - Forwarding
 
 jaicybersec
 
-374
+411
 
-374 Views
+411 Views
 
 0 Likes
 
@@ -12330,9 +12342,9 @@ ZPA - Forwarding
 
 Dhananjay_Bhakte
 
-1,107
+1,158
 
-1107 Views
+1158 Views
 
 0 Likes
 
@@ -12350,9 +12362,9 @@ ZPA - Forwarding
 
 BlueSocks
 
-361
+398
 
-361 Views
+398 Views
 
 0 Likes
 

@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — その他 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
-Posts in this file: 734
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 733
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -66206,43 +66206,6 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZDTE EDU-202 learning content
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-05T16:08:52.000Z","id":"0D5PJ000013cp7M0AQ"} -->
-## Zscaler, Inc. - Sign In
-
-- Source: https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta
-- Type: Q&A
-- Last activity: 2026-10-05T16:08:52.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Connecting to
-
-Sign in with your account to access Zenith Community
-
-Sign In
-
-Username
-
-Password
-
-Forgot password?
-
-Unlock account?
-
-Help
-
-Powered by
-
-Okta
-
-Privacy Policy
-
-The page has timed out
-
-If this page does not reload automatically, please refresh your browser.
 <!-- /ZS-POST -->
 
 ---

@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
-Posts in this file: 117
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 119
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -6264,12 +6264,12 @@ Come join the Zscaler Academic Partnership! Know more.
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions","lastmod":"2026-10-10T20:02:20.000Z","id":"0D54u0000AeIEG8CQO"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions","lastmod":"2026-10-14T21:15:24.000Z","id":"0D54u0000AeIEG8CQO"} -->
 ## Solved Questions
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions
 - Type: Q&A
-- Last activity: 2026-10-10T20:02:20.000Z
+- Last activity: 2026-10-14T21:15:24.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 10 steps to get you started
@@ -6278,7 +6278,7 @@ Ben_Garrison
 
 (Employee) asked a question
 
-Edited November 18, 2024 at 5:36 PM
+Edited October 14, 2026 at 9:15 PM
 
 Solved Questions
 
@@ -6303,6 +6303,14 @@ Pay it forward by improving the knowledge on the community and mark answers to y
 Thank you very much for your ongoing participation in our amazing community.
 
 10 steps to get you started
+
+ChensonZ41246
+
+(Employee)
+
+1 day ago
+
+Thank you, this is helpful!
 
 Associated Tags
 
@@ -11483,12 +11491,12 @@ Certifications
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components","lastmod":"2026-10-11T08:30:28.000Z","id":"0D5PJ00000WWbH30AL"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components","lastmod":"2026-10-15T06:00:57.000Z","id":"0D5PJ00000WWbH30AL"} -->
 ## Are there any Visio stencils for the zscaler services and components?
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components
 - Type: Q&A
-- Last activity: 2026-10-11T08:30:28.000Z
+- Last activity: 2026-10-15T06:00:57.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 al.alexiev
@@ -21034,21 +21042,21 @@ Unable to login Zenith2026 Due to Unregistered User error
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication","lastmod":"2026-09-21T12:53:07.000Z","id":"0D5PJ000012yoEn0AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication","lastmod":"2026-10-15T20:07:18.000Z","id":"0D5PJ000012yoEn0AI"} -->
 ## Windows Update for an unattended device without Zscaler user authentication
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication
 - Type: Q&A
-- Last activity: 2026-09-21T12:53:07.000Z
+- Last activity: 2026-10-15T20:07:18.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication
 
 shaik.nazeem
 
-(Customer) asked a question.
+(Prospect) asked a question
 
-Edited yesterday at 9:15 AM
+Edited September 21, 2026 at 12:53 PM
 
 Windows Update for an unattended device without Zscaler user authentication
 
@@ -21077,10 +21085,6 @@ Do I need a custom ZIA policy for an unattended Windows device to access Intune/
 Any guidance or examples of a similar unattended-device configuration would be appreciated
 
 ZIA - Authentication
-
-12 views
-
-Log In to Answer
 
 Associated Tags
 
@@ -21180,9 +21184,9 @@ ZIA - Authentication
 
 Muhammad
 
-390
+429
 
-390 Views
+429 Views
 
 0 Likes
 
@@ -21241,4 +21245,314 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Windows Update for an unattended device without Zscaler user authentication
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-14T21:23:58.000Z","id":"0D5PJ000013cp7M0AQ"} -->
+## What Are You Using to Prepare for ZDTA?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta
+- Type: Q&A
+- Last activity: 2026-10-14T21:23:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+jassongary112
+
+(Prospect) asked a question
+
+Edited October 14, 2026 at 9:23 PM
+
+What Are You Using to Prepare for ZDTA?
+
+I’m curious how others are approaching ZDTA preparation.
+
+There seems to be a lot of material available for Zscaler, but knowing what to focus on first can be a challenge, especially when you’re trying to balance the exam objectives with practical understanding.
+
+For those preparing for the ZDTA exam, what has been most useful for you so far?
+
+Official Zscaler documentation and learning resources
+
+Training courses
+
+Hands-on practice
+
+Practice questions
+
+Study guides or notes
+
+Community discussions
+
+Also, how are you deciding that you’re actually ready for the exam?
+
+I’d be especially interested in hearing from people who have already taken the exam or are currently preparing for it. What worked for you, and what would you avoid if you had to start again?
+
+Certification
+
+JGramata
+
+(Partner)
+
+12 days ago
+
+Hands-on practice + scenario-based questions, not just reading docs. The exam is heavy on "given this rule set/log, what happens" — so I drilled policy evaluation order (ZIA inspection flow, ZPA policy order) until I could redraw it from memory, and wrote my own practice scenarios based on the study guide's "exam tip" call outs.
+
+Felt ready once I could explain why wrong answers were wrong, not just pick the right one.
+
+Amitpal_Singh
+
+(Customer)
+
+11 days ago
+
+Hands on exp + Zscaler academy training(EDU-200) + Practice test.. i followed this approach and was able to pass exam in ZenithLive Mumbai
+
+mmckinley4810
+
+(Employee)
+
+1 day ago
+
+Don't forget CertJamZ for ZTDA!
+
+https://customer.zscaler.com/certjamz-course
+
+This is a great resource to review the material and practice.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,308
+
+1308 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+What Are You Using to Prepare for ZDTA?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014Kf3E0AS/upskilling-to-zdte-postlayoff-looking-for-financial-aidvoucher-programs","lastmod":"2026-10-14T23:56:37.000Z","id":"0D5PJ000014Kf3E0AS"} -->
+## Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014Kf3E0AS/upskilling-to-zdte-postlayoff-looking-for-financial-aidvoucher-programs
+- Type: Q&A
+- Last activity: 2026-10-14T23:56:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+prathik_krishnappa
+
+(Prospect) asked a question
+
+16h ago
+
+Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs
+
+Hi Everyone,
+
+I hope you are all doing well. I am a cloud and network security professional, and a long-time follower of Zscaler’s Zero Trust framework.
+
+Unfortunately, I was recently impacted by a reduction in force (RIF) and am currently navigating the job market. I am highly motivated to use this transition period to upskill and add the
+
+Zscaler Digital Transformation Engineer (ZDTE)
+
+credential to my technical toolkit.
+
+To stay competitive, I have recently completed four other
+
+major certifications
+
+across
+
+AWS, Terraform, Palo Alto Networks, and Cisco
+
+. However,
+
+between
+
+managing a sudden layoff and maintaining the renewal and exam fees for multiple platforms, things have become quite expensive out-of-pocket
+
+while being in between roles.
+
+I want to show potential employers that my skills on the Zscaler platform are sharp and validated.
+
+Does anyone in the community know if Zscaler offers any specialized support programs, financial aid, or discount vouchers for professionals trying to re-enter the workforce after a layoff?
+
+I am also eager to attend any virtual sessions or community events if they offer voucher opportunities upon completion.
+
+Thank you so much for any advice, leads, or pointers you can share. I truly appreciate this community's
+
+support!
+
+Certification
+
+Associated Tags
+
+certificate
+
+certification
+
+best-practice
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,303
+
+1303 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs
 <!-- /ZS-POST -->

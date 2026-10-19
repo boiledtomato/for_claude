@@ -1,10 +1,488 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
-Posts in this file: 304
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 303
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpMCAQ/zcaler-client-connector-doesnt-work-in-china","lastmod":"2023-05-31T08:46:47.000Z","id":"0D54u00009evmpMCAQ"} -->
+## Zcaler client connector doesn't work in China
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmpMCAQ/zcaler-client-connector-doesnt-work-in-china
+- Type: Q&A
+- Last activity: 2023-05-31T08:46:47.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+huang_clack
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+November 16, 2021 at 6:56 AM
+
+Zcaler client connector doesn't work in China
+
+Our company is a global company, we are deploying zscaler client connector to all global computers for internet protect when they are out of office. In other contries, no issue. But in China, we find the Zscaler auto proxy the data to Japan Zscaler datacenters There are three datacenters in China, by geographical location auto section, it should use China datacenter proxies first…
+
+Anyone got the similar problem? And any solution for it?
+
+Client Connector
+
+4 answers
+
+664 views
+
+huang_clack
+
+(Customer)
+
+5 years ago
+
+I justed check list, and see there is a green icon on the three China data centers, and say “An additional fee is required in order to use this data center?
+
+Thtat’s maybe the cause, I will check with TAM. thank your very much.
+
+1 like
+
+mharris30
+
+(Employee)
+
+5 years ago
+
+I just meant the subscription for China premium bandwidth is the same as the rest of APAC. Yes, you need premium bandwidth to use those locations. You can verify at
+
+https://config.zscaler.com
+
+to see the locations in Shanghai, Beijing, and Tianjin are regional surcharge locations.
+
+huang_clack
+
+(Customer)
+
+5 years ago
+
+Thanks for your reply. But we it is a global project, we don’t have problem in other countries, such as Austrilia, Sinagpore, India, Hongkong Japan etc… Are you sure we need a special premium bandwidth subscription for China? Sometimes we think the geographical location auto section is blocked by the China GFW policy.
+
+mharris30
+
+(Employee)
+
+5 years ago
+
+Hi - use of the three public service edges inainland China require a special premium bandwidth subscription. Contact your Zscaler Sales Mamager for a quote and information on the premium bandwidth subs riptide which will also allow use of premium locations in South America, Australia, New Zealand and others .
+
+Log In to Answer
+
+Associated Tags
+
+china
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,884
+
+2884 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,378
+
+1378 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,567
+
+3567 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zcaler client connector doesn't work in China
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpOCAQ/full-tunnel-vpn-identification-zscaler-client-connector","lastmod":"2023-05-31T08:46:47.000Z","id":"0D54u00009evmpOCAQ"} -->
+## Full Tunnel VPN Identification - Zscaler Client Connector
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evmpOCAQ/full-tunnel-vpn-identification-zscaler-client-connector
+- Type: Q&A
+- Last activity: 2023-05-31T08:46:47.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+rvennu7
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+November 15, 2021 at 3:14 AM
+
+Full Tunnel VPN Identification - Zscaler Client Connector
+
+Does the Zscaler Client Connector identifies a Full Tunnel VPN
+
+only
+
+if the
+
+DEFAULT ROUTE
+
+is installed ?
+
+Else, are there any other ways as well which it will identify?
+
+Thanks,
+
+Rahul
+
+Client Connector
+
+1 answer
+
+348 views
+
+G-Man8
+
+(Customer)
+
+5 years ago
+
+Hi Rahul,
+
+Maybe this will help ?
+
+Best Practices for Zscaler Client Connector and VPN Client Interoperability | Zscaler
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,881
+
+2881 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,376
+
+1376 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+701
+
+701 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,565
+
+3565 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Full Tunnel VPN Identification - Zscaler Client Connector
+<!-- /ZS-POST -->
 
 ---
 
@@ -79523,729 +80001,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Device Cleanup Suggestions / Recommendations
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1ICAQ/zapp-and-10064","lastmod":"2023-07-06T13:14:45.000Z","id":"0D54u00009evn1ICAQ"} -->
-## Zapp and 100.64
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn1ICAQ/zapp-and-10064
-- Type: Q&A
-- Last activity: 2023-07-06T13:14:45.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Lmay
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-September 23, 2019 at 6:01 AM
-
-Zapp and 100.64
-
-Hello All,
-
-When local networks consist of 100.64.0.0/22, tunnel mode seem to work fine, however once connecting to a split tunnel VPN, the app fails to connect, probably due to the static route to this network being added and pointing to the virtual adapter representing the VPN connection.
-
-Any solution for this scenario? Aside for switching to local proxy…
-
-Thanks!
-
-Client Connector
-
-3 answers
-
-687 views
-
-mharris30
-
-(Employee)
-
-7 years ago
-
-Sounds like switching to local proxy is the only option if 10.64.0.0/22 is going to be shared between the two networks.
-
-Lmay
-
-(Customer)
-
-Edited by sfdc July 6, 2023 at 12:17 PM
-
-It’s a given fact
-
-Now we need to work with it to integrate with Zapp…
-
-Gordon Wright
-
-(Customer)
-
-7 years ago
-
-I’m pretty sure you shouldn’t be using 100.64.0.0/22 for your local client network. This is reserved for special use by telecoms providers.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,886
-
-2886 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Zapp and 100.64
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1MCAQ/zapp-and-ios-13","lastmod":"2023-05-31T08:51:51.000Z","id":"0D54u00009evn1MCAQ"} -->
-## ZAPP and iOS 13
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn1MCAQ/zapp-and-ios-13
-- Type: Q&A
-- Last activity: 2023-05-31T08:51:51.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-buchmeier_avantec.ch
-
-(Partner) to
-
-sfdc
-
-(Employee): asked a question.
-
-September 17, 2019 at 3:25 PM
-
-ZAPP and iOS 13
-
-What’s the current state of ZAPP and iOS 13?
-
-Client Connector
-
-2 answers
-
-292 views
-
-JeremyM
-
-(Customer)
-
-7 years ago
-
-Hi David,
-
-In iOS 13 setting up a new device we are seeing issues with strict enforcement. The whitelisting rules that have been set for months do not appear to be honored now. We are investigating more, but wanted to see if this is an open item from other customers.
-
-Thanks,
-
-Jeremy
-
-dcreedy
-
-(Employee)
-
-7 years ago
-
-Hi Martina,
-
-As always we aim for day-zero support of new OS updates. iOS 13 is a supported release.
-
-Our testing throughout the betas with iOS 13 did not show any issues, and our latest round of longevity testing (battery usage, etc) is nearing completion.
-
-Have you experienced any issues with iOS 13?
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,896
-
-2896 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,386
-
-1386 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-706
-
-706 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,616
-
-3616 Views
-
-0 Likes
-
-2 Comments
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZAPP and iOS 13
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn1cCAA/zapp-policy-on-device-level","lastmod":"2023-05-31T08:51:54.000Z","id":"0D54u00009evn1cCAA"} -->
-## ZApp Policy on Device Level
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evn1cCAA/zapp-policy-on-device-level
-- Type: Q&A
-- Last activity: 2023-05-31T08:51:54.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Omar
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-September 16, 2019 at 9:04 PM
-
-ZApp Policy on Device Level
-
-Hi All,
-
-Is there a way to have a policy for Zapp on a device level instead of a user level. We have users using both there Work and Personnel devices, where we want to enforce ZIA on the Work PC but allow the user to turn it off on their personnel PC.
-
-Take into account they are using the same user account for both devices.
-
-Client Connector
-
-3 answers
-
-396 views
-
-Manoj07
-
-(Partner)
-
-5 years ago
-
-Is Device based Policies available now?
-
-I want to Restrict Users with Particular Device should only access via Zscaler.
-
-Can you Please share some inputs!!
-
-Regards
-
-Manoj P
-
-Omar
-
-(Customer)
-
-7 years ago
-
-Thank You David.
-
-For now we found a workaround. Will enforce PAC file to all company remote devices, personnel devices will use the Zapp with the option to disable it.
-
-This way Remote Work PCs all always protected and personnel PC have the option to disable Zscaler for personnel use.
-
-dcreedy
-
-(Employee)
-
-7 years ago
-
-Hi Omar,
-
-This isn’t possible today no. Policies are applied at the user level.
-
-I will check if there is an ER filed for this already and if not, I will raise one for you!
-
-Regards
-
-David
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,888
-
-2888 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,379
-
-1379 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,575
-
-3575 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZApp Policy on Device Level
 <!-- /ZS-POST -->

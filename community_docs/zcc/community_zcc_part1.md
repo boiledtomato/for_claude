@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
+Generated: 2026-10-19 09:15 UTC
 Posts in this file: 284
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -1457,6 +1457,119 @@ Article Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Articles/aSmPJ00000Gexhh0AB/android-zcc-50-modern-experience-overview","lastmod":"2026-10-12T16:27:48.000Z","id":"aSmPJ00000Gexhh0AB"} -->
+## Android ZCC 5.0 Modern Experience Overview
+
+- Source: https://community.zscaler.com/s/Articles/aSmPJ00000Gexhh0AB/android-zcc-50-modern-experience-overview
+- Type: Article
+- Last activity: 2026-10-12T16:27:48.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Article Details
+
+Client Connector
+
+Andres Garcia
+
+(Employee) posted an Article
+
+Edited 22h ago
+
+Android ZCC 5.0 Modern Experience Overview
+
+Starting on version 5.0 ZCC on Android has a new user interface (UI). This article shows how the new UI looks like and the most relevant menus.
+
+The logon screen now looks as follow:
+
+“Menu” at the logon screen has options to: Export Logs, Review Cloud Name, License and Credits, Switch to the Classic UI and About
+
+During authentication and connection establishment the screen looks as follows:
+
+Once the user is logged in the screen shows as follows:
+
+Touching
+
+on the “Connected” Zscaler logo brings the Service Status screen:
+
+Touching each service brings you to a Menu with additional details such as Network Type, Tunnel Version, Client IP etc.
+
+The gear icon at the top right of
+
+the Connected screen brings you to Settings:
+
+In Settings, you can access Notifications, Troubleshooting and Application:
+
+In the Troubleshooting Menu you can: Restart Service, Report An Issue (if enabled by the Administrator), start Packet Capture, Install Certificate, Export Logs, Clear Logs and Set Log Mode.
+
+In the Application Menu you can : Update the Application Update the App Policy, switch to the old UI or the Modern Experience
+
+Associated Tags
+
+android
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Article Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000PJN0A2/zscaler-client-connector-436-beta-for-ios-available-now","lastmod":"2025-10-08T17:30:37.000Z","id":"aSnPJ0000000PJN0A2"} -->
 ## Zscaler Client Connector 4.3.6 Beta for iOS Available Now!
 
@@ -1897,6 +2010,119 @@ Enroll here
 Customer
 
 Partner
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000hg50AA/edu100-build-minimum-viable-operational-competency-with-guided-simulations","lastmod":"2026-10-15T16:11:55.000Z","id":"aSnPJ0000000hg50AA"} -->
+## EDU-100: Build Minimum Viable Operational Competency with Guided Simulations
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000hg50AA/edu100-build-minimum-viable-operational-competency-with-guided-simulations
+- Type: Blog
+- Last activity: 2026-10-15T16:11:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Training Portfolio
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+10h ago
+
+EDU-100: Build Minimum Viable Operational Competency with Guided Simulations
+
+Why “minimum viable operational competency” matters
+
+For many teams, momentum comes from building skills you can apply right away. That’s why Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop is designed to build a practical, task-based foundation across Zscaler Client Connector (ZCC), Zscaler Internet Access (ZIA), Zscaler Private Access (ZPA), and Zscaler Digital Experience (ZDX).
+
+How EDU-100 enables practice
+
+By completing Introduction to Zscaler Zero Trust Exchange (EDU-100) Workshop, you will build minimum viable operational competency through guided simulations, allowing you to practice core workflows during and after the webinar in ZCC, ZIA, ZPA, and ZDX—without requiring an individual Zscaler lab tenant.
+
+Two-session structure (high-level)
+
+The workshop is delivered in two webinars: the first covers platform context and foundational workflows, and the second focuses on reinforcement learning through simulations.
+
+Available in the following regions:
+
+APJ:
+
+October 26-27, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+November 3-4, 2026, 9:00 AM to 1:00 PM IST (UTC+5:30)
+
+EMEA:
+
+October 15-16, 2026, 9:00 AM to 1:00 PM CEST (GMT+2:00)
+
+Visit Zscaler Cyber Academy to enroll and see the full list of available sessions.
 
 Associated Tags
 
@@ -74602,482 +74828,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Zscaler and Monterey (OS12 for the Mac)
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpMCAQ/zcaler-client-connector-doesnt-work-in-china","lastmod":"2023-05-31T08:46:47.000Z","id":"0D54u00009evmpMCAQ"} -->
-## Zcaler client connector doesn't work in China
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpMCAQ/zcaler-client-connector-doesnt-work-in-china
-- Type: Q&A
-- Last activity: 2023-05-31T08:46:47.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-huang_clack
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 16, 2021 at 6:56 AM
-
-Zcaler client connector doesn't work in China
-
-Our company is a global company, we are deploying zscaler client connector to all global computers for internet protect when they are out of office. In other contries, no issue. But in China, we find the Zscaler auto proxy the data to Japan Zscaler datacenters There are three datacenters in China, by geographical location auto section, it should use China datacenter proxies first…
-
-Anyone got the similar problem? And any solution for it?
-
-Client Connector
-
-4 answers
-
-664 views
-
-huang_clack
-
-(Customer)
-
-5 years ago
-
-I justed check list, and see there is a green icon on the three China data centers, and say “An additional fee is required in order to use this data center?
-
-Thtat’s maybe the cause, I will check with TAM. thank your very much.
-
-1 like
-
-mharris30
-
-(Employee)
-
-5 years ago
-
-I just meant the subscription for China premium bandwidth is the same as the rest of APAC. Yes, you need premium bandwidth to use those locations. You can verify at
-
-https://config.zscaler.com
-
-to see the locations in Shanghai, Beijing, and Tianjin are regional surcharge locations.
-
-huang_clack
-
-(Customer)
-
-5 years ago
-
-Thanks for your reply. But we it is a global project, we don’t have problem in other countries, such as Austrilia, Sinagpore, India, Hongkong Japan etc… Are you sure we need a special premium bandwidth subscription for China? Sometimes we think the geographical location auto section is blocked by the China GFW policy.
-
-mharris30
-
-(Employee)
-
-5 years ago
-
-Hi - use of the three public service edges inainland China require a special premium bandwidth subscription. Contact your Zscaler Sales Mamager for a quote and information on the premium bandwidth subs riptide which will also allow use of premium locations in South America, Australia, New Zealand and others .
-
-Log In to Answer
-
-Associated Tags
-
-china
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,884
-
-2884 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,378
-
-1378 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,567
-
-3567 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Zcaler client connector doesn't work in China
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmpOCAQ/full-tunnel-vpn-identification-zscaler-client-connector","lastmod":"2023-05-31T08:46:47.000Z","id":"0D54u00009evmpOCAQ"} -->
-## Full Tunnel VPN Identification - Zscaler Client Connector
-
-- Source: https://community.zscaler.com/s/question/0D54u00009evmpOCAQ/full-tunnel-vpn-identification-zscaler-client-connector
-- Type: Q&A
-- Last activity: 2023-05-31T08:46:47.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-rvennu7
-
-(Customer) to
-
-sfdc
-
-(Employee): asked a question.
-
-November 15, 2021 at 3:14 AM
-
-Full Tunnel VPN Identification - Zscaler Client Connector
-
-Does the Zscaler Client Connector identifies a Full Tunnel VPN
-
-only
-
-if the
-
-DEFAULT ROUTE
-
-is installed ?
-
-Else, are there any other ways as well which it will identify?
-
-Thanks,
-
-Rahul
-
-Client Connector
-
-1 answer
-
-348 views
-
-G-Man8
-
-(Customer)
-
-5 years ago
-
-Hi Rahul,
-
-Maybe this will help ?
-
-Best Practices for Zscaler Client Connector and VPN Client Interoperability | Zscaler
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,881
-
-2881 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,376
-
-1376 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-701
-
-701 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,565
-
-3565 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Full Tunnel VPN Identification - Zscaler Client Connector
 <!-- /ZS-POST -->

@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-10-12T11:16:12Z",
+ "generated_at": "2026-10-19T09:15:10Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -2837,6 +2837,13 @@
    "title": "ZSOS24 - Cloud Connector Validation & Migration Guide",
    "type": "zenith_article__c"
   },
+  "https://community.zscaler.com/s/Articles/aSmPJ00000Gexhh0AB/android-zcc-50-modern-experience-overview": {
+   "category": "zcc",
+   "hash": "ff0fb83ead9a92c1",
+   "lastmod": "2026-10-12T16:27:48.000Z",
+   "title": "Android ZCC 5.0 Modern Experience Overview",
+   "type": "zenith_article__c"
+  },
   "https://community.zscaler.com/s/Blogs/aSnPJ00000000b70AA/zscaler-certification-at-pub-sec-in-march": {
    "category": "platform",
    "hash": "8633d81ea7f79560",
@@ -5404,6 +5411,13 @@
    "hash": "c18cf141ec5fbb91",
    "lastmod": "2026-10-09T15:55:58.000Z",
    "title": "Pearson VUE Promotion: How to Get a Free Retake on Your Next Zscaler Exam",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hg50AA/edu100-build-minimum-viable-operational-competency-with-guided-simulations": {
+   "category": "zcc",
+   "hash": "4161dbe2083c0028",
+   "lastmod": "2026-10-15T16:11:55.000Z",
+   "title": "EDU-100: Build Minimum Viable Operational Competency with Guided Simulations",
    "type": "zenith_blog__c"
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
@@ -12996,8 +13010,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u00009evmq6CAA/youtube-restricted-mode-question": {
    "category": "zia",
-   "hash": "741a55818b332ba2",
-   "lastmod": "2023-05-31T08:47:00.000Z",
+   "hash": "a116376626dbec35",
+   "lastmod": "2026-10-13T08:03:55.000Z",
    "title": "YouTube Restricted Mode Question",
    "type": "question"
   },
@@ -22026,8 +22040,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup": {
    "category": "zia",
-   "hash": "434571f36540f5f0",
-   "lastmod": "2024-03-08T01:28:17.000Z",
+   "hash": "4bc4fed66777a944",
+   "lastmod": "2026-10-15T05:14:53.000Z",
    "title": "How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)",
    "type": "question"
   },
@@ -23783,8 +23797,8 @@
   },
   "https://community.zscaler.com/s/question/0D54u0000AeIEG8CQO/solved-questions": {
    "category": "platform",
-   "hash": "dbe44289a7f4d3ea",
-   "lastmod": "2026-10-10T20:02:20.000Z",
+   "hash": "6d20e7c061ca5619",
+   "lastmod": "2026-10-14T21:15:24.000Z",
    "title": "Solved Questions",
    "type": "question"
   },
@@ -24798,8 +24812,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000WWbH30AL/are-there-any-visio-stencils-for-the-zscaler-services-and-components": {
    "category": "platform",
-   "hash": "83ddd9bb05d8a535",
-   "lastmod": "2026-10-11T08:30:28.000Z",
+   "hash": "9409a89d3973e35e",
+   "lastmod": "2026-10-15T06:00:57.000Z",
    "title": "Are there any Visio stencils for the zscaler services and components?",
    "type": "question"
   },
@@ -26702,15 +26716,15 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000w0I2f0AE/gemini-and-other-ai-apps-no-ssl-decryption": {
    "category": "zia",
-   "hash": "14cccc41698552ad",
-   "lastmod": "2026-06-18T15:13:29.000Z",
+   "hash": "50c0d3093f64c0da",
+   "lastmod": "2026-10-18T16:12:47.000Z",
    "title": "Gemini and other AI apps - No SSL Decryption",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ00000w0O1Z0AU/zscaler-client-connector-audit": {
    "category": "zcc",
-   "hash": "d22dd320ddcdce55",
-   "lastmod": "2026-06-27T12:09:08.000Z",
+   "hash": "371b4ba0467bd680",
+   "lastmod": "2026-10-18T16:12:18.000Z",
    "title": "Zscaler client connector Audit",
    "type": "question"
   },
@@ -26968,8 +26982,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000012yoEn0AI/windows-update-for-an-unattended-device-without-zscaler-user-authentication": {
    "category": "platform",
-   "hash": "34d73a5bc7bfb466",
-   "lastmod": "2026-09-21T12:53:07.000Z",
+   "hash": "a4623facb1c80b7f",
+   "lastmod": "2026-10-15T20:07:18.000Z",
    "title": "Windows Update for an unattended device without Zscaler user authentication",
    "type": "question"
   },
@@ -26989,16 +27003,16 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000013ReKW0A0/planning-ahead-managing-ubuntu-laptops-ansible-push-behind-zscaler": {
    "category": "api",
-   "hash": "ae2de289328bd7c6",
-   "lastmod": "2026-10-07T16:20:08.000Z",
+   "hash": "eaec5163ff7c0aaf",
+   "lastmod": "2026-10-16T16:54:51.000Z",
    "title": "Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta": {
-   "category": "other",
-   "hash": "4d2a3ec9b3de408c",
-   "lastmod": "2026-10-05T16:08:52.000Z",
-   "title": "Zscaler, Inc. - Sign In",
+   "category": "platform",
+   "hash": "a9eabbc559aea5f5",
+   "lastmod": "2026-10-14T21:23:58.000Z",
+   "title": "What Are You Using to Prepare for ZDTA?",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ000013isFh0AI/workflow-automation-using-zir-deployed-as-onpremvm": {
@@ -27027,6 +27041,34 @@
    "hash": "145e226530d1346a",
    "lastmod": "2026-10-10T01:49:58.000Z",
    "title": "Disable \"Authenticate Early\" option in ZCC",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address": {
+   "category": "zia",
+   "hash": "077f92b3334b611f",
+   "lastmod": "2026-10-15T23:27:45.000Z",
+   "title": "Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014Kf3E0AS/upskilling-to-zdte-postlayoff-looking-for-financial-aidvoucher-programs": {
+   "category": "platform",
+   "hash": "0f4d8f4030c8ac87",
+   "lastmod": "2026-10-14T23:56:37.000Z",
+   "title": "Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question": {
+   "category": "zpa",
+   "hash": "053cf52e8f672a40",
+   "lastmod": "2026-10-18T15:57:44.000Z",
+   "title": "Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center": {
+   "category": "zpa",
+   "hash": "9522c76c52f91a0f",
+   "lastmod": "2026-10-18T16:10:10.000Z",
+   "title": "“Access Denied” when opening Application Segments in the new Experience Center",
    "type": "question"
   }
  },

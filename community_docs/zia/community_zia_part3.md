@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
+Generated: 2026-10-19 09:15 UTC
 Posts in this file: 309
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -60847,21 +60847,21 @@ How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi use
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup","lastmod":"2024-03-08T01:28:17.000Z","id":"0D54u0000AM63EtCQJ"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup","lastmod":"2026-10-15T05:14:53.000Z","id":"0D54u0000AM63EtCQJ"} -->
 ## How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)
 
 - Source: https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup
 - Type: Q&A
-- Last activity: 2024-03-08T01:28:17.000Z
+- Last activity: 2026-10-15T05:14:53.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Cloud Firewall
 
 siddhartha.aggarwal
 
-(Employee) asked a question.
+(Employee) asked a question
 
-March 8, 2024 at 1:28 AM
+Edited October 14, 2026 at 5:27 PM
 
 How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)
 
@@ -60871,91 +60871,105 @@ https://community.zscaler.com/zenith/s/question/0D54u0000AM6064CQB/how-to-tunnel
 
 https://community.zscaler.com/zenith/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users
 
-This is especially useful, when migrating from a DNS provider, such as Zscaler Shift (now approaching EOL) or a 3rd party DNS resolver, to Zscaler DNS Control/ZTR.
-
 One of the common requirements of such a "tunnel-less" DNS deployment is to have differentiated DNS Control policies based on the type of user or devices, such as different polices for guests/contractors vs. authorized users vs. IOT devices.
 
 The challenge is that since all these users would reach the ZIA cloud using a common public IP, how can we distinguish them in ZIA tenant?
 
-This can be achieved by assigning different GRE VIP addresses as DNS server addresses to the various clients/devices, and then by matching based on this GRE VIP address (in addition to the location) while selecting the DNS Control policy to be applied.
-
-Let us look at a scenario of applying two different DNS Control policies to two different set of users:
+For example, suppose we want to apply two different DNS Control policies to two different set of users coming from the same Guest Wi-Fi location:
 
 Guest users: Block access to gambling sites
 
 Authorized users: Allow access to gambling sites
 
-This is just a simple example, the actual polices can vary depending on the requirements.
+This can be achieved by assigning different GRE VIP addresses as DNS server addresses to the various clients/devices, and then by configuring the DNS Control policy to match based on location + GRE VIP address.
 
 Note:
 
-Here we are assuming you have a working tunnel-less DNS setup and have already configured a location for the public IP of the users and enabled firewall control for that location in the ZIA Cloud.
+This assumes you already have a working tunnel-less DNS setup, with a location configured for the users’ public IP address and the
 
-See the above articles for details.
+“Enforce Firewall Control”
 
-Configure DNS server addresses
+option enabled for that location in the ZIA cloud.
 
-DNS server addresses for guest users
+Choose GRE VIP addresses to be assigned as DNS server addresses to guest users.
+
+Go to
+
+https://config.zscaler.com/
+
+Select you zscaler cloud (e.g. zscalertwo.net) and then chosse two GRE VIP addresses from a desired data center.
 
 For example, we can assign the following two GRE VIP addresses (from two different data centers for high-availability) to the guest users:
 
 On the client machine, configure these GRE VIP addresses as the DNS server addresses:
 
-DNS server addresses for authorized users
+Choose GRE VIP addresses to be assigned as DNS server addresses to authorized users
 
 Similarly, we can assign the following GRE VIP address to authorized users:
 
-On the client machine, configure these GRE VIP addresses as the DNS server addresses:
+On the client machines of authroized users, configure these GRE VIP addresses as the DNS server addresses:
 
-DNS Control Policies
+Configure DNS Control Policies
 
-Note:
+Search for DNS Control in the top search bar (or navigate to Internet Access > Policy > DNS Control).
 
-Here we are assuming you have already configured a location for the public IP of the users and enabled firewall control for that location.
+Add a DNS Filtering rule for guest users:
 
-Under Policy > Firewall > DNS Control:
+Rule Name: Block Gambling Guest
 
-For guest users:
+Rule Order: 1 (or as appropriate depending on other DNS Filtering rules)
 
-For Guest users, we will configure a DNS Control policy to block access to gambling sites and instead send a Redirect Response.
+Rule Status: Enabled
 
-Configure matching based on Location and specify the action as Redirect Response:
+Action: Block
 
-Configure matching based on GRE VIP addresses:
+Criteria:
 
-Match for Gambling and save the rule:
+Request Categories: Gambling
 
-For authorized users:
+Response Categories: Gambling
 
-For authorized users we will configure a DNS Control policy to allow access to gambling sites:
+Locations: e.g. Location1
 
-Configure matching based on Location and specify the action as Allow:
+DNS Server IP Addresses: e.g. 165.225.242.23, 165.225.50.11
 
-Configure matching based on GRE VIP addresses:
+Add a DNS Filtering rule for authorized users:
 
-Match for Gambling and save the rule:
+Rule Name: Allow Gambling Authorized
 
-Activate the changes
+Rule Order: 2 (or as appropriate depending on other DNS Filtering rules)
 
-Click on Activation > Activate to activate the changes
+Rule Status: Enabled
+
+Action: Allow
+
+Criteria:
+
+Request Categories: Gambling
+
+Response Categories: Gambling
+
+Locations: e.g. Location1
+
+DNS Server IP Addresses: e.g. 165.225.50.36, 104.129.192.34
+
+Save and activate the changes.
 
 Verification
 
-Now try accessing the gambling sites from the two client machines.
+Now do DNS lookups for a gambling site (e.g. www.gambling.com) from the two client machines. For guests users the DNS query will be blocked while for authorized users it will be allowed
 
-For guest user:
+You can also check DNS Insights logs.
 
-As one can see, the guest user has been redirected to the response IP we had configured as part of our DNS Control policy for guest users.
+Search for DNS Insights in the top search bar (or navigate to Data Explorer > Internet & SaaS > DNS Insights.
 
-For authorized user:
+Go to the tab Logs.
 
-As one can see, the authorized user is able to successfully resolve the IP address for a gambling site, as permitted by our DNS Control policy for authorized users.
+Choose the timeframe, add filters as necessary (e.g. filter based on Location), and then click on Run Query.
+
+You should see DNS Insights logs for the matching DNS traffic (may take a couple of minutes for the logs to be populated).
 
 ZIA - Cloud Firewall
-
-1.52K views
-
-Log In to Answer
 
 Associated Tags
 
@@ -60985,9 +60999,9 @@ ZIA - Cloud Firewall
 
 ram75
 
-1,193
+1,275
 
-1193 Views
+1275 Views
 
 0 Likes
 
@@ -61005,9 +61019,9 @@ ZIA - Cloud Firewall
 
 Sec_def_Def_sec
 
-1,824
+1,934
 
-1824 Views
+1934 Views
 
 1 Like
 

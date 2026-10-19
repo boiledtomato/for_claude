@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-09-28 10:07 UTC
-Posts in this file: 316
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 318
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -65536,4 +65536,350 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZPA Usage report for 60 days and 90 days
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question","lastmod":"2026-10-18T15:57:44.000Z","id":"0D5PJ000014hEbb0AE"} -->
+## Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question
+- Type: Q&A
+- Last activity: 2026-10-18T15:57:44.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+skywalker
+
+(Partner) asked a question
+
+Edited 1h ago
+
+Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question
+
+Hi all,
+
+I recently set up the Zscaler MCP Server (github.com/zscaler/zscaler-mcp-server) in my lab and got it working with ZIA, ZPA and ZDX. It lets an AI assistant like Claude query your Zscaler config in plain language, for example “List my ZPA application segments”. Since the project is still in public preview, I kept it to a lab tenant.
+
+How it fits together
+
+The AI client (I used Claude Code on the same Linux VM- i used Arch linux ) decides which tool to call.
+
+The MCP server exposes the Zscaler tools and makes the actual API calls.
+
+ZIdentity OneAPI issues one token that works across ZIA, ZPA and ZDX.
+
+It’s read-only by default. Write tools need both a global switch and an explicit allowlist, and deletes always ask for a separate confirmation.
+
+A few things that tripped me up, in case it helps someone
+
+Pin Python when installing:
+
+uv tool install --python 3.12 zscaler-mcp
+
+. Without it, uv picked a very new Python and failed building a dependency.
+
+Vanity domain is only the short name
+
+from your ZIdentity login URL (e.g.
+
+acme
+
+, not
+
+acme.zslogin.net
+
+).
+
+ZSCALER_CUSTOMER_ID is the ZPA tenant ID.
+
+ZIA doesn’t need one in the config.
+
+ZPA worked but ZIA failed:
+
+the API client in ZIdentity showed “No scopes available” for ZIA. Creating an API role in the ZIA portal, activating, and assigning it to the API client fixed it.
+
+Once it was running, a simple “list my ZPA segments” also flagged a few things worth cleaning up, like a disabled segment, a test segment with a very wide port range and a likely duplicate.
+
+My question:
+
+For those who have enabled write tools, how are you handling ZIA activation? In my lab, Claude Code blocked the activation call by default, so I’m activating from the portal after reviewing the pending changes. Is anyone letting the agent activate changes itself, and if so, what guardrails are you using?
+
+Thanks!
+
+Associated Tags
+
+api
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+286
+
+286 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+572
+
+572 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center","lastmod":"2026-10-18T16:10:10.000Z","id":"0D5PJ000014hPF10AM"} -->
+## “Access Denied” when opening Application Segments in the new Experience Center
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center
+- Type: Q&A
+- Last activity: 2026-10-18T16:10:10.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Admin Portal
+
+skywalker
+
+(Partner) asked a question
+
+Edited 1h ago
+
+“Access Denied” when opening Application Segments in the new Experience Center
+
+Hi all,
+
+Since moving to the new consolidated Experience Center, I’m getting an
+
+Access Denied
+
+page when I click on
+
+Application Segments
+
+under Private Access. attached is the error
+
+What I’m seeing
+
+The Application Segments menu item disappears or opens straight into this Access Denied page.
+
+Other parts of the console load normally.
+
+I’m logged in as an admin with full access, so I don’t expect a permission issue on my side.
+
+i tried different browsers  and incognito or clearing cache didnt make a difference
+
+Zscaler Support has told me this is a known issue that several customers are currently hitting, so it doesn’t appear to be a misconfiguration on our tenant.
+
+Is anyone else seeing this after the move to the Experience Center
+
+ZPA - Admin Portal
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/5/2024
+
+at
+
+12:52 PM
+
+Agent version report
+
+ZPA - Admin Portal
+
+Chandram81
+
+399
+
+399 Views
+
+0 Likes
+
+3 Comments
+
+1/24/2025
+
+at
+
+11:09 AM
+
+App connector Enrollment issue
+
+ZPA - Admin Portal
+
+Vinod Ola
+
+413
+
+413 Views
+
+0 Likes
+
+3 Comments
+
+8/26/2025
+
+at
+
+09:00 AM
+
+Short name on ZPA on Macs don't work
+
+ZPA - Admin Portal
+
+Diode
+
+474
+
+474 Views
+
+0 Likes
+
+3 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+“Access Denied” when opening Application Segments in the new Experience Center
 <!-- /ZS-POST -->

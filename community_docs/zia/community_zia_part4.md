@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
-Posts in this file: 163
+Generated: 2026-10-19 09:15 UTC
+Posts in this file: 164
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -34784,27 +34784,27 @@ private ip 192.168.1.67 is intercepted by zscaler . is there anyway to bypass it
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000w0I2f0AE/gemini-and-other-ai-apps-no-ssl-decryption","lastmod":"2026-06-18T15:13:29.000Z","id":"0D5PJ00000w0I2f0AE"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000w0I2f0AE/gemini-and-other-ai-apps-no-ssl-decryption","lastmod":"2026-10-18T16:12:47.000Z","id":"0D5PJ00000w0I2f0AE"} -->
 ## Gemini and other AI apps - No SSL Decryption
 
 - Source: https://community.zscaler.com/s/question/0D5PJ00000w0I2f0AE/gemini-and-other-ai-apps-no-ssl-decryption
 - Type: Q&A
-- Last activity: 2026-06-18T15:13:29.000Z
+- Last activity: 2026-10-18T16:12:47.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - SSL Inspection
 
 skywalker
 
-(Partner) asked a question.
+(Partner) asked a question
 
-June 5, 2026 at 4:48 PM
+Edited June 18, 2026 at 3:13 PM
 
 Gemini and other AI apps - No SSL Decryption
 
 Hello , I have ZCC tunnel 2.0 and my top SSL rule is to have all AI apps Gemini , claude , etc to be inspected . I also have top firewall rule to block QUIC for everybody .
 
-WHat i am seeing is when i browse gemini ,ssl inspection works intermittently . when i enter my google creds to login to my gemini account , and then if i ask some question to LLM , and then if i check the certificate it shows Google's own cert and not Zscaler
+WHat i am seeing is when i browse gemini ,ssl inspection works intermittently . when i enter my google creds to login to my gemini account , and then if i ask some question to LLM  , and then if i check the certificate it shows Google's own cert and not Zscaler
 
 Same with claude and chatgpt . The goal here is not to see what is being asked to LLM to make some broader strict controls . but SSL decryption being intermittent in this case is the problem.
 
@@ -34814,21 +34814,13 @@ Any idea what is causing this ?
 
 ZIA - SSL Inspection
 
-1 answer
-
-386 views
-
 Ramesh M
 
 (Employee)
 
-a month ago
+3 months ago
 
 You would need to work with support team and understand if this is failing when traffic goes to  specific instance or all the instances. Try with another browser and try disable QUIC in browser level.
-
-1 like
-
-Log In to Answer
 
 Associated Tags
 
@@ -34892,9 +34884,9 @@ ZIA - SSL Inspection
 
 citrus3118
 
-309
+358
 
-309 Views
+358 Views
 
 0 Likes
 
@@ -34912,9 +34904,9 @@ ZIA - SSL Inspection
 
 User16182582818315999266
 
-566
+626
 
-566 Views
+626 Views
 
 0 Likes
 
@@ -34932,9 +34924,9 @@ ZIA - SSL Inspection
 
 JM
 
-415
+479
 
-415 Views
+479 Views
 
 0 Likes
 
@@ -38479,4 +38471,131 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Ipsec Tunnel MOB6 Issue
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address","lastmod":"2026-10-15T23:27:45.000Z","id":"0D5PJ000014HqM20AK"} -->
+## Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address
+- Type: Q&A
+- Last activity: 2026-10-15T23:27:45.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+zscaler_cisco
+
+(Prospect) asked a question
+
+12h ago
+
+Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address
+
+According Zsclaer own documentation - Zscaler IPSec tunnels support a limit of 400 Mbps for each public source IP address -
+
+https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel
+
+I have a single Site-to-Site VPN tunnel between my Cisco IOS router and Zscaler, I am able to push 600Mbps in this tunnel.  How is it possible when Zscaler own documentation stated that the limitation is only 400Mbps?
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+282
+
+282 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+569
+
+569 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address
 <!-- /ZS-POST -->

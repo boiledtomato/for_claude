@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-12 11:16 UTC
+Generated: 2026-10-19 09:15 UTC
 Posts in this file: 295
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -7738,25 +7738,21 @@ Workday integration As SaaS Application Tenant
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmq6CAA/youtube-restricted-mode-question","lastmod":"2023-05-31T08:47:00.000Z","id":"0D54u00009evmq6CAA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evmq6CAA/youtube-restricted-mode-question","lastmod":"2026-10-13T08:03:55.000Z","id":"0D54u00009evmq6CAA"} -->
 ## YouTube Restricted Mode Question
 
 - Source: https://community.zscaler.com/s/question/0D54u00009evmq6CAA/youtube-restricted-mode-question
 - Type: Q&A
-- Last activity: 2023-05-31T08:47:00.000Z
+- Last activity: 2026-10-13T08:03:55.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - URL Filtering
 
 tpotter47
 
-(Customer) to
+(Customer) asked a question
 
-sfdc
-
-(Employee): asked a question.
-
-October 13, 2021 at 6:16 PM
+Edited September 7, 2022 at 6:32 PM
 
 YouTube Restricted Mode Question
 
@@ -7776,41 +7772,19 @@ How have you all dealt with YouTube Restricted mode (for StaySafeOnline videos n
 
 ZIA - URL Filtering
 
-4 answers
-
-7.97K views
-
-mglavin
-
-(Customer)
-
-4 years ago
-
-Here we are a year later and I just want to say thank you both very much, Tim for asking the question that I happened to have today and Chris for the perfect answer as this resolved my problem.
-
-Just some background on my case if it could help others. This problem was very recent for me as I never had this problem in the past however, due to some issues with HTTPS traffic (websites and cloud licensing for software like Autodesk) running across multiple SME’s, Zscaler support had to create a PAC file for my network that only allows our traffic to hit specific SME’s. Since pushing out that PAC file, we have been unable to turn off restricted mode on Youtube. But turning off the Safe Search setting took care of it! I just hope that I am not opening a hole by turning that off…
-
-Thanks again!
-
-Matt
-
 tpotter47
 
 (Customer)
 
-5 years ago
+5y ago
 
-Sorry to take so long to get back to you on this one.
-
-Thanks for your help. SafeSearch was configured to Enabled. Your suggestion was spot on.
-
-1 like
+Today I was able to test by coming into the office. YouTube is not on restricted mode. Now I’m looking into our Road Warrior configuration.
 
 Chris_Louie
 
 (Employee)
 
-5 years ago
+5y ago
 
 Hi TPotter,
 
@@ -7822,19 +7796,23 @@ Warm Regards,
 
 Chris
 
-1 like
-
 tpotter47
 
 (Customer)
 
-5 years ago
+4y ago
 
-Today I was able to test by coming into the office. YouTube is not on restricted mode.
+Sorry to take so long to get back to you on this one. Thanks for your help. SafeSearch was configured to Enabled. Your suggestion was spot on.
 
-Now I’m looking into our Road Warrior configuration.
+mglavin
 
-Log In to Answer
+(Customer)
+
+4y ago
+
+Here we are a year later and I just want to say thank you both very much, Tim for asking the question that I happened to have today and Chris for the perfect answer as this resolved my problem. Just some background on my case if it could help others. This problem was very recent for me as I never had this problem in the past however, due to some issues with HTTPS traffic (websites and cloud licensing for software like Autodesk) running across multiple SME’s, Zscaler support had to create a PAC file for my network that only allows our traffic to hit specific SME’s. Since pushing out that PAC file, we have been unable to turn off restricted mode on Youtube. But turning off the Safe Search setting took care of it! I just hope that I am not opening a hole by turning that off… Thanks again!
+
+Matt
 
 Associated Tags
 
@@ -7916,9 +7894,9 @@ ZIA - URL Filtering
 
 eli.shauly
 
-5,922
+6,115
 
-5922 Views
+6115 Views
 
 2 Likes
 
@@ -7938,9 +7916,9 @@ ZIA - URL Filtering
 
 chsmith
 
-893
+1,045
 
-893 Views
+1045 Views
 
 0 Likes
 
