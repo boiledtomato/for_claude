@@ -13,9 +13,6 @@ sealed interface ConsolePane {
 
     /** 置いたウィジェットの一覧と追加導線。ホームがコンソールになったのでここに置く */
     data object Widgets : ConsolePane
-
-    /** 相棒たち。カテゴリーごとに 1 体いて、そのカテゴリーのアプリを開くと育つ */
-    data object Party : ConsolePane
 }
 
 /** カードが描画に使う値。実データはすべてここに集約する */
