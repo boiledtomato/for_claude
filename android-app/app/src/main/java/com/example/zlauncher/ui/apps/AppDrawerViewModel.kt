@@ -11,6 +11,7 @@ import com.example.zlauncher.data.apps.InstalledAppRepository
 import com.example.zlauncher.data.apps.LauncherAppsDataSource
 import com.example.zlauncher.data.device.DeviceMetricsRepository
 import com.example.zlauncher.data.device.NetworkKind
+import com.example.zlauncher.data.game.GameRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.domain.model.AppEntry
 import com.example.zlauncher.domain.model.AppSortOrder
@@ -33,6 +34,7 @@ class AppDrawerViewModel @Inject constructor(
     private val favoritesRepository: FavoritesRepository,
     private val preferences: LauncherPreferencesRepository,
     private val launcherApps: LauncherAppsDataSource,
+    private val gameRepository: GameRepository,
 ) : ViewModel() {
 
     private var themedIcons = false
@@ -106,7 +108,9 @@ class AppDrawerViewModel @Inject constructor(
     }
 
     fun launch(entry: AppEntry, sourceBounds: Rect?) {
-        launcherApps.launch(entry.componentName, entry.user, sourceBounds)
+        if (launcherApps.launch(entry.componentName, entry.user, sourceBounds)) {
+            viewModelScope.launch { gameRepository.recordLaunch(entry) }
+        }
     }
 
     fun openAppInfo(entry: AppEntry, sourceBounds: Rect?) {
