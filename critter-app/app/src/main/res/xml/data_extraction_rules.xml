@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 端末の引っ越しでは進み具合も持っていく。クラウドは allowBackup="false" で止めてある -->
+<data-extraction-rules>
+    <device-transfer />
+</data-extraction-rules>

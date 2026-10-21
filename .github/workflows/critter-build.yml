@@ -1,0 +1,97 @@
+name: Critter Home Debug Build
+
+# Critter Home（critter-app/）のデバッグ APK を Release「critter-debug-latest」に添付し続ける。
+# ZLauncher（android-build.yml / android-debug-latest）とは別のアプリ・別の Release ―
+# 片方を更新してももう片方のダウンロード URL の中身は変わらない。
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - "critter-app/**"
+      - ".github/workflows/critter-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: critter-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: test + assembleDebug + lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: critter-app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Android SDK packages
+        run: |
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+          "$SDKMANAGER" "platforms;android-36" "build-tools;36.0.0"
+
+      # ゲームの規則は単体テストだけが守っている。落ちたら APK を出さない
+      - name: Unit tests, debug APK and lint
+        run: ./gradlew --no-daemon testDebugUnitTest assembleDebug lintDebug
+
+      - name: Stage APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk critter-home-debug.apk
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: critter-home-debug-apk
+          path: critter-app/critter-home-debug.apk
+          retention-days: 30
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: critter-reports
+          path: |
+            critter-app/app/build/reports/lint-results-debug.*
+            critter-app/app/build/reports/tests/
+          retention-days: 14
+
+      # 端末から直接落とせる固定 URL。このアプリ専用の Release なので、どのブランチの
+      # push でも更新する（ZLauncher の android-debug-latest には触れない）
+      - name: Publish to rolling release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          NOTES=$(printf '%s\n' \
+            "Critter Home のデバッグビルド（自動生成）。" \
+            "" \
+            "- コミット: \`${GITHUB_SHA}\`" \
+            "- ブランチ: \`${GITHUB_REF_NAME}\`" \
+            "- ビルド日時: $(date -u '+%Y-%m-%d %H:%M UTC')" \
+            "" \
+            "Android 端末のブラウザでこのページを開き、\`critter-home-debug.apk\` をタップしてください。" \
+            "「不明なアプリのインストール」の許可を求められたら、ブラウザに許可を出します。" \
+            "" \
+            "applicationId は \`com.example.critterhome.debug\` で、ZLauncher とも既定のランチャーとも別アプリとして共存します。" \
+            "動作確認が済むまで、既定のホームアプリには設定しないでください。")
+          if gh release view critter-debug-latest > /dev/null 2>&1; then
+            gh release upload critter-debug-latest critter-home-debug.apk --clobber
+            gh release edit critter-debug-latest --notes "$NOTES"
+          else
+            gh release create critter-debug-latest critter-home-debug.apk \
+              --title "Critter Home debug (latest)" \
+              --notes "$NOTES" \
+              --prerelease \
+              --target "$GITHUB_SHA"
+          fi

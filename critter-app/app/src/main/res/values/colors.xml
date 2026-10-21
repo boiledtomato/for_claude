@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- GameColors.Light.background と同じ値 -->
+    <color name="window_background">#F4EFDC</color>
+    <color name="ic_launcher_background">#F4EFDC</color>
+</resources>

@@ -50,11 +50,14 @@ for_claude/
 ├── android-app/                      # Kotlin + Compose ホームランチャー（独立プロジェクト）
 │   ├── app/src/main/java/com/example/zlauncher/
 │   └── tools/palette_check.py        # カテゴリー配色の検証（ΔE2000・CVD・コントラスト）
+├── critter-app/                      # Critter Home — 携帯 RPG 風ホームランチャー（ZLauncher とは別アプリ）
+│   └── app/src/main/java/com/example/critterhome/
 ├── docs/
 │   └── notebooklm-setup.md           # One-time auth setup for the sync
 ├── .github/
 │   └── workflows/
 │       ├── android-build.yml         # Debug APK build + rolling pre-release
+│       ├── critter-build.yml         # Critter Home: tests + debug APK + its own rolling pre-release
 │       ├── daily-update.yml          # Scheduled fetch + GitHub Pages deploy
 │       ├── notebooklm-weekly.yml     # Weekly help.zscaler.com doc refresh
 │       ├── community-weekly.yml      # Weekly community.zscaler.com doc refresh
@@ -649,8 +652,37 @@ Work profile apps appear in the drawer grid with badged icons.
 - See `android-app/README.md` for the placement model, the Japanese app-name sorting
   limitation, and the launcher-specific manifest flags
 
-`daily-update.yml` excludes `android-app/` (and `ios-app/`) from the Pages staging tar —
-app sources are not published.
+## Critter Home (`critter-app/`)
+
+A **second, separate** home launcher: a handheld-RPG-style game layered on normal launcher
+use. Kept apart from ZLauncher on purpose (the user asked for the game not to be mixed into
+the Zscaler console) — it shares no code, no signing key, no Gradle project and no Release
+with `android-app/`, and nothing Zscaler-specific (no URL-category catalogue, no Zscaler
+palette). Do not move game code into ZLauncher or ZLauncher features into this app.
+
+- Installed apps are bucketed automatically into 10 **habitats** (`game/Habitat.kt`: user
+  override → specific `ApplicationInfo.category` → package/label words, with words of 4
+  letters or fewer matched only as whole tokens → `MEADOW`), each with one companion. Users
+  never create categories; `MOVE HABITAT` in the BAG's long-press menu fixes a wrong guess
+- Launching an app from this launcher (only on `startMainActivity` success) feeds EXP to
+  that habitat's companion and the trainer: Lv. n needs n³, evolution at 16/36, HP drains
+  to fainted over 7 idle days and one launch revives, first 6 met form the party, the rest
+  sit in the BOX, the summary's "moves" are the habitat's apps and launch them, and the
+  trainer's HP is the real battery level. All rules are pure in `game/` and pinned by
+  `GameRulesTest`, `HabitatsTest`, `MonsterSpeciesTest`
+- **No real-game assets, names or type names** (someone else's IP). Names come from a
+  syllable table, sprites are generated; neither is stored — the seed is a per-device salt
+  plus the habitat key (`GameState.seedOf`), so every device gets its own companions
+- No DI library, no permissions, no network. State is one JSON blob in DataStore `game`
+- `critter-build.yml` runs unit tests + `assembleDebug` + lint and publishes to its **own**
+  rolling Release `critter-debug-latest` on a push from **any** branch — unlike
+  `android-build.yml`, which only publishes from `main` / `claude/*` / dispatch. It never
+  touches `android-debug-latest`
+- `keystore/debug.keystore` is this app's own fixed debug key (same reason as ZLauncher's)
+- UI strings are English. See `critter-app/README.md`
+
+`daily-update.yml` excludes `android-app/`, `critter-app/` (and `ios-app/`) from the Pages
+staging tar — app sources are not published.
 
 ## Development Workflows
 

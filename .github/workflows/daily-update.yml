@@ -76,7 +76,8 @@ jobs:
           tar -c --exclude=./.git --exclude=./_site \
                  --exclude=./notebooklm_docs --exclude=./community_docs \
                  --exclude=./mslearn_docs \
-                 --exclude=./android-app --exclude=./ios-app . \
+                 --exclude=./android-app --exclude=./ios-app \
+                 --exclude=./critter-app . \
             | tar -x -C _site
           echo "--- staged (top level) ---"
           ls -a _site

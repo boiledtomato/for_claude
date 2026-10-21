@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Critter Home のアイコン。アプリと同じ作りの 10×10 ドット絵（中央 50dp に収める） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path android:fillColor="#E8A33D" android:pathData="M44,39h5v5h-5zM64,39h5v5h-5zM44,44h5v5h-5zM49,44h5v5h-5zM54,44h5v5h-5zM59,44h5v5h-5zM64,44h5v5h-5zM39,49h5v5h-5zM44,49h5v5h-5zM54,49h5v5h-5zM64,49h5v5h-5zM69,49h5v5h-5zM39,54h5v5h-5zM44,54h5v5h-5zM49,54h5v5h-5zM54,54h5v5h-5zM59,54h5v5h-5zM64,54h5v5h-5zM69,54h5v5h-5zM39,59h5v5h-5zM44,59h5v5h-5zM49,59h5v5h-5zM54,59h5v5h-5zM59,59h5v5h-5zM64,59h5v5h-5zM69,59h5v5h-5zM44,64h5v5h-5zM49,64h5v5h-5zM54,64h5v5h-5zM59,64h5v5h-5zM64,64h5v5h-5zM44,69h5v5h-5zM64,69h5v5h-5z" />
+    <path android:fillColor="#22232A" android:pathData="M44,34h5v5h-5zM59,34h5v5h-5zM39,39h5v5h-5zM49,39h5v5h-5zM59,39h5v5h-5zM69,39h5v5h-5zM39,44h5v5h-5zM69,44h5v5h-5zM34,49h5v5h-5zM74,49h5v5h-5zM34,54h5v5h-5zM74,54h5v5h-5zM34,59h5v5h-5zM74,59h5v5h-5zM39,64h5v5h-5zM69,64h5v5h-5zM39,69h5v5h-5zM54,69h5v5h-5zM69,69h5v5h-5zM44,74h5v5h-5zM64,74h5v5h-5z" />
+    <path android:fillColor="#22232A" android:pathData="M49,49h5v5h-5zM59,49h5v5h-5z" />
+</vector>

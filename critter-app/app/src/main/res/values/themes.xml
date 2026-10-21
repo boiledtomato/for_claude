@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CritterHome" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
+        <!-- 描画は Compose 側。起動直後の一瞬だけこの色が見える -->
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>
