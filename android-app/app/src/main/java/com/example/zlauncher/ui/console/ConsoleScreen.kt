@@ -92,6 +92,9 @@ import com.example.zlauncher.domain.model.ThemeMode
 import com.example.zlauncher.ui.apps.component.AppIconTile
 import com.example.zlauncher.ui.apps.component.rememberAppIcon
 import com.example.zlauncher.ui.insights.InsightsPane
+import com.example.zlauncher.ui.game.PartyPane
+import com.example.zlauncher.ui.game.PixelSprite
+import com.example.zlauncher.domain.model.game.MonsterSprite
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -122,6 +125,7 @@ fun ConsoleScreen(
     val colorAdjust by viewModel.colorAdjust.collectAsStateWithLifecycle()
     val iconAdjust by viewModel.iconAdjust.collectAsStateWithLifecycle()
     var showAppearance by remember { mutableStateOf(false) }
+    val gameHasNews by viewModel.gameHasNews.collectAsStateWithLifecycle()
 
     // アイコンを別のカテゴリーへ運ぶ操作。掴むのは右のペイン、落とすのは左のレールなので、
     // その両方を含むこの画面が状態を持つ。座標はウィンドウ基準でそろえる
@@ -188,6 +192,7 @@ fun ConsoleScreen(
                 onMoveCategory = viewModel::moveCategory,
                 themeMode = themeMode,
                 onOpenAppearance = { showAppearance = true },
+                gameHasNews = gameHasNews,
             )
 
             Column(
@@ -199,12 +204,14 @@ fun ConsoleScreen(
                     title = when {
                         selected is ConsolePane.Insights -> "Web Insights"
                         selected is ConsolePane.Widgets -> "Widgets"
+                        selected is ConsolePane.Party -> "Party"
                         selectedCategory != null -> selectedCategory.category.name
                         else -> "Overview"
                     },
                     subtitle = when {
                         selected is ConsolePane.Insights -> "Per-category traffic log"
                         selected is ConsolePane.Widgets -> "Placed on this screen"
+                        selected is ConsolePane.Party -> "Open apps to raise your companions"
                         selectedCategory != null -> "${selectedCategory.apps.size} apps"
                         else -> "Live · updated ${formatClock(snapshot.metrics.sampledAtMillis)}"
                     },
@@ -252,6 +259,9 @@ fun ConsoleScreen(
                             onAddWidget = onAddWidget,
                         )
 
+                        ConsolePane.Party -> PartyPane(
+                            onOpenCategory = { id -> viewModel.select(ConsolePane.Category(id)) },
+                        )
 
                         is ConsolePane.Category -> {
                             val pane = categories.firstOrNull { it.id == target.id }
@@ -450,6 +460,7 @@ private fun ConsoleRail(
     onMoveCategory: (Int, Int) -> Unit,
     themeMode: ThemeMode,
     onOpenAppearance: () -> Unit,
+    gameHasNews: Boolean = false,
 ) {
     Column(
         Modifier
@@ -519,6 +530,14 @@ private fun ConsoleRail(
             selected = selected is ConsolePane.Widgets,
             indicator = { RailFrame(ZColors.AccentSoft) },
             onClick = { onSelect(ConsolePane.Widgets) },
+        )
+
+        RailItem(
+            label = "Party",
+            selected = selected is ConsolePane.Party,
+            indicator = { RailCritter(ZColors.AccentAlt) },
+            onClick = { onSelect(ConsolePane.Party) },
+            badge = gameHasNews,
         )
 
         // Overview / Insights は据え置きの機能、以下は自分で作った URL カテゴリー。
@@ -863,6 +882,8 @@ private fun RailItem(
     selected: Boolean,
     indicator: @Composable () -> Unit,
     onClick: () -> Unit,
+    /** 右上の小さな点。見ていない知らせがあることを示す */
+    badge: Boolean = false,
 ) {
     val background by animateColorAsState(
         targetValue = if (selected) ZColors.SurfaceHigh else Color.Transparent,
@@ -891,6 +912,16 @@ private fun RailItem(
                 .clip(RoundedCornerShape(2.dp))
                 .background(ZColors.Accent)
         )
+        if (badge) {
+            Box(
+                Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(end = 14.dp)
+                    .size(7.dp)
+                    .clip(CircleShape)
+                    .background(ZColors.StatusRed)
+            )
+        }
         Column(
             Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -966,6 +997,15 @@ private fun RailFrame(color: Color) {
         Box(Modifier.width(8.dp).height(1.5.dp).background(color))
     }
 }
+
+/** Party の目印。相棒と同じ作り方で生成した小さなドット絵（種は固定） */
+@Composable
+private fun RailCritter(color: Color) {
+    val grid = remember { MonsterSprite.pixels(RAIL_CRITTER_SEED, 0) }
+    PixelSprite(grid = grid, color = color, size = 16.dp)
+}
+
+private const val RAIL_CRITTER_SEED = "zlauncher-rail"
 
 /** 認証コードの印。鍵の形を単純化したもの（丸と短い軸） */
 @Composable

@@ -27,6 +27,7 @@ import com.example.zlauncher.data.notebook.NotebookConfig
 import com.example.zlauncher.data.notebook.NotebookRefreshWorker
 import com.example.zlauncher.data.notebook.NotebookRepository
 import com.example.zlauncher.data.device.DeviceMetricsRepository
+import com.example.zlauncher.data.game.GameRepository
 import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.data.widgets.WidgetRepository
 import com.example.zlauncher.domain.model.AppEntry
@@ -66,6 +67,7 @@ class ConsoleViewModel @Inject constructor(
     private val catalogUpdater: CatalogUpdater,
     private val widgetRepository: WidgetRepository,
     private val notebookRepository: NotebookRepository,
+    private val gameRepository: GameRepository,
     installedApps: InstalledAppRepository,
     metricsRepository: DeviceMetricsRepository,
 ) : ViewModel() {
@@ -558,8 +560,15 @@ class ConsoleViewModel @Inject constructor(
     suspend fun icon(entry: AppEntry): ImageBitmap? = iconLoader.load(entry, themedIcons)
 
     fun launch(entry: AppEntry, sourceBounds: Rect? = null) {
-        launcherApps.launch(entry.componentName, entry.user, sourceBounds)
+        if (launcherApps.launch(entry.componentName, entry.user, sourceBounds)) {
+            viewModelScope.launch { gameRepository.recordLaunch(entry) }
+        }
     }
+
+    /** 相棒からの知らせが溜まっているか。レールの Party に印を出す */
+    val gameHasNews: StateFlow<Boolean> = gameRepository.state
+        .map { it.messages.isNotEmpty() }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
 
     private companion object {
         const val RECENT_APP_COUNT = 3
