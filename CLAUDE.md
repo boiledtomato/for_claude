@@ -626,6 +626,26 @@ Work profile apps appear in the drawer grid with badged icons.
   `NotebookWidgetStyle` stores *which choice*, never a hex colour, because a colour picked
   for the dark surface is unreadable on the light one; `NotebookRowStyle` maps the enum to a
   resource id so night mode still resolves it.
+- **The rail's size comes from the window width, not a constant.** It was a fixed 84dp,
+  which is ~23% of a phone but drops to ~10% once a foldable opens and the window roughly
+  doubles — on a Galaxy Z Fold (about 830dp open) the names truncated to "Generative AI and
+  ML Applic…" and the targets stayed small. `core/ui/RailMetrics.kt` maps the window width
+  to a whole set of sizes and **holds real dp/sp values rather than a multiplier**, because
+  a multiplier scatters "what is this actually" back across the call sites, which is the
+  problem being fixed. Past the 600dp mark (Android's own large-screen boundary, and the
+  one where this app's orientation request is ignored) the rail doubles to 168dp with
+  13.5sp labels, 20dp marks and 64dp pins. **Measure the window, never the screen**: open
+  but split-screen gives each half ~415dp, which is as narrow as folded, so a
+  `BoxWithConstraints` at `ConsoleScreen`'s root feeds `LocalRailMetrics` (a
+  CompositionLocal like `LocalZColors`, since a dozen rail parts each need one or two
+  sizes and threading them as parameters turns every caller into a courier). **The folded
+  look is unchanged to the pixel** — the user reported it was fine folded, so `COMPACT`
+  holds exactly the old numbers and `RailMetricsTest` pins that every phone width still
+  yields it. Text grows 1.35x rather than 2x (matching the width would make a rail label
+  larger than the pane's own heading) and a width of 0 or less falls back to compact,
+  since the frame before measurement reports 0 and starting wide makes the layout jump.
+  `TileGrid.MAX_COLUMNS` deliberately stays at 4: whether a wide pane should add columns is
+  a separate taste question from absorbing a narrow one.
 - **Multi-window stays available, and the orientation lock does not fight it** — in
   multi-window mode the OS ignores `screenOrientation` outright, since the window's
   dimensions decide the orientation. Three manifest declarations hold it up, all of which

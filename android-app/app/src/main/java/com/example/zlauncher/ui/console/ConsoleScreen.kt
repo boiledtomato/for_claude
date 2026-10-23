@@ -25,6 +25,7 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectDragGesturesAfterLongPress
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -44,6 +45,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -83,6 +85,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.zlauncher.core.designsystem.ZColors
 import com.example.zlauncher.core.designsystem.ZMotion
 import com.example.zlauncher.core.designsystem.ZType
+import com.example.zlauncher.core.ui.LocalRailMetrics
+import com.example.zlauncher.core.ui.RailMetrics
 import com.example.zlauncher.core.ui.springyClick
 import com.example.zlauncher.data.apps.CategoryWithApps
 import com.example.zlauncher.data.widgets.WidgetHostController
@@ -97,7 +101,7 @@ import java.util.Date
 import java.util.Locale
 import kotlinx.coroutines.launch
 
-private val RAIL_WIDTH = 84.dp
+// レールの寸法は窓の幅で決まる（RailMetrics）。畳んだときの値は今までのまま
 
 @Composable
 fun ConsoleScreen(
@@ -159,12 +163,17 @@ fun ConsoleScreen(
         if (selected !is ConsolePane.Overview) viewModel.select(ConsolePane.Overview)
     }
 
-    Box(
+    // 窓の幅を測ってレールの寸法を決める。**画面ではなく窓**で測るのが肝 ―
+    // 開いた端末でも分割画面なら片側は畳んだときと同じ狭さになる
+    BoxWithConstraints(
         modifier
             .fillMaxSize()
             .background(ZColors.Background)
             .onGloballyPositioned { rootInWindow = it.positionInWindow() },
     ) {
+        CompositionLocalProvider(
+            LocalRailMetrics provides RailMetrics.forWindowWidth(maxWidth.value),
+        ) {
         Row(Modifier.fillMaxSize()) {
             ConsoleRail(
                 drag = appDrag,
@@ -283,6 +292,7 @@ fun ConsoleScreen(
             }
         }
 
+        }
         // 指の下の 1 枚。レールの上まで運べるよう、Row の外側 ＝ 画面全体に重ねる
         appDrag.payload?.let { held ->
             DragBadge(
@@ -453,7 +463,7 @@ private fun ConsoleRail(
 ) {
     Column(
         Modifier
-            .width(RAIL_WIDTH)
+            .width(LocalRailMetrics.current.widthDp.dp)
             .fillMaxHeight()
             .background(ZColors.SurfaceLow)
             .padding(WindowInsets.safeDrawing.asPaddingValues())
@@ -552,7 +562,11 @@ private fun ConsoleRail(
                     label = "Add",
                     selected = false,
                     indicator = {
-                        Text("＋", style = ZType.Title.copy(fontSize = 18.sp), color = ZColors.TextSecondary)
+                        Text(
+                            "＋",
+                            style = ZType.Title.copy(fontSize = LocalRailMetrics.current.addGlyphSp.sp),
+                            color = ZColors.TextSecondary,
+                        )
                     },
                     onClick = onAddCategory,
                 )
@@ -576,7 +590,7 @@ private fun ConsoleRail(
                         ThemeMode.LIGHT -> "☀"
                         ThemeMode.DARK -> "☾"
                     },
-                    style = ZType.Title.copy(fontSize = 16.sp),
+                    style = ZType.Title.copy(fontSize = LocalRailMetrics.current.themeGlyphSp.sp),
                     color = ZColors.TextSecondary,
                 )
             },
@@ -710,7 +724,7 @@ private fun CategoryRailItems(
                     // 空は塗らずに輪郭だけ。中身の有無をレール上で見分けられるようにする
                     Box(
                         Modifier
-                            .size(14.dp)
+                            .size(LocalRailMetrics.current.indicatorDp.dp)
                             .clip(CircleShape)
                             .then(
                                 if (empty) Modifier.border(2.dp, color.copy(alpha = 0.55f), CircleShape)
@@ -759,7 +773,7 @@ private fun RailDivider() {
     Box(
         Modifier
             .padding(vertical = 8.dp)
-            .width(36.dp)
+            .width(LocalRailMetrics.current.dividerWidthDp.dp)
             .height(1.dp)
             .background(ZColors.Outline)
     )
@@ -788,6 +802,7 @@ private fun RailSectionHeader(
         animationSpec = ZMotion.value(),
         label = "railHeader",
     )
+    val metrics = LocalRailMetrics.current
     Row(
         Modifier
             .fillMaxWidth()
@@ -801,14 +816,14 @@ private fun RailSectionHeader(
     ) {
         Text(
             "›",
-            style = ZType.Sub.copy(fontSize = 11.sp),
+            style = ZType.Sub.copy(fontSize = metrics.chevronSp.sp),
             color = ZColors.TextDim,
             modifier = Modifier.rotate(rotation),
         )
         Spacer(Modifier.width(4.dp))
         Text(
             text = if (expanded) label else collapsedLabel,
-            style = ZType.Sub.copy(fontSize = 9.sp),
+            style = ZType.Sub.copy(fontSize = metrics.headerSp.sp),
             color = ZColors.TextDim,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -824,10 +839,11 @@ private fun PinSlot(
     onLaunch: (AppEntry) -> Unit,
     onEdit: () -> Unit,
 ) {
+    val metrics = LocalRailMetrics.current
     if (entry == null) {
         Box(
             Modifier
-                .size(48.dp)
+                .size(metrics.pinIconDp.dp)
                 .clip(RoundedCornerShape(13.dp))
                 .background(ZColors.Accent.copy(alpha = 0.06f))
                 .border(1.dp, ZColors.Accent.copy(alpha = 0.35f), RoundedCornerShape(13.dp))
@@ -853,7 +869,12 @@ private fun PinSlot(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        AppIconTile(icon = icon, size = 48.dp, background = ZColors.SurfaceHigh, border = ZColors.OutlineStrong)
+        AppIconTile(
+            icon = icon,
+            size = metrics.pinIconDp.dp,
+            background = ZColors.SurfaceHigh,
+            border = ZColors.OutlineStrong,
+        )
     }
 }
 
@@ -869,8 +890,9 @@ private fun RailItem(
         animationSpec = ZMotion.value(),
         label = "railBackground",
     )
+    val metrics = LocalRailMetrics.current
     val indicatorHeight by animateDpAsState(
-        targetValue = if (selected) 26.dp else 0.dp,
+        targetValue = if (selected) metrics.selectedBarHeightDp.dp else 0.dp,
         animationSpec = ZMotion.touch(),
         label = "railIndicator",
     )
@@ -881,12 +903,12 @@ private fun RailItem(
             .clip(RoundedCornerShape(12.dp))
             .background(background)
             .springyClick(onClick = onClick)
-            .padding(vertical = 10.dp),
+            .padding(vertical = metrics.itemPaddingDp.dp),
     ) {
         Box(
             Modifier
                 .align(Alignment.CenterStart)
-                .width(3.dp)
+                .width(metrics.selectedBarWidthDp.dp)
                 .height(indicatorHeight)
                 .clip(RoundedCornerShape(2.dp))
                 .background(ZColors.Accent)
@@ -896,10 +918,10 @@ private fun RailItem(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             indicator()
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(metrics.labelGapDp.dp))
             Text(
                 text = label,
-                style = ZType.Sub.copy(fontSize = 10.sp),
+                style = ZType.Sub.copy(fontSize = metrics.labelSp.sp),
                 color = if (selected) ZColors.TextPrimary else ZColors.TextSecondary,
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
@@ -914,7 +936,7 @@ private fun RailItem(
 @Composable
 private fun RailBars(color: Color) {
     Row(
-        Modifier.size(14.dp),
+        Modifier.size(LocalRailMetrics.current.indicatorDp.dp),
         verticalAlignment = Alignment.Bottom,
         horizontalArrangement = Arrangement.spacedBy(2.dp),
     ) {
@@ -934,7 +956,7 @@ private fun RailBars(color: Color) {
 @Composable
 private fun RailGrid(color: Color) {
     Column(
-        Modifier.size(14.dp),
+        Modifier.size(LocalRailMetrics.current.indicatorDp.dp),
         verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
         repeat(2) {
@@ -958,7 +980,7 @@ private fun RailGrid(color: Color) {
 private fun RailFrame(color: Color) {
     Box(
         Modifier
-            .size(14.dp)
+            .size(LocalRailMetrics.current.indicatorDp.dp)
             .clip(RoundedCornerShape(3.dp))
             .border(1.5.dp, color, RoundedCornerShape(3.dp)),
         contentAlignment = Alignment.Center,
@@ -986,7 +1008,7 @@ private fun RailKey(color: Color) {
 private fun RailSquare(color: Color) {
     Box(
         Modifier
-            .size(14.dp)
+            .size(LocalRailMetrics.current.indicatorDp.dp)
             .clip(RoundedCornerShape(4.dp))
             .border(2.dp, color, RoundedCornerShape(4.dp))
     )
