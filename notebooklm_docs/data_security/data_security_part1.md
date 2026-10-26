@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 176
 
 ---
@@ -496,16 +496,14 @@ On the Data Duplications page (Data Security > DSPM > Data Duplications), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-data-posture-policies","lastmod":"2026-10-04T21:56Z","nid":"1477751"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-data-posture-policies","lastmod":"2026-10-20T09:15Z","nid":"1477751"} -->
 ## About Data Posture Policies
 
 - Source: https://help.zscaler.com/dspm/about-data-posture-policies
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > About Data Posture Policies
-- Last modified: 2026-10-04T21:56Z
+- Last modified: 2026-10-20T09:15Z
 - Summary: Information about the data posture policies that are defined and implemented in DSPM.
-
-[Watch a video about Data Posture Policies](https://fast.wistia.net/embed/iframe/pwx62y9unc) (shows legacy UI).
 
 Data Posture policies are queries or rules that DSPM define to protect your cloud resources from potential threats and improve your cloud security posture. Policies provide guidelines for managing and protecting your organization's sensitive data and ensuring it is stored securely and only shared with authorized users.
 
@@ -821,16 +819,14 @@ On the Ignore Alert Filter page (Data Security > DSPM > Policy Exceptions), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-investigation","lastmod":"2026-10-04T22:03Z","nid":"1477766"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-investigation","lastmod":"2026-10-20T09:23Z","nid":"1477766"} -->
 ## About Investigation
 
 - Source: https://help.zscaler.com/dspm/about-investigation
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > About Investigation
-- Last modified: 2026-10-04T22:03Z
+- Last modified: 2026-10-20T09:23Z
 - Summary: Information about the investigation feature in DSPM.
-
-[Watch a video on Investigation with DSPM](https://fast.wistia.net/embed/iframe/my630v87t6) (shows legacy UI).
 
 Your cloud resources containing data might be located in different regions. Depending on the number of cloud accounts you have onboarded, DSPM offers insights by identifying sensitive data, vulnerabilities, or any other risks in your resources.
 
@@ -1169,16 +1165,14 @@ On the SaaS Applications page (Data Security > DSPM>SaaS Applications), you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-scan-settings","lastmod":"2026-09-30T21:37Z","nid":"1474741"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-scan-settings","lastmod":"2026-10-20T09:09Z","nid":"1474741"} -->
 ## About Scan Settings
 
 - Source: https://help.zscaler.com/dspm/about-scan-settings
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Scan Rules > About Scan Settings
-- Last modified: 2026-09-30T21:37Z
+- Last modified: 2026-10-20T09:09Z
 - Summary: Information about the configuring the scan settings in the Zscaler Admin Console.
-
-[Watch a video about scan settings in DSPM](https://fast.wistia.net/embed/iframe/0g146e59ha) (shows legacy UI).
 
 DSPM regularly scans the cloud resources (data stores) such as cloud storage devices, databases, virtual machines. etc., within your cloud accounts and detects sensitive data and vulnerabilities. DSPM performs the scan by leveraging the[local scan orchestrator](https://help.zscaler.com/dspm/understanding-orchestrator) that is deployed in your AWS, Azure, Google Cloud Platform (GCP), or On-Premises Data Centers account during the [onboarding process](https://help.zscaler.com/dspm/about-cloud-accounts). The resources are scanned against a set of standard [security policies](https://help.zscaler.com/dspm/about-data-posture-policies) and a scan schedule. In the scan rules, you can select the resources you want to scan, the scan type, and set the scan frequency. DSPM supports data scanning for different data stores and file types. To learn more, see [Supported Data Stores and File Types](https://help.zscaler.com/dspm/supported-data-stores-and-file-types).
 
@@ -1312,16 +1306,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-10-12T23:56Z","nid":"1517561"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-service-registration","lastmod":"2026-10-20T09:11Z","nid":"1517561"} -->
 ## About Service Registration
 
 - Source: https://help.zscaler.com/dspm/about-service-registration
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Service Registration > About Service Registration
-- Last modified: 2026-10-12T23:56Z
+- Last modified: 2026-10-20T09:11Z
 - Summary: Information about service registration in the Zscaler Admin Console.
-
-[Watch a video about Service Registration in DSPM](https://fast.wistia.net/embed/iframe/2bz2pm1yh4) (shows legacy UI).
 
 Service registration is the process of onboarding, configuring, and managing database services within DSPM. DSPM provides support for configuring managed and unmanaged databases, Snowflake, on-premises file servers, Databricks workspaces, and Lightweight Directory Access Protocol (LDAP) servers. You can add unmanaged database servers individually or in bulk using templates. DSPM scans these services or databases for sensitive data and vulnerabilities:
 
@@ -8159,16 +8151,14 @@ A new job appears in the workspace jobs list.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/creating-custom-policies","lastmod":"2026-10-04T21:57Z","nid":"1477756"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/creating-custom-policies","lastmod":"2026-10-20T09:21Z","nid":"1477756"} -->
 ## Creating Custom Policies
 
 - Source: https://help.zscaler.com/dspm/creating-custom-policies
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > Creating Custom Policies
-- Last modified: 2026-10-04T21:57Z
+- Last modified: 2026-10-20T09:21Z
 - Summary: How to create a custom policy in the Zscaler Admin Console.
-
-[Watch a video about Data Posture Policies](https://fast.wistia.net/embed/iframe/pwx62y9unc) (shows legacy UI).
 
 DSPM supports creating custom security policies to expand security coverage to your cloud infrastructure beyond the predefined security policies.
 
@@ -8329,16 +8319,14 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/creating-new-investigation","lastmod":"2026-10-04T22:04Z","nid":"1477771"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/creating-new-investigation","lastmod":"2026-10-20T09:24Z","nid":"1477771"} -->
 ## Creating a New Investigation
 
 - Source: https://help.zscaler.com/dspm/creating-new-investigation
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Investigation > Creating a New Investigation
-- Last modified: 2026-10-04T22:04Z
+- Last modified: 2026-10-20T09:24Z
 - Summary: How to create a new investigation in the Zscaler Admin Console.
-
-[Watch a video on Investigation with DSPM](https://fast.wistia.net/embed/iframe/my630v87t6) (shows legacy UI).
 
 You can choose to investigate a resource when required. For example, you might want to investigate publicly accessible virtual machines that have admin permissions or EC2 instances that contain sensitive data. To learn more, see [About Investigation](https://help.zscaler.com/dspm/about-investigation).
 
@@ -13039,16 +13027,14 @@ DSPM supports the vulnerability scanning of Azure accounts located in the follow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-aws-organization","lastmod":"2026-08-29T07:06Z","nid":"1474896"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-aws-organization","lastmod":"2026-10-20T09:26Z","nid":"1474896"} -->
 ## Onboarding an AWS Organization
 
 - Source: https://help.zscaler.com/dspm/onboarding-aws-organization
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Onboarding an AWS Organization
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-10-20T09:26Z
 - Summary: Information on how to onboard an AWS organization in the Zscaler Admin Console.
-
-[Watch a video about Onboarding an AWS Organization.](https://fast.wistia.net/embed/iframe/08mtpwfaqc)
 
 You can onboard an AWS organization and its associated accounts. DSPM monitors and [scans](https://help.zscaler.com/dspm/about-scan-settings) the [data stores](https://help.zscaler.com/dspm/supported-data-stores) (e.g., S3, EC2 instances, RDS instances and clusters) in the onboarded accounts to identify sensitive data and vulnerabilities.
 
@@ -14430,13 +14416,13 @@ Enter the following information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/onboarding-microsoft-entra-tenant-or-management-group","lastmod":"2026-10-06T21:54Z","nid":"1479301"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/onboarding-microsoft-entra-tenant-or-management-group","lastmod":"2026-10-21T21:06Z","nid":"1479301"} -->
 ## Onboarding a Microsoft Entra Tenant or Management Group
 
 - Source: https://help.zscaler.com/dspm/onboarding-microsoft-entra-tenant-or-management-group
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Onboarding a Microsoft Entra Tenant or Management Group
-- Last modified: 2026-10-06T21:54Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information about how to onboard a Microsoft Entra tenant or management group to Zscaler Admin Console.
 
 You can onboard a Microsoft Entra tenant or management group and their associated subscriptions. DSPM monitors and [scans](https://help.zscaler.com/dspm/about-scan-settings) the data stores (e.g., databases, virtual machines, storage accounts) in the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.

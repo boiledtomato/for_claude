@@ -1,18 +1,18 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 62
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:40Z","nid":"1364391"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1364391"} -->
 ## Troubleshooting Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Troubleshooting Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:40Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Troubleshoot section features of Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -916,13 +916,13 @@ Zscaler Client Connector for iOS 1.5.3 is available for download from the iTunes
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-10-15T15:57Z","nid":"1477906"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-10-23T13:30Z","nid":"1477906"} -->
 ## Using WebView2 Authentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-webview2-authentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using WebView2 Authentication
-- Last modified: 2026-10-15T15:57Z
+- Last modified: 2026-10-23T13:30Z
 - Summary: Information about how to enable WebView2 in Zscaler Client Connector.
 
 If your organization uses advanced multi-factor authentication (MFA) for SAML or FIDO2 (Fast Identity Online 2), your users can authenticate using WebView2 in their embedded browser. Zscaler Client Connector still manages traffic for Internet & SaaS and provides access to applications through Private Access.
@@ -1021,18 +1021,16 @@ If you are using Zscaler Client Connector with Cisco AnyConnect on macOS Catalin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:03Z","nid":"1361641"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-client-connector-classic-ui","lastmod":"2026-10-20T08:32Z","nid":"1361641"} -->
 ## Using Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Using Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:03Z
+- Last modified: 2026-10-20T08:32Z
 - Summary: Information on Zscaler Client Connector and its features for the supported versions of OS in the Classic UI
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
-
-[Watch a video about Using Zscaler Client Connector.](https://fast.wistia.net/embed/iframe/g4bd3u21b2)
 
 ## Overview
 
@@ -1292,13 +1290,13 @@ The app might display in a language other than English based on your system lang
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-diagnostics-classic-ui","lastmod":"2026-10-07T11:36Z","nid":"1374426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-diagnostics-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1374426"} -->
 ## Using Zscaler Diagnostics in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-diagnostics-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Using Zscaler Diagnostics in the Classic UI
-- Last modified: 2026-10-07T11:36Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Zscaler Diagnostic menu features of Zscaler Client Connector for Windows and macOS in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -1371,13 +1369,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-10-02T21:06Z","nid":"1392841"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-10-23T16:51Z","nid":"1392841"} -->
 ## Using the Zscaler Notification Framework
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-notification-framework
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Notifications > Using the Zscaler Notification Framework
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-23T16:51Z
 - Summary: Information on the Zscaler Notifications Framework for Zscaler Client Connector.
 
 This article provides an overview of the Zscaler Notification Framework that, when enabled, overrides the Windows-based and macOS-based notification systems. Only administrators can enable and disable the Zscaler Notification Framework in the Zscaler Admin Console.
@@ -1412,13 +1410,13 @@ To enable the Zscaler Notification Framework on macOS devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications-classic-ui","lastmod":"2026-10-07T11:49Z","nid":"1514426"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/verifying-access-applications-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1514426"} -->
 ## Verifying Access to Applications in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/verifying-access-applications-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Verifying Access to Applications in the Classic UI
-- Last modified: 2026-10-07T11:49Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to verify access with additional authentication in the Classic UI
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -1440,13 +1438,13 @@ To verify access to applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-10-02T21:06Z","nid":"1529195"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-10-23T17:05Z","nid":"1529195"} -->
 ## Viewing and Configuring ZDX Module Upgrades
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > Viewing and Configuring ZDX Module Upgrades
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-23T17:05Z
 - Summary: How to view and schedule ZDX Module upgrades
 
 If you use Digital Experience (ZDX), Zscaler regularly releases new versions of the base ZDX Module that are compatible with Zscaler Client Connector for Windows and Zscaler Client Connector for macOS. Zscaler Client Connector automatically rolls out the latest version. You can configure a delayed rollout to apply a version to selected user groups for testing purposes for up to 180 days.
@@ -1780,13 +1778,13 @@ This article provides an overview of the Data Protection window on Zscaler Clien
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:20Z","nid":"1370036"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1370036"} -->
 ## Viewing Information About Digital Experience on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Digital Experience on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:20Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Digital Experience page on Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -1987,13 +1985,13 @@ This section displays the following traffic statistics:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:18Z","nid":"1363056"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1363056"} -->
 ## Viewing Information About Internet Security on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-security-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Internet Security on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:18Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Internet Security page of the Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -2151,13 +2149,13 @@ This section displays the following traffic statistics:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:16Z","nid":"1363051"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1363051"} -->
 ## Viewing Information About Private Access on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Private Access on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:16Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Private Access window on Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -2397,13 +2395,13 @@ This section displays the following traffic statistics:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:12Z","nid":"1363026"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1363026"} -->
 ## Viewing Information About Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:12Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the About menu features on Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -2455,13 +2453,13 @@ The following is a sample screenshot from the Windows platform. The screen might
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:23Z","nid":"1464141"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui","lastmod":"2026-10-22T13:09Z","nid":"1464141"} -->
 ## Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:23Z
+- Last modified: 2026-10-22T13:09Z
 - Summary: Information on the Data Protection page on Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -2492,13 +2490,13 @@ This article provides an overview of the Data Protection window on Zscaler Clien
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-notifications-zscaler-client-connector-classic-ui","lastmod":"2026-10-07T11:27Z","nid":"1370041"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-notifications-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1370041"} -->
 ## Viewing Notifications on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Notifications on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-07T11:27Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Notifications window of Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -2949,13 +2947,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-09-29T10:19Z","nid":"1534304"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-10-19T16:40Z","nid":"1534304"} -->
 ## ZDX Module Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zdx-module-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector - ZDX Module Release Notes (per OS) > ZDX Module Release Summary (2026)
-- Last modified: 2026-09-29T10:19Z
+- Last modified: 2026-10-19T16:40Z
 - Summary: Zscaler Client Connector ZDX module summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Digital Experience (ZDX) Module in the Zscaler Client Connector app.
@@ -3067,13 +3065,13 @@ You cannot configure these intervals. If the user manually updates the policy fr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-and-imprivata-integration","lastmod":"2026-10-15T16:00Z","nid":"1474681"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-and-imprivata-integration","lastmod":"2026-10-23T13:44Z","nid":"1474681"} -->
 ## Zscaler Client Connector and Imprivata Integration
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-and-imprivata-integration
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Zscaler Client Connector and Imprivata Integration
-- Last modified: 2026-10-15T16:00Z
+- Last modified: 2026-10-23T13:44Z
 - Summary: How to integrate Zscaler Client Connector with Imprivata
 
 This feature is available only for Zscaler Client Connector version 4.4 and later for Windows.
@@ -3353,7 +3351,7 @@ If you use Jamf Pro or another MDM to deploy Zscaler Client Connector, you can r
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-pop-notifications
 - Product: Client Connector
-- Path: Zscaler Client Connector Help > End User Guide > Zscaler Client Connector: Pop-Up Notifications
+- Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Zscaler Client Connector: Pop-Up Notifications
 - Last modified: 2026-05-06T12:32Z
 - Summary: A list of pop-up notifications that can display for Zscaler Client Connector users
 
@@ -3475,13 +3473,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-10-18T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-10-25T07:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -3506,6 +3504,8 @@ If your organization uses [Group Policy Object (GPO)](https://help.zscaler.com/z
 - Zscaler Client Connector for Windows: 64-bit version
 
 `%ProgramFiles(x86)%` and `%ProgramFiles%` are environmental variables that represent the drive where the Windows program files are located. Typically, program files are located on the C drive. However, there are exceptions. For example, on Amazon WorkSpaces, program files are on the D drive.
+
+To continue using the latest features, Zscaler recommends migrating Windows 32-bit devices to Windows 64-bit. For help migrating to Windows 64-bit, refer to [Microsoft's 32-bit and 64-bit Windows: Frequently asked questions](https://support.microsoft.com/en-us/windows/32-bit-and-64-bit-windows-frequently-asked-questions-c6ca9541-8dce-4d48-0415-94a3faa2e13d).
 
 Allowlist the entire path of the following files:
 
@@ -3823,13 +3823,13 @@ Authorized users can enter a One-Time Password (OTP) to disable the Endpoint DLP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios","lastmod":"2026-04-23T13:27Z","nid":"1533920"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios","lastmod":"2026-10-23T15:58Z","nid":"1533920"} -->
 ## Zscaler Services Inaccessible After Upgrading to Zscaler Client Connector versions 4.4 and 4.4.1 for iOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Services Inaccessible After Upgrading to Zscaler Client Connector versions 4.4 and 4.4.1 for iOS
-- Last modified: 2026-04-23T13:27Z
+- Last modified: 2026-10-23T15:58Z
 - Summary: Describes a known issue where access to Zscaler services was lost after upgrading to version 4.4 or 4.4.1 for iOS
 
 Zscaler Client Connector versions 4.4 and 4.4.1 for iOS have a known issue that might cause users to lose access to Zscaler services, e.g., Internet & SaaS, Private Access, and Digital Experience (ZDX).
@@ -3844,22 +3844,18 @@ You are not impacted by this issue if you:
 - Have already configured device group-based entitlements for iOS only.
 - Use Authentication Service.
 
-Zscaler has deployed a fix for this issue to all clouds starting December 2nd and ending December 13th. No client-side actions are required to address this issue and Zscaler Client Connector won’t require an upgrade after the fix has been rolled out to all clouds.
-
 Customers who have configured device group-based entitlements for any platform other than iOS can use the following workaround to prevent disruption for iOS users until this issue is resolved:
 
 1. Enable the **Save**button in the Zscaler Admin Console:
-  1. In the Zscaler Admin Console, click **Administration** > **Platform Settings**.
-  2. Click the **iOS** tab.
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **iOS**.
+  2. Click the **Platform Settings** tab.
   3. Enable the **Save**button:
     1. Enable any option but don't click **Save**.
     2. Disable the option.
   4. Click **Save**.
 2. Instruct the affected users to manually refresh internet security policies:
   1. Open Zscaler Client Connector.
-  2. Select the **More**window.
+  2. Click **More**.
   3. Click **Update Policy**.
 3. Users with Private Access entitlements must re-register and authenticate with the IdP to access private applications.
-
-Zscaler recommends that customers wait to configure the device group-based service entitlement feature for any OS platform until after December 13, 2025.
 <!-- /ZS-ARTICLE -->

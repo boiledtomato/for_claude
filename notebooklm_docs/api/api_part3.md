@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
-Articles in this file: 113
+Generated: 2026-10-26 08:09 UTC
+Articles in this file: 114
 
 ---
 
@@ -21591,6 +21591,102 @@ Deletes the Traffic Capture policy rule based on the specified rule ID
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/traffic-capture-settings","lastmod":"2026-10-22T22:49Z","nid":"1546949"} -->
+## Traffic Capture Settings
+
+- Source: https://help.zscaler.com/legacy-apis/traffic-capture-settings
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Traffic Capture Settings
+- Last modified: 2026-10-22T22:49Z
+
+API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
+
+### `GET /pcapSettings`
+
+Retrieves the Traffic Capture settings configured for an organization. This is applicable when you capture traffic as PCAP files. These settings define the configuration for storing captured traffic, including the cloud storage destination, file limits, and data obfuscation options. To learn more, see
+
+[About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture-settings)
+
+.
+
+- Operation ID: `PacketCaptureSettingsResource_getPacketCaptureSettings`
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `POST /pcapSettings`
+
+Creates Traffic Capture settings for an organization. To learn more, see
+
+[Configuring Traffic Capture Settings](https://help.zscaler.com/zia/configuring-traffic-capture-settings)
+
+.
+
+- Operation ID: `PacketCaptureSettingsResource_createPacketCaptureSettings`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | no | PacketCaptureSettings | Information about the Traffic Capture settings |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+| 400 | Invalid Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+
+### `POST /pcapSettings/testConnection`
+
+Validates connectivity to a cloud storage provider using a given set of credentials and configuration settings. You can use this endpoint to test and verify the storage settings before creating or updating your organization's Traffic Capture settings.
+
+- Operation ID: `PacketCaptureSettingsResource_testConnection`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `body` | body | no | PacketCaptureSettings | Information about the settings to validate. These settings are used only for this one-time connection test and are not saved to your organization's configuration. |
+| `cloudProvider` | query | no | object | Cloud provider against which credentials are validated |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+
+### `PUT /pcapSettings/{id}`
+
+Updates the Traffic Capture settings for an organization
+
+- Operation ID: `PacketCaptureSettingsResource_updatePacketCaptureSettings`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | object | Unique identifier for the Traffic Capture setting |
+| `body` | body | no | PacketCaptureSettings | Information about the Traffic Capture setting |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | Successful Operation |
+| 400 | Invalid Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/traffic-forwarding-0","lastmod":"2026-01-06T23:49Z","nid":"1402501"} -->
 ## Traffic Forwarding
 
@@ -23434,13 +23530,13 @@ If you receive a ZDX Score of -1 on the ZDX API, then there is no data available
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-09-29T07:06Z","nid":"1400486"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zia-api","lastmod":"2026-10-22T23:33Z","nid":"1400486"} -->
 ## Understanding ZIA APIs
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zia-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > Understanding ZIA APIs
-- Last modified: 2026-09-29T07:06Z
+- Last modified: 2026-10-22T23:33Z
 - Summary: Introductory information about Zscaler's APIs, which give programmatic access to various Zscaler Internet Access (ZIA) features.
 
 Zscaler Internet Access (ZIA) provides three APIs: the cloud service API, Sandbox Submission API, and 3rd-Party App Governance API. To learn more about authentication, making API calls, and activating configuration changes, see [Getting Started](https://help.zscaler.com/zia/api-getting-started). For detailed information on all available API calls, endpoints, and parameters, see the [Reference Guide](https://help.zscaler.com/zia/about-api). For a table summarizing all available API calls, endpoints, and rate limits, see the [API Rate Limit Summary](https://help.zscaler.com/zia/api-rate-limit-summary). To try out requests and responses for API calls using the Postman app, see [Configuring the Postman REST API Client](https://help.zscaler.com/zia/configuring-postman-rest-api-client).
@@ -23506,6 +23602,7 @@ The cloud service API gives you programmatic access to the following ZIA feature
 - System Audit Report
 - Time Intervals
 - Traffic Capture Policy
+- Traffic Capture Settings
 - URL Categories
 - URL Filtering Policy
 - URL & Cloud App Control Policy Settings
@@ -24118,6 +24215,14 @@ To learn more, see:
 - [Configuring Endpoint DLP Policy Rules](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules)
 - [About DLP & Endpoint Resources](https://help.zscaler.com/zia/about-dlp-endpoint-resources)
 - [Adding DLP and Endpoint Resources](https://help.zscaler.com/zia/about-dlp-endpoint-resources)
+
+These resources allow you to create, update, and retrieve the Traffic Capture settings for an organization, and validate connectivity to a cloud storage provider before creating or updating your organization's Traffic Capture settings.
+
+To learn more, see:
+
+- [Reference Guide > Traffic Capture Settings](https://help.zscaler.com/legacy-apis/traffic-capture-settings) Access to these resources requires an [admin](https://help.zscaler.com/zia/adding-admin-roles#administrators-access) or [API role](https://help.zscaler.com/zia/adding-api-roles#administrators-access) with full permission for Traffic Capture under Internet Access > Traffic Capture > Settings.
+- [About Traffic Capture Essentials](https://help.zscaler.com/zia/about-traffic-capture-essentials)
+- [Configuring Traffic Capture Essentials](https://help.zscaler.com/zia/configuring-traffic-capture-essentials)
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -1,218 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
-Articles in this file: 114
-
----
-
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets","lastmod":"2026-09-04T07:06Z","nid":"1528441"} -->
-## Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
-
-- Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets
-- Product: Cloud & Branch Connector
-- Path: Zscaler Cloud & Branch Connector Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets
-- Last modified: 2026-09-04T07:06Z
-- Summary: Information about Azure Virtual Machine Scale Sets (VMSS) deployment with Zscaler Cloud Connector
-
-An Azure Virtual Machine Scale Sets (VMSS) deployment dynamically adds Cloud Connector virtual machines (VMs) to a scale set to meet the current load when it increases, and it removes Cloud Connector VMs from the scale set when the load decreases. For example, consider an Azure Virtual Desktop deployment, where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
-
-VMSS also constantly monitors the health of each VM in the scale set. It removes unhealthy VMs from the scale set and replaces them with healthy ones. If someone manually terminates a VM that is part of a scale set from the Azure portal, the VMSS likewise replaces the VM.
-
-Stopping or rebooting a VM that is part of a scale set from the Azure portal could cause the VM to be terminated.
-
-VMSS provides the following benefits:
-
-- Dynamically scales the number of VMs in the scale set to match demand.
-- Automatically removes unhealthy VMs and replaces them with healthy ones.
-- Deploys VMs across availability zones for high availability. The Internal Load Balancer (ILB) distributes traffic among the VMs.
-
-This article describes VMSS and how it works in a Cloud Connector deployment. The deployment template prompts you to configure certain VMSS settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure). For comprehensive VMSS information, refer to the [Azure product documentation](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/).
-
-## Topology
-
-The following sections provide a diagram depicting the topology of a VMSS deployment and a description of its components and flow.
-
-- Topology diagram
-- Topology details
-
-[Image: Diagram showing a Cloud Connector Virtual Machine Scale Sets (VMSS) deployment in Azure]
-
-- The security stack is deployed into its own Security Resource Group to simplify the management of resources. Zscaler recommends that you deploy the security stack into its own Security VNet and that you peer Workload VNets with it. After the security stack is deployed, route tables in the Workload VNets should have a user-defined route steering traffic to the ILB in front of the Cloud Connectors.
-- An Internal Load Balancer (ILB) is deployed in front of the Cloud Connectors and is the entry point for the security stack.
-- A VMSS is created in each configured zone to provide high availability across zones.
-- A NAT Gateway (NATGW) used for outbound traffic from the Cloud Connectors is deployed in each configured zone and has a dedicated IP address associated with it.
-- There are two Azure functions: The Azure Functions communicate with the Cloud Connector API server via REST APIs. Azure Functions do not communicate directly with Cloud Connectors. The Azure Functions app contains Azure Functions and runs a ZIP file to start them. It finds the ZIP file in a new storage account that is created at runtime or from an existing storage account that you specify during deployment.
-  - **Health Monitoring**: Uses the custom metrics published by each Cloud Connector to determine whether there are any unhealthy Cloud Connectors that need to be replaced. The function terminates an unhealthy instance and immediately replaces it with a new one. This function runs at one-minute intervals.
-  - **Resource Sync**: Ensures that the VMs in a Cloud Connector Group on the Zscaler Admin Console match the VMs in your VMSS. If the function finds a Cloud Connector in the Cloud Connector Group that is not in the VMSS, it cleans up that instance in the Cloud Connector Group to ensure that the two entities are in sync. This function runs at 30-minute intervals.
-
-## Scale-Out and Scale-In
-
-Each Cloud Connector independently reports custom CPU utilization metrics to the Azure Monitor Service at one-minute intervals to advertise the load it is handling. VMSS uses the aggregate CPU utilization of all VMs in the scale set to determine when to trigger scale-out and scale-in events and how aggressively to do so.
-
-Custom CPU metrics provide more detailed information about CPU usage, so Cloud Connector publishes them instead of VM-level metrics.
-
-- Scaling Rules
-- Scheduled Scaling
-
-Scaling rules define the parameters for triggering scale-out and scale-in events. Zscaler recommends the following default thresholds and values:
-
-| Parameter | Description | Scale-Out Rule | Scale-In Rule |
-| --- | --- | --- | --- |
-| CPU utilization threshold | The aggregate percentage of CPU utilization for the VMs in the scale set. | 70% | 50% |
-| Duration | The number of consecutive minutes after the threshold is crossed before a scale-out or scale-in event is triggered. | 10 | 10 |
-| Cooldown | The number of minutes to wait before triggering another scale-out or scale-in event. Metrics continue to be monitored and reported during the cooldown period. This gives the VMSS time to stabilize and determine how the updated number of VMs impacts the CPU utilization. | 15 | 15 |
-| Instance count | The number of VMs to remove or add for a single scale-out or scale-in event. | 1 | 1 |
-
-Examples:
-
-- There are 4 VMs in a scale set. The VMs report CPU utilization of 80%, 60%, 75%, and 90%, so the aggregated CPU utilization for the scale set is 76.25%. The CPU utilization remains higher than the scale-out threshold for 10 consecutive minutes, so a scale-out event adds one VM to the scale set, bringing the number of VMs to 5.
-- There are three VMs in a scale set. The VMs report CPU utilization of 50%, 40%, and 35%, so the aggregated CPU utilization for the scale set is 41.7%. The aggregate CPU utilization remains lower than the scale-in threshold for 10 consecutive minutes, so a scale-in event removes one VM from the scale set, bringing the number to two. During the cooldown period, a traffic spike brings the aggregated CPU utilization to 83%, so when the cooldown period ends, a scale-out event adds one VM to the scale set, bringing the number of VMs back to three.
-- There are two VMs in a scale set. The VMs report CPU utilization of 65% and 55%, so the aggregated CPU utilization for the VMSS is 60%. No scale-out or scale-in event is triggered because the aggregated CPU utilization remains within the scale-out and scale-in thresholds for 10 consecutive minutes.
-
-In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
-
-If you have predictable load patterns, you can define a schedule for scale-out and scale-in events. This ensures that enough VMs are provisioned before the predicted spike. For example, if a batch job runs every Saturday at 6:00 PM, you could preemptively schedule a scale-out event for 5:45 PM. You can define the following parameters during deployment:
-
-- **Minimum instances**: The minimum number of VMs in the scaling set during the scheduled scaling event.
-- **Days of week**: The days of the week when the schedule takes effect.
-- **Start time**: The time in hours and minutes to start the scheduled scaling event.
-- **End time**: The time in hours and minutes to end the scheduled scaling event.
-
-## Cloud Connector Health Monitoring
-
-Health monitoring includes the following entities:
-
-- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom health metric at one-minute intervals. This metric value is 0 for an unhealthy VM or 100 for a healthy VM.
-- **Health Monitoring**: The Health Monitoring function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy.
-
-In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
-
-- Grace Period
-- Terminating Unhealthy VMs
-
-A grace period allows a Cloud Connector to boot up before its health is evaluated, and it is potentially terminated. The grace period lasts until one of the following events occurs:
-
-- The VM has been alive for more than 30 minutes.
-- The VM reports at least one healthy metric.
-
-After the grace period ends, a Cloud Connector is considered unhealthy if the custom health metric is reported as either:
-
-- **None**or **0** for 7 out of the last 10 samples, starting with the first healthy sample
-- **None**or **0** for 5 consecutive samples, starting with the first healthy sample
-
-The Health Monitoring function determines whether a VM is unhealthy. This function terminates an unhealthy VM after the grace period ends and the unhealthy criteria are met. The VM is replaced immediately.
-
-Unhealthy instances are terminated in iterations. In a single iteration, a VMSS can terminate 20% of the instances, or one instance, whichever is greater. The instance to terminate is based on which instance has the most healthy statuses over a 10-sample stretch. If multiple instances have the same number of unhealthy statuses, the instances to terminate are chosen randomly.
-
-## Viewing Metrics and Logs
-
-You can view the following metrics and logs in the [Azure portal](https://portal.azure.us/).
-
-- Metrics
-- Functions App Logs
-
-- Cloud Connector Metrics
-- VMSS Metrics
-
-- Recent Invocations
-- Log Streaming in Real Time
-- Application Insights
-
-Cloud Connectors publish health metrics at one-minute intervals and are managed by Application Insights.
-
-To display the metrics:
-
-1. Navigate to **Resource Groups** > <Resource Group> > <VMSS> > <VM> > **Monitoring**> **Metrics**.
-2. On the **Metrics**page, click **Add metric**.
-3. Select the following parameters:
-  - Scope: <VM name>
-  - Metric Namespace: **zscaler/cloudconnectors**
-  - Metric: **cloud_connector_aggr_health**
-  - Aggregation: **Avg** (average)
-
-[Image: Graph showing query for Cloud Connector metrics where you use the Scope, Metric Namespace, Metric, and Aggregation drop-down menus to specify query parameters]
-
-Cloud Connectors in a scale set publish scaling metrics to the Health Monitoring function at one-minute intervals. VMSS consumes metrics from Azure Monitor for scaling decisions. The scaling metrics include `smedge_cpu_utilization`, `smedge_mem_utilization`, `smedge_bytes_in`, and `smedge_bytes_out`. The scaling rules compare the `smedge_cpu_utilization` value with the defined threshold.
-
-To display the VMSS metrics:
-
-1. Navigate to **Resource groups** > <Resource Group> > <VMSS> > <VM> > **Monitoring**> **Metrics**.
-2. On the **Metrics**page, click **Add metric**.
-3. Select the following parameters:
-  - **Scope**: VMSS name
-  - **Metric Namespace**: **zscaler/cloudconnectors**
-  - **Metric**: **smedge_metrics**
-  - **Aggregation**: **Avg** (average)
-4. Click **Add filter**.
-5. Select the following parameters:
-  - **Property**: **metric_name**
-  - **Operator**:**=**
-  - **Values**: **smedge_cpu_utilization**
-
-[Image: Graph showing query for VMSS metrics where you use the Scope, Metric Namespace, Metric, and Aggregation drop-down menus to specify query parameters]
-
-An Azure invocation is logged each time an Azure function is executed.
-
-To view recent invocations:
-
-1. Go to **Resource groups** > <Resource Group>. The **Resource group** page appears.
-2. In the **Name**column on the **Resource**tab, find the Functions App and click it. The **Functions App** page appears.
-3. On the **Functions**tab, click the function in the **Name**column. The details page for the Functions app appears.
-4. Click the **Invocations**tab and then click the invocation in the **Date**column.
-
-[Image: Viewing recent App Function Invocations in Azure Portal]
-
-You can view logs in real time for functions that are executing.
-
-To view real-time logs:
-
-1. Go to **Resource groups** > <Resource Group>. The **Resource group** page appears.
-2. In the **Name**column on the **Resources**tab, find the Functions App and click it in the **Name**column. The **Functions App** page appears.
-3. On the **Functions**tab, click the function in the **Name**column. The details page for the Functions app appears.
-4. Click the **Logs**tab.
-
-[Image: Viewing real-time App Function logs in the Azure Portal]
-
-The Application Insights feature allows you to perform queries to view specific log messages, executions, time frames, and so on. For example, you can view Health Monitoring function logs that report that the VMSS found no instances to terminate. A specific message is defined when querying the logs, which allows you to refine your search instead of manually going through each invocation or continuously watching the real-time streaming of logs.
-
-To view logs through Application Insights:
-
-1. Go to **Resource groups** > <Resource Group>.
-2. On the **Application Insights** page, click **Logs**.
-3. Enter a query and then click **Run**. For example, the following query would show you when there are no instances to terminate. `union traces | union exceptions | where timestamp > ago(1d) | where customDimensions['Category'] == 'Function.healthMonitor.User' or customDimensions['Category'] == 'Function.healthMonitor' | where message contains "No instances to terminate on this iteration." | order by timestamp asc | project timestamp, message = iff(message != '', message, iff(innermostMessage != '', innermostMessage, customDimensions.['prop__{OriginalFormat}']))`
-
-[Image: Viewing Health Monitor function logs through Application Insights]
-
-## Access to Azure Resources
-
-Managed identities provide granular access control for Azure resources, which eliminates the need to explicitly store secret credentials within the Azure environment.
-
-Azure Key Vault securely manages credentials for external services such as the Zscaler Admin Console.
-
-Two user-assigned managed identities are required to perform Azure operations:
-
-- Cloud Connector
-- Functions App
-
-This managed identity allows Cloud Connectors to perform Azure operations such as network interface discovery and metric publishing. It needs the following roles:
-
-- Network Contributor
-- Monitoring Metrics Publisher
-- Storage Queue Data Contributor
-
-This managed identity allows the Azure Functions App to make API calls to perform operations such as instance termination, instance replacement, and metric reading. It needs the following roles:
-
-- Network Contributor
-- Virtual Machine Contributor
-- Monitoring Contributor
-- Managed Identity Operator
-- Storage Blob Data Reader
-
-User-assigned managed identities allow access to different entities in a VMSS deployment. Ensure that Cloud Connector is not assigned an Azure System-Assigned Managed Identity, because that identity overrides the deployment requirements.
-
-For information about creating managed identities and assigning roles, see [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure).
-<!-- /ZS-ARTICLE -->
+Generated: 2026-10-26 08:09 UTC
+Articles in this file: 113
 
 ---
 
@@ -415,13 +205,13 @@ For information about creating service accounts and assigning roles, see [Deploy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal","lastmod":"2026-10-08T08:08Z","nid":"1546120"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal","lastmod":"2026-10-22T21:06Z","nid":"1546120"} -->
 ## Understanding Cloud Connector Repository Certificate Expiry and Renewal
 
 - Source: https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-repository-certificate-expiry-and-renewal
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Troubleshooting > Understanding Cloud Connector Repository Certificate Expiry and Renewal
-- Last modified: 2026-10-08T08:08Z
+- Last modified: 2026-10-22T21:06Z
 - Summary: Information on Cloud Connector repository certificate expiry and renewal.
 
 This article provides troubleshooting information and guidelines about the TLS server certificate for Cloud Connector expiration of the software update repository (`pkg-repo.zscaler.com`). When this certificate is renewed, the repository uses a new DigiCert G2 certificate chain. To learn more, see [End-of-Support for Cloud Connector Repository Certificate](https://help.zscaler.com/product-usage-terms/end-support-cloud-connector-repository-certificate).
@@ -1413,13 +1203,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-10-06T16:30Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-10-19T14:12Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/cloud-branch-connector/zscaler-client-connector-vdi-release-summary-2026
 - Product: Cloud & Branch Connector
 - Path: Zscaler Cloud & Branch Connector Help > Release Notes > Zscaler Cloud & Branch Connector VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-10-06T16:30Z
+- Last modified: 2026-10-19T14:12Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.
@@ -2688,13 +2478,13 @@ Proxmox simulates endpoints that are microsegmented by the ZT800 appliance and c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-10-15T21:06Z","nid":"1532667"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-10-21T12:33Z","nid":"1532667"} -->
 ## Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-21T12:33Z
 - Summary: Information about configuring legacy applications running in branches for direct site-to-site connectivity.
 
 Routed tunnels provide a secure way to connect branch locations over IP networks. Some applications, like VoIP phones, TACACS+, and Active FTP running in branches require direct source IP address visibility. Zscaler Zero Trust Branch supports remote site connectivity over Zero Trust Branch Routed Tunnels (RTs) and preserves the IP addresses required for these applications to function. The applications are deployed in a hub-and-spoke architecture, where a physical or virtual Zero Trust Branch appliance in a data center (the hub) and Zero Trust Branch appliances in the branch offices (the spokes) connect via the RTs. RTs use state cryptography to secure connections and are easy to implement.
@@ -2879,9 +2669,7 @@ Spokes enable sharing over RTs at the virtual LAN (VLAN) level. These encrypted 
   2. Click the **Gear** icon of the desired VLAN at the end of the row, and select **Use for DNS Proxy**. This ensures that DNS queries sent over the RT use the IP address of this specific VLAN as the source.
 
 1. Go to **Zero Trust Branch**> **Deployments**> **Sites** and select the first spoke.
-2. Do one of the following, depending on your Zero Trust Branch version:
-  - Click **VLANs**and enable **Share Over RT**. See image.
-  - Click **VLANs**, click the **Gear** icon, then select **Share on Routed Tunnel**. See image.
+2. Click **VLANs**, click the **Gear** icon, then select **Share on Routed Tunnel**. See image.
 3. Repeat these steps for the second spoke.
 
 Configure a policy-based routing (PBR) rule on each spoke to direct traffic over a site-to-site VPN. To learn more, see [Configuring Routing Policies](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies).
@@ -2892,10 +2680,10 @@ To configure a policy-based rule:
 2. Do one of the following:
   - If you are adding a new route, click **Routing** > **Static Routes**> **Add Route**.
   - If you are editing an existing rule, click **Routing** > **Static Routes**, click the **Gear**icon at the end of the row, and then click the **Edit** icon.
-3. Complete the **Add Routing Rule** or **Edit Routing Rule** panel, being sure to select **VPN**as the **Nexthop Interface Type**. See image.
+3. Complete the **Add Routing Rule** or **Edit Routing Rule** drawer, being sure to select **Share Over RT**. See image.
 4. Click **Save**.
-5. Repeat these steps for the second spoke, if that spoke initiates traffic. See image.
-6. View the configured rules from both spokes. See image.
+5. Repeat these steps for the second spoke, if that spoke initiates traffic.
+6. View the configured rules from the spokes (e.g., Pod30 and Pod50). See image.
 
 Only spokes that initiate traffic require rules. For example, if the Pod30 spoke initiates traffic to the Pod50 spoke, but not vice versa, only Pod30 needs a rule. Response traffic is handled automatically.
 
@@ -2906,8 +2694,6 @@ Only spokes that initiate traffic require rules. For example, if the Pod30 spoke
 [Image: Routed Tunnel configuration to create a routed path between the Pod30 spoke and the two hubs]
 
 [Image: Routed Tunnel configuration to create a routed path between the Pod50 spoke and the two hubs]
-
-[Image: Pod30 VLANs tab, with the Share Over RT switch enabled]
 
 [Image: VLAN tab showing VLAN list with the Gear icon clicked and annotation for the Use for DNS Proxy option.]
 
@@ -2920,8 +2706,6 @@ Only spokes that initiate traffic require rules. For example, if the Pod30 spoke
 [Image: Pod30 Routing Policy tab showing the rule number and name, Pod30 as source, Pod50 as destination, any protocols, and the gateway]
 
 [Image: Pod50 Routing Policy tab showing the rule number and name, Pod50 as source, Pod30 as destination, any protocols, and the gateway]
-
-[Image: Routing rule configuration for traffic flowing from Pod50 to Pod30]
 
 ## Verification
 
@@ -3988,13 +3772,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-10-16T07:24Z","nid":"1532526"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-10-21T19:11Z","nid":"1532526"} -->
 ## Deploying a Zero Trust Branch Appliance
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-appliance
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Deploying a Zero Trust Branch Appliance
-- Last modified: 2026-10-16T07:24Z
+- Last modified: 2026-10-21T19:11Z
 - Summary: Information about deploying a Zero Trust Branch appliance and passing traffic through it.
 
 You can deploy Zero Trust Branch and pass traffic through it with minimal configuration because:
@@ -4191,14 +3975,14 @@ This procedure shows how to add a new VLAN. If you are using an existing product
 3. Click **Add VLAN**. See image.
 4. In the **Add VLAN** drawer, configure the necessary information for this VLAN. If you are configuring an untagged port, enter `1` in the **VLAN ID**field. See image.
 5. Click **Add**.
-6. On the **VLANs**tab, in the **Disable/Enable** column, enable the VLAN. See image.
+6. On the **VLANs**tab, in the **Enable** column, enable the VLAN. See image.
 7. Connect the laptop to the access port on the switch. In this example, you configured F0/4 as an access port on VLAN 50. The laptop automatically gets an IP address within the DHCP range that you configured when you added the VLAN. All the Zero Trust Branch appliances connected to the switch have the same subnet mask, which provides device segmentation.
 
 [Image: Diagram showing a Zero Trust Branch appliance connected to the Zero Trust Exchange via the GE3 WAN port and to a switch via the GE2 LAN port. The F0/5 LAN interface is a trunk port allowing access to VLANs 50, 60, 70, and 80. The F0/4 interface is the access port on VLAN 50, which provides access to the laptop]
 
-[Image: VLAN page for a site with the button to add a new VLAN]
+[Image: VLANs page for a site with the button to add a new VLAN]
 
-[Image: Panel used to add a new VLAN, including configuration of the gateway interface, interface IP, DHCP service, DHCP address range, and DNS servers]
+[Image: Configuring a VLAN]
 
 [Image: VLAN page with a Disable/Enable switch to enable the new VLAN]
 
@@ -4213,7 +3997,7 @@ To verify the Zero Trust Branch deployment:
 
 (Optional) Only if directed by Zscaler Support, edit the IPSec tunnel configuration for the site:
 
-1. In **Auto-provisioned Tunnels**, locate the tunnel for which you want to edit the configuration, click the **Gear**icon and select **Edit**.
+1. In **Auto-provisioned Tunnels**, locate the tunnel for which you want to edit the configuration, click the **Gear**icon, and select **Edit**.
 2. In the **Remote Address**field, enter the IP address for the Internet & SaaS global VPN.
 <!-- /ZS-ARTICLE -->
 
@@ -4322,13 +4106,13 @@ Before proceeding, configure LACP (802.3ad) on the switch where the WAN interfac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi","lastmod":"2026-09-17T02:13Z","nid":"1533836"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi","lastmod":"2026-10-23T01:08Z","nid":"1533836"} -->
 ## Deploying Zero Trust Branch as a Virtual Machine on VMware ESXi
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment > Deploying Zero Trust Branch as a Virtual Machine on VMware ESXi
-- Last modified: 2026-09-17T02:13Z
+- Last modified: 2026-10-23T01:08Z
 - Summary: How to deploy Zero Trust Branch as a virtual machine on VMware ESXi.
 
 Zero Trust Branch supports deployment as either a hardware appliance or a virtual machine (VM), allowing you to choose the model that best fits your branch environments.
@@ -4342,7 +4126,7 @@ See typical topology
 Before deploying a Zero Trust Branch VM on VMware ESXi, ensure that:
 
 - Hardware requirements are met. See hardware requirements
-- The Zero Trust Branch ISO image is obtained from Zscaler Support.
+- Zero Trust Branch ISO image is obtained from Zscaler Admin Console.
 - [Templates](https://help.zscaler.com/zero-trust-branch/managing-templates) and interfaces to be used are determined. See Zero Trust Branch VM port mapping
 - The necessary ports are open on the Zero Trust Branch VM. See port access requirements
 
@@ -4503,13 +4287,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deployment-overview","lastmod":"2026-10-16T07:38Z","nid":"1509391"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deployment-overview","lastmod":"2026-10-21T19:14Z","nid":"1509391"} -->
 ## Deployment Overview
 
 - Source: https://help.zscaler.com/zero-trust-branch/deployment-overview
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment > Deployment Overview
-- Last modified: 2026-10-16T07:38Z
+- Last modified: 2026-10-21T19:14Z
 - Summary: Information about deploying Zero Trust Branch appliances.
 
 Zscaler Zero Trust Branch has two components:
@@ -5554,13 +5338,13 @@ To delete a template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-10-06T15:36Z","nid":"1509846"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-your-assets","lastmod":"2026-10-20T21:06Z","nid":"1509846"} -->
 ## Managing Your Assets
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-your-assets
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust Device Segmentation > Asset Management > Managing Your Assets
-- Last modified: 2026-10-06T15:36Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: How to view and edit Zero Trust Branch assets.
 
 The Assets section provides admins with visibility into all endpoints connected to the network along with their health status.
@@ -5635,13 +5419,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-10-16T08:53Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-10-23T06:16Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-16T08:53Z
+- Last modified: 2026-10-23T06:16Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -5649,13 +5433,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-10-16T08:35Z","nid":"1540224"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues","lastmod":"2026-10-21T10:16Z","nid":"1540224"} -->
 ## Resolving Zero Trust Branch Configuration and Activation Issues
 
 - Source: https://help.zscaler.com/zero-trust-branch/resolving-zero-trust-branch-configuration-activation-issues
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Resolving Zero Trust Branch Configuration and Activation Issues
-- Last modified: 2026-10-16T08:35Z
+- Last modified: 2026-10-21T10:16Z
 - Summary: How to resolve issues related to the Zero Trust Branch appliance.
 
 This article includes steps to resolve some of the following issues that you might encounter while configuring and activating Zero Trust Branch appliances:
@@ -5733,7 +5517,7 @@ Devices can receive the IP address and ping the Zero Trust Branch appliance's de
 - Ensure the devices do not have an alternate path (secondary NIC), or an asymmetric routing in the network.
 - If the link aggregation control protocol (LACP) is configured, ensure that it is configured on the appliance and core switch.
 
-If Network Address Translation (NAT) is enabled, check whether the packets egressing the WAN interface have the source IP address of the WAN interface. In the Zscalerconsole, select Troubleshooting (5) > Packet Capture (7). The packet capture must show the outgoing packets with the source IP address of the WAN interface.
+If Network Address Translation (NAT) is enabled, check whether the packets egressing the WAN interface have the source IP address of the WAN interface. In the Zscaler console, select Troubleshooting (5) > Packet Capture (7). The packet capture must show the outgoing packets with the source IP address of the WAN interface.
 
 - Verify that the east-west traffic is allowed in the segmentation policies.
 - For a Windows test device, verify that the host firewall is not blocking the inbound traffic (Windows has three firewall profiles).
@@ -5754,7 +5538,7 @@ To verify the policies:
   1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments**> **Sites**.
   2. On the**Sites** page, click the required site.
   3. On the site details page, click the **VLANs** tab, then click the **Gear** icon for the required VLAN.
-  4. In the **Edit VLAN** window, change the WAN interface configuration (DHCP or Static) as required, then click **Save**.
+  4. In the **Edit VLAN** drawer, change the WAN interface configuration (DHCP or Static) as required, then click **Save**.
 3. In the Zscaler console, enter `1` (Configure Gateway), press`Enter`, and then configure the WAN interface as in the previous step. Sample command and output: `WAN interface (? to list available options) [ge5]: WAN VLAN ID (1..4092) [1]: Use DHCP for WAN interface ge5 (Y/y or N/n) [n]: y Use DHCP to set WAN nameservers (Y/y or N/n) [n]: n WAN Nameservers [8.8.8.8, 4.4.2.2]: Management Interface: ge1 Management IP Address: not configured WAN Interface: ge5 WAN IP Address: DHCP WAN Nameservers: 8.8.8.8, 4.4.2.2 Web Proxy: None Apply Configuration? (y/n)y`
 4. Enter `4` (Show Gateway Status) and press `Enter` to check the gateway status again, and it should start working. Sample output: `Gateway State : Standby WAN Connectivity: Checking Default Gateway(100.120.1.254) ...OK Checking reachability to internet...OK Web Proxy is not configured. Checking Management Portal reachability...OK Checking Analytics connection...OK Checking Debug Port reachability...OK Services Status: Service State Network Poller active (running) since Thu 2026-01-15 02:13:01 UTC; 3 weeks 4 days ago DHCP Server active (running) since Tue 2026-02-03 02:25:36 UTC; 6 days ago Network Status: NAMES IMAGE STATUS strongswan docker.repos.goairgap.com/7-8/strongswan:latest Up 3 minutes dnsproxy_container docker.repos.goairgap.com/7-8/dnsproxy:8.0.8P1 Up 47 minutes vyos_container docker.repos.goairgap.com/7-8/vyos:1.4.4-sagitta Up 52 minutes policy_container docker.repos.goairgap.com/7-8/poller:8.0.8P1 Up 53 minutes`
 5. If the appliance is not reaching the cloud, run the following command in the Zscaler console: `tail -f /var/log/syslog` If there is a name resolution error, then resolve this error before the appliance reaches the cloud. Also, check whether the upstream L3 device is blocking the DNS (UDP 53) port.
@@ -7047,13 +6831,13 @@ You can activate any of the downloaded images. This step requires a system reboo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-10-08T18:01Z","nid":"1533903"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting","lastmod":"2026-10-22T21:06Z","nid":"1533903"} -->
 ## Using the Zero Trust Branch Debug Console for Troubleshooting
 
 - Source: https://help.zscaler.com/zero-trust-branch/using-zero-trust-branch-debug-console-for-troubleshooting
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Troubleshooting > Using the Zero Trust Branch Debug Console for Troubleshooting
-- Last modified: 2026-10-08T18:01Z
+- Last modified: 2026-10-22T21:06Z
 - Summary: Understanding and using the Zero Trust Branch Debug Console.
 
 The Zero Trust Branch Debug Console provides a purpose-built diagnostic framework that exposes the internal state of an appliance through simple, direct commands. Commands are grouped by functional area, so you can quickly locate the information you need—whether validating IPSec tunnels, checking DHCP leases, analyzing routing tables, or reviewing Virtual Router Redundancy Protocol (VRRP) status. The Zero Trust Branch Debug Console supports both deployment readiness checks and ongoing operational troubleshooting.
@@ -7407,13 +7191,13 @@ Zero Trust Branch provides the following tagging options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-05T06:05Z","nid":"1529460"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-19T21:06Z","nid":"1529460"} -->
 ## Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zero-trust-branch/zero-trust-branch-appliances-wall-and-rack-mount-instruction-manual
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Zero Trust Branch Appliances Wall and Rack Mount Instruction Manual
-- Last modified: 2026-10-05T06:05Z
+- Last modified: 2026-10-19T21:06Z
 - Summary: Instructions for wall and rack mounting the Zero Trust Branch appliances.
 
 After you receive the Zscaler Zero Trust Branch appliance, you can mount the Zero Trust Branch appliance as follows:
@@ -7726,13 +7510,13 @@ This section describes the physical port mapping on the ZT8010 appliance.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-network-events","lastmod":"2026-10-07T03:27Z","nid":"1518096"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-network-events","lastmod":"2026-10-21T21:06Z","nid":"1518096"} -->
 ## About Network Events
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-network-events
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Network Events and Logins Monitoring > About Network Events
-- Last modified: 2026-10-07T03:27Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Network Events page.
 
 The Network Events page offers a centralized interface for monitoring and analyzing network activity across all Zscaler SIMs provisioned to your organization. It provides detailed insights into network events and authorization events for each SIM. This comprehensive logging enables you to troubleshoot efficiently and ensure seamless connectivity.
@@ -7818,13 +7602,13 @@ The policy assigned to the group, including anomaly name, type, enabled status, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sims","lastmod":"2026-10-07T03:28Z","nid":"1519081"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/about-sims","lastmod":"2026-10-20T19:59Z","nid":"1519081"} -->
 ## About SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/about-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > About SIMs
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-20T19:59Z
 - Summary: Information about the SIMs page in the Zscaler Cellular Edge Admin Portal.
 
 A Zscaler SIM—both physical SIMs and eSIMs—serves as the gateway for a cellular-connected device to access the Zero Trust Exchange (ZTE). It is a data-only SIM that integrates directly with the ZTE, providing seamless security for IoT devices such as vending machines, EV chargers, machinery, and tablets/kiosks where agent-based solutions are not feasible. You can view essential details and statuses, and manage Zscaler SIMs provisioned to your organization, in the Zscaler Admin Console.
@@ -7839,10 +7623,10 @@ Zscaler SIMs provide the following benefits and enable you to:
 On the SIMs page (Infrastructure > Cellular > SIMs), you can do the following:
 
 1. View the total data usage across all SIMs in the current view. If filters are applied, the Total Usage field shows only the data across the SIMs that match the applied filters.
-2. Update [SIM Status](https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims) or [IMEI](https://help.zscaler.com/zscaler-cellular/changing-imei-association-zscaler-sims) for multiple SIMs. This option is displayed only when a SIM is selected.
+2. Update the [SIM Status](https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims) or [IMEI](https://help.zscaler.com/zscaler-cellular/changing-imei-association-zscaler-sims) for multiple SIMs. This option is displayed only when a SIM is selected.
 3. Download the list of all SIMs and their details as a CSV file for the current view. If filters are applied, the downloaded file contains only the details of the SIMs that are shown for the selected filters.
 4. Refresh the page to fetch and show the latest data. This action does not remove the applied filters.
-5. [Add or remove columns from the table.](https://help.zscaler.com/unified/using-tables#hide)
+5. [Add or remove columns from the table](https://help.zscaler.com/unified/using-tables#hide).
 6. Show or hide filtering options.
 7. [Filter the SIMs page based on different parameters](https://help.zscaler.com/unified/using-tables).
 8. View the list of all Zscaler SIMs provisioned for your organization. For each SIM, you can see:
@@ -7952,13 +7736,13 @@ To add a SIM Location Group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-imei-association-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1524936"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-imei-association-zscaler-sims","lastmod":"2026-10-20T19:53Z","nid":"1524936"} -->
 ## Changing the IMEI Association for Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/changing-imei-association-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Changing the IMEI Association for Zscaler SIMs
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-20T19:53Z
 - Summary: How to update the IMEI associated with a Zscaler SIM.
 
 You can modify the IMEI associated with a Zscaler SIM provisioned to your organization from the SIMs page.
@@ -7971,7 +7755,7 @@ To change the IMEI association for a Zscaler SIM:
   - Modify the IMEI association for multiple SIMs
 
 1. Locate the SIM card for which you want to change the IMEI association.
-2. In the **Manage**column, click the **Lock**icon. See image. Alternatively, you can go to the SIM details page by clicking the **ICCID**link and select the **Update IMEI Lock/Unlock**option from the **Update**drop-down menu in the top-right corner. See image. The **Update IMEI Lock/Unlock**drawer appears.
+2. In the **Manage**column, click the **Lock**icon. See image. Alternatively, you can go to the SIM Details page by clicking the **ICCID**link and select the **Update IMEI Lock/Unlock**option from the **Update**drop-down menu in the top-right corner. See image. The **Update IMEI Lock/Unlock**drawer appears.
 3. In the **Update IMEI Lock/Unlock**drawer: See image.
   - If you want to create a new IMEI association or update an existing association, enter the new IMEI values separated by commas in the **IMEI Lock Value (comma separated)** field. You can lock a SIM card to a particular IMEI. To do this, enable **Lock**while creating or updating an IMEI association.; Updating the lock status without changing the IMEI value is allowed for existing associations.
   - If you want to unlock an IMEI from a SIM card, disable **Lock**.
@@ -7981,29 +7765,29 @@ To change the IMEI association for a Zscaler SIM:
 2. Click **Update**and select **Update IMEI Lock/Unlock**. See image. The **Update IMEI Lock/Unlock**drawer appears.
 3. In the **Update IMEI Lock/Unlock**drawer: See image.
   - If you want to create new IMEI associations or update existing associations, enter the new IMEI values separated by commas in the **IMEI Lock Value (comma separated)** field. You can lock a SIM card to a particular IMEI. To do this, enable **Lock**while creating or updating IMEI associations.; Updating the lock status without changing the IMEI value is allowed for existing associations.
-  - If you want to unlock IMEI from SIM cards, disable **Lock**.
+  - If you want to unlock IMEIs from SIM cards, disable **Lock**.
 4. Click **Save**. The IMEI associations for the selected SIM cards are updated. The lock is not immediate. After initiation, the SIM enters a pending lock state and might take approximately 15 to 30 minutes to transition into the locked state.
 
 [Image: Option to update IMEI for a SIM card highlighted]
 
 [Image: The SIM Details page, showing widgets for basic information, current data usage, and a usage graph. The Update drop-down menu shows options for Update Status, Update IMEI, and Update Tags. The Update IMEI option is highlighted.]
 
-[Image: A toggle with Lock selected, a Save button, and a table with columns for ICCID, IMEI, Data Authorize, and Data Authorize Value]
+[Image: Updating IMEI for a single SIM]
 
 [Image: Option to update IMEI from the Update drop-down menu when multiple SIM cards are selected]
 
-[Image: A toggle with Lock selected, a Save button, and a table with columns for ICCID, IMEI, Data Authorize, and Data Authorize Value]
+[Image: Updating IMEI for multiple SIMs]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-status-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1519086"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/changing-status-zscaler-sims","lastmod":"2026-10-20T19:57Z","nid":"1519086"} -->
 ## Changing the Status of Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Changing the Status of Zscaler SIMs
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-20T19:57Z
 - Summary: How to modify the status of Zscaler SIMs.
 
 You can modify the status of the Zscaler SIMs—both physical SIMs and eSIMs—provisioned to your organization from the SIMs page.
@@ -8027,7 +7811,7 @@ To change the status of Zscaler SIMs:
   1. Select a status you want to assign to the SIMs, either **Active**or **Inactive**. For example, if you want to inactivate your active SIMS, select **Inactive**. If you want to activate your inactive SIMs, select **Active**. See image.
   2. Click **Save**.
 
-[Image: A table with columns for ICCID, IMEI, IMSI, etc. with the edit icon highlighted]
+[Image: A table with columns for ICCID, IMEI, IMSI, etc. with the Edit icon highlighted]
 
 [Image: The SIM Details page, with the Update drop-down menu showing the Update Status option]
 
@@ -8042,13 +7826,13 @@ To change the status of Zscaler SIMs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment","lastmod":"2026-10-07T03:09Z","nid":"1519071"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment","lastmod":"2026-10-21T21:06Z","nid":"1519071"} -->
 ## Configuring and Updating Credentials for Zscaler Cellular Service Deployment
 
 - Source: https://help.zscaler.com/zscaler-cellular/configuring-and-updating-credentials-cellular-edge-deployment
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Configuring and Updating Credentials for Zscaler Cellular Service Deployment
-- Last modified: 2026-10-07T03:09Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to configure or update Cloud & Branch Connector credentials to deploy Cellular Service.
 
 Zscaler requires your organization's Cloud & Branch Connector credentials to initiate deployment of Zscaler Cellular Service across regions. You must set up Cloud & Branch Connector credentials to allow Zscaler to deploy Cellular Services.
@@ -8110,13 +7894,13 @@ To add a new anomaly detection policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/deploying-new-cellular-edges","lastmod":"2026-10-07T03:10Z","nid":"1518161"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/deploying-new-cellular-edges","lastmod":"2026-10-21T21:06Z","nid":"1518161"} -->
 ## Deploying New Cellular Edges
 
 - Source: https://help.zscaler.com/zscaler-cellular/deploying-new-cellular-edges
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Deploying New Cellular Edges
-- Last modified: 2026-10-07T03:10Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to request deployment of additional Cellular Edges.
 
 Deploying additional Cellular Edges ensures that your devices have seamless and secure connectivity to the Zscaler cloud in the designated regions where you need additional coverage or capacity. Zscaler Cellular offers coverage expansion in three regions: AMER (North and South America), EMEA (Europe, Middle East, and Africa), and APAC (Asia-Pacific). Deploying more Cellular Edges allows you to expand the reach of your Zscaler Cellular services, improve performance by reducing latency, and ensure reliable network access for IoT devices and other connected systems. On the Deployment Regions Page, you can identify regions requiring deployment and submit requests for provisioning new Cellular Edges.
@@ -8134,13 +7918,13 @@ To request deployment of new Cellular Edges:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-assignment-and-activation-esims","lastmod":"2026-10-07T03:28Z","nid":"1532654"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-assignment-and-activation-esims","lastmod":"2026-10-20T19:46Z","nid":"1532654"} -->
 ## Assigning and Activating eSIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/managing-assignment-and-activation-esims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Assigning and Activating eSIMs
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-20T19:46Z
 - Summary: How to manage assignment and activation for eSIMs from the Zscaler Admin Console.
 
 You can manage eSIMs provisioned for your organization in the Zscaler Admin Console. After provisioning, the eSIMs are listed on the SIMs page. You can view the SIM details and assign or activate it.
@@ -8151,11 +7935,11 @@ This feature is in limited availability. To access this feature, contact your Zs
 
 After eSIMs are provisioned to your organization, you need to assign them to users.
 
-To assign the eSIM to a user:
+To assign an eSIM to a user:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Cellular**> **SIMs**. The **SIMs**page appears.
-2. Locate the eSIM you want to assign to a user and click the link in the **ICCID**column. See image. The **SIM details** page appears. See image.
-3. On the **SIM details** page, go to the **eSIM Info** widget and do the following: See image. The eSIM is recorded as assigned to the specified user. You can activate or modify the assignment, if required.
+2. Locate the eSIM you want to assign to a user and click the link in the **ICCID**column. See image. The **SIM Details** page appears. See image.
+3. On the **SIM Details** page, go to the **eSIM Info** widget and do the following: See image. The eSIM is recorded as assigned to the specified user. You can activate or modify the assignment, if required.
   1. **Assign Recipient**: Enter the name or email address of the user to whom you want to assign the eSIM.
   2. Click **Assign**.
 
@@ -8163,51 +7947,51 @@ If you want to modify the assigned user, click **Reassign**, enter the name or e
 
 ## Activating an eSIM
 
-After assigning an eSIM to a user, you need to activate the eSIM.
+After assigning an eSIM to a user, you must activate the eSIM.
 
 To activate an eSIM:
 
 1. Go to **Infrastructure**> **Cellular**> **SIMs**. The **SIMs**page appears.
-2. Locate the eSIM that you want to activate and click the link in the **ICCID**column. The **SIM details**page appears.
-3. On the **SIM details**page, go to the **eSIM Info** widget and click **View QR Details**. See image.
+2. Locate the eSIM that you want to activate and click the link in the **ICCID**column. The **SIM Details**page appears.
+3. On the **SIM Details**page, go to the **eSIM Info** widget and click **View QR Details**. See image.
 4. In the **SIM QR Info** window, scan the QR code from the device that needs the eSIM to be activated. Alternatively, copy the activation code and enter it manually into the device. See image. For detailed steps on how to scan the QR code or enter the activation code manually on the device, refer to the official device manual.
 
-[Image: SIM page with the link to view the details of an eSIM]
+[Image: SIMs page with the link to view the details of an eSIM]
 
-[Image: SIM details page of an eSIM]
+[Image: SIM Details page of an eSIM]
 
 [Image: eSIM Info widget showing the option to assign a user]
 
 [Image: eSIM Info widget showing the option to view QR details for activating the eSIM]
 
-[Image: eSIM activation with QR code or activation code]
+[Image: eSIM activation with QR code and activation code]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-tags-zscaler-sims","lastmod":"2026-10-07T03:28Z","nid":"1524941"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/managing-tags-zscaler-sims","lastmod":"2026-10-20T19:42Z","nid":"1524941"} -->
 ## Managing Tags for Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/managing-tags-zscaler-sims
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Managing Tags for Zscaler SIMs
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-20T19:42Z
 - Summary: How to create and manage tags for Zscaler SIMs.
 
-You can add tags to your Zscaler SIMs to group and classify them based on your business requirements. You can use tags to view all SIMs that have the tag associated with them by clicking that tag on the [SIMs page](https://help.zscaler.com/zscaler-cellular/about-sims) or [SIM details page](https://help.zscaler.com/zscaler-cellular/viewing-sim-details).
+You can add tags to your Zscaler SIMs to group and classify them based on your business requirements. You can use tags to view all SIMs that have the tag associated with them by clicking that tag on the [SIMs page](https://help.zscaler.com/zscaler-cellular/about-sims) or [SIM Details page](https://help.zscaler.com/zscaler-cellular/viewing-sim-details).
 
 To add tags to Zscaler SIMs:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Cellular**> **SIMs**.
-  1. In the table, locate the SIM card to which you want to add tags and click the **Update Tags** icon in the **Manage**column. See image. Alternatively, you can go to the **SIM details**page by clicking the **ICCID**link and select the **Update Tags** option from the **Update**drop-down menu in the top-right corner. See image. The **Update Tags**window appears.
+  1. In the table, locate the SIM card to which you want to add tags and click the **Update Tags** icon in the **Manage**column. See image. Alternatively, you can go to the **SIM Details**page by clicking the **ICCID**link and select the **Update Tags** option from the **Update**drop-down menu in the top-right corner. See image. The **Update Tags**window appears.
 2. In the **Update Tags**window:
-  - If you want to associate an existing tag with the SIM card, enter some or all of the characters of a tag name in the **Tags**field and choose an existing tag from the drop-down menu. Repeat this process to add more tags as required. See image.
+  - If you want to associate an existing tag with the SIM card, enter some or all of the characters of a tag name in the **Tags**field and select an existing tag from the drop-down menu. Repeat this process to add more tags as required. See image.
   - If you want to associate a new tag with the SIM cards, enter the name for the new tag in the **Tags**field, and click **Add New Tag**. See image.
 3. Click **Update**. The selected tags are associated with the SIM card.
 
 [Image: A table wih columns for ICCID, IMEI, IMSI, etc. with the option to update tags highlighted]
 
-[Image: The SIM details page with the Update drop-down menu showing the option to update tags.]
+[Image: The SIM Details page with the Update drop-down menu showing the option to update tags]
 
 [Image: Adding an existing tag]
 
@@ -8365,13 +8149,13 @@ Cellular Edge is an intelligent mechanism to forward traffic from or to a Zscale
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/understanding-zscaler-cellular-dashboard","lastmod":"2026-10-07T03:15Z","nid":"1518151"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/understanding-zscaler-cellular-dashboard","lastmod":"2026-10-21T21:06Z","nid":"1518151"} -->
 ## Understanding the Zscaler Cellular Dashboard
 
 - Source: https://help.zscaler.com/zscaler-cellular/understanding-zscaler-cellular-dashboard
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Understanding the Zscaler Cellular Dashboard
-- Last modified: 2026-10-07T03:15Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: Information on the Zscaler Cellular Dashboard.
 
 The Zscaler Cellular Dashboard (Infrastructure > Cellular > Dashboard) provides a centralized view of your organization's SIM card usage, network activity, and connectivity metrics. It offers a graphical representation of key metrics and real-time insights into your deployed SIM cards and their connection to the Zscaler cloud.
@@ -8446,13 +8230,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments","lastmod":"2026-10-07T03:12Z","nid":"1518156"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments","lastmod":"2026-10-21T21:06Z","nid":"1518156"} -->
 ## Viewing and Monitoring Cellular Edge Deployments
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Viewing and Monitoring Cellular Edge Deployments
-- Last modified: 2026-10-07T03:12Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to view and request regional Cellular Edge deployments.
 
 Zscaler deploys and maintains Cellular Edges that serve as secure access on-ramps to the Zscaler Zero Trust Exchange (ZTE), ensuring seamless and secure connectivity for your devices. Depending on your usage requirements, you can request additional Cellular Edges in your preferred regions. You can also monitor the deployment and service status of the Cellular Edges directly from the Zscaler Admin Console.
@@ -8512,13 +8296,13 @@ You can edit or delete a policy only when it is disabled.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-network-event-details","lastmod":"2026-10-07T03:27Z","nid":"1518101"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-network-event-details","lastmod":"2026-10-21T21:06Z","nid":"1518101"} -->
 ## Viewing Network Event Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-network-event-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > Network Events and Logins Monitoring > Viewing Network Event Details
-- Last modified: 2026-10-07T03:27Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to view detailed network events.
 
 You can access in-depth information about specific network events associated with each SIM provisioned to your organization. This detailed view helps you analyze connectivity behavior, troubleshoot issues, and understand event-specific details for enhanced network management.
@@ -8549,13 +8333,13 @@ To view the details of a specific network event:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-10-07T03:28Z","nid":"1518126"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/viewing-sim-details","lastmod":"2026-10-21T21:06Z","nid":"1518126"} -->
 ## Viewing SIM Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-sim-details
 - Product: Zscaler Cellular
 - Path: Zscaler Cellular Help > SIMs > Viewing SIM Details
-- Last modified: 2026-10-07T03:28Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to view details of each SIM card.
 
 You can access in-depth information about each SIM—both physical SIMs and eSIMs—provisioned to your organization. The SIM details page provides a comprehensive overview of a selected SIM's session activity, including its current status, historical data usage, key connectivity details, and location history.

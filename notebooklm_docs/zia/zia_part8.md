@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 8)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 12
 
 ---
@@ -1283,13 +1283,13 @@ To learn more about configuring Zscaler Outbound Email DLP, see [Step-by-Step Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/writing-pac-file","lastmod":"2026-09-02T17:17Z","nid":"1399396"} -->
+<!-- ZS-ARTICLE {"url":"/zia/writing-pac-file","lastmod":"2026-10-22T09:08Z","nid":"1399396"} -->
 ## Writing a PAC File
 
 - Source: https://help.zscaler.com/zia/writing-pac-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Writing a PAC File
-- Last modified: 2026-09-02T17:17Z
+- Last modified: 2026-10-22T09:08Z
 - Summary: How to write a PAC file and include Zscaler-specific variables in the argument.
 
 This article describes how to write a new [PAC file](https://help.zscaler.com/zia/understanding-pac-file).
@@ -1628,9 +1628,10 @@ You can also use the `_FX` suffix with the subcloud variables. For example, `${G
 
 The `_FX` suffix provides load balancing across multiple VIP addresses depending on the HTTP headers (useragent, x-forwarded-for, and z-client). This variable is effective only for Zscaler Client Connector clients because the z-client ID is different for each user. To implement load balancing for non-Zscaler Client Connector clients, you can use the Gateway Index Tokens. To learn more, see [Load Balancing for PAC Forwarded Traffic](https://help.zscaler.com/zia/load-balancing-pac-forwarded-traffic).
 
-You can use the `${Gateway_Host}` variable to resolve to a hostname instead of an IP address. For Kerberos authentication and IPv6 traffic, this is a mandatory configuration.
+You can use the `${Gateway_Host}` variable to resolve to a hostname instead of an IP address. For Kerberos authentication and IPv6 traffic, this is a recommended configuration.
 
-Zscaler mandates using this variable and resolving your hostname to forward IPv6 traffic to Internet & SaaS. You must also ensure that [IPv6 support](https://help.zscaler.com/zia/configuring-ipv6-settings) is enabled for your organization and locations in the Zscaler Admin Console.
+- Zscaler recommends using this variable and resolving your hostname to forward IPv6 traffic t. You must also ensure that [IPv6 support](https://help.zscaler.com/zia/configuring-ipv6-settings) is enabled for your organization and locations and the [Enable IPv6 Resolution for Zscaler Domain](https://help.zscaler.com/zscaler-client-connector/enabling-ipv6-resolution-zscaler-domains) is enabled in the Zscaler Admin Console.
+- Using this variable also allows browsers to configure PAC files with [Dynamic Gateway Host Tokens](https://help.zscaler.com/zia/writing-pac-file#dynamic-gateway-host-tokens) (i.e., `${GATEWAY_HOST_FX}` variable) to support IPv6 traffic for browser deployments.
 
 Use the following syntax to include the `${GATEWAY_HOST}` variable in your PAC file:
 

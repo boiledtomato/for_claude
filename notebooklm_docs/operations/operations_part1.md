@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 94
 
 ---
@@ -434,13 +434,13 @@ Announcement date: Jun 11, 2026
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-cloud-connector-repository-certificate","lastmod":"2026-10-07T14:56Z","nid":"1546096"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-cloud-connector-repository-certificate","lastmod":"2026-10-21T21:06Z","nid":"1546096"} -->
 ## End-of-Support for Cloud Connector Repository Certificate
 
 - Source: https://help.zscaler.com/product-usage-terms/end-support-cloud-connector-repository-certificate
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for Cloud Connector Repository Certificate
-- Last modified: 2026-10-07T14:56Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: End-of-Support (EOS) for Cloud Connector TLS repository certificate.
 
 The TLS certificate for the Zscaler Cloud Connector software update repository will expire on March 18, 2027. To preserve software update functionality and avoid deployment failures, customers must update their virtual machines or use the latest marketplace images. Zscaler recommends that all customers complete these updates by December 31, 2026:
@@ -2169,13 +2169,13 @@ If none of the above steps help, please submit a case to [Zscaler Support](https
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0","lastmod":"2026-09-20T07:06Z","nid":"1539484"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0","lastmod":"2026-10-21T07:06Z","nid":"1539484"} -->
 ## Internet & SaaS Access Control Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-access-control-policies-support-troubleshooting-runbook-0
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Internet & SaaS Access Control Policies Support Troubleshooting Runbook
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-21T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS access control policies.
 
 The Internet & SaaS Access Control Policies Support Troubleshooting Runbook provides comprehensive guidance for troubleshooting requests related to scenarios involving URL, domain, IP address, file analysis, and related vulnerabilities. It highlights various checks on third-party websites and Zscaler's tools that help you achieve clarity on the security verdicts. By following these structured steps, users can efficiently address issues related to Zscaler's access control policies and ensure proper handling of security threats.
@@ -2772,13 +2772,13 @@ Compare the identified file type with the policy rules. If the true type is bloc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook","lastmod":"2026-09-20T07:06Z","nid":"1533716"} -->
+<!-- ZS-ARTICLE {"url":"/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook","lastmod":"2026-10-21T07:06Z","nid":"1533716"} -->
 ## Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook
 - Product: Zscaler Support Troubleshooting Runbooks
 - Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-21T07:06Z
 - Summary: The Internet & SaaS Nanolog Streaming Service (NSS) Support Troubleshooting Runbook outlines troubleshooting steps for diagnosing issues with Nanolog Streaming Service (NSS) deployment.
 
 Zscaler's Nanolog Streaming Service (NSS) is a family of products that enable Zscaler cloud communication with third-party security solution devices for exchanging event logs.
@@ -10402,13 +10402,13 @@ To learn more about configuring the ZIR in AWS, see [Configuring the Zscaler Inc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-06T06:01Z","nid":"1531120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding","lastmod":"2026-10-20T21:06Z","nid":"1531120"} -->
 ## Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-cloud-cloud-incident-forwarding
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Cloud-to-Cloud Incident Forwarding
-- Last modified: 2026-10-06T06:01Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Cloud-to-Cloud Incident Forwarding.
 
 Workflow Automation DLP application integration with an Azure instance using Zscaler Cloud-to-Cloud Incident Forwarding enables your organization to send Data Loss Prevention (DLP) incident metadata and evidence files to your organization's Azure storage containers in your Azure account without deploying appliances.
@@ -13378,13 +13378,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-18T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-25T07:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

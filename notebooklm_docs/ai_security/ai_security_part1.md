@@ -1,8 +1,8 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
-Articles in this file: 88
+Generated: 2026-10-26 08:09 UTC
+Articles in this file: 90
 
 ---
 
@@ -1450,6 +1450,106 @@ This can happen when an IAM User or Role has correct permissions to access a buc
 [Image: AWS Specify permissions page]
 
 [Image: Amazon Specify user details page with AI Guard Admin entered for User name]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/best-practices-runbook-claude-integration","lastmod":"2026-10-23T08:31Z","nid":"1546954"} -->
+## Best Practices Runbook: Claude Integration
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/best-practices-runbook-claude-integration
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > Best Practices > Best Practices Runbook: Claude Integration
+- Last modified: 2026-10-23T08:31Z
+- Summary: Learn which Claude tools are supported in AI Guard by default and how to enable those that aren't for both Windows and macOS.
+
+This article provides configuration information to support the available tools, plugins, and applications from Anthropic Claude with Zscaler AI Guard. By default, AI Guard supports all Claude tools listed in this article when using Claude version 2.1.101 or later. If using a Claude Code CLI version earlier than 2.1.101 you need to refer to the Enabling Claude Code CLI and Code for VS Code section later in this article.
+
+## Prerequisites
+
+Ensure that you have all the following requirements:
+
+- Zscaler Client Connector installed and logged in.
+- Zscaler Root Certificate Authority (CA) installed in the Trusted Root Certification Authority store on the device. This is usually done automatically with Zscaler Client Connector.
+- All Claude applications, tools, extensions, plugins, or add-ons are installed.
+- [SSL Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) is configured in Zscaler Internet Access (ZIA) for the following Anthropic/Claude domains:
+  - .api.anthropic.com
+  - .claude.ai
+
+## Supported Claude Tools
+
+In the following table, Claude apps with the green checkmark (✅) in the Works by Default column do not require any additional steps, so long as the previous prerequisites are followed. The Windows and macOS columns specify Zscaler supports these overall, and whether additional steps are required.
+
+| Claude Tool/Application | Works by Default | Windows | macOS |
+| --- | --- | --- | --- |
+| Claude Code Desktop | ✅ | ✅ | ✅ |
+| Claude Cowork (in Claude Code Desktop) | ✅ | ✅ | ✅ |
+| Claude Code CLI | ✅ | ✅ | ✅ |
+| Claude Code Visual Studio (VS) Code Extension | ✅ | ✅ | ✅ |
+| Claude Extension for Chrome | ✅ | ✅ | ✅ |
+| Claude Extension for Excel | ✅ | ✅ | ✅ |
+| Claude Extension for Powerpoint | ✅ | ✅ | ✅ |
+
+## Enabling Claude Code CLI and Code for VS Code
+
+- Windows Instructions
+- macOS Instructions
+
+To enable Claude Code CLI and Code for VS Code if you are using a Claude version earlier than 2.1.101, you will need to do the following:
+
+### Obtain the Zscaler Certificate
+
+1. In Windows, go to the **Start menu**, type `cert`, and select **Manage user certificates**.
+2. In the Certmgr window, expand **Trusted Root Certification Authorities** and select **Certificates**.
+3. Scroll down, right click on `Zscaler Root CA`. Select **All Tasks** > **Export**.
+4. In the **Certificate Export Wizard**, click Next, select **Base-64 encoded X.509 (.CER)** for the file format and click **Next** again.
+5. Enter a name (such as `zscaler.cer`) and location, click **Next**, and then click **Finish**.
+
+### Set User Environment Variable
+
+1. In Windows, open **Powershell**.
+2. Run the following command, replacing the path with the location of your certificate: `setx NODE_EXTRA_CA_CERTS="/path/to/your/zscaler.cer"`
+3. To verify their certification was set properly, run the following command: `[System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::User)`
+
+### Verify Claude Apps
+
+Claude Code CLI verification:
+
+1. Open **Powershell**.
+2. Enter and run: `claude`.
+3. Select **yes** to allow access.
+4. Enter a prompt. If Claude Code CLI is working, you will receive a response instead of an SSL certificate error, and the traffic will appear in Zscaler.
+
+Claude Code VS Code Extension verification:
+
+1. Open **Visual Studio Code**.
+2. Open any Workspace or file.
+3. Open the Claude Code extension by selecting the **Claude** icon near the top-right.
+4. Type a prompt. If Claude Code CLI is working, you will receive a response instead of an SSL certificate error, and the traffic will appear in Zscaler.
+
+To enable Claude Code CLI and Code for VS Code if you are using a Claude version earlier than 2.1.101, you will need to do the following:
+
+### Obtain the Zscaler Certificate
+
+1. On your Mac, go to Keychain Access.
+2. Go to the **My Certificates** tab.
+3. Right-click the **Zscaler Root CA** and select **Export**.
+4. Select a filename and folder to export to.
+5. Select the **.pem** file format. For Node.js-based tools such as Claude CLI, you need a PEM-formatted certificate.
+6. Click **Save**.
+
+### Set User Environment Variable
+
+1. Open **Terminal** on MacOS.
+2. Determine the **Shell type** using this command: `echo $SHELL`
+3. Open the shell configuration file with a text editor, such as VIM.
+  1. The default on modern MacOS: `~/.zshrc`
+  2. Common alternative: `~/.bash_profile`
+4. Add the following line to the shell configuration file, replacing the path with the location of your certificate: `export NODE_EXTRA_CA_CERTS="/path/to/zscaler.pem"`
+5. Save the file and restart Terminal or reload it, based on your shell type:
+  1. `source ~/.zshrc`
+  2. `source ~/.bash_profile`
+6. Verify the variable is set: `echo $NODE_EXTRA_CA_CERTS`
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3656,13 +3756,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-06T18:20Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-19T16:20Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-06T18:20Z
+- Last modified: 2026-10-19T16:20Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -5423,6 +5523,106 @@ This can happen when an IAM User or Role has correct permissions to access a buc
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-claude-integration","lastmod":"2026-10-23T08:31Z","nid":"1545634"} -->
+## Best Practices Runbook: Claude Integration
+
+- Source: https://help.zscaler.com/secure-ai-users/best-practices-runbook-claude-integration
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Best Practices > Best Practices Runbook: Claude Integration
+- Last modified: 2026-10-23T08:31Z
+- Summary: Learn which Claude tools are supported in AI Guard by default and how to enable those that aren't for both Windows and macOS.
+
+This article provides configuration information to support the available tools, plugins, and applications from Anthropic Claude with Zscaler AI Guard. By default, AI Guard supports all Claude tools listed in this article when using Claude version 2.1.101 or later. If using a Claude Code CLI version earlier than 2.1.101 you need to refer to the Enabling Claude Code CLI and Code for VS Code section later in this article.
+
+## Prerequisites
+
+Ensure that you have all the following requirements:
+
+- Zscaler Client Connector installed and logged in.
+- Zscaler Root Certificate Authority (CA) installed in the Trusted Root Certification Authority store on the device. This is usually done automatically with Zscaler Client Connector.
+- All Claude applications, tools, extensions, plugins, or add-ons are installed.
+- [SSL Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) is configured in Zscaler Internet Access (ZIA) for the following Anthropic/Claude domains:
+  - .api.anthropic.com
+  - .claude.ai
+
+## Supported Claude Tools
+
+In the following table, Claude apps with the green checkmark (✅) in the Works by Default column do not require any additional steps, so long as the previous prerequisites are followed. The Windows and macOS columns specify Zscaler supports these overall, and whether additional steps are required.
+
+| Claude Tool/Application | Works by Default | Windows | macOS |
+| --- | --- | --- | --- |
+| Claude Code Desktop | ✅ | ✅ | ✅ |
+| Claude Cowork (in Claude Code Desktop) | ✅ | ✅ | ✅ |
+| Claude Code CLI | ✅ | ✅ | ✅ |
+| Claude Code Visual Studio (VS) Code Extension | ✅ | ✅ | ✅ |
+| Claude Extension for Chrome | ✅ | ✅ | ✅ |
+| Claude Extension for Excel | ✅ | ✅ | ✅ |
+| Claude Extension for Powerpoint | ✅ | ✅ | ✅ |
+
+## Enabling Claude Code CLI and Code for VS Code
+
+- Windows Instructions
+- macOS Instructions
+
+To enable Claude Code CLI and Code for VS Code if you are using a Claude version earlier than 2.1.101, you will need to do the following:
+
+### Obtain the Zscaler Certificate
+
+1. In Windows, go to the **Start menu**, type `cert`, and select **Manage user certificates**.
+2. In the Certmgr window, expand **Trusted Root Certification Authorities** and select **Certificates**.
+3. Scroll down, right click on `Zscaler Root CA`. Select **All Tasks** > **Export**.
+4. In the **Certificate Export Wizard**, click Next, select **Base-64 encoded X.509 (.CER)** for the file format and click **Next** again.
+5. Enter a name (such as `zscaler.cer`) and location, click **Next**, and then click **Finish**.
+
+### Set User Environment Variable
+
+1. In Windows, open **Powershell**.
+2. Run the following command, replacing the path with the location of your certificate: `setx NODE_EXTRA_CA_CERTS="/path/to/your/zscaler.cer"`
+3. To verify their certification was set properly, run the following command: `[System.Environment]::GetEnvironmentVariables([System.EnvironmentVariableTarget]::User)`
+
+### Verify Claude Apps
+
+Claude Code CLI verification:
+
+1. Open **Powershell**.
+2. Enter and run: `claude`.
+3. Select **yes** to allow access.
+4. Enter a prompt. If Claude Code CLI is working, you will receive a response instead of an SSL certificate error, and the traffic will appear in Zscaler.
+
+Claude Code VS Code Extension verification:
+
+1. Open **Visual Studio Code**.
+2. Open any Workspace or file.
+3. Open the Claude Code extension by selecting the **Claude** icon near the top-right.
+4. Type a prompt. If Claude Code CLI is working, you will receive a response instead of an SSL certificate error, and the traffic will appear in Zscaler.
+
+To enable Claude Code CLI and Code for VS Code if you are using a Claude version earlier than 2.1.101, you will need to do the following:
+
+### Obtain the Zscaler Certificate
+
+1. On your Mac, go to **Keychain Access**.
+2. Go to the **My Certificates** tab.
+3. Right-click the **Zscaler Root CA** and select **Export**.
+4. Select a filename and folder to export to.
+5. Select the **.pem** file format. For Node.js-based tools such as Claude CLI, you need a PEM-formatted certificate.
+6. Click **Save**.
+
+### Set User Environment Variable
+
+1. Open **Terminal** on MacOS.
+2. Determine the **Shell type** using this command: `echo $SHELL`
+3. Open the shell configuration file with a text editor, such as VIM.
+  1. The default on modern MacOS: `~/.zshrc`
+  2. Common alternative: `~/.bash_profile`
+4. Add the following line to the shell configuration file, replacing the path with the location of your certificate: `export NODE_EXTRA_CA_CERTS="/path/to/zscaler.pem"`
+5. Save the file and restart terminal or reload it, based on your shell type:
+  1. `source ~/.zshrc`
+  2. `source ~/.bash_profile`
+6. Verify the variable is set: `echo $NODE_EXTRA_CA_CERTS`
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-users/best-practices-runbook-competition-detector-0","lastmod":"2026-07-24T11:42Z","nid":"1541880"} -->
 ## Best Practices Runbook: Competition Detector
 
@@ -7025,13 +7225,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-10-06T18:15Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-10-19T16:20Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-06T18:15Z
+- Last modified: 2026-10-19T16:20Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

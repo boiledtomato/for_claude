@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 112
 
 ---
@@ -181,19 +181,19 @@ Similarly, you can edit custom network services and modify their port assignment
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-10-08T21:06Z","nid":"1401731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-10-21T13:20Z","nid":"1401731"} -->
 ## Modifying a Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/modifying-zscaler-incident-receiver
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
-- Last modified: 2026-10-08T21:06Z
+- Last modified: 2026-10-21T13:20Z
 - Summary: How to edit a Zscaler Incident Receiver, including how to delete the incident receiver and download or regenerate the certificate.
 
 To edit or delete a Zscaler Incident Receiver:
 
 1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**
-2. Click the **Zscaler Incident Receiver** tab.
+2. Select the **Zscaler Incident Receiver** tab.
 3. Locate the Zscaler Incident Receiver in the table and click **Edit**.
 
 The **Edit Zscaler Incident Receiver** window appears.
@@ -215,16 +215,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-or-blocking-outbound-content-data-size","lastmod":"2026-07-01T14:47Z","nid":"1400001"} -->
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-or-blocking-outbound-content-data-size","lastmod":"2026-10-22T08:22Z","nid":"1400001"} -->
 ## Monitoring or Blocking Outbound Content by Data Size
 
 - Source: https://help.zscaler.com/zia/monitoring-or-blocking-outbound-content-data-size
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Monitoring or Blocking Outbound Content by Data Size
-- Last modified: 2026-07-01T14:47Z
+- Last modified: 2026-10-22T08:22Z
 - Summary: How to create a Data Loss Prevention (DLP) policy to monitor or block outbound content by file size using the Zscaler service.
 
-You might want to leverage Zscaler's Data Loss Prevention (DLP) policy to monitor or block specific types of outbound content by file size, without scanning for specific files within the content. For example, you could block outbound image files (such as GIF or JPEG). In Policy > File Type Control, you can set the policy to block image files.
+You might want to leverage Zscaler's Data Loss Prevention (DLP) policy to monitor or block specific types of outbound content by file size, without scanning for specific files within the content. For example, you could block outbound image files (such as GIF or JPEG). In Internet Access > Policy > File Type Control, you can set the policy to block image files.
 
 For this scenario, you can leverage the Rule Without Content Inspection policy option. When configuring the policy, you can specify the criteria Zscaler uses for monitoring or blocking content, but refrain from specifying an ICAP server. Zscaler monitors or blocks outbound content based on the criteria you specify, but does not send content to any external DLP engines. The following illustration details the process that takes place when you configure DLP policies for this scenario:
 
@@ -5502,13 +5502,13 @@ Fields that support obfuscation are documented in the following tables with the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-04-06T07:04Z","nid":"1400571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-10-19T17:50Z","nid":"1400571"} -->
 ## NSS Feed Output Format: DNS Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-04-06T07:04Z
+- Last modified: 2026-10-19T17:50Z
 - Summary: Information on the DNS log fields and their sample values.
 
 The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -5567,7 +5567,7 @@ The following are transaction information fields:
 | %d{durationms} | The duration of the DNS request in milliseconds |  | Request Duration |
 | %s{sip} | The server IP address of the request | 192.168.2.200, 2a02:2e0:40c:102:1:2b:10:80, 2001:db8::2:1 | Server IP |
 | %d{recordid} | The unique record identifier for each log |  | This field is specific to NSS |
-| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [DNS Insights Logs](https://help.zscaler.com/zia/dns-insights-logs-columns) page. | 43139974/dns/663ba8fd30b50001.pcap | Capture |
+| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Organization profile](https://help.zscaler.com/unified/configuring-organization-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [DNS Insights Logs](https://help.zscaler.com/zia/dns-insights-logs-columns) page. | 43139974/dns/663ba8fd30b50001.pcap | Capture |
 | %s{location} | The gateway location or sublocation of the source | Headquarters | Location |
 | %s{req} | The Fully Qualified Domain Name (FQDN) in the DNS request | mail.safemarch.com | Requested Domain |
 | %s{res} | The resolved IP or NAME in the DNS response | 192.168.2.200, 2a02:2e0:40c:102:1:2b:10:80, 2001:db8::2:1, EMPTY_RESP | Resolved IP or Name |
@@ -5980,13 +5980,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-firewall-logs","lastmod":"2026-05-14T14:15Z","nid":"1400561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-firewall-logs","lastmod":"2026-10-19T17:12Z","nid":"1400561"} -->
 ## NSS Feed Output Format: Firewall Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Firewall Logs
-- Last modified: 2026-05-14T14:15Z
+- Last modified: 2026-10-19T17:12Z
 - Summary: Information on the Firewall log fields and their sample values.
 
 The Firewall Nanolog Streaming Service (NSS) feed specifies the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -6099,7 +6099,7 @@ The following are transaction information fields:
 | Field | Description | Example | Insights Logs |
 | --- | --- | --- | --- |
 | %d{recordid} | The record ID |  | This field is specific to NSS |
-| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns) page. | 43139974/fw/663ba8fd30b50001.pcap | Capture |
+| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Organization profile](https://help.zscaler.com/unified/configuring-organization-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns) page. | 43139974/fw/663ba8fd30b50001.pcap | Capture |
 | %ld{inbytes} | The number of bytes sent from the server to the client | 10,000 | Inbound Bytes |
 | %ld{outbytes} | The number of bytes sent from the client to the server | 10,000 | Outbound Bytes |
 | %s{nwapp} | The network application that was accessed | SSH | Network Application |
@@ -7273,13 +7273,13 @@ The following are obfuscated fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-web-logs","lastmod":"2026-09-18T17:35Z","nid":"1400566"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-web-logs","lastmod":"2026-10-19T17:48Z","nid":"1400566"} -->
 ## NSS Feed Output Format: Web Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-web-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Web Logs
-- Last modified: 2026-09-18T17:35Z
+- Last modified: 2026-10-19T17:48Z
 - Summary: Information on the web log fields and their sample values.
 
 The web Nanolog Streaming Service (NSS) feed specifies the data from the web logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -7609,7 +7609,7 @@ The following are miscellaneous fields:
 | Field | Description | Example | Insights Logs |
 | --- | --- | --- | --- |
 | %d{recordid} | The unique record identifier for each log |  | This field is specific to NSS |
-| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-columns) page. | 43139974/web/663ba8fd30b50001.pcap | Capture |
+| %s{pcapid} | The path of the packet capture (PCAP) file that captured the transaction. The PCAP ID has the following format: `<Company ID>/<Directory>/<PCAP File Name>`. The company ID is the internal ID of an organization and can be found on the [Organization profile](https://help.zscaler.com/unified/configuring-organization-profile) page. The directory is the log type. To download the PCAP file, go to the Capture column on the [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-columns) page. | 43139974/web/663ba8fd30b50001.pcap | Capture |
 | %s{productversion} | The current version of the product. Useful for SIEMs whose format requires the product internal version to be sent in the log output. | 5.0.902.95524_04 | This field is specific to NSS |
 | %s{nsssvcip} | The service IP address of the NSS. Useful for syslog-format logs that require the origin host IP address to be specified. | 10.10.102.300 | This field is specific to NSS |
 | %s{eedone} | Indicates if the characters specified in the Feed Escape Character field of the NSS feed configuration page were hex encoded | Yes | This field is specific to NSS |
@@ -8282,13 +8282,13 @@ To learn more about the configuration steps, refer to the [Okta documentation](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-10-13T21:06Z","nid":"1402326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-10-22T13:42Z","nid":"1402326"} -->
 ## Obfuscating Device Information for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-device-information-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating Device Information for Admins
-- Last modified: 2026-10-13T21:06Z
+- Last modified: 2026-10-22T13:42Z
 - Summary: How to obfuscate device information for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether device information (i.e., device hostname, device owner, and device name) are visible or obfuscated for an admin when they view dashboards, reports, or insights.
@@ -8309,59 +8309,69 @@ To obfuscate device information for an admin viewing dashboards, reports, and in
 
 To obfuscate device information for an admin, do one of the following:
 
-- Assign the admin an existing role with device information obfuscation enabled
-- Enable device information obfuscation for an existing role
-- Add a new role with device information obfuscation enabled and assign it to the admin
-- Add a new admin role and account
+- Assign the admin an existing role with device information obfuscation enabled.
+- Enable device information obfuscation for an existing role.
+- Add a new role with device information obfuscation enabled and assign it to the admin.
+- Add a new admin role and account.
 
-1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
-2. Ensure that you have a role with the appropriate permissions for the admin you want to assign the role to and that the **Device Information** column for that row displays **Obfuscated**.
-3. Go to**Administration**>**Role Management**>**Administrative Entitlements**.
-4. Select **Zscaler Internet Access**.
-5. Click the **Users**tab.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management**> **Internet & SaaS**.
+2. Ensure that you have a role with the appropriate permissions for the admin you want to assign the role to and that the **Device Information**column for that row displays **Obfuscated**.
+3. Go to**Administration** > **Role Management**> **Administrative Entitlements**.
+4. Select **Zscaler Internet Access**. See image.
+5. Select the **Users**tab.
 6. Click **Assign Users**. The **Select Users & Roles** page appears.
-7. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
-8. Select the desired role from the drop-down menu.
+7. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
+8. Click **Next**.
+9. On the **Summary** page, review the assignment details and click **Assign**.
+10. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** >**Legacy Admin Management**>**Internet & SaaS**.
+2. On the **Administrators** tab, in the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want device information obfuscation enabled for those admins as well. See image.
+3. Go to **Administration** > **Role Management**> **Internet & SaaS**.
+4. Click the **Edit** icon for the role assigned to the admin you're editing. The **Edit Administrator Role**window appears.
+5. In the **Edit Administrator Role**window, For **Device Information**, choose **Obfuscated**. See image.
+6. Click**Save**and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** > **Role Management**> **Internet & SaaS**.
+2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
+3. In the **Add Administrator Role**window, follow [the instructions for adding a new admin role](https://help.zscaler.com/zia/adding-admin-roles), including how to enable device information obfuscation.
+4. Go to**Administration** > **Role Management**> **Administrative Entitlements**.
+5. Select **Zscaler Internet Access**. See image.
+6. Select the **Users**tab.
+7. Click **Assign Users**. The **Select Users & Roles** page appears.
+8. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
 9. Click **Next**.
 10. On the **Summary** page, review the assignment details and click **Assign**.
 11. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
-
-1. Go to**Administration**>**Legacy Admin Management**>**Internet & SaaS**>**Administrators**.
-2. In the **Role** column, check which admin role is assigned to admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want device information obfuscation enabled for those admins as well.
-3. Go to **Administration**>**Role Management**>**Internet & SaaS**.
-4. Click the **Edit** icon for the role assigned to the admin you're editing. The **Edit Administrator Role**window appears.
-5. In the **Edit Administrator Role**window, for **Device Information**, choose **Obfuscated**.
-6. Click**Save**and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. Go to**Administration**>**Role Management**>**Internet & SaaS**.
-2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
-3. In the **Add Administrator Role**window, follow [the instructions for adding a new admin role](https://help.zscaler.com/zia/adding-admin-roles), including how to enable device information obfuscation.
-4. Go to**Administration**>**Role Management**>**Administrative Entitlements**.
-5. Select **Zscaler Internet Access**.
-6. Click the **Users**tab.
-7. Click **Assign Users**. The **Select Users & Roles** page appears.
-8. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
-9. Select the desired role from the drop-down menu.
-10. Click **Next**.
-11. On the **Summary** page, review the assignment details and click **Assign**.
-12. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
 
 For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
 1. [Add a new admin role with device information obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
 2. [Add a new user.](https://help.zscaler.com/zidentity/adding-users)
 3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups)
+
+[Image: Configure entitlements for Internet & SaaS]
+
+[Image: Configure entitlements for Internet & SaaS]
+
+[Image: Select a user to assign an entitlement to and a role for the user]
+
+[Image: Select a user to assign an entitlement to and a role for the user]
+
+[Image: Checking what role is assigned to an admin]
+
+[Image: The option to obfuscate device information]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-10-13T21:06Z","nid":"1399736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-10-22T13:42Z","nid":"1399736"} -->
 ## Obfuscating User Names for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-user-names-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating User Names for Admins
-- Last modified: 2026-10-13T21:06Z
+- Last modified: 2026-10-22T13:42Z
 - Summary: How to obfuscate user names for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether real user names are visible or obfuscated for an admin when they view dashboards, reports, or insights. You can also obfuscate user names in NSS feeds. To learn more, see [Adding NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-nss-feeds-web-logs), [Adding NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs), and [Adding NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-nss-feeds-dns-logs).
@@ -8387,43 +8397,53 @@ To obfuscate user names for an admin, do one of the following:
 - Add a new role with user obfuscation enabled and assign it to the admin.
 - Add a new admin role and account.
 
-1. Go to **Administration** > **Role Management**> **Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management**> **Internet & SaaS**.
 2. Ensure that you have a role with the appropriate permissions for the admin you want to assign the role to and that the **User Names**column for that row displays **Obfuscated**.
 3. Go to**Administration** > **Role Management**> **Administrative Entitlements**.
-4. Select **Zscaler Internet Access**.
-5. Click the **Users**tab.
+4. Select **Zscaler Internet Access**. See image.
+5. Select the **Users**tab.
 6. Click **Assign Users**. The **Select Users & Roles** page appears.
-7. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
-8. Select the desired role from the drop-down menu.
-9. Click **Next**.
-10. On the **Summary** page, review the assignment details and click **Assign**.
-11. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+7. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
+8. Click **Next**.
+9. On the **Summary** page, review the assignment details and click **Assign**.
+10. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
 
-1. Go to**Administration** >**Legacy Admin Management**>**Internet & SaaS**>**Administrators**.
-2. In the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want user obfuscation enabled for those admins as well.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** >**Legacy Admin Management**>**Internet & SaaS**.
+2. On the **Administrators** tab, in the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want user obfuscation enabled for those admins as well. See image.
 3. Go to **Administration** > **Role Management**> **Internet & SaaS**.
 4. Click the **Edit** icon for the role assigned to the admin you're editing. The **Edit Administrator Role**window appears.
-5. In the **Edit Administrator Role**window, For **User Names**, choose **Obfuscated**.
-6. Click**Save**and[activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+5. In the **Edit Administrator Role**window, For **User Names**, choose **Obfuscated**. See image.
+6. Click**Save**and[activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to**Administration** > **Role Management**> **Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** > **Role Management**> **Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role**window, follow [the instructions for adding a new admin role](https://help.zscaler.com/zia/adding-admin-roles), including how to enable user name obfuscation.
 4. Go to**Administration** > **Role Management**> **Administrative Entitlements**.
-5. Select **Zscaler Internet Access**.
-6. Click on the **Users**tab.
+5. Select **Zscaler Internet Access**. See image.
+6. Select the **Users**tab.
 7. Click **Assign Users**. The **Select Users & Roles** page appears.
-8. On the **Select Users & Roles** page, use the search bar to find the admin you want to assign the role to.
-9. Select the desired role from the drop-down menu.
-10. Click **Next**.
-11. On the **Summary** page, review the assignment details and click **Assign**.
-12. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
+8. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
+9. Click **Next**.
+10. On the **Summary** page, review the assignment details and click **Assign**.
+11. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
 
 For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
 1. [Add a new admin role with user obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
 2. [Add a new user.](https://help.zscaler.com/authentication-service/adding-users)
 3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups)
+
+[Image: Configure entitlements for Internet & SaaS]
+
+[Image: Configure entitlements for Internet & SaaS]
+
+[Image: Select a user to assign an entitlement to and a role for the user]
+
+[Image: Select a user to assign an entitlement to and a role for the user]
+
+[Image: Checking what role is assigned to an admin]
+
+[Image: The option to obfuscate user names]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9024,19 +9044,23 @@ To provide feedback:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-advanced-threat-protection-policy","lastmod":"2026-07-02T05:22Z","nid":"1400136"} -->
+<!-- ZS-ARTICLE {"url":"/zia/recommended-advanced-threat-protection-policy","lastmod":"2026-10-22T08:56Z","nid":"1400136"} -->
 ## Recommended Advanced Threat Protection Policy
 
 - Source: https://help.zscaler.com/zia/recommended-advanced-threat-protection-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Recommended Advanced Threat Protection Policy
-- Last modified: 2026-07-02T05:22Z
+- Last modified: 2026-10-22T08:56Z
 - Summary: View the Zscaler recommended configuration for the Advanced Threat Protection policy.
 
 Zscaler recommends the following configuration for the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy):
 
 - **Suspicious Content Protection (Page Risk)**: 35
-- **Botnet Protection**: Block all
+- **Botnet Protection**:
+  - **Command & Control Servers**: Block
+  - **Command & Control Traffic**: Block
+  - **Alert for Unknown/Suspicious C2 Traffic**: Enabled
+  - **Domain Generation Algorithm (DGA) Domains**: Block
 - **Malicious Active Content Protection**: Block all
 - **Fraud Protection**: Block all
 - **Unauthorized Communication Protection**: Block all
@@ -9705,13 +9729,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-10-16T11:50Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-10-23T12:09Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-16T11:50Z
+- Last modified: 2026-10-23T12:09Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9774,16 +9798,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/resending-alerts","lastmod":"2026-10-07T10:03Z","nid":"1399141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/resending-alerts","lastmod":"2026-10-20T12:36Z","nid":"1399141"} -->
 ## Resending Alerts
 
 - Source: https://help.zscaler.com/zia/resending-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Resending Alerts
-- Last modified: 2026-10-07T10:03Z
+- Last modified: 2026-10-20T12:36Z
 - Summary: How to resend active alerts for the Zscaler Admin Console.
-
-[Watch a video about Alerts, including how to resend them](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 You can choose to send additional alerts every time the event's threshold is reached.
 
@@ -13206,16 +13228,14 @@ You can add and manage your authorization servers from the OAuth 2.0 Authorizati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/security-policy-audit-report","lastmod":"2026-09-18T03:34Z","nid":"1400711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/security-policy-audit-report","lastmod":"2026-10-21T16:23Z","nid":"1400711"} -->
 ## Security Policy Audit Report
 
 - Source: https://help.zscaler.com/zia/security-policy-audit-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Security Policy Audit Report
-- Last modified: 2026-09-18T03:34Z
+- Last modified: 2026-10-21T16:23Z
 - Summary: Information about the Security Policy Audit Report, which shows your Security Policy settings and best practices guidelines.
-
-[Watch a video about the Security Policy Audit Report (shows legacy UI)](https://fast.wistia.net/embed/iframe/18ox800one)
 
 The Security Policy Audit Report allows you to view your Security Policy settings and improve them by following best practices guidelines.
 
@@ -13306,16 +13326,14 @@ If you don't follow the best practice settings for all other areas, your grade f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-10-06T21:06Z","nid":"1401931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-gre-tunnels","lastmod":"2026-10-20T09:15Z","nid":"1401931"} -->
 ## Self-Provisioning of GRE Tunnels
 
 - Source: https://help.zscaler.com/zia/self-provisioning-gre-tunnels
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Self-Provisioning of GRE Tunnels
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-20T09:15Z
 - Summary: How to self-provision GRE tunnels using the Zscaler Admin Console.
-
-[Watch a video about GRE Tunnels and Static IP Addresses](https://fast.wistia.net/embed/iframe/vmf3zi7h8b) (shows legacy UI).
 
 You can self-provision your GRE tunnels to connect to the Zscaler service via the Zscaler Admin Console. To learn more, see [About GRE Tunnels](https://help.zscaler.com/zia/about-gre-tunnels).
 
@@ -13706,13 +13724,13 @@ The **Reports**menu in the left-side navigation allows you to navigate to any cu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-internet-saas","lastmod":"2026-09-29T17:44Z","nid":"1401206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-internet-saas","lastmod":"2026-10-19T17:52Z","nid":"1401206"} -->
 ## Step-by-Step Configuration Guide for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Step-by-Step Configuration Guide for Internet & SaaS
-- Last modified: 2026-09-29T17:44Z
+- Last modified: 2026-10-19T17:52Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Internet & SaaS (ZIA)
 
 This guide takes you through the configuration steps you need to complete to begin using Internet & SaaS (ZIA) for your organization.
@@ -13743,7 +13761,7 @@ Locations identify the various networks from which your organization sends its i
 
 To update your company information and configure administrators as applicable, see:
 
-- [Configuring the Company Profile](https://help.zscaler.com/unified/configuring-company-profile)
+- [Configuring the Organization Profile](https://help.zscaler.com/unified/configuring-organization-profile)
 - [About Administrators](https://help.zscaler.com/zia/about-administrators)
 - [Adding Users](https://help.zscaler.com/authentication-service/adding-users)
 - [About Role Management](https://help.zscaler.com/zia/about-role-management)
@@ -13840,13 +13858,13 @@ You can also utilize the Nanolog Streaming Service (NSS). This uses a virtual ma
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-webex-teams-real-time-dlp","lastmod":"2025-03-25T07:06Z","nid":"1518511"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-webex-teams-real-time-dlp","lastmod":"2026-10-22T08:38Z","nid":"1518511"} -->
 ## Step-by-Step Configuration Guide for Webex Teams Real-Time DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-webex-teams-real-time-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Step-by-Step Configuration Guide for Webex Teams Real-Time DLP
-- Last modified: 2025-03-25T07:06Z
+- Last modified: 2026-10-22T08:38Z
 - Summary: A high-level overview of how to onboard and configure Webex Teams for Real-time Data Loss Prevention (DLP) for messages and files.
 
 This guide takes you through the configuration steps you need to complete to begin using the Zscaler real-time Data Loss Prevention (DLP) for your organization. Because Zscaler real-time DLP uses Zscaler DLP tools to monitor and prevent the leakage of sensitive data in Webex Teams messages and files, Zscaler recommends reading the following articles before you begin configuring your real-time DLP policy.
@@ -13871,9 +13889,9 @@ To configure Zscaler Real-time DLP, complete the following steps:
 - (Optional) Step 7: Configure NSS Feeds
 - Step 8: Monitor Activity with Dashboards and Reports
 
-Ensure that Zscaler Internet Access (ZIA) is fully configured for your organization. To learn more, see [Step-by-Step Configuration Guide for ZIA](https://help.zscaler.com/zia/step-step-configuration-guide-zia).
+Ensure that Internet & SaaS (ZIA) is fully configured for your organization. To learn more, see [Step-by-Step Configuration Guide for Internet & SaaS](https://help.zscaler.com/zia/step-step-configuration-guide-internet-saas).
 
-Ensure that your company details are set up in your Company Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
+Ensure that your company details are set up in your Organization profile. To learn more, see [Configuring the Organization Profile](https://help.zscaler.com/unified/configuring-organization-profile).
 
 Adding Webex Teams as a SaaS application tenant is the first step in setting up your real-time DLP policy. You can use the tenant you create to configure your real-time DLP policy that protects your organization from data loss by monitoring and taking action on sensitive data that end users include in their Webex Teams messages and the files users might attach to those messages. Adding Webex Teams as a SaaS application tenant allows the Zscaler service to act as a smart host where Webex Teams can send messages and files for content inspection.
 
@@ -15702,16 +15720,14 @@ Following are the tunnel log filters you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-09-11T21:06Z","nid":"1399726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-admin-rank","lastmod":"2026-10-20T13:08Z","nid":"1399726"} -->
 ## Understanding Admin Rank
 
 - Source: https://help.zscaler.com/zia/understanding-admin-rank
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Understanding Admin Rank
-- Last modified: 2026-09-11T21:06Z
+- Last modified: 2026-10-20T13:08Z
 - Summary: Information on admin rank and how it's used when creating roles in the Zscaler Admin Console.
-
-[Watch a video about Admin Rank and how to configure Admin Rank](https://fast.wistia.net/embed/iframe/zm3n7kynyx) (shows legacy UI).
 
 Admin rank is a feature you use when creating [roles](https://help.zscaler.com/zia/adding-admin-roles) for [role-based administration](https://help.zscaler.com/zia/about-administrators).
 

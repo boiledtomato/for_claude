@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 196
 
 ---
@@ -1076,13 +1076,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-09-22T08:06Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-22T08:06Z
+- Last modified: 2026-10-19T16:50Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -1392,7 +1392,7 @@ The asset drawer can be configured by admins and might look different in your ac
 
 To view the asset drawer:
 
-1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**. See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**. See image.
 2. Click the asset you want to view. See image. A drawer appears with the following details and tabs:
   - Top Panel
   - Details
@@ -9364,13 +9364,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-16T02:17Z","nid":"1542892"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-20T23:58Z","nid":"1542892"} -->
 ## Onboarding an Azure Subscription
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
-- Last modified: 2026-10-16T02:17Z
+- Last modified: 2026-10-20T23:58Z
 - Summary: Information on how to onboard a single Azure subscription.
 
 You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
@@ -9384,18 +9384,13 @@ Before onboarding an Azure subscription, ensure you have completed the following
   2. Client secret: A confidential string that is used as a password for the application created. See instructions.
   3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
 - Identify an Azure subscription as the orchestrator account. The AI Security template is deployed in this account to scan the data in the target accounts.
-- You must have the following roles to deploy the templates:
-  | Scope | Role |
-  | --- | --- |
-  | Orchestrator subscription | User Access Administrator; Contributor; Key Vault Administrator |
-  | Target subscriptions | User Access Administrator |
-  | Storage account | Storage Account Contributor |
-  | Microsoft Entra ID | Application Administrator |
+- Ensure you have the following roles to deploy the templates.
 - Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
 - Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
   - Resource Group
   - Storage Account
   - Storage Account Container
+- Ensure the user has the following permissions.
 
 ## Onboarding a Single Azure Subscription
 
@@ -9667,6 +9662,22 @@ AI Security validates the template deployment every hour by checking the roles c
 Click **Validate** to verify if the template is deployed. This process takes a couple of minutes to complete.
 
 If the templates are successfully deployed, you are directed to the [Overview](https://help.zscaler.com/dspm/viewing-onboarding-status)page to view the status of the onboarded subscription.
+
+| Scope | Role |
+| --- | --- |
+| Orchestrator subscription | User Access Administrator; Contributor; Key Vault Administrator |
+| Target subscriptions | User Access Administrator |
+| Storage account | Storage Account Contributor |
+| Microsoft Entra ID | Application Administrator |
+
+| Scope | Role | Purpose |
+| --- | --- | --- |
+| Entra ID | Application Developer | To create app registrations (creator becomes owner, enabling secret/cert/token/API config) |
+| Entra ID | Cloud Application Administrator | To grant admin consent on API permissions |
+| Entra ID | Power Platform Administrator | To manage Power Platform environments, add S2S app users, use admin connectors in flows |
+| Power Platform Environment | System Administrator | To assign security roles (Service Reader) to app user in Dataverse |
+| Power Platform Environment | Environment Maker | To create flows in the target environment |
+| Licensing | Power Automate license | To create and run Power Automate flows |
 
 [Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options]
 
@@ -11030,13 +11041,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-14T10:01Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-22T22:07Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-14T10:01Z
+- Last modified: 2026-10-22T22:07Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.

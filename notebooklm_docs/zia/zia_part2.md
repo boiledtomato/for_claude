@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 111
 
 ---
@@ -143,32 +143,6 @@ Click **Account**to view your username, organization name, organization ID, and 
 Click **Logout** to log out when you're done analyzing the endpoint scan data.
 
 [Image: This image shows how to access the Endpoint Data Scan Page.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-zscaler-dspm-admin-portal-using-sso","lastmod":"2024-06-24T05:24Z","nid":"1480101"} -->
-## Accessing the DSPM Admin Portal using SSO
-
-- Source: https://help.zscaler.com/zia/accessing-zscaler-dspm-admin-portal-using-sso
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Accessing the DSPM Admin Portal using SSO
-- Last modified: 2024-06-24T05:24Z
-- Summary: How to access the DSPM Admin Portal from the ZIA Admin Portal using SSO.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
-
-Data Security Posture Management (DSPM) helps protect an organization’s data stored in your cloud resources against data theft, misuse, or loss by continuously scanning the data and numerous potential misconfigurations, vulnerabilities, and permissions that might contribute to attack vectors. DSPM provides detailed insights into where this sensitive data resides in your cloud environment, sensitive data types, and misconfigurations in data stores that contain sensitive data. To learn more, see[DSPM Help](https://help.zscaler.com/dspm).
-
-You can access the DSPM Admin Portal from the ZIA Admin Portal using SSO, if you have subscribed to the DSPM service and if a DSPM Admin or DSPM Super Admin role is assigned to you. To learn more about predefined roles and permissions in DSPM, see [About Roles](https://help.zscaler.com/dspm/about-roles). To check if you are subscribed to the DSPM service, you can view your company subscriptions to confirm if a DSPM license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/zia/viewing-subscriptions).
-
-To access the DSPM Admin Portal, in the ZIA Admin Portal, go to **Dashboard** > **Zscaler DSPM Portal**, or **Policy** >**Zscaler DSPM Portal**.
-
-The Admin with view permission can access the DSPM Admin Portal only from the**Dashboard**.
-
-See image.
-
-[Image: Screenshot of DSPM SSO Links]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -377,13 +351,13 @@ If you need to revert from SCIM to AD provisioning:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-10-16T01:26Z","nid":"1459041"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ai-ml-applications-rule-cloud-app-control","lastmod":"2026-10-23T01:34Z","nid":"1459041"} -->
 ## Adding an AI & ML Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-ai-ml-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an AI & ML Applications Rule for Cloud App Control
-- Last modified: 2026-10-16T01:26Z
+- Last modified: 2026-10-23T01:34Z
 - Summary: Information on how to add a rule for AI & ML Applications cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud applications are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -486,7 +460,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -557,16 +531,14 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-alert-subscriptions","lastmod":"2026-10-07T10:02Z","nid":"1399166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-alert-subscriptions","lastmod":"2026-10-20T12:39Z","nid":"1399166"} -->
 ## Adding Alert Subscriptions
 
 - Source: https://help.zscaler.com/zia/adding-alert-subscriptions
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Adding Alert Subscriptions
-- Last modified: 2026-10-07T10:02Z
+- Last modified: 2026-10-20T12:39Z
 - Summary: How to add alert subscriptions in the Zscaler Admin Console.
-
-[Watch a video about Alerts, including how to add an alert subscription](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 To subscribe and receive the alerts through email:
 
@@ -584,16 +556,14 @@ To subscribe and receive the alerts through email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-10-14T21:06Z","nid":"1411441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-api-roles","lastmod":"2026-10-23T14:00Z","nid":"1411441"} -->
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
-- Last modified: 2026-10-14T21:06Z
+- Last modified: 2026-10-23T14:00Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
-
-[Watch a video about Adding API Roles](https://fast.wistia.net/embed/iframe/leihuwkgjo) (shows legacy UI).
 
 An API role defines a client application's permission and access to the different API categories in the Zscaler cloud service API. An API role is not assigned to an admin. Instead, it is used during the configuration of an external OAuth 2.0 authentication server for API authentication. You can add up to 16 API roles. For a complete list of ranges and limits per API category, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
 
@@ -611,7 +581,7 @@ To configure API roles, the admin must be assigned to a role that has full permi
 
 To add and configure API roles:
 
-1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click **Add API Role**. The **Add API Role** window appears.
 3. In the **Add API Role** window: Assign appropriate permissions for the API categories that the client application can access. Assigning permissions allows you to control a client application's access to the major API categories of the Zscaler cloud service API with more granularity. For each API role, you can configure the following permissions to access various API categories You can configure permissions for the following categories:
   - **Name**: Enter a namefor the API role.
@@ -634,7 +604,7 @@ The API role is created, and an internal API user is automatically created for t
 After the API role is created, define that role as a Scope on the authorization server. You must configure the Scope value in the `<Zscaler Cloud Name>::<Org ID>::<API Role>` format, where:
 
 - Zscaler Cloud Name represents the cloud on which your organization is provisioned.
-- Org ID represents your Company ID obtained from your company profile in the Zscaler Admin Console (Administration > Account Management > Organization).
+- Org ID represents your Company ID obtained from your company profile in the Zscaler Admin Console (Administration > Administration > Organization > General Information).
 - API Role represents an API role configured in the Add API Role window in the Zscaler Admin Console.
 
 The **Policy & Components** section includes the following categories:
@@ -835,31 +805,30 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-10-13T21:06Z","nid":"1399011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-auditors","lastmod":"2026-10-23T11:51Z","nid":"1399011"} -->
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
-- Last modified: 2026-10-13T21:06Z
+- Last modified: 2026-10-23T11:51Z
 - Summary: How to add auditors in the Zscaler Admin Console.
-
-[Watch a video about Auditors](https://fast.wistia.net/embed/iframe/68fj7gj7xh) (shows legacy UI).
 
 You must have a super admin [role](https://help.zscaler.com/zia/adding-admin-roles) and organizational [scope](https://help.zscaler.com/zia/about-admin-scope) to add [auditors](https://help.zscaler.com/zia/about-auditors).
 
 To add an auditor:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**>**Auditors**.
-2. Click **Add Auditor**. The **Add Auditor** window appears.
-3. In the **Add Auditor** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**.
+2. Select the **Auditors** tab.
+3. On the **Auditors**tab, click **Add Auditor**. The **Add Auditor** window appears.
+4. In the **Add Auditor** window:
   - **Login ID**: Enter the login ID the auditor uses to log in from your SSO provider portal, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
   - **Name**: Enter a name for the auditor.
   - **Status**: Enable or disable the auditor. If you disable the auditor, the password is automatically cleared. So, when you re-enable the status of the disabled auditor, you must set a new password. If SAML is enabled, then setting a password is optional. You can save your changes only after the authentication is complete.
   - **Comments**: (Optional) Enter additional notes or information. The comments cannot exceed 10,240 characters.
   - **New Password**: Enter a password for the auditor. It can be 8 to 100 characters and must contain at least one number, one special character, and one uppercase letter. This is the password the auditor must enter to give an admin permission to view user names. To learn more, see [About Auditors](https://help.zscaler.com/zia/about-auditors).
   - **Confirm Password**: Re-enter the password to confirm.
-4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2071,13 +2040,13 @@ To configure a Cloud NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-10-16T01:45Z","nid":"1400146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control","lastmod":"2026-10-23T01:36Z","nid":"1400146"} -->
 ## Adding a Collaboration & Online Meetings Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
-- Last modified: 2026-10-16T01:45Z
+- Last modified: 2026-10-23T01:36Z
 - Summary: How to add a rule for Collaboration and Online Meeting cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -2182,7 +2151,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -2251,13 +2220,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-10-08T07:50Z","nid":"1400141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-consumer-rule-cloud-app-control","lastmod":"2026-10-23T02:17Z","nid":"1400141"} -->
 ## Adding a Consumer Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-consumer-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Consumer Rule for Cloud App Control
-- Last modified: 2026-10-08T07:50Z
+- Last modified: 2026-10-23T02:17Z
 - Summary: Information on how to add a rule for Consumer cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -2359,7 +2328,7 @@ See image.
 - The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -2413,13 +2382,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-10-08T07:02Z","nid":"1440851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-applications-rule-cloud-app-control","lastmod":"2026-10-23T02:24Z","nid":"1440851"} -->
 ## Adding a Custom Applications Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-custom-applications-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Custom Applications Rule for Cloud App Control
-- Last modified: 2026-10-08T07:02Z
+- Last modified: 2026-10-23T02:24Z
 - Summary: Information about how to add a rule for Custom cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 Custom cloud applications provide greater flexibility when creating rules to control access to custom applications. This feature consists of two parts:
@@ -2525,7 +2494,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -3375,13 +3344,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-18T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-25T07:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
@@ -3579,13 +3548,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-15T21:06Z","nid":"1398866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-23T14:12Z","nid":"1398866"} -->
 ## Adding Departments
 
 - Source: https://help.zscaler.com/zia/adding-departments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Adding Departments
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:12Z
 - Summary: How to add a department for your users in the Zscaler Admin Console.
 
 [Watch a video about User Management, including how to add a department](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -3596,9 +3565,9 @@ You can use a [CSV file to add multiple departments](https://help.zscaler.com/zi
 
 To add a new department:
 
-1. Go to **Administration**>**Legacy Admin Management**> **Internet & SaaS Users**>**Departments**.
-2. Click the**Departments**tab.
-3. Click **Add Department**.
+1. Go to **Administration**>**Internet & SaaS Authentication**> **Internet & SaaS Users**.
+2. Select the **Departments** tab.
+3. On the **Departments** tab, click **Add Department**.
 
 The **Add Department** window appears.
 
@@ -4152,13 +4121,13 @@ The custom path is not applicable to TCP and UDP queries and cannot be specified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-10-09T00:22Z","nid":"1401436"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-dns-over-https-services-rule-cloud-app-control","lastmod":"2026-10-23T02:32Z","nid":"1401436"} -->
 ## Adding a DNS Over HTTPS Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a DNS Over HTTPS Services Rule for Cloud App Control
-- Last modified: 2026-10-09T00:22Z
+- Last modified: 2026-10-23T02:32Z
 - Summary: Information on how to add a rule for DNS Over HTTPS Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4255,7 +4224,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -4292,13 +4261,13 @@ Choose to conditionally allow the users to access the selected applications.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-domain-profiles","lastmod":"2026-09-18T14:23Z","nid":"1546012"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-domain-profiles","lastmod":"2026-10-19T17:59Z","nid":"1546012"} -->
 ## Adding Domain Profiles
 
 - Source: https://help.zscaler.com/zia/adding-domain-profiles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Domain Profiles
-- Last modified: 2026-09-18T14:23Z
+- Last modified: 2026-10-19T17:59Z
 - Summary: How to add domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler allows you to make custom sets of email [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -4310,7 +4279,7 @@ To add domain profiles:
 3. In the **Add Domain Profile** drawer: See image.
   1. **Profile Name**: Enter a name for the domain profile.
   2. **Top Personal Email Service Providers**: Select from a list of email service providers to include. You can also search for service providers using the **Search** function from the drop-down menu.
-  3. **Include Organizational Domains**: Enabling this option automatically includes the domains listed in your Organization Profile. To learn more, see [Configuring the Company Profile](https://help.zscaler.com/unified/configuring-company-profile).
+  3. **Include Organizational Domains**: Enabling this option automatically includes the domains listed in your Organization Profile. To learn more, see [Configuring the Organization Profile](https://help.zscaler.com/unified/configuring-organization-profile).
   4. **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
   5. **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
 4. Click **Save**.
@@ -4450,13 +4419,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-18T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-25T07:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4631,13 +4600,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-10-16T02:15Z","nid":"1400696"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-file-sharing-rule-cloud-app-control","lastmod":"2026-10-23T02:33Z","nid":"1400696"} -->
 ## Adding a File Sharing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a File Sharing Rule for Cloud App Control
-- Last modified: 2026-10-16T02:15Z
+- Last modified: 2026-10-23T02:33Z
 - Summary: How to add a rule for File Sharing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4738,7 +4707,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -4808,13 +4777,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-10-09T00:10Z","nid":"1402141"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-finance-rule-cloud-app-control","lastmod":"2026-10-23T02:39Z","nid":"1402141"} -->
 ## Adding a Finance Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-finance-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Finance Rule for Cloud App Control
-- Last modified: 2026-10-09T00:10Z
+- Last modified: 2026-10-23T02:39Z
 - Summary: Information on how to add a rule for Finance cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -4915,7 +4884,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -4969,13 +4938,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-15T21:06Z","nid":"1398831"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-23T14:10Z","nid":"1398831"} -->
 ## Adding Groups
 
 - Source: https://help.zscaler.com/zia/adding-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Adding Groups
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:10Z
 - Summary: How to add a group for your users in the ZIA Admin Portal.
 
 [Watch a video about User Management, including how to add a group](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
@@ -4986,12 +4955,10 @@ You can use a [CSV file to add multiple groups](https://help.zscaler.com/zia/abo
 
 To add a new group:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Groups**.
-2. Click **Add Group**.
-
-The **Add Group** window appears.
-
-1. In the **Add Group**window:
+1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**.
+2. Select the **Groups** tab.
+3. On the **Groups** tab, click **Add Group**. The **Add Group** window appears.
+4. In the **Add Group**window:
   - **Name**: Enter a group name. The name can contain up to 128 characters.
   - **Comments**: Optionally, enter additional notes or information. The content can't exceed 10,240 characters.
 
@@ -5004,13 +4971,13 @@ After creating the group, you can [add users](https://help.zscaler.com/zia/addin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-10-09T01:27Z","nid":"1402146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-health-care-rule-cloud-app-control","lastmod":"2026-10-23T02:47Z","nid":"1402146"} -->
 ## Adding a Health Care Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-health-care-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Health Care Rule for Cloud App Control
-- Last modified: 2026-10-09T01:27Z
+- Last modified: 2026-10-23T02:47Z
 - Summary: Information on how to add a rule for Health Care cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -5111,7 +5078,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -5165,13 +5132,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-10-08T23:56Z","nid":"1400631"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-hosting-providers-rule-cloud-app-control","lastmod":"2026-10-23T02:48Z","nid":"1400631"} -->
 ## Adding a Hosting Providers Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Hosting Providers Rule for Cloud App Control
-- Last modified: 2026-10-08T23:56Z
+- Last modified: 2026-10-23T02:48Z
 - Summary: How to add a rule for Hosting Provider cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -5272,7 +5239,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -6308,13 +6275,13 @@ To configure an HTTP NSS feed for web logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-10-08T23:54Z","nid":"1401546"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-human-resources-rule-cloud-app-control","lastmod":"2026-10-23T02:50Z","nid":"1401546"} -->
 ## Adding a Human Resources Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-human-resources-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Human Resources Rule for Cloud App Control
-- Last modified: 2026-10-08T23:54Z
+- Last modified: 2026-10-23T02:50Z
 - Summary: Information on how to add a rule for Human Resources cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -6413,7 +6380,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -6612,13 +6579,13 @@ The **Add Index Tool Configuration** window appears.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-10-09T04:24Z","nid":"1400156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-instant-messaging-rule-cloud-app-control","lastmod":"2026-10-23T02:51Z","nid":"1400156"} -->
 ## Adding an Instant Messaging Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an Instant Messaging Rule for Cloud App Control
-- Last modified: 2026-10-09T04:24Z
+- Last modified: 2026-10-23T02:51Z
 - Summary: Information on how to add a rule for Instant Messaging cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -6727,7 +6694,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -6783,16 +6750,14 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-internet-saas-admin-roles","lastmod":"2026-10-14T21:06Z","nid":"1399711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-internet-saas-admin-roles","lastmod":"2026-10-23T13:30Z","nid":"1399711"} -->
 ## Adding Internet & SaaS Admin Roles
 
 - Source: https://help.zscaler.com/zia/adding-internet-saas-admin-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding Internet & SaaS Admin Roles
-- Last modified: 2026-10-14T21:06Z
+- Last modified: 2026-10-23T13:30Z
 - Summary: How to add administrator roles for Internet & SaaS in the Zscaler Admin Console.
-
-[Watch a video about Configuring Admin Roles.](https://fast.wistia.net/embed/iframe/8byizrie9e) (shows legacy UI).
 
 Configuring an admin role is one of the tasks that you must complete when [configuring role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration). You can [edit or delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) admin roles at any time. You can add up to 64 admin roles. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/zia/ranges-limitations).
 
@@ -6810,7 +6775,7 @@ Admin rank and scope don't apply to SD-WAN partner API clients. To learn more, s
 
 To add and configure admin roles:
 
-1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click **Add Administrator Role**. The **Add Administrator Role** window appears.
 3. In the **Add Administrator Role** window: Assign permissions to regulate access to Internet & SaaS features. For each admin role, you can configure the following permissions: When you select **None**for a feature, that feature does not show up in the Zscaler Admin Console for that admin role. You can configure permissions for the following categories:
   - **Name**: Enter a namefor the admin role.
@@ -7123,13 +7088,13 @@ To add an IP pool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-10-16T03:08Z","nid":"1400636"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-it-services-rule-cloud-app-control","lastmod":"2026-10-23T02:52Z","nid":"1400636"} -->
 ## Adding an IT Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an IT Services Rule for Cloud App Control
-- Last modified: 2026-10-16T03:08Z
+- Last modified: 2026-10-23T02:52Z
 - Summary: Information on how to add a rule for IT Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7230,7 +7195,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -7298,13 +7263,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-10-08T23:46Z","nid":"1402151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-legal-rule-cloud-app-control","lastmod":"2026-10-23T02:54Z","nid":"1402151"} -->
 ## Adding a Legal Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-legal-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Legal Rule for Cloud App Control
-- Last modified: 2026-10-08T23:46Z
+- Last modified: 2026-10-23T02:54Z
 - Summary: Information on how to add a rule for Legal cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -7406,7 +7371,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -7899,13 +7864,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-10-16T05:52Z","nid":"1400151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-productivity-crm-tools-rule-cloud-app-control","lastmod":"2026-10-23T03:34Z","nid":"1400151"} -->
 ## Adding a Productivity & CRM Tools Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Productivity & CRM Tools Rule for Cloud App Control
-- Last modified: 2026-10-16T05:52Z
+- Last modified: 2026-10-23T03:34Z
 - Summary: Information on how to add a rule for Productivity and CRM cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -8006,7 +7971,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -8020,7 +7985,7 @@ The **Zendesk** application supports additional granular action that includes **
   - **Embedded AI Prompts**: Enabling this feature allows Zscaler to store end-user prompts up to 2 KB in size in logs for up to 6 months, or for the period defined by your organization. Authorized users with access to Zscaler logs are able to view the prompts entered by end users in the Gen AI applications embedded in the Atlassian application.
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Docusign**and**Google Analytics** are not exempted from SSL/TLS Inspection.
 - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 Choose to display an EUN that cautions users before allowing them access to the selected applications.
@@ -8046,7 +8011,7 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 - **Isolation Profile**: Appears when you select **Isolate**. You can choose the isolation profiles to which the rule applies. Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization.
 - **Daily Bandwidth Quota (MB)**: (Optional) The bandwidth quota includes data uploaded to and downloaded from the cloud application. To enforce the quota on each location, do not select specific users, groups, or departments. To enforce the quota on specific users, groups, or departments, [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssltls-inspection) and [authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users) must be enabled. If a user comes from a [known location](https://help.zscaler.com/zia/about-locations), the quota is reset at midnight based on the location's time zone; for remote users, the quota is reset based on the organization’s time zone. The minimum value you can enter is 10 MB and the maximum value is 100K MB.
 - **Daily Time Quota (min)**: (Optional) The time quota is based on the amount of time elapsed in a session while uploading and downloading data. The session idle times are ignored. The minimum value you can enter is 15 minutes and the maximum value is 600 minutes.
-- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Google Analytics** is not exempted from SSL/TLS Inspection.
+- **Tenant Profile**: Appears only when **Docusign** or **Google Analytics** is selected as the cloud application. You can select the tenant profiles for which you want to apply the rule. To learn more, see [About Tenant Profiles](https://help.zscaler.com/zia/about-tenant-profiles). Ensure that **Docusign**and**Google Analytics** are not exempted from SSL/TLS Inspection.
 - **Cascade to URL Filtering**: Enable this option to enforce the URL Filtering policy on a transaction, even after it's explicitly allowed by the Cloud App Control policy. However, the URL Filtering policy doesn't apply if the Cloud App Control policy blocks the transaction. This field appears only when the **Allow Cascading to URL Filtering** option is disabled on the **Advanced Settings** page (**Internet Access**>**Setting** > **Advanced Settings**).
 
 [Image: Criteria menu on the Productivity & CRM Tools page]
@@ -8327,13 +8292,13 @@ To add a root certificate for proxy chaining:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-10-06T04:51Z","nid":"1402206"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rule-label","lastmod":"2026-10-20T21:06Z","nid":"1402206"} -->
 ## Adding a Rule Label
 
 - Source: https://help.zscaler.com/zia/adding-rule-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Rule Labels > Adding a Rule Label
-- Last modified: 2026-10-06T04:51Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: Information on how to add a rule label in the Zscaler Admin Console.
 
 Zscaler's rule label feature allows you to logically group all your organization's policies. The feature consists of two parts: creating rule labels and associating the labels with all the policy rules.
@@ -8484,16 +8449,14 @@ To learn how this policy fits into the overall order of policy enforcement, see 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-10-09T00:13Z","nid":"1399401"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-cloud-app-control-policy","lastmod":"2026-10-22T14:49Z","nid":"1399401"} -->
 ## Adding Rules to the Cloud App Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding Rules to the Cloud App Control Policy
-- Last modified: 2026-10-09T00:13Z
+- Last modified: 2026-10-22T14:49Z
 - Summary: How to create rules to control access to specific cloud applications.
-
-[Click to watch a video about Cloud App Control Policy, including how to add rules to the Cloud App Control policy](https://fast.wistia.net/embed/iframe/0bvxqh6pko) (shows legacy UI).
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
 
@@ -8546,13 +8509,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-15T11:41Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-21T03:10Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-10-15T11:41Z
+- Last modified: 2026-10-21T03:10Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 [Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
@@ -9032,7 +8995,7 @@ To configure Docusign:
 2. Click your **profile** icon in the top-right corner and click **My Apps & Keys**. See image.
 3. Click on **Add App and Integration Key**.
 4. Enter an **App Name** and then click **Add Secret Key** to auto generate a secret key. Copy the integration and secret keys for use later. See image.
-5. Click **Add URI** to add the redirect URI for your Zscaler cloud. For example, if your Zscaler cloud name is zscalertwo.net, then your redirect URI is `https://admin.``zscalertwo.net``/`. To learn how to find your Zscaler cloud, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). See image.
+5. Click **Add URI** and enter `https://console.zscaler.com/` to add the redirect URL to the Zscaler cloud. See image.
 6. Click **Save**.
 7. On the **Apps and Keys** page, copy your **API Account ID** and **Account Base URI**. See image.
 8. In the Zscaler Admin Console under **Register the OAuth Application**, enter your **Client ID** (your Docusign Integration Key), **Secret Key**, **Account ID**, and **Base URI** that you copied earlier. See image.
@@ -9892,7 +9855,7 @@ See image.
 See image.
 
 1. Click **Next**.
-2. Enter a name for the app integration, select **Authorization Code** and **Refresh Token** for grant types, and enter `https://admin.``<Zscaler Cloud Name>``.net` for the sign-in and sign-out URIs, where the cloud name is the Internet & SaaS cloud where you are hosted. In the following example we are using `https://admin.zscaler.net`.
+2. Enter a name for the app integration, select **Authorization Code** and **Refresh Token** for grant types, and enter `https://console.zscaler.com` for the sign-in and sign-out redirect URLs.
 
 The refresh token is only valid for 90 days, which is a limit set by Okta. After every 90 days, you should reauthorize the connector to continue scanning Okta. To learn more about the Okta refresh token limit, refer to the [Okta documentation](https://support.okta.com/help/s/article/refresh-token-expiration-behavior).
 
@@ -10198,7 +10161,7 @@ To configure the Zscaler SaaS Connector application:
 
 See image.
 
-1. Click the down arrow icon for the Zscaler SaaS Connector application. The name of the Zscaler SaaS Connector application varies depending on the URL you use to log in to the Zscaler service. For example, if you log in to https://admin.zscalerbeta.net, then your Zscaler SaaS Connector application name is similar to ZscalerSaaSConnectorZSBeta01. This guide uses the ZscalerSaaSConnectorZSBeta01 application as an example.
+1. Click the down arrow icon for the Zscaler SaaS Connector application. The name of the Zscaler SaaS Connector application varies depending on the URL you use to log in to the Zscaler service. For example, if you log in to `https://beta.console.zscaler.com`, then your Zscaler SaaS Connector application name is similar to `ZscalerSaaSConnector``ZSBeta``01`. This guide uses the `ZscalerSaaSConnectorZSBeta01` application as an example.
 
 See image.
 
@@ -10405,7 +10368,7 @@ To configure Snowflake:
 2. Go to **Worksheets**,and select **Type** as **SQL**.
 3. Create a new worksheet.
 4. Set the **Role**to **Account Admin**or equivalent.
-5. Run the following SQL script: `USER ROLE ACCOUNTADMIN; CREATE OR REPLACE SECURITY INTEGRATION my_snowflake_oauth TYPE = OAUTH ENABLED = TRUE OAUTH_CLIENT = CUSTOM OAUTH_CLIENT_TYPE = 'CONFIDENTIAL' OAUTH_REDIRECT_URI = 'https://10.65.31.120' OAUTH_ISSUE_REFRESH_TOKENS = TRUE;`
+5. Run the following SQL script: `USER ROLE ACCOUNTADMIN; CREATE OR REPLACE SECURITY INTEGRATION my_snowflake_oauth TYPE = OAUTH ENABLED = TRUE OAUTH_CLIENT = CUSTOM OAUTH_CLIENT_TYPE = 'CONFIDENTIAL' OAUTH_REDIRECT_URI = 'https://console.zscaler.com/' OAUTH_ISSUE_REFRESH_TOKENS = TRUE;`
 6. Run the following commands to fetch the client ID and client secret: `DESC SECURITY INTEGRATION my_snowflake_oauth; SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('MY_SNOWFLAKE_OAUTH');`Copy the client ID and clientSecret2 from the following response: `{"OAUTH_CLIENT_SECRET_2":"clientSecret2","OAUTH_CLIENT_SECRET":"clientSecret","OAUTH_CLIENT_ID":"clientId"}`
 7. To view the privileges assigned to a role, run the following command: `SHOW GRANTS TO ROLE ACCOUNTADMIN;`
 8. To assign privileges to a role, run the following script: `USE ROLE ACCOUNTADMIN; GRANT MONITOR SECURITY ON ACCOUNT TO ROLE "SVC_ROLE_MYAPP"; GRANT MONITOR USAGE ON ACCOUNT TO ROLE "SVC_ROLE_MYAPP"; GRANT MONITOR ON ACCOUNT TO ROLE SVC_ROLE_MYAPP; GRANT ROLE TRUST_CENTER_VIEWER_ROLE TO ROLE SVC_ROLE_MYAPP;`
@@ -10425,7 +10388,7 @@ Trello can only be configured for SSPM scan which requires Advanced SSPM. If you
 3. Enter your information in the **New Power-Up or Integration** fields. Click **Create** when done.
 4. Under **API key**, click **Generate a new API key**.
 5. In the **Generate API key** window, click **Generate API key**. See image.
-6. Copy the **API key** and **Secret** for use later and add the Internet & SaaS URL in the **Allowed origins** field. See image. Required API scopes are as follows: To learn more, refer to [Authorizing with Trello's REST API](https://developer.atlassian.com/cloud/trello/guides/rest-api/authorization/).
+6. Copy the **API key** and **Secret** for use later and add the Zscaler URL `https://console.zscaler.com/` in the **Allowed origins** field. See image. Required API scopes are as follows: To learn more, refer to [Authorizing with Trello's REST API](https://developer.atlassian.com/cloud/trello/guides/rest-api/authorization/).
   - read: Reading of boards, organizations, etc. on behalf of the user
   - write: Writing of boards, organizations, etc. on behalf of the user
   - account: Read member email, writing of member info, and marking notifications read
@@ -10705,11 +10668,8 @@ To configure Zoom:
 5. Go to the **Production** tab and choose **Admin-managed** for the app type. Click **Save**. See image.
 6. Go to the **App Credentials** tab in the left-side navigation and note down your **Client ID** and **Client Secret** for use later. See image.
 7. Under **OAuth Redirect URL**and **OAuth Allow Lists**, enter the URL of your Zscaler server. List of Zscaler URLs:
-  - `https://admin.zscalerbeta.net`
-  - `https://admin.zscalertwo.net`
-  - `https://admin.zscalerthree.net`
-  - `https://admin.zscaler.net`
-  - `https://admin.zscloud.net`
+  - `https://beta.console.zscaler.com`
+  - `https://console.zscaler.com`
 8. Go to the **App Listing** tab and add **Short Description**, **Long Description**, **Developer Contact Information**, and any other mandatory fields.
 9. Go to the **Scopes** tab and add the following scopes: See image.
   - account:read:settings:admin
@@ -10743,11 +10703,8 @@ To learn more about the prerequisites and permissions for onboarding Zoom, see [
 5. Go to **Production** and choose **Admin-managed** for the app type. Click **Save**. See image.
 6. Go to the **App Credentials** tab in the left-side navigation and note down your **Client ID** and **Client Secret** for use later. See image.
 7. Under **OAuth Redirect URL**and **OAuth Allow Lists**, enter the URL of your Zscaler server. List of Zscaler URLs:
-  - `https://admin.zscalerbeta.net`
-  - `https://admin.zscalertwo.net`
-  - `https://admin.zscalerthree.net`
-  - `https://admin.zscaler.net`
-  - `https://admin.zscloud.net`
+  - `https://beta.console.zscaler.com`
+  - `https://console.zscaler.com`
 8. On the **Add Feature** page, copy your **Secret Token**. See image.
 9. Go back to the Zscaler Admin Console and under the **Webhook Integration**, in the **Admin Email ID** field, enter the email address of the Zoom user assigned the **Owner** role. To learn more about Zoom user roles, refer to the [Zoom documentation](https://support.zoom.com/hc/en/article?id=zm_kb&sysparm_article=KB0061789). In the **Secret Token** field, enter the secret token you copied earlier. Click **Initiate Integration**. See image.
 10. Copy the **Event notification endpoint URL**.
@@ -10857,13 +10814,13 @@ The following list includes details and limitations of the Zoom DLP and Malware 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-10-08T23:39Z","nid":"1400161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sales-marketing-rule-cloud-app-control","lastmod":"2026-10-23T03:37Z","nid":"1400161"} -->
 ## Adding a Sales & Marketing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Sales & Marketing Rule for Cloud App Control
-- Last modified: 2026-10-08T23:39Z
+- Last modified: 2026-10-23T03:37Z
 - Summary: Information on how to add a rule for Sales and Marketing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -10964,7 +10921,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -11018,20 +10975,21 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-10-13T21:06Z","nid":"1400626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-clients","lastmod":"2026-10-23T12:12Z","nid":"1400626"} -->
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
-- Last modified: 2026-10-13T21:06Z
+- Last modified: 2026-10-23T12:12Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
 To add an SD-WAN partner API client:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**>**Administrators**.
-2. On the **Administrators** tab, click **Add SD-WAN Partner API Client**: The **Add SD-WAN Partner API Client** window appears.
-3. In the **Add SD-WAN Partner API Client** window: See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Legacy Admin Management**>**Internet & SaaS**.
+2. Select the **Administrators**tab.
+3. On the **Administrators** tab, click **Add SD-WAN Partner API Client**: The **Add SD-WAN Partner API Client** window appears.
+4. In the **Add SD-WAN Partner API Client** window: See image.
   - **Login ID**: Enter the login ID the SD-WAN partner API client uses to log in, and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
   - **Email**: Enter an email address for the SD-WAN partner API client and select the appropriate domain name. The domain names you provided to Zscaler appear in the drop-down menu.
   - **Name**: Enter a name for the SD-WAN partner API client.
@@ -11040,7 +10998,7 @@ To add an SD-WAN partner API client:
   - **Comments**: (Optional) Enter additional notes or information.
   - **Password**: Enter a password for the SD-WAN partner API client. It can be 8 to 100 characters and must contain at least 1 number, 1 special character, and 1 uppercase letter.
   - **Confirm Password**: Re-enter the password to confirm.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or delete SD-WAN partner API clients at any time.
 
@@ -11049,13 +11007,13 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-10-14T21:06Z","nid":"1400621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-10-23T13:45Z","nid":"1400621"} -->
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
-- Last modified: 2026-10-14T21:06Z
+- Last modified: 2026-10-23T13:45Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
 
 [Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI).
@@ -11078,7 +11036,7 @@ An SD-WAN partner API is not the same as a System Integration partner.
 
 To add an SD-WAN partner API role:
 
-1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click **Add SD-WAN Partner API Role**.
 3. In the **Add SD-WAN Partner API Role** window: See image.
   - **Name**: Enter a name for the SD-WAN partner API role.
@@ -11097,13 +11055,13 @@ To add an SD-WAN partner API role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-10-16T03:17Z","nid":"1400166"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-social-networking-rule-cloud-app-control","lastmod":"2026-10-23T03:39Z","nid":"1400166"} -->
 ## Adding a Social Networking Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
-- Last modified: 2026-10-16T03:17Z
+- Last modified: 2026-10-23T03:39Z
 - Summary: How to add a rule for Social Networking cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11214,7 +11172,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -11280,13 +11238,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ssl-certificates-nss-servers","lastmod":"2026-10-09T15:15Z","nid":"1546714"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ssl-certificates-nss-servers","lastmod":"2026-10-23T21:06Z","nid":"1546714"} -->
 ## Adding SSL Certificates for NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding SSL Certificates for NSS Servers
-- Last modified: 2026-10-09T15:15Z
+- Last modified: 2026-10-23T21:06Z
 - Summary: Information about adding a new SSL certificate for NSS server configuration in the Zscaler Admin Console.
 
 Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
@@ -11313,13 +11271,13 @@ To add an SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-10-09T05:45Z","nid":"1400171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-streaming-media-rule-cloud-app-control","lastmod":"2026-10-23T03:42Z","nid":"1400171"} -->
 ## Adding a Streaming Media Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-streaming-media-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Streaming Media Rule for Cloud App Control
-- Last modified: 2026-10-09T05:45Z
+- Last modified: 2026-10-23T03:42Z
 - Summary: Information on how to add a rule for Streaming Media cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11424,7 +11382,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -11482,13 +11440,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-10-16T01:59Z","nid":"1400176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-system-development-rule-cloud-app-control","lastmod":"2026-10-23T03:47Z","nid":"1400176"} -->
 ## Adding a System & Development Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a System & Development Rule for Cloud App Control
-- Last modified: 2026-10-16T01:59Z
+- Last modified: 2026-10-23T03:47Z
 - Summary: Information on how to add a rule for System and Development cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
 You can create rules to control access to specific cloud applications. Cloud apps are organized into [categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) to facilitate defining rules for similar applications.
@@ -11589,7 +11547,7 @@ See image.
 - **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or **No Client Connector** to apply the rule to isolation traffic, IoT traffic, or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The **Cloud Browser Isolation** and **IoT**groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization, respectively.
 - **Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation. The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
 - **User Agent**: Select **Any** to apply the rule to all user agents, or select any number of user agents. You can also search for an agent.
-- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available: Contact Zscaler Support to customize the user risk score range of these levels for your organization.
+- **User Risk Profile**: Select **Any** to apply the rule to all user risk score levels, or select the user risk score levels to which the rule applies. Selecting no value ignores this criterion in the policy evaluation. Users are assigned a risk score based on their browsing activities. A range of risk scores is grouped as a risk score level. By default, the following user risk score levels are available:
   - **Low**: Level with user risk scores ranging from 0 to 29
   - **Medium**: Level with user risk scores ranging from 30 to 59
   - **High**: Level with user risk scores ranging from 60 to 79
@@ -12282,4 +12240,162 @@ To configure a TCP NSS feed for SaaS Security activity logs:
   - **Activity**: Filter logs based on specific activity. You can specify multiple types of activity.
   - **Object 1 Type**and **Object 2 Type**: Filter logs based on the type of object (e.g., Organization). You can search for specific object types. If applicable, the activity can have a second object listed. The default option is **None**.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-06-23T06:49Z","nid":"1401471"} -->
+## Adding TCP NSS Feeds for SaaS Security Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
+- Last modified: 2026-06-23T06:49Z
+- Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
+
+You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
+
+Before you start configuring a feed for SaaS Security logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for SaaS Security logs:
+
+1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination:
+    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
+  - **Log Type**:Choose **SaaS Security**.
+  - **Application Category**: Choose an application category to limit the data to a specific category:
+    - **Collaboration**
+      - Microsoft Teams
+      - Slack
+      - Webex Teams
+      - Zoom
+    - **CRM**
+      - Salesforce
+      - Microsoft Dynamics 365
+    - **Email**
+      - Gmail
+      - Microsoft Exchange
+    - **File**
+      - Box
+      - Citrix ShareFile
+      - Confluence
+      - Dropbox
+      - Google Drive
+      - Microsoft OneDrive
+      - Microsoft SharePoint
+      - Smartsheet
+    - **Gen AI**
+      - ChatGPT
+    - **ITSM**
+      - Jira Software
+      - ServiceNow
+    - **Public Cloud Storage**
+      - Amazon S3
+      - Google Cloud Platform
+      - Microsoft Azure
+    - **Repository**
+      - Bitbucket
+      - GitHub
+      - GitLab
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM can parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that are displayed in the output. Edit the default list. If you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SaaS Security Logs](https://help.zscaler.com/zia/nss-feed-output-format-saas-security-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Action
+  - Who
+  - Collaboration
+  - CRM
+  - Email
+  - File
+  - ITSM
+  - Public Cloud Storage
+  - Repository
+  - DLP
+  - Malware
+  - Application
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Policy Type**: Filter logs based on the specific policy type. You can specify multiple policies. By default, the **DLP** and **Malware** policy types are not selected. Therefore, all incidents and violations with or without a rule name are exported through the NSS. You must explicitly select **DLP** and **Malware** policy types from the list to export only the incidents with valid rule names through the NSS.
+- **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
+- **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet & SaaS (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
+  - **Any**: Any type of event in the scan.
+  - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
+  - **Scan**: No violation was detected in the scan. The scan is considered normal.
+  - **Violation**: A violation was detected in the scan (i.e., either a DLP engine was matched or malware was detected.)
+
+- **User**: Filter logs to specific users that generated transactions. You can search for users by username or email address. There's no limit to the number of users that you can select. Users that are deleted after they are selected appear with a strikethrough line.
+- **Departments**: Filter logs to specific departments that generated transactions. You can search for departments. There's no limit to the number of departments that you can select. Departments that are deleted after they are selected appear with a strikethrough line.
+
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific recipients within your organization. Multiple selections are allowed.
+- **Channel Name**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type.
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **Message Size**: Filter logs by the size of the email message.
+- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
+- **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
+
+- **DLP Engines**: Filter logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
+- **DLP Dictionaries**: Filter logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
+- **Severity**: Choose the severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+
+- **Malware Classes**: Filter logs based on the specific malware class. You can specify multiple malware classes.
+- **Malware Names**: Filter logs based on the specific malware names. You can specify multiple malware names.
+- **Threat Name**: Filter logs based on specific threats that were detected. You can specify multiple threat names separated by commas.
+
+- **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
+- **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
 <!-- /ZS-ARTICLE -->

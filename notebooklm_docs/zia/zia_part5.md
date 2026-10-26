@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
-Articles in this file: 157
+Generated: 2026-10-26 08:09 UTC
+Articles in this file: 156
 
 ---
 
@@ -1244,14 +1244,14 @@ Based on your authentication configuration, your users must log in to the servic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dlp-policy-configuration-example-match-only","lastmod":"2026-10-07T04:57Z","nid":"1401736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dlp-policy-configuration-example-match-only","lastmod":"2026-10-22T08:26Z","nid":"1401736"} -->
 ## DLP Policy Configuration Example: Match Only
 
 - Source: https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Policy Configuration Example: Match Only
-- Last modified: 2026-10-07T04:57Z
-- Summary: Information on how using DLP policy Allow rules with the Match Only option affects how DLP policy evaluates its rules.
+- Last modified: 2026-10-22T08:26Z
+- Summary: Information on how using Data Loss Prevention (DLP) policy Allow rules with the Match Only option affects how DLP policy evaluates its rules.
 
 Using rules with the Match Only option selected or unselected affects how the Data Loss Prevention (DLP) policy evaluates its rules when inspecting transactions. A rule with Match Only selected exclusively triggers when transactions match the rule’s specified DLP engines and no other engines from different rules. This allows you to prevent users from leaking sensitive data when sending out non-sensitive data.
 
@@ -1597,13 +1597,13 @@ Displays data associated with the DNS tunneling categories and network services.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-09-29T03:14Z","nid":"1529651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-end-user-notifications","lastmod":"2026-10-19T17:54Z","nid":"1529651"} -->
 ## DNS End User Notifications
 
 - Source: https://help.zscaler.com/zia/dns-end-user-notifications
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS End User Notifications
-- Last modified: 2026-09-29T03:14Z
+- Last modified: 2026-10-19T17:54Z
 - Summary: Information on the different types of End User Notifications (EUNs) supported by the DNS Control policy.
 
 Zscaler supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. All these notifications are configured at the individual rule level.
@@ -1688,7 +1688,7 @@ The following sections describe how to customize the Zscaler Client Connector EU
     - **Notification Type**: Select **Default**.
     - **Display Reason**: Enable to display the reason for blocking access in the notification.
     - **Display Company Name**: Enable to include your organization's name in the notification.
-    - **Display Company Logo**: Enable to display your organization's logo in the notification. You can upload your organization's logo on the [Company Profile](https://help.zscaler.com/unified/configuring-company-profile) page.
+    - **Display Company Logo**: Enable to display your organization's logo in the notification. You can upload your organization's logo on the [Organization profile](https://help.zscaler.com/unified/configuring-organization-profile) page.
     - In the text box, provide a custom message to be displayed in the notification. You can [customize the appearance](https://help.zscaler.com/zia/customizing-euns-css-styles) of this notification with CSS styles. This option allows you to customize a portion of the notification message. Some texts in the notification are auto-generated based on policy restrictions and are not customizable.
   - Under **IT Support**, you can provide contact details such as email address and phone number and include a link to your organization's policy.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -2033,13 +2033,13 @@ If the client browser is using secure DNS or DoH, add a firewall filtering rule 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-10-06T04:05Z","nid":"1398761"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-10-20T21:06Z","nid":"1398761"} -->
 ## Downloading and Printing Policies
 
 - Source: https://help.zscaler.com/zia/downloading-and-printing-policies
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Downloading and Printing Policies
-- Last modified: 2026-10-06T04:05Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: Information on how to download policies in PDF or JSON format or print policies and save them to a PDF file.
 
 You can download all of your organization's configured policies into a PDF or ZIP file. When you download policies in the ZIP format, a single ZIP file containing JSON representation of the policies is generated. One JSON file is created for each policy type within the ZIP file. In addition to downloading policies, you can print your policies.
@@ -2063,38 +2063,40 @@ See sample files.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-department-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-department-information-csv-file","lastmod":"2026-10-23T14:13Z","nid":"1401116"} -->
 ## Downloading Department Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-department-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Downloading Department Information to a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:13Z
 - Summary: How to obtain a list of departments configured in the Zscaler Admin Console.
 
 To download a CSV file of departments and their information:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Departments**.
-2. Click **Download**.
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet & SaaS Users**.
+2. Select the **Departments** tab.
+3. On the **Departments** tab, click **Download**.
 
 This CSV file can't be used to [import departments](https://help.zscaler.com/zia/importing-department-information-csv-file) because it uses a different format. If you need to import a CSV file to make modifications to departments, use the same format as the **Sample Import CSV file** provided by the Zscaler service.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-group-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-group-information-csv-file","lastmod":"2026-10-23T14:07Z","nid":"1401106"} -->
 ## Downloading Group Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-group-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Downloading Group Information to a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:07Z
 - Summary: How to obtain a list of groups configured in the ZIA Admin Portal.
 
 To download a CSV file of groups and their information:
 
-1. Navigate to **Administration > Legacy Admin Management > Internet & SaaS Users > Groups**.
-2. Click **Download**.
+1. Go to **Administration > Internet & SaaS Authentication > Internet & SaaS Users**.
+2. Select the **Groups** tab.
+3. On the **Groups** tab, click **Download**.
 
 This CSV file can't be used to [import groups](https://help.zscaler.com/zia/importing-group-information-csv-file) because it uses a different format. If you need to import a CSV file to make modifications to groups, use the same format as the **Sample Import CSV file** provided by the Zscaler service.
 <!-- /ZS-ARTICLE -->
@@ -2121,19 +2123,19 @@ The CSV file you download here cannot be used to [import location and sublocatio
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401096"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-user-information-csv-file","lastmod":"2026-10-20T14:10Z","nid":"1401096"} -->
 ## Downloading User Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-user-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Downloading User Information to a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-20T14:10Z
 - Summary: How to obtain a list of users configured in the Zscaler Admin Console.
 
 To download a CSV file of Internet & SaaS users and their information:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Users**.
-2. Click **Download**.
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet & SaaS Users**.
+2. On the **Users**tab, click **Download**.
 
 See image.
 
@@ -2144,13 +2146,13 @@ This CSV file can't be used to [import users](https://help.zscaler.com/zia/impor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-10-06T04:47Z","nid":"1398926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398926"} -->
 ## Downloading Virtual Service Edge Certificates for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
-- Last modified: 2026-10-06T04:47Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
 
 Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
@@ -2169,13 +2171,13 @@ If you're downloading multiple certificates, you might want to change the certif
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-vm-internet-saas","lastmod":"2026-10-06T04:45Z","nid":"1398931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-vm-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398931"} -->
 ## Downloading a Virtual Service Edge VM for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-vm-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading a Virtual Service Edge VM for Internet & SaaS
-- Last modified: 2026-10-06T04:45Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: How to download a Virtual Service Edge virtual machine (VM) for Internet & SaaS (ZIA) when deploying Virtual Service Edge clusters for the Zscaler service.
 
 Downloading a Virtual Service Edge virtual machine (VM) for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
@@ -2215,20 +2217,20 @@ To download the ZAB VM:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-10-14T21:06Z","nid":"1401186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-default-executive-insights-app-role","lastmod":"2026-10-23T14:05Z","nid":"1401186"} -->
 ## Editing the Default Executive Insights App Role
 
 - Source: https://help.zscaler.com/zia/editing-default-executive-insights-app-role
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Editing the Default Executive Insights App Role
-- Last modified: 2026-10-14T21:06Z
+- Last modified: 2026-10-23T14:05Z
 - Summary: How to edit the default Executive Insights App role in the Zscaler Admin Console.
 
 The Executive Insights App admin role is one of the default roles Zscaler provides. It gives the admin the permissions and scope required to access the Executive Insights App, but not the Zscaler Admin Console. If you want to give an admin other permissions and functional scopes in the Zscaler Admin Console along with access to the Executive Insights App, you can create an [admin role](https://help.zscaler.com/zia/adding-admin-roles) with **Executive Insights App Access** enabled, and then assign the new role to the admin.
 
 To edit the Executive Insights App role:
 
-1. Go to **Administration**>**Role Management**>**Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Role Management**>**Internet & SaaS**.
 2. Click the **Edit** icon for the **Executive Insights App** role. The **Edit Administrator Role** window appears.
 3. In the **Edit Administrator Role** window, you can see and configure the following fields: See image.
   - **Name**: The name of the admin role.
@@ -7591,23 +7593,24 @@ The trend toward cloud-based services, internet offloading, and protection for m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-department-information-csv-file-new","lastmod":"2026-10-15T21:06Z","nid":"1401121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-department-information-csv-file-new","lastmod":"2026-10-23T14:13Z","nid":"1401121"} -->
 ## Importing Department Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-department-information-csv-file-new
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Importing Department Information from a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:13Z
 - Summary: How to add new departments, and modify existing departments, using a CSV file.
 
 You can import up to 3,000 departments using a CSV file. If you want to add multiple users to an existing department or change the department for multiple users, you must use the [user sample import CSV file](https://help.zscaler.com/zia/importing-user-information-csv-file).
 
 To import new departments, or modify existing departments, using a CSV file:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Departments**.
-2. Click **Sample Import CSV file** to download the department information template.
-3. Enter your department information in the CSV file template.
-4. Once you have the CSV file in the correct format, click **Import**.
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet & SaaS Users**.
+2. Select the **Departments** tab.
+3. On the **Departments** tab, click **Sample Import CSV file** to download the department information template.
+4. Enter your department information in the CSV file template.
+5. Once you have the CSV file in the correct format, click **Import**.
 
 The **Import Departments** window appears.
 
@@ -7706,29 +7709,30 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-group-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-group-information-csv-file","lastmod":"2026-10-23T14:11Z","nid":"1401111"} -->
 ## Importing Group Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-group-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Importing Group Information from a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-23T14:11Z
 - Summary: How to add new groups, and modify existing groups, using a CSV file.
 
 You can import up to 3,000 user groups onto the Zscaler service at one time by using CSV files. Ensure that the CSV file is in a Zscaler-supported format before importing.
 
 To create and import a Zscaler-supported CSV file:
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Groups**.
-2. To create your CSV file:
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet & SaaS Users**.
+2. Select the **Groups** tab.
+3. To create your CSV file:
   1. Download the group information template by clicking the **Sample Import CSV file** button. See image.
   2. Open and update the sample CSV file with your group information. Ensure that the group information is in the following format to successfully import the file:
   - Retain the first line of the file, which is the header row. You will see **Action**, **Name**, and **Comments** columns.
   - Enter each group entry in a separate row: See image.
     - To add a new group, enter `+` under the **Action** column and the group name under the **Name**column. You can optionally enter your comments under the **Comments** column.
     - To remove a group, enter `-` under the **Action** column and the group name under the **Name** column.
-3. When your CSV file is ready to import, click **Import**.
-4. In the **Import Groups** window:
+4. When your CSV file is ready to import, click **Import**.
+5. In the **Import Groups** window:
   1. Click **Choose file**.
   2. Browse and select the CSV file, then click **Open**.
   3. Click **Import**.
@@ -7811,21 +7815,21 @@ Review your CSV file and ensure that there is no duplication. If you attempt to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/importing-user-information-csv-file","lastmod":"2026-10-15T21:06Z","nid":"1401101"} -->
+<!-- ZS-ARTICLE {"url":"/zia/importing-user-information-csv-file","lastmod":"2026-10-20T14:12Z","nid":"1401101"} -->
 ## Importing User Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-user-information-csv-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Users > Importing User Information from a CSV File
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-20T14:12Z
 - Summary: How to add new users, edit existing user information, and delete users with a CSV file.
 
 You can import up to 3,000 users using a CSV file.
 
 To edit and import a CSV file :
 
-1. Go to **Administration**>**Legacy Admin Management**>**Internet & SaaS Users**>**Users**.
-2. Click **Sample Import CSV file** to download the user information template. When configuring the CSV file, ensure the following:
+1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet & SaaS Users**.
+2. On the **Users**tab, click **Sample Import CSV file** to download the user information template. When configuring the CSV file, ensure the following:
   - The file name must have a `.csv` extension.
   - The first line of the file is the header row.
   - Each user must be on a separate line.
@@ -13953,34 +13957,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/israel-national-identification-number","lastmod":"2026-10-16T10:46Z","nid":"1546872"} -->
-## Israel National Identification Number
-
-- Source: https://help.zscaler.com/zia/israel-national-identification-number
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Israel National Identification Number
-- Last modified: 2026-10-16T10:46Z
-- Summary: Information on Israel National Identification Number.
-
-This dictionary detects the Israel Personal Identification Number (PIN), also known as *Mispar Zehut*. The popular format is a unique 9 or 10-digit number with a hyphen as the delimiter. For example, 12345678-9.
-
-There are two popular formats:
-
-- Plain format: NNNNNNNNN (9 digits with checksum as the 9th digit)
-- Hyphenated format: NNNNNNNN-C (8 digits + hyphen + checksum digit).
-
-The checksum for the Israel PIN uses the Israeli check-digit rule, which is a left-to-right Luhn variant. To verify the checksum, mMultiply the alternating PIN digits by 1,2,1,2...and so on. For products over 9, subtract 9 and then sum the results together. The final check digit is determined by (10 - sum % 10) % 10.
-
-The following table lists the confidence score threshold criteria for this dictionary. You can modify the [confidence score threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
-
-| Confidence Score | Threshold Criteria | Examples of Data |
-| --- | --- | --- |
-| **Medium** | The dictionary counts an instance as a violation if: The Israel PIN is in popular format and the pattern matches against regex \b(\d{9}\|\d{8}[-]\d)\b; The checksum can be validated. | The number formats that can trigger the dictionary are: 330470469; 255345340; 54370042-1The number formats that do not trigger the dictionary are: abc_255345340_xyz; 54370042---1; 54370042 1 |
-| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Israel PIN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:Mispar Zehut; idnumber#; identitynumber#; identity number; israeliidentitynumber; תעודת זהות | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Mispar Zehut 255345340; idnumber# 255345340; תעודת זהות 255345340The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 54370042-1 |
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-09-03T21:06Z","nid":"1399561"} -->
 ## Kerberos Authentication Deployment Guidelines
 
@@ -14701,16 +14677,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-alerts","lastmod":"2026-10-07T10:00Z","nid":"1399156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-alerts","lastmod":"2026-10-20T12:41Z","nid":"1399156"} -->
 ## Managing Alerts
 
 - Source: https://help.zscaler.com/zia/managing-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Managing Alerts
-- Last modified: 2026-10-07T10:00Z
+- Last modified: 2026-10-20T12:41Z
 - Summary: How to add and disable alerts in the Zscaler Admin Console.
-
-[Watch a video about Alerts, including how to configure them](https://fast.wistia.net/embed/iframe/9to9j2rhzn) (shows legacy UI).
 
 You can add and disable alerts on the Alerts page. To learn more, see [About Alerts](https://help.zscaler.com/zia/about-alerts).
 

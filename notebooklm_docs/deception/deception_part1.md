@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 296
 
 ---
@@ -636,16 +636,14 @@ On the Deception Strategy page (Miragemaker > Strategy Builder > Deception Strat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-decoy-connectors","lastmod":"2026-09-18T02:33Z","nid":"1542261"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-decoy-connectors","lastmod":"2026-10-19T14:23Z","nid":"1542261"} -->
 ## About Decoy Connectors 
 
 - Source: https://help.zscaler.com/deception/about-decoy-connectors
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > About Decoy Connectors 
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:23Z
 - Summary: Information on Decoy Connectors and the Decoy Connectors page within the Zscaler Deception Admin Portal.
-
-[Watch a video on Adding and Connecting Decoy Connectors.](https://fast.wistia.net/embed/iframe/u6tiabaqnr)
 
 Decoy Connectors (formerly known as Appliances) are lightweight virtual machines (VMs) that host network decoys. They also act as a network broker to connect the Zscaler Deception service to on-premises systems and Active Directory (AD) decoys in your environment.
 
@@ -1132,16 +1130,14 @@ On the Landmine Decoy Personalities page (Miragemaker > Strategy Builder > Landm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoys","lastmod":"2026-08-10T19:53Z","nid":"1542316"} -->
+<!-- ZS-ARTICLE {"url":"/deception/about-landmine-decoys","lastmod":"2026-10-19T14:34Z","nid":"1542316"} -->
 ## About Landmine Decoys
 
 - Source: https://help.zscaler.com/deception/about-landmine-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > About Landmine Decoys
-- Last modified: 2026-08-10T19:53Z
+- Last modified: 2026-10-19T14:34Z
 - Summary: Information about the Landmine Decoys page in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Landmine Decoys and Policies](https://fast.wistia.net/embed/iframe/c3w5mose6l).
 
 Landmine decoys look like valuable assets ripe for exfiltration. They can be decoy files, credentials, and application lures on endpoints. When adversaries access these decoys, Zscaler Deception sends alerts about the adversary's presence. You can use the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) to analyze an adversary's behavior, hunt for threats across the network, or block access.
 
@@ -2362,16 +2358,14 @@ To add an agent update group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/adding-connecting-decoy-connector-admin-portal","lastmod":"2026-09-18T02:33Z","nid":"1542258"} -->
+<!-- ZS-ARTICLE {"url":"/deception/adding-connecting-decoy-connector-admin-portal","lastmod":"2026-10-19T14:22Z","nid":"1542258"} -->
 ## Adding and Connecting a Decoy Connector to the Zscaler Deception Admin Portal
 
 - Source: https://help.zscaler.com/deception/adding-connecting-decoy-connector-admin-portal
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Adding and Connecting a Decoy Connector to the Zscaler Deception Admin Portal
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:22Z
 - Summary: How to add and connect a Decoy Connector to the Zscaler Deception Admin Portal.
-
-[Watch a video on Adding and Connecting Decoy Connectors to the Zscaler Deception Admin Portal.](https://fast.wistia.net/embed/iframe/u6tiabaqnr)
 
 You can configure and add a Decoy Connector for Network Decoys and connect it to the Zscaler Deception Admin Portal.
 
@@ -3681,13 +3675,13 @@ To delete a web server banner:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-09-18T02:33Z","nid":"1542293"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-browser-lures","lastmod":"2026-10-19T07:06Z","nid":"1542293"} -->
 ## Configuring Browser Lures
 
 - Source: https://help.zscaler.com/deception/configuring-browser-lures
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Browser Lures
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T07:06Z
 - Summary: How to configure landmine policies to deploy various browser lures on endpoints.
 
 The Browser Lures module enables you to add decoy credentials, cookies, and bookmarks to browsers such as Google Chrome, Mozilla Firefox, and Microsoft Edge on endpoints.
@@ -3879,13 +3873,13 @@ To configure the management network:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-defense-evasion","lastmod":"2026-10-09T04:04Z","nid":"1542290"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-defense-evasion","lastmod":"2026-10-22T19:19Z","nid":"1542290"} -->
 ## Configuring Defense Evasion
 
 - Source: https://help.zscaler.com/deception/configuring-defense-evasion
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Defense Evasion
-- Last modified: 2026-10-09T04:04Z
+- Last modified: 2026-10-22T19:19Z
 - Summary: How to configure landmine policies to detect adversarial defense evasion attempts on endpoints.
 
 The Defense Evasion module enables you to create fake security processes on endpoint machines to trap adversaries who attempt to stop security processes, such as antivirus, endpoint detection and response (EDR), data loss prevention (DLP), etc.
@@ -3912,13 +3906,13 @@ The configured process can take more than two minutes to restart after it is sto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-10-09T04:04Z","nid":"1542295"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-file-decoys","lastmod":"2026-10-22T19:15Z","nid":"1542295"} -->
 ## Configuring File Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-file-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring File Decoys
-- Last modified: 2026-10-09T04:04Z
+- Last modified: 2026-10-22T19:15Z
 - Summary: How to configure landmine policies to deploy various types file decoys on endpoints.
 
 The File Decoys module enables you to place decoy files on endpoints. The Zscaler Deception Admin Portal generates alerts when an adversary attempts to interact with these file decoys.
@@ -4479,13 +4473,13 @@ To learn more about generative AI models in AWS, refer to the [AWS documentation
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542486"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-10-23T06:35Z","nid":"1542486"} -->
 ## Configuring Lures Using Azure Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-lures-using-azure-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Configuring Lures Using Azure Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-23T06:35Z
 - Summary: Information on how to configure different types of lures using different types of Azure decoys.
 
 After configuring the [integration between Microsoft Azure and Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-integration-azure-decoys) and [deploying the necessary decoys](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-azure-decoys-setup), you can use the decoys to set up lures for attackers. You can use different methods to set up lures depending on the type of decoys, as explained in the following sections:
@@ -4522,7 +4516,7 @@ If an adversary uses the credentials to access decoy resources, the event is log
 
 To learn more about service principals in Azure, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals?tabs=browser).
 
-Managed identities in Azure allow applications to authenticate and communicate with each other. You can use managed identity decoys to detect adversarial interaction with legitimate applications (production environment) in Azure. When a legitimate application is accessed via managed identity decoy, the event is logged as an attack. You can view and analyze the attack details from the [Deception Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
+Managed identities in Azure allow applications to authenticate and communicate with each other. You can use managed identity decoys to detect adversarial interaction with decoy resources in Azure. When a managed identity is used to access a decoy resource, an alert is generated. You can view and analyze the attack details from the [Deception Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
 
 To learn how to use managed identities, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -8198,16 +8192,14 @@ Upon successful deployment, the container registry decoy is added to Microsoft A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-decoy-active-directory-user","lastmod":"2026-09-18T02:33Z","nid":"1542320"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-decoy-active-directory-user","lastmod":"2026-10-19T14:30Z","nid":"1542320"} -->
 ## Creating an Active Directory Decoy User
 
 - Source: https://help.zscaler.com/deception/creating-decoy-active-directory-user
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Creating an Active Directory Decoy User
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:30Z
 - Summary: How to create a decoy user account in an Active Directory (AD) in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Active Directory Decoy Users and Computers.](https://fast.wistia.net/embed/iframe/d0d5qnq153)
 
 You can create an AD decoy user account in an Active Directory (AD) domain with different privilege levels. These decoy user accounts help you capture enumeration and detect privilege escalation techniques, such as brute force, Kerberoast detection, etc. Adversaries querying an AD find these decoy user accounts and use the credentials to access other assets in the organization. High fidelity alerts are triggered when the decoy accounts are accessed or when AD logs are analyzed.
 
@@ -8671,16 +8663,14 @@ To create an IAM decoy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-internal-network-decoy","lastmod":"2026-09-18T02:33Z","nid":"1542272"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-internal-network-decoy","lastmod":"2026-10-19T14:31Z","nid":"1542272"} -->
 ## Creating an Internal Decoy
 
 - Source: https://help.zscaler.com/deception/creating-internal-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Creating an Internal Decoy
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:31Z
 - Summary: How to create an Internal decoy in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating an Internal Decoy.](https://fast.wistia.net/embed/iframe/i113pmpxyt)
 
 Internal decoys are decoy network assets that mimic servers, databases, and other internal applications in your network environment that are frequently targeted during scanning and lateral movement.
 
@@ -8811,16 +8801,14 @@ Upon successful deployment, the key vault decoy is added to Microsoft Azure. The
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-landmine-policy","lastmod":"2026-09-18T02:33Z","nid":"1542287"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-landmine-policy","lastmod":"2026-10-19T14:33Z","nid":"1542287"} -->
 ## Creating a Landmine Policy
 
 - Source: https://help.zscaler.com/deception/creating-landmine-policy
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Creating a Landmine Policy
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:33Z
 - Summary: How to create a landmine policy in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Landmine Policies and Decoys.](https://fast.wistia.net/embed/iframe/c3w5mose6l)
 
 Landmine decoys are configured based on policies. Policies consist of various options, such as decoy files, processes, lures, etc. that can be applied to an endpoint. Each policy has a selection criterion, and the policy is applied to the endpoint only if the criterion matches.
 
@@ -8915,16 +8903,16 @@ After the selection criterion is specified, you can configure the required lure 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-09-18T02:33Z","nid":"1542465"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-10-23T06:38Z","nid":"1542465"} -->
 ## Creating a Managed Identity Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-managed-identity-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Managed Identity Decoy in Azure
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-23T06:38Z
 - Summary: How to configure a managed identity decoy in Microsoft Azure.
 
-Managed identities provide an automatically managed identity in Azure AD (Entra ID) for applications to use when connecting to resources that support Azure AD (Entra ID) authentication. You can create a managed identity decoy (user-defined) that has access to all other decoy resources in a decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). This managed identity decoy can be attached to your production resources. It can also be included in your deployment templates to add deception capabilities to your production resources. If an adversary compromises any of the production resources, they will be lured toward the decoys.
+Managed identities provide an automatically managed identity in Azure AD (Entra ID) for applications to use when connecting to resources that support Azure AD (Entra ID) authentication. You can create a managed identity decoy (user-defined) that has access to all other decoy resources in a decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). If an adversary uses the managed identity to access decoy resources, an alert is generated.
 
 To learn about the list of Azure services that can be attached to managed identities, refer to the [Microsoft Technical Documentation](https://www.google.com/url?q=https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/managed-identities-status%23services-supporting-managed-identities&sa=D&source=docs&ust=1690783640140469&usg=AOvVaw23RfBJmYz2ZT5ILux1DJoh).
 
@@ -8995,16 +8983,14 @@ Upon successful deployment, the managed identity decoy is added to Microsoft Azu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-network-decoy-group","lastmod":"2026-09-18T02:33Z","nid":"1542328"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-network-decoy-group","lastmod":"2026-10-19T14:37Z","nid":"1542328"} -->
 ## Creating a Network Decoy Group
 
 - Source: https://help.zscaler.com/deception/creating-network-decoy-group
 - Product: Deception
 - Path: Deception Help > Deceive  > Deceive Settings > Creating a Network Decoy Group
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:37Z
 - Summary: How to create network Decoy groups to logically organize network and threat intelligence decoysin the Zscaler Deception Admin Portal.
-
-[Watch a video on Zero Trust Network Decoys.](https://fast.wistia.net/embed/iframe/jra2iq1bd6)
 
 A network decoy group allows you to logically organize networks and threat intelligence decoys based on function, location, system type, etc. A decoy group categorizes the detected alerts along logical boundaries. You can create a network decoy group based on:
 
@@ -9869,16 +9855,14 @@ After the strategy is created, you can [deploy it](https://help.zscaler.com/dece
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-threat-intelligence-decoy","lastmod":"2026-09-18T02:33Z","nid":"1542280"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-threat-intelligence-decoy","lastmod":"2026-10-19T14:24Z","nid":"1542280"} -->
 ## Creating a Threat Intelligence Decoy
 
 - Source: https://help.zscaler.com/deception/creating-threat-intelligence-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Threat Intelligence Decoys > Creating a Threat Intelligence Decoy
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:24Z
 - Summary: How to create a Threat Intelligence (TI) decoy in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Threat Intelligence Decoys.](https://fast.wistia.net/embed/iframe/x1u6oijljq)
 
 A Threat Intelligence (TI) decoy generates organization-specific intelligence about reconnaissance attempts and subsequent attacks against your public-facing assets.
 
@@ -10209,16 +10193,14 @@ Upon successful deployment, the VM image decoy is added to Microsoft Azure. The 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-zero-trust-network-decoy","lastmod":"2026-09-18T02:33Z","nid":"1542274"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-zero-trust-network-decoy","lastmod":"2026-10-19T14:36Z","nid":"1542274"} -->
 ## Creating a Zero Trust Network Decoy
 
 - Source: https://help.zscaler.com/deception/creating-zero-trust-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Creating a Zero Trust Network Decoy
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:36Z
 - Summary: How to create Zero Trust Network Decoys in the Zscaler Deception Admin Portal.
-
-[Watch a video on Creating Zero Trust Network Decoys.](https://fast.wistia.net/embed/iframe/jra2iq1bd6)
 
 Zero Trust Network decoys are decoy network assets that mimic servers, databases, and other internal applications in your network environment that are frequently targeted during scanning and lateral movement. These decoys run on a dedicated cloud environment hosted by Zscaler and are made available to an adversary using Private Access (ZPA) via Zscaler Client Connector. You can create Zero Trust Network decoys on the production application segment in Private Access.
 
@@ -11069,13 +11051,13 @@ After the Decoy Connector management network is configured, you must [add the De
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-09-18T02:33Z","nid":"1542396"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-endpoint-deception-zscaler-client-connector-windows","lastmod":"2026-10-22T19:03Z","nid":"1542396"} -->
 ## Deploying Endpoint Deception with Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows
 - Product: Deception
-- Path: Deception Help > Deceive  > Landmine Decoys > Deploying Endpoint Deception with Zscaler Client Connector for Windows
-- Last modified: 2026-09-18T02:33Z
+- Path: Deception Help > Deceive  > Landmine Decoys > Endpoint Deception With Zscaler Client Connector > Deploying Endpoint Deception with Zscaler Client Connector for Windows
+- Last modified: 2026-10-22T19:03Z
 - Summary: How to deploy endpoint deception with Zscaler Client Connector for Windows.
 
 If your organization is provisioned for Zscaler Internet Access (ZIA), you can deploy endpoint deception capabilities on Microsoft Windows machines using Zscaler Client Connector.
@@ -11164,16 +11146,14 @@ Follow these steps to deploy endpoint deception with Zscaler Client Connector:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-file-based-generative-ai-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542566"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-file-based-generative-ai-decoys","lastmod":"2026-10-19T14:26Z","nid":"1542566"} -->
 ## Deploying File-Based Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/deploying-file-based-generative-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Deploying File-Based Gen AI Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:26Z
 - Summary: How to create file-based gen AI decoys.
-
-[Watch a video about Deploying File-Based Gen AI Decoys](https://fast.wistia.net/embed/iframe/qf0fwfsxxm).
 
 File-based generative AI (Gen AI) decoys mimic the resources used to set up local large language models (LLMs). You can lure attackers by deploying these decoy file resources to one of the following assets:
 
@@ -11291,16 +11271,14 @@ The file-based Gen AI decoys are enumerated directly by adversaries, or you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/deploying-interactive-gen-ai-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542565"} -->
+<!-- ZS-ARTICLE {"url":"/deception/deploying-interactive-gen-ai-decoys","lastmod":"2026-10-19T14:28Z","nid":"1542565"} -->
 ## Deploying Interactive Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/deploying-interactive-gen-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Deploying Interactive Gen AI Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-10-19T14:28Z
 - Summary: How to deploy interactive Gen AI decoys in the Zscaler Deception Admin Portal.
-
-[Watch a video on Deploying Interactive Gen AI Decoys.](https://fast.wistia.net/embed/iframe/hmy8a4j6dl)
 
 Interactive generative AI (Gen AI) decoys mimic common Gen AI infrastructure such as Chatbots, LLM servers, open-source applications, APIs, etc. You can deploy Gen AI decoys on the internal network, Zero Trust Exchange, and the internet via Private Access (ZPA), Internal, and Threat Intelligence (TI) using out-of-the-box Gen AI high-interaction or static application datasets.
 
@@ -15977,13 +15955,13 @@ To remove the landmine agentless policy and registration on Linux:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/resetting-two-factor-authentication","lastmod":"2025-06-10T07:11Z","nid":"1542254"} -->
+<!-- ZS-ARTICLE {"url":"/deception/resetting-two-factor-authentication","lastmod":"2026-10-21T02:27Z","nid":"1542254"} -->
 ## Resetting Two-Factor Authentication
 
 - Source: https://help.zscaler.com/deception/resetting-two-factor-authentication
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Account Settings > Resetting Two-Factor Authentication
-- Last modified: 2025-06-10T07:11Z
+- Last modified: 2026-10-21T02:27Z
 - Summary: How to reset two-factor authentication (2FA) within the Zscaler Deception Admin Portal.
 
 When signing into the Zscaler Deception Admin Portal for the first time, you must configure two-factor authentication (2FA) using an authenticator app. This adds an extra level of security because you are required to enter both your password and a 2FA code while signing into the portal.
@@ -16009,28 +15987,28 @@ To reset 2FA:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/restricted-file-paths-lures-and-decoys","lastmod":"2026-10-12T07:43Z","nid":"1546704"} -->
+<!-- ZS-ARTICLE {"url":"/deception/restricted-file-paths-lures-and-decoys","lastmod":"2026-10-22T18:58Z","nid":"1546704"} -->
 ## Restricted File Paths for Lures and Decoys
 
 - Source: https://help.zscaler.com/deception/restricted-file-paths-lures-and-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Endpoint Deception With Zscaler Client Connector > Restricted File Paths for Lures and Decoys
-- Last modified: 2026-10-12T07:43Z
+- Last modified: 2026-10-22T18:58Z
 - Summary: List of restricted file paths for landmine-based lures and decoys.
 
-Beginning with Zscaler Client Connector-integrated Agent 6.1, landmine validates certain file paths specified in policies before creating or managing path-based lures and decoys. Paths that target the operating system, security, credential, or other protected locations are rejected. The blocked paths vary depending on the endpoint operating system.
+Beginning with Zscaler Client Connector-integrated Agent 6.1, landmine validates certain file paths specified in policies before creating or managing path-based lures and decoys. Paths that target the OS, security, credential, or other protected locations are rejected. The blocked paths vary depending on the endpoint OS.
 
-The following sections list the blocked paths for each operating system.
+The following sections list the blocked paths for each OS.
 
 - Windows
-- Linux
 - macOS
+- Linux
 
-The following locations and their contents are blocked:
+Path validation is case insensitive and uses the actual Windows and system directories configured on the endpoint.
 
-Path validation is case-insensitive and uses the actual Windows and system directories configured on the endpoint.
+The following locations are blocked:
 
-- The Windows installation directory, typically `C:\Windows`, including `System32`, `SysWOW64`, `WinSxS`, and other subdirectories.
+- The Windows installation directory, typically `C:\Windows`, including `System32`, `SysWOW64`, `WinSxS`, and other subdirectories
 - `<SystemDrive>\Boot`
 - `<SystemDrive>\System Volume Information`
 - `<ProgramData>\Microsoft\Crypto`
@@ -16040,15 +16018,15 @@ Path validation is case-insensitive and uses the actual Windows and system direc
 
 The following user-specific locations are also blocked:
 
-- `%APPDATA%\Microsoft\Protect`
-- `%LOCALAPPDATA%\Microsoft\Credentials`
-- `%LOCALAPPDATA%\Microsoft\Vault`
-- `%LOCALAPPDATA%\Microsoft\SystemCertificates`
-- `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
-- `%LOCALAPPDATA%\Microsoft\WindowsApps`
-- `%APPDATA%\Microsoft\Templates`
-- `NTUSER.DAT`
-- `%LOCALAPPDATA%\Microsoft\Windows\UsrClass.dat`
+- `<drive>:\Users\<user>\AppData\Roaming\Microsoft\Protect\`
+- `<drive>:\Users\<user>\AppData\Local\Microsoft\Credentials\`
+- `<drive>:\Users\<user>\AppData\Local\Microsoft\Vault\`
+- `<drive>:\Users\<user>\AppData\Local\Microsoft\SystemCertificates\`
+- `<drive>:\Users\<user>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\`
+- `<drive>:\Users\<user>\AppData\Local\Microsoft\WindowsApps\`
+- `<drive>:\Users\<user>\AppData\Roaming\Microsoft\Templates\`
+- `<drive>:\Users\<user>\NTUSER.DAT`
+- `<drive>:\Users\<user>\AppData\Local\Microsoft\Windows\UsrClass.dat`
 
 The following paths are blocked:
 

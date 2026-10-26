@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 250
 
 ---
@@ -587,13 +587,13 @@ On the Locations page (Administration > Authentication > Trusted IP Locations), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-linked-services","lastmod":"2026-10-12T06:18Z","nid":"1499091"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-linked-services","lastmod":"2026-10-21T09:19Z","nid":"1499091"} -->
 ## About Linked Services
 
 - Source: https://help.zscaler.com/authentication-service/about-linked-services
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > About Linked Services
-- Last modified: 2026-10-12T06:18Z
+- Last modified: 2026-10-21T09:19Z
 - Summary: How to link or unlink tenants from Authentication Service in the Zscaler Admin Console.
 
 The linked services page shows your subscribed Zscaler service tenants. If a tenant is unlinked, the users under that tenant can't access the Zscaler service via Authentication Service.
@@ -612,7 +612,7 @@ On the Linked Services page (Administration > Subscription > Linked Services), y
   - **Tenant ID:**The tenant ID of the Zscaler service.
   - **Cloud Name**: The name of the Zscaler cloud on which the Zscaler service is used.
   - **Organization Name**: The name of the tenant organization.
-  - **Authentication Service Migration Status**: The migration status of the tenant to Zscaler Admin Console.
+  - **Authentication Service Migration Status**: The migration status of the tenant to Authentication Service.
   - **Status**: Whether the tenant is linked or unlinked from Authentication Service.
 2. Refresh the page to sync any new data.
 3. Select the columns to display in the table and click **Apply**.
@@ -1265,13 +1265,13 @@ To add a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-openid-providers","lastmod":"2026-10-15T09:34Z","nid":"1499216"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-openid-providers","lastmod":"2026-10-22T21:48Z","nid":"1499216"} -->
 ## Adding OpenID Providers
 
 - Source: https://help.zscaler.com/authentication-service/adding-openid-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Adding OpenID Providers
-- Last modified: 2026-10-15T09:34Z
+- Last modified: 2026-10-22T21:48Z
 - Summary: Information about how to add an OpenID provider in the Zscaler Admin Console.
 
 [Watch a video about Adding OpenID Providers.](https://fast.wistia.net/embed/iframe/yt3iry6yvi)
@@ -1288,10 +1288,10 @@ To add an OP (primary or secondary):
   - **Name**: Enter a name for the OP.
   - **Status**: Enable or disable the OP.
   - **Identity Vendor**: Select the OP.
-  - **Protocol**: Select **OIDC**.
-  - **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.; To learn more about supported attributes and their expected value formats (such as email address), refer to the product documentation of the respective IdPs.
+  - **Domains**: Select the domain for which the OP is responsible for authenticating the users. This allows the Zscaler service to display the correct OP to authenticate an incoming user.
   - **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-  - **Domain**: Select the domain for which the OP is responsible for authenticating the users. This allows the Zscaler service to display the correct OP to authenticate an incoming user.
+  - **Authentication Protocol**: Select **OIDC**.
+  - **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.; To learn more about supported attributes and their expected value formats (such as email address), refer to the product documentation of the respective IdPs.
   - **Input Method**: Select one of the following input methods to procure the information required for the OIDC configuration. You can get the required information from the OP: Metadata URL; Enter Manually
   - **Redirect URI**: Copy the URI. You need this URI when configuring Authentication Service as the RP in the OP's portal.
   - **Token Endpoint Authentication Method**: Select the token authentication method to be used when Authentication Service authenticates itself to the OP to exchange the authorization code for tokens (i.e., **Client Secret Basic** or **Client Secret Post**).
@@ -1299,16 +1299,17 @@ To add an OP (primary or secondary):
   - **Client Secret**: Enter the client secret. This is a confidential code used to authenticate Authentication Service to the OP. You can get this information from the OP.
   - **Requested Scopes**: Enter the scopes you want Authentication Service to include in the authentication request to the OP. Depending on configuration at the OP, it's possible to use scopes to retrieve additional user attributes.
   - **Default Requested Authentication Context (Optional)**: Enter the authentication context class reference values to be passed in the authentication request to the OP. The value defines the authentication method or levels required from the user (e.g., password only, multi-factor authentication, etc.). You can get these values from your OP.
-4. On the **Advanced** tab: See image. If you are configuring Zscaler Identity Proxy for Cloud Apps, you must map the `Is Device Managed` session attribute with the appropriate IdP attribute, and then configure the managed devices settings in the Zscaler Admin Console. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps).
+4. On the **Advanced Configurations** tab: See image. If you are configuring Zscaler Identity Proxy for Cloud Apps, you must map the `Is Device Managed` session attribute with the appropriate IdP attribute, and then configure the managed devices settings in the Zscaler Admin Console. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps).
   - **Login Hint:**Enable the option to automatically populate the **Login ID** field during the login process. The login ID is included in the OIDC authentication request that Authentication Service sends to the external IdP.
+  - **Levels to Authentication Context Mapping**: Map the required authentication contexts from IdP for [step-up authentication](https://help.zscaler.com/authentication-service/understanding-step-up-authentication).
   - **IdP Attribute**: Enter the IdP attribute that must be mapped to the session attribute. You can get all the attributes from the OIDC JSON for your IdP.
   - **Session Attribute**: Select the required attribute from the drop-down menu.
-5. On the **Provisioning**tab: See image.
-  - Enable **Just-in-time (JIT) Provisioning**: Enabling this option allows automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time and is not provisoned to Authentication Service yet. Authentication Service uses the response sent by the OP containing user information to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. For JIT provisioning, add the following details: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
+5. On the **Provisioning Details**tab: See image.
+  - **Just-in-time (JIT) Provisioning**: Enable **JIT Provisioning**to allow automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time and is not provisoned to Authentication Service yet. Authentication Service uses the response sent by the OP containing user information to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. For JIT provisioning, add the following details: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
     - **Just-in-time User Group Attributes**: Enter the JIT user group attribute.
     - **Just-in-time Attribute**: Enter the JIT attribute that you want to map from the OP.
     - **User Attribute**:Select the user attributethat you want to map to the JIT attribute. Click**Add More** to map additional attributes. To remove an attribute mapping, click the **Delete** icon next to the user attribute.
-  - Enable **SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
+  - **SCIM Provisioning**: Enable **SCIM Provisioning**to activate SCIM-based provisioning for users. The following fields appear:
     - **SCIM Endpoint URL**: Copy the SCIM Endpoint URL. This is the base URL for the SCIM server and it's needed when configuring SCIM-based provisioning with your external IdP. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic**tab are completed and saved. See image.
     - **Authentication Method**: Select an authentication method:
       - Bearer Token
@@ -1330,7 +1331,7 @@ The bearer token is visible only to admins with Full permission enabled for exte
 - Click **Generate Token**to generate a token. The token is a unique alphanumeric string that is used by the SCIM client to make authenticated API calls to the Zscaler SCIM server. You need this token when configuring your IdP for SCIM provisioning.
 - Copy the **Bearer Token**value. See image. You can generate a new bearer token for security reasons. If you're generating a new bearer token for an existing SCIM configuration, ensure you update the token for your IdP.
 
-- **Token Endpoint**: Copy the token endpoint URL.
+- **Token Endpoint**: Copy the token endpoint URL. This option appears only when the external identity configuration is saved.
 - **Client ID**: Copy the client ID value.
 - **Client Secret**: Click **Add**and copy the secret value. See image. You can customize the client secret expiration date using the **Expires On** drop-down menu.
 
@@ -1349,13 +1350,13 @@ The bearer token is visible only to admins with Full permission enabled for exte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-saml-identity-providers","lastmod":"2026-09-30T19:46Z","nid":"1499086"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-saml-identity-providers","lastmod":"2026-10-22T21:24Z","nid":"1499086"} -->
 ## Adding SAML Identity Providers
 
 - Source: https://help.zscaler.com/authentication-service/adding-saml-identity-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Adding SAML Identity Providers
-- Last modified: 2026-09-30T19:46Z
+- Last modified: 2026-10-22T21:24Z
 - Summary: Information about adding identity providers (IdPs) in the Zscaler Admin Console.
 
 This article describes how to add an identity provider (IdP). You can add a primary IdP or multiple secondary IdPs and assign a subset of user domains to a specific IdP. You can add up to 64 secondary IdPs.
@@ -1368,33 +1369,35 @@ To add an IdP (primary or secondary):
   - **Name**: Enter a name for the IdP.
   - **Status**: Enable or disable the IdP.
   - **Identity Vendor**: Select the IdP.
-  - **Protocol**: Select **SAML** or**OIDC**.
-  - **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the `NameID` attribute is populated in this field when the **SAML**option is selected in the **Protocol** field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.; To learn more about supported attributes and their expected value formats (such as email address), refer to the product documentation of the respective IdPs.
+  - **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
   - **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-  - **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  - **Authentication Protocol**: Select **OIDC**or **SAML**.
+  - **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the `NameID` attribute is populated in this field when the **SAML**option is selected in the **Protocol** field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.; To learn more about supported attributes and their expected value formats (such as email address), refer to the product documentation of the respective IdPs.
   - **Input Method**: Select one of the following input methods to procure the information required for SAML configuration: Metadata URL; Upload Metadata; Enter Manually
-4. On the **Advanced**tab: See image. Ensure to select Sign SAML response and assertion as the signing option on the IdP because Authentication Service does not process any SAML response that is not signed.; If you are configuring Zscaler Identity Proxy for Cloud Apps, you must map the `Is Device Managed` session attribute with the appropriate IdP attribute, and then configure the managed devices settings in the Zscaler Admin Console. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps). See image.
+4. On the **Advanced Configurations**tab: See image. Ensure to select Sign SAML response and assertion as the signing option on the IdP because Authentication Service does not process any SAML response that is not signed.; If you are configuring Zscaler Identity Proxy for Cloud Apps, you must map the `Is Device Managed` session attribute with the appropriate IdP attribute, and then configure the managed devices settings in the Zscaler Admin Console. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps). See image.
   - **SAML Request Signing**:Enable the option to configure SAML request signing for authentication. Select the signing algorithm from the drop-down menu that appears.
+  - **Signing Algorithm**: Select an algorithm that must be used to sign the SAML requests. This option is shown only when the **SAML Request Signing**option is enabled.
   - **Login Hint:**Enable the option to automatically populate the **Login ID** field during the login process. The login ID is included in the SAML authentication request that Authentication Service sends to the external IdP.
   - **Encrypted SAML Assertion**:Enable the option to configure encrypted SAML response for authentication.
+  - **Request signing and Decryption Certificate**: You can generate up to 2 request signing and decryption certificates.
   - **Session Attribute Mapping:**
     - **IdP Attribute**: Enter the IdP attribute that must be mapped to the session attribute. To find all the available attribute names, refer to the SAML JSON file for your IdP.
     - **Session Attribute**: Select the session attribute from the drop-down menu.
 
 After configuring information on the **Advanced**tab, you can add a Request Signing and Decryption Certificate from the **Edit Primary or Secondary IdP** page. To learn more, see [Editing or Deleting a SAML Identity Provider](https://help.zscaler.com/authentication-service/editing-or-deleting-saml-identity-provider).
 
-1. On the **Provisioning**tab: See image.
-  - Enable **Just-in-Time (JIT) Provisioning**: Enable this option to allow automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time. The IdP sends a SAML Assertion (XML file) containing user information, which Authentication Service uses to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. The following fields appear: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
+1. On the **Provisioning Details**tab: See image.
+  - **Just-in-Time (JIT) Provisioning**: Enable **JIT Provisioning** option to allow automated user provisioning to Authentication Service when the user tries to access Authentication Service for the first time. The IdP sends a SAML Assertion (XML file) containing user information, which Authentication Service uses to create a [user database](https://help.zscaler.com/authentication-service/about-users) with Authentication Service in real time. If you disable this option, unprovisioned users are denied access to Authentication Service until the [users are configured](https://help.zscaler.com/authentication-service/adding-users) in the Zscaler Admin Console. The following fields appear: JIT provisioning for primary IdPs does not support provisioning or updating system-defined groups (e.g., Zscaler Global Administrators).
     - **Just-in-Time User Group Attribute**: Enter a name for the user group attribute.
     - **Just-in-Time Attribute**: Enter a name for the JIT attribute.
-    - **User Attribute**: Select the user attribute that you want to map. Click**Add More** to map additional attributes. To remove an attribute mapping, click the **Delete** icon. Authentication Service supports the following default attributes:
+    - **User Attribute**: Select the user attribute that you want to map. Click**Add Mapping**to map additional attributes. To remove an attribute mapping, click the **Delete** icon. Authentication Service supports the following default attributes:
       - First Name
       - Last Name
       - Name
       - Primary Email
       - Login Name
       - Display Name
-  - Enable **SCIM Provisioning**: Enable to activate SCIM-based provisioning for users. The following fields appear:
+  - **SCIM Provisioning**: Enable **SCIM** **Provisioning**to activate SCIM-based provisioning for users. The following fields appear:
     - **SCIM Endpoint URL**: Copy the SCIM Endpoint URL. This is the base URL for the SCIM server and it's needed when configuring SCIM-based provisioning with your external IdP. The **SCIM Endpoint URL**field appears only if the configurations for the IdP in the **Basic**tab are completed and saved. See image.
     - **Authentication Method**: Select an authentication method:
       - Bearer Token
@@ -1430,7 +1433,7 @@ The bearer token is visible only to admins with Full permission enabled for exte
 - Click **Generate Token**to generate a token. The token is a unique alphanumeric string that is used by the SCIM client to make authenticated API calls to the Zscaler SCIM server. You need this token when configuring your IdP for SCIM provisioning.
 - Copy the **Bearer Token**value. See image. You can generate a new bearer token for security reasons. If you're generating a new bearer token for an existing SCIM configuration, ensure you update the token for your IdP.
 
-- **Token Endpoint**: Copy the token endpoint URL.
+- **Token Endpoint**: Copy the token endpoint URL. This option appears only if the external identity configuration is saved.
 - **Client ID**: Copy the client ID value.
 - **Client Secret**: Click **Add**and copy the secret value. See image. You can customize the client secret expiration date using the **Expires On** drop-down menu.
 
@@ -2204,13 +2207,13 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-09-29T02:12Z","nid":"1507491"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-10-22T23:08Z","nid":"1507491"} -->
 ## Configuring Authentication Levels
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-levels
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Authentication Levels
-- Last modified: 2026-09-29T02:12Z
+- Last modified: 2026-10-22T23:08Z
 - Summary: How to configure Authentication Levels in Zscaler Admin Console.
 
 An authentication level represents a specific strength of authentication with hierarchical levels where higher levels represent stronger authentication methods. When users are authenticated at a higher level, their authentication level satisfies policies that require a sub-level of authentication. These authentication levels are mapped with access policies in supported Zscaler services to enable step-up authentication for resources.
@@ -2438,8 +2441,8 @@ In the [external IdP integrated with Authentication Service](https://help.zscale
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Select the **Advanced** tab.
+3. On the **Edit External Identity**page: See image.
+  1. Select the **Advanced** **Configurations**tab.
   2. In the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
 4. Click **Update**.
 
@@ -2633,13 +2636,13 @@ All admins authenticating using the SAML protocol for Authentication Service and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-10-14T04:01Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-10-21T23:55Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-10-14T04:01Z
+- Last modified: 2026-10-21T23:55Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -2769,22 +2772,20 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
 - Configuring the Platform Settings in the Entra Admin Center
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
-3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
-  1. In the **General**section: See image.
-    1. **Name**: Enter a name for the IdP.
-    2. **Status**: Select **Enabled**.
-    3. **Identity Vendor**: Select **Microsoft Entra ID** from the drop-down menu.
-    4. **Protocol**: Select **OIDC (Recommended)**.
-    5. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
-    6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-    7. **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
-  2. In the **OIDC Configuration**section: See image.
-    1. Paste the **OpenID Connect metadata document**value copied from the Entra Admin Center to the **Metadata URL**field and click **Fetch**.
-    2. Copy the **Redirect URI** value. This value is used in the client application in the Entra Admin Center in the subsequent steps. If you are configuring Entra ID as the secondary IdP in the Zscaler Admin Console, the final segment of the **Redirect URI** is required for configuring IdP-initiated SSO. Use this value as `idp_id` as part of the **Home page URL** in the Entra Admin Center.
-    3. Paste the **Client ID**and **Client Secret**values copied from the Entra Admin Center to the respective fields. In the Entra Admin Center, the value copied from the**Application (Client) ID** field must be used for the **Client ID** field, and the value copied from the **Value**column on the **Client secrets** tab must be used for the **Client Secret** field. See image.
-    4. **Requested Scopes**: Add required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
-4. Click **Save**.
+2. Click **Add** in the**Primary Identity Provider**or **Secondary Identity Providers**section. The **Add External Identity**page appears.
+3. In the **Add External Identity**page, go the **Basic Configurations**tab, and configure the following: See image.
+  1. **Name**: Enter a name for the IdP.
+  2. **Status**: Select **Enabled**.
+  3. **Identity Vendor**: Select **Microsoft Entra ID** from the drop-down menu.
+  4. **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  5. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
+  6. **Authentication Protocol**: Select **OIDC**.
+  7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
+  8. **Input Method**: Select **Metadata URL**and paste the **OpenID Connect metadata document**value copied from the Entra Admin Center and click **Fetch**.
+  9. **Redirect URI**: Copy the value. This value is used in the client application in the Entra Admin Center in the subsequent steps. If you are configuring Entra ID as the secondary IdP in the Zscaler Admin Console, the final segment of the **Redirect URI** is required for configuring IdP-initiated SSO. Use this value as `idp_id` as part of the **Home page URL** in the Entra Admin Center.
+  10. **Token Endpoint** **Authentication Method**: Select **Client Secret Basic**and paste the **Client ID**and **Client Secret**values copied from the Entra Admin Center to the respective fields. In the Entra Admin Center, the value copied from the**Application (Client) ID** field must be used for the **Client ID** field, and the value copied from the **Value**column on the **Client secrets** tab must be used for the **Client Secret** field. See image.
+  11. **Requested Scopes**: Add required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
+4. Navigate to the **Provisioning Details**tab and click **Save**.
 
 1. Go to the [Entra Admin Center](https://entra.microsoft.com/) and go to the client application created for Authentication Service.
 2. Go to **Manage**> **Authentication**. In the **Authentication**section, you can choose to configure platform settings in the legacy UI or the current UI.
@@ -2810,8 +2811,8 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. On the **Provisioning**tab, select **Enable Just-in-time (JIT) Provisioning**.
+3. On the Edit External Identity page: See image.
+  1. Go to the **Provisioning Details**tab, enable **JIT Provisioning**.
   2. Enter `groups` as the **Just-in-time User Group Attribute** and map the `Primary Email` User Attribute with the `email` JIT User Attribute. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
   3. Map the required Authentication Service user attributes with the appropriate Entra ID attributes as necessary. If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service.; While mapping attributes, ensure that the attributes that you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID Tokens. See image.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
     | Default Authentication Service User Attributes | OIDC Attribute in ID Tokens | Description |
@@ -2832,24 +2833,24 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
     | User Type | Needs a custom claim | The type of user in the organization (e.g., Regular) |
     | Formatted Name | Needs a custom claim | The name of the user in a specific format (e.g., Mr. John Doe) |
     | Manager | Needs a custom claim | The manager's login name (manager@company.com). This must be in the email address format. |
-4. Click **Update**.
+4. Click **Save**.
 
 1. Locate the `groups` entry in `optionalClaims,idToken`, and modify the `additionalProperties` array to include `cloud_displayname`. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims#configure-the-azure-ad-application-registration-for-group-attributes). See image. `{ "additionalProperties": ["cloud_displayname"], "essential": false, "name": "groups", "source": null }`This configuration is required to send group names instead of group IDs. Authentication Service uses this to display group memberships, map users to roles, and evalute policies in JIT mode.
 2. Change the value of the `acceptMappedClaims` attribute to `true`. This is required to enable Entra ID to accept custom claims (e.g., department, title) for issuing tokens.
 3. Change the value of the `requestedAccessTokenVersion` attribute to `2`. See image.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **External Identities**.
-2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
-3. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab and in the **SCIM Configuration** section: See image.
+2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit External Identity**page appears.
+3. On the**Edit External Identity**page: On the **Provisioning Details**tab, and in the **SCIM Provisioning** section: See image.
   - Migrating from an existing custom app-based SCIM configuration
   - New SCIM configuration
-4. Click **Update**.
-5. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**)drawer appears.
-6. In the**Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. On the **Provisioning**tab and in the **SCIM Configuration** section:
+4. Click **Save**.
+5. Locate the IdP entry created for Entra ID in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon. The **Edit External Identity**page.
+6. On the**Edit External Identity**page: See image.
+  1. On the **Provisioning Details**tab and in the **SCIM Provisioning**section:
     1. **Token Endpoint**: Copy the token endpoint URL. This value is used in a subsequent step. The Token Endpoint field is visible only after saving the configuration after generating the client secret.
     2. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/zidentity/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/zidentity/understanding-scim). The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
-7. Click **Update**.
+7. Click **Save**.
 8. In the Entra Admin Center, go to **Identity > Applications > Enterprise applications**. See image.
 9. Locate and click the application that you created for Authentication Service. The application overview page appears.
 10. In the left-side navigation, click **Users and groups**. The **Users and groups**window appears.
@@ -2890,15 +2891,15 @@ Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra Ap
     | members | members |  |
 18. Click **Save** to save the attribute mapping changes.
 
-1. **Authentication Method**: Select **OAuth2 Client Credentials** from the drop-down menu. This triggers a warning indicating that the configuring would be overwritten. See image.
+1. **Authentication Method**: Select **OAuth2 Client Credentials**. This triggers a warning indicating that the configuring would be overwritten. See image.
 2. Click **Confirm**. The existing SCIM configurations are discarded, including the current bearer token. This interrupts synchronization with Entra ID temporarily.
 3. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
 4. Copy **Client ID**. This value is used in a subsequent step.
 5. **Client Secret**: Click **Add**to generate a client secret, select a time period for expiration from the **Expires**On drop-down menu, and copy the value. This value is used in a subsequent step.
 
-1. Select **Enable SCIM Provisioning**.
+1. Enable**SCIM Provisioning**.
 2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-3. **Authentication Method**: Select **OAuth2 Client Credentials** from the drop-down menu.
+3. **Authentication Method**: Select **OAuth2 Client Credentials**.
 4. Copy **Client ID**. This value is used in a subsequent step.
 5. **Client Secret**: Click **Add**to generate a client secret, select a time period for expiration from the **Expires**On drop-down menu, and copy the value. This value is used in a subsequent step.
 
@@ -2941,9 +2942,9 @@ To enable step-up authentication:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. On the **Advanced** tab, in the **Levels to Authentication context mapping** section, enter the **Authentication Context ID**for each authentication level. To learn more about the supported authentication contexts in Entra ID, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#authentication-context). Ensure that you map the proper **Authentication context ID**for each level depending on the hierarchy. The highest level of authentication must be mapped to the **Authentication Context ID** for the strongest context.
-4. Click **Update**.
+3. On the **Edit External Identity**page: See image.
+  1. On the **Advanced Configurations** tab, in the **Levels to Authentication context mapping** section, enter the **Authentication Context ID**for each authentication level. To learn more about the supported authentication contexts in Entra ID, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-cloud-apps#authentication-context). Ensure that you map the proper **Authentication context ID**for each level depending on the hierarchy. The highest level of authentication must be mapped to the **Authentication Context ID** for the strongest context.
+4. Click **Save**.
 
 After configuring step-up authentication in Authentication Service and Entra ID, you can configure the necessary policies in the following Zscaler services as required:
 
@@ -3005,8 +3006,6 @@ After configuring step-up authentication in Authentication Service and Entra ID,
 [Image: Configuring claims in Entra Admin Center]
 
 [Image: Configuring basic information for a primary IdpP in Authentication Service]
-
-[Image: Configuring OIDC options in the Zscaler Admin Console]
 
 [Image: Configuring platforms in Entra Admin Center with the option to add a platform highlighted]
 
@@ -3095,17 +3094,16 @@ To set up Microsoft Entra ID as an IdP for Authentication Service:
 - 3. Provision users for Authentication Service.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer appears.
-3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer, on the **Basic**tab: See image. Do not close the drawer as the SP Entity ID is going to be refreshed.
-  1. In the **General**section:
-    1. **Name**: Enter a name for the IdP.
-    2. **Status**: Select **Enabled**.
-    3. **Identity Vendor**: Select **Microsoft Entra ID**from the drop-down menu.
-    4. **Protocol**: Select **SAML**.
-    5. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the NameID attribute is populated in this field when the **SAML**option is selected in the **Protocol**field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service. Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.
-    6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the Enforce Zscaler Admin MFA option is disabled.
-    7. **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
-  2. In the **SAML Configuration** section, copy the **SP Entity ID**and **SP URL** values.
+2. Click **Add** in the **Primary Identity Provider**or **Secondary Identity Providers**section. The **Add External Identity** page appears.
+3. On the **Add External Identity**page, go to the **Basic Configurations**tab, and cofigure the following: See image. Do not close the drawer as the SP Entity ID is going to be refreshed.
+  1. **Name**: Enter a name for the IdP.
+  2. **Status**: Select **Enabled**.
+  3. **Identity Vendor**: Select **Microsoft Entra ID**from the drop-down menu.
+  4. **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  5. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the Enforce Zscaler Admin MFA option is disabled.
+  6. **Authentication Protocol**: Select **SAML**.
+  7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the NameID attribute is populated in this field when the **SAML**option is selected in the **Protocol**field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service. Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.
+  8. In the **SAML Configuration** section, copy the **SP Entity ID**and **SP URL** values.
 
 1. Log in to the [Entra Admin Center](https://entra.microsoft.com/).
 2. In the left-side navigation, go to **Identity**> **Applications**> **Enterprise applications**.
@@ -3140,21 +3138,20 @@ To set up Microsoft Entra ID as an IdP for Authentication Service:
         3. Configure the **Advanced options** if you need to filter groups based on conditions. For example, select **Customize the name of the group claim**, enter `Groups` in the **Name**field.
   3. In the **SAML Certificates**section, click **Download** for **Certificate (Base64)**. The certificate is downloaded to your system. Rename the file with the `.pem` extension. See image.
   4. In the **Set up <app-name>** section, copy the **Login URL**and **Microsoft Entra Identifier**values. See image.
-8. In the Zscaler Admin Console where the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**) drawer is still open: The IdP is added to the Zscaler Admin Console.
-  1. In the **SAML Configuration**section: See image.
-    1. **Input Method**: Select **Enter manually**.
-    2. **IdP Entity URI**: Enter the Microsoft Entra Identitifier copied from the Entra Admin Center.
-    3. **IdP Single Sign-On URL**: Enter the Login URL copied from the Entra Admin Center.
-    4. **IdP Certificate**: Click **Upload Certificate**and upload the certificate downloaded from the Entra Admin Center.
-  2. Click **Save**.
+8. In the Zscaler Admin Console where the **Add External Identity**page is still open: The IdP is added to the Zscaler Admin Console.
+  1. **Input Method**: Select **Enter manually**.
+  2. **IdP Entity URI**: Enter the Microsoft Entra Identitifier copied from the Entra Admin Center.
+  3. **IdP Single Sign-On URL**: Enter the Login URL copied from the Entra Admin Center.
+  4. **IdP Certificate**: Click **Upload Certificate**and upload the certificate downloaded from the Entra Admin Center. See image.
+  5. Navigate to the **Provisioning Details**tab and click **Save**.
 9. Locate the IdP created for Entra ID and click the **Edit**icon.
-10. (Optional) In the **Edit Primary Identity Provider**(or **Edit Secondary identity Provider**) drawer, go to the **Advanced**tab and configure the following: See image.
+10. (Optional) In the **Edit External Identity**page, go to the **Advanced Configurations**tab and configure the following: See image.
   1. Enable **SAML Request Signing**.
   2. **Login Hint**: (Optional) Enable to pass login hint in SAML requests.
   3. **Signing Algorithm**: Select SHA-256.
   4. Select **Encrypted SAML Assertion**.
   5. Download the **Request Signing and Decryption Certificate**. The SP certificate is downloaded to your system. Rename the file with the `.cer` extension.
-11. Click **Update**.
+11. Click **Save**.
 12. (Optional) In the Entra Admin Center where the **Set up Single Sign-On with SAML** page is still open:
   1. In the **Verification certificates (optional)** section, click **Edit**. See image.
   2. In the **Verification certificates**drawer: See image.
@@ -3185,9 +3182,9 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Go to the **Provisioning**tab.
-  2. Select**Enable Just-in-time (JIT) Provisioning**.
+3. On the **Edit External Identity**page: See image.
+  1. Go to the **Provisioning Details**tab.
+  2. Enable **JIT Provisioning**.
   3. Map the Authentication Service user and group attributes with the appropriate Entra ID attributes as necessary. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in SAML assertions are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for First Name, Last Name, or Display Name, then you must map those attributes. For example, if the SAML assertion from the external IdP includes `Surname` instead of `lastName`, then you must map it with the `Last Name` user attribute in Authentication Service.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the SAML assertions. See image.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
     | Default Authentication Service User Attributes | Attribute in SAML Assertions | Description |
     | --- | --- | --- |
@@ -3211,12 +3208,13 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Entra ID in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Go to the **Provisioning**tab.
-  2. Select **Enable SCIM Provisioning**.
+3. On the **Edit External Identity**page: See image.
+  1. Go to the **Provisioning Details**tab.
+  2. Enable **SCIM Provisioning**.
   3. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
-  5. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
+  4. **Authentication Method**: Select **Bearer Token**.
+  5. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities).
+  6. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication.
 4. Log in to the [Entra Admin Center](https://entra.microsoft.com/) and go to **Identity > Applications > Enterprise applications**. See image.
 5. Locate and click the application created for Authentication Service. The application overview page appears.
 6. In the left-side navigation, click **Provisioning**. The **Provisioning** window appears.
@@ -3475,13 +3473,13 @@ To verify:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-09-30T19:45Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-10-21T22:49Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-09-30T19:45Z
+- Last modified: 2026-10-21T22:49Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -3558,23 +3556,20 @@ To set up Okta as an OP for Authentication Service:
 10. To obtain the metadata URL, right-click the**OpenID Provider Metadata** text, and copy the URL. This value is used in a subsequent step when configuring Okta as an OP for Authentication Service. The metadata URL has the following format: If you are using Org Authorization Server: https://`<your_subdomain>`.okta.com/.well-known/openid-configurationIf you are using Custom Authorization Server: `https://`<your_subdomain>`.okta.com/oauth2/default/.well-known/openid-configuration`See image.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
-3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
-  1. In the **General**section: See image.
-    1. **Name**: Enter a name for the IdP.
-    2. **Status**: Select **Enabled**.
-    3. **Identity Vendor**: Select **Okta** from the drop-down menu.
-    4. **Protocol**: Select **OIDC (Recommended)**.
-    5. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
-    6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-    7. **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
-  2. In the **OIDC Configuration**section: See image.
-    1. Enter the following value for the **Metadata URL**field copied from the Okta Admin Console.
-    2. Click **Fetch**.
-    3. Copy the **Redirect URI** value. This value is used in a subsequent step. If you are configuring Okta as your secondary IDP, the final segment in the **Redirect URI** is required for configuring **Initiate Login URI**in the Okta Admin Console.
-    4. Paste the **Client ID**and **Client Secret**values copied from the Okta Admin Console to the respective fields.
-    5. In the **Requested Scopes** section, add the required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
-4. Click **Save**.
+2. Click **Add**in the **Primary Identity Provider**or **Secondary Identity Providers**section. The **Add External Identity**page appears.
+3. On the **Add External Identity** page, go to the **Basic Configurations**tab, and configure the following: See image.
+  1. **Name**: Enter a name for the IdP.
+  2. **Status**: Select **Enabled**.
+  3. **Identity Vendor**: Select **Okta** from the drop-down menu.
+  4. **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  5. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
+  6. **Authentication Protocol**: Select **OIDC**.
+  7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
+  8. **Input Method**: Select **Metadata URL**and paste the value copied from the Okta Admin Console and click **Fetch**.
+  9. **Redirect URI**: Copy the value. This value is used in a subsequent step. If you are configuring Okta as your secondary IDP, the final segment in the **Redirect URI** is required for configuring **Initiate Login URI**in the Okta Admin Console.
+  10. **Token Endpoint Authentication Method**: Select Client Secret Basic and paste the **Client ID**and **Client Secret**values copied from the Okta Admin Console to the respective fields.
+  11. **Requested Scopes**: Add the required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
+4. Navigate to the **Provisioning Details**tab and click **Save**.
 5. Go to the Okta Admin Console, and go to the OIN app added for Authentication Service.
 6. On the **Sign On**tab:
   1. Click **Edit**.
@@ -3592,8 +3587,9 @@ To set up Okta as an OP for Authentication Service:
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab, select **Enable Just-in-time (JIT) Provisioning**and complete these steps: See image.
-  1. Map the required attributes. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in ID tokens are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service. See image.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID tokens.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
+3. On the **Edit External Identity**page:
+  1. Select the **Provisioning Details**tab, and enable **JIT Provisioning**:
+  2. Map the required attributes. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in ID tokens are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service. See image.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID tokens.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning. See image.
     | Default Authentication Service User Attributes | OIDC Attribute in ID Tokens | Description |
     | --- | --- | --- |
     | First Name | `given_name` | First name of the user (e.g., John). This attribute is mapped by default. |
@@ -3612,20 +3608,21 @@ To set up Okta as an OP for Authentication Service:
     | User Type | Needs a custom claim | The type of user in the organization (e.g., Regular) |
     | Formatted Name | Needs a custom claim | The name of the user in a specific format (e.g., Mr. John Doe) |
     | Manager | Needs a custom claim | The manager's login name (manager@company.com). This must be in the email address format. |
-  1. Click **Update**.
-  2. In the Okta Admin Console, go to **Applications**> **Applications**.
-  3. Open the OIN app created for Authentication Service and go to the **Assignments**tab.
-  4. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
+  3. Click **Save**.
+  4. In the Okta Admin Console, go to **Applications**> **Applications**.
+  5. Open the OIN app created for Authentication Service and go to the **Assignments**tab.
+  6. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
-  1. On the **Provisioning**tab, select **Enable SCIM Provisioning**.
+3. On the **Edit External identity page**:
+  1. Select the **Provisioning Details**tab, and enable**SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token** value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-  4. (Optional) Map the SCIM attribute (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). See image.
-4. Click **Update**.
-5. Go the Okta Admin Console, and go to the OIN app added for Authentication Service.
+  3. **Authentication Method**: Select **Bearer Token**.
+  4. Click **Generate Token**and copy the **Bearer Token** value. This value is used in a subsequent step. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+  5. (Optional) Map the SCIM attribute (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim). See image.
+4. Click **Save**.
+5. Go to the Okta Admin Console, and go to the OIN app added for Authentication Service.
 6. On the **Provisioning**tab:
   1. Click **Configure API Integration**. See image.
   2. Select **Enable API integration**.
@@ -3694,8 +3691,8 @@ In the [external IdP integrated with Authentication Service](https://help.zscale
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Select the **Advanced** tab.
+3. On the **Edit External Identity**page: See image.
+  1. Select the **Advanced** **Configurations**tab.
   2. In the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
 4. Click **Update**.
 
@@ -3719,8 +3716,6 @@ You can configure the necessary policies in the following Zscaler services as re
 [Image: Configuring Sign On settings in Okta for Authentication Service with client ID and client secret highlighted]
 
 [Image: Configuring basic information for IdP in Authentication Service]
-
-[Image: Configuring OIDC options in Authentication Service with some fields highlighted]
 
 [Image: Locating IdP ID parameter for primary IdP]
 
@@ -3801,23 +3796,21 @@ To set up Okta as an OP for Authentication Service:
 7. In the application page, on the **General**tab, copy the **Client ID** and **Client Secret**values. See image.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-2. Click **Add Primary IdP** (or **Add Secondary IdP**). The **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer appears.
-3. In the **Add Primary Identity Provider** (or **Add Secondary Identity Provider**) drawer, on the **Basic**tab:
-  1. In the **General**section: See image.
-    1. **Name**: Enter a name for the IdP.
-    2. **Status**: Select **Enabled**.
-    3. **Identity Vendor**: Select **Okta** from the drop-down menu.
-    4. **Protocol**: Select **OIDC (Recommended)**.
-    5. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
-    6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-    7. **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
-  2. In the **OIDC Configuration**section: See image.
-    1. Enter the following value for the **Metadata URL**field: If you are using Org Authorization Server: https://`<your_subdomain>`.okta.com/.well-known/openid-configurationIf you are using Custom Authorization Server: `https://`<your_subdomain>`.okta.com/oauth2/default/.well-known/openid-configuration`
-    2. Click **Fetch**.
-    3. Copy the **Redirect URI** value.
-    4. Paste the **Client ID**and **Client Secret**values copied from the Okta Admin Console to the respective fields.
-    5. Add required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
-4. Click **Save**.
+2. Click **Add**in the **Primary Identity Provider**or **Secondary Identity Providers**section. The **Add External Identity** page appears.
+3. On the **Add External Identity**page, go to the **Basic Configurations**tab, and configure the following:
+  1. **Name**: Enter a name for the IdP.
+  2. **Status**: Select **Enabled**.
+  3. **Identity Vendor**: Select **Okta** from the drop-down menu.
+  4. **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  5. **Authentication Protocol**: Select **OIDC**.
+  6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
+  7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC** option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
+  8. **Input Method**: Select **Metadata URL**and enter the following value: If you are using Org Authorization Server: https://`<your_subdomain>`.okta.com/.well-known/openid-configurationIf you are using Custom Authorization Server: `https://`<your_subdomain>`.okta.com/oauth2/default/.well-known/openid-configuration`
+  9. Click **Fetch**.
+  10. **Redirect URI**: Copy the value. This value is used in a subsequent step.
+  11. **Token Endpoint Authentication Method**: Client **Secret Basic**and paste the **Client ID**and **Client Secret**values copied from the Okta Admin Console to the respective fields.
+  12. **Requested Scopes**: Add the required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added. See image.
+4. Navigate to the **Provisioning Details**tab and click **Save**.
 5. Go to the Okta Admin Console, and go to the application integration created for Authentication Service.
 6. On the **General**tab:
   1. In the **General Settings**section, click **Edit**. See image.
@@ -3850,11 +3843,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 8. Click **Done**. An OIN app for provisioning users to Authentication Service is added.
 9. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 10. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-11. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab: See image.
-  1. Select **Enable SCIM Provisioning**.
+11. On the **Edit External Identity**page: See image.
+  1. Select the **Provisioning Details**tab and enable**SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-  4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
+  3. **Authentication Method**: Select **Bearer Token**.
+  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+  5. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
 12. In the Okta Admin Console, go to **Applications**> **Applications**.
 13. Open the OIN application created for Authentication Service and do the following: On the **Provisioning**tab:
   1. Click **Edit**for **SCIM Connection**.
@@ -3886,12 +3880,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
 3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-5. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
-  1. In the **Advanced**tab:
-    1. In the **Session Attribute Mapping** section: See image.
-      1. **IdP Attribute**: Enter the custom profile app attribute created in the Okta Admin console.
-      2. **Session Attribute**: Select the session attribute from the drop-down menu.
-      3. Click **Add More**and repeat these steps to map all the necessary attributes.
+5. On the **Edit External Identity**page, select the **Advanced Configurations**tab, and configure the following:
+  1. In the **Session Attribute Mapping** section: See image.
+    1. **IdP Attribute**: Enter the custom profile app attribute created in the Okta Admin console.
+    2. **Session Attribute**: Select the session attribute from the drop-down menu.
+    3. Click **Add Mapping**and repeat these steps to map all the necessary attributes.
+  2. Click **Save**.
 
 1. Select **Assign to People**. See image.
 2. Search and locate users you want to assign, and click **Assign**. See image.
@@ -3953,14 +3947,14 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 10. Click **Create rule**.
 11. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 12. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-13. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
-  1. (Optional) On the **Advanced**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
+13. On the **Edit External Identity**page:
+  1. (Optional) On the **Advanced Configurations**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
     1. In the **Session Attribute Mapping** section: See image. If you do not use custom session attributes in Private Access (ZPA) policies, you can skip this session attribute mapping.
       1. **IdP Attribute**: Enter the custom profile app attribute created in the Okta Admin console.
       2. **Session Attribute**: Select the session attribute from the drop-down menu.
-      3. Click **Add More**and repeat these steps to map all the necessary attributes.
-  2. On the **Provisioning**tab:
-    1. Select **Enable Just-in-time (JIT) Provisioning**.
+      3. Click **Add Mapping**and repeat these steps to map all the necessary attributes.
+  2. On the **Provisioning Details**tab:
+    1. Enable **JIT Provisioning**.
     2. **Just-in-time User Group Attribute**: Enter the claim name created for group information retrieval (i.e., `Groups`). This retrieves the group membership information of the users from Okta.
     3. Map Authentication Service user attributes with the appropriate Okta attributes as necessary. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in ID tokens are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for First Name, Last Name, or Display Name, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service. See image.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID tokens.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning. See image.
       | Default Authentication Service User Attributes | OIDC Attribute in ID Tokens | Description |
@@ -3981,7 +3975,7 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
       | User Type | Needs a custom claim | The type of user in the organization (e.g., Regular) |
       | Formatted Name | Needs a custom claim | The name of the user in a specific format (e.g., Mr. John Doe) |
       | Manager | Needs a custom claim | The manager's login name (manager@company.com). This must be in the email address format. |
-14. Click **Update**. The JIT provisioning with Okta users is configured for Authentication Service.
+14. Click **Save**. The JIT provisioning with Okta users is configured for Authentication Service.
 
 You can configure step-up authentication to extend the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected.
 
@@ -4004,10 +3998,10 @@ In the [external IdP integrated with Authentication Service](https://help.zscale
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Select the **Advanced** tab.
+3. On the **Edit External Identity**page: See image.
+  1. Select the **Advanced Configurations** tab.
   2. In the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
-4. Click **Update**.
+4. Click **Save**.
 
 You can configure the necessary policies in the following Zscaler services as required:
 
@@ -4027,8 +4021,6 @@ You can configure the necessary policies in the following Zscaler services as re
 [Image: Configuring general settings in Okta with the Client ID field highlighted]
 
 [Image: Adding basic information for an IdP in Authentication Service]
-
-[Image: OIDC Configuration options with some fields highlighted]
 
 [Image: configuring general settings for the Authentication Service app in Okta with the option to edit the setttings highlighted]
 
@@ -4102,17 +4094,16 @@ To configure the `zidServiceId` attribute in Okta for SAML protocol:
 10. On the **Feedback**tab, click **Finish**.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
-2. Click **Add Primary IdP**(or **Add Secondary IdP**). The **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer appears.
-3. In the **Add Primary Identity Provider**(or **Add Secondary Identity Provider**)drawer, on the **Basic**tab: See image.
-  1. In the **General**section:
-    1. **Name**: Enter a name for the IdP.
-    2. **Status**: Select **Enabled**.
-    3. **Identity Vendor**: Select **Okta**from the drop-down menu.
-    4. **Protocol**: Select **SAML (Limited Featues)**.
-    5. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the `NameID` attribute is populated in this field when the **SAML** option is selected in the **Protocol** field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.
-    6. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
-    7. **Domain**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
-  2. In the **SAML Configuration**section, copy the **SP Entity ID**.
+2. Click **Add**in the **Primary Identity Provider**or **Secondary Identity Providers**section. The **Add External Identity**page appears.
+3. On the **Add External Identity**page, go to the **Basic Configurations**tab, and configure the following: See image.
+  1. **Name**: Enter a name for the IdP.
+  2. **Status**: Select **Enabled**.
+  3. **Identity Vendor**: Select **Okta**from the drop-down menu.
+  4. **Domains**: Select the domain for which the IdP is responsible for authenticating the users. This allows the Zscaler service to display the correct IdP to authenticate an incoming user.
+  5. **Enforce Zscaler Admin MFA**: Enable this option to ensure that admins using an external IdP authenticate with the multi-factor authentication (MFA) process in Authentication Service, irrespective of whether MFA is configured on the external IdP. An email is sent to all super admins in Authentication Service when the **Enforce Zscaler Admin MFA**option is disabled.
+  6. **Authentication Protocol**: Select **SAML**.
+  7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the token received from the IdP. By default, the `NameID` attribute is populated in this field when the **SAML** option is selected in the **Protocol** field. You can use any attribute that is present in the SAML assertion, provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the SAML assertion matches with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the SAML assertion.
+  8. **SP Entity ID**: Copy the value.
 
 Do not close the window as the **SP Entity ID** is going to be refreshed.
 
@@ -4138,11 +4129,10 @@ Do not close the window as the **SP Entity ID** is going to be refreshed.
     1. **Profile attribute statements**: Enter a SAML attribute and an appropriate filter. This is used to pass any user attributes. For example, enter `Email` for the **Name**field and enter the appropriate variable name (e.g., `user.email`) from the Okta profile.
     2. **Group attribute statements**: Enter a group name and an appropriate filter. This is used to pass group information. For example, enter `Groups` for the **Name** field and set **Filter**to **Matches regex** for `.*` to retrieve group membership information of users.
   3. Click **Save**.
-7. Go to the Zscaler Admin Console where the **Add Primary Identity Provider**(or **Add Secondary Identity Provider)**drawer is already open.
-8. In the **SAML Configuration**section: See image. The SAML integration between Okta and Authentication Service is completed.
-  1. Enter the **Metadata URL** copied from the Okta Admin Console in the previous step for the **IdP Metadata URL** field.
+7. Go to the Zscaler Admin Console where the **Add External Identity**page is already open, and configure the following: See image.
+  1. **Metadata URL**: Enter the value copied from the Okta Admin Console in the previous step for the **IdP Metadata URL** field.
   2. Click **Fetch**.
-  3. Click **Save**.
+8. Navigate to the **Provisioning Details**tab and click **Save**. The SAML integration between Okta and Authentication Service is completed.
 
 You can provision Okta users for Authentication Service using Just-in-time (JIT) provisioning or System for Cross-domain Identity Management (SCIM) provisioning.
 
@@ -4168,17 +4158,17 @@ You can provision Okta users for Authentication Service using Just-in-time (JIT)
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
 3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-5. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer:
-  1. (Optional) In the **Advanced**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
+5. On the **Edit External Identity** page:
+  1. (Optional) On the **Advanced Configurations**tab: If you have configured custom session attributes, then you must map those attributes with the custom profile app attributes configured in the Okta Admin Console.
     1. In the **Session Attribute Mapping** section: See image. If you do not use custom session attributes in Private Access (ZPA) policies, you can skip this session attribute mapping.
       1. **IdP Attribute**: Enter the custom profile app attribute created in the Okta Admin console.
       2. **Session Attribute**: Select the session attribute from the drop-down menu.
-      3. Click **Add More**and repeat these steps to map all the necessary attributes.
+      3. Click **Add Mapping**and repeat these steps to map all the necessary attributes.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: On the **Provisioning**tab:
-  1. Select**Enable Just-in-time (JIT) Provisioning**.
+3. On the **Edit External Identity**page: On the **Provisioning Details**tab:
+  1. Enable **JIT Provisioning**.
   2. Map the Authentication Service user and group attributes with the appropriate Okta attributes as necessary. The mapping of the `Primary Email` attribute is mandatory as it is required for functionalities, such as password resetting and multi-factor authentication. By default, the following attributes in SAML assertions are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for First Name, Last Name, or Display Name, then you must map those attributes. For example, if the SAML assertion from the external IdP includes `Surname` instead of `lastName`, then you must map it with the `Last Name` user attribute in Authentication Service.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the SAML assertions. See image.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
     | Default Authentication Service User Attributes | Attribute in SAML Assertions | Description |
     | --- | --- | --- |
@@ -4198,20 +4188,20 @@ You can provision Okta users for Authentication Service using Just-in-time (JIT)
     | User Type | `userType` or `employeeType` | The type of user in the organization (e.g., Regular) |
     | Formatted Name | `formattedName` | The name of the user in a specific format (e.g., Mr. John Doe) |
     | Manager | `manager` | The manager's login name (manager@company.com). This must be in the email address format. |
-4. Click **Update**.
-5. See image.
-6. In the Okta Admin Console, go to **Applications**> **Applications**.
-7. Open the SAML application created for Authentication Service and go to the **Assignments**tab.
-8. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
+4. Click **Save**. See image.
+5. In the Okta Admin Console, go to **Applications**> **Applications**.
+6. Open the SAML application created for Authentication Service and go to the **Assignments**tab.
+7. Add users and groups to the application using the **Assign**drop-down menu. See image. The JIT provisioning with Okta users is configured for Authentication Service.
 
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**..
 2. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-3. In the **Edit Primary Identity Provider**(or **Edit Secondary Identity Provider**) drawer: See image.
-  1. Go to the **Provisioning**tab.
-  2. Select **Enable SCIM Provisioning**.
+3. On the **Edit External Identity** page. See image.
+  1. Go to the **Provisioning Details**tab.
+  2. Enable **SCIM Provisioning**.
   3. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-  5. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
+  4. **Authentication Method**: Select **Bearer Token**.
+  5. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+  6. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
 4. In the Okta Admin Console, go to **Applications**> **Applications**.
 5. Open the SAML application created for Authentication Service and do the following:
   1. On the **General**tab: See image.
@@ -4274,11 +4264,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
 8. Click **Done**. An OIN app for provisioning users to Authentication Service is added.
 9. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 10. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-11. In the **Edit Primary IdP**(or **Edit Secondary IdP**) window: On the **Provisioning**tab: See image.
+11. On the **Edit External Identity**page: On the **Provisioning Details**tab: See image.
   1. Enable **SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The **SCIM Endpoint URL** field appears only if the configurations for the IdP in the **Basic** tab are completed and saved. See image.
-  3. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-  4. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
+  3. **Authentication Method**: Select **Bearer Token**.
+  4. Click **Generate Token**and copy the **Bearer Token**. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
+  5. (Optional) Map the SCIM attributes (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service.
 12. In the Okta Admin Console, go to **Applications**> **Applications**.
 13. Open the SAML application created for Authentication Service and do the following:
   1. On the **General**tab: See image.
@@ -4315,12 +4306,12 @@ Okta does not support SCIM provisioning for custom OIDC applications. However, i
   8. In the profile mappings window, map the attributes created for the user with the attribute created for the application.
 3. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 4. Locate the IdP entry created for Okta in the **Primary Identity Provider** (or **Secondary Identity Providers**) section and click the **Edit**icon.
-5. In the **Edit Primary IdP**(or **Edit Secondary IdP**) window:
-  1. In the **Advanced**tab:
+5. On the **Edit External Identity**page:
+  1. On the **Advanced**tab:
     1. In the **Session Attribute Mapping** section: See image.
       1. **IdP Attribute**: Enter the custom profile app attribute created in the Okta Admin console.
       2. **Session Attribute**: Select the session attribute from the drop-down menu.
-      3. Click **Add More**and repeat these steps to map all the necessary attributes.
+      3. Click **Add Mapping**and repeat these steps to map all the necessary attributes.
 
 1. Select **Assign to People**. See image.
 2. Search and locate users you want to assign, and click **Assign**. See image.
@@ -5297,13 +5288,13 @@ All admins authenticating using the SAML protocol for Authentication Service and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-10-16T04:36Z","nid":"1499331"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-pingone-external-idp","lastmod":"2026-10-21T21:16Z","nid":"1499331"} -->
 ## Configuring PingOne as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-pingone-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring PingOne as an External IdP
-- Last modified: 2026-10-16T04:36Z
+- Last modified: 2026-10-21T21:16Z
 - Summary: This guide provides information on how to configure PingOne as your OpenID Provider (OP) for Authentication Service.
 
 This guide provides information on how to configure PingOne as the OpenID Provider (OP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management.
@@ -5359,8 +5350,8 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
   7. **Login ID Attribute**: Enter an attribute whose value must be used as the login ID. This attribute must exist in the tokens received from the IdP. By default, the `preferred_username` attribute is populated in this field when the **OIDC**option is selected in the **Protocol** field. You can use any attribute that is present in the [ID token](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) or the response of the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo), provided its value is in the email address format (e.g., <user_name>@domain.com>). Ensure that the domain part of the email addresses received in the ID tokens match with one of the domains configured in Authentication Service.; Ensure that the attribute you enter matches exactly with the attribute received in the ID token or the UserInfo endpoint.
   8. **Input Method**: Select **Metadata URL**and paste the **OIDC Discovery Endpoint**value copied from the PingOne admin console into the **Metadata URL**field and click **Fetch**.
   9. **Redirect URI**: Copy the value. The value copied in this step is used in the subsequent steps for configurations in the PingOne admin console.
-  10. Token Endpoint Authentication Method: Select Client Secret Basic and paste the **Client ID**and **Client Secret**values copied from the PingOne admin console to the respective fields.
-  11. Requested Scopes: Add the required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
+  10. **Token Endpoint Authentication Method**: Select **Client Secret Basic**and paste the **Client ID**and **Client Secret**values copied from the PingOne admin console to the respective fields.
+  11. **Requested Scopes**: Add the required scopes. By default, when the OIDC protocol is selected, the `openid`, `email`, and `profile` scopes are added.
 4. Navigate to the **Provisioning Details**tab and click **Save**.
 5. In the PingOne admin console, go to **Applications** > **Applications**and click the OIDC web application created in the previous step.
 6. Select the **Configuration** tab, andclick the **Edit**icon. See image. The **Edit Configuration** page appears within the application drawer.
@@ -5377,7 +5368,7 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
 1. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP created for PingOne in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. On the**Edit External Identity**page: See image.
-  1. Select the **Provisioning**tab, and enable **JIT Provisioning**.
+  1. Select the **Provisioning Details**tab, and enable **JIT Provisioning**.
   2. Map Authentication Service user attributes with the appropriate PingOne attributes as necessary. The mapping of the `Primay Email` attribute is mandatory as it is required for password resetting and multi-factor authentication. By default, the following attributes in ID tokens are mapped with the corresponding user attributes in Authentication Service: If the external IdP is configured to send different attributes for `First Name`, `Last Name`, or `Display Name`, then you must map those attributes. For example, if the ID token from the external IdP includes `Surname` instead of `family_name`, then you must map it with the `Last Name` user attribute in Authentication Service.; While mapping attributes, ensure that the attributes you enter in the **Just-in-time Attribute** field match exactly with the attributes that are received in the ID tokens. See image.; The `Addresses` attribute in Authentication Service is supported only with SCIM provisioning.
     | Default Authentication Service User Attributes | OIDC Attribute in ID Tokens | Description |
     | --- | --- | --- |
@@ -5405,9 +5396,9 @@ Complete the following steps to set up PingOne as an OP for Authentication Servi
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Authentication** > **External Identities**.
 2. Locate the IdP created for PingOne in the **Primary Identity Provider**(or **Secondary Identity Providers**) section and click the **Edit**icon.
 3. On the**Edit External Identity**page,
-  1. Select the **Provisioning**tab and enable **SCIM Provisioning**.
+  1. Select the **Provisioning Details**tab and enable **SCIM Provisioning**.
   2. Copy the **SCIM Endpoint URL**. This value is used in a subsequent step. The SCIM Endpoint URL field appears only if the configurations for the IdP on the **Basic** tab are completed and saved. See image.
-  3. **Authentication Method**: Select an option from the drop-down menu and complete one of the following steps corresponding to the selected method:
+  3. **Authentication Method**: Select an option and complete one of the following steps corresponding to the selected method:
     - **Bearer Token Method**: Click **Generate Token** and copy the **Bearer Token**value. This value is used in a subsequent step. See image. The bearer token is visible only to admins with Full permission enabled for external identities. To learn more, see [Adding Authentication Service Admin Roles](https://help.zscaler.com/authentication-service/adding-authentication-service-admin-roles#external-identities). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
     - **Oauth2 Client Credentials Method**: Copy the **Client ID**value and **Token Endpoint**value. Click **Add**for the **Client Secret**field, and copy the generated secret. These values are used in a subsequent step. See image.
   4. (Optional) Map the SCIM attribute (e.g., `addresses`) with the corresponding Authentication Service user attribute. This mapping is required only for attributes that need to be mapped to a custom [user attribute](https://help.zscaler.com/authentication-service/adding-user-attributes) in Authentication Service. To learn more about the SCIM attributes that require custom attribute mapping, see [Understanding SCIM](https://help.zscaler.com/authentication-service/understanding-scim).
@@ -5640,13 +5631,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-09-29T02:12Z","nid":"1531175"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-step-authentication","lastmod":"2026-10-22T23:01Z","nid":"1531175"} -->
 ## Configuring Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-step-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Step-Up Authentication
-- Last modified: 2026-09-29T02:12Z
+- Last modified: 2026-10-22T23:01Z
 - Summary: How to configure step-up authentication in the Zscaler Admin Console.
 
 The following article provides information on how to configure step-up authentication in the Zscaler Admin Console to allow dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat.
@@ -5681,10 +5672,10 @@ The following list provides detailed steps for configuring ACR values and authen
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **External Identities**.
 2. Locate the IdP under the **Primary Identity Provider** (or **Secondary Identity Providers**) tab and click the **Edit**icon.
-3. In the **Edit Primary IdP** (or **Edit Secondary IdP**) tab: See image.
+3. On the **Edit External Identity**page**:** See image.
   1. Select the **Advanced Configurations** tab.
   2. Under the **Levels to Authentication context mapping** section, enter the **ACR Claim** value for each authentication level. To learn more about the supported ACR claims in external IdP, refer to the respective product documentation. Ensure that you map proper ACR claims for each level depending on the hierarchy. The highest level of authentication must be mapped to the ACR value for the strongest context.
-4. Click **Update**.
+4. Click **Save**.
 
 You can configure the necessary policies in the following Zscaler services as required:
 
@@ -5737,13 +5728,13 @@ To delete an API client:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-saml-identity-provider","lastmod":"2026-09-30T19:46Z","nid":"1532551"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/editing-or-deleting-saml-identity-provider","lastmod":"2026-10-22T21:04Z","nid":"1532551"} -->
 ## Editing or Deleting a SAML Identity Provider
 
 - Source: https://help.zscaler.com/authentication-service/editing-or-deleting-saml-identity-provider
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Editing or Deleting a SAML Identity Provider
-- Last modified: 2026-09-30T19:46Z
+- Last modified: 2026-10-22T21:04Z
 - Summary: How to edit or delete SAML identity providers and add a new request signing and decryption certificate in the Zscaler Admin Console.
 
 You can edit or delete a SAML identity provider (IdP) as necessary. You can also add a Request Signing and Decryption Certificate for SAML protocol.
@@ -5756,7 +5747,7 @@ To edit a SAML IdP:
 2. On the **External Identities** page, click the **Edit** icon for the required primary or secondary SAML IdP. See image. The **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer appears.
 3. In the **Edit Primary Identity Provider** or**Edit Secondary Identity Provider** drawer, select the **Advanced**tab.
 4. Edit the information in the **Authentication Request**, **Encrypted SAML Assertion**, **Request Signing and Decryption Certificate**, and **Session Attribute Mapping** sections. See image.
-5. Click **Update**.
+5. Click **Save**.
 
 A message is displayed indicating the IdP is updated successfully.
 
@@ -5774,7 +5765,7 @@ To add a new Request Signing and Decryption Certificate:
     - **Red Exclamation Mark**icon: Appears when the certificate is expired.
   - **Download**: Click the **Download** icon to download the certificate. You might need to upload this certificate to the IdP.
   - **Delete**: Click the **Delete**icon to delete the certificate. An active certificate cannot be deleted.
-5. Click **Update**.
+5. Click **Save**.
 
 ## Deleting a SAML Identity Provider
 
@@ -6004,13 +5995,13 @@ To enable device token authentication:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/managing-entitlements","lastmod":"2026-10-14T11:14Z","nid":"1499226"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/managing-entitlements","lastmod":"2026-10-22T20:17Z","nid":"1499226"} -->
 ## Managing Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/managing-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > Managing Entitlements
-- Last modified: 2026-10-14T11:14Z
+- Last modified: 2026-10-22T20:17Z
 - Summary: Information about Entitlements in the Zscaler Admin Console.
 
 Entitlements refer to the type of access privileges and permissions that are assigned to Authentication Service users and user groups. Authentication Service supports [Administrative](https://help.zscaler.com/zidentity/about-administrative-entitlements) and [Service](https://help.zscaler.com/zidentity/about-service-entitlements) entitlements.
@@ -6382,13 +6373,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-09-30T00:21Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-30T00:21Z
+- Last modified: 2026-10-19T16:50Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -9527,16 +9518,14 @@ To disable a scheduled report:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/enabling-remote-assistance-business-insights","lastmod":"2024-02-16T06:28Z","nid":"1473116"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/enabling-remote-assistance-business-insights","lastmod":"2024-02-16T06:28Z","nid":"1543293"} -->
 ## Enabling Remote Assistance in Business Insights
 
 - Source: https://help.zscaler.com/business-insights/enabling-remote-assistance-business-insights
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Enabling Remote Assistance in Business Insights
+- Path: Enabling Remote Assistance in Business Insights
 - Last modified: 2024-02-16T06:28Z
 - Summary: Information on how to give Zscaler Support engineers view-only or full admin access to the Business Insights Admin Portal.
-
-html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"
 
 At times, Zscaler Support might need access to your Business Insights Admin Portal for a limited period to troubleshoot issues. With Remote Assistance, you can allow Zscaler Support to securely and remotely log in to the portal. This can be done with either view-only or full admin privileges. You do not need to create new admin accounts or share passwords to enable access for either option.
 
@@ -10166,7 +10155,7 @@ This article provides a summary of all new features and enhancements for Busines
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/release-upgrade-summary-2025","lastmod":"2025-01-20T04:42Z","nid":"1516026"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/release-upgrade-summary-2025","lastmod":"2025-01-20T04:42Z","nid":"1543349"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/business-insights/release-upgrade-summary-2025
@@ -10399,12 +10388,12 @@ The certificate is downloaded to your system. Upload the certificate as part of 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/saving-and-activating-changes-business-insights-admin-portal","lastmod":"2024-02-16T06:28Z","nid":"1473096"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/saving-and-activating-changes-business-insights-admin-portal","lastmod":"2024-02-16T06:28Z","nid":"1543289"} -->
 ## Saving and Activating Changes in the Business Insights Admin Portal
 
 - Source: https://help.zscaler.com/business-insights/saving-and-activating-changes-business-insights-admin-portal
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Saving and Activating Changes in the Business Insights Admin Portal
+- Path: Saving and Activating Changes in the Business Insights Admin Portal
 - Last modified: 2024-02-16T06:28Z
 - Summary: How to save and activate changes in the Business Insights Admin Portal.
 
@@ -10629,13 +10618,13 @@ You can choose the action to be taken on admins when their linked user accounts 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-architecture","lastmod":"2026-10-08T22:18Z","nid":"1543286"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/understanding-business-insights-architecture","lastmod":"2026-10-23T21:06Z","nid":"1543286"} -->
 ## Understanding Business Insights Architecture
 
 - Source: https://help.zscaler.com/business-insights/understanding-business-insights-architecture
 - Product: Business Insights
 - Path: Business Insights Help > Understanding Business Insights Architecture
-- Last modified: 2026-10-08T22:18Z
+- Last modified: 2026-10-23T21:06Z
 - Summary: Information about Business Insights architecture.
 
 Business Insights provides intuitive visualization and reporting metrics for your SaaS app usage and workplace-related data that helps with:
@@ -10772,12 +10761,12 @@ This doesn't reset your sort order.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/using-zscaler-help-browser","lastmod":"2025-08-06T23:32Z","nid":"1480196"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/using-zscaler-help-browser","lastmod":"2025-08-06T23:32Z","nid":"1543315"} -->
 ## Using the Zscaler Help Browser
 
 - Source: https://help.zscaler.com/business-insights/using-zscaler-help-browser
 - Product: Business Insights
-- Path: Business Insights Help > Getting Started > Admin Portal > Using the Zscaler Help Browser
+- Path: Using the Zscaler Help Browser
 - Last modified: 2025-08-06T23:32Z
 - Summary: Accessing and using the the Zscaler Help Browser within the Business Insights Admin Portal.
 
@@ -11143,13 +11132,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/business-insights/what-zscaler-business-insights","lastmod":"2026-10-08T22:17Z","nid":"1543285"} -->
+<!-- ZS-ARTICLE {"url":"/business-insights/what-zscaler-business-insights","lastmod":"2026-10-23T21:06Z","nid":"1543285"} -->
 ## What Is Zscaler Business Insights?
 
 - Source: https://help.zscaler.com/business-insights/what-zscaler-business-insights
 - Product: Business Insights
 - Path: Business Insights Help > What Is Zscaler Business Insights?
-- Last modified: 2026-10-08T22:17Z
+- Last modified: 2026-10-23T21:06Z
 - Summary: Information about Business Insights.
 
 Zscaler Business Insights provides 360-degree visibility into your organization's SaaS application usage and spending insights, along with workplace metrics to help you save money and manage your workplace efficiently.
@@ -14090,13 +14079,13 @@ On the Custom Dashboards page (Analytics> Custom Dashboards), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-10-09T02:30Z","nid":"1545219"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-dashboards","lastmod":"2026-10-23T21:06Z","nid":"1545219"} -->
 ## About Dashboards
 
 - Source: https://help.zscaler.com/unified/about-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > About Dashboards
-- Last modified: 2026-10-09T02:30Z
+- Last modified: 2026-10-23T21:06Z
 - Summary: Information about the My Dashboards page in the Agentic Security Operations Platform.
 
 You can create, manage, and monitor custom dashboards in the Agentic Security Operations Platform (Agentic SecOps Platform). These dashboards provide visibility into identity findings, risks, and MITRE ATT&CK techniques across tenants.
@@ -14146,13 +14135,13 @@ On My Dashboards page (Explore > Dashboards), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-data-model-management","lastmod":"2026-10-15T11:13Z","nid":"1545268"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-data-model-management","lastmod":"2026-10-19T13:35Z","nid":"1545268"} -->
 ## About Data Model Management
 
 - Source: https://help.zscaler.com/unified/about-data-model-management
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > About Data Model Management
-- Last modified: 2026-10-15T11:13Z
+- Last modified: 2026-10-19T13:35Z
 - Summary: Information about the Data Model Management page in the Agentic Security Operations Platform.
 
 You can view and manage entity and field schemas from the Data Model Management page in the Agentic Security Operations Platform (Agentic SecOps Platform).
@@ -14513,13 +14502,13 @@ On the Playbooks page (Agentic SOC> Automations > Playbooks), you can do the fol
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-reports","lastmod":"2026-10-09T02:37Z","nid":"1545510"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-reports","lastmod":"2026-10-23T21:06Z","nid":"1545510"} -->
 ## About Reports
 
 - Source: https://help.zscaler.com/unified/about-reports
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Reports > About Reports
-- Last modified: 2026-10-09T02:37Z
+- Last modified: 2026-10-23T21:06Z
 - Summary: Information on the Reports page in the Agentic Security Operations Platform.
 
 Reports provide information about security data for key entities such as users, tenants, identity findings, tickets, and assets. You can customize reports with dimensions and measurements to analyze the data and identify trends. Reports can be created manually or scheduled for automatic delivery, helping you track progress, support audits, and keep stakeholders informed.
@@ -14656,7 +14645,7 @@ On the Audit Logs page for role management (Data Explorer > Audit Logs > Role Ma
 
 - Source: https://help.zscaler.com/unified/about-signal-history
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > About Signal History
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > About Signal History
 - Last modified: 2026-09-07T04:59Z
 - Summary: Information on viewing the context signals received from different third-party tools that are integrated with the Adaptive Access Engine.
 
@@ -14798,7 +14787,7 @@ In ZAgent (showing expanded window), you can:
 
 - Source: https://help.zscaler.com/unified/accessing-and-using-executive-insights-app
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Executive Insights App > Accessing and Using the Executive Insights App
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Executive Insights App > Accessing and Using the Executive Insights App
 - Last modified: 2026-09-30T11:33Z
 - Summary: Information on the Zscaler Executive Insights App.
 
@@ -14899,13 +14888,13 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-10-15T11:33Z","nid":"1545270"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-10-19T13:40Z","nid":"1545270"} -->
 ## Adding and Managing Entities and Fields
 
 - Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
-- Last modified: 2026-10-15T11:33Z
+- Last modified: 2026-10-19T13:40Z
 - Summary: Information about how to add and manage fields and entities in the Agentic Security Operations Platform data model.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the Agentic SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform).
@@ -15227,13 +15216,13 @@ The following table lists the supported Agentic SecOps Platform data sources by 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/agentic-security-operations-platform-configurations-outegration","lastmod":"2026-10-15T07:51Z","nid":"1545238"} -->
+<!-- ZS-ARTICLE {"url":"/unified/agentic-security-operations-platform-configurations-outegration","lastmod":"2026-10-19T13:24Z","nid":"1545238"} -->
 ## Agentic Security Operations Platform Configurations by Outegration
 
 - Source: https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-outegration
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Agentic Security Operations Platform Configurations by Outegration
-- Last modified: 2026-10-15T07:51Z
+- Last modified: 2026-10-19T13:24Z
 - Summary: The current Agentic Security Operations Platform outegrations by vendor.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) supports outegrations from third parties and from Zscaler. These outegrations dispatch tickets, trigger scans, update CMDB records, export reports to external platforms, and send email notifications. Use this article to identify the available outegrations, the category each one belongs to, the actions each one performs, and whether it supports webhook configuration for bidirectional sync. For deployment prerequisites and setup steps, see [Deploying Outegration Configurations](https://help.zscaler.com/unified/deploying-outegration-configurations). To configure a specific outegration, see [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides).
@@ -15260,13 +15249,13 @@ The following table lists the supported outegration provided by Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-10-15T11:34Z","nid":"1545208"} -->
+<!-- ZS-ARTICLE {"url":"/unified/aging-assets","lastmod":"2026-10-19T13:41Z","nid":"1545208"} -->
 ## Aging Assets
 
 - Source: https://help.zscaler.com/unified/aging-assets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Retention Management > Aging Assets
-- Last modified: 2026-10-15T11:34Z
+- Last modified: 2026-10-19T13:41Z
 - Summary: How to configure asset aging rules by time or by value.
 
 Asset aging in the Agentic Security Operations Platform (Agentic SecOps Platform) enables organizations to automatically transition outdated or irrelevant assets to an inactive state. This enhances asset inventory accuracy and significantly reduces noise for security teams, ultimately improving operational efficiency and risk prioritization. You can also age associated entities (e.g., an asset's findings) when the linked asset becomes inactive to ensure data consistency and minimize manual cleanup.
@@ -15379,13 +15368,13 @@ To remove multiple users' content permissions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-10-15T11:32Z","nid":"1545204"} -->
+<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-10-19T13:53Z","nid":"1545204"} -->
 ## Attribute Reconciliation Default Functions
 
 - Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
-- Last modified: 2026-10-15T11:32Z
+- Last modified: 2026-10-19T13:53Z
 - Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
 
 Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).

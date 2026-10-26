@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 182
 
 ---
@@ -1808,16 +1808,14 @@ On the Branch Connectors page (Private Access > Private Infrastructure > Branch 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-10-02T21:06Z","nid":"1484046"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-10-19T17:17Z","nid":"1484046"} -->
 ## About Browser Access
 
 - Source: https://help.zscaler.com/zpa/about-browser-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > About Browser Access
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-10-19T17:17Z
 - Summary: Information on Browser Access and how to access and define applications that enable it for Private Access.
-
-[Watch a video about Browser Access (shows legacy UI).](https://fast.wistia.net/embed/iframe/yq2dct3r2t)
 
 Browser Access allows you to leverage a web browser for user authentication and application access over Private Access (ZPA), without requiring users to install Zscaler Client Connector on their devices. For certain use cases, it might not be feasible or desirable to install Zscaler Client Connector on all devices. For example, you might want to:
 
@@ -2360,16 +2358,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-connectors","lastmod":"2026-10-13T13:39Z","nid":"1483541"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-connectors","lastmod":"2026-10-19T16:49Z","nid":"1483541"} -->
 ## About App Connectors
 
 - Source: https://help.zscaler.com/zpa/about-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connectors > About App Connectors
-- Last modified: 2026-10-13T13:39Z
+- Last modified: 2026-10-19T16:49Z
 - Summary: Information on App Connectors and the App Connectors page within the Zscaler Admin Console.
-
-[Watch a video about App Connectors](https://fast.wistia.net/embed/iframe/qatvjbrtwn) (shows legacy UI)
 
 App Connectors provide the secure authenticated interface between a customer's servers and the Private Access (ZPA) cloud.
 
@@ -2526,13 +2522,13 @@ On the Consoles Policy page (Zero Trust Browser > Privileged Remote Access > Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-credential-classes","lastmod":"2026-10-09T07:06Z","nid":"1541027"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-classes","lastmod":"2026-10-23T08:53Z","nid":"1541027"} -->
 ## About Credential Classes
 
 - Source: https://help.zscaler.com/zpa/about-credential-classes
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Classes
-- Last modified: 2026-10-09T07:06Z
+- Last modified: 2026-10-23T08:53Z
 - Summary: Information about credential classes for Privileged Remote Access (PRA) in the Zscaler Admin Console.
 
 A credential class is a rotation schedule that you can assign to rotate the password for a [managed credential](https://help.zscaler.com/zpa/about-privileged-managed-credentials). You can set the rotation policy to determine when the rotation for a managed credential is triggered.
@@ -2543,36 +2539,36 @@ Credential classes provide the following benefits and enable you to:
 - Ensure that frequently used credentials have passwords rotated on a consistent basis.
 - Gain insight into the number of managed credentials using each credential class.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Credential Classes Page
 
-On the Credential Classes page (Policies > Access Control > Clientless > Credential Classes), you can do the following:
+On the Credential Classes page (Zero Trust Browser > Credentials Management > Credential Classes), you can do the following:
 
-1. Click the **Filter** icon to display or hide the filters.
-2. Click the **Search** icon to locate specific information in the table.
-3. Refresh the Credential Classes page to reflect the most current information.
-4. [Add a new credential class.](https://help.zscaler.com/zpa/configuring-credential-classes)
-5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
-6. View a list of all credential classes that are configured. For each credential class, you can see:
+1. Refresh the Credential Classes page to reflect the most current information.
+2. [Add a new credential class.](https://help.zscaler.com/zpa/configuring-credential-classes)
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
+4. View a list of all credential classes that are configured. For each credential class, you can see:
   - **Name**: The name of the credential class.
   - **Rotation Policy**: The rotation frequency that is set for the credential class (**Scheduled**, **After Each Use**, and **Never**).
   - **Members**: The number of managed credentials using this credential class.
+5. [Edit a credential class.](https://help.zscaler.com/zpa/editing-credential-classes)
+6. Delete a credential class.
 7. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-8. [Edit a credential class.](https://help.zscaler.com/zpa/editing-credential-classes)
-9. Delete a credential class.
-10. Display more rows or a different page of the table.
+8. Display more rows or a different page of the table.
 
 [Image: Viewing the Credential Classes page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-credential-providers","lastmod":"2026-10-09T07:06Z","nid":"1541004"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-credential-providers","lastmod":"2026-10-23T09:12Z","nid":"1541004"} -->
 ## About Credential Providers
 
 - Source: https://help.zscaler.com/zpa/about-credential-providers
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Credential Providers
-- Last modified: 2026-10-09T07:06Z
+- Last modified: 2026-10-23T09:12Z
 - Summary: Information about credential providers for Privileged Remote Access (PRA) in the Zscaler Admin Console.
 
 A credential provider is the external identity source (e.g., Active Directory (AD) or Entra ID) used to [discover credentials](https://help.zscaler.com/zpa/about-discovered-credentials) after you set up the credential agent for a designated identity provider (IdP). You can manage the credential providers in the Zscaler Admin Console. When you create a credential provider, you can map the credential agent application segment to the external identity source.
@@ -2583,16 +2579,16 @@ Credential providers include the following benefits and enable you to:
 - Track the status of configured credential providers.
 - Review the amount of saved queries for each credential provider.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Credential Provider Page
 
-On the Credential Providers page (Policies > Access Control > Clientless > Credential Providers), you can do the following:
+On the Credential Providers page (Zero Trust Browser > Credentials Management > Credential Providers), you can do the following:
 
-1. Click the **Filter** icon to display or hide the filters.
-2. Use the **Search** field to locate specific information in the table.
-3. Refresh the Credential Providers page to reflect the most current information.
-4. [Add a new credential provider.](https://help.zscaler.com/zpa/configuring-credential-providers)
-5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
-6. View a list of all credential providers that are configured. For each credential provider, you can see:
+1. Use the **Search** field to locate specific information in the table.
+2. Refresh the Credential Providers page to reflect the most current information.
+3. [Add a new credential provider.](https://help.zscaler.com/zpa/configuring-credential-providers)
+4. View a list of all credential providers that are configured. For each credential provider, you can see:
   - **Provider Name**: The name of the credential provider.
   - **Application**: The credential agent application that has been assigned to the credential provider.
   - **Status**: The status of the credential provider.
@@ -2604,9 +2600,9 @@ On the Credential Providers page (Policies > Access Control > Clientless > Crede
   - **New Credentials**: The number of discovered credentials for the credential provider.
   - **Managed Credentials**: The number of credentials that are managed for the credential provider.
   - **Ignored Credentials**: The number of ignored credentials for the credential provider.
-7. [Edit a credential provider.](https://help.zscaler.com/zpa/edit-credential-providers)
-8. Delete a credential provider.
-9. Display more rows or a different page of the table.
+5. [Edit a credential provider.](https://help.zscaler.com/zpa/edit-credential-providers)
+6. Delete a credential provider.
+7. Display more rows or a different page of the table.
 
 [Image: Viewing the Credential Providers page]
 <!-- /ZS-ARTICLE -->
@@ -2823,13 +2819,13 @@ To configure Disaster Recovery Settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-discovered-credentials","lastmod":"2026-05-22T07:06Z","nid":"1538677"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-discovered-credentials","lastmod":"2026-10-23T08:13Z","nid":"1538677"} -->
 ## About Discovered Credentials
 
 - Source: https://help.zscaler.com/zpa/about-discovered-credentials
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Discovered Credentials
-- Last modified: 2026-05-22T07:06Z
+- Last modified: 2026-10-23T08:13Z
 - Summary: Information about discovered credentials for Privileged Remote Access (PRA) within the Zscaler Admin Console.
 
 You can discover credentials from external identity sources (e.g., Active Directory (AD) or Entra ID). These discovered credentials can then be reviewed and moved depending on use cases.
@@ -2839,9 +2835,11 @@ Discovered credentials provide the following benefits and enable you to:
 - Reduce security risk by eliminating exposure of shared and long-lived privileged credentials, enforcing automated rotation.
 - Configure identity-centric access controls, such as Just-in-Time privileged access aligned with Zero Trust principles.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Discovered Credentials Page
 
-On the Discovered page (Policies > Access Control > Clientless > Privileged Credentials > Discovered), you can do the following:
+On the Discovered page (Zero Trust Browser > Credentials Management > Privileged Credentials > Discovered), you can do the following:
 
 1. [Add a new privileged credential.](https://help.zscaler.com/zpa/configuring-privileged-credentials)
 2. Discover credentials from the AD.
@@ -2927,16 +2925,14 @@ On the Emergency Access Users page (Administration > Private Access Authenticati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-enrollment-certificates","lastmod":"2026-09-17T07:52Z","nid":"1483611"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-enrollment-certificates","lastmod":"2026-10-19T17:19Z","nid":"1483611"} -->
 ## About Enrollment Certificates
 
 - Source: https://help.zscaler.com/zpa/about-enrollment-certificates
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Certificate Management > Enrollment Certificates > About Enrollment Certificates
-- Last modified: 2026-09-17T07:52Z
+- Last modified: 2026-10-19T17:19Z
 - Summary: Information on App Connector, Private Service Edges, and Zscaler Client Connector (CA) certificates and the Certificates page within the Zscaler Admin Console.
-
-[Watch a video about Enrollment Certificates](https://fast.wistia.net/embed/iframe/gstgspmdcw) (shows legacy UI).
 
 App Connectors, Private Service Edges, Private Cloud Controllers, Network Connectors, and Zscaler Client Connector are issued certificates that are sent by an enrollment certificate. The enrollment certificate must be capable of acting as a certificate authority for processing certificate signing requests (CSRs). Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
@@ -3097,13 +3093,13 @@ On the External Routers page (Private Access > VPN (for Legacy Apps) > External 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-federated-partners","lastmod":"2026-09-20T07:06Z","nid":"1540795"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-federated-partners","lastmod":"2026-10-20T15:17Z","nid":"1540795"} -->
 ## About Federated Partners
 
 - Source: https://help.zscaler.com/zpa/about-federated-partners
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > B2B Exchange > About Federated Partners
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-20T15:17Z
 - Summary: Information on federated partners and the Federated Partners page within the Zscaler Admin Console.
 
 Federated partners are guest and host partner admins that have received approval by two business partners for [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-federation). Federated partners have established a trust between two business partners (i.e., the host partner and guest partner) and have completed the Zero Trust Partner Federation process to set up a Federation. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -3117,19 +3113,19 @@ Federated partners provide the following benefits and enable you to:
 
 On the Federated Partners page (Private Access > B2B Exchange > Federation > Federated Partners), you can do the following:
 
-1. [Add a partner.](https://help.zscaler.com/zpa/configuring-business-business-federation)
-2. Click the **Filter** icon to display or hide the filters.
-3. Filter the information that appears in the table. By default, no filters are applied. Click **Clear** to clear the applied filters. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-4. View a list of all federated partners that are configured for your organization. For each federated partner, you can see:
+1. [Add a partner](https://help.zscaler.com/zpa/configuring-business-business-federation).
+2. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+3. Click the **Filter** icon to display or hide the filters.
+4. Filter the information that appears in the table. By default, no filters are applied. Click **Clear** to clear the applied filters. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+5. View a list of all federated partners that are configured for your organization. For each federated partner, you can see:
   - **Partner**: The name of the federated partner.
   - **Federated On**: The date that the trust between two business partners was established.
   - **Status**: The status of the federated partner (i.e., **Active**, **Pause**, or **Terminate**). Click the drop-down menu to view a list of statuses, or to pause or terminate the status of the federated partner.
-5. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-6. View the federated applications for the federated partner. You can federate applications to make them eligible to share with host partners.
+6. View the federated applications for the federated partner. You can [federate applications](https://help.zscaler.com/zpa/federating-defined-application-segments) to make them eligible to share with host partners.
 7. Display more rows or a different page of the table.
 8. Go to the [Pending Requests](https://help.zscaler.com/zpa/about-pending-requests-partners) page to manage both incoming and outgoing Federation requests.
 
-[Image: Viewing federated partners for Business-to-Business Federation]
+[Image: Viewing the Federated Partners page for Business-to-Business Federation]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3330,13 +3326,13 @@ An IdP cannot be deleted if it is used for [emergency access](https://help.zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-ignored-credentials","lastmod":"2026-05-17T07:06Z","nid":"1538785"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-ignored-credentials","lastmod":"2026-10-23T08:18Z","nid":"1538785"} -->
 ## About Ignored Credentials
 
 - Source: https://help.zscaler.com/zpa/about-ignored-credentials
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Ignored Credentials
-- Last modified: 2026-05-17T07:06Z
+- Last modified: 2026-10-23T08:18Z
 - Summary: Information about ignored credentials for Privileged Remote Access (PRA) within the Zscaler Admin Console.
 
 You can move credentials discovered via external identity sources (e.g., Active Directory (AD) or Entra ID), that aren't currently in use for privileged consoles, from the Discovered or Managed pages to the Ignored page. The credentials listed on the Ignored page can be moved to the Managed page if you want to use them for privileged consoles.
@@ -3346,9 +3342,11 @@ Ignored credentials provide the following benefits and enable you to:
 - Improve operational efficiency and compliance by automating credential lifecycle management, providing centralized visibility across AD or Entra ID.
 - Configure auditability through correlation of privileged credential usage with session activity.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Ignored Credentials Page
 
-On the Ignored page (Policies > Access Control > Clientless > Privileged Credentials > Ignored), you can do the following:
+On the Ignored page (Zero Trust Browser > Credentials Management > Privileged Credentials > Ignored), you can do the following:
 
 1. [Add a new privileged credential.](https://help.zscaler.com/zpa/configuring-privileged-credentials)
 2. Discover credentials from the AD.
@@ -3382,13 +3380,13 @@ On the Ignored page (Policies > Access Control > Clientless > Privileged Credent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-integrations","lastmod":"2026-06-09T15:31Z","nid":"1485521"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-integrations","lastmod":"2026-10-23T07:54Z","nid":"1485521"} -->
 ## About Integrations
 
 - Source: https://help.zscaler.com/zpa/about-integrations
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Consoles > About Integrations
-- Last modified: 2026-06-09T15:31Z
+- Last modified: 2026-10-23T07:54Z
 - Summary: Configure the fields on the Sandbox Integration page to include the Inspect option for the Privileged Remote Access (PRA) feature File Transfer.
 
 Files can be transferred securely through the Private Access (ZPA) cloud via a designated privileged console from a Privileged Remote Access (PRA) portal. These files can then be downloaded or uploaded with the option to inspect the files using Internet & SaaS (ZIA) Sandbox File Transfer.
@@ -3400,22 +3398,24 @@ Configuring the integrations for the Internet & SaaS Sandbox File Transfer provi
 
 To enable the Inspect option for the File Transfer feature for privileged consoles, you first need to set up the parameters for the Internet & SaaS Sandbox integration. If you do not set up the integration configurations, then the Inspect option is automatically disabled.
 
-After you have configured the Internet & SaaS Sandbox integration, set up the consoles policy for the privileged consoles.
+After you have configured the Internet & SaaS Sandbox integration, [set up the consoles policy](https://help.zscaler.com/zpa/configuring-consoles-policies) for the privileged consoles.
+
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
 
 ## About the Sandbox Integration Page
 
 The Sandbox Integration page is read-only for [Microtenant](https://help.zscaler.com/zpa/about-microtenants) admins.
 
-On the Sandbox Integration page (Policies > Access Control > Clientless > Sandbox Integration), you can do the following:
+On the Sandbox Integration page (Zero Trust Browser > Privileged Remote Access > Sandbox Integration), you can do the following:
 
-1. Refresh the Sandbox Integration page to reflect the most current information.
-2. View and manage the Sandbox Integration settings.
+1. Edit the Sandbox Integration settings.
+2. View the current Sandbox Integration settings.
 
 [Image: Using the Sandbox Integration page]
 
 ## Configuring Sandbox Integration Settings
 
-To configure Sandbox Integration settings (Policies > Access Control > Clientless > Sandbox Integration):
+To configure Sandbox Integration settings (Zero Trust Browser > Privileged Remote Access > Sandbox Integration):
 
 1. Complete the following fields:
   - **ZIA Cloud**: Enter the name of the Internet & SaaS Cloud with the Sandbox you are accessing.
@@ -3755,16 +3755,14 @@ On the Log Receivers page (Data Explorer > Log Streaming > Log Receivers), you c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-machine-groups","lastmod":"2026-09-25T12:37Z","nid":"1484671"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-machine-groups","lastmod":"2026-10-19T17:21Z","nid":"1484671"} -->
 ## About Machine Groups
 
 - Source: https://help.zscaler.com/zpa/about-machine-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Machine Authentication > About Machine Groups
-- Last modified: 2026-09-25T12:37Z
+- Last modified: 2026-10-19T17:21Z
 - Summary: Information on machine groups and the Machine Groups page within the Zscaler Admin Console.
-
-[Watch a video about machine groups](https://fast.wistia.net/embed/iframe/11naj2mw13) (shows legacy UI).
 
 A machine group is a set of an organization's internal, local machines that need to connect to Private Access (ZPA). These local machines are internal directories, such as an Active Directory, that organizations want Private Access to connect to prior to logging in to Windows. You can manage machine groups in the Zscaler Admin Console.
 
@@ -3799,16 +3797,14 @@ Click **Add** to open the **Add Machine Group** drawer, and enter the following 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-machine-provisioning-keys","lastmod":"2026-09-21T16:10Z","nid":"1484686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-machine-provisioning-keys","lastmod":"2026-10-19T17:20Z","nid":"1484686"} -->
 ## About Machine Provisioning Keys
 
 - Source: https://help.zscaler.com/zpa/about-machine-provisioning-keys
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Authentication > Machine Authentication > About Machine Provisioning Keys
-- Last modified: 2026-09-21T16:10Z
+- Last modified: 2026-10-19T17:20Z
 - Summary: Information on machine provision keys and the Machine Provisioning Keys page within the Zscaler Admin Console.
-
-[Watch a video about machine provisioning keys](https://fast.wistia.net/embed/iframe/11naj2mw13) (shows legacy UI).
 
 The provisioning key is a text string that is generated when you [add a machine provisioning key](https://help.zscaler.com/zpa/configuring-machine-provisioning-keys) in the Zscaler Admin Console. You need to add the key to a [Zscaler Client Connector profile rule](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#windows) for Windows or macOS. When added, the provisioning key functions like an ID to the machine, and it enables the Private Access cloud to verify the machine's authenticity prior to logging into Windows or macOS.
 
@@ -3854,13 +3850,13 @@ On the Machine Keys page (Administration > Private Access Authentication > Machi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-microsegmentation-policies","lastmod":"2026-09-09T14:28Z","nid":"1531962"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-microsegmentation-policies","lastmod":"2026-10-21T11:29Z","nid":"1531962"} -->
 ## About Microsegmentation Policies
 
 - Source: https://help.zscaler.com/zpa/about-microsegmentation-policies
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > About Microsegmentation Policies
-- Last modified: 2026-09-09T14:28Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Resource Policies > About Microsegmentation Policies
+- Last modified: 2026-10-21T11:29Z
 - Summary: Information about Microsegmentation policies.
 
 Admins can create Layer 3 and Layer 4 Microsegmentation enforcement policies to protect east-west traffic in both cloud and data center environments. By anchoring the policy with a [resource group](https://help.zscaler.com/zpa/about-resource-groups), a rule is built around that with other dynamic criteria to enforce either allowing or blocking certain traffic.
@@ -4120,13 +4116,13 @@ On the ML Tag Recommendations page (Zero Trust Cloud > Microsegmentation > Tag R
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-my-approvals","lastmod":"2026-09-16T13:50Z","nid":"1520616"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-my-approvals","lastmod":"2026-10-23T09:23Z","nid":"1520616"} -->
 ## About My Approvals
 
 - Source: https://help.zscaler.com/zpa/about-my-approvals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > About My Approvals
-- Last modified: 2026-09-16T13:50Z
+- Last modified: 2026-10-23T09:23Z
 - Summary: How to manage privileged requests and approvals within a Privileged Remote Access (PRA) Portal.
 
 If an admin has enabled privileged requests and approvals for the Privileged Remote Access (PRA) Portal, and a user has the My Approvals feature enabled, then the user can access and manage privileged requests and approvals on the My Requests and My Reviews pages. The admin must also [configure a portals policy](https://help.zscaler.com/zpa/configuring-portals-policies) to enable requesting and reviewing approvals.
@@ -4138,6 +4134,8 @@ My Approvals provides the following benefits and enables you to:
 - Create and manage privileged approval requests from the PRA Portal.
 - View the status of privileged approval requests.
 - Approve and reject privileged approval requests.
+
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
 
 ## About the My Requests Page
 
@@ -4207,16 +4205,14 @@ On the My Reviews page (PRA Portal > My Approvals icon > My Reviews), you can do
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-10-15T09:17Z","nid":"1529073"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-connector-groups","lastmod":"2026-10-20T13:41Z","nid":"1529073"} -->
 ## About Network Connector Groups
 
 - Source: https://help.zscaler.com/zpa/about-network-connector-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connector Groups > About Network Connector Groups
-- Last modified: 2026-10-15T09:17Z
+- Last modified: 2026-10-20T13:41Z
 - Summary: Information on Network Connector groups and the Network Connector Groups page in the Zscaler Admin Console.
-
-[Watch a video about Network Connector Groups.](https://fast.wistia.net/embed/iframe/dt7qtvdrqj)
 
 Each [Network Connector](https://help.zscaler.com/zpa/about-network-connectors) is mapped to one Network Connector group. A [Network segment](https://help.zscaler.com/zpa/about-network-segments) is then mapped to one or multiple Network Connector groups for traffic forwarding. Ensure that your Network Connector is up and running for the Network Connector group to be active.
 
@@ -4309,16 +4305,14 @@ On the Network Connector Provisioning Keys page (Private Access > VPN (for Legac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-network-connectors","lastmod":"2026-10-08T13:32Z","nid":"1529067"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-network-connectors","lastmod":"2026-10-20T13:40Z","nid":"1529067"} -->
 ## About Network Connectors
 
 - Source: https://help.zscaler.com/zpa/about-network-connectors
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Management > Network Connectors > About Network Connectors
-- Last modified: 2026-10-08T13:32Z
+- Last modified: 2026-10-20T13:40Z
 - Summary: Information on Network Connectors and the Network Connectors page.
-
-[Watch a video about Network Connectors.](https://fast.wistia.net/embed/iframe/oshtd63t0g)
 
 VPN (for Legacy Apps) enables support for legacy applications that require server-to-client traffic using real IP address binding (e.g., VoIP or Active FTP). This service uses [VPN Service Edges](https://help.zscaler.com/zpa/about-vpn-service-edges), Network Connectors, [Network segments](https://help.zscaler.com/zpa/about-network-segments), and [Zscaler Client Connector](https://help.zscaler.com/client-connector/using-zscaler-client-connector). The Network Connector is deployed within your application server's data center, and connects to all known VPN Service Edges. Organizations must configure the route to the client IP pool using the Network Connector's IP address as the next hop.
 
@@ -4478,13 +4472,13 @@ On the Notifications page (Administration > Alerts > Private Access), you can do
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-pending-requests-partners","lastmod":"2026-09-20T07:06Z","nid":"1540796"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-pending-requests-partners","lastmod":"2026-10-20T15:18Z","nid":"1540796"} -->
 ## About Pending Requests for Partners
 
 - Source: https://help.zscaler.com/zpa/about-pending-requests-partners
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > B2B Exchange > About Pending Requests for Partners
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-20T15:18Z
 - Summary: Information on pending requests for partners and the Pending Requests page in the Zscaler Admin Console.
 
 For [Business-to-Business (B2B) Federation](https://help.zscaler.com/zpa/understanding-business-business-federation), a pending request refers to the status of a formal request initiated by a host or guest partner admin to establish a trusted, cross-tenant relationship with a business partner.
@@ -4506,7 +4500,7 @@ After an access token is verified as part of the B2B Federation process, the hos
 
 On the Pending Requests page (Private Access > B2B Federation > Federation > Pending Requests), you can do the following:
 
-1. [Add a partner.](https://help.zscaler.com/zpa/configuring-partner-federation)
+1. [Add a partner](https://help.zscaler.com/zpa/configuring-partner-federation).
 2. Click the **Filter**icon to display or hide the filters.
 3. Filter the information that appears in the table. By default, no filters are applied. Click **Clear** to clear the applied filters. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
 4. View a list of all pending requests. For each pending request, you can see:
@@ -4514,7 +4508,7 @@ On the Pending Requests page (Private Access > B2B Federation > Federation > Pen
   - **Partner**: The name of the B2B partner.
   - **Notes**: Any additional notes for communication between the B2B partners.
   - **Status**: The status of the pending request (i.e., **Token Verified**, **Pending Approval**, **Pending Verification**).
-5. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+5. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
 6. Update the notes of the pending request.
 7. Approve or deny a pending request.
 8. Cancel a pending request.
@@ -4526,13 +4520,13 @@ On the Pending Requests page (Private Access > B2B Federation > Federation > Pen
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-perimeter-policies","lastmod":"2026-09-18T10:09Z","nid":"1543027"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-perimeter-policies","lastmod":"2026-10-21T11:30Z","nid":"1543027"} -->
 ## About Perimeter Policies
 
 - Source: https://help.zscaler.com/zpa/about-perimeter-policies
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > About Perimeter Policies
-- Last modified: 2026-09-18T10:09Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Perimeter Policies > About Perimeter Policies
+- Last modified: 2026-10-21T11:30Z
 - Summary: Information on the Perimeter Policies page for Microsegmentation in the Zscaler Admin Console.
 
 Perimeter policies allow you to easily define how Microsegmentation handles inbound, outbound, and internal traffic for managed resource groups. You can create perimeter policies on the Perimeter Policies page in the Zscaler Admin Console.
@@ -4570,13 +4564,13 @@ On the Perimeter Policies page (Zero Trust Cloud > Microsegmentation > Perimeter
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-policy-recommendations-resource-groups","lastmod":"2026-09-18T10:06Z","nid":"1542953"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-policy-recommendations-resource-groups","lastmod":"2026-10-21T11:51Z","nid":"1542953"} -->
 ## About Policy Recommendations for Resource Groups
 
 - Source: https://help.zscaler.com/zpa/about-policy-recommendations-resource-groups
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy > About Policy Recommendations for Resource Groups
-- Last modified: 2026-09-18T10:06Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Resource Policies > About Policy Recommendations for Resource Groups
+- Last modified: 2026-10-21T11:51Z
 - Summary: Information about policy recommendations for resource groups in the Zscaler Admin Console.
 
 Microsegmentation provides policy recommendations for resource groups based on historical network flows. Recommendations are listed on a page within the [Application Map](https://help.zscaler.com/zpa/viewing-application-map) and organized by managed and unmanaged flows. You can filter managed and unmanaged flows by direction (i.e., inbound and outbound).
@@ -4624,7 +4618,7 @@ On the Policy Recommendation page for a resource group, you can do the following
 
 - Source: https://help.zscaler.com/zpa/about-portals-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Policies > Privileged Remote Access Policy > About Portals Policy
+- Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Remote Access Policy > About Portals Policy
 - Last modified: 2026-09-24T21:06Z
 - Summary: Information on portals policy rules in the Privileged Remote Access (PRA) File Transfer System pages.
 
@@ -4975,16 +4969,14 @@ On the Private Clouds page (Infrastructure > Business Continuity > Private Cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-10-14T15:39Z","nid":"1484471"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-10-20T13:43Z","nid":"1484471"} -->
 ## About Private Service Edge Groups
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edge-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Groups > About Private Service Edge Groups
-- Last modified: 2026-10-14T15:39Z
+- Last modified: 2026-10-20T13:43Z
 - Summary: Information on Private Service Edge for Private Access (ZPA) groups and the Private Service Edge Groups page in the Zscaler Admin Console.
-
-[Watch a video about Private Service Edge Groups.](https://fast.wistia.net/embed/iframe/ahp2va5mtu)
 
 Zscaler recommends deploying Private Service Edges for Private Access (ZPA) in groups for high availability and horizontal scaling. You can create new Private Service Edge groups whenever you [add a new Private Service Edge](https://help.zscaler.com/zpa/configuring-service-edges) using a new provisioning key. Every Private Service Edge belongs to a specific Private Service Edge group.
 
@@ -5046,16 +5038,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edges","lastmod":"2026-10-01T21:06Z","nid":"1484466"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edges","lastmod":"2026-10-20T12:26Z","nid":"1484466"} -->
 ## About Private Service Edges
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edges
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge > About Private Service Edges
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-10-20T12:26Z
 - Summary: Information on Private Service Edges for [[variable:zscaler-private-access]] (ZPA) in the Zscaler Admin Console.
-
-[Watch a video about Private Service Edges](https://fast.wistia.net/embed/iframe/476cwkzro2)(shows legacy UI).
 
 Private Service Edges for Private Access (ZPA) are single-tenant instance brokers that provide the functionality of a Public Service Edge for Private Access in an organization’s environment. Your organization hosts them either within your site or on a cloud service, but Zscaler manages them. On the other hand, Public Service Edges are deployed in Zscaler data centers around the world. To learn more, see [Understanding Private Service Edges](https://help.zscaler.com/zpa/understanding-service-edges).
 
@@ -5149,13 +5139,13 @@ Private Access provides Security Technical Implementation Guide (STIG) images ar
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-approvals","lastmod":"2026-06-25T12:25Z","nid":"1485221"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-approvals","lastmod":"2026-10-22T17:04Z","nid":"1485221"} -->
 ## About Privileged Approvals
 
 - Source: https://help.zscaler.com/zpa/about-privileged-approvals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Approvals > About Privileged Approvals
-- Last modified: 2026-06-25T12:25Z
+- Last modified: 2026-10-22T17:04Z
 - Summary: Information about the Privileged Approvals page in the Zscaler Admin Console.
 
 Privileged approvals allow third-party users and contractors to be able to log in to a [Privileged Remote Access (PRA) Portal](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal). Privileged approvals maintain a secure access point only for the email addresses you include in a privileged approval. These users are given entry to the specific applications you need them to access.
@@ -5170,9 +5160,11 @@ You can create and edit privileged approvals on the Privileged Approvals page. A
 
 You also need to create an [access policy](https://help.zscaler.com/zpa/configuring-privileged-approvals-draft) that uses the Conditional Access rule action with the Allow for Privileged Approval checkboxselected for a privileged approval to take effect.
 
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Privileged Approvals Page
 
-On the Privileged Approvals page (Policies > Access Control > Clientless > Privileged Approvals), you can do the following:
+On the Privileged Approvals page (Zero Trust Browser > Privileged Remote Access > Privileged Approvals), you can do the following:
 
 1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
 2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
@@ -5200,16 +5192,14 @@ On the Privileged Approvals page (Policies > Access Control > Clientless > Privi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-consoles","lastmod":"2026-06-25T14:15Z","nid":"1485101"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-consoles","lastmod":"2026-10-23T07:43Z","nid":"1485101"} -->
 ## About Privileged Consoles
 
 - Source: https://help.zscaler.com/zpa/about-privileged-consoles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Consoles > About Privileged Consoles
-- Last modified: 2026-06-25T14:15Z
+- Last modified: 2026-10-23T07:43Z
 - Summary: Information about the Privileged Consoles page in the Zscaler Admin Console.
-
-[Watch a video about Privileged Consoles](https://fast.wistia.net/embed/iframe/b4f545owvb) (shows legacy UI).
 
 After you create a privileged portal, you can create and edit privileged consoles on the Privileged Consoles page. After a privileged console is created, you can enable it to appear in the end user's Privileged Remote Access (PRA) Portal. You can enable the same privileged console to appear in one or more privileged portals.
 
@@ -5219,9 +5209,11 @@ Privileged consoles provide the following benefits and enable you to:
 - Manage which privileged portals the privileged consoles are assigned to.
 - Update the description for privileged consoles that are displayed to end users.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Privileged Consoles Page
 
-On the Privileged Consoles page (Policies > Access Control > Clientless > Privileged Consoles), you can:
+On the Privileged Consoles page (**Zero Trust Browser** > **Privileged Remote Access** > **Privileged Consoles**), you can:
 
 1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
 2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
@@ -5248,13 +5240,13 @@ If you delete a privileged console, you can no longer form a new connection and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-credential-pools","lastmod":"2026-09-18T07:06Z","nid":"1520511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-credential-pools","lastmod":"2026-10-23T08:33Z","nid":"1520511"} -->
 ## About Privileged Credential Pools
 
 - Source: https://help.zscaler.com/zpa/about-privileged-credential-pools
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Privileged Credential Pools
-- Last modified: 2026-09-18T07:06Z
+- Last modified: 2026-10-23T08:33Z
 - Summary: Information on the Privileged Credential Pools page in the Zscaler Admin Console.
 
 Privileged credential pools can be used to streamline access to privileged consoles by mapping authentication details using a privileged credentials policy. Multiple users can gain access to the privileged console that the privileged credential pools are designated to. After you create a privileged credential pool, you can map it to a privileged console by creating a privileged credential policy using the SAML and SCIM policy criteria types.
@@ -5268,19 +5260,20 @@ Privileged credential pools provide the following benefits and enable you to:
 
 If you want to use privileged credential pools, you must first [discover credentials](https://help.zscaler.com/zpa/about-discovered-credentials) from external identity sources (e.g., Active Directory (AD) or Entra ID) or [create credentials locally](https://help.zscaler.com/zpa/configuring-privileged-credentials) in the Zscaler Admin Console. You also need to create the [privileged portals](https://help.zscaler.com/zpa/about-privileged-portals) and [privileged consoles](https://help.zscaler.com/zpa/about-privileged-consoles) that you want to assign the credentials to.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Credential Pools Page
 
-On the Credential Pools page (Policies > Access Control > Clientless > Credential Pools), you can do the following:
+On the Credential Pools page (Zero Trust Browser> Credentials Management > Credential Pools), you can do the following:
 
-1. Click the **Filter** icon to display or hide the filters.
-2. Click the **Search** icon to locate specific information in the table.
-3. Refresh the Credentials Pools page to reflect the most current information.
-4. [Add a new privileged credential pool.](https://help.zscaler.com/zpa/configuring-privileged-credential-pools)
-5. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
+1. Refresh the Credentials Pools page to reflect the most current information.
+2. [Add a new privileged credential pool.](https://help.zscaler.com/zpa/configuring-privileged-credential-pools)
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
 
 If you are using a [Microtenant](https://help.zscaler.com/zpa/about-microtenants), then the **Microtenant Ownership Type** filter is available. By default, the **Configured within Microtenant** filter option is applied to show the privileged credentials configured within that specific Microtenant. The options for the filter are based on access type (**Global**and **Configured within Microtenant**). The **Global** option filters the information in the table that is configured within the Default Microtenant. The only available operator for this filter type is **Equals**.
 
-1. View a list of all privileged credential pools that are configured. For each privileged credential pool, you can see:
+1. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+2. View a list of all privileged credential pools that are configured. For each privileged credential pool, you can see:
 
 - **Name**: The name of the privileged credential pool. Click the name to view the credentials.
 - **Credential Type**: The protocol type that was designated for the privileged credential pool (**SSH**, **RDP**, **VNC**, or **RealVNC)**.
@@ -5291,8 +5284,7 @@ Privileged credentials that are created in the Default Microtenant are inherited
 
 1. [Edit a privileged credential pool.](https://help.zscaler.com/zpa/editing-privileged-credential-pools)
 2. Delete a privileged credential pool.
-3. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-4. Display more rows or a different page of the table.
+3. Display more rows or a different page of the table.
 
 [Image: Viewing the Credential Pools page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
@@ -5352,13 +5344,13 @@ You need to have at least two privileged credential policies created for the fir
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-managed-credentials","lastmod":"2026-08-17T14:02Z","nid":"1485551"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-managed-credentials","lastmod":"2026-10-23T08:09Z","nid":"1485551"} -->
 ## About Managed Privileged Credentials
 
 - Source: https://help.zscaler.com/zpa/about-privileged-managed-credentials
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Credentials > About Managed Privileged Credentials
-- Last modified: 2026-08-17T14:02Z
+- Last modified: 2026-10-23T08:09Z
 - Summary: Information about managed privileged credentials for Privileged Remote Access (PRA) within the Zscaler Admin Console.
 
 Privileged credentials streamline access to privileged consoles by mapping authentication details to a [privileged credentials policy](https://help.zscaler.com/zpa/about-privileged-credentials-policy). Based on the privileged credentials policy, credentials are automatically injected into the privileged console without having to manually add them.
@@ -5372,16 +5364,19 @@ Privileged credentials provide the following benefits and enable you to:
 
 To use a privileged credential, you must first create a [privileged portal](https://help.zscaler.com/zpa/about-privileged-portals) and a [privileged console](https://help.zscaler.com/zpa/about-privileged-consoles). The privileged portal and privileged console are then assigned to the privileged credential. To discover credentials from an AD or Entra ID, you must deploy a credential agent within your infrastructure.
 
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Managed Privileged Credentials Page
 
-On the Managed page (Policies > Access Control > Clientless > Privileged Credentials > Managed), you can do the following:
+On the Managed page (Zero Trust Browser > Credentials Management > Privileged Credentials > Managed), you can do the following:
 
 1. [Add a new privileged credential.](https://help.zscaler.com/zpa/configuring-privileged-credentials)
 2. [Discover credentials from the AD](https://help.zscaler.com/zpa/configuring-discovered-credentials).
 3. Click the **Filter** icon to display or hide the filters.
 4. Click the **Search** icon to locate specific information in the table.
 5. Filter the information that appears in the table. By default, no filters are applied. You can also save applied filters to your preferences so that they're visible in future user sessions. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter). If you are using a [Microtenant](https://help.zscaler.com/zpa/about-microtenants), then the **Microtenant Ownership Type** filter is available. By default, the **Configured within Microtenant** filter option is applied to show the privileged credentials configured within that specific Microtenant. The options for the filter are based on access type (**Global**and **Configured within Microtenant**). The **Global** option filters the information in the table that is configured within the Default Microtenant. The only available operator for this filter type is **Equals**.
-6. View a list of all privileged credentials that are configured. Both local and discovered privileged credentials are displayed. For each privileged credential, you can see:
+6. Refresh the Managed page to reflect the most current information.
+7. View a list of all privileged credentials that are configured. Both local and discovered privileged credentials are displayed. For each privileged credential, you can see:
 
 - **Name**: The name of the privileged credential.
 - **Status**: The rotation status of the privileged credential.
@@ -5395,18 +5390,16 @@ On the Managed page (Policies > Access Control > Clientless > Privileged Credent
 
 Privileged credentials that are created in the Default Microtenant are inherited across Microtenants.
 
-1. Refresh the Managed page to reflect the most current information.
-2. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-3. Rotate the privileged credential in real time.
-4. [Move the privileged credential into a Microtenant](https://help.zscaler.com/zpa/moving-resources-microtenant#PrivilegedCredentials).
-
-If privileged credential policies are associated with the privileged credential, then the policies must be deleted to move the privileged credential to a different Microtenant.
-
-1. [Edit a privileged credential.](https://help.zscaler.com/zpa/editing-privileged-credentials)
+1. Rotate the privileged credential in real time.
+2. [Edit a privileged credential.](https://help.zscaler.com/zpa/editing-privileged-credentials)
 
 If the credentials are changed after you created and saved the privileged credential, you must update the new credential details (e.g., Username, Password, Private Key) to continue using the privileged credential.
 
-1. Delete a privileged credential.
+1. Select to view additional actions, including deleting a privileged credential and [moving the privileged credential into a Microtenant](https://help.zscaler.com/zpa/moving-resources-microtenant#PrivilegedCredentials).
+
+If privileged credential policies are associated with the privileged credential, then the policies must be deleted to move the privileged credential to a different Microtenant.
+
+1. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
 2. Display more rows or a different page of the table.
 3. Go to the Discovered page to manage credentials discovered from the AD.
 4. Go to the Ignored page to manage credentials that have been designated as ignored from the AD.
@@ -5421,7 +5414,7 @@ If the credentials are changed after you created and saved the privileged creden
 
 - Source: https://help.zscaler.com/zpa/about-privileged-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Policies > Privileged Remote Access Policy > About Privileged Policy
+- Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Remote Access Policy > About Privileged Policy
 - Last modified: 2026-09-24T21:06Z
 - Summary: Information on privileged policy rules, which enable you to implement Privileged Remote Access-specific rules within the Zscaler Admin Console.
 
@@ -5436,16 +5429,14 @@ To learn more about PRA, see [Understanding Privileged Remote Access](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-portals","lastmod":"2026-06-25T13:06Z","nid":"1485096"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-portals","lastmod":"2026-10-23T09:27Z","nid":"1485096"} -->
 ## About Privileged Portals
 
 - Source: https://help.zscaler.com/zpa/about-privileged-portals
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > About Privileged Portals
-- Last modified: 2026-06-25T13:06Z
+- Last modified: 2026-10-23T09:27Z
 - Summary: Information about the Privileged Portals page in the Zscaler Admin Console.
-
-[Watch a video about Privileged Portals](https://fast.wistia.net/embed/iframe/cezvq8xi26) (shows legacy UI).
 
 When a user clicks on a privileged portal, they are taken to the Privileged Remote Access (PRA) Portal. You need to create privileged portals before you can create privileged consoles, as the privileged consoles need to be assigned to existing privileged portals.
 
@@ -5455,9 +5446,11 @@ Privileged portals provide the following benefits and enable you to:
 - Manage the notification banner message that is shown to users at the top of the PRA Portal after login.
 - Manage the certificate that is used by the Private Access (ZPA) infrastructure when an end user accesses a privileged portal.
 
+To learn more about Privileged Remote Access (PRA), see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the Privileged Portals Page
 
-On the Privileged Portals page (Policies > Access Control > Clientless > Privileged Portals), you can do the following:
+On the Privileged Portals page (Zero Trust Browser > Clientless Portal > Privileged Portals), you can do the following:
 
 1. View a list of applied filters available from the current and previous user sessions. Applied filters must be saved to the user session first before they can be viewed. Use the drop-down menu to select the applied filters to view. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables#filter).
 2. Hide the filters on the page by clicking **Hide Filters**. Click **Show Filters** to display the filters.
@@ -5477,9 +5470,9 @@ If you are using a [Microtenant](https://help.zscaler.com/zpa/about-microtenants
   - **Status**: Indicates if the privileged portal is enabled or disabled.
   - **URL**: The privileged portal link that end users can access to view the privileged portal.
   - **Notification Banner**: Indicates if the notification banner for the privileged portal is enabled or disabled.
-4. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
-5. [Edit a privileged portal](https://help.zscaler.com/zpa/editing-privileged-portals).
-6. Delete a privileged portal.
+4. [Edit a privileged portal](https://help.zscaler.com/zpa/editing-privileged-portals).
+5. Delete a privileged portal.
+6. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
 7. Display more rows or a different page of the table.
 
 [Image: Privileged Portals page within Zscaler Admin Console]
@@ -5525,16 +5518,16 @@ On the Privileged Applications page (Zero Trust Browser > Privileged Remote Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-remote-access-pra-file-transfer-system","lastmod":"2026-09-26T07:06Z","nid":"1508956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-privileged-remote-access-pra-file-transfer-system","lastmod":"2026-10-23T09:20Z","nid":"1508956"} -->
 ## About the Privileged Remote Access (PRA) File Transfer System
 
 - Source: https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > About the Privileged Remote Access (PRA) File Transfer System
-- Last modified: 2026-09-26T07:06Z
+- Last modified: 2026-10-23T09:20Z
 - Summary: Information about how to manage inspected and uninspected files that have been uploaded in a privileged console for Privileged Remote Access (PRA).
 
-If a user has the PRA File Transfer System feature enabled, they can click on the[PRA File Transfer System icon on the PRA Portal page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal). The user can manage and view uploaded files on the My Files and Uninspected Files tabs. The admin must also configure a portals policy to enable the following actions: deleting a file, accessing uninspected files, uploading an inspected file (via [DI scan](https://help.zscaler.com/zia/sandbox-submission-api#/zscsb/discan-post) or Sandbox). The visibility of the files displayed on the Uninspected Files page are dependent on the user's permissions. You can view the analytics of the uploaded inspected files on the [Files page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-files).
+If a user has the PRA File Transfer System feature enabled, they can click on the[PRA File Transfer System icon on the PRA Portal page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal). The user can manage and view uploaded files on the My Files and Uninspected Files tabs. The admin must also [configure a portals policy](https://help.zscaler.com/zpa/configuring-portals-policies) to enable the following actions: deleting a file, accessing uninspected files, uploading an inspected file (via [DI scan](https://help.zscaler.com/zia/sandbox-submission-api#zscsb/discan-post) or Sandbox). The visibility of the files displayed on the Uninspected Files page are dependent on the user's permissions. You can view the analytics of the uploaded inspected files on the [Files page](https://help.zscaler.com/zpa/accessing-privileged-remote-access-files) (Data Explorer > Privileged Remote Access > Files).
 
 The PRA File Transfer System provides the following benefits and enables you to:
 
@@ -5542,9 +5535,11 @@ The PRA File Transfer System provides the following benefits and enables you to:
 - View files that have been inspected and flagged as malicious content.
 - View files that are pending inspection.
 
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
+
 ## About the My Files Page
 
-On the My Files page (PRA Portal > Files icon > My Files), you can do the following:
+On the My Files page (PRA Portal > My Files icon > My Files), you can do the following:
 
 1. Click the**Home Page** icon to go to the PRA Portal Home page.
 2. Click the **My Files** icon to go to the My Files page.
@@ -5588,7 +5583,7 @@ See image.
 
 ## About the Uninspected Files Page
 
-On the Uninspected Files page (PRA Portal > Files icon > My Files), you can do the following:
+On the Uninspected Files page (PRA Portal > My Files icon > Uninspected Files), you can do the following:
 
 1. Select the **Home Page** icon to go to the PRA Portal Home page.
 2. Click the **My Files** icon to go to the My Files page.
@@ -9255,18 +9250,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-portal","lastmod":"2026-06-12T16:11Z","nid":"1485126"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-portal","lastmod":"2026-10-23T09:32Z","nid":"1485126"} -->
 ## Accessing a Privileged Remote Access Portal
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Accessing a Privileged Remote Access Portal
-- Last modified: 2026-06-12T16:11Z
+- Last modified: 2026-10-23T09:32Z
 - Summary: Information on how to access and navigate a Privileged Remote Access (PRA) Portal.
 
-A Privileged Remote Access (PRA) Portal displays Microtenants, shared privileged sessions, and privileged consoles that your end users are authorized to access. After an end user logs in, the PRA Portal home page appears. The privileged consoles an end user can see are based on access policies for the application segments that are assigned to the privileged consoles. The displayed privileged consoles can be launched directly from the portal by clicking on them. Any privileged consoles with the policy rule set to Deny are not visible to the end user.
+A Privileged Remote Access (PRA) Portal displays [Microtenants](https://help.zscaler.com/zpa/about-microtenants), shared privileged sessions, and privileged consoles that your end users are authorized to access. After an end user logs in, the PRA Portal home page appears. The privileged consoles an end user can see are based on access policies for the application segments that are assigned to the privileged consoles. The displayed privileged consoles can be launched directly from the portal by clicking on them. Any privileged consoles with the policy rule set to Deny are not visible to the end user.
 
 The PRA Portal is dependent on the [default timeout policy](https://help.zscaler.com/zpa/about-timeout-policy#DefaultReauthRule) rule's authentication timeout.
+
+To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
 
 ## PRA Portal Features
 
@@ -9278,7 +9275,7 @@ Use the following icons to navigate the PRA Portal:
 
 1. **Browser Access**: Click the **My Web Applications** icon to go to the **My Web Applications** page. This icon is enabled if [User Portal for Portal Links](https://help.zscaler.com/zpa/configuring-privileged-portals) has been configured in the PRA Portal.
 2. **Home**: Click the **Home** icon to return to the PRA Portal landing page. This icon is only displayed if you have the [PRA File Transfer System](https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system) feature enabled.
-3. **PRA File Transfer System**: Click the **PRA File Transfer System** icon to go to the **My Files** and **Uninspected Files** pages. This icon is only interactive if you have the [PRA File Transfer System](https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system) feature enabled.
+3. **PRA File Transfer System**: Click the **My Files** icon to go to the **My Files** and **Uninspected Files** pages. This icon is only interactive if you have the [PRA File Transfer System](https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system) feature enabled.
 4. **End-User Initiated Approvals**: Click the **End-User Initiated Approvals** icon to go to the [End-User Initiated Approvals](https://help.zscaler.com/zpa/about-my-approvals) page.
 5. **Refresh**: Click the **Refresh** icon to refresh the PRA Portal page.
 6. **Settings**: Click the **Settings** icon to choose a keyboard language, display resolution, and high quality option for the privileged console.
@@ -9368,7 +9365,7 @@ See image.
 
 Shared privileged sessions are listed at the top of the PRA Portal. If the shared privileged session is for a privileged console within a Microtenant, then the Microtenant name is also displayed. If a folder is not displayed, the shared privileged session is from the Default tenant. The shared privileged sessions are privileged sessions that have been enabled for the end user. The end user can only view the privileged sessions that they have been given access to.
 
-You can search within the **Share Sessions** list using the search bar to locate a specific privileged session. The characters & and + cannot be used in the PRA Portal search field. Use the arrows to navigate the displayed shared privileged sessions. To learn more, see [Configuring Consoles Policies](https://help.zscaler.com/zpa/configuring-privileged-capabilities-policies).
+You can search within the **Share Sessions** list using the search bar to locate a specific privileged session. The characters & and + cannot be used in the PRA Portal search field. Use the arrows to navigate the displayed shared privileged sessions. To learn more, see [Configuring Consoles Policies](https://help.zscaler.com/zpa/configuring-consoles-policies).
 
 See image.
 
@@ -9945,8 +9942,8 @@ See image.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer> Private Access > Private Diagnostics**.
+2. Click the **Settings** icon. The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
 
@@ -10403,8 +10400,8 @@ See image.
 
 To configure settings for diagnostics pages in the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Private Access** > **Private Diagnostics**.
-2. Click the **Settings** icon ([Image: Settings icon within the diagnostics pages]). The **Settings** drawer appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer> Private Access > Private Diagnostics**.
+2. Click the **Settings** icon. The **Settings** drawer appears.
 3. In the **Settings** drawer, select the default filter operator (i.e., **Equals** or **Contains**) from thedrop-down menu. The **Default Filter Operator** is set to **Equals** by default. See image.
 4. Click **Save** to apply your changes. The selected filter operator is saved for future sessions.
 
@@ -10884,13 +10881,13 @@ IPv6 IP address ranges and IPv6 IP address subsets are not supported. IP address
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/adding-perimeter-policy","lastmod":"2026-09-18T10:10Z","nid":"1543028"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/adding-perimeter-policy","lastmod":"2026-10-21T11:30Z","nid":"1543028"} -->
 ## Adding a Perimeter Policy
 
 - Source: https://help.zscaler.com/zpa/adding-perimeter-policy
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Adding a Perimeter Policy
-- Last modified: 2026-09-18T10:10Z
+- Path: Private Access (ZPA) Help > Microsegmentation > Policy Management > Perimeter Policies > Adding a Perimeter Policy
+- Last modified: 2026-10-21T11:30Z
 - Summary: How to add a perimeter policy for Microsegmentation in the Zscaler Admin Console.
 
 You can create perimeter policies to easily define how Microsegmentation handles inbound, outbound, and internal traffic (e.g., Block, Sim Block, Allow) for managed resource groups.
@@ -13015,28 +13012,24 @@ $ sudo systemctl restart zpa-connector
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-nutanix-ahv","lastmod":"2026-09-30T16:42Z","nid":"1485191"} -->
-## App Connector Deployment Guide for Nutanix AHV
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-microsoft-hyper-v","lastmod":"2026-10-20T09:57Z","nid":"1546727"} -->
+## App Connector Deployment Guide for Microsoft Hyper-V
 
-- Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-nutanix-ahv
+- Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-microsoft-hyper-v
 - Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Nutanix AHV
-- Last modified: 2026-09-30T16:42Z
-- Summary: How to deploy an App Connector on Nutanix AHV, including platform prerequisites and recommendations as well as post-deployment verification checks.
+- Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Microsoft Hyper-V
+- Last modified: 2026-10-20T09:57Z
+- Summary: How to deploy an App Connector on Microsoft Hyper-V, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
-This deployment guide provides information on prerequisites, how to deploy an App Connector on Nutanix AHV, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
+This deployment guide provides information on prerequisites, how to deploy an App Connector on Microsoft Hyper-V, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [Deploying App Connectors](https://help.zscaler.com/zpa/deploying-connectors).
+
+This feature is in limited availability. 
+This procedure requires a physical server with the Hyper-V manager role.
 
 - Step 1: Make Sure You Have Met All App Connector Deployment Prerequisites
-- Step 2: Deploy the App Connector on Nutanix
+- Step 2: Deploy the App Connector on Hyper-V
 - Step 3: Configure the Networking for the Deployed App Connector
-- Step 4: Verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it [meets your sizing requirements](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing).
-
-After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your App Connector console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
-
-After App Connectors are deployed, you can:
-
-- [Create application segments](https://help.zscaler.com/zpa/about-application/onboard) and [access policies](https://help.zscaler.com/zpa/about-policies) to pass application traffic. For example, to test your configuration, consider setting up a simple application segment that allows SSH access to your App Connectors.
-- [Configure a log receiver](https://help.zscaler.com/zpa/configuring-log-receiver) for your App Connectors to receive information about your App Connectors or users via the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+- Step 4: Verify the Status of the Deployed App Connector
 
 Before deploying an App Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
 
@@ -13080,6 +13073,14 @@ For VMware platform deployment, the default configuration to allow the host to d
 - CPU: total CPU GHz (the number of cores (2 or 4 cores) multiplied by the GHz per core)
 
 To learn more, refer to the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-8B88D3D8-E9D9-4C05-A065-B3DE1FFFB401.html).
+
+For Microsoft Hyper-V deployment, ensure that you have the following:
+
+- Physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
+- Intel VT-x or AMD-V hardware virtualization support
+- Second Level Address Translation (SLAT) support
+- Minimum 16 GB RAM (recommended based on VM workload requirements)
+- Sufficient local storage for Host OS and VM VHDX files
 
 Using these specifications, each App Connector supports up to 500 Mbps of throughput. To learn more, see [Understanding App Connector Throughput](https://help.zscaler.com/zpa/connector-deployment-prerequisites#ConnectorThroughput) in this article. Based on Zscaler's recommendations, determine the App Connector sizing requirements for your deployment. If disk space fills up in the App Connector, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace_archive).
 
@@ -13156,7 +13157,398 @@ Zscaler recommends treating access to App Connectors as privileged, so only auth
 
 The App Connector VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the App Connector VMs to ensure that memory growth does not have an impact on App Connector performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for the platform you're using.
 
-Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Update Software Components System Software](https://help.zscaler.com/zpa/managing-software-components#Updating).
+Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
+
+Because vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting App Connectors using firewall policies. Additionally, if you've installed the App Connector as a package, Zscaler recommends that you take similar precautions.
+
+Some organizations choose to firewall or otherwise restrict outbound traffic to the internet from the data center. It is possible to deploy an App Connector in such an environment as long as the App Connector is able to reach all Zscaler data centers containing Public Service Edges for Private Access. For firewall configuration information for your deployment, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+## Firewall Requirements and Interoperability Guidelines
+
+All Zscaler data centers containing Public Service Edges for Private Access must be allowed. A partial firewall configuration can result in connectivity problems for end users. Zscaler’s policy is to provide a 90-day notice for activating additional IP CIDR ranges to provide organizations with sufficient opportunity for changing control policies.
+
+Because the service enforces TLS certificate pinning for both client and server certificates, all forms of inline or man-in-the-middle TLS interception or inspection must be disabled. App Connectors do not function if the TLS certificates presented by the Public Service Edges or Private Service Edges do not cryptographically verify against Zscaler-trusted public keys.
+
+By design, certificate verification is not configurable to maintain the integrity of the service. Ensure that *.prod.zpath.net is in your SSL bypass list for traffic originating from the App Connector. This is necessary for allowing the App Connector to resolve and reach Public Service Edges or Private Service Edges. If you are using OAuth 2.0, ensure that the OAuth server FQDN`zpa-oauth.private.zscaler.com` is in the allowlist, and user devices are allowed to make an outbound connection to the `zpa-oauth.private.zscaler.com` server. If you need to allowlist additional Zscaler IP addresses, see [config.zscaler.com/private.zscaler.com/zpa](https://config.zscaler.com/private.zscaler.com/zpa) (for the private.zscaler.com cloud) or [config.zscaler.com/zpatwo.net/zpa](https://config.zscaler.com/zpatwo.net/zpa) (for the zpatwo.net cloud). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+For Private Access integration with ZDX, App Connector firewall requirements must align with the respective ZDX configuration. You must configure the firewall to allow egress traffic on the TCP, UDP, and ICMP protocols. App Connectors must be able to egress traffic to port 443 for Zscaler Service Edge connections and the ports of all configured applications (i.e., ports that are configured in all application segments that are registered on the App Connector).
+
+After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
+
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
+- Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
+- Configure Static IP Addressing (all software components)
+- Configure Additional Interfaces (App Connector or Private Service Edge)
+- Configure a Proxy Bypass (App Connector)
+- Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
+
+By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
+
+If DHCP is not available, you can configure a static IP address on a VM-based App Connector, Private Service Edge, Private Cloud Controller, or Network Connector.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address. `$ ip addr show`
+3. View the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Modify the connection profile using the following format: `<profile name>``connection.id``<new connection name>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" connection.id LAN autoconnect yes
+```
+
+1. Review the current connection profile.
+
+```
+$ nmcli connection show
+```
+
+1. Edit the profile using a static IP and a default gateway with the following format: `<connection ID>``ipv4.method manual ipv4.addresses``<IP addresses>``ipv4.gateway``<gateway IP>``ipv4.dns``<DNS IP>``ipv4.dns-search``<domain name>`. For example:
+
+```
+$ sudo nmcli connection modify LAN ipv4.method manual ipv4.addresses 172.30.1.88/24 ipv4.gateway 172.30.1.1 ipv4.dns 172.30.1.254 ipv4.dns-search company.com
+```
+
+1. To apply the changes, bring the connection ID back up. For example:
+
+```
+$ sudo nmcli connection up LAN
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the default gateway.
+
+```
+$ ip route show default
+```
+
+1. Verify the DNS settings.
+
+```
+$ sudo cat /etc/resolv.conf
+```
+
+If necessary, additional changes can be made to interfaces by configuring new ones using `nmcli connection add con-name` or by renaming existing ones using `nmcli connection modify`.
+
+1. Log in to the software component's console using your admin credentials.
+2. View the IP address.
+
+```
+$ ip addr show
+```
+
+1. View the current connection profiles.
+
+```
+$ nmcli connection show
+```
+
+1. Configure the interface's IP network using either a dynamic or static Ethernet configuration.
+
+For dynamic, modify the connection profile. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method auto autoconnect yes
+```
+
+For static, modify the connection profile and identify the IP addresses and gateway using the following format: `<profile name>``ipv4.method manual ipv4.addresses``<address>``ipv4.gateway``<gateway IP>`. For example:
+
+```
+$ sudo nmcli connection modify "Profile 1" ipv4.method manual ipv4.addresses 192.168.2.241/24 ipv4.gateway 192.168.2.254
+```
+
+1. To apply the changes, bring the connection profile back up. For example:
+
+```
+$ sudo nmcli connection up "Profile 1"
+```
+
+1. Verify the IP address.
+
+```
+$ ip addr show
+```
+
+1. Verify the new connection.
+
+```
+$ nmcli connection show
+```
+
+If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
+
+If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
+
+To configure the App Connector to do a proxy bypass:
+
+1. Log in to the App Connector console using your admin credentials.
+2. Create a file named `opt/zscaler/var/proxy-bypass`. Use an editor, such as vi. For example:
+
+```
+$sudo vi /opt/zscaler/var/proxy-bypass
+```
+
+1. Enter the necessary bypass entries using IP addresses, subnets, domains, or domains with a prefix wildcard. For example:
+
+```
+1.2.3.4
+111.222.33.0/24
+myexampledomain.com
+*.internal.local
+```
+
+1. To apply the changes, restart the App Connector using the following command:
+
+```
+$ sudo systemctl restart zpa-connector
+```
+
+1. Enable Hyper-V Manager on the server:
+  1. Log in to the Hyper-V VM via Remote Desktop Protocol (RDP) using your domain admin account.
+  2. Open Server Manager, click **Manage**in the top-right corner, and select **Add Roles and Features**. The **Add Roles and Features** wizard appears.
+  3. In the **Add Roles and Features** wizard:
+    1. On the **Installation Type** page, select **Role-based or feature-based installation** and click **Next**.
+    2. On the **Server Selection** page:
+      1. Choose **Select a server from the server pool**.
+      2. Under **Server Pool**, select your local server from the server pool.
+      3. Click **Next**.
+    3. On the **Server Roles** page, select **Hyper-V**. The **Add features that are required for Hyper-V** window appears.
+    4. In the **Add features that are required for Hyper-V** window, select **Include management tools (if applicable)**, then click **Add Features**. When the **Server Roles** page reappears, click **Next** when enabled.
+    5. Click **Next** until you reach the **Virtual Switches** page.
+    6. On the **Virtual Switches** page, under **Network adapters**, select **Ethernet**(choose based on your network).
+    7. Click **Next** on the remaining pages until you reach the **Confirmation**page.
+    8. Select the **Restart the destination server automatically, if required** checkbox.
+    9. Click **Install** and complete the installation wizard. The server will automatically reboot.
+  4. After rebooting, confirm successful installation by running the following PowerShell command on the host: `Get-WindowsFeature -Name Hyper-V`Verify that the output displays the status as `Installed`.
+2. [Obtain the latest image file from Zscaler](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). You can also use the following link to download the file: [https://dist.private.zscaler.com/vms/Azure/2026.08/zpa-connector-el9-2026.08.vhdx](https://dist.private.zscaler.com/vms/Azure/2026.08/zpa-connector-el9-2026.08.vhdx).
+3. Copy the VHDX image file to the Hyper-V host local disk: `C:\HyperV\VHDs\zpa-connector-el9-2026.08.vhdx`
+4. Create a VM in Hyper-V Manager:
+  1. Open the Hyper-V Manager.
+  2. Right-click your server and go to **New** > **Virtual Machine**. The **New Virtual Machine Wizard** appears. See image.
+  3. On the **Before You Begin** page, click **Next**.
+  4. On the **Specify Name and Location** page, select a name and folder that is suitable for your organization, then click **Next**. The information specified in Hyper-V has no impact on the Private Access service. See image.
+  5. On the **Specify Generation** page, select **Generation 1**, then click **Next**. See image.
+  6. On the **Assign Memory** page: See image.
+    1. **Startup memory**: Enter `4096` for the amount of memory to use when starting up the virtual machine.
+    2. **Use Dynamic Memory for this virtual machine**: Make sure this checkbox is not selected.
+    3. Click **Next**.
+  7. On the **Configure Networking** page, select the desired network connection from the **Connection** drop-down menu and click **Next**. See image.
+  8. On the **Connect Virtual Hard Disk** page, choose **Use an existing virtual hard disk** and select `C:\HyperV\VHDs\zpa-connector-el9-2026.08.vhdx`. Click **Next**.
+  9. On the **Summary** page, verify your selections and click **Finish**.
+5. Configure vCPUs and disable secure boot:
+  1. Right-click the VM and select **Settings**. The **Settings** window appears.
+  2. Click **Processor**, and enter `2` for the number of virtual processors.
+  3. Click **Apply**, and then click **OK**.
+6. Right-click your virtual machine and select **Action**> **Start**. The status changes to `running`.
+7. Right-click your virtual machine and select **Connect**. The **VM Console** (RHEL shell) window appears. If you see a black screen, press any key.
+8. Enroll the App Connector using one of the following methods: The image attempts to use OAuth enrollment tokens by default but applies a provisioning key first if one is available.
+  - OAuth 2.0 enrollment token See instructions.
+  - App Connector provisioning key See instructions.
+9. Zscaler highly recommends [updating the App Connector system software](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating) before proceeding.
+
+[Image: Selecting a new VM]
+
+[Image: Specifying a name and location for the VM]
+
+[Image: Specifying the VM's generation]
+
+[Image: Assigning memory for the VM]
+
+[Image: Configuring Networking for the VM]
+
+Verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it meets your [sizing](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing) requirements.
+
+1. Stop running the zpa-connector service. If the provisioning key was not detected when the App Connector was first started, the App Connector is in a sleep cycle and will look for the key again every 24 hours. `[admin@zpa-connector ~]$ sudo systemctl stop zpa-connector`
+2. Create a provisioning key file with 644 permissions at `/opt/zscaler/var/provision_key`. For example: `[admin@zpa-connector ~]$ sudo touch /opt/zscaler/var/provision_key [admin@zpa-connector ~]$ sudo chmod 644 /opt/zscaler/var/provision_key`
+3. Copy the provisioning key from the Zscaler Admin Console, paste it into the file, and save. Use an editor, such as vi. `[admin@zpa-connector ~]$ sudo vi /opt/zscaler/var/provision_key`If you are using vi, make sure it is in insert mode before you paste the key into the file. If you are unfamiliar with the vi editor, you can also use the following `echo` and `tee` commands to paste in the provisioning key: `echo "<App Connector Provisioning Key>" | sudo tee /opt/zscaler/var/provision_key`Make sure that the key is within double quotes (").
+4. Enter the following command to verify the file's content: `[admin@zpa-connector ~]$ sudo cat /opt/zscaler/var/provision_key`The output should return the provisioning key you entered in the previous step.
+5. Start the zpa-connector service. `[admin@zpa-connector ~]$ sudo systemctl start zpa-connector`In Azure, be sure to remove the inbound access rule on port 22 within the network security groupassociated with the App Connector.
+6. After the App Connector provisioning key is applied, and you have made any necessary [network configuration changes](https://help.zscaler.com/zpa/networking-deployed-software-components), be sure to verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components).
+
+1. In the software component's virtual serial console, a login prompt appears followed by an OAuth Token value, similar to the following example: `$ OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T`[Image: Example Oauth Enrollment Token]
+2. Copy the OAuth token that appears. Tokens are valid for 2 hours.
+3. In the Zscaler Admin Console, add the enrollment token for your software component:
+  - App Connector
+  - Private Service Edge
+  - Private Cloud Controller
+  - Network Connector
+
+Add an App Connector and enter the OAuth enrollment token on the **Add App Connectors** page. To learn more, see [Configuring App Connectors](https://help.zscaler.com/zpa/configuring-connectors).
+
+[Image: Adding an OAuth token to an App Connector]
+
+Add a Private Service Edge and enter the OAuth enrollment token on the **Add Private Service Edge** page. To learn more, see [Configuring Private Service Edges](https://help.zscaler.com/zpa/configuring-service-edges).[Image: Adding an OAuth token to a Private Service Edge]
+
+Add a Private Cloud Controller and enter the OAuth enrollment token on the **Add Private Cloud Controller**page. To learn more, see [Configuring Private Cloud Controllers](https://help.zscaler.com/zpa/configuring-private-cloud-controllers).
+
+[Image: Adding an OAuth token to a Private Cloud Controller]
+
+Add a Network Connector and enter the OAuth enrollment token on the **Add Network Connector**page. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
+
+[Image: Adding an OAuth token to a Network Connector]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-nutanix-ahv","lastmod":"2026-10-21T07:06Z","nid":"1485191"} -->
+## App Connector Deployment Guide for Nutanix AHV
+
+- Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-nutanix-ahv
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Nutanix AHV
+- Last modified: 2026-10-21T07:06Z
+- Summary: How to deploy an App Connector on Nutanix AHV, including platform prerequisites and recommendations as well as post-deployment verification checks.
+
+This deployment guide provides information on prerequisites, how to deploy an App Connector on Nutanix AHV, and post-deployment verification checks. For general information regarding App Connector deployment for Private Access (ZPA), see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
+
+- Step 1: Make Sure You Have Met All App Connector Deployment Prerequisites
+- Step 2: Deploy the App Connector on Nutanix
+- Step 3: Configure the Networking for the Deployed App Connector
+- Step 4: Verify that the deployed App Connector is [running and healthy](https://help.zscaler.com/zpa/managing-deployed-software-components#Status). Also, check that it [meets your sizing requirements](https://help.zscaler.com/zpa/managing-deployed-software-components#VerifySizing).
+
+After you have verified your deployment, you can perform additional tasks to maintain the system (i.e., changing your App Connector console admin credentials or performing system software updates). To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components).
+
+After App Connectors are deployed, you can:
+
+- [Create application segments](https://help.zscaler.com/zpa/about-application/onboard) and [access policies](https://help.zscaler.com/zpa/about-policies) to pass application traffic. For example, to test your configuration, consider setting up a simple application segment that allows SSH access to your App Connectors.
+- [Configure a log receiver](https://help.zscaler.com/zpa/configuring-log-receiver) for your App Connectors to receive information about your App Connectors or users via the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+
+Before deploying an App Connector on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
+
+- App Connector Specifications and Sizing Requirements
+- App Connector Platform Prerequisites
+- App Connector Security Guidance and Firewall Requirements
+
+After you have met all the prerequisites, you can deploy the App Connector on a supported platform.
+
+The following specifications are recommended by Zscaler for each App Connector:
+
+- Memory: 4 GB RAM
+
+For Digital Experience (ZDX) deployments, Zscaler recommends App Connectors to have 8 GB of RAM. If the ZDX probes exceed a count of 2,000 at an interval of 5 minutes, further scaling should be considered. If alerts are observed that exceed a configured bandwidth of 250 Mbps on each App Connector, further scaling of 32 GB of RAM should be considered.
+
+- CPU:
+  - 2 CPU cores (Xeon E5 class) for physical machines without hyperthreading
+  - 4 CPU cores (Xeon E5 class) for virtual machines (VMs) with hyperthreading
+    - Both Amazon Web Services (AWS) and Google Cloud Platform (GCP) require a minimum of 4 CPU cores due to hyperthreading.
+      - To deploy an App Connector on AWS, Zscaler recommends using t3.xlarge (for non-production or low traffic App Connectors) or m5a.xlarge (for production or high traffic App Connectors).
+      - To deploy an App Connector on GCP, Zscaler recommends using a Linux RPM on n2-standard-4 or n2-highcpu-4.
+    - Azure VMs older than V3 require 2 CPU cores, while VMs V3 and later require 4 CPU cores due to hyperthreading.
+      - To deploy an App Connector on Azure, Zscaler recommends using Standard_D4s_v4 or Standard_D4s_v5 or later.
+
+To enable AppProtection using the default AppProtection profile provided by Zscaler, we recommend that your App Connectors have at least 8 CPU cores and 8 GB of memory. Ensure that your App Connectors are less than 40% for peak memory utilization and peak CPU utilization. If your CPU or memory utilization is above the suggested maximum, you need to add App Connectors to reach the maximum peak of 40% CPU and memory without AppProtection enabled. This rule also applies if you are using a smaller VM (4 CPUs, 4 GB). Your App Connector throughput might be 100 to 200 Mbps depending on App Connector sizing when using AppProtection. Monitor your App Connectors by going to the [App Connector dashboard](https://help.zscaler.com/zpa/viewing-app-connectors-dashboard).
+
+The AppProtection recommendations are based on a mix of web traffic, 85% GET requests, and 15% POST and payload and response sizes of 32 KB. Smaller payload and response sizes might require less App Connector resources and result in higher throughput.
+
+For ZDX deployments, Zscaler recommends App Connectors to have 4 CPU cores.
+
+Using the [PassMark Software Pty Ltd](https://www.cpubenchmark.net/cpu_list.php) benchmark to verify the CPU Mark score, Zscaler recommends using a minimum CPU benchmark score of 2640 when choosing a CPU processor. The Intel Advanced Encryption Standard New Instructions (AES-NI) instruction set must also be enabled on the CPU processor.
+
+To learn more, see the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for your platform.
+
+- Disk Space: 64 GB (thin provisioned) for all deployment platforms
+- Network Card: 1 NIC (minimum)
+
+For VMware platform deployment, the default configuration to allow the host to dynamically allocate VM resources is not recommended. Configure the VM setting to reserve the following memory and CPU allocations:
+
+- Memory: 8 GB RAM
+- CPU: total CPU GHz (the number of cores (2 or 4 cores) multiplied by the GHz per core)
+
+To learn more, refer to the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.resmgmt.doc/GUID-8B88D3D8-E9D9-4C05-A065-B3DE1FFFB401.html).
+
+For Microsoft Hyper-V deployment, ensure that you have the following:
+
+- Physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
+- Intel VT-x or AMD-V hardware virtualization support
+- Second Level Address Translation (SLAT) support
+- Minimum 16 GB RAM (recommended based on VM workload requirements)
+- Sufficient local storage for Host OS and VM VHDX files
+
+Using these specifications, each App Connector supports up to 500 Mbps of throughput. To learn more, see [Understanding App Connector Throughput](https://help.zscaler.com/zpa/connector-deployment-prerequisites#ConnectorThroughput) in this article. Based on Zscaler's recommendations, determine the App Connector sizing requirements for your deployment. If disk space fills up in the App Connector, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace_archive).
+
+500 Mbps of throughput is an aggregate of multiple streams of traffic.
+
+After an App Connector is enrolled, an outbound TLS tunnel over port 443 is established to the Private Access (ZPA) cloud infrastructure. This communication channel provides various functionality and utilizes minimal bandwidth, which includes the following traffic:
+
+- Periodic keepalives to Public Service Edges or Private Service Edges for Private Access
+- Application learning
+- Application health reporting
+- App Connector software upgrades (upgrades are completed based on a weekly schedule)
+
+You can deploy additional App Connectors at any time, using the same provisioning key to add them to the [existing App Connector Group](https://help.zscaler.com/zpa/about-connectorgroups), while ensuring network and internet connectivity. App Connectors are designed to scale elastically. You can deploy additional App Connectors in the same App Connector group to increase the total throughput as required by your deployment. Zscaler recommends you have a minimum of two healthy App Connectors to always ensure an available path. To learn more, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors) and [Supported Platforms for App Connectors](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms).
+
+After deployment, ensure that the App Connector meets your [sizing requirements](https://help.zscaler.com/zpa/managing-software-components#VerifySizing).
+
+## Understanding App Connector Throughput
+
+Throughput numbers are aggregate (i.e., total inbound and outbound). The following best practices apply regarding App Connector throughput sizing:
+
+- Check your existing VPN solution's average and peak throughput. Be sure to only account for user/client VPN traffic and not any site-to-site tunnel traffic.
+- App Connectors communicate over the provided (default) gateway, which is most likely your ISP WAN broadband connection.
+- Using double encryption affects throughput. However, the effect varies based on the number of applications that are enabled for double encryption.
+
+If you have a 1 Gbps connection (aggregate) in your data center, you can use the throughput guidelines in the following table to make sure that you have enough App Connectors to support the connection and room for failover (N+1). For example, with a 1 Gbps connection, you would need to deploy 2 to 3 App Connectors if your applications are not using double encryption, but 4 to 6 App Connectors if they are. To learn more, see [Understanding Double Encryption](https://help.zscaler.com/zpa/understanding-double-encryption).
+
+The following throughput guidelines apply based upon the recommended App Connector specifications:
+
+| % of Applications with Double Encryption | Per App Connector Throughput |
+| --- | --- |
+| 0% | 500 Mbps |
+| 25% | 437.5 Mbps |
+| 50% | 375 Mbps |
+| 75% | 312.5 Mbps |
+| 100% | 250 Mbps |
+
+It is possible to increase App Connector throughput up to 1 Gbps per App Connector by running the App Connector on hardware with more memory and CPUs along with increased network link speed. If you have a 10 Gbps connection (aggregate) in your data center, and you want to increase the App Connector throughput up to 1 Gbps per App Connector, you can increase the underlying VM spec as follows:
+
+- 8 vCPU cores for virtual machines or 4 CPU cores for physical machines
+- 8 GB RAM
+
+The exact throughput can vary and depends on other network factors such as your internal network setup, latency, and whether you have double encryption, App Protection, or ZDX enabled. Make sure that you have enough App Connectors to support the connection and room for failover (N+1).
+
+Zscaler recommends that you have more App Connectors with lower specifications rather than fewer App Connectors with higher specifications to horizontally scale your deployment. For example, if you have fewer App Connectors with higher specifications and one fails, you could adversely affect more user application traffic or sessions than a smaller App Connector that fails.
+
+Before you begin any procedures within the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for your platform, make sure that you have the following:
+
+- Intel x86_64/AMD64-based architecture
+- systemd
+- Root or sudo access to the system to configure a new package repository and install packages
+- DNS resolution and network access
+- For OAuth 2.0 enrollment, Manager software and App Connector version 25.46.3 or later
+- An OAuth 2.0 enrollment token obtained from a hyperscaler marketplace, virtual image, or RPM installer provided by Zscaler, or an App Connector [provisioning key](https://help.zscaler.com/zpa/about-connectorprovisioning) obtained from the Zscaler Admin Console The OAuth server only supports IPv4-based communication. If an App Connector only has an IPv6 address, it cannot access the OAuth server.
+- A static MAC address
+
+The following table shows the recommended minimum disk space for directories:
+
+| Directory | Recommended Minimum Disk Space |
+| --- | --- |
+| `/` | 10 GB |
+| `/tmp` | 10 GB |
+| `/home` | 10 GB |
+| `/var` | 5 GB |
+| `/var/tmp` | 5 GB |
+| `var/log` | 10 GB |
+| `var/log/audit` | 10 GB |
+| `/var/log partition` | 10 GB Disk Space Exceeded Limit notifications only consider the partition where the App Connector's binary file (image.bin) is located. |
+
+App Connectors can be deployed in different ways (as private cloud VMs, public cloud VMs, or OS packages), so the security features for each deployment type are slightly different.
+
+Zscaler recommends treating access to App Connectors as privileged, so only authorized personnel can access an App Connector's console. By limiting access, there is the added benefit of shielding inter-process communication within the App Connector from attack.
+
+## Operating System Security
+
+The App Connector VMs distributed by Zscaler for use in private clouds are configured without any remotely accessible services running. Swap partitions are disabled on the App Connector VMs to ensure that memory growth does not have an impact on App Connector performance. For enhanced security, you must use the `passwd` command to change the credentials on the default admin account. To learn more, see the [App Connector Deployment Guide](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for the platform you're using.
+
+Private Access provides Security Technical Implementation Guide (STIG) VM images for AWS, GCP, Microsoft Azure, Nutanix, and VMware by default. To learn more, see [App Connector Software by Platform](https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform). The remaining private and public cloud VM images provided by Zscaler are configured with minimal listening services to reduce the remotely exploitable attack surface. Because these are essentially unmodified operating systems (currently based on RHEL 9.x), you can patch these systems when necessary by using the standard yum OS update mechanism. Zscaler recommends that you harden the operating system, including the `sshd-config` file, on the VM images in accordance with your organization's security standards after initial deployment. To learn more, see [Managing Deployed Software Components](https://help.zscaler.com/zpa/managing-deployed-software-components#Updating).
 
 Because vulnerabilities are regularly found in core open-source components such as DNS resolvers and the Linux Kernel, Zscaler recommends either patching or using new Zscaler-distributed VM images on a regular basis, or protecting App Connectors using firewall policies. Additionally, if you've installed the App Connector as a package, Zscaler recommends that you take similar precautions.
 
@@ -13410,18 +13802,13 @@ However, if you used the `sudo systemctl enable sshd` command for Step a.ii abov
 
 After you have deployed a software component on a supported platform, you can complete the following networking configurations. Software components refer to App Connectors, Private Service Edges, Private Cloud Controllers, and Network Connectors.
 
+You can configure a Domain Name System (DNS) Resolver, Network Time Protocol (NTP) servers, static routing, and other features from the Zscaler Admin Console. To learn more, see [Editing Network Settings](https://help.zscaler.com/zpa/editing-network-settings).
+
 - Configure DHCP IP Addressing (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Static IP Addressing (all software components)
-- Configure Domain Name System (DNS) Resolver (all software components)
-- Configure Network Time Protocol (NTP) Servers (App Connector, Private Service Edge, or Private Cloud Controller)
 - Configure Additional Interfaces (App Connector or Private Service Edge)
-- Configure an App Connector to Use an Explicit Proxy Server
-- Configure a Private Service Edge to Use an Explicit Proxy Server
 - Configure a Proxy Bypass (App Connector)
-- Configure Static Routing (App Connector or Private Service Edge)
-- Configure TCP Communication Sockets (App Connector)
 - Configure yum to Use an HTTP Proxy Server (App Connector or Private Service Edge)
-- Verify That Keepalive Is Enabled for TCP Sessions (App Connector)
 
 By default, virtual machine-based App Connectors, Private Service Edges, or Private Cloud Controllers are configured to use DHCP networking on their primary interface. If necessary, you can configure a static IP address for the software component.
 
@@ -13524,106 +13911,6 @@ $ ip addr show
 $ nmcli connection show
 ```
 
-To add static routes to the interface control files for an App Connector or Private Service Edge:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the static route for an existing Ethernet connection using the following format: `<profile name>``ipv4.routes``<IP address and gateway>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.routes "192.168.2.241/24 10.10.10.1 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the new route is added.
-
-```
-$ ip route
-```
-
-DNS resolution is critical for the successful operation of the App Connector, Private Service Edge, Private Cloud Controller, or Network Connector. These software components use DNS to discover applications, as well as enumerate each of the IP addresses that an application DNS name resolves to as a separately tracked and load-balanced server. During dynamic application discovery, DNS is used as the initial reachability check from each software component in a software component group. It is possible for software components to function in partitioned environments where a subset of App Connectors can resolve a given DNS name without additional configuration. The software components must also be able to resolve external DNS names, such as those of the Private Access (ZPA) cloud infrastructure.
-
-1. Log in to the software component's console using your admin credentials.
-2. View the current connection profile.
-
-```
-$ nmcli connection show
-```
-
-1. Modify the DNS settings using the following format: `<profile name>``ipv4.dns``<nameserver IP>`. For example:
-
-```
-$ sudo nmcli connection modify "Profile 1" +ipv4.dns 192.168.2.241 autoconnect yes
-```
-
-1. To apply the changes, bring the connection profile down and then back up. For example:
-
-```
-$ sudo nmcli connection down "Profile 1"
-```
-
-```
-$ sudo nmcli connection up "Profile 1"
-```
-
-1. Verify the nameservers record was added.
-
-```
-$ sudo cat /etc/resolv.conf
-```
-
-You cannot configure NTP servers for App Connectors running on the Amazon Web Services (AWS) or Microsoft Azure platforms.
-
-To configure App Connectors, Private Service Edges, or Private Cloud Controllers to use internal NTP servers:
-
-1. Log in to the software component's console using your admin credentials.
-2. Edit the `/etc/chrony.conf` file. Use an editor, such as vi. `$sudo vi /etc/chrony.conf`
-3. Add your internal NTP servers to the list, for example:
-
-```
-server 0.zscaler.pool.ntp.org iburst 
-server 1.zscaler.pool.ntp.org iburst 
-server 2.zscaler.pool.ntp.org iburst 
-server 3.zscaler.pool.ntp.org iburst
-```
-
-1. To apply the changes, restart the chrony daemon using the following command:
-
-```
-$ systemctl restart chronyd
-```
-
-1. To verify the NTP servers, check that NTP is working successfully using the following command:
-
-```
-$ chronyc sources
-```
-
-The proxy setting on the App Connector is used to proxy the traffic between the App Connector and the Private Service Edge. It is not used to proxy the traffic between the App Connector and internal applications.
-
-If your traffic is going through a proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access), you must manually configure the App Connector to work through that proxy. The following procedure allows the App Connector to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the App Connector to work through an explicit proxy:
-
-1. Log in to the App Connector console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the App Connector using the following command:
-
-```
-$ sudo systemctl restart zpa-connector
-```
-
-The App Connector attempts to create a TLS session through the proxy specified previously.
-
 If you want to configure yum to communicate through an HTTP proxy server, refer to the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-yum).
 
 If an App Connector is configured to send traffic to a proxy, you can set up a proxy bypass on it for the traffic that needs to be exempted from the proxy (i.e., traffic between the App Connector and the Public or Private Service Edges for Private Access). To use a proxy bypass for an App Connector, a proxy bypass file needs to be added to the App Connector.
@@ -13651,105 +13938,6 @@ myexampledomain.com
 ```
 $ sudo systemctl restart zpa-connector
 ```
-
-To temporarily configure TCP communication sockets using the profs interface and the `SO_KEEPALIVE` socket option for an App Connector:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-
-The socket used for TCP communication is set to `SO_KEEPALIVE` and establishes an App Connector-to-server connection. Communication using this socket looks at the system value corresponding to `SO_KEEPALIVE` and performs the action according to the parameters.
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-# echo
-600
-> /proc/sys/net/ipv4/tcp_keepalive_time
-# echo
-60
-> /proc/sys/net/ipv4/tcp_keepalive_intvl
-# echo
-20
-> /proc/sys/net/ipv4/tcp_keepalive_probes
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-Changes to the App Connector's kernel to configure the TCP parameters using the profs interface are temporary and return to default after reboot.
-
-To permanently configure TCP communication sockets using the sysctl interface:
-
-1. Enable **TCP Keepalive** for your segment group in the Zscaler Admin Console. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
-2. Edit your `/etc/sysctl.conf` using the following command:
-
-```
-# vi /etc/sysctl.conf
-```
-
-1. Tune your App Connector's kernel to configure the TCP parameters and choose how the keepalive packets are sent using the following commands:
-
-```
-net.ipv4.tcp_keepalive_time =
-60
-net.ipv4.tcp_keepalive_intvl =
-10
-net.ipv4.tcp_keepalive_probes =
-6
-```
-
-Default values are used if no system parameters are chosen. The values in red represent examples of values that can be configured.
-
-1. To load the settings, enter the following command:
-
-```
-# sysctl -p
-```
-
-The keepalive packets have the following parameters:
-
-| Parameter | Definition | Default Value |
-| --- | --- | --- |
-| `tcp_keepalive_time` | The interval between the last data packet sent (simple ACKs are not considered data) and the first keepalive probe; after the connection is marked to need keepalive, this counter is not used any further. | 7,200 seconds (2 hours) |
-| `tcp_keepalive_intvl` | The interval between subsequent keepalive probes, regardless of what the connection has exchanged in the meantime. | 75 seconds |
-| `tcp_keepalive_probes` | The number of unacknowledged probes to send before considering the connection dead and notifying the application layer. The `tcp_keepalive_probes` value is a pure number. | 9 |
-
-For example:
-
-- If the `tcp_keepalive_time value` is one hour, the keepalive routines wait for one hour before sending the first keepalive probe, and then resend it at a 75-second interval according to the `tcp_keepalive_intvl` value.
-- If the `tcp_keepalive_intvl` value is 60 seconds, the keepalive probes are sent every 60 seconds after the initial `tcp_keepalive_time` value.
-- If the `tcp_keepalive_probes` value is 7, and no ACK response is received after 7 consecutive times, then the connection is marked as broken.
-
-If there is no data communication within the `tcp_keepalive_time` value, it sends out a keepalive probe to the app server:
-
-- If ACK is returned, another keepalive probe is sent after 2 hours (`tcp_keepalive_time`) if no data communication happens in between.
-- If RST is returned, then the socket closes.
-- If there is no reply, it resends the keepalive every 75 seconds (`tcp_keepalive_intvl`) for a reply, and it retries 9 times (`tcp_keepalive_probes`). If there is no reply after 9 probes, the socket closes.
-
-To learn more about configuring a kernel, refer to the [Linux documentation](https://tldp.org/HOWTO/html_single/TCP-Keepalive-HOWTO/#configuringkernel).
-
-To see which TCP sessions have `keepalive` enabled and what their current timer is, run the `ss` command on the App Connector with the `-t` (tcp only) and `-o` (show timers) options:
-
-```
-# ss -to
-State  Recv-Q  Send-Q  Local Address:Port  Peer Address:Port
-ESTAB  0       0       10.18.4.210:42452   10.251.33.110:https  timer:(keepalive,29sec,0)
-```
-
-For sessions that have `keepalive` enabled, timer information (`timer:(<timer_name>,<expire_time>,<retrans>)`) indicates when `keepalive` will be sent. To learn more, refer to the [Linux documentation](https://www.man7.org/linux/man-pages/man8/ss.8.html).
-
-If your traffic is going through a proxy, you must manually configure the Private Service Edge to work through that proxy. The following procedure allows the Private Service Edge to communicate with the broker by using CONNECT requests through a standard HTTP proxy server.
-
-To configure the Private Service Edge to work through an explicit proxy:
-
-1. Log in to the Private Service Edge console using your admin credentials.
-2. Create a file named `/opt/zscaler/var/service-edge/proxy`. Use an editor, such as vi. `$ sudo vi /opt/zscaler/var/service-edge/proxy`
-3. Enter the proxy information using the following format: `<Proxy Hostname or IP Address>``:``<Proxy Port>` (e.g., `192.0.2.0:0`).
-4. To apply the changes, restart the Private Service Edge using the following command:
-
-```
-$ sudo systemctl restart zpa-service-edge
-```
-
-The Private Service Edge attempts to create a TLS session through the proxy specified previously.
 
 1. In the software component's virtual serial console, a login prompt appears followed by an OAuth Token value, similar to the following example: `$ OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T To sign in, use a web browser to open the admin UI and enter the code JDPBF-P6W5V to authenticate. OAuth Token: JDR8G-P6W5T`[Image: Example Oauth Enrollment Token]
 2. Copy the OAuth token that appears. Tokens are valid for 2 hours.
@@ -14435,13 +14623,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-10-06T19:05Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-10-21T14:48Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-10-06T19:05Z
+- Last modified: 2026-10-21T14:48Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.
@@ -15528,13 +15716,13 @@ The following table includes admin permissions at the Default Microtenant (i.e.,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-IP-address-objects","lastmod":"2026-10-07T15:31Z","nid":"1533892"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-IP-address-objects","lastmod":"2026-10-21T21:06Z","nid":"1533892"} -->
 ## Configuring IP Address Objects
 
 - Source: https://help.zscaler.com/zpa/configuring-IP-address-objects
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > Configuring IP Address Objects
-- Last modified: 2026-10-07T15:31Z
+- Last modified: 2026-10-21T21:06Z
 - Summary: How to configure IP address objects.
 
 You can use an IP address object to group and manage static IP addresses and subnets under a single name. To learn more about IP address objects, see [About IP Address Objects](https://help.zscaler.com/zpa/about-IP-address-object).
@@ -15627,268 +15815,4 @@ Within Private Access, [define an application](https://help.zscaler.com/zpa/conf
 Private Access requires an application to be defined as a wildcard with *any* port to resolve SRV records. For this application segment configuration you are using a dummy port (Port 1) for SRV record DNS resolution. For example:
 
 [Image: Enabling SRV Resolution]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-10-06T08:49Z","nid":"1483501"} -->
-## Configuring Access Policies
-
-- Source: https://help.zscaler.com/zpa/configuring-access-policies
-- Product: Private Access (ZPA)
-- Path: Private Access (ZPA) Help > Policies > Access Policy > Configuring Access Policies
-- Last modified: 2026-10-06T08:49Z
-- Summary: How to configure an access policy rule within the Zscaler Admin Console.
-
-Access policy rules enable you to implement role-based access control. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-
-To configure an access policy rule:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Policy**>**Access Policy**.
-2. Click **Add Rule**. The **Add Rule** window appears.
-3. In the**Add Rule**window:
-  - **Name**: Enter an access policy name. The name cannot contain special characters, except for periods (.), hyphens (-), and underscores ( _ ).
-  - **Description**:(Optional) Enter a description.
-  - For **Action**: The Boolean logic used between **Criteria** is always displayed. For example, when a user requests access to an application, the policy rule is evaluated to check if an application segment OR its segment group are present AND whether any of the SAML attributes are applicable to the user making the request before it grants or denies access. You can always view the **Rule Action** and **Criteria** as well as the applied Boolean logic on the [Access Policy page](https://help.zscaler.com/zpa/about-accesspolicy).
-    1. For **Action**, select one of the following options: By default, Private Access (ZPA) blocks access to [applications](https://help.zscaler.com/zpa/about-applications) and [segment groups](https://help.zscaler.com/zpa/about-segment-groups) for users until you configure policy rules that explicitly allow access. So, you only need to configure policy rules to block access for specific circumstances or to require approval. For example, if you want to allow access to all applications in your organization for most users but block access for some users, you can configure one policy rule that blocks access for those specific users while another rule allows access to all other users. Private Access uses a first-match principle when evaluating policies, so for this scenario, you must list the block rule before the allow rule. To learn more, see [Policy Evaluation Order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#policy-evaluation-order). For more on use cases that call for policy rules that block access, see [Access Policy Configuration Examples](https://help.zscaler.com/zpa/policy-configuration-examples).
-      1. **Allow Access**: Allows access to applications.
-      2. **Block Access**: Blocks access to applications.
-      3. **Conditional Access**: Allows access to sensitive resources for step-up authentication, and is only an option if you are subscribed to Authentication Service. Step-up authentication enforces stronger authentication and only provides access to applications when the authentication matches the additional authentication levels. The **Allow with Privileged Approval**checkbox is only an option if you have Privileged Remote Access (PRA) and is primarily targeted for PRA-enabled application segments. Contact Zscaler Support for more information. Click the **Step-Up Authentication Level**checkbox to select an authentication level from the drop-down menu. The authentication levels must be configured in the Zscaler Admin Console. If a user is not at the defined authentication level, they are prompted to reinforce their authentication level. If the authentication level matches, then the user can access their resources. If you try to access an application that requires additional authentication, Zscaler Client Connector displays a pop-up notification prompting you to verify your access. To learn more, see [Verifying Access to Applications](https://help.zscaler.com/zscaler-client-connector/verifying-access-applications) and [Understanding Step-Up Authentication](https://help.zscaler.com/zidentity/understanding-step-up-authentication).
-    2. For **Details**:
-      1. **Rule Name**: Enter a global rule name. The name cannot contain special characters, except for periods (.), hyphens (-), and underscores ( _ ).
-      2. **Add Description**: (Optional) Enter a description.
-      3. **Rule Status**: Enable or disable the rule using the toggle.
-    3. For **Traffic Steering**, under**App Connector Selection Method**: Select **All App Connector groups for the application** or **Specific App Connector or Server groups for the application**. **Extranet Resources** appears in these options if your organization has the Extranet Application Support feature enabled.
-      1. **Connector Type**: If you select **Specific App Connector or Server groups for the application**, choose a connector option:
-        1. Select**App Connector**,and then choose which App Connector groups, server groups, or a mixture of both you want the access policy to use. The maximum limit of selected App Connector groups is 48. If **All App Connector groups for the application** is selected and there are more than 48 configured for your organization, then only 48 App Connector groups are used. This limit applies to newly created or edited policy rules after March 4, 2024.
-        2. Select **Extranet**, and then choose a partner, location group, and/or location you want the access policy to use. There is a maximum of 10 location groups and 50 locations per policy for extranet. Additionally, some features in application segments are not available for extranet. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
-    4. For **Criteria**, click **Add Criteria** to add any of the available criteria types. View the criteria.
-4. Click **Add Rule**.
-
-[Image: Add Rule window]
-
-The drop-down menu only displays criteria that are not already in use by the rule, except for **Client Connector Posture Profile** condition sets. You can add up to 10 condition sets.
-
-**Who**:
-
-- SAML and SCIM Attributes
-- External IAM IdPs
-
-**What**:
-
-- Applications
-- Branch Connector Groups
-- Chrome Enterprise Browser
-- Client Connector Posture Profiles
-- Client Connector Trusted Networks
-- Client Types
-- Cloud Connector Groups
-- Federated Applications
-- Machine Groups
-- Platforms
-- Risk Scores
-
-**Where**:
-
-- Country Codes
-- Extranet Location
-- Locations
-
-Choose the application segments and segment groups to which this rule applies:
-
-- **Application Segments**: Choose the [application segments](https://help.zscaler.com/zpa/about-applications), and click **Done**. You can search for a specific application segment, click **Select All** to apply all applications segments, or click **Clear Selection** to remove all selections. The [application segments you've configured](https://help.zscaler.com/zpa/configuring-application-segments) appear in the menu. There is no limit to the number you can select. If you added multiple application segments to the policy rule, Private Access uses an OR Boolean operator between them. There are limits to the number of application segments applied to a rule. For a complete list of ranges and limitations for Access Policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-- **Segment Groups**: Choose the [segment groups](https://help.zscaler.com/zpa/about-segment-groups), and click **Done**. You can search for a specific segment group, click **Select All** to apply all segment groups, or click **Clear Selection** to remove all selections. The [segment groups you've configured](https://help.zscaler.com/zpa/configuring-segment-groups) appear in the menu. There is no limit to the number you can select. If you added multiple segment groups to the policy rule, Private Access uses an OR Boolean operator between them.
-- **Tags**: Choose the [tags](https://help.zscaler.com/zpa/about-tag-management-application-segments), and click Save. Predefined tags and [tags you've configured](https://help.zscaler.com/zpa/configuring-tags-and-namespaces-application-segments) appear in the menu. You can search for a specific tag, click **Select All Displayed** to apply all tags, or click **Clear All** to remove all selections.
-- **Tag Groups**: Choose the [tag groups](https://help.zscaler.com/zpa/about-tag-management-application-segments), and click Save. [Tag groups you've configured](https://help.zscaler.com/zpa/configuring-tags-and-namespaces-application-segments) appear in the menu. You can search for a specific tag group, click **Select All Displayed** to apply all tag groups, or click **Clear All** to remove all selections.
-
-To use External IAM IdP, select the IdP from the drop-down menu. You can search for a specific IAM IdP, click **Select All Displayed** to apply the IdPs listed, click **Clear All** to remove all selections, or click the **Delete**icon to the right of a selected IdP to remove it from your list. There is no limit to the number you can select. Click **Cancel**to exit the drop-down menu.
-
-This criteria is the external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
-
-Choose the Branch Connector groups to which the rule applies. You can search for a specific Branch Connector group, click **Select All Displayed** to apply all Branch Connector groups, or click **Clear All** to remove all selections.
-
-Enable **Chrome Enterprise Browser** to verify that users are accessing private applications via the Chrome Enterprise browser. Make sure you have configured [Chrome Enterprise Browser Connector settings](https://help.zscaler.com/zpa/configuring-chrome-enterprise-browser-connector-settings) to allow the Chrome Enterprise browser to integrate with Private Access. When enabled, you can also select a [configured Chrome posture profile](https://help.zscaler.com/zpa/about-chrome-posture-profiles) to evaluate criteria for access to private applications.
-
-Choose the condition sets to which the rule applies. You can add up to 10 **Client Connector Posture Profile** condition sets to the rule. Click **Add Criteria** to include additional sets.
-
-Each condition set can contain multiple posture profiles to enforce on a user’s device. For each profile, select one of the following:
-
-- **VERIFIED**: Zscaler Client Connector verified the user's device against the criteria specified in the posture profile.
-- **VERIFICATION FAILED**: Zscaler Client Connector was unable to verify the user's device against the criteria specified in the posture profile.
-
-Make sure you have [configured the posture profiles](https://help.zscaler.com/zscaler-client-connector/configuring-device-posture-profiles) within the Zscaler Client Connector Portal. The posture profiles you configure in the Zscaler Client Connector Portal appear in the drop-down menu, where you can search for a specific profile.
-
-If you added multiple posture profile condition sets to the policy rule, Private Access uses an AND Boolean operator between them. Private Access evaluates each posture profile condition set individually.
-
-See image.
-
-If you added multiple posture profiles within a posture profile condition set, Private Access uses an OR Boolean operator between them by default. However, you can toggle this to an AND operator by clicking on it.
-
-See image.
-
-When selecting client types from **Client Connector Posture Profiles**, you can select one client type. Private Access uses an OR Boolean operator to join them together.
-
-You must select a **Client Connector Posture Profile** prior to selecting a client type.
-
-Choose the trusted networks to which the rule applies, and click **Done**. You can search for a specific trusted network, click **Select All**to have the rule apply to all trusted networks, or click **Clear Selection** to remove all selections. The trusted networks you've configured appear in the menu. There is no limit to the number you can select.
-
-A [forwarding profile](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles) tells Zscaler Client Connector how to treat traffic from your users' systems in different network environments for Private Access. When a user connects to a network, Zscaler Client Connector checks to determine what type of network the user is connected to.
-
-If you added multiple trusted networks to the policy rule, Private Access uses an OR Boolean operator between them.
-
-Make sure you have [configured your Trusted Network Criteria](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector) within the Zscaler Client Connector Portal. The trusted networks you configure in the Zscaler Client Connector Portal appear in the drop-down menu.
-
-Choose the client types to which the rule applies, and click **Done**. You can search for a specific client type, click **Select All** to apply all client types, or click **Clear Selection** to remove all selections. The valid client types are:
-
-- **Branch Connector**: To learn more, see [About Branch Connectors](https://help.zscaler.com/zpa/about-branch-connectors).
-- **Client Connector**: To learn more, see [What Is Zscaler Client Connector?](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector)
-- **Client Connector for VDI**: To learn more, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-client-connector-vdi)
-- **Client Connector Partner**: To learn more, see [About Partner Devices](https://help.zscaler.com/client-connector/about-partner-devices).
-- **Cloud Browser**: To learn more, see [What Is Isolation?](https://help.zscaler.com/isolation/what-is-isolation)
-- **Cloud Connector**: To learn more, see [About Cloud Connectors](https://help.zscaler.com/zpa/about-cloud-connectors).
-- **Extranet**: To learn more, see [About Extranet](https://help.zscaler.com/zia/about-extranet).
-- **Machine Tunnel**: To learn more, see [About Machine Tunnels](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels). Access policies can be configured with posture profile criteria for the client type machine tunnel if your end user device has Zscaler Client Connector version 3.9 or later installed.
-- **Web Browser**: To learn more, see [About Browser Access](https://help.zscaler.com/zpa/about-BrowserAccess).
-- **ZIA Service Edge**: To learn more, see [Understanding Source IP Anchoring](https://help.zscaler.com/zia/about-source-ip-anchoring).
-
-If you added multiple client types to the policy rule, Private Access uses an OR Boolean operator between them.
-
-Rules using the **Web Browser** or Internet & SaaS**Service Edge** client types additionally can't use posture profiles or trusted networks criteria. The posture profiles or trusted networks criteria only work with **Client Connector**.
-
-The **Cloud Connector Groups** criteria cannot be configured with the **SAML and SCIM Attributes**criteria.
-
-Choose the Cloud Connector groups to which the policy applies, and click **Done**. You can search for a specific Cloud Connector group, click **Select All** to apply all Cloud Connector groups, or click **Clear Selection**to remove all selections. The [Cloud Connector groups you've configured](https://help.zscaler.com/zpa/about-cloud-connector-groups) appear in the menu. There is no limit to the number you can select.
-
-If you've added multiple Cloud Connector groups to the policy rule, Private Access uses an AND Boolean operator between them.
-
-Choose the Branch Connector, Cloud Connector, or other locations and sub-locations to which the rule applies. You can search for a specific Branch Connector, Cloud Connector, or other location, click **Select All Displayed** to apply all locations and sublocations, or click **Clear All** to remove all selections.
-
-Locations and sublocations are displayed in the following format:
-
-- Location without a sublocation: [Image: Location without a sub-location]
-- Location with a sublocation: [Image: Location with Sub-location]
-
-Location types include:
-
-- **BC** - Branch Connector
-- **CC**- Cloud Connector
-- **NONE**- Locations other than Branch Connector or Cloud Connector. NONE location types are also used in [Source IP Anchoring configurations](https://help.zscaler.com/zia/understanding-source-ip-anchoring), where traffic is routed from these locations to Private Access.
-
-Choose the countries to which this rule applies. You can search for a specific country, click **Select All** to apply the countries listed, click **Clear All** to remove all selections, or click the **Delete** icon to the right of a selected country to remove it from your list. There is no limit to the number you can select. Click **Cancel** to exit the Country Code menu.
-
-The Country Codes criteria type is not supported in [Browser Access](https://help.zscaler.com/zpa/about-browser-access) or [Privileged Remote Access Applications](https://help.zscaler.com/zpa/about-privileged-remote-access-applications).
-
-Choose the extranet resource, extranet locations, and extranet location groups to which the policy rule applies. Extranet resources leverage the Zscaler Internet Access (ZIA) cloud for partner onboarding, IPSec, and location management. Extranet resources can be designated in Private Access when configuring [server groups](https://help.zscaler.com/zpa/configuring-server-groups) and [application segments](https://help.zscaler.com/zpa/configuring-defined-application-segments). To learn more, see [About Extranet](https://help.zscaler.com/zia/about-extranet) and [Understanding Extranet Application Support](https://help.zscaler.com/zia/understanding-extranet-application-support).
-
-To use Extranet Location criteria:
-
-1. Select a resource from the **Extranet Resource** drop-down menu. You can search for a specific extranet resource, or click the **Delete** icon to the right of a selected resource to remove it.
-2. Select a location from the **Extranet Locations** drop-down menu. This field is only visible after an extranet resource is selected. You can search for a specific extranet location, click **Select All Displayed** to apply all selections, click **Clear All** to remove all selections, or click the **Delete**icon to the right of a selected location to remove it from the list of selected locations.
-3. Select a group from the **Extranet Location Groups** drop-down menu. This field is only visible after an extranet resource is selected. You can search for a specific extranet group, click **Select All Displayed** to apply all selections, click **Clear All** to remove all selections, or click the **Delete**icon to the right of a selected group to remove it from the list of selected groups.
-
-The **Extranet Location** criteria is not visible if you are within a [Microtenant](https://help.zscaler.com/zpa/about-microtenants).
-
-See image.
-
-[Image: Using the Extranet Location Criteria when Configuring an Access Policy]
-
-Select a partner and application federated by the partner to which the policy applies:
-
-- **Partner**: Select a partner from the drop-down menu.
-- **Applications Federated by Partner**: Select one or more applications federated by the partner from the drop-down menu. You can search for a specific federated application, click **Select All Displayed** to apply all federated applications, or click **Clear All** to remove all selections.
-
-The following criteria are supported when using Federated Applications:
-
-- Client Type: The supported client type is Client Connector.
-- Client Connector Posture Profiles
-- Client Connector Trusted Networks
-- Country Codes
-- Locations
-- Machine Groups
-- Platforms
-- Risk Scores
-- SAML and SCIM Attributes
-- Trusted Networks
-
-Choose the Machine groups to which this rule applies, and click **Done**. You can search for a specific Machine group, click **Select All** to apply all groups, or click **Clear Selection** to remove all selections. The [Machine groups you've configured](https://help.zscaler.com/zpa/about-machine-groups) appear in the menu. There is no limit to the number you can select.
-
-If a Machine group is selected, **Machine Tunnel** as a client type is also required.
-
-Choose the platforms to which the rule applies and click **Save**. This allows you to control which applications are designated to which devices. The valid platform types are:
-
-- Windows
-- macOS
-- Linux
-- iOS
-- Android
-
-If you added multiple platforms to the policy rule, Private Access uses an OR Boolean operator between them.
-
-Select one or more risk scores and click **Save**. Click **Select All** to apply all the risk scores listed, or **Clear All** to remove all selections. Click **Cancel**to exit the Risk Scores menu.
-
-- If you are subscribed to Authentication Service and have this feature enabled for your tenant, the **SAML and SCIM Attributes** criteria is replaced with **Session and User Attributes**. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
-- The SAML and SCIM Attributes criteria type cannot be configured with the Cloud Connector Group criteria type.
-
-To use SAML or SCIM Criteria:
-
-1. Click **Select IdP** and choose the identity provider (IdP) configuration you want to include in the policy rule. The IdP must be configured for **User** SSO. To learn more, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/about-idp/new#IdP_BothSSO). If you need to include multiple IdPs in the policy rule, click **Select IdP** again.
-2. Click **Select SAML and SCIM Criteria** to add the criteria to which this rule applies: These criteria appear under **SAML and SCIM Attributes** > **<IdP Name>**, where **<IdP Name>** is the name of the IdP configuration you selected in step a. See image.
-  - SAML Attributes or Session Attributes
-  - SCIM Attributes or User Attributes
-  - SCIM Groups
-
-In order for Private Access to process SAML and SCIM criteria in a rule, you must enable the **SAML Attributes for Policy** setting for SAML and the **SCIM Attributes and Groups for Policy** setting for SCIM when configuring an IdP. To learn more, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign).
-
-If you added multiple attributes or groups to the policy rule, Private Access uses an OR Boolean operator between them by default. For example, if you selected **First Name** and **Last Name**, the policy rule is only applied to users with the specified **First Name** OR **Last Name** for that IdP. However, you can toggle this to an AND operator by clicking on it.
-
-See image.
-
-If the corresponding [IdP setting](https://help.zscaler.com/zpa/configuring-idp-single-sign) (**SAML Attributes for Policy**) is disabled for SAML, but the policy rule has criteria for SAML attributes, Private Access evaluates the rule differently depending on the Boolean operator between the criteria:
-
-- OR: Private Access skips evaluating the criteria for SAML attributes, but continues to evaluate the criteria for SCIM attributes and SCIM groups.
-- AND: Private Access does not evaluate this policy rule. You must remove the criteria under SAML Attributes for Private Access to process the policy rule.
-
-If the corresponding [IdP setting](https://help.zscaler.com/zpa/configuring-idp-single-sign) (**SCIM Attributes and Groups for Policy**) is disabled for SCIM, but the policy rule has criteria for SCIM attributes or SCIM groups, Private Access evaluates the rule differently depending on the Boolean operator between the criteria:
-
-- OR: Private Access skips evaluating the criteria for SCIM attributes and SCIM groups, but continues to evaluate the criteria for SAML attributes.
-- AND: Private Access does not evaluate this policy rule. You must remove the criteria for SCIM attributes and SCIM groups for Private Access to process the policy rule.
-
-If you selected multiple IdPs for the policy rule, Private Access uses an OR Boolean operator between them by default. For example, you can select one IdP that includes **First Name** OR **Last Name** and another IdP that includes Any SAML Attribute. In this case, the policy rule applies to a user authenticating from the first IdP if they have the specified **First Name** OR **Last Name** *or* it applies to any user authenticating from the second IdP. However, you can toggle this to an AND operator by clicking on it.
-
-See image.
-
-If your [IdP configuration for SSO](https://help.zscaler.com/zpa/about-idp/new#IdP_BothSSO) includes SAML attributes or SCIM attributes from multiple IdPs, Zscaler recommends that you do not use the AND Boolean operator between policy rules.
-
-By default, the policy rule for **SAML Attributes** is set to **Any SAML attribute**. Keep this if you want to apply the rule action to any user (i.e., the rule applies to all users, groups, departments, etc.).
-
-Alternatively, choose a specific [SAML attribute](https://help.zscaler.com/zpa/about-samlattributes) from the drop-down menu if you want to apply the rule action to specific users, groups, departments, etc.:
-
-1. You can search for a specific attribute, select a listed attribute, or click **Clear Selection** to remove all selected attributes.
-2. After you make a selection, enter the SAML attribute value (i.e., the users to whom the rule applies) in the text field that appears.
-3. Click **Add More** to add multiple attributes, if necessary.
-
-If you are subscribed to Authentication Service and have this feature enabled for your tenant, the **SAML Attributes** option is replaced with **Session Attributes**. The user attributes are populated from Authentication Service and are used for defining various sign-on policies. To learn more, see [About Attributes](https://help.zscaler.com/authentication-service/about-attributes) and [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
-
-Choose a specific SCIM attribute from the drop-down menu to apply the rule action to specific users, groups, departments, etc:
-
-1. You can search for a specific attribute, select a listed attribute, or click **Clear Selection** to remove all selected attributes.
-2. After you make a selection, enter the SCIM attribute value (i.e., the users to whom the rule applies) in the text field that appears.
-3. Click **Add More** to add multiple attributes, if necessary.
-
-If you are subscribed to Authentication Service and have this feature enabled for your tenant, the **SCIM Attributes** option is replaced with **User Attributes**. The group attributes are populated from Authentication Service and are used for defining various sign-on policies. To learn more, see [About Attributes](https://help.zscaler.com/authentication-service/about-attributes) and [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
-
-Choose a specific SCIM group from the drop-down menu to apply the rule action to a specific group:
-
-1. You can search for a specific group, select a listed group, or click **Clear Selection** to remove all selected groups.
-2. Click **Add More** to add multiple groups, if necessary.
-
-[Image: View identity provider, criteria, attribute]
-
-[Image: Add Access Policy window with SAML Attributes setting]
-
-[Image: Add Access Policy window with SAML Attributes setting]
-
-[Image: Add Access Policy window with Posture Profile Condition Set Boolean]
-
-[Image: Add Access Policy window with Posture Profile Condition Set Boolean]
 <!-- /ZS-ARTICLE -->

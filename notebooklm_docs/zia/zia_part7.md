@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 92
 
 ---
@@ -2279,16 +2279,14 @@ The following table lists the features and functionalities offered by Standard a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ftp-control","lastmod":"2026-08-12T10:24Z","nid":"1398756"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ftp-control","lastmod":"2026-10-20T09:08Z","nid":"1398756"} -->
 ## Understanding FTP Control
 
 - Source: https://help.zscaler.com/zia/understanding-ftp-control
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > FTP Control > Understanding FTP Control
-- Last modified: 2026-08-12T10:24Z
+- Last modified: 2026-10-20T09:08Z
 - Summary: Information about FTP Control supported by Internet & SaaS (ZIA) that provides additional control over your FTP traffic.
-
-[Watch a video about FTP Control Policy.](https://fast.wistia.net/embed/iframe/slkgryvr00)
 
 By default, the Zscaler service doesn't allow users from a location to upload or download files from FTP sites that use FTP over HTTP. Only native FTP traffic is allowed. With FTP Control, Zscaler provides access control for native FTP and FTP over HTTP traffic. This can be particularly useful if you are using a Zscaler Client Connector or PAC-based deployment, as they only support FTP over HTTP traffic. FTP Control also extracts files and runs a security scan.
 
@@ -2938,13 +2936,13 @@ The DPD behavior is the same for the IKEv1 and the IKEv2 protocols. DPD is integ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-10-12T04:04Z","nid":"1404786"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ipv6-support","lastmod":"2026-10-22T09:16Z","nid":"1404786"} -->
 ## Understanding IPv6 Support
 
 - Source: https://help.zscaler.com/zia/understanding-ipv6-support
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPv6 > Understanding IPv6 Support
-- Last modified: 2026-10-12T04:04Z
+- Last modified: 2026-10-22T09:16Z
 - Summary: Information on how to configure the Zscaler Admin Console to support security policies for IPv6 traffic.
 
 IPv6 support is in limited availability. To learn more, contact Zscaler Support.
@@ -3508,13 +3506,13 @@ This feature rollout follows the monthly infrastructure upgrade schedule as per 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-10-09T15:14Z","nid":"1399061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-10-22T09:58Z","nid":"1399061"} -->
 ## Understanding Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/zia/understanding-nanolog-streaming-service
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Understanding Nanolog Streaming Service (NSS)
-- Last modified: 2026-10-09T15:14Z
+- Last modified: 2026-10-22T09:58Z
 - Summary: Information on Nanolog Streaming Service (NSS).
 
 [Watch a video about Nanolog Streaming Service (NSS)](https://fast.wistia.net/embed/iframe/p3of1u4s69) (shows legacy UI).
@@ -4130,13 +4128,13 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-18T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-25T07:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 - Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
@@ -4183,6 +4181,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Insurance Document
 - International Bank Account Number (IBAN)
 - Invoice Document
+- Israel National Identification Number
 - Last Names (Japan)
 - Legal Document
 - Medical Document
@@ -4206,6 +4205,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - National Identification Number (France)
 - National Identification Number (Poland)
 - National Identification Number (Spain)
+- National Identification Number (Turkey)
 - National Insurance Number (UK)
 - National Provider Identifier
 - NDC Number (Package)
@@ -4213,6 +4213,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - NRIC Numbers (Singapore)
 - Passport Number (Asia)
 - Passport Number (European Union)
+- Permanent Account Number (India)
 - Personal Identification Number (Croatia)
 - Real Estate Document
 - Resident Registration Number (Korea)
@@ -4252,6 +4253,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Treatments Information
 - Unique Identification Code (Peru)*
 - Unique Master Citizen Number
+- United Kingdom Tax Identification Number
 - VAT Number (Austria)
 - VAT Number (Belgium)
 - VAT Number (France)
@@ -4260,6 +4262,67 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - VAT Number (Luxembourg)
 - VAT Number (Netherlands)
 - Weapons
+
+This dictionary detects the Turkish National Identification Number.
+
+The popular format for the national ID is an 11-digit numeric string with no spaces or separators. For example, 27491583638.
+
+This dictionary uses the *Mod 10* checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if: The national identification number is in a popular format.; The national identification number can be validated by Mod 10 checksum. | The number formats that can trigger the dictionary are: 53816492750; 27491583638; 81537264950The number formats that do not trigger the dictionary are: 00000000000; 12345678901; 11111111111 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Turkish national identification number is accompanied by any of the dictionary’s default or custom High Confidence phrases. For example, *Türkiye Cumhuriyeti Kimlik Numarası and T.C. Kimlik No.* | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: Türkiye Cumhuriyeti Kimlik Numarası 53816492750The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: Turkey PII Türkiye Cumhuriyeti Kimlik Numarası 12345678901 found in the document |
+
+This dictionary detects Permanent Account Numbers (PAN) from India.
+
+The popular format for a PAN is a 10-digit number that has no delimiters.
+
+An example of a popular format is AAAPL1234C.
+
+This dictionary does not use a checksum.
+
+The following table lists the confidence score threshold criteria for this dictionary. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the PAN has 10-digit alphanumeric characters that satisfy the criteria in the description (e.g., AAAPL1234C), and the PAN is in a popular format. | The number formats that can trigger the dictionary are: CVKPR4095M; KADFG5827GThe number formats that do not trigger the dictionary are: NNZDA6728H; HAKD1628K |
+| **High** | The dictionary counts an instance as a violation if the requirements of Medium Confidence are met and the PAN is accompanied by any of the dictionary's default or custom High Confidence phrases. For example, *PAN*, *PAN#*, *Permanent Account Number*. | The number formats that can trigger the dictionary are: PAN CVKPR4095M; PAN# KADFG5827GThe number formats that do not trigger the dictionary are: CVKPR4095M; PAN NNZDA6728H |
+
+This dictionary detects United Kingdom (UK) Tax Identification Numbers. It has two popular formats:
+
+- **UK Unique Taxpayer Reference (UTR)**: The UTR-style is a 10-digit number (0-9) written as one continuous number or grouped in pairs. For example, 12 34 56 78 90.
+- **UK National Insurance Number (NINO)**: The NINO-style is a 9-digit number written as 2 letters + 6 digits + 1 letter. For example. AB 12 34 56 C.
+
+The UTR-style and NINO-style use specific procedures for checksum validation.
+
+- **Checksum (UTR)**: Multiply the last 9 digits by fixed weights: 6, 7, 8, 9, 10, 5, 4, 3, and 2, respectively, and then add the results. Divide the total by 11, and use the remainder to pick the first digit from this list: 2, 1, 9, 8, 7, 6, 5, 4, 3, 2, 1.
+- **Checksum (NINO)**: There is no mathematical checksum for this format. The validity is checked by the alphanumeric combinations, i.e., the first 2 digits are alphabets, the middle 6 digits are numbers grouped in pairs, and the final suffix alphabet is limited to A, B, C, or D.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if: The number is in one of the popular formats.; The checksum can be validated. | The number formats that can trigger the dictionary are: AB385271C; 5916283047The number formats that do not trigger the dictionary are: DA123456A; AO123456A; GB123456A; 5748949890 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The UK tax identification number is accompanied by any of the dictionary’s default or custom High Confidence phrases. For example, *tax number, tax file, tax identification number, tax no#, tax registration number, taxid#, taxidno#, taxidnumber#, taxno#, taxnumber#, taxnumber, tin#*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: tax identification number AB385271CThe number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: taxidnumber# GB123456A found in the document; tax identification number 2955839661 found in the document; tax identification number 1111111111 found in the document |
+
+This dictionary detects the Israel Personal Identification Number (PIN), also known as *Mispar Zehut*. The popular format is a unique 9 or 10-digit number with a hyphen as the delimiter. For example, 12345678-9.
+
+There are two popular formats:
+
+- Plain format: NNNNNNNNN (9 digits with checksum as the 9th digit)
+- Hyphenated format: NNNNNNNN-C (8 digits + hyphen + checksum digit).
+
+The checksum for the Israel PIN uses the Israeli check-digit rule, which is a left-to-right Luhn variant.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if: The Israel PIN is in popular format and the pattern matches against regex \b(\d{9}\|\d{8}[-]\d)\b; The checksum can be validated. | The number formats that can trigger the dictionary are: 330470469; 255345340; 54370042-1The number formats that do not trigger the dictionary are: abc_255345340_xyz; 54370042---1; 54370042 1 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Israel PIN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:Mispar Zehut; idnumber#; identitynumber#; identity number; israeliidentitynumber; תעודת זהות | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Mispar Zehut 255345340; idnumber# 255345340; תעודת זהות 255345340The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 54370042-1 |
 
 This dictionary detects Aadhaar Unique Identification (UID) numbers from India.
 
@@ -6202,16 +6265,14 @@ To learn more about the attributes of Firewall Filtering rules, see [Configuring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-09-30T21:06Z","nid":"1401236"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-private-service-edge-internet-saas","lastmod":"2026-10-20T17:36Z","nid":"1401236"} -->
 ## Understanding Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Understanding Private Service Edge for Internet & SaaS
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-10-20T17:36Z
 - Summary: Information on the prerequisites and deployment methods for properly configuring and installing Private Service Edge for Internet & SaaS (ZIA) on the Zscaler cloud.
-
-[Watch a video about Private Service Edges](https://fast.wistia.net/embed/iframe/xa3h5zhhg8) (shows legacy UI).
 
 Zscaler can extend its patented cloud architecture to an organization's premises by providing Private Service Edge for Internet & SaaS (ZIA). Private Service Edge is part of the Zscaler cloud and performs the same service as the [Public Service Edge for Internet & SaaS](https://help.zscaler.com/zia/about-public-service-edges-internet-saas). It includes support for features such as Firewall, Sandbox, and Data Loss Prevention (DLP). It communicates with other nodes in the cloud, such as the Zscaler Central Authority (CA) for user authentication and policy updates, and the cloud routers and Nanolog clusters for logging and reporting.
 
@@ -7501,13 +7562,13 @@ Zscaler also exposes the API to update the information via third-party IdP vendo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-user-risk-score","lastmod":"2026-10-06T13:35Z","nid":"1474841"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-user-risk-score","lastmod":"2026-10-22T08:51Z","nid":"1474841"} -->
 ## Understanding User Risk Score
 
 - Source: https://help.zscaler.com/zia/understanding-user-risk-score
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Understanding User Risk Score
-- Last modified: 2026-10-06T13:35Z
+- Last modified: 2026-10-22T08:51Z
 - Summary: Information on the User Risk Score functionality, how User Risk Score is evaluated, and how customers can use it.
 
 Zscaler analyzes your organization's user behavior trends and builds a risk profile dynamically by assigning a User Risk Score to each user. The User Risk Score allows you to tailor your access control policies and security policies to individual users and gain visibility into your organization's user behavioral patterns to determine the security risk associated with those behaviors. By defining policies based on the User Risk Score criteria, you can identify and prevent high-risk users from gaining access to crown jewel applications and other sensitive applications until their risk profile improves. Zscaler evaluates a wide range of users' risky behavior trends, including behaviors that have resulted in past victimization by cyberattacks, near-miss malware infections, and suspicious behaviors, to determine the future risk posed by individual users to the organization's security.
@@ -7525,7 +7586,7 @@ The User Risk Score serves as a powerful tool for network and security teams to 
 The User Risk Score offers the following benefits and enables you to:
 
 - Implement low-maintenance, zero-trust dynamic access control policies based on individual users' risk scores to enhance your organization's security posture and adapt your security infrastructure to evolving threats.
-- Enforce a combination of dynamic rulesets (e.g., [access policy](https://help.zscaler.com/zpa/about-access-policy) and [device posture profiles](https://help.zscaler.com/client-connector/about-device-posture-profiles)) and static rulesets (e.g., [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control)) based on User Risk Score to secure access to crown jewel applications and other high-risk, sensitive applications without placing broad restrictions on user access.
+- Enforce a combination of dynamic rulesets (e.g., [access policy](https://help.zscaler.com/zpa/about-access-policy) and [device posture profiles](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles)) and static rulesets (e.g., [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control)) based on User Risk Score to secure access to crown jewel applications and other high-risk, sensitive applications without placing broad restrictions on user access.
 - Accelerate threat detection and response by leveraging the data collected on individual users' risky behaviors recorded for malware infections or suspicious activities.
 - Gain deep visibility into your organization's overall risk posture by using the analytics report generated by Zscaler and take preventive measures to safeguard your network against cyberthreats.
 - Take advantage of the User Risk Score's usage across the Zscaler platform, driving policies for Internet & SaaS (ZIA) and Private Access (ZPA) and feeding data into [Risk360](https://help.zscaler.com/risk360/what-risk360) for comprehensive risk visibility and management. Leverage Zscaler's integrations with leading [security operations tools](https://help.zscaler.com/zscaler-technology-partners/operations) to share the same telemetry and incident alert context with third-party tools.
@@ -7534,7 +7595,7 @@ The User Risk Score offers the following benefits and enables you to:
 
 Zscaler analyzes user behaviors and quantifies the security risk exhibited by individual users by using a metric called User Risk Score. The User Risk Score computation happens in Internet & SaaS and then it is propagated to Private Access. Each user authenticated to Internet & SaaS is dynamically assigned a risk score value after it's calculated using a proprietary algorithm. In Private Access, you can use the computed User Risk Score without any change, or you can override the risk score for users at the individual level to allow more flexibility in access policies.
 
-Internet & SaaS provides an option to reset the User Risk Score to **Low** for individual users. To learn more, see [About Users](https://help.zscaler.com/zia/about-users).
+Internet & SaaS provides an option to reset the User Risk Score to **Low** for individual users. To learn more, see [About Users](https://help.zscaler.com/zia/about-internet-saas-users).
 
 The User Risk Score consists of two components:
 
@@ -7570,7 +7631,7 @@ To learn more about the individual policies and how the User Risk Score can be u
 
 ## Data Visualization and Analytics
 
-You can view the Risk Score Report, a graphical representation of the User Risk Score metrics generated by Zscaler to perform data analysis, by going to Cyberthreat Protection > Riskscore Report in the Zscaler Admin Console. On the Risk Score Report page, a comprehensive view of the organization's overall risk score metrics is displayed, including the top risky users with the highest User Risk Scores. Using the Top Risky Users widget, you can drill down the metrics for individual users to gather information, including but not limited to:
+You can view the Risk Score Report, a graphical representation of the User Risk Score metrics generated by Zscaler to perform data analysis, by going to Analytics > Risk360 in the Zscaler Admin Console. On the Risk360 page, a comprehensive view of the organization's overall risk score metrics is displayed, including the top risky users with the highest User Risk Scores. Using the Top Risky Users widget, you can drill down the metrics for individual users to gather information, including but not limited to:
 
 - User's current risk score and risk score trend over a specific timeline
 - List of events that influenced the risk score in a chronological order
@@ -7578,11 +7639,11 @@ You can view the Risk Score Report, a graphical representation of the User Risk 
 - List of unsanctioned cloud applications accessed by the user
 - List of risky URLs that the user attempted to access
 
-Furthermore, the risk score assigned to the users influences your organization's overall risk score. By using the Company Risk Score Report, you can examine how risk scores are distributed across your users and locations and also compare your organization's risk score distribution with your peer organizations and benchmark against industry standards. To learn more, see [About the User Risk Report](https://help.zscaler.com/zia/user-risk-report) and [About the Company Risk Score Report](https://help.zscaler.com/zia/company-risk-score-report).
+Furthermore, the risk score assigned to the users influences your organization's overall risk score. By using the Company Risk Score Report, you can examine how risk scores are distributed across your users and locations and also compare your organization's risk score distribution with your peer organizations and benchmark against industry standards. To learn more, see [About the User Risk Report](https://help.zscaler.com/zia/user-risk-report) and [About the Company Risk Score Report](https://help.zscaler.com/zia/about-company-risk-score-report).
 
 In addition to accessing the built-in analytics report, you can set up configurations to feed the log data into [Risk360](https://help.zscaler.com/risk360/what-risk360) for comprehensive, real-time risk management and gain actionable insights into investigating and remediating critical issues. You can also leverage Zscaler's integrations with leading [security operations tools](https://help.zscaler.com/zscaler-technology-partners/operations) to allow the same telemetry and incident alert context that feeds into risk scoring to be shared with tools like security information and event management, Security Orchestration, Automation and Response (SOAR), and Extended Detection and Response (XDR) to streamline workflows.
 
-Access control policies are generally static and do not automatically adapt to the constantly changing threat landscape, therefore demanding broad, restrictive policies for users. In contrast, Zscaler allows you to create dynamic access control policies by leveraging the User Risk Score, which assigns a dynamic risk score to individual users and keeps it updated periodically based on the users' latest behavior trends, while taking advantage of Zscaler's latest threat intelligence. By understanding the different types of user risks and behaviors associated with cyberthreats, organizations can implement dynamic access control policies and proactively protect their critical assets and data. Moreover, policies based on user risk profiles can be combined with other dynamic rulesets (e.g., [device posture profiles](https://help.zscaler.com/client-connector/about-device-posture-profiles)) and static rulesets (e.g., [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control)) to protect an organization from potential breaches without placing broad restrictions on user access to resources, and therefore strike the right balance between security and end-user productivity. To learn more about dynamic policy configuration, see the Enforcing Dynamic Policies based on User Risk Score.
+Access control policies are generally static and do not automatically adapt to the constantly changing threat landscape, therefore demanding broad, restrictive policies for users. In contrast, Zscaler allows you to create dynamic access control policies by leveraging the User Risk Score, which assigns a dynamic risk score to individual users and keeps it updated periodically based on the users' latest behavior trends, while taking advantage of Zscaler's latest threat intelligence. By understanding the different types of user risks and behaviors associated with cyberthreats, organizations can implement dynamic access control policies and proactively protect their critical assets and data. Moreover, policies based on user risk profiles can be combined with other dynamic rulesets (e.g., [device posture profiles](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles)) and static rulesets (e.g., [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control)) to protect an organization from potential breaches without placing broad restrictions on user access to resources, and therefore strike the right balance between security and end-user productivity. To learn more about dynamic policy configuration, see the Enforcing Dynamic Policies based on User Risk Score.
 
 The User Risk Score provides deep visibility into an organization's risk posture and allows them to monitor the organization's risk exposure over time, focus on high-risk operation areas, prioritize remediation efforts, and improve their key risk management strategies. Organizations also compare their user risk distribution metrics with peer organizations and benchmark against industry standards. To learn more about the data insights presented by the User Risk Score metrics, see Data Visualization and Analytics.
 
@@ -9721,13 +9782,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/virtual-service-edge-internet-saas-configuration-guide-dual-arm-mode","lastmod":"2026-10-06T04:52Z","nid":"1401151"} -->
+<!-- ZS-ARTICLE {"url":"/zia/virtual-service-edge-internet-saas-configuration-guide-dual-arm-mode","lastmod":"2026-10-20T21:06Z","nid":"1401151"} -->
 ## Virtual Service Edge for Internet & SaaS: Configuration Guide for Dual Arm Mode
 
 - Source: https://help.zscaler.com/zia/virtual-service-edge-internet-saas-configuration-guide-dual-arm-mode
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Virtual Service Edge for Internet & SaaS: Configuration Guide for Dual Arm Mode
-- Last modified: 2026-10-06T04:52Z
+- Last modified: 2026-10-20T21:06Z
 - Summary: Information on how to create a dual arm configuration for Virtual Service Edges for Internet & SaaS (ZIA).
 
 Use a dual arm configuration for your Virtual Service Edges for Internet & SaaS (ZIA) if you have an environment that requires your Virtual Service Edges to use two zones: a disconnected network or isolate the internet zone from the internal users and another that faces the internet.

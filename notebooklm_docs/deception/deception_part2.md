@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 28
 
 ---

@@ -1,8 +1,8 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
-Articles in this file: 18
+Generated: 2026-10-26 08:09 UTC
+Articles in this file: 19
 
 ---
 
@@ -776,6 +776,81 @@ The [Alerts](https://help.zscaler.com/agentic-soc/about-alerts) page brings all 
 The [Assets](https://help.zscaler.com/agentic-soc/about-assets-agentic-soc) page provides a centralized view of assets in your environment, with each asset unified and enriched using information from multiple sources. Review an asset’s risk score, ownership, findings, source records, and related tickets to understand its context and potential impact.
 
 When viewing an incident or alert, you can run a [playbook](https://help.zscaler.com/unified/about-playbooks) manually or configure an automation rule to trigger it automatically. A playbook groups one or more response actions to help standardize incident response, automate repetitive tasks, and reduce manual effort and response time. Depending on your configured integrations, actions might include blocking an IP address, isolating a host, or resetting a password.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/agentic-soc/taking-action-incidents","lastmod":"2026-10-22T12:53Z","nid":"1546684"} -->
+## Taking Action on Incidents
+
+- Source: https://help.zscaler.com/agentic-soc/taking-action-incidents
+- Product: Agentic SOC
+- Path: Agentic SOC Help > Administration > Incidents & Alerts > Taking Action on Incidents
+- Last modified: 2026-10-22T12:53Z
+- Summary: How to take action on Agentic SOC incidents.
+
+Within the MITRE ATT&CK framework, taking action on an incident is the key operational transition from investigation to resolution. After an agentic investigation or triage completes, security analysts and AI agents respond by updating the status, setting investigation verdicts, and configuring automated response actions.
+
+## Setting the Verdict
+
+The verdict reflects the final conclusion of an incident's investigation.
+
+To view or set the verdict:
+
+1. In the Agentic SecOps Platform Admin Portal, click **Incidents**.
+2. Click an incident, which will open the**Incident Detail** page. The verdict is located in the top-left region of the page.
+
+Analysts and agents can set the following verdicts:
+
+- **Benign**: The incident is confirmed to pose no security risk or was successfully blocked inline by existing controls (e.g., ZIA inline policy block).
+- **False Positive**: The incident is determined to be a benign event or authorized activity incorrectly flagged as a security threat.
+- **Inconclusive**: The incident is unable to be assigned a definitive conclusion automatically due to insufficient telemetry or data access constraints, requiring human analyst follow-up.
+- **Malicious**: The incident is a confirmed security threat requiring active remediation or containment workflows.
+- **Suspicious**: The incident is flagged with potential threat indicators requiring specialized human expertise to validate due to domain-specific complexity.
+- **True Positive**: The incident is a verified security event where the flagged malicious or unauthorized activity accurately represents a real security risk.
+
+[Image: Verdict drop-down list]
+
+## Updating the Status
+
+The incident status is used to track updates to the investigation.
+
+To update the status:
+
+1. In the Agentic SecOps Platform Admin Portal, click **Incidents**.
+2. Click an incident, which will open the**Incident Detail** page. The status is located in the top-right region of the page. See image.
+
+Analysts and AI agents can set the following statuses:
+
+- **Discovered**: The incident was first identified via a series of alerts before any investigation has begun.
+- **Opened**: An analyst has begun actively investigating the incident.
+- **Acknowledged**: The incident has been reviewed and confirmed to be a legitimate issue requiring further action.
+- **Not Remediated**:
+  - **Testing**: The activity was performed as part of explicit security testing, such as penetration testing.
+  - **False Positive**: The incident was investigated and determined not to be a security threat.
+  - **Authorized Activity**: The activity under investigation was necessary for a valid job function.
+- **Confirmed**: The incident is closed and the assigned verdict is confirmed to be correct.
+- **Closed**: The incident is closed without passing judgment on the assigned verdict.
+
+## Manually Triggering a Playbook
+
+Playbooks are typically executed when an incident requires remediation, such as when the verdict is set to **Malicious** or the status is updated to **Ready to Remediate**. To simplify this process, the Threat Response Recommendation Agent suggests relevant playbooks in the AI Response Actions section of the incident details view.
+
+To manually trigger a playbook from a recommended response action, perform the following steps:
+
+1. In the Agentic SecOps Platform Admin Portal, click **Incidents**.
+2. Click an incident, which will open the**Incident Detail** page.
+3. On the **Details** tab, locate the **AI Response Actions** section.
+4. See image.
+5. Review the recommended playbook for the target entity or incident, taking note of recommendation labels such as **Success**, **Proposed**, or **Failed**.
+6. Click**Select Playbook** next to the desired action.
+7. If a playbook execution succeeds partially or fails across listed entities, click **View** to inspect the specific execution status for each individual entity associated with the recommended action.
+
+To learn more about configuring and evaluating playbook execution results, see [Managing Playbooks](https://help.zscaler.com/unified/managing-playbooks).
+
+[Image: Status drop-down list]
+
+[Image: AI Response Actions section]
 <!-- /ZS-ARTICLE -->
 
 ---

@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 87
 
 ---
@@ -2880,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-09-12T07:06Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-10-22T23:11Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-09-12T07:06Z
+- Last modified: 2026-10-22T23:11Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -3206,6 +3206,9 @@ Rate limits are subject to change. To learn more, see [Understanding Rate Limiti
 | /pacFiles/{pacId}/version/{pacVersion} | 2/sec and 1000/hr | - | - | - |
 | /pacFiles/{pacId}/version/{pacVersion}/action/{pacVersionAction} | - | - | 1/sec and 400/hr | - |
 | /passwordExpiry/settings | 1/sec and 400/hr | - | 1/sec and 400/hr | - |
+| /pcapSettings | 2/sec and 1000/hr | 1/sec and 400/hr | - | - |
+| /pcapSettings/testConnection | - | 1/sec and 400/hr | - | - |
+| /pcapSettings/{id} | - | - | 1/sec and 400/hr | - |
 | /posture/assets | 25/day (Trial) or 5,000/day (License) | - | - | - |
 | /posture/assets/status | - | - | 25/day (Trial) or 5,000/day (License) | - |
 | /posture/controls | - | 25/day (Trial) or 5,000/day (License) | - | - |
@@ -9699,13 +9702,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-10-18T07:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-10-25T07:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-10-18T07:06Z
+- Last modified: 2026-10-25T07:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

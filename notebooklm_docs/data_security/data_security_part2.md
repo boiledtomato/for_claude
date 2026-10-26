@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 25
 
 ---
@@ -84,16 +84,14 @@ View the list of noncompliant policies along with the corresponding resources fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-data-discovery-dashboard","lastmod":"2026-09-28T22:32Z","nid":"1477746"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-data-discovery-dashboard","lastmod":"2026-10-20T09:12Z","nid":"1477746"} -->
 ## Viewing the Data Discovery Dashboard
 
 - Source: https://help.zscaler.com/dspm/viewing-data-discovery-dashboard
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the Data Discovery Dashboard
-- Last modified: 2026-09-28T22:32Z
+- Last modified: 2026-10-20T09:12Z
 - Summary: Information about the aggregated scan results displayed on the DSPM Data Discovery dashboard in the Zscaler Admin Console.
-
-[Watch a video about the DSPM data discovery dashboard](https://fast.wistia.net/embed/iframe/0s27bvrf53) (shows legacy UI).
 
 The DSPM Data Discovery dashboard provides a high-level overview of your cloud accounts' data security posture. The dashboard includes interactive widgets that visually depict the number of data stores scanned, sensitive data discovered, top accounts and data stores that contain the maximum amount of sensitive data, number of DLP engines and dictionaries used to classify the sensitive data, geographic location of your cloud accounts along with the resources containing sensitive data, and data types. All of this information helps you prioritize and take the necessary action. Some of the data displayed on this dashboard are clickable, and you can go to other pages (Alerts, Policies, Resource Inventory, etc.) to gather more context and information for further analysis.
 

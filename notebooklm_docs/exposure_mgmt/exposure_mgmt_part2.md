@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-19 08:07 UTC
+Generated: 2026-10-26 08:09 UTC
 Articles in this file: 189
 
 ---
@@ -338,13 +338,13 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-09-23T01:49Z","nid":"1539537"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1539537"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
 - Product: Identity Protection
 - Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-23T01:49Z
+- Last modified: 2026-10-19T16:50Z
 - Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Identity Protection.
@@ -1113,16 +1113,14 @@ Suspicious behavior indicators are similar to pre-infection indicators, with les
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-09-29T08:32Z","nid":"1463846"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-10-20T12:54Z","nid":"1463846"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/risk360/about-audit-logs
 - Product: Risk360
 - Path: Risk360 Help > Logs > About Audit Logs
-- Last modified: 2026-09-29T08:32Z
+- Last modified: 2026-10-20T12:54Z
 - Summary: Information regarding audit logs within the Risk360 service.
-
-[Watch a video About Audit Logs in Risk360.](https://fast.wistia.net/embed/iframe/6vloz7chdy)
 
 Zscaler records the login name and IP address of every user who changes configuration settings. Audit logs display the user's login and logout record (timestamps, actions, client IP, etc.), and the configuration changes they perform.
 
@@ -1415,16 +1413,14 @@ On the Insights page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-10-16T01:42Z","nid":"1456991"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-10-20T12:52Z","nid":"1456991"} -->
 ## About Role Management
 
 - Source: https://help.zscaler.com/risk360/about-role-management-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > About Role Management
-- Last modified: 2026-10-16T01:42Z
+- Last modified: 2026-10-20T12:52Z
 - Summary: Information on managing roles in the Zscaler Admin Console.
-
-[Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
 
 The roles that are assigned to admins dictate the level of access they have to the Risk360 features in the Experience Center. Zscaler provides a default super admin role that has full access to the Risk360. This role is assigned to the default admin, but you can assign this role to other admins as necessary.
 
@@ -1457,16 +1453,14 @@ On the Role Management page (Administration > Role Management > Risk360), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-10-16T01:44Z","nid":"1504376"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-10-20T12:59Z","nid":"1504376"} -->
 ## About Seeds Management
 
 - Source: https://help.zscaler.com/risk360/about-seeds-management
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > About Seeds Management
-- Last modified: 2026-10-16T01:44Z
+- Last modified: 2026-10-20T12:59Z
 - Summary: Information on managing domains for external surface attack analysis in the Zscaler Admin Console].
-
-[Watch a video about Seeds Management in Risk360.](https://fast.wistia.net/embed/iframe/el04010hfk)
 
 Seeds Management helps you manage domains that you want to analyze for external surface attacks. After you add the domains (manually or by uploading a CSV file), the Risk360 service performs weekly scans to identify publicly exposed assets within the domains for potential cyberattacks and helps you secure those exposed assets. The Risk360 service also quantifies the risk determined on various parameters for the exposed assets and visualizes them as factors on the [Factors](https://help.zscaler.com/unified/viewing-risk-factors) page. You can add up to 10 domains for scanning. After adding the domains, the Risk360 service takes up to 24–48 hours to scan and analyze the domains.
 
@@ -4300,16 +4294,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk360-score-change-logs","lastmod":"2026-09-29T08:24Z","nid":"1538852"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-risk360-score-change-logs","lastmod":"2026-10-20T12:58Z","nid":"1538852"} -->
 ## Viewing the Risk360 Score Change Logs
 
 - Source: https://help.zscaler.com/risk360/viewing-risk360-score-change-logs
 - Product: Risk360
 - Path: Risk360 Help > Logs > Viewing the Risk360 Score Change Logs
-- Last modified: 2026-09-29T08:24Z
+- Last modified: 2026-10-20T12:58Z
 - Summary: Information regarding risk score change logs within the Risk360 service.
-
-[Watch a video about Score Change Logs in Risk360.](https://fast.wistia.net/embed/iframe/pajjdp57lb)
 
 The Score Change Log page (Data Explorer > Risk360 > Score Change Log) records the risk score change logs across categories and factors. You can monitor risk score changes and review the action or event that resulted in a risk score change.
 
@@ -11458,7 +11450,7 @@ See image.
 
 To configure SLA settings:
 
-1. In the SecOps Platform Admin Portal, click **Vulnerabilities** in the top navigation bar.
+1. In the Agentic SecOps Platform Admin Portal, click **Vulnerabilities** in the top navigation bar.
 2. In the left-side navigation, go to **Settings** > **Severity & SLA**. See image.
 3. Click **SLA Settings**. The **SLA Settings** page appears. If SLA is configured in the Data Model, you'll be prompted to unlink and override to configure the settings on the SLA Settings page.
 4. On the **SLA Settings** page, configure the setup in the following sections:
@@ -15063,13 +15055,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-09-22T08:05Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-10-19T16:45Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-09-22T08:05Z
+- Last modified: 2026-10-19T16:45Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -15103,7 +15095,7 @@ After you request an exception for a ticket, manual split and merge actions are 
 
 To create an exception request:
 
-1. In the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Tickets**.
+1. In the Agentic SecOps Platform Admin Portal, go to **Vulnerabilities** > **Tickets**.
 2. In the table, click the ticket for which you want to request an exception. The **Ticket**drawer appears.
 3. On the **Details** tab, click **Request Exception**. See image. The **Request Exception**dialog window appears.
 4. In the **Request Exception**dialog window:
@@ -16046,9 +16038,9 @@ You can filter the feed by:
 - Last modified: 2026-08-31T02:36Z
 - Summary: How to view and interpret the Overview dashboard in UVM.
 
-The Overview dashboard provides a comprehensive view of your Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Security Operations Platform (SecOps Platform), allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
+The Overview dashboard provides a comprehensive view of your Unified Vulnerability Management (UVM) findings from ingestion to remediation. The dashboard demonstrates the data deduplication, normalization, and prioritization capabilities in the Agentic Security Operations Platform (SecOps Platform), allowing you to view how fragmented data points are transformed into a streamlined set of prioritized work items.
 
-To access the dashboard in the SecOps Platform Admin Portal, go to **Vulnerabilities** > **Overview**.
+To access the dashboard in the Agentic SecOps Platform Admin Portal, go to **Vulnerabilities** > **Overview**.
 
 The dashboard initially displays a recent snapshot of your data while it loads the most current data.
 
