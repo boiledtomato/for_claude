@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
-Posts in this file: 73
+Generated: 2026-10-26 09:18 UTC
+Posts in this file: 74
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -12423,4 +12423,239 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server","lastmod":"2026-10-20T16:36:39.000Z","id":"0D5PJ000014nqXU0AY"} -->
+## OneAPI credentials for the Zscaler MCP Server
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server
+- Type: Q&A
+- Last activity: 2026-10-20T16:36:39.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+skywalker
+
+(Partner) asked a question
+
+Edited 14h ago
+
+OneAPI credentials for the Zscaler MCP Server
+
+Hi People
+
+While setting up the Zscaler MCP Server in my lab, every single call failed with a generic “Error executing tool” message. It turned out to be two simple mistakes in my credentials file, and the error message gave no hint about either. Sharing what each value means and how to test them, in case someone else hits the same wall.
+
+The four values the server needs
+
+ZSCALER_CLIENT_ID:
+
+the ID of a OneAPI API client, created in ZIdentity under Administration → API → OneAPI → API Clients.
+
+ZSCALER_CLIENT_SECRET:
+
+that client’s secret. It’s only shown once when you create it, so save it right away.
+
+ZSCALER_VANITY_DOMAIN:
+
+your organisation’s ZIdentity short name, taken from your ZIdentity login URL.
+
+ZSCALER_CUSTOMER_ID:
+
+your
+
+ZPA
+
+tenant ID.
+
+Mistake 1: the vanity domain was not just the short name
+
+If your ZIdentity login page is
+
+https://acme.zslogin.net
+
+, the vanity domain is simply
+
+acme
+
+I had put two values in that line: our Entra ID domain (something.onmicrosoft.com) and the full
+
+zslogin.net
+
+hostname. The Entra domain has nothing to do with this setting, and the variable must hold exactly one value. So all of these are wrong:
+
+acme.zslogin.net
+
+https://acme.zslogin.net
+
+acme.onmicrosoft.com
+
+acme.zslogin.net
+
+Symptom:
+
+every product fails, because the server can’t get a token at all.
+
+Mistake 2: the wrong customer ID
+
+ZSCALER_CUSTOMER_ID is only used for ZPA, and it has to be the ZPA tenant ID. My ZIA and ZPA tenants have different IDs, and I wasn’t sure which one to use or whether I needed both. You only need the ZPA one: ZIA doesn’t need an ID in the config at all, because the OneAPI token already identifies your ZIA tenant through ZIdentity.
+
+Symptom:
+
+ZIA works (once it has a role, see below) but every ZPA call fails. After I put the correct ZPA ID in, ZPA immediately listed all my application segments.
+
+Test your credentials without the MCP server
+
+This separates credential problems from everything else:
+
+curl -s -X POST "https://<vanity>.zslogin.net/oauth2/v1/token" \
+
+-d grant_type=client_credentials \
+
+-d client_id=<client_id> \
+
+-d client_secret=<client_secret> \
+
+-d audience=https://api.zscaler.com
+
+An
+
+access_token
+
+in the reply means the client ID, secret and vanity domain are good.
+
+invalid_client
+
+means the ID or secret is wrong.
+
+No reply at all usually means a wrong vanity domain, or the machine can’t reach
+
+zslogin.net
+
+Check your .env without showing secrets
+
+sed 's/=.*/=<hidden>/' .env
+
+shows the variable names only.
+
+grep VANITY .env
+
+shows the vanity domain, which isn’t a secret.
+
+Also make sure each line has one value, with no quotes and no spaces around the
+
+. And after any change, restart your MCP client so the server reloads the file.
+
+One more related gotcha:
+
+even with correct credentials, ZIA kept failing for me while ZPA worked. In ZIdentity, the API client showed “No scopes available” under ZIA. Creating an API role in the ZIA portal, activating it, and then assigning it to the API client fixed it.
+
+My question:
+
+How are you structuring your OneAPI API clients? I’m using a single client for ZIA, ZPA and ZDX for the MCP server. Are others creating separate clients per product, or a read-only client for day-to-day use and a separate one with write roles? Curious what’s working in practice, especially in larger tenants.
+
+Thanks!
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+287
+
+287 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+577
+
+577 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+OneAPI credentials for the Zscaler MCP Server
 <!-- /ZS-POST -->

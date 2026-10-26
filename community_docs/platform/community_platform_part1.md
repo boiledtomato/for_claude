@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
+Generated: 2026-10-26 09:18 UTC
 Posts in this file: 407
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -7706,6 +7706,129 @@ Standard Retakes: You are always welcome to retake your exam sooner than January
 Take advantage of this promotion to tackle your certification goals with an extra layer of reassurance!
 
 Best of luck with your preparation.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000hwD0AQ/planning-your-next-certification-use-this-pearson-vue-free-retake-promotion","lastmod":"2026-10-22T19:15:33.000Z","id":"aSnPJ0000000hwD0AQ"} -->
+## Planning Your Next Certification? Use This Pearson VUE Free Retake Promotion!
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000hwD0AQ/planning-your-next-certification-use-this-pearson-vue-free-retake-promotion
+- Type: Blog
+- Last activity: 2026-10-22T19:15:33.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+Edited 12h ago
+
+Planning Your Next Certification? Use This Pearson VUE Free Retake Promotion!
+
+Make sure you don't miss the strict enrollment and testing windows.
+
+Hey Champions! 🌟
+
+If you are planning to take a Zscaler certification exam soon, please be aware of a global promotion currently being offered directly by our exam delivery provider, Pearson VUE.
+
+Candidates who register for this promotion can receive a second exam attempt at no additional cost if they do not pass on their first try.
+
+This promotion requires you to enroll before you schedule your exam. Please review the official timeline and requirements carefully:
+
+⏱️ The Timeline Checklist:
+
+Step 1: Sign up immediately
+
+Head over to the
+
+Pearson VUE Global Retake Page
+
+to register. You must complete this registration step to receive the qualifying promo code.
+
+Step 2: Sit for your first exam
+
+You must purchase and complete your initial exam attempt between September 29, 2026, and November 17, 2026, applying your Pearson VUE code at checkout.
+
+Step 3: Keep the free retake window in mind
+
+If you need to use the free retake option, your second exam must be scheduled and taken between January 4, 2027, and April 7, 2027. No promo code is required for the second attempt if scheduled in this window.
+
+🛑 Important Reminder:
+
+If you decide to retake your exam at any other time outside of the January 4 – April 7, 2027 window, you will have to pay standard exam fees.
+
+Align your study schedule with these dates to make the most of this Pearson VUE promotion!
+
+Let us know in the comments which certification you're targeting next! ⬇️
 
 Associated Tags
 
@@ -72128,209 +72251,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Single  Zscaler client for multiple enterprise VPN connection possible or not?
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AW0ucpCQB/customize-sign-in-page-at-gatewayzscalerxxxnet","lastmod":"2024-07-01T14:02:12.000Z","id":"0D54u0000AW0ucpCQB"} -->
-## Customize sign in page at gateway.zscalerxxx.net
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AW0ucpCQB/customize-sign-in-page-at-gatewayzscalerxxxnet
-- Type: Q&A
-- Last activity: 2024-07-01T14:02:12.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Authentication
-
-hukel
-
-(Customer) asked a question.
-
-June 20, 2024 at 2:37 PM
-
-Customize sign in page at gateway.zscalerxxx.net
-
-Is there any way to customize the sign in page for end users (even just the language) so that it is not so generic?
-
-To keep you safe from internet threats, please sign in to your company's security service.
-
-ZIA - Authentication
-
-1 answer
-
-534 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-I dont't see any customisation  options  for login page.
-
-For End user notification customisation :
-
-https://help.zscaler.com/zia/configuring-end-user-notifications
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/15/2022
-
-at
-
-12:39 PM
-
-Onprem Active directory integrate with Zscaler cloud ZIA
-
-ZIA - Authentication
-
-aravindhan.m
-
-3 Views
-
-0 Likes
-
-3 Comments
-
-7/11/2022
-
-at
-
-07:26 AM
-
-Zscaler IDP authentication issue
-
-ZIA - Authentication
-
-aravindhan.m
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-5/27/2022
-
-at
-
-01:49 PM
-
-Zscaler ZIA O365 Apps not authenticating
-
-ZIA - Authentication
-
-abmaclean
-
-4 Views
-
-0 Likes
-
-6 Comments
-
-10/4/2021
-
-at
-
-10:43 PM
-
-Automatic de-provisioning using SCIM with Azure AD
-
-ZIA - Authentication
-
-Paul_Wineberg
-
-4 Views
-
-0 Likes
-
-4 Comments
-
-6/27/2020
-
-at
-
-03:01 PM
-
-Zscaler public preview
-
-ZIA - Authentication
-
-Muhammad
-
-364
-
-364 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Customize sign in page at gateway.zscalerxxx.net
 <!-- /ZS-POST -->

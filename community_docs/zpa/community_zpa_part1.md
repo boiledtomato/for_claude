@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
-Posts in this file: 318
+Generated: 2026-10-26 09:18 UTC
+Posts in this file: 320
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -8288,6 +8288,177 @@ Setup Time: 0.761733 seconds
 The Mtunnel ID is confirmed in the ZPA portal logs, validating a successful session through ZPA.
 
 When the same FQDN is present in both the VPN Gateway Bypass list and a ZPA application segment, ZPA takes precedence. Although ZCC initially processes the domain as a bypass hostname from the App Profile, it subsequently identifies the domain as a ZPA application. From that point, ZCC assigns a synthetic IP, establishes a micro-tunnel, and routes the session through ZPA. The presence of the domain in the App Profile's VPN Gateway Bypass list does not override the ZPA application segment configuration.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006oJt0AI/prerequisites-for-automated-zpa-app-connector-updates","lastmod":"2026-10-22T11:17:48.000Z","id":"aSoPJ0000006oJt0AI"} -->
+## Prerequisites for Automated ZPA App Connector Updates
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006oJt0AI/prerequisites-for-automated-zpa-app-connector-updates
+- Type: Guide
+- Last activity: 2026-10-22T11:17:48.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+5h ago
+
+Prerequisites for Automated ZPA App Connector Updates
+
+Note:
+
+Special thanks to
+
+Pahulpreet Singh
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
+
+___________________________________________________________________________________________________
+
+Introduction
+
+Fully Managed Zscaler Private Access™ (ZPA™) App Connectors help reduce manual lifecycle management by allowing Zscaler to manage critical App Connector upgrades and patching. When the feature is enabled and the required prerequisites are met, Zscaler automatically updates the App Connector software, the embedded Manager component, and supported operating system patches.
+
+This guide describes the prerequisites for using the Fully Managed ZPA App Connector update feature.
+
+Understanding Fully Managed App Connector Updates
+
+Fully Managed ZPA App Connectors are designed to help administrators keep App Connectors current without frequent manual intervention. This functionality helps ensure that App Connectors continue to run supported software versions and receive required maintenance updates.
+
+When Fully Managed functionality is enabled, Zscaler can automatically manage the following updates.
+
+Updating the App Connector Version
+
+Zscaler automatically upgrades the App Connector software to the latest recommended default version. This helps keep the App Connector on a supported and optimized software version.
+
+Updating the Manager Version
+
+Zscaler automatically updates the embedded Manager component within the App Connector. This helps maintain compatibility with the ZPA platform and keeps the required management functionality current.
+
+Applying Operating System Patches
+
+Zscaler automatically applies operating system (OS) patches to the underlying OS. This helps maintain the security and stability of the App Connector by applying required OS-level updates.
+
+Meeting Deployment Image Requirements
+
+To use Fully Managed App Connector functionality, the App Connector must be deployed using the supported Zscaler-provided image or container for the applicable platform.
+
+Deployment Platform
+
+Required Image Specification
+
+AWS
+
+Zscaler-provided RHEL 9 image
+
+Azure
+
+Zscaler-provided RHEL 9 image
+
+EXXi Host
+
+Zscaler-provided RHEL 9 image
+
+Docker
+
+Zscaler-provided image or container
+
+Kubernetes (K8s)
+
+Zscaler-provided image or container
+
+Note
+
+: Custom or self-built OS images don’t support Fully Managed functionality. Automated patching depends on the configuration included in the Zscaler-provided Red Hat Enterprise Linux (RHEL) 9 base image or the Zscaler-provided container image. If an App Connector is deployed using a custom image, Zscaler can’t automatically manage OS patching and related maintenance tasks for that App Connector.
+
+Meeting the Minimum Manager Version Requirement
+
+The ZPA environment must be running the required minimum Manager version to support Fully Managed App Connectors.
+
+Component
+
+Minimum Required Version
+
+Manager version
+
+25.46.3 or higher
+
+This guide applies to customer deployments that use Fully Managed ZPA App Connectors. The information also applies to Private Service Edges (PSEs).
 
 Please reach out to us in the comments if you have any questions.
 
@@ -65540,12 +65711,139 @@ ZPA Usage report for 60 days and 90 days
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question","lastmod":"2026-10-18T15:57:44.000Z","id":"0D5PJ000014hEbb0AE"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014UtEX0A0/does-a-zpa-posture-profile-change-generate-a-new-user-status-log","lastmod":"2026-10-21T22:07:55.000Z","id":"0D5PJ000014UtEX0A0"} -->
+## Does a ZPA posture profile change generate a new User Status log?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014UtEX0A0/does-a-zpa-posture-profile-change-generate-a-new-user-status-log
+- Type: Q&A
+- Last activity: 2026-10-21T22:07:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Posture
+
+burt42
+
+(Prospect) asked a question
+
+Edited 2h ago
+
+Does a ZPA posture profile change generate a new User Status log?
+
+I’m looking at a project to stream ZPA User Status logs to a syslog receiver using the Log Streaming Service (LSS). At user authentication, I gather that the log includes "SessionStatus: "ZPN_STATUS_AUTHENTICATED"" and posture profile results in "PosturesHit" and "PosturesMiss", for example:
+
+"PosturesHit": "Domain-Joined,Disk-Encrypted,AV-Running",
+
+"PosturesMiss": "OS-Version-Compliant",
+
+If a device remains connected but its posture profile results change, for example, an antivirus profile moves from "PosturesHit" to "PosturesMiss", does ZPA generate another User Status log?
+
+If it does, does the new log retain "SessionStatus: "ZPN_STATUS_AUTHENTICATED"" and contain the current posture results? Or is there a separate status or event type for a posture update? For example:
+
+"PosturesHit": "Domain-Joined,Disk-Encrypted",
+
+"PosturesMiss": "OS-Version-Compliant,AV-Running",
+
+I’d also be interested to know what triggers the new log, and whether posture results are sent as a complete current list or only as changes.
+
+I apologise I do not have an actual Zscaler instance, nor do I use it - I am trying to work out whether this is a viable way of using info from ZPA as identity in a wider design.
+
+Thank you!
+
+ZPA - Posture
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/18/2021
+
+at
+
+04:45 PM
+
+Posture checks on Chromebooks
+
+ZPA - Posture
+
+mags
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Does a ZPA posture profile change generate a new User Status log?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question","lastmod":"2026-10-20T16:22:14.000Z","id":"0D5PJ000014hEbb0AE"} -->
 ## Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question
 - Type: Q&A
-- Last activity: 2026-10-18T15:57:44.000Z
+- Last activity: 2026-10-20T16:22:14.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 skywalker
@@ -65711,12 +66009,12 @@ Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center","lastmod":"2026-10-18T16:10:10.000Z","id":"0D5PJ000014hPF10AM"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center","lastmod":"2026-10-20T16:21:36.000Z","id":"0D5PJ000014hPF10AM"} -->
 ## “Access Denied” when opening Application Segments in the new Experience Center
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center
 - Type: Q&A
-- Last activity: 2026-10-18T16:10:10.000Z
+- Last activity: 2026-10-20T16:21:36.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZPA - Admin Portal

@@ -1,432 +1,10 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
-Posts in this file: 164
+Generated: 2026-10-26 09:18 UTC
+Posts in this file: 163
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values","lastmod":"2025-08-22T07:27:58.000Z","id":"0D54u0000Adsyd0CQA"} -->
-## Cloud Sandbox - blocking MD5 hash values
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values
-- Type: Q&A
-- Last activity: 2025-08-22T07:27:58.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Sandbox
-
-Raj90909
-
-(Customer) asked a question.
-
-November 7, 2024 at 7:42 PM
-
-Cloud Sandbox - blocking MD5 hash values
-
-If you have the Cloud Sandbox license and looking to block files based on MD5 hash values, you will need to get the Advanced Policy Settings provisioned for your tenant. It was missing for us and does the job by blocking the file.
-
-https://help.zscaler.com/zia/add-custom-file-hashes
-
-ZIA - Cloud Sandbox
-
-5 answers
-
-567 views
-
-manuel
-
-likes this.
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Good finding! Are there any more options below? Or "only" MD5 Hash value settings?
-
-Raj90909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-1 like
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Ah ok, thanks!
-
-Raj909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-This will directly block the file if the file hash matches.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/21/2020
-
-at
-
-01:31 PM
-
-Does Zscaler Scan Email Traffic?
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,221
-
-1221 Views
-
-1 Like
-
-3 Comments
-
-1/2/2020
-
-at
-
-12:25 PM
-
-Prevent Malicious VPN Connection
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,194
-
-1194 Views
-
-0 Likes
-
-8 Comments
-
-10/2/2017
-
-at
-
-04:47 AM
-
-Alerting positive 'allow and scan'
-
-ZIA - Cloud Sandbox
-
-Lmay
-
-416
-
-416 Views
-
-1 Like
-
-2 Comments
-
-9/11/2017
-
-at
-
-09:37 PM
-
-How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
-
-ZIA - Cloud Sandbox
-
-awl
-
-525
-
-525 Views
-
-0 Likes
-
-1 Comment
-
-9/11/2017
-
-at
-
-09:35 PM
-
-What is the recommended “best practice? Cloud Sandbox rule policy?
-
-ZIA - Cloud Sandbox
-
-awl
-
-584
-
-584 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Cloud Sandbox - blocking MD5 hash values
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client","lastmod":"2024-11-08T08:53:28.000Z","id":"0D54u0000Adt0z2CQA"} -->
-## Enhancement request Block Quic with the Zscaler client
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client
-- Type: Q&A
-- Last activity: 2024-11-08T08:53:28.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-Chatter is not enabled
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-492
-
-492 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Enhancement request Block Quic with the Zscaler client
-<!-- /ZS-POST -->
 
 ---
 
@@ -38475,12 +38053,12 @@ Ipsec Tunnel MOB6 Issue
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address","lastmod":"2026-10-15T23:27:45.000Z","id":"0D5PJ000014HqM20AK"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address","lastmod":"2026-10-23T17:43:34.000Z","id":"0D5PJ000014HqM20AK"} -->
 ## Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address
 - Type: Q&A
-- Last activity: 2026-10-15T23:27:45.000Z
+- Last activity: 2026-10-23T17:43:34.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 zscaler_cisco
@@ -38598,4 +38176,187 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014vTQn0AM/zia-shows-no-scopes-available-on-my-oneapi-api-client-in-zidentity","lastmod":"2026-10-21T16:42:13.000Z","id":"0D5PJ000014vTQn0AM"} -->
+## ZIA shows “No scopes available” on my OneAPI API client in ZiDentity
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014vTQn0AM/zia-shows-no-scopes-available-on-my-oneapi-api-client-in-zidentity
+- Type: Q&A
+- Last activity: 2026-10-21T16:42:13.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+skywalker
+
+(Partner) asked a question
+
+5h ago
+
+ZIA shows “No scopes available” on my OneAPI API client in ZiDentity
+
+Hi all,
+
+I’m using the Zscaler MCP Server with OneAPI in my lab. ZPA worked fine, but every ZIA call failed with “Error executing tool”. The cause turned out to be on the Zscaler side, not the MCP server: the ZIA entry on my API client in ZIdentity said
+
+“No scopes available”
+
+. Sharing the fix since the message doesn’t really tell you what to do.
+
+How OneAPI permissions work
+
+A OneAPI API client gets a role per product. When you open the client in ZIdentity (Administration → API → OneAPI → API Clients → Edit API Client), you see each linked service, for example ZIA, ZPA, ZDX, ZCC and Cloud Connector, with the roles you can choose for it.
+
+The key point: those roles aren’t created in ZIdentity. The panel itself notes that the scopes are auto-populated and map to roles in the individual Zscaler services. ZPA already had API roles such as “API Full Access” and “API Read Only Access”, so it showed choices straight away. ZIA had no API role yet, so there was nothing for ZIdentity to offer.
+
+The symptom
+
+ZPA questions returned real data.
+
+Every ZIA question failed.
+
+The API client in ZIdentity showed “No scopes available” under the ZIA entry.
+
+If the ZIA entry is missing entirely (rather than showing “No scopes available”), that’s a different issue: your ZIA tenant isn’t linked to that ZIdentity. Check Linked Services in ZIdentity, or ask support.
+
+The fix
+
+Create an API role in ZIA.
+
+In the ZIA Admin Portal, go to Administration → Role Management and add an
+
+API role
+
+(not a normal admin role). I gave it a clear name and only the access I needed.
+
+Activate.
+
+ZIA changes are staged until you activate them, and the new role won’t show up elsewhere until you do.
+
+Assign it in ZIdentity.
+
+Reopen the API client. Under ZIA, the new role now appears as a scope. Select it and save. If it doesn’t show yet, give it a few minutes and refresh.
+
+Check the other products while you’re there.
+
+Every product you want to use needs a role selected, including ZDX. For ZPA, consider “API Read Only Access” instead of “Full Access” if you only need to read.
+
+Get a fresh token.
+
+Restart your MCP client (or whatever integration you use) so it requests a new token that includes the new role.
+
+After that, ZIA calls worked straight away.
+
+Why it’s worth getting this right
+
+The role on the API client is the real ceiling on what any OneAPI integration can do. Whatever an integration or an AI agent tries, the Zscaler API only allows what that role permits. So a read-only role is a solid safety net, even if a tool’s own settings are misconfigured.
+
+My question:
+
+What permissions are you giving your ZIA API roles for integrations like this? I kept mine fairly broad in the lab to get things working, but for real tenants I’d like a minimal read-only set. Is there a recommended baseline, or are people building it up area by area (policies, locations, URL categories and so on)?
+
+Thanks!
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+287
+
+287 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+577
+
+577 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZIA shows “No scopes available” on my OneAPI API client in ZiDentity
 <!-- /ZS-POST -->

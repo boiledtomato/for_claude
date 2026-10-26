@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-10-19T09:15:10Z",
+ "generated_at": "2026-10-26T09:18:28Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -5420,6 +5420,13 @@
    "title": "EDU-100: Build Minimum Viable Operational Competency with Guided Simulations",
    "type": "zenith_blog__c"
   },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000hwD0AQ/planning-your-next-certification-use-this-pearson-vue-free-retake-promotion": {
+   "category": "platform",
+   "hash": "b358db32b8d69dc0",
+   "lastmod": "2026-10-22T19:15:33.000Z",
+   "title": "Planning Your Next Certification? Use This Pearson VUE Free Retake Promotion!",
+   "type": "zenith_blog__c"
+  },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
    "category": "branch",
    "hash": "9996a74faa971bcb",
@@ -8246,6 +8253,13 @@
    "hash": "94647425466554aa",
    "lastmod": "2026-10-01T06:09:52.000Z",
    "title": "How to Block 7-Zip File Archiving and Extraction Using Endpoint DLP",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006oJt0AI/prerequisites-for-automated-zpa-app-connector-updates": {
+   "category": "zpa",
+   "hash": "1b8f58e489ccfe21",
+   "lastmod": "2026-10-22T11:17:48.000Z",
+   "title": "Prerequisites for Automated ZPA App Connector Updates",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -22031,25 +22045,11 @@
    "title": "How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)",
    "type": "question"
   },
-  "https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users": {
-   "category": "zia",
-   "hash": "5c08a1dce2d7d794",
-   "lastmod": "2026-10-07T16:20:27.000Z",
-   "title": "How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)",
-   "type": "question"
-  },
   "https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup": {
    "category": "zia",
    "hash": "4bc4fed66777a944",
    "lastmod": "2026-10-15T05:14:53.000Z",
    "title": "How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)",
-   "type": "question"
-  },
-  "https://community.zscaler.com/s/question/0D54u0000AM63bOCQR/how-to-dns-filtering-to-block-domains-with-zccztunnel-20": {
-   "category": "zcc",
-   "hash": "f0111558007e15e9",
-   "lastmod": "2024-03-08T05:26:32.000Z",
-   "title": "How To: DNS Filtering to block domains with ZCC/Z-Tunnel 2.0",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D54u0000AM6HteCQF/query-about-zscaler-for-users-essentials-lab": {
@@ -27045,8 +27045,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000014HqM20AK/zscaler-ipsec-tunnels-limit-of-400-mbps-for-each-public-source-ip-address": {
    "category": "zia",
-   "hash": "077f92b3334b611f",
-   "lastmod": "2026-10-15T23:27:45.000Z",
+   "hash": "4512070134f01b06",
+   "lastmod": "2026-10-23T17:43:34.000Z",
    "title": "Zscaler IPSec tunnels  limit of 400 Mbps for each public source IP address",
    "type": "question"
   },
@@ -27057,18 +27057,53 @@
    "title": "Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D5PJ000014UtEX0A0/does-a-zpa-posture-profile-change-generate-a-new-user-status-log": {
+   "category": "zpa",
+   "hash": "298be44fa63af6a4",
+   "lastmod": "2026-10-21T22:07:55.000Z",
+   "title": "Does a ZPA posture profile change generate a new User Status log?",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D5PJ000014hEbb0AE/anyone-using-the-zscaler-mcp-server-sharing-my-lab-setup-and-a-question": {
    "category": "zpa",
-   "hash": "053cf52e8f672a40",
-   "lastmod": "2026-10-18T15:57:44.000Z",
+   "hash": "816b2122ad1652f4",
+   "lastmod": "2026-10-20T16:22:14.000Z",
    "title": "Anyone using the Zscaler MCP Server ? Sharing my lab setup and a question",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D5PJ000014hPF10AM/access-denied-when-opening-application-segments-in-the-new-experience-center": {
    "category": "zpa",
-   "hash": "9522c76c52f91a0f",
-   "lastmod": "2026-10-18T16:10:10.000Z",
+   "hash": "24462132a3acb5de",
+   "lastmod": "2026-10-20T16:21:36.000Z",
    "title": "“Access Denied” when opening Application Segments in the new Experience Center",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014ioOG0AY/installing-the-zscaler-mcp-server-on-linux-two-errors-i-hit": {
+   "category": "platform",
+   "hash": "bec8b105f8adae2c",
+   "lastmod": "2026-10-20T16:37:21.000Z",
+   "title": "Installing the Zscaler MCP Server on Linux: two errors I hit",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server": {
+   "category": "api",
+   "hash": "cc7735afd11206e0",
+   "lastmod": "2026-10-20T16:36:39.000Z",
+   "title": "OneAPI credentials for the Zscaler MCP Server",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014tAlW0AU/client-connector-posture-type-using-process-check": {
+   "category": "zcc",
+   "hash": "0066e4488726cb8f",
+   "lastmod": "2026-10-22T17:05:11.000Z",
+   "title": "Client Connector: Posture Type using Process Check",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000014vTQn0AM/zia-shows-no-scopes-available-on-my-oneapi-api-client-in-zidentity": {
+   "category": "zia",
+   "hash": "2e003692dde9a49d",
+   "lastmod": "2026-10-21T16:42:13.000Z",
+   "title": "ZIA shows “No scopes available” on my OneAPI API client in ZiDentity",
    "type": "question"
   }
  },

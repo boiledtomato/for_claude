@@ -1,10 +1,215 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
-Posts in this file: 119
+Generated: 2026-10-26 09:18 UTC
+Posts in this file: 121
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AW0ucpCQB/customize-sign-in-page-at-gatewayzscalerxxxnet","lastmod":"2024-07-01T14:02:12.000Z","id":"0D54u0000AW0ucpCQB"} -->
+## Customize sign in page at gateway.zscalerxxx.net
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AW0ucpCQB/customize-sign-in-page-at-gatewayzscalerxxxnet
+- Type: Q&A
+- Last activity: 2024-07-01T14:02:12.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+hukel
+
+(Customer) asked a question.
+
+June 20, 2024 at 2:37 PM
+
+Customize sign in page at gateway.zscalerxxx.net
+
+Is there any way to customize the sign in page for end users (even just the language) so that it is not so generic?
+
+To keep you safe from internet threats, please sign in to your company's security service.
+
+ZIA - Authentication
+
+1 answer
+
+534 views
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+I dont't see any customisation  options  for login page.
+
+For End user notification customisation :
+
+https://help.zscaler.com/zia/configuring-end-user-notifications
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+364
+
+364 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Customize sign in page at gateway.zscalerxxx.net
+<!-- /ZS-POST -->
 
 ---
 
@@ -21555,4 +21760,221 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Upskilling to ZDTE Post-Layoff: Looking for Financial Aid/Voucher Programs
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014ioOG0AY/installing-the-zscaler-mcp-server-on-linux-two-errors-i-hit","lastmod":"2026-10-20T16:37:21.000Z","id":"0D5PJ000014ioOG0AY"} -->
+## Installing the Zscaler MCP Server on Linux: two errors I hit
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014ioOG0AY/installing-the-zscaler-mcp-server-on-linux-two-errors-i-hit
+- Type: Q&A
+- Last activity: 2026-10-20T16:37:21.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+skywalker
+
+(Partner) asked a question
+
+Edited 14h ago
+
+Installing the Zscaler MCP Server on Linux: two errors I hit
+
+Hi all,
+
+I installed the Zscaler MCP Server on a fresh Linux VM (Arch, but the same applies to Ubuntu) and ran into two errors that aren’t obvious from the messages. Sharing the working steps and the fixes in case it saves someone some time. The project is in public preview, so I’m using a lab tenant.
+
+The working install
+
+The server is a Python package, and the easiest way to install it is with
+
+uv
+
+, which keeps it in its own isolated environment so it doesn’t clash with system Python.
+
+Install uv.
+
+Ubuntu:
+
+curl -LsSf
+
+https://astral.sh/uv/install.sh
+
+| sh
+
+Arch:
+
+sudo pacman -S uv
+
+Install the server, pinned to Python 3.12 (more on why below):
+
+uv tool install --python 3.12 zscaler-mcp
+
+Add uv’s tool folder to your PATH and check the version:
+
+uv tool update-shell
+
+export PATH="$HOME/.local/bin:$PATH"
+
+zscaler-mcp --version
+
+Note that the PyPI package is called
+
+zscaler-mcp
+
+, not zscaler-mcp-server.
+
+Error 1: “Failed to build zstandard” ... “No such file or directory: ‘cc’”
+
+Without a Python pin, uv picked the newest Python available (3.15 in my case). One of the dependencies, zstandard, didn’t have a prebuilt package for that version yet, so uv tried to compile it from source. My VM had no C compiler, so the build failed.
+
+Fix:
+
+pin a mature Python version with
+
+--python 3.12
+
+. Installing a compiler (build-essential on Ubuntu, base-devel on Arch) also works, but pinning avoids compiling altogether.
+
+If your MCP client launches the server through
+
+uvx
+
+, pin it there too, otherwise you can hit the same error again:
+
+uvx --python 3.12 --env-file /path/to/.env zscaler-mcp
+
+Error 2: “zscaler-mcp: command not found” right after a successful install
+
+uv installs tools into
+
+~/.local/bin
+
+, and that folder wasn’t on my shell’s PATH yet. uv even prints a yellow warning about it, which is easy to miss in the long install output.
+
+Fix:
+
+run the
+
+export
+
+line above for the current session. If
+
+uv tool update-shell
+
+says your shell files are already up to date, it has already added the path for future logins; you just need the export for the session you’re in.
+
+Quick sanity check
+
+zscaler-mcp --list-tools | head -20
+
+lists the available tools per service. One thing to be aware of: this doesn’t test your credentials. The server only logs in to Zscaler on the first real tool call, so a clean tool list doesn’t mean your OneAPI setup is correct yet.
+
+To keep it current:
+
+uv tool upgrade zscaler-mcp
+
+For those running the MCP server longer-term, how are you hosting it? I’m using uv on a VM with Claude Code on the same machine, which is great for a lab. Is anyone running the Docker image or a systemd service for multiple users instead, and are there any gotchas you ran into with either?
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+287
+
+287 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+577
+
+577 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Installing the Zscaler MCP Server on Linux: two errors I hit
 <!-- /ZS-POST -->

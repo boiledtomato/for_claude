@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
-Posts in this file: 309
+Generated: 2026-10-26 09:18 UTC
+Posts in this file: 310
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -60550,303 +60550,6 @@ How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users","lastmod":"2026-10-07T16:20:27.000Z","id":"0D54u0000AM61y5CQB"} -->
-## How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users
-- Type: Q&A
-- Last activity: 2026-10-07T16:20:27.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-siddhartha.aggarwal
-
-(Employee) asked a question
-
-Edited 4h ago
-
-How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)
-
-10/6/2026: Updated for the new UI.
-
-In an earlier article, we configured DNS resolution using Zscaler Trusted Resolver (ZTR) using a tunnel-less DNS setup:
-
-https://community.zscaler.com/s/question/0D54u0000AM6064CQB/how-to-tunnelless-dns-resolution-using-dns-controlztr-guest-wifi-users
-
-This tunnel-less approach can be beneficial when migrating from
-
-Zscaler Shift (now EOL)
-
-or a 3rd party resolver, or when using a GRE/IPsec tunnel from a customer site is not an option. However, it is important to note that the recommended practice is to use Zscaler Client Connector with Z-Tunnel 2.0 (ZCC/ZT2.0) or a GRE/IPsec tunnel to route DNS traffic to ZIA whenever possible.
-
-Note:
-
-This tunnel-less DNS approach has the following limitations:
-
-It is not applicable for DNS over HTTPS (DoH) traffic.
-
-It is not applicable for IPv6 DNS traffic.
-
-In this article, we will build upon that setup and add a DNS filtering rule to block gambling sites.
-
-First, confirm that DNS resolution for a gambling site, such as
-
-888.com
-
-is currently working on your client machine.
-
-As one can see, DNS resolution is working and the DNS server is the GRE VIP address we had configured in the previous article (104.129.192.34)
-
-Configure DNS Control policy
-
-Search for DNS Control in the top search bar (or navigate to Internet Access > Policy > DNS Control).
-
-Click on Add Rule and add a new rule to block Gambling category sites. For example:
-
-Rule Name: Block Gambling
-
-Rule Order: 1 (Should be before any DNS rule that could allow this traffic).
-
-Rule Status: Enabled
-
-Action: Block
-
-Criteria:
-
-Request Categories: Gambling
-
-Response Categories: Gambling
-
-Locations: Optionally specify the location from where you will be sending DNS traffic if you want the DNS Filtering rule to only apply to DNS traffic from a specific location. e.g. Location1.
-
-Save the rule and activate the changes.
-
-Note:
-
-Zscaler also supports different types of End User Notifications (EUNs) for the DNS Control policy. These EUNs are displayed to end users when their activities trigger DNS Control rules with specific actions, such as blocking traffic or redirecting responses. See the following help articles:
-
-https://help.zscaler.com/zia/dns-end-user-notifications
-
-https://help.zscaler.com/zia/configuring-dns-control-policy
-
-Now, go back to the client machine and try doing a DNS lookup for
-
-888.com
-
-- it will be blocked and the query will time out.
-
-Note:
-
-If you enabled the Web EUN option in the DNS Control filtering rule, you will see the IP address of the DNS Web EUN page as the answer for the query.
-
-Checks DNS Insights logs
-
-Search for DNS Insights in the top search bar (or navigate to Data Explorer > Internet & SaaS > DNS Insights.
-
-Go to the tab Logs.
-
-Choose the timeframe, add filters as necessary (e.g. filter based on Location), and then click on Run Query.
-
-You should see DNS Insights logs for the matching DNS traffic (may take a couple of minutes for the logs to be populated).
-
-Recommended next steps
-
-You can implement DNS filtering based on the recommended best practices:
-
-https://help.zscaler.com/zia/best-practices-dns-control-rules
-
-Additionally, DNS control policies for some of these best practices should now be available by default in your ZIA tenant:
-
-Critical risk DNS categories
-
-Critical risk DNS tunnels
-
-High risk DNS categories
-
-High risk DNS tunnels
-
-Risky DNS categories
-
-Risky DNS tunnels
-
-You can choose to either enable all or select the ones that meet your deployment needs.
-
-Additional References
-
-Zscaler DNS Security and Control Reference Architecture Guide:
-
-https://www.zscaler.com/resources/reference-architectures/zscaler-dns-security-and-control-reference-architecture.pdf
-
-ZIA - Cloud Firewall
-
-Associated Tags
-
-dns
-
-dns-control
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,261
-
-1261 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,924
-
-1924 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-How To: Configure DNS Control policies for tunnel-less DNS setup (Guest WiFi users)
-<!-- /ZS-POST -->
-
----
-
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup","lastmod":"2026-10-15T05:14:53.000Z","id":"0D54u0000AM63EtCQJ"} -->
 ## How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)
 
@@ -75929,4 +75632,426 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Request to eliminate ForgiGate Virtual Firewall in Azure
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values","lastmod":"2025-08-22T07:27:58.000Z","id":"0D54u0000Adsyd0CQA"} -->
+## Cloud Sandbox - blocking MD5 hash values
+
+- Source: https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values
+- Type: Q&A
+- Last activity: 2025-08-22T07:27:58.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Sandbox
+
+Raj90909
+
+(Customer) asked a question.
+
+November 7, 2024 at 7:42 PM
+
+Cloud Sandbox - blocking MD5 hash values
+
+If you have the Cloud Sandbox license and looking to block files based on MD5 hash values, you will need to get the Advanced Policy Settings provisioned for your tenant. It was missing for us and does the job by blocking the file.
+
+https://help.zscaler.com/zia/add-custom-file-hashes
+
+ZIA - Cloud Sandbox
+
+5 answers
+
+567 views
+
+manuel
+
+likes this.
+
+manuel
+
+(Customer)
+
+2 years ago
+
+Good finding! Are there any more options below? Or "only" MD5 Hash value settings?
+
+Raj90909
+
+(Customer)
+
+2 years ago
+
+That is the only option, as per the screenshot.
+
+1 like
+
+manuel
+
+(Customer)
+
+2 years ago
+
+Ah ok, thanks!
+
+Raj909
+
+(Customer)
+
+2 years ago
+
+That is the only option, as per the screenshot.
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+This will directly block the file if the file hash matches.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/21/2020
+
+at
+
+01:31 PM
+
+Does Zscaler Scan Email Traffic?
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,221
+
+1221 Views
+
+1 Like
+
+3 Comments
+
+1/2/2020
+
+at
+
+12:25 PM
+
+Prevent Malicious VPN Connection
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,194
+
+1194 Views
+
+0 Likes
+
+8 Comments
+
+10/2/2017
+
+at
+
+04:47 AM
+
+Alerting positive 'allow and scan'
+
+ZIA - Cloud Sandbox
+
+Lmay
+
+416
+
+416 Views
+
+1 Like
+
+2 Comments
+
+9/11/2017
+
+at
+
+09:37 PM
+
+How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
+
+ZIA - Cloud Sandbox
+
+awl
+
+525
+
+525 Views
+
+0 Likes
+
+1 Comment
+
+9/11/2017
+
+at
+
+09:35 PM
+
+What is the recommended “best practice? Cloud Sandbox rule policy?
+
+ZIA - Cloud Sandbox
+
+awl
+
+584
+
+584 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Cloud Sandbox - blocking MD5 hash values
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client","lastmod":"2024-11-08T08:53:28.000Z","id":"0D54u0000Adt0z2CQA"} -->
+## Enhancement request Block Quic with the Zscaler client
+
+- Source: https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client
+- Type: Q&A
+- Last activity: 2024-11-08T08:53:28.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Chatter is not enabled
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+492
+
+492 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Enhancement request Block Quic with the Zscaler client
 <!-- /ZS-POST -->

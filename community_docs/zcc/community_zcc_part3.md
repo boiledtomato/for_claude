@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
+Generated: 2026-10-26 09:18 UTC
 Posts in this file: 279
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -52284,281 +52284,6 @@ Deploying ZCC with strict enforcement to Mac OS using workspace one
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM63bOCQR/how-to-dns-filtering-to-block-domains-with-zccztunnel-20","lastmod":"2024-03-08T05:26:32.000Z","id":"0D54u0000AM63bOCQR"} -->
-## How To: DNS Filtering to block domains with ZCC/Z-Tunnel 2.0
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AM63bOCQR/how-to-dns-filtering-to-block-domains-with-zccztunnel-20
-- Type: Q&A
-- Last activity: 2024-03-08T05:26:32.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Firewall
-
-siddhartha.aggarwal
-
-(Employee) asked a question.
-
-Edited March 8, 2024 at 5:26 AM
-
-How To: DNS Filtering to block domains with ZCC/Z-Tunnel 2.0
-
-In this article, we will see how to apply DNS filtering to block access to a gambling site, such as 888.com.
-
-Setup
-
-A working ZIA tenant and a client machine with Zscaler Client Connector (ZCC) configured for Z-Tunnel 2.0 (here we will only be looking at this deployment scenario).
-
-Open the Client Connector on your client machine and verify you are connected to the ZIA tenant:
-
-Verify that your traffic is indeed being tunneled to the ZIA cloud, for this do the following on your client machine:
-
-Go to whatismyip.com and verify the public IP address is that of Zscaler:
-
-Go to
-
-https://health.com
-
-and verify that the certificate has been signed by Zscaler:
-
-Step-by-step approach
-
-Set the DNS server on your client machine to a public DNS resolver, such 8.8.8.8 or 9.9.9.9:
-
-This is because you want to ensure that your DNS traffic gets tunneled to the ZIA Cloud.
-
-If the DNS server setting on your client machine points to a local IP (e.g., 192.168.x.x), then the DNS traffic by default will not be sent to the ZIA cloud. While there is way by which you can configure the ZCC to send such local DNS traffic to the ZIA cloud, we want to keep things simple and easy to follow at this stage.
-
-Before we configure a DNS filtering rule to block gambling sites such as
-
-888.com
-
-, verify that you can do a DNS lookup for it:
-
-Now, in the admin portal of your ZIA tenant, go to: Policy > Firewall > DNS Control.
-
-Then click on Add DNS Filtering Rule:
-
-Under DNS Application tab: Choose Gambling in the Request Categories:
-
-You can choose to set Gambling in the Response Categories as well. If you set both Request and Response Categories, the matching is an OR condition.
-
-Click on Save. Your rules should now look as follows:
-
-Click on Activation > Activate for the new changes to take effect:
-
-Verification
-
-Now, from your client machine, try doing a DNS lookup for 888.com:
-
-Verify that DNS resolution is working for regular sites not blocked by DNS filtering:
-
-Check logs:
-
-Go to Analytics > DNS Insights:
-
-Under Logs: Select the time duration and click on Apply Filter.
-
-You should see a log entry such as the following :
-
-As one can see:
-
-Request Category is "Gambling"
-
-Request Rule Name is "Block Gambling Request"
-
-Request Action is "Block"
-
-Subtle point to keep in mind
-
-While it appears that DNS resolution for regular sites that are not blocked, such as sdxcentral.com, is performed by a public DNS resolver such as 8.8.8.8 or 9.9.9.9, that is not the case.
-
-By default there is a DNAT rule by which the DNS traffic in the ZIA tenant is sent to ZTR for resolution. It is the ZTR, acting as a recursive resolver, that actually resolves this DNS query.
-
-See the following documentation for reference:
-
-https://help.zscaler.com/zia/about-nat-control
-
-Next steps
-
-You can implement DNS filtering based on the recommended best practices:
-
-https://help.zscaler.com/zia/best-practices-dns-control-rules
-
-Alternatively, the DNS control policies for these best practices should now be available by default in your ZIA tenant:
-
-ZIA - Cloud Firewall
-
-936 views
-
-Log In to Answer
-
-Associated Tags
-
-dns
-
-dns-control
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2018
-
-at
-
-01:07 PM
-
-Ip address as criteria in url policy
-
-ZIA - Cloud Firewall
-
-ram75
-
-1,189
-
-1189 Views
-
-0 Likes
-
-1 Comment
-
-10/8/2020
-
-at
-
-08:41 AM
-
-Block All access & Allow certain user or group (ZIA)
-
-ZIA - Cloud Firewall
-
-Sec_def_Def_sec
-
-1,816
-
-1816 Views
-
-1 Like
-
-2 Comments
-
-12/19/2022
-
-at
-
-04:14 PM
-
-URL filtering policy vs Cloud App policy control
-
-ZIA - Cloud Firewall
-
-Ahmed
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-12/9/2022
-
-at
-
-09:40 PM
-
-Apple News RSS Feed
-
-ZIA - Cloud Firewall
-
-Trace Woodbury-RidgeIT
-
-2 Views
-
-0 Likes
-
-1 Comment
-
-9/20/2022
-
-at
-
-03:20 PM
-
-How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
-
-ZIA - Cloud Firewall
-
-tamerz
-
-6 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-How To: DNS Filtering to block domains with ZCC/Z-Tunnel 2.0
-<!-- /ZS-POST -->
-
----
-
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM6OiBCQV/zcc-client-upgrade","lastmod":"2024-03-12T12:36:54.000Z","id":"0D54u0000AM6OiBCQV"} -->
 ## ZCC Client Upgrade
 
@@ -75631,4 +75356,245 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 t64 libs version selected instead of required by Linux connector installer
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025","lastmod":"2025-05-16T19:07:40.000Z","id":"0D5PJ00000XZsr50AD"} -->
+## 3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
+
+- Source: https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025
+- Type: Q&A
+- Last activity: 2025-05-16T19:07:40.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+Bruno
+
+(Customer) asked a question.
+
+May 13, 2025 at 12:42 PM
+
+3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
+
+Almost four years now.
+
+The issue kept recurring whenever there was an ISP problem, but it was resolved by disabling Zscaler. This has been going on for about four years now, with no definitive solution other than to disable Zscaler.
+
+Since this issue is isolated to PLDT users and has persisted for four years, doesn't it make sense to consider that Zscaler might not be optimized for PLDT (or vice versa)? And yet, it seems like no one is taking any action.
+
+Client Connector
+
+4 answers
+
+758 views
+
+Ben_Garrison
+
+(Employee)
+
+a year ago
+
+Let me get someone with ZCC internally to take a look here and see what we can uncover.
+
+Ramesh Mani
+
+(Partner)
+
+a year ago
+
+I would suggest the ZCC logs check and validate the logs at the time of issues. There could be multiple reasons for this failure.
+
+Osho_Dwivedi
+
+(Employee)
+
+a year ago
+
+What are the ZS Public Service Edges that you're using to connect to?
+
+As referenced above there can be numerous reasons for this, one being ZS not having a POP nearby and peering issues with PLDT.
+
+Have there been a discussion of deploying a ZIA VSE/Private SE in Philippines in order to bring the POP home?
+
+Gianluca.bastia
+
+(Partner)
+
+a year ago
+
+Since there's no POP available, I'd suggest deploying a private service edge and that should help
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,895
+
+2895 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,385
+
+1385 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,578
+
+3578 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
 <!-- /ZS-POST -->

@@ -1,251 +1,10 @@
 # Zscaler Zenith Community — ZCC — Zscaler Client Connector (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-19 09:15 UTC
+Generated: 2026-10-26 09:18 UTC
 Posts in this file: 60
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025","lastmod":"2025-05-16T19:07:40.000Z","id":"0D5PJ00000XZsr50AD"} -->
-## 3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
-
-- Source: https://community.zscaler.com/s/question/0D5PJ00000XZsr50AD/3-years-and-counting-zscaler-slow-internet-for-pldt-users-in-philippines-january-2022-until-may-2025
-- Type: Q&A
-- Last activity: 2025-05-16T19:07:40.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Client Connector
-
-Bruno
-
-(Customer) asked a question.
-
-May 13, 2025 at 12:42 PM
-
-3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
-
-Almost four years now.
-
-The issue kept recurring whenever there was an ISP problem, but it was resolved by disabling Zscaler. This has been going on for about four years now, with no definitive solution other than to disable Zscaler.
-
-Since this issue is isolated to PLDT users and has persisted for four years, doesn't it make sense to consider that Zscaler might not be optimized for PLDT (or vice versa)? And yet, it seems like no one is taking any action.
-
-Client Connector
-
-4 answers
-
-758 views
-
-Ben_Garrison
-
-(Employee)
-
-a year ago
-
-Let me get someone with ZCC internally to take a look here and see what we can uncover.
-
-Ramesh Mani
-
-(Partner)
-
-a year ago
-
-I would suggest the ZCC logs check and validate the logs at the time of issues. There could be multiple reasons for this failure.
-
-Osho_Dwivedi
-
-(Employee)
-
-a year ago
-
-What are the ZS Public Service Edges that you're using to connect to?
-
-As referenced above there can be numerous reasons for this, one being ZS not having a POP nearby and peering issues with PLDT.
-
-Have there been a discussion of deploying a ZIA VSE/Private SE in Philippines in order to bring the POP home?
-
-Gianluca.bastia
-
-(Partner)
-
-a year ago
-
-Since there's no POP available, I'd suggest deploying a private service edge and that should help
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/7/2020
-
-at
-
-04:05 AM
-
-Z-App -8 Network Error when users log in on Windows 10
-
-Client Connector
-
-cburge97
-
-2,895
-
-2895 Views
-
-0 Likes
-
-11
-
-11 Comments
-
-7/3/2020
-
-at
-
-11:55 AM
-
-ZAPP intune deployment
-
-Client Connector
-
-Mk001
-
-1,385
-
-1385 Views
-
-0 Likes
-
-4 Comments
-
-1/28/2021
-
-at
-
-03:42 PM
-
-Compare ezAgent and ZCC - when to use which?
-
-Client Connector
-
-hukel
-
-704
-
-704 Views
-
-0 Likes
-
-2 Comments
-
-8/18/2020
-
-at
-
-12:15 PM
-
-MacOS Zscaler App Log Location
-
-Client Connector
-
-brad
-
-3,578
-
-3578 Views
-
-0 Likes
-
-1 Comment
-
-3/7/2022
-
-at
-
-03:41 PM
-
-Can a User with multiple devices use them simultaneously whilst logged in using that same single account
-
-Client Connector
-
-michael.makombe
-
-4 Views
-
-0 Likes
-
-12
-
-12 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-3 years and counting. Zscaler Slow Internet for PLDT users in Philippines January 2022 until May 2025
-<!-- /ZS-POST -->
 
 ---
 
@@ -15078,4 +14837,131 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Disable "Authenticate Early" option in ZCC
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014tAlW0AU/client-connector-posture-type-using-process-check","lastmod":"2026-10-22T17:05:11.000Z","id":"0D5PJ000014tAlW0AU"} -->
+## Client Connector: Posture Type using Process Check
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000014tAlW0AU/client-connector-posture-type-using-process-check
+- Type: Q&A
+- Last activity: 2026-10-22T17:05:11.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Posture
+
+sam.mohan
+
+(Prospect) asked a question
+
+Edited 12h ago
+
+Client Connector: Posture Type using Process Check
+
+I have few questions regarding this post
+
+Finding a Signer Certificate Thumbprint for Process Check posture profiles in Windows and MacOS
+
+Some binaries are signed by multiple issuers. If we enter the thumbprint of any one of them, will the check pass? I referred this
+
+documentation
+
+, but i was not able to get this clarified.
+
+Azure Artifact Sign
+
+ed
+
+binaries appear to receive new certificates almost daily, causing the certificate thumbprint to change with each application upgrade. Is there a recommended approach to handle these short-lived certificates without relying on a fixed thumbprint? We would prefer to validate the certificate using more stable attributes, such as the Custom Extended Key Usage (EKU) and other Subject attributes, rather than the thumbprint. Could you suggest a suitable solution for reliably validating these binaries across application upgrades?
+
+Appreciate if someone could clarify them.
+
+ZPA - Posture
+
+Associated Tags
+
+windows
+
+certificate
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/18/2021
+
+at
+
+04:45 PM
+
+Posture checks on Chromebooks
+
+ZPA - Posture
+
+mags
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Client Connector: Posture Type using Process Check
 <!-- /ZS-POST -->
