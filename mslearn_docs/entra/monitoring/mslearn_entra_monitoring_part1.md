@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / 監視・正常性 (ログ / レポート) (part 1)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 79
+Pages in this file: 80
 
 ---
 
@@ -772,7 +772,7 @@ Azure リソースのマネージド ID によるサインインは、資格情�
 - Article date: 2026-02-09
 - Summary: Microsoft Entra Health を使用して、複数の ID シナリオと認証可用性率を使用してテナントの正常性を監視する
 
-Microsoft Entra Health は、サービス [レベル アグリーメント (SLA)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) に関する継続的な低待機時間の正常性監視とルックバック レポートを通じて、Microsoft Entra テナントの監視を提供します。 低待機時間の正常性監視ソリューションには、シグナルと呼ばれる一連の正常性メトリック データ ストリームが含まれており、IT 運用チームが Microsoft Entra の一般的なシナリオで高いレベルのアップタイムとサービスを維持できるように設計されたアラートが組み込まれています。 SLA の達成は、Microsoft Entra ID のコア認証の可用性を毎月評価するソリューションです。
+Microsoft Entra Health は、継続的な低遅延の正常性監視と、[サービス レベル アグリーメント (SLA)](https://azure.microsoft.com/support/legal/sla/active-directory/v1_1/) に関する過去データのレポート機能を通じて、Microsoft Entra テナントの可観測性を提供します。 低待機時間の正常性監視ソリューションには、シグナルと呼ばれる一連の正常性メトリック データ ストリームが含まれており、IT 運用チームが Microsoft Entra の一般的なシナリオで高いレベルのアップタイムとサービスを維持できるように設計されたアラートが組み込まれています。 SLA の達成は、Microsoft Entra ID のコア認証の可用性を毎月評価するソリューションです。
 
 これらのメトリックとシグナルがペアになると、Microsoft Entra テナントの正常性を包括的に確認できます。 Microsoft Entra Health で提供される情報を定期的に監視すると、傾向、潜在的な問題、テナントの正常性を改善するための領域を特定するのに役立ちます。 また、サービスがテナントのパターンの異常を識別したときにアラートを送信するように電子メール通知を構成することもできます。 この記事では、Microsoft Entra Health の監視機能の概要について説明します。
 
@@ -785,9 +785,9 @@ Microsoft Entra Health シナリオの監視とアラートは現在プレビュ
 シナリオの監視と SLA の達成は、Microsoft Entra 管理センターの Microsoft Entra Health 領域で利用できます。
 
 1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[レポート閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader)としてサインインします。
-2. **Entra ID**&gt;**監視と健康**&gt;**健康**にアクセスします。
+2. **[Entra ID]**&gt;**[監視と正常性]**&gt;**[正常性]**に移動します。
     - [ **正常性の監視** ] タブには、使用可能な正常性シナリオに関するシグナルとアラートの概要が表示されます。
-    - **[SLA 達成**] タブには、1 か月あたりの Microsoft Entra ID のユーザー認証の可用性が表示されます。 詳細については、 [Microsoft Entra ID の SLA パフォーマンスに関する説明を](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-sla-performance)参照してください。
+    - **[SLA 達成**] タブには、1 か月あたりの Microsoft Entra ID のユーザー認証の可用性が表示されます。 詳細については、「[Microsoft Entra ID の SLA パフォーマンス](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-sla-performance)」を参照してください。
 
 ### Microsoft Entra Health の監視 (プレビュー) のしくみ
 
@@ -1335,7 +1335,7 @@ Microsoft Entra External ID によって提供されるサインアップ ログ
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-usage-insights-report
 - Service: entra-id / monitoring-health
-- Article date: 2025-05-27
+- Article date: 2026-10-29
 - Summary: Microsoft Entra ID の使用状況と分析情報レポートを使用して探索できる情報について説明します。
 
 Microsoft Entra **の使用状況と分析情報** のレポートを使用すると、サインイン データのアプリケーション中心のビューを取得できます。 使用状況と分析情報には、認証方法、サービス プリンシパルのサインイン、アプリケーション資格情報アクティビティに関するレポートが含まれます。 次の質問への回答を導き出すことができます。
@@ -1437,7 +1437,13 @@ GET https://graph.microsoft.com/beta/reports/getRelyingPartyDetailedSummary(peri
 
 ### サービス プリンシパル サインイン アクティビティ (プレビュー)
 
-サービス プリンシパルのサインイン アクティビティ (プレビュー) レポートには、すべてのサービス プリンシパルの最後のアクティビティの日付が表示されます。 このレポートには、サービス プリンシパルの使用状況 (クライアントアプリまたはリソース アプリとして使用されたかどうか、アプリ専用または委任されたコンテキストで使用されたかどうか) に関する情報が表示されます。 レポートには、サービス プリンシパルが最後に使用された時刻が表示されます。
+サービス プリンシパルのサインイン アクティビティ (プレビュー) レポートには、すべてのサービス プリンシパルの最後のアクティビティの日付が表示されます。 このレポートには、サービス プリンシパルの使用状況 (クライアントアプリまたはリソース アプリとして使用されたかどうか、アプリ専用または委任されたコンテキストで使用されたかどうか) に関する情報が表示されます。
+
+Important
+
+最後のアクティビティには、サインイン ログに表示されない部分的なサインインやその他の不完全なアクティビティを含めることができます。 報告されたタイムスタンプだけでは、認証が完了または成功したこと、あるいはアクセス トークンが発行されたことを示すものではありません。
+
+プレビュー期間中は、一部の部分的なサインイン アクティビティがアプリケーション認証 (アプリ専用) アクティビティとして誤って分類される可能性があります。 これは現在のプレビューでの分類の制限であり、今後解決される予定です。
 
 [Image: サービス プリンシパルのサインイン アクティビティ レポートのスクリーンショット。]
 
@@ -3232,7 +3238,7 @@ Microsoft Entraヘルスシナリオの監視とアラートは現在プレビ�
 
 ##### シグナルを表示する
 
-1. 少なくとも[レポート リーダー](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader)として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+1. 少なくとも[レポート リーダー](https://entra.microsoft.com)として[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader)にサインインします。
 2. **[Entra ID]**&gt;**[監視と正常性]**&gt;**[正常性]** に移動します。 サービス レベル アグリーメント (SLA) 達成ページが開きます。
 3. **ヘルスモニタリング** タブを選択します。
 
@@ -3299,7 +3305,7 @@ Microsoft Entraヘルスシナリオの監視とアラートは現在プレビ�
     [Image: 結果の詳細なレポートと推奨される次の手順を示すCopilotの調査結果のスクリーンショット。]
 4. 詳細を取得するには、[ **根本原因** ] 見出しと [ **その他の詳細** ] 見出しをクリックします。
 
-## [Microsoft Graph API](#tab/microsoft-graph-api)
+## [マイクロソフト グラフ API](#tab/microsoft-graph-api)
 Microsoft Graph API を使用すると、正常性シグナルとアラートを構成するメトリックを表示し、正常性アラートの影響の概要を確認できます。
 
 要求と応答のサンプルについては、「健康監視リストアラート オブジェクト 」を参照してください。
@@ -7893,7 +7899,7 @@ Microsoft Entra ID へのワークロードの移行を計画するために、S
 | 6 月 | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% |
 | 7 月 | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% |
 | 8 月 | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% | 99.999% |
-| 9 月 | 99.999% | 99.998% | 99.999% | 99.999% | 99.999% |  |
+| 9 月 | 99.999% | 99.998% | 99.999% | 99.999% | 99.999% | 99.999% |
 | 10 月 | 99.999% | 99.999% | 99.999% | 99.998% | 99.999% |  |
 | 11 月 | 99.998% | 99.999% | 99.999% | 99.998% | 99.999% |  |
 | 12 月 | 99.978% | 99.999% | 99.999% | 99.998% | 99.999% |  |
@@ -8168,6 +8174,350 @@ Microsoft Entra ログ ストリームのデータセットは、セキュリテ
 Microsoft が所有するアプリケーションに変更を加える前に、慎重に行うことをお勧めします。 多くの場合、これらのアプリケーションには、課金アプリケーションのトークン発行などの重要な設定があります。 無効にすると、アカウントへのアクセスが失われることがあります。 Microsoft の内部セキュリティ チームは、これらのアプリケーションをセキュリティで保護するために、広範なセキュリティ制御とアクセス ポリシーを実装しています。 Microsoft はセキュリティに自信を持っており、追加の変更を行うことを強くお勧めします。
 
 これらのアプリケーションをブロックまたは制御することを選択した場合、予期しない問題が発生する可能性があり、残念ながら、これらの問題をサポートしたり責任を負ったりすることはできません。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/monitoring-health/scenario-health-agent-id-autonomous-sign-ins"} -->
+## Agent ID の自動サインインを調査する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/scenario-health-agent-id-autonomous-sign-ins
+- Service: entra-id / monitoring-health
+- Article date: 2026-10-08
+- Summary: エージェント ID の自律サインインの Microsoft Entra 正常性監視シグナルとアラートを調査し、アプリケーション専用認証の失敗を軽減する方法について説明します。
+
+Microsoft Entra 正常性監視では、テナントのアクティビティの大きな変化を検出したときに、テナント レベルの正常性シグナルとアラートを提供します。 **エージェント ID の自動サインイン** シナリオは、エージェントが自身として認証され、動作するときの失敗を調査するのに役立ちます。
+
+この記事では、シナリオを解釈し、アラートをサービス プリンシパルのサインイン ログと監査ログに関連付け、一般的な問題を軽減する方法について説明します。 共有調査ワークフローについては、[Microsoft Entra 正常性監視アラートを調査する](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-investigate-health-scenario-alerts)を参照してください。
+
+Important
+
+Microsoft Entra Health シナリオの監視とアラートは現在プレビュー段階です。 この情報は、リリース前に大幅に変更される可能性があるプレリリース製品に関連しています。 Microsoft は、ここに記載されている情報に関して、明示または黙示を問わず、一切の保証を行いません。
+
+### autonomous の意味を理解する
+
+アプリケーションのみのアクセスでは、エージェントは、サインインしている人間のユーザーの代わりにではなく、独自の ID のトークンを要求します。 委任されたユーザーのアクセス許可ではなく、アプリケーションのアクセス許可が使用されます。 エージェントは、人との対話型の会話もサポートしている場合でも、このアクセス パターンを使用できます。 認証フローについては、「[自律エージェントの認証とトークンの取得](https://learn.microsoft.com/ja-jp/entra/agent-id/autonomous-agent-authentication-authorization-flow)」を参照してください。
+
+Microsoft Entra エージェント ID の場合、トークンの取得には 2 つの段階があります。ブループリントは認証されて子エージェント ID 用の交換トークンを取得し、子エージェント ID はそのトークンを使用してリソース アクセス トークンを要求します。 資格情報は、子エージェント ID ではなくブループリントで設定されます。 [エージェント自律アプリの OAuth フロー](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-autonomous-app-oauth-flow)を参照してください。
+
+一部のエージェントでは、Microsoft Entra エージェント ID ではなく、クラシック アプリケーション ID または指定されたサービス プリンシパルが使用されます。 これらの ID は、アプリケーションとサービス プリンシパル認証モデルに従います。 すべてのサービス プリンシパル サインインがエージェント サインインであるか、すべてのエージェントがブループリントを使用していると想定しないでください。
+
+#### 呼び出し元とトークンのサブジェクトを識別する
+
+[エージェントのサインイン プロパティは](https://learn.microsoft.com/ja-jp/graph/api/resources/agentic-agentsignin?view=graph-rest-beta&preserve-view=true)、呼び出し元 ID とトークンのサブジェクトを区別します。
+
+| プロパティ | これが回答する質問 | 使用方法 |
+| --- | --- | --- |
+| `agent.agentType` | 誰がサインインしましたか？ | 自律的な正常性評価では、`agenticAppInstance` として分類された呼び出し元が選択されます。 |
+| `agent.agentSubjectType` | 誰を代理してトークンがリクエストされましたか? | 自律型正常性影響評価では、`agentIDuser` サブジェクトは除外されます。 |
+| `agent.parentAppId` | 呼び出し元に関連付けられている親アプリケーションはどれですか? | この値が使用可能な場合は、エージェント ID とそのブループリントを関連付ける。 |
+
+このシナリオの影響評価では、失敗したイベントには 0 以外の`status.errorCode`、`agentType` の `agenticAppInstance`、および`agentSubjectType`以外の`agentIDuser`があります。 シナリオを `isInteractive = false` だけから推測したり、すべてのアプリケーション専用イベントに特定のサブジェクト値を 1 つ必須としたりしないでください。
+
+Note
+
+エージェントは、独自の [エージェントのユーザー アカウント](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-users)を使用しながら自律的に実行されます。 この正常性シナリオの選択基準ではなく、エージェントの動作方法について説明します。 `agentIDuser`サブジェクトを持つイベントは、自律的な正常性シナリオではなく、[エージェント ID の対話型サインインで](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/scenario-health-agent-id-interactive-sign-ins)調査されます。
+
+#### 正常性シナリオはサインイン ログのカテゴリではありません
+
+[4 つのサインイン ログの種類](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-ins#what-are-the-types-of-sign-in-logs)は、エージェントが独立して動作するかどうかではなく、認証アクティビティを記述します。 このシナリオでは、**サービス プリンシパルのサインイン** から始めます。**ユーザー サインイン (対話型)** または **ユーザー サインイン (非対話型)** ではありません。
+
+エージェントのトークン チェーンには、マネージド ID またはブループリントが含まれる場合もあります。 これらの関連イベントは、以前の認証の失敗の診断に役立ちますが、自動的に自律型正常性影響評価の一部となるわけではありません。 ログ カテゴリとエージェントの詳細については、[Service principal sign-ins](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-service-principal-sign-ins)と[Microsoft Entra エージェント IDログ](https://learn.microsoft.com/ja-jp/entra/agent-id/sign-in-audit-logs-agents)に関するページを参照してください。
+
+### Prerequisites
+
+タスクごとに最小権限のロールを使用してください。 アラートを調査するアクセス許可では、資格情報、アプリケーションのアクセス許可、または条件付きアクセス ポリシーを変更するアクセス許可は付与されません。
+
+- 正常性シナリオのシグナルを表示するには、[Microsoft Entra P1 または P2 ライセンス](https://learn.microsoft.com/ja-jp/entra/fundamentals/get-started-premium)を持つテナントが必要です。
+- アラートを表示し、アラート通知を受信するには、Microsoft Entra P1 または P2 の非試用版ライセンスを持ち、少なくとも 100 人の月間アクティブ ユーザーがいるテナントが必要です。
+- [レポート閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader) は、正常性シグナル、アラート、アラート構成、およびサインイン ログを表示するための最小限の特権ロールです。
+- [ヘルプデスク管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator) は、アラートとアラート通知の構成を更新できる最小権限のロールです。
+- Microsoft Graphの場合は、`HealthMonitoringAlert.Read.All`を使用してアラートを読み取るか、`HealthMonitoringAlert.ReadWrite.All`を使用してアラートを読み取って更新する。 `AuditLog.Read.All`を使用してサインイン ログを読み取ります。正常性状態アラートのアクセス許可ではログ アクセスは許可されません。
+- 適用された条件付きアクセス ポリシーを読み取るには、追加のアクセス許可とサポートされているロールが必要です。 「[List signIns permissions](https://learn.microsoft.com/ja-jp/graph/api/signin-list?view=graph-rest-beta&preserve-view=true#permissions)」を参照してください。
+
+正常性に関するロール要件については、「[Microsoft Entra Health の最小特権ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/delegate-by-task#microsoft-entra-health-least-privileged-roles)」を参照してください。 軽減策でポリシーの変更が必要な場合は、必要に応じて [エージェントの条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/agent-id) または [ワークロード ID の条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/workload-identity)に関する個別のライセンスとロールの要件も確認してください。
+
+### シグナルとアラートを調査する
+
+異常の発生時間帯と影響を受けるアプリケーションから始めます。 次に、どの ID とどのトークン取得ステージが失敗したかを特定します。
+
+1. 少なくともレポート閲覧者として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインしてください。
+2. **[Entra ID]**&gt;**[監視と正常性]**&gt;**[正常性]**に移動し、**[正常性の監視]** を選択します。
+3. **エージェント ID の自律サインインを選択します**。アクティブなアラートの中にシナリオが表示されない場合は、[**すべてのシナリオ**] を選択してそのシグナルを表示します。
+
+    [Image: エージェント ID の自律サインイン シナリオとそのアクティブなアラートが強調表示された正常性モニタリングのスクリーンショット。]
+4. **エージェント ID 自律サインイン完了ボリューム**と**エージェント ID 自律サインインの失敗ボリューム** グラフを確認します。 変更を、スケジュールされたワークロード、デプロイ、および予想されるエージェント アクティビティと比較します。
+5. アクティブな**Agent ID の自律サインイン失敗の大幅な増加**アラートを選択します。 異常期間を記録し、そのシグナルと影響を受けるアプリケーションを確認します。
+6. **[影響を受けるエンティティ]** で、アプリケーションの **[表示]** を選択します。 影響を受けるアプリケーション識別子を使用して、調査を絞り込みます。 自律型影響評価では、アプリケーションは `appId` ごとにグループ化されます。影響を受けるユーザーまたはデバイスの一覧は生成されません。 アプリケーション数は、失敗したトークン要求の数ではありません。
+7. **Entra ID**&gt;**Agents** に移動し、Agents ブレードで **サインイン ログ** を選択します。 [**サービス プリンシパルのサインイン**] を選択し、日付範囲を異常が発生した期間に設定し、[**状態**] を [**失敗**] でフィルター処理します。
+
+    [Image: エージェントから開かれたサインイン ログのスクリーンショット。Entra IDとエージェントが強調表示され、[サービス プリンシパルのサインイン] タブが選択され、[状態] が [失敗] に設定されています。]
+8. 影響を受けるアプリケーションを個々のイベントと関連付けます。 `appId`、`servicePrincipalId`、エージェントのプロパティ、ターゲット リソース、エラー コード、失敗の理由、資格情報の種類、条件付きアクセスの結果を確認します。 グループ化されたログ行を展開して、個々の要求を検査します。
+9. [監査ログ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-audit-logs)で、最近の認証情報、フェデレーション信頼、アプリケーションのアクセス許可、ID の状態、またはポリシーの変更を確認します。 エージェントの識別情報については、影響を受けるエージェントがブループリントを共有しているかどうかを確認します。
+
+1 つのブループリントから複数のエージェントが同時に失敗した場合は、各エージェントを個別に変更する前に、共有資格情報とブループリント スコープポリシーを調査します。 1 つのリソースに影響を与える障害は、代わりにそのリソースの構成またはアクセス許可に起因する場合があります。 ログでいずれかの説明を確認します。失敗件数だけでは、障害や攻撃を示すものではありません。
+
+#### アラートをMicrosoft Graphに関連付ける
+
+選択したアラートを取得し、影響を受けるリソースのサンプルをデプロイします。 `{alertId}`をアラートの ID に置き換えます。 「[正常性モニター アラートを取得する](https://learn.microsoft.com/ja-jp/graph/api/healthmonitoring-alert-get?view=graph-rest-beta&preserve-view=true)」を参照してください。
+
+```http
+GET https://graph.microsoft.com/beta/reports/healthMonitoring/alerts/{alertId}?$expand=enrichment/impacts/microsoft.graph.healthmonitoring.directoryobjectimpactsummary/resourceSampling
+Prefer: include-unknown-enum-members
+```
+
+集計されたサービス プリンシパル アクティビティには [getSummarizedServicePrincipalSignIns](https://learn.microsoft.com/ja-jp/graph/api/auditlogroot-getsummarizedserviceprincipalsignins?view=graph-rest-beta&preserve-view=true) を使用します。 次のリクエストでは、ドキュメント化されたアプリケーション フィルターを使用します。 `{application-client-id}`を、サービス プリンシパル オブジェクト ID ではなく、影響を受けるアプリケーションの`appId`に置き換えます。
+
+```http
+GET https://graph.microsoft.com/beta/auditLogs/getSummarizedServicePrincipalSignIns(aggregationWindow='h1')?$filter=appId eq '{application-client-id}'
+Prefer: include-unknown-enum-members
+```
+
+応答で返された `@odata.nextLink` に従ってください。 返されたデータで、前に説明した呼び出し側と件名の条件に一致する失敗した行を選択します。 `servicePrincipalId`を使用して特定のサービス プリンシパルを識別し、`parentAppId` は、使用可能な場合、エージェントをそのブループリントに関連付けるために使用します。
+
+[summarizedSignInリソース](https://learn.microsoft.com/ja-jp/graph/api/resources/summarizedsignin?view=graph-rest-beta&preserve-view=true)は、複数の次元にわたってイベントをグループ化します。 リクエスト数には `signInCount` を使用します。行を個々のサインインや一意のアプリケーションとしてカウントしないでください。 集計とログの可用性は正常性グラフとは異なる可能性があるため、合計が正確に一致するとは限りません。
+
+個々のイベントの場合は、サービス プリンシパル イベントの種類を明示的に要求し、UTC タイムスタンプの例を調査間隔に置き換えてください。 イベントの種類のフィルターを使用しない場合、 [List signIns API](https://learn.microsoft.com/ja-jp/graph/api/signin-list?view=graph-rest-beta&preserve-view=true) は既定で対話型ユーザー サインインのみを返します。
+
+```http
+GET https://graph.microsoft.com/beta/auditLogs/signIns?$filter=createdDateTime ge 2026-10-05T10:00:00Z and createdDateTime lt 2026-10-05T11:00:00Z and signInEventTypes/any(t: t eq 'servicePrincipal')
+Prefer: include-unknown-enum-members
+```
+
+返されたイベントを、影響を受けるアプリケーション、エージェントのプロパティ、および 0 以外のエラー コードと関連付けます。 `Prefer` ヘッダーを使用すると、`unknownFutureValue`を特定の ID 型として解釈するのではなく、追加の進化可能な列挙値を受け取ります。
+
+Note
+
+これらのMicrosoft Graph例では、`/beta`を使用します。 ベータ API は変更される可能性があり、運用アプリケーションではサポートされていません。
+
+### 一般的な問題を軽減する
+
+アラート タイトルだけでなく、一致するイベントのエラー コードと失敗理由から軽減策を選択します。 次の問題は、最も頻繁に発生するエラーのランク付けされた一覧ではなく、調査の開始点です。 エラーの意味については、[Microsoft ID プラットフォームエラーリファレンスを参照してください](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-error-codes)。
+
+#### 資格情報が無効であるか、有効期限が切れています
+
+`AADSTS7000215` は、無効なクライアント シークレットを示します。 `AADSTS7000222` は、期限切れのクライアント シークレット キーを示します。 証明書ベースの認証の場合は、シークレット エラーが該当すると想定するのではなく、イベントの失敗の理由と証明書の構成を調べます。
+
+1. 失敗したトークン要求、クライアント ID、設定済みの認証情報を特定するようエージェント開発者に依頼します。 エージェント ID については、ブループリントの認証情報を確認します。 クラシック アプリケーションの ID については、そのアプリケーションの認証情報を確認します。
+2. 無効な資格情報を修正するか、承認されたデプロイ プロセスを通じて期限切れの資格情報をローテーションする。 エージェント ID またはエージェントのユーザー アカウントに資格情報を直接追加しないでください。
+3. デプロイから古い資格情報を削除する前に、置換資格情報を使用してトークンの取得を検証します。 複数の子エージェントがブループリントを共有している場合は、影響を受ける各エージェントで復旧を確認します。
+
+サポートされている場合は、運用環境のクライアント シークレットの代わりに、マネージド ID フェデレーションを使用します。 「[自律型エージェントの資格情報を構成する](https://learn.microsoft.com/ja-jp/entra/agent-id/autonomous-agent-authentication-authorization-flow#configure-your-client-credentials)」を参照してください。
+
+#### フェデレーション ID の信頼関係が提示されたアサーションと一致しない
+
+`AADSTS70021` は、提示されたアサーションに一致するフェデレーション ID レコードが見つからなかったことを示します。 最近構成された認証情報は、反映されるまで時間がかかる場合もあります。 「[ワークロード ID フェデレーションに関する考慮事項](https://learn.microsoft.com/ja-jp/entra/workload-id/workload-identity-federation-considerations)」を参照してください。
+
+1. 失敗した交換フェーズを特定します。 提示されたアサーションの発行者、サブジェクト、および対象ユーザーを、目的のフェデレーション ID 資格情報と比較します。 診断情報を収集するときにトークンや資格情報を共有しないでください。
+2. エージェント ID については、ブループリント クライアント ID、`fmi_path` 内の子エージェント クライアント ID、および親子関係を確認します。 ブループリントは、その子エージェント ID のみを偽装できます。
+3. 特定の信頼設定の不一致を修正します。 最近の信頼設定の変更後は、反映されるまで時間を置き、間隔を制御して再試行します。 完全に一致しないアサーションを繰り返し再試行しても、構成の問題は解決しません。
+
+エージェント固有のトークン チェーンについては、「 [エージェント自律アプリの OAuth フロー](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-autonomous-app-oauth-flow)」を参照してください。 マネージド ID 信頼の構成については、[「マネージド ID を信頼するようにアプリケーションを構成する」](https://learn.microsoft.com/ja-jp/entra/workload-id/workload-identity-federation-config-app-trust-managed-identity)を参照してください。
+
+#### アプリケーションが見つからない、無効になっている、または間違ったテナントで要求されている
+
+`AADSTS700016` は、要求されたテナントにアプリケーションが見つからなかったことを示します。 `AADSTS7000112` は、無効化されたアプリケーションを示します。 `AADSTS500011` は、リソース サービス プリンシパルがテナントに見つからなかったことを示します。
+
+1. 要求のテナント、クライアント ID、およびリソースを、意図したデプロイ先と比較します。 ブループリント クライアント ID、子エージェント クライアント ID、アプリケーション オブジェクト ID、サービス プリンシパル オブジェクト ID を区別します。
+2. 影響を受ける ID と、エージェント ID の場合はそのブループリントを確認してください。 無効化または削除の監査イベントを確認します。 ブループリントを無効にすると、その子エージェント ID が認証されなくなります。
+3. ID の所有者に、誤った識別子またはテナントを修正するよう依頼します。 インシデント対応またはガバナンスのために ID が意図的に無効にされた場合は、承認なしで再び有効にしないでください。
+
+[「エージェント ID を無効にする」](https://learn.microsoft.com/ja-jp/entra/agent-id/disable-agent-identities)と[「エージェント ID ブループリント」](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-blueprint)を参照してください。
+
+#### 条件付きアクセスによってエージェントがブロックされる
+
+`AADSTS53003` は、条件付きアクセスによってトークンの発行がブロックされたことを示します。 新しく適用されたブロック ポリシー、エージェント リスク、または意図しないポリシー割り当てによって、障害の増加が説明される可能性があります。
+
+1. 失敗したイベントの **条件付きアクセス** の詳細、ポリシーの結果、およびターゲット リソースを確認します。 承認属性や除外など、エージェント ID またはそのブループリントへのポリシー割り当てを確認します。
+2. 最近のポリシーの変更とリスク情報を確認します。 エージェントが従来のサービス プリンシパルを使用する場合は、エージェント固有のターゲット設定が適用されていると想定するのではなく、ワークロード ID ポリシー ガイダンスを使用します。
+3. 意図的なセキュリティ ブロックを維持する。 意図しないスコープまたは構成のみを修正するようポリシー所有者に依頼し、必要に応じて適用する前にレポート専用モードで提案された変更を確認します。
+
+アプリケーション専用エージェントに対して、人間による MFA プロンプトの完了を要求したり、委任されたアクセス許可を使用してブロックをバイパスしたりしないでください。 [条件付きアクセスを使用した自律エージェントのセキュリティ保護](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/policy-autonomous-agents)、[ワークロード ID の条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/workload-identity)、および [エージェント向け Identity Protection](https://learn.microsoft.com/ja-jp/entra/id-protection/concept-risky-agents) を参照してください。
+
+#### リソース アクセスまたはアプリケーションのアクセス許可が正しく構成されていません
+
+`AADSTS650056` は、正しく構成されていないアプリケーションを示し、アクセス許可、同意、識別子、または証明書に関係している可能性があります。 完全なエラーの詳細を使用して、原因を特定してください。 アプリケーションのみのアクセスの場合、委任されたユーザーの同意は、必要なアプリケーションのアクセス許可に代わるものではありません。
+
+1. 要求されたリソースとスコープを確認します。 エージェント アプリケーション専用のトークン要求では、リソースの `/.default` スコープが使用されます。
+2. 承認された管理者に、必要なアプリケーションのアクセス許可、アプリ ロールの割り当て、ブループリントから継承されたアクセス許可を確認するように依頼します。 必要なアクセス許可を宣言しても、それ自体はアクセス権を付与しません。
+3. 不足しているか意図しない付与のみを修正し、操作を再試行してください。
+
+トークンの発行が成功した後のダウンストリーム API `403` は、承認が不十分であることを示す可能性があります。この正常性シグナルでは自動的に失敗したサインインとしてカウントされるわけではありません。 サインインに成功しても操作が失敗した場合は、リソースの承認と API 応答を個別に調査します。 [「自律エージェントにアプリケーションのアクセス許可を付与する」](https://learn.microsoft.com/ja-jp/entra/agent-id/autonomous-agent-authentication-authorization-flow#grant-application-permissions)と[「継承可能なアクセス許可」](https://learn.microsoft.com/ja-jp/entra/agent-id/concept-inheritable-permissions)を参照してください。
+
+### 回復の確認
+
+原因を修正したら、影響を受けるアプリケーションとリソースの新しいサインイン イベントが成功し、その失敗件数が期待されるパターンに戻っていることを確認します。 エージェントの意図された操作とトークンの取得を確認します。 新しいログと正常性グラフを比較するときは、処理の遅延を考慮してください。
+
+調査した後でのみ、アラートを**却下済み**としてマークします。 アラートを閉じても、資格情報、アクセス許可、またはトークンの発行は復元されません。 アラートの状態と通知のガイダンスについては、「[Microsoft Entra正常性監視アラートの調査](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-investigate-health-scenario-alerts)」および[「正常性アラート通知の構成](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-configure-health-alert-notifications)」を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/monitoring-health/scenario-health-agent-id-interactive-sign-ins"} -->
+## エージェント ID の対話型サインインを調査する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/scenario-health-agent-id-interactive-sign-ins
+- Service: entra-id / monitoring-health
+- Article date: 2026-10-08
+- Summary: エージェント ID 対話型サインインの Microsoft Entra の正常性監視シグナルとアラートを調査し、エージェント アクティビティを関連付け、サインイン失敗を軽減する方法について説明します。
+
+Microsoft Entra正常性の監視では、テナントのアクティビティの大きな変化を検出したときに、テナント レベルの正常性シグナルとアラートが提供されます。 **エージェント ID 対話型サインイン** シナリオは、ユーザー委任コンテキストを使用してエージェント サインインのエラーを調査するのに役立ちます。
+
+この記事では、シナリオを解釈し、アラートとサインイン ログと監査ログを関連付け、一般的な問題を軽減する方法について説明します。 共有調査ワークフローについては、[Microsoft Entra 正常性監視アラートを調査する](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-investigate-health-scenario-alerts)を参照してください。
+
+Important
+
+Microsoft Entra Health シナリオの監視とアラートは現在プレビュー段階です。 この情報は、リリース前に大幅に変更される可能性があるプレリリース製品に関連しています。 Microsoft は、ここに記載されている情報に関して、明示または黙示を問わず、一切の保証を行いません。
+
+### インタラクティブの意味を理解する
+
+正常性の監視では、*対話型*はエージェントのユーザー委任コンテキストを指します。 人間がパスワードを入力したり、すべてのエージェント トークン要求に対して MFA プロンプトを完了したりするわけではありません。 対話型エージェントは、委任されたアクセス許可を使用して、人間のユーザーに代わり、そのユーザーのリソースにアクセスできます。 その認証フローについては、「[ユーザーの認証と対話型のエージェントのトークンの取得](https://learn.microsoft.com/ja-jp/entra/agent-id/interactive-agent-authentication-authorization-flow)」を参照してください。
+
+このヘルス シナリオを調査するには、呼び出し元 ID とトークンのサブジェクトを区別します。 [エージェントのサインイン プロパティ](https://learn.microsoft.com/ja-jp/graph/api/resources/agentic-agentsignin?view=graph-rest-beta&preserve-view=true)は、次の 2 つのディメンションを提供します。
+
+| プロパティ | これが回答する質問 | 使用方法 |
+| --- | --- | --- |
+| `agent.agentType` | 誰がサインインしましたか？ | エージェント ID インスタンス (`agenticAppInstance`) などの呼び出し元 ID を識別します。 |
+| `agent.agentSubjectType` | トークンは誰に代わってリクエストされましたか? | トークンの主体を識別します。 対話型の正常性シナリオでは、`agentIDuser` サブジェクトを選択します。 |
+| `agent.agentSubjectParentId` | サブジェクトに関連付けられている親 ID はどれですか? | この値が使用可能な場合、エージェントのユーザー アカウントをその親 ID 情報に関連付ける。 |
+| `agent.parentAppId` | 呼び出し元エージェントに関連付けられている親アプリケーションはどれですか? | この値が使用可能な場合は、呼び出し元エージェントとそのブループリントを関連付ける。 |
+
+Note
+
+**エージェント ID ユーザー**は[エージェントのユーザー アカウント](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-users)であり、人間のユーザー のアカウントではありません。 これにより、エージェントはユーザー コンテキストと委任されたアクセス許可で動作できます。 正常性監視の選択 `agentSubjectType = agentIDuser` は、代理 (OBO) フローを通じて人間の代わりに動作するすべてのエージェントのテストではありません。 エージェントのユーザー アカウントと人間の OBO トークンの主体を交換可能として扱ってはいけません。
+
+**エージェント ID の自律サインイン** は、ここで監視されるユーザー委任コンテキストではなく、エージェントがサインインして自身で動作するための個別の正常性シナリオです。 エージェント ID と指定されたサービス プリンシパルは、これらのエージェントを表すことができます。 アプリケーションアクセス許可フローについては、「[自律エージェントの認証とトークンの取得](https://learn.microsoft.com/ja-jp/entra/agent-id/autonomous-agent-authentication-authorization-flow)」を参照してください。
+
+#### ヘルス シナリオはサインイン ログ カテゴリではない
+
+[4 種類のサインイン ログの種類は](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-ins#what-are-the-types-of-sign-in-logs)、認証がどのように行われるかを示します。
+
+| サインイン ログの種類 | 認証アクティビティ |
+| --- | --- |
+| 対話型のユーザー サインイン | ユーザーは、パスワードや MFA 応答などの認証要素を提供します。 |
+| 非対話型ユーザーのサインイン | アプリケーションまたはオペレーティング システム コンポーネントは、ユーザーに確認を求めることなく、ユーザーに代わって認証を行います。 |
+| サービス プリンシパルのサインイン | アプリケーション ID により認証されます。 |
+| マネージド ID のサインイン | マネージド ID 認証。 |
+
+エージェント アクティビティは、これらのログの種類にまたがって表示できます。 特に、**Agent ID の対話型サインイン**正常性シナリオでは、**ユーザー サインイン (非対話型)** ログのエージェント ユーザー アクティビティが使用されます。 **ユーザー サインイン (対話型)** または `isInteractive = true` のみをフィルター処理すると、このシナリオに関連するエラーを見逃す可能性があります。 詳細については、 [Microsoft Entra エージェント ID ログ](https://learn.microsoft.com/ja-jp/entra/agent-id/sign-in-audit-logs-agents)を参照してください。
+
+### Prerequisites
+
+調査タスクごとに最小限の特権ロールを使用します。 アラートを表示しても、エージェントの資格情報、同意、または条件付きアクセス ポリシーを変更するアクセス許可は付与されません。
+
+- 正常性シナリオのシグナルを表示するには、[Microsoft Entra P1 または P2 ライセンス](https://learn.microsoft.com/ja-jp/entra/fundamentals/get-started-premium)を持つテナントが必要です。
+- アラートを表示し、アラート通知を受け取るには、試用版ではない Microsoft Entra P1 または P2 ライセンスと少なくとも 100 人以上の月間アクティブ ユーザーの両方を持つテナントが必要です。
+- [レポート閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader) は、正常性シグナル、アラート、アラート構成、およびサインイン ログを表示するための最小限の特権ロールです。
+- [ヘルプデスク管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#helpdesk-administrator) は、アラートとアラート通知の構成を更新するための最も権限の低いロールです。
+- Microsoft Graph の場合は、`HealthMonitoringAlert.Read.All` を使用してアラートを読み取るか、`HealthMonitoringAlert.ReadWrite.All` を使用してアラートを読み取って更新します。 これらのアクセス許可では、サインイン ログへのアクセス権は付与されません。
+- `AuditLog.Read.All`を使用して、Microsoft Graphでサインイン ログを読み取ります。 適用された条件付きアクセス ポリシーを読み取るには、追加のアクセス許可とサポートされているロールが必要です。 [「signIns のアクセス許可を一覧表示する」](https://learn.microsoft.com/ja-jp/graph/api/signin-list?view=graph-rest-beta&preserve-view=true#permissions)を参照してください。
+
+Health ロールの完全な要件については、「[Microsoft Entra Health の最小特権ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/delegate-by-task#microsoft-entra-health-least-privileged-roles)」を参照してください。
+
+### シグナルとアラートを調査する
+
+アラートの期間と影響を受けるエンティティから始めて、ログを使用して、構成の変更またはトークン取得の問題によってエラーが発生したかどうかを判断します。
+
+1. 少なくともレポート閲覧者として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **Entra ID**&gt;**監視と正常性**&gt;**ヘルス**に移動し、[**正常性の監視**] を選択します。
+3. **エージェント ID 対話型サインインを選択します**。アクティブなアラートの中にシナリオが表示されない場合は、[**すべてのシナリオ**] を選択してそのシグナルを表示します。
+
+    [Image: エージェント ID の対話型サインイン シナリオが強調表示されている正常性の監視のスクリーンショット。]
+4. **エージェント ID 対話型サインイン完了ボリューム**と**エージェント ID 対話型サインイン失敗ボリューム**グラフを確認します。 変更をエージェントの予想される使用状況および最近のデプロイと比較します。
+5. シナリオの概要から、アクティブな **Agent ID の対話型サインインの失敗の大幅な増加** アラートを選択します。 異常期間を記録し、**シグナル** セクションと **影響を受けるエンティティ** セクションを確認します。
+
+    [Image: 完了と失敗のシグナルとアクティブなエラー アラートを示すエージェント ID 対話型サインイン シナリオの概要のスクリーンショット。]
+6. [ **影響を受けるエンティティ**] で、アプリケーションとユーザーの **[表示** ] を選択します。 これらの ID を使用して、ログ調査を絞り込みます。 一覧は影響を受けるエンティティのサンプルであり、失敗したすべての要求の一覧ではありません。
+7. **Entra ID**&gt;**Agents** に移動し、Agents ブレードで **[サインイン ログ]** を選択します。 **[ユーザー サインイン (非対話型)]** を選択し、日付範囲を異常期間に設定し、[**状態**] を [**失敗**] にフィルター処理します。
+
+    [Image: エージェントから開かれたサインイン ログのスクリーンショット。Entra IDとエージェントが強調表示され、[非対話型ユーザー サインイン] タブが選択され、[状態] が [失敗] に設定されています。]
+8. 影響を受けるアプリケーションとユーザーを個々のイベントに関連付けます。 [Microsoft Entra エージェント ID ログ](https://learn.microsoft.com/ja-jp/entra/agent-id/sign-in-audit-logs-agents)で説明されているエージェントの詳細を確認してください。 呼び出し元 ID フィルターでイベントが除外される場合は、一致するエラーがないと想定するのではなく、`agentSubjectType` を Microsoft Graph で確認します。
+9. 失敗したイベントを開き、エラー コード、エラー理由、アプリケーション、リソース、条件付きアクセスの結果を確認します。 問題をエスカレートする必要がある場合は、要求 ID、関連付け ID、タイムスタンプを記録してください。 [サインイン ログ アクティビティの詳細を参照してください](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-in-log-activity-details)。
+10. 失敗が開始される直前に、エージェント ID、ブループリント、エージェントのユーザー アカウント、委任されたアクセス許可付与、および関連ポリシーの変更について [監査ログ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-audit-logs) を確認します。
+
+失敗件数の増加は、単独では、停止や攻撃の証拠ではありません。 失敗と完了の傾向をロールアウト アクティビティと比較し、アクセスを変更する前に個々のサインイン イベントの原因を確認します。
+
+#### アラートをMicrosoft Graphに関連付ける
+
+[正常性監視 API](https://learn.microsoft.com/ja-jp/graph/api/resources/healthmonitoring-overview?view=graph-rest-beta&preserve-view=true) を使用して、選択したアラートとそのエンリッチメントを取得します。 影響の概要と、アラートと共に提供されたサポート クエリを確認します。 `{alertId}`を選択したアラートの ID に置き換えます。 この展開では、影響を受けるリソースのサンプルが取得されます。このサンプルは既定では返されません。 「[正常性モニター アラートを取得する](https://learn.microsoft.com/ja-jp/graph/api/healthmonitoring-alert-get?view=graph-rest-beta&preserve-view=true)」を参照してください。
+
+```http
+GET https://graph.microsoft.com/beta/reports/healthMonitoring/alerts/{alertId}?$expand=enrichment/impacts/microsoft.graph.healthmonitoring.directoryobjectimpactsummary/resourceSampling
+Prefer: include-unknown-enum-members
+```
+
+集計された非対話型ユーザー アクティビティの場合は、[getSummarizedNonInteractiveSignIns](https://learn.microsoft.com/ja-jp/graph/api/auditlogroot-getsummarizednoninteractivesignins?view=graph-rest-beta&preserve-view=true) を使用します。 次の要求では、文書化されたアプリケーション フィルターを使用して、影響を受けるアプリケーションに限定します。 `{application-client-id}`を、サービス プリンシパル オブジェクト ID ではなく、アプリケーションの`appId`に置き換えます。
+
+```http
+GET https://graph.microsoft.com/beta/auditLogs/getSummarizedNonInteractiveSignIns(aggregationWindow='h1')?$filter=appId eq '{application-client-id}'
+Prefer: include-unknown-enum-members
+```
+
+`Prefer` ヘッダーを含めて、拡張可能な列挙から `agentIDuser` を受け取ります。 応答で返された任意の `@odata.nextLink` に従ってください。 返されたデータで、`agent.agentSubjectType` が `agentIDuser` であり、`status.errorCode` が 0 以外の行を選択します。 `appId`、`userPrincipalName`、`agent`、および`signInCount`のプロパティを確認します。 対話型シナリオの対象を選択するときに、`agent.agentType` に特定の値を指定する必要はありません。
+
+[要約されたSignIn リソース](https://learn.microsoft.com/ja-jp/graph/api/resources/summarizedsignin?view=graph-rest-beta&preserve-view=true)は、複数のディメンションにわたるイベントを集計します。 `signInCount` を使用してリクエスト数を把握します。個々のサインインまたは影響を受ける一意のユーザーとして応答行をカウントしないでください。 集計とログの可用性は正常性グラフとは異なる可能性があるため、合計が正確に一致するとは限りません。
+
+個々のイベントの場合は、非対話型イベントの種類を明示的に含め、UTC タイムスタンプの例を調査期間に置き換えます。 イベントの種類のフィルターを使用しない場合、 [List signIns API](https://learn.microsoft.com/ja-jp/graph/api/signin-list?view=graph-rest-beta&preserve-view=true) は既定で対話型ユーザー サインインのみを返します。
+
+```http
+GET https://graph.microsoft.com/beta/auditLogs/signIns?$filter=createdDateTime ge 2026-10-05T10:00:00Z and createdDateTime lt 2026-10-05T11:00:00Z and signInEventTypes/any(t: t eq 'nonInteractiveUser')
+Prefer: include-unknown-enum-members
+```
+
+返されたイベントで、影響を受けるアプリケーション、ユーザー、および 0 以外のエラー コードと `agent.agentSubjectType = agentIDuser` を関連付けます。 個々のイベントの失敗の理由と追加の詳細を使用して、軽減策を選択します。
+
+Note
+
+これらのMicrosoft Graph例では、`/beta`を使用します。 ベータ API は変更される可能性があり、運用アプリケーションではサポートされていません。
+
+### 一般的な問題を軽減する
+
+アラート タイトルだけでなく、一致するサインイン イベントのエラー コードを使用します。 以下の例は、網羅的なリストではなく、開始点です。 エラーの意味は、[Microsoft ID プラットフォームエラーリファレンス](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-error-codes)で定義されています。
+
+#### 委任されたアクセス許可に対する同意がありません
+
+`AADSTS65001` は、ユーザーまたは管理者がアプリケーションに同意していないことを示します。 影響を受けるアプリケーション、リソース、および要求されたスコープを確認します。 別のエージェント ID または別のリソースに対して付与されたアクセス許可では、意図したアクセスが確立されません。
+
+1. エージェントに必要な委任されたアクセス許可と、それが明示的な付与を使用しているか、またはブループリントからアクセス許可を継承しているかどうかを確認します。
+2. テナントの同意ポリシーに従って、承認された管理者または適切に同意を行うユーザーに、必要なアクセス許可のみを付与するように依頼します。
+3. トークン要求を再試行し、新しい一致するサインイン イベントが成功することを確認します。
+
+構成ガイダンスについては、「[Microsoft 365へのエージェント アクセスを許可する](https://learn.microsoft.com/ja-jp/entra/agent-id/grant-agent-access-microsoft-365)」および「[エージェント ID ブループリントの継承可能なアクセス許可を構成する](https://learn.microsoft.com/ja-jp/entra/agent-id/configure-inheritable-permissions-blueprints)」を参照してください。
+
+#### トークン アサーションの有効期限が切れているか無効です
+
+`AADSTS500133` は、アサーションが有効な時間範囲内にないことを示します。 `AADSTS50013` は無効なアサーションを示し、有効期限が切れたトークンや形式が正しくないトークンなど、複数の原因が考えられます。 すべてのアサーション エラーの原因が同じであるとは想定しないでください。
+
+1. 失敗の理由を確認し、失敗したトークン交換ステージを特定します。
+2. エージェント開発者に、アサーションの有効性、有効期限、対象先を確認し、同じ無効なアサーションを繰り返し送信するのではなく、適切なフローを通じて新しいトークンを取得するように依頼します。
+3. ヒューマン ユーザー OBO の場合は、受信ユーザー トークンがダウンストリーム リソースではなくエージェント ID ブループリントをターゲットにしていることを確認します。 「[エージェントの On-Behalf-Of フロー](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-on-behalf-of-oauth-flow)」を参照してください。
+4. エージェントのユーザー アカウントの場合は、親 ID とトークン チェーンを [エージェントのユーザー アカウント偽装プロトコル](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-user-oauth-flow)に照らして検証します。 パスワードでサインインするようにエージェントのユーザー アカウントの利用者に指示しないでください。これは、人間のユーザー資格情報をサポートしていません。
+
+#### 条件付きアクセスによってトークンの発行がブロックされる
+
+`AADSTS53003` は、条件付きアクセスによってトークンの発行がブロックされたことを示します。 ブロックは意図的なものである可能性があるため、障害の量を減らすためだけにポリシーを無効にしないでください。
+
+1. 失敗したイベントの **条件付きアクセス** の詳細 (ターゲット リソースやポリシーの結果など) を確認します。
+2. ポリシーの想定される適用範囲と影響を受ける ID を比較します。 最近のポリシーまたは割り当ての変更について監査ログを確認します。
+3. ブロックが意図されたものである場合は、セキュリティ対策を維持します。 スコープが意図しない場合は、影響を受ける割り当てまたは構成のみを修正するようにポリシー所有者に依頼します。
+
+[条件付きアクセスのサインインに関する問題のトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/troubleshoot-conditional-access)と[条件付きアクセス ポリシーの変更の調査](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/troubleshoot-policy-changes-audit-log)を参照してください。
+
+#### ブループリントの資格情報が無効であるか、有効期限が切れています
+
+`AADSTS7000215` は、無効なクライアント シークレットを示します。 `AADSTS7000222` は、期限切れのクライアント シークレット キーを示します。 ブループリントの資格情報チェーンで障害が発生すると、ダウンストリーム トークンの取得が妨げられる可能性があります。
+
+1. エージェント開発者に、失敗した要求で使用される認証情報とクライアント ID を特定するように依頼します。 リクエストで想定されるテナントとブループリントが使用されていることを確認します。
+2. 承認されたデプロイ プロセスを使用して、無効な資格情報を修正するか、期限切れの資格情報をローテーションします。 資格情報は、エージェント ID またはエージェントのユーザー アカウントではなく、ブループリントに属します。
+3. デプロイから古い資格情報を削除する前に、新しいトークン要求を検証してください。
+
+資格情報モデルとサポートされている認証オプションについては、[エージェント ID ブループリント](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-blueprint)と[Microsoft エージェント ID プラットフォームのエラー コード](https://learn.microsoft.com/ja-jp/entra/agent-id/error-codes)を参照してください。
+
+### 回復を確認
+
+原因を修正したら、影響を受けるアプリケーションとサブジェクトの新しいサインイン イベントが成功し、その失敗件数が期待されるパターンに戻っていることを確認します。 新しいログと正常性グラフを比較する前に、処理の遅延を考慮します。
+
+調査した後でのみ、アラートを**却下済み**としてマークします。 アラートを無視しても、基になるサインインの問題は解決されません。 アラートの状態と通知のガイダンスについては、「[Microsoft Entra正常性監視アラートの調査](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-investigate-health-scenario-alerts)」および[「正常性アラート通知の構成](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-configure-health-alert-notifications)」を参照してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -9695,158 +10045,4 @@ IT 管理者は、ID の侵害から組織を確実に保護するために、�
 - **[危険なユーザー ポリシーを有効にする](https://learn.microsoft.com/ja-jp/entra/id-protection/howto-identity-protection-configure-risk-policies#user-risk-policy-in-conditional-access)** - ユーザーが高リスクと見なされたときにアカウントを安全に修復できるようにします。 ポリシー\*を有効にする\*と、ユーザー\*の資格情報\*を安全な状態\*に戻すことによって、組織\*内のアクティブなリスク\*のあるユーザー\*の数を減らすことができます。
 - ID 保護の詳細については、「ID 保護 [とは」を](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection)参照してください。
 - Microsoft Entra ワークブックの詳細については、「Microsoft Entra ワークブックの使用方法」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/monitoring-health/workbook-sensitive-operations-report"} -->
-## 機密性の高い操作のレポート ブック - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/workbook-sensitive-operations-report
-- Service: entra-id / monitoring-health
-- Article date: 2024-11-04
-- Summary: Microsoft Entra ID で機密性の高い操作レポート ブックを使用して、疑わしいアプリとサービス プリンシパルのアクティビティを調べる方法について説明します。
-
-機密性の高い操作のレポート ブックは、環境内の侵害を示す可能性のある、疑わしいアプリケーションやサービス プリンシパルのアクティビティを識別するのに役立ちます。
-
-この記事では、 **機密性の高い操作レポート** ブックの概要について説明します。
-
-### 前提条件
-
-Microsoft Entra ID 用の Azure Workbooks を使用するには、次のものが必要です。
-
-- [Premium P1 ライセンス](https://learn.microsoft.com/ja-jp/entra/fundamentals/get-started-premium)を持つ Microsoft Entra テナント
-- Log Analytics ワークスペース *とその* ワークスペースへのアクセス
-- Azure Monitor *と* Microsoft Entra ID のロールの適切な選択
-
-#### Log Analytics ワークスペース
-
-Microsoft Entra ブックを使用する*前*に [Log Analytics ワークスペース](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/quick-create-workspace)を作成する必要があります。 Log Analytics ワークスペースへのアクセスはいくつかの要因によって決まります。 ワークスペース *と* データを送信するリソースに適したロールが必要です。
-
-詳細については、「 [Log Analytics ワークスペースへのアクセスの管理](https://learn.microsoft.com/ja-jp/azure/azure-monitor/logs/manage-access)」を参照してください。
-
-#### Azure Monitor ロール
-
-Azure Monitor には、監視データを表示し、監視設定を編集するための [2 つの組み込みロール](https://learn.microsoft.com/ja-jp/azure/azure-monitor/roles-permissions-security#monitoring-reader) が用意されています。 Azure ロールベースのアクセス制御 (RBAC) には、同様のアクセスを付与する 2 つの Log Analytics 組み込みロールも用意されています。
-
-- **表示**:
-
-    - 監視リーダー
-    - Log Analytics 閲覧者
-- **設定の表示と変更**:
-
-    - モニタリング貢献者
-    - Log Analytics 共同作成者
-
-#### Microsoft Entra ロール
-
-読み取り専用アクセスでは、ブック内の Microsoft Entra ID ログ データを表示したり、Log Analytics からデータのクエリを実行したり、Microsoft Entra 管理センターでログを読み取ったりすることができます。 更新アクセスにより、Microsoft Entra データを Log Analytics ワークスペースに送信するための診断設定を作成および編集する機能が追加されます。
-
-- **読み取り**:
-
-    - レポート閲覧者
-    - セキュリティ閲覧者
-    - グローバル閲覧者
-- **更新:**
-
-    - セキュリティ管理者
-
-Microsoft Entra 組み込みロールの詳細については、「 [Microsoft Entra 組み込みロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference)」を参照してください。
-
-Log Analytics RBAC ロールの詳細については、 [Azure の組み込みロールに関するページを](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/built-in-roles#log-analytics-contributor)参照してください。
-
-### 説明
-
-[Image: ワークブックカテゴリ]
-
-このブックは、テナント内で実行された最近の機密性の高い操作を識別します。
-
-組織で Azure Monitor ブックを使用したことがない場合は、ブックにアクセスする前に、Microsoft Entra のサインインと監査のログを Azure Monitor と統合する必要があります。 この統合により、最長で 2 年間、ブックを使用してログの格納、クエリの実行、視覚化を実行することができます。 Azure Monitor との統合後に作成されたサインインと監査のイベントのみが格納されるため、ブックには、その日付より前の分析情報は含まれません。 詳細については、「 [Microsoft Entra ログと Azure Monitor の統合](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/howto-integrate-activity-logs-with-azure-monitor-logs)」を参照してください。
-
-### ブックにアクセスする方法
-
-1. 適切なロールの組み合わせを使用して [、Microsoft Entra 管理センター](https://entra.microsoft.com) にサインインします。
-2. **[Entra ID]**&gt;**[監視とヘルス]**&gt;**[ブック]** を参照します。
-3. **トラブルシューティング** セクションから **機密性の高い操作レポート** ブックを選択します。
-
-### セクション
-
-このブックは、4 つのセクションに分割されています。
-
-[Image: ワークブックセクションのスクリーンショット。]
-
-- **変更されたアプリケーションとサービス プリンシパルの資格情報/認証方法** - このレポートは、最近多くのサービス プリンシパル資格情報を変更したアクターと、変更された各種類のサービス プリンシパル資格情報の数にフラグを設定します。
-- **サービス プリンシパルに付与された新しいアクセス許可** - このブックには、サービス プリンシパルに対して最近付与された OAuth 2.0 アクセス許可も強調表示されています。
-- **サービス プリンシパルのディレクトリ ロールとグループ メンバーシップの更新**
-- **変更されたフェデレーション設定** - ユーザーまたはアプリケーションがドメインのフェデレーション設定を変更すると、このレポートが強調表示されます。 たとえば、署名証明書など、Active Directory フェデレーション サービス (ADFS) の新しい TrustedRealm オブジェクトがドメインに追加された場合が報告されます。 ドメインのフェデレーション設定に対する変更は、めったにないはずです。
-
-#### 変更されたアプリケーションとサービス プリンシパルの資格情報および認証方法
-
-攻撃者が環境内でアクセスを獲得する最も一般的な方法の 1 つは、既存のアプリケーションやサービス プリンシパルに新しい資格情報を追加する方法です。 資格情報があれば、攻撃者は標的のアプリケーションまたはサービス プリンシパルとして認証して、それらに、アクセス許可を持つすべてのリソースへのアクセスを付与できます。
-
-このセクションには、検出に役立つ以下のデータが含まれています。
-
-- 資格情報の種類を含め、アプリやサービス プリンシパルに追加された新しい資格情報すべて
-- 上位のアクターと、それらが実行した資格情報の変更の数
-- すべての資格情報変更のタイムライン
-
-#### サービス プリンシパルに付与された新しいアクセス許可
-
-攻撃者は、侵入するための高特権の一連のアクセス許可を持つサービス プリンシパルやアプリケーションを見つけられない場合、別のサービス プリンシパルまたはアプリケーションへのアクセス許可を追加しようと試みます。
-
-このセクションには、既存のサービス プリンシパルに AppOnly アクセス許可が付与された内訳が含まれています。 管理者は、Exchange Online、Microsoft Graph を含む、過剰に高いアクセス許可が付与されているすべてのインスタンスを調査する必要があります。
-
-#### サービス プリンシパルのディレクトリ ロールとグループ メンバーシップの更新
-
-攻撃者が既存のサービス プリンシパルやアプリケーションに新しいアクセス許可を追加する論理に従えば、もう 1 つのアプローチとなるのは、それらを既存のディレクトリ ロールまたはグループに追加することです。
-
-このセクションには、サービス プリンシパルのメンバーシップに加えられたすべての変更の概要が含まれていて、高い特権を持つロールとグループへの追加はすべて確認する必要があります。
-
-#### 変更されたフェデレーション設定
-
-環境内に長期的な足がかりを得るための別の一般的なアプローチは、次のとおりです。
-
-- テナントのフェデレーション ドメインでの信頼を変更する。
-- 攻撃者が制御する別の SAML IDP を、信頼できる認証ソースとして追加する。
-
-このセクションには以下のデータが含まれています。
-
-- ドメイン フェデレーションによる既存の信頼に対して実行された変更
-- 新しいドメインや信頼の追加
-
-### フィルター
-
-この段落では、各セクションでサポートされているフィルターの一覧を示します。
-
-#### 変更されたアプリケーションとサービス プリンシパルの資格情報および認証方法
-
-- 時間の範囲
-- 操作名
-- 資格情報
-- 俳優
-- アクターの除外
-
-#### サービス プリンシパルに付与された新しいアクセス許可
-
-- 時間の範囲
-- クライアント アプリ
-- リソース
-
-#### サービス プリンシパルに対するディレクトリ ロールとグループ メンバーシップの更新
-
-- 時間の範囲
-- 操作
-- 開始しているユーザーまたはアプリ
-
-#### 変更されたフェデレーション設定
-
-- 時間の範囲
-- 操作
-- 開始しているユーザーまたはアプリ
-
-### ベスト プラクティス
-
-- **変更されたアプリケーションとサービス プリンシパルの資格情報を使用して** 、組織で頻繁に使用されないサービス プリンシパルに追加される資格情報を確認します。 このセクションに記載されたフィルターを利用して、変更された疑いのあるアクターやサービス プリンシパルがないかさらに調査します。
-- **サービス プリンシパルに付与された新しいアクセス許可を使用して** 、侵害される可能性のあるアクターによってサービス プリンシパルに追加される広範なアクセス許可または過剰なアクセス許可を確認します。
-- **変更されたフェデレーション設定セクションを使用して** 、追加または変更されたターゲット ドメイン/URL が正当な管理者の動作であることを確認します。 ドメイン フェデレーションの信頼を変更または追加するアクションはまれであり、確かに適正であることをできるだけ早く調査するアクションとして扱う必要があります。
 <!-- /MSL-PAGE -->

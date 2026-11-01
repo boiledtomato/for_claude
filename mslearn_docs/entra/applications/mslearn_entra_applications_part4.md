@@ -1,7 +1,670 @@
 # Microsoft Learn — Microsoft Entra / エンタープライズアプリ・プロビジョニング・アプリプロキシ (part 4)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 70
+Pages in this file: 73
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-proxy/how-to-configure-sso-with-kcd"} -->
+## アプリケーション プロキシを使用してアプリにシングル サインオン (SSO) を実現する Kerberos 制約付き委任 - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/how-to-configure-sso-with-kcd
+- Service: entra-id / app-proxy
+- Article date: 2026-03-25
+- Summary: Microsoft Entra アプリケーション プロキシで Kerberos 制約付き委任 (KCD) を使用して、オンプレミス アプリケーションの Kerberos ベースの SSO を構成します。
+
+### 概要
+
+統合 Windows 認証でセキュリティ保護されているアプリケーション プロキシを使って公開されているオンプレミスのアプリケーションにシングル サインオンを提供できます。 これらのアプリケーションにアクセスするには Kerberos チケットが必要です。 アプリケーション プロキシは、Kerberos の制約付き委任 (KCD) を使って、これらのアプリケーションをサポートします。
+
+シングル サインオン (SSO) の詳細については、[シングル サインオンの概要](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on)に関するページを参照してください。
+
+統合 Windows 認証 (IWA) を使用してアプリケーションへのシングル サインオンができるようにするには、ユーザーの権限を借用できるように Active Directory でプライベート ネットワーク コネクタにアクセス許可を与えます。 コネクタはこのアクセス許可を利用し、ユーザーの代理としてトークンを送受信します。
+
+### KCD を使ったシングル サインオンのしくみ
+
+この図では、ユーザーが IWA を使用するオンプレミス アプリケーションにアクセスしようとしたときのフローについて説明します。
+
+[Image: Microsoft Entra 認証フローの図。]
+
+1. ユーザーは、オンプレミスのアプリケーションにアプリケーション プロキシをとおしてアクセスするための URL を入力します。
+2. この要求がアプリケーション プロキシによって Microsoft Entra 認証サービスにリダイレクトされて、事前認証が行われます。 この時点で、Microsoft Entra ID の認証および承認のポリシーのうち、該当するものが適用されます (たとえば多要素認証)。 ユーザーの正当性が確認された場合、Microsoft Entra ID はトークンを作成し、ユーザーに送信します。
+3. ユーザーは、このトークンをアプリケーション プロキシに渡します。
+4. アプリケーション プロキシはトークンを検証し、そこからユーザー プリンシパル名 (UPN) を取得した後、コネクタは、デュアル認証されたセキュリティで保護されたチャネルを介して UPN とサービス プリンシパル名 (SPN) をプルします。
+5. コネクタは、オンプレミス AD との Kerberos 制約付き委任 (KCD) ネゴシエーションを実行し、ユーザーを偽装して Kerberos トークンをアプリケーションに取得します。
+6. Active Directory は、アプリケーションの Kerberos トークンをコネクタに送信します。
+7. コネクタは、AD から受信した Kerberos トークンを使用して、元の要求をアプリケーション サーバーに送信します。
+8. アプリケーションはコネクタに応答を送信し、その後アプリケーション プロキシ サービスに返され、最後にユーザーに返されます。
+
+### 前提条件
+
+IWA アプリケーションでのシングル サインオンに着手する前に、ご使用の環境が次の設定と構成に対応していることを確認してください。
+
+- 対象のアプリ (SharePoint Web アプリなど) が統合 Windows 認証を使用するように設定されていること。 詳細については、「[Kerberos 認証のサポートを有効にする](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186%28v=ws.11%29)」を参照してください。SharePoint の場合は、「[SharePoint 2013 で Kerberos 認証を計画する](https://learn.microsoft.com/ja-jp/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning)」を参照してください。
+- すべてのアプリには[サービス プリンシパル名](https://learn.microsoft.com/ja-jp/windows/win32/ad/service-principal-names)があります。
+- コネクタを実行しているサーバーとアプリを実行しているサーバーは、ドメインに参加しており、同じドメインまたは信頼するドメインの一部です。 ドメインへの参加の詳細については、「 [コンピューターをドメインに参加させる](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102%28v=ws.11%29)」を参照してください。
+- コネクタ サーバーがユーザーの `TokenGroupsGlobalAndUniversal` 属性を読み取ることができることを確認します。 セキュリティ強化によって、このアクセスが制限される場合があります。 *Windows 承認アクセス* グループにコネクタ サーバーを追加して、コネクタ サーバーを有効にします。
+
+#### Active Directory を構成する
+
+Active Directory の構成は、プライベート ネットワーク コネクタとアプリケーション サーバーが同じドメイン内にあるかどうかによって異なります。
+
+##### 同じドメインにあるコネクタとアプリケーション サーバー
+
+1. Active Directory で、 **[ツール]**&gt;**[ユーザーとコンピューター]** の順に移動します。
+2. コネクタを実行しているサーバーを選択します。
+3. 右クリックし、 **[プロパティ]**&gt;**[委任]** を選択します。
+4. **[指定されたサービスへの委任でのみこのコンピューターを信頼する]** をクリックします。
+5. **[任意の認証プロトコルを使う]** を選択します。
+6. **このアカウントが委任された資格情報を提示できるサービス**で、アプリケーション サーバーの SPN ID の値を追加します。 この設定により、プライベート ネットワーク コネクタは、一覧で定義されているアプリケーションに対して AD のユーザーを偽装できます。
+
+    [Image: [委任] タブの [Connector-SVR プロパティ] ウィンドウを示すスクリーンショット。]
+
+##### 異なるドメインにあるコネクタとアプリケーション サーバー
+
+1. ドメイン間の KCD を使用するための前提条件の一覧については、「 [ドメイン間の Kerberos の制約付き委任](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477%28v=ws.11%29)」を参照してください。
+2. アプリケーション プロキシ (コネクタ) からの Kerberos 認証委任を有効にするには、Web アプリケーションのサービス アカウント (`PrincipalsAllowedToDelegateTo`) の `webserviceaccount` プロパティを使用します。 アプリケーション サーバーは `webserviceaccount`で実行され、委任サーバーは `connectorcomputeraccount`。 `webserviceaccount`と同じドメイン内のドメイン コントローラー (Windows Server 2012 R2 以降) で次のコマンドを実行します。 両方のアカウントにフラット名 (UPN 以外) を使用します。
+
+    `webserviceaccount` がコンピューター アカウントの場合は、次のコマンドを使用します。
+
+    ```powershell
+    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+    
+    Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+    
+    Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+    ```
+
+    `webserviceaccount` がユーザー アカウントの場合は、次のコマンドを使用します。
+
+    ```powershell
+    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
+    
+    Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+    
+    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+    ```
+
+### シングル サインオンの設定
+
+1. アプリケーション プロキシを使用したアプリケーションの発行に関するページの手順に従って [、アプリケーションを発行します](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-add-on-premises-application)。 **事前認証方法**として、必ず **[Microsoft Entra ID]** を選んでください。
+2. アプリケーションがエンタープライズ アプリケーションの一覧に表示されたら、それを選択し、[ **シングル サインオン**] を選択します。
+3. シングル サインオン モードを **[統合 Windows 認証]** に設定します。
+4. アプリケーション サーバーの **[内部アプリケーション SPN]** を入力します。 この例では、公開されたアプリケーションの SPN は、`http/www.contoso.com` です。 SPN は、コネクタが委任された資格情報を提示できるサービスの一覧に含まれている必要があります。
+5. ユーザーの代わりに使うコネクタに**委任されたログイン ID** を選択します。 詳細については、「さまざまなオンプレミス ID とクラウド ID の操作」を参照してください。
+
+    [Image: 統合 Windows 認証の構成設定を示すスクリーンショット。]
+
+### Windows 以外のアプリの SSO
+
+Microsoft Entra アプリケーション プロキシの Kerberos 委任フローは、Microsoft Entra ID がクラウドでユーザーを認証すると開始されます。 要求がオンプレミスに到着すると、Microsoft Entra プライベート ネットワーク コネクタは、ローカル Active Directory と対話することで、ユーザーに代わって Kerberos チケットを発行します。 このプロセスは Kerberos 制約付き委任 (KCD) と呼ばれます。
+
+次のフェーズで、要求がこの Kerberos チケットを使用してバックエンド アプリケーションに送信されます。
+
+このような要求で Kerberos チケットを送信する方法を定義するメカニズムはいくつかあります。 Windows 以外のほとんどのサーバーでは、SPNEGO トークンの形式で受信することが想定されています。 このメカニズムは Microsoft Entra アプリケーション プロキシでサポートされていますが、既定では無効になっています。 コネクタは SPNEGO または標準の Kerberos トークン用に構成できますが、両方を構成することはできません。
+
+SPNEGO 用にコネクタ マシンを構成する場合は、そのコネクタ グループ内の他のすべてのコネクタも SPNEGO で構成されていることを確認します。 標準の Kerberos トークンを必要とするアプリケーションは、SPNEGO 用に構成されていない他のコネクタを介してルーティングする必要があります。 一部の Web アプリケーションでは、構成を変更せずに両方の形式を使用できます。
+
+SPNEGO を有効にするには:
+
+1. 管理者として実行しているコマンド プロンプトを開きます。
+2. SPNEGO が必要なコネクタ サーバーで次のコマンドを実行します。
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft Entra private network connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
+
+Windows 以外のアプリでは、通常、ドメインのメール アドレスの代わりにユーザー名または SAM アカウント名が使用されます。 このような状況がアプリケーションに適用される場合は、クラウド ID をアプリケーション ID に接続するように委任されたサインイン ID フィールドを構成する必要があります。
+
+### さまざまなオンプレミス ID とクラウド ID の操作
+
+アプリケーション プロキシは、ユーザーがクラウドとオンプレミスで同じ ID を持っていることを前提としています。 ただし、一部の組織では、会社のポリシーまたはアプリケーションの要件により、サインインに代替 ID を使用する必要があります。 各アプリケーションの **委任されたログイン ID を** 構成することで、シングル サインオンに対して KCD を有効にできます。 この設定では、シングル サインオンに使用する ID を指定します。
+
+この機能を使用すると、組織は、ユーザーが異なるユーザー名とパスワードを管理しなくても、クラウドからオンプレミスのアプリへの SSO を有効にすることができます。 一般的なシナリオは、次のとおりです。
+
+- 1 つのクラウド ドメイン (joe@us.contoso.com など) で複数の内部ドメイン (joe@eu.contoso.com、joe@contoso.comなど) を使用する。
+- クラウドで有効なドメイン名を使用しているときに、ルーティング不可能な内部ドメイン名 (たとえば、 joe@contoso.usa) を持つ。
+- 内部ドメイン名 (joe など) なしで動作します。
+- オンプレミスとクラウドのユーザーに異なるエイリアスを割り当てる (たとえば、 joe-johns@contoso.com と joej@contoso.com)。
+
+アプリケーション プロキシでは、Kerberos チケットの取得に使用する ID を選択できます。 この設定はアプリケーションごとに構成され、nonemail 形式または代替サインイン方法を必要とするシステムをサポートします。
+
+[Image: [委任されたログイン ID] ドロップダウン オプションを示すスクリーンショット。]
+
+委任されたサインイン ID が使用されている場合、組織内のすべてのドメインまたはフォレストで値が一意ではない可能性があります。 異なる 2 つのコネクタ グループを使用してこれらのアプリケーションを 2 回発行することで、この問題を回避できます。 アプリケーションごとにユーザー対象ユーザーが異なるため、そのコネクタを別のドメインに参加させることができます。
+
+サインイン ID **にオンプレミスの SAM アカウント名** を使用する場合は、コネクタをホストしているコンピューターを、ユーザー アカウントが配置されているドメインに追加する必要があります。
+
+#### ID が異なる場合の SSO の構成
+
+1. Microsoft Entra Connect の設定を、メイン ID がメール アドレス (メール) になるように構成します。 構成は、同期設定の **[ユーザー プリンシパル名** ] フィールドを変更することで、カスタマイズ プロセスの一環として行われます。 これらの設定は、ユーザーが Microsoft 365、Windows コンピューター、および Microsoft Entra ID を ID ストアとして使う他のアプリケーションにサインインする方法も決定します。[Image: ユーザーを識別するための [ユーザー プリンシパル名] ドロップダウン。]
+2. 変更するアプリケーションの [アプリケーションの構成] 設定で、使用する **[委任されたログイン ID]** を選択します。
+
+    - ユーザー プリンシパル名 (`joe@contoso.com` など)
+    - 代替ユーザー プリンシパル名 (`joed@contoso.local` など)
+    - ユーザー プリンシパル名のユーザー名部分 (`joe` など)
+    - 代替ユーザー プリンシパル名のユーザー名部分 (`joed` など)
+    - オンプレミスのソフトウェア アセット管理アカウント名 (ドメイン コントローラーの構成に依存)
+
+#### ID が異なる場合の SSO のトラブルシューティング
+
+バックエンド アプリケーションが予期しない HTTP 応答で応答する場合は、コネクタ コンピューターのアプリケーション プロキシ セッション イベント ログでイベント 24029 を確認してトラブルシューティングを開始します。 イベントの詳細の `user` フィールドには、委任に使用される ID が表示されます。 セッション ログを有効にするには、イベント ビューアーに移動し、[ **表示** ] メニューを開き、[ **分析ログとデバッグ ログの表示**] を選択します。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-proxy/overview-what-is-app-proxy"} -->
+## Microsoft Entra アプリケーション プロキシを使用してオンプレミス アプリを発行する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/overview-what-is-app-proxy
+- Service: entra-id / app-proxy
+- Article date: 2026-03-10
+- Summary: Microsoft Entra アプリケーション プロキシのアーキテクチャ、コネクタ、認証方法、セキュリティ上の利点について説明します。
+
+### 概要
+
+Microsoft Entra アプリケーション プロキシは、リモート ユーザー向けのオンプレミス Web アプリケーションへの安全なリモート アクセスを提供します。 Microsoft Entra ID へのシングル サインオン (SSO) の後、ユーザーは外部 URL または内部アプリケーション ポータルを使用してクラウドアプリケーションとオンプレミス アプリケーションの両方にアクセスできます。 たとえば、アプリケーション プロキシは、リモート デスクトップ、SharePoint、Teams、Tableau、Qlik、基幹業務 (LOB) アプリケーションへのリモート アクセスと SSO を提供できます。
+
+Microsoft Entra アプリケーション プロキシとは:
+
+- **簡単な使い方**。 ユーザーは、Microsoft Entra ID と統合された Microsoft 365 やその他のサービスとしてのソフトウェア (SaaS) アプリにアクセスするのと同じ方法で、オンプレミス アプリケーションにアクセスできます。 アプリケーション プロキシを使うために、アプリケーションを変更または更新する必要はありません。
+- **セキュリティ保護**。 オンプレミス アプリケーションでは、Microsoft Entra の承認制御とセキュリティ分析を使用できます。 たとえば、オンプレミス アプリケーションでは、Microsoft Entra 条件付きアクセスと多要素認証を使用できます。 アプリケーション プロキシでは、ファイアウォールを通過する受信接続を開く必要はありません。
+- **高いコスト効率**。 通常、オンプレミス ソリューションでは、境界ネットワーク (非武装地帯または DMZ とも呼ばれます)、エッジ サーバー、またはその他の複雑なインフラストラクチャを設定して維持する必要があります。 アプリケーション プロキシはクラウドで実行されます。 これを使用するには、ネットワーク インフラストラクチャを変更したり、オンプレミス環境に追加のアプライアンスをインストールしたりする必要はありません。
+
+ヒント
+
+Microsoft Entra ID が既にある場合は、それを 1 つのコントロール プレーンとして使用して、オンプレミス アプリケーションへのシームレスで安全なアクセスを許可できます。
+
+ハイブリッド共存シナリオでアプリケーション プロキシを使用する例を次に示します。
+
+- 境界ネットワークなしで、オンプレミスの Web アプリを簡略化された方法で外部に発行します。
+- クラウドとオンプレミスのデバイス、リソース、アプリ間で SSO をサポートします。
+- クラウドとオンプレミスのアプリの多要素認証をサポートします。
+- Microsoft クラウドのセキュリティでクラウド機能をすばやく使用できます。
+- ユーザー アカウント管理を一元化します。
+- ID とセキュリティの一元管理。
+- グループ メンバーシップに基づいて、アプリケーションへのユーザー アクセスを自動的に追加または削除します。
+
+この記事では、アプリケーション プロキシがクラウドの機能とセキュリティをオンプレミスの Web アプリケーションに提供する方法について説明し、サポートされているアーキテクチャとトポロジについて説明します。
+
+### 過去と現在のリモート アクセス
+
+以前は、リモート ユーザーによるアクセスを容易にしながら内部リソースを攻撃者から保護するためのコントロール プレーンがすべて境界ネットワークにありました。 ただし、境界ネットワークにデプロイされ、外部クライアントが企業リソースへのアクセスに使用する VPN およびリバース プロキシ ソリューションは、クラウドの世界には適していません。 通常、次のようになります。
+
+- ハードウェア コストを増やします。
+- 修正プログラムの適用やポートの監視など、継続的なセキュリティ メンテナンスが必要です。
+- エッジでユーザーを認証します。
+- 境界ネットワーク内の Web サーバーに対してユーザーを認証します。
+- リモート アクセスを維持するには、VPN クライアント ソフトウェアの配布と構成が必要です。
+- 境界ネットワーク内のドメイン参加済みサーバーを維持します。これは、外部攻撃に対して脆弱になる可能性があります。
+
+今日のデジタルワークプレースでは、ユーザーは複数のデバイスを使用してどこからでもアプリにアクセスし、作業を行います。 定数係数はユーザー ID です。
+
+Microsoft Entra ID を使用して、ネットワークに入るユーザーと情報を制御できます。 Microsoft Entra アプリケーション プロキシは、最新の認証およびクラウドベースのテクノロジ (SaaS アプリケーションや ID プロバイダーなど) と統合されます。 この統合により、ユーザーはどこからでもアプリケーションにアクセスできます。
+
+[Image: Microsoft Entra ID に接続されているアプリを示す図。]
+
+アプリケーション プロキシは、今日のデジタル ワークプレースに適しているだけでなく、VPN やリバース プロキシ ソリューションよりも安全です。 実装も簡単です。 リモート ユーザーは、Microsoft および Microsoft Entra ID と統合された他の SaaS アプリにアクセスするのと同じ方法で、オンプレミス のアプリケーションにアクセスできます。 アプリケーション プロキシを使うために、アプリケーションを変更または更新する必要はありません。 アプリケーション プロキシでは、ファイアウォール経由で受信接続を開く必要はありません。
+
+セキュリティ コントロール プレーンとして [Microsoft Entra ID 管理](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/identity-management-overview) を使用して、ネットワークのセキュリティ保護を開始できます。 この ID ベースのモデルには、次のコンポーネントが含まれています。
+
+- ユーザーおよびユーザーに関連する情報を追跡する ID プロバイダー。
+- 企業リソースにアクセスできるデバイスの一覧を保持するデバイス ディレクトリ。 このディレクトリには、対応するデバイス情報 (デバイスの種類や整合性など) が含まれています。
+- ポリシー評価サービス。管理者が設定したセキュリティ ポリシーをユーザーとデバイスが満たしているかどうかを確認します。
+- 組織のリソースへのアクセスを許可または拒否する権限。
+
+Microsoft Entra ID は、オンプレミスおよびクラウドで発行された Web アプリにアクセスするユーザーを追跡します。 これらのアプリを管理するための中心的なポイントが提供されます。
+
+セキュリティを強化するには、Microsoft Entra 条件付きアクセスを有効にします。 この機能により、認証とアクセスの条件を設定することで、適切なユーザーのみがアプリケーションにアクセスできるようになります。
+
+注
+
+Microsoft Entra アプリケーション プロキシは、内部リソースにアクセスするリモート ユーザーの VPN またはリバース プロキシを置き換えます。 企業ネットワーク上の内部ユーザー向けに設計されていません。 内部ユーザーがアプリケーション プロキシを不必要に使用すると、予期しないパフォーマンスの問題が発生する可能性があります。
+
+### アプリケーション プロキシの動作の概要
+
+アプリケーション プロキシには、 *アプリケーション プロキシ サービス* と *プライベート ネットワーク コネクタ*の両方が含まれます。 アプリケーション プロキシ サービスはクラウドで実行され、プライベート ネットワーク コネクタはオンプレミス サーバー上の軽量エージェントとして動作します。 Microsoft Entra ID は ID プロバイダーとして機能します。
+
+次の図は、Microsoft Entra ID、アプリケーション プロキシ サービス、プライベート ネットワーク コネクタが連携して、シームレスな SSO エクスペリエンスでユーザーがオンプレミスの Web アプリケーションにアクセスできるようにする方法を示しています。
+
+[Image: Microsoft Entra アプリケーション プロキシでのシングル サインオンの 6 つの手順を示す図。]
+
+1. ユーザーはエンドポイントを介してアプリケーションにアクセスし、Microsoft Entra サインイン ページにリダイレクトされます。
+2. サインインに成功すると、Microsoft Entra ID ではトークンをユーザーのクライアント デバイスに送信します。
+3. クライアントからは、トークンをアプリケーション プロキシ サービスに送信します。 サービスでは、トークンからユーザー プリンシパル名 (UPN) とセキュリティ プリンシパル名 (SPN) を取得します。 その後、アプリケーション プロキシ サービスがコネクタに要求を送信します。
+4. コネクタは、ユーザーに代わって必要な SSO 認証を実行します。
+5. コネクタはオンプレミスのアプリケーションに要求を送信します。
+6. コネクタとアプリケーション プロキシ サービスは、応答をユーザーに送信します。
+
+注
+
+ほとんどの Microsoft Entra ハイブリッド エージェントと同様に、プライベート ネットワーク コネクタでは、ファイアウォールを通して受信接続を開く必要はありません。 手順 3 のユーザー トラフィックは、アプリケーション プロキシ サービスで終了します。 残りの通信は、お使いのプライベート ネットワーク内にあるプライベート ネットワーク コネクタが行います。
+
+| コンポーネント | 説明 |
+| --- | --- |
+| エンドポイント | エンドポイントは URL または [ユーザー ポータル](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/end-user-experiences)です。 ユーザーは、外部 URL を使用して、ネットワークの外部からアプリケーションにアクセスできます。 ネットワーク内のユーザーは、URL またはユーザー ポータルを使用してアプリケーションにアクセスできます。 ユーザーは、これらのエンドポイントの 1 つに移動すると、Microsoft Entra ID で認証され、コネクタを介してオンプレミスのアプリケーションにルーティングされます。 |
+| Microsoft Entra ID | Microsoft Entra ID は、クラウドに格納されているテナント ディレクトリを使用して認証を実行します。 |
+| アプリケーション プロキシ サービス | アプリケーション プロキシ サービスは、Microsoft Entra ID の一部としてクラウドで実行されます。 これは、ユーザーからプライベート ネットワーク コネクタにサインオン トークンを渡します。 サービスは要求でアクセス可能なヘッダーを転送し、(プロトコルに従って) ヘッダーをクライアント IP アドレスに設定します。 プロキシへの受信要求にそのヘッダーが既に含まれている場合、クライアント IP アドレスは、ヘッダーの値であるコンマ区切りリストの末尾に追加されます。 |
+| プライベート ネットワーク コネクタ | コネクタは、ネットワーク内の Windows Server 上で実行される軽量エージェントです。 コネクタでは、クラウドのアプリケーション プロキシ サービスとオンプレミス アプリケーションの間の通信を管理します。 コネクタは、アプリケーション プロキシ サービスからの要求をリッスンし、アプリケーションへの接続を処理します。 コネクタは送信接続のみを使用するため、インターネットに接続するネットワークで受信ポートを開く必要はありません。 Microsoft Entra Private Access では、同じコネクタが使用されます。 コネクタはステートレスであり、必要に応じてクラウドから情報をプルします。 負荷分散と認証方法など、コネクタの詳細については、 [Microsoft Entra プライベート ネットワーク コネクタ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-connectors)を参照してください。 |
+| Active Directory | Active Directory はオンプレミスで実行され、ドメイン アカウントの認証を行います。 SSO が構成されると、コネクタは Active Directory と通信して、必要な追加認証を実行します。 |
+| オンプレミスのアプリケーション | 最後に、ユーザーはオンプレミスのアプリケーションにアクセスできます。 |
+
+アプリケーション プロキシ サービスは、Microsoft Entra 管理センターで構成します。 このサービスを使用して、組織内の内部アプリケーション サーバー URL に接続する外部パブリック HTTP/HTTPS URL エンドポイントを Azure に発行できます。 これらのオンプレミス Web アプリは、SSO をサポートするために Microsoft Entra ID と統合できます。 その後、ユーザーは、Microsoft 365 やその他の SaaS アプリにアクセスするのと同じ方法で、オンプレミスの Web アプリにアクセスできます。
+
+認証後、外部ユーザーは、デスクトップまたは iOS デバイスから表示 URL または [マイ アプリ](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) を使用して、オンプレミスの Web アプリにアクセスできます。 たとえば、アプリケーション プロキシは、リモート デスクトップ、SharePoint サイト、Tableau、Qlik、Outlook on the web、LOB アプリケーションへのリモート アクセスと SSO を提供できます。
+
+[Image: Microsoft Entra アプリケーション プロキシ アーキテクチャの図。]
+
+#### 認証
+
+SSO 用にアプリケーションを構成するには、いくつかの方法があります。 選択する方法は、アプリケーションが使用する認証によって異なります。 アプリケーション プロキシでは、次の種類のアプリケーションがサポートされています。
+
+- ネイティブ認証プロトコルとして [統合 Windows 認証 (IWA)](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/how-to-configure-sso-with-kcd) を使用する Web アプリケーション。 IWA の場合、プライベート ネットワーク コネクタは Kerberos 制約付き委任 (KCD) を使用して Kerberos アプリケーションに対してユーザーを認証します。
+- フォーム ベースまたは [ヘッダー](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-single-sign-on-with-headers) ベースのアクセスを使用する Web アプリケーション。 ヘッダーベースの認証では、Microsoft 以外のパートナー サービスである PingAccess を使用して、ヘッダーに依存するアプリケーションの認証を処理します。
+- さまざまなデバイス上のリッチ アプリケーションに公開する Web API。
+- [リモート デスクトップ ゲートウェイ](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-remote-desktop-services)の背後でホストされているアプリケーション。
+- Microsoft Authentication Library (MSAL) と統合されたリッチ クライアント アプリ。
+
+アプリケーション プロキシでは、特定の構成シナリオで Microsoft 以外のパートナーとの認証プロトコルもサポートされています。
+
+- [パスワード ベースの認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-single-sign-on-password-vaulting)。 この認証方法では、ユーザーが初めてアクセスする際にユーザー名とパスワードを使用してアプリケーションにサインインします。 最初のサインイン後、Microsoft Entra ID はユーザー名とパスワードをアプリケーションに提供します。 このシナリオでは、Microsoft Entra ID が認証を処理します。
+- [セキュリティ アサーション マークアップ言語 (SAML) 認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/conceptual-sso-apps)。 SAML ベースの SSO は、SAML 2.0 または WS-Federation プロトコルを使用するアプリケーションでサポートされています。 SAML SSO を使用すると、Microsoft Entra ID はユーザーの Microsoft Entra アカウントを使用してアプリケーションに対して認証を行います。
+
+サポートされている方法の詳細については、「 [シングル サインオン オプション](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/plan-sso-deployment#choosing-a-single-sign-on-method)」を参照してください。
+
+#### セキュリティ上の利点
+
+アプリケーション プロキシと Microsoft Entra が提供するリモート アクセス ソリューションでは、いくつかのセキュリティ上の利点がサポートされています。
+
+- **認証済みのアクセス**。 アプリケーション プロキシは [事前認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-security#authenticated-access) を使用して、認証された接続のみがネットワークに到達するようにします。 事前認証で構成されたアプリケーションに対して有効なトークンがないすべてのトラフィックをブロックします。 このアプローチでは、検証済みの ID のみがバックエンド アプリケーションにアクセスできるようにすることで、標的型攻撃を大幅に削減できます。
+- **条件付きアクセス**。 ネットワークへの接続が確立される前に、より豊富なポリシー制御を適用できます。 条件付きアクセスを使用すると、バックエンド アプリケーションへのアクセスを許可するトラフィックに対する制限を定義できます。 場所、認証の強度、ユーザーのリスク プロファイルに基づいてサインインを制限するポリシーを作成します。
+
+    セキュリティを強化するために、条件付きアクセスは Microsoft Defender for Cloud Apps とも統合されます。 この統合により、条件付きアクセス ポリシーに基づいて [リアルタイム監視](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-microsoft-cloud-application-security) 用のオンプレミス アプリケーションを構成できます。
+- **トラフィックの終了**。 バックエンド アプリケーションへのすべてのトラフィックは、バックエンド サーバーとのセッションの再確立中に、クラウド内のアプリケーション プロキシ サービスで終了されます。 この接続戦略は、バックエンド サーバーが直接 HTTP トラフィックに公開されていないことを意味します。 ファイアウォールが攻撃を受けないため、対象となるサービス拒否 (DoS) 攻撃からより適切に保護されます。
+- **送信専用アクセス**。 プライベート ネットワーク コネクタは、ポート 80 と 443 経由でクラウド内のアプリケーション プロキシ サービスへの送信接続のみを使用します。 受信接続がない場合、境界ネットワーク内の受信接続またはコンポーネントのファイアウォール ポートを開く必要はありません。 すべての送信接続は、セキュリティで保護されたチャネル経由で行われます。
+- **セキュリティ分析と機械学習に基づくインテリジェンス**。 アプリケーション プロキシは Microsoft Entra ID の一部であるため、 [Microsoft Entra ID 保護 を](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection)使用できます。 Microsoft Entra ID 保護 は、機械学習のセキュリティ インテリジェンスと、Microsoft [のデジタル犯罪ユニット](https://news.microsoft.com/stories/cybercrime/index.html) と [Microsoft セキュリティ対応センター](https://www.microsoft.com/msrc) からのデータ フィードを組み合わせて、侵害されたアカウントを事前に特定します。 [Premium P2 ライセンスが必要です](https://www.microsoft.com/security/business/microsoft-entra-pricing)。
+
+    Microsoft Entra ID 保護 は、リスクの高いサインインからのリアルタイム保護を提供します。これは、感染したデバイスからのアクセス試行、ネットワークの匿名化、セッションのリスク プロファイルを向上させる非定型でありそうもない場所からのアクセス試行などの要因を考慮します。 このリスク プロファイルは、リアルタイム保護に使用されます。 これらのレポートとイベントの多くは、お客様のセキュリティ情報およびイベント管理 (SIEM) システムとの統合を可能にする API を通じて既に使用可能です。
+- **サービスとしてのリモート アクセス**。 リモート アクセスを可能にするために、オンプレミス サーバーの保守やパッチの適用について心配する必要がありません。 アプリケーション プロキシは、インターネット規模の Microsoft が管理するサービスであるため、常に最新のセキュリティ パッチとアップグレードを入手できます。
+
+    パッチの適用されていないソフトウェアは、依然として多数の攻撃の的となっています。 サイバーセキュリティおよびインフラストラクチャ セキュリティ機関 (CISA) によると、 [標的型攻撃の 85% は予防可能です](https://www.cisa.gov/news-events/alerts/2015/04/29/top-30-targeted-high-risk-vulnerabilities)。 このサービス モデルでは、エッジ サーバーを管理する負担を軽減し、必要に応じてパッチを適用する必要がなくなります。
+
+#### クラウドへのロードマップ
+
+アプリケーション プロキシを実装するもう 1 つの大きなメリットは、Microsoft Entra ID がオンプレミス環境に拡張される点です。 アプリケーション プロキシの実装は、組織とアプリをクラウドに移行する上で重要なステップになります。 クラウドに移行してオンプレミスの認証から解放されることで、オンプレミスのフットプリントを削減し、Microsoft Entra の ID 管理機能をコントロール プレーンとして使用することができます。
+
+既存のアプリケーションに対する更新が最小限またはまったくない場合は、SSO、多要素認証、集中管理などのクラウド機能にアクセスできます。 アプリケーション プロキシに必要なコンポーネントのインストールは簡単です。 また、クラウドに移行することで、高可用性やディザスター リカバリーなどの最新の Microsoft Entra の機能、更新プログラム、機能にアクセスできます。
+
+アプリを Microsoft Entra ID に移行する方法の詳細については、「 [アプリケーションを Microsoft Entra ID に移行するためのリソース」を](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/migration-resources)参照してください。
+
+### アーキテクチャ
+
+次の図は、一般に、Microsoft Entra 認証サービスとアプリケーション プロキシが連携してオンプレミス アプリケーションに SSO を提供する方法を示しています。
+
+[Image: Microsoft Entra アプリケーション プロキシの認証フローを示す図。]
+
+1. ユーザーはエンドポイントを介してアプリケーションにアクセスし、Microsoft Entra サインイン ページにリダイレクトされます。 条件付きアクセス ポリシーは、特定の条件をチェックして、組織のセキュリティ要件に準拠していることを確認します。
+2. Microsoft Entra ID は、ユーザーのクライアント デバイスにトークンを送信します。
+3. クライアントは、トークンをアプリケーション プロキシ サービスに送信し、トークンから UPN と SPN を抽出します。
+4. アプリケーション プロキシ サービスは、 [プライベート ネットワーク コネクタ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-connectors)に要求を転送します。
+5. コネクタは、必要な追加の認証 (*認証方法に基づいて省略可能)* を処理し、アプリケーション サーバーの内部エンドポイントを取得して、オンプレミス アプリケーションに要求を送信します。
+6. アプリケーション サーバーが応答し、コネクタが応答をアプリケーション プロキシ サービスに返します。
+7. アプリケーション プロキシ サービスは、ユーザーに応答を配信します。
+
+すべての通信はトランスポート層セキュリティ (TLS) 経由で行われ、常にコネクタからアプリケーション プロキシ サービスに送信されます。 コネクタではクライアント証明書を使用して、すべての呼び出しに対してアプリケーション プロキシ サービスを認証します。 接続のセキュリティの唯一の例外は、クライアント証明書が確立される最初のセットアップ手順です。
+
+詳細については、「 [Microsoft Entra アプリケーション プロキシを使用してアプリにリモートでアクセスするためのセキュリティに関する考慮事項](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-security#under-the-hood)」を参照してください。
+
+### その他のユース ケース
+
+この記事では、アプリケーション プロキシを使用してオンプレミス アプリを外部に発行し、すべてのクラウドアプリとオンプレミス アプリの SSO を有効にすることに重点を置いています。 ただし、アプリケーション プロキシでは、次のようなその他のユース ケースもサポートされています。
+
+- **REST API の安全な発行**。 アプリケーション プロキシを使用して、オンプレミスまたはクラウドでホストされる API のパブリック エンドポイントを作成します。 受信ポートを開かずに認証と承認を制御します。 詳細については、「 [ネイティブ クライアント アプリケーションがプロキシ アプリケーションと対話できるようにする](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-native-client-application) 」および「 [Microsoft Entra ID を使用した OAuth 2.0 承認を使用した Azure API Management での API の保護」を](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-protect-backend-with-aad)参照してください。
+- **リモート デスクトップ サービス (RDS) を使用してアプリケーションを発行**します。 標準の RDS デプロイでは、開いている受信接続が必要です。 ただし、[アプリケーション プロキシを使用した RDS デプロイ](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-remote-desktop-services)には、コネクタ サービスを実行しているサーバーからの永続的な送信接続があります。 これにより、RDS を介してオンプレミス アプリケーションを発行することで、ユーザーにさらに多くのアプリケーションを提供できます。 RDS に対する多要素認証と条件付きアクセス制御の限られたセットを使用して、展開の攻撃対象領域を減らすこともできます。
+- **WebSocket 経由で接続するアプリケーションを発行**します。 [Qlik Sense](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-qlik) でのサポートはプレビュー段階です。
+- **ネイティブ クライアント アプリケーションからプロキシ アプリケーションを操作できるようにする**。 Microsoft Entra アプリケーション プロキシを使用して Web アプリを発行できますが、MSAL で構成されている [ネイティブ クライアント アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-native-client-application) を発行することもできます。 クライアント アプリケーションはデバイスにインストールされますが、Web アプリにはブラウザー経由でアクセスされます。
+
+### まとめ
+
+組織は、作業とツールの急速な変化に適応します。 従業員は自分のデバイスを使用し、SaaS アプリケーションに依存します。 データは、従来の境界をはるかに超えて、オンプレミスとクラウドの環境間で移動するようになりました。 このシフトにより、生産性とコラボレーションが向上しますが、機密データの保護も困難になります。
+
+Microsoft Entra アプリケーション プロキシは、サービスとしてのリモート アクセスを提供することで、オンプレミスのフットプリントを削減します。 ハイブリッド セットアップで Microsoft Entra ID を既に使用してユーザーを管理している場合でも、クラウド体験を開始する予定の場合でも、アプリケーション プロキシはリモート アクセスを簡素化し、セキュリティを強化します。
+
+組織では、アプリケーション プロキシを使用して、次の利点を活用できます。
+
+- 従来の VPN やその他のオンプレミス Web 発行ソリューションや境界ネットワーク アプローチを維持するオーバーヘッドをかけずに、オンプレミス アプリを外部で発行します。
+- Microsoft 365、その他の SaaS アプリ、オンプレミス アプリケーションなど、すべてのアプリケーションに対して SSO を有効にします。
+- Microsoft Entra ID が不正アクセスの防止に役立つクラウド規模のセキュリティを提供します。
+- ユーザー アカウント管理を一元化します。
+- 自動更新を受け取り、最新のセキュリティ パッチが適用されていることを確認します。
+- SAML SSO のサポートやアプリケーション Cookie のより詳細な管理など、リリースされた新機能にアクセスします。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-assign-group-to-app"} -->
+## PowerShell の例 - Microsoft Entra アプリケーション プロキシ アプリにグループを割り当てる - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-assign-group-to-app
+- Service: entra-id / app-proxy
+- Article date: 2026-03-11
+- Summary: Microsoft Entra アプリケーション プロキシ アプリケーションにグループを割り当てる PowerShell の例。
+
+### 概要
+
+PowerShell スクリプトの例では、Microsoft Entra アプリケーション プロキシ アプリケーションに特定のグループを割り当てます。
+
+[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
+
+注
+
+Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
+
+このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
+
+### サンプル スクリプト
+
+```powershell
+#  This sample script assigns a group to a specific Microsoft Entra application proxy application.
+#
+#  Tip: You can identify the parameters by using the following PS commands:
+#    ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" 
+#    GroupObjectId - Get-MgBetaGroup -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the group>"'"
+#
+# Version 1.0
+#
+# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
+#
+# Microsoft.Graph.Beta ver 2.10 or newer
+#
+# Before you begin:
+#    
+#    Required Microsoft Entra role at least Application Administrator
+#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
+#
+# 
+
+param(
+[parameter(Mandatory=$true)]
+[string] $ServicePrincipalObjectId = "null",
+[parameter(Mandatory=$true)]
+[string] $GroupObjectId = "null"
+)
+
+$servicePrincipalObjectId = $ServicePrincipalObjectId
+$groupObjectId = $GroupObjectId
+
+If (($servicePrincipalObjectId -eq "null") -or ($groupObjectId -eq "null")) {
+
+    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host ".\assign-group-to-app.ps1 -ServicePrincipalObjectId <ObjectId of the Microsoft Entra application proxy application service principal> -UserObjectId <ObjectId of the User>" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host "Hints:" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host "You can easily identify the parameters by using the following PS commands:" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host "ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" " -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host "UserObjectId - Get-MgBetaGroup -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the group>"'" -BackgroundColor "Black" -ForegroundColor "Green"
+
+    Exit
+}
+
+Import-Module Microsoft.Graph.Beta.Applications
+
+Connect-MgGraph -Scope Directory.ReadWrite.All -NoWelcome
+
+New-MgBetaGroupAppRoleAssignment -GroupId $groupObjectId -PrincipalId $groupObjectId -ResourceId $servicePrincipalObjectId -AppRoleId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
+
+Write-Host ("")
+Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
+Write-Host ("")
+Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet." 
+```
+
+### スクリプトの説明
+
+| コマンド | 注記 |
+| --- | --- |
+| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
+| [New-MgBetaGroupAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/new-mgbetagroupapproleassignment) | アプリ ロールをグループに割り当てます |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-assign-user-to-app"} -->
+## PowerShell の例 - Microsoft Entra アプリケーション プロキシ アプリにユーザーを割り当てる - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-assign-user-to-app
+- Service: entra-id / app-proxy
+- Article date: 2026-03-11
+- Summary: Microsoft Entra アプリケーション プロキシ アプリケーションにユーザーを割り当てる PowerShell の例。
+
+### 概要
+
+PowerShell スクリプトの例では、特定の Microsoft Entra アプリケーション プロキシ アプリケーションにユーザーを割り当てます。
+
+[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
+
+注
+
+Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
+
+このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
+
+### サンプル スクリプト
+
+```powershell
+#  This sample script assigns a user to a specific Microsoft Entra application proxy application.
+#
+#  Tip: You can identify the parameters by using the following PS commands:
+#    ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" 
+#    UserObjectId - Get-MgBetaUser -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the user>"'"
+#
+# Version 1.0
+#
+# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
+#
+# Microsoft.Graph.Beta ver 2.10 or newer
+#
+# Before you begin:
+#    
+#    Required Microsoft Entra role at least Application Administrator
+#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
+#
+# 
+
+param(
+[parameter(Mandatory=$true)]
+[string] $ServicePrincipalObjectId = "null",
+[parameter(Mandatory=$true)]
+[string] $UserObjectId = "null"
+)
+
+$servicePrincipalObjectId = $ServicePrincipalObjectId
+$userObjectId = $UserObjectId
+
+If (($servicePrincipalObjectId -eq "null") -or ($userObjectId -eq "null")) {
+
+    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host ".\assign-user-to-app.ps1 -ServicePrincipalObjectId <ObjectId of the Microsoft Entra application proxy application service principal> -UserObjectId <ObjectId of the User>" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host "Hints:" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host "You can easily identify the parameters by using the following PS commands:" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host "ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" " -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host "UserObjectId - Get-MgBetaUser -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the user>"'" -BackgroundColor "Black" -ForegroundColor "Green"
+
+    Exit
+}
+
+Import-Module Microsoft.Graph.Beta.Applications
+
+Connect-MgGraph -Scope Directory.ReadWrite.All -NoWelcome
+
+New-MgBetaUserAppRoleAssignment -UserId $userObjectId -PrincipalId $userObjectId -ResourceId $servicePrincipalObjectId -AppRoleId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
+
+Write-Host ("")
+Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
+Write-Host ("")
+Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet."
+
+```
+
+### スクリプトの説明
+
+| コマンド | 注記 |
+| --- | --- |
+| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
+| [New-MgBetaUserAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/new-mgbetauserapproleassignment) | ユーザーにアプリ ロールを割り当てます |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-display-users-group-of-app"} -->
+## PowerShell サンプル - Microsoft Entra アプリケーション プロキシ アプリのユーザーとグループを一覧表示する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-display-users-group-of-app
+- Service: entra-id / app-proxy
+- Article date: 2026-03-11
+- Summary: 特定の Microsoft Entra アプリケーション プロキシ アプリケーションに割り当てられているすべてのユーザーとグループを一覧表示する PowerShell の例。
+
+### 概要
+
+PowerShell スクリプトの例では、特定の Microsoft Entra アプリケーション プロキシ アプリケーションに割り当てられているユーザーとグループを一覧表示します。
+
+[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
+
+注
+
+Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
+
+このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
+
+### サンプル スクリプト
+
+```powershell
+# This sample script displays users and groups assigned to the specified Microsoft Entra application proxy application.
+#
+# .\display-users-group-of-an-app.ps1 -ObjectId <ObjectId of the service principal> (Enterprise App)
+#
+# Version 1.0
+#
+# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
+#
+# Microsoft.Graph.Beta ver 2.10 or newer
+#
+# Before you begin:
+#    
+#    Required Microsoft Entra role at least Application Administrator
+#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
+#
+# 
+
+param(
+[parameter(Mandatory=$true)]
+[string] $ObjectId = "null"
+)
+
+$aadapServPrincObjId=$ObjectId
+
+If ($aadapServPrincObjId -eq "null") {
+
+    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+    Write-Host ".\display-users-group-of-an-app.ps1 -ObjectId <ObjectId of the service principal (Enterprise App)>" -BackgroundColor "Black" -ForegroundColor "Green"
+    Write-Host " "
+
+    Exit
+}
+
+Import-Module Microsoft.Graph.Beta.Applications
+
+Connect-MgGraph -Scope Directory.Read.All -NoWelcome
+
+Write-Host "Reading users. This operation might take longer..." -BackgroundColor "Black" -ForegroundColor "Green"
+
+$users= Get-MgBetaUser -Top 1000000
+
+Write-Host "Reading groups. This operation might take longer..." -BackgroundColor "Black" -ForegroundColor "Green"
+
+$groups = Get-MgBetaGroup -Top 1000000 
+
+try {$app = Get-MgBetaServicePrincipalById -Id $aadapServPrincObjId}
+
+catch {
+
+    Write-Host "Possibly the ObjetId is incorrect." -BackgroundColor "Black" -ForegroundColor "Red"
+    Write-Host " "
+
+    Exit
+}
+
+Write-Host ("Application: " + $app.DisplayName + "(ServicePrinc. ObjID:" + $aadapServPrincObjId + ")")
+Write-Host ("")
+Write-Host ("Assigned (directly and through group membership) users:")
+Write-Host ("")
+
+$number=0
+
+foreach ($item in $users) {
+
+   $listOfAssignments = Get-MgBetaUserAppRoleAssignment -UserId $item.Id
+
+   $assigned = $false
+
+   foreach ($item2 in $listOfAssignments) { if ($item2.ResourceId -eq $aadapServPrincObjId) { $assigned = $true } }
+
+     If ($assigned -eq $true) {
+        Write-Host ("DisplayName: " + $item.DisplayName + " UPN: " + $item.UserPrincipalName + " ObjectID: " + $item.Id)
+        $number = $number + 1
+     }
+}
+
+Write-Host ("")
+Write-Host ("Number of (directly and through group membership) users: " + $number)
+Write-Host ("")
+Write-Host ("")
+Write-Host ("Assigned groups:")
+Write-Host ("")
+
+$number=0
+
+foreach ($item in $groups) {
+
+   $listOfAssignments = Get-MgBetaGroupAppRoleAssignment -GroupId $item.Id
+
+   $assigned = $false
+
+   foreach ($item2 in $listOfAssignments) { If ($item2.ResourceID -eq $aadapServPrincObjId) { $assigned = $true } }
+
+   If ($assigned -eq $true) {
+        Write-Host ("DisplayName: " + $item.DisplayName + " ObjectID: " + $item.Id)
+        $number=$number+1
+   }
+}
+
+Write-Host ("")
+Write-Host ("Number of assigned groups: " + $number)
+Write-Host ("")
+
+Write-Host ("")
+Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
+Write-Host ("") 
+Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet."
+```
+
+### スクリプトの説明
+
+| コマンド | 注記 |
+| --- | --- |
+| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
+| [Get-MgBetaServicePrincipalById](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/get-mgbetaserviceprincipalbyid) (このコマンドは、特定のサービスプリンシパルをIDで取得します) | ID でサービス プリンシパルを取得します。 |
+| [Get-MgBetaUser](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.users/get-mgbetauser) | ユーザーを取得します。 |
+| [Get-MgBetaGroup](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.groups/get-mgbetagroup) | グループを取得します。 |
+| [Get-MgBetaUserAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/get-mgbetagroupapproleassignment) | アプリケーション ロールの割り当てを取得します。 |
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -2683,16 +3346,36 @@ SAML x.509 証明書を更新できます。「[SAML 署名証明書](https://le
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/application-properties
 - Service: entra-id / enterprise-apps
-- Article date: 2025-01-31
+- Article date: 2026-10-20
 - Summary: Microsoft Entra ID でのエンタープライズ アプリケーションのプロパティについて説明します。
 
 この記事では、Microsoft Entra テナントでエンタープライズ アプリケーション用に構成できるプロパティについて説明します。 プロパティを構成するには、「[エンタープライズ アプリケーションのプロパティを構成する」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-configure)を参照してください。
+
+### アクティブ化の状態
+
+**アクティブ化の状態** は、エンタープライズ アプリケーションの無効化条件をまとめたものです。 次のいずれかの条件が適用される場合、**無効**が表示されます。
+
+- テナント (`accountEnabled=false`) のサービス プリンシパルに対してサインインが無効になっています。
+- アプリの登録は非アクティブ化され（アプリの登録で`isDisabled=true`）、サービス プリンシパルに反映されます。
+- Microsoftがアプリケーションを無効にしました (`disabledByMicrosoftStatus=DisabledDueToViolationOfServicesAgreement`)。
+
+ラベルだけでは、適用される条件が特定されたり、アプリの登録が非アクティブ化されていることを証明したりすることはありません。 複数の条件が当てはまる場合があります。
+
+| 状態 | 確認方法 | ガイダンス |
+| --- | --- | --- |
+| テナント ローカル サインインの無効化 | **ユーザーがサインインできますか?** をエンタープライズ アプリケーションの**プロパティ**ページで確認するか、サービス プリンシパルの`accountEnabled` プロパティをMicrosoft Graphで読み取ります。 | 復元する前にサインインが無効にされた理由を確認します。 テナント ローカル サインインを復元するには、**[ユーザーがサインインできるようにする]** を**[はい]**に設定して保存するか、`accountEnabled=true`に設定します。 「[ユーザーのサインインを無効にする](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/disable-user-sign-in-portal)」をご覧ください。 |
+| アプリの登録の無効化 | ホーム テナントでアプリの登録の**状態**を確認するか、Microsoft Graphでアプリケーション オブジェクトの`isDisabled` プロパティを読み取る。 | アプリケーションのホーム テナントの承認された管理者は、 [アプリの登録を再アクティブ化](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-app-registration#reactivate-an-application)できます。 |
+| Microsoft無効化 | Microsoft Graphでサービス プリンシパルの`disabledByMicrosoftStatus` プロパティを読み取る。 | テナント管理者は、テナント ローカル サインインを有効にしたり、アプリの登録を再アクティブ化したりして、Microsoft無効化を元に戻すことはできません。 無効化が誤りであると思われる場合は、[同意フィッシングからの保護](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/protect-against-consent-phishing#recommended-response-and-remediation)を参照して、調査に関するガイダンスやサポートの選択肢についてご確認ください。 |
+
+変更を行うテナントには適切なアクセス許可が必要です。 テナント ローカル サインインを有効にしても、アプリ登録の無効化や Microsoft による無効化は上書きされません。 アプリの登録を再アクティブ化しても、 `accountEnabled` が `false`ままのサービス プリンシパルは有効になりません。
 
 ### ユーザーのサインインが有効になっていますか?
 
 このオプションを [はい] に設定すると、割り当てられたユーザーはマイ アプリ ポータル、ユーザー アクセス URL、またはアプリケーション URL に直接移動して、アプリケーションにサインインできます。 割り当てが必要な場合は、アプリケーションに割り当てられているユーザーのみがサインインできます。 割り当てが必要な場合は、トークンを取得するためにアプリケーションを割り当てる必要があります。
 
 このオプションを [なし] に設定すると、アプリケーションに割り当てられている場合でも、ユーザーはアプリケーションにサインインできません。 トークンはアプリケーションに対して発行されません。 この設定は、ユーザーがサインインできないようにするだけでなく、サービス プリンシパルがアプリケーションのアクセス許可を使用してアプリケーションにアクセスできないようにします。
+
+この設定は、テナント内のサービス プリンシパルの `accountEnabled` プロパティにマップされます。 **いいえ**（`accountEnabled=false`）に設定すると、アプリの登録が非アクティブ化されていない場合でも、**アクティブ化ステータス**が**非アクティブ化**と表示されます。 手順については、[「アプリケーションのユーザー サインインを無効にする」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/disable-user-sign-in-portal)を参照してください。
 
 ### 名前
 
@@ -2735,7 +3418,7 @@ SAML x.509 証明書を更新できます。「[SAML 署名証明書](https://le
 このオプションは、次の種類のアプリケーションとサービスにのみ適用されます。
 
 - セキュリティ アサーション マークアップ言語 (SAML) を使用するアプリケーション
-- OpenIDコネクト
+- OpenID Connect
 - OAuth 2.0 (英語)
 - ユーザーサインインに WS-Federation
 - Microsoft Entra 事前認証が有効になっているアプリケーション プロキシ アプリケーション
@@ -3687,7 +4370,7 @@ Content-Type: application/json
 - Article date: 2026-04-01
 - Summary: ID 管理にMicrosoft Entra IDを使用して、アプリのユーザーとグループの割り当てと割り当て解除を行う方法について説明します。
 
-この記事では、Microsoft Entra IDでエンタープライズ アプリケーションにユーザーとグループを割り当てる方法について説明します。 アプリケーションにユーザーを割り当てると、アプリケーションはユーザーの [My Apps](https://myapps.microsoft.com/) ポータルに表示され、簡単にアクセスできます。 アプリケーションでアプリ ロールが公開されている場合は、ユーザーに特定のアプリ ロールを割り当てることもできます。
+この記事では、Microsoft Entra IDでエンタープライズ アプリケーションにユーザーとグループを割り当てる方法について説明します。 アプリケーションにユーザーを割り当てると、アプリケーションはユーザーの [マイ アプリ](https://myapps.microsoft.com/) ポータルに表示され、簡単にアクセスできます。 アプリケーションでアプリ ロールが公開されている場合は、ユーザーに特定のアプリ ロールを割り当てることもできます。
 
 グループをアプリケーションに割り当てると、そのグループ内のユーザーのみがアクセスできます。 割り当ては、入れ子になったグループにはカスケードされません。
 
@@ -3695,7 +4378,7 @@ Content-Type: application/json
 
 制御を強化するために、ユーザー割り当てを必要とするように、特定の種類のエンタープライズ アプリケーションを構成できます。 アプリにユーザー割り当てを要求する方法の詳細については、「[アプリケーションへのアクセスの管理](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-access-management#requiring-user-assignment-for-an-app)」を参照してください。 ユーザーをアプリケーションに割り当てる必要があるアプリケーションでは、ディレクトリのユーザー同意ポリシーでユーザーが自分の代わりに同意できる場合でも、管理者がアクセス許可を付与する必要があります。
 
-Microsoft Entraとの統合の前に、アプリケーションに既に 1 人以上のユーザーが存在する可能性があります。 アカウント検出機能を使用すると、アプリケーション内のすべてのユーザーのレポートを生成し、Entra で一致するアカウントを持っているユーザーと、アプリケーションに対してローカルなユーザーを 1 回のクリックで識別できます。 アカウント検出機能の詳細については [、こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery)。 これにより、Entra へのオンボードを簡素化しながら、承認されていないアクセスを段階的に監視することもできます。
+Microsoft Entraとの統合の前に、アプリケーションに既に 1 人以上のユーザーが存在する可能性があります。 アカウント検出機能を使用すると、アプリケーション内のすべてのユーザーのレポートを生成し、Entra で一致するアカウントを持っているユーザーと、アプリケーションに対してローカルなユーザーを 1 回のクリックで識別できます。 アカウント検出機能の詳細については [、こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery)。 これにより、Entra へのオンボードを簡素化しながら、承認されていないアクセスを定期的に監視することもできます。
 
 注
 
@@ -3715,11 +4398,11 @@ Microsoft Entraとの統合の前に、アプリケーションに既に 1 人�
 
 ::: zone pivot="portal"
 
-### Microsoft Entra admin centerを使用してアプリケーションにユーザーとグループを割り当てる
+### Microsoft Entra 管理センターを使用してアプリケーションにユーザーとグループを割り当てる
 
 エンタープライズ アプリケーションにユーザーまたはグループ アカウントを割り当てるには:
 
-1. [Microsoft Entra admin center](https://entra.microsoft.com)に少なくとも [Cloud アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に少なくとも [Cloud アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
 2. **Entra ID**&gt;**Enterprise apps**&gt;**All applications** に移動します。
 3. 検索ボックスに既存のアプリケーションの名前を入力し、検索結果からアプリケーションを選択します。
 4. **[ユーザーとグループ]**、**[ユーザーまたはグループの追加]** の順に選択します。
@@ -3818,7 +4501,7 @@ Microsoft Entraとの統合の前に、アプリケーションに既に 1 人�
     $user = Get-Entrauser -ObjectId "<objectId>"
     $spo = Get-EntraServicePrincipal -ObjectId "<objectId>"
     
-    #Get the ID of role assignment 
+    #Get the ID of role assignment
     $assignments = Get-EntraServicePrincipalAppRoleAssignedTo -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
     
     #if you run the following, it will show you what is assigned what
@@ -3889,25 +4572,25 @@ $assignments | ForEach-Object {
 1. PowerShell で、対応する値を変数 `$userId`、`$app_name`、`$app_role_name` に割り当てます。
 
     ```powershell
-    # Assign the values to the variables  
-    $userId = "<Britta Simon's user ID>"  
-    $app_name = "Workplace Analytics"  
+    # Assign the values to the variables
+    $userId = "<Britta Simon's user ID>"
+    $app_name = "Workplace Analytics"
     ```
 2. この例では、Britta Simon に割り当てるアプリケーション ロールの正確な名前はわかりません。 次のコマンドを実行し、サービス プリンシパルの表示名を使用してサービス プリンシパル ($sp) を取得します。
 
     ```powershell
-    # Get the service principal for the app  
-    $sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'"  
+    # Get the service principal for the app
+    $sp = Get-MgServicePrincipal -Filter "displayName eq '$app_name'"
     ```
 3. 次のコマンドを実行して、サービス プリンシパルによって公開されるアプリ ロールを見つけます。
 
     ```powershell
-    # Get the app roles exposed by the service principal  
-    $appRoles = $sp.AppRoles  
-    # Display the app roles  
-    $appRoles | ForEach-Object {  
-        Write-Output "AppRole: $($_.DisplayName) - ID: $($_.Id)"  
-    }  
+    # Get the app roles exposed by the service principal
+    $appRoles = $sp.AppRoles
+    # Display the app roles
+    $appRoles | ForEach-Object {
+        Write-Output "AppRole: $($_.DisplayName) - ID: $($_.Id)"
+    }
     ```
 
     注
@@ -3916,24 +4599,24 @@ $assignments | ForEach-Object {
 4. `$app_role_name` 変数にロール名を割り当てます。 この例では、Britta Simon にアナリスト (制限付きアクセス) のロールを割り当てます。
 
     ```powershell
-    # Assign the values to the variables  
-    $app_role_name = "Analyst (Limited access)"  
-    $appRoleId = ($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id  
+    # Assign the values to the variables
+    $app_role_name = "Analyst (Limited access)"
+    $appRoleId = ($sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }).Id
     ```
 5. パラメーターを準備し、次のコマンドを実行して、ユーザーをアプリ ロールに割り当てます。
 
     ```powershell
-    # Prepare parameters for the role assignment  
-    $params = @{  
-        "PrincipalId" = $userId  
-        "ResourceId" = $sp.Id  
-        "AppRoleId" = $appRoleId  
-    }  
+    # Prepare parameters for the role assignment
+    $params = @{
+        "PrincipalId" = $userId
+        "ResourceId" = $sp.Id
+        "AppRoleId" = $appRoleId
+    }
     
-    # Assign the user to the app role  
-    New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |   
-        Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,   
-        PrincipalId, PrincipalType, ResourceDisplayName, ResourceId  
+    # Assign the user to the app role
+    New-MgUserAppRoleAssignment -UserId $userId -BodyParameter $params |
+        Format-List Id, AppRoleId, CreationTime, PrincipalDisplayName,
+        PrincipalId, PrincipalType, ResourceDisplayName, ResourceId
     ```
 
 グループをエンタープライズ アプリに割り当てるには、`Get-MgUser` を `Get-MgGroup` に置き換え、`New-MgUserAppRoleAssignment` を `New-MgGroupAppRoleAssignment` に置き換えます。
@@ -7269,14 +7952,14 @@ Oracle PeopleSoft アプリケーションへのアクセスが正しく行わ�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-app-registration
 - Service: entra-id / enterprise-apps
-- Article date: 2026-03-16
+- Article date: 2026-10-15
 - Summary: Microsoft Entra ID でアプリの登録を非アクティブ化して、アプリケーションの構成を維持しながらトークンの発行を防ぐ方法について説明します。
 
 アプリの登録を非アクティブ化すると、アプリケーションが保護されたリソースにアクセスするのを防ぐために、テナントから完全に削除することなく、元に戻すことができます。 アプリケーションを非アクティブ化すると、新しいアクセス トークンの受信は直ちに停止されますが、既存のトークンは有効期限が切れるまで有効なままです。 この方法は、セキュリティ調査、疑わしいアプリケーションの一時的な中断、またはアプリケーション構成データを維持する必要がある場合に役立ちます。
 
 アプリケーションを完全に削除する場合とは異なり、非アクティブ化ではすべてのアプリケーション メタデータ、アクセス許可、構成設定が保持されるため、必要に応じてアプリケーションを簡単に再アクティブ化できます。 アプリケーションはテナントのエンタープライズ アプリケーションの一覧に表示されたままですが、ユーザーはサインインできないため、新しいトークンは発行されません。
 
-この記事では、エンタープライズ アプリケーションを非アクティブ化し、非アクティブ化されたアプリケーションを表示し、必要に応じて再アクティブ化する方法について説明します。
+この記事では、アプリの登録を非アクティブ化し、非アクティブ化されたアプリケーションを表示し、必要に応じて再アクティブ化する方法について説明します。
 
 ### [前提条件]
 
@@ -7289,7 +7972,7 @@ Oracle PeopleSoft アプリケーションへのアクセスが正しく行わ�
     - `microsoft.directory/applications/disablement/update`
 - Microsoft Graph を使用する場合は、次の API アクセス許可を使用します。
     - `Application.ReadWrite.All` (委任またはアプリケーション)
-    - `Application.ReadWrite.OwnedBy` （アプリケーション、所有するアプリのみの場合）
+    - `Application.ReadWrite.OwnedBy`（アプリケーション、所有するアプリのみの場合）
 
 ### アプリケーションの非アクティブ化について
 
@@ -7396,7 +8079,7 @@ Important
 1. [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
 2. **[アプリの登録]** を参照します。
 3. [ **非アクティブ化されたアプリケーション** ] タブを選択します。
-4. または、[ **エンタープライズ アプリ** ] ウィンドウに移動し、[ **管理** ] -&gt;**Properties** -&gt;**Activation 状態**で特定のエンタープライズ アプリを確認します。
+4. 関連するエンタープライズ アプリケーションの概要の状態を表示するには、**エンタープライズ アプリ**を参照し、アプリケーションを選択して、[**管理**&gt;**プロパティ**&gt;**アクティブ化の状態**] を選択します。 この状態には、テナントローカルのサインイン無効化とMicrosoft無効化も含まれます。アプリの登録の非アクティブ化に固有ではありません。
 
     [Image: アプリケーションがアクティブか非アクティブかを示す [エンタープライズ アプリのプロパティ] ページの [アクティブ化の状態] フィールドを示すスクリーンショット。]
 
@@ -7416,7 +8099,7 @@ Important
 
 Important
 
-非アクティブ化は、アプリの登録 (アプリケーション オブジェクト) で実行する必要があります。 非アクティブ化された状態は、エンタープライズ アプリ (サービス プリンシパル オブジェクト) に反映されます。 サービス プリンシパルを直接非アクティブ化することはできません。 サービス プリンシパルでのサインインは、set `accountEnabled = false`を使用してのみ無効にできます。
+**非アクティブ化**操作はアプリ登録 (アプリケーション オブジェクト) に適用され、非アクティブ化された状態はエンタープライズ アプリケーション (サービス プリンシパル オブジェクト) に反映されます。 個別に、テナント ローカル サービス プリンシパル（`accountEnabled=false`）でのサインインを無効にするだけで、アプリの登録が非アクティブ化されていない場合でも、**アクティブ化の状態**が**非アクティブ**と表示されます。 ラベルだけでは原因は特定されません。 条件を区別し、適切な復旧ガイダンスを選択するには、「 [アクティブ化の状態」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/application-properties#activation-status) を参照してください。
 
 ### 非アクティブ化されたアプリケーションを調査する
 
@@ -7427,6 +8110,8 @@ Important
 ### アプリケーションを再アクティブ化する
 
 Microsoft Graph API または Microsoft Entra 管理センターを使用してアプリケーションを再アクティブ化するには、少なくとも [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) ロールまたは `microsoft.directory/applications/disablement/update` アクションを持つカスタム ロールが必要です。
+
+ホーム テナントでアプリの登録を再アクティブ化します。 これにより、サービス プリンシパルの`accountEnabled`が`false`のままの場合でも、テナント ローカル サインインは有効になりません。また、Microsoft による無効化はオーバーライドされません。 テナント ローカル サインインのみが無効になっている場合は、代わりに[テナント ローカル サインインの復元](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/disable-user-sign-in-portal#restore-tenant-local-sign-in)に従ってください。
 
 ## [Microsoft Entra 管理センター](#tab/admin-center)
 1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
@@ -7468,7 +8153,7 @@ Microsoft Graph API または Microsoft Entra 管理センターを使用して�
 
 アプリケーションを非アクティブ化する前に、アプリケーションからすべての所有者を削除します。 これにより、少なくとも [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) ロールを持つユーザー、または `microsoft.directory/applications/disablement/update` アクションを持つカスタム ロールを持つユーザーのみが、アプリケーションを再アクティブ化できるようになります。
 
-### 無効化と再有効化の監査
+### 非アクティブ化と再アクティブ化の監査
 
 アプリケーションが非アクティブ化または再アクティブ化されるたびに、Microsoft Entra 監査ログ イベントが発生し、次のイベントが発生します。
 
@@ -7883,7 +8568,7 @@ Important
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/disable-user-sign-in-portal
 - Service: entra-id / enterprise-apps
-- Article date: 2025-03-03
+- Article date: 2026-10-15
 - Summary: ユーザーがMicrosoft Entra IDでアプリケーションにサインインするのを防ぎ、トークンが発行されないようにする方法について説明します。
 
 アプリケーションの構成または管理中に、アプリケーションへのトークンの発行をi一時的に停止する場合があります。 または、従業員によるアクセスが好ましくないアプリケーションをブロックする場合もあります。 ユーザーによるアプリケーションへのアクセスをブロックするには、アプリケーションへのユーザー サインインを無効にできます。その結果、対象のアプリケーションに対してすべてのトークンが発行されなくなります。
@@ -7892,7 +8577,7 @@ Important
 
 注
 
-この記事の手順では、1 つのテナントのユーザー サインインを無効にします。 (マルチテナント アプリの場合) すべてのテナントでアプリケーションをグローバルに無効にする必要がある場合は、代わりに [アプリケーションを非アクティブ化](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-application-portal) することを検討してください。これにより、すべてのトークン発行がグローバルに禁止されます。
+この記事の手順では、サービス プリンシパルの `accountEnabled` プロパティを `false` に設定することで、単一テナントのユーザー サインインを無効にします。 これにより、エンタープライズ アプリケーションの**アクティブ化の状態**が**非アクティブ化**と表示されます。 ラベルは、必ずしもアプリの登録が非アクティブ化されていることを意味するとは限りません。 すべてのテナントでアプリケーションを無効にする必要がある場合は、[「アプリの登録を非アクティブ化する」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-app-registration)を参照してください。
 
 ### 前提条件
 
@@ -7984,6 +8669,12 @@ Content-type: application/json
 ```
 
 ::: zone-end
+
+### テナントローカル サインインの復元
+
+サインインを復元する前に、無効にされた理由を確認し、アクセスの復元が適切であることを確認します。 影響を受けるテナントの [前提条件] に一覧表示されているアクセス許可で、**[ユーザーがサインインできるようにする]** を **[はい]** に設定し、**[保存]** を選択します。 プログラムによる更新の場合は、サービス プリンシパルの `accountEnabled` プロパティを、`true` ではなく `false` に設定します。
+
+テナント ローカル サインインを有効にしても、アプリ登録の無効化や Microsoft による無効化は上書きされません。 **アクティブ化の状態**に **非アクティブ化** がそれでも表示される場合は、「[アクティブ化の状態](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/application-properties#activation-status)」に記載されている他の条件を確認します。
 <!-- /MSL-PAGE -->
 
 ---
@@ -9713,718 +10404,4 @@ BIG-IP Web ポータルを使用しないシナリオを考えてみましょう
 アプリケーションが公開され、その URL または Microsoft のアプリケーション ポータルを介して、SHA によりアクセスできるようになります。 アプリケーションは、 [Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-conditional-access-policies)のターゲット リソースとして表示されます。
 
 このパターンを使用する組織では、セキュリティを強化するため、アプリケーションへの直接アクセスをブロックできます。そうすることで、BIG-IP 経由の厳密なパスを強制します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/f5-big-ip-kerberos-easy-button"} -->
-## Kerberos シングル サインオン用に F5 BIG-IP Easy Button を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-kerberos-easy-button
-- Service: entra-id / enterprise-apps
-- Article date: 2024-06-28
-- Summary: F5 の BIG-IP Easy Button ガイド付き構成を使用して、Kerberos アプリケーションへのシングル サインオンによるセキュア ハイブリッド アクセス (SHA) を実装する方法について説明します。
-
-F5 の BIG-IP Easy Button ガイド付き構成 16.1 を使って、Microsoft Entra ID で Kerberos ベースのアプリケーションをセキュリティで保護する方法について説明します。
-
-BIG-IP と Microsoft Entra ID の統合には、以下のように数多くの利点があります。
-
-- ガバナンスの強化: [リモート作業を可能にするゼロトラスト フレームワーク](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)に関するページを参照し、Microsoft Entra 事前認証の詳細を確認してください。
-- 組織ポリシーを適用します。 「[条件付きアクセスとは](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)」を参照してください。
-- Microsoft Entra ID と BIG-IP 公開サービスとの間の完全な SSO
-- 単一のコントロール プレーンである [Microsoft Entra 管理センター](https://entra.microsoft.com)から ID とアクセスを管理します。
-
-メリットの詳細については、[F5 BIG-IP と Microsoft Entra の統合](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-integration)に関する記事を参照してください。
-
-### シナリオの説明
-
-このシナリオは、統合 Windows 認証 (IWA) としても知られる Kerberos 認証を使用して、保護されたコンテンツへのアクセスを制限するクラシック レガシ アプリケーションに関するものです。
-
-レガシであるため、アプリケーションには Microsoft Entra ID との直接的な統合をサポートする最新のプロトコルがありません。 アプリケーションを最新化することは可能ですが、コストがかかりすぎ、計画が必要であり、潜在的なダウンタイムのリスクが生じます。 そうする代わりに、F5 BIG IP Application Delivery Controller (ADC) が、プロトコル遷移によってレガシ アプリケーションと最新の ID コントロール プレーンとの間のギャップを橋渡しします。
-
-アプリケーションの前に BIG-IP を配置することによって、Microsoft Entra の事前認証とヘッダー ベースの SSO によるサービスをオーバーレイできるようになるため、アプリケーションのセキュリティ体制が強化されます。
-
-注
-
-組織では、この種類のアプリケーションに対して [Microsoft Entra アプリケーション プロキシ](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy) を使用してリモート アクセスを取得することもできます
-
-### シナリオのアーキテクチャ
-
-このシナリオのためのセキュア ハイブリッド アクセス (SHA) ソリューションは、次のコンポーネントで構成されています。
-
-- **アプリケーション:** Microsoft Entra SHA によって保護される BIG-IP 公開サービス。 このアプリケーション ホストはドメインに参加しています。
-- **Microsoft Entra ID:** - ユーザー資格情報、条件付きアクセス、BIG-IP への SAML ベースの SSO を検証する Security Assertion Markup Language (SAML) ID プロバイダー (IdP)。 SSO を使用して、Microsoft Entra ID により、必要なセッション属性が BIG-IP に提供されます。
-- **KDC:** ドメイン コントローラー (DC) のキー配布センター (KDC) ロール。Kerberos チケットを発行します。
-- **BIG-IP**: アプリケーションに対するリバース プロキシおよび SAML サービス プロバイダー (SP)。バックエンド アプリケーションへの Kerberos ベースの SSO を実行する前に認証を SAML IdP に委任します。
-
-このシナリオの SHA では、SP と IdP によって開始されるフローがサポートされます。 次の図は SP のフローを示したものです。
-
-[Image: シナリオ サービス プロバイダー フローの図。]
-
-1. ユーザーがアプリケーション エンドポイント (BIG-IP) に接続する
-2. BIG-IP Access Policy Manager (APM) アクセス ポリシーにより、ユーザーが Microsoft Entra ID (SAML IdP) にリダイレクトされます
-3. Microsoft Entra ID によって、ユーザーの事前認証と、強制された条件付きアクセス ポリシーが適用される
-4. ユーザーが BIG-IP (SAML SP) にリダイレクトされ、発行された SAML トークンを使用して SSO が実行される
-5. BIG-IP が KDC に Kerberos チケットを要求する
-6. BIG-IP がバックエンド アプリケーションに対し、SSO 用の Kerberos チケット一緒に要求を送信する
-7. アプリケーションが要求を承認し、ペイロードを返す
-
-### 前提条件
-
-以前の BIG-IP エクスペリエンスは必要ありませんが、以下が必要です。
-
-- [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)以上
-- BIG-IP、または [Azure に BIG-IP Virtual Edition (VE) をデプロイします](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-bigip-deployment-guide)
-- 次のいずれかの F5 BIG-IP ライセンス:
-    - F5 BIG-IP® Best バンドル
-    - F5 BIG-IP APM スタンドアロン
-    - F5 BIG-IP® Local Traffic Manager™ (LTM) に対する F5 BIG-IP APM アドオン ライセンス
-    - 90 日間の BIG-IP [無料試用版](https://www.f5.com/trial/big-ip-trial.php)ライセンス
-- オンプレミスのディレクトリから Microsoft Entra ID に[同期された](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-whatis)ユーザー ID、または Microsoft Entra ID 内で作成されてオンプレミスのディレクトリに戻されたユーザー ID
-- 次のいずれかのロール: クラウド アプリケーション管理者、アプリケーション管理者。
-- HTTPS でサービスを公開するための [SSL Web 証明書](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-bigip-deployment-guide)。またはテスト時に既定の BIG-IP 証明書を使います
-- Kerberos アプリケーション。または [Windows で インターネット インフォメーション サービス (IIS) を使用する SSO](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) を構成する方法について説明します。
-
-### BIG-IP の構成方法
-
-このチュートリアルでは、Easy Button テンプレートを使用する最新のガイド付き構成 16.1 について説明します。 Easy Button を使用すると、管理者は Microsoft Entra ID と BIG-IP の間を行き来して SHA のためにサービスを有効にする必要がなくなります。 APM のガイド付き構成ウィザードと Microsoft Graph によって、デプロイとポリシー管理が処理されます。 BIG-IP APM と Microsoft Entra ID の統合により、アプリケーションでは確実に ID フェデレーション、SSO、Microsoft Entra 条件付きアクセスをサポートできるため、管理オーバーヘッドが軽減されます。
-
-注
-
-この記事の文字列または値の例は、実際の環境のものに置き換えてください。
-
-### Easy Button を登録する
-
-[Microsoft ID プラットフォーム](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app) がサービスまたはクライアントを信頼すると、どちらかが Microsoft Graph にアクセスできます。 このアクションでは、Graph への Easy Button アクセスを承認するために使用されるテナント アプリの登録を作成します。 これらのアクセス許可を使用して、BIG-IP は、発行済みアプリケーションの SAML SP インスタンスと、SAML IdP となる Microsoft Entra ID の間に信頼を確立するための構成をプッシュします。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**アプリ登録**&gt;に移動し、**新規登録**を選択します。
-3. アプリケーションの表示名を入力します。 たとえば、F5 BIG-IP Easy Button です
-4. アプリケーションを使用できるユーザー &gt;**[Accounts in this organizational directory only] (この組織ディレクトリのアカウントのみ)** を指定します。
-5. **[登録]** を選択します。
-6. **[API\* のアクセス許可\*]** に移動し、次の Microsoft Graph\* の**アプリケーション\*のアクセス許可\***を承認します：
-
-    - Application.Read.All (アプリケーションの全ての読み取り権限)
-    - Application.ReadWrite.All
-    - Application.ReadWrite.OwnedBy
-    - Directory.Read.All (ディレクトリのすべてを読む)
-    - グループ.リード.オール
-    - IdentityRiskyUser.Read.All（アイデンティティリスキーユーザー.リード.オール）
-    - Policy.Read.All
-    - ポリシー.読み取り書き込み.アプリケーション設定
-    - Policy.ReadWrite.ConditionalAccess（ポリシーの読み書き条件付きアクセス）
-    - User.Read.All（ユーザー全体の読み取り）
-7. 組織に管理者の同意を付与します。
-8. **[証明書とシークレット]** で、新しいクライアント シークレットを生成します。 このシークレットを書き留めておきます。
-9. **[概要]** でクライアント ID とテナント ID をメモします。
-
-### Easy Button を構成する
-
-APM の [ガイド付き構成] を開始して、Easy Button テンプレートを起動します。
-
-1. **[アクセス] &gt; [ガイド付き構成] &gt; [Microsoft 統合]** と移動して、**[Microsoft Entra アプリケーション]** を選択します。
-2. 構成手順を確認し、**[次へ]** を選択します。
-3. アプリケーションを公開するには、次の手順に従います。
-
-    [Image: ガイド付き構成の構成フローのスクリーンショット。]
-
-#### 構成プロパティ
-
-**[構成のプロパティ]** タブでは、BIG-IP アプリケーション構成と SSO オブジェクトが作成されます。 **[Azure サービス アカウントの詳細]** セクションは、アプリケーションとして、以前に Microsoft Entra テナントに登録したクライアントを表すものとします。 これらの設定により、BIG-IP の OAuth クライアントでは、手動で構成する SSO プロパティと共に、SAML SP をテナントに登録できるようになります。 Easy Button により、公開されて SHA が有効になっているすべての BIG-IP サービスに対してこのアクションが行われます。
-
-一部の設定はグローバルであるため、より多くのアプリケーションを公開するために再利用でき、デプロイの時間と労力を削減するのに役立ちます。
-
-1. 一意の**構成名**を指定します。
-2. **[シングル サインオン (SSO) と HTTP ヘッダー]** を有効にします
-3. テナントに Easy Button クライアントを登録するときに記録した**テナント ID**、**クライアント ID**、**クライアント シークレット**を入力します。
-4. BIG-IP がテナントに接続されたことを確認します。
-5. **[次へ]** を選択します。
-
-#### サービス プロバイダー
-
-サービス プロバイダー設定は、SHA によって保護されるアプリケーションの SAML SP インスタンスのプロパティになります。
-
-1. **[ホスト]** に、セキュリティで保護されるアプリケーションのパブリック完全修飾ドメイン名 (FQDN) を入力します。
-2. **[エンティティ ID]** には、トークンを要求する SAML SP を識別するために Microsoft Entra ID が使用する識別子を入力します。
-
-    [Image: サービス プロバイダーの [ホスト] および [エンティティ ID] の入力のスクリーンショット。]
-
-オプションの **[セキュリティ設定]** を使用して、発行済みの SAML アサーションを Microsoft Entra ID で暗号化するかどうかを指定します。 Microsoft Entra ID と BIG-IP APM の間でアサーションを暗号化すると、コンテンツ トークンが傍受されないこと、および個人や会社のデータが侵害されないことの保証が提供されます。
-
-1. **[Assertion Decryption Private Key] (アサーション解読秘密キー)** の一覧から、**[新規作成]** を選択します。
-
-[Image: [セキュリティ設定] の [新規作成] オプションのスクリーンショット。]
-
-1. **[OK]** を選択します。 **[SSL 証明書とキーのインポート]** ダイアログが表示されます。
-2. **PKCS 12 (IIS)** を選択して、証明書と秘密キーをインポートします。
-3. プロビジョニングが完了したら、ブラウザーのタブを閉じて、メイン タブに戻ります。
-
-[Image: [インポートの種類]、[証明書とキー名]、[証明書キーとソース]、[パスワード] の入力のスクリーンショット]
-
-1. **[暗号化アサーションを有効にする]** をオンにします。
-2. 暗号化を有効にした場合は、**[アサーション解読の秘密キー]** リストから証明書を選択します。 この秘密キーは証明書のためのもので、Microsoft Entra アサーションを解読するために BIG-IP APM で使用されます。
-3. 暗号化を有効にした場合は、**[アサーション解読の証明書]** リストから証明書を選択します。 BIG-IP は、発行された SAML アサーションを暗号化するために、この証明書を Microsoft Entra ID にアップロードします。
-
-[Image: [アサーション解読の秘密キー] と [Assertion Decryption Certificate] (アサーション解読の証明書) エントリのスクリーンショット。]
-
-#### Microsoft Entra ID
-
-このセクションには、Microsoft Entra テナント内で新しい BIG-IP SAML アプリケーションを手動で構成するためのプロパティが定義されています。 Easy Button には、Oracle PeopleSoft、Oracle E-business Suite、Oracle JD Edwards、SAP Enterprise Resource Planning (ERP) 用のアプリケーション テンプレートと、その他のアプリ用の SHA テンプレートが用意されています。
-
-このシナリオでは、**[F5 BIG-IP APM Microsoft Entra ID 統合] &gt; [追加]** を選びます。
-
-##### Azure 構成
-
-1. BIG-IP によって Microsoft Entra テナント内に作成されるアプリと、**MyApps ポータル**のアイコンの [表示名](https://myapplications.microsoft.com/) を入力します。
-2. IdP Initiated サインオンを有効にするには、**[サインオン URL]** (省略可能) に何も入力しないでください。
-3. **[署名キー]** と **[署名証明書]** の横にある**更新**アイコンを選択して、先ほどインポートした証明書を見つけます。
-4. **[署名キーのパスフレーズ]** に証明書のパスワードを入力します。
-5. **[署名オプション]** (省略可能) を有効にして、BIG-IP が、Microsoft Entra ID によって署名されたトークンと要求を受け入れるようにします。
-
-    [Image: [SAML 署名証明書] の [署名キー]、[署名証明書]、[Signing Key Passphrase] (署名キーのパスフレーズ) のスクリーンショット。]
-6. **ユーザーとユーザー グループ**は、Microsoft Entra テナントから動的に照会され、アプリケーションへのアクセスを承認します。 テストに使うユーザーまたはグループを追加します。そうしないと、すべてのアクセスは拒否されます。
-
-    [Image: [ユーザーとユーザー グループ] の [追加] オプションのスクリーンショット。]
-
-##### ユーザー属性とクレーム
-
-ユーザーが認証されると、Microsoft Entra ID は、ユーザーを識別する要求と属性の既定のセットを使用して SAML トークンを発行します。 **[ユーザー属性と要求]** タブには、新しいアプリケーションのために発行する既定の要求が表示されます。 それを使用して、より多くの要求を構成します。
-
-インフラストラクチャは、内部および外部で使用される .com ドメイン サフィックスに基づいています。 機能する Kerberos の制約付き委任シングル サインオン (KCD SSO) の実装を実現するために、他の属性は必要ありません。 別のサフィックスを使用する複数のドメインまたはユーザーのサインインについては、[詳細なチュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-kerberos-advanced)を参照してください。
-
-[Image: ユーザー属性と要求のスクリーンショット。]
-
-##### 追加のユーザー属性
-
-**[追加のユーザー属性]** タブでは、セッション拡張のために、他のディレクトリに格納されている属性を必要とする、さまざまな分散システムがサポートされます。 次に、ライトウェイト ディレクトリ アクセス プロトコル (LDAP) ソースからフェッチされた属性を SSO ヘッダーとして挿入して、ロール、パートナー ID などに基づいてアクセスを制御できます。
-
-注
-
-この機能は Microsoft Entra ID と相関関係はありませんが、属性のもう 1 つのソースです。
-
-##### 条件付きアクセス ポリシー
-
-条件付きアクセス ポリシーは、デバイス、アプリケーション、場所、リスクの兆候に基づいてアクセスを制御するために、Microsoft Entra の事前認証後に適用されます。
-
-**[使用可能なポリシー]** ビューには、ユーザーベースのアクションのない条件付きアクセス ポリシーが示されます。
-
-**[選択されたポリシー]** ビューには、クラウド アプリをターゲットとするポリシーが表示されます。 テナント レベルで適用されるポリシーは選択解除することも、[使用可能なポリシー] リストに移動することもできません。
-
-公開されているアプリケーションに適用するポリシーを選択するには、以下の手順を実行します:
-
-1. **[使用可能なポリシー]** リストからポリシーを選びます。
-2. **右矢印**を選択して、これを **[選択されたポリシー]** リストに移動します。
-
-選択したポリシーでは、**[含める]** または **[除外する]** オプションにチェックを入れる必要があります。 両方のオプションをオンにした場合、選択したポリシーは適用されません。
-
-[Image: [条件付きアクセス ポリシー] の [選択されたポリシー] の下に表示される除外された条件付きアクセス ポリシーのスクリーンショット。]
-
-注
-
-このタブに切り替えると、ポリシー リストが 1 回表示されます。**[更新]** ボタンを使用することで、ウィザードでテナントに対してクエリを実行するように手動で強制できますが、このボタンはアプリケーションをデプロイした後に表示されます。
-
-#### 仮想サーバーのプロパティ
-
-仮想サーバーは BIG-IP データ プレーン オブジェクトであり、アプリケーションに対するクライアント要求をリッスンする仮想 IP アドレスで表されます。 受信されたトラフィックは処理され、仮想サーバーに関連する APM プロファイルに対して評価されます。 トラフィックはポリシーに従って送信されます。
-
-1. **[宛先アドレス]** を入力します。これは、クライアント トラフィックを受信するために BIG-IP で使用できる IPv4 または IPv6 アドレスです。 対応するレコードが ドメイン ネーム サーバー (DNS) にも存在します。それによってクライアントでは、BIG-IP の公開済みアプリケーションの外部 URL を、アプリケーションではなく、この IP に解決できるようになります。 テストでは、テスト PC の localhost DNS を使用しても問題ありません。
-2. **[サービス ポート]** で、HTTPS に対して「443」と入力します。
-3. **[リダイレクト ポートを有効にする]** をオンにし、**[リダイレクト ポート]** に入力します。これは、受信 HTTP クライアント トラフィックを HTTPS にリダイレクトします。
-4. [クライアント SSL プロファイル] では、クライアント接続が トランスポート層セキュリティ (TLS) で暗号化されるように、HTTPS 用の仮想サーバーを有効にできます。 前提条件として作成した**クライアント SSL プロファイル**を選択するか、テストする場合は既定値のままにします。
-
-    [Image: [仮想サーバーのプロパティ] の [コピー先アドレス]、[サービス ポート]、[共通] エントリのスクリーンショット。]
-
-#### プールのプロパティ
-
-**[アプリケーション プール]** タブには、アプリケーション サーバーを含むプールとして表される、BIG-IP の背後にあるサービスが表示されます。
-
-1. **[プールの選択]** で、新しいプールを作成するか、既存のものを選びます。
-2. **[負荷分散方法]** で、[ラウンド ロビン] などを選びます。
-3. **[プール サーバー]** では、サーバー ノードを選択するか、ヘッダーベースのアプリケーションをホストするバックエンド ノードの IP とポートを指定します。
-
-    [Image: [プールのプロパティ] の [IP Address/Node Name] (IP アドレスとノード名)、[ポート] エントリのスクリーンショット。]
-
-バックエンド アプリケーションは HTTP ポート 80 で実行されます。 アプリケーションが HTTPS で実行される場合は、ポートを 443 に切り替えることができます。
-
-##### シングル サインオンと HTTP ヘッダー
-
-SSO を有効にすると、ユーザーは資格情報を入力しなくても、BIG-IP で公開されているサービスにアクセスできるようになります。 Easy Button ウィザードでは、SSO 用に Kerberos、OAuth Bearer、HTTP 承認ヘッダーがサポートされています。 これらの手順には、作成した Kerberos 委任アカウントを使ってください。
-
-**[Kerberos]** と **[詳細設定の表示]** を有効にして、次の情報を入力します。
-
-- **[ユーザー名ソース]:** SSO のためにキャッシュする優先ユーザー名。 ユーザー ID のソースとしてセッション変数を指定できますが、*session.saml.last.identity* は、ログインしたユーザー ID を含む Microsoft Entra 要求が保持されるため、より効果的に機能します。
-- **[ユーザー領域のソース]:** ユーザー ドメインが BIG-IP の Kerberos 領域と異なる場合に必要です。 その場合、APM セッション変数には、ログインしているユーザー ドメインが含まれます。 たとえば、*session.saml.last.attr.name.domain*など
-
-    [Image: [Sign On and HTTP Headers] (シングル サインオンと HTTP ヘッダー) の [Username Source] (ユーザー名ソース) エントリのスクリーンショット。]
-- **[KDC]:** ドメイン コントローラーの IP、または DNS が構成されていて効率的である場合は FQDN
-- **[UPN サポート]:** APM で Kerberos チケット発行にユーザー プリンシパル名 (UPN) を使用する場合に、このオプションを有効にします
-- **[SPN パターン]:** HTTP/%h を使用して、クライアント要求のホスト ヘッダーを使用し、Kerberos トークンの要求対象となるサービスプリンシパル名 (SPN) を構築するように APM に通知します
-- **[承認の送信]:** 1 回目の要求で Kerberos トークンを受信せずに、認証をネゴシエートするアプリケーションでは無効にします。 たとえば、Tomcat が該当します。
-
-    [Image: SSO 方法の構成に関するエントリのスクリーンショット]
-
-#### セッションの管理
-
-BIG-IP のセッション管理設定では、ユーザー セッションが終了する、または続行する条件、ユーザーと IP アドレスの制限、および対応するユーザー情報を定義します。 これらの設定の詳細については、AskF5 記事「[K18390492: セキュリティ | BIG-IP APM 操作ガイド](https://support.f5.com/csp/article/K18390492)」を参照してください。
-
-IdP、BIG-IP、およびユーザー エージェント間のセッションをユーザーのサインアウト時に終了するシングル ログアウト (SLO) 機能は対象外です。Easy Button によって Microsoft Entra テナントに SAML アプリケーションがインスタンス化されると、サインアウト URL に APM SLO エンドポイントが設定されます。 Microsoft Entra のマイ アプリ ポータルからの IdP によって開始されるサインアウトでも、BIG-IP とクライアント間のセッションが終了します。
-
-公開済みアプリケーションの SAML フェデレーション メタデータがテナントからインポートされて、APM に Microsoft Entra ID の SAML サインアウト エンドポイントが提供されます。 このアクションにより、SP によって開始されるサインアウトによって、クライアントと Microsoft Entra ID の間のセッションが終了します。 APM は、ユーザーがアプリケーションからサインアウトするタイミングを把握する必要があります。
-
-BIG-IP Web トップ ポータルが発行済みアプリケーションにアクセスする場合、APM によってサインアウトが処理され、Microsoft Entra サインアウト エンドポイントが呼び出されます。 しかし、BIG-IP Web トップ ポータルが使用されていない場合に、ユーザーが APM にサインアウトを指示できないシナリオについて考えてみます。ユーザーがアプリケーションからサインアウトした場合でも、BIG-IP では認識されません。 そのため、SP によって開始されるサインアウトでは、セッションを安全に終了するよう配慮してください。 SLO 関数をアプリケーションの [サインアウト] ボタンに追加すると、クライアントは Microsoft Entra SAML または BIG-IP サインアウト エンドポイントにリダイレクトされます。
-
-テナントの SAML サインアウト エンドポイントの URL は、**[アプリの登録] &gt; [エンドポイント]** にあります。
-
-アプリを変更できない場合は、BIG-IP でアプリケーションのサインアウト呼び出しをリッスンし、要求を検出したら SLO をトリガーすることを検討してください。 BIG-IP iRules の詳細については、[Oracle PeopleSoft SLO ガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-oracle-peoplesoft-easy-button#peoplesoft-single-logout)を参照してください。 BIG-IP iRules の使用に関する詳細については、次を参照してください。
-
-- [K42052145: URI 参照ファイル名に基づく自動セッション終了 (ログアウト) の構成](https://support.f5.com/csp/article/K42052145)
-- [K12056: ログアウト URI インクルード オプションの概要](https://support.f5.com/csp/article/K12056)
-
-### まとめ
-
-このセクションは、構成の内訳になります。
-
-**[デプロイ]** を選択して設定をコミットし、エンタープライズ アプリケーションのテナント リストにアプリケーションが存在することを検証します。
-
-### KCD 構成
-
-BIG-IP APM がユーザーに代わってバックエンド アプリケーションへの SSO を実行する場合は、ターゲット AD ドメインでキー配布センター (KCD) を構成します。 認証を委任するには、ドメイン サービス アカウントで BIG-IP APM をプロビジョニングする必要があります。
-
-APM サービス アカウントと委任が設定されている場合は、このセクションをスキップしてください。 それ以外の場合は、管理者アカウントでドメイン コントローラーにサインインします。
-
-このシナリオでは、アプリケーションはサーバー APP-VM-01 にホストされ、コンピューターの ID ではなく、web\_svc\_account という名前のサービス アカウントのコンテキストで実行されています。 APM に割り当てられた、委任する側のサービス アカウントの名称は F5-BIG-IP です。
-
-#### BIG-IP APM 委任アカウントを作成する
-
-BIG-IP ではグループ管理サービス アカウント (gMSA) がサポートされていないため、APM のサービス アカウントとして使用する標準ユーザー アカウントを作成します。
-
-1. 次の PowerShell コマンドを入力します。 **UserPrincipalName** と **SamAccountName** の値を、お使いの環境値に置き換えます。 セキュリティを強化するため、アプリケーションのホスト ヘッダーに一致する専用の SPN を使用します。
-
-    `New-ADUser -Name "F5 BIG-IP Delegation Account" UserPrincipalName $HOST_SPN SamAccountName "f5-big-ip" -PasswordNeverExpires $true Enabled $true -AccountPassword (Read-Host -AsSecureString "Account Password")`
-
-    HOST\_SPN = host/f5-big-ip.contoso.com@contoso.com
-
-    注
-
-    ホストを使用すると、ホストで実行されているアプリケーションはアカウントを委任しますが、HTTPS を使用すると、HTTP プロトコル関連の操作のみが許可されます。
-2. Web アプリケーションのサービス アカウントに委任している間に使用する APM サービス アカウントの**サービス プリンシパル名 (SPN)** を作成します。
-
-    `Set-AdUser -Identity f5-big-ip -ServicePrincipalNames @{ Add="host/f5-big-ip.contoso.com" }`
-
-    注
-
-    ホストまたはパーツを UserPrincipleName (host/name.domain@domain) または ServicePrincipleName (host/name.domain) の形式で含める必要があります。
-3. ターゲット SPN を指定する前に、その SPN 構成を表示します。 SPN が APM サービス アカウントに対して表示されていることを確認します。 APM サービス アカウントが Web アプリケーションの委任を行います。
-
-    - Web アプリケーションがコンピューターのコンテキストまたは専用サービス アカウントで実行されていることを確認します。
-    - コンピュータ コンテキストの場合、次のコマンドを使用して、アカウント オブジェクトに対してクエリを実行し、定義されている SPN を確認します。 &lt;name\_of\_account&gt; は、実際の環境のアカウントに置き換えてください。
-
-        `Get-ADComputer -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames`
-
-        例: Get-User -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames
-    - 専用サービス アカウントの場合、次のコマンドを使用して、アカウント オブジェクトに対してクエリを実行し、定義されている SPN を確認します。 &lt;name\_of\_account&gt; は、実際の環境のアカウントに置き換えてください。
-
-        `Get-User -identity <name_of_account> -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames`
-
-        次に例を示します。
-
-        `Get-Computer -identity f5-big-ip -properties ServicePrincipalNames | Select-Object -ExpandProperty ServicePrincipalNames`
-4. アプリをマシン コンテキストで実行した場合は、コンピューター アカウントのオブジェクトに SPN を追加します:
-
-    `Set-Computer -Identity APP-VM-01 -ServicePrincipalNames @{ Add="http/myexpenses.contoso.com" }`
-
-SPN の定義後、APM サービス アカウントがそのサービスに対して委任を行うための信頼を確立します。 その構成は、BIG-IP インスタンスとアプリケーション サーバーのトポロジによって異なります。
-
-#### BIG-IP とターゲット アプリケーションを同じドメインで構成する
-
-1. APM サービス アカウントが認証を委任するための信頼を設定します:
-
-    `Get-User -Identity f5-big-ip | Set-AccountControl -TrustedToAuthForDelegation $true`
-2. APM サービス アカウントは、委任先としてターゲット SPN を把握する必要があります。 ターゲット SPN は、Web アプリケーションを実行しているサービス アカウントに設定します。
-
-    `Set-User -Identity f5-big-ip -Add @{ 'msDS-AllowedToDelegateTo'=@('HTTP/myexpenses.contoso.com') }`
-
-    注
-
-    これらのタスクは、ドメイン コントローラー上で、ユーザーとコンピュータおよび Microsoft 管理コンソール (MMC) スナップインを使用して完了できます。
-
-#### 異なるドメインにある BIG-IP とアプリケーション
-
-Windows Server 2012 以降のバージョンでは、クロス ドメインの KCD にリソースベースの制約付き委任 (RBCD) が使用されます。 サービスの制約は、ドメイン管理者からサービス管理者に転送されます。 この委任により、バックエンドのサービス管理者が SSO を許可または拒否できます。 この状況により、構成の委任時に異なるアプローチが作成されます。これは、PowerShell でのみ可能です。
-
-アプリケーション サービス アカウント (コンピュータまたは専用サービス アカウント) の PrincipalsAllowedToDelegateToAccount プロパティを使って、BIG-IP からの委任を行えます。 このシナリオでは、アプリケーションと同じドメインのドメイン コントローラー (Windows Server 2012 R2 以降) で以下の PowerShell コマンドを使用します。
-
-Web アプリケーション サービス アカウントに対して定義された SPN を使用します。 セキュリティを強化するため、アプリケーションのホスト ヘッダーに一致する専用の SPN を使用します。 たとえば、この例の Web アプリケーションのホスト ヘッダーは `myexpenses.contoso.com` なので、アプリケーション サービスのアカウント オブジェクトに `HTTP/myexpenses.contoso.com` を追加します:
-
-`Set-User -Identity web_svc_account -ServicePrincipalNames @{ Add="http/myexpenses.contoso.com" }`
-
-次のコマンドの場合は、コンテキストに注意してください。
-
-web\_svc\_account サービスがユーザー アカウントのコンテキストで実行されている場合は、以下のコマンドを使用します:
-
-`$big-ip= Get-Computer -Identity f5-big-ip -server dc.contoso.com`
-
-''Set-User -Identity web\_svc\_account -PrincipalsAllowedToDelegateToAccount'
-
-`$big-ip Get-User web_svc_account -Properties PrincipalsAllowedToDelegateToAccount`
-
-web\_svc\_account サービスがコンピューター アカウントのコンテキストで実行されている場合は、以下のコマンドを使用します:
-
-`$big-ip= Get-Computer -Identity f5-big-ip -server dc.contoso.com`
-
-`Set-Computer -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount`
-
-`$big-ip Get-Computer web_svc_account -Properties PrincipalsAllowedToDelegateToAccount`
-
-詳細については、「[ドメイン間の Kerberos の制約付き委任](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477%28v=ws.11%29)」を参照してください。
-
-### アプリ ビュー
-
-ブラウザーから、アプリケーションの外部 URL に接続するか、**[Microsoft MyApps ポータル]** の [\[アプリケーション\]](https://myapps.microsoft.com/) のアイコンを選択します。 Microsoft Entra ID に対して認証を行うと、リダイレクトによりアプリケーションの BIG-IP の仮想サーバーに移動し、SSO を通じてサインイン処理が行われます。
-
-[Image: アプリケーションの外部 URL のスクリーンショット]
-
-このパターンを使用する組織では、セキュリティを強化するため、アプリケーションへの直接アクセスをブロックできます。そうすることで、BIG-IP 経由の厳密なパスを強制します。
-
-#### Microsoft Entra B2B ゲスト アクセス
-
-このシナリオでは [Microsoft Entra B2B ゲスト アクセス](https://learn.microsoft.com/ja-jp/entra/external-id/hybrid-cloud-to-on-premises)がサポートされています。これは、Microsoft Entra テナントから、アプリケーションによって承認のために使用されるディレクトリにゲスト ID を送ることによって行われます。 AD のゲスト オブジェクトをローカルで表現しないと、BIG-IP ではバックエンド アプリケーションへの KCD SSO の Kerberos チケットの受信に失敗します。
-
-### 詳細なデプロイ
-
-ガイド付き構成テンプレートでは、一部の要件を達成するための柔軟性が欠けている可能性があります。 そのようなシナリオについては、[kerberos ベースの SSO の詳細構成](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-kerberos-advanced)に関するページを参照してください。
-
-また、BIG-IP では、ガイド付き構成の厳格な管理モードを無効にすることもできます。 構成を手動で変更できますが、構成の大部分はウィザードベースのテンプレートを使用して自動化されます。
-
-**[アクセス] &gt; [ガイド付き構成]** の順に移動して、アプリケーションの構成の行の右端にある、**小さな南京錠アイコン**を選択します。
-
-[Image: 南京錠オプションのスクリーンショット。]
-
-この時点で、ウィザード UI を介した変更は行えません。ただし、アプリケーションの公開されたインスタンスに関連付けられているすべての BIG-IP オブジェクトのロックが解除され、管理できるようになります。
-
-注
-
-厳格モードを再度有効にして構成をデプロイすると、ガイド付き構成 UI の外部で実行された設定が上書きされます。 そのため、運用サービスに対しては詳細構成の方式をお勧めします。
-
-### トラブルシューティング
-
-Kerberos SSO の問題のトラブルシューティングを行う場合は、次の概念に注意してください。
-
-- Kerberos は時刻に依存するため、サーバーとクライアントが正しい時刻に設定されている必要があります。可能であれば信頼性の高いタイム ソースと同期されるようにします。
-- ドメイン コントローラーと Web アプリケーションのホスト名が DNS で解決可能であることを確認します
-- ドメイン PC のコマンド ラインから setspn -q HTTP/my\_target\_SPN というクエリを実行し、重複する SPN が AD 環境に存在しないことを確かめます
-
-IIS アプリケーションが KCD のために構成されていることを検証するには、[アプリケーション プロキシのガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to)に関する記事を参照してください。 AskF5 の記事「[Kerberos のシングル サインオン メソッド](https://techdocs.f5.com/en-us/bigip-17-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html)」も参照してください。
-
-#### ログ分析: 詳細度を上げる
-
-BIG-IP のログを使用して、接続、SSO、ポリシー違反、正しく構成されていない変数マッピングなどの問題を分離します。 ログの詳細レベルを上げることでトラブルシューティングを開始します。
-
-1. **[Access Policy] (アクセス ポリシー) &gt; [Overview] (概要) &gt; [Event Logs] (イベント ログ) &gt; [Settings] (設定)** に移動します。
-2. 公開されたアプリケーションの行を選択し、**[編集] &gt; [システム ログへのアクセス]** を選択します。
-3. SSO の一覧から **[Debug]** を選択して **[OK]** を選択します。
-
-問題を再現し、ログを検査します。 完了したら、詳細モードでは多くのデータが生成されるため、機能を元に戻します。
-
-#### BIG-IP エラー ページ
-
-Microsoft Entra の事前認証後に BIG-IP のエラーが表示される場合は、この問題が Microsoft Entra ID から BIG-IP への SSO に関連している可能性があります。
-
-1. **[Access] (アクセス) &gt; [Overview] (概要) &gt; [Access reports] (レポートへのアクセス)** に移動します。
-2. 過去 1 時間のレポートを実行して、ログで手掛かりを確認します。
-3. **[セッション変数の表示]** リンクを使用して、APM が Microsoft Entra ID から予想される要求を受信しているかどうかを把握します。
-
-#### バックエンド要求
-
-エラー ページが表示されない場合は、問題は、バックエンド要求や、BIG-IP からアプリケーションへの SSO に関係していることが考えられます。
-
-1. **[アクセス ポリシー] &gt; [概要] &gt; [アクティブなセッション]** に移動します。
-2. アクティブなセッションのリンクを選択します。 この場所にある **[変数の表示]** リンクは、KCD のイシュー、特に BIG-IP APM で適切なユーザー識別子やドメイン識別子をセッション変数から取得できない場合の根本原因を特定するのに役立つ場合があります
-
-詳細については、次を参照してください。
-
-- dev/central: [APM 変数代入の例](https://community.f5.com/t5/codeshare/apm-variable-assign-examples/ta-p/287962)
-- MyF5: [セッション変数](https://techdocs.f5.com/en-us/bigip-16-1-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html)
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/f5-big-ip-ldap-header-easybutton"} -->
-## ヘッダー ベースと LDAP SSO 用に F5 BIG-IP の Easy Button を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-ldap-header-easybutton
-- Service: entra-id / enterprise-apps
-- Article date: 2024-04-19
-- Summary: F5 の BIG-IP Access Policy Manager (APM) と Microsoft Entra ID を構成して、ヘッダー ベースのアプリケーションへのセキュア ハイブリッド アクセスを実現する方法を学習します。これには、ライトウェイト ディレクトリ アクセス プロトコル (LDAP) をソースとする属性を介したセッション拡張も必要になります。
-
-この記事では、F5 BIG-IP Easy Button ガイド付き構成 16.1 で、Microsoft Entra ID を使用して、ヘッダーと LDAP ベースのアプリケーションをセキュリティで保護する方法について学習できます。 BIG-IP と Microsoft Entra ID の統合には、数多くの利点があります。
-
-- ガバナンスの強化: [リモート作業を可能にするゼロトラスト フレームワーク](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)に関するページを参照し、Microsoft Entra 事前認証の詳細を確認してください
-    - 組織のポリシーを適用する方法については、「[条件付きアクセスとは](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)」も参照してください。
-- Microsoft Entra ID と BIG-IP 公開済みサービス間のフル シングル サインオン (SSO)
-- ID とアクセスを、[Microsoft Entra 管理センター](https://entra.microsoft.com)という 1 つのコントロール プレーンから管理できる
-
-その他の利点については、[F5 BIG-IP と Microsoft Entra の統合](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-integration)に関する記事を参照してください。
-
-### シナリオの説明
-
-このシナリオでは、LDAP ディレクトリ属性から供給される **HTTP 承認ヘッダー**を使用して、保護されたコンテンツへのアクセスを管理するクラシック レガシ アプリケーションに焦点を当てています。
-
-アプリケーションは長年使用されてきたものであるため、Microsoft Entra との直接的な統合をサポートする最新のプロトコルがありません。 アプリを最新化することは可能ですが、コストがかかり、計画が必要であり、潜在的なダウンタイムのリスクが生じます。 代わりに、プロトコル遷移によってレガシ アプリケーションと最新の ID コントロール プレーンとの間のギャップを橋渡しするために、F5 BIG IP Application Delivery Controller (ADC) を使用します。
-
-アプリの前に BIG-IP があると、Microsoft Entra の事前認証とヘッダー ベースの SSO によってサービスをオーバーレイできるようになるため、アプリケーションの全体的なセキュリティ体制が強化されます。
-
-### シナリオのアーキテクチャ
-
-このシナリオのためのセキュア ハイブリッド アクセス ソリューションには、次のものが用意されています。
-
-- **アプリケーション** - Microsoft Entra ID のセキュア ハイブリッド アクセス (SHA) によって保護される BIG-IP の公開済みサービス。
-- **Microsoft Entra ID** - Security Assertion Markup Language (SAML) ID プロバイダー (IdP)。これにより、ユーザーの資格情報、条件付きアクセス、BIG-IP への SAML ベースの SSO が検証されます。 SSO により、Microsoft Entra ID から BIG-IP に必須のセッション属性が提供されます。
-- **HR システム** - アプリケーションのアクセス許可の真の情報源として機能する LDAP ベースの従業員データベース
-- **BIG-IP** - アプリケーションに対するリバース プロキシおよび SAML サービス プロバイダー (SP)。バックエンド アプリケーションへのヘッダーベースの SSO を実行する前に認証を SAML IdP に委任します。
-
-このシナリオの SHA では、SP と IdP によって開始されるフローがサポートされます。 次の図は、SP Initiated フローを示しています。
-
-[Image: セキュア ハイブリッド アクセス SP Initiated フローの図。]
-
-1. ユーザーがアプリケーション エンドポイント (BIG-IP) に接続する
-2. BIG-IP APM アクセス ポリシーは、ユーザーを Microsoft Entra ID (SAML IdP) にリダイレクトする
-3. Microsoft Entra ID によって、ユーザーの事前認証と、条件付きアクセス ポリシーの適用が行われる
-4. ユーザーが BIG-IP (SAML SP) にリダイレクトされ、発行された SAML トークンを使用して SSO が実行される
-5. BIG IP によって、LDAP ベースの HR システムに追加の属性が要求される
-6. BIG-IP によって、Microsoft Entra ID および HR システムの属性がアプリケーションへの要求のヘッダーとして挿入される
-7. アプリケーションが、エンリッチされたセッション アクセス許可を使用してアクセスを承認する
-
-### 前提条件
-
-以前の BIG-IP エクスペリエンスは必要ありませんが、以下が必要です。
-
-- [Azure の無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn/)、またはより上位のサブスクリプション
-- BIG-IP、または [Azure に BIG-IP Virtual Edition (VE) をデプロイします](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-bigip-deployment-guide)
-- 次のいずれかの F5 BIG-IP ライセンス:
-    - F5 BIG-IP® Best バンドル
-    - F5 BIG-IP Access Policy Manager™ (APM) スタンドアロン ライセンス
-    - BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM) に対する F5 BIG-IP Access Policy Manager™ (APM) アドオン ライセンス
-    - BIG-IP 製品の 90 日間の[無料試用版](https://www.f5.com/trial/big-ip-trial.php)
-- オンプレミス ディレクトリから Microsoft Entra ID に[同期された](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-whatis)ユーザー ID
-- クラウド アプリケーション管理者ロール、アプリケーション管理者ロールのいずれか。
-- HTTPS でサービスを公開するための [SSL Web 証明書](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-bigip-deployment-guide#ssl-profile)。またはテスト時に既定の BIG-IP 証明書を使用します
-- ヘッダーベースのアプリケーション、またはテスト用に[簡単な IIS ヘッダー アプリをセットアップ](https://learn.microsoft.com/ja-jp/previous-versions/iis/6.0-sdk/ms525396%28v=vs.90%29)します
-- LDAP をサポートするユーザー ディレクトリ (Windows Active Directory ライトウェイト ディレクトリ サービス (AD LDS)、OpenLDAP など)。
-
-### BIG-IP の構成
-
-このチュートリアルでは、Easy Button テンプレートを備えたガイド付き構成 16.1 を使用します。 Easy Button を使用すると、管理者は、Microsoft Entra ID と BIG-IP の間を行き来して SHA のためにサービスを有効にする必要がありません。 デプロイとポリシー管理は、APM のガイド付き構成ウィザードと Microsoft Graph との間で処理されます。 BIG-IP APM と Microsoft Entra ID のこの統合により、アプリケーションでは確実に ID フェデレーション、SSO、Microsoft Entra 条件付きアクセスをサポートでき、管理オーバーヘッドが軽減されます。
-
-注
-
-このガイドの文字列または値の例は、実際の環境のものに置き換えてください。
-
-### Easy Button を登録する
-
-クライアントまたはサービスから Microsoft Graph にアクセスするには、[Microsoft ID プラットフォーム](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app)によって信頼されている必要があります。
-
-この最初の手順では、Graph への **Easy Button** アクセスを承認するために使用されるテナント アプリの登録を作成します。 これらのアクセス許可を使用して、BIG-IP は、発行済みアプリケーションの SAML SP インスタンスと、SAML IdP となる Microsoft Entra ID の間に信頼を確立するための構成をプッシュできます。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**アプリ登録**&gt;に移動し、**新規登録**を選択します。
-3. アプリケーションの表示名を入力します。 たとえば、F5 BIG-IP Easy Button です
-4. アプリケーションを使用できるユーザー &gt;**[Accounts in this organizational directory only] (この組織ディレクトリのアカウントのみ)** を指定します。
-5. **[登録]** を選択します。
-6. **[API\* のアクセス許可\*]** に移動し、次の Microsoft Graph\* の**アプリケーション\*のアクセス許可\***を承認します：
-
-    - Application.Read.All
-    - Application.ReadWrite.All
-    - Application.ReadWrite.OwnedBy
-    - Directory.Read.All (ディレクトリのすべてを読む)
-    - Group.Read.All
-    - IdentityRiskyUser.Read.All（アイデンティティリスキーユーザー.リード.オール）
-    - Policy.Read.All
-    - ポリシー.読み取り書き込み.アプリケーション設定
-    - Policy.ReadWrite.ConditionalAccess
-    - User.Read.All
-7. 組織に管理者の同意を付与します。
-8. **[証明書 & シークレット]** で、新しい**クライアント シークレット**を生成します。 このシークレットを書き留めておきます。
-9. **[概要]** で**クライアント ID** と**テナント ID** をメモします。
-
-### Easy Button を構成する
-
-APM の **[ガイド付き構成]** を開始して、**Easy Button** テンプレートを起動します。
-
-1. **[アクセス] &gt; [ガイド付き構成] &gt; [Microsoft 統合]** に移動し、**[Microsoft Entra アプリケーション]** を選択します。
-2. 手順のリストを確認し、**[次へ]** を選択します。
-3. アプリケーションを公開するには、次の手順に従います。
-
-    [Image: ガイド付き構成の構成フローのスクリーンショット。]
-
-#### 構成プロパティ
-
-**[構成のプロパティ]** タブでは、BIG-IP アプリケーション構成と SSO オブジェクトが作成されます。 **[Azure サービス アカウントの詳細]** セクションは、アプリケーションとして、以前に Microsoft Entra テナントに登録したクライアントを表すものとします。 これらの設定により、BIG-IP の OAuth クライアントでは、手動で構成する SSO プロパティと共に、SAML SP をテナントに登録できるようになります。 Easy Button により、公開されて SHA が有効になっているすべての BIG-IP サービスに対してこのアクションが行われます。
-
-これらの設定の一部はグローバルであるため、より多くのアプリケーションを公開するために再利用でき、デプロイの時間と労力を削減するのに役立ちます。
-
-1. 一意の**構成名**を入力して、管理者が各 Easy Button 構成を区別できるようにします。
-2. **[Single Sign-On (SSO) & HTTP Headers] (シングル サインオン (SSO) と HTTP ヘッダー)** を有効にします。
-3. テナントに Easy Button クライアントを登録するときに記録した**テナント ID**、**クライアント ID**、**クライアント シークレット**を入力します。
-4. BIG-IP がテナントに接続されたことを確認します。
-5. **[次へ]** を選択します。
-
-#### サービス プロバイダー
-
-サービス\* プロバイダー\*設定\*では、SHA によって保護されるアプリケーション\*の SAML SP インスタンス\*のプロパティを定義します。
-
-1. **[ホスト]** に、セキュリティで保護されるアプリケーションのパブリック完全修飾ドメイン名 (FQDN) を入力します。
-2. **エンティティ ID** を入力します。これは、トークンを要求する SAML SP を識別するために Microsoft Entra によって使用される識別子です。 省略可能な **[セキュリティ設定]** で、発行された SAML アサーションを Microsoft Entra ID で暗号化するかどうかを指定します。 Microsoft Entra ID と BIG-IP APM の間でアサーションを暗号化すると、コンテンツ トークンが傍受されないこと、および個人や会社のデータが侵害されないことが保証されます。
-3. **[アサーション解読秘密キー]** の一覧から、**[新規作成]** を選択します
-
-    [Image: [セキュリティ設定] の [アサーション解読の秘密キー] の [新規作成] オプションのスクリーンショット。]
-4. **OK** を選択します。 新しいタブで **[SSL 証明書とキーのインポート]** ダイアログが開きます。
-5. **PKCS 12 (IIS)** を選択して、証明書と秘密キーをインポートします。 プロビジョニングが完了したら、ブラウザー タブを閉じて、メイン タブに戻ります。
-
-    [Image: [インポートの種類]、[Certificate and Key Name] (証明書とキー名)、[Certificate Key Source] (証明書キー ソース)、[パスワード] のエントリのスクリーンショット]
-6. **[Enable Encrypted Assertion](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/暗号化アサーションを有効にする)** をオンにします。
-7. 暗号化を有効にした場合は、**[アサーション解読の秘密キー]** リストから証明書を選択します。 BIG-IP APM では、この証明書の秘密キーを使用して Microsoft Entra アサーションの暗号化を解除します。
-8. 暗号化を有効にした場合は、**[アサーション解読の証明書]** リストから証明書を選択します。 BIG-IP は、発行された SAML アサーションを暗号化するためにこの証明書を Microsoft Entra ID にアップロードします。
-
-    [Image: [セキュリティ設定] の [アサーション解読の秘密キー] および [Assertion Decryption Certificate] (アサーション解読の証明書) エントリのスクリーンショット。]
-
-#### Microsoft Entra ID
-
-このセクションには、Microsoft Entra テナント内で新しい BIG-IP SAML アプリケーションを手動で構成するためのプロパティが含まれます。 Easy Button には、Oracle PeopleSoft、Oracle E-business Suite、Oracle JD Edwards、SAP ERP 用のアプリケーション テンプレートと、その他のアプリ用の SHA テンプレートが用意されています。
-
-このシナリオでは、**[F5 BIG-IP APM Microsoft Entra ID 統合] &gt; [追加]** を選びます。
-
-##### Azure の構成
-
-1. BIG-IP が Microsoft Entra テナントに作成するアプリの **[表示名]** と、[MyApps ポータル](https://myapplications.microsoft.com/)でユーザーに表示されるアイコンを入力します。
-2. **[サインオン URL]** (省略可能) には何も入力しません。
-3. 先ほどインポートした証明書を見つけるには、**[署名キー]** と **[署名証明書]** の横にある**更新**アイコンを選択します。
-4. **[署名キーのパスフレーズ]** に証明書のパスワードを入力します。
-5. **[署名オプション]** (省略可能) を有効にして、BIG-IP が Microsoft Entra ID によって署名されたトークンと要求を受け入れるようにします。
-
-    [Image: [SAML 署名証明書] の [署名キー]、[署名証明書]、[Signing Key Passphrase] (署名キーのパスフレーズ) のエントリのスクリーンショット。]
-6. **ユーザーとユーザー グループ**は、Microsoft Entra テナントから動的に照会され、アプリケーションへのアクセスを承認するために使用されます。 テストに使用するユーザーまたはグループを追加します。そうしないと、アクセスが拒否されます。
-
-    [Image: [ユーザーとユーザー グループ] の [追加] オプションのスクリーンショット。]
-
-##### ユーザー属性と要求
-
-ユーザーが認証されると、Microsoft Entra ID は、ユーザーを一意に識別する要求と属性の既定のセットを使用して SAML トークンを発行します。 **[ユーザー属性と要求] タブ**には、新しいアプリケーションに対して発行する既定の要求が表示されます。 また、さらに多くの要求を構成することもできます。
-
-この例では、属性をもう 1 つ含めます。
-
-1. **[要求名]** に「**employeeid**」と入力します。
-2. **[ソース属性]** に「**user.employeeid**」と入力します。
-
-    [Image: [ユーザー属性と要求] の [追加の要求] の employeeid 値のスクリーンショット。]
-
-##### 追加のユーザー属性
-
-**[追加のユーザー属性]** タブでは、Oracle、SAP、および他のディレクトリに格納された属性を必要とする他の JAVA ベースの実装など、分散システムに必要なセッション拡張を有効にすることができます。 次に、LDAP ソースからフェッチされた属性を追加の SSO ヘッダーとして挿入して、ロール、パートナー ID などに基づいてアクセスを制御できます。
-
-1. **[詳細設定]** オプションを有効にします。
-2. **[LDAP 属性]** チェック ボックスをオンにします。
-3. [認証サーバーの選択] で **[新規作成]** を選択します。
-4. 実際の設定に応じて、**[Use pool](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/プールを使用)** または **[Direct](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/直接)** サーバー接続モードのいずれかを選択して、ターゲット LDAP サービスの**サーバー アドレス**を指定します。 単一の LDAP サーバーを使用する場合は、**[Direct](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/直接)** を選択します。
-5. **[サービス ポート]** に、389、636 (セキュア)、または LDAP サービスが使用するその他のポートを入力します。
-6. **[基本検索 DN]** に、LDAP サービス クエリに対して APM が認証を行うアカウントが含まれている場所の識別名を入力します。
-
-    [Image: [追加のユーザー属性] の [LDAP サーバーのプロパティ] エントリのスクリーンショット。]
-7. **[Search DN] (検索 DN)** に、APM が LDAP を介して照会するユーザー アカウント オブジェクトが含まれている場所の識別名を設定します。
-8. 両方のメンバーシップ オプションを **[なし]** に設定し、LDAP ディレクトリから返されるユーザー オブジェクト属性の名前を追加します。 このシナリオの場合: **eventroles**。
-
-    [Image: [LDAP Query Properties] (LDAP クエリ プロパティ) のエントリのスクリーンショット]
-
-##### 条件付きアクセス ポリシー
-
-条件付きアクセス ポリシーは、デバイス、アプリケーション、場所、リスクの兆候に基づいてアクセスを制御するために、Microsoft Entra の事前認証の後に適用されます。
-
-**[使用可能なポリシー]** ビューには、ユーザー アクションを含まない条件付きアクセス ポリシーが一覧表示されます。
-
-**[選択されたポリシー]** ビューには、すべてのリソースをターゲットとするポリシーが表示されます。 これらのポリシーは、テナント レベルで適用されるため、選択解除することも、[使用可能なポリシー] リストに移動することもできません。
-
-公開されているアプリケーションに適用するポリシーを選択するには:
-
-1. **[使用可能なポリシー]** リストでポリシーを選択します。
-2. 右矢印を選択して、これを **[Selected Policies](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/選択されたポリシー)** リストに移動します。
-
-    注
-
-    選択したポリシーでは、**[含める]** または **[除外する]** オプションにチェックを入れます。 両方のオプションをオンにした場合、選択したポリシーは適用されません。
-
-    [Image: [条件付きアクセス ポリシー] の[選択されたポリシー] の下の除外されたポリシーのスクリーンショット。]
-
-    注
-
-    このタブを最初に選択すると、ポリシー リストが 1 回列挙されます。**[更新]** ボタンを使用して、ウィザードでテナントに対してクエリを実行するように手動で強制します。 このボタンは、アプリケーションをデプロイすると表示されます。
-
-#### 仮想サーバーのプロパティ
-
-仮想サーバーは BIG-IP データ プレーン オブジェクトであり、アプリケーションに対するクライアント要求をリッスンする仮想 IP アドレスで表されます。 受信したトラフィックは、ポリシーに従って送信される前に、仮想サーバーに関連付けられている APM プロファイルに対して処理および評価されます。
-
-1. **[宛先アドレス]** を入力します。これは、クライアント トラフィックを受信するために BIG-IP で使用できる IPv4 または IPv6 アドレスです。 対応するレコードがドメイン ネーム サーバー (DNS) にも存在する必要があり、それによってクライアントでは、BIG-IP の公開済みアプリケーションの外部 URL を、アプリケーションではなく、この IP に解決できるようになります。 テストでは、テスト PC の localhost DNS を使用しても問題ありません。
-2. **[サービス ポート]** に、「443」と「HTTPS」を入力します。
-3. **[リダイレクト ポートを有効にする]** をオンにし、**[リダイレクト ポート]** に入力して、受信 HTTP クライアント トラフィックを HTTPS にリダイレクトします。
-4. クライアント SSL プロファイルを使用すると、HTTPS\* 用の仮想サーバー\*が有効になり、クライアント\*接続がトランスポート層セキュリティ (TLS) で暗号化されるようになります。 作成してある**クライアント SSL プロファイル**を選択するか、テスト中は既定値のままにします。
-
-    [Image: 「仮想サーバーのプロパティ」の「全般プロパティ」の下の「送信先アドレス」、「サービス ポート」、「共通」のエントリのスクリーンショット。]
-
-#### プールのプロパティ
-
-**[アプリケーション プール]** タブには、1 つ以上のアプリケーション サーバーを含むプールとして表される、BIG-IP の背後にあるサービスが表示されます。
-
-1. **[Select a Pool](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/プールの選択)** から選択します。 新しいプールを作成するか、既存のプールを選択します。
-2. **[負荷分散方法]** で、[ラウンド ロビン] などを選択します。
-3. **[プール サーバー]** では、ノードを選択するか、ヘッダーベースのアプリケーションをホストするサーバーの IP とポートを指定します。
-
-    [Image: 「プールのプロパティ」の「アプリケーション プール」の下にある「IP アドレス/ノード名」と「ポート」のエントリのスクリーンショット。]
-
-注
-
-バックエンド アプリケーションは HTTP ポート 80 に設定されます。 HTTPS の場合は、443 に切り替えます。
-
-#### シングル サインオンと HTTP ヘッダー
-
-SSO を有効にすると、ユーザーは資格情報を入力しなくても、BIG-IP で公開されているサービスにアクセスできるようになります。 **Easy Button ウィザード**では、SSO 用に Kerberos、OAuth Bearer、HTTP 承認ヘッダーがサポートされています。
-
-次の一覧を使ってオプションを構成します。
-
-- **ヘッダー操作:** 挿入
-- **ヘッダー名:** upn
-- **ヘッダー値:** %{session.saml.last.identity}
-- **ヘッダー操作:** 挿入
-- **ヘッダー名:** employeeid
-- **ヘッダー値:** %{session.saml.last.attr.name.employeeid}
-- **ヘッダー操作:** 挿入
-- **ヘッダー名:** eventroles
-- **ヘッダー値:** %{session.ldap.last.attr.eventroles}
-
-    [Image: [SSO Headers on SSO and HTTP Headers] (SSO と HTTP ヘッダー) の [SSO Headers] (SSO ヘッダー) のエントリのスクリーンショット。]
-
-注
-
-中かっこ内の APM セッション変数では、大文字と小文字が区別されます。 たとえば、Microsoft Entra の属性名が orclguid である場合に、「OrclGUID」と入力すると、属性マッピング エラーが発生します。
-
-#### セッション管理設定
-
-BIG-IP のセッション管理設定では、ユーザー セッションが終了されるか続行が許可される条件、ユーザーと IP アドレスの制限、および対応するユーザー情報を定義します。 これらの設定の詳細については、F5 の記事「[K18390492: セキュリティ | BIG-IP APM 操作ガイド](https://support.f5.com/csp/article/K18390492)」を参照してください。
-
-IdP、BIG-IP、ユーザー エージェント間のセッションがユーザーのサインアウト時に終了するようにする、シングル ログアウト (SLO) 機能は、対象となりません。Easy Button によって Microsoft Entra テナントに SAML アプリケーションがインスタンス化されると、サインアウト URL に APM SLO エンドポイントが設定されます。 そのため、Microsoft Entra マイ アプリ ポータルからの IdP によって開始されるサインアウトでも、BIG-IP とクライアント間のセッションが終了します。
-
-テナントから公開済みアプリケーションの SAML フェデレーション メタデータがインポートされて、APM に Microsoft Entra ID の SAML サインアウト エンドポイントが提供されます。 このアクションにより、SP によって開始されるサインアウトによって、クライアントと Microsoft Entra ID の間のセッションが終了します。 APM は、ユーザーがアプリケーションからサインアウトするタイミングを把握する必要があります。
-
-BIG-IP Web トップ ポータルを使用して公開済みアプリケーションにアクセスする場合は、サインアウトが APM によって処理され、Microsoft Entra サインアウト エンドポイントが呼び出されます。 しかし、BIG-IP Web トップ ポータルが使用されないシナリオについて考えてみましょう。 ユーザーは、サインアウトするように APM に指示できません。ユーザーがアプリケーションからサインアウトした場合でも、BIG-IP は認識しません。 そのため、SP によって開始されるサインアウトでは、セッションを安全に終了するよう配慮してください。 SLO 関数をアプリケーションの [サインアウト] ボタンに追加すると、クライアントを Microsoft Entra SAML または BIG-IP サインアウト エンドポイントにリダイレクトできます。 テナントの SAML サインアウト エンドポイントの URL については、**[アプリの登録] &gt; [エンドポイント]** にあります。
-
-アプリに変更を加えることができない場合は、BIG-IP でアプリケーションのサインアウト呼び出しをリッスンし、要求を検出したら SLO をトリガーすることを検討してください。 BIG-IP iRules の詳細については、[Oracle PeopleSoft SLO ガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-big-ip-oracle-peoplesoft-easy-button#peoplesoft-single-logout)を参照してください。 BIG-IP iRules の使用に関する詳細については、次を参照してください。
-
-- [K42052145: URI 参照ファイル名に基づく自動セッション終了の構成](https://support.f5.com/csp/article/K42052145)
-- [K12056: ログアウト URI インクルード オプションの概要](https://support.f5.com/csp/article/K12056)
-
-### まとめ
-
-この最後の手順では、構成の概要を示します。
-
-**[デプロイ]** を選択して設定をコミットし、エンタープライズ アプリケーションのテナント リストにアプリケーションが存在することを確認します。
-
-アプリケーションが公開され、その URL または Microsoft のアプリケーション ポータルを使用して、SHA によりアクセスできるようになります。 このパターンを使用するとは、アプリケーションへの直接アクセスをブロックできるため、セキュリティが強化されます。 これにより、BIG-IP を経由する厳密なパスが適用されます。
 <!-- /MSL-PAGE -->

@@ -5,6 +5,123 @@ Pages in this file: 59
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity-platform/app-objects-and-service-principals"} -->
+## Microsoft Entra ID のアプリケーションとサービス プリンシパル - Microsoft identity platform
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity-platform/app-objects-and-service-principals
+- Service: identity-platform
+- Article date: 2024-10-01
+- Summary: Microsoft Entra ID におけるアプリケーションとサービス プリンシパルの各オブジェクト間のリレーションシップについて説明します。
+
+この記事では、Microsoft Entra ID のアプリケーション登録、アプリケーション オブジェクト、およびサービス プリンシパルの概要、使用方法、相互関係について説明します。 アプリケーションのアプリケーション オブジェクトと対応するサービス プリンシパル オブジェクトの間の関係を示すために、マルチテナントのシナリオ例も紹介します。
+
+### アプリケーションの登録
+
+ID およびアクセス管理の機能を Microsoft Entra ID に委任するには、アプリケーションを Microsoft Entra テナントに登録する必要があります。 アプリケーションを Microsoft Entra ID に登録するとき、アプリケーションの ID 構成を作成します。これによって Microsoft Entra ID との統合が可能になります。 アプリを登録するときに、そのアプリが[シングル テナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps#who-can-sign-in-to-your-app)か[マルチテナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps#who-can-sign-in-to-your-app)かを選択し、必要に応じて[リダイレクト URI](https://learn.microsoft.com/ja-jp/entra/identity-platform/reply-url) を設定します。 アプリを登録する手順については、[アプリの登録に関するクイックスタート](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app)を参照してください。
+
+アプリの登録が完了すると、ホーム テナントまたはディレクトリ内に存在するアプリ (アプリケーション オブジェクト) のグローバルに一意なインスタンスが作成されます。 また、アプリにグローバルに一意な ID (アプリまたはクライアント ID) も割り当てられます。 シークレットまたは証明書とスコープを追加してアプリを機能させたり、サインイン ダイアログでアプリのブランド化をカスタマイズしたりすることができます。
+
+アプリケーションを登録すると、ホーム テナントにアプリケーション オブジェクトとサービス プリンシパル オブジェクトが自動的に作成されます。 Microsoft Graph API を使用してアプリケーションを登録または作成する場合、サービス プリンシパル オブジェクトの作成は別の手順です。
+
+### アプリケーション オブジェクト
+
+Microsoft Entra アプリケーションは、その唯一のアプリケーション オブジェクトによって定義されます。アプリケーション オブジェクトは、アプリケーションの登録先の Microsoft Entra テナント (アプリケーションの "ホーム" テナントという) 内にあります。 アプリケーション オブジェクトは、1 つ以上のサービス プリンシパル オブジェクトを作成するためのテンプレートまたはブループリントとして使用されます。 サービス プリンシパルは、アプリケーションが使用されるすべてのテナントに作成されます。 オブジェクト指向プログラミングのクラスと同様に、アプリケーション オブジェクトには、作成されたすべてのサービス プリンシパル (またはアプリケーション インスタンス) に適用されるいくつかの静的プロパティがあります。
+
+アプリケーション オブジェクトでは、アプリケーションの 3 つの側面について説明します。
+
+- サービスがアプリケーションにアクセスするためにトークンを発行する方法
+- アプリケーションがアクセスする必要があるリソース
+- アプリケーションが実行できるアクション
+
+**Microsoft Entra 管理センター**の [\[アプリの登録\]](https://entra.microsoft.com) ページを使用して、ホーム テナントのアプリケーション オブジェクトを一覧表示し、管理することができます。
+
+[Image: [アプリの登録] ブレード]
+
+アプリケーション オブジェクトのプロパティのスキーマは、Microsoft Graph [Application エンティティ](https://learn.microsoft.com/ja-jp/graph/api/resources/application)によって定義されています。
+
+### サービス プリンシパル オブジェクト
+
+Microsoft Entra テナントによってセキュリティ保護されているリソースにアクセスするには、アクセスを必要とするエンティティをセキュリティ プリンシパルで表す必要があります。 この要件は、ユーザー (ユーザー プリンシパル) とアプリケーション (サービス プリンシパル) の両方に当てはまります。 セキュリティ プリンシパルは、その Microsoft Entra テナント内のユーザー/アプリケーションのアクセス ポリシーとアクセス許可を定義します。 これにより、サインイン時のユーザー/アプリケーションの認証、リソースへのアクセス時の承認などのコア機能を利用できるようになります。
+
+サービス プリンシパルには、次の 3 種類があります。
+
+- **アプリケーション** - この種類のサービス プリンシパルは、単一のテナントまたはディレクトリ内のグローバル アプリケーション オブジェクトのローカル表現、つまりアプリケーション インスタンスです。 この場合、サービス プリンシパルは、アプリケーション オブジェクトから作成された具象インスタンスであり、そのアプリケーション オブジェクトから特定のプロパティが継承されます。 サービス プリンシパルは、アプリケーションが使用される各テナントで作成され、グローバルに一意なアプリ オブジェクトが参照されます。 サービス プリンシパル オブジェクトには、特定のテナント内でアプリが実際に実行できること、アプリにアクセスできるユーザー、アプリからアクセスできるリソースを定義します。
+
+    アプリケーションが (登録または同意によって) テナント内のリソースへのアクセス許可を与えられると、サービス プリンシパル オブジェクトが作成されます。 アプリケーションを登録すると、サービス プリンシパルが自動的に作成されます。 Azure PowerShell、Azure CLI、Microsoft Graph、およびその他のツールを使用して、テナントにサービス プリンシパル オブジェクトを作成することもできます。
+- **マネージド ID** - この種類のサービス プリンシパルは、[マネージド ID](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview) を表す目的で使用されます。 マネージド ID により、開発者は資格情報を管理する必要がなくなります。 マネージド ID は、Microsoft Entra 認証をサポートするリソースに接続するときに使う ID をアプリケーションに提供します。 マネージド ID が有効になっている場合、そのマネージド ID を表すサービス プリンシパルがテナントに作成されます。 マネージド ID を表すサービス プリンシパルには、権利やアクセス許可を付与できますが、直接更新したり変更を加えたりすることはできません。 マネージド ID を表すサービス プリンシパルには、(上記のアプリケーションの種類とは異なり) アプリ オブジェクトが関連付けられません。
+- **レガシ** - この種類のサービス プリンシパルは、レガシ アプリを表します。これは、アプリの登録前に作成されたアプリ、またはレガシ エクスペリエンスを使用して作成されたアプリです。 レガシ サービス プリンシパルには、資格情報、サービス プリンシパル名、応答 URL など、許可されているユーザーが編集できるプロパティを割り当てることができますが、アプリの登録は関連付けられません。 このサービス プリンシパルは、その作成元のテナントでのみ使用できます。
+
+サービス プリンシパル オブジェクトのプロパティのスキーマは、Microsoft Graph [ServicePrincipal エンティティ](https://learn.microsoft.com/ja-jp/graph/api/resources/serviceprincipal)によって定義されています。
+
+Microsoft Entra 管理センターの **[エンタープライズ アプリケーション]** ページを使用して、テナントのサービス プリンシパルを一覧表示および管理することができます。 サービス プリンシパルのアクセス許可、ユーザーが同意したアクセス許可、その同意を行ったユーザー、サインイン情報などを確認できます。
+
+[Image: エンタープライズ アプリ ブレード]
+
+### アプリケーション オブジェクトとサービス プリンシパル間のリレーションシップ
+
+アプリケーション オブジェクトは、すべてのテナントで使用するアプリケーションの "*グローバル*" 表現であり、サービス プリンシパルは、特定のテナントで使用する "*ローカル*" 表現です。 アプリケーション オブジェクトは、対応するサービス プリンシパル オブジェクトの作成に使用するために、一般的な既定のプロパティが*派生*するテンプレートとして機能します。
+
+アプリケーション オブジェクトには以下があります。
+
+- ソフトウェア アプリケーションとの 1 対 1 の関係
+- 対応するサービス プリンシパル オブジェクトとの 1 対多のリレーションシップ。
+
+サービス プリンシパルは、テナントによってセキュリティ保護されているリソースにサインインまたはアクセスするための ID を確立できるように、アプリケーションが使用される各テナントで作成する必要があります。 シングルテナント アプリケーションには、アプリケーション登録中に作成され、使用が同意されたサービス プリンシパルが (そのホーム テナントに) 1 つだけあります。 マルチテナント アプリケーションには、そのテナントのユーザーが使用に同意した各テナントで作成されたサービス プリンシパルもあります。
+
+#### アプリに関連するサービス プリンシパルを一覧表示する
+
+アプリケーション オブジェクトに関連するサービス プリンシパルを見つけることができます。
+
+## [ブラウザー](#tab/browser)
+Microsoft Entra 管理センターで、アプリケーション登録の概要に移動します。 **[ローカル ディレクトリでのマネージド アプリケーション]** を選びます。
+
+[Image: 概要の [ローカル ディレクトリでのマネージド アプリケーション] オプションを示すスクリーン ショット。]
+
+## [PowerShell](#tab/azure-powershell)
+Microsoft Graph PowerShell を使用する:
+
+```azurepowershell
+Get-MgServicePrincipal -Filter "appId eq '{AppId}'"
+```
+
+## [Azure CLI](#tab/azure-cli)
+Azure CLI の使用:
+
+```azurecli
+az ad sp list --filter "appId eq '{AppId}'"
+```
+
+---
+
+#### アプリケーションの変更と削除の結果
+
+アプリケーション オブジェクトに加えたすべての変更は、アプリケーションのホーム テナント (アプリケーションが登録されたテナント) にだけ存在するサービス プリンシパル オブジェクトにも反映されます。 つまり、アプリケーション オブジェクトを削除すると、そのホーム テナントのサービス プリンシパル オブジェクトも削除されます。 ただし、アプリの登録 UI からそのアプリケーション オブジェクトを復元しても、対応するサービス プリンシパルは復元されません。
+
+完全削除ではなく一時的な中断が必要なアプリケーションの場合は、 [アプリケーションを非アクティブ化](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-application-portal)できます。 非アクティブ化により、調査または将来の再アクティブ化のためにアプリケーション オブジェクトとサービス プリンシパルを保持しながら、新しいトークンの発行が防止されます。
+
+アプリケーションとそのサービス プリンシパル オブジェクトの削除と復元について詳しくは、[アプリケーションとサービス プリンシパル オブジェクトの削除と復元](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/delete-recover-faq)に関する記事を参照してください。
+
+### 例
+
+次の図は、**HR アプリ**という名前のサンプル マルチテナント アプリケーションを基に、アプリケーションのアプリケーション オブジェクトと、対応するサービス プリンシパル オブジェクトの間のリレーションシップを表しています。 このサンプル シナリオには、次の 3 つの Microsoft Entra テナントがあります。
+
+- **Adatum** - **HR アプリ**を開発した会社が使用するテナント
+- **Contoso** - **HR アプリ**のコンシューマーである Contoso という組織が使用するテナント
+- **Fabrikam** - Contoso と同じく **HR アプリ**のコンシューマーである Fabrikam という組織が使用するテナント
+
+[Image: アプリ オブジェクトとサービス プリンシパル オブジェクトの間のリレーションシップ]
+
+このサンプル シナリオの内容:
+
+| 手順 | 説明 |
+| --- | --- |
+| 1 | アプリケーションとサービス プリンシパル オブジェクトを、アプリケーションのホーム テナント内に作成するプロセスです。 |
+| 2 | Contoso と Fabrikam の管理者が同意を終えると、それぞれの会社の Microsoft Entra テナント内にサービス プリンシパル オブジェクトが作成され、それに管理者が付与したアクセス許可が割り当てられます。 HR アプリは、個々のユーザー用として、ユーザーによる同意を許可するように構成/設計することができる点にも注目してください。 |
+| 3 | HR アプリケーション (Contoso と Fabrikam) のコンシューマー テナントにそれぞれ独自のサービス プリンシパル オブジェクトが作成されます。 それぞれ実行時におけるアプリケーションのインスタンスの使用を表し、それぞれの管理者によって同意されたアクセス許可によって管理されます。 |
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity-platform/app-only-access-primer"} -->
 ## Microsoft ID プラットフォームでのアプリ専用アクセスのシナリオ - Microsoft identity platform
 
@@ -8087,7 +8204,7 @@ Web サーバーですべてのコードを実行するクライアント アプ
 
 ### 問題の説明
 
-IT 管理者と規制機関は、多くの場合、認証の追加要素とユーザーのプロンプトのバランスを取り、アプリケーションの適切なセキュリティとポリシーの準拠を実現することに苦労しています。 これは、ユーザーの生産性に影響を与える強力なポリシーか、機密性の高いリソースに対して十分な強度を持たないポリシーのどちらかを選択できます。
+IT 管理者や規制当局は、ユーザーに追加の認証要素を求めることと、アプリケーションの適切なセキュリティ確保やポリシー順守を実現することとのバランスを取るのにに苦労する傾向があります。 これは、ユーザーの生産性に影響を与える強力なポリシーか、機密性の高いリソースに対して十分な強度を持たないポリシーのどちらかを選択できます。
 
 では、アプリで両方を組み合わせることができた場合はどうでしょうか。 セキュリティレベルが低く、ほとんどのシナリオでプロンプトが少ない機能。 その後、より機密性の高いデータにアクセスしているときに、条件付きでセキュリティ要件をステップアップしますか?
 
@@ -10366,137 +10483,4 @@ async function getAccessToken(tokenRequest) {
     1. **[&lt;テナント名&gt; に管理者の同意を与えます]** を選択してから、**[はい]** を選択します。
     2. **[最新の情報に更新]** を選択し、両方のアクセス許可の &lt; に "**&gt;テナント名 に付与されました**" と表示されていることを確認します。
 10. **[Configured permissions] (構成されたアクセス許可)** の一覧で**ToDoList.Read** と **ToDoList.ReadWrite** のアクセス許可を一度に 1 つずつ選択し、後で使用するためにアクセス許可の完全な URI をコピーします。 完全なアクセス許可 URI は、`api://{clientId}/{ToDoList.Read}` または `api://{clientId}/{ToDoList.ReadWrite}` のようになります。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity-platform/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token"} -->
-## Node.js Web アプリでアクセス トークンを取得する - Microsoft identity platform
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token
-- Service: identity-platform
-- Article date: 2025-03-16
-- Summary: 独自の Node.js Web アプリケーションで API を呼び出すためのアクセス トークンを取得する方法について説明します。
-
-**適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-この記事では、コードを更新して、Web アプリがアクセス トークンを取得できるようにします。 ノード Web アプリケーションへの認証と承認の追加を簡略化するには、 [Node 用 Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) を使用します。 この記事は、4 部構成のガイド シリーズの第 3 部です。
-
-### [前提条件]
-
-- このガイド シリーズの最初のパートの「Node.js Web アプリケーション [で API を呼び出す外部テナントを準備する」](https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-prepare-tenant)手順を完了します。
-- このガイド シリーズの第 2 部「 [Node.js Web アプリケーションで API を呼び出すアプリを準備する」の](https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-prepare-app)手順を完了します。
-
-### MSAL 構成オブジェクトを更新する
-
-コード エディターでファイル *authConfig.js* 開き、 `protectedResources` オブジェクトを追加してコードを更新します。
-
-```javascript
-    //..   
-    const toDoListReadScope = process.env.TODOLIST_READ || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read';
-    const toDoListReadWriteScope = process.env.TODOLIST_READWRITE || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite';
-    
-    const protectedResources = {
-        toDoListAPI: {
-            endpoint: 'https://localhost:44351/api/todolist',
-            scopes: {
-                read: [toDoListReadScope],
-                write: [toDoListReadWriteScope],
-            },
-        },
-    };    
-    module.exports = {
-        //..
-        protectedResources,
-        //..
-    };
-```
-
-*authConfig.js* ファイルで、`Enter_the_Web_Api_Application_Id_Here`を、顧客のテナントに登録した Web API アプリのアプリケーション (クライアント) ID に置き換えます。
-
-`todolistReadScope`変数と`todolistReadWriteScope`変数には、外部テナントで設定した Web API のフル スコープ URL が保持されます。 `protectedResources` オブジェクトをエクスポートしてください。
-
-### アクセス トークンを取得する
-
-コード エディターで*、auth/AuthProvider.jsファイルを*開き、`getToken` クラスの`AuthProvider` メソッドを更新します。
-
-```javascript
-    const axios = require('axios');
-    class AuthProvider {
-    //...
-        getToken(scopes) {
-            return  async function (req, res, next) {
-                const msalInstance = authProvider.getMsalInstance(authProvider.config.msalConfig);
-                try {
-                    msalInstance.getTokenCache().deserialize(req.session.tokenCache);
-    
-                    const silentRequest = {
-                        account: req.session.account,
-                        scopes: scopes,
-                    };
-    
-                    const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
-    
-                    req.session.tokenCache = msalInstance.getTokenCache().serialize();
-                    req.session.accessToken = tokenResponse.accessToken;
-                    next();
-                } catch (error) {
-                    if (error instanceof msal.InteractionRequiredAuthError) {
-                        req.session.csrfToken = authProvider.cryptoProvider.createNewGuid();
-    
-                        const state = authProvider.cryptoProvider.base64Encode(
-                            JSON.stringify({
-                                redirectTo: 'http://localhost:3000/todos',
-                                csrfToken: req.session.csrfToken,
-                            })
-                        );
-                        
-                        const authCodeUrlRequestParams = {
-                            state: state,
-                            scopes: scopes,
-                        };
-    
-                        const authCodeRequestParams = {
-                            state: state,
-                            scopes: scopes,
-                        };
-    
-                        authProvider.redirectToAuthCodeUrl(
-                            req,
-                            res,
-                            next,
-                            authCodeUrlRequestParams,
-                            authCodeRequestParams,
-                            msalInstance
-                        );
-                    }
-    
-                    next(error);
-                }
-            };
-        }
-    //...
-    }
-```
-
-- まず、この関数はアクセス トークンをサイレントに (ユーザーに資格情報の入力を求めずに) 取得しようとします。
-
-    ```javascript
-    const silentRequest = {
-        account: req.session.account,
-        scopes: scopes,
-    };
-    
-    const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
-    ```
-- トークンをサイレントに正常に取得した場合は、それをセッションに格納します。 API を呼び出すときに、セッションからトークンを取得します。
-
-    ```javascript
-    req.session.accessToken = tokenResponse.accessToken;
-    ```
-- トークンをサイレントに取得できない (`InteractionRequiredAuthError` 例外などによる) 場合、アクセス トークンを新たに要求します。
-
-注
-
-クライアント アプリケーションがアクセス トークンを受け取ったら、それを不透明な文字列として扱う必要があります。 アクセス トークンは、クライアント アプリケーションではなく API を対象としています。 そのため、クライアント アプリケーションはアクセス トークンの読み取りまたは処理を試行しないでください。 代わりに、API への要求の *Authorization* ヘッダーにアクセス トークン as-is を含める必要があります。 API は、アクセス トークンを解釈し、それを使用してクライアント アプリケーションの要求を認証および承認する役割を担います。
 <!-- /MSL-PAGE -->

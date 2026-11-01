@@ -1,7 +1,207 @@
 # Microsoft Learn — Microsoft Entra / ハイブリッド ID (Connect / Cloud Sync) (part 2)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 65
+Pages in this file: 64
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/choose-ad-authn"} -->
+## Microsoft Entra ハイブリッド ID ソリューションの認証 - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/choose-ad-authn
+- Service: entra-id / hybrid-connect
+- Article date: 2025-04-09
+- Summary: このガイドは、CEO、CIO、CISO、チーフ ID アーキテクト、エンタープライズ アーキテクト、セキュリティと IT に関する意思決定者など、中規模から大規模な組織で Microsoft Entra ハイブリッド ID ソリューションの認証方法の選択を担当するユーザーの役に立ちます。
+
+注
+
+**この記事の範囲**: この記事では、Microsoft Entra ハイブリッド ID ソリューションの認証方法について説明します。 これらの認証方法は、使用される同期テクノロジ (Microsoft Entra Connect Sync またはクラウド同期) とは別に適用されます。 同期テクノロジを選択しても、ユーザー サインインの認証動作は決定または変更されません。
+
+正しい認証方法の選択は、クラウドにアプリを移行しようとしている組織にとって最大の関心事です。 次の理由により、この決定を軽く考えてはなりません。
+
+1. クラウドに移行する必要がある組織が最初に決定することです。
+2. 認証方法は、クラウドにおける組織のプレゼンスの重要なコンポーネントです。 これによって、クラウドのすべてのデータとリソースへのアクセスが制御されます。
+3. これは、Microsoft Entra ID での他の高度なセキュリティやユーザー エクスペリエンス機能すべての基盤となります。
+
+ID は IT セキュリティの新しいコントロール プレーンであるため、認証は新しいクラウド環境への組織のアクセス ガードです。 組織には、セキュリティを強化し、クラウド アプリを侵入者から保護する ID コントロール プレーンが必要です。
+
+注
+
+認証方法を変更するには、計画、テスト、予測されるダウンタイムが必要です。 [段階的なロールアウト](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-staged-rollout)は、フェデレーションからクラウド認証へのユーザーの移行をテストするための優れた方法です。
+
+#### 対象範囲外
+
+オンプレミスに既存のディレクトリ フットプリントを持たない組織は、この記事の対象範囲外です。 通常、このような企業はクラウド内にのみ ID を作成し、ハイブリッド ID ソリューションを必要としません。 クラウド専用の ID はクラウドにのみ存在し、対応するオンプレミスの ID とは関連付けられません。
+
+### 認証方法
+
+新しいコントロール プレーンとして Microsoft Entra ハイブリッド ID ソリューションを採用する場合、認証がクラウド アクセスの基盤です。 正しい認証方法の選択は、Microsoft Entra ハイブリッド ID ソリューションのセットアップにおける最初の重要な決定です。 選択する認証方法は、クラウドでのユーザーのプロビジョニングも行う Microsoft Entra Connect を使って構成されます。
+
+認証方法を選ぶには、時間、既存のインフラストラクチャ、複雑さ、および選んだ方法の実装にかかるコストを考慮する必要があります。 これらの要因は組織ごとに異なり、時間の経過とともに変化する場合があります。
+
+Microsoft Entra ID は、ハイブリッド ID ソリューションに対して次の認証方法をサポートします。
+
+#### クラウド認証
+
+この認証方法を選ぶと、Microsoft Entra ID がユーザーのサインイン プロセスを処理します。 シングル サインオン (SSO) と組み合わせると、ユーザーは資格情報を再入力しなくてもクラウド アプリにサインインできます。 クラウド認証では、2 つのオプションから選ぶことができます。
+
+**Microsoft Entra パスワード ハッシュ同期**。 Microsoft Entra ID でオンプレミスのディレクトリ オブジェクトの認証を有効にする最も簡単な方法です。 ユーザーはオンプレミスで使用しているものと同じユーザー名とパスワードを使用でき、他のインフラストラクチャをデプロイする必要はありません。 なお、Microsoft Entra ID 保護や [Microsoft Entra ドメイン サービス](https://learn.microsoft.com/ja-jp/entra/identity/domain-services/tutorial-create-instance)など、一部の Microsoft Entra ID のプレミアム機能を利用するには、どの認証方法を選択しても パスワード ハッシュ同期が必要になります。
+
+注
+
+パスワードがクリア テキストで保存されたり、Microsoft Entra ID の復元可能なアルゴリズムで暗号化されたりすることはありません。 パスワード ハッシュ同期の実際のプロセスについて詳しくは、「[Microsoft Entra Connect 同期を使用したパスワード ハッシュ同期の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization)」をご覧ください。
+
+**Microsoft Entra パススルー認証**。 1 つ以上のオンプレミス サーバーで実行されているソフトウェア エージェントを使用して、Microsoft Entra 認証サービスに簡単なパスワード検証を提供します。 オンプレミスの Active Directory を使用してサーバーで直接ユーザーが検証され、クラウドでパスワードの検証が行われることはありません。
+
+オンプレミスのユーザー アカウントの状態、パスワード ポリシー、およびサインイン時間をすぐに適用するセキュリティ要件のある企業は、この認証方法を使用します。 パススルー認証の実際のプロセスについて詳しくは、「[Microsoft Entra パススルー認証によるユーザー サインイン](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta)」をご覧ください。
+
+#### フェデレーション認証
+
+この認証方法を選ぶと、Microsoft Entra ID は別の信頼された認証システム (オンプレミスの Active Directory フェデレーション サービス (AD FS) など) に、ユーザーのパスワードを検証する認証プロセスを引き継ぎます。
+
+この認証システムには、サードパーティの多要素認証など、その他の高度な認証要件がある場合があります。
+
+次のセクションは、デシジョン ツリーを使用することで組織に適した認証方法を決定するのに役立ちます。 Microsoft Entra ハイブリッド ID ソリューションにクラウド認証とフェデレーション認証のどちらを展開すればよいかを判断できます。
+
+### デシジョン ツリー
+
+[Image: Microsoft Entra 認証に関するデシジョン ツリー]
+
+意思決定に関する質問の詳細:
+
+1. Microsoft Entra ID は、パスワードを検証するためのオンプレミス コンポーネントに依存せずにユーザーのサインインを処理できます。
+2. Microsoft Entra ID は、Microsoft の AD FS などの信頼された認証プロバイダーにユーザーのサインイン情報を渡すことができます。
+3. ユーザー レベルの Active Directory のセキュリティ ポリシー (アカウントの期限切れ、無効なアカウント、パスワードの期限切れ、アカウントのロックアウト、ユーザーのサインインごとのサインイン時間など) を適用する必要がある場合、Microsoft Entra ID では一部のオンプレミス コンポーネントが必要です。
+4. Microsoft Entra ID によってネイティブでサポートされてないサインイン機能:
+    - サード パーティの認証ソリューションを使用したサインイン。
+    - 複数サイトのオンプレミス認証ソリューション。
+5. Microsoft Entra ID Protection では、「*資格情報が漏洩したユーザー*」レポートを提供するために、選択されたサインイン方法には関係なくパスワード ハッシュの同期が必要です。 組織は主要なサインイン方法が失敗した場合、パスワード ハッシュ同期が失敗イベントの前に構成されていれば、パスワード ハッシュ同期にフェールオーバーできます。
+
+注
+
+Microsoft Entra ID Protection には、[Microsoft Entra ID P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) ライセンスが必要です。
+
+### 詳細な考慮事項
+
+#### クラウド認証: パスワード ハッシュの同期
+
+- **作業量**。 パスワード ハッシュ同期は、展開、メンテナンス、インフラストラクチャに関して最小の作業量を必要とします。 ユーザーに必要なことが、Microsoft 365、SaaS アプリ、その他の Microsoft Entra ID ベースのリソースへのサインインのみである組織に対しては、通常、このレベルの作業量が適用されます。 パスワード ハッシュ同期をオンにすると、Microsoft Entra Connect 同期プロセスの一部となって 2 分ごとに実行されます。
+- **ユーザー エクスペリエンス**。 ユーザーのサインイン エクスペリエンスを向上させるには、[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)または [Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)を使用します。 Windows デバイスを Microsoft Entra ID に参加させることができない場合は、パスワード ハッシュ同期を使用してシームレス SSO を展開することをお勧めします。 シームレス SSO によって、ユーザーのサインイン時に不要なプロンプトが表示されないようになります。
+- **高度なシナリオ**。 組織が選択した場合、Microsoft Entra ID P2 を使用して、Microsoft Entra ID Protection レポートで ID からの分析情報を使用できます。 その 1 つの例が漏洩した資格情報レポートです。 Windows Hello for Business には、[パスワード ハッシュ同期を使用するときの特定の要件](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)があります。 [Microsoft Entra Domain Services](https://learn.microsoft.com/ja-jp/entra/identity/domain-services/tutorial-create-instance) では、ユーザーが会社の資格情報を使用してマネージド ドメインでプロビジョニングできるよう、パスワードのハッシュ同期が必要です。
+
+    パスワード ハッシュ同期を使用する多要素認証が必要な組織は、Microsoft Entra の多要素認証または[条件付きアクセス カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls#custom-controls-preview)を使用する必要があります。 これらの組織は、フェデレーションに依存する、サード パーティ製またはオンプレミスの多要素認証方法を使用できません。
+
+注
+
+Microsoft Entra 条件付きアクセスには、[Microsoft Entra ID P1](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) ライセンスが必要です。
+
+- **ビジネス継続性**。 クラウド認証と共にパスワード ハッシュ同期を使用することは、すべての Microsoft データセンターに対応するようにスケーリングするクラウド サービスとして、高い可用性を実現します。 パスワード ハッシュ同期が長期間ダウンしないようにするには、2 つ目の Microsoft Entra Connect サーバーを、スタンバイ構成のステージング モードで展開します。
+- **考慮事項**。 現在、パスワード ハッシュ同期では、オンプレミスのアカウントの状態の変化はすぐには適用されません。 このような状況では、ユーザーは、Microsoft Entra ID にユーザー アカウントの状態が同期されるまで、クラウド アプリにアクセスできます。 組織がこのような制限を回避する方法の 1 つは、管理者がオンプレミスのユーザー アカウントの状態を一括更新した後に、新しい同期サイクルを実行することです。 たとえば、アカウントを無効にします。
+
+    **認証のタイミング**について: "クラウドで認証が行われます" とは、Microsoft Entra ID が資格情報を検証する場所を指します (提供されたパスワード ハッシュと格納されているハッシュを比較する)、サインインのパスワード変更の可用性は同期のタイミングによって異なります。 ユーザーがオンプレミスでパスワードを変更した場合、ユーザーがサインインする前に、新しいパスワード ハッシュを Microsoft Entra ID に同期する必要があります。 通常、この同期プロセスは 2 分ごとに実行されますが、構成によって異なる場合があります。
+
+注
+
+現在、パスワードの期限切れとアカウントのロックアウトの状態は、Microsoft Entra ID と Microsoft Entra Connect では同期されません。 ユーザーのパスワードを変更し、*[ユーザーは次回ログオン時にパスワードの変更が必要]* フラグを設定した場合、ユーザーが自分のパスワードを変更するまで Microsoft Entra ID と Microsoft Entra Connect ではパスワード ハッシュは同期されません。
+
+展開手順については、[パスワード ハッシュ同期の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization)に関する記事をご覧ください。
+
+#### クラウド認証: パススルー認証
+
+- **作業量**。 パススルー認証の場合、既存のサーバーに、1 つまたは複数 (推奨は 3 つ) の軽量のエージェントをインストールする必要があります。 これらのエージェントは、オンプレミスの AD ドメイン コントローラーなど、オンプレミスの Active Directory Domain Services にアクセスできる必要があります。 これらは、インターネットへの発信アクセスと、ドメイン コントローラーへのアクセスが必要です。 このため、境界ネットワーク内にエージェントを展開することはできません。
+
+    パススルー認証には、ドメイン コントローラーへの制約なしのネットワーク アクセスが必要です。 すべてのネットワーク トラフィックは暗号化され、認証要求に制限されます。 このプロセスの詳細については、パススルー認証での[セキュリティの詳細](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive)に関する記事をご覧ください。
+- **ユーザー エクスペリエンス**。 ユーザーのサインイン エクスペリエンスを向上させるには、[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)または [Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)を使用します。 Windows デバイスを Microsoft Entra ID に参加させることができない場合は、パスワード ハッシュ同期を使用してシームレス SSO を展開することをお勧めします。 シームレス SSO によって、ユーザーのサインイン時に不要なプロンプトが表示されないようになります。
+- **高度なシナリオ**。 パススルー認証では、サインインの時点でオンプレミスのアカウント ポリシーが適用されます。 たとえば、オンプレミスのユーザーのアカウントの状態が無効、ロックアウト、[パスワードが期限切れ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq#what-happens-if-my-user-s-password-expired-and-they-try-to-sign-in-by-using-pass-through-authentication-)であるか、ログオンの試行時にユーザーに許可されているサインイン時間が超過した場合、アクセスは拒否されます。
+
+    パススルー認証を使用する多要素認証が必要な組織は、Microsoft Entra 多要素認証または[条件付きアクセス カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls#custom-controls-preview)を使用する必要があります。 これらの組織は、フェデレーションに依存する、サード パーティ製またはオンプレミスの多要素認証方法を使用できません。 また高度な機能の利用には、パススルー認証を選択するかどうかにかかわらず、パスワード ハッシュ同期が必要になります。 高度な機能とは、例えばMicrosoft Entra ID 保護による漏洩した認証情報の検出などです。
+- **ビジネス継続性**。 2 つの追加パススルー認証エージェントを展開することをお勧めします。 Microsoft Entra Connect サーバー上の最初のエージェントに加えて、これらを追加します。 この追加の展開によって、認証要求の高可用性が保証されます。 3 つのエージェントを展開すると、メンテナンスのために 1 つのエージェントを停止しても、まだ 1 つのエージェントの障害に対応できます。
+
+    パススルー認証だけでなくパスワード ハッシュ同期も展開することの利点は、もう 1 つあります。 それは、プライマリ認証方法を利用できなくなった場合に、バックアップの認証方法として機能することです。
+- **考慮事項**。 エージェントがオンプレミスで発生した重大な障害によってユーザーの資格情報を検証できない場合は、パススルー認証のバックアップの認証方法としてパスワード ハッシュ同期を使用できます。 パスワードハッシュ同期へのフェールオーバーは自動的には行われないため、Microsoft Entra Connect を使用してサインイン方法を手動で切り替える必要があります。
+
+    代替 ID のサポートなど、パススルー認証におけるその他の考慮事項については、[よく寄せられる質問](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq)をご覧ください。
+
+展開手順については、[パススルー認証の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta)に関する記事をご覧ください。
+
+#### フェデレーション認証
+
+- **作業量**。 フェデレーション認証システムでは、信頼できる外部システムを利用してユーザーを認証します。 フェデレーション システムへの既存の投資を Microsoft Entra ハイブリッド ID ソリューションで再利用したい会社もあります。 フェデレーション システムの管理とメンテナンスは、Microsoft Entra ID のコントロールの範囲外です。 フェデレーション システムが安全に展開されていて、認証の負荷を処理できるかどうかを確認するのは、フェデレーション システムを使用している組織の責任です。
+- **ユーザー エクスペリエンス**。 フェデレーション認証のユーザー エクスペリエンスは、機能、トポロジ、およびフェデレーション ファーム構成の実装に依存します。 組織によっては、セキュリティ要件に合わせてフェデレーション ファームへのアクセスを調整したり構成したりするために、この柔軟性が必要になります。 たとえば、内部的に接続されているユーザーとデバイスを構成して、資格情報の入力を要求することなく、自動的にユーザーをサインインさせることができます。 この構成が機能するのは、ユーザーが既にデバイスにサインインしているためです。 必要な場合は、高度なセキュリティ機能を利用してユーザーのサインイン プロセスをさらに困難にすることもできます。
+- **高度なシナリオ**。 フェデレーション認証ソリューションが必要になるのは、Microsoft Entra ID によってネイティブにサポートされていない認証要件がある場合です。 [適切なサインイン オプションを選択する](https://learn.microsoft.com/ja-jp/archive/blogs/samueld/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365)のに役立つ詳しい情報をご覧ください。 次の一般的な要件で考えてみましょう。
+
+    - フェデレーション ID プロバイダーを必要とするサード パーティの多要素プロバイダー。
+    - サード パーティの認証ソリューションを使用する認証。 「[Microsoft Entra のフェデレーション互換性リスト](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-compatibility)」を参照してください。
+    - ユーザー プリンシパル名 (UPN) (例: user@domain.com) ではなく、sAMAccountName (例: DOMAIN\username) を必要とするサインイン。
+- **ビジネス継続性**。 フェデレーション システムでは、通常、負荷分散されたサーバーのアレイ (ファームとも呼ばれます) が必要になります。 このファームは、認証要求の高可用性を保証するために、内部ネットワークおよび境界ネットワークのトポロジに構成されます。
+
+    プライマリ認証方法を使用できないときのために、フェデレーション認証と共に、パスワード ハッシュ同期をバックアップ認証方法として展開します。 たとえば、オンプレミスのサーバーが利用できない場合です。 大規模なエンタープライズ組織では、認証要求の待機時間を短くするため、geo-DNS で構成された複数のインターネット イングレス ポイントをフェデレーション ソリューションでサポートすることが必要になる場合があります。
+- **考慮事項**。 フェデレーション システムでは通常、オンプレミスのインフラストラクチャへのより大きな投資が必要です。 オンプレミスのフェデレーションに既に投資している組織のほとんどは、このオプションを選択します。 または、ビジネス上の理由から、単一の ID プロバイダーを使用することがどうしても必要な場合です。 運用とトラブルシューティングは、クラウド認証ソリューションよりフェデレーション認証の方が複雑です。
+
+Microsoft Entra ID では検証できないルーティング不可能なドメインの場合、ユーザー ID によるサインインを実装するには追加の構成が必要になります。 この要件は、代替ログイン ID のサポートと呼ばれます。 制限事項と要件については、「[Configuring Alternate Login ID](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)」(代替ログイン ID の構成) をご覧ください。 フェデレーションを使用したサード パーティの多要素認証プロバイダーを使用する場合は、デバイスが Microsoft Entra ID に参加できるよう、プロバイダーが WS-Trust をサポートしていることを確実にしてください。
+
+展開手順については、「[Deploying Federation Servers](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/deployment/deploying-federation-servers)」(フェデレーション サーバーの展開) をご覧ください。
+
+注
+
+Microsoft Entra ハイブリッド ID ソリューションを展開するときは、Microsoft Entra Connect のサポートされているトポロジの 1 つを実装する必要があります。 サポートされている構成とサポートされていない構成について詳しくは、「[Microsoft Entra Connect のトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-topologies)」をご覧ください。
+
+### アーキテクチャ図
+
+以下の図では、Microsoft Entra ハイブリッド ID ソリューションで使用できる各認証方法に必要な、アーキテクチャ コンポーネントの概要を示します。 これにより、ソリューション間の相違点を比較することができます。
+
+- パスワード ハッシュ同期ソリューションのシンプルさ:
+
+    [Image: パスワード ハッシュ同期を使用する Microsoft Entra ハイブリッド ID]
+- 冗長性のために 2 つのエージェントを使用する、パススルー認証のエージェント要件:
+
+    [Image: パススルー認証を使用する Microsoft Entra ハイブリッド ID]
+- 組織の境界ネットワークと内部ネットワークでのフェデレーションに必要なコンポーネントの概要:
+
+    [Image: フェデレーション認証を使用する Microsoft Entra ハイブリッド ID]
+
+### 方法の比較
+
+| 考慮事項 | パスワード ハッシュの同期 | パススルー認証 | AD FS とのフェデレーション |
+| --- | --- | --- | --- |
+| 認証が行われる場所 | クラウド - パスワード ハッシュが同期され、Microsoft Entra ID が資格情報を検証する | クラウド内で、オンプレミスの認証エージェントとのセキュリティで保護されたパスワード検証の交換後 | オンプレミス |
+| プロビジョニング システム (Microsoft Entra Connect) 以外のオンプレミスのサーバーの要件とは何ですか? | なし | 追加の認証エージェントごとに 1 つのサーバー | 2 つ以上の AD FS サーバー境界/DMZ ネットワークに 2 つ以上の WAP サーバー |
+| プロビジョニング システム以外のオンプレミスのインターネットおよびネットワークの要件 | なし | 認証エージェントを実行しているサーバーからの[発信インターネット アクセス](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start) | 境界ネットワークの WAP サーバーへのインターネットからのアクセス境界の WAP サーバーから AD FS サーバーへの着信ネットワーク アクセスネットワークの負荷分散 |
+| TLS/SSL 証明書の要件 | いいえ | いいえ | はい |
+| 稼働状況の監視ソリューションはあるか? | 必要なし | [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/tshoot-connect-pass-through-authentication)によって提供されるエージェントの状態 | [Microsoft Entra Connect Health](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-health-adfs) |
+| ユーザーは会社のネットワーク内のドメイン参加済みデバイスからクラウド リソースにシングル サインオンするか? | [Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)、[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)、[Apple デバイス用の Microsoft Enterprise SSO プラグイン](https://learn.microsoft.com/ja-jp/entra/identity-platform/apple-sso-plugin)、または[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) の場合は、はい | [Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)、[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)、[Apple デバイス用の Microsoft Enterprise SSO プラグイン](https://learn.microsoft.com/ja-jp/entra/identity-platform/apple-sso-plugin)、または[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) の場合は、はい | はい |
+| サポートされているサインインの種類 | UserPrincipalName + パスワード[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) を使用した Windows 統合認証[代替ログイン ID](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-install-custom)[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication-smartcard) | UserPrincipalName + パスワード[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) を使用した Windows 統合認証[代替ログイン ID](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq)[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication-smartcard) | UserPrincipalName + パスワードsAMAccountName + パスワードWindows 統合認証[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)[代替ログイン ID](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) |
+| Windows Hello for Business のサポート | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust) | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)*いずれも Windows Server 2016 ドメインの機能レベルが必要* | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)[証明書信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs) |
+| 多要素認証のオプション | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/azure/multi-factor-authentication/)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/)[サード パーティの MFA](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) |
+| サポートされているユーザー アカウントの状態は何ですか？ | 無効なアカウント(最大 30 分の遅延) | 無効なアカウントアカウントのロックアウトアカウント期限切れパスワード期限切れサインイン時間 | 無効なアカウントアカウントのロックアウトアカウント期限切れパスワード期限切れサインイン時間 |
+| 条件付きアクセスのオプション | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)[AD FS のアクセス制御ポリシー](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim) |
+| 従来のプロトコルのブロックはサポートされるか? | [あり](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [あり](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [あり](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/access-control-policies-w2k12) |
+| サインイン ページのロゴ、イメージ、説明のカスタマイズ可能性 | [はい (Microsoft Entra ID P1 または P2 を使用)](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-customize-branding) | [はい (Microsoft Entra ID P1 または P2 を使用)](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-customize-branding) | [あり](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-management) |
+| サポートされる高度なシナリオ | [スマート パスワード ロックアウト](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout)[漏洩した資格情報レポート (Microsoft Entra ID P2 を使用)](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection) | [スマート パスワード ロックアウト](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout) | 複数サイトの低待機時間の認証システム[AD FS エクストラネットのロックアウト](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)[サード パーティの ID システムとの統合](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-compatibility) |
+
+注
+
+Microsoft Entra 条件付きアクセスでのカスタム コントロールは、現時点ではデバイスの登録をサポートしていません。
+
+### 推奨事項
+
+ID システムによって、クラウドに移行して利用できるようにしたアプリに対するユーザーのアクセスが保証されます。 どの認証方法を選択する場合でも、次の理由により、パスワード ハッシュ同期を使用するか有効にします。
+
+1. **高可用性とディザスター リカバリー**。 パススルー認証とフェデレーションは、オンプレミスのインフラストラクチャに依存します。 パススルー認証の場合、オンプレミスのフットプリントには、パススルー認証エージェントに必要なサーバー ハードウェアとネットワークが含まれます。 フェデレーションの場合、オンプレミスのフットプリントはさらに大きくなります。 認証要求と内部フェデレーション サーバーをプロキシするために、境界ネットワーク内にサーバーが必要になるためです。
+
+    単一障害点を回避するには、冗長サーバーを展開します。 これにより、いずれかのコンポーネントで障害が発生しても、認証要求サービスが常に提供されるようにします。 また、パススルー認証とフェデレーションは、認証要求に応答するために、両方ともドメイン コントローラーにも依存しますが、ここでも障害が発生する可能性があります。 これらのコンポーネントの多くは、正常性を保つためにメンテナンスが必要です。 メンテナンスの計画や実装が適切でない場合は、システムが停止する可能性が高くなります。
+2. **オンプレミスの停止への対応**。 サイバー攻撃や災害によるオンプレミスの停止の影響は、ブランドの評判が損なわれることから、組織が麻痺して攻撃に対処できなくなることまで、大きな範囲に及ぶ可能性があります。 近年でも、オンプレミスのサーバーがダウンする原因となった特定対象へのランサムウェアなど、多くの組織がマルウェア攻撃の被害を受けました。 Microsoft は、この種の攻撃への対処を支援するなかで、組織には 2 つのカテゴリがあることに気付きました。
+
+    - 以前にフェデレーション認証またはパススルー認証でパスワード ハッシュ同期をオンにしていた組織は、パスワード ハッシュ同期を使用するようにプライマリ認証方法を変更しました。 彼らは数時間でオンラインに戻りました。 Microsoft 365 を介して電子メールにアクセスすることで、問題解決と他のクラウド ベースのワークロードへのアクセスのために作業することができました。
+    - 事前にパスワード ハッシュ同期を有効にしていなかった組織は、問題解決のために、信頼されていない外部のコンシューマー向けメール システムを通信に利用するしかありませんでした。 そのような企業は、ユーザーがクラウドベースのアプリに再度サインインできるよう、オンプレミスの ID インフラストラクチャを復元するのに数週間かかりました。
+3. **ID 保護** クラウド内のユーザーを保護する最適な方法の 1 つは、Microsoft Entra ID P2 を使用した Microsoft Entra ID 保護 です。 Microsoft は常にインターネットを精査して、闇サイトで販売され利用されているユーザーやパスワードのリストを入手しています。 Microsoft Entra ID はこの情報を使って、組織のユーザー名やパスワードのいずれかが侵害されているかどうかを確認します。 したがって、使用している認証方法がフェデレーション認証かパススルー認証かに関係なく、パスワード ハッシュ同期を有効にすることが重要になります。 漏洩した資格情報は、レポートとして示されます。 ユーザーが漏洩したパスワードでのサインインを試みた場合、この情報を使用してユーザーをブロックするか、パスワードの変更を強制します。
+
+### まとめ
+
+この記事では、組織がクラウド アプリへのアクセスをサポートするために構成して展開できるさまざまな認証オプションの概要を説明しました。 ビジネス、セキュリティ、テクノロジに関するさまざまな要件を満たすため、組織は、パスワード ハッシュ同期、パススルー認証、およびフェデレーション認証のいずれかを選択できます。
+
+各認証方法を検討してください。 ソリューションを展開するための作業量や、サインイン プロセスでのユーザーのエクスペリエンスは、ビジネス要件に合っているでしょうか。 各認証方法において、組織が高度なシナリオとビジネス継続性機能を必要とするかどうかを評価してください。 最後に、各認証方法の考慮事項を評価してください。 選択した方法を実装する妨げになる項目はありませんか。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -973,8 +1173,8 @@ Microsoft Entra ID にオブジェクトをプロビジョニングする場合�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/deprecated-azure-ad-connect
 - Service: entra-id / hybrid-connect
-- Article date: 2025-04-09
-- Summary: この記事では、非推奨のバージョンを実行している場合の操作について説明します。
+- Article date: 2026-10-06
+- Summary: Microsoft Entra Connect がサポート終了となった場合の対応方法、バージョンの確認方法、Microsoft Entra Cloud Sync が同期ニーズを満たすかどうかについて確認してください。
 
 [Microsoft Entra Connect のバージョンが非推奨](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/whatis-azure-ad-connect-v2)になり、サポートされなくなったことを示す通知メールが届いた可能性があります。 または、Microsoft Entra Connect バージョンのアップグレードに関するポータルの推奨事項をお読みください。 次は何ですか?
 
@@ -990,8 +1190,8 @@ Microsoft Entra Connect は、 [新しいバージョン](https://learn.microsof
 
 Microsoft Entra Connect の非推奨およびサポートされていないバージョンをまだ使用している場合は、次の操作を行う必要があります。
 
-1. インストールするバージョンを確認します。 ほとんどのお客様は、Microsoft Entra Connect を必要としなくなり、 [Microsoft Entra Connect クラウド同期](https://learn.microsoft.com/ja-jp/azure/active-directory/cloud-sync/what-is-cloud-sync)を使用できるようになりました。クラウド同期は、AD から Microsoft Entra ID にユーザーとグループをプロビジョニングするための次世代の同期ツールです。 軽量エージェントを備え、クラウドから完全に管理されており、新しいバージョンに自動的にアップグレードされるため、もう一度アップグレードする必要はありません。
-2. Microsoft Entra Connect クラウド同期の対象になっていない場合は、この [リンクに](https://www.microsoft.com/download/details.aspx?id=47594) 従って最新バージョンの Microsoft Entra Connect をダウンロードしてインストールしてください。 ほとんどの場合、最新バージョンへのアップグレードには少し時間がかかります。 詳細については、「 [以前のバージョンからの Microsoft Entra Connect のアップグレード」を](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-upgrade-previous-version)参照してください。
+1. インストールするバージョンを確認してください。 多くの組織では、Microsoft Entra Connect ではなく [Microsoft Entra Cloud Sync](https://learn.microsoft.com/ja-jp/azure/active-directory/cloud-sync/what-is-cloud-sync) を使用できます。 Cloud Sync は、ユーザー、グループ、連絡先をActive DirectoryからMicrosoft Entra IDに同期します。 デバイスの同期が有効になっている場合、Microsoft Entra ハイブリッド参加用のコンピューター オブジェクトも同期できます。 デバイスのセットアップについては、「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。Cloud Sync は軽量エージェントを使用し、クラウドから管理され、自動的に更新されます。
+2. Microsoft Entra Cloud Sync の対象になっていない場合は、[Microsoft Entra Connect をダウンロード](https://www.microsoft.com/download/details.aspx?id=47594)して最新バージョンをインストールしてください。 詳細については、「[Microsoft Entra Connect を以前のバージョンからアップグレードする](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-upgrade-previous-version)」を参照してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -1395,11 +1595,11 @@ Microsoft Entra Connect Express のインストールでは、自動的に生成
 | 機能 | アクセス許可 |
 | --- | --- |
 | ms-DS-ConsistencyGuid 機能 | [設計概念 - sourceAnchor としての ms-DS-ConsistencyGuid の使用](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) に記載されている ms-DS-ConsistencyGuid 属性の読み取りおよび書き込みアクセス許可 |
-| パスワード ハッシュの同期 | - ディレクトリ変更のレプリケート - 基本的な読み取り専用機能に必要<br>- すべてのディレクトリ変更をレプリケート |
+| パスワード ハッシュの同期 | - ディレクトリの変更のレプリケート - 基本的な読み取り専用に必要<br>- すべてのディレクトリ変更をレプリケート |
 | Exchange のハイブリッド展開 | ユーザー、グループ、連絡先用の「[Exchange ハイブリッドの書き戻し](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-sync-attributes-synchronized#exchange-hybrid-writeback)」に記載された属性への読み取りと書き込みのアクセス許可。 |
-| Exchange メールのパブリック フォルダー | パブリック フォルダーに関して、[Exchange Mail Public Folder](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-sync-attributes-synchronized#exchange-mail-public-folder) に記載された属性の読み取り権限。 |
+| Exchange メールのパブリック フォルダー | パブリック フォルダーに関して、「[Exchange メールのパブリック フォルダー](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-sync-attributes-synchronized#exchange-mail-public-folder)」に記載された属性への読み取りアクセス許可。 |
 | パスワードの書き戻し | ユーザー向けの「[パスワード管理の使用開始](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-sspr-writeback)」に記載された属性への読み取りおよび書き込みのアクセス許可。 |
-| デバイス ライトバック | 「[デバイスの書き戻し](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-device-writeback)」に記載されているデバイスのオブジェクトとコンテナーに対する読み取りと書き込みのアクセス許可。 |
+| デバイスの書き戻し | 「[デバイスの書き戻し](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-device-writeback)」に記載されているデバイスのオブジェクトとコンテナーに対する読み取りと書き込みのアクセス許可。 |
 | グループ書き戻し | 同期された **Office 365 グループ**のグループ オブジェクトの読み取り、作成、更新、削除。 |
 
 ### ADSyncConfig PowerShell モジュールの使用
@@ -1430,7 +1630,7 @@ Get-Command -Module AdSyncConfig
 
 [Image: チェック]
 
-各コマンドレットには、AD DS コネクタ アカウントと AdminSDHolder スイッチを入力するための同じパラメーターがあります。 AD DS コネクタ アカウントを指定するには、アカウント名とドメインと入力することも、アカウントの識別名 (DN) だけを入力することもできます。
+各コマンドレットには、AD DS コネクタ アカウントや AdminSDHolder スイッチを入力するものと同じパラメーターがあります。 AD DS コネクタ アカウントを指定するには、アカウント名とドメインと入力することも、アカウントの識別名 (DN) だけを入力することもできます。
 
 例えば：
 
@@ -1438,7 +1638,7 @@ Get-Command -Module AdSyncConfig
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
 ```
 
-または；
+または、
 
 ```powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
@@ -1454,7 +1654,7 @@ AdminSDHolder コンテナーに対するアクセス許可を変更する場合
 
 これらの一般的なパラメーターの例外は、AD DS コネクタ アカウント自体のアクセス許可を設定するために使用される `Set-ADSyncRestrictedPermissions` コマンドレットと、パスワード ハッシュ同期に必要なアクセス許可がドメイン ルートでのみ設定されるため、`Set-ADSyncPasswordHashSyncPermissions` コマンドレットであるため、このコマンドレットには `-ObjectDN` または `-IncludeAdminSdHolders` パラメーターは含まれません。
 
-#### AD DS コネクタ アカウントを特定する
+#### AD DS コネクタ アカウントの確認
 
 Microsoft Entra Connect が既にインストールされていて、Microsoft Entra Connect で現在使用中の AD DS コネクタ アカウントを確認したい場合は、次のコマンドレットを実行できます。
 
@@ -1504,16 +1704,16 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | 子デバイス オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読み取る | InetOrgPerson の子オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | 子コンピューター オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | foreignSecurityPrincipal の子オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | グループ配下のオブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | 配下のユーザー オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを表示 | 連絡先オブジェクトの子オブジェクト |
-| 許可する | AD DS コネクタ アカウント | ディレクトリ変更の複製 | このオブジェクトのみ (ドメインのルート) |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | デバイスの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | InetOrgPerson の子オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | コンピューターの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | foreignSecurityPrincipal の子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | グループの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | 配下のユーザー オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | 連絡先の子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | ディレクトリの変更のレプリケート | このオブジェクトのみ (ドメインのルート) |
 
-#### MS-DS-Consistency-Guid のアクセス許可を構成
+#### MS-DS-Consistency-Guid のアクセス許可の構成
 
 ソース アンカーとして ms-Ds-Consistency-Guid 属性を使用している (「自分のソース アンカーを Azure で管理できるようにする」オプションとも言います) ときに、AD DS コネクタ アカウントのアクセス許可を設定するには、次のように実行します。
 
@@ -1521,7 +1721,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-IncludeAdminSdHolders] [<CommonParameters>] 
 ```
 
-または；
+または、
 
 ```powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -1531,7 +1731,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | プロパティの読み取り/書き込み | 子ユーザー オブジェクト |
+| 許可する | AD DS コネクタ アカウント | プロパティの読み取り/書き込み | ユーザーの子孫オブジェクト |
 
 #### パスワード ハッシュ同期のアクセス許可
 
@@ -1541,7 +1741,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [<CommonParameters>] 
 ```
 
-または；
+または、
 
 ```powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
@@ -1551,8 +1751,8 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | ディレクトリの変更のレプリケーション | このオブジェクトのみ (ドメインのルート) |
-| 許可する | AD DS コネクタ アカウント | すべてのディレクトリ変更をレプリケート | このオブジェクトのみ (ドメインのルート) |
+| 許可する | AD DS コネクタ アカウント | ディレクトリの変更のレプリケート | このオブジェクトのみ (ドメインのルート) |
+| 許可する | AD DS コネクタ アカウント | ディレクトリの変更すべてのレプリケート | このオブジェクトのみ (ドメインのルート) |
 
 #### パスワード ライトバックのアクセス許可
 
@@ -1572,9 +1772,9 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | パスワードのリセット | ユーザーの子オブジェクト |
-| 許可する | AD DS コネクタ アカウント | プロパティ lockoutTime の書き込み | 子ユーザー オブジェクト |
-| 許可する | AD DS コネクタ アカウント | pwdLastSet プロパティの書き込み | 子ユーザー オブジェクト |
+| 許可する | AD DS コネクタ アカウント | パスワードのリセット | ユーザーの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | プロパティ lockoutTime の書き込み | ユーザーの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | プロパティ pwdLastSet の書き込み | ユーザーの子孫オブジェクト |
 
 #### グループ書き戻しのアクセス許可
 
@@ -1596,7 +1796,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 | --- | --- | --- | --- |
 | 許可する | AD DS コネクタ アカウント | 汎用の読み取り/書き込み | オブジェクトタイプ グループとサブオブジェクトのすべての属性 |
 | 許可する | AD DS コネクタ アカウント | 子オブジェクトの作成/削除 | オブジェクトタイプ グループとそのサブオブジェクトのすべての属性 |
-| 許可する | AD DS コネクタ アカウント | 削除/ツリー オブジェクトを削除 | オブジェクトタイプ グループとそのサブオブジェクトのすべての属性 |
+| 許可する | AD DS コネクタ アカウント | 削除/ツリー オブジェクトの削除 | オブジェクトタイプ グループとそのサブオブジェクトのすべての属性 |
 
 #### Exchange ハイブリッド展開のアクセス許可
 
@@ -1616,10 +1816,10 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | 下位ユーザー オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | InetOrgPerson の下位オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | グループの下位オブジェクト |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | 連絡先オブジェクトの下位オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | ユーザーの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | InetOrgPerson の子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | グループの子孫オブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り/書き込み | 連絡先の子孫オブジェクト |
 
 #### Exchange メール パブリック フォルダーのアクセス許可
 
@@ -1639,7 +1839,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | AD DS コネクタ アカウント | すべてのプロパティを読む | パブリック フォルダー配下のオブジェクト |
+| 許可する | AD DS コネクタ アカウント | すべてのプロパティの読み取り | パブリック フォルダー配下のオブジェクト |
 
 #### AD DS コネクタ アカウントのアクセス許可を制限する
 
@@ -1654,7 +1854,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
 
-たとえば：
+たとえば次のようになります。
 
 ```powershell
 $credential = Get-Credential 
@@ -1665,15 +1865,15 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN 'CN=ADConnectorAccount,OU=
 
 | タイプ | 名前 | アクセス | 適用対象 |
 | --- | --- | --- | --- |
-| 許可する | システム | 完全制御 | このオブジェクト |
+| 許可する | システム | フル コントロール | このオブジェクト |
 | 許可する | エンタープライズ管理者 | フル コントロール | このオブジェクト |
-| 許可する | ドメイン管理者 | 完全制御 | このオブジェクト |
+| 許可する | ドメイン管理者 | フル コントロール | このオブジェクト |
 | 許可する | 管理者 | フルコントロール | このオブジェクト |
 | 許可する | エンタープライズ ドメイン コントローラー | コンテンツの一覧 | このオブジェクト |
-| 許可する | エンタープライズ ドメイン コントローラー | すべてのプロパティを読む | このオブジェクト |
+| 許可する | エンタープライズ ドメイン コントローラー | すべてのプロパティの読み取り | このオブジェクト |
 | 許可する | エンタープライズ ドメイン コントローラー | 読み取り権限 | このオブジェクト |
 | 許可する | 認証済みユーザー | コンテンツの一覧 | このオブジェクト |
-| 許可する | 認証済みユーザー | 全プロパティの読み取り | このオブジェクト |
+| 許可する | 認証済みユーザー | すべてのプロパティの読み取り | このオブジェクト |
 | 許可する | 認証済みユーザー | 読み取り権限 | このオブジェクト |
 <!-- /MSL-PAGE -->
 
@@ -7994,233 +8194,4 @@ PowerShell セッションで、次のコマンドレットを実行します。
 1. PS C:\Program Files\Microsoft Azure AD Connect 認証エージェント&gt;`Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus`
 3. `Disable-PassthroughAuthentication`
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/how-to-connect-pta-faq"} -->
-## Microsoft Entra Connect - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq
-- Service: entra-id / hybrid-connect
-- Article date: 2024-12-20
-- Summary: Microsoft Entra パススルー認証機能に関してよく寄せられる質問への回答
-
-この記事では、Microsoft Entra パススルー認証機能に関してよく寄せられる質問へに対応します。 最新のコンテンツを常にチェックしてください。
-
-### Microsoft Entra ID へのサインイン方法として、パススルー認証、パスワード ハッシュ同期、Active Directory フェデレーション サービス (AD FS) のうちどれを選択すればよいですか。
-
-Microsoft Entra の各種サインイン方法の比較および組織に合った適切なサインイン方法の選び方については、[こちらのガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/choose-ad-authn)を参照してください。
-
-### パススルー認証は無料の機能ですか。
-
-パススルー認証は、無料の機能です。 この機能を使用するために Microsoft Entra ID の有料エディションは不要です。
-
-### 条件付きアクセスは、パススルー認証と連携しますか。
-
-はい。 Microsoft Entra 多要素認証を含め、すべての[条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)機能がパススルー認証と連携します。
-
-### パススルー認証では、"userPrincipalName" の代わりに "Alternate ID" がユーザー名としてサポートされますか。
-
-はい。連絡用メール アドレスなどの UPN 以外の値を使用したサインインは、パススルー認証 (PTA) とパスワード ハッシュ同期 (PHS) の両方でサポートされています。 代替サインイン IDの詳細については、以下を参照してください。
-
-### パスワード ハッシュ同期は、パススルー認証のフォールバックとして機能しますか。
-
-いいえ。 パススルー認証は、パスワード ハッシュ同期に自動的にフェールオーバー *されません*。 ユーザーのサインイン エラーを回避するには、[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)向けにパススルー認証を構成する必要があります。
-
-### パスワード ハッシュ同期からパススルー認証に切り替えるとどうなりますか。
-
-Microsoft Entra Connect を使用して、サインイン方法をパスワード ハッシュ同期からパススルー認証に切り替えると、パススルー認証がマネージド ドメイン内でのユーザーのプライマリ サインイン方法になります。 パスワード ハッシュ同期によって以前同期されていたすべてのユーザーのパスワード ハッシュは、Microsoft Entra ID に保存されたままになります。
-
-### Microsoft Entra プライベート ネットワーク コネクタを、パススルー認証エージェントと同じサーバーにインストールできますか?
-
-はい。 この構成は、パススルー認証エージェント (バージョン 1.5.193.0 以降) のブランド名変更バージョンでサポートされます。
-
-### どのバージョンの Microsoft Entra Connect とパススルー認証エージェントが必要ですか。
-
-この機能を動作させるには、Microsoft Entra Connect については 1.1.750.0 以降、パススルー認証エージェントについては 1.5.193.0 以降が必要です。 すべてのソフトウェアを、Windows Server 2012 R2 以降が搭載されたサーバーにインストールする必要があります。
-
-### コネクタがまだ古いバージョンを使用していて、自動的に最新バージョンにアップグレードされないのはなぜですか?
-
-アップデーター サービスが正常に動作していないか、このサービスでインストールできる新しい更新プログラムがないことが原因の可能性があります。 アップデーター サービスが実行されていて、イベント ログにエラーが記録されていない場合は、正常です ([アプリケーションとサービス ログ] -&gt; [Microsoft] -&gt; [AzureADConnect-Agent] -&gt; [アップデーター] -&gt; [管理者])。
-
-自動アップグレードではメジャー バージョンのみがリリースされます。 エージェントは、必要な場合にのみ手動で更新することをお勧めします。 たとえば、既知の問題を修正したり、新機能を使用したりする必要があるため、メジャー リリースまで待てないような場合です。 新しいリリース、リリースの種類 (ダウンロード、自動アップグレード)、バグ修正、および新機能の詳細については、Microsoft Entra パススルー認証エージェントのバージョン リリース履歴 を参照してください。
-
-コネクタを手動でアップグレードするには、次の手順を実行します。
-
-- 最新バージョンのエージェントをダウンロードします。 ([Microsoft Entra 管理センター](https://entra.microsoft.com)の [Microsoft Entra Connect パススルー認証] の下に表示されます。 また、Microsoft Entra パススルー認証: バージョンのリリース履歴のリンクで確認することもできます。
-- インストーラーによって、Microsoft Entra Connect 認証エージェント サービスが再起動します。 場合によっては、インストーラですべてのファイルを置き換えることができない場合、サーバーの再起動が必要になります。 アップグレードを開始する前に、すべてのアプリケーションを終了することをお勧めします。
-- インストーラを実行します。 アップグレード プロセスは迅速であり、資格情報を指定する必要はありません。エージェントは再登録されません。
-
-### ユーザーのパスワードの有効期限が切れ、パススルー認証を使用してサインインしようとするとどうなりますか?
-
-特定のユーザー [パスワード ライトバック](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sspr-writeback) を構成しており、ユーザーがパススルー認証を使用してサインインした場合、パスワードを変更またはリセットできます。 パスワードはオンプレミス Active Directory に想定どおりに書き戻されます。
-
-特定のユーザーにパスワード ライトバックが構成されていない場合、またはユーザーに有効な Microsoft Entra ID ライセンスが割り当てられていない場合、ユーザーはクラウドでパスワードを更新できません。 パスワードの有効期限が切れた場合でも、パスワードを更新することはできません。 代わりにユーザーには、"このサイトでパスワードを変更することをお客様の組織が許可していません。 組織で推奨されている方法に従って更新するか、ヘルプが必要な場合は管理者に問い合わせてください。 "ユーザーや管理者は、オンプレミスの Active Directory でパスワードをリセットする必要があります。
-
-### ユーザーは、資格情報 (ユーザー名、パスワード) を使用して Microsoft Entra ID にサインインします。 ユーザーのパスワードの有効期限は切れていますが、ユーザーは引き続き Microsoft Entra のリソースにアクセスできます。 なぜこのようになるのですか?
-
-パスワードの有効期限によって、認証トークンまたは Cookie の失効はトリガーされません。 トークンまたは Cookie が有効になるまで、ユーザーはトークンを使用できます。 これは、認証の種類 (PTA、PHS、フェデレーション シナリオ) に関係なく適用されます。
-
-詳細については、次のドキュメントを参照してください。
-
-[Microsoft ID プラットフォーム アクセス トークン - Microsoft ID プラットフォーム | Microsoft Docs](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-tokens)
-
-### パススルー認証を使用することで、どのようにブルート フォース パスワード攻撃から保護できますか。
-
-[スマート ロックアウトに関する情報をお読みください](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout)。
-
-### パススルー認証エージェントはポート 80 およびポート 443 で何をやり取りしますか。
-
-- 認証エージェントは、すべての機能操作について、ポート 443 で HTTPS 要求を行います。
-- 認証エージェントは、TLS/SSL 証明書失効リスト (CRL) をダウンロードするために、ポート 80 で HTTP 要求を行います。
-
-    注意
-
-    この機能に必要なポートの数は、最近の更新で減らされています。 以前のバージョンの Microsoft Entra Connect または認証エージェントを使用している場合は、5671、8080、9090、9091、9350、9352、10100 - 10120 の各ポートも開放しておいてください。
-
-### パススルー認証エージェントは、送信 Web プロキシ サーバーで通信できますか。
-
-はい。 Web プロキシ自動発見 (WPAD) がオンプレミス環境で有効になっている場合、認証エージェントは、ネットワーク上の Web プロキシ サーバーを自動的に検索し、使用しようとします。 送信プロキシ サーバーを使用する方法の詳細については、「[既存のオンプレミス プロキシ サーバーと連携する](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-connectors-with-proxy-servers#use-the-outbound-proxy-server)」を参照してください。
-
-環境内に WPAD がない場合は、プロキシ情報を追加して、パススルー認証エージェントが Microsoft Entra ID と通信できるようにします。
-
-- サーバー上でパススルー認証エージェントをインストールする前に、Internet Explorer 上でプロキシ情報を構成します。 これにより、認証エージェントのインストールを完了できますが、管理ポータルに非アクティブな表示されます。
-- サーバー上で、"C:\Program Files\Microsoft Azure AD Connect Authentication Agent" に移動します。
-- "AzureADConnectAuthenticationAgentService" 構成ファイルを編集し、次の行を追加します ("http://contosoproxy.com:8080&quot" は実際のプロキシ アドレスに置き換えます)。
-
-```
-   <system.net>
-      <defaultProxy enabled="true" useDefaultCredentials="true">
-         <proxy
-            usesystemdefault="true"
-            proxyaddress="http://contosoproxy.com:8080"
-            bypassonlocal="true"
-         />
-     </defaultProxy>
-   </system.net>
-```
-
-### 同じサーバーに複数のパススルー認証エージェントをインストールできますか。
-
-いいえ。1 つのサーバーにインストールできるパススルー認証エージェントは 1 つだけです。 高可用性向けにパススルー認証を構成する必要がある場合は、[こちらの手順に従ってください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)。
-
-### パススルー認証エージェントで使用される証明書は手動で更新する必要がありますか。
-
-各パススルー認証エージェントと Microsoft Entra ID の間の通信は、証明書ベースの認証を使用して保護されます。 これらの[証明書は、Microsoft Entra ID によって数か月ごとに自動的に更新されます](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive#operational-security-of-the-authentication-agents)。 これらの証明書を手動で更新する必要はありません。 必要に応じて、有効期限が切れた古い証明書をクリーンアップできます。
-
-### パススルー認証エージェントを削除するにはどうすればよいですか。
-
-パススルー認証エージェントが実行されている間はアクティブなままであり、ユーザーのサインイン要求を継続的に処理します。 認証エージェントをアンインストールする場合は、[コントロール パネル] **[&gt; プログラム] - [&gt; プログラムと機能]**に移動します。 **Microsoft Entra Connect 認証エージェント** と、**Microsoft Entra Connect Agent Updater** プログラムの両方をアンインストールします。
-
-少なくとも[ハイブリッド ID 管理者](https://entra.microsoft.com) として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)の [パススルー認証] ブレードを確認した場合。 認証エージェントが**非アクティブ**として表示されます。 これは "*予期されること*" です。 認証エージェントは 10 日後に自動的に一覧から削除されます。
-
-### 既に AD FS を使用して、Microsoft Entra ID にサインインしています。 これをパススルー認証に切り替えるには、どうすればよいですか。
-
-AD FS (または他のフェデレーション テクノロジ) からパススルー認証に移行する場合は、[クイックスタート ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start)に従うよう強くお勧めします。
-
-### 複数フォレスト Active Directory 環境でパススルー認証を使用できますか。
-
-はい。 ご使用の Active Directory フォレスト間にフォレストの信頼 (双方向) があり、名前サフィックス ルーティングが正しく構成されていれば、複数フォレスト環境がサポートされます。
-
-### パススルー認証では、複数の認証エージェント間の負荷分散を提供しますか。
-
-いいえ。複数のパススルー認証エージェントをインストールすることで[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)のみが確保されます。 認証エージェント間の確定的な負荷分散は提供されません。 任意の認証エージェント (ランダム) が特定のユーザーのサインイン要求を処理できます。
-
-### いくつのパススルー認証エージェントをインストールする必要がありますか?
-
-複数のパススルー認証エージェントをインストールすることで[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)が確保されます。 ただし認証エージェント間の確定的な負荷分散は提供されません。
-
-テナント上で想定されるサインイン要求のピーク時の負荷および平均的な負荷を検討してください。 ベンチマークとして、1 つの認証エージェントでは、標準的な 4 コア CPU、16 GB RAM サーバー上で 1 秒あたり 300 - 400 の認証を処理できます。
-
-ネットワーク トラフィックを見積もるには、サイズ設定に関する次のガイダンスに従ってください。
-
-- 各要求のペイロード サイズは、(0.5K + 1K \* num\_of\_agents) バイトです。これは、Microsoft Entra ID から認証エージェントへのデータ量に相当します。 ここで "num\_of\_agents" は、テナントに登録されている認証エージェントの数を示します。
-- 各応答のペイロード サイズは 1K バイトです。これは、認証エージェントから Microsoft Entra ID へのデータ量に相当します。
-
-ほとんどのお客様の場合、高可用性と大容量を確保するには、合計 2 つまたは 3 つの認証エージェントがあれば十分です。 ただし、運用環境では、テナントで少なくとも 3 つの認証エージェントを実行することをお勧めします。 サインインの待機時間を向上させるために、認証エージェントは、ドメイン コントローラーの近くにインストールする必要があります。
-
-注意
-
-認証エージェントの数は、テナントあたり 40 個に制限されています。
-
-### パススルー認証を有効にするには、どのようなロールが必要ですか?
-
-[ハイブリッド ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)アカウントを使用してパススルー認証を有効または無効にすることが推奨されます。 このようにすることで、テナントからロックアウトされないようになります。 ]
-
-### パススルー認証を無効にするには、どうすればよいですか。
-
-Microsoft Entra Connect ウィザードを再実行し、ユーザーのサインイン方法を、パススルー認証から別の方法に変更します。 この変更により、テナントのパススルー認証が無効になり、認証エージェントがサーバーからアンインストールされます。 他のサーバーからは、手動で認証エージェントをアンインストールする必要があります。
-
-### パススルー認証エージェントをアンインストールすると、どうなりますか。
-
-サーバーからパススルー認証エージェントをアンインストールすると、そのサーバーでサインイン要求の受け入れが停止します。 テナントでユーザーのサインインが中断しないようにするには、パススルー認証エージェントをアンインストールする前に、別の認証エージェントが実行されていることを確認します。
-
-### AD FS を使用してセットアップした古いテナントがあります。 最近 PTA に移行しましたが、UPN の変更点が Microsoft Entra ID に同期されていません。 UPN の変更点はなぜ同期されていないのでしょうか?
-
-次の状況においては、オンプレミスの UPN の変更点が同期されない場合があります。
-
-- Microsoft Entra テナントが 2015 年 6 月 15 日よりも前に作成された。
-- 最初に認証に AD FS を使用して、Microsoft Entra テナントとフェデレーションした。
-- 管理対象ユーザーに認証として PTA を使用させるように切り替えた場合。
-
-これは、2015 年 6 月 15 日よりも前に作成されたテナントの既定の動作が UPN の変更点のブロックであるためです。 UPN の変更点のブロックを解除する必要がある場合は、次の PowerShell コマンドレットを実行する必要があります。 [Get-MgDirectoryOnPremiseSynchronization](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryonpremisesynchronization) コマンドレットを使って ID を取得します。
-
-```powershell
-$params = @{ "SynchronizeUpnForManagedUsersEnabled" = "True" }
-Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $SynchronizationId -BodyParameter $params
-```
-
-2015 年 6 月 15 日以降に作成されたテナントでは、UPN の変更点を同期するのが既定の動作です。
-
-### Microsoft Entra サインインログと PTA サーバーから PTA エージェント ID をキャプチャして、サインイン イベントに使用された PTA サーバーを検証するにはどうすればよいですか。
-
-特定のサインイン イベントに使用されたローカル サーバーまたは認証エージェントを確認するには、次の手順に従います。
-
-1. [Microsoft Entra管理センター](https://entra.microsoft.com)で、サインイン イベントに移動します。
-2. [**認証の詳細**] を選択します。 **[認証方法の詳細]** 列に、エージェント ID の詳細が "パススルー認証; PTA AgentId: 00001111-aaaa-2222-bbbb-3333cccc4444" の形式で表示されます。
-3. ローカル サーバーにインストールされているエージェントのエージェント ID の詳細を取得するには、ローカル サーバーにサインインし、次のコマンドレットを実行します。
-
-    `Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*`
-
-    返される GUID 値が、その特定のサーバーにインストールされている認証エージェントのエージェント ID です。 環境内に複数のエージェントがある場合は、各エージェント サーバーでこのコマンドレットを実行すると、エージェント ID の詳細を取得できます。
-4. ローカル サーバーと Microsoft Entra サインイン ログから取得したエージェント ID と を相互に関連付けて、どのエージェントまたはサーバーが署名要求を受信確認したかを検証します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/how-to-connect-pta-how-it-works"} -->
-## Microsoft Entra Connect: パススルー認証 - しくみ - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-how-it-works
-- Service: entra-id / hybrid-connect
-- Article date: 2025-04-09
-- Summary: この記事では、Microsoft Entra パススルー認証のしくみについて説明します
-
-この記事では、Microsoft Entra パススルー認証のしくみの概要について説明します。 技術的およびセキュリティに関する詳細な情報については、[セキュリティの詳細](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive) 記事を参照してください。
-
-### Microsoft Entra パススルー認証のしくみ
-
-手記
-
-パススルー認証が機能するための前提条件として、ユーザーは Microsoft Entra Connect を使用してオンプレミスの Active Directory から Microsoft Entra ID にプロビジョニングする必要があります。 パススルー認証は、クラウドのみのユーザーには適用されません。
-
-ユーザーが Microsoft Entra ID で保護されたアプリケーションにサインインしようとしたときに、テナントでパススルー認証が有効になっている場合は、次の手順が実行されます。
-
-1. ユーザーは、[アプリケーションにアクセスしようとします。例えば、Outlook Web App](https://outlook.office365.com/owa/)など。
-2. ユーザーがまだサインインしていない場合、ユーザーは Microsoft Entra ID **ユーザー サインイン** ページにリダイレクトされます。
-3. ユーザーは、Microsoft Entra サインイン ページにユーザー名を入力し、**[次へ]** ボタンを選択します。
-4. ユーザーが Microsoft Entra サインイン ページにパスワードを入力し、**サインイン** ボタンを選択します。
-5. Microsoft Entra ID は、サインイン要求の受信時に、ユーザー名とパスワード (認証エージェントの公開キーを使用して暗号化) をキューに配置します。
-6. オンプレミス認証エージェントは、キューからユーザー名と暗号化されたパスワードを取得します。 エージェントはキューからの要求を頻繁にポーリングせず、事前に確立された永続的な接続を介して要求を取得します。
-7. エージェントは、秘密キーを使用してパスワードの暗号化を解除します。
-8. エージェントは、Active Directory フェデレーション サービス (AD FS) で使用されているものと同様のメカニズムである標準の Windows API を使用して、Active Directory に対してユーザー名とパスワードを検証します。 ユーザー名には、オンプレミスの既定のユーザー名 (通常は `userPrincipalName`) または Microsoft Entra Connect で構成された別の属性 (`Alternate ID`) のいずれかを指定できます。
-9. オンプレミスの Active Directory ドメイン コントローラー (DC) は要求を評価し、適切な応答 (成功、失敗、パスワードの有効期限切れ、またはユーザーのロックアウト) をエージェントに返します。
-10. 認証エージェントは、この応答を Microsoft Entra ID に返します。
-11. Microsoft Entra ID は応答を評価し、必要に応じてユーザーに応答します。 たとえば、Microsoft Entra ID は、ユーザーをすぐにサインインさせるか、Microsoft Entra 多要素認証を要求します。
-12. ユーザーのサインインが成功した場合、ユーザーはアプリケーションにアクセスできます。
-
-次の図は、すべてのコンポーネントと関連する手順を示しています。
-
-[Image: パススルー認証]
 <!-- /MSL-PAGE -->

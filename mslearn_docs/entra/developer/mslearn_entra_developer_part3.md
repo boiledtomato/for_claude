@@ -1,7 +1,140 @@
 # Microsoft Learn — Microsoft Entra / 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 73
+Pages in this file: 74
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity-platform/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token"} -->
+## Node.js Web アプリでアクセス トークンを取得する - Microsoft identity platform
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-sign-in-acquire-access-token
+- Service: identity-platform
+- Article date: 2025-03-16
+- Summary: 独自の Node.js Web アプリケーションで API を呼び出すためのアクセス トークンを取得する方法について説明します。
+
+**適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+この記事では、コードを更新して、Web アプリがアクセス トークンを取得できるようにします。 ノード Web アプリケーションへの認証と承認の追加を簡略化するには、 [Node 用 Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) を使用します。 この記事は、4 部構成のガイド シリーズの第 3 部です。
+
+### [前提条件]
+
+- このガイド シリーズの最初のパートの「Node.js Web アプリケーション [で API を呼び出す外部テナントを準備する」](https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-prepare-tenant)手順を完了します。
+- このガイド シリーズの第 2 部「 [Node.js Web アプリケーションで API を呼び出すアプリを準備する」の](https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-web-app-node-sign-in-call-api-prepare-app)手順を完了します。
+
+### MSAL 構成オブジェクトを更新する
+
+コード エディターでファイル *authConfig.js* 開き、 `protectedResources` オブジェクトを追加してコードを更新します。
+
+```javascript
+    //..   
+    const toDoListReadScope = process.env.TODOLIST_READ || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.Read';
+    const toDoListReadWriteScope = process.env.TODOLIST_READWRITE || 'api://Enter_the_Web_Api_Application_Id_Here/ToDoList.ReadWrite';
+    
+    const protectedResources = {
+        toDoListAPI: {
+            endpoint: 'https://localhost:44351/api/todolist',
+            scopes: {
+                read: [toDoListReadScope],
+                write: [toDoListReadWriteScope],
+            },
+        },
+    };    
+    module.exports = {
+        //..
+        protectedResources,
+        //..
+    };
+```
+
+*authConfig.js* ファイルで、`Enter_the_Web_Api_Application_Id_Here`を、顧客のテナントに登録した Web API アプリのアプリケーション (クライアント) ID に置き換えます。
+
+`todolistReadScope`変数と`todolistReadWriteScope`変数には、外部テナントで設定した Web API のフル スコープ URL が保持されます。 `protectedResources` オブジェクトをエクスポートしてください。
+
+### アクセス トークンを取得する
+
+コード エディターで*、auth/AuthProvider.jsファイルを*開き、`getToken` クラスの`AuthProvider` メソッドを更新します。
+
+```javascript
+    const axios = require('axios');
+    class AuthProvider {
+    //...
+        getToken(scopes) {
+            return  async function (req, res, next) {
+                const msalInstance = authProvider.getMsalInstance(authProvider.config.msalConfig);
+                try {
+                    msalInstance.getTokenCache().deserialize(req.session.tokenCache);
+    
+                    const silentRequest = {
+                        account: req.session.account,
+                        scopes: scopes,
+                    };
+    
+                    const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
+    
+                    req.session.tokenCache = msalInstance.getTokenCache().serialize();
+                    req.session.accessToken = tokenResponse.accessToken;
+                    next();
+                } catch (error) {
+                    if (error instanceof msal.InteractionRequiredAuthError) {
+                        req.session.csrfToken = authProvider.cryptoProvider.createNewGuid();
+    
+                        const state = authProvider.cryptoProvider.base64Encode(
+                            JSON.stringify({
+                                redirectTo: 'http://localhost:3000/todos',
+                                csrfToken: req.session.csrfToken,
+                            })
+                        );
+                        
+                        const authCodeUrlRequestParams = {
+                            state: state,
+                            scopes: scopes,
+                        };
+    
+                        const authCodeRequestParams = {
+                            state: state,
+                            scopes: scopes,
+                        };
+    
+                        authProvider.redirectToAuthCodeUrl(
+                            req,
+                            res,
+                            next,
+                            authCodeUrlRequestParams,
+                            authCodeRequestParams,
+                            msalInstance
+                        );
+                    }
+    
+                    next(error);
+                }
+            };
+        }
+    //...
+    }
+```
+
+- まず、この関数はアクセス トークンをサイレントに (ユーザーに資格情報の入力を求めずに) 取得しようとします。
+
+    ```javascript
+    const silentRequest = {
+        account: req.session.account,
+        scopes: scopes,
+    };
+    
+    const tokenResponse = await msalInstance.acquireTokenSilent(silentRequest);
+    ```
+- トークンをサイレントに正常に取得した場合は、それをセッションに格納します。 API を呼び出すときに、セッションからトークンを取得します。
+
+    ```javascript
+    req.session.accessToken = tokenResponse.accessToken;
+    ```
+- トークンをサイレントに取得できない (`InteractionRequiredAuthError` 例外などによる) 場合、アクセス トークンを新たに要求します。
+
+注
+
+クライアント アプリケーションがアクセス トークンを受け取ったら、それを不透明な文字列として扱う必要があります。 アクセス トークンは、クライアント アプリケーションではなく API を対象としています。 そのため、クライアント アプリケーションはアクセス トークンの読み取りまたは処理を試行しないでください。 代わりに、API への要求の *Authorization* ヘッダーにアクセス トークン as-is を含める必要があります。 API は、アクセス トークンを解釈し、それを使用してクライアント アプリケーションの要求を認証および承認する役割を担います。
+<!-- /MSL-PAGE -->
 
 ---
 

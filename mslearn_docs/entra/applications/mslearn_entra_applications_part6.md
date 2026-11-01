@@ -1,7 +1,790 @@
 # Microsoft Learn — Microsoft Entra / エンタープライズアプリ・プロビジョニング・アプリプロキシ (part 6)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 23
+Pages in this file: 26
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/secure-hybrid-access"} -->
+## 安全なハイブリッド アクセス、Microsoft Entra ID がレガシ アプリを保護する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/secure-hybrid-access
+- Service: entra-id / enterprise-apps
+- Article date: 2023-01-17
+- Summary: オンプレミス、パブリッククラウド、またはプライベート クラウドにあるレガシ アプリケーションを Microsoft Entra ID と統合するためのパートナー ソリューションを見つけます。
+
+この記事では、Microsoft Entra ID に接続して、オンプレミスやクラウドでお使いのレガシ認証アプリケーションを保護する方法を説明します。
+
+- **アプリケーション プロキシ**:
+
+    - [Microsoft Entra アプリケーション プロキシからのオンプレミス アプリケーションへのリモート アクセス](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy)
+    - クラウドとオンプレミスのユーザー、アプリ、データを保護する
+    - [これを使用してオンプレミスの Web アプリケーションを外部に発行する](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/overview-what-is-app-proxy)
+- **Microsoft Entra ID パートナー統合を通じてハイブリッド アクセスをセキュリティで保護する**:
+
+    - 事前構築済みのソリューション
+    - [アプリケーションごとに条件付きアクセス ポリシーを適用する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/secure-hybrid-access-integrations#apply-conditional-access-policies)
+
+アプリケーション プロキシに加えて、[Microsoft Entra の条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)と [Microsoft Entra ID 保護](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection)を使用してセキュリティ態勢を強化できます。
+
+### シングル サインオンと多要素認証
+
+Microsoft Entra ID を ID プロバイダー (IdP) として使用することで、[シングル サインオン (SSO)](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on) や [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-mfa-howitworks) などの最新の認証および認可方式を使用し、お使いのレガシ オンプレミス アプリケーションをセキュリティで保護することができます。
+
+### アプリケーション プロキシを使用した安全なハイブリッド アクセス
+
+アプリケーション プロキシを使用して、クラウドとオンプレミスのユーザー、アプリ、データを保護します。 このツールを使用して、オンプレミスの Web アプリケーションへのリモート アクセスをセキュリティで保護します。 ユーザーは仮想プライベート ネットワーク (VPN) を使用する必要はありません。SSO を使用してデバイスからアプリケーションに接続します。
+
+詳細情報:
+
+- [Microsoft Entra アプリケーション プロキシからのオンプレミス アプリケーションへのリモート アクセス](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy)
+- [チュートリアル: Microsoft Entra ID のアプリケーション プロキシを使用してリモート アクセスするためのオンプレミス アプリケーションを追加する](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-add-on-premises-application)
+- [アプリケーション プロキシ アプリケーションに SSO を構成する方法](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/how-to-configure-sso)
+- [Microsoft Entra アプリケーション プロキシを使用してリモート ユーザーにオンプレミス アプリを発行する](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/overview-what-is-app-proxy)
+
+#### アプリケーションの発行とアクセスの管理
+
+サービスとしてのリモート アクセスを提供するアプリケーション プロキシを使用して、企業ネットワーク外のユーザーにアプリケーションを発行します。 オンプレミスのアプリケーションを変更することなく、クラウド アクセス管理を改善します。 [Microsoft Entra アプリケーション プロキシの展開を](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/conceptual-deployment-plan)計画します。
+
+### アプリ用のパートナー統合: オンプレミスとレガシ認証
+
+Microsoft は、オンプレミス アプリケーション用の事前構築済みソリューションと、レガシ認証を使用するアプリケーションを提供するさまざまな企業と提携しています。 次の図は、サインインからアプリおよびデータへのセキュリティで保護されたアクセスまでのユーザー フローを示しています。
+
+[Image: セキュリティで保護されたハイブリッド アクセス統合と、ユーザー アクセスを提供するアプリケーション プロキシの図。]
+
+#### Microsoft Entra ID パートナー統合を通じてハイブリッド アクセスをセキュリティで保護する
+
+次のパートナーは、[アプリケーションごとの条件付きアクセス ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/secure-hybrid-access-integrations#apply-conditional-access-policies)をサポートするソリューションを提供しています。 パートナーと Microsoft Entra 統合ドキュメントについては、次のセクションの表を参照してください。
+
+| パートナー | 統合ドキュメント |
+| --- | --- |
+| Akamai Technologies | [チュートリアル: Microsoft Entra SSO と Akamai の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/akamai-tutorial) |
+| Citrix Systems Inc. | [チュートリアル: Microsoft Entra SSO と Citrix ADC SAML Connector for Microsoft Entra ID の統合 (Kerberos ベースの認証)](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/citrix-netscaler-tutorial) |
+| Cloudflare, Inc. | [チュートリアル: Cloudflare と Microsoft Entra ID の統合を構成して安全なハイブリッド アクセスを実現する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/cloudflare-integration) |
+| データウィザ | [チュートリアル: Microsoft Entra ID と Datawiza を使用してセキュリティ保護されたハイブリッド アクセスを構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/datawiza-configure-sha) |
+| F5, Inc. | [F5 BIG-IP と Microsoft Entra ID の統合](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-integration)[チュートリアル: Microsoft Entra SSO 用に F5 BIG-IP SSL-VPN を構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-passwordless-vpn) |
+| Progress Software Corporation、Progress Kemp | [チュートリアル: Microsoft Entra SSO と Kemp LoadMaster Microsoft Entra の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/kemp-tutorial) |
+| Perimeter 81 有限会社 | [チュートリアル: Microsoft Entra SSO と Perimeter 81 の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/perimeter-81-tutorial) |
+| Silverfort | [チュートリアル: Microsoft Entra ID と Silverfort を使用してセキュリティ保護されたハイブリッド アクセスを構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/silverfort-integration) |
+| Strata Identity, Inc. | [Microsoft Entra SSO と Maverics Identity Orchestrator SAML Connector を統合する](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial) |
+
+##### 事前構築済みのソリューションと統合ドキュメントを持つパートナー
+
+| パートナー | 統合ドキュメント |
+| --- | --- |
+| Amazon Web Service, Inc. | [チュートリアル: Microsoft Entra SSO と AWS ClientVPN の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/aws-clientvpn-tutorial) |
+| Check Point Software Technologies Ltd. | [チュートリアル: Microsoft Entra シングル SSO と Check Point Remote Secure Access VPN の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/check-point-remote-access-vpn-tutorial) |
+| Cisco Systems, Inc. | [チュートリアル: Microsoft Entra SSO と Cisco Secure Firewall - Secure Client の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/cisco-secure-firewall-secure-client) |
+| Fortinet, Inc. | [チュートリアル: Microsoft Entra SSO と FortiGate SSL VPN の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/fortigate-ssl-vpn-tutorial) |
+| パロアルトネットワークス | [チュートリアル: Microsoft Entra SSO と Palo Alto Networks Admin UI の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/paloaltoadmin-tutorial) |
+| Pulse Secure | [チュートリアル: Microsoft Entra SSO と Pulse Connect Secure (PCS) の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/pulse-secure-pcs-tutorial)[チュートリアル: Microsoft Entra SSO と Pulse Secure Virtual Traffic Manager の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/pulse-secure-virtual-traffic-manager-tutorial) |
+| Zscaler, Inc. | [チュートリアル: Microsoft Entra ID と Zscaler Private Access の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscalerprivateaccess-tutorial) |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/secure-hybrid-access-integrations"} -->
+## Microsoft Entra 統合による安全なハイブリッド アクセス - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/secure-hybrid-access-integrations
+- Service: entra-id / enterprise-apps
+- Article date: 2023-01-19
+- Summary: 顧客が SaaS アプリケーションを検出して Microsoft Entra ID に移行し、従来の認証方法を使用するアプリを Microsoft Entra ID に接続できるよう支援します。
+
+Microsoft Entra ID では、アプリケーションのセキュリティを維持するのに役立つ最新の認証プロトコルがサポートされています。 ただし、多くのビジネス アプリケーションは保護された企業ネットワークの内部で動作し、レガシの認証方法が使用されているものもあります。 企業はゼロ トラスト戦略を立て、ハイブリッドおよびクラウド環境のサポートしているので、アプリを Microsoft Entra ID に接続し、レガシ アプリケーションに認証を提供するソリューションがあります。
+
+詳細情報: [ゼロ トラスト セキュリティ](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/zero-trust)
+
+Microsoft Entra ID では、最新のプロトコルがネイティブにサポートされています。
+
+- セキュリティ アサーション マークアップ言語 (SAML)
+- Web サービス フェデレーション (WS-Fed)
+- OpenID コネクト (OIDC)
+
+Microsoft Entra アプリケーション プロキシでは、Kerberos とヘッダーベースの認証がサポートされています。 Secure Shell (SSH)、(Microsoft Windows NT LAN Manager) NTLM、ライトウェイト ディレクトリ アクセス プロトコル (LDAP)、Cookie などのその他のプロトコルはサポートされていません。 ただし、独立系ソフトウェア ベンダー (ISV) は、これらのアプリケーションを Microsoft Entra ID に接続するためのソリューションを作成できます。
+
+ISV は、顧客がサービスとしてのソフトウェア (SaaS) アプリケーションを検出して、Microsoft Entra ID に移行するのを支援できます。 彼らはレガシの認証方法を使用するアプリを Microsoft Entra ID に接続することもできます。 顧客は Microsoft Entra ID に統合して、アプリ管理の簡素化とゼロ トラスト原則の実装を行うことができます。
+
+### ソリューションの概要
+
+構築するソリューションには次のものを含めることができます。
+
+- **アプリの検出**- 多くの場合、顧客は使用しているアプリケーションすべてを把握してはいません
+    - アプリケーションの検出でアプリケーションを検出し、アプリと Microsoft Entra ID の統合を促進します
+- **アプリの移行**- Microsoft Entra 管理センターを使用せずに、アプリを Microsoft Entra ID と統合するワークフローを作成します
+    - 顧客が現在使用しているアプリを統合します
+- **レガシ認証のサポート** - レガシ認証方法とシングル サインオン (SSO) を使用してアプリを接続します
+- **条件付きアクセス** - 顧客が Microsoft Entra 管理センターを使用せずに、ソリューション内のアプリに Microsoft Entra ポリシーを適用できるようにします
+
+詳細情報: [条件付きアクセスとは](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)
+
+技術的な考慮事項と推奨事項については、以降のセクションを参照してください。
+
+### Azure Marketplace へのアプリケーションの発行
+
+Azure Marketplace は、IT 管理者にとって信頼できるアプリケーション ソースです。 アプリケーションは Microsoft Entra ID と互換性があり、SSO をサポートしており、ユーザー プロビジョニングを自動化し、自動アプリ登録を使用して外部テナントに統合します。
+
+アプリケーションを Microsoft Entra ID と事前に統合して、SSO や自動プロビジョニングをサポートできます。 「[Microsoft Entra アプリケーション ギャラリーでのアプリケーションの公開の要求を送信する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/v2-howto-app-gallery-listing)」を参照してください。
+
+信頼された発行元であると顧客がわかるように、確認済みの発行元になることをお勧めします。 「[発行者の確認](https://learn.microsoft.com/ja-jp/entra/identity-platform/publisher-verification-overview)」を参照してください。
+
+### IT 管理者のシングル サインオンを有効にする
+
+ソリューションに対する IT 管理者の SSO を有効にする方法はいくつかあります。 [「シングル サインオンのデプロイを計画する」の SSO のオプション](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/plan-sso-deployment#single-sign-on-options)に関する記事を参照してください。
+
+Microsoft Graph は OIDC/OAuth を使用しています。 顧客は OIDC を使用してソリューションにサインインします。 Microsoft Graph とやりとりするには、Microsoft Entra ID が発行する JSON Web トークン (JWT) を使用します。 「[Microsoft ID プラットフォームでの OpenID Connect](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-protocols-oidc)」を参照してください。
+
+IT 管理者の SSO に SAML を使用するソリューションの場合、SAML トークンでソリューションと Microsoft Graph とのやり取りはできません。 IT 管理者の SSO には SAML を使用できますが、ソリューションで Microsoft Entra ID との OIDC 統合がサポートされている必要があります。これにより、Microsoft Entra ID から JWT を取得して、Microsoft Graph とのやりとりできます。 「[Microsoft ID プラットフォームでの SAML プロトコルの使用方法](https://learn.microsoft.com/ja-jp/entra/identity-platform/saml-protocol-reference)」を参照してください。
+
+次のいずれかの SAML アプローチを利用できます。
+
+- **推奨される SAML アプローチ**: Azure Marketplace で新しい登録を作成します。これは OIDC アプリです。 顧客は自分のテナントに SAML と OIDC の両方のアプリを追加します。 アプリケーションが Microsoft Entra ギャラリーにない場合、ギャラリーに含まれないマルチテナント アプリで開始できます。
+    - [Microsoft Entra アプリ ギャラリーから OpenID Connect OAuth アプリケーションを構成する](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/openidoauth-tutorial)
+    - [アプリケーションをマルチテナントにする](https://learn.microsoft.com/ja-jp/entra/identity-platform/howto-convert-app-to-be-multi-tenant)
+- **代替の SAML アプローチ**: 顧客は自分の Microsoft Entra テナントに OIDC のアプリケーションの登録を作成し、URI、エンドポイント、アクセス許可を設定できます
+
+クライアント資格情報の付与タイプを使用します。これには、顧客がクライアント ID とシークレットを入力できるようにするソリューションが必要です。 ソリューションでは、この情報を格納する必要もあります。 Microsoft Entra ID から JWT を取得し、それを使用して Microsoft Graph とやりとりします。 「[トークンを取得する](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-client-creds-grant-flow#get-a-token)」を参照してください。 Microsoft Entra テナントでアプリケーション登録を作成する方法に関する顧客ドキュメントを準備することをお勧めします。 エンドポイント、URI、およびアクセス許可を含めてください。
+
+注
+
+アプリケーションを IT 管理者またはユーザーの SSO に使用するには、事前に顧客 IT 管理者が自分のテナント内でそのアプリケーションに同意する必要があります。 「[アプリケーションに対してテナント全体の管理者の同意を付与する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/grant-admin-consent)」を参照してください。
+
+### 認証フロー
+
+ソリューションの認証フローでは、次のシナリオがサポートされています。
+
+- 顧客 IT 管理者がソリューションを管理するために SSO を使用してサインインする
+- 顧客 IT 管理者がソリューションを使用して、Microsoft Graph によってアプリケーションを Microsoft Entra ID と統合する
+- ユーザーが、ソリューションと Microsoft Entra ID で保護されたレガシ アプリケーションにサインインする
+
+#### 顧客 IT 管理者がソリューションにシングル サインオンする
+
+顧客 IT 管理者がサインインする際、ソリューションでは SSO に SAML または OIDC を使用できます。 IT 管理者は Microsoft Entra 資格情報を使用してソリューションにサインインすることをお勧めします。これにより、現在のセキュリティ制御を使用できるようになります。 SAML または OIDC を介した SSO の場合は Microsoft Entra ID と統合します。
+
+次の図は、ユーザー認証フローを示しています。
+
+[Image: 管理者がサインインするために Microsoft Entra ID にリダイレクトされた後、ソリューションにリダイレクトされる図。]
+
+1. IT 管理者が自分の Microsoft Entra 資格情報を使用してソリューションにサインインします
+2. ソリューションによって IT 管理者は SAML または OIDC サインイン要求と共に Microsoft Entra ID にリダイレクトされます
+3. Microsoft Entra によって IT 管理者は認証され、ソリューション内で認可される SAML トークンまたは JWT と共にソリューションにリダイレクトされます
+
+#### IT 管理者がアプリケーションを Microsoft Entra ID と統合する
+
+IT 管理者は、ソリューションを使用してアプリケーションを Microsoft Entra ID と統合します。このソリューションは、Microsoft Graph を使用してアプリケーションの登録と Microsoft Entra 条件付きアクセス ポリシーを作成します。
+
+次の図は、ユーザー認証フローを示しています。
+
+[Image: IT 管理者、Microsoft Entra ID、ソリューション、Microsoft Graph の間の相互作用の図。]
+
+1. IT 管理者が自分の Microsoft Entra 資格情報を使用してソリューションにサインインします
+2. ソリューションによって IT 管理者は SAML または OIDC サインイン要求と共に Microsoft Entra ID にリダイレクトされます
+3. Microsoft Entra によって IT 管理者は認証され、認可用の SAML トークンまたは JWT と共にソリューションにリダイレクトされます
+4. IT 管理者がアプリケーションを Microsoft Entra ID と統合すると、このソリューションは JWT で Microsoft Graph を呼び出してアプリケーションを登録するか、Microsoft Entra 条件付きアクセス ポリシーを適用します
+
+#### ユーザーがアプリケーションにサインインする
+
+ユーザーがアプリケーションにサインインするとき、OIDC または SAML を使用します。 アプリケーションが Microsoft Graph または Microsoft Entra で保護された API と対話する必要がある場合は、OIDC を使用するように構成することをお勧めします。 この構成により、JWT が Microsoft Graph とのやり取りに適用されるようになります。 アプリケーションで Microsoft Graph、または Microsoft Entra で保護された API とやりとりする必要がない場合は、SAML を使用します。
+
+次の図は、ユーザー認証フローを示しています。
+
+[Image: ユーザー、Microsoft Entra ID、ソリューション、アプリの間の相互作用の図。]
+
+1. ユーザーがアプリケーションにサインインします
+2. ソリューションによってユーザーは SAML または OIDC サインイン要求と共に Microsoft Entra ID にリダイレクトされます
+3. Microsoft Entra によってユーザーは認証され、認可用の SAML トークンまたは JWT と共にソリューションにリダイレクトされます
+4. ソリューションでは、アプリケーション プロトコルを使用することで要求が許可されます
+
+### Microsoft Graph API
+
+次の API を使用することをお勧めします。 Microsoft Entra ID を使用して、委任されたアクセス許可またはアプリケーションのアクセス許可を構成します。 このソリューションには、委任されたアクセス許可を使用します。
+
+- **アプリケーション テンプレート API**- Azure Marketplace で、この API を使用して一致するアプリケーション テンプレートを見つけます
+    - 必要なアクセス許可: Application.Read.All
+- **アプリケーションの登録 API**- ユーザーがソリューションでセキュリティ保護されたアプリケーションにサインインするために OIDC または SAML アプリケーションの登録を作成します
+    - 必要なアクセス許可: Application.Read.All、Application.ReadWrite.All
+- **サービス プリンシパル API**: アプリを登録した後、サービス プリンシパル オブジェクトを更新して、SSO プロパティを設定します
+    - 必要なアクセス許可: Application.ReadWrite.All、Directory.AccessAsUser.All、AppRoleAssignment.ReadWrite.All (割り当て用)
+- **条件付きアクセス API**- Microsoft Entra 条件付きアクセス ポリシーをユーザー アプリケーションに適用します
+    - 必要なアクセス許可: Policy.Read.All、Policy.ReadWrite.ConditionalAccess、Application.Read.All
+
+詳細情報: [Microsoft Graph API を使用する](https://learn.microsoft.com/ja-jp/graph/use-the-api?context=graph/api/1.0&view=graph-rest-1.0&preserve-view=true)
+
+### Microsoft Graph API のシナリオ
+
+アプリケーションの登録の実装、レガシ アプリケーションの接続、条件付きアクセス ポリシーの有効化を行うには、次の情報を使用します。 管理者の同意の自動化、トークン署名証明書の取得、ユーザーとグループの割り当てについて説明します。
+
+#### Microsoft Graph API を使用してアプリを Microsoft Entra ID に登録する
+
+##### Azure Marketplace 内のアプリを追加する
+
+顧客が使用する一部のアプリケーションは、[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) にあります。 外部テナントにアプリケーションを追加するソリューションを作成できます。 Microsoft Graph API で次の例を使用して、Azure Marketplace を検索してテンプレートを見つけます。
+
+注
+
+アプリケーション テンプレート API では、表示名の大文字と小文字は区別されます。
+
+```http
+Authorization: Required with a valid Bearer token
+Method: Get
+
+https://graph.microsoft.com/v1.0/applicationTemplates?$filter=displayname eq "Salesforce.com"
+```
+
+API 呼び出しから一致するものが見つかったら、ID を取得します。 次の API 呼び出しを行い、JSON 本文内にアプリケーションの表示名を指定します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applicationTemplates/cd3ed3de-93ee-400b-8b19-b61ef44a0f29/instantiate
+{
+    "displayname": "Salesforce.com"
+}
+```
+
+API 呼び出しを行った後、サービス プリンシパル オブジェクトを生成します。 今後の API 呼び出しで使用するアプリケーション ID とサービス プリンシパル ID を取得します。
+
+SAML プロトコルとログイン URL を指定して、サービス プリンシパル オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: servicePrincipal/json
+
+https://graph.microsoft.com/v1.0/servicePrincipals/aaaaaaaa-bbbb-cccc-1111-222222222222
+{
+    "preferredSingleSignOnMode":"saml",
+    "loginURL": "https://www.salesforce.com"
+}
+```
+
+リダイレクト URI と識別子 URI を指定して、アプリケーション オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applications/00001111-aaaa-2222-bbbb-3333cccc4444
+{
+    "web": {
+    "redirectUris":["https://www.salesforce.com"]},
+    "identifierUris":["https://www.salesforce.com"]
+}
+```
+
+##### Azure Marketplace にないアプリを追加する
+
+Azure Marketplace に一致するものがない場合や、カスタム アプリケーションを統合する場合は、テンプレート ID 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 を使用して Microsoft Entra ID にカスタム アプリケーションを登録します。 そして、次の API 呼び出しを行い、JSON 本文内にアプリケーション表示名を指定します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applicationTemplates/8adf8e6e-67b2-4cf2-a259-e3dc5476c621/instantiate
+{
+    "displayname": "Custom SAML App"
+}
+```
+
+API 呼び出しを行った後、サービス プリンシパル オブジェクトを生成します。 今後の API 呼び出しで使用するアプリケーション ID とサービス プリンシパル ID を取得します。
+
+SAML プロトコルとログイン URL を指定して、サービス プリンシパル オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: servicePrincipal/json
+
+https://graph.microsoft.com/v1.0/servicePrincipals/aaaaaaaa-bbbb-cccc-1111-222222222222
+{
+    "preferredSingleSignOnMode":"saml",
+    "loginURL": "https://www.samlapp.com"
+}
+```
+
+リダイレクト URI と識別子 URI を指定して、アプリケーション オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applications/00001111-aaaa-2222-bbbb-3333cccc4444
+{
+    "web": {
+    "redirectUris":["https://www.samlapp.com"]},
+    "identifierUris":["https://www.samlapp.com"]
+}
+```
+
+##### Microsoft Entra シングル サインオンの使用
+
+SaaS アプリケーションが Microsoft Entra ID に登録されたら、アプリケーションで ID プロバイダー (IdP) として Microsoft Entra ID の使用を開始する必要があります。
+
+- **アプリケーションで One Click SSO がサポートされている**- Microsoft Entra ID によってアプリケーションが有効になります。 顧客は Microsoft Entra 管理センターで、サポートされている SaaS アプリケーションに対して管理者資格情報を使用して One Click SSO を実行します。
+    - 詳細情報: [アプリの One Click シングル サインオンの構成](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/one-click-sso-tutorial)
+- **アプリケーションで One Click SSO がサポートされていない**- 顧客がアプリケーションで Microsoft Entra ID を使用できるようにします。
+    - [SaaS アプリケーションと Microsoft Entra ID の統合に関するチュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list)
+
+#### レガシ認証を使用してアプリを Microsoft Entra ID に接続する
+
+ソリューションにより、サポートされていないアプリケーションでも、顧客が SSO と Microsoft Entra 機能を使用できるようにすることが可能です。 レガシ プロトコルによるアクセスを許可するには、アプリケーションで Microsoft Entra ID を呼び出してユーザーを認証し、[Microsoft Entra 条件付きアクセス ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)を適用します。 コンソールからこの統合を有効にしてください。 ソリューションと Microsoft Entra ID の間で SAML または OIDC アプリケーションの登録を作成します。
+
+##### SAML のアプリケーションの登録を作成する
+
+カスタム アプリケーション テンプレート ID の 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 を使用します。 そして、次の API 呼び出しを行い、JSON 本文内に表示名を指定します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applicationTemplates/8adf8e6e-67b2-4cf2-a259-e3dc5476c621/instantiate
+{
+    "displayname": "Custom SAML App"
+}
+```
+
+API 呼び出しを行った後、サービス プリンシパル オブジェクトを生成します。 今後の API 呼び出しで使用するアプリケーション ID とサービス プリンシパル ID を取得します。
+
+SAML プロトコルとログイン URL を指定して、サービス プリンシパル オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: servicePrincipal/json
+
+https://graph.microsoft.com/v1.0/servicePrincipals/aaaaaaaa-bbbb-cccc-1111-222222222222
+{
+    "preferredSingleSignOnMode":"saml",
+    "loginURL": "https://www.samlapp.com"
+}
+```
+
+リダイレクト URI と識別子 URI を指定して、アプリケーション オブジェクトに対して PATCH を実行します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applications/00001111-aaaa-2222-bbbb-3333cccc4444
+{
+    "web": {
+    "redirectUris":["https://www.samlapp.com"]},
+    "identifierUris":["https://www.samlapp.com"]
+}
+```
+
+##### OIDC のアプリケーションの登録を作成する
+
+カスタム アプリケーション向けテンプレート ID の 8adf8e6e-67b2-4cf2-a259-e3dc5476c621 を使用します。 次の API 呼び出しを行い、JSON 本文内に表示名を指定します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applicationTemplates/8adf8e6e-67b2-4cf2-a259-e3dc5476c621/instantiate
+{
+    "displayname": "Custom OIDC App"
+}
+```
+
+API 呼び出しから、今後の API 呼び出しで使用するアプリケーション ID とサービス プリンシパル ID を取得します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/applications/{Application Object ID}
+{
+    "web": {
+    "redirectUris":["https://www.samlapp.com"]},
+    "identifierUris":["[https://www.samlapp.com"],
+    "requiredResourceAccess": [
+    {
+        "resourceAppId": "00000003-0000-0000-c000-000000000000",
+        "resourceAccess": [
+        {
+            "id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+            "type": "Scope"
+        },
+        {
+            "id": "e1fe6dd8-ba31-4d61-89e7-88639da4683d",
+            "type": "Scope"
+        },
+        {
+            "id": "37f7f235-527c-4136-accd-4a02d197296e",
+            "type": "Scope"
+        }]
+    }]
+}
+```
+
+注
+
+`resourceAccess` ノード内の API のアクセス許可により、そのアプリケーションに openid、User.Read、offline\_access アクセス許可 (これはサインインを有効にします) が付与されます。 「[Microsoft Graph のアクセス許可の概要](https://learn.microsoft.com/ja-jp/graph/permissions-overview)」を参照してください。
+
+#### 条件付きアクセス ポリシーを適用する
+
+顧客とパートナーは Microsoft Graph API を使用して、[条件付きアクセス ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)をアプリケーションごとに作成したり、適用したりできます。 パートナーの場合、顧客は Microsoft Entra 管理センターを使用せずにソリューションからこれらのポリシーを適用できます。 Microsoft Entra 条件付きアクセス ポリシーを適用するには、次の 2 つのオプションがあります。
+
+- アプリケーションを条件付きアクセス ポリシーに割り当てる
+- 新しい条件付きアクセス ポリシーを作成し、アプリケーションをそれに割り当てる
+
+##### 条件付きアクセス ポリシーを使用する
+
+条件付きアクセス ポリシーの一覧を取得するには、次のクエリを実行します。 変更するポリシー オブジェクト ID を取得します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method:GET
+
+https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies
+```
+
+そのポリシーに対して PATCH を実行するには、JSON 本文内の `includeApplications` のスコープにそのアプリケーション オブジェクト ID を含めます。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+
+https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/{policyid}
+{
+    "displayName":"Existing Conditional Access Policy",
+    "state":"enabled",
+    "conditions": 
+    {
+        "applications": 
+        {
+            "includeApplications":[
+                "00000003-0000-0ff1-ce00-000000000000", 
+                "{Application Object ID}"
+            ]
+        },
+        "users": {
+            "includeUsers":[
+                "All"
+            ] 
+        }
+    },
+    "grantControls": 
+    {
+        "operator":"OR",
+        "builtInControls":[
+            "mfa"
+        ]
+    }
+}
+```
+
+##### 新しい条件付きアクセス ポリシーを作成する
+
+JSON 本文内の `includeApplications` のスコープにそのアプリケーション オブジェクト ID を追加します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+
+https://graph.microsoft.com/v1.0/identity/conditionalAccess/policies/
+{
+    "displayName":"New Conditional Access Policy",
+    "state":"enabled",
+    "conditions": 
+    {
+        "applications": {
+            "includeApplications":[
+                "{Application Object ID}"
+            ]
+        },
+        "users": {
+            "includeUsers":[
+                "All"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator":"OR",
+        "builtInControls":[
+            "mfa"
+        ]
+    }
+}
+```
+
+```https
+#Policy Template for Requiring Compliant Device
+
+{
+    "displayName":"Enforce Compliant Device",
+    "state":"enabled",
+    "conditions": {
+        "applications": {
+            "includeApplications":[
+                "{Application Object ID}"
+            ]
+        },
+        "users": {
+            "includeUsers":[
+                "All"
+            ]
+        }
+    },
+    "grantControls": {
+        "operator":"OR",
+        "builtInControls":[
+            "compliantDevice",
+            "domainJoinedDevice"
+        ]
+    }
+}
+
+#Policy Template for Block
+
+{
+    "displayName":"Block",
+    "state":"enabled",
+    "conditions": {
+        "applications": {
+            "includeApplications":[
+                "{Application Object ID}"
+            ]
+        },
+        "users": {
+            "includeUsers":[
+                "All"
+            ] 
+        }
+    },
+    "grantControls": {
+        "operator":"OR",
+        "builtInControls":[
+            "block"
+        ]
+    }
+}
+```
+
+#### 管理者の同意を自動化する
+
+顧客がソリューションから Microsoft Entra ID にアプリケーションを追加している場合は、Microsoft Graph を使用して管理者の同意を自動化できます。 API 呼び出しで作成したアプリケーション サービス プリンシパル オブジェクト ID と、外部テナントからの Microsoft Graph のサービス プリンシパル オブジェクト ID が必要です。
+
+次の API 呼び出しを行って、Microsoft Graph のサービス プリンシパル オブジェクト ID を取得します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method:GET
+
+https://graph.microsoft.com/v1.0/serviceprincipals/?$filter=appid eq '00000003-0000-0000-c000-000000000000'&$select=id,appDisplayName
+```
+
+管理者の同意を自動化するには、次の API 呼び出しを行います。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: POST
+Content-type: application/json
+
+https://graph.microsoft.com/v1.0/oauth2PermissionGrants
+{
+    "clientId":"{Service Principal Object ID of Application}",
+    "consentType":"AllPrincipals",
+    "principalId":null,
+    "resourceId":"{Service Principal Object ID Of Microsoft Graph}",
+    "scope":"openid user.read offline_access}"
+}
+```
+
+#### トークン署名証明書を取得する
+
+トークン署名証明書の公開部分を取得するには、そのアプリケーションの Microsoft Entra メタデータ エンドポイントから `GET` を使用します。
+
+```https
+Method:GET
+
+https://login.microsoftonline.com/{Tenant_ID}/federationmetadata/2007-06/federationmetadata.xml?appid={Application_ID}
+```
+
+#### ユーザーとグループの割り当て
+
+アプリケーションを Microsoft Entra ID に発行した後、アプリをユーザーとグループに割り当てて、マイ アプリ ポータルに表示されるようにすることができます。 この割り当ては、アプリケーションを作成したときに生成されたサービス プリンシパル オブジェクトに対するものです。 「[マイ アプリ ポータルの概要](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/myapps-overview)」を参照してください。
+
+アプリケーションが関連付けられている可能性がある `AppRole` インスタンスを取得します。 通常、SaaS アプリケーションにはさまざまな `AppRole` インスタンスが関連付けられています。 通常、カスタム アプリケーションには既定の `AppRole` インスタンスが 1 つあります。 割り当てる `AppRole` インスタンス ID を取得します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method:GET
+
+https://graph.microsoft.com/v1.0/servicePrincipals/aaaaaaaa-bbbb-cccc-1111-222222222222
+```
+
+Microsoft Entra ID から、アプリケーションに割り当てるユーザーまたはグループのオブジェクト ID を取得します。 前述の API 呼び出しからアプリ ロール ID を取得し、サービス プリンシパルに対する PATCH 本文と共に送信します。
+
+```https
+Authorization: Required with a valid Bearer token
+Method: PATCH
+Content-type: servicePrincipal/json
+
+https://graph.microsoft.com/v1.0/servicePrincipals/aaaaaaaa-bbbb-cccc-1111-222222222222
+{
+    "principalId":"{Principal Object ID of User -or- Group}",
+    "resourceId":"{Service Principal Object ID}",
+    "appRoleId":"{App Role ID}"
+}
+```
+
+### パートナーシップ
+
+ネットワークおよびデリバリー コントローラーを使用しながらレガシ アプリケーションの保護を促進するために、Microsoft は次のアプリケーション デリバリー コントローラー (ADC) プロバイダーとパートナーシップを結んでいます。
+
+- **Akamai エンタープライズアプリケーションへのアクセス**
+    - [チュートリアル: Microsoft Entra SSO と Akamai の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/akamai-tutorial)
+- **Citrix ADCの**
+    - [チュートリアル: Microsoft Entra SSO と Citrix ADC SAML Connector for Microsoft Entra ID の統合 (Kerberos ベースの認証)](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/citrix-netscaler-tutorial)
+- **F5 BIG-IP アクセス ポリシー マネージャー**
+    - [チュートリアル: Microsoft Entra SSO と Citrix ADC SAML Connector for Microsoft Entra ID の統合 (Kerberos ベースの認証)](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-integration)
+- **ケンプロードマスター**
+    - [チュートリアル: Microsoft Entra SSO と Kemp LoadMaster Microsoft Entra の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/kemp-tutorial)
+- **パルスセキュア仮想トラフィックマネージャー**
+    - [チュートリアル: Microsoft Entra SSO と Pulse Secure Virtual Traffic Manager の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+
+次の VPN ソリューション プロバイダーは Microsoft Entra ID と接続して、SSO や多要素認証 (MFA) などの最新の認証および認可方法を利用できるようにします。
+
+- **Cisco セキュア ファイアウォール - セキュア クライアント**
+    - [チュートリアル: Microsoft Entra SSO と Cisco Secure Firewall - Secure Client の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/cisco-secure-firewall-secure-client)
+- **フォーティネット FortiGate**
+    - [チュートリアル: Microsoft Entra SSO と FortiGate SSL VPN の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/fortigate-ssl-vpn-tutorial)
+- **F5 BIG-IP アクセス ポリシー マネージャー**
+    - [チュートリアル: Microsoft Entra SSO 用に F5 BIG-IP SSL-VPN を構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/f5-passwordless-vpn)
+- **パロアルトネットワークス GlobalProtect**
+    - [チュートリアル: Microsoft Entra SSO と Palo Alto Networks - Admin UI の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/paloaltoadmin-tutorial)
+- **パルスコネクトセキュア**
+    - [チュートリアル: Microsoft Entra SSO と Pulse Secure PCS の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/pulse-secure-pcs-tutorial)
+
+次の SDP (Software Defined Perimeter) ソリューション プロバイダーは、SSO や MFA などの認証および認可方法を利用できるように Microsoft Entra ID と接続します。
+
+- **Datawiza アクセス ブローカー**
+    - [チュートリアル: Microsoft Entra ID と Datawiza を使用してセキュリティ保護されたハイブリッド アクセスを構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/datawiza-configure-sha)
+- **周囲 81**
+    - [チュートリアル: Microsoft Entra SSO と Perimeter 81 の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/perimeter-81-tutorial)
+- **Silverfort認証プラットフォーム**
+    - [チュートリアル: Microsoft Entra ID および Silverfort で安全なハイブリッド アクセスを構成する](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/silverfort-integration)
+- **ストラタ・マベリクス・アイデンティティ・オーケストレーター**
+    - [Microsoft Entra SSO と Maverics Identity Orchestrator SAML Connector を統合する](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- **Zscaler プライベート アクセス**
+    - [チュートリアル: Microsoft Entra ID と Zscaler Private Access の統合](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscalerprivateaccess-tutorial)
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/silverfort-integration"} -->
+## Microsoft Entra ID と Silverfort による安全なハイブリッド アクセス - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/silverfort-integration
+- Service: entra-id / enterprise-apps
+- Article date: 2024-04-18
+- Summary: このチュートリアルでは、Silverfort を Microsoft Entra ID と連携させて、安全にハイブリッド アクセス (SHA) を行う方法を説明します。
+
+[Silverfort](https://www.silverfort.com/) では、エージェントもプロキシも使用しないテクノロジーにより、オンプレミスおよびクラウド上の資産を Microsoft Entra ID に接続します。 組織でこのソリューションを利用すれば、ID の保護、可視性、ユーザー エクスペリエンスを、Microsoft Entra ID 上の環境に適用できます。 これにより、オンプレミス環境とクラウド環境の、認証操作の普遍的なリスクに基づく監視と評価ができるようになり、脅威を防ぐことができます。
+
+このチュートリアルでは、オンプレミス Silverfort 実装を Microsoft Entra ID と統合する方法について説明します。
+
+詳細情報:
+
+- [Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-hybrid-join)
+- [Microsoft Entra ID への Silverfort ブリッジ](https://www.silverfort.com/resources/solution-brief/silverfort-bridging-to-entra-id/)
+
+Silverfort は、資産を Microsoft Entra ID と接続します。 [ブリッジした](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)これらの資産は、通常のアプリケーションと同様に Microsoft Entra ID に表示され、条件付きアクセス、シングルサインオン (SSO)、多要素認証、監査などによって保護できます。 Silverfort を使用して、次のような資産を接続します。
+
+- レガシ アプリケーション、自社製アプリケーション
+- リモート デスクトップ、Secure Shell (SSH)
+- コマンドライン ツールなどによる管理者のアクセス
+- ファイル共有、データベース
+- インフラストラクチャ、業務用システム
+
+Silverfort は、会社の資産と、Active Directory フェデレーション サービス (AD FS) とリモート認証ダイヤルイン ユーザー サービス (RADIUS) を含むサード パーティの ID およびアクセス管理 (IAM) プラットフォームを Microsoft Entra ID に統合します。 このシナリオには、ハイブリッド環境とマルチクラウド環境が含まれます。
+
+このチュートリアルを使用して、Microsoft Entra テナントで Silverfort Microsoft Entra ID ブリッジを構成してテストし、Silverfort 実装と通信します。 構成を終えたら、ID から Microsoft Entra ID に SSO の認証要求をブリッジする Silverfort 認証ポリシーを作成できます。 ブリッジした後のアプリケーションは Microsoft Entra ID で管理できます。
+
+### Silverfort と Microsoft Entra 認証アーキテクチャ
+
+次の図は、ハイブリッド環境で、Silverfort によって調整された認証アーキテクチャを示しています。
+
+[Image: 図 アーキテクチャ図]
+
+#### ユーザー フロー
+
+1. ユーザーは、Kerberos、SAML、NTLM、OIDC、LDAP(s) などのプロトコルを使用して本来の ID プロバイダー (IdP) に認証要求を送信します。
+2. 応答は、認証状態が有効であるかどうかを確認するため、そのまま Silverfort にルーティングされます。
+3. Silverfort によって、Microsoft Entra ID に対する可視化、検出、ブリッジを行う
+4. アプリケーションをブリッジした場合、認証の判断は Microsoft Entra ID に渡されます。 Microsoft Entra ID で条件付きアクセスのポリシーを確認して認証を承認します。
+5. 認証状態の応答がそのまま Silverfort から IdP に送信される
+6. IdP でリソースへのアクセスを許可または拒否する
+7. ユーザーには、アクセス要求の許可または拒否が通知されます。
+
+### 前提条件
+
+このチュートリアルを実行するには、テナントまたはインフラストラクチャに Silverfort がデプロイされている必要があります。 テナントまたはインフラストラクチャに Silverfort をデプロイするには、silverfort.com [Silverfort](https://www.silverfort.com/) に移動して、ワークステーションに Silverfort デスクトップ アプリをインストールします。
+
+Microsoft Entra テナントで Silverfort Microsoft Entra アダプターを設定します。
+
+- アクティブなサブスクリプションが含まれる Azure アカウント
+    - [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成できます。
+- Azure アカウントの次のいずれかのロール:
+    - クラウド アプリケーション管理者
+    - アプリケーション管理者
+    - サービス プリンシパル所有者
+- Microsoft Entra アプリケーション ギャラリーの Silverfort Microsoft Entra アダプター アプリケーションは、SSO をサポートするように事前構成されています。 ギャラリーから、Silverfort Microsoft Entra アダプターをエンタープライズ アプリケーションとしてテナントに追加します。
+
+### Silverfort を設定してポリシーを作成する
+
+1. ブラウザーで Silverfort 管理者コンソールにサインインします。
+2. メイン メニューで **[設定]** に移動し、[一般] セクションで **[Microsoft Entra ID Bridge コネクタ]** までスクロールします。
+3. テナント ID を確認し、 **[Authorize](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/認可)** をクリックします。
+4. **[変更の保存]** を選択します。
+5. **[要求されているアクセス許可]** ダイアログで、**[承諾]** を選択します。
+6. 新しいタブで [Registration Completed](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/登録が完了しました)というメッセージが表示されます。このタブを閉じます。
+
+    [Image: 登録完了画面の画像]
+7. **[設定]** ページで、**[変更の保存]** をクリックします
+8. Microsoft Entra アカウントにサインインします。 左側のウィンドウで、**[エンタープライズ アプリケーション]** を選択します。 **Silverfort Microsoft Entra アダプター** アプリケーションが登録済みとして表示されます。
+9. Silvervort 管理者コンソールで **[Policies](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/ポリシー)** ページに移動し、**[Create Policy](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/ポリシーの作成)** をクリックします。 **[新しいポリシー]** ダイアログ ボックスが表示されます。
+10. **[Policy Name](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/ポリシー名)** を入力します。Azure に作成するアプリケーションの名前のポリシー名を付けることができます。 たとえば、複数のサーバーまたはアプリケーションをこのポリシーに加える場合は、ポリシーの対象となるリソースを反映した名前を付けます。 例では、SL-APP1 サーバーのためのポリシーを作成します。
+
+[Image: ポリシーを定義する画面の画像]
+
+1. **[Auth Type](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/認証の型)** と **[Protocol](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/プロトコル)** を選択します。
+2. **[ユーザーとグループ]** フィールドの**[編集]** アイコンをクリックし、ポリシーの対象となるユーザーを設定します。 これらのユーザーの認証は Microsoft Entra ID にブリッジされます。
+
+[Image: ユーザーとグループの画面の画像]
+
+1. ユーザー、グループ、または組織単位 (OU) を検索して選択します。
+
+[Image: ユーザーを検索する画面の画像]
+
+1. 選択したユーザーは **[SELECTED](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/選択)** ボックスに表示されます。
+
+[Image: 選択したユーザーの画面の画像]
+
+1. ポリシーを適用する **[ソース]** を選択します。 この例では、**[All Devices](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/すべてのデバイス)** を選択しています。
+
+    [Image: ソースの画面の画像]
+2. **[Destination](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/宛先)** を SL-App1 に設定します。 必要であれば、**編集**ボタンをクリックして、リソースおよびリソースのグループの変更、追加ができます。
+
+    [Image: 宛先の画面の画像]
+3. [アクション] で、**[Entra ID BRIDGE]** を選択します。
+4. **[保存]** を選択します。 ポリシーを有効にするように求められます。
+5. [Entra ID Bridge] セクションで、ポリシーが [ポリシー] ページに表示されます。
+6. Microsoft Entra アカウントに戻り、**[Enterprise applications](エンタープライズ アプリケーション)** に移動します。 新しい Silverfort アプリケーションが表示されます。 このアプリケーションは、条件付きアクセス ポリシーに含めることができます。
+
+詳細情報: [チュートリアル: Microsoft Entra MFA を使用してユーザー サインイン イベントをセキュリティで保護する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-azure-mfa#create-a-conditional-access-policy)。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -1562,27 +2345,29 @@ SSO とユーザー プロビジョニングの要件に関する記事では、
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/enterprise-apps/validate-oidc-multitenant-app-gallery"} -->
-## Microsoft Entra アプリ ギャラリーのオンボード用に OIDC マルチテナント アプリを検証する - Microsoft Entra ID
+## Microsoft Entra アプリ ギャラリーのオンボード用に OIDC アプリを検証する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/validate-oidc-multitenant-app-gallery
 - Service: entra-id / enterprise-apps
-- Article date: 2026-06-04
-- Summary: Microsoft Entra App Validator ブラウザー拡張機能を使用して、OpenID Connect マルチテナント アプリを検証し、アプリ ギャラリーの発行用のテスト ID を生成します。
+- Article date: 2026-10-19
+- Summary: Microsoft Entra App Validator ブラウザー拡張機能を使用して、シングルテナントまたはマルチテナントの OpenID Connect アプリを検証し、アプリ ギャラリーの発行用のテスト ID を生成します。
 
-OpenID Connect (OIDC) マルチテナント アプリケーションを Microsoft Entra アプリ ギャラリーに発行する前に、サインイン実装がギャラリーの要件を満たしていることを検証する必要があります。 検証は、アプリが発行する準備ができていることを確認し、提出に必要なテスト ID を生成するセルフサービス ステップです。
+OpenID Connect (OIDC) アプリケーションを Microsoft Entra アプリ ギャラリーに発行する前に、サインイン実装がギャラリーの要件を満たしていることを検証する必要があります。 検証は、検証レポートを生成し、送信に必要なテスト ID を生成するセルフサービス ステップです。
 
-Microsoft Entra アプリ検証ツールは、アプリケーションへのサインイン時に、OIDC マルチテナント サインイン フローを Microsoft Entra アプリ ギャラリーの要件に照らして評価します。
+Microsoft Entra アプリ バリデーターは、シングルテナント OIDC アプリケーションとマルチテナント OIDC アプリケーションの両方をサポートします。 アプリケーションへのサインイン中に、Microsoft Entra アプリ ギャラリーの要件に照らしてサインイン フローが評価されます。
 
 検証後は、次の内容が表示されます。
 
 - 必要な修正プログラムと推奨される修正プログラムを強調表示する検証レポート
 - Microsoft Entra アプリ ギャラリーにアプリを発行するために必要なテスト ID
 
+[Microsoft Entra アプリ ギャラリーの SSO 要件](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/app-gallery-sso-requirements)によって、パブリケーションの適格性が定義されます。 クラウド SaaS アプリケーションでは、マルチテナント アプリケーションを使用する必要があります。 サービスとしてのインフラストラクチャ (IaaS) またはサービスとしてのプラットフォーム (PaaS) アーキテクチャを使用して、顧客ごとに個別のアプリケーション インスタンスをデプロイする場合は、シングルテナント アプリケーションを使用できます。 シングルテナント検証に合格しても、アプリ ギャラリーへの公開資格が自動的に確立されるわけではありません。
+
 ### 前提条件
 
 検証を開始する前に、次のことが既に当てはまることを確認します。
 
-- アプリは、[Microsoft Entra IDのマルチテナント アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps)として登録されます。
+- アプリには、そのアーキテクチャと[App Gallery の適格性要件](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps)に一致する、Microsoft Entra ID の[シングルテナントまたはマルチテナント アプリケーションの登録](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/app-gallery-sso-requirements)が含まれています。
 - [OIDC サインイン](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-protocols-oidc) が実装され、正常に動作します。
 - アプリがデプロイされ、パブリック URL 経由でアクセスできます。
 - リダイレクト URI、スコープ、およびアクセス許可が構成されています。
@@ -1658,6 +2443,9 @@ Important
 4. Microsoft アカウントを使用して拡張機能にサインインします。
 5. [ **テストの開始] を選択します**。
 6. メッセージが表示されたら、開始ページを確認し、[ **はい]、[テストの開始]** の順に選択します。
+7. バリデーターから OIDC テナント構成の選択を求められたら、App Gallery で公開する予定のアプリケーション アーキテクチャに合致する構成を選択します。
+    - **マルチテナント**: 共有アプリケーション登録を使用して、複数のMicrosoft Entra テナントにわたって顧客にサービスを提供するクラウド SaaS アプリケーションの場合。
+    - **シングルテナント**: IaaS または PaaS アーキテクチャを使用して、顧客ごとに個別のインスタンスとしてデプロイされるアプリケーションの場合。
 
 拡張機能は検証セッションを初期化し、実行するチェックを一覧表示します。
 
@@ -1674,14 +2462,14 @@ Important
 認証中、検証コントロールは次を評価します。
 
 - Microsoft サインイン エントリ ポイントの設定
-- テナント エンドポイントの使用状況 (マルチテナント アプリの`/common` または `/organizations` )
+- 選択した構成のテナント エンドポイントの使用: マルチテナント検証用の `/common` または `/organizations` 、またはシングルテナント検証用のテナント固有の OIDC 構成。
 - OIDC v2.0 エンドポイントコンプライアンス
 - `openid` と `profile` を含む必要なスコープ
 - 承認要求の構造とパラメーター
 
 Tip
 
-最も一般的な検証エラーは、シングルテナント エンドポイント、必要なスコープの不足、リダイレクト URI の不一致です。 発行する前に、これらの問題を修正する必要があります。
+一般的な検証エラーには、選択したテナント構成と一致しないエンドポイント、必要なスコープの不足、リダイレクト URI の不一致などがあります。 テナント固有のエンドポイントは、**単一テナント**を選択した場合、検証エラーではありません。 どちらの構成でも、Microsoft ID プラットフォーム の v2.0 エンドポイントを使用する必要があります。 公開する前に検証エラーを解決してください。
 
 ### 検証レポートを確認する
 

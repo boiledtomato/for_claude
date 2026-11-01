@@ -1,7 +1,830 @@
 # Microsoft Learn — Microsoft Entra / External ID・Verified ID (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 53
+Pages in this file: 59
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-add-approvals"} -->
+## セルフサービス サインアップ フローにカスタム承認を追加する - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-approvals
+- Service: entra-external-id / external
+- Article date: 2025-05-20
+- Summary: 外部 ID セルフサービス サインアップにカスタム承認ワークフローの API コネクタを追加する
+
+**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+[API コネクタ](https://learn.microsoft.com/ja-jp/entra/external-id/api-connectors-overview)を使用すると、セルフサービス サインアップを使用して独自のカスタム承認ワークフローと統合できるため、テナントに作成されるゲスト ユーザー アカウントを管理できます。
+
+この記事では、承認システムと統合する方法の例を示します。 この例では、セルフサービス サインアップ ユーザー フローがサインアップ プロセス中にユーザー データを収集し、データを承認システムに渡します。 承認システムでは、次のことが可能です。
+
+- ユーザーを自動的に承認し、Microsoft Entra ID にユーザー アカウントの作成を許可します。
+- 手動レビューをトリガーします。 要求が承認された場合、承認システムは Microsoft Graph を使用してユーザー アカウントをプロビジョニングします。 承認システムは、アカウントが作成されたことをユーザーに通知することもできます。
+
+### 承認システム用のアプリケーションを登録する
+
+承認システムは Microsoft Entra テナントのアプリケーションとして登録する必要があります。登録すると、そのシステムは Microsoft Entra ID で認証されて、ユーザーを作成するアクセス許可が付与されます。 [Microsoft Graph の認証と承認の基本について](https://learn.microsoft.com/ja-jp/graph/auth/auth-concepts)詳しく説明します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**App registrations** に移動し、[**新規登録**] を選択します。
+3. アプリケーションの **名前** (サインアップ承認など) を入力 *します*。
+4. [ **登録**] を選択します。 他のすべてのフィールドは既定値のままにすることができます。
+
+[Image: [登録] ボタンが強調表示されているスクリーンショット。]
+
+1. 左側のメニューの [ **管理** ] で 、[ **API のアクセス許可**] を選択し、[ **アクセス許可の追加]** を選択します。
+2. [ **API のアクセス許可の要求** ] ページ **で、Microsoft Graph** を選択し、[ **アプリケーションのアクセス許可**] を選択します。
+3. [ **アクセス許可の選択**] で [ **ユーザー**] を展開し、[ **User.ReadWrite.All** ] チェック ボックスをオンにします。 このアクセス許可は、承認システムが承認時にユーザーを作成することを許可します。 次に、[ **アクセス許可の追加]** を選択します。
+
+[Image: API アクセス許可の要求のスクリーンショット。]
+
+1. **[API のアクセス許可**] ページで、[**管理者の同意を付与する (テナント名)]** を選択し、[**はい**] を選択します。
+2. 左側のメニューの [ **管理** ] で[ **証明書とシークレット**] を選択し、[ **新しいクライアント シークレット**] を選択します。
+3. シークレットの **説明** ( *承認クライアント シークレット*など) を入力し、クライアント シークレットの有効期限を選択 **します**。 次に、[ **追加]** を選択します。
+4. クライアント シークレットの値をコピーします。 クライアント シークレットの値を表示できるのは、作成直後のみです。 シークレットを作成したら、ページを離れる前に必ず保存してください。
+
+[Image: クライアント シークレットのコピーのスクリーンショット。]
+
+1. **アプリケーション ID をクライアント ID** として使用し、Microsoft Entra ID で認証するために生成した**クライアント シークレット**を使用するように承認システムを構成します。
+
+### API コネクタを作成する
+
+次に、セルフサービス サインアップ ユーザー フロー用 [の API コネクタを作成](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector#create-an-api-connector) します。 承認システム API には、次に示す例のように、2 つのコネクタとそれに対応するエンドポイントが必要です。 これらの API コネクタは次の処理を実行します。
+
+- **承認の状態を確認します**。 ユーザーが既存の承認要求を持っているか、既に拒否されているかどうかを確認するために、ユーザーが ID プロバイダーでサインインした直後に承認システムに呼び出しを送信します。 承認システムが自動承認の決定のみを行う場合、この API コネクタは必要ないことがあります。 "承認状態の確認" API コネクタの例。
+
+[Image: 承認状態の確認 API コネクタ構成のスクリーンショット。]
+
+- **承認の要求** - ユーザーが属性コレクション ページを完了した後、ユーザー アカウントが作成される前に承認システムに呼び出しを送信して、承認を要求します。 承認要求は、自動的に許可したり手動で確認したりすることができます。 "要求の承認" API コネクタの例。
+
+[Image: 要求承認 API コネクタの構成のスクリーンショット。]
+
+これらのコネクタを作成するには、 [API コネクタを作成する手順に](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector#create-an-api-connector)従います。
+
+### ユーザー フローで API コネクタを有効にする
+
+ここで、次の手順を使用して、セルフサービス サインアップ ユーザー フローに API コネクタを追加します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**External Identities**&gt;**User フロー**を参照し、API コネクタを有効にするユーザー フローを選択します。
+3. **API コネクタを**選択し、ユーザー フローの次の手順で呼び出す API エンドポイントを選択します。
+
+    - **サインアップ中に ID プロバイダーとフェデレーションした後**: 承認状態 API コネクタを選択します (承認 *状態の確認*など)。
+    - **ユーザーを作成する前に**:承認要求 API コネクタ (承認 *要求*など) を選択します。
+
+[Image: ユーザー フローの API コネクタのスクリーンショット。]
+
+1. **[保存] を選択します**。
+
+### API 応答を使用してサインアップ フローを制御する
+
+承認システムでは、呼び出し時にその応答を使用して、サインアップ フローを制御できます。
+
+#### "承認状態の確認" API コネクタの要求と応答
+
+API によって "承認状態の確認" API コネクタから受信した要求の例:
+
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google, Facebook, and Email One Time Passcode identity providers 
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
+ "ui_locales":"en-US"
+}
+```
+
+API に送信される正確な要求は、ID プロバイダーによって提供される情報によって異なります。 "email" は常に送信されます。
+
+##### "承認状態の確認" の継続応答
+
+**承認状態の確認** API エンドポイントは、次の場合に継続応答を返す必要があります。
+
+- ユーザーが以前承認を要求していない。
+
+継続応答の例:
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "Continue"
+}
+```
+
+##### "承認状態の確認" のブロック応答
+
+**承認状態の確認** API エンドポイントは、次の場合にブロック応答を返す必要があります。
+
+- ユーザー承認が保留されている。
+- ユーザーが拒否され、再度承認を要求することができない。
+
+ブロック応答の例は次のとおりです。
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "ShowBlockPage",
+    "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "ShowBlockPage",
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
+}
+```
+
+#### "要求の承認" API コネクタの要求と応答
+
+API によって受信された "要求の承認" API コネクタからの HTTP 要求の例:
+
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+API に送信される正確な要求は、ユーザーから収集される情報または ID プロバイダーによって提供される情報によって異なります。
+
+##### "要求の承認" の継続応答
+
+**要求承認** API エンドポイントは、次の場合に継続応答を返す必要があります。
+
+- ユーザーは ***自動的に承認できます***。
+
+継続応答の例:
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "Continue"
+}
+```
+
+重要
+
+継続応答を受信すると、Microsoft Entra ID によってユーザー アカウントが作成され、そのユーザーがアプリケーションに送られます。
+
+##### "要求の承認" のブロック応答
+
+**要求承認** API エンドポイントは、次の場合にブロック応答を返す必要があります。
+
+- ユーザー承認要求が作成されて現在保留になっている。
+- ユーザー承認要求が自動的に拒否された。
+
+ブロック応答の例は次のとおりです。
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "ShowBlockPage",
+    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-type: application/json
+
+{
+    "version": "1.0.0",
+    "action": "ShowBlockPage",
+    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
+}
+```
+
+応答内の `userMessage` がユーザーに表示されます。次に例を示します。
+
+[Image: 承認待ちのページの例]
+
+### 手動承認後のユーザー アカウントの作成
+
+カスタム承認システムは、手動承認を取得した後、[Microsoft Graph](https://learn.microsoft.com/ja-jp/graph/azuread-users-concept-overview) を使用して[ユーザー](https://learn.microsoft.com/ja-jp/graph/use-the-api) アカウントを作成します。 承認システムがユーザー アカウントをプロビジョニングする方法は、ユーザーによって使用された ID プロバイダーによって異なります。
+
+#### Google または Facebook のフェデレーション ユーザーおよび電子メール ワンタイム パスコードの場合
+
+重要
+
+この方法を使用するには、承認システムは、`identities`、`identities[0]`、および `identities[0].issuer` が存在し、`identities[0].issuer` が 'facebook'、'google'、または 'mail' に一致することを明示的に確認する必要があります。
+
+ユーザーが Google または Facebook アカウントでサインインした場合、またはワンタイム パスコードを電子メールで送信する場合は、 [ユーザー作成 API](https://learn.microsoft.com/ja-jp/graph/api/user-post-users?tabs=http) を使用できます。
+
+1. 承認システムはユーザー フローから HTTP 要求を受信します。
+
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@outlook.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "city": "Redmond",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+1. 承認システムは、Microsoft Graph を使用してユーザー アカウントを作成します。
+
+```http
+POST https://graph.microsoft.com/v1.0/users
+Content-type: application/json
+
+{
+ "userPrincipalName": "johnsmith_outlook.com#EXT@contoso.onmicrosoft.com",
+ "accountEnabled": true,
+ "mail": "johnsmith@outlook.com",
+ "userType": "Guest",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "city": "Redmond",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
+}
+```
+
+| パラメーター | 必須 | 説明 |
+| --- | --- | --- |
+| userPrincipalName | あり | API に送信された `email` 要求を取得し、`@` 文字を `_` に置き換え、これを `#EXT@<tenant-name>.onmicrosoft.com` の先頭に追加することによって生成できます。 |
+| accountEnabled | あり | `true` に設定する必要があります。 |
+| メール | あり | API に送信される `email` 要求と同じです。 |
+| ユーザータイプ | あり | `Guest`である必要があります。 このユーザーをゲスト ユーザーとして指定します。 |
+| ID | あり | フェデレーション ID 情報。 |
+| &lt;その他の組み込み属性&gt; | いいえ | `displayName`、`city` などの他の組み込み属性。 パラメーター名は、API コネクタによって送信されるパラメーターと同じです。 |
+| &lt;extension\_{extensions-app-id}\_CustomAttribute&gt; | いいえ | ユーザーに関するカスタム属性。 パラメーター名は、API コネクタによって送信されるパラメーターと同じです。 |
+
+#### フェデレーションされた Microsoft Entra ユーザーまたは Microsoft アカウントユーザーの場合
+
+ユーザーがフェデレーション Microsoft Entra アカウントまたは Microsoft アカウントでサインインする場合は、 [招待 API を](https://learn.microsoft.com/ja-jp/graph/api/invitation-post) 使用してユーザーを作成し、必要に応じて [ユーザー更新 API](https://learn.microsoft.com/ja-jp/graph/api/user-update) を使用してユーザーに属性を割り当てる必要があります。
+
+1. 承認システムはユーザー フローから HTTP 要求を受信します。
+
+```http
+POST <Approvals-API-endpoint>
+Content-type: application/json
+
+{
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "displayName": "John Smith",
+ "city": "Redmond",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "ui_locales":"en-US"
+}
+```
+
+1. 承認システムは、API コネクタによって提供される `email` を使用して招待を作成します。
+
+```http
+POST https://graph.microsoft.com/v1.0/invitations
+Content-type: application/json
+
+{
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
+}
+```
+
+応答の例:
+
+```http
+HTTP/1.1 201 OK
+Content-type: application/json
+
+{
+    ...
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
+}
+```
+
+1. 承認システムは、招待されたユーザーの ID を使用して、収集されたユーザー属性でユーザーのアカウントを更新します (省略可能)。
+
+```http
+PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
+Content-type: application/json
+
+{
+    "displayName": "John Smith",
+    "city": "Redmond",
+    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
+}
+```
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-overview"} -->
+## セルフサービス サインアップ - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-overview
+- Service: entra-external-id / external
+- Article date: 2024-10-21
+- Summary: Microsoft Entra External ID のセルフサービス サインアップを有効にする方法について説明します。 外部ユーザーが自分でアプリケーションにサインアップし、サインアップ エクスペリエンスをカスタマイズし、ユーザー フローを管理できるようにします。
+
+**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 従業員テナント [Image: :次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+セルフサービス サインアップは、外部 ID の従業員と顧客シナリオに不可欠な機能です。 これは、パートナーやコンシューマー、その他の外部ユーザーが、ユーザーの介入なしにサインアップしてアプリにアクセスするための円滑な方法を提供します。
+
+- B2B コラボレーション シナリオでは、共有するアプリケーションにアクセスする必要があるユーザーが必ずしも事前にわかっているとは限りません。 セルフサービス サインアップを有効にすることで、個人に招待を直接送信する代わりに、外部ユーザーが自分で特定のアプリケーションにサインアップするようにできます。 方法については、「[B2B コラボレーションのためのセルフサービス サインアップ ユーザー フローを作成する](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-user-flow)」を参照してください。
+- 顧客 ID とアクセス管理 (CIAM) のシナリオでは、コンシューマー向けに構築したアプリに、セルフサービス サインアップ エクスペリエンスを追加することが重要です。 これを行うには、セルフサービス サインアップ ユーザー フローを構成します。 「[カスタマー エクスペリエンスの計画](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-planning-your-solution)」、または「[顧客向けのサインアップとサインインのユーザー フローを作成する](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)」を参照してください。
+
+どちらのシナリオでも、外観をカスタマイズしてソーシャル ID プロバイダーでサインインを提供し、サインアップ プロセス中にユーザーに関する情報を収集することで、パーソナライズされたサインアップ エクスペリエンスを作成できます。
+
+注
+
+組織によって構築されたアプリにユーザー フローを関連付けることができます。 ユーザー フローは、SharePoint や Teams などの Microsoft アプリには使用できません。
+
+### セルフサービス サインアップのユーザー フロー
+
+セルフサービス サインアップ のユーザー フローでは、外部ユーザーに提供するアプリケーションのサインアップ エクスペリエンスを作成します。 ユーザー フローの設定を構成して、ユーザーがアプリケーションにサインアップする方法を制御できます。
+
+- サインインに使用するアカウントの種類 (Facebook などのソーシャル アカウント、または Microsoft Entra アカウント)
+- ユーザー サインアップから収集する属性 (名、郵便番号、居住国/地域など)
+
+ユーザーは、Web、モバイル、デスクトップ、またはシングルページ アプリケーション (SPA) を使用して、アプリケーションにサインインできます。 アプリケーションは、ユーザー フローによって提供されるエンドポイントに対する認可要求を開始します。 ユーザー フローによって、ユーザーのエクスペリエンスが定義および制御されます。 ユーザーがサインアップ ユーザー フローが完了すると、Microsoft Entra ID によってトークンが生成され、ユーザーはアプリケーションにリダイレクトされます。 サインアップが完了すると、ディレクトリ内のユーザーに対してアカウントがプロビジョニングされます。 複数のアプリケーションで同じユーザー フローを使用できます。
+
+### セルフサービス サインアップの例
+
+次の B2B コラボレーションの例は、ゲスト ユーザー向けのセルフサービス サインアップ機能を示しています。 Woodgrove のパートナーが Woodgrove アプリを開きます。 ユーザーがサプライヤー アカウントにサインアップすることを決定して、サプライヤー アカウントの要求を選択すると、セルフサービス サインアップのフローが開始されます。
+
+[Image: セルフサービス サインアップの開始ページの例]
+
+ユーザーは、選択した電子メールを使用してサインアップを行います。
+
+[Image: Facebook を選択してサインインする例]
+
+Microsoft Entra ID により、パートナーの Facebook アカウントを使用して Woodgrove との関係が作成され、サインアップした後にユーザーの新しいゲスト アカウントが作成されます。
+
+Woodgrove は、氏名、勤務先名、ビジネス登録コード、電話番号など、ユーザーの詳細を知りたいと考えています。
+
+[Image: ユーザーのサインアップ属性を示す例]
+
+ユーザーは情報を入力し、サインアップ フローを続行して、必要なリソースにアクセスできるようになります。
+
+[Image: サインインしたユーザーを示す例]
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-secure-api-connector"} -->
+## Microsoft Entra External ID セルフサービス サインアップのユーザー フローで API コネクタとして使用される API をセキュリティで保護する - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-secure-api-connector
+- Service: entra-external-id / external
+- Article date: 2025-04-15
+- Summary: セルフサービス サインアップのユーザー フローで API コネクタとして使用されるカスタム RESTful API をセキュリティで保護します。
+
+**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+Microsoft Entra External ID セルフサービス サインアップのユーザー フロー内で REST API を統合する場合は、認証を使用して REST API エンドポイントを保護する必要があります。 REST API 認証により、Microsoft Entra ID などの適切な資格情報を備えたサービスだけが REST API エンドポイントを呼び出すことができます。 この記事では、REST API をセキュリティで保護する方法について説明します。
+
+### 必須コンポーネント
+
+「 [チュートリアル: サインアップ ユーザー フロー ガイドに API コネクタを追加する](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector) 」の手順を完了します。
+
+API エンドポイントを保護するには、HTTP 基本認証または HTTPS クライアント証明書認証を使用します。 どちらの場合も、API エンドポイントを呼び出すときに Microsoft Entra ID によって使用される資格情報を指定します。 次に、API エンドポイントは資格情報を確認し、承認の決定を行います。
+
+### HTTP 基本認証
+
+HTTP 基本認証は [RFC 2617](https://tools.ietf.org/html/rfc2617) で定義されています。 基本認証は、次のように動作します。Microsoft Entra ID によって、クライアントの資格情報 (`username` と `password`) が `Authorization` ヘッダーに含まれた HTTP 要求が送信されます。 資格情報は、Base64 でエンコードされた文字列 `username:password` として書式設定されます。 その後、お使いの API によってこれらの値がチェックされ、他の承認決定が実行されます。
+
+HTTP 基本認証を使用して API コネクタを構成するには、次の手順を実行します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**外部ID**&gt;**概要** に移動します。
+3. **[すべての API コネクタ**] を選択し、構成する **API コネクタ**を選択します。
+4. **[認証の種類] で** 、[**基本**] を選択します。
+5. REST API エンドポイントの **ユーザー名**と **パスワード** を指定します。 [Image: API コネクタの基本的な認証構成のスクリーンショット。]
+6. **[保存] を選択します**。
+
+### HTTPS クライアント証明書認証
+
+クライアント証明書認証は、相互証明書ベースの認証です。 クライアントである Microsoft Entra ID は、SSL ハンドシェイクの一部として ID を証明するクライアント証明書をサーバーに提供します。 お使いの API によって、証明書が有効なクライアント (Microsoft Entra ID など) に属していることが確認され、承認の決定が実行されます。 クライアント証明書は、X.509 デジタル証明書です。
+
+重要
+
+運用環境では、この証明書は証明機関によって署名されている必要があります。
+
+#### 証明書を作成する
+
+##### オプション 1: Azure Key Vault を使用する (推奨)
+
+証明書を作成するには、 [Azure Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/certificates/create-certificate) を使用できます。このコンテナーには、自己署名証明書のオプションと、署名された証明書の証明書発行者プロバイダーとの統合が含まれています。 推奨設定には次が含まれます。
+
+- **件名**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **コンテンツ タイプ**: `PKCS #12`
+- **有効期間の種類**: `Email all contacts at a given percentage lifetime` または `Email all contacts a given number of days before expiry`
+- **キーの種類**: `RSA`
+- **キー サイズ**: `2048`
+- **エクスポート可能な秘密キー**: `Yes` ( `.pfx` ファイルをエクスポートできるようにするため)
+
+その後、 [証明書をエクスポート](https://learn.microsoft.com/ja-jp/azure/key-vault/certificates/how-to-export-certificate)できます。
+
+##### オプション 2: PowerShell を使用して自己署名証明書を準備する
+
+証明書をまだ持っていない場合は、自己署名証明書を使用できます。 自己署名証明書は、証明機関 (CA) によって署名されていないセキュリティ証明書であり、CA によって署名された証明書のセキュリティ保証を提供するものではありません。
+
+## [ウィンドウズ](#tab/windows)
+Windows では、PowerShell の [New-SelfSignedCertificate](https://learn.microsoft.com/ja-jp/powershell/module/pki/new-selfsignedcertificate) コマンドレットを使用して証明書を生成します。
+
+1. この PowerShell コマンドを実行して、自己署名証明書を生成します。 `-Subject` などのアプリケーションと Azure AD B2C のテナント名に合わせて `contosowebapp.contoso.onmicrosoft.com` 引数を変更します。 また、証明書に別の有効期限を指定するように `-NotAfter` 日付を調整することもできます。
+
+    ```PowerShell
+    New-SelfSignedCertificate `
+        -KeyExportPolicy Exportable `
+        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
+        -KeyAlgorithm RSA `
+        -KeyLength 2048 `
+        -KeyUsage DigitalSignature `
+        -NotAfter (Get-Date).AddMonths(12) `
+        -CertStoreLocation "Cert:\CurrentUser\My"
+    ```
+2. Windows コンピューターで、[**ユーザー証明書の管理**] を検索して選択します
+3. [ **証明書 - 現在のユーザー**] で、[ **個人用**&gt;**Certificates**&gt;*yourappname.yourtenant.onmicrosoft.com* を選択します。
+4. 証明書を選択し、 **アクション**&gt;**すべてのタスク**&gt;**Export** を選択します。
+5. [**次へ**&gt;次へ] を選択し**、秘密キーをエクスポート**します&gt;**次へ**。
+6. [ **ファイル形式のエクスポート**] の既定値をそのまま使用し、[ **次へ**] を選択します。
+7. **[パスワード**] オプションを有効にし、証明書のパスワードを入力して、[**次へ**] を選択します。
+8. 証明書を保存する場所を指定するには、[ **参照** ] を選択し、任意のディレクトリに移動します。
+9. [ **名前を付けて保存** ] ウィンドウで、 **ファイル名**を入力し、[保存] を選択 **します**。
+10. [ **次へ**&gt;**完了] を選択**します。
+
+Azure AD B2C で .pfx ファイルのパスワードを受け入れるには、Windows 証明書ストアのエクスポート ユーティリティで、AES256-SHA256 ではなく、TripleDES-SHA1 オプションを使用してパスワードを暗号化する必要があります。
+
+## [macOS](#tab/macos)
+macOS では、キーチェーン アクセスの [証明書アシスタント](https://support.apple.com/guide/keychain-access/aside/glosa3ed0609/11.0/mac/11.0) を使用して証明書を生成します。
+
+1. Mac 上の [キーチェーン アクセスで自己署名証明書を作成](https://support.apple.com/guide/keychain-access/kyca8916/mac)する方法の手順に従います。
+2. Mac 上のキーチェーン アクセス アプリで、作成した証明書を選択します。
+3. [**ファイル**] &gt;**[アイテムのエクスポート] を選択します**。
+4. 証明書を保存するファイル名を選択します。 例: **自己署名証明書.p12**。
+5. **[ファイル形式**] で、[**Personal Information Exchange (.p12)]** を選択します。
+6. **[保存] を選択します**。
+7. [パスワード] ボックスと [**確認**] ボックスに**パスワード**を入力します。
+8. ファイル拡張子を .pfx に置き換えます。 例: **自己署名証明書.pfx**。
+
+---
+
+#### API コネクタを構成する
+
+クライアント証明書認証を使用して API コネクタを構成するには、次の手順を実行します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**外部ID**&gt;**概要** に移動します。
+3. **[すべての API コネクタ**] を選択し、構成する **API コネクタ**を選択します。
+4. **[認証の種類] で** [**証明書**] を選択します。
+5. [ **証明書のアップロード** ] ボックスで、秘密キーを含む証明書の .pfx ファイルを選択します。
+6. [ **パスワードの入力** ] ボックスに、証明書のパスワードを入力します。 [Image: API コネクタの証明書認証構成のスクリーンショット。]
+7. **[保存] を選択します**。
+
+#### 承認の決定を実行する
+
+API エンドポイントを保護するために、API では、送信されたクライアント証明書に基づいて承認が実装される必要があります。 Azure App Service と Azure Functions については、[API コードから証明書](https://learn.microsoft.com/ja-jp/azure/app-service/app-service-web-configure-tls-mutual-auth)を有効にして検証する方法については、*TLS 相互認証の構成*に関するページを参照してください。 または、任意の API サービスの前のレイヤーとして Azure API Management を使用して、 [クライアント証明書のプロパティ](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-mutual-certificates-for-clients) を目的の値と照合することもできます。
+
+#### 証明書を書き換える
+
+証明書の有効期限が切れたときのアラーム アラートを設定することをお勧めします。 新しい証明書を生成し、使用されている証明書の有効期限が切れそうになったら、この記事の手順を繰り返す必要があります。 新しい証明書の使用を "ロール" するために、新しい証明書がデプロイされている間、一時的に、お使いの API サービスで引き続き古い証明書と新しい証明書を受け入れることができます。
+
+既存の API コネクタに新しい証明書をアップロードするには、API **コネクタで API** コネクタを選択し、[ **新しい証明書のアップロード**] を選択します。 Microsoft Entra ID は、有効期限が切れていない、および開始日が経過した、最近アップロードされた証明書を自動的に使用します。
+
+[Image: 新しい証明書が既に存在する場合のスクリーンショット。]
+
+### API キー認証
+
+一部のサービスは、"API キー" メカニズムを使用して、呼び出し元に HTTP ヘッダーまたは HTTP クエリ パラメーターとして一意のキーを含めることを要求することにより、開発中に HTTP エンドポイントへのアクセスを難読化します。 [Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys) の場合は、API コネクタの`code` にクエリ パラメーターとしてを含めます。 たとえば、`https://contoso.azurewebsites.net/api/endpoint`**`?code=0123456789`** です。
+
+運用環境では、このメカニズムを単独で使用しないでください。 そのため、基本認証または証明書認証の構成は常に必要です。 開発上の目的により、いずれの認証方法も実装しない場合 (推奨されません)、API コネクタの構成で "基本" 認証を選択し、適切な承認を実装する間、API が無視できる一時的な値を `username` と `password` に使用します。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-user-flow"} -->
+## B2B ゲスト サインインを追加する - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-user-flow
+- Service: entra-external-id / external
+- Article date: 2026-03-27
+- Summary: 作成するアプリのサインアップとサインインのユーザー フローを作成します。 外部 ID を持つユーザーは、サインアップ、ユーザー属性の送信、B2B Collaboration ゲスト アカウントの作成を行うことができます。
+
+**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+ヒント
+
+この記事の対象は、従業員テナントでの B2B コラボレーションのユーザー フローです。 外部テナントの詳細については、「 [サインアップとサインインのユーザー フローの作成](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)」を参照してください。
+
+構築するアプリケーションのために、ユーザーがアプリにサインアップして新しいゲスト アカウントを作成できるようにするユーザー フローを作成できます。 セルフサービス サインアップ ユーザー フローでは、サインアップ時にユーザーが従う一連の手順、使用を許可する [ID プロバイダー](https://learn.microsoft.com/ja-jp/entra/external-id/identity-providers) 、および収集するユーザー属性を定義します。 1 つのユーザー フローに、1 つ以上のアプリケーションを関連付けることができます。
+
+注
+
+組織によって構築されたアプリにユーザー フローを関連付けることができます。 ユーザー フローは、SharePoint や Teams などの Microsoft アプリには使用できません。
+
+### 前提条件
+
+開始する前に、ID プロバイダーを追加し、カスタム属性を定義することが必要になる場合があります。
+
+#### ID プロバイダーを追加する (省略可能)
+
+Microsoft Entra ID は、セルフサービス サインアップ用の既定の ID プロバイダーです。 つまり、ユーザーは既定で Microsoft Entra アカウントでサインアップできます。 セルフサービス サインアップのユーザー フローに、Google や Facebook などのソーシャル ID プロバイダー、Microsoft アカウント、メールのワンタイム パスコード機能を含めることもできます。 詳細と例については、次の記事をご覧ください。
+
+- [ソーシャル ID プロバイダーの一覧に Google を追加する](https://learn.microsoft.com/ja-jp/entra/external-id/google-federation)
+- [ソーシャル ID プロバイダーの一覧に Facebook を追加する](https://learn.microsoft.com/ja-jp/entra/external-id/facebook-federation)
+- [ID プロバイダーとして Microsoft アカウントを追加する](https://learn.microsoft.com/ja-jp/entra/external-id/microsoft-account)
+- [電子メール ワンタイム パスコード認証](https://learn.microsoft.com/ja-jp/entra/external-id/one-time-passcode)
+
+#### カスタム属性を定義する (省略可能)
+
+ユーザー属性は、セルフサービス サインアップ時にユーザーから収集される値です。 Microsoft Entra External ID には組み込みで一連の属性が付属していますが、ユーザー フローで使用するカスタム属性を作成することもできます。 また、Microsoft Graph API を使用してこれらの属性を読み書きすることもできます。 [ユーザー フローのカスタム属性の定義を](https://learn.microsoft.com/ja-jp/entra/external-id/user-flow-add-custom-attributes)参照してください。
+
+### テナントのセルフサービス サインアップを有効にする
+
+セルフサービス サインアップのユーザー フローをアプリケーションに追加する前に、テナントに対してこの機能を有効にする必要があります。 その後、コントロールを使用できるようになり、これによってユーザー フローをアプリケーションに関連付けることができます。
+
+注
+
+この設定は、Microsoft Graph API の [authenticationFlowsPolicy](https://learn.microsoft.com/ja-jp/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) リソースの種類を使用して構成することもできます。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**外部 ID**&gt;**外部コラボレーション設定**に移動します。
+3. [ **ユーザー フローによるゲスト セルフサービス サインアップを有効にする]** トグルを **[はい**] に設定します。
+
+    [Image: [ゲストセルフサービスサインアップを有効にする] トグルのスクリーンショット。]
+4. **[保存] を選択します**。
+
+### セルフサービス サインアップのユーザー フローを作成する
+
+次に、セルフサービス サインアップのユーザー フローを作成し、アプリケーションに追加します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**External Identities**&gt;**ユーザーフロー**に移動し、[**新しいユーザーフロー**] を選択します。
+
+    [Image: 新しいユーザー フロー ボタンのスクリーンショット。]
+3. [ **作成** ] ページで、ユーザー フローの名前を入力 **します** 。 名前の先頭に B2X\_1\_ が自動的 **に付けられます**。
+4. **ID プロバイダー**の一覧で、外部ユーザーがアプリケーションへのログインに使用できる 1 つ以上の ID プロバイダーを選択します。 (ID プロバイダーを追加する方法については、この記事の前半で *始める前* に参照してください)。
+5. [ **ユーザー属性**] で、ユーザーから収集する属性を選択します。 その他の属性については、[ **さらに表示**] を選択します。 たとえば、[ **詳細を表示**] を選択し、[ **国/地域**]、[ **表示名]**、[郵便番号] の属性と要求を選択 **します**。 [ **OK] を選択します**。
+
+    [Image: 新しいユーザー フロー作成ページのスクリーンショット。]
+
+    注
+
+    初回のみ、ユーザーの新規登録時に属性を収集できます。 ユーザーがサインアップした後、ユーザー フローを変更した場合でも、属性情報の収集を求めるメッセージは表示されなくなります。
+6. **作成**を選択します。
+7. 新しいユーザー フローがユーザー **フロー** の一覧に表示されます。 必要に応じて、ページを更新してください。
+
+### 属性コレクション フォームのレイアウトを選択する
+
+サインアップ ページに属性を表示する順序を選択できます。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**外部 ID**&gt;**ユーザーフロー**を参照します。
+3. 一覧から、セルフサービス サインアップのユーザー フローを選択します。
+4. [ **カスタマイズ**] で、[ **ページ レイアウト**] を選択します。
+5. 収集することを選択した属性が一覧表示されます。 表示順序を変更するには、属性を選択し、[ **上へ移動**]、[ **下へ移動**]、[ **上へ移動**]、または **[下へ移動**] を選択します。
+6. **[保存] を選択します**。
+
+### セルフサービス サインアップのユーザー フローにアプリケーションを追加する
+
+これで、アプリケーションをユーザー フローに関連付けて、このようなアプリケーションにサインアップできるようになります。 関連付けられているアプリケーションにアクセスする新しいユーザーには、新しいセルフサービス サインアップ エクスペリエンスが表示されます。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
+2. **Entra ID**&gt;**External Identities**&gt;**ユーザーフロー**に移動します
+3. 一覧から、セルフサービス サインアップのユーザー フローを選択します。
+4. 左側のメニューの [ **使用**] で、[ **アプリケーション**] を選択します。
+5. [ **アプリケーションの追加] を選択します**。
+
+    [Image: ユーザー フローにアプリケーションを追加するスクリーンショット。]
+6. 一覧からアプリケーションを選択します。 または、検索ボックスを使用してアプリケーションを検索し、それを選択します。
+7. **選択**を選択します。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/tenant-configurations"} -->
+## テナント構成 - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations
+- Service: entra-external-id / external
+- Article date: 2025-05-20
+- Summary: 従業員と外部テナントの違いなど、Microsoft Entra External ID のテナント構成について説明します。
+
+*テナント*は、Microsoft Entra ID 専用および信頼されたインスタンスです。 これには、登録済みのアプリやユーザーのディレクトリなど、組織のリソースが含まれています。 テナントを構成する方法は、組織がテナントを使用する方法と、管理するリソースに応じて 2 とおりあります。
+
+- *従業員*テナント構成は、従業員、社内ビジネス アプリ、およびその他の組織リソース向けです。 外部のビジネス パートナーとゲストを従業員テナントに招待できます。
+- *外部*テナント構成は、コンシューマーまたはビジネスユーザーにアプリを発行する Microsoft Entra 外部 ID シナリオ専用です。 [外部テナントの外部 ID についてさらに知る](https://learn.microsoft.com/ja-jp/entra/external-id/customers/overview-customers-ciam)。
+
+各テナント構成は、組織外のユーザーと連携するための異なるシナリオを表します。
+
+[Image: 外部 ID テナントの構成を示す図。]
+
+### 従業員テナント
+
+従業員テナントは、1 つの組織を表します。 これを使用して、従業員、ビジネス アプリ、およびその他の内部リソースを管理します。 Microsoft Entra ID を使用したことがあれば、すでに職場テナントを知っていることでしょう。 これは、組織が Microsoft Azure、Microsoft Intune、Microsoft 365 などの Microsoft クラウド サービス サブスクリプションにサインアップしたときに自動的に作成される標準テナントです。
+
+従業員テナントでは、外部 ID 機能である [B2B コラボレーション](https://learn.microsoft.com/ja-jp/entra/external-id/what-is-b2b)を使用して、従業員は外部のビジネス パートナーやゲストと共同作業することができます。
+
+Microsoft Entra 管理センターまたは Azure portal のいずれかで、追加の従業員テナントを作成できます。
+
+### 外部テナント
+
+外部 ID を使用してアプリに顧客の ID 管理とアクセス管理 (CIAM) を追加する場合は、*外部*構成で新しいテナントを作成します。 このテナントは従業員テナントとは別個のものであり、分離しています。 また、Microsoft Entra の標準的なテナント モデルに従っていますが、コンシューマーとビジネス顧客のシナリオに合わせて構成されています。
+
+外部テナントは、アプリの登録、サインアップとサインインのユーザー フローの作成、アプリのユーザーの管理を行う場所です。 アプリにサインアップしたコンシューマーとビジネス顧客はテナント ディレクトリに追加されますが、[制限付きの既定のアクセス許可](https://learn.microsoft.com/ja-jp/entra/external-id/customers/reference-user-permissions)が付与されます。
+
+#### 外部テナントの作成が必要なタイミング
+
+コンシューマーまたはビジネスのお客様向けのアプリに外部 ID を使用する予定の場合、最初に作成する必要があるリソースは、外部構成を持つ新しいテナントです。
+
+外部テナントは、次の 2 つの方法で作成できます。
+
+- Azure サブスクリプションが既にある場合は、Microsoft Entra 管理センターで[新しいテナントを作成](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-create-customer-tenant-portal)できます。 テナントを作成するときに、外部構成を選択します。 従業員テナントの作成のみをサポートする Azure portal を使用して外部テナントを作成することはできません。
+- まだ Microsoft Entra テナントを持っていなくても、外部テナントで外部 ID 機能を試したい場合は、get-started エクスペリエンスを使用して無料試用版を開始することをお勧めします。
+
+テナントを作成するときに、正しい地理的な場所とドメイン名を設定できます。 現在 Azure Active Directory B2C (Azure AD B2C) を使用している場合、新しい従業員と顧客のテナント モデルは、既存の Azure AD B2C テナントには影響しません。
+
+Von Bedeutung
+
+2025 年 5 月 1 日より、Azure AD B2C は新規のお客様向けに購入できなくなります。 詳細については、FAQ で [Azure AD B2C を引き続き購入できますか](https://learn.microsoft.com/ja-jp/azure/active-directory-b2c/faq?tabs=app-reg-ga#azure-ad-b2c-end-of-sale) ? を参照してください。
+
+### 従業員と外部テナントの比較
+
+従業員テナントと外部テナントは基になる同じ Microsoft Entra プラットフォーム上に構築されていますが、いくつかの機能の違いがあります。 テナントの機能の詳細な比較については、「 [従業員と外部テナントでサポートされる機能](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-supported-features-customers)」を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/tenant-restrictions-migration"} -->
+## テナント制限の計画 v1 テナント制限への移行 v2 - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-migration
+- Service: entra-external-id / external
+- Article date: 2024-02-12
+- Summary: ユーザー、グループ、アプリケーションのテナント レベルの制限と制御、およびクラウドベースのポータルでのポリシー管理について説明します。
+
+**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+管理者は、[テナント制限 v1](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/tenant-restrictions) を使用して、ネットワーク上の外部テナントへのユーザー アクセスを制御します。 ただし、テナント間アクセス設定 [を使用するテナント制限 v2](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2) では、テナント レベルの制限が追加されます。 テナント制限 v2 では、個々のユーザー、グループ、アプリケーションの制御など、細分性も高くなります。
+
+テナント制限 v2 は、ポリシー管理をネットワーク プロキシからクラウドベースのポータルに移動します。 プロキシ ヘッダーのサイズ制限により、組織がターゲットテナントの最大数に達しなくなりました。
+
+テナント制限 v1 からテナント制限 v2 への移行は、その他のライセンス要件のない 1 回限りのプロセスです。 移行を計画する際に、ネットワーク チームと ID チームの利害関係者を含めます。
+
+### 前提条件
+
+- テナント制限 v1 ヘッダーを挿入するプロキシへの管理者アクセス。 プロキシは、オンプレミスでもクラウドベースのサービスからでもかまいません。
+- [Microsoft Entra ID P1 または P2](https://learn.microsoft.com/ja-jp/entra/fundamentals/get-started-premium) ライセンス。
+- 移行の実現可能性の検証。 [テナント制限 v2 については、サポートされていないシナリオを](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#unsupported-scenarios)参照してください。
+
+### 必要なロール
+
+このセクションでは、デプロイに必要な最小限の権限ロールを示します。 セキュリティ管理者ロールを使用するか、 `Microsoft.directory/crossTenantAccessPolicy/`で少なくとも次のアクセス許可を持つカスタム ロールを使用します。
+
+- `Standard/read`
+- `Partners/standard/read`
+- `Default/standard/read`
+- `Basic/update`
+- `Default/tenantRestrictions/update`
+- `Partners/tenantRestrictions/update`
+- `Partners/create`
+- `Partners/b2bCollaboration/update`
+- `Default/b2bCollaboration/update`
+
+### 新しいテナント制限ポリシーを作成して指定する
+
+プロキシが挿入している現在のヘッダー文字列を取得します。 現在のポリシーを評価し、不要なテナント ID または許可されている宛先を削除します。 評価後、外部テナント ID または外部ドメイン、あるいはその両方の一覧を作成します。
+
+移行用のテナント間アクセス設定とテナント制限 v2 ポリシーを構成します。 テナント間アクセスの送信設定は、内部 ID がアクセスするテナントを定義します。 テナント間アクセス設定では、テナント制限 v2 によって、他の外部 ID がマネージド ネットワーク上にある間にアクセスするテナントが定義されます。
+
+### 技術的な考慮事項
+
+テナント間アクセスの送信設定を構成すると、ポリシーは 1 時間以内に有効になり、テナント制限 v1 ポリシーに加えて評価されます。 テナント間アクセス設定とテナント制限 v1 が評価され、より制限の厳しいオプションが適用されます。
+
+ユーザーに悪影響を与えないようにするには、新しいポリシーでテナント制限 v1 ポリシーを可能な限りミラー化します。 クロステナント アクセス設定で構成するテナント制限 v2 ポリシーは、プロキシを新しいヘッダーで更新した後に有効になります。
+
+次のセクションでは、一般的なシナリオに合った移行と構成の管理を設定します。 このガイダンスを使用して、組織に必要なポリシーを作成します。
+
+#### 特定の外部テナントへのアクセスを内部 ID だけに許可する
+
+従業員などの内部 ID がマネージド ネットワーク上の特定の外部テナントにアクセスすることを許可します。 内部 ID の許可リストにないテナントへのアクセスをブロックします。 請負業者やベンダーなどの外部 ID による外部テナントへのアクセスをすべてブロックします。
+
+1. **テナント間アクセス設定の** [**組織設定**] タブで、[各ドメインまたはテナントを組織として追加](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#add-an-organization)します。
+2. すべてのユーザーとグループを許可し、すべてのアプリケーションを許可するには、追加された組織ごとに、 [企業間 (B2B) コラボレーションの送信アクセスを構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#modify-outbound-access-settings)します。
+
+    [Image: [クロステナント アクセス設定] の下の組織設定のタブのスクリーンショット。]
+3. すべてのユーザーとグループ、および B2B コラボレーションのすべてのアプリケーションをブロックするには、 [テナント間アクセスの既定の送信設定を構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#configure-default-settings)します。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
+
+    [Image: [クロステナント アクセス設定] の既定の設定のタブのスクリーンショット。]
+4. **テナント制限の**既定値で、ポリシー ID を作成します (まだ作成していない場合)。 次 [に、すべてのユーザー、グループ、および外部アプリケーションをブロックするようにポリシーを構成します](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#configure-a-server-side-cloud-policy-for-tenant-restrictions-v2)。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
+
+    [Image: テナント制限の既定値のスクリーンショット。]
+
+#### 特定の外部テナントへのアクセスを内部 ID と外部 ID に許可する
+
+従業員などの内部 ID と、請負業者やベンダーなどの外部 ID が、マネージド ネットワーク上の特定の外部テナントにアクセスできるようにします。 すべての ID の許可リストにないテナントへのアクセスをブロックします。
+
+1. **テナント間アクセス設定の** [**組織設定**] タブで、[各ドメインまたはテナント ID を組織として追加](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#add-an-organization)します。
+2. 追加された組織ごとに、内部 ID を有効にするには、すべてのユーザー、グループ、およびアプリケーションを許可するように [B2B コラボレーションの送信アクセスを構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#modify-outbound-access-settings) します。
+3. 追加された組織ごとに、外部 ID を有効にするには、すべてのユーザー、グループ、およびアプリケーションを許可するように [組織のテナント制限を構成](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#step-2-configure-tenant-restrictions-v2-for-specific-partners) します。
+
+    [Image: [組織の設定] の下の送信アクセスとテナント制限の詳細のスクリーンショット。]
+4. B2B コラボレーションのすべてのユーザー、グループ、アプリケーションをブロックするには、 [テナント間アクセスの既定の送信設定を構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#configure-default-settings)します。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
+
+    [Image: 既定の設定の下の送信アクセス設定のスクリーンショット。]
+5. **テナント制限の**既定値で、ポリシー ID を作成します (まだ作成していない場合)。 次 [に、すべてのユーザー、グループ、および外部アプリケーションをブロックするようにポリシーを構成します](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#configure-a-server-side-cloud-policy-for-tenant-restrictions-v2)。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
+
+    [Image: 外部ユーザーとグループ、および外部アプリケーションがブロックされているテナント制限のスクリーンショット。]
+
+注
+
+- コンシューマー Microsoft アカウントを対象にするには、テナント ID: `9188040d-6c67-4c5b-b112-36a304b66dad`を持つ組織を追加します。
+- テナント制限 v2 ポリシーは作成されますが、有効ではありません。
+
+### テナント制限 v2 を有効にする
+
+[テナント ID とポリシー ID の値を使用して](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)、新しいヘッダーを作成します。 ネットワーク プロキシを更新して、新しいヘッダーを挿入します。
+
+新しい `sec-Restrict-Tenant-Access-Policy` ヘッダーを挿入するようにネットワーク プロキシを更新する場合は、2 つのテナント制限 v1 ヘッダー ( `Restrict-Access-To-Tenants` と `Restrict-Access-Context`) を削除します。
+
+ヒント
+
+- フェーズ ロールアウトでネットワーク プロキシを更新します。 現在のテナント制限 v1 のヘッダーと値を保存します。
+- 潜在的な問題のナビゲートに役立つロールバック計画を作成します。
+
+以下のいずれかのパターンを使用して、プロキシ構成を移行します。 プロキシが選択したパターンをサポートしていることを確認します。
+
+- **テナント制限 v2 ヘッダーを使用して一度に 1 つのプロキシをアップグレード**します。このプロキシを経由するユーザーは更新されたヘッダーを受け取り、新しいポリシーが適用されます。 問題を監視します。 問題が発生しない場合は、次のプロキシを更新し、すべてのプロキシを更新するまで続行します。
+- **ユーザーに基づいてヘッダーの挿入を更新**する: 一部のプロキシでは認証されたユーザーが必要であり、ユーザーとグループに基づいて挿入するヘッダーを選択する場合があります。 新しいテナント制限 v2 ヘッダーをテスト グループのユーザーにロールアウトします。 問題を監視します。 問題が発生しない場合は、トラフィックの 100% がスコープ内になるまで、段階的にユーザーを追加します。
+- **新しいテナント制限 v2 ヘッダーを一度に適用するようにサービスを更新**します。このオプションはお勧めしません。
+
+新しいヘッダーの更新をロールアウトする際には、ユーザーが経験しているのが期待される動作であることをテストして検証します。
+
+### モニター
+
+テナント間アクセスのテナント制限 v2 と送信設定を展開する場合は、サインイン ログを監視します。 また、 [クロステナント アクセス アクティビティ ブック](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/workbook-cross-tenant-access-activity) を使用して、ユーザーが承認されていないテナントにアクセスしていないことを確認することもできます。 これらのツールは、誰がどの外部アプリケーションにアクセスしているかを特定するのに役立ちます。
+
+テナント間アクセスとテナント制限の送信設定を構成して、グループ メンバーシップや特定のアプリケーションに基づいて送信アクセスを制限できます。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -5670,8 +6493,8 @@ Microsoft Entra 確認済み ID ネットワークを使用すると、このプ
 
 - Source: https://learn.microsoft.com/ja-jp/entra/verified-id/idv-partners
 - Service: entra-verified-id
-- Article date: 2026-04-22
-- Summary: Microsoft Entra Verified IDの ID 検証 (IDV) パートナーについて調べる。 リモート オンボード、セキュリティで保護されたアクセス、アカウントの回復のためのパートナー ソリューションを統合する方法について説明します。
+- Article date: 2026-10-08
+- Summary: Microsoft Entra Verified ID の本人確認パートナーと、リモート オンボード、セキュア アクセス、アカウント回復のための統合の詳細を確認します。
 
 ### 概要
 
@@ -5707,6 +6530,7 @@ ID 検証 (IDV) パートナー ネットワークは、シームレスなエン
 | AU10TIX | [AU10TIXドキュメント](https://info.au10tix.com/hubfs/PDFs/AU10TIX-Verified-ID-Deployment-Guide.pdf) | AU10TIXにより、検証可能性が向上し、企業、従業員、請負業者、ベンダー、顧客のプライバシーが保護されます。 |
 | CLEAR | [CLEAR ドキュメント](https://ir.clearme.com/news-events/press-releases/detail/25/clear-collaborates-with-microsoft-to-create-more-secure) | CLEAR はMicrosoftと共同作業を行い、検証資格情報を使用して、より安全なデジタル エクスペリエンスを作成します。 |
 | Entrust (旧オンフィド) | [Entrust のドキュメント](https://www.entrust.com/blog/2025/11/verify-every-user-and-empower-your-workforce-with-entrust-and-microsoft-entra-verified-id) | Entrust は、高保証のフィッシング耐性のある ID 検証を Microsoft Entra Verified ID と統合して、信頼できるユーザー所有の資格情報のロックを解除し、高度なセキュリティとシームレスで摩擦のないユーザー エクスペリエンスを実現します。 |
+| HYPR | [HYPR のドキュメント](https://www.hypr.com/integrations/microsoft-verified-id) | HYPR は、多要素 ID 検証と、Microsoft Entra Verified IDによる分散資格情報検証を組み合わせたものです。 この統合により、企業は手間を最小限に抑えて、信頼できるワークフォース ID を安全に発行して確認できます。 |
 | ID Dataweb | [ID Dataweb デプロイ ガイド](https://docs.iddataweb.com/docs/microsoft) | ID Dataweb では、Microsoft Entra の検証済み ID 資格情報の有効性を保証するために、セキュリティで保護された低摩擦の ID 検証プロセスが提供されます。 統合が容易で、ユーザーにとって簡単で、企業向けに安全です。 |
 | IDEMIA | [IDEMIA のドキュメント](https://na.idemia.com/identity/verifiable-credentials/) | IDEMIA と Microsoft Entra Verified ID の統合により、"Verify once, use everywhere" 機能が有効になります。 |
 | Jumio | [Jumio デプロイ ガイド](https://www.jumio.com/microsoft-verifiable-credentials/) | Jumio は、検証可能な資格情報と分散型識別子標準に基づいて、Microsoft による新しい形式のデジタル ID をサポートし、コンシューマーが一度検証してどこでも使用できるように支援しています。 |
@@ -9118,12 +9942,16 @@ Microsoft Entra の検証済み ID では、信頼できる発行者機関から
 
 - Source: https://learn.microsoft.com/ja-jp/entra/verified-id/whats-new
 - Service: entra-verified-id
-- Article date: 2026-04-22
-- Summary: Microsoft Entra 確認済み ID の最新の更新
+- Article date: 2026-10-08
+- Summary: 更新プログラムを計画し、新しい機能を使用できるように、最近の Microsoft Entra Verified ID の機能、機能強化、サービスの変更を確認しましょう。
 
 ### 概要
 
-この記事では、Microsoft Entra 確認済み ID サービスの最新の機能、機能強化、および変更について説明します。
+この記事では、Microsoft Entra Verified IDの最新の機能、機能強化、およびサービスの変更についてまとめます。 これを使用して、新しい機能を理解し、発行者または検証者の実装の更新を計画します。
+
+### 2026 年 10 月
+
+- **IDV パートナー ギャラリーの更新**: [Verified ID API ベースの統合パートナー](https://www.hypr.com/integrations/microsoft-verified-id) セクションに、新しいパートナーとして [HYPR](https://learn.microsoft.com/ja-jp/entra/verified-id/idv-partners#verified-id-api-based-integration-partners) を追加しました。
 
 ### 2026 年 5 月
 

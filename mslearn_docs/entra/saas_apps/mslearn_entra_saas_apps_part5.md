@@ -2174,9 +2174,9 @@ Cisco Intersight の SSO 構成はセルフサービスになり、Cisco Intersi
 
 この記事では、Cisco Secure Firewall - Secure Client と Microsoft Entra ID を統合する方法について説明します。 Cisco Secure Firewall - Secure Client と Microsoft Entra ID を統合すると、次のことができます。
 
-- Cisco Secure Firewall - Secure Client にアクセスできるユーザーの Microsoft Entra ID を制御します。
+- Microsoft Entra ID で、Cisco Secure Firewall - Secure Client へのアクセス権を持つユーザーを管理します。
 - ユーザーが自分の Microsoft Entra アカウントを使用して Cisco Secure Firewall - Secure Client に自動的にサインインできるようにします。
-- 1 つの場所でアカウントを管理します。
+- アカウントを一元的に管理する。
 
 ### 前提条件
 
@@ -2188,7 +2188,7 @@ Cisco Intersight の SSO 構成はセルフサービスになり、Cisco Intersi
     - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
     - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
 
-- Cisco Secure Firewall - Secure Client でのシングル サインオン (SSO) が有効なサブスクリプションを提供します。
+- Cisco Secure Firewall - Secure Client シングルサインオン (SSO) 対応のサブスクリプション。
 
 ### シナリオの説明
 
@@ -2200,7 +2200,7 @@ Cisco Intersight の SSO 構成はセルフサービスになり、Cisco Intersi
 
 Cisco Secure Firewall - Secure Client の Microsoft Entra ID への統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Cisco Secure Firewall - Secure Client を追加する必要があります。
 
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+1. [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)以上として [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
 2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
 3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**Cisco Secure Firewall - Secure Client**」と入力します。
 4. 結果パネルから **Cisco Secure Firewall - Secure Client** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
@@ -2216,7 +2216,7 @@ Cisco Secure Firewall - Secure Client に対して Microsoft Entra SSO を構成
 1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
     1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
     2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **Cisco Secure Firewall - Secure Client SSO**- 構成してアプリケーション側でシングル サインオン設定を構成します。
+2. **Cisco Secure Firewall の構成 - Secure Client SSO**- アプリケーション側でシングル サインオンの構成を行います。
     1. **Cisco Secure Firewall - Secure Client のテストユーザーの作成** - Cisco Secure Firewall - Secure Client で B.Simon に対応するユーザーを作成し、それを Microsoft Entra での B.Simon の表現にリンクさせます。
 3. **SSO のテスト** - 構成が機能するかどうかを確認します。
 
@@ -2224,8 +2224,8 @@ Cisco Secure Firewall - Secure Client に対して Microsoft Entra SSO を構成
 
 次の手順に従って Microsoft Entra SSO を有効にします。
 
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**Cisco Secure Firewall - Secure Client**&gt;**シングル サインオン**を参照します。
+1. [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)以上として [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **Entra ID**&gt;**エンタープライズ アプリ**&gt;**Cisco Secure Firewall - Secure Client**&gt;**シングルサインオン**を選択します。
 3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
 4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の編集/ペン アイコンを選択して設定を編集します。
 
@@ -2237,29 +2237,29 @@ Cisco Secure Firewall - Secure Client に対して Microsoft Entra SSO を構成
 
     Important
 
-    この記事で示す **識別子** と **応答 URL** の値は、例のみです。 SSO を設定する前に、これらの値が Cisco セキュア ファイアウォール環境の正しいエンドポイントを参照していることを確認します。 本番環境では、サンプルドメインやプレースホルダードメインを使用しないでください。 適切な値については、Cisco TAC または [Cisco Secure Firewall - Secure Client サポートチーム](https://www.cisco.com/c/en/us/support/index.html) にお問い合わせください。
+    この記事で示す **識別子** と **応答 URL** の値は、例のみです。 SSO を設定する前に、これらの値が Cisco セキュア ファイアウォール環境の正しいエンドポイントを参照していることを確認します。 運用環境では、サンプル ドメインやプレースホルダー ドメインを使用しないでください。 適切な値については、Cisco TAC または [Cisco Secure Firewall - Secure Client サポートチーム](https://www.cisco.com/c/en/us/support/index.html) にお問い合わせください。
 
     注
 
-    `<Tunnel_Group_Name>` では大文字と小文字が区別され、値にドット (".") とスラッシュ ("/") を含めることはできません。
+    `<Tunnel_Group_Name>` には大文字と小文字の区別があり、値にドット "." とスラッシュ "/" を含めることはできません。
 
     注
 
-    これらの値の詳細については、Cisco TAC のサポートに問い合わせてください。 これらの値を実際の識別子と、Cisco TAC から提供された応答 URL の値で更新します。 これらの値を取得するには、[Cisco Secure Firewall - Secure Client サポート チーム](https://www.cisco.com/c/en/us/support/index.html)に問い合わせてください。 **基本的なSAML構成** セクションに示されているパターンも参照できます。
+    これらの値の詳細については、Cisco TAC のサポートに問い合わせてください。 これらの値を実際の識別子と、Cisco TAC から提供された応答 URL の値で更新します。 これらの値を確認するには、[Cisco Secure Firewall - Secure Client サポートチーム](https://www.cisco.com/c/en/us/support/index.html)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
 
     Important
 
-    **セキュリティのベスト プラクティス:** 新規および既存のデプロイの場合は、SAML SSO を有効にする前に、構成されているすべての **識別子** と **応答 URL** の値が目的のエンドポイントと信頼されたドメインを参照していることを確認します。 例またはプレースホルダー ドメインはドキュメントのみを目的としており、運用環境では使用しないでください。
-6. **[SAML によるシングル サインオンのセットアップ]** ページの **[SAML 署名証明書]** セクションで、**[証明書 (Base64)]** を見つけ、**[ダウンロード]** を選択して証明書ファイルをダウンロードし、コンピューターに保存します。
+    **セキュリティのベスト プラクティス:** 新規および既存のデプロイにおいて、SAML SSO を有効にする前に、構成済みのすべての **Identifier** と **応答 URL** の値が、意図したエンドポイントと信頼済みドメインを参照していることを確認してください。 例やプレースホルダーのドメインは、ドキュメント作成の目的のみに使用されるものであり、運用環境では使用しないでください。
+6. **[SAML によるシングル サインオンのセットアップ]** ページの **[SAML 署名証明書]** セクションで、**[証明書 (Base64)]** を見つけて、**[ダウンロード]** を選択し、証明書をダウンロードしてお使いのコンピューターに保存します。
 
     [Image: 証明書のダウンロード リンクを示すスクリーンショット。]
-7. **Cisco Secure Firewall - Secure Client のセットアップ**に関するセクションで、要件に基づいて適切な URL をコピーします。
+7. **Cisco Secure Firewall - Secure Client の設定** セクションで、要件に応じて適切な URL をコピーしてください。
 
-    [Image: 構成の URL をコピーする方法を示すスクリーンショット。]
+    [Image: 構成の URL のコピーを示すスクリーンショット。]
 
 注
 
-サーバーの複数の TGT をオンボードする場合は、ギャラリーから Cisco Secure Firewall - Secure Client アプリケーションの複数のインスタンスを追加する必要があります。 これらすべてのアプリケーション インスタンスについて、Microsoft Entra ID に独自の証明書をアップロードすることもできます。 このようにアプリケーションに同じ証明書を使用できる一方で、アプリケーションごとに異なる識別子と応答 URL を構成することができます。
+サーバーに複数の TGT を登録する場合は、ギャラリーから「Cisco Secure Firewall - Secure Client」アプリケーションのインスタンスを複数追加する必要があります。 これらすべてのアプリケーション インスタンスについて、Microsoft Entra ID に独自の証明書をアップロードすることもできます。 このようにアプリケーションに同じ証明書を使用できる一方で、アプリケーションごとに異なる識別子と応答 URL を構成することができます。
 
 #### Microsoft Entra テスト ユーザーの作成と割り当て
 
@@ -2317,14 +2317,14 @@ Cisco Secure Firewall - Secure Client に対して Microsoft Entra SSO を構成
 
 #### Cisco Secure Firewall - Secure Client テスト ユーザーの作成
 
-このセクションでは、Cisco Secure Firewall - Secure Client で Britta Simon というユーザーを作成します。 [Cisco Secure Firewall - Secure Client サポート チーム](https://www.cisco.com/c/en/us/support/index.html)と協力して、Cisco Secure Firewall - Secure Client プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成し、有効化する必要があります。
+このセクションでは、Cisco Secure Firewall - Secure Client で Britta Simon というユーザーを作成します。 [Cisco Secure Firewall - Secure Client サポートチーム](https://www.cisco.com/c/en/us/support/index.html)と連携し、Cisco Secure Firewall - Secure Client プラットフォームにユーザーを追加してください。 シングル サインオンを使用する前に、ユーザーを作成し、有効化する必要があります。
 
 ### SSO のテスト
 
 このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
 
 - [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した Cisco Secure Firewall - Secure Client に自動的にサインインします
-- Microsoft アクセス パネルを使用することができます。 アクセス パネルで [Cisco Secure Firewall - Secure Client] タイルを選択すると、SSO を設定した Cisco Secure Firewall - Secure Client に自動的にサインインします。 アクセス パネルの詳細については、[アクセス パネルの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関する記事を参照してください。
+- Microsoft Access パネルを使用できます。 アクセス パネルで [Cisco Secure Firewall - Secure Client] タイルを選択すると、SSO を設定した Cisco Secure Firewall - Secure Client に自動的にサインインします。 アクセス パネルの詳細については、[アクセス パネルの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関する記事を参照してください。
 <!-- /MSL-PAGE -->
 
 ---

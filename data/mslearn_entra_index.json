@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-07T00:43:37Z",
+ "checked_at": "2026-11-01T11:23:55Z",
  "docset": "entra",
  "locale": "ja-jp",
  "pages": {
@@ -15,17 +15,17 @@
   "entra/agent-id": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "10d6bd4ee68f2136",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "0c4e0c100bca3f0b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
    "ms_date": "2026-06-19",
    "title": "Microsoft Entra エージェント ID のドキュメント"
   },
   "entra/agent-id/agent-access-packages": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "a85392beac4f0ec1",
-   "last_changed": "2026-10-07",
+   "hash": "294de75704bfc39e",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-08-31",
    "ms_date": "2026-05-01",
    "title": "Microsoft Entraのエージェント ID のパッケージにアクセスする - Microsoft Entra Agent ID"
@@ -204,8 +204,8 @@
   "entra/agent-id/call-api-azure-services": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "649c24fb690fcc7b",
-   "last_changed": "2026-10-07",
+   "hash": "e2148df07c518536",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-01",
    "ms_date": "2026-05-01",
    "title": ".NET Azure SDKを使用してエージェントからAzure サービスを呼び出す - Microsoft Entra Agent ID"
@@ -285,8 +285,8 @@
   "entra/agent-id/create-blueprint": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "8732dec59747c5d2",
-   "last_changed": "2026-10-07",
+   "hash": "b6e3de0b86360a24",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-09",
    "ms_date": "2026-04-27",
    "title": "エージェント ID ブループリントを作成する - Microsoft Entra Agent ID"
@@ -303,8 +303,8 @@
   "entra/agent-id/disable-agent-identities": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "1f52f7c33d81a42b",
-   "last_changed": "2026-10-07",
+   "hash": "b37b4dba507da21d",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-01",
    "ms_date": "2026-04-29",
    "title": "テナントでエージェント ID を無効にする - Microsoft Entra Agent ID"
@@ -326,6 +326,15 @@
    "lastmod": "2026-10-01",
    "ms_date": "2026-04-13",
    "title": "Microsoft Entra エージェント IDについてよく寄せられる質問 (FAQ)"
+  },
+  "entra/agent-id/govern-agent-access-azure-postgresql": {
+   "category": "developer",
+   "first_seen": "2026-11-01",
+   "hash": "f14ce705e2ca0cd4",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-28",
+   "title": "Azure Database for PostgreSQL フレキシブル サーバー内のデータへのエージェント アクセスを管理する"
   },
   "entra/agent-id/grant-agent-access-microsoft-365": {
    "category": "developer",
@@ -870,9 +879,9 @@
   "entra/architecture/deployment-external-authentication-access-control": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "7f9d349478e92262",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-05-27",
+   "hash": "cda8ce598b8ca11d",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-12",
    "ms_date": "2025-05-22",
    "title": "認証とアクセス制御のアーキテクチャに関する Microsoft Entra 外部 ID 展開ガイド - Microsoft Entra"
   },
@@ -996,8 +1005,8 @@
   "entra/architecture/governance-deployment-employee-access": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "6a2cdc1c7256c32f",
-   "last_changed": "2026-10-07",
+   "hash": "ce7191c68af12434",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-04-18",
    "ms_date": "2025-04-17",
    "title": "従業員のアクセス権を割り当てるための Microsoft Entra ID ガバナンス展開ガイド - Microsoft Entra"
@@ -1185,8 +1194,8 @@
   "entra/architecture/multi-tenant-common-considerations": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "d2c72533311538a3",
-   "last_changed": "2026-10-07",
+   "hash": "d548745ee657b970",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-02-04",
    "ms_date": "2026-02-04",
    "title": "Microsoft Entra ID でのマルチテナント ユーザー管理の一般的な考慮事項 - Microsoft Entra"
@@ -1950,8 +1959,8 @@
   "entra/backup/recover-objects": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "c51160d5b17f95a7",
-   "last_changed": "2026-10-07",
+   "hash": "6d0078785e869ed0",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-30",
    "ms_date": "2026-03-02",
    "title": "Microsoft Entra のバックアップと回復を使用してオブジェクトを回復する - Microsoft Entra"
@@ -2184,8 +2193,8 @@
   "entra/external-id/cross-tenant-access-overview": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "52e3ee086963fbd2",
-   "last_changed": "2026-10-07",
+   "hash": "aed9f7b91aaa94ad",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-03-28",
    "ms_date": "2025-03-28",
    "title": "テナント間アクセスの概要 - Microsoft Entra External ID"
@@ -2346,8 +2355,8 @@
   "entra/external-id/customers/faq-customers": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "64a252bbb3de2104",
-   "last_changed": "2026-10-07",
+   "hash": "63f48cd6236f76f5",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-20",
    "ms_date": "2026-05-20",
    "title": "よく寄せられる質問 - Microsoft Entra External ID"
@@ -2382,8 +2391,8 @@
   "entra/external-id/customers/how-to-analyze-azure-ad-b2c-custom-policies": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "da0d644a3bcd2cd0",
-   "last_changed": "2026-10-07",
+   "hash": "47723450bb37dd58",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-07",
    "ms_date": "2026-07-02",
    "title": "Microsoft Entra 外部 ID への移行に向けて Azure AD B2C のカスタム ポリシーを分析する - Microsoft Entra External ID"
@@ -2445,10 +2454,10 @@
   "entra/external-id/customers/how-to-custom-oidc-federation-customers": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "16d75cebe3bfd3b7",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-29",
-   "ms_date": "2026-07-29",
+   "hash": "1467072f458521e2",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-12",
    "title": "顧客サインイン用に OIDC を追加する - Microsoft Entra External ID"
   },
   "entra/external-id/customers/how-to-custom-url-domain": {
@@ -2499,10 +2508,10 @@
   "entra/external-id/customers/how-to-disable-sign-up-user-flow": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "400e306ecc1caba2",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-08-15",
-   "ms_date": "2025-06-30",
+   "hash": "6672f08c13a7da33",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-12",
    "title": "サインアップおよびサインインのユーザー フローでサインアップを無効にする - Microsoft Entra External ID"
   },
   "entra/external-id/customers/how-to-enable-password-reset-customers": {
@@ -2517,10 +2526,10 @@
   "entra/external-id/customers/how-to-entra-id-federation-customers": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "ff1b06c6ca063d3b",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-11",
-   "ms_date": "2026-03-09",
+   "hash": "394ec35016d9a883",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-16",
    "title": "顧客サインインのMicrosoft Entra IDを追加する - Microsoft Entra External ID"
   },
   "entra/external-id/customers/how-to-facebook-federation-customers": {
@@ -2549,6 +2558,15 @@
    "lastmod": "2025-11-12",
    "ms_date": "2025-09-24",
    "title": "不正アクセス防止の統合 - Microsoft Entra External ID"
+  },
+  "entra/external-id/customers/how-to-invite-external-identity-provider-users-customers": {
+   "category": "external_id",
+   "first_seen": "2026-11-01",
+   "hash": "4477a4105439ef12",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-12",
+   "title": "招待されたユーザーを外部 ID プロバイダーにルーティングする - Microsoft Entra External ID"
   },
   "entra/external-id/customers/how-to-manage-admin-accounts": {
    "category": "external_id",
@@ -2634,10 +2652,10 @@
   "entra/external-id/customers/how-to-sign-in-with-passkey": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "96c891c2b9c36ad4",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-05",
-   "ms_date": "2026-10-05",
+   "hash": "e95d32cfbd0207ea",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-24",
+   "ms_date": "2026-10-24",
    "title": "Microsoft Entra 外部 ID でパスキーを使用してサインインする - Microsoft Entra External ID"
   },
   "entra/external-id/customers/how-to-test-user-flows": {
@@ -2684,6 +2702,15 @@
    "lastmod": "2026-06-01",
    "ms_date": "2026-05-19",
    "title": "Microsoft Entra 外部 ID におけるユーザー アクティビティを分析する - Microsoft Entra External ID"
+  },
+  "entra/external-id/customers/identity-verification-integration": {
+   "category": "external_id",
+   "first_seen": "2026-11-01",
+   "hash": "5ea1ef47c90a9533",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-20",
+   "title": "Microsoft Entra 外部 IDの ID 検証統合 - Microsoft Entra External ID"
   },
   "entra/external-id/customers/migrate-from-b2c-to-external-id": {
    "category": "external_id",
@@ -2796,20 +2823,20 @@
   "entra/external-id/customers/samples-ciam-all": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "db1b966c7d71c8db",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-05",
-   "ms_date": "2026-10-05",
-   "title": "外部 ID を持つアプリを統合するためのサンプルとガイド - Microsoft Entra External ID"
+   "hash": "0f48e58f5f86ac29",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-06",
+   "ms_date": "2026-10-06",
+   "title": "Microsoft Entra 外部 ID アプリのサンプルとガイド - Microsoft Entra External ID"
   },
   "entra/external-id/customers/services-integration-partners": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "33d73cbc3fc0e79f",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-04-22",
-   "ms_date": "2026-03-26",
-   "title": "Azure AD B2C からMicrosoft Entra External ID移行のパートナー - Microsoft Entra External ID"
+   "hash": "3a0bc253e1f27372",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-21",
+   "title": "Azure AD B2C からMicrosoft Entra 外部 ID移行のパートナー - Microsoft Entra External ID"
   },
   "entra/external-id/customers/troubleshoot-high-scale-compatibility-mode": {
    "category": "external_id",
@@ -3606,9 +3633,9 @@
   "entra/fundamentals/licensing": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "ac124fdf08e8f2a2",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-06-18",
+   "hash": "c29b11b9980acdbc",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-17",
    "ms_date": "2026-06-18",
    "title": "Microsoft Entra ライセンス - Microsoft Entra"
   },
@@ -3662,7 +3689,7 @@
    "first_seen": "2026-10-07",
    "hash": "fbcae10c0885ebe3",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-06-18",
+   "lastmod": "2026-10-16",
    "ms_date": "2025-07-21",
    "title": "Microsoft Entra ID のセキュリティの既定値を構成する - Microsoft Entra"
   },
@@ -3714,8 +3741,8 @@
   "entra/fundamentals/whats-new": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "4b431afa833cbee2",
-   "last_changed": "2026-10-07",
+   "hash": "c9aa7d1dc5d8202c",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-26",
    "ms_date": "2026-06-26",
    "title": "Microsoft Entraリリースとアナウンス - Microsoft Entra"
@@ -3795,8 +3822,8 @@
   "entra/fundamentals/zero-trust-protect-tenants": {
    "category": "fundamentals",
    "first_seen": "2026-10-07",
-   "hash": "e996eb9a6f3f39dc",
-   "last_changed": "2026-10-07",
+   "hash": "c93e780162243f50",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-10-01",
    "ms_date": "2026-10-01",
    "title": "セキュリティ ガイダンス - テナントを保護し、運用システムを分離する - Microsoft Entra"
@@ -3858,9 +3885,9 @@
   "entra/global-secure-access/concept-connector-groups": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "13e87b4aa8926458",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-05-21",
+   "hash": "7cbd274ab1ef4426",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
    "ms_date": "2026-04-29",
    "title": "Microsoft Entra プライベート ネットワーク コネクタ グループ - Global Secure Access"
   },
@@ -4038,8 +4065,8 @@
   "entra/global-secure-access/concept-universal-continuous-access-evaluation": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "87a25d70cb1b9b82",
-   "last_changed": "2026-10-07",
+   "hash": "a9b5b1ba23af5fb9",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-17",
    "ms_date": "2026-09-16",
    "title": "ユニバーサル・コンティニュアス・エバリュエーションについて学ぶ - Global Secure Access"
@@ -4047,10 +4074,10 @@
   "entra/global-secure-access/concept-web-filtering": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "ae8d49b3f5c9d3c5",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-17",
-   "ms_date": "2026-09-17",
+   "hash": "cdd3f1fe05f92491",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-29",
    "title": "グローバル セキュリティで保護されたアクセス (V2) での Web フィルター処理 - Global Secure Access"
   },
   "entra/global-secure-access/enable-intelligent-local-access": {
@@ -4164,11 +4191,20 @@
   "entra/global-secure-access/how-to-configure-cloud-firewall": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "8d1b01531dec4185",
-   "last_changed": "2026-10-07",
+   "hash": "46cc84c3b1743092",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-17",
    "ms_date": "2026-04-17",
-   "title": "インターネット アクセス用にリモート ネットワークを使用してグローバル セキュア アクセス クラウド ファイアウォールを構成する - Global Secure Access"
+   "title": "リモート ネットワーク用にクラウド ファイアウォールを構成する - Global Secure Access"
+  },
+  "entra/global-secure-access/how-to-configure-cloud-firewall-clients": {
+   "category": "global_secure_access",
+   "first_seen": "2026-11-01",
+   "hash": "8a7e6036c586f5e7",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-27",
+   "ms_date": "2026-10-27",
+   "title": "Global Secure Access クライアントのクラウド ファイアウォールを構成する (プレビュー) - Global Secure Access"
   },
   "entra/global-secure-access/how-to-configure-conditional-access-policy-for-explicit-forward-proxy": {
    "category": "global_secure_access",
@@ -4191,8 +4227,8 @@
   "entra/global-secure-access/how-to-configure-custom-headers": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "cf85f96ba2348939",
-   "last_changed": "2026-10-07",
+   "hash": "85da64d5c5957008",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-17",
    "ms_date": "2026-09-16",
    "title": "グローバル セキュリティで保護されたアクセスでカスタム HTTP ヘッダーを構成する方法 - Global Secure Access"
@@ -4218,8 +4254,8 @@
   "entra/global-secure-access/how-to-configure-explicit-forward-proxy": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "c879d47becf759f9",
-   "last_changed": "2026-10-07",
+   "hash": "d7071fc3669fb1ae",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-18",
    "ms_date": "2026-04-06",
    "title": "明示的な転送プロキシを構成する - Global Secure Access"
@@ -4227,9 +4263,9 @@
   "entra/global-secure-access/how-to-configure-explicit-forward-proxy-headers": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "8841ec5238bd4baf",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-14",
+   "hash": "57fad64b4a56ab39",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
    "ms_date": "2026-04-06",
    "title": "明示的な転送プロキシ HTTP ヘッダーのセッション管理を構成 - Global Secure Access"
   },
@@ -4250,6 +4286,15 @@
    "lastmod": "2026-03-25",
    "ms_date": "2026-03-25",
    "title": "Privileged Identity Management と Global Secure Access を使用してプライベート アプリケーション アクセスをセキュリティで保護する - Global Secure Access"
+  },
+  "entra/global-secure-access/how-to-configure-home-network-support": {
+   "category": "global_secure_access",
+   "first_seen": "2026-11-01",
+   "hash": "637c8e5157a5cde3",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-15",
+   "ms_date": "2026-10-13",
+   "title": "Microsoft Entra Private Accessのホーム ネットワーク サポートを構成する - Global Secure Access"
   },
   "entra/global-secure-access/how-to-configure-kerberos-sso": {
    "category": "global_secure_access",
@@ -4353,8 +4398,8 @@
   "entra/global-secure-access/how-to-custom-proxy-file-hosting": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "5025b93daa243519",
-   "last_changed": "2026-10-07",
+   "hash": "702a133c6c05284a",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-08-13",
    "ms_date": "2026-06-19",
    "title": "Microsoft Entra Internet Accessで明示的な転送プロキシ用のカスタム プロキシ自動構成ファイルをホストする - Global Secure Access"
@@ -4389,8 +4434,8 @@
   "entra/global-secure-access/how-to-enable-multi-geo": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "6652f01925ef4761",
-   "last_changed": "2026-10-07",
+   "hash": "d07411f71f6d758d",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-10-31",
    "ms_date": "2025-08-18",
    "title": "Microsoft Entra プライベート アクセス用の Multi-Geo - Global Secure Access"
@@ -4421,6 +4466,15 @@
    "lastmod": "2025-11-19",
    "ms_date": "2025-11-07",
    "title": "グローバル セキュア アクセスと Netskope 統合を使用してカスタムデータ損失防止プロファイルを作成する - Global Secure Access"
+  },
+  "entra/global-secure-access/how-to-infoblox-coexistence": {
+   "category": "global_secure_access",
+   "first_seen": "2026-11-01",
+   "hash": "170620f32ea882ca",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
+   "title": "Infoblox を使用して Microsoft Entra Global Secure Access を構成する - Global Secure Access"
   },
   "entra/global-secure-access/how-to-install-android-client": {
    "category": "global_secure_access",
@@ -4470,10 +4524,10 @@
   "entra/global-secure-access/how-to-manage-internet-access-profile": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "df0dfc80e8fe7035",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-08-02",
-   "ms_date": "2026-08-02",
+   "hash": "82fdef191c64c352",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-27",
+   "ms_date": "2026-10-27",
    "title": "インターネット アクセス プロファイルを管理する方法 - Global Secure Access"
   },
   "entra/global-secure-access/how-to-manage-microsoft-profile": {
@@ -4488,8 +4542,8 @@
   "entra/global-secure-access/how-to-manage-private-access-profile": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "335bc088df248548",
-   "last_changed": "2026-10-07",
+   "hash": "164236daee47fbd8",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-22",
    "ms_date": "2026-09-20",
    "title": "プライベート アクセス トラフィック転送プロファイルの管理 - Global Secure Access"
@@ -4551,10 +4605,10 @@
   "entra/global-secure-access/how-to-netskope-coexistence": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "dbc09c1b0efc184f",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-13",
-   "ms_date": "2026-03-13",
+   "hash": "678a09b781c2e941",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-18",
    "title": "Security Service Edge (SSE) と Microsoft と Netskope の共存 - Global Secure Access"
   },
   "entra/global-secure-access/how-to-network-content-filtering": {
@@ -4587,8 +4641,8 @@
   "entra/global-secure-access/how-to-operate-private-access": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "474b18dce15ba504",
-   "last_changed": "2026-10-07",
+   "hash": "ae5c4a6336dccfb6",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-14",
    "ms_date": "2026-05-04",
    "title": "Microsoft Entra Private Accessを操作する - Global Secure Access"
@@ -4614,8 +4668,8 @@
   "entra/global-secure-access/how-to-palo-alto-coexistence": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "f54e3b1e2e88027b",
-   "last_changed": "2026-10-07",
+   "hash": "29c0f84c750dfa73",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-26",
    "ms_date": "2026-05-26",
    "title": "Security Service Edge (SSE) と Microsoft と Palo Alto Networks の共存 - Global Secure Access"
@@ -4650,8 +4704,8 @@
   "entra/global-secure-access/how-to-secure-web-ai-gateway-agents": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "9cc22f5d771d6102",
-   "last_changed": "2026-10-07",
+   "hash": "191a199c567c7a55",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-17",
    "ms_date": "2025-11-03",
    "title": "Microsoft Copilot Studio エージェント用に Secure Web および AI Gateway を構成する - Global Secure Access"
@@ -5118,10 +5172,10 @@
   "entra/global-secure-access/reference-windows-client-release-history": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "8e978dc759cd9720",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-08-26",
-   "ms_date": "2026-08-26",
+   "hash": "e54e2954c2e36868",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-19",
+   "ms_date": "2026-10-19",
    "title": "グローバル セキュリティで保護されたアクセス クライアントのリリース ノート - Global Secure Access"
   },
   "entra/global-secure-access/remote-network-resilience": {
@@ -5271,8 +5325,8 @@
   "entra/global-secure-access/scripts/powershell-windows-client-install-proof-of-concept": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "b182665d6c9add88",
-   "last_changed": "2026-10-07",
+   "hash": "4610f0b981e046a8",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-11-19",
    "ms_date": "2025-11-18",
    "title": "PowerShell サンプル - 概念実証としてグローバル セキュリティで保護されたアクセス Windows クライアントをインストールする"
@@ -5610,14 +5664,32 @@
    "ms_date": "2026-03-12",
    "title": "アクセス レビューとは - Microsoft Entra - Microsoft Entra ID Governance"
   },
+  "entra/id-governance/agent-default-inactivity-policy": {
+   "category": "id_governance",
+   "first_seen": "2026-11-01",
+   "hash": "c0a5a4e868cba02d",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-28",
+   "ms_date": "2026-10-13",
+   "title": "Microsoft Entra エージェント ID の既定の非アクティブ ポリシー - Microsoft Entra ID Governance"
+  },
   "entra/id-governance/agent-id-governance-overview": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "0fe6f9a4b78b469a",
-   "last_changed": "2026-10-07",
+   "hash": "c78dcf4775051762",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-16",
    "ms_date": "2026-06-05",
    "title": "エージェント ID の管理 - Microsoft Entra ID Governance"
+  },
+  "entra/id-governance/agent-lifecycle-policies": {
+   "category": "id_governance",
+   "first_seen": "2026-11-01",
+   "hash": "97740d921dffefc1",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-09",
+   "ms_date": "2026-10-06",
+   "title": "Entra エージェント IDライフサイクル ポリシー - Microsoft Entra ID Governance"
   },
   "entra/id-governance/agent-sponsor-tasks": {
    "category": "id_governance",
@@ -5631,8 +5703,8 @@
   "entra/id-governance/apps": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "7500bb9d9f1d6399",
-   "last_changed": "2026-10-07",
+   "hash": "bc499fde9786e038",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-12-03",
    "ms_date": "2025-12-03",
    "title": "Microsoft Entra ID ガバナンス統合 - Microsoft Entra ID Governance"
@@ -5663,6 +5735,15 @@
    "lastmod": "2026-08-14",
    "ms_date": "2026-03-12",
    "title": "カタログ アクセス レビュー - Microsoft Entra ID Governance"
+  },
+  "entra/id-governance/catalog-access-reviews-access-packages": {
+   "category": "id_governance",
+   "first_seen": "2026-11-01",
+   "hash": "6af5fe59f1812ca1",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-29",
+   "title": "カタログ アクセス レビューにアクセス パッケージを含める (プレビュー) - Microsoft Entra ID Governance"
   },
   "entra/id-governance/check-status-workflow": {
    "category": "id_governance",
@@ -5847,8 +5928,8 @@
   "entra/id-governance/entitlement-management-access-package-auto-assignment-policy": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "428a7361be04d6b7",
-   "last_changed": "2026-10-07",
+   "hash": "aa2aefea5d4529af",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-08-05",
    "ms_date": "2026-08-05",
    "title": "エンタイトルメント管理でアクセス パッケージの自動割り当てポリシーを構成する - Microsoft Entra - Microsoft Entra ID Governance"
@@ -5955,8 +6036,8 @@
   "entra/id-governance/entitlement-management-access-package-resources": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "5ac76480971d7c79",
-   "last_changed": "2026-10-07",
+   "hash": "3b0610e07cd500ef",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-03-11",
    "ms_date": "2025-06-25",
    "title": "エンタイトルメント管理でaccess パッケージのリソース ロールを変更する - Microsoft Entra ID Governance"
@@ -5982,10 +6063,10 @@
   "entra/id-governance/entitlement-management-access-reviews-create": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "f874befb1de8cab5",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-12",
-   "ms_date": "2026-03-12",
+   "hash": "f436cd390d319176",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-29",
    "title": "エンタイトルメント管理でのアクセス パッケージに対するアクセス レビューを作成する - Microsoft Entra ID Governance"
   },
   "entra/id-governance/entitlement-management-access-reviews-review-access": {
@@ -6018,8 +6099,8 @@
   "entra/id-governance/entitlement-management-catalog-create": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "88e8d2abfd59e3bd",
-   "last_changed": "2026-10-07",
+   "hash": "ab0058630dd5398a",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-14",
    "ms_date": "2024-07-15",
    "title": "エンタイトルメント管理でリソースのカタログを作成して管理する - Microsoft Entra ID Governance"
@@ -6081,8 +6162,8 @@
   "entra/id-governance/entitlement-management-dynamic-approval": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "52801bb59beb8ffb",
-   "last_changed": "2026-10-07",
+   "hash": "7dec66ab7ec6e4e2",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-11-04",
    "ms_date": "2025-11-04",
    "title": "カスタム拡張機能を使用してアクセス パッケージの承認要件を外部で決定する - Microsoft Entra ID Governance"
@@ -6171,8 +6252,8 @@
   "entra/id-governance/entitlement-management-overview": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "036ae4e12daafaf7",
-   "last_changed": "2026-10-07",
+   "hash": "38461d8b5915b199",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-01",
    "ms_date": "2024-11-25",
    "title": "エンタイトルメント管理とは - Microsoft Entra ID Governance"
@@ -6189,10 +6270,10 @@
   "entra/id-governance/entitlement-management-reports": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "04509d863b96a617",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-18",
-   "ms_date": "2026-09-03",
+   "hash": "c00a7b2b4a565a90",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-20",
+   "ms_date": "2026-10-20",
    "title": "エンタイトルメント管理でレポートとログを表示する - Microsoft Entra ID Governance"
   },
   "entra/id-governance/entitlement-management-reprocess-access-package-assignments": {
@@ -6234,8 +6315,8 @@
   "entra/id-governance/entitlement-management-request-behalf": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "8e11b1cab750d598",
-   "last_changed": "2026-10-07",
+   "hash": "db4970ca9b91353d",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-08-24",
    "ms_date": "2025-06-18",
    "title": "他のIDに代わってアクセスパッケージを要求する - Microsoft Entra ID Governance"
@@ -6249,20 +6330,29 @@
    "ms_date": "2025-06-27",
    "title": "Microsoft Entra ロールを割り当てる - エンタイトルメント管理 (プレビュー) - Microsoft Entra ID Governance"
   },
+  "entra/id-governance/entitlement-management-sap-ac-integration": {
+   "category": "id_governance",
+   "first_seen": "2026-11-01",
+   "hash": "5765fbe2c0d3d9ff",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-09-08",
+   "title": "Microsoft Entra SAP Access Control 統合 (プレビュー) - Microsoft Entra ID Governance"
+  },
   "entra/id-governance/entitlement-management-sap-integration": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "9b2841fbc81129b0",
-   "last_changed": "2026-10-07",
+   "hash": "3b05602f32b4e95c",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-08",
    "ms_date": "2026-03-25",
-   "title": "Microsoft Entra SAP IAG 統合 (プレビュー) - Microsoft Entra ID Governance"
+   "title": "Microsoft Entra と SAP IAG の統合 - Microsoft Entra ID Governance"
   },
   "entra/id-governance/entitlement-management-scenarios": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "c0643937d1d6ef4f",
-   "last_changed": "2026-10-07",
+   "hash": "43f1deaf055ca3c3",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-24",
    "ms_date": "2024-07-15",
    "title": "エンタイトルメント管理の一般的なシナリオ - Microsoft Entra ID Governance"
@@ -6342,9 +6432,9 @@
   "entra/id-governance/guest-lifecycle-policies": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "9943a03b707d8321",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "663ad344ea59d32e",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
    "ms_date": "2026-03-13",
    "title": "ライフサイクル ワークフローのゲスト ライフサイクル ポリシー - Microsoft Entra ID Governance"
   },
@@ -6423,11 +6513,11 @@
   "entra/id-governance/identity-governance-applications-prepare": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "fafc89f57fce766b",
-   "last_changed": "2026-10-07",
+   "hash": "7cb06065e81a2249",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-11-19",
    "ms_date": "2024-11-21",
-   "title": "環境内のアプリケーションのアクセスを制御する - Microsoft Entra ID Governance"
+   "title": "環境内のアプリケーションへのアクセスを制御する - Microsoft Entra ID Governance"
   },
   "entra/id-governance/identity-governance-automation": {
    "category": "id_governance",
@@ -6450,8 +6540,8 @@
   "entra/id-governance/identity-governance-overview": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "453d65cb53ce801d",
-   "last_changed": "2026-10-07",
+   "hash": "b0e09f3a8c2ef61e",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-08",
    "ms_date": "2026-05-08",
    "title": "Microsoft Entra ID ガバナンス - Microsoft Entra ID Governance"
@@ -6459,9 +6549,9 @@
   "entra/id-governance/licensing-fundamentals": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "af942c3f16b57883",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-29",
+   "hash": "ab30f5a5fc21b53f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
    "ms_date": "2026-07-29",
    "title": "Microsoft Entra ID ガバナンス ライセンスの基礎 - Microsoft Entra ID Governance"
   },
@@ -6603,9 +6693,9 @@
   "entra/id-governance/manage-sponsored-guests-my-access": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "3c81cf1e17e5939a",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "bec09820c8f8d88f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
    "ms_date": "2026-09-30",
    "title": "My Accountでスポンサードゲストを管理する - Microsoft Entra ID Governance"
   },
@@ -6666,8 +6756,8 @@
   "entra/id-governance/microsoft-entra-id-governance-licensing-for-guest-users": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "322c59b15d9caac4",
-   "last_changed": "2026-10-07",
+   "hash": "6bfa5efa6df5eff8",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-23",
    "ms_date": "2026-09-23",
    "title": "ゲスト ユーザーのMicrosoft Entra ID ガバナンス ライセンス - Microsoft Entra ID Governance"
@@ -6684,8 +6774,8 @@
   "entra/id-governance/my-access-portal-overview": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "4c978c90e378e95b",
-   "last_changed": "2026-10-07",
+   "hash": "d239c20088420e15",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-24",
    "ms_date": "2024-12-10",
    "title": "マイ Access ポータルとは - Microsoft Entra - Microsoft Entra ID Governance"
@@ -6947,7 +7037,7 @@
    "first_seen": "2026-10-07",
    "hash": "0627e458e009b7f9",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-10-02",
+   "lastmod": "2026-10-07",
    "ms_date": "2024-12-19",
    "title": "PIM で Azure リソース ロールをアクティブ化する - Microsoft Entra ID Governance"
   },
@@ -7044,10 +7134,10 @@
   "entra/id-governance/privileged-identity-management/privileged-identity-management-custom-extensions": {
    "category": "id_governance",
    "first_seen": "2026-10-07",
-   "hash": "1a9b6bbbc12a2e4d",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-06-11",
-   "ms_date": "2026-06-02",
+   "hash": "bcb3fa29737c87c0",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-15",
+   "ms_date": "2026-10-12",
    "title": "PIM ロールのアクティブ化用にカスタム拡張機能を構成する (プレビュー) - Microsoft Entra ID Governance"
   },
   "entra/id-governance/reconciliation-overview": {
@@ -7145,7 +7235,7 @@
    "first_seen": "2026-10-07",
    "hash": "a3a73a8ba5a7f6db",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-02-20",
+   "lastmod": "2026-10-29",
    "ms_date": "2025-04-09",
    "title": "Microsoft Entra ID ガバナンスのユース ケース"
   },
@@ -7674,10 +7764,10 @@
   "entra/id-protection/concept-identity-protection-risks": {
    "category": "id_protection",
    "first_seen": "2026-10-07",
-   "hash": "ce44d265f6b0edb2",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-04-22",
-   "ms_date": "2026-04-22",
+   "hash": "dd325c9c217d2055",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-21",
+   "ms_date": "2026-10-21",
    "title": "リスク検出とは - Microsoft Entra ID Protection"
   },
   "entra/id-protection/concept-identity-protection-unified-risk": {
@@ -8331,8 +8421,8 @@
   "entra/identity-platform/developer-guide-conditional-access-authentication-context": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "9cae8fae25f1ada2",
-   "last_changed": "2026-10-07",
+   "hash": "6bc76154a0b0e424",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-09-11",
    "ms_date": "2025-09-11",
    "title": "Microsoft Entra 条件付きアクセス認証コンテキストに関する開発者ガイド - Microsoft identity platform"
@@ -8774,7 +8864,7 @@
    "first_seen": "2026-10-07",
    "hash": "bc7aaa0cb7bff421",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "lastmod": "2026-10-25",
    "ms_date": "2025-02-11",
    "title": "Web アプリケーションのドキュメント - Microsoft identity platform"
   },
@@ -9348,10 +9438,10 @@
   "entra/identity-platform/reference-credential-management-api": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "7991af22d597feba",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-05",
-   "ms_date": "2026-10-05",
+   "hash": "f6914eb79867726e",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-29",
    "title": "Microsoft Entra 外部 ID資格情報管理 API リファレンス - Microsoft identity platform"
   },
   "entra/identity-platform/reference-entra-id-wam-api": {
@@ -9393,8 +9483,8 @@
   "entra/identity-platform/reference-native-authentication-api": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "c6853c8ff1df8eed",
-   "last_changed": "2026-10-07",
+   "hash": "2802c52d7c4b9a3c",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-03-11",
    "ms_date": "2026-02-27",
    "title": "ネイティブ認証 API リファレンスのドキュメント。 - Microsoft identity platform"
@@ -10410,8 +10500,8 @@
   "entra/identity-platform/tutorial-native-authentication-single-page-app-react-sdk-sign-in": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "cfc7e660c0510f3f",
-   "last_changed": "2026-10-07",
+   "hash": "766d0407273b9d84",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-24",
    "ms_date": "2025-11-18",
    "title": "ネイティブ認証 JavaScript SDK を使用して React SPA でユーザーをサインインする - Microsoft identity platform"
@@ -10968,8 +11058,8 @@
   "entra/identity/app-provisioning/configure-workload-identity-sap-successfactors-provisioning": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "48fcad3d0d22e595",
-   "last_changed": "2026-10-07",
+   "hash": "8597585b1a30d809",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-10-01",
    "ms_date": "2026-10-01",
    "title": "SAP SuccessFactors プロビジョニングのワークロード ID を構成する - Microsoft Entra ID"
@@ -11090,6 +11180,15 @@
    "lastmod": "2025-04-30",
    "ms_date": "2025-03-04",
    "title": "HR プロビジョニングに関する属性の取得に関する問題のトラブルシューティング - Microsoft Entra ID"
+  },
+  "entra/identity/app-provisioning/hr-intermittent-timeouts-slow-performance": {
+   "category": "applications",
+   "first_seen": "2026-11-01",
+   "hash": "05ecbbde8a59c3c9",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-22",
+   "title": "Microsoft Entra の HR プロビジョニング タイムアウト - Microsoft Entra ID"
   },
   "entra/identity/app-provisioning/hr-manager-update-issues": {
    "category": "applications",
@@ -11243,6 +11342,24 @@
    "lastmod": "2026-03-31",
    "ms_date": "2026-03-31",
    "title": "Microsoft Entra IDでのプロビジョニングに関する既知の問題 - Microsoft Entra ID"
+  },
+  "entra/identity/app-provisioning/manage-object-connections": {
+   "category": "applications",
+   "first_seen": "2026-11-01",
+   "hash": "75cdcc05d58a093d",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-16",
+   "title": "オブジェクト接続の管理 - Microsoft Graph - Microsoft Entra ID"
+  },
+  "entra/identity/app-provisioning/object-connection-identifiers": {
+   "category": "applications",
+   "first_seen": "2026-11-01",
+   "hash": "1a23d42498cd96d6",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-22",
+   "title": "オブジェクト接続 ID - Microsoft Entra ID"
   },
   "entra/identity/app-provisioning/on-premises-application-provisioning-architecture": {
    "category": "applications",
@@ -11400,8 +11517,8 @@
   "entra/identity/app-provisioning/provision-on-demand": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "79c2c40e01140ce8",
-   "last_changed": "2026-10-07",
+   "hash": "c1d9821e9f1f261d",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-04-30",
    "ms_date": "2025-03-04",
    "title": "Microsoft Entra プロビジョニング サービスを使用してユーザーまたはグループをオンデマンドでプロビジョニングする - Microsoft Entra ID"
@@ -11418,9 +11535,9 @@
   "entra/identity/app-provisioning/provisioning-agent-release-version-history": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "4b3448d386884ea3",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-04-14",
+   "hash": "5120c9431a3aa0b1",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
    "ms_date": "2026-04-14",
    "title": "Microsoft Entra Connect プロビジョニング エージェント - バージョンリリース履歴 - Microsoft Entra ID"
   },
@@ -11760,9 +11877,9 @@
   "entra/identity/app-proxy/application-proxy-faq": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "e707477de13997e2",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "aa22c956ab9c1f92",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-25",
    "ms_date": "2026-03-11",
    "title": "Microsoft Entra アプリケーション プロキシに関してよく寄せられる質問 - Microsoft Entra ID"
   },
@@ -12216,6 +12333,33 @@
    "ms_date": "2025-03-04",
    "title": "iOS でのフェデレーションを使用した証明書ベースの認証 - Microsoft Entra ID"
   },
+  "entra/identity/authentication/choose-your-own-telephony-fraud-costs": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "6ba59745b739532c",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
+   "title": "自社の通信事業者を利用して電話詐欺を防ぐ - Microsoft Entra ID"
+  },
+  "entra/identity/authentication/choose-your-own-telephony-reliability": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "6d58c6dd91344ce7",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
+   "title": "回復性と高可用性を計画する - Microsoft Entra ID"
+  },
+  "entra/identity/authentication/choose-your-own-telephony-troubleshoot": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "66c8dd51bcf4129f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
+   "title": "お使いの通信事業者で SMS と音声のトラブルシューティングを行う - Microsoft Entra ID"
+  },
   "entra/identity/authentication/concept-account-recovery-overview": {
    "category": "authentication",
    "first_seen": "2026-10-07",
@@ -12471,10 +12615,10 @@
   "entra/identity/authentication/concept-fido2-hardware-vendor": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "54ad0c8b206d311f",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-17",
-   "ms_date": "2026-09-17",
+   "hash": "f597b62389ec237f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-06",
+   "ms_date": "2026-10-06",
    "title": "FIDO2 セキュリティ キー ベンダー向けMicrosoft Entra IDの認証 - Microsoft Entra ID"
   },
   "entra/identity/authentication/concept-mandatory-multifactor-authentication": {
@@ -12579,19 +12723,19 @@
   "entra/identity/authentication/concept-phone-providers": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "c2f2feb0ea3d4e1e",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-23",
-   "ms_date": "2026-09-23",
+   "hash": "b0604449a623d389",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
    "title": "SMS および音声認証用のテレフォニー プロバイダーを選択する - Microsoft Entra ID"
   },
   "entra/identity/authentication/concept-registration-mfa-sspr-combined": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "5ce484c8a101f76e",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-07-03",
-   "ms_date": "2025-03-04",
+   "hash": "8fba6e20d02978c7",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-09-11",
    "title": "SSPR と Microsoft Entra 多要素認証のための統合された登録 - Microsoft Entra ID"
   },
   "entra/identity/authentication/concept-resilient-controls": {
@@ -12615,10 +12759,10 @@
   "entra/identity/authentication/concept-sms-voice-retirement-faq": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "6bbff660b3de4881",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
-   "ms_date": "2026-09-23",
+   "hash": "11a48232128b0bb7",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-20",
    "title": "Microsoftが提供する SMS と音声の提供終了に関する FAQ - Microsoft Entra ID"
   },
   "entra/identity/authentication/concept-sspr-deploy": {
@@ -12633,10 +12777,10 @@
   "entra/identity/authentication/concept-sspr-howitworks": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "8f7936f3e7ec710a",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-08-15",
-   "ms_date": "2025-03-04",
+   "hash": "89e9a70ce1637b7c",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-05",
    "title": "セルフサービス パスワード リセットの詳細解説 - Microsoft Entra ID"
   },
   "entra/identity/authentication/concept-sspr-licensing": {
@@ -12669,11 +12813,20 @@
   "entra/identity/authentication/concept-system-preferred-authentication": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "c066e19b54c47c98",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-17",
-   "ms_date": "2026-04-15",
+   "hash": "8ba06ba0fb986391",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-27",
+   "ms_date": "2026-10-23",
    "title": "Microsoft Entra IDでのシステム優先認証 - Microsoft Entra ID"
+  },
+  "entra/identity/authentication/concept-telephony-risk-based-captcha": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "aa780a76a1a56fd6",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-14",
+   "title": "テレフォニーベースのサインイン向けのリスクベースのボット対策確認 (CAPTCHA) - Microsoft Entra ID"
   },
   "entra/identity/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime": {
    "category": "authentication",
@@ -12683,6 +12836,15 @@
    "lastmod": "2025-03-04",
    "ms_date": "2025-03-04",
    "title": "Microsoft Entra 多要素認証のプロンプトとセッションの有効期間 - Microsoft Entra ID"
+  },
+  "entra/identity/authentication/configure-microsoft-entra-kerberos-trust": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "95f0ccf5ae01ce53",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-19",
+   "title": "Microsoft Entra Kerberos の信頼を構成する - Microsoft Entra ID"
   },
   "entra/identity/authentication/feature-availability": {
    "category": "authentication",
@@ -12831,10 +12993,10 @@
   "entra/identity/authentication/how-to-enable-authenticator-passkey": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "62095c91e4abaf96",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-08",
-   "ms_date": "2026-07-05",
+   "hash": "1400e0440226b9b6",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-28",
+   "ms_date": "2026-10-02",
    "title": "Authenticator での Microsoft Entra ID のパスキーの有効化とサポート - Microsoft Entra ID"
   },
   "entra/identity/authentication/how-to-mandatory-multifactor-authentication": {
@@ -12885,8 +13047,8 @@
   "entra/identity/authentication/how-to-mfa-number-match": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "efe12ae64f6bc747",
-   "last_changed": "2026-10-07",
+   "hash": "45d7794262287252",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-11-07",
    "ms_date": "2025-11-06",
    "title": "Authenticator の MFA プッシュ通知での番号照合のしくみ - Microsoft Entra ID"
@@ -12894,8 +13056,8 @@
   "entra/identity/authentication/how-to-mfa-registration-campaign": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "e41038898c084e95",
-   "last_changed": "2026-10-07",
+   "hash": "d3afcaaf021d1213",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-15",
    "ms_date": "2026-09-15",
    "title": "登録キャンペーンを実行してパスキーまたはMicrosoft Authenticatorを設定する - Microsoft Entra ID"
@@ -13026,6 +13188,15 @@
    "ms_date": "2026-07-05",
    "title": "FIDO2 セキュリティ キーを使用してサインインする - Microsoft Entra ID"
   },
+  "entra/identity/authentication/how-to-set-up-sms-voice-api": {
+   "category": "authentication",
+   "first_seen": "2026-11-01",
+   "hash": "4514a669562764a6",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
+   "title": "SMS と音声を設定する - Microsoft Entra ID"
+  },
   "entra/identity/authentication/how-to-sign-in-entra-passkey-windows": {
    "category": "authentication",
    "first_seen": "2026-10-07",
@@ -13119,8 +13290,8 @@
   "entra/identity/authentication/howto-authentication-passwordless-security-key-windows": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "ac66a383265c1312",
-   "last_changed": "2026-10-07",
+   "hash": "3718cf6d14733595",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-06",
    "ms_date": "2026-07-05",
    "title": "FIDO2 セキュリティ キーによるWindowsへのサインイン - Microsoft Entra ID"
@@ -13137,10 +13308,10 @@
   "entra/identity/authentication/howto-authentication-sms-signin": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "f8edc9228c152301",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-06",
-   "ms_date": "2026-03-04",
+   "hash": "7517ae3b6f709f37",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-29",
    "title": "Microsoft Entra IDの SMS ベースのユーザー サインイン - Microsoft Entra ID"
   },
   "entra/identity/authentication/howto-authentication-temporary-access-pass": {
@@ -13256,7 +13427,7 @@
    "first_seen": "2026-10-07",
    "hash": "8d210389a82a2003",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "lastmod": "2026-10-28",
    "ms_date": "2025-02-27",
    "title": "Microsoft Entra多要素認証の認証方法を管理する - Microsoft Entra ID"
   },
@@ -13404,22 +13575,13 @@
    "ms_date": "2025-11-04",
    "title": "Microsoft Entra Kerberos FAQ - Microsoft Entra ID"
   },
-  "entra/identity/authentication/kerberos-server-key-rotation": {
-   "category": "authentication",
-   "first_seen": "2026-10-07",
-   "hash": "d72a20307d993b87",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-05-27",
-   "ms_date": "2026-04-23",
-   "title": "Microsoft Entra Kerberos の Kerberos サーバー キーをローテーションする - Microsoft Entra ID"
-  },
   "entra/identity/authentication/multi-factor-authentication-faq": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "bd6db5d004b7fc44",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
-   "ms_date": "2026-02-09",
+   "hash": "9f94bd548f20702a",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-20",
+   "ms_date": "2026-10-12",
    "title": "Microsoft Entra 多要素認証に関してよく寄せられる質問 - Microsoft Entra ID"
   },
   "entra/identity/authentication/multi-factor-authentication-get-started-adfs": {
@@ -13470,11 +13632,11 @@
   "entra/identity/authentication/phone-providers-faq": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "0904b286d95be01a",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
-   "ms_date": "2026-09-20",
-   "title": "Microsoft Entra IDのテレフォニー プロバイダーに関してよく寄せられる質問 - Microsoft Entra ID"
+   "hash": "2530f5505b1c9434",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
+   "ms_date": "2026-10-30",
+   "title": "Choose Your Own Telephony Provider に関するよくある質問 - Microsoft Entra ID"
   },
   "entra/identity/authentication/self-service-account-recovery": {
    "category": "authentication",
@@ -13515,9 +13677,9 @@
   "entra/identity/authentication/troubleshoot-voice-call-sms": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "4dbe08c3815458df",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-04-14",
+   "hash": "cc1aefbb7b8a983a",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-30",
    "ms_date": "2026-04-09",
    "title": "MFA 音声通話と SMS に関する問題のトラブルシューティング - Microsoft Entra ID"
   },
@@ -13605,8 +13767,8 @@
   "entra/identity/conditional-access/agent-id": {
    "category": "conditional_access",
    "first_seen": "2026-10-07",
-   "hash": "d3588391331e0921",
-   "last_changed": "2026-10-07",
+   "hash": "11fdf10852e64367",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-30",
    "ms_date": "2026-07-31",
    "title": "Microsoft Entraのエージェントの条件付きアクセス - Microsoft Entra ID"
@@ -13692,6 +13854,15 @@
    "ms_date": "2026-03-24",
    "title": "条件付きアクセス テンプレート: セキュリティを簡素化する - Microsoft Entra ID"
   },
+  "entra/identity/conditional-access/concept-conditional-access-policy-plans": {
+   "category": "conditional_access",
+   "first_seen": "2026-11-01",
+   "hash": "75bb61a969a1b3e5",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-26",
+   "ms_date": "2026-10-21",
+   "title": "Microsoft Entra 条件付きアクセスポリシー プランとは (プレビュー) - Microsoft Entra ID"
+  },
   "entra/identity/conditional-access/concept-conditional-access-report-only": {
    "category": "conditional_access",
    "first_seen": "2026-10-07",
@@ -13749,8 +13920,8 @@
   "entra/identity/conditional-access/concept-enforcement-resource-exclusions": {
    "category": "conditional_access",
    "first_seen": "2026-10-07",
-   "hash": "fbf030356e0e8b99",
-   "last_changed": "2026-10-07",
+   "hash": "c7b05bc134cc7179",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-19",
    "ms_date": "2026-06-19",
    "title": "条件付きアクセスでのベースライン スコープの適用 - Microsoft Entra ID"
@@ -13817,6 +13988,24 @@
    "lastmod": "2026-09-21",
    "ms_date": "2026-09-21",
    "title": "トークン保護の展開ガイド - Windows - Microsoft Entra ID"
+  },
+  "entra/identity/conditional-access/how-to-create-conditional-access-policy-plan": {
+   "category": "conditional_access",
+   "first_seen": "2026-11-01",
+   "hash": "94782363b1b4bb10",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-21",
+   "title": "条件付きアクセス ポリシー プランを作成する (プレビュー) - Microsoft Entra ID"
+  },
+  "entra/identity/conditional-access/how-to-migrate-conditional-access-policy-plan": {
+   "category": "conditional_access",
+   "first_seen": "2026-11-01",
+   "hash": "e6a5aa0d3deba578",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-26",
+   "ms_date": "2026-10-21",
+   "title": "条件付きアクセス ポリシーをポリシー プランに移行する (プレビュー) - Microsoft Entra ID"
   },
   "entra/identity/conditional-access/how-to-migrate-custom-controls-external-mfa": {
    "category": "conditional_access",
@@ -13929,8 +14118,8 @@
   "entra/identity/conditional-access/policy-all-users-approved-app-or-app-protection": {
    "category": "conditional_access",
    "first_seen": "2026-10-07",
-   "hash": "506a6259a4d6b695",
-   "last_changed": "2026-10-07",
+   "hash": "80a3026f590f4e19",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-08",
    "ms_date": "2026-03-24",
    "title": "条件付きアクセス - 承認済みのアプリまたはアプリ保護ポリシーを必須にする - Microsoft Entra ID"
@@ -14028,8 +14217,8 @@
   "entra/identity/conditional-access/policy-autonomous-agents": {
    "category": "conditional_access",
    "first_seen": "2026-10-07",
-   "hash": "fdd16fea0706b3ed",
-   "last_changed": "2026-10-07",
+   "hash": "23e914a70918a703",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-30",
    "ms_date": "2026-07-31",
    "title": "条件付きアクセスを使用して自律エージェントをセキュリティで保護する - Microsoft Entra ID"
@@ -14280,10 +14469,10 @@
   "entra/identity/devices/concept-hybrid-join": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "b89a15ca9bfca5b3",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-07-07",
-   "ms_date": "2025-06-27",
+   "hash": "37a109d33a63676b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
    "title": "Microsoft Entra ハイブリッド参加済みデバイスとは何ですか? - Microsoft Entra ID"
   },
   "entra/identity/devices/concept-primary-refresh-token": {
@@ -14334,9 +14523,9 @@
   "entra/identity/devices/device-join-macos-platform-single-sign-on-kerberos-configuration": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "9c432fcd862fdfac",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-11",
+   "hash": "fece4dfdb45a7859",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-19",
    "ms_date": "2024-05-13",
    "title": "Kerberos SSO を有効にして、プラットフォーム SSO でオンプレミスの Active Directory や Microsoft Entra ID の Kerberos リソースに接続します。 - Microsoft Entra ID"
   },
@@ -14556,6 +14745,15 @@
    "ms_date": "2026-06-30",
    "title": "macOS の Microsoft シングル サインオンの基本設定を管理する - Microsoft Entra ID"
   },
+  "entra/identity/devices/macos-platform-sso-architecture": {
+   "category": "identity_core",
+   "first_seen": "2026-11-01",
+   "hash": "661e161057256101",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-14",
+   "title": "Microsoft Entra IDでの macOS Platform SSO のアーキテクチャと認証フロー - Microsoft Entra ID"
+  },
   "entra/identity/devices/macos-psso": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
@@ -14586,8 +14784,8 @@
   "entra/identity/devices/manage-device-identities": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "323092457df68545",
-   "last_changed": "2026-10-07",
+   "hash": "9e32c2bc3a003309",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-06-18",
    "ms_date": "2026-06-17",
    "title": "Microsoft Entra 管理センターを使用してMicrosoft Entra IDでデバイスを管理する - Microsoft Entra ID"
@@ -14640,8 +14838,8 @@
   "entra/identity/devices/sso-admin-control": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "211312cf33fcabcc",
-   "last_changed": "2026-10-07",
+   "hash": "b0d3adef93aa6a96",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-16",
    "ms_date": "2026-07-14",
    "title": "SSO プロンプトの管理者制御  - Microsoft Entra ID"
@@ -14750,7 +14948,7 @@
    "first_seen": "2026-10-07",
    "hash": "7f8ea2bea948eeb1",
    "last_changed": "2026-10-07",
-   "lastmod": "2026-10-02",
+   "lastmod": "2026-10-07",
    "ms_date": "2023-09-23",
    "title": "Microsoft Entra Domain Services のドキュメント - Microsoft Entra ID"
   },
@@ -15495,10 +15693,10 @@
   "entra/identity/enterprise-apps/application-properties": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "a88ebbb5926eb6a7",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-02-07",
-   "ms_date": "2025-01-31",
+   "hash": "4a2ebb75a43e2bae",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-20",
+   "ms_date": "2026-10-20",
    "title": "エンタープライズ アプリケーションのプロパティ - Microsoft Entra ID"
   },
   "entra/identity/enterprise-apps/application-sign-in-other-problem-access-panel": {
@@ -15567,8 +15765,8 @@
   "entra/identity/enterprise-apps/assign-user-or-group-access-portal": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "1f65ecacff0db4e8",
-   "last_changed": "2026-10-07",
+   "hash": "dae3f2f154f81aa9",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-16",
    "ms_date": "2026-04-01",
    "title": "アプリケーションへのユーザーとグループの割り当てを管理する - Microsoft Entra ID"
@@ -15756,10 +15954,10 @@
   "entra/identity/enterprise-apps/deactivate-app-registration": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "8071ea215935fcce",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-16",
-   "ms_date": "2026-03-16",
+   "hash": "1b39e469a6252d2b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-15",
+   "ms_date": "2026-10-15",
    "title": "アプリの登録を非アクティブ化する - Microsoft Entra ID"
   },
   "entra/identity/enterprise-apps/deactivate-application-portal": {
@@ -15801,10 +15999,10 @@
   "entra/identity/enterprise-apps/disable-user-sign-in-portal": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "6587141d83d35907",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-11",
-   "ms_date": "2025-03-03",
+   "hash": "fcb53e6d9957c4ec",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-15",
    "title": "アプリケーションへのユーザーのサインインを無効にする - Microsoft Entra ID"
   },
   "entra/identity/enterprise-apps/end-user-experiences": {
@@ -16251,10 +16449,10 @@
   "entra/identity/enterprise-apps/protect-against-consent-phishing": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "634c311babd24e75",
-   "last_changed": "2026-10-07",
-   "lastmod": "2023-12-11",
-   "ms_date": "2023-12-11",
+   "hash": "31096c6c292622b2",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-20",
    "title": "同意フィッシングから保護する - Microsoft Entra ID"
   },
   "entra/identity/enterprise-apps/publish-app-gallery": {
@@ -16494,11 +16692,11 @@
   "entra/identity/enterprise-apps/validate-oidc-multitenant-app-gallery": {
    "category": "applications",
    "first_seen": "2026-10-07",
-   "hash": "bc9e601ca9702bc7",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-14",
-   "ms_date": "2026-06-04",
-   "title": "Microsoft Entra アプリ ギャラリーのオンボード用に OIDC マルチテナント アプリを検証する - Microsoft Entra ID"
+   "hash": "7307de143ff4599d",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-20",
+   "ms_date": "2026-10-19",
+   "title": "Microsoft Entra アプリ ギャラリーのオンボード用に OIDC アプリを検証する - Microsoft Entra ID"
   },
   "entra/identity/enterprise-apps/validate-saml-single-sign-on-app-gallery": {
    "category": "applications",
@@ -16611,10 +16809,10 @@
   "entra/identity/hybrid/cloud-sync/cloud-sync-migration-faq": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "80da2f28ac5182e0",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
-   "ms_date": "2026-05-04",
+   "hash": "017931ba9e7b43c9",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-26",
+   "ms_date": "2026-10-21",
    "title": "Microsoft Entra Connect Sync から Cloud Sync への移行に関する FAQ - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/concept-attributes": {
@@ -16647,11 +16845,11 @@
   "entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "49ab66c9717fb5d4",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-02-24",
-   "ms_date": "2025-02-17",
-   "title": "Microsoft Entra Connect からクラウド同期への移行: 意思決定ガイド - Microsoft Entra ID"
+   "hash": "938e8bcdd2118207",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
+   "title": "Microsoft Entra Cloud Sync 移行判断ガイド - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/custom-attribute-mapping": {
    "category": "hybrid",
@@ -16674,10 +16872,10 @@
   "entra/identity/hybrid/cloud-sync/device-sync": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "4aaf6135c701d7a0",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-29",
-   "ms_date": "2026-09-29",
+   "hash": "071feaa81d509ec1",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-21",
+   "ms_date": "2026-10-21",
    "title": "Microsoft Entra Cloud Sync を使用してデバイス同期を構成する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/exchange-hybrid": {
@@ -16728,11 +16926,11 @@
   "entra/identity/hybrid/cloud-sync/how-to-active-directory-object-enforcement": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "1ff510778c8778d3",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-08-28",
-   "ms_date": "2026-08-11",
-   "title": "Microsoft Entra AD オブジェクトの適用 (プレビュー) - Microsoft Entra ID"
+   "hash": "1990a73f1a2a2775",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-29",
+   "title": "Microsoft Entra AD オブジェクトの強制 - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/how-to-attribute-mapping": {
    "category": "hybrid",
@@ -16863,10 +17061,10 @@
   "entra/identity/hybrid/cloud-sync/how-to-prerequisites": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "3d17c5ed7dfecfb8",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-07-27",
-   "ms_date": "2026-07-27",
+   "hash": "fb4285eb46cf4a83",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-22",
    "title": "Microsoft Entra ID での Microsoft Entra Cloud Sync の前提条件 - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/how-to-prerequisites-provision-entra-to-active-directory": {
@@ -16926,19 +17124,19 @@
   "entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "67680aa5ebc60531",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-06-25",
-   "ms_date": "2025-04-09",
-   "title": "Microsoft Entra Connect を Microsoft Entra クラウド同期に移行する - Microsoft Entra ID"
+   "hash": "b7c348571fe4ff6b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
+   "title": "Microsoft Entra クラウド同期に移行する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "7e1270b203a68daa",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-09-16",
-   "ms_date": "2026-09-16",
+   "hash": "34a99dffecfbd999",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
    "title": "移行ツールを使用してクラウド同期Microsoft Entraに移行する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/migrate-group-writeback": {
@@ -16962,10 +17160,10 @@
   "entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "00d19d80aa67bc48",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-07-04",
-   "ms_date": "2025-04-09",
+   "hash": "dfbed6d09c2666bf",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
    "title": "Microsoft Entra クラウド同期でサポートされているトポロジとシナリオ - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/reference-cloud-sync-faq": {
@@ -17016,8 +17214,8 @@
   "entra/identity/hybrid/cloud-sync/reference-version-history": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "3c62240b52e4b8eb",
-   "last_changed": "2026-10-07",
+   "hash": "85248e70db30c3f6",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-22",
    "ms_date": "2025-09-23",
    "title": "Microsoft Entra プロビジョニング エージェント: バージョンのリリース履歴 - Microsoft Entra ID"
@@ -17052,10 +17250,10 @@
   "entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "3f737764dfe1312f",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-06-25",
-   "ms_date": "2025-09-29",
+   "hash": "aa9c0b1f0a278465",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-21",
+   "ms_date": "2026-10-21",
    "title": "チュートリアル - 同期された Active Directory フォレストの Microsoft Entra Cloud Sync に移行する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/tutorial-single-forest": {
@@ -17079,11 +17277,11 @@
   "entra/identity/hybrid/cloud-sync/what-is-cloud-sync": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "a17d758abb268d17",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-02-24",
-   "ms_date": "2025-02-17",
-   "title": "Microsoft Entra Cloud 同期とは - Microsoft Entra ID"
+   "hash": "98d871e0ab7a8be3",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-22",
+   "ms_date": "2026-10-21",
+   "title": "Microsoft Entra クラウド同期とは? - Microsoft Entra ID"
   },
   "entra/identity/hybrid/cloud-sync/what-is-provisioning-agent": {
    "category": "hybrid",
@@ -17097,10 +17295,10 @@
   "entra/identity/hybrid/common-scenarios": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "b209a1dee89f3ff9",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-07-14",
-   "ms_date": "2025-04-09",
+   "hash": "8a6929a1455d2cdc",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
    "title": "Microsoft Entra ID を使用した一般的なハイブリッド シナリオ - Microsoft Entra ID"
   },
   "entra/identity/hybrid/concept-group-source-of-authority-guidance": {
@@ -17133,10 +17331,10 @@
   "entra/identity/hybrid/configure": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "d79ce100fa443c37",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-04-18",
-   "ms_date": "2025-04-09",
+   "hash": "c6aab6e8e67230cf",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-12",
+   "ms_date": "2026-10-06",
    "title": "Active Directory との統合を構成する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/connect/admin-audit-logging": {
@@ -17232,10 +17430,10 @@
   "entra/identity/hybrid/connect/deprecated-azure-ad-connect": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "963a0faaaaab08b6",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-06-26",
-   "ms_date": "2025-04-09",
+   "hash": "b693dedb144b45a4",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
    "title": "非推奨バージョンの Microsoft Entra Connect の使用 - Microsoft Entra ID"
   },
   "entra/identity/hybrid/connect/harden-update-ad-fs-pingfederate": {
@@ -17286,9 +17484,9 @@
   "entra/identity/hybrid/connect/how-to-connect-configure-ad-ds-connector-account": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "eabd848b6e6d58d1",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-02",
+   "hash": "e594df9fdfa80103",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
    "ms_date": "2025-04-09",
    "title": "Microsoft Entra Connect: AD DS コネクタ アカウントのアクセス許可の構成  - Microsoft Entra ID"
   },
@@ -18024,11 +18222,11 @@
   "entra/identity/hybrid/connect/how-to-connect-sync-whatis": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "2891cbabd46417dc",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-03-11",
-   "ms_date": "2025-04-09",
-   "title": "Microsoft Entra接続同期: 同期を理解してカスタマイズする - Microsoft Entra ID"
+   "hash": "e0a9c9a007ef2e05",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
+   "title": "Microsoft Entra Connect Sync を理解する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/connect/how-to-connect-syncservice-duplicate-attribute-resiliency": {
    "category": "hybrid",
@@ -18321,8 +18519,8 @@
   "entra/identity/hybrid/connect/reference-connect-version-history": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "005a24f72d26f5d4",
-   "last_changed": "2026-10-07",
+   "hash": "61262210e56c2852",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-23",
    "ms_date": "2026-09-23",
    "title": "Microsoft Entra Connect: バージョン リリース履歴 - Microsoft Entra ID"
@@ -18573,10 +18771,10 @@
   "entra/identity/hybrid/get-started": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "3599fd5c804cecdc",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-04-09",
-   "ms_date": "2025-04-09",
+   "hash": "e02028f71505c3cc",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
    "title": "Microsoft Entra ID との統合を開始する - Microsoft Entra ID"
   },
   "entra/identity/hybrid/group-writeback-cloud-sync": {
@@ -18690,10 +18888,10 @@
   "entra/identity/hybrid/sync-tools": {
    "category": "hybrid",
    "first_seen": "2026-10-07",
-   "hash": "d87b8b4b67bd3cec",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-04-09",
-   "ms_date": "2025-04-09",
+   "hash": "862e20a84550224f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-06",
    "title": "同期に使用されるツール - Microsoft Entra ID"
   },
   "entra/identity/hybrid/troubleshoot-connect-sync-application-authentication": {
@@ -18870,8 +19068,8 @@
   "entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "32c7f1ec90e4f08d",
-   "last_changed": "2026-10-07",
+   "hash": "b96169e9098d0159",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-01-16",
    "ms_date": "2025-01-16",
    "title": "Azure 仮想マシン (VM) 上でマネージド ID を構成する - Managed identities for Azure resources"
@@ -19014,8 +19212,8 @@
   "entra/identity/managed-identities-azure-resources/managed-identities-faq": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "976071ae8a8e4bf3",
-   "last_changed": "2026-10-07",
+   "hash": "cf2de5a66bb7342d",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-09-03",
    "ms_date": "2025-02-27",
    "title": "Azure リソースのマネージド ID に関してよく寄せられる質問 - Managed identities for Azure resources"
@@ -19212,8 +19410,8 @@
   "entra/identity/monitoring-health/concept-microsoft-entra-health": {
    "category": "monitoring",
    "first_seen": "2026-10-07",
-   "hash": "2f9149effe00fe3d",
-   "last_changed": "2026-10-07",
+   "hash": "1d49b2b1c132ebca",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-02-09",
    "ms_date": "2026-02-09",
    "title": "Microsoft Entra Health の監視について - Microsoft Entra ID"
@@ -19275,10 +19473,10 @@
   "entra/identity/monitoring-health/concept-usage-insights-report": {
    "category": "monitoring",
    "first_seen": "2026-10-07",
-   "hash": "10100044f4fbbd46",
-   "last_changed": "2026-10-07",
-   "lastmod": "2025-05-27",
-   "ms_date": "2025-05-27",
+   "hash": "9a9583a170c14e9f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-29",
+   "ms_date": "2026-10-29",
    "title": "使用状況と分析情報のレポート - Microsoft Entra ID"
   },
   "entra/identity/monitoring-health/how-to-view-applied-conditional-access-policies": {
@@ -19392,8 +19590,8 @@
   "entra/identity/monitoring-health/howto-investigate-health-scenario-alerts": {
    "category": "monitoring",
    "first_seen": "2026-10-07",
-   "hash": "cc9dbfc2c6ca9c13",
-   "last_changed": "2026-10-07",
+   "hash": "1d50ca466e99c0a8",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-04-21",
    "ms_date": "2026-04-02",
    "title": "ヘルスモニタリングアラートを調査する方法 (プレビュー) - Microsoft Entra ID"
@@ -19689,8 +19887,8 @@
   "entra/identity/monitoring-health/reference-sla-performance": {
    "category": "monitoring",
    "first_seen": "2026-10-07",
-   "hash": "15fe48f6772569fc",
-   "last_changed": "2026-10-07",
+   "hash": "2f0f1d602831347d",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-01-06",
    "ms_date": "2026-01-06",
    "title": "Microsoft Entra ID のサービス レベル アグリーメントのパフォーマンス - Microsoft Entra ID"
@@ -19703,6 +19901,24 @@
    "lastmod": "2026-10-01",
    "ms_date": "2025-05-06",
    "title": "Microsoft Entra の監視と正常性に関する FAQ - Microsoft Entra ID"
+  },
+  "entra/identity/monitoring-health/scenario-health-agent-id-autonomous-sign-ins": {
+   "category": "monitoring",
+   "first_seen": "2026-11-01",
+   "hash": "5e576393bb94208c",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-09",
+   "ms_date": "2026-10-08",
+   "title": "Agent ID の自動サインインを調査する - Microsoft Entra ID"
+  },
+  "entra/identity/monitoring-health/scenario-health-agent-id-interactive-sign-ins": {
+   "category": "monitoring",
+   "first_seen": "2026-11-01",
+   "hash": "244132aa9af8b314",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-09",
+   "ms_date": "2026-10-08",
+   "title": "エージェント ID の対話型サインインを調査する - Microsoft Entra ID"
   },
   "entra/identity/monitoring-health/scenario-health-conditional-access-block-policy": {
    "category": "monitoring",
@@ -19851,8 +20067,8 @@
   "entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "3c8cc5e8637717c5",
-   "last_changed": "2026-10-07",
+   "hash": "474f4376c5e039fd",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-08-06",
    "ms_date": "2026-08-06",
    "title": "テナント間同期を構成する - Microsoft Entra ID"
@@ -19887,8 +20103,8 @@
   "entra/identity/multi-tenant-organizations/cross-tenant-synchronization-overview": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "c35e4d1cffe7f62a",
-   "last_changed": "2026-10-07",
+   "hash": "4fa19fecc07aea95",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-29",
    "ms_date": "2026-05-29",
    "title": "Microsoft Entra IDでのテナント間同期とは - Microsoft Entra ID"
@@ -20166,11 +20382,11 @@
   "entra/identity/role-based-access-control/delegate-app-roles": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "05f82a3ef1dcb7e4",
-   "last_changed": "2026-10-07",
-   "lastmod": "2024-11-17",
-   "ms_date": "2024-11-17",
-   "title": "アプリケーション管理の管理者アクセス許可を委任する - Microsoft Entra ID"
+   "hash": "2e2bf441f92ee72f",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-16",
+   "ms_date": "2026-10-12",
+   "title": "アプリケーション管理とエージェント管理の管理者権限を委任する - Microsoft Entra ID"
   },
   "entra/identity/role-based-access-control/delegate-by-task": {
    "category": "identity_core",
@@ -20229,8 +20445,8 @@
   "entra/identity/role-based-access-control/manage-roles-portal": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "8d309f4469c9e449",
-   "last_changed": "2026-10-07",
+   "hash": "0657a72eb06d6846",
+   "last_changed": "2026-11-01",
    "lastmod": "2025-06-04",
    "ms_date": "2025-06-04",
    "title": "Microsoft Entra ロールを割り当てる - Microsoft Entra ID"
@@ -20247,8 +20463,8 @@
   "entra/identity/role-based-access-control/permissions-reference": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "a173960f7fe4e28b",
-   "last_changed": "2026-10-07",
+   "hash": "ac82778b2eda4bcb",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-17",
    "ms_date": "2026-07-17",
    "title": "組み込みロールのMicrosoft Entra - Microsoft Entra ID"
@@ -21678,8 +21894,8 @@
   "entra/identity/saas-apps/atlassian-cloud-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "160ec17aee2e8a12",
-   "last_changed": "2026-10-07",
+   "hash": "3b8802a83763a723",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-05-26",
    "ms_date": "2026-05-26",
    "title": "Microsoft Entra ID で Atlassian Cloud のシングルサインオンを設定する - Microsoft Entra ID"
@@ -22551,8 +22767,8 @@
   "entra/identity/saas-apps/brivo-onair-identity-connector-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "cd0214738e10274e",
-   "last_changed": "2026-10-07",
+   "hash": "b4ebb5800230a15d",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-03-11",
    "ms_date": "2026-02-27",
    "title": "Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Brivo Onair Identity Connector を構成する - Microsoft Entra ID"
@@ -23163,9 +23379,9 @@
   "entra/identity/saas-apps/cisco-secure-firewall-secure-client": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "aaad32eaee323df2",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "80a9e29cf8bfa7a3",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
    "ms_date": "2026-10-01",
    "title": "Cisco Secure Firewall - Secure Client を Microsoft Entra ID によるシングルサインオン用に構成する - Microsoft Entra ID"
   },
@@ -32559,10 +32775,10 @@
   "entra/identity/saas-apps/puzzel-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "8e0e3bb5019eb12c",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-08-14",
-   "ms_date": "2026-08-10",
+   "hash": "9f03f2ceb329362a",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-28",
+   "ms_date": "2026-10-22",
    "title": "Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Puzzel を構成する - Microsoft Entra ID"
   },
   "entra/identity/saas-apps/pwc-identity-tutorial": {
@@ -33834,6 +34050,24 @@
    "ms_date": "2025-05-20",
    "title": "Microsoft Entra ID でシングル サインオン用に Seculio を構成する - Microsoft Entra ID"
   },
+  "entra/identity/saas-apps/secure-cloud-user-integration-provisioning-tutorial": {
+   "category": "saas_apps",
+   "first_seen": "2026-11-01",
+   "hash": "3446cd01d926113b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-26",
+   "ms_date": "2026-10-20",
+   "title": "Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Secure Cloud User Integration を構成する - Microsoft Entra ID"
+  },
+  "entra/identity/saas-apps/secure-cloud-user-integration-tutorial": {
+   "category": "saas_apps",
+   "first_seen": "2026-11-01",
+   "hash": "0ebe3b3690d2171a",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-26",
+   "ms_date": "2026-10-23",
+   "title": "Microsoft Entra ID でのシングル サインオン用に Secure Cloud User Integration を構成する - Microsoft Entra ID"
+  },
   "entra/identity/saas-apps/secure-login-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
@@ -34701,8 +34935,8 @@
   "entra/identity/saas-apps/snowflake-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "886d201e8cc26c8f",
-   "last_changed": "2026-10-07",
+   "hash": "3838f7d50ef2d3ea",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-06",
    "ms_date": "2026-07-02",
    "title": "Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Snowflake を構成する - Microsoft Entra ID"
@@ -34710,9 +34944,9 @@
   "entra/identity/saas-apps/snowflake-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "cb84b982b009f592",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-06-11",
+   "hash": "6b97dc8b0f84b99e",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-27",
    "ms_date": "2026-06-11",
    "title": "Microsoft Entra ID でシングル サインオン用に Snowflake を構成する - Microsoft Entra ID"
   },
@@ -37023,10 +37257,10 @@
   "entra/identity/saas-apps/vonage-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "a71dbca476d89376",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-04-06",
-   "ms_date": "2026-04-06",
+   "hash": "21741e213a662ba1",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-28",
+   "ms_date": "2026-10-22",
    "title": "Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Vonage を構成する - Microsoft Entra ID"
   },
   "entra/identity/saas-apps/vonage-tutorial": {
@@ -38157,9 +38391,9 @@
   "entra/identity/saas-apps/zscaler-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "3ee454c80f74b65f",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-01",
+   "hash": "d1364a24e0470c19",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-06",
    "ms_date": "2026-03-30",
    "title": "Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Zscaler ZSNet を構成する - Microsoft Entra ID"
   },
@@ -38184,9 +38418,9 @@
   "entra/identity/saas-apps/zscaler-zidentity-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "5afd2af65eb54623",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-10-05",
+   "hash": "1d25969c80062c5b",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-06",
    "ms_date": "2026-09-30",
    "title": "Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Zscaler を構成する - Microsoft Entra ID"
   },
@@ -38319,8 +38553,8 @@
   "entra/identity/users/directory-service-limits-restrictions": {
    "category": "identity_core",
    "first_seen": "2026-10-07",
-   "hash": "f9de1a83f175b794",
-   "last_changed": "2026-10-07",
+   "hash": "e58b8b5810410421",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-10-01",
    "ms_date": "2026-10-01",
    "title": "サービスの制限と制約 - Microsoft Entra ID"
@@ -40560,8 +40794,8 @@
   "entra/msal/javascript/browser/resources-and-scopes": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "f799ba3e0b186cb1",
-   "last_changed": "2026-10-07",
+   "hash": "228670468e2a1a11",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-02",
    "ms_date": "2025-05-21",
    "title": "リソースとスコープ - Microsoft Authentication Library for JavaScript"
@@ -40695,8 +40929,8 @@
   "entra/msal/javascript/node/acquire-token-requests": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "88ece8872de90e04",
-   "last_changed": "2026-10-07",
+   "hash": "6ed76cdc4c09ee58",
+   "last_changed": "2026-11-01",
    "lastmod": "2026-07-02",
    "ms_date": "2025-05-21",
    "title": "MSAL ノードでのトークンの取得 - Microsoft Authentication Library for JavaScript"
@@ -42558,10 +42792,10 @@
   "entra/verified-id/idv-partners": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "2f14500bb38c0249",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-05-07",
-   "ms_date": "2026-04-22",
+   "hash": "6de57d8c22d6f729",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-08",
    "title": "Microsoft Entra Verified ID - IDV パートナー ギャラリー - Microsoft Entra Verified ID"
   },
   "entra/verified-id/integration-guidance": {
@@ -42756,10 +42990,10 @@
   "entra/verified-id/whats-new": {
    "category": "external_id",
    "first_seen": "2026-10-07",
-   "hash": "d2c15fafe12f325a",
-   "last_changed": "2026-10-07",
-   "lastmod": "2026-05-07",
-   "ms_date": "2026-04-22",
+   "hash": "cf06cdc6cc36aa0a",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-08",
+   "ms_date": "2026-10-08",
    "title": "Microsoft Entra 確認済み ID の新機能 - Microsoft Entra Verified ID"
   },
   "entra/workload-id": {
@@ -42770,6 +43004,15 @@
    "lastmod": "2026-10-01",
    "ms_date": "2023-03-22",
    "title": "Microsoft Entra ワークロード ID のドキュメント - Microsoft Entra Workload ID"
+  },
+  "entra/workload-id/troubleshoot-revoked-credentials": {
+   "category": "developer",
+   "first_seen": "2026-11-01",
+   "hash": "8f1c79a3a97ceb83",
+   "last_changed": "2026-11-01",
+   "lastmod": "2026-10-23",
+   "ms_date": "2026-10-22",
+   "title": "失効したアプリケーション資格情報のトラブルシューティング - Microsoft Entra Workload ID"
   },
   "entra/workload-id/workload-identities-faqs": {
    "category": "developer",

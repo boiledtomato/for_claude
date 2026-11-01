@@ -1,7 +1,236 @@
 # Microsoft Learn — Microsoft Entra / ハイブリッド ID (Connect / Cloud Sync) (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 49
+Pages in this file: 51
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/how-to-connect-pta-faq"} -->
+## Microsoft Entra Connect - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq
+- Service: entra-id / hybrid-connect
+- Article date: 2024-12-20
+- Summary: Microsoft Entra パススルー認証機能に関してよく寄せられる質問への回答
+
+この記事では、Microsoft Entra パススルー認証機能に関してよく寄せられる質問へに対応します。 最新のコンテンツを常にチェックしてください。
+
+### Microsoft Entra ID へのサインイン方法として、パススルー認証、パスワード ハッシュ同期、Active Directory フェデレーション サービス (AD FS) のうちどれを選択すればよいですか。
+
+Microsoft Entra の各種サインイン方法の比較および組織に合った適切なサインイン方法の選び方については、[こちらのガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/choose-ad-authn)を参照してください。
+
+### パススルー認証は無料の機能ですか。
+
+パススルー認証は、無料の機能です。 この機能を使用するために Microsoft Entra ID の有料エディションは不要です。
+
+### 条件付きアクセスは、パススルー認証と連携しますか。
+
+はい。 Microsoft Entra 多要素認証を含め、すべての[条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)機能がパススルー認証と連携します。
+
+### パススルー認証では、"userPrincipalName" の代わりに "Alternate ID" がユーザー名としてサポートされますか。
+
+はい。連絡用メール アドレスなどの UPN 以外の値を使用したサインインは、パススルー認証 (PTA) とパスワード ハッシュ同期 (PHS) の両方でサポートされています。 代替サインイン IDの詳細については、以下を参照してください。
+
+### パスワード ハッシュ同期は、パススルー認証のフォールバックとして機能しますか。
+
+いいえ。 パススルー認証は、パスワード ハッシュ同期に自動的にフェールオーバー *されません*。 ユーザーのサインイン エラーを回避するには、[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)向けにパススルー認証を構成する必要があります。
+
+### パスワード ハッシュ同期からパススルー認証に切り替えるとどうなりますか。
+
+Microsoft Entra Connect を使用して、サインイン方法をパスワード ハッシュ同期からパススルー認証に切り替えると、パススルー認証がマネージド ドメイン内でのユーザーのプライマリ サインイン方法になります。 パスワード ハッシュ同期によって以前同期されていたすべてのユーザーのパスワード ハッシュは、Microsoft Entra ID に保存されたままになります。
+
+### Microsoft Entra プライベート ネットワーク コネクタを、パススルー認証エージェントと同じサーバーにインストールできますか?
+
+はい。 この構成は、パススルー認証エージェント (バージョン 1.5.193.0 以降) のブランド名変更バージョンでサポートされます。
+
+### どのバージョンの Microsoft Entra Connect とパススルー認証エージェントが必要ですか。
+
+この機能を動作させるには、Microsoft Entra Connect については 1.1.750.0 以降、パススルー認証エージェントについては 1.5.193.0 以降が必要です。 すべてのソフトウェアを、Windows Server 2012 R2 以降が搭載されたサーバーにインストールする必要があります。
+
+### コネクタがまだ古いバージョンを使用していて、自動的に最新バージョンにアップグレードされないのはなぜですか?
+
+アップデーター サービスが正常に動作していないか、このサービスでインストールできる新しい更新プログラムがないことが原因の可能性があります。 アップデーター サービスが実行されていて、イベント ログにエラーが記録されていない場合は、正常です ([アプリケーションとサービス ログ] -&gt; [Microsoft] -&gt; [AzureADConnect-Agent] -&gt; [アップデーター] -&gt; [管理者])。
+
+自動アップグレードではメジャー バージョンのみがリリースされます。 エージェントは、必要な場合にのみ手動で更新することをお勧めします。 たとえば、既知の問題を修正したり、新機能を使用したりする必要があるため、メジャー リリースまで待てないような場合です。 新しいリリース、リリースの種類 (ダウンロード、自動アップグレード)、バグ修正、および新機能の詳細については、Microsoft Entra パススルー認証エージェントのバージョン リリース履歴 を参照してください。
+
+コネクタを手動でアップグレードするには、次の手順を実行します。
+
+- 最新バージョンのエージェントをダウンロードします。 ([Microsoft Entra 管理センター](https://entra.microsoft.com)の [Microsoft Entra Connect パススルー認証] の下に表示されます。 また、Microsoft Entra パススルー認証: バージョンのリリース履歴のリンクで確認することもできます。
+- インストーラーによって、Microsoft Entra Connect 認証エージェント サービスが再起動します。 場合によっては、インストーラですべてのファイルを置き換えることができない場合、サーバーの再起動が必要になります。 アップグレードを開始する前に、すべてのアプリケーションを終了することをお勧めします。
+- インストーラを実行します。 アップグレード プロセスは迅速であり、資格情報を指定する必要はありません。エージェントは再登録されません。
+
+### ユーザーのパスワードの有効期限が切れ、パススルー認証を使用してサインインしようとするとどうなりますか?
+
+特定のユーザー [パスワード ライトバック](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sspr-writeback) を構成しており、ユーザーがパススルー認証を使用してサインインした場合、パスワードを変更またはリセットできます。 パスワードはオンプレミス Active Directory に想定どおりに書き戻されます。
+
+特定のユーザーにパスワード ライトバックが構成されていない場合、またはユーザーに有効な Microsoft Entra ID ライセンスが割り当てられていない場合、ユーザーはクラウドでパスワードを更新できません。 パスワードの有効期限が切れた場合でも、パスワードを更新することはできません。 代わりにユーザーには、"このサイトでパスワードを変更することをお客様の組織が許可していません。 組織で推奨されている方法に従って更新するか、ヘルプが必要な場合は管理者に問い合わせてください。 "ユーザーや管理者は、オンプレミスの Active Directory でパスワードをリセットする必要があります。
+
+### ユーザーは、資格情報 (ユーザー名、パスワード) を使用して Microsoft Entra ID にサインインします。 ユーザーのパスワードの有効期限は切れていますが、ユーザーは引き続き Microsoft Entra のリソースにアクセスできます。 なぜこのようになるのですか?
+
+パスワードの有効期限によって、認証トークンまたは Cookie の失効はトリガーされません。 トークンまたは Cookie が有効になるまで、ユーザーはトークンを使用できます。 これは、認証の種類 (PTA、PHS、フェデレーション シナリオ) に関係なく適用されます。
+
+詳細については、次のドキュメントを参照してください。
+
+[Microsoft ID プラットフォーム アクセス トークン - Microsoft ID プラットフォーム | Microsoft Docs](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-tokens)
+
+### パススルー認証を使用することで、どのようにブルート フォース パスワード攻撃から保護できますか。
+
+[スマート ロックアウトに関する情報をお読みください](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout)。
+
+### パススルー認証エージェントはポート 80 およびポート 443 で何をやり取りしますか。
+
+- 認証エージェントは、すべての機能操作について、ポート 443 で HTTPS 要求を行います。
+- 認証エージェントは、TLS/SSL 証明書失効リスト (CRL) をダウンロードするために、ポート 80 で HTTP 要求を行います。
+
+    注意
+
+    この機能に必要なポートの数は、最近の更新で減らされています。 以前のバージョンの Microsoft Entra Connect または認証エージェントを使用している場合は、5671、8080、9090、9091、9350、9352、10100 - 10120 の各ポートも開放しておいてください。
+
+### パススルー認証エージェントは、送信 Web プロキシ サーバーで通信できますか。
+
+はい。 Web プロキシ自動発見 (WPAD) がオンプレミス環境で有効になっている場合、認証エージェントは、ネットワーク上の Web プロキシ サーバーを自動的に検索し、使用しようとします。 送信プロキシ サーバーを使用する方法の詳細については、「[既存のオンプレミス プロキシ サーバーと連携する](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-connectors-with-proxy-servers#use-the-outbound-proxy-server)」を参照してください。
+
+環境内に WPAD がない場合は、プロキシ情報を追加して、パススルー認証エージェントが Microsoft Entra ID と通信できるようにします。
+
+- サーバー上でパススルー認証エージェントをインストールする前に、Internet Explorer 上でプロキシ情報を構成します。 これにより、認証エージェントのインストールを完了できますが、管理ポータルに非アクティブな表示されます。
+- サーバー上で、"C:\Program Files\Microsoft Azure AD Connect Authentication Agent" に移動します。
+- "AzureADConnectAuthenticationAgentService" 構成ファイルを編集し、次の行を追加します ("http://contosoproxy.com:8080&quot" は実際のプロキシ アドレスに置き換えます)。
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
+
+### 同じサーバーに複数のパススルー認証エージェントをインストールできますか。
+
+いいえ。1 つのサーバーにインストールできるパススルー認証エージェントは 1 つだけです。 高可用性向けにパススルー認証を構成する必要がある場合は、[こちらの手順に従ってください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)。
+
+### パススルー認証エージェントで使用される証明書は手動で更新する必要がありますか。
+
+各パススルー認証エージェントと Microsoft Entra ID の間の通信は、証明書ベースの認証を使用して保護されます。 これらの[証明書は、Microsoft Entra ID によって数か月ごとに自動的に更新されます](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive#operational-security-of-the-authentication-agents)。 これらの証明書を手動で更新する必要はありません。 必要に応じて、有効期限が切れた古い証明書をクリーンアップできます。
+
+### パススルー認証エージェントを削除するにはどうすればよいですか。
+
+パススルー認証エージェントが実行されている間はアクティブなままであり、ユーザーのサインイン要求を継続的に処理します。 認証エージェントをアンインストールする場合は、[コントロール パネル] **[&gt; プログラム] - [&gt; プログラムと機能]**に移動します。 **Microsoft Entra Connect 認証エージェント** と、**Microsoft Entra Connect Agent Updater** プログラムの両方をアンインストールします。
+
+少なくとも[ハイブリッド ID 管理者](https://entra.microsoft.com) として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)の [パススルー認証] ブレードを確認した場合。 認証エージェントが**非アクティブ**として表示されます。 これは "*予期されること*" です。 認証エージェントは 10 日後に自動的に一覧から削除されます。
+
+### 既に AD FS を使用して、Microsoft Entra ID にサインインしています。 これをパススルー認証に切り替えるには、どうすればよいですか。
+
+AD FS (または他のフェデレーション テクノロジ) からパススルー認証に移行する場合は、[クイックスタート ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start)に従うよう強くお勧めします。
+
+### 複数フォレスト Active Directory 環境でパススルー認証を使用できますか。
+
+はい。 ご使用の Active Directory フォレスト間にフォレストの信頼 (双方向) があり、名前サフィックス ルーティングが正しく構成されていれば、複数フォレスト環境がサポートされます。
+
+### パススルー認証では、複数の認証エージェント間の負荷分散を提供しますか。
+
+いいえ。複数のパススルー認証エージェントをインストールすることで[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)のみが確保されます。 認証エージェント間の確定的な負荷分散は提供されません。 任意の認証エージェント (ランダム) が特定のユーザーのサインイン要求を処理できます。
+
+### いくつのパススルー認証エージェントをインストールする必要がありますか?
+
+複数のパススルー認証エージェントをインストールすることで[高可用性](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start#step-4-ensure-high-availability)が確保されます。 ただし認証エージェント間の確定的な負荷分散は提供されません。
+
+テナント上で想定されるサインイン要求のピーク時の負荷および平均的な負荷を検討してください。 ベンチマークとして、1 つの認証エージェントでは、標準的な 4 コア CPU、16 GB RAM サーバー上で 1 秒あたり 300 - 400 の認証を処理できます。
+
+ネットワーク トラフィックを見積もるには、サイズ設定に関する次のガイダンスに従ってください。
+
+- 各要求のペイロード サイズは、(0.5K + 1K \* num\_of\_agents) バイトです。これは、Microsoft Entra ID から認証エージェントへのデータ量に相当します。 ここで "num\_of\_agents" は、テナントに登録されている認証エージェントの数を示します。
+- 各応答のペイロード サイズは 1K バイトです。これは、認証エージェントから Microsoft Entra ID へのデータ量に相当します。
+
+ほとんどのお客様の場合、高可用性と大容量を確保するには、合計 2 つまたは 3 つの認証エージェントがあれば十分です。 ただし、運用環境では、テナントで少なくとも 3 つの認証エージェントを実行することをお勧めします。 サインインの待機時間を向上させるために、認証エージェントは、ドメイン コントローラーの近くにインストールする必要があります。
+
+注意
+
+認証エージェントの数は、テナントあたり 40 個に制限されています。
+
+### パススルー認証を有効にするには、どのようなロールが必要ですか?
+
+[ハイブリッド ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)アカウントを使用してパススルー認証を有効または無効にすることが推奨されます。 このようにすることで、テナントからロックアウトされないようになります。 ]
+
+### パススルー認証を無効にするには、どうすればよいですか。
+
+Microsoft Entra Connect ウィザードを再実行し、ユーザーのサインイン方法を、パススルー認証から別の方法に変更します。 この変更により、テナントのパススルー認証が無効になり、認証エージェントがサーバーからアンインストールされます。 他のサーバーからは、手動で認証エージェントをアンインストールする必要があります。
+
+### パススルー認証エージェントをアンインストールすると、どうなりますか。
+
+サーバーからパススルー認証エージェントをアンインストールすると、そのサーバーでサインイン要求の受け入れが停止します。 テナントでユーザーのサインインが中断しないようにするには、パススルー認証エージェントをアンインストールする前に、別の認証エージェントが実行されていることを確認します。
+
+### AD FS を使用してセットアップした古いテナントがあります。 最近 PTA に移行しましたが、UPN の変更点が Microsoft Entra ID に同期されていません。 UPN の変更点はなぜ同期されていないのでしょうか?
+
+次の状況においては、オンプレミスの UPN の変更点が同期されない場合があります。
+
+- Microsoft Entra テナントが 2015 年 6 月 15 日よりも前に作成された。
+- 最初に認証に AD FS を使用して、Microsoft Entra テナントとフェデレーションした。
+- 管理対象ユーザーに認証として PTA を使用させるように切り替えた場合。
+
+これは、2015 年 6 月 15 日よりも前に作成されたテナントの既定の動作が UPN の変更点のブロックであるためです。 UPN の変更点のブロックを解除する必要がある場合は、次の PowerShell コマンドレットを実行する必要があります。 [Get-MgDirectoryOnPremiseSynchronization](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.identity.directorymanagement/get-mgdirectoryonpremisesynchronization) コマンドレットを使って ID を取得します。
+
+```powershell
+$params = @{ "SynchronizeUpnForManagedUsersEnabled" = "True" }
+Update-MgDirectoryOnPremiseSynchronization -OnPremisesDirectorySynchronizationId $SynchronizationId -BodyParameter $params
+```
+
+2015 年 6 月 15 日以降に作成されたテナントでは、UPN の変更点を同期するのが既定の動作です。
+
+### Microsoft Entra サインインログと PTA サーバーから PTA エージェント ID をキャプチャして、サインイン イベントに使用された PTA サーバーを検証するにはどうすればよいですか。
+
+特定のサインイン イベントに使用されたローカル サーバーまたは認証エージェントを確認するには、次の手順に従います。
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)で、サインイン イベントに移動します。
+2. [**認証の詳細**] を選択します。 **[認証方法の詳細]** 列に、エージェント ID の詳細が "パススルー認証; PTA AgentId: 00001111-aaaa-2222-bbbb-3333cccc4444" の形式で表示されます。
+3. ローカル サーバーにインストールされているエージェントのエージェント ID の詳細を取得するには、ローカル サーバーにサインインし、次のコマンドレットを実行します。
+
+    `Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*`
+
+    返される GUID 値が、その特定のサーバーにインストールされている認証エージェントのエージェント ID です。 環境内に複数のエージェントがある場合は、各エージェント サーバーでこのコマンドレットを実行すると、エージェント ID の詳細を取得できます。
+4. ローカル サーバーと Microsoft Entra サインイン ログから取得したエージェント ID と を相互に関連付けて、どのエージェントまたはサーバーが署名要求を受信確認したかを検証します。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/how-to-connect-pta-how-it-works"} -->
+## Microsoft Entra Connect: パススルー認証 - しくみ - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-how-it-works
+- Service: entra-id / hybrid-connect
+- Article date: 2025-04-09
+- Summary: この記事では、Microsoft Entra パススルー認証のしくみについて説明します
+
+この記事では、Microsoft Entra パススルー認証のしくみの概要について説明します。 技術的およびセキュリティに関する詳細な情報については、[セキュリティの詳細](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive) 記事を参照してください。
+
+### Microsoft Entra パススルー認証のしくみ
+
+手記
+
+パススルー認証が機能するための前提条件として、ユーザーは Microsoft Entra Connect を使用してオンプレミスの Active Directory から Microsoft Entra ID にプロビジョニングする必要があります。 パススルー認証は、クラウドのみのユーザーには適用されません。
+
+ユーザーが Microsoft Entra ID で保護されたアプリケーションにサインインしようとしたときに、テナントでパススルー認証が有効になっている場合は、次の手順が実行されます。
+
+1. ユーザーは、[アプリケーションにアクセスしようとします。例えば、Outlook Web App](https://outlook.office365.com/owa/)など。
+2. ユーザーがまだサインインしていない場合、ユーザーは Microsoft Entra ID **ユーザー サインイン** ページにリダイレクトされます。
+3. ユーザーは、Microsoft Entra サインイン ページにユーザー名を入力し、**[次へ]** ボタンを選択します。
+4. ユーザーが Microsoft Entra サインイン ページにパスワードを入力し、**サインイン** ボタンを選択します。
+5. Microsoft Entra ID は、サインイン要求の受信時に、ユーザー名とパスワード (認証エージェントの公開キーを使用して暗号化) をキューに配置します。
+6. オンプレミス認証エージェントは、キューからユーザー名と暗号化されたパスワードを取得します。 エージェントはキューからの要求を頻繁にポーリングせず、事前に確立された永続的な接続を介して要求を取得します。
+7. エージェントは、秘密キーを使用してパスワードの暗号化を解除します。
+8. エージェントは、Active Directory フェデレーション サービス (AD FS) で使用されているものと同様のメカニズムである標準の Windows API を使用して、Active Directory に対してユーザー名とパスワードを検証します。 ユーザー名には、オンプレミスの既定のユーザー名 (通常は `userPrincipalName`) または Microsoft Entra Connect で構成された別の属性 (`Alternate ID`) のいずれかを指定できます。
+9. オンプレミスの Active Directory ドメイン コントローラー (DC) は要求を評価し、適切な応答 (成功、失敗、パスワードの有効期限切れ、またはユーザーのロックアウト) をエージェントに返します。
+10. 認証エージェントは、この応答を Microsoft Entra ID に返します。
+11. Microsoft Entra ID は応答を評価し、必要に応じてユーザーに応答します。 たとえば、Microsoft Entra ID は、ユーザーをすぐにサインインさせるか、Microsoft Entra 多要素認証を要求します。
+12. ユーザーのサインインが成功した場合、ユーザーはアプリケーションにアクセスできます。
+
+次の図は、すべてのコンポーネントと関連する手順を示しています。
+
+[Image: パススルー認証]
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -3804,14 +4033,14 @@ ID がリンクされ、インポート フロー マッピングを通じてさ
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/how-to-connect-sync-whatis"} -->
-## Microsoft Entra接続同期: 同期を理解してカスタマイズする - Microsoft Entra ID
+## Microsoft Entra Connect Sync を理解する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-whatis
 - Service: entra-id / hybrid-connect
-- Article date: 2025-04-09
-- Summary: Microsoft Entra Connect Sync のしくみとカスタマイズ方法について説明します。
+- Article date: 2026-10-06
+- Summary: Microsoft Entra Connect Sync が ID データを同期する方法と、オンプレミスの Active Directory環境の同期規則をカスタマイズする方法について説明します。
 
-Microsoft Entra Connect 同期サービス (Microsoft Entra Connect Sync) は、Microsoft Entra Connect の主要コンポーネントです。 オンプレミス環境とMicrosoft Entra IDの間で ID データを同期するために関連するすべての操作が処理されます。 Microsoft Entra Connect Sync は、DirSync と Azure AD Sync の後継です。
+Microsoft Entra Connect Sync は、オンプレミスのディレクトリと Microsoft Entra ID の間で ID 情報を同期します。 Microsoft Entra IDには、オンプレミスの同期エンジンとサービス コンポーネントが含まれます。 この記事では、Connect Sync のしくみとカスタマイズ方法について説明します。
 
 このトピックは、**Microsoft Entra Connect Sync** (**sync エンジン** とも呼ばれます) のホームであり、それに関連する他のすべてのトピックへのリンクを一覧表示します。 Microsoft Entra Connect へのリンクについては、「 Microsoft Entra ID」を参照してください。
 
@@ -3819,11 +4048,13 @@ Microsoft Entra Connect 同期サービス (Microsoft Entra Connect Sync) は、
 
 重要
 
-Microsoft Entra Connect クラウド同期は、ユーザー、グループ、連絡先をMicrosoft Entra IDに同期するためのハイブリッド ID 目標を満たし、達成するように設計された Microsoft の新しいオファリングです。 これを実現するには、Microsoft Entra Connect アプリケーションではなく、Microsoft Entra クラウド プロビジョニング エージェントを使用します。 Microsoft Entra Connect クラウド同期は、Microsoft Entra Connect Sync を置き換えます。これは、クラウド同期が Microsoft Entra Connect Sync と完全な機能パリティを持つようになった後に廃止されます。この記事の残りの部分は Microsoft Entra Connect Sync についてですが、Microsoft Entra Connect Sync をデプロイする前に、クラウド同期の機能と利点を確認することをお勧めします。
+Microsoft Entra Cloud Sync は、ユーザー、グループ、連絡先、デバイスをActive DirectoryからMicrosoft Entra IDに同期するためのクラウド管理サービスです。 Microsoft Entra Connect アプリケーションではなく、Microsoft Entra プロビジョニング エージェントが使用されます。 Microsoft Entra Cloud Sync は Microsoft Entra Connect Sync に取って代わるものであり、Cloud Sync が Connect Sync と完全に同等の機能を実現した時点で、Connect Sync は提供終了となります。この記事の残りの部分では、Microsoft Entra Connect Sync について説明します。Connect Sync をデプロイする前に、Cloud Sync の機能を確認してください。
+
+デバイス同期については、「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。
 
 既にクラウド同期の対象になっているかどうかを確認するには、 [このウィザード](https://admin.microsoft.com/adminportal/home?Q=setupguidance#/modernonboarding/identitywizard)で要件を確認してください。
 
-クラウド同期の詳細については、 [この記事](https://learn.microsoft.com/ja-jp/azure/active-directory/cloud-sync/what-is-cloud-sync)を参照するか、この [短いビデオ](https://learn-video.azurefd.net/vod/player?id=2b0047aa-84ba-430d-8ce9-39cfdc55276d)をご覧ください。
+Cloud Sync の詳細については、[Microsoft Entra Cloud Sync とは](https://learn.microsoft.com/ja-jp/azure/active-directory/cloud-sync/what-is-cloud-sync)を参照するか、この[短いビデオ](https://learn-video.azurefd.net/vod/player?id=2b0047aa-84ba-430d-8ce9-39cfdc55276d)をご覧ください。
 
 ### 機能と構成のリファレンス
 

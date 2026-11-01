@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / ユーザー・デバイス・ロール・マネージド ID (part 4)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 13
+Pages in this file: 12
 
 ---
 
@@ -1190,7 +1190,7 @@ Microsoft Entra ID P2 ライセンスと [Privileged Identity Management (PIM)](
 
     エージェント ID に割り当てることができるロールの一覧については、「 [Microsoft Entra Agent ID での承認](https://learn.microsoft.com/ja-jp/entra/agent-id/identity-professional/authorization-agent-id)」を参照してください。
 
-    次のスクリーンショットとエクスペリエンスが異なる場合は、Microsoft Entra ID P2 と PIM を使用している可能性があります。 詳細については、「Microsoft Entra の役割を Privileged Identity Managementに割り当てる 」を参照してください。
+    次のスクリーンショットとエクスペリエンスが異なる場合は、Microsoft Entra ID P2 と PIM を使用している可能性があります。 詳細については、「[Privileged Identity Management で Microsoft Entra ロールを割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-add-role-to-user)」を参照してください。
 
     [Image: 選択したロールの [割り当ての追加] ウィンドウのスクリーンショット。]
 5. [ **追加]** を選択してロールを割り当てます。
@@ -1833,7 +1833,7 @@ Microsoft Entra ID では、別の管理者または管理者以外の管理者�
 | AI 管理者 | Microsoft 365でMicrosoft Copilotおよび AI 関連のエンタープライズ サービスのすべての側面を管理します。[Image: 特権ラベル アイコン。] | d2562ede-74db-457e-a7b6-544e236ebb61 |
 | AI リーダー | Microsoft 365のMicrosoft Copilotおよび AI 関連のエンタープライズ サービスのすべての側面を読み取る。[Image: 特権ラベル アイコン。] | 1fe13547-53f6-408d-ac04-7f8eed167b38 |
 | アプリケーション管理者 | アプリ登録とエンタープライズ アプリのすべての側面を作成して管理できます。[Image: 特権ラベル アイコン。] | 9b895d92-2cd3-44c7-9d02-a6ac2d5ea5c3 |
-| アプリケーション開発者 | [ユーザーはアプリケーションを登録できる] の設定とは無関係にアプリケーション登録を作成できます。[Image: 特権ラベル アイコン。] | cf1c38e5-3621-4004-a7cb-879624dced7c |
+| アプリケーション開発者 | "ユーザーはアプリケーションを登録できます" 設定に依存しないアプリケーション登録を作成し、所有するアプリケーションを更新できます。[Image: 特権ラベル アイコン。] | cf1c38e5-3621-4004-a7cb-879624dced7c |
 | 攻撃のペイロードの作成者 | 管理者が後で開始できる攻撃のペイロードを作成できます。 | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f |
 | 攻撃のシミュレーションの管理者 | 攻撃のシミュレーション キャンペーンのすべての側面を作成および管理できます。 | c430b396-e693-46cc-96f3-db01bf8bb62a |
 | 属性割り当て管理者 | サポートされている Microsoft Entra オブジェクトにカスタム セキュリティ属性のキーと値を割り当てます。 | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
@@ -2311,13 +2311,35 @@ Important
 
 [Image: 特権ラベル アイコン。]
 
-これは [特権ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/privileged-roles-permissions)です。 このロールのユーザーは、[ユーザーはアプリケーションを登録できる] 設定が [いいえ] に設定されている場合に、アプリケーション登録を作成できます。 さらにこのロールでは、[ユーザーはアプリが自身の代わりに会社のデータにアクセスすることを許可できる] 設定が [いいえ] に設定されている場合に、代わりに同意する権限を付与します。 このロールに割り当てられたユーザーは、新しいアプリケーション登録を作成する際に、所有者として追加されます。
+これは [特権ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/privileged-roles-permissions)です。 このロールのユーザーは、[ユーザーはアプリケーションを登録できる] 設定が [いいえ] に設定されている場合に、アプリケーション登録を作成できます。 このロールに割り当てられたユーザーは、新しいアプリケーション登録を作成するときに所有者として追加され、自分が所有するアプリケーションを更新できます。 さらにこのロールでは、[ユーザーはアプリが自身の代わりに会社のデータにアクセスすることを許可できる] 設定が [いいえ] に設定されている場合に、代わりに同意する権限を付与します。
 
 | Actions | Description |
 | --- | --- |
 | microsoft.directory/applications/createAsOwner | すべての種類のアプリケーションを作成し、作成者が最初の所有者として追加される |
 | microsoft.directory/oAuth2PermissionGrants/createAsOwner | OAuth 2.0 アクセス許可付与を作成し、作成者を最初の所有者にする[Image: 特権ラベル アイコン。] |
 | microsoft.directory/servicePrincipals/createAsOwner | サービス プリンシパルを作成し、作成者を最初の所有者にする |
+
+#### 所有しているアプリケーションの登録
+
+アプリケーション開発者ロールを持つユーザーは、所有するアプリの登録に対して次のアクションを実行できます。
+
+| Actions | Description |
+| --- | --- |
+| microsoft.directory/applications/appRoles/update | すべての種類のアプリケーションで appRoles プロパティを更新する |
+| microsoft.directory/applications/audience/update | アプリケーションの対象ユーザー プロパティを更新する |
+| microsoft.directory/applications/authentication/update | すべての種類のアプリケーションで認証を更新する |
+| microsoft.directory/applications/basic/update | アプリケーションの基本プロパティを更新する |
+| microsoft.directory/applications/credentials/update | アプリケーション資格情報を更新する[Image: 特権ラベル アイコン。] |
+| microsoft.directory/applications/delete | すべての種類のアプリケーションを削除する |
+| microsoft.directory/applications/disablement/update | ユーザーがサインインできるようにアプリケーションが有効になっているかどうかを更新する |
+| microsoft.directory/applications/extensionProperties/update | アプリケーションの拡張機能プロパティを更新する |
+| microsoft.directory/applications/notes/update | アプリケーションのメモを更新する |
+| microsoft.directory/applications/owners/update | アプリケーションの所有者を更新する |
+| microsoft.directory/applications/permissions/update | すべての種類のアプリケーションで、公開されたアクセス許可と必要なアクセス許可を更新する |
+| microsoft.directory/applications/policies/update | アプリケーションのポリシーを更新する |
+| microsoft.directory/applications/tag/update | アプリケーションのタグを更新する |
+| microsoft.directory/applications/verification/update | アプリケーションの検証プロパティを更新する |
+| microsoft.directory/deletedItems.applications/delete | 復元できなくなったアプリケーションを完全に削除する |
 
 ### 攻撃のペイロードの作成者
 
@@ -5266,12 +5288,25 @@ Note
 
 [Image: 特権ラベル アイコン。]
 
-テナント ガバナンス管理者ロールを、次のタスクを実行する必要があるユーザーに割り当てます。
+Microsoft Entra テナント ガバナンス サービスの機能を管理するユーザーにテナント ガバナンス管理者ロールを割り当てます。
 
-- Microsoft Entra テナント ガバナンス サービスのすべての機能を管理する
+次の表に、ロールの既存のアクションと追加のアプリケーション管理操作を示します。
 
-| Actions | Description |
+**アプリケーション スコープ**としてマークされた操作は、承認されたテナント ガバナンス アプリケーションでのみ使用できます。 このロールを割り当てると、他のアプリケーションを通じて同等の無制限のアプリケーション管理アクセス許可は付与されません。 この制限により、ロールの他のアクセス許可のスコープは変更されません。
+
+Important
+
+これは特権的なロールです。 そのアプリケーション管理機能により、テナント リソースへのアクセスを許可できます。 信頼できる管理者にのみ割り当てます。
+
+| アクションと操作 | Description |
 | --- | --- |
+| サービス プリンシパルの作成 (アプリケーション スコープ) | ファースト パーティおよびサード パーティのアプリケーションのサービス プリンシパルを作成します。 |
+| サービス プリンシパル エンドポイントの更新 (アプリケーション スコープ) | サービス プリンシパルのエンドポイントを更新します。 |
+| サービス プリンシパルの削除 (アプリケーション スコープ) | サービス プリンシパルを削除します。 |
+| サービス プリンシパルを完全に削除する (アプリケーション スコープ) | ソーシャル ID プロバイダーのサービス プリンシパルを含め、サービス プリンシパルを完全に削除します。 |
+| サービス プリンシパルの復元 (アプリケーション スコープ) | 削除されたサービス プリンシパル (ソーシャル ID プロバイダーのサービス プリンシパルを含む) を復元します。 |
+| 委任されたアクセス許可の付与を管理する (アプリケーション スコープ) | 委任されたアクセス許可の許可を一覧表示、作成、更新、削除します。 |
+| アプリケーション ロールの割り当ての管理 (アプリケーション スコープ) | Microsoft Graphの割り当てや AD Graph のAzureなど、アプリケーション ロールの割り当てを管理します。 |
 | microsoft.directory/crossTenantAccessPolicy/basic/update | テナント間アクセスポリシーの基本設定を更新する |
 | microsoft.directory/crossTenantAccessPolicy/default/standard/read | 既定のテナント間アクセスポリシーの基本プロパティを読み取る |
 | microsoft.directory/crossTenantAccessPolicy/partners/create | パートナーのテナント間アクセスポリシーを作成する |
@@ -6525,135 +6560,4 @@ Microsoft Graph PowerShell は、ポリシー プロンプトを許可するた�
 **解決**
 
 Microsoft Graph PowerShell を使用していることを確認します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/role-based-access-control/protected-actions-overview"} -->
-## Microsoft Entra ID の保護されたアクションとは - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-overview
-- Service: entra-id / role-based-access-control
-- Article date: 2025-11-03
-- Summary: Microsoft Entra ID で保護されたアクションについて説明します。
-
-Microsoft Entra ID の保護されたアクションは、[条件付きアクセス ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)に割り当てられている権限です。 ユーザーが保護されたアクションを実行しようとすると、まず、必要なアクセス許可に割り当てられている条件付きアクセス ポリシーを満たす必要があります。 たとえば、管理者が条件付きアクセス ポリシーを更新できるようにするには、最初にフィッシング詐欺に強い MFA [ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-strengths#built-in-authentication-strengths) 満たす必要があります。
-
-この記事では、保護されたアクションの概要と、それらの使用を開始する方法について説明します。
-
-### 保護されたアクションを使用する理由
-
-保護のレイヤーを追加する場合は、保護されたアクションを使用します。 保護されたアクションは、使用されているロールやユーザーにアクセス許可が与えられた方法に関係なく、強力な条件付きアクセス ポリシー保護を必要とするアクセス許可に適用できます。 ポリシーの適用は、ユーザーがユーザーのサインインまたはルールのアクティブ化中ではなく、保護されたアクションを実行しようとしたときに行われるため、ユーザーは必要な場合にのみプロンプトが表示されます。
-
-### 保護されたアクションで通常使用されるポリシーは何ですか?
-
-すべてのアカウント (特に特権ロールを持つアカウント) で多要素認証を使用することをお勧めします。 保護されたアクションを使用して、追加のセキュリティを要求できます。 一般的な強力な条件付きアクセス ポリシーを次に示します。
-
-- [パスワードレス MFA](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-strengths#built-in-authentication-strengths) やフィッシングに強い MFA など、より強力な MFA 認証の強度
-- 特権アクセスワークステーションは、条件付きアクセスポリシー[とデバイスフィルター](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-condition-filters-for-devices)を使用して管理されます。
-- 条件付きアクセス [サインイン頻度セッション制御を使用して、セッションタイムアウトを短縮](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-session-lifetime#user-sign-in-frequency)。
-
-### 保護されたアクションで使用できるアクセス許可は何ですか？
-
-条件付きアクセス ポリシーは、制限されたアクセス許可のセットに適用できます。 保護されたアクションは、次の領域で使用できます。
-
-- 条件付きアクセス ポリシーの管理
-- テナント間アクセス設定の管理
-- 一部のディレクトリ オブジェクトのハード削除
-- ネットワークの場所を定義するカスタム ルール
-- 保護されたアクション管理
-
-アクセス許可の初期セットを次に示します。
-
-| 許可 | 説明 |
-| --- | --- |
-| microsoft.directory/conditionalAccessPolicies/basic/update | 条件付きアクセス ポリシーの基本プロパティを更新する |
-| microsoft.directory/conditionalAccessPolicies/create | 条件付きアクセス ポリシーを作成する |
-| microsoft.directory/conditionalAccessPolicies/delete (条件付きアクセス ポリシー削除) | 条件付きアクセス ポリシーを削除する |
-| microsoft.directory/conditionalAccessPolicies/basic/update | 条件付きアクセス ポリシーの基本プロパティを更新する |
-| microsoft.directory/conditionalAccessPolicies/create | 条件付きアクセス ポリシーを作成する |
-| microsoft.directory/conditionalAccessPolicies/delete (条件付きアクセス ポリシー削除) | 条件付きアクセス ポリシーを削除する |
-| microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | テナント間アクセス ポリシーの許可されたクラウド エンドポイントを更新する |
-| microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | 既定のテナント間アクセス ポリシーの Microsoft Entra B2B コラボレーション設定を更新する |
-| microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | 既定のテナント間アクセス ポリシーの Microsoft Entra B2B 直接接続設定を更新する |
-| microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | 既定のテナント間アクセス ポリシーのクラウド間 Teams 会議設定を更新します。 |
-| microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | 既定のテナント間アクセス ポリシーのテナント制限を更新します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | パートナーのテナント間アクセス ポリシーの Microsoft Entra B2B コラボレーション設定を更新します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | パートナー向けのテナント間アクセス ポリシーの Microsoft Entra B2B 直接接続設定を更新します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/create | パートナーのテナント間アクセス ポリシーを作成します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | パートナーのテナント間アクセス ポリシーのクラウド間 Teams 会議設定を更新します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/delete | パートナーのテナント間アクセス ポリシーを削除します。 |
-| microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | パートナーのテナント間アクセス ポリシーのテナント制限を更新します。 |
-| microsoft.directory/deletedItems/delete | 復元できなくなったオブジェクトを完全に削除する |
-| microsoft.directory/namedLocations/basic/update | ネットワークの場所を定義するカスタム 規則の基本プロパティを更新する |
-| microsoft.directory/namedLocations/create | ネットワークの場所を定義するカスタム ルールを作成する |
-| microsoft.directory/namedLocations/delete | ネットワークの場所を定義するカスタム ルールを削除する |
-| microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Microsoft 365 ロールベースのアクセス制御 (RBAC) リソース アクションの条件付きアクセス認証コンテキストを更新する |
-
-### ディレクトリ オブジェクトの削除
-
-Microsoft Entra ID では、ほとんどのディレクトリ オブジェクトに対して、論理的な削除とハード削除という 2 種類の削除がサポートされています。 ディレクトリ オブジェクトが論理的に削除されると、そのオブジェクトのプロパティ値とリレーションシップはごみ箱に 30 日間保持されます。 論理的に削除されたオブジェクトは、同じ ID とすべてのプロパティ値とリレーションシップをそのまま使用して復元できます。 論理的に削除されたオブジェクトがハード削除されると、オブジェクトは完全に削除され、同じオブジェクト ID で再作成することはできません。
-
-ごみ箱からソフト削除されたディレクトリ オブジェクトが偶発的または悪意のあるハード削除や永続的なデータ損失から保護されるようにするため、次のアクセス許可に保護アクションを追加できます。 この削除は、ユーザー、Microsoft 365 グループ、クラウド セキュリティ グループ、アプリケーションに適用されます。
-
-- microsoft.directory/deletedItems/delete
-
-### 保護されたアクションと Privileged Identity Management ロールのアクティブ化の比較
-
-[Privileged Identity Management ロールのアクティブ化](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings) には、条件付きアクセス ポリシーを割り当てることもできます。 この機能を使用すると、ユーザーがロールをアクティブ化した場合にのみポリシーを適用でき、最も包括的な保護が提供されます。 保護されたアクションは、条件付きアクセス ポリシーが割り当てられているアクセス許可を必要とするアクションをユーザーが実行した場合にのみ適用されます。 保護されたアクションを使用すると、ユーザー ロールに関係なく、影響の大きいアクセス許可を保護できます。 Privileged Identity Management ロールのアクティブ化と保護されたアクションを一緒に使用して、より強力なカバレッジを実現できます。
-
-### 保護されたアクションを使用する手順
-
-手記
-
-保護されたアクションが適切に構成され、適用されるようにするには、次の順序でこれらの手順を実行する必要があります。 この順序に従わないと、[を再認証する要求を繰り返し受け取る](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#symptom---policy-is-never-satisfied)など、予期しない動作が発生する可能性があります。
-
-1. **アクセス許可を調べる**
-
-    [条件付きアクセス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator) または [セキュリティ管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#security-administrator) のロールが割り当てられていることを確認します。 そうでない場合は、管理者に確認して適切なロールを割り当てます。
-2. 条件付きアクセス ポリシー **を構成する**
-
-    条件付きアクセス認証コンテキストと、関連付けられている条件付きアクセス ポリシーを構成します。 保護されたアクションは認証コンテキストを使用します。これにより、Microsoft Entra のアクセス許可など、サービス内のきめ細かなリソースに対するポリシーの適用が可能になります。 最初に、パスワードなしの MFA を要求し、緊急アカウントを除外することをお勧めします。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-1-configure-conditional-access-policy)
-3. **保護されたアクション** を追加する
-
-    選択したアクセス許可に条件付きアクセス認証コンテキスト値を割り当てることで、保護されたアクションを追加します。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-2-add-protected-actions)
-4. **保護されたアクション** をテストする
-
-    ユーザーとしてサインインし、保護されたアクションを実行してユーザー エクスペリエンスをテストします。 条件付きアクセス ポリシーの要件を満たすように求められます。 たとえば、ポリシーで多要素認証が必要な場合は、サインイン ページにリダイレクトされ、強力な認証を求められます。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-3-test-protected-actions)
-
-### 保護されたアクションとアプリケーションはどうなりますか?
-
-アプリケーションまたはサービスが保護アクションを実行しようとすると、必要な条件付きアクセス ポリシーを処理できる必要があります。 場合によっては、ユーザーが介入してポリシーを満たす必要がある場合があります。 たとえば、多要素認証を完了するために必要な場合があります。 次のアプリケーションでは、保護されたアクションのステップアップ認証がサポートされています。
-
-- [Microsoft Entra 管理センターの操作における管理者向けのエクスペリエンス](https://entra.microsoft.com)
-- [Microsoft Graph PowerShell](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/overview?branch=main)
-- [グラフ エクスプローラー](https://learn.microsoft.com/ja-jp/graph/graph-explorer/graph-explorer-overview?branch=main)
-
-既知の制限事項と予想される制限事項がいくつかあります。 次のアプリケーションは、保護されたアクションを実行しようとすると失敗します。
-
-- [Azure PowerShell](https://learn.microsoft.com/ja-jp/powershell/azure/what-is-azure-powershell?branch=main)
-- 新しい [使用条件](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) ページを作成するか、Microsoft Entra 管理センターで [カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) を作成します。 新しい利用規約ページまたはカスタム コントロールは条件付きアクセスに登録されるため、条件付きアクセスによる保護されたアクションの作成、更新、削除の対象となります。 条件付きアクセスの作成、更新、および削除アクションからポリシー要件を一時的に削除すると、新しい利用規約ページまたはカスタム コントロールを作成できます。
-
-組織で Microsoft Graph API を呼び出して保護されたアクションを実行するアプリケーションを開発している場合は、ステップアップ認証を使用して要求チャレンジを処理する方法のコード サンプルを確認する必要があります。 詳細については、「条件付きアクセス認証コンテキストの [に関する開発者ガイド](https://learn.microsoft.com/ja-jp/entra/identity-platform/developer-guide-conditional-access-authentication-context)参照してください。
-
-### ベスト プラクティス
-
-保護されたアクションを使用するためのベスト プラクティスを次に示します。
-
-- **緊急アカウント** がある
-
-    保護されたアクションに対して条件付きアクセス ポリシーを構成する場合は、ポリシーから除外される緊急アカウントがあることを確認してください。 これにより、偶発的なロックアウトに対する軽減策が提供されます。
-- **ユーザーとサインインのリスク ポリシーを条件付きアクセス** に移動する
-
-    条件付きアクセスのアクセス許可は、Microsoft Entra ID Protection リスク ポリシーを管理するときに使用されません。 ユーザーとサインインのリスク ポリシーを条件付きアクセスに移行することをお勧めします。
-- **名前付きネットワークの場所を使用する**
-
-    多要素認証の信頼できる IP を管理する場合、名前付きネットワークの場所のアクセス許可は使用されません。 [名前付きのネットワークの場所](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-assignment-network)を使用することをお勧めします。
-- **保護されたアクションを使用して、ID またはグループ メンバーシップの** に基づいてアクセスをブロックしない
-
-    保護されたアクションは、保護されたアクションを実行するためのアクセス要件を適用するために使用されます。 ユーザー ID またはグループ メンバーシップのみに基づいてアクセス許可の使用をブロックすることを目的としていません。 特定のアクセス許可にアクセスできるユーザーは承認の決定であり、ロールの割り当てによって制御する必要があります。
-
-### ライセンス要件
-
-この機能を使用するには、Microsoft Entra ID P1 ライセンスが必要です。 要件に適したライセンスを見つけるには、「[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)の一般公開機能を比較する」を参照してください。
 <!-- /MSL-PAGE -->

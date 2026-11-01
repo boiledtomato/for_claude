@@ -1,7 +1,762 @@
 # Microsoft Learn — Microsoft Entra / Global Secure Access (Internet / Private Access) (part 2)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 51
+Pages in this file: 44
+
+---
+
+<!-- MSL-PAGE {"url":"entra/global-secure-access/how-to-install-windows-client"} -->
+## Windows用のグローバル セキュリティで保護されたアクセス クライアントをインストールする - Global Secure Access
+
+- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client
+- Service: global-secure-access
+- Article date: 2026-02-02
+- Summary: グローバル セキュア アクセス クライアントは、ユーザー デバイスでネットワーク トラフィックをセキュリティで保護するのに役立ちます。 この記事では、Windows クライアントをダウンロードしてインストールする方法について説明します。
+
+グローバル セキュリティで保護されたアクセス クライアントは、グローバル セキュリティで保護されたアクセスの重要な部分です。 これは、組織がユーザー デバイス上のネットワーク トラフィックを管理およびセキュリティで保護するのに役立ちます。 クライアントは、グローバル セキュリティで保護されたアクセスによって保護される必要があるトラフィックをクラウド サービスにルーティングします。 その他のすべてのトラフィックは、ネットワークに直接送信されます。 ポータルで設定した [転送プロファイル](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-traffic-forwarding) によって、グローバル セキュア アクセス クライアントがクラウド サービスにルーティングするトラフィックが決まります。
+
+この記事では、Windows用のグローバル セキュア アクセス クライアントをダウンロードしてインストールする方法について説明します。 グローバル セキュア アクセス クライアントは、 [macOS](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-macos-client)、 [Android](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-android-client)、 [iOS](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-ios-client) でも使用できます。
+
+### 前提条件
+
+- グローバル セキュリティで保護されたアクセスにオンボードされたMicrosoft Entra テナント。
+- オンボードされたテナントに参加または登録されているデバイス (プレビュー):
+
+    - デバイスは、Microsoft Entra 参加済み、Microsoft Entra ハイブリッド参加済み、または Microsoft Entra 登録済みである必要があります。 詳細については、 [グローバル セキュリティで保護されたアクセス クライアントの概要](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-clients)に関するページを参照してください。
+    - デバイスが参加または登録されていない場合、グローバル セキュリティで保護されたアクセス クライアントは、ユーザーがサインインしたときに、デバイスをテナントに登録します。
+    - デバイスが未参加で、複数の登録がある場合、Global Secure Accessが接続する必要があるテナントのMicrosoft Entraユーザーでサインインします。
+    - 登録済みデバイスMicrosoft Entraでは、プライベート アクセス トラフィックのみがサポートされます。
+- Windows 10の 64 ビット バージョン (LTSC 2021 以降)、Windows 11、または Arm64 バージョンのWindows 11:
+
+    - 単一セッションAzure Virtual Desktopがサポートされています。
+    - Azure Virtual Desktopマルチセッションはサポートされていません。
+    - Windows 365がサポートされています。
+    - Arm デバイス上のWindows (Snapdragon プロセッサを使用したSurface ProやSurface Laptopなど) には、[separate クライアント インストーラー](https://aka.ms/GlobalSecureAccess-WindowsOnArm)が必要です。 Arm64 デバイスで標準の x64 インストーラーを使用しないでください。
+- グローバル セキュリティで保護されたアクセス クライアントをインストールまたはアップグレードするためのローカル管理者の資格情報。
+- ライセンス。 詳細については、[Global Secure Access とは？](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)のライセンスセクションをご参照ください。 必要に応じて、 [ライセンスを購入するか、試用版ライセンスを取得できます](https://aka.ms/azureadlicense)。
+
+### クライアントのダウンロード
+
+グローバル セキュア アクセス クライアントの最新バージョンは、Microsoft Entra admin centerからダウンロードできます。
+
+1. [Microsoft Entra admin center](https://entra.microsoft.com)に[グローバル セキュリティで保護されたアクセス管理者](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference#global-secure-access-administrator)としてサインインします。
+2. **グローバル セキュア アクセス**&gt;**Connect**&gt;**Client ダウンロード**に移動します。
+3. **[クライアントのダウンロード]** を選択します。
+
+    [Image: [クライアントのダウンロード] ボタンが強調表示されているクライアントダウンロードウィンドウのスクリーンショット。]
+
+### クライアントをインストールする
+
+#### 自動インストール
+
+組織は、 `/quiet` スイッチを使用して、グローバル セキュリティで保護されたアクセス クライアントをサイレント インストールできます。 または、[Microsoft Intune](https://learn.microsoft.com/ja-jp/mem/intune/apps/apps-win32-app-management) などのモバイル デバイス管理 (MDM) ソリューションを使用して、クライアントをデバイスに展開することもできます。
+
+#### Microsoft Intuneを使用してグローバル セキュリティで保護されたアクセス クライアントを展開する
+
+このセクションでは、Intune を使用して、グローバル セキュリティで保護されたアクセス クライアントを Windows 11 クライアント デバイスにインストールする方法について説明します。
+
+##### 前提条件
+
+- グローバル セキュリティで保護されたアクセス クライアントをインストールする場所を識別するデバイスまたはユーザーを含むセキュリティ グループ。
+
+##### クライアントをパッケージ化する
+
+インストール スクリプトを `.intunewin` ファイルにパッケージ化します。
+
+1. 次の PowerShell スクリプトをデバイスに保存します。 PowerShell スクリプトと Global Secure Access `.exe` インストーラーをフォルダーに配置します。
+
+    PowerShell インストール スクリプトは、グローバル セキュア アクセス クライアントをインストールし、IPv6 トラフィックよりも IPv4 を優先するように `IPv4Preferred` レジストリ キーを設定し、レジストリ キーの変更を有効にするための再起動を求めます。
+
+    注
+
+    PowerShell インストール スクリプトが正常に動作するためには、 `.exe` ファイルの名前が `GlobalSecureAccessClient.exe` されている必要があります。 `.exe` ファイルの名前を別のものに変更する場合は、PowerShell スクリプトの`$installerPath`も変更する必要があります。
+
+    ```powershell
+    # Create log directory and log helper
+    $logFile = "$env:ProgramData\GSAInstall\install.log"
+    New-Item -ItemType Directory -Path (Split-Path $logFile) -Force | Out-Null
+    
+    function Write-Log {
+        param([string]$message)
+        $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        Add-Content -Path $logFile -Value "$timestamp - $message"
+    }
+    
+    try {
+        $ErrorActionPreference = 'Stop'
+        Write-Log "Starting Global Secure Access client installation."
+    
+        # IPv4 preferred via DisabledComponents registry value
+        $ipv4RegPath    = "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters"
+        $ipv4RegName    = "DisabledComponents"
+        $ipv4RegValue   = 0x20  # Prefer IPv4 over IPv6
+        $rebootRequired = $false
+    
+        # Ensure the key exists
+        if (-not (Test-Path $ipv4RegPath)) {
+            New-Item -Path $ipv4RegPath -Force | Out-Null
+            Write-Log "Created registry key: $ipv4RegPath"
+        }
+    
+        # Get current value if present
+        $existingValue = $null
+        $valueExists = $false
+        try {
+            $existingValue = Get-ItemPropertyValue -Path $ipv4RegPath -Name $ipv4RegName -ErrorAction Stop
+            $valueExists = $true
+        } catch {
+            $valueExists = $false
+        }
+    
+        # Determine if we must change it
+        $expected = [int]$ipv4RegValue
+        $needsChange = -not $valueExists -or ([int]$existingValue -ne $expected)
+    
+        if ($needsChange) {
+            if (-not $valueExists) {
+                # Create as DWORD when missing
+                New-ItemProperty -Path $ipv4RegPath -Name $ipv4RegName -PropertyType DWord -Value $expected -Force | Out-Null
+                Write-Log ("IPv4Preferred value missing. Created '{0}' with value 0x{1} (dec {2})." -f $ipv4RegName, ([Convert]::ToString($expected,16)), $expected)
+            } else {
+                # Update if different
+                Set-ItemProperty -Path $ipv4RegPath -Name $ipv4RegName -Value $expected
+                Write-Log ("IPv4Preferred value differed. Updated '{0}' from 0x{1} (dec {2}) to 0x{3} (dec {4})." -f `
+                    $ipv4RegName, ([Convert]::ToString([int]$existingValue,16)), [int]$existingValue, ([Convert]::ToString($expected,16)), $expected)
+            }
+            $rebootRequired = $true
+        } else {
+            Write-Log ("IPv4Preferred already set correctly: {0}=0x{1} (dec {2}). No change." -f `
+                $ipv4RegName, ([Convert]::ToString($expected,16)), $expected)
+        }
+    
+        # Resolve installer path
+        $ScriptRoot = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $MyInvocation.MyCommand.Path }
+        $installerPath = Join-Path -Path $ScriptRoot -ChildPath "GlobalSecureAccessClient.exe"
+        Write-Log "Running installer from $installerPath"
+    
+        if (Test-Path $installerPath) {
+            $installProcess = Start-Process -FilePath $installerPath -ArgumentList "/quiet" -Wait -PassThru
+    
+            if ($installProcess.ExitCode -eq 1618) {
+                Write-Log "Another installation is in progress. Exiting with code 1618."
+                exit 1618
+            } elseif ($installProcess.ExitCode -ne 0) {
+                Write-Log "Installer exited with code $($installProcess.ExitCode)."
+                exit $installProcess.ExitCode
+            }
+    
+            Write-Log "Installer completed successfully."
+        } else {
+            Write-Log "Installer not found at $installerPath"
+            exit 1
+        }
+    
+        if ($rebootRequired) {
+            Write-Log "Reboot required due to registry value creation or update."
+            exit 3010  # Soft reboot required
+        } else {
+            Write-Log "Installation complete. No reboot required."
+            exit 0
+        }
+    }
+    catch {
+        Write-Log "Fatal error: $_"
+        exit 1603
+    }
+    ```
+2. [Microsoft Win32 コンテンツ準備ツール](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool)に移動します。 `IntuneWinAppUtil.exe` を選択します。
+
+    [Image: 準備ツールでインストール ファイルを選択するスクリーンショット。]
+3. 右上隅にある [**その他のファイル アクション**] を選択&gt;**ダウンロード**します。
+
+    [Image: その他のファイル 操作に関するメニューの [ダウンロード] コマンドのスクリーンショット。]
+4. `IntuneWinAppUtil.exe`を参照して実行します。 コマンド プロンプトが開きます。
+5. グローバル セキュア アクセス `.exe` ファイルのフォルダー パスの場所を入力します。 「**を選択し、**を入力します。」
+6. グローバル セキュア アクセス インストール `.ps1` ファイルの名前を入力します。 「**を選択し、**を入力します。」
+7. `.intunewin` ファイルを配置するフォルダー パスを入力します。 「**を選択し、**を入力します。」
+8. **N** と入力します。**Enter キーを押します**。
+
+    [Image: クライアントをインストールするコマンド ラインのスクリーンショット。]
+
+`.intunewin` ファイルは、Microsoft Intuneをデプロイする準備ができています。
+
+##### クライアントを展開する
+
+詳細なガイダンスについては、「 [Win32 アプリを Intune に追加する」を](https://learn.microsoft.com/ja-jp/mem/intune/apps/apps-win32-add#add-a-win32-app-to-intune)参照してください。
+
+1. [Intune管理センター](https://intune.microsoft.com/)に移動します。
+2. **[アプリ]**&gt;**[すべてのアプリ]**&gt;**[追加] **を選択します。
+3. **アプリの種類の選択**の**その他のアプリの種類**で、**Windows アプリ (Win32)** を選択します。
+4. 「**を選択し、**を選択してください。」 **[アプリの追加]** 手順が表示されます。
+5. [ **アプリ パッケージ ファイルの選択] を選択します**。
+6. フォルダー アイコンを選択します。 前のセクションで作成した `.intunewin` ファイルを開きます。
+
+    [Image: アプリ パッケージ ファイルの選択を示すスクリーンショット。]
+7. **[OK] を選択**.
+8. [ **アプリ情報** ] タブで、次の値を構成します。
+
+    - **名前**: クライアント アプリの名前を入力します。
+    - **説明**: 説明を入力します。
+    - 発行元: Microsoft。
+    - **アプリのバージョン***(省略可能):* クライアントのバージョンを入力します。
+9. 残りの設定には既定値を使用します。
+
+    [Image: クライアントをインストールするためのアプリ情報の追加のスクリーンショット。]
+10. [**次へ**] を選択します。
+11. [ **プログラム** ] タブで、次の値を構成します。
+
+    - **インストール コマンド**: `.ps1`には、`powershell.exe -ExecutionPolicy Bypass -File OriginalNameOfFile.ps1` ファイルの元の名前を使用します。
+    - **[アンインストール] コマンド**: `"GlobalSecureAccessClient.exe" /uninstall /quiet /norestart`を入力します。
+    - **使用可能なアンインストールは許可しない**: **いいえ**を選択します。
+    - **インストール動作**: **[システム**] を選択します。
+    - **デバイスの再起動の動作**: **リターン コードに基づいて動作を決定する**を選択します。 次のリターン コードを指定します。
+
+        | リターン コード | コードの種類 |
+        | --- | --- |
+        | 0 | Success |
+        | 3010 | ソフトウェア再起動 |
+        | 18:16 | [再試行] |
+
+    [Image: インストール パラメーターを構成するための [プログラム] タブのスクリーンショット。]
+12. [**次へ**] を選択します。
+13. [ **要件** ] タブで、次の値を構成します。
+
+    - **オペレーティング システムのアーキテクチャを確認**する: **[はい] を選択します。アプリをインストールできるシステムを指定します。** 次に、展開するシステムの種類に応じて [ **インストール** ] オプションを選択します。
+    - **最小オペレーティング システム**: 最小要件を選択します。
+14. 残りのボックスは空白のままにします。
+
+    [Image: インストール パラメーターを構成するための [要件] タブのスクリーンショット。]
+
+    注
+
+    Arm デバイス上のWindowsには独自のクライアントがあり、**aka.ms/GlobalSecureAccess-WindowsOnArm** で使用できます。
+15. [**次へ**] を選択します。
+16. [ **検出ルール** ] タブの [ **ルールの形式**] で、[ **検出ルールを手動で構成する**] を選択します。
+17. [**] を選択し、[**] を追加します。
+18. **[ルールの種類] で** [ファイル] を選択**します**。
+19. 次の値を構成します。
+
+    - **パス**: `C:\Program Files\Global Secure Access Client\TrayApp`を入力します。
+    - **ファイルまたはフォルダー**: 「 `GlobalSecureAccessClient.exe`」と入力します。
+    - **検出方法**: **文字列 (バージョン)** を選択します。
+    - **[演算子]: ** **[次の値以上]** を選択します。
+    - **値**: クライアントのバージョン番号を入力します。
+    - **64 ビット クライアント上の 32 ビット アプリに関連付けられている**: **[いいえ**] を選択します。
+
+    [Image: クライアントの検出ルールを作成するためのペインのスクリーンショット。]
+20. **[OK] を選択**. その後、**次へ** を選択します。
+21. [ **次へ** ] を 2 回選択して **、[割り当て]** に移動します。
+22. [ **必須**] で、[ **+グループの追加]** を選択します。 ユーザーまたはデバイスのグループを選択し、[選択] を **選択**します。
+23. **[再起動の猶予期間** **] を [有効]** に設定すると、デバイスの突然の再起動でユーザーが混乱するのを防ぐことができます。
+
+    [Image: 必要なグループと再起動の猶予期間が [有効] に設定されていることを示す [割り当て] タブのスクリーンショット。]
+24. [**次へ**] を選択します。 次に、[ **作成**] を選択します。
+
+注
+
+グローバル セキュア アクセス クライアントを仮想マシンにデプロイすると、デバイスを再起動するプロンプトが表示されない場合があります。
+
+##### クライアント のバージョンを更新する
+
+最新のクライアント バージョンに更新するには、「 [基幹業務アプリの更新」の](https://learn.microsoft.com/ja-jp/mem/intune/apps/lob-apps-windows#update-a-line-of-business-app) 手順に従います。 新しい `.intunewin` ファイルをアップロードするだけでなく、次の設定を更新してください。
+
+- クライアントのバージョン
+- 新しいクライアント バージョン番号に設定された検出ルールの値
+
+運用環境では、段階的な展開アプローチで新しいクライアント バージョンをデプロイすることをお勧めします。
+
+1. 既存のアプリはそのままにしておきます。
+2. 前の手順を繰り返して、新しいクライアント バージョンの新しいアプリを追加します。
+3. 新しいクライアント バージョンをパイロットするには、新しいアプリを少数のユーザー グループに割り当てます。 これらのユーザーを、インプレース アップグレード用の古いクライアント バージョンのアプリに割り当ててもかまいません。
+4. 必要なすべてのデバイスに新しいクライアントを展開するまで、パイロット グループのメンバーシップをゆっくりと増やします。
+5. 古いクライアント バージョンのアプリを削除します。
+
+#### Intune を使用してグローバル セキュリティで保護されたアクセス クライアント設定を構成する
+
+管理者は、Intune の [修復スクリプト](https://learn.microsoft.com/ja-jp/intune/intune-service/fundamentals/remediations) を使用して、一般ユーザーがクライアントを無効にしたり、特定のボタンを非表示にしたりできないようにするなど、クライアント側の制御を適用できます。
+
+Important
+
+`$gsaSettings`を、検出スクリプトと修復スクリプトの両方で組織が必要とする値に設定します。
+
+64 ビット PowerShell で実行するようにこれらのスクリプトを構成してください。
+
+[Image: カスタム スクリプト設定を作成するためのタブのスクリーンショット。64 ビット PowerShell でスクリプトを実行するためのオプションが [はい] に設定されています。]
+
+PowerShell スクリプトを選択して展開します。
+
+PowerShell 検出スクリプト
+
+##### 検出スクリプト
+
+```powershell
+# Check Global Secure Access registry keys 
+
+$gsaPath = "HKLM:\SOFTWARE\Microsoft\Global Secure Access Client" 
+
+$gsaSettings = @{ 
+
+"HideSignOutButton" = 1 
+ 
+"HideDisablePrivateAccessButton" = 1 
+ 
+"HideDisableButton" = 0 
+ 
+"RestrictNonPrivilegedUsers" = 0 
+
+} 
+
+$nonCompliant = $false 
+
+foreach ($setting in $gsaSettings.GetEnumerator()) { 
+
+$currentValue = (Get-ItemProperty -Path $gsaPath -Name $setting.Key -ErrorAction SilentlyContinue).$($setting.Key) 
+ 
+if ($currentValue -ne $setting.Value) { 
+ 
+    Write-Output "Non-compliant: $($setting.Key) is $currentValue, expected $($setting.Value)" 
+ 
+    $nonCompliant = $true 
+ 
+} 
+
+} 
+
+if (-not $nonCompliant) { 
+
+Write-Output "Compliant" 
+ 
+exit 0 
+
+} else { 
+
+Write-Output "Non-compliant" 
+ 
+exit 1 
+
+} 
+```
+
+PowerShell 修復スクリプト
+
+##### 修復スクリプト
+
+```powershell
+# Ensure Global Secure Access registry keys are present 
+
+$gsaPath = "HKLM:\SOFTWARE\Microsoft\Global Secure Access Client" 
+
+$gsaSettings = @{ 
+
+"HideSignOutButton" = 1 
+ 
+"HideDisablePrivateAccessButton" = 1 
+ 
+"HideDisableButton" = 0 
+ 
+"RestrictNonPrivilegedUsers" = 0 
+
+} 
+
+if (-Not (Test-Path $gsaPath)) { 
+
+New-Item -Path $gsaPath -Force | Out-Null 
+
+} 
+
+foreach ($setting in $gsaSettings.GetEnumerator()) { 
+
+Set-ItemProperty -Path $gsaPath -Name $setting.Key -Value $setting.Value -Type DWord -Force | Out-Null 
+ 
+Write-Output "Set $($setting.Key) to $($setting.Value)" 
+
+}
+```
+
+#### Intune を使用してMicrosoft Entra Internet Accessの設定を構成する
+
+Microsoft Entra Internet Accessは、HTTPS またはクイック UDP インターネット接続 (QUIC) トラフィック経由の DNS をサポートしていません。 この制限を軽減するには、ユーザーのブラウザーでこれらのプロトコルを無効にします。 次の手順では、Intune を使用してこれらのコントロールを適用する方法に関するガイダンスを提供します。
+
+##### Intune を使用して Microsoft Edge および Chrome で QUIC を無効にする
+
+1. Microsoft Intune管理センターで、**Devices**&gt;**Manage devices**&gt;**Configuration** を選択します。
+2. [ポリシー] タブ**で**、[ **+ 作成**&gt;**+ 新しいポリシー**] を選択します。
+3. [ **プロファイルの作成] ダイアログで、次の手順を** 実行します。
+
+    - **Platform** を **Windows 10 以降に設定**。
+    - **[プロファイルの種類** **] を [設定] カタログに設定します**。
+    - **を選択して**を作成します。 [ **プロファイルの作成]** フォームが開きます。
+4. [ **基本** ] タブで、プロファイルに名前と説明を付けます。
+5. [**次へ**] を選択します。
+6. [ **構成設定** ] タブで、次の手順を実行します。
+
+    1. [ **+ 設定の追加] を**選択します。
+    2. **設定ピッカー**で、**QUIC** を検索します。
+    3. 検索結果から:
+        1. **Microsoft Edge** を選択し、**Allow QUIC プロトコル**設定を選択します。
+        2. **Google Chrome** を選択し、[**QUIC プロトコルの許可] 設定**を選択します。
+    4. **設定ピッカー**で、**DNS over-HTTPS** を検索します。
+    5. 検索結果から:
+        1. **Microsoft Edge**を選択し、**DNS-over-HTTPS** 設定のモードを制御します。
+        2. **Google Chrome** を選択し、[**DNS over-HTTPS のモードを制御**する] 設定を選択します。
+    6. **[設定] ピッカーを**閉じます。
+7. **Google Chrome** の場合、両方のトグルを **[無効]** に設定します。
+8. **Microsoft Edge**では、両方のトグルを **Disabled** に設定します。
+
+    [Image: Microsoft Edgeと Chrome の設定を構成するためのタブのスクリーンショット。]
+9. **[次へ]** を 2 回選択します。
+10. **割り当て**タブで：
+
+    1. [ **グループの追加] を選択します**。
+    2. ポリシーを割り当てるユーザーまたはデバイスのグループを選択します。
+    3. **選択**
+11. [**次へ**] を選択します。
+12. **[確認および作成]** タブで、 **[作成]** を選択します。
+
+#### Firefox ブラウザーの設定を構成する
+
+管理者は Intune の [修復スクリプトを](https://learn.microsoft.com/ja-jp/intune/intune-service/fundamentals/remediations) 使用して、Firefox ブラウザーで HTTPS および QUIC プロトコル経由の DNS を無効にすることができます。
+
+64 ビット PowerShell で実行するようにこれらのスクリプトを構成してください。
+
+[Image: カスタム スクリプト設定を作成するためのタブのスクリーンショット。64 ビット PowerShell でスクリプトを実行するためのオプションが [はい] に設定されています。]
+
+PowerShell スクリプトを選択して展開します。
+
+PowerShell 検出スクリプト
+
+##### 検出スクリプト
+
+```powershell
+# Define the path to the Firefox policies.json file 
+
+$destination = "C:\Program Files\Mozilla Firefox\distribution\policies.json" $compliant = $false 
+
+# Check if the file exists 
+
+if (Test-Path $destination) { try { # Read the file content $fileContent = Get-Content $destination -Raw if ($fileContent -and $fileContent.Trim().Length -gt 0) { # Parse JSON content $json = $fileContent | ConvertFrom-Json 
+
+       # Check if Preferences exist under policies 
+        if ($json.policies -and $json.policies.Preferences) { 
+            $prefs = $json.policies.Preferences 
+ 
+            # Convert Preferences to hashtable if needed 
+            if ($prefs -isnot [hashtable]) { 
+                $temp = @{} 
+                $prefs.psobject.Properties | ForEach-Object { 
+                    $temp[$_.Name] = $_.Value 
+                } 
+                $prefs = $temp 
+            } 
+ 
+            # Initialize compliance flags 
+            $quicCompliant = $false 
+            $dohCompliant = $false 
+ 
+            # Check if QUIC is disabled and locked 
+            if ($prefs.ContainsKey("network.http.http3.enable")) { 
+                $val = $prefs["network.http.http3.enable"] 
+                if ($val.Value -eq $false -and $val.Status -eq "locked") { 
+                    $quicCompliant = $true 
+                } 
+            } 
+ 
+            # Check if DNS over HTTPS is disabled and locked 
+            if ($prefs.ContainsKey("network.trr.mode")) { 
+                $val = $prefs["network.trr.mode"] 
+                if ($val.Value -eq 0 -and $val.Status -eq "locked") { 
+                    $dohCompliant = $true 
+                } 
+            } 
+ 
+            # Set overall compliance if both settings are correct 
+            if ($quicCompliant -and $dohCompliant) { 
+                $compliant = $true 
+            } 
+        } 
+    } 
+} catch { 
+    Write-Warning "Failed to parse policies.json: $_" 
+} 
+
+} 
+
+# Output compliance result 
+
+if ($compliant) { Write-Output "Compliant" Exit 0 } else { Write-Output "Non-compliant" Exit 1 } 
+```
+
+PowerShell 修復スクリプト
+
+##### 修復スクリプト
+
+```powershell
+# Define paths 
+
+$distributionDir = "C:\Program Files\Mozilla Firefox\distribution" $destination = Join-Path $distributionDir "policies.json" $backup = "$destination.bak" 
+
+# Initialize variable for existing JSON 
+
+$existingJson = $null 
+
+# Try to read and parse existing policies.json 
+
+if (Test-Path $destination) { $fileContent = Get-Content $destination -Raw if ($fileContent -and $fileContent.Trim().Length -gt 0) { try { $existingJson = $fileContent | ConvertFrom-Json } catch { Write-Warning "Existing policies.json is malformed. Starting fresh." } } } 
+
+#Create a new JSON structure if none exists 
+
+if (-not $existingJson) { $existingJson = [PSCustomObject]@{ policies = [PSCustomObject]@{ Preferences = @{} } } } 
+
+# Ensure policies and Preferences nodes exist 
+
+if (-not $existingJson.policies) { $existingJson | Add-Member -MemberType NoteProperty -Name policies -Value ([PSCustomObject]@{}) } if (-not $existingJson.policies.Preferences) { $existingJson.policies | Add-Member -MemberType NoteProperty -Name Preferences -Value @{} } 
+
+# Convert Preferences to hashtable if needed 
+
+if ($existingJson.policies.Preferences -isnot [hashtable]) { $prefs = @{} $existingJson.policies.Preferences.psobject.Properties | ForEach-Object { $prefs[$.Name] = $.Value } $existingJson.policies.Preferences = $prefs } 
+
+$prefObj = $existingJson.policies.Preferences $updated = $false 
+
+# Ensure QUIC is disabled and locked
+
+if (-not $prefObj.ContainsKey("network.http.http3.enable") -or $prefObj["network.http.http3.enable"].Value -ne $false -or $prefObj["network.http.http3.enable"].Status -ne "locked") { 
+
+$prefObj["network.http.http3.enable"] = @{ 
+    Value = $false 
+    Status = "locked" 
+} 
+$updated = $true 
+
+} 
+
+# Ensure DNS over HTTPS is disabled and locked 
+
+if (-not $prefObj.ContainsKey("network.trr.mode") -or $prefObj["network.trr.mode"].Value -ne 0 -or $prefObj["network.trr.mode"].Status -ne "locked") { 
+
+$prefObj["network.trr.mode"] = @{ 
+    Value = 0 
+    Status = "locked" 
+} 
+$updated = $true 
+} 
+
+# If any updates were made, back up and write the new JSON 
+
+if ($updated) { if (Test-Path $destination) { Copy-Item $destination $backup -Force } 
+
+$jsonOut = $existingJson | ConvertTo-Json -Depth 10 -Compress 
+$utf8NoBomEncoding = New-Object System.Text.UTF8Encoding($false) 
+[System.IO.File]::WriteAllText($destination, $jsonOut, $utf8NoBomEncoding) 
+} 
+```
+
+#### グローバル セキュリティで保護されたアクセス クライアントを手動でインストールする
+
+1. `GlobalSecureAccessClient.exe`セットアップ ファイルを実行します。 ソフトウェア ライセンス条項に同意します。
+2. クライアントがインストールされ、Microsoft Entra資格情報を使用して自動的にサインインします。 サイレント サインインに失敗した場合、インストーラーは手動でサインインするように求めます。
+3. 接続アイコンが緑色に変わります。 その上にマウス ポインターを置くと、クライアントの状態通知が開きます。クライアントの状態通知は [ **接続済み**] と表示されます。
+
+    [Image: 接続されているクライアントを示すスクリーンショット。]
+
+### クライアント インターフェイス
+
+グローバル セキュア アクセス クライアント インターフェイスを開くには、システム トレイのグローバル セキュア アクセス アイコンを選択します。 クライアント インターフェイスには、現在の接続状態、クライアント用に構成されたチャネル、診断ツールへのアクセスが表示されます。
+
+#### 接続を表示
+
+**[接続]** ビューには、クライアントの状態と、クライアント用に構成されたチャネルが表示されます。 次のアクションを使用できます。
+
+- クライアントを無効にするには、[ **無効にする** ] ボタンを選択します。
+- クライアント接続のトラブルシューティングを行うには、「 **追加の詳細** 」セクションの情報を使用できます。
+- セクションを展開して詳細情報を表示するには、[ **詳細を表示**] を選択します。
+
+[Image: グローバル セキュア アクセス クライアント インターフェイスの [接続] ビューのスクリーンショット。]
+
+#### トラブルシューティング画面
+
+**[トラブルシューティング**] ビューでは、次のことができます。
+
+- さまざまな診断タスクを実行します。
+- IT 管理者とログをエクスポートして共有します。
+- さまざまなトラブルシューティング ツールを提供する **高度な診断** ツールにアクセスします。 (クライアントのシステム トレイのアイコン メニューから **高度な診断** ツールを開くこともできます)。
+
+[Image: グローバル セキュア アクセス クライアント インターフェイスの [トラブルシューティング] ビューのスクリーンショット。]
+
+#### 設定画面
+
+**Settings** ビューに切り替えて、インストールされているバージョンを確認するか、Microsoftプライバシーに関する声明にアクセスします。
+
+[Image: グローバル セキュア アクセス クライアント インターフェイスの [設定] ビューのスクリーンショット。]
+
+### クライアント アクション
+
+クライアント メニューで使用可能なアクションを表示するには、システム トレイのグローバル セキュリティで保護されたアクセス アイコンを選択します。
+
+[Image: グローバル セキュア アクセス クライアント アクションの完全な一覧を示すスクリーンショット。]
+
+ヒント
+
+クライアント メニューのグローバル セキュリティで保護されたアクセスアクションは、 クライアント レジストリ キーの構成によって異なります。
+
+| アクション | 説明 |
+| --- | --- |
+| **サインアウト** | *既定では非表示*。 このアクションは、Windowsへのサインインに使用したユーザー以外のMicrosoft Entra ユーザーを使用してグローバル セキュリティで保護されたアクセス クライアントにサインインする必要がある場合に使用します。 このアクションを使用できるようにするには、適切な クライアント レジストリ キーを更新します。 |
+| **無効にする** | クライアントを無効にするには、このアクションを選択します。 クライアントを有効にするか、マシンを再起動するまで、クライアントは無効のままとなります。 |
+| **有効にする** | グローバル セキュア アクセス クライアントを有効にするには、このアクションを選択します。 |
+| **プライベート アクセスを無効にする** | *既定では非表示*。 このアクションは、デバイスを企業ネットワークに直接接続して、グローバル セキュリティで保護されたアクセスではなく、ネットワーク経由で直接プライベート アプリケーションにアクセスする場合に、グローバル セキュリティで保護されたアクセスをバイパスする場合に使用します。 このアクションを使用できるようにするには、適切な クライアント レジストリ キーを更新します。 |
+| **ログの収集** | クライアント ログ (クライアント コンピューターに関する情報、サービスの関連イベント ログ、レジストリ値) を収集し、調査のためにMicrosoft Supportと共有する .zip ファイルにアーカイブするには、このアクションを選択します。 ログの既定の場所は `C:\Program Files\Global Secure Access Client\Logs` です。 コマンド プロンプトで次のコマンドを入力して、Windowsのクライアント ログを収集することもできます: `C:\Program Files\Global Secure Access Client\LogsCollector\LogsCollector.exe" <username> <user>`。 |
+| **詳細な診断** | 高度な診断を開き、さまざまなトラブルシューティング ツールにアクセスするには、このアクション を 選択します。 |
+
+### クライアント ステータス インジケーター
+
+#### 状態通知
+
+[グローバルなセキュリティで保護されたアクセス] アイコンを選択してクライアントの状態通知を開き、クライアント用に構成した各チャネルの状態を表示します。
+
+[Image: クライアントの状態が [接続済み] であることを示すスクリーンショット。]
+
+#### システム トレイのクライアントの状態
+
+| アイコン | メッセージ | 説明 |
+| --- | --- | --- |
+|  | グローバルなセキュリティで保護されたアクセス | クライアントは、グローバル セキュア アクセスへの接続を初期化して確認しています。 |
+|  | グローバル セキュア アクセス - 接続済み | クライアントがグローバル セキュア アクセスに接続済み。 |
+|  | グローバル セキュア アクセス - 無効 | サービスがオフラインであるか、ユーザーがクライアントを無効にしているため、クライアントは無効になっています。 |
+|  | グローバル セキュア アクセス - 切断 | クライアントがグローバル セキュア アクセスへの接続に失敗しました。 |
+|  | グローバル セキュア アクセス - 一部のチャネルに到達できない | クライアントは、グローバル セキュリティで保護されたアクセスに部分的に接続されています。 つまり、少なくとも 1 つのチャネル (Microsoft Entra、Microsoft 365、プライベート アクセス、インターネット アクセス) への接続に失敗しました。 |
+|  | グローバル セキュア アクセス - 組織によって無効にされている | 組織がクライアントを無効にしました。 つまり、すべてのトラフィック転送プロファイルが無効になります。 |
+|  | グローバル セキュア アクセス - プライベート アクセスが無効になっている | ユーザーは、このデバイスでプライベート アクセスを無効にしました。 |
+|  | グローバル セキュア アクセス - インターネットに接続できませんでした | クライアントがインターネット接続を検出できませんでした。 デバイスは、インターネットに接続されていないネットワークに接続されているか、キャプティブ ポータルのサインインを必要とするネットワークに接続されています。 |
+
+### 既知の制限
+
+既知の問題と制限事項の詳細については、「 [グローバル セキュリティで保護されたアクセスの既知の制限事項](https://learn.microsoft.com/ja-jp/entra/global-secure-access/reference-current-known-limitations)」を参照してください。
+
+### トラブルシューティング
+
+グローバル セキュア アクセス クライアントのトラブルシューティングを行うには、タスク バーのクライアント アイコンを選択し、トラブルシューティング オプションの 1 つ ( **ログのエクスポート** または **高度な診断ツール**) を選択します。
+
+ヒント
+
+管理者は、 クライアント レジストリ キーを変更することで、[グローバル なセキュリティで保護されたアクセス] クライアント メニューのオプションを変更できます。
+
+グローバル セキュア アクセス クライアントのトラブルシューティングの詳細については、次の記事を参照してください。
+
+- [Windows 向けグローバル セキュア アクセス クライアントのトラブルシューティング: 高度な診断](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-global-secure-access-client-advanced-diagnostics)
+- [Windows グローバル セキュア アクセス クライアントのトラブルシューティング: \[正常性チェック\]タブ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-global-secure-access-client-diagnostics-health-check)
+
+### セキュリティに関する推奨事項
+
+グローバル セキュア アクセス クライアントのセキュリティを強化するには、次の構成を使用します。
+
+#### 最新のクライアント バージョンにアップグレードする
+
+新しい機能、パフォーマンスの向上、およびセキュリティ修正プログラムを利用するために、最新の Global Secure Access クライアント リリースを定期的にテストして展開します。 Microsoft Entra admin centerから最新バージョンの Global Secure Access クライアントをダウンロードします。
+
+#### 特権のないユーザーによるクライアントの無効化を制限する
+
+管理者は、Windows デバイス上の特権のないユーザーがグローバル セキュア アクセス クライアントを無効または有効にできないようにすることができます。 この制限により、クライアントがオンのままになり、グローバル セキュリティで保護されたアクセスが引き続き認証され、ネットワーク トラフィックのセキュリティ保護に役立ちます。 この制限を有効にするには、クライアントを無効にするために昇格された特権が必要です。
+
+この制限を適用する前に、ユーザーがセキュリティで保護されていないモードでグローバル セキュリティで保護されたアクセス クライアントを操作できるようにします。 組織のクライアントを構成して、ユーザーが特定のシナリオでクライアントを無効にする必要がないようにします (たとえば、特定の Web サイトにアクセスしたり、Microsoft以外の VPN を並列で使用したりする場合など)。
+
+特権のない制限付きユーザーを持つデバイス上のグローバル セキュリティで保護されたアクセス クライアントを停止するには、必要に応じて、ローカル管理者特権を持つユーザーを使用するプロセスがあることを確認します。 特権のないユーザーの制限の詳細については、「特権のないユーザーの 制限」を参照してください。
+
+#### [無効にする] ボタンを非表示にする
+
+特権のないユーザーによるクライアントの無効化を制限するだけでなく、管理者はクライアントのシステム トレイのアイコン メニューの **[無効]** ボタンを非表示にできます。 [ **無効にする** ] ボタンをビューから削除すると、ユーザーが誤って、または承認なしでクライアントを無効にする可能性がさらに低下します。
+
+クライアント メニュー ボタンの非表示の詳細については、「 システム トレイのメニュー ボタンを非表示または再表示する」を参照してください。
+
+### クライアント レジストリ キー
+
+グローバル セキュア アクセス クライアントは、特定のレジストリ キーを使用して機能を有効または無効にします。 管理者は、Microsoft Intuneやグループ ポリシーなどの MDM ソリューションを使用して、レジストリ値を制御できます。
+
+注意事項
+
+Microsoft Supportが指示しない限り、他のレジストリ値を変更しないでください。
+
+#### 特権のないユーザーを制限する
+
+管理者は、次のレジストリ キーを設定することで、Windows デバイス上の特権のないユーザーがクライアントを無効または有効にできないようにすることができます: `Computer\HKEY_LOCAL_MACHINE\Software\Microsoft\Global Secure Access Client`。
+
+| [値] | タイプ | データ | 説明 |
+| --- | --- | --- | --- |
+| `RestrictNonPrivilegedUsers` | `REG_DWORD` | `0x0` | Windows デバイスの特権のないユーザーは、クライアントを無効にして有効にすることができます。 |
+| `RestrictNonPrivilegedUsers` | `REG_DWORD` | `0x1` | Windows デバイス上の特権のないユーザーは、クライアントの無効化と有効化を制限されます。 ユーザー アカウント制御 (UAC) プロンプトでは、無効と有効化のオプションにローカル管理者の資格情報が必要です。 管理者は、[ **無効にする** ] ボタンを非表示にすることもできます ( システム トレイのメニュー ボタンの非表示または再表示を参照)。 |
+
+#### クライアントでプライベート アクセスを無効または有効にする
+
+このレジストリ値は、クライアントに対してプライベート アクセスを有効にするか無効にするかを制御します。 ユーザーが企業ネットワークに接続されている場合、グローバル セキュア アクセスをバイパスし、プライベート アプリケーションに直接アクセスすることを選択できます。
+
+ユーザーは、システム トレイ メニューからプライベート アクセスを無効または有効にすることができます。
+
+ヒント
+
+このオプションは、メニューが非表示でなく ( システム トレイのメニュー ボタンを非表示または再表示するを参照)、このテナントに対して Private Access が有効になっている場合にのみ使用できます。
+
+管理者は、次のレジストリ キーを設定することで、ユーザーのプライベート アクセスを無効または有効にすることができます: `Computer\HKEY_CURRENT_USER\Software\Microsoft\Global Secure Access Client`。
+
+| [値] | タイプ | データ | 説明 |
+| --- | --- | --- | --- |
+| `IsPrivateAccessDisabledByUser` | `REG_DWORD` | `0x0` | このデバイスでは、プライベート アクセスが有効になっています。 プライベート アプリケーションへのネットワーク トラフィックは、グローバル セキュア アクセスを経由します。 |
+| `IsPrivateAccessDisabledByUser` | `REG_DWORD` | `0x1` | このデバイスでは、プライベート アクセスが無効になっています。 プライベート アプリケーションへのネットワーク トラフィックは、ネットワークに直接送信されます。 |
+
+[Image: IsPrivateAccessDisabledByUser レジストリ キーが強調表示されているレジストリ エディターのスクリーンショット。]
+
+レジストリ値が存在しない場合、既定値は `0x0` され、プライベート アクセスが有効になります。
+
+#### システム トレイのメニュー ボタンを非表示または再表示する
+
+管理者は、クライアントのシステム トレイのアイコン メニューで特定のボタンを表示または非表示にすることができます。 `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Global Secure Access Client` のレジストリ キーの下に値を作成します。
+
+| [値] | タイプ | データ | 既定の動作 | 説明 |
+| --- | --- | --- | --- | --- |
+| `HideSignOutButton` | `REG_DWORD` | `0x0` - 表示 `0x1` - 非表示 | 隠しファイル | この設定を構成して、**サインアウト**アクションを表示または非表示にします。 このオプションは、ユーザーが、Windowsへのサインインに使用したものとは異なるMicrosoft Entraユーザーを使用してクライアントにサインインする必要がある特定のシナリオに適しています。 注: デバイスが参加しているのと同じMicrosoft Entra テナント内のユーザーを使用してクライアントにサインインする必要があります。 **サインアウト**アクションを使用して、既存のユーザーを再認証することもできます。 |
+| `HideDisablePrivateAccessButton` | `REG_DWORD` | `0x0` - 表示 `0x1` - 非表示 | 隠しファイル | この設定を構成して、**プライベート アクセスを無効にする**アクションを表示または非表示にします。 このオプションは、デバイスが企業ネットワークに直接接続されていて、ユーザーがグローバル セキュリティで保護されたアクセスではなく、ネットワーク経由で直接プライベート アプリケーションにアクセスすることを好むシナリオに適しています。 |
+| `HideDisableButton` | `REG_DWORD` | `0x0` - 表示 `0x1` - 非表示 | 表示 | **無効**アクションを表示または非表示にするには、この設定を構成します。 アクションが表示されたら、ユーザーはグローバル セキュリティで保護されたアクセス クライアントを無効にすることができます。 クライアントは、ユーザーによって再度有効にされるまで、無効のままです。 **無効**アクションが非表示の場合、特権のないユーザーはクライアントを無効にできません。 |
+
+[Image: HideSignOutButton レジストリ キーと HideDisablePrivateAccessButton レジストリ キーが強調表示されているレジストリ エディターのスクリーンショット。]
+
+詳細については、「[上級ユーザー向けに IPv6 を Windows で構成するためのガイド](https://learn.microsoft.com/ja-jp/troubleshoot/windows-server/networking/configure-ipv6-in-windows)」を参照>。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/global-secure-access/how-to-list-remote-networks"} -->
+## グローバル セキュア アクセスのリモート ネットワークを一覧表示する方法 - Global Secure Access
+
+- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-list-remote-networks
+- Service: global-secure-access
+- Article date: 2026-03-25
+- Summary: Microsoft Entra 管理センターまたは Microsoft Graph API を使用して、グローバル セキュリティで保護されたアクセス展開内のすべてのリモート ネットワークを表示および確認します。
+
+### 概要
+
+リモート ネットワークの確認は、グローバル セキュア アクセス デプロイの管理で重要な部分です。 組織が成長するにつれて、さらにリモート ネットワークを追加することになります。 Microsoft Entra 管理センターまたは Microsoft Graph API を使用します。
+
+### 前提条件
+
+- Microsoft Entra ID には **Global Secure Access 管理者**ロールがあります。
+- この製品にはライセンスが必要です。 詳細については、「[Global Secure Access とは](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)」のライセンスに関するセクションを参照してください。 必要に応じて、[ライセンスを購入するか、試用版ライセンスを取得](https://aka.ms/azureadlicense)できます。
+
+### Microsoft Entra 管理センターを使用してすべてのリモート ネットワークを一覧表示する
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **[Global Secure Access]**&gt;**[接続]**&gt;**[リモート ネットワーク]** の順に移動します。 すべてのリモート ネットワークが一覧表示されます。
+3. 詳細を表示するには、リモート ネットワークを選択します。
+
+### Microsoft Graph API を使用してすべてのリモート ネットワークを一覧表示する
+
+1. [グラフ エクスプローラー](https://aka.ms/ge)にサインインします
+2. ドロップダウンから HTTP メソッドとして `GET` を選択します。
+3. API バージョンを [ベータ] に設定します。
+4. 次のクエリを入力します。
+
+    ```
+       GET https://graph.microsoft.com/beta/networkaccess/connectivity/branches
+    ```
+5. **[クエリの実行]** ボタンを選択して、リモート ネットワークを一覧表示します。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -10,7 +765,7 @@ Pages in this file: 51
 
 - Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-internet-access-profile
 - Service: global-secure-access / entra-internet-access
-- Article date: 2026-08-02
+- Article date: 2026-10-27
 - Summary: Microsoft Entra Internet Access のインターネット アクセス トラフィック転送プロファイルを管理する方法について説明します。
 
 ### 概要
@@ -41,6 +796,21 @@ Pages in this file: 51
 - **既定の取得** インターネット トラフィック プロファイルによって取得される定義済みトラフィックが含まれます。 これには、TCP 経由のポート 80、443 でのインターネット トラフィックが含まれます。 すべてのバイパス規則とカスタム取得規則が評価された後、ポリシーの優先順位が最も低くなります。 このポリシーのルールを変更することはできません。
 - **Agentic Acquire**GitHub Copilot CLI、Claude CLI、同様のローカル エージェントなど、デバイスで実行されているローカル AI エージェントから送信されたすべての Web トラフィックを取得するようにグローバル セキュア アクセス クライアントに通知する特別なポリシー。 ユーザー トラフィックをカバーする別の SWG ベンダーと並行して、エージェント (AI エージェント) 保護用の Global Secure Access をデプロイできるようにします。 このポリシーのルールを変更することはできません。
 
+### 取得したトラフィックにセキュリティ ポリシーを適用する
+
+取得規則は、インターネット アクセス プロファイルがグローバル セキュア アクセスに転送するトラフィックを決定します。 それらはクラウド ファイアウォールの **許可** または **ブロック** の決定を定義しません。
+
+収集を構成したら、そのトラフィックに必要なセキュリティ ポリシーを構成します。 クラウド ファイアウォールを使用して、サポートされている宛先、ポート、プロトコルの条件に基づいて接続を許可またはブロックします。 取得構成が、ファイアウォール規則で保護することを意図したトラフィックをカバーしていることを確認してください。
+
+たとえば、UDP トラフィックのクラウド ファイアウォール規則では、**Default Acquire** ポリシーが UDP を適用することはありません。 ファイアウォールの適用を検証する前に、必要な宛先、ポート、プロトコルの収集を構成します。
+
+トラフィック ソースの構成手順を選択します。
+
+- [グローバル セキュア アクセス クライアント (プレビュー) 用にクラウド ファイアウォールを構成](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-cloud-firewall-clients)します。
+- [リモート ネットワーク用のクラウド ファイアウォールを構成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-cloud-firewall)。
+
+より広範な取得については、「 ワイルドカード宛先を使用してトラフィックを取得する」を参照してください。
+
 ### カスタム バイパス ポリシーを追加する方法
 
 1. [Global Secure Access 管理者](https://entra.microsoft.com) として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference#global-secure-access-administrator)にサインインします。
@@ -67,6 +837,38 @@ Pages in this file: 51
 メモ
 
 トラフィックは、上から下に評価されます。つまり、バイパス ルールのいずれかでバイパスされていない場合にのみ、インターネット トラフィック プロファイルによって取得されます。
+
+### ワイルドカード宛先を使用してトラフィックを獲得する (プレビュー)
+
+クライアント トラフィックの場合、 **Custom Acquire では** FQDN ワイルドカード `*` と IPv4 サブネット `0.0.0.0/0`がサポートされます。 これらの宛先を使用して、既定の TCP ポート 80 と 443 以外のトラフィック（非標準の TCP ポートや UDP を含む）を扱います。
+
+名前付き宛先と直接 IP トラフィックの広範囲の収集を構成するには:
+
+1. **Global Secure Access &gt; Connect &gt; Traffic forwarding**に移動し、インターネット アクセス プロファイルの取得規則を開きます。
+2. [ **カスタム取得** ] を展開し、[ **ルールの追加]** を選択します。
+3. 表に示されている宛先の種類、宛先、ポート、プロトコルを使用して、次の各規則を構成します。
+4. **カスタム取得**を有効にし、変更を保存してください。
+
+| 宛先タイプ | 行き先 | ポート | Protocol |
+| --- | --- | --- | --- |
+| FQDN | `*` | `0-65535` | TCP |
+| FQDN | `*` | `0-65535` | UDP |
+| IP サブネット | `0.0.0.0/0` | `0-65535` | TCP |
+| IP サブネット | `0.0.0.0/0` | `0-65535` | UDP |
+
+バイパス ポリシーはそのまま維持します。 バイパス 規則に一致するトラフィックは、ワイルドカード取得規則にも一致する場合でも除外されたままになります。 プライベート アクセス ルーティングは、インターネット アクセスよりも優先されます。プライベート アクセス経由でルーティングされるトラフィックは、インターネット アクセスクラウドファイアウォール規則の対象ではありません。
+
+メモ
+
+このプレビューでは、インターネット アクセス トラフィック転送プロファイルでは、DNS トラフィックの取得はサポートされていません。 ワイルドカード取得規則では DNS の取得は有効になりません。そのため、クラウド ファイアウォール ポリシーでは DNS トラフィックがフィルター処理されません。 FQDN 宛先を構成しても、DNS クエリの取得は有効になりません。
+
+`0.0.0.0/0`宛先は、IPv6 ではなく IPv4 を対象とします。 この広範な構成を使用する代わりに、ポート範囲と宛先を制限できます。
+
+Important
+
+クラウド ファイアウォールを介した QUIC の受信とブロックはプレビューでサポートされていますが、エンドツーエンドの QUIC 転送はサポートされていません。 UDP ポート 443 の許可規則では、サポートされているエンドツーエンド QUIC 接続は有効になりません。
+
+Acquisition ワイルドカード構文では、ファイアウォール規則の FQDN 照合動作は定義されません。 ファイアウォールの構成と特定ポートの取得例については、「[グローバル セキュア アクセス クライアント用にクラウド ファイアウォールを構成する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-cloud-firewall-clients)」を参照してください。
 
 ### エージェント型取得ポリシーを有効にする方法
 
@@ -245,6 +1047,7 @@ Global Secure Access クライアントがサービスに接続できない場�
 
 - 最大 10 個のカスタム プライベート アクセス トラフィック転送プロファイルを作成できます。
 - プライベート アクセス アプリケーションは、カスタム プロファイルに対して選択する前に、既定のプライベート アクセス プロファイルに含める必要があります。
+- v2 への切り替えは、元に戻すことはできません。 以前のすべての構成は、エンド ユーザー トラフィックに変更を加えずに引き継がれる。
 
 ### プライベート アクセス プロファイルを表示する
 
@@ -1079,7 +1882,7 @@ Important
 
 - Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-netskope-coexistence
 - Service: global-secure-access
-- Article date: 2026-03-13
+- Article date: 2026-10-18
 - Summary: プライベート アプリケーション、Microsoft 365、およびインターネット アクセス全体のセキュリティと接続を最適化するために、Microsoft Entra および Netskope Security Service Edge (SSE) ソリューションを構成して展開する方法について説明します。
 
 ### 概要
@@ -1103,6 +1906,10 @@ Important
 1. **Microsoft Entra Internet Access と Microsoft Entra Microsoft Access および Netskope Private Access**
 
 4 番目のシナリオでは、グローバル セキュリティで保護されたアクセスがインターネットと Microsoft 365 のトラフィックを処理します。 Netskope では、プライベート アプリケーション トラフィックのみがキャプチャされます。
+
+1. **Netskope Internet Access と組み合わせた Microsoft Entra Private Access および Microsoft Entra Microsoft Access**
+
+5 番目のシナリオでは、Global Secure Access がプライベート アプリケーションとMicrosoft 365 トラフィックを処理します。 Netskope は、インターネット トラフィックのみをキャプチャします。
 
 ### [前提条件]
 
@@ -1143,6 +1950,10 @@ Microsoft SSE サービスインターネット プロトコル (IP) アドレ�
 `MSFT SSE M365` ポリシーを構成します。
 
 - 手順 1 . 2. を繰り返して Microsoft 365 IP を追加し、 `MSFT SSE M365`として保存します。`132.245.0.0/16`、 `204.79.197.215/32`、 `150.171.32.0/22`、 `131.253.33.215/32`、 `23.103.160.0/20`、 `40.96.0.0/13`、 `52.96.0.0/14`、 `40.104.0.0/15`、 `13.107.128.0/22`、 `13.107.18.10/31`、 `13.107.6.152/31`、 `52.238.78.88/32`、 `104.47.0.0/17`、 `52.100.0.0/14`、 `40.107.0.0/16`、 `40.92.0.0/15`、 `150.171.40.0/22`、 `52.104.0.0/14`、 `104.146.128.0/17`、 `40.108.128.0/17`、 `13.107.136.0/22`、 `40.126.0.0/18`、 `20.231.128.0/19`、 `20.190.128.0/18`、 `20.20.32.0/19`。
+
+注
+
+これらの IP アドレスは、Global Secure Access クライアントでトラフィックを転送する対象の Microsoft サービスの IP アドレスと一致している必要があります。 Microsoft Entra 管理センター の Microsoft トラフィック転送プロファイル ルールと照合してアドレスを確認します。
 
 `MSFT SSE Service`および`MSFT SSE M365`プロファイルはステアリング構成で使用されます。
 
@@ -1433,6 +2244,69 @@ Netskope ポータルで次の手順を実行します。
 5. Netskope ポータルにサインインし、 **Skope IT**&gt;**Events および Alerts**&gt;**Network イベント**に移動します。 **RDP** セッションに関連するトラフィック**が**存在し、Microsoft 365 とインターネット トラフィックに関連するトラフィック (Instagram.com、Outlook Online、SharePoint Online など) が Netskope Portal に見つからないことを検証します。
 6. システム トレイで、**[グローバル セキュア アクセス クライアント]** を右クリックし、**[高度な診断]** を選択します。 [ネットワーク **トラフィック** ] ダイアログ ボックスで、[ **収集の停止**] を選択します。
 7. スクロールして、プライベート アプリケーションからのトラフィックがグローバル セキュア アクセス クライアントでキャプチャされて**いない**ことを確認します。 また、グローバル セキュア アクセス クライアントが Microsoft 365 やその他のインターネット トラフィックのトラフィックをキャプチャしていることを確認します。
+
+### Netskope Internet Access を使用したMicrosoft Entra Private AccessとMicrosoft Entra Microsoft Access
+
+このシナリオでは、Global Secure Access は、プライベート アプリケーションと Microsoft 365 トラフィックを処理します。 Netskope は、インターネット トラフィックのみをキャプチャします。
+
+#### Microsoft Entra Private Access と Microsoft Entra Microsoft Access の構成
+
+このシナリオでは、次のようにします。
+
+1. [Microsoft Entra Private Access転送プロファイル](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-private-access-profile)と[Microsoft Entra Microsoft Access転送プロファイル](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-microsoft-profile#enable-the-microsoft-traffic-profile)を有効にします。
+2. [Windows](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client)または [macOS](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-macos-client) 用のグローバル セキュア アクセス クライアントをインストールして構成します。
+
+#### Netskope Internet Access の構成
+
+Netskope ポータルで次の手順を実行します。
+
+1. Netskope Location Profiles の説明に従って、トラフィックの転送先を制御する設定で使用する `MSFT SSE Service` プロファイルと `MSFT SSE M365` プロファイルを構成します。
+2. Web トラフィックを誘導する [Netskope ステアリング構成](https://docs.netskope.com/en/steering-configuration/) を設定します。
+3. [Windows](https://docs.netskope.com/en/netskope-client-for-windows)または [macOS](https://docs.netskope.com/en/netskope-client-for-macos) 用の Netskope クライアントをインストールします。
+
+##### インターネット アクセス用のステアリング構成を追加する
+
+1. **Netskope ポータル**&gt;**[設定]**&gt;**[セキュリティ クラウド プラットフォーム]**&gt;**[ステアリング構成]**&gt;**[新しい構成]** の順に移動します。
+2. `MSFTSSEWebTraffic`（たとえば ）を入力します。
+3. 構成を適用する **ユーザー グループ** または **OU** を選択します。
+4. **クラウド、Web、ファイアウォール** で、**Web トラフィック** を選択します。
+5. **[Bypass exception traffic at]** を **[Client]** に設定します。
+6. **[Private Apps]** で **[None]** を選択します。
+7. [**Borderless SD-WAN Apps**] で **なし** を選択します。
+8. **[状態]** を **[無効]** に設定し、[**保存]** を選択します。
+9. `MSFTSSEWebTraffic`構成&gt;**例外**&gt;**新しい例外**&gt;**宛先場所**を選択します。
+10. `MSFT SSE Service` と `MSFT SSE M365`を選択します。
+11. [ **バイパス**] を選択し、[ **ローカル IP アドレスとして扱う** ] チェック ボックスをオンにして、[ **追加**] を選択します。
+12. **[New Exception]**&gt;**[Domains]** を選択し、次のドメインを例外として追加します。`*.globalsecureaccess.microsoft.com`、`*.auth.microsoft.com`、`*.msftidentity.com`、`*.msidentity.com`、`*.onmicrosoft.com`、`*.outlook.com`、`*.protection.outlook.com`、`*.sharepoint.com`、`*.sharepointonline.com`、`*.svc.ms`、`*.wns.windows.com`、`account.activedirectory.windowsazure.com`、`accounts.accesscontrol.windows.net`、`admin.onedrive.com`、`adminwebservice.microsoftonline.com`、`api.passwordreset.microsoftonline.com`、`autologon.microsoftazuread-sso.com`、`becws.microsoftonline.com`、`ccs.login.microsoftonline.com`、`clientconfig.microsoftonline-p.net`、`companymanager.microsoftonline.com`、`device.login.microsoftonline.com`、`g.live.com`、`graph.microsoft.com`、`graph.windows.net`、`login-us.microsoftonline.com`、`login.microsoft.com`、`login.microsoftonline-p.com`、`login.microsoftonline.com`、`login.windows.net`、`logincert.microsoftonline.com`、`loginex.microsoftonline.com`、`nexus.microsoftonline-p.com`、`officeclient.microsoft.com`、`oneclient.sfx.ms`、`outlook.cloud.microsoft`、`outlook.office.com`、`outlook.office365.com`、`passwordreset.microsoftonline.com`、`provisioningapi.microsoftonline.com`、`spoprod-a.akamaihd.net`&gt;。追加したら、**[Save]** を選択します。
+13. `MSFTSSEWebTraffic`構成がテナントのステアリング構成の一覧の一番上にあることを確認します。 その後、その構成を有効にします。
+14. システム トレイに移動して、グローバル セキュア アクセスと Netskope クライアントが有効になっていることを確認します。
+
+##### クライアントの構成を確認する
+
+1. **[Global Secure Access Client]**&gt; を右クリックし、**[Advanced Diagnostics]**&gt;**[Forwarding Profile]** を選択して、このクライアントに Private Access と Microsoft 365 のルールのみが適用されていることを確認します。
+2. **Advanced Diagnostics**&gt;**Health Check** に移動し、失敗したチェックがないことを確認します。
+3. **Netskope Client**&gt;**Configuration** を右クリックします。 **[ステアリング構成]** が、作成した構成の名前と一致することを確認します。 そうでない場合は、[ **更新** ] リンクを選択します。
+    注
+
+    正常性チェックの失敗をトラブルシューティングするには、「 [グローバル セキュア アクセス クライアントのトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-global-secure-access-client-diagnostics-health-check)」を参照してください。
+
+##### トラフィック フローをテストする
+
+1. システム トレイで、**[グローバル セキュア アクセス クライアント]** を右クリックし、**[高度な診断]** を選択します。 **[トラフィック]** タブを選択し、**[収集の開始]** を選択します。
+2. ブラウザーで、 `bing.com`、 `salesforce.com`、 `yelp.com`にアクセスします。
+3. システム トレイで、[**Global Secure Access Client**] を右クリックし、[**高度な診断**] を選択し、[**トラフィック**] タブを選択します。
+4. 画面をスクロールして、Global Secure Access クライアントがこれらの Web サイトのトラフィックをキャプチャして**いない**ことを確認します。
+5. Microsoft Entra 管理センターにサインインし、**Global Secure Access**&gt;**Monitor**&gt;**Traffic ログ**を参照します。 これらの Web サイトへのトラフィックが Global Secure Access のトラフィック ログに記録されて**いない**ことを確認します。
+6. Netskope ポータルにサインインし、 **Skope IT**&gt;**Events および Alerts**&gt;**Page イベント**に移動します。 これらの Web サイトへのトラフィックが Netskope のログに記録されて**いる**ことを確認します。
+7. Microsoft Entra Private Accessで構成したプライベート アプリケーションにアクセスします。 たとえば、プライベート サーバーへの RDP セッションを開きます。
+8. Microsoft Entra 管理センターにサインインして、**[グローバル セキュア アクセス]**&gt;**[監視]**&gt;**[トラフィック ログ]** を参照します。
+9. RDP セッションのトラフィックが Global Secure Access のトラフィック ログに記録されて**いる**ことを確認します。
+10. Netskope ポータルにサインインし、 **Skope IT**&gt;**Events および Alerts**&gt;**Network イベント**に移動します。 RDP セッションのトラフィックが**記録されていない**ことを確認します。
+11. Outlook Online (`outlook.com`、`outlook.office.com`、`outlook.office365.com`) および SharePoint Online (`<yourtenantdomain>.sharepoint.com`) にアクセスします。
+12. システム トレイで、**[グローバル セキュア アクセス クライアント]** を右クリックし、**[高度な診断]** を選択します。 **[トラフィック]** ダイアログ ボックスで、**[収集の停止]** を選びます。
+13. スクロールして、グローバル セキュア アクセス クライアントがMicrosoft 365 トラフィックを処理したことを確認します。
+14. トラフィックがグローバル セキュア アクセスのトラフィック ログに記録されていることを確認するには、Microsoft Entra 管理センターで**グローバル セキュア アクセス**&gt;**監視**&gt;**トラフィック ログ**に移動します。
+15. Netskope ポータルで、 **Skope IT**&gt;**Events および Alerts**&gt;**Page イベント**に移動します。 Outlook Online と SharePoint Online へのトラフィック**が記録されていないこと**を確認します。
 <!-- /MSL-PAGE -->
 
 ---
@@ -3154,7 +4028,7 @@ Private Access では、2 つのアプリケーション モデルがサポー�
 
 Important
 
-ゼロ トラスト 評価は、リアルタイムの検知機能ではなく、構成状態を評価するチェックです。 アラートとモニタリングのリアルタイム アラートと組み合わせることで、ポスチャは*「正しく構成されているか」*を、アラートは*「今、正常に動作しているか」*を教えてくれます。
+ゼロ トラスト 評価は、リアルタイムの検知機能ではなく、構成状態を評価するチェックです。 アラートと監視のリアルタイム アラートと組み合わせて活用することで、ポスチャーは*構成は正しいか？*を、アラートは*現在正常に動作しているか？*を教えてくれます。
 
 ### アラートと監視
 
@@ -3166,13 +4040,12 @@ Important
 
 | Alert | 状態 | 役割 | によって自動化されます。 | 次の手順 |
 | --- | --- | --- | --- | --- |
-| コネクタがオフライン | プライベート アクセス コネクタがハートビートの送信を 5 分以上停止する | ネットワーク運用 L1 | Sentinel 分析ルール *コネクタの正常性の低下* (コンテンツ ハブ) | 1. コネクタ サーバーを確認します。`Microsoft Entra private network connector` Windows サービスが実行されていることを確認します。2. ポート 443 の `*.msappproxy.net` への送信接続を確認します。3. コネクタ ホストWindowsイベント ログを確認します。4. コネクタを復旧できない場合は、トラフィックがグループ内の別のコネクタにフェールオーバーされたことを確認します ( フェールオーバーの検証を参照)。 [Microsoft Entra プライベート ネットワーク コネクタ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-connectors#maintenance) と [プライベート ネットワーク コネクタのインストールに関する問題のトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-connectors#troubleshooting-connector-functionality) を参照してください。 |
 | グループ内のすべてのコネクタがオフライン | コネクタ グループ内のどのコネクタもハートビートを送信していません | ネットワーク運用 L2 + インシデントコマンダー | Sentinel 分析ルール *コネクタ グループがオフライン* + プレイブック 2 | **重大度: 重大。** このグループに割り当てられているアプリケーションのすべてのユーザーがアクセスできなくなります。1. インシデント管理プロセスに従って直ちにエスカレートします。2. 一般的な根本原因 (ネットワークの停止、ファイアウォールの変更、またはすべてのコネクタ ホストに影響するサーバーの修正プログラムの適用) を確認します。3. 復旧がすぐに行えない場合は、フォールバック接続プラン (一時的な VPN アクセスなど) をアクティブ化します。 |
 | コネクタのリソース使用率が高い | コネクタ ホストで、CPU &gt; 80% またはメモリ &gt; 85% の状態が 15 分以上継続 | ネットワーク運用 L1 | Azure Monitor アラート (Playbook 5) | 1. コネクタでアクティブなセッションの数を確認します。2. 別のコネクタをグループに追加して、負荷を再配分します。3. 特定のアプリケーションが異常なトラフィック 量を生成しているかどうかを調査します。 |
 | アプリケーション セグメントに到達できない | ユーザーが特定のプライベート アクセス アプリケーションの接続エラーを受け取る | ネットワーク運用 L1 → アプリ責任者 | Sentinel 分析ルール: *プライベート アクセス セグメントの障害* | 1. バックエンド アプリケーション サーバーが実行されていて、コネクタ ホストから到達可能であることを確認します。2. アプリケーションの完全修飾ドメイン名 (FQDN) について、コネクタ ホストからの DNS 解決をテストします。3. Microsoft Entra 管理センターのアプリケーション セグメントの構成で、正しい IP/FQDN とポート範囲を確認します。 [「アプリケーション アクセスのトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-app-access#how-does-dns-work-with-global-secure-access)」および[「プライベート ネットワーク コネクタのインストールに関する問題のトラブルシューティング」を](https://learn.microsoft.com/ja-jp/entra/global-secure-access/troubleshoot-connectors#troubleshooting-connector-functionality)参照してください。 |
-| 通常とは異なるアクセス拒否の急増 | プライベート アクセス アプリケーションのアクセス拒否数は、7 日間のベースラインと比較して 50% を超える増加 | アイデンティティとアクセス管理 (IAM) 運用 + SOC | Sentinel スケジュール済み分析ルール *通常とは異なるプライベート アクセス拒否* (top-denied-apps Kusto Query Language (KQL) クエリに基づく) | 1. 拒否されたセッションの `NetworkAccessTraffic` を確認し、ユーザー、アプリ、および拒否の理由を特定します。2. この拒否パターンがポリシーの構成ミス (正当なユーザーのブロック) か、セキュリティ イベント (未承認のアクセス試行) かを判断します。3. ポリシーの問題については、条件付きアクセスまたはアプリの割り当てを調整します。 セキュリティイベントについては、SOC に連絡してください。 |
+| 通常とは異なるアクセス拒否の急増 | プライベート アクセス アプリケーションのアクセス拒否数は、7 日間のベースラインと比較して 50% を超える増加 | アイデンティティとアクセス管理 (IAM) 運用 + SOC | スケジュール化された分析ルール*通常とは異なるプライベート アクセスを拒否* (top-denied-apps Kusto 照会言語 (KQL) クエリに基づく) | 1. 拒否されたセッションの `NetworkAccessTraffic` を確認し、ユーザー、アプリ、および拒否の理由を特定します。2. この拒否パターンがポリシーの構成ミス (正当なユーザーのブロック) か、セキュリティ イベント (未承認のアクセス試行) かを判断します。3. ポリシーの問題については、条件付きアクセスまたはアプリの割り当てを調整します。 セキュリティイベントについては、SOC に連絡してください。 |
 | ユーザー割り当てなしで発行されたアプリ セグメント | 親エンタープライズ アプリケーションにユーザーまたはグループの割り当てがゼロである間、アプリケーション セグメントが追加または更新される | IAM 管理者 | Sentinel のスケジュール ルール *割り当てなしで作成されたプライベート アクセス セグメント* + プレイブック 4 の事前安全ゲート | セグメントはトラフィックと一致しますが、ユーザーは承認されていないため、ユーザー アクセスが中断される可能性があります。 1. 親エンタープライズ アプリに少なくとも 1 人のユーザーまたはグループを割り当てる **か** 、親エンタープライズ アプリではなく、問題のある **セグメント** を削除します。 2. アラートを閉じる前に、アクティビティがベースラインに戻ったことを確認します。 |
-| 広範な宛先を持つアプリ セグメント | 新規または更新されたアプリケーションセグメントが、`destinationType`の`dnsSuffix`（ワイルドカードサフィックス一致）を使用しているか、その`destinationHost`が`0.0.0.0/0`または`::/0`である | IAM Admin + Network Ops L2 | Sentinel のスケジュールされたルール *Private Access の広範なセグメント宛先*（保守的なトリガー）+ ゼロ トラスト 評価チェック [Entra Private Access アプリケーション セグメントは、最小特権アクセスを適用するように定義されています](https://learn.microsoft.com/ja-jp/entra/fundamentals/zero-trust-protect-networks#entra-private-access-application-segments-are-defined-to-enforce-least-privilege-access) | ワイルドカードまたは既定のルート セグメントは、グローバルにデプロイされたエージェントを含む、関連のないサービスを対象としたトラフィックをキャプチャできます。 1. 広範な宛先が意図的であることを変更要求者に確認します。 2. 意図しない場合は、特定の FQDN または `/24` あるいはそれより狭い範囲に絞り込み、`dnsSuffix` ワイルドカードを削除してください。 3. Playbook 7 を実行して、ZT Assessment 25395 で報告される、より広い範囲のポスチャ検出結果（CIDR &gt; /24、広いポート範囲、Custom Security Attributes の欠落）を把握します。 |
+| 広範な宛先を持つアプリ セグメント | 新規または更新されたアプリケーションセグメントが、`dnsSuffix` (ワイルドカード サフィックス一致) の `destinationType` を使用しているか、その `destinationHost` が `0.0.0.0/0` または `::/0` である | IAM Admin + Network Ops L2 | スケジュールされた分析ルール、*プライベート アクセスの広範なセグメント宛先* (保守的なトリガー) + ゼロ トラスト評価チェック [Entra プライベート アクセス アプリケーション セグメントは、最小特権アクセスを適用するように定義されています](https://learn.microsoft.com/ja-jp/entra/fundamentals/zero-trust-protect-networks#entra-private-access-application-segments-are-defined-to-enforce-least-privilege-access) | ワイルドカードまたは既定のルート セグメントは、グローバルにデプロイされたエージェントを含む、関連のないサービスを対象としたトラフィックをキャプチャできます。 1. 広範な宛先が意図的であることを変更要求者に確認します。 2. 意図しない場合は、特定の FQDN または `/24` あるいはそれより狭い範囲に絞り込み、`dnsSuffix` ワイルドカードを削除してください。 3. Playbook 7 を実行して、ZT Assessment 25395 で報告される、より広い範囲のポスチャ検出結果 (CIDR &gt; /24、広いポート範囲、カスタム セキュリティ属性 の欠落) を把握します。 |
 | 未承認の構成変更 | プライベート アクセスの構成変更が、想定外の ID によって行われたか、または対応する変更チケットなしで行われた | SOC + IAM 管理者 | プレイブック 8: プライベート アクセス構成変更アラート | 1. アクターを識別し、Microsoft Entra監査ログの詳細を変更します。2. 変更管理プロセスを通じて変更が承認されたかどうかを確認します。3. 承認されていない場合は、変更を元に戻し、ID 侵害を調査します。 「[グローバルセキュリティアクセス監査ログにアクセスする方法](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-access-audit-logs#overview)、[Microsoft Entra監査ログのカテゴリとアクティビティ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-audit-activities#global-secure-access)、および[Microsoft Entraセキュリティ運用ガイド](https://aka.ms/AzureADSecOps)を参照してください。 |
 
 ヒント
@@ -3298,8 +4171,8 @@ Sentinel 統合を設定した後 ( Sentinel 統合を参照)、 **Workbooks**&g
 
 | 検査 | 役割 | によって自動化されます。 | 手順 | 失敗した場合の対処方法 |
 | --- | --- | --- | --- | --- |
-| コネクタのハートビートの状態 | ネットワーク運用 L1 | Sentinel 分析ルール *コネクタの正常性の低下* + ゼロ トラスト (ZT) 評価 *プライベート ネットワーク コネクタはアクティブで正常です* | アラートは自動的に発報されます。 スポット チェック: Microsoft Entra 管理センター &gt;**Global Secure Access**&gt;**Connect**&gt;**Connectors**。 | 影響を受けるホストで `Microsoft Entra private network connector` サービスを再起動します。 オフラインのままの場合は、ネットワーク接続を確認し、イベント ログWindows確認します。 |
-| 高重大度インシデントのトリアージ | SOC | Sentinel インシデント (自動化ルールによって自動割り当てされた) | 過去 24 時間の P1/P2 プライベート アクセス インシデントを確認します。 | 各インシデントが割り当てられ、調査中であることを確認します。 4時間以上経過した未割り当てのインシデントは、エスカレーションする必要があります。 |
+| コネクタのハートビートの状態 | ネットワーク運用 L1 | Sentinel 分析ルール *コネクタの正常性の低下* + ゼロ トラスト (ZT) 評価 *プライベート ネットワーク コネクタはアクティブで正常です* | アラートは自動的に発報されます。 スポット チェック: Microsoft Entra 管理センター、&gt;**グローバル セキュア アクセス**&gt;**Connect**&gt;**コネクター**。 | 影響を受けるホストで `Microsoft Entra private network connector` サービスを再起動します。 オフラインのままの場合は、ネットワーク接続を確認し、イベント ログWindows確認します。 |
+| 重大度が高いインシデントのトリアージ | SOC | Sentinel のインシデント (自動化ルールによる自動割り当て) | 過去 24 時間の P1/P2 プライベート アクセス インシデントを確認します。 | 各インシデントが割り当てられ、調査中であることを確認します。 4時間以上経過した未割り当てのインシデントは、エスカレーションする必要があります。 |
 | 構成変更レビュー | IAM 管理者 | プレイブック 8: プライベート アクセス構成変更アラート (ほぼリアルタイム) | プライベート アクセス構成が変更されるたびに、ルールがトリガーされます。 毎日の手動クエリは必要ありません。 | フラグが設定された各変更が承認された変更要求にマップされていることを確認します。 不正な変更を元に戻し、調査します。 |
 
 #### 週単位のチェック
@@ -3320,7 +4193,7 @@ Sentinel 統合を設定した後 ( Sentinel 統合を参照)、 **Workbooks**&g
 | フェールオーバーの検証 | ネットワーク運用 L2 | **手動 - メンテナンス期間が必要** です (運用環境での中断テストを自動化する安全な方法はありません) | フェールオーバーの検証を参照してください。 | 次のメンテナンス期間の前に、コネクタ グループの割り当てとネットワーク ルーティングを調査します。 |
 | ロールベースのアクセス制御 (RBAC) レビュー | IAM 管理者 | ZT 評価 *アプリケーションの管理者権限が制限されている* + `Test-GsaRbacHygiene.ps1` | 評価では、ロール スコープの適切性を確認します。スクリプトは、常時割り当て、不要になった管理者、およびフィッシング耐性のある MFA が設定されていない管理者を報告します。 | 不要になったアカウントのアクセス権を削除します。 すべての管理者に対してフィッシングに対する耐性のある MFA を適用します。 |
 | 容量の評価 | ネットワーク運用 L2 + キャパシティプランナー | プレイブック 10: 月間容量傾向レポート (電子メール) | 毎月の容量傾向の電子メールを確認します。 | コネクタ グループの容量が常に 70% を超える場合は、コネクタの追加を計画します。 容量のしきい値を参照してください。 |
-| パフォーマンス ベースラインの比較 | ネットワーク運用 L2 | *GSA トラフィック トレンド*の30 日ベースライン クエリに対する Sentinel ワークブック | 現在の月を、最初の 1 か月にキャプチャされたベースラインと比較します。 | 有意な偏差を調査します。 承認された増加イベント (たとえば、新しいユーザー集団) の後にベースラインを更新します。 |
+| パフォーマンス ベースラインの比較 | ネットワーク運用 L2 | Sentinel ワークブック: 30 日間のベースラインのクエリに対する *GSA トラフィックの傾向* | 現在の月を、最初の 1 か月にキャプチャされたベースラインと比較します。 | 有意な偏差を調査します。 承認された増加イベント (たとえば、新しいユーザー集団) の後にベースラインを更新します。 |
 | ディザスター リカバリー (DR) / フォールバック 計画のレビュー | ネットワーク運用リード | マニュアル：ドキュメントレビュー | フォールバック接続プランと連絡先が最新であることを確認します。 | プランを更新し、フォールバック パスを再テストします。 |
 | 新機能と機能のレビュー | ネットワーク運用 L2 + IAM 管理者 | マニュアル：ドキュメントレビュー | 新しい Private Access 機能、プレビューの発表、非推奨項目、重大な変更については、次の 2 つのソースで確認してください: [Microsoft Entra の新機能](https://learn.microsoft.com/ja-jp/entra/fundamentals/whats-new) と [Global Secure Access のドキュメント](https://learn.microsoft.com/ja-jp/entra/global-secure-access/)。 関連する項目を文書化し、環境への影響を評価します。 | セキュリティ体制または運用効率を向上させる機能の変更要求を作成します。 新しい GA 機能の導入を計画し、将来のロードマップのプレビューを評価します。 非推奨事項や動作の変更を反映するために、ランブックと手順を更新します。 |
 
@@ -3412,14 +4285,14 @@ Note
 | --- | --- |
 | **Trigger** | Sentinel アラート: コネクタのハートビートが &gt; 5 分間受信されていません |
 | **頻度** | イベントドリブン（リアルタイム） |
-| **必要なアクセス許可** | `SecurityAlert.Read.All` を使用した Logic Apps のマネージド ID と、Microsoft Teams コネクタまたは Exchange `Mail.Send` のアクセス許可 |
+| **必要なアクセス許可** | `SecurityAlert.Read.All` を使用した Logic Apps マネージド ID、Microsoft Teams コネクタまたは Exchange `Mail.Send` へのアクセス許可 |
 
 **Steps:**
 
 1. Microsoft Sentinelで、**Analytics**&gt;**Rule テンプレート** に移動し、**Connector の正常性の低下** 規則を有効にします。
 2. 有効なルールを開きます。 次**に、[自動応答**]&gt;[**新規追加]**を選択します。
 3. 自動化ルールを作成する: 条件 **インシデント作成**、アクション **実行プレイブック**。
-4. Logic Apps で、トリガー **Microsoft Sentinel インシデントが作成されたら**を使用して新しいプレイブックを作成します。
+4. Logic Apps で、**Microsoft Sentinel のインシデントが作成されたとき**というトリガーを持つ新しいプレイブックを作成します
 5. チャネル Teams アクション **に投稿メッセージを** 追加します。 コネクタ名、コネクタ グループ、最終表示タイムスタンプ (インシデント エンティティからのタイムスタンプ)、Sentinel インシデントへの直接リンクが含まれます。
 6. 同じ詳細を含む電子 **メールの送信 (V2)** アクションをオンコール配布リストに追加します。
 7. 非運用環境のコネクタ グループ内のコネクタを無効にして、保存、有効化、テストを行います。
@@ -3447,7 +4320,7 @@ Note
 | --- | --- |
 | **Trigger** | スケジュール: 毎週日曜日 02:00 UTC |
 | **頻度** | Weekly |
-| **必要なアクセス許可** | `NetworkAccess.Read.All` と `Application.Read.All`（Microsoft Graph - バックアップ用の読み取り専用）およびターゲット ストレージ アカウント上の `Storage Blob Data Contributor` を持つ Azure Automation アカウントのマネージド ID |
+| **必要なアクセス許可** | Azure Automation アカウント マネージド ID。これには、`NetworkAccess.Read.All` と `Application.Read.All` (Microsoft Graph — バックアップのための読み取り専用) と対象のストレージ アカウントに対する `Storage Blob Data Contributor` が含まれます |
 
 **Steps:**
 
@@ -3464,7 +4337,7 @@ Note
 | --- | --- |
 | **Trigger** | 手動: 承認された変更要求によって開始される |
 | **頻度** | 必要時 |
-| **必要なアクセス許可** | `NetworkAccess.ReadWrite.All`; 事前の割り当て検索のための `Application.Read.All` を持つサービス プリンシパルまたはユーザー アカウント |
+| **必要なアクセス許可** | サービス プリンシパルまたはユーザー アカウント `NetworkAccess.ReadWrite.All`; 事前の割り当て検索のための `Application.Read.All` を持つ |
 
 Important
 
@@ -3501,7 +4374,7 @@ Important
 | --- | --- |
 | **Trigger** | コネクタホストで、CPU &gt; 70% またはメモリ &gt; 80% の状態が30分間継続した場合 |
 | **頻度** | イベントドリブン（継続的評価） |
-| **必要なアクセス許可** | `Monitoring Contributor` コネクター ホスト リソースまたはリソース グループ上の |
+| **必要なアクセス許可** | コネクター ホスト リソースまたはリソース グループの `Monitoring Contributor` |
 
 **Steps:**
 
@@ -3517,7 +4390,7 @@ Important
 | フィールド | 価値 |
 | --- | --- |
 | **Trigger** | スケジュール: 毎月第 1 月曜日 |
-| **頻度** | 月単位 |
+| **頻度** | 毎月 |
 | **必要なアクセス許可** | Log Analytics ワークスペースで `Log Analytics Reader`;`NetworkAccess.ReadWrite.All` を使用して、レビュー後にセグメントを削除する |
 
 **Steps:**
@@ -3539,7 +4412,7 @@ Important
 4. 各削除を ITSM の変更レコードとしてログに記録します。
 5. コネクタ グループの負荷分散クエリを再実行して、削除後にトラフィック パターンが変更されていないことを確認します。
 
-##### プレイブック 7: 定期的なゼロ トラスト評価ダイジェスト
+##### Playbook 7: 定期的なゼロ トラスト評価ダイジェスト
 
 | フィールド | 価値 |
 | --- | --- |
@@ -3554,7 +4427,7 @@ Important
 3. ネットワーク操作と IAM 管理者配布リストに HTML 概要メールを投稿します。成功/失敗の合計、前回の実行以降の差分、失敗した各チェックの修復ガイダンスへのリンク。
 4. *Fail* の各検出結果について、ゼロ トラスト Assessment の重大度に基づいて重大度を設定し、Logic Apps の ServiceNow コネクタ（または同等のコネクタ）を使用して ITSM チケットを作成します。
 5. 傾向分析のためにバージョン管理が有効になっているAzure Blob Storageに生の JSON を格納します。
-6. 「ゼロ トラスト Assessment pass rate (Private Access)」を表示する [Grafana](https://learn.microsoft.com/ja-jp/azure/managed-grafana/) タイルまたは Sentinel ワークブック タイルを追加します。このタイルは、管理報告用の単一のポスチャ指標になります。
+6. 「ゼロトラスト評価の合格率 (プライベート アクセス)」を表示する [Grafana](https://learn.microsoft.com/ja-jp/azure/managed-grafana/) または Sentinel ワークブックタイルを追加します。このタイルは、経営報告用の単一のポスチャ指標となります。
 
 ##### プレイブック 8: プライベート アクセス構成変更アラート
 
@@ -3569,7 +4442,7 @@ Important
 1. Microsoft Sentinel で、**Scheduled** 分析ルールを作成し、監査ログ KQL クエリを使用して、`ago(24h)` を `ago(5m)` に変更し、頻度/期間を 5 分に設定します。
 2. ルール設定: 重大度 **中**、エンティティ = **アカウント** ( `InitiatedBy.user.userPrincipalName`にマップ)、 **IP** (`InitiatedBy.user.ipAddress`)。
 3. Playbook 1 を呼び出して通知するオートメーション ルールを作成します。
-4. 影響を受けるオブジェクトを参照するオープン変更チケットについて ITSM Change Management API にクエリを実行する Logic Apps アクションを追加します。 チケットが存在しない場合は、重大度を**高**に引き上げ、オンコール担当のIAM管理者にページしてください。
+4. 影響を受けるオブジェクトを参照するオープン変更チケットについて ITSM Change Management API にクエリを実行する Logic Apps アクションを追加します。 チケットが存在しない場合は、深刻度を**高**に引き上げ、オンコール担当の IAM 管理者にページングを行ってください。
 5. この分析ルールは、以前の *手動監査ログ レビュー*に代わるものです。オペレーターは、KQL クエリを手動で実行する必要がなくなります。
 
 ##### プレイブック 9: 週単位のポリシー有効性ダイジェスト
@@ -3594,7 +4467,7 @@ Important
 | フィールド | 価値 |
 | --- | --- |
 | **Trigger** | スケジュール: 毎月 1 営業日、UTC 06:00 |
-| **頻度** | 月単位 |
+| **頻度** | 毎月 |
 | **必要なアクセス許可** | ワークスペース上の `Log Analytics Reader`; ベースライン ストレージ アカウント上の `Storage Blob Data Reader`; Logic Apps のメール コネクタ |
 
 **Steps:**
@@ -3620,12 +4493,12 @@ Important
 | Metric | ロール（オーナー） | 測定方法 | ターゲット | 進行ペースを確認する |
 | --- | --- | --- | --- | --- |
 | コネクタの可用性 | ネットワーク運用 L2 | グループ内のすべてのコネクタがアクティブである % | &gt; 99.9% | Weekly |
-| コネクタの故障を検出する平均時間 | SOC | コネクタがオフラインになってからアラートが発生するまでの時間 | &lt; 5 分 | 月単位 |
+| コネクタの故障を検出する平均時間 | SOC | コネクタがオフラインになってからアラートが発生するまでの時間 | &lt; 5 分 | 毎月 |
 | アプリケーション アクセスの成功率 | IAM 管理者 | 成功した接続数/合計接続試行回数 | &gt; 99.5% | Weekly |
 | 構成バックアップの成功率 | ネットワーク運用 L2 | 自動バックアップ/スケジュールされたバックアップの成功 | 100% | Weekly |
-| 成功率を変更する | 変更マネージャー | ロールバックまたはインシデントなしで完了した変更/変更の合計 | &gt; 95% | 月単位 |
+| 成功率を変更する | 変更マネージャー | ロールバックまたはインシデントなしで完了した変更/変更の合計 | &gt; 95% | 毎月 |
 | コネクタ障害後の平均復元時間 | ネットワーク運用リード | アラートから復元されたサービスまでの時間 | &lt; 30 分 | 四半期に 1 回 |
-| 古くなったアプリケーション セグメント | アプリ所有者 (IAM 管理者経由) | 90 日間でトラフィックがゼロのセグメントの数 | 0 に向けたトレンド | 月単位 |
+| 古くなったアプリケーション セグメント | アプリ所有者 (IAM 管理者経由) | 90 日間でトラフィックがゼロのセグメントの数 | 0 に向けたトレンド | 毎月 |
 | ゼロ トラスト評価の合格率 (プライベート アクセス チェック) | ネットワーク運用リード | 合格したチェック数 / プライベート アクセス チェックの合計数 | &gt; 95% | Weekly |
 <!-- /MSL-PAGE -->
 
@@ -4267,7 +5140,7 @@ Microsoft Entra Private Access アプリケーションには、プライベー�
 
 Palo Alto Prisma Access と Microsoft Global Secure Access を統合するには、次の前提条件を満たしていることを確認してください。 これらの手順により、スムーズな統合、トラフィック管理の向上、およびセキュリティの向上が保証されます。
 
-- プライベート アプリケーションへのアクセスを許可するように、Prisma Access 用のサービス接続または ZTNA コネクタを設定します。 サービス接続の設定の詳細については、Palo [Alto のサービス接続の構成に関するドキュメントを参照してください](https://docs.paloaltonetworks.com/prisma-access/administration/prisma-access-service-connections/configure-a-service-connection)。 ZTNA コネクタについては、 [ZTNA コネクタの構成に関する Palo Alto のドキュメントを](https://docs.paloaltonetworks.com/prisma-access/administration/ztna-connector-in-prisma-access/configure-a-ztna-connector)参照してください。
+- プライベート アプリケーションへのアクセスを許可するように、Prisma Access 用のサービス接続または ZTNA コネクタを設定します。 サービス接続の設定の詳細については、[サービス接続の構成に関する Palo Alto のドキュメント](https://docs.paloaltonetworks.com/prisma-access/administration/prisma-access-service-connections/configure-a-service-connection)を参照してください。 ZTNA コネクタについては、 [ZTNA コネクタの構成に関する Palo Alto のドキュメントを](https://docs.paloaltonetworks.com/prisma-access/administration/ztna-connector-in-prisma-access/configure-a-ztna-connector)参照してください。
 - モバイル ユーザーがプライベート アプリケーションへのリモート アクセスを許可するように GlobalProtect を設定します。 詳細については、 [GlobalProtect セットアップ](https://docs.paloaltonetworks.com/prisma-access/administration/prisma-access-mobile-users/mobile-users-globalprotect/set-up-globalprotect-mobile-users)のドキュメントを参照してください。
 - GlobalProtect トンネルの設定とアプリ設定を構成して、Microsoft Entra プライベート DNS を操作し、Microsoft Entra サービスの完全修飾ドメイン名 (FQDN) アドレスとインターネット プロトコル (IP) アドレスをバイパスします。
 
@@ -4444,7 +5317,7 @@ Palo Alto Prisma Access と Microsoft Global Secure Access を統合するには
 15. また、トラフィックがグローバル セキュア アクセスのトラフィック ログにキャプチャされていることを確認することもできます。 Microsoft Entra 管理センターで、**[グローバル セキュア アクセス]**&gt;**[監視]**&gt;**[トラフィック ログ]** に移動します。
 16. Strata Cloud Manager **Incidents > Alerts**&gt;**Log Viewer** で、Outlook Online と SharePoint Online に関連するトラフィックが Prisma Access ログに含まれていないかどうかを検証します。
 
-### Palo Alto Prisma Access for Private Application Access を使用した Microsoft Entra Internet Access と Microsoft トラフィック
+### Palo Alto Prisma Access を使用したプライベート アプリケーション アクセスにおける Microsoft Entra Internet Access と Microsoft トラフィック
 
 このシナリオでは、グローバル セキュリティで保護されたアクセスは、インターネットと Microsoft のトラフィックを処理します。 Prisma Access は、サービス接続または ZTNA コネクタを介してのみプライベート アプリケーション トラフィックをキャプチャします。
 
@@ -5076,7 +5949,7 @@ Copilot Studio エージェントのネットワーク制御を有効にする�
 3. **[ポリシーの作成]** を選択します。
 4. ポリシーのわかりやすい名前と説明を入力し、[ **次へ**] を選択します。
 5. [ **ルールの追加] を選択します**。
-6. セキュリティに基づいてルールを設定し、Copilot Studio エージェントの要件に対応させます。 たとえば、 `Web respositories`、 `Illegal software`、安全でない職場 (NSFW) サイトへのアクセスなどをブロックします。
+6. セキュリティに基づいてルールを設定し、Copilot Studio エージェントの要件に対応させます。 たとえば、 `Web repositories`、 `Illegal software`、安全でない職場 (NSFW) サイトへのアクセスなどをブロックします。
 7. [ **次へ** ] を選択してポリシーを確認します。
 8. **[ポリシーの作成]** を選択します。
 
@@ -8497,584 +9370,4 @@ Zscaler ポータルで次の手順を実行します。
 4. **自動化を設定**する - 構成バックアップとアラート通知から始めます。 時間の経過とともに、完全な自動化プレイブック一覧へと拡張します。
 5. **定期的なチェックをスケジュールする** - 各機能ガイドの毎日、毎週、毎月のチェックリストを実装します。
 6. **レポートの開始** - 週単位の運用チーム レポートから始めます。 最初の 1 か月後に月次管理レポートを追加します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/overview-what-is-global-secure-access"} -->
-## Global Secure Access とは - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access
-- Service: global-secure-access
-- Article date: 2026-04-15
-- Summary: Microsoftの Security Service Edge (SSE) ソリューションである Global Secure Access を使用して、従来のオフィス内外のユーザーとデバイスにネットワーク アクセス制御と可視性を提供する方法について説明します。
-
-### 概要
-
-人の働き方が変わりました。 従来のオフィスで働く代わりに、現在、人々はほぼどこでも働いています。 アプリケーションとデータがクラウドに移行するにつれて、現代の従業員には、ID に対応したクラウド配信ネットワーク境界が必要になります。 この新しいネットワーク セキュリティ カテゴリは、Security Service Edge (SSE) と呼ばれます。
-
-Microsoft Entra Internet AccessとMicrosoft Entra Private Accessは、Microsoftの Security Service Edge (SSE) ソリューションで構成されます。 グローバルセキュリティで保護されたアクセスは、Microsoft Entra Internet AccessとMicrosoft Entra Private Accessの両方で使用される統一的な用語です。 グローバル セキュリティで保護されたアクセスは、Microsoft Entra 管理センター内の統合された場所です。 グローバル セキュリティで保護されたアクセスは、最小限の特権を使用し、明示的に検証し、侵害を想定するゼロ トラストの基本原則に基づいて構築されています。
-
-[Image: グローバル セキュア アクセス ソリューションの図。ID とリモート ネットワークがサービスを介して Microsoft、プライベート、パブリックのリソースに接続する方法を示します。]
-
-### Microsoftの Security Service Edge (SSE) ソリューション
-
-Microsoft Entra Internet AccessとMicrosoft Entra Private Accessは、MicrosoftのSaaSセキュリティに重点を置いたクラウド アクセス セキュリティ ブローカー (CASB)であるMicrosoft Defender for Cloud Appsと組み合わさって、ネットワーク、ID、エンドポイントのアクセス制御を統合するソリューションとしてユニークに構築されています。そのため、どこからでも任意のアプリまたはリソースへのアクセスを安全に保護できます。 これらのグローバル セキュア アクセス製品を追加することで、Microsoft Entra IDはアクセス ポリシー管理を簡素化し、従業員、ビジネス パートナー、デジタル ワークロードのアクセス オーケストレーションを可能にします。 アクセス許可またはリスク レベルが変更された場合は、ユーザー アクセスをリアルタイムで継続的に監視および調整できます。
-
-セキュリティで保護されたグローバル アクセス機能を使用すると、統合ポータルを使用してアクセス制御機能のロールアウトと管理を効率化できます。 これらの機能は、70 のリージョンと 190 以上のネットワーク エッジの場所にまたがる、Microsoftのワイド エリア ネットワークから提供されます。 このプライベート ネットワークは、世界最大のネットワークの 1 つであり、組織がユーザーとデバイスをパブリックとプライベートのリソースにシームレスかつ安全に最適に接続できるようにします。 現在のプレゼンス ポイントの一覧については、プレゼンスの [グローバル セキュリティで保護されたアクセス ポイントに](https://learn.microsoft.com/ja-jp/entra/global-secure-access/reference-points-of-presence)関する記事を参照してください。
-
-### マイクロソフト エントラ インターネット アクセス
-
-Microsoft Entra Internet Accessは、ID ベースの Secure Web Gateway (SWG) を使用してインターネットと SaaS アプリへのアクセスを保護し、脅威、安全でないコンテンツ、悪意のあるトラフィックをブロックします。
-
-#### 主要な機能
-
-- デスクトップ クライアントまたはブランチの場所などのリモート ネットワークから、ユーザーが認識するインターネット トラフィック転送プロファイルを使用して、ネットワーク トラフィックを取得します。
-- インターネット トラフィックの詳細なネットワーク トラフィック ログ (適用されたポリシーの詳細を含む)。 ユーザー、デバイス、エンドポイント間のリレーションシップ マップ、テナント間アクセス、使用中の上位のネットワーク宛先などのダッシュボード。
-- 条件付きアクセスとの統合を通じてネットワーク セキュリティ ポリシーを適用しながら、高度なコンテキスト認識 (ユーザー、デバイス、場所、リスク、コンプライアンス ポリシー) を使用します。 Microsoftのクラウド配信の ID 対応 SWG ソリューションを使用して、パブリック インターネットへのユーザー アクセスを保護します。
-- Web コンテンツ フィルタリングを有効にして、Web コンテンツ カテゴリや FQDN ドメイン名に基づいてインターネットの宛先へのアクセスを規制できます。
-- 条件付きアクセス セッション制御との統合を通じて、Microsoft Entra IDとフェデレーションされていない場合でも、すべてのインターネット宛先にユニバーサル条件付きアクセス ポリシーを適用します。
-
-### Microsoft サービス用 Microsoft Entra Internet Access
-
-Microsoft サービスのMicrosoft Entra Internet Accessは、サポートされているMicrosoft サービスに直接接続してMicrosoft Entra ID機能を強化し、セキュリティ、パフォーマンス、回復性を向上させます。
-
-#### 主要な機能
-
-- デスクトップ クライアントから、またはブランチの場所などのリモート ネットワークから、事前に設定されたMicrosoftトラフィック転送プロファイルを使用して、Microsoft サービスに直接接続します。
-- Microsoft Entra ID の条件付きアクセスを利用して、Microsoft Entra ID に統合されたアプリケーションのために、準拠ネットワークのチェックを求めることで、条件付きアクセス ポリシーの構成を簡素化できます。
-- ユニバーサル テナント制限を適用して、許可されていない外部テナントまたは個人アカウントへのデータ流出のリスクを軽減します。
-- Microsoft Entra IDサインイン ログのソース IP 復元を使用して、脅威検出の精度を高めます。
-- 適用されたポリシーの詳細など、Microsoft トラフィックの詳細なネットワーク トラフィック ログにアクセスします。 ユーザー、デバイスとエンドポイント、テナント間のアクセス、使用中の上位のネットワーク宛先間のリレーションシップ マップを表示するダッシュボードを表示します。
-
-### Microsoft Entra プライベート アクセス
-
-Microsoft Entra Private Accessは、オフィス内でもリモートでも、プライベートな企業リソースへのセキュリティで保護されたアクセスをユーザーに提供します。 Microsoft Entra Private Access Microsoft Entraアプリケーション プロキシの機能に基づいて構築され、プライベート リソース、ポート、プロトコルへのアクセスを拡張します。
-
-リモート ユーザーは、VPN を必要とせずに、任意のデバイスとネットワークからハイブリッドおよびマルチクラウド環境、プライベート ネットワーク、データ センターにまたがってプライベート アプリに接続します。 このサービスは、VPN よりも詳細なセキュリティを実現するために、条件付きアクセス ポリシーに基づくアプリごとのアダプティブ アクセスを提供します。
-
-#### 主要な機能
-
-- 従来の VPN を必要とせずに、一連の IP アドレスや完全修飾ドメイン名 (FQDN) へのゼロ トラストベースのアクセス。 この機能はクイック アクセスと呼ばれます。
-- 伝送制御プロトコル (TCP) およびユーザー データグラム プロトコル (UDP) アプリケーションのアプリごとのアクセス。
-- 条件付きアクセスの密接な統合を使用して、レガシ アプリ認証を最新化します。
-- デスクトップ クライアントからネットワーク トラフィックを取得し、既存の非Microsoft SSE ソリューションとサイド バイ サイドでデプロイすることで、シームレスなエンド ユーザー エクスペリエンスを提供します。
-
-### ライセンスの概要
-
-Microsoft Entra Internet Access、Microsoft Entra Internet Access for Microsoft サービス、およびMicrosoft Entra Private Accessが一般公開されました。
-
-- Microsoft Entra Internet Access機能は、Microsoft Entra スイート ライセンスとスタンドアロンに含まれています。 Microsoft Entra Internet Accessは、すべてのインターネットおよび SaaS アプリケーションへのアクセスをセキュリティで保護するのに役立ちます。
-- Microsoft Entra Private Access機能は、Microsoft Entra スイート ライセンスとスタンドアロンに含まれています。 Microsoft Entra Private Accessは、ゼロ トラスト ネットワーク アクセス (ZTNA) ソリューションを使用してネットワーク セキュリティを昇格させます。
-- Microsoft サービス機能のMicrosoft Entra Internet Accessは、Microsoft Entra ID P1 または Microsoft Entra ID P2 ライセンスに含まれています。 Microsoft サービスのMicrosoft Entra Internet Accessは、サポートされているMicrosoft サービスに直接接続してMicrosoft Entra ID機能を強化し、セキュリティ、パフォーマンス、回復性を向上させます。
-
-Microsoft Entra Private AccessとMicrosoft Entra Internet Accessを使用するには、Microsoft Entra ID P1 または Microsoft Entra ID P2 ライセンスが必要です。
-
-特に明記されていない限り、ほとんどのグローバル セキュア アクセス サービスはユーザーごとのライセンス モデルで動作します。 ライセンス コストと Microsoft Entra スイート の詳細については、「[Microsoft Entra プランと価格](https://www.microsoft.com/security/business/microsoft-entra-pricing)」を参照してください。 個々のライセンスの購入の詳細については、ライセンス ページのMicrosoft Entra スイートスタンドアロン製品タブを参照してください。 ゲスト ユーザー ライセンスの詳細については、 [ゲスト ユーザーのグローバル セキュリティで保護されたアクセス ライセンスに関する説明を](https://learn.microsoft.com/ja-jp/entra/global-secure-access/reference-licensing-guest-users)参照してください。
-
-#### 機能の比較表
-
-| 特徴 | Entra P1/P2 ライセンス - Microsoft トラフィック プロファイル | インターネット アクセス ライセンス¹ - インターネット アクセス プロファイル | プライベート アクセス ライセンス¹ - プライベート アクセス プロファイル |
-| --- | --- | --- | --- |
-| [Windows クライアント](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client) | ✅ | ✅ | ✅ |
-| [macOS クライアント](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-macos-client) | ✅ | ✅ | ✅ |
-| モバイル クライアント ([iOS](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-ios-client)、 [Android](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-android-client)) | ✅ | ✅ | ✅ |
-| [トラフィック ログ (プレビュー)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-view-traffic-logs) | ✅ | ✅ | ✅ |
-| [リモート ネットワーク (ブランチ接続)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-remote-network-connectivity) | ✅ | ✅ |  |
-| [Microsoft サービスへの直接接続](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-microsoft-profile) | ✅ |  |  |
-| [一般テナントの制限](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-universal-tenant-restrictions) | ✅ |  |  |
-| [準拠しているネットワーク チェック](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-compliant-network) | ✅ |  |  |
-| [ソース IP の復元](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-source-ip-restoration) | ✅ |  |  |
-| [Microsoft 365 拡張ログ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-view-enriched-logs) | ✅ |  |  |
-| [ユニバーサル条件付きアクセス (CA)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-universal-conditional-access) | ✅ | ✅ |  |
-| [コンテキスト対応のネットワーク セキュリティ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-internet-access) |  | ✅ |  |
-| [Web カテゴリのフィルター処理](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-web-content-filtering) |  | ✅ |  |
-| [完全修飾ドメイン名 (FQDN) フィルター処理](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-web-content-filtering) |  | ✅ |  |
-| [TLS 検査](https://learn.microsoft.com/ja-jp/entra/global-secure-access/tutorial-internet-access-tls-inspection) |  | ✅ |  |
-| [脅威情報](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-threat-intelligence) |  | ✅ |  |
-| [迅速なインジェクション保護](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-ai-prompt-injection-protection) |  | ✅ |  |
-| [データ損失防止](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-network-content-filtering) |  | ✅ |  |
-| [Universal Continuous Access Evaluation (CAE)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-universal-continuous-access-evaluation) | ✅ | ✅ | ✅ |
-| [ID 中心の ZTNA による VPN の置き換え](https://learn.microsoft.com/ja-jp/entra/global-secure-access/tutorial-private-access-vpn-replacement) |  |  | ✅ |
-| [クイック アクセス](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-quick-access) |  |  | ✅ |
-| [アプリごとのアクセス (TCP/UDP)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-per-app-access) |  |  | ✅ |
-| [アプリの検出](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-application-discovery) |  |  | ✅ |
-| [シャドウ AI 検出](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-shadow-ai-discovery) |  | ✅ |  |
-| [プライベート ドメイン ネーム システム (DNS)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-private-name-resolution) |  |  | ✅ |
-| [すべてのプライベート アプリでシングル サインオン](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-kerberos-sso) |  |  | ✅ |
-| [Marketplace の可用性 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-connectors) |  |  | ✅ |
-| [プライベート ネットワーク コネクタのマルチクラウド サポート (プレビュー)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-connectors) |  |  | ✅ |
-| [エージェントのネットワーク制御²](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-secure-web-ai-gateway-agents) |  | ✅ |  |
-
-¹ [Microsoft Entra スイート](https://learn.microsoft.com/ja-jp/entra/fundamentals/try-microsoft-entra-suite#what-is-the-microsoft-entra-suite) に含まれます。
-
-² エージェントのネットワーク制御には、[Microsoft Agent 365](https://learn.microsoft.com/ja-jp/microsoft-agent-365/overview) ライセンスが必要です。
-
-**リモート ネットワーク ライセンス**
-
-リモート ネットワーク (ブランチ接続) 機能は、Microsoft トラフィックの Microsoft Entra ID P1 ライセンスと、インターネット トラフィックのMicrosoft Entra Internet Access ライセンス (近日公開予定) の両方に含まれています。 リモート ネットワーク接続を有効にするには、Microsoft Entra ID P1 とMicrosoft Entra Internet Accessから合計 50 以上のライセンスが必要です。 割り当てられる帯域幅の詳細については、「 [リモート ネットワーク接続](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-remote-network-connectivity#what-is-the-bandwidth-allocation-for-each-tenant)について」を参照してください。 リモート ネットワークの詳細については、「 [グローバル セキュリティで保護されたアクセスを使用してリモート ネットワークを作成する方法](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-create-remote-networks)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/partner-ecosystems-overview"} -->
-## パートナー エコシステムの概要 - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/partner-ecosystems-overview
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: Microsoft Secure Access Service Edge (SASE) パートナー エコシステムについて説明します。 パートナー統合とパートナー共存について説明します。
-
-### 概要
-
-Microsoft の Secure Access Service Edge (SASE) パートナー エコシステムは、組織に堅牢で柔軟なセキュリティ フレームワークを提供します。 Microsoft は主要なセキュリティ ベンダーと連携しているため、SASE ソリューションは Microsoft 以外のさまざまな製品と統合できます。 この統合により、組織は既存のセキュリティ投資を使用し、全体的なセキュリティを強化できます。 この記事では、ネットワーク インフラストラクチャをセキュリティで保護する方法について十分な情報に基づいて決定できるように、パートナー統合と共存オファリングの種類について説明します。
-
-Microsoft はパートナーと協力して、次のカテゴリを提供しています。
-
-- **パートナー統合オファリング**: これらの統合により、Microsoft の SASE ソリューション内に直接、すべて同じインターフェイス内に高度なパートナー機能を深くシームレスに埋め込む包括的なソリューションが提供されます。
-- **パートナーの共存オファリング**: これらの統合は、既存のセキュリティ スタックと共に Microsoft の SASE ソリューションをデプロイする際のエクスペリエンスを最適化することを目的とします。
-- **Partner 接続サービス**: 接続機能とMicrosoftの Security Service Edge (SSE) ソリューションの相互運用性を示すパートナー。
-- **パートナー サービス オファリング**: 実装サービスを提供するパートナーです。
-
-### パートナー統合オファリング (プレビュー)
-
-使用可能なパートナー統合:
-
-- [Netskope](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-netskope-coexistence)
-
-### パートナー共存オファリング
-
-以下のパートナーは、Microsoft Entra Internet Access および Microsoft Entra Private Access との共存を提供しています。 これらの並行展開ガイドでは、Microsoft のセキュリティ サービス エッジ ソリューションまたはパートナー ソリューションのどちらに、どの種類のトラフィックを送るかを設定できます。
-
-ネットワークのニーズに基づき、異なる種類のトラフィックを送るように選択できます。 オプションは次のとおりです。
-
-- Microsoft トラフィック
-- インターネット トラフィック
-- プライベート ネットワーク トラフィック
-
-次のパートナーは、共存をサポートしています。
-
-- [Cisco](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-cisco-coexistence)
-- [Netskope](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-netskope-coexistence)
-- [Palo Alto Networks](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-palo-alto-coexistence)
-- [Zscaler](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-zscaler-coexistence)
-
-### パートナー接続オファリング
-
-Microsoft の Security Service Edge (SSE) ソリューションのコア コンポーネントである Microsoft Entra Internet Access は、さまざまな SD-WAN および接続プロバイダーとシームレスに統合されるようになりました。 これらのパートナー統合により、Microsoft の ID 中心の SSE とサード パーティのネットワーク インフラストラクチャ間の最適な接続が可能になります。
-
-組織は、既存のソフトウェア定義広域ネットワーク (SD-WAN) と接続システムを Microsoft の SSE ソリューションにリンクして、効率的なエクスペリエンスを実現することで、セキュリティ態勢を強化できます。
-
-#### 自動化された統合
-
-次のパートナーは、Microsoft の SSE ソリューションとの自動統合を提供しています。これにより、お客様は最小限の労力でネットワークを安全に拡張できます。
-
-| Partner | パートナー向けドキュメント | Description |
-| --- | --- | --- |
-| Aviatrix | [Aviatrix 構成ガイド](https://resources.aviatrix.com/home/aviatrixentra-gsa-configuration-guide-getting-started-with-aviatrix-secure-connectivity-to-entra-gsa) | Aviatrix を使用すると、世界中の任意のアプリケーションまたはワークロードに対して Microsoft の SASE プラットフォームに安全かつ即時にアクセスでき、Microsoft 365、インターネット、パブリック PaaS/SaaS エンドポイントへの ID ベースのゼロトラスト アクセスが提供されます。 Aviatrix Secure Access は、エージェントやホストの構成を必要とせずに、コンテナーを含むさまざまな環境で Microsoft の SASE への常時接続をサポートします。 |
-| Netskope | [Netskope One デプロイ ガイド](https://community.netskope.com/additional-discussions-9/automating-netskope-one-sd-wan-and-microsoft-entra-sse-integration-7967) | Netskope One SD-WAN ソリューションは、Microsoft の SSE ソリューションと自動的に統合され、ハイブリッド SASE アーキテクチャを有効にします。 この統合により、Microsoft 365 トラフィックが Microsoft の SSE プラットフォームにインテリジェントにルーティングされ、他のすべてのトラフィックが Netskope One SASE にルーティングされ、NewEdge を利用して、あらゆるユーザーまたはブランチから任意のクラウド、SaaS、または UCaaS アプリケーションに包括的な SASE サービスが提供されます。 |
-| Teridion | [Teridion のユーザー マニュアル](https://www.teridion.com/wp-content/uploads/2024/11/Teridion-Secure-Connect.pdf) | Teridion Secure Connect は、Teridion Connect と Microsoft の SASE プラットフォームを組み合わせて、高速で安全なインターネット アクセスを提供します。 この統合は、通信会社やグローバル システム インテグレーター (GSI) 向けに設計されており、運用を簡素化し、サービス管理を強化することで、エンド カスタマーにメリットをもたらします。 |
-| Versa Networks | [Versa 構成ガイド](https://versa-networks.com/documents/reports/Versa-Automated-integration-with-Microsoft-Entra.pdf) | Versa Secure SD-WAN は、Microsoft Entra とネイティブに統合され、運用を簡素化し、ブランチとリモート ネットワーク間で ID 対応のセキュリティを一貫して適用しながら、Microsoft 365 とインターネットの接続を最適化する、統合された自動化された SASE ソリューションを提供するようになりました。 |
-
-#### テンプレート ベースの統合
-
-独自のネットワーク アーキテクチャに応じたカスタマイズを必要とする組織向けに、Microsoft は以下のパートナーとのテンプレート化された統合を提供しています。
-
-| Partner | パートナー向けドキュメント | Description |
-| --- | --- | --- |
-| Arista Networks | [Arista デプロイ ガイド](https://www.arista.com/assets/data/pdf/microsoft-entra-internet-access-with-arista-cv-pathfinder.pdf) | Arista Networks は、Microsoft Entra Internet Access と Arista CloudVision Pathfinder を統合して、Arista Data Center、キャンパス、支社、および遠隔地に安全なインターネット アクセスを提供します。 Arista WAN ルーティング システムは、検査のために Microsoft の SASE プラットフォームにトラフィックをインテリジェントにルーティングし、セキュリティで保護されたインターネットと SaaS アクセスを確保します。 |
-| Arista VeloCloud | [Arista VeloCloud SD-WAN ガイド](https://www.arista.com/assets/data/pdf/Arista-Microsoft-SSE-VeloCloud-SD-WAN-Deployment-Guide.pdf) | Arista VeloCloud SD-WAN は、Microsoft の SASE プラットフォームと統合され、データセンター、キャンパス、ブランチ ネットワーク全体でセキュリティで保護された高パフォーマンスのインターネット アクセスを提供します。 このソリューションは、VeloCloud SD-WAN の動的パス選択、アプリケーション対応ルーティング、一元化されたオーケストレーションを組み合わせて、検査のために Microsoft の SASE プラットフォームにトラフィックをインテリジェントにルーティングし、セキュリティで保護されたインターネットと SaaS アプリケーションへのアクセスを確保します。 |
-| Check Point | [Check Point 構成ガイド](https://support.checkpoint.com/results/sk/sk182799) | Check Point の Quantum SD-WAN ソリューションは、WAN 接続に高度なセキュリティを提供し、Microsoft の SASE プラットフォームとシームレスに統合して、分散した場所をまたがる顧客に対して Microsoft 365 とインターネット トラフィックを最適化し、セキュリティで保護します。 このソリューションは、脅威防御、インテリジェントなトラフィック管理、および合理化されたワークフローを組み合わせることで、複雑さを軽減し、ネットワーク環境とクラウド環境の両方でセキュリティ態勢を強化します。 |
-| Cisco Catalyst | [Cisco Catalyst ユーザー ガイド](https://www.cisco.com/c/en/us/solutions/collateral/enterprise-networks/sd-wan/catalyst-sd-wan-ms-sse-int-ug.html) | Cisco Catalyst SD-WAN Microsoft の SASE プラットフォームとの統合では、ネットワーク展開の簡素化と高度な脅威保護機能を使用して、ブランチ オフィスから送信されるインターネットに接続されたトラフィックに包括的なセキュリティを提供します。 すべてのインターネット トラフィックは、Microsoft の SASE プラットフォームにルーティングされ、パブリック インターネットと SaaS アクセスをセキュリティで保護しながら、ユーザー、デバイス、データが進化する脅威から保護されます。 |
-| Cisco Meraki | [Meraki 構成ガイド](https://documentation.meraki.com/MX/Security_Service_Edge_Integrations/Meraki_Secure_SD-WAN_Microsoft_SSE_Configuration_Guide) | Cisco Meraki SD-WAN Microsoft の SASE プラットフォームとの統合では、ネットワーク展開の簡素化と高度な脅威保護機能を使用して、ブランチ オフィスから送信されるインターネットに接続されたトラフィックに対する包括的なセキュリティを実現します。 すべてのインターネット トラフィックは、Microsoft の SASE プラットフォームにルーティングされ、パブリック インターネットと SaaS アクセスをセキュリティで保護しながら、ユーザー、デバイス、データが進化する脅威から保護されます。 |
-| HPEアルバ | [Aruba ネットワーク構成ガイド](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/integrations/int_Microsoft-SSE-EC-IPSec_latest.pdf) | HPE Aruba の EdgeConnect SD-WAN ソリューションは、Microsoft の SASE プラットフォームと統合され、ハイブリッド SASE アーキテクチャをサポートします。 この統合により、Microsoft 365 またはインターネット トラフィックを Microsoft の SASE プラットフォームに転送し、他のトラフィックを HPE Aruba Networking SSE または EdgeConnect 内でサポートされている代替 SSE にルーティングできます。 EdgeConnect のビジネス インテント オーバーレイを通じて、お客様はポリシー主導のトラフィック管理を利用して、SD-WAN ブランチ サイト間の接続を最適化できます。 |
-| ジュニパーネットワークス | [Juniper デプロイ ガイド](https://www.juniper.net/content/dam/www/assets/solution-briefs/us/en/2024/deploying-microsoft-sse-with-juniper-ai-driven-sd-wan.pdf) | Juniper Networks の AI ドリブン SD-WAN ソリューションは、今日の企業向けに調整されたセキュリティで保護された回復性のある接続を提供します。 Juniper Networks では、AI Native の分析情報と自動化を使用してデプロイ プロセスを合理化し、運用を大幅に改善します。 Juniper の AI ドリブン SD-WAN ソリューションは、Microsoft の SASE プラットフォームと統合され、スケーラブルなデバイス テンプレートを使用してブランチとオフィスの場所からシームレスにアクセスし、多くのサイトにサービスを展開する運用上の負担を軽減します。 |
-| Netskope | [Netskope SD-WAN 構成ガイド](https://community.netskope.com/discussions-37/microsoft-s-sse-netskope-sd-wan-configuration-guide-7854?tid=7854&amp;fid=37) | Netskope One SD-WAN は、Microsoft のトラフィックを Microsoft の SSE ソリューションに転送して、高速で安全なアクセスを実現します。 ゼロ タッチ プロビジョニングの強力な自動化により、このソリューションは大規模なデプロイを効率化します。 顧客とパートナーは、サイトを迅速にオンボードし、運用コストを削減できます。 |
-| Versa Networks | [Versa 構成ガイド](https://versa-networks.com/documents/reports/Versa-Interoperability-MSEntra_v1-1b.pdf) | Versa Secure SD-WAN は、Microsoft の SASE プラットフォームと組み合わせて、幅広い脅威に対して堅牢で回復力のあるセキュリティ体制を構築することで、潜在的な脆弱性に対処します。 Versa Secure SD-WAN は、セキュリティで保護されたアジャイルなネットワーク接続と統合されたネットワーク セキュリティを提供することで、Microsoft Entra Internet Access を補完し、ユーザー エクスペリエンスを向上し、アクセス エクスペリエンスを最適化します。 |
-
-### パートナー サービス オファリング
-
-Microsoft は、多くのサービス パートナーと連携しています。 詳細については、「 [Microsoft サービス パートナーの検索」を](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-find-microsoft-services-partners)参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/powershell-samples"} -->
-## グローバル セキュア アクセスの PowerShell サンプル - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/powershell-samples
-- Service: global-secure-access
-- Article date: 2026-06-17
-- Summary: これらの PowerShell サンプルを使用して、コネクタの登録、クライアントのインストール、トラフィック転送バイパス、重大なシナリオ、TLS 証明書の作成、操作の監視、回復など、一般的なグローバル セキュリティで保護されたアクセス タスクを自動化します。
-
-### 概要
-
-これらのサンプル スクリプトは、PowerShell を使用したグローバル セキュリティで保護されたアクセスの一般的なタスクに関するガイダンスを提供します。 特に明記されていない限り、ほとんどのサンプルには [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
-
-サンプルはシナリオ別にグループ化されています。
-
-### コネクタのセットアップ
-
-| Sample | Description |
-| --- | --- |
-| [コネクタのトークンを取得する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-get-token) | Azure、AWS、または GCP Marketplace を使用して、Microsoft Entraプライベート ネットワーク コネクタを登録するための認証トークンを取得します。 |
-
-### クライアント展開
-
-| Sample | Description |
-| --- | --- |
-| [グローバル セキュア アクセス Windows クライアントを概念実証としてインストールします](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-windows-client-install-proof-of-concept) | グローバル セキュア アクセス Windows クライアントのインストールを自動化し、概念実証デプロイに不可欠なレジストリ構成を適用します。 |
-
-### トラフィックの転送とバイパス
-
-| Sample | Description |
-| --- | --- |
-| [Internet Access にカスタム バイパス規則を追加する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-bypass-script) | 指定したドメインまたは IP をバイパスするために、Microsoft Entra Internet Access転送ポリシーにカスタム バイパス 規則をプログラムで追加します。 |
-| [Intune デバイス コンプライアンス バイパスをインターネット アクセスに追加する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-add-internet-access-device-compliance-bypasses) | デバイスのコンプライアンスの問題を軽減するために、Intune 関連のネットワーク エンドポイントを Internet Access カスタム バイパス ポリシーに追加します。 |
-
-### ガラスを割る
-
-| Sample | Description |
-| --- | --- |
-| [トラフィックの転送および準拠ネットワークのポリシーを無効にする (緊急時対応)](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-break-glass) | トラフィック転送プロファイルをすばやく無効にし、障害発生時に準拠ネットワーク条件を使用する条件付きアクセス ポリシーを Report-Only モードに切り替えます。 |
-| [緊急時対応の後で準拠ネットワークの要件を復元する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-break-glass-recovery) | 障害が解決された後、中断スクリプトによって無効にされた転送プロファイルと条件付きアクセス ポリシーを再度有効にします。 |
-
-### TLS 検査証明書
-
-| Sample | Description |
-| --- | --- |
-| [Active Directory 証明書サービスを使用して TLS 証明書を作成および署名する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-active-directory-certificate-service) | TLS 検査Graph APIを使用して証明書署名要求を生成し、ADCS で署名し、証明書とチェーンを TLS 検査設定にアップロードします。 |
-| [OpenSSL を使用して TLS 証明書を作成して署名する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-open-secure-sockets-layer) | TLS 検査Graph APIを使用して証明書署名要求を生成し、OpenSSL によって作成された自己署名ルート CA で署名し、証明書とチェーンを TLS 検査設定にアップロードします。 |
-
-### 操作の監視
-
-| Sample | Description |
-| --- | --- |
-| [操作スクリプトの共有ヘルパー関数](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-global-secure-access-operations-helpers) | 操作の自動化スクリプトには、共有認証、Log Analytics トークン、アラート 電子メール ヘルパー関数を使用します。 |
-| [構成バックアップのコンプライアンスを確認する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-test-backup-compliance) | Global Secure Access 構成のバックアップ runbook について、Azure Automation の最近のジョブを確認し、バックアップが失敗した場合やスケジュールされた実行が行われなかった場合にアラートを出します。 |
-| [ロールの割り当てレビューを確認する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-test-role-based-access-control-hygiene) | グローバルなセキュリティで保護されたアクセス関連のロールの割り当てを照会し、四半期ごとのレビューが必要な管理者アカウントを特定します。 |
-| [アラートノイズ比を計算する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-test-alert-noise-ratio) | グローバルセキュアアクセス検出のMicrosoft Sentinelアラートノイズ比を計算し、ノイズの多い分析ルールを特定します。 |
-
-### Recovery
-
-| Sample | Description |
-| --- | --- |
-| [Microsoft Entra スナップショットを一覧表示する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-get-entra-snapshot) | テナントMicrosoft Entraバックアップと復旧のスナップショットを一覧表示し、使用可能な最新のスナップショットを特定します。 |
-| [Microsoft Entra の復旧をプレビューする](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-start-entra-recovery-preview) | グローバル セキュア アクセスに影響を与えるディレクトリ オブジェクトを対象とする非破壊的復旧プレビュー ジョブを作成します。 |
-| [Microsoft Entra回復を実行する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/scripts/powershell-invoke-entra-recovery) | 一致するプレビュー ジョブを確認して承認した後、Microsoft Entra回復ジョブを実行します。 |
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/quickstart-access-admin-center"} -->
-## クイックスタート: Microsoft Entra 管理センターのグローバル セキュア アクセス領域にアクセスする - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/quickstart-access-admin-center
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: Microsoft Entra 管理センターのグローバル セキュア アクセス領域にアクセスする方法について説明します。
-
-### 概要
-
-このクイックスタートでは、Microsoft Entra 管理センターのグローバル セキュア アクセス領域の場所について説明します。
-
-グローバル セキュア アクセスは、Microsoft Entra Internet Access と Microsoft Entra Private Access の両方で使用される統一用語です。 Global Secure Access は、Microsoft Entra 管理センター内の統合された場所です。 Microsoft Entra Internet Access と Microsoft Entra Private Access は、Microsoft のセキュリティ サービス エッジ (SSE) ソリューションで構成されます。 グローバル セキュリティで保護されたアクセスの詳細については、「[グローバル セキュリティで保護されたアクセスとは」](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)を参照してください。
-
-### 前提条件
-
-**グローバル セキュア アクセス**機能を操作する管理者は、[グローバル セキュア アクセス管理者のロール](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference)を持っている必要があります。 一部の機能では、他のロールが必要な場合もあります。
-
-[最小特権のゼロ トラスト原則](https://learn.microsoft.com/ja-jp/security/zero-trust/)に従うには、[Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-configure) を使用して、Just-In-Time で特権ロールの割り当てをアクティブ化することを検討してください。
-
-この製品にはライセンスが必要です。 詳細については、「[グローバル セキュア アクセスとは](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)」のライセンスに関するセクションを参照してください。 必要に応じて、[ライセンスを購入するか、試用版ライセンスを取得](https://aka.ms/azureadlicense)できます。
-
-### Microsoft Entra 管理センターのグローバル セキュア アクセス領域にアクセスする
-
-1. Web ブラウザーを開き、[Microsoft Entra 管理センター](https://entra.microsoft.com)に[グローバル セキュア アクセス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#global-secure-access-administrator)としてサインインします。
-2. **[グローバル セキュア アクセス]** にアクセスします。
-3. Microsoft Entra Internet Access と Microsoft Entra Private Access の機能は、グローバル セキュア アクセス領域全体で見つかります。 多くの機能と設定は、Microsoft Entra Private Access と Microsoft Entra Internet Access の両方に適用されます。 一部の機能は、いずれかに固有です。
-
-[Image: Microsoft Entra 管理センターのグローバル セキュア アクセス領域のスクリーンショット。]
-
-アクセスの問題が発生した場合は、[テナントの制限に関するこちらの FAQ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/resource-faq) を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/quickstart-install-client"} -->
-## クイック スタート: Windows クライアントをインストールして Microsoft のトラフィックを取得する - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/quickstart-install-client
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: Windows クライアントをインストールして、グローバル セキュア アクセスで Microsoft のトラフィックを取得する方法について説明します。
-
-### 概要
-
-Microsoft Entra Internet Access は、Exchange Online や SharePoint Online などの Microsoft アプリケーションとリソースのトラフィックを分離します。 ユーザーは、グローバル セキュア アクセス クライアントに接続するか、ブランチ オフィスの場所などのリモート ネットワークを介してこれらのリソースにアクセスできます。
-
-このクイックスタートでは、クライアントをインストールして Microsoft のトラフィックの取得を始めるために必要な手順を示します。 グローバル セキュリティで保護されたアクセスの詳細については、「[グローバル セキュリティで保護されたアクセスとは」](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)を参照してください。
-
-### 前提条件
-
-**グローバル セキュア アクセス**機能を操作する管理者は、[グローバル セキュア アクセス管理者のロール](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference)を持っている必要があります。 一部の機能では、他のロールが必要な場合もあります。
-
-[最小特権のゼロ トラスト原則](https://learn.microsoft.com/ja-jp/security/zero-trust/)に従うには、[Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-configure) を使用して、Just-In-Time で特権ロールの割り当てをアクティブ化することを検討してください。
-
-この製品にはライセンスが必要です。 詳細については、「[グローバル セキュア アクセスとは](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)」のライセンスに関するセクションを参照してください。 必要に応じて、[ライセンスを購入するか、試用版ライセンスを取得](https://aka.ms/azureadlicense)できます。
-
-### クライアントをインストールして Microsoft トラフィックを取得する
-
-[Image: 基本的な Microsoft Entra Internet Access トラフィック フローの図。]
-
-1. [Microsoft トラフィック転送プロファイルを有効にします](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-microsoft-profile)。
-2. [エンドユーザー デバイスに Global Secure Access クライアントをインストールして構成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client)。
-3. [ユニバーサル テナントの制限を有効にします](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-universal-tenant-restrictions)。
-4. [強化された Global Secure Access シグナリングと条件付きアクセスを有効にします](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-compliant-network)。
-
-これらの 4 つの手順を完了すると、Windows デバイスにグローバル セキュア アクセス クライアントがインストールされているユーザーは、どこからでも Microsoft リソースに安全にアクセスできます。 条件付きアクセス ポリシーでは、ユーザーが Exchange Online および SharePoint Online にアクセスするときに、Global Secure Access クライアントまたは構成されたリモート ネットワークを使用する必要があります。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/quickstart-per-app-access"} -->
-## クイック スタート: プライベート リソースへのアプリごとのアクセスを構成する - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/quickstart-per-app-access
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: グローバル セキュア アクセスで、プライベート リソースへのアプリごとのアクセスを構成する方法について説明します。
-
-### 概要
-
-このクイック スタートでは、プライベート リソースへのアプリごとのアクセスを構成するのに必要な手順について説明します。 グローバル セキュリティで保護されたアクセスの詳細については、「[グローバル セキュリティで保護されたアクセスとは」](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)を参照してください。
-
-### 前提条件
-
-**グローバル セキュア アクセス**機能を操作する管理者は、[グローバル セキュア アクセス管理者のロール](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference)を持っている必要があります。 一部の機能では、他のロールが必要な場合もあります。
-
-[最小特権のゼロ トラスト原則](https://learn.microsoft.com/ja-jp/security/zero-trust/)に従うには、[Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-configure) を使用して、Just-In-Time で特権ロールの割り当てをアクティブ化することを検討してください。
-
-この製品にはライセンスが必要です。 詳細については、「[グローバル セキュア アクセスとは](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)」のライセンスに関するセクションを参照してください。 必要に応じて、[ライセンスを購入するか、試用版ライセンスを取得](https://aka.ms/azureadlicense)できます。
-
-### プライベート リソースへのアプリごとのアクセスを構成する
-
-Microsoft Entra Private Access を使用して、プライベート アクセス リソースに対するきめ細かくセグメント化されたアクセスのための特定のプライベート アプリを作成します。
-
-[Image: プライベート リソースのための Global Secure Access アプリのトラフィック フローの図。]
-
-1. [プライベート ネットワーク コネクタとコネクタ グループを構成](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-connectors)します。
-2. [プライベート Global Secure Access アプリを作成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-per-app-access)。
-3. [プライベート アクセス トラフィック転送プロファイルを有効にする](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-private-access-profile)。
-4. [エンドユーザー デバイスに Global Secure Access クライアントをインストールして構成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client)。
-
-これらの手順を完了すると、Windows デバイスに Global Secure Access クライアントがインストールされているユーザーは、Global Secure Access アプリとプライベート ネットワーク コネクタを介してプライベート リソースに接続できます。
-
-必要に応じて、次の操作を行います。
-
-- [条件付きアクセス ポリシーを使用してクイック アクセス アプリケーションをセキュリティで保護します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-target-resource-private-access-apps)。
-- [Global Secure Access のログを確認します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-global-secure-access-logs-monitoring)。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/quickstart-quick-access"} -->
-## クイックスタート: プライベートリソースへのクイックアクセスを設定する方法 - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/quickstart-quick-access
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: 「Global Secure Access」でプライベートリソースへのクイックアクセスを設定する方法を学びます。
-
-### 概要
-
-Microsoft Entra Private Accessは、VPNを必要とせずに内部リソースへのアクセスを可能にする、安全でゼロトラストなアクセスソリューションを提供します。 クイックアクセスを構成し、Microsoft Entra プライベート アクセスを通じてルーティングしたいサイトとアプリを指定するためにプライベート アクセスのトラフィック転送プロファイルを有効化します。 現時点では、Microsoft Entra Private Accessを使用するためには、グローバルセキュアアクセスクライアントをエンドユーザーのデバイスにインストールする必要があります。したがって、その手順はこのセクションに含まれています。
-
-必要な手順を示すクイックスタートでは、プライベートリソースへのクイックアクセスを構成します。 グローバル セキュリティで保護されたアクセスの詳細については、「[グローバル セキュリティで保護されたアクセスとは」](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)を参照してください。
-
-注
-
-お使いのゼロトラストの旅で、移行段階としてクイックアクセスを活用してください。 Quick Access が VPN の置き換えを可能にした後、アプリごとのアクセスを設定して、アプリケーションのセグメンテーションとアプリごとの詳細な制御を実現します。
-
-### [前提条件]
-
-**グローバル セキュア アクセス**機能を操作する管理者は、[グローバル セキュア アクセス管理者のロール](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference)を持っている必要があります。 特定の機能には、他の役割も必要になる場合があります。
-
-ゼロトラストの最小特権の原則に従うために、特権アクセス権の割り当てをオンデマンドで有効化するために、Privileged Identity Management (PIM)を使用することを検討してください。
-
-製品にはライセンスが必要です。 詳細については、[Global Secure Access とは？](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)のライセンスセクションをご参照ください。 必要に応じて、[ライセンスを購入するか、試用ライセンスを取得することができます](https://aka.ms/azureadlicense)。
-
-### プライベートリソースへのクイックアクセスを設定する
-
-Microsoft Entra Private Access を使用して、ネットワークへのより広範なアクセスのためのクイック アクセスを設定します。
-
-[Image: プライベート リソースのクイック アクセス トラフィック フローの図。]
-
-1. [Microsoft Entra プライベート ネットワーク コネクタとコネクタ グループを構成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-connectors)。
-2. [プライベートリソースへのクイックアクセスを構成する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-configure-quick-access)。
-3. [プライベートアクセスのトラフィック転送プロファイルを有効にする](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-private-access-profile)。
-4. [エンドユーザーのデバイスにGlobal Secure Access Clientをインストールし、設定する](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-install-windows-client)。
-
-これらの4つのステップを完了すると、WindowsデバイスにGlobal Secure Accessクライアントがインストールされているユーザーは、クイックアクセスアプリとプライベートネットワークコネクタを通じてプライベートリソースに接続できます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/quickstart-remote-network"} -->
-## クイックスタート: リモート ネットワークの作成、条件付きアクセスの適用、ログの確認 - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/quickstart-remote-network
-- Service: global-secure-access
-- Article date: 2026-03-13
-- Summary: グローバル セキュア アクセスで、リモート ネットワークを作成し、条件付きアクセスを適用し、ログを確認する方法について説明します。
-
-### 概要
-
-Microsoft Entra Internet Access は、Exchange Online や SharePoint Online などの Microsoft アプリケーションとリソースのトラフィックを分離します。 ユーザーは、グローバル セキュア アクセス クライアントに接続するか、ブランチ オフィスの場所などのリモート ネットワークを介してこれらのリソースにアクセスできます。
-
-このクイックスタートでは、リモート ネットワークを作成し、Microsoft トラフィックの取得を開始するために必要な手順を示します。 グローバル セキュリティで保護されたアクセスの詳細については、「[グローバル セキュリティで保護されたアクセスとは」](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)を参照してください。
-
-### 前提条件
-
-**グローバル セキュア アクセス**機能を操作する管理者は、[グローバル セキュア アクセス管理者のロール](https://learn.microsoft.com/ja-jp/azure/active-directory/roles/permissions-reference)を持っている必要があります。 一部の機能では、他のロールが必要な場合もあります。
-
-[最小特権のゼロ トラスト原則](https://learn.microsoft.com/ja-jp/security/zero-trust/)に従うには、[Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/azure/active-directory/privileged-identity-management/pim-configure) を使用して、Just-In-Time で特権ロールの割り当てをアクティブ化することを検討してください。
-
-この製品にはライセンスが必要です。 詳細については、「[グローバル セキュア アクセスとは](https://learn.microsoft.com/ja-jp/entra/global-secure-access/overview-what-is-global-secure-access)」のライセンスに関するセクションを参照してください。 必要に応じて、[ライセンスを購入するか、試用版ライセンスを取得](https://aka.ms/azureadlicense)できます。
-
-### リモート ネットワークの作成、条件付きアクセスの適用、ログの確認
-
-[Image: リモート ネットワークと条件付きアクセスを使用した Microsoft Entra Internet Access トラフィック フローの図。]
-
-1. [リモート ネットワークを作成します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-manage-remote-networks)。
-2. [Microsoft トラフィック プロファイルを条件付きアクセス ポリシーの対象にします](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-target-resource-microsoft-profile)。
-3. [Global Secure Access のログを確認します](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-global-secure-access-logs-monitoring)。
-
-これらのオプションの手順を完了すると、作成したリモート ネットワーク経由で接続していて、"かつ"、条件付きアクセス ポリシーに追加した条件を満たしている場合、ユーザーはグローバル セキュア アクセス クライアントなしで Microsoft サービスに接続できます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/global-secure-access/reference-change-request-template"} -->
-## グローバルなセキュリティで保護されたアクセスの変更要求テンプレート - Global Secure Access
-
-- Source: https://learn.microsoft.com/ja-jp/entra/global-secure-access/reference-change-request-template
-- Service: global-secure-access
-- Article date: 2026-05-04
-- Summary: グローバル セキュリティで保護されたアクセスに対する構成変更を文書化および追跡するためのテンプレートMicrosoft Entra。
-
-このテンプレートは、グローバル セキュリティで保護されたアクセス構成に対するすべての **通常** および **主要な** 変更に使用します。 変更カテゴリと実行プロセスについては、 [一般的な操作ガイド](https://learn.microsoft.com/ja-jp/entra/global-secure-access/how-to-operations-common#change-management)を参照してください。
-
-### 要求の詳細を変更する
-
-| フィールド | 価値 |
-| --- | --- |
-| **ID の変更** | *(IT サービス管理 (ITSM) チケット番号またはシーケンシャル ID)* |
-| **送信日** |  |
-| **依頼者** |  |
-| **カテゴリの変更** | 標準/通常/緊急/メジャー |
-| **優先順位** | 低/中/高/クリティカル |
-| **ターゲットの日付** |  |
-| **メンテナンス期間が必要** | はい/いいえ |
-
-### 説明
-
-**何が変更されていますか?**
-
-*(特定の構成の変更について詳しく説明します。影響を受けるグローバル セキュリティで保護されたアクセス機能 (プライベート アクセス、インターネット アクセス、リモート ネットワーク、またはMicrosoft トラフィック) を含めます。*
-
-**この変更が必要なのはなぜですか?**
-
-*(業務上の正当な理由、ユーザー要求、セキュリティ要件、またはコンプライアンスのニーズ)。*
-
-### スコープと影響
-
-**影響を受けるグローバル セキュリティで保護されたアクセス機能:**
-
-- プライベート アクセス
-- インターネットへのアクセス
-- リモート ネットワーク
-- Microsoft トラフィック
-- 共通/横断的
-
-**影響を受けるコンポーネント:**
-
-*(特定のコンポーネントの一覧: コネクタ グループ、アプリケーション セグメント、Web フィルタリング ポリシー、トラフィック転送規則、トンネルなど)*
-
-**影響を受けるユーザー/サイト:**
-
-*(影響を受けたユーザーまたはサイトの数を見積もる。特定のグループまたは場所 (既知の場合) を一覧表示します)。*
-
-**変更中に予想されるユーザーの影響:**
-
-- ユーザーへの影響なし
-- 簡単な再接続 (&lt; 1 分)
-- メンテナンス期間中のサービスの中断
-- 拡張された影響 - 通信計画が必要
-
-### リスク評価
-
-| リスク要因 | Assessment |
-| --- | --- |
-| **リスク レベル** | 低/中/高 |
-| **サービス中断の可能性** | なし/最小限/中/高 |
-| **可逆** | 完全にリバーシブル / 部分的にリバーシブル / 取り消し不可 |
-
-**何が問題になる可能性がありますか?**
-
-*(変更が失敗した場合の最悪のシナリオについて説明します)。*
-
-### Testing
-
-**非運用環境でテスト済みですか?** はい/いいえ/該当なし
-
-**テスト結果:**
-
-*(実行されたテストと結果について説明します。テストされていない場合は、その理由を説明してください)。)*
-
-### 変更前チェックリスト
-
-- 構成バックアップが完了しました (エクスポート スクリプトの機能ガイドを参照)
-- サービス所有者または変更アドバイザリ ボードによって承認された変更
-- 影響を受けるユーザーとサポート チームに送信される通信 (必要な場合)
-- 文書化されたロールバック計画 (ロールバック計画を参照)
-- スケジュールされたメンテナンス期間 (必要な場合)
-- メンテナンス期間が確認されたオンコール エンジニア
-
-### ロールバック計画
-
-**変更が失敗した場合のロールバック方法:**
-
-*(前の構成を復元する手順。変更前チェックリストで作成したバックアップ ファイルを参照します)。*
-
-**ロールバックを決定する最大時間:**
-
-*(変更が失敗し、ロールバックする必要がある場合に決定するまでの待機時間)。*
-
-### Execution
-
-| Step | Action | 完了 | メモ |
-| --- | --- | --- | --- |
-| 1 | 現在の構成をバックアップする | [ ] |  |
-| 2 | *(変更手順の追加)* | [ ] |  |
-| 3 | *(変更手順の追加)* | [ ] |  |
-| 4 | 変更の確認 - トラフィック ログ、アラート、およびユーザー接続を確認する | [ ] |  |
-| 5 | ロールバックが必要ないことを確認する | [ ] |  |
-
-### 変更後の検証
-
-- トラフィック ログに予期される動作が表示される
-- 新しいアラートがトリガーされない
-- 影響を受けるアプリケーション/サイトのユーザー アクセスが確認されました
-- ITSM システムに記載されている変更
-
-### 承認
-
-| 役割 | 名前 | 承認済 | Date |
-| --- | --- | --- | --- |
-| サービス所有者 |  | はい/いいえ |  |
-| ネットワーク セキュリティ エンジニア |  | はい/いいえ |  |
-| 変更アドバイザリ ボード (メジャーの場合) |  | はい/いいえ |  |
-
-**変更後の注意事項:**
 <!-- /MSL-PAGE -->

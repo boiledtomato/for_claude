@@ -3022,7 +3022,7 @@ VM でシステム割り当てマネージド ID を無効にするには、お�
 システム割り当て ID は不要になったが、ユーザー割り当て ID はまだ必要な仮想マシンがある場合は、次のコマンドを使用します。
 
 ```azurecli
-az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```
 
 システム割り当て ID は不要になった、ユーザー割り当て ID がない仮想マシンがある場合は、次のコマンドを使用します。
@@ -3039,7 +3039,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 
 このセクションでは、Azure CLI を使用して、Azure VM に対してユーザー割り当てマネージド ID を追加および削除する方法について説明します。 VM とは異なるリソース グループにユーザー割り当てマネージド ID を作成する場合、 マネージド ID の URL を使用して、それを VM に割り当てる必要があります。 次に例を示します。
 
-`--identities "/subscriptions/<SUBID>/resourcegroups/<RESROURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
+`--identities "/subscriptions/<SUBID>/resourcegroups/<RESOURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_ASSIGNED_ID_NAME>"`
 
 #### Azure VM の作成中にユーザー割り当てマネージド ID を割り当てる
 
@@ -3073,13 +3073,13 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
         "resourceGroup": "<RESOURCE GROUP>",
         "tags": {},
         "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
     ```
 3. [az vm create](https://learn.microsoft.com/ja-jp/cli/azure/vm#az-vm-create) を使用して VM を作成します。 次の例では、`--assign-identity` パラメーターで指定されたとおり、`--role` と `--scope` を指定して、新しいユーザー割り当て ID に関連付けられている VM を作成します。 `<RESOURCE GROUP>`、`<VM NAME>`、`<USER NAME>`、`<PASSWORD>`、`<USER ASSIGNED IDENTITY NAME>`、`<ROLE>`、`<SUBSCRIPTION>` の各パラメーターの値は、必ず実際の値に置き換えてください。
 
     ```azurecli
-    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image <SKU linux image>  --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME> --role <ROLE> --scope <SUBSCRIPTION> 
+    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image <SKU linux image>  --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME> --role <ROLE> --scope <SUBSCRIPTION>
     ```
 
 #### ユーザー割り当てマネージド ID を既存の Azure VM に割り当てる
@@ -3109,7 +3109,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
       "resourceGroup": "<RESOURCE GROUP>",
       "tags": {},
       "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
-      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
     }
     ```
 2. [az vm identity assign](https://learn.microsoft.com/ja-jp/cli/azure/vm) を使用して、ユーザー割り当て ID を VM に割り当てます。 `<RESOURCE GROUP>` と `<VM NAME>` のパラメーターの値は、必ず実際の値に置き換えてください。 `<USER ASSIGNED IDENTITY NAME>` は、前の手順で作成されたユーザー割り当てマネージド ID のリソース `name` プロパティです。 VMとは異なるRGにユーザー割り当てマネージドIDを作成した場合、 マネージド ID の URL を使用する必要があります。
@@ -3141,7 +3141,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.user
 VM にシステム割り当て ID とユーザー割り当て ID の両方がある場合は、システム割り当て ID のみを使用するように切り替えることによって、すべてのユーザー割り当て ID を削除できます。 次のコマンドを使用します。
 
 ```azurecli
-az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null
 ```
 
 ::: zone-end
@@ -7400,7 +7400,7 @@ Microsoft Entra は、マネージド ID 用のサービス プリンシパル�
 
 Important
 
-ソフト削除されたオブジェクトは、全体のクォータ使用量に含まれます。
+論理的に削除されたオブジェクトは、全体的なクォータ使用量にカウントされます。
 
 #### ブロックされたマネージド ID 操作を解決する
 

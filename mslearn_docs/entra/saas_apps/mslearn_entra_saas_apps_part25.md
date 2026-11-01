@@ -5,6 +5,894 @@ Pages in this file: 79
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/trevanna-tracks-tutorial"} -->
+## Microsoft Entra ID で Trevanna Tracks for Single sign-on を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/trevanna-tracks-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と Trevanna Tracks の間でシングル サインオンを構成する方法について説明します。
+
+この記事では、Trevanna Track と Microsoft Entra ID を統合する方法について説明します。 Trevanna Track と Microsoft Entra ID を統合すると、次のことができます。
+
+- Microsoft Entra ID で Trevanna Tracks へのアクセス権を管理します。
+- ユーザーが自分の Microsoft Entra アカウントを使用して Trevanna Track に自動的にサインインできるようにします。
+- 1 つの中央の場所でアカウントを管理します。
+
+### 前提 条件
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- Trevanna Tracks でのシングル サインオン (SSO) が有効なサブスクリプション。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
+
+- Trevanna Tracks では、**SP** 発信 SSO のみがサポートされます。
+
+### ギャラリーから Trevanna トラックを追加する
+
+Microsoft Entra ID への Trevanna Track の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Trevanna トラックを追加する必要があります。
+
+1. 少なくとも [クラウド アプリケーション管理者](https://entra.microsoft.com)として、[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. [ギャラリー **から追加する**] セクションで、検索ボックスに「Trevanna Track  入力します。
+4. 結果パネルから **Trevanna Tracks** を選択し、アプリを追加します。 アプリがテナントに追加されるまで数秒待ちます。
+
+または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細を確認します。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### Trevanna Tracks の Microsoft Entra SSO の構成とテスト
+
+**B.Simon**というテスト ユーザーを使用して、Trevanna Tracks に対する Microsoft Entra SSO を構成してテストします。 SSO を機能させるには、Microsoft Entra ユーザーと Trevanna Tracks の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+Trevanna Tracks に対して Microsoft Entra SSO を構成してテストするには、次の手順に従います。
+
+1. **Microsoft Entra SSO**の構成 - ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **Trevanna Track の SSO**の構成 - アプリケーション側でシングル サインオン設定を構成します。
+    1. **Trevanna Tracks のテストユーザーを作成** - Trevanna Tracks で B.Simon に対応するユーザーとして作成し、Microsoft Entra 内のユーザーとリンクさせます。
+3. **SSO** のテスト - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra 管理センターで Microsoft Entra SSO を有効にするには、次の手順に従います。
+
+1. 少なくとも [クラウド アプリケーション管理者](https://entra.microsoft.com)として、[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) にサインインします。
+2. **Entra ID**&gt;**Enterprise アプリ**&gt;**Trevanna Tracks**&gt;**シングルサインオン**をブラウズします。
+3. [**シングル サインオン方法の選択]** ページで、[SAML 選択します。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: のスクリーンショットは、基本的な SAML 構成を編集する方法を示しています。]
+5. **基本的な SAML 構成** セクションで、次の手順を実行します。
+
+    「a.」 [**識別子 (エンティティ ID)** テキスト ボックスに、次のパターンを使用して URL を入力します:`http://www.okta.com/<Trevanna_ID>`
+
+    b。 [**応答 URL** テキスト ボックスに、URL: `https://api.trevannatracks.com/api/v1/authentication/sso/entra` を入力します。
+
+    c. [**サインオン URL** テキスト ボックスに、URL: `https://app.trevannatracks.com/auth/login` を入力します。
+
+    手記
+
+    識別子の値は実際の値ではありません。 実際の識別子で値を更新します。 これらの値 [取得するには、Trevanna Track サポート チームの](mailto:hello@trevannatracks.com) にお問い合わせください。 Microsoft Entra 管理センターの「**基本的な SAML 構成**」セクションに示されているパターンを参照することもできます。
+6. [**SAML** でのシングル サインオンの設定] ページの [**SAML 署名証明書**] セクションで、**証明書 (未加工)** を探し、[**ダウンロード]** を選択して証明書をダウンロードし、コンピューターに保存します。
+
+    [Image: スクリーンショットには、証明書のダウンロードリンクが表示されています。]
+7. [**Trevanna Track** のセットアップ] セクションで、要件に基づいて適切な URL をコピーします。
+
+    [Image: 構成 URL をコピーすることを示すスクリーンショット。]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+### Trevanna TracksのSSOを構成する
+
+Trevanna Tracks **側** でシングルサインオンを構成するには、ダウンロードした **証明書 (未加工)** と、Microsoft Entra 管理センターからコピーした適切な URL を Trevanna Tracks サポートチーム に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
+
+#### Trevanna Track のテスト ユーザーの作成
+
+このセクションでは、Trevanna Tracks で B.Simon というユーザーを作成します。 [Trevanna Track サポート チーム](mailto:hello@trevannatracks.com) と連携して、Trevanna Track プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して、Microsoft Entra のシングル サインオン構成をテストします。
+
+- Microsoft Entra 管理センターで [ **このアプリケーションをテスト** する] を選択します。 このオプションは、ログイン フローを開始できる Trevanna Track のサインオン URL にリダイレクトします。
+- Trevanna Track のサインオン URL に直接移動し、そこからログイン フローを開始します。
+- Microsoft マイ アプリを使用できます。 マイ アプリで [Trevanna トラック] タイルを選択すると、このオプションは Trevanna Track のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、「マイ アプリ 概要」を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/tribeloo-provisioning-tutorial"} -->
+## Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Tribeloo を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tribeloo-provisioning-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2026-03-25
+- Summary: Microsoft Entra ID から Tribeloo に対してユーザー アカウントを自動的にプロビジョニングおよびプロビジョニング解除する方法について説明します。
+
+この記事では、Tribeloo と Microsoft Entra ID の両方で実行して、自動ユーザー プロビジョニングを構成するために必要な手順について説明します。 構成すると、Microsoft Entra ID は、Microsoft Entra プロビジョニング サービスを使用して、ユーザーとグループを [Tribeloo](https://www.tribeloo.com/) に自動的にプロビジョニングおよびプロビジョニング解除します。 このサービスの機能、しくみ、よく寄せられる質問の重要な詳細については、「[Microsoft Entra ID](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)を使用して SaaS アプリケーションへのユーザー プロビジョニングとプロビジョニング解除を自動化する」を参照してください。
+
+### サポートされている機能
+
+- Tribeloo でユーザーを作成する。
+- アクセスが不要になった場合は、Tribeloo のユーザーを削除します。
+- Microsoft Entra ID と Tribeloo の間でユーザー属性の同期を維持する。
+- Tribeloo に対して[シングル サインオン](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tribeloo-tutorial)を行う (推奨)。
+- 有効期間が長いベアラー トークン認証がサポートされています。
+
+### [前提条件]
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- [Microsoft Entra テナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-create-new-tenant)。
+- 次のいずれかのロール: [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)、[クラウドアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)、または [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+- [Tribeloo](https://www.tribeloo.com/) テナント。
+- 管理者アクセス許可を持つ Tribeloo のユーザー アカウント。
+
+### 手順 1: プロビジョニングデプロイメントを計画する
+
+1. [プロビジョニング サービスのしくみ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)を確認します。
+2. プロビジョニングの対象範囲にいるユーザーを決定します。
+3. [Microsoft Entra ID と Tribeloo の間でマップする](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)データを決定します。
+
+### 手順 2: Microsoft Entra ID を使用したプロビジョニングをサポートするように Tribeloo を構成する
+
+[Tribeloo アプリ](https://app.tribeloo.com/)に移動し、管理者アクセス許可を持つユーザーでログインします。
+
+1. サイドメニュー (1) を用いて **[Admin](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/管理)** (2) に移動し、 **[User management](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザー管理)** (3) を選択します。
+
+    [Image: ユーザー管理にアクセスする]
+2. [ **ユーザー プロビジョニング**(1)]タブを選択します。このタブでは、Microsoft Entra 統合の構成に使用する必要がある Tribeloo 情報にアクセスできます。
+
+    1. **SCIM ベース URL** (2)
+    2. **SCIM ベアラー トークン** (3)
+3. これらの値をクリップボードにコピーし、対応する Microsoft Entra ID のフィールドに貼り付けます (手順 5 を参照)。 AD のフィールドにはそれぞれ **[テナントの URL]** と **[シークレット トークン]** という名前がついています。
+
+    [Image: Tribeloo のプロビジョニング パラメーター]
+4. [ **User Provisioning** ]\(ユーザー プロビジョニング\) タブで、[ **Enable User provisioning**(1)] ボタンを選択して Tribeloo でユーザー プロビジョニングを有効にできるようになりました。
+
+    [Image: Tribeloo のプロビジョニングを有効にする]
+
+### 手順 3: Microsoft Entra アプリケーション ギャラリーから Tribeloo を追加する
+
+Microsoft Entra アプリケーション ギャラリーから Tribeloo を追加して、Tribeloo へのプロビジョニングの管理を開始します。 SSO のために Tribeloo を以前に設定している場合は、同じアプリケーションを使用できます。 ただし、最初に統合をテストするときは、別のアプリを作成することをお勧めします。 ギャラリー [からアプリケーションを追加する方法の詳細については、](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal)を参照してください。
+
+### 手順 4: プロビジョニングのスコープに含まれるユーザーを定義する
+
+Microsoft Entra プロビジョニング サービスを使用すると、アプリケーションへの割り当てに基づいて、またはユーザーまたはグループの属性に基づいてプロビジョニングされるユーザーをスコープできます。 割り当てに基づいてアプリにプロビジョニングされるユーザーのスコープを設定する場合は、 [手順を使用してユーザーとグループをアプリケーションに割り当てることができます](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/assign-user-or-group-access-portal)。 ユーザーまたはグループの属性のみに基づいてプロビジョニングする対象を決定する場合、[スコープフィルター](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)を使用できます。
+
+- 小規模から始めます。 すべてのユーザーとグループにロールアウトする前に、少数のユーザーとグループでテストします。 プロビジョニングのスコープが割り当てられたユーザーとグループに設定されている場合は、1 つまたは 2 つのユーザーまたはグループをアプリに割り当てることで、これを制御できます。 スコープがすべてのユーザーとグループに設定されている場合は、 [属性ベースのスコープ フィルターを](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)指定できます。
+- 追加のロールが必要な場合は、 [アプリケーション マニフェストを更新](https://learn.microsoft.com/ja-jp/entra/identity-platform/howto-add-app-roles-in-apps) して新しいロールを追加できます。
+
+### 手順 5: Tribeloo への自動ユーザー プロビジョニングを構成する
+
+このセクションでは、Microsoft Entra ID でのユーザー割り当てやグループ割り当てに基づいて、Tribeloo でユーザーが作成、更新、無効化されるように Microsoft Entra プロビジョニング サービスを構成する手順について説明します。
+
+#### Microsoft Entra ID で Tribeloo の自動ユーザー プロビジョニングを構成するには、次のようにします。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**企業向けアプリケーション**を参照する
+
+    [Image: エンタープライズ アプリケーション ブレード]
+3. アプリケーションの一覧で **[Tribeloo]** を選択します。
+
+    [Image: アプリケーション一覧の [Tribeloo] リンク]
+4. **[プロビジョニング]** タブを選択します。
+
+    [Image: プロビジョニングタブ]
+5. [ **+ 新しい構成**] を選択します。
+
+    [Image: [プロビジョニング] タブの [自動] のスクリーンショット。]
+6. [ **テナント URL** ] フィールドに、Tribeloo テナント URL とシークレット トークンを入力します。 [ **テスト接続** ] を選択して、Microsoft Entra ID が Tribeloo に接続できることを確認します。 接続に失敗した場合は、Tribeloo アカウントに必要な管理者アクセス許可があることを確認してから、もう一度やり直してください。
+
+    [Image: プロビジョニング テスト接続のスクリーンショット。]
+7. [ **作成]** を選択して構成を作成します。
+8. [**概要**] ページで **[プロパティ**] を選択します。
+9. **[編集**] アイコンを選択してプロパティを編集します。 通知メールを有効にし、検疫通知を受信する電子メールを提供します。 **誤削除防止を**有効にします。 **[適用]** を選択して変更を保存します。
+
+    [Image: プロビジョニングプロパティのスクリーンショット。]
+10. 左側のパネルで **[属性マッピング** ] を選択し、ユーザーを選択 **します**。
+11. **[属性マッピング]** セクションで、Microsoft Entra ID から Tribeloo に同期されるユーザー属性を確認します。 **[照合]** プロパティとして選択されている属性は、更新処理で Tribeloo のユーザー アカウントとの照合に使用されます。 [一致するターゲット属性](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)を変更する場合は、Tribeloo API がその属性に基づくユーザーのフィルター処理をサポートしていることを確認する必要があります。 **[保存]** ボタンをクリックして変更をコミットします。
+
+    | 特性 | タイプ | フィルター処理でサポートされます |
+    | --- | --- | --- |
+    | ユーザー名 | 糸 | ✓ |
+    | emails[type eq "仕事"].value | 糸 |  |
+    | 活動中 | ブール値 |  |
+    | ディスプレイ名 | 糸 |  |
+    | 名前.名 | 糸 |  |
+    | 名前.姓 | 糸 |  |
+    | addresses[type eq "work"].フォーマット済み | 糸 |  |
+12. スコープ フィルターを構成するには、スコープ フィルターに関する記事に記載されている手順 [を](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)参照してください。
+13. [オンデマンド プロビジョニングを](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/provision-on-demand)使用して、少数のユーザーとの同期を検証してから、組織内でより広範にデプロイします。
+14. プロビジョニングの準備ができたら、[**概要**] ページから [**プロビジョニングの開始**] を選択します。
+
+### 手順 6: デプロイを監視する
+
+プロビジョニングを構成したら、次のリソースを使用してデプロイを監視します。
+
+1. [プロビジョニング ログを](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-provisioning-logs)使用して、どのユーザーが正常にプロビジョニングされたか、または正常にプロビジョニングされなかったかを判断する
+2. [進行状況バー](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)を確認して、プロビジョニング サイクルの状態と完了までの近さを確認します
+3. プロビジョニング構成が異常な状態にあると思われる場合、アプリケーションは検疫に入ります。 検疫状態についての詳細は、[アプリケーションプロビジョニングの隔離状態に関する記事](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/application-provisioning-quarantine-status)をご覧ください。
+
+### 変更履歴
+
+- 2021 年 8 月 12 日 - コア ユーザー属性 **emails[type eq "work"].value** と **addresses[type eq "work"].formatted** のサポートを追加。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/tribeloo-tutorial"} -->
+## Microsoft Entra ID でシングル サインオン用に Tribeloo を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tribeloo-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2026-06-11
+- Summary: Microsoft Entra ID と Tribeloo の間にシングル サインオンを構成する方法について説明します。
+
+この記事では、Tribeloo と Microsoft Entra ID を統合する方法について説明します。 Tribeloo を Microsoft Entra ID と統合すると、次のことができます。
+
+- Tribeloo にアクセスできるユーザーを Microsoft Entra ID で制御する。
+- ユーザーが自分の Microsoft Entra アカウントを使用して Tribeloo に自動的にサインインできるようにする。
+- 1 つの中央の場所でアカウントを管理します。
+
+Tribeloo は、次の [国内クラウド デプロイ](https://learn.microsoft.com/ja-jp/graph/deployments)で利用できます。
+
+| グローバル サービス | 米国政府 | 21Vianet が運営する中国 |
+| --- | --- | --- |
+| ✅ | ✅ |  |
+
+### 前提条件
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- Tribeloo でのシングル サインオン (SSO) が有効なサブスクリプション。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
+
+- Tribeloo では、**SP** Initiated SSO がサポートされます。
+- Tribeloo では、[自動化されたユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tribeloo-provisioning-tutorial)がサポートされます。
+
+### ギャラリーからの Tribeloo の追加
+
+Microsoft Entra ID への Tribeloo の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Tribeloo を追加する必要があります。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**Tribeloo**」と入力します。
+4. 結果のパネルから **[Tribeloo]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
+
+または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### Tribeloo 用に Microsoft Entra SSO を構成してテストする
+
+**B.Simon** というテスト ユーザーを使用して、Tribeloo に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するためには、Microsoft Entra ユーザーと Tribeloo の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+Tribeloo に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
+
+1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザー** の作成 - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザー** の割り当て - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **Tribeloo の SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
+    1. **Tribeloo テストユーザーの作成** - Tribeloo で B.Simon に対応するユーザーを作成し、Microsoft Entra におけるユーザー表現にリンクさせます。
+3. **SSO のテスト** - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra SSO を有効にするには、次の手順に従います。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**Enterprise apps**&gt;**Tribeloo**&gt;**シングルサインオン**に移動します。
+3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: 基本的なSAML構成の編集]
+5. [**基本的な SAML 構成**] セクションで、次のフィールドの値を入力します。
+
+    [**サインオン URL** テキスト ボックスに、URL: `https://app.tribeloo.com/login` を入力します。
+6. **[SAML でシングル サインオンをセットアップします]** ページの **[SAML 署名証明書]** セクションで、 **[証明書 (Base64)]** を見つけて、 **[ダウンロード]** を選択し、証明書をダウンロードして、お使いのコンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンク]
+7. **[Tribeloo のセットアップ]** セクションで、要件に基づいて適切な URL をコピーします。
+
+    [Image: 構成 URL をコピーする]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+B.Simon というテスト ユーザー アカウントを作成するには、[のガイドラインに従った後で](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) のクイックスタートを使用して、ユーザー アカウントを作成して割り当ててください。
+
+### Tribeloo SSO を構成する
+
+**Tribeloo** 側でシングル サインオンを構成するには、ダウンロードした**証明書 (Base64)** と、アプリケーション構成からコピーした適切な URL を [Tribeloo サポート チーム](mailto:support@tribeloo.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
+
+#### Tribeloo のテスト ユーザーの作成
+
+このセクションでは、Tribeloo で Britta Simon というユーザーを作成します。 [Tribeloo サポート チーム](mailto:support@tribeloo.com)と連携して、Tribeloo プラットフォームにユーザーを追加してください。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
+
+Tribeloo では、自動ユーザー プロビジョニングもサポートされます。自動ユーザー プロビジョニングの構成方法について詳しくは、[こちら](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tribeloo-provisioning-tutorial)をご覧ください。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+- [ **このアプリケーションをテスト**する] を選択すると、このオプションは、ログイン フローを開始できる Tribeloo のサインオン URL にリダイレクトされます。
+- Tribeloo のサインオン URL に直接移動し、そこからログイン フローを開始します。
+- Microsoft マイ アプリを使用できます。 マイ アプリで [Tribeloo] タイルを選択すると、このオプションは Tribeloo のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関するページを参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/trint-us-tutorial"} -->
+## Microsoft Entra ID でシングル サインオン用に Trint (US) を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/trint-us-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2024-04-02
+- Summary: Microsoft Entra ID と Trint (US) の間でシングル サインオンを構成する方法について説明します。
+
+この記事では、Trint (US) と Microsoft Entra ID を統合する方法について説明します。 Trint (US) と Microsoft Entra ID を統合すると、次のことができます。
+
+- Microsoft Entra ID で Trint (US) へのアクセスを管理します。
+- ユーザーが自分の Microsoft Entra アカウントを使用して Trint (米国) に自動的にサインインできるように設定できます。
+- 1 つの中央の場所でアカウントを管理します。
+
+### [前提条件]
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- Trint (US) でのシングル サインオン (SSO) が有効なサブスクリプション。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
+
+- Trint (US) では、**SP-initiated SSO** と **IDP-initiated SSO** の両方がサポートされます。
+
+### ギャラリーから Trint (US) を追加する
+
+Microsoft Entra ID への Trint (US) の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Trint (US) を追加する必要があります。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. **[ギャラリーからの追加**] セクションで、検索ボックスに**「Trint (US)」**と入力します。
+4. 結果パネルから **Trint (US)** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
+
+または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### Trint の Microsoft Entra SSO の構成とテスト (米国)
+
+**B.Simon** というテスト ユーザーを使用して、Trint (US) に対する Microsoft Entra SSO を構成してテストします。 SSO を機能させるには、Microsoft Entra ユーザーと Trint (US) の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+Trint (US) に対する Microsoft Entra SSO を構成してテストするには、次の手順に従います。
+
+1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザー** の作成 - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **Trint (US) SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
+    1. **Trint (US) テスト ユーザーの作成 - Trint** (米国) で B.Simon に対応するユーザーを作成し、Microsoft Entra ID のユーザー表現にリンクさせます。
+3. **SSO のテスト** - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra 管理センターで Microsoft Entra SSO を有効にするには、次の手順に従います。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**Enterprise apps**&gt;**Trint (US)**&gt;**シングルサインオン**にアクセスします。
+3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: のスクリーンショットは、基本的な SAML 構成を編集する方法を示しています。]
+5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
+
+    エー。 [ **識別子** ] テキスト ボックスに、次のパターンを使用して値を入力します。 `urn:auth0:trint:<Connection_ID>`
+
+    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://auth.trint.com/login/callback?connection=<Connection_ID>`
+6. **SP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
+
+    [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://app.trint.com/sso-login/<Connection_ID>`
+
+    注
+
+    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、 [Trint (米国) サポート チーム](mailto:support@trint.com) に問い合わせてください。 Microsoft Entra 管理センターの [ **基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
+7. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、 **フェデレーション メタデータ XML** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンクを示すスクリーンショット。]
+8. [ **Trint (US) のセットアップ** ] セクションで、要件に基づいて適切な URL をコピーします。
+
+    [Image: 構成 URL をコピーすることを示すスクリーンショット。]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+### Trint (US) SSO の構成
+
+**Trint (米国)** 側でシングル サインオンを構成するには、ダウンロードした**フェデレーション メタデータ XML** と、Microsoft Entra 管理センターからコピーした適切な URL を [Trint (米国) サポート チーム](mailto:support@trint.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
+
+#### Trint (US) テスト ユーザーの作成
+
+このセクションでは、Trint (米国) で B.Simon というユーザーを作成します。 [Trint (米国) サポート チーム](mailto:support@trint.com)と協力して、Trint (米国) プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+##### SP 開始:
+
+- Microsoft Entra 管理センターで [ **このアプリケーションをテスト** する] を選択します。 このオプションは、ログイン フローを開始できる Trint (US) のサインオン URL にリダイレクトします。
+- Trint (US) のサインオン URL に直接移動し、そこからログイン フローを開始します。
+
+##### IDP 起動しました。
+
+- Microsoft Entra 管理センターで [ **このアプリケーションをテスト** する] を選択すると、SSO を設定した Trint (US) に自動的にサインインします。
+
+Microsoft マイ アプリを使用して、任意のモードでアプリケーションをテストすることもできます。 マイ アプリで [Trint (US)] タイルを選択すると、SP モードで構成されている場合は、ログイン フローを開始するためのアプリケーション サインオン ページにリダイレクトされます。IDP モードで構成されている場合は、SSO を設定した Trint (US) に自動的にサインインされます。 マイ アプリの詳細については、[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関するページを参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/tripwire-enterprise-tutorial"} -->
+## Microsoft Entra ID でシングル サインオン用に Tripwire Enterprise を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tripwire-enterprise-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と Tripwire Enterprise の間にシングル サインオンを構成する方法について説明します。
+
+この記事では、Tripwire Enterprise と Microsoft Entra ID を統合する方法について説明します。 Tripwire Enterprise は、ファイル整合性監視 (FIM) とセキュリティ構成管理 (SCM) を使用する、主要なコンプライアンス監視ソリューションです。 Tripwire Enterprise と Microsoft Entra ID を統合すると、次のことができます:
+
+- Tripwire Enterprise にアクセスできるユーザーを Microsoft Entra ID で制御する。
+- ユーザーが自分の Microsoft Entra アカウントを使って Tripwire Enterprise に自動的にサインインできるようにする。
+- 1 つの場所でアカウントを管理します。
+
+テスト環境で Tripwire Enterprise 向けの Microsoft Entra のシングル サインオンを構成してテストします。 Tripwire Enterprise では、 **IDP** によって開始されるシングル サインオンがサポートされます。
+
+### 前提条件
+
+Microsoft Entra ID を Tripwire Enterprise と統合するには、次のものが必要です:
+
+- Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、 [無料でアカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)できます。
+- アプリケーション管理者、[クラウド アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)[管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)、または[アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)のいずれかのロール。
+- Microsoft Entra サブスクリプション。 サブスクリプションをお持ちでない場合は、 [無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を取得できます。
+- Tripwire Enterprise でのシングル サインオン (SSO) が有効なサブスクリプション。
+
+### アプリケーションを追加してテスト ユーザーを割り当てる
+
+シングル サインオンの構成プロセスを開始する前に、Microsoft Entra ギャラリーから Tripwire Enterprise アプリケーションを追加する必要があります。 アプリケーションに割り当て、シングル サインオン構成をテストするには、テスト ユーザー アカウントが必要です。
+
+#### Microsoft Entra ギャラリーから Tripwire Enterprise を追加する
+
+Microsoft Entra アプリケーション ギャラリーから Tripwire Enterprise を追加して、Tripwire Enterprise でシングル サインオンを構成します。 ギャラリーからアプリケーションを追加する方法の詳細については、「 [クイック スタート: ギャラリーからアプリケーションを追加する」を参照してください](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal)。
+
+#### Microsoft Entra テスト ユーザーを作成して割り当てる
+
+[作成とユーザー アカウントの割り当て](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users)に関する記事のガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントへのアプリケーションの追加、アプリへのユーザーとグループの追加、ロールの割り当てができます。 このウィザードには、シングル サインオン構成ウィンドウへのリンクも表示されます。 [Microsoft 365 ウィザードの詳細を確認してください](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)。.
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra シングル サインオンを有効にするには、次の手順を行います。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
+2. **Entra ID**&gt;**Enterprise apps**&gt;**Tripwire Enterprise**&gt;**シングルサインオンにアクセスします。**
+3. [ **シングル サインオン方法の選択** ] ページで、[SAML] を選択 **します**。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: 基本的な SAML 構成を編集する方法を示すスクリーンショット。]
+5. [ **基本的な SAML 構成]** セクションで、 **サービス プロバイダー メタデータ ファイル** がある場合は、次の手順を実行します。
+
+    ある。 [ **メタデータ ファイルのアップロード]** を選択します。
+
+    [Image: メタデータ ファイルをアップロードする方法を示すスクリーンショット。]
+
+    b。 **フォルダー ロゴ**を選択してメタデータ ファイルを選択し、[**アップロード**] を選択します。
+
+    [Image: メタデータ ファイルを選択するスクリーンショット。]
+
+    c. メタデータ ファイルが正常にアップロードされると、[基本的な SAML 構成] セクションに **識別子** と **応答 URL** の値が自動的に設定されます。
+6. Tripwire Enterprise アプリケーションでは、特定の形式の SAML アサーションを使用するため、カスタム属性マッピングを SAML トークン属性の構成に追加する必要があります。 次のスクリーンショットはその例です。 **一意のユーザー識別子**の既定値は **user.userprincipalname** ですが、Tripwire Enterprise では、これがユーザーの電子メール アドレスにマップされることを想定しています。 そのため、リストから **user.mailnickname** 属性を使用するか、組織の構成に基づいて適切な属性値を使用できます。
+
+    [Image: トークン属性の画像を示すスクリーンショット。]
+7. [ **SAML でのシングル サインオンのセットアップ** ] ページの [ **SAML 署名証明書** ] セクションで、 **フェデレーション メタデータ XML** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
+
+    [Image: [証明書のダウンロード] リンクを示すスクリーンショット。]
+
+### Tripwire Enterprise の SSO の構成
+
+Tripwire Enterprise でシングル サインオンを構成するには、Tripwire Enterprise セキュリティ強化ガイドの「 **Tripwire Enterprise と SAML 認証の使用** 」セクションを参照してください。Tripwire Customer Center でダウンロードできます。 サポートが必要な場合 [は、Tripwire Enterprise サポート チーム](mailto:support@tripwire.com)にお問い合わせください。
+
+#### Tripwire Enterprise のテスト ユーザーの作成
+
+Tripwire Enterprise ユーザーを作成するには、Tripwire Enterprise ユーザー ガイドの「 **ユーザー アカウントの作成** 」セクションを参照してください。Tripwire カスタマー センターでダウンロードできます。 サポートが必要な場合 [は、Tripwire Enterprise サポート チーム](mailto:support@tripwire.com)にお問い合わせください。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+- [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した Tripwire Enterprise に自動的にサインインします。
+- Microsoft マイ アプリを使用することができます。 マイ アプリで [Tripwire Enterprise] タイルを選択すると、SSO を設定した Tripwire Enterprise に自動的にサインインします。 詳細については、「 [Microsoft Entra My Apps](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/trisotechdigitalenterpriseserver-tutorial"} -->
+## Microsoft Entra ID を使用してシングル サインオン用に Trisotech Digital Enterprise Server を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/trisotechdigitalenterpriseserver-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と Trisotech Digital Enterprise Server の間でシングル サインオンを構成する方法について説明します。
+
+この記事では、Trisotech Digital Enterprise Server と Microsoft Entra ID を統合する方法について説明します。 Trisotech Digital Enterprise Server と Microsoft Entra ID の統合には、次の利点があります。
+
+- Trisotech Digital Enterprise Server にアクセスする Microsoft Entra ID ユーザーを制御できます。
+- ユーザーが自分の Microsoft Entra アカウントを使用して Trisotech Digital Enterprise Server に自動的にサインイン (シングル サインオン) するように設定できます。
+- アカウントは 1 か所で管理できます。
+
+SaaS アプリと Microsoft Entra ID の統合の詳細については、「 [Microsoft Entra ID を使用したアプリケーション アクセスとシングル サインオンとは」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on)を参照してください。 Azure サブスクリプションをお持ちでない場合は、始める前に[無料アカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)してください。
+
+### [前提条件]
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- Trisotech Digital Enterprise Server でのシングル サインオンが有効なサブスクリプション
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra のシングル サインオンを構成し、テストします。
+
+- Trisotech Digital Enterprise Server では、**SP** Initiated SSO がサポートされます
+- Trisotech Digital Enterprise Server では、**Just In Time** ユーザー プロビジョニングがサポートされます
+
+### ギャラリーからの Trisotech Digital Enterprise Server の追加
+
+Microsoft Entra ID への Trisotech Digital Enterprise Server の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Trisotech Digital Enterprise Server を追加する必要があります。
+
+**ギャラリーから Trisotech Digital Enterprise Server を追加するには、次の手順に従います。**
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. 検索ボックスに「 **Trisotech Digital Enterprise Server**」と入力し、結果パネルで **Trisotech Digital Enterprise Server** を選択し、[ **追加]** ボタンを選択してアプリケーションを追加します。
+
+    [Image: 結果リスト内の Trisotech Digital Enterprise Server]
+
+### Microsoft Entra のシングル サインオンの構成とテスト
+
+このセクションでは、**Britta Simon** というテスト ユーザーに基づいて、Trisotech Digital Enterprise Server で Microsoft Entra のシングル サインオンを構成し、テストします。 シングル サインオンを機能させるには、Microsoft Entra ユーザーと Trisotech Digital Enterprise Server 内の関連ユーザーとの間にリンク関係が確立されている必要があります。
+
+Trisotech Digital Enterprise Server で Microsoft Entra のシングル サインオンを構成してテストするには、次の手順を完了する必要があります。
+
+1. ユーザーがこの機能を使用できるように**、Microsoft Entra シングル サインオンを構成**します。
+2. **Trisotech Digital Enterprise Server シングル サインオンの構成** - アプリケーション側でシングル サインオン設定を構成します。
+3. **Microsoft Entra テスト ユーザーの作成** - Britta Simon で Microsoft Entra のシングル サインオンをテストします。
+4. **Microsoft Entra テスト ユーザーを割り当てる** - Britta Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+5. **Trisotech Digital Enterprise Server のテストユーザーを作成** - Trisotech Digital Enterprise Server で Microsoft Entra のユーザーの表示にリンクした Britta Simon に対応するテストユーザーを作成します。
+6. **シングル サインオンのテスト** - 構成が機能するかどうかを確認します。
+
+#### Microsoft Entra シングル サインオンの構成
+
+このセクションでは、Microsoft Entra のシングル サインオンを有効にします。
+
+Trisotech Digital Enterprise Server で Microsoft Entra シングル サインオンを構成するには、次の手順を実行します。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**Enterprise apps**&gt;**Trisotech Digital Enterprise Server** アプリケーション統合ページを参照し、[**シングル サインオン**] を選択します。
+
+    [Image: シングル サインオン リンク] を構成する
+3. [ **シングル サインオン方法の選択** ] ダイアログで、 **SAML/WS-Fed** モードを選択してシングル サインオンを有効にします。
+
+    [Image: シングル サインオン選択モード]
+4. [ **SAML を使用した単一 Sign-On のセットアップ** ] ページで、[ **編集]** アイコンを選択して [ **基本的な SAML 構成]** ダイアログを開きます。
+
+    [Image: 基本的なSAML構成の編集]
+5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
+
+    [Image: [Trisotech Digital Enterprise Server のドメインと URL] のシングル サインオン情報]
+
+    ある。 [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.trisotech.com`
+
+    b。 [ **識別子 (エンティティ ID)]** テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.trisotech.com`
+
+    注
+
+    これらの値は実際の値ではありません。 実際のサインオン URL と識別子でこれらの値を更新します。 これらの値を取得するには、[Trisotech Digital Enterprise Server サポート チーム](mailto:support@trisotech.com)にご連絡ください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
+6. [ **SAML を使用した単一 Sign-On の設定** ] ページの [ **SAML 署名証明書** ] セクションで、[コピー] ボタンを選択して **アプリのフェデレーション メタデータ URL を** コピーし、コンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンク]
+
+#### Trisotech Digital Enterprise Server シングル サインオンの構成
+
+1. 別の Web ブラウザー ウィンドウで、Trisotech Digital Enterprise Server 構成企業サイトに管理者としてサインインします。
+2. **メニュー アイコン**を選択し、[管理] を選択**します**。
+
+    [Image: Microsoft Digital Enterprise Server の [管理] アイコンのスクリーンショット。]
+3. **[User Provider]\(ユーザー プロバイダー\)** を選択します。
+
+    [Image: メニューから [User Provider](ユーザー プロバイダー) が選択された画面のスクリーンショット。]
+4. **[User Provider Configurations]\(ユーザー プロバイダー構成\)** セクションで、次の手順を実行します。
+
+    [Image: [User Provider Configurations](ユーザー プロバイダー構成) 画面のスクリーンショット。ここで、説明されている値を入力できます。]
+
+    ある。 **[認証方法]** のドロップダウン リストから **[Secured Assertion Markup Language 2 (SAML 2)]** を選択します。
+
+    b。 **[メタデータ URL]** テキスト ボックスに、Azure Portal からコピーした **[アプリのフェデレーション メタデータ URL]** 値を貼り付けます。
+
+    c. **[アプリケーション ID]** テキストボックスに、次のパターンを使って URL を入力します: `https://<companyname>.trisotech.com`。
+
+    d. **[保存]** を選びます。
+
+    え **[Allowed Domains (empty means everyone)]\(許可されているドメイン (空の場合はすべてのユーザー))** テキストボックスにドメイン名を入力します。許可されているドメインに一致するユーザーのライセンスが自動的に割り当てられます
+
+    f. **[保存]** を選びます。
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+#### Trisotech Digital Enterprise Server のテスト ユーザーの作成
+
+このセクションでは、Britta Simon というユーザーを Trisotech Digital Enterprise Server に作成します。 Trisotech Digital Enterprise Server では、Just-In-Time ユーザー プロビジョニングがサポートされており、既定で有効になっています。 このセクションにはアクション項目はありません。 Trisotech Digital Enterprise Server にユーザーがまだ存在していない場合は、認証後に新しく作成されます。
+
+注
+
+ユーザーを手動で作成する必要がある場合は、[Trisotech Digital Enterprise Server サポート チーム](mailto:support@trisotech.com)にお問い合わせください。
+
+#### シングル サインオンのテスト
+
+このセクションでは、アクセス パネルを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+アクセス パネルで [Trisotech Digital Enterprise Server] タイルを選択すると、SSO を設定した Trisotech Digital Enterprise Server に自動的にサインインします。 アクセス パネルの詳細については、「アクセス パネル [の概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/true-office-learning-lio-tutorial"} -->
+## Microsoft Entra ID を使用して True Office Learning - LIO for Single sign-on を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/true-office-learning-lio-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と True Office Learning - LIO 間にシングル サインオンを構成する方法について学習します。
+
+この記事では、True Office Learning - LIO と Microsoft Entra ID を統合する方法について説明します。 Microsoft Entra ID と True Office Learning - LIO を統合すると、次のことができます。
+
+- True Office Learning - LIO にアクセスできるユーザーを Microsoft Entra ID で制御する。
+- ユーザーが自分の Microsoft Entra アカウントを使用して True Office Learning - LIO に自動的にサインインできるようにします。
+- 1 つの中央の場所でアカウントを管理します。
+
+### [前提条件]
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- True Office Learning - LIO でのシングル サインオン (SSO) が有効なサブスクリプション。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
+
+- True Office Learning - LIO では、**SP** Initiated SSO がサポートされます。
+
+### ギャラリーから True Office Learning - LIO を追加する
+
+Microsoft Entra ID への True Office Learning - LIO の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に True Office Learning - LIO を追加する必要があります。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**True Office Learning - LIO**」と入力します。
+4. 結果パネルから **[True Office Learning - LIO]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
+
+または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### True Office Learning - LIO 用に Microsoft Entra SSO を構成してテストする
+
+**B.Simon** というテスト ユーザーを使用して、True Office Learning - LIO に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するためには、Microsoft Entra ユーザーと True Office Learning - LIO の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+True Office Learning - LIO に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
+
+1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **True Office Learning - LIO の SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
+    1. **True Office Learning - LIO テスト ユーザーの作成** - True Office Learning - LIO における B.Simon の対応ユーザーを作成し、そのユーザーを Microsoft Entra 上の B.Simon の表現にリンクさせます。
+3. **SSO のテスト** - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra SSO を有効にするには、次の手順に従います。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**エンタープライズアプリ**&gt;**True Office Learning - LIO**&gt;**シングルサインオンに移動してください。**
+3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: 基本的なSAML構成の編集]
+5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
+
+    1. [ **識別子 (エンティティ ID)]** テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://learn-sso.trueoffice.com/simplesaml/module.php/saml/sp/metadata.php/<CUSTOMER_NAME>-sp`
+    2. [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://learn-sso.trueoffice.com/<CUSTOMER_NAME>`
+
+        注
+
+        これらの値は実際の値ではありません。 これらの値を実際の識別子とサインオン URL で更新してください。 これらの値を取得するには、[True Office Learning - LIO クライアント サポート チーム](mailto:service@trueoffice.com)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
+6. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、 **フェデレーション メタデータ XML** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンク]
+7. **[True Office Learning - LIO のセットアップ]** セクションで、要件に基づいて適切な URL をコピーします。
+
+    [Image: 構成 URL をコピーする]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+### True Office Learning - LIO の SSO の構成
+
+構成に関する質問やメタデータのコピーを要求するには、[True Office Learning - LIO サポート チーム](mailto:service@trueoffice.com)にお問い合わせください。 リクエストには、次の情報を含めてください。
+
+- 会社名。
+- 会社 ID (わかっている場合)。
+- 既存または新規の構成。
+
+#### True Office Learning - LIO のテスト ユーザーの作成
+
+このセクションでは、True Office Learning - LIO で Britta Simon というユーザーを作成します。 [True Office Learning - LIO サポート チーム](mailto:service@trueoffice.com)と連携して、True Office Learning - LIO プラットフォームにユーザーを追加してください。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+- [ **このアプリケーションをテストする**] を選択します。 ログイン フローを開始できる True Office Learning - LIO のサインオン URL にリダイレクトされます。
+- True Office Learning - LIO のサインオン URL に直接移動し、そのサイトからのログイン フローを開始します。
+- Microsoft マイ アプリを使用できます。 マイ アプリで [True Office Learning - LIO] タイルを選択すると、True Office Learning - LIO のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、「マイ アプリ [の概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/truechoice-tutorial"} -->
+## Microsoft Entra ID で TrueChoice for Single サインオンを構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/truechoice-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と TrueChoice 間にシングル サインオンを構成する方法について説明します。
+
+この記事では、TrueChoice と Microsoft Entra ID を統合する方法について説明します。 TrueChoice と Microsoft Entra ID を統合すると、次のことができます。
+
+- TrueChoice にアクセスできるユーザーを Microsoft Entra ID で制御します。
+- ユーザーが自分の Microsoft Entra アカウントを使用して TrueChoice に自動的にサインインできるようにします。
+- 1 つの中央の場所でアカウントを管理します。
+
+### [前提条件]
+
+この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
+
+- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、 [無料でアカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)できます。
+- 次のいずれかのロール:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
+    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
+
+- シングル サインオン (SSO) が有効な TrueChoice サブスクリプション。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
+
+- TrueChoice では、 **SP** Initiated SSO がサポートされます。
+- TrueChoice では、 **Just-In-Time** ユーザー プロビジョニングがサポートされます。
+
+### ギャラリーから TrueChoice を追加する
+
+Microsoft Entra ID への TrueChoice の統合を構成するには、ギャラリーからマネージド SaaS アプリの一覧に TrueChoice を追加する必要があります。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
+2. **Entra ID**&gt;**エンタープライズ アプリ**&gt;**新しいアプリケーション**に移動します。
+3. **[ギャラリーからの追加**] セクションで、検索ボックスに**「TrueChoice**」と入力します。
+4. 結果パネルから **TrueChoice** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
+
+または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細を確認します。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### TrueChoice 用に Microsoft Entra SSO を構成してテストする
+
+**B.Simon** というテスト ユーザーを使用して、TrueChoice に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するためには、Microsoft Entra ユーザーと TrueChoice の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+TrueChoice に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
+
+1. **Microsoft Entra SSO を構成**する - ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **TrueChoice の SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
+    1. **TrueChoice テストユーザーの作成** - TrueChoice で B.Simon に対応するユーザーを作成し、そのユーザーを Microsoft Entra の B.Simon にリンクさせます。
+3. **SSO のテスト** - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+Microsoft Entra SSO を有効にするには、次の手順に従います。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
+2. **Entra ID**&gt;**Enterprise apps**&gt;**TrueChoice**&gt;**シングル サインオン**に移動します。
+3. [ **シングル サインオン方法の選択** ] ページで、[SAML] を選択 **します**。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: 基本的な SAML 構成の編集]
+5. [ **基本的な SAML 構成]** セクションで、次のフィールドの値を入力します。
+
+    ある。 [ **識別子 (エンティティ ID)]** テキスト ボックスに、次のパターンを使用して URL を入力します。 `urn:amazon:cognito:sp:<TRUECHOICE_APPID>`
+
+    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<APP>.auth.us-east-2.amazoncognito.com/saml2/idpresponse`
+
+    c. [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<APP>.auth.us-east-2.amazoncognito.com/login?response_type=code&client_id=<ID>&redirect_uri=https://<APP_ID>.amplifyapp.com/auth/`
+
+    注
+
+    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、 [TrueChoice クライアント サポート チーム](mailto:helpdesk@truechoice.io) に問い合わせてください。 「 **基本的な SAML 構成** 」セクションに示されているパターンを参照することもできます。
+6. TrueChoice アプリケーションでは、特定の形式の SAML アサーションを使用するため、カスタム属性マッピングを SAML トークン属性の構成に追加する必要があります。 次のスクリーンショットは、既定の属性の一覧を示しています。
+
+    [Image: 画像]
+7. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、[コピー] ボタンを選択して **アプリのフェデレーション メタデータ URL を** コピーし、コンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンク]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+### TrueChoice の SSO の構成
+
+**TrueChoice** 側でシングル サインオンを構成するには、**アプリのフェデレーション メタデータ URL を**[TrueChoice サポート チーム](mailto:helpdesk@truechoice.io)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
+
+#### TrueChoice のテスト ユーザーの作成
+
+このセクションでは、Britta Simon というユーザーを TrueChoice に作成します。 TrueChoice では、Just-In-Time ユーザー プロビジョニングがサポートされており、既定で有効になっています。 このセクションにはアクション項目はありません。 TrueChoice にユーザーがまだ存在していない場合は、認証後に新しく作成されます。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+- [ **このアプリケーションをテスト**する] を選択すると、このオプションはログイン フローを開始できる TrueChoice のサインオン URL にリダイレクトされます。
+- TrueChoice のサインオン URL に直接移動し、そこからログイン フローを開始します。
+- Microsoft マイ アプリを使用できます。 マイ アプリで [TrueChoice] タイルを選択すると、このオプションは TrueChoice のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、「マイ アプリの [概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity/saas-apps/trunarrative-tutorial"} -->
 ## Microsoft Entra ID でシングル サインオン用に TruNarrative を構成する - Microsoft Entra ID
 
@@ -8594,1011 +9482,4 @@ Microsoft Entra 管理センターで Microsoft Entra SSO を有効にするに�
 - Microsoft Entra 管理センターで [ **このアプリケーションをテスト** する] を選択します。 このオプションは、ログイン フローを開始できる Visual Paradigm Online のサインオン URL にリダイレクトされます。
 - Visual Paradigm Online のサインオン URL に直接移動し、そこからログイン フローを開始します。
 - Microsoft マイ アプリを使用できます。 マイ アプリで [Visual Paradigm Online] タイルを選択すると、このオプションは Visual Paradigm Online のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関するページを参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vivopoint-tutorial"} -->
-## Microsoft Entra ID で VivoPoint for Single sign-on を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vivopoint-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と VivoPoint の間でシングル サインオンを構成する方法について説明します。
-
-この記事では、VivoPoint と Microsoft Entra ID を統合する方法について説明します。 VivoPoint と Microsoft Entra ID を統合すると、次のことができます。
-
-- Microsoft Entra ID で VivoPoint へのアクセス権を制御します。
-- ユーザーが自分の Microsoft Entra アカウントを使用して VivoPoint に自動的にサインインできるようにします。
-- 1 つの中央の場所でアカウントを管理します。
-
-### 前提 条件
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、無料でアカウントを作成 [できます](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- VivoPoint でのシングル サインオン (SSO) が有効なサブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- VivoPoint では、**SP** によって開始される SSO のみがサポートされます。
-
-### ギャラリーから VivoPoint を追加する
-
-Microsoft Entra ID への VivoPoint の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に VivoPoint を追加する必要があります。
-
-1. 少なくとも [クラウド アプリケーション管理者](https://entra.microsoft.com)として、[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**VivoPoint**」と入力します。
-4. 結果パネルで **VivoPoint** を選択し、その後アプリを追加して下さい。 アプリがテナントに追加されるまで数秒待ちます。
-
-または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細を確認します。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### VivoPoint の Microsoft Entra SSO の構成とテスト
-
-**B.Simon**というテスト ユーザーを使用して、VivoPoint に対する Microsoft Entra SSO を構成してテストします。 SSO を機能させるには、Microsoft Entra ユーザーと VivoPoint の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-VivoPoint で Microsoft Entra SSO を構成してテストするには、次の手順に従います。
-
-1. **Microsoft Entra SSO**の構成 - ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザー** の作成 - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **VivoPoint SSO**の構成 - アプリケーション側でシングル サインオン設定を構成します。
-    1. **VivoPoint テスト ユーザーの作成** - VivoPoint で B.Simon に対応するユーザーを作成し、Microsoft Entra ID のユーザー表現にリンクさせます。
-3. **SSO** のテスト - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-Microsoft Entra 管理センターで Microsoft Entra SSO を有効にするには、次の手順に従います。
-
-1. 少なくとも [クラウド アプリケーション管理者](https://entra.microsoft.com)として、[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) にサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**VivoPoint**&gt;**シングル サインオン**を参照します。
-3. **[シングル サインオン方式の選択]** ページで、**[SAML]** を選択します。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: のスクリーンショットは、基本的な SAML 構成を編集する方法を示しています。]
-5. **基本的な SAML 構成** セクションで、次の手順を実行します。
-
-    ある。 [**識別子 (エンティティ ID)** テキスト ボックスに、次のいずれかの URL/パターンを入力します。
-
-    | **識別子 (エンティティ ID)** |
-    | --- |
-    | `https://vivopoint.com/` |
-    | `https://<SUBDOMAIN>.vivopoint.com/` |
-
-    b。 [**応答 URL**] ボックスに、次のいずれかの URL/パターンを入力します。
-
-    | **応答 URL** |
-    | --- |
-    | `https://vivopoint.com/saml/acs` |
-    | `https://<SUBDOMAIN>.vivopoint.com/saml/acs` |
-
-    c. [**サインオン URL** テキスト ボックスに、次のいずれかの URL/パターンを入力します。
-
-    | **サインオン URL** |
-    | --- |
-    | `https://vivopoint.com/` |
-    | `https://<SUBDOMAIN>.vivopoint.com/` |
-
-    手記
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、[VivoPoint サポート チーム](mailto:support@vivopoint.com)にお問い合わせください。 Microsoft Entra 管理センターの「**基本的な SAML 構成**」セクションに示されているパターンを参照することもできます。
-6. [**SAML** でのシングル サインオンの設定] ページの [**SAML 署名証明書**] セクションで、**証明書 (未加工)** を探し、[**ダウンロード]** を選択して証明書をダウンロードし、コンピューターに保存します。
-
-    [Image: スクリーンショットには、証明書のダウンロードリンクが表示されています。証明書]
-7. **[VivoPoint** のセットアップ] セクションで、要件に基づいて適切な URL をコピーします。
-
-    [Image: 構成 URL のコピーを示すスクリーンショット。]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### VivoPoint SSO の構成
-
-**VivoPoint** 側でシングル サインオンを構成するには、ダウンロードした**証明書 (未加工)** と、Microsoft Entra 管理センターからコピーした適切な URL を [VivoPoint サポート チーム](mailto:support@vivopoint.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
-
-#### VivoPoint テスト ユーザーの作成
-
-このセクションでは、VivoPoint で B.Simon というユーザーを作成します。 [VivoPoint サポート チームの](mailto:support@vivopoint.com) と連携して、VivoPoint プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して、Microsoft Entra のシングル サインオン構成をテストします。
-
-- Microsoft Entra 管理センターで [ **このアプリケーションをテスト** する] を選択します。 このオプションは、ログイン フローを開始できる VivoPoint のサインオン URL にリダイレクトします。
-- VivoPoint のサインオン URL に直接移動し、そこからログイン フローを開始します。
-- Microsoft マイ アプリを使用できます。 マイ アプリで [VivoPoint] タイルを選択すると、このオプションは VivoPoint のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、「マイ アプリ 概要」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vmware-horizon-unified-access-gateway-tutorial"} -->
-## VMware Horizon - Unified Access Gateway を Microsoft Entra ID でシングル サインオン用に構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vmware-horizon-unified-access-gateway-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と VMware Horizon - Unified Access Gateway の間でシングル サインオンを構成する方法について説明します。
-
-この記事では、VMware Horizon - Unified Access Gateway と Microsoft Entra ID を統合する方法について説明します。 VMware Horizon - Unified Access Gateway と Microsoft Entra ID を統合すると、次のことができます。
-
-- VMware Horizon - Unified Access Gateway にアクセスできるユーザーを Microsoft Entra ID で制御します。
-- ユーザーが自分の Microsoft Entra アカウントを使用して VMware Horizon - Unified Access Gateway に自動的にサインインできるようにします。
-- 1 つの中央の場所でアカウントを管理します。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- VMware Horizon - Unified Access Gateway でのシングル サインオン (SSO) が有効なサブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- VMware Horizon - Unified Access Gateway では、**SP Initiated SSO と IDP Initiated SSO** がサポートされます
-
-### ギャラリーからの VMware Horizon - Unified Access Gateway の追加
-
-Microsoft Entra ID への VMware Horizon - Unified Access Gateway の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に VMware Horizon - Unified Access Gateway を追加する必要があります。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**VMware Horizon - Unified Access Gateway**」と入力します。
-4. 結果のパネルから **VMware Horizon - Unified Access Gateway** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### VMware Horizon - Unified Access Gateway の Microsoft Entra SSO の構成とテスト
-
-**B.Simon** というテスト ユーザーを使用して、VMware Horizon - Unified Access Gateway に対する Microsoft Entra SSO を構成してテストします。 SSO を機能させるには、Microsoft Entra ユーザーと VMware Horizon - Unified Access Gateway の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-VMware Horizon - Unified Access Gateway で Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
-
-1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **VMware Horizon - Unified Access Gateway SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. **VMware Horizon - Unified Access Gateway テスト ユーザーの作成** - VMware Horizon - Unified Access Gateway で B.Simon に対応するユーザーを作成し、Microsoft Entra の B.Simon にリンクさせます。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-Microsoft Entra SSO を有効にするには、次の手順に従います。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **[Entra ID]**&gt;**[Enterprise アプリケーション]**&gt;**[VMware Horizon - Unified Access Gateway]**&gt;**[シングル サインオン]** に移動します。
-3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的なSAML構成の編集]
-5. [ **基本的な SAML 構成]** セクションで、 **IDP** 開始モードでアプリケーションを構成する場合は、次のフィールドの値を入力します。
-
-    a. [ **識別子** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<HORIZON_UAG_FQDN>/portal`
-
-    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<HORIZON_UAG_FQDN>/portal/samlsso`
-6. **追加の URL を設定** を選択し、**SP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
-
-    [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<HORIZON_UAG_FQDN>`
-
-    注
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 この値を取得するには、[VMware Horizon - Unified Access Gateway クライアント サポート チーム](mailto:support@vmware.com)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
-7. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、 **フェデレーション メタデータ XML** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンク]
-8. **[VMware Horizon - Unified Access Gateway のセットアップ]** セクションで、要件に基づいて適切な URL をコピーします。
-
-    [Image: 構成 URL をコピーする]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### VMware Horizon - Unified Access Gateway の SSO を構成する
-
-**VMware Horizon - Unified Access Gateway** 側でシングル サインオンを構成するには、ダウンロードした**フェデレーション メタデータ XML** とアプリケーションの構成からコピーした適切な URL を [VMware Horizon - Unified Access Gateway サポート チーム](mailto:support@vmware.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
-
-#### VMware Horizon - Unified Access Gateway のテスト ユーザーを作成する
-
-このセクションでは、VMware Horizon - Unified Access Gateway で B.Simon というユーザーを作成します。 [VMware Horizon - Unified Access Gateway サポート チーム](mailto:support@vmware.com)と連携して、VMware Horizon - Unified Access Gateway プラットフォームにユーザーを追加してください。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-##### SP 開始:
-
-- [ **このアプリケーションをテスト**する] を選択すると、このオプションは、ログイン フローを開始できる VMware Horizon - Unified Access Gateway のサインオン URL にリダイレクトされます。
-- VMware Horizon - Unified Access Gateway のサインオン URL に直接移動し、そこからログイン フローを開始します。
-
-##### IDP 起動しました。
-
-- [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した VMware Horizon - Unified Access Gateway に自動的にサインインします
-
-また、Microsoft アクセス パネルを使用して、任意のモードでアプリケーションをテストすることもできます。 アクセス パネルで [VMware Horizon - Unified Access Gateway] タイルを選択すると、SSO を設定した VMware Horizon - Unified Access Gateway に自動的にサインインします。 アクセス パネルの詳細については、「アクセス パネル [の概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vmware-identity-service-tutorial"} -->
-## Microsoft Entra ID でシングル サインオン用に VMware Identity Service を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vmware-identity-service-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-03-25
-- Summary: Microsoft Entra ID と VMware Identity Service の間でシングル サインオンを構成する方法について説明します。
-
-この記事では、VMware Identity Service と Microsoft Entra ID を統合する方法について説明します。 VMware Identity Service は、VMware 製品用の Microsoft Entra ID との統合を提供します。 ユーザーとグループのプロビジョニングには SCIM プロトコルを使用し、認証には SAML を使用します。 VMware Identity Service と Microsoft Entra ID を統合すると、次のことができます:
-
-- VMware Identity Service にアクセスできるユーザーを Microsoft Entra ID で制御します。
-- ユーザーが自分の Microsoft Entra アカウントを使用して VMware Identity Service に自動的にサインインできるようにします。
-- 1 つの中央の場所でアカウントを管理します。
-
-テスト環境で VMware Identity Service 向けの Microsoft Entra のシングル サインオンを構成してテストします。 VMware Identity Service では、 **SP** と **IDP** によって開始されるシングル サインオンと **Just In Time** ユーザー プロビジョニングの両方がサポートされます。
-
-### [前提条件]
-
-Microsoft Entra ID を VMware Identity Service と統合するには、次が必要です:
-
-- Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、 [無料でアカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)できます。
-- アプリケーション管理者、[クラウド アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)[管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)、または[アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)のいずれかのロール。
-- Microsoft Entra サブスクリプション。 サブスクリプションをお持ちでない場合は、 [無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を取得できます。
-- VMware Identity Service のシングル サインオン (SSO) 対応サブスクリプション。
-
-### アプリケーションを追加してテスト ユーザーを割り当てる
-
-シングル サインオンの構成プロセスを開始する前に、Microsoft Entra ギャラリーから VMware Identity Service アプリケーションを追加する必要があります。 アプリケーションに割り当ててシングル サインオン構成をテストするには、テスト ユーザー アカウントが必要です。
-
-#### Microsoft Entra ギャラリーから VMware Identity Service を追加する
-
-Microsoft Entra アプリケーション ギャラリーから VMware Identity Service を追加して、VMware Identity Service でシングル サインオンを構成します。 ギャラリーからアプリケーションを追加する方法の詳細については、「 [クイック スタート: ギャラリーからアプリケーションを追加する」を参照してください](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal)。
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-[作成とユーザー アカウントの割り当て](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users)に関する記事のガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加し、ユーザー/グループをアプリに追加し、ロールを割り当てることができます。 このウィザードでは、シングル サインオン構成ウィンドウへのリンクも提供されます。 [Microsoft 365 ウィザードの詳細を確認します](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)。
-
-### Microsoft Entra SSO の構成
-
-Microsoft Entra のシングル サインオンを有効にするには、次の手順を実行します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**VMware Identity Service**&gt;**シングルサインオン**に移動します。
-3. [ **シングル サインオン方法の選択** ] ページで、[SAML] を選択 **します**。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的な SAML 構成を編集する方法を示すスクリーンショット。]
-5. [ **基本的な SAML 構成]** セクションで、次の手順を実行します。
-
-    ある。 [ **識別子** ] ボックスに、次のいずれかのパターンを使用して URL を入力します。
-
-    | **識別子** |
-    | --- |
-    | `https://<CustomerName>.vmwareidentity.com/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.workspaceoneaccess.com/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.asia/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.eu/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.co.uk/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.de/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.ca/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vmwareidentity.com.au/SAAS/API/1.0/GET/metadata/sp.xml` |
-    | `https://<CustomerName>.vidmpreview.com/SAAS/API/1.0/GET/metadata/sp.xml` |
-
-    b。 [ **応答 URL** ] ボックスに、次のいずれかのパターンを使用して URL を入力します。
-
-    | **応答 URL** |
-    | --- |
-    | `https://<CustomerName>.vmwareidentity.com/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.workspaceoneaccess.com/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vmwareidentity.asia/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vmwareidentity.eu/SAAS/auth/saml/response` |
-    | ` https://<CustomerName>.vmwareidentity.co.uk/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vmwareidentity.de/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vmwareidentity.ca/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vmwareidentity.com.au/SAAS/auth/saml/response` |
-    | `https://<CustomerName>.vidmpreview.com/SAAS/auth/saml/response` |
-6. **SP** Initiated SSO を構成する場合は、次の手順を実行します。
-
-    [ **サインオン URL** ] ボックスに、次のいずれかのパターンを使用して URL を入力します。
-
-    | **サインオン URL** |
-    | --- |
-    | `https://<CustomerName>.vmwareidentity.com` |
-    | `https://<CustomerName>.workspaceoneaccess.com` |
-    | `https://<CustomerName>.vmwareidentity.asia` |
-    | `https://<CustomerName>.vmwareidentity.eu` |
-    | `https://<CustomerName>.vmwareidentity.co.uk` |
-    | `https://<CustomerName>.vmwareidentity.de` |
-    | `https://<CustomerName>.vmwareidentity.ca` |
-    | `https://<CustomerName>.vmwareidentity.com.au` |
-    | `https://<CustomerName>.vidmpreview.com` |
-
-    注
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには [、VMware Identity Service クライアント サポート チーム](mailto:support@vmware.com) に問い合わせてください。 「 **基本的な SAML 構成** 」セクションに示されているパターンを参照することもできます。
-7. VMware Identity Service アプリケーションは、特定の形式の SAML アサーションを使用するため、カスタム属性のマッピングを SAML トークンの属性の構成に追加する必要があります。 次のスクリーンショットは、既定の属性の一覧を示しています。
-
-    [Image: トークン属性の画像を示すスクリーンショット。]
-8. 上記に加えて、VMware Identity Service アプリケーションでは、いくつかの属性が SAML 応答で返されることが想定されています。それらを以下に示します。 これらの属性も事前に設定されていますが、要件に従って確認できます。
-
-    | 名前 | ソース属性 |
-    | --- | --- |
-    | ファーストネーム | ユーザー.ファーストネーム |
-    | 苗字 | ユーザーの名字 |
-    | ユーザー名 | ユーザー.ユーザープリンシパルネーム |
-    | エクスターナルID | user.objectid (ユーザーのオブジェクトID) |
-    | メール | ユーザーのメールアドレス |
-9. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、[コピー] ボタンを選択して **アプリのフェデレーション メタデータ URL を** コピーし、コンピューターに保存します。
-
-    [Image: [証明書のダウンロード] リンクを示すスクリーンショット。]
-
-### VMware Identity Service SSO の構成
-
-**VMware Identity Service SSO** 側でシングル サインオンを構成するには、**アプリのフェデレーション メタデータ URL を**[VMware Identity Service SSO サポート チーム](mailto:support@vmware.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
-
-#### VMware Identity Service のテスト ユーザーの作成
-
-このセクションでは、B.Simon というユーザーを VMware Identity Service に作成します。 VMware Identity Service では、既定で有効になっている Just-In-Time ユーザー プロビジョニングがサポートされます。 このセクションにはアクション項目はありません。 VMware Identity Service にユーザーがまだ存在しない場合は、新しいユーザーが認証の後に作成されます。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-##### SP 開始:
-
-- [ **このアプリケーションをテスト**する] を選択すると、ログイン フローを開始できる VMware Identity Service のサインオン URL にリダイレクトされます。
-- VMware Identity Service のサインオン URL に直接移動し、そこからログイン フローを開始します。
-
-##### IDP 起動しました。
-
-- [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した VMware Identity Service に自動的にサインインします。
-
-Microsoft マイ アプリを使用して、任意のモードでアプリケーションをテストすることもできます。 マイ アプリで [VMware Identity Service] タイルを選択すると、SP モードで構成されている場合は、ログイン フローを開始するためのアプリケーション サインオン ページにリダイレクトされます。IDP モードで構成されている場合は、SSO を設定した VMware Identity Service に自動的にサインインされます。 詳細については、「 [Microsoft Entra My Apps](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vocoli-tutorial"} -->
-## Microsoft Entra ID で Vocoli for Single sign-on を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vocoli-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と Vocoli 間にシングル サインオンを構成する方法について説明します。
-
-この記事では、Vocoli と Microsoft Entra ID を統合する方法について説明します。 Vocoli を Microsoft Entra ID と統合すると、次のことができます。
-
-- Vocoli にアクセスできるユーザーを Microsoft Entra ID で制御する。
-- ユーザーが自分の Microsoft Entra アカウントを使って Vocoli に自動的にサインインできるようにする。
-- 1 つの中央の場所でアカウントを管理します。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、 [無料でアカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)できます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- Vocoli でのシングル サインオン (SSO) が有効なサブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- Vocoli では、 **IDP** Initiated SSO がサポートされます。
-
-### ギャラリーからの Vocoli の追加
-
-Microsoft Entra ID への Vocoli の統合を構成するには、ギャラリーからマネージド SaaS アプリの一覧に Vocoli を追加する必要があります。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**エンタープライズ アプリ**&gt;**新規アプリケーション**に移動します。
-3. **[ギャラリーからの追加**] セクションで、検索ボックスに**「Vocoli」**と入力します。
-4. 結果パネルから **Vocoli** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細を確認します。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### Vocoli 用の Microsoft Entra SSO の構成とテスト
-
-**B.Simon** というテスト ユーザーを使用して、Vocoli に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するためには、Microsoft Entra ユーザーと Vocoli の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-Vocoli に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します:
-
-1. **Microsoft Entra SSO を構成**する - ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **Vocoli SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. **Vocoli テスト ユーザーの作成** - Microsoft Entra のユーザー表現にリンクされた Vocoli で B.Simon に対応するユーザーを作成します。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-Microsoft Entra SSO を有効にするには、次の手順に従います。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**エンタープライズアプリ**&gt;**Vocoli**&gt;**シングルサインオン**にブラウズします。
-3. [ **シングル サインオン方法の選択** ] ページで、[SAML] を選択 **します**。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的な SAML 構成の編集]
-5. [ **基本的な SAML 構成]** セクションでは、アプリケーションは事前に構成されており、必要な URL は既に Azure に事前設定されています。 ユーザーは、[保存] ボタンを選択して構成を **保存** する必要があります。
-6. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、 **証明書 (Base64)** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンク]
-7. [ **Vocoli のセットアップ** ] セクションで、要件に基づいて適切な URL をコピーします。
-
-    [Image: 構成 URL のコピー]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### Vocoli の SSO の構成
-
-**Vocoli** 側でシングル サインオンを構成するには、ダウンロードした**証明書 (Base64)** と、アプリケーション構成からコピーした適切な URL を [Vocoli サポート チーム](mailto:inbox@vocoli.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
-
-#### Vocoli のテスト ユーザーの作成
-
-このセクションでは、Vocoli で B.Simon というユーザーを作成します。 [Vocoli サポート チーム](mailto:inbox@vocoli.com)と協力して、Vocoli プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-- [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した Vocoli に自動的にサインインします。
-- Microsoft マイ アプリを使用できます。 マイ アプリで [Vocoli] タイルを選択すると、SSO を設定した Vocoli に自動的にサインインします。 詳細については、「 [Microsoft Entra My Apps](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vodeclic-tutorial"} -->
-## Microsoft Entra ID でシングル サインオン用に Vodeclic を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vodeclic-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と Vodeclic 間にシングル サインオンを構成する方法について説明します。
-
-この記事では、Vodeclic と Microsoft Entra ID を統合する方法について説明します。 Vodeclic と Microsoft Entra ID の統合には、次の利点があります。
-
-- Vodeclic にアクセスできるユーザーを Microsoft Entra ID で制御できます。
-- ユーザーが自分の Microsoft Entra アカウントを使用して Vodeclic に自動的にサインイン (シングル サインオン) できるように設定できます。
-- アカウントは 1 か所で管理できます。
-
-SaaS アプリと Microsoft Entra ID の統合の詳細については、「 [Microsoft Entra ID を使用したアプリケーション アクセスとシングル サインオンとは」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on)を参照してください。 Azure サブスクリプションをお持ちでない場合は、開始 [する前に無料アカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) してください。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 アカウントをまだお持ちでない場合は、 [無料でアカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)できます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- Vodeclic でのシングル サインオンが有効なサブスクリプション
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra のシングル サインオンを構成し、テストします。
-
-- Vodeclic では、**SP**によるSSOと**IDP**によるSSOがサポートされます。
-
-### ギャラリーからの Vodeclic の追加
-
-Microsoft Entra ID への Vodeclic の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Vodeclic を追加する必要があります。
-
-**ギャラリーから Vodeclic を追加するには、次の手順に従います。**
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**エンタープライズ アプリ**&gt;**新しいアプリケーション**に移動します。
-3. 検索ボックスに「 **Vodeclic」**と入力し、結果パネルで **Vodeclic** を選択し、[ **追加** ] ボタンを選択してアプリケーションを追加します。
-
-    [Image: 結果一覧の Vodeclic]
-
-### Microsoft Entra のシングル サインオンの構成とテスト
-
-このセクションでは、 **Britta Simon** というテスト ユーザーに基づいて、Vodeclic で Microsoft Entra のシングル サインオンを構成し、テストします。 シングル サインオンが機能するには、Microsoft Entra ユーザーと Vodeclic の関連ユーザーの間にリンク関係を確立する必要があります。
-
-Vodeclic で Microsoft Entra シングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
-
-1. ユーザーがこの機能を使用できるように**、Microsoft Entra シングル サインオンを構成**します。
-2. **Vodeclic シングル サインオンの構成** - アプリケーション側でシングル Sign-On 設定を構成します。
-3. **Microsoft Entra テスト ユーザーの作成** - Britta Simon で Microsoft Entra のシングル サインオンをテストします。
-4. **Microsoft Entra テスト ユーザーを割り当てる** - Britta Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-5. **Vodeclic のテストユーザーを作成** - Vodeclic 内で Britta Simon に対応するユーザーを作成し、Microsoft Entra のユーザー表現にリンクさせます。
-6. **シングル サインオンのテスト** - 構成が機能するかどうかを確認します。
-
-#### Microsoft Entra シングル サインオンの構成
-
-このセクションでは、Microsoft Entra のシングル サインオンを有効にします。
-
-Vodeclic で Microsoft Entra シングル サインオンを構成するには、次の手順を実行します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**Vodeclic** アプリケーション統合ページに移動し、[**シングル サインオン**] を選択します。
-
-    [Image: シングル サインオン リンクの構成]
-3. [ **シングル サインオン方法の選択** ] ダイアログで、 **SAML/WS-Fed** モードを選択してシングル サインオンを有効にします。
-
-    [Image: シングル サインオン選択モード]
-4. [ **SAML を使用した単一 Sign-On のセットアップ** ] ページで、[ **編集]** アイコンを選択して [ **基本的な SAML 構成]** ダイアログを開きます。
-
-    [Image: 基本的な SAML 構成の編集]
-5. [ **基本的な SAML 構成]** セクションで、 **IDP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
-
-    [Image: [基本的な SAML 構成] を示すスクリーンショット。ここで、[識別子]、[応答 URL] の順に入力し、[保存] を選択できます。]
-
-    ある。 [ **識別子** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.lms.vodeclic.net/auth/saml`
-
-    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
-6. **SP** 開始モードでアプリケーションを構成する場合**は、[追加の URL の設定] を**選択し、次の手順を実行します。
-
-    [Image: スクリーンショットは、追加のU R Lを設定する場所を示しています。ここでは、サインオンU R Lを入力できます。]
-
-    [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.lms.vodeclic.net/auth/saml`
-
-    注
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、 [Vodeclic クライアント サポート チーム](mailto:hotline@vodeclic.com) に問い合わせてください。 「 **基本的な SAML 構成** 」セクションに示されているパターンを参照することもできます。
-7. [ **SAML を使用した単一 Sign-On のセットアップ** ] ページの **[SAML 署名証明書** ] セクションで、[ **ダウンロード** ] を選択し、要件に従って指定されたオプションから **フェデレーション メタデータ XML** をダウンロードし、コンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンク]
-8. [ **Vodeclic のセットアップ** ] セクションで、要件に従って適切な URL をコピーします。
-
-    [Image: 構成 URL のコピー]
-
-    ある。 ログイン URL
-
-    b。 Microsoft Entra アイデンティファイヤー
-
-    c. ログアウト URL
-
-#### Vodeclic シングル サインオンの構成
-
-**Vodeclic** 側でシングル サインオンを構成するには、ダウンロードした**フェデレーション メタデータ XML** と、アプリケーション構成からコピーした適切な URL を [Vodeclic サポート チーム](mailto:hotline@vodeclic.com)に送信する必要があります。 この設定は、SAML SSO 接続が両方の側で正しく設定されるように設定します。
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-#### Vodeclic テスト ユーザーの作成
-
-このセクションでは、Vodeclic で Britta Simon というユーザーを作成します。 [Vodeclic サポート チーム](mailto:hotline@vodeclic.com)と協力して、Vodeclic プラットフォームにユーザーを追加します。 シングル サインオンを使用する前に、ユーザーを作成してアクティブ化する必要があります。
-
-注
-
-アプリケーションの要件によっては、お使いのマシンを許可リストに登録しなければならない場合があります。 そのためには、パブリック IP アドレスを [Vodeclic サポート チーム](mailto:hotline@vodeclic.com)と共有する必要があります。
-
-#### シングル サインオンのテスト
-
-このセクションでは、アクセス パネルを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-アクセス パネルで [Vodeclic] タイルを選択すると、SSO を設定した Vodeclic に自動的にサインインします。 アクセス パネルの詳細については、「アクセス パネル [の概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vonage-provisioning-tutorial"} -->
-## Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Vonage を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vonage-provisioning-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2026-04-06
-- Summary: Microsoft Entra IDから Vonage にユーザー アカウントを自動的にプロビジョニングおよびプロビジョニング解除する方法について説明します。
-
-この記事では、自動ユーザー プロビジョニングを構成するために Vonage と Microsoft Entra ID の両方で実行する必要がある手順について説明します。 設定済みのMicrosoft Entra IDは、Microsoft Entraプロビジョニング サービスを使用して、ユーザーとグループのプロビジョニングおよびプロビジョニング解除を[Vonage](https://www.vonage.com/)に自動的に行います。 このサービスの機能、しくみ、よく寄せられる質問の詳細については、「[Microsoft Entra ID](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning) を使用した SaaS アプリケーションへの自動ユーザー プロビジョニングとプロビジョニング解除」を参照してください。
-
-### サポートされている機能
-
-- Vonage でユーザーを作成する。
-- アクセスが不要になったら、Vonage のユーザーを削除します。
-- Microsoft Entra IDと Vonage の間でユーザー属性の同期を維持します。
-- Vonage に[シングル サインオン](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vonage-tutorial)します (推奨)。
-- コード認証許可フロー認証がサポートされています。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- [A Microsoft Entra テナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-create-new-tenant)。
-- アプリケーション管理者、[クラウド アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)[管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)、または[アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)のいずれかのロール。
-- [Vonage](https://www.vonage.com/) テナント。
-- アカウント管理者権限を持つVonageのユーザーアカウント（アカウントスーパーユーザー）。
-
-### 手順 1: プロビジョニングデプロイメントを計画する
-
-1. [プロビジョニング サービスのしくみについて説明](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)します。
-2. プロビジョニングの対象範囲にいるユーザーを決定します。
-3. Microsoft Entra IDとVonageの間でマップするデータを決定します。
-
-### 手順 2: Microsoft Entra IDでのプロビジョニングをサポートするように Vonage を構成する
-
-1. 管理ユーザーを使用して [Vonage 管理ポータル](http://admin.vonage.com) にログインします。
-
-    [Image: vonage 管理ポータルへのログインのスクリーンショット。]
-2. 左側のメニュー **の [アカウント &gt; シングル Sign-On 設定]** に移動します。
-
-    [Image: シングル サインオン設定のスクリーンショット。]
-3. [ **ユーザー設定] タブを** 選択し、[ **SCIM ユーザー プロビジョニングを有効にする** ] をオンに切り替えて、[ **保存]** を選択します。
-
-[Image: [Scim を有効にする] のスクリーンショット。]
-
-### 手順 3: Microsoft Entra アプリケーション ギャラリーから Vonage を追加する
-
-Microsoft Entra アプリケーション ギャラリーから Vonage を追加して、Vonage へのプロビジョニングの管理を開始します。 SSO のために Vonage を以前に設定している場合は、その同じアプリケーションを使用することができます。 ただし、最初に統合をテストするときは、別のアプリを作成することをお勧めします。 ギャラリーからのアプリケーションの追加の詳細については、 [こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal)。
-
-### 手順 4: プロビジョニングのスコープに含まれるユーザーを定義する
-
-Microsoft Entra プロビジョニング サービスを使用すると、アプリケーションへの割り当てに基づいて、またはユーザーまたはグループの属性に基づいてプロビジョニングされたユーザーをスコープできます。 割り当てに基づいてアプリにプロビジョニングされるユーザーのスコープを設定する場合は、 [手順を使用してユーザーとグループをアプリケーションに割り当てることができます](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/assign-user-or-group-access-portal)。 ユーザーまたはグループの属性のみに基づいてプロビジョニングされるユーザーのスコープを設定する場合は、 [スコープ フィルターを使用](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)できます。
-
-- 小規模から始めます。 すべてのユーザーとグループにロールアウトする前に、少数のユーザーとグループでテストします。 プロビジョニングのスコープが割り当てられたユーザーとグループに設定されている場合は、1 つまたは 2 つのユーザーまたはグループをアプリに割り当てることで、これを制御できます。 スコープがすべてのユーザーとグループに設定されている場合は、 [属性ベースのスコープ フィルターを](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)指定できます。
-- 追加のロールが必要な場合は、 [アプリケーション マニフェストを更新](https://learn.microsoft.com/ja-jp/entra/identity-platform/howto-add-app-roles-in-apps) して新しいロールを追加できます。
-
-### 手順 5: Vonage への自動ユーザー プロビジョニングを構成する
-
-注
-
-Vonage に追加されるすべてのユーザーには、名、姓、電子メールが必要です。 そうでない場合、統合は失敗します。
-
-このセクションでは、Microsoft Entra IDのユーザーまたはグループの割り当てに基づいて Vonage のユーザーやグループを作成、更新、無効化するように Microsoft Entra プロビジョニング サービスを構成する手順について説明します。
-
-#### Microsoft Entra ID で Vonage の自動ユーザー プロビジョニングを構成する
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に少なくとも [Cloud アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
-2. **Entra ID**&gt;**Enterprise apps**を参照してください
-
-    [Image: [エンタープライズ アプリケーション] ブレードのスクリーンショット。]
-3. アプリケーションの一覧で **Vonage** を選択します。
-
-    [Image: アプリケーションの一覧の Vonage リンクのスクリーンショット。]
-4. [プロビジョニング] タブ **を** 選択します。
-
-    [Image: [プロビジョニング] タブのスクリーンショット。]
-5. [ **+ 新しい構成**] を選択します。
-
-    [Image: [新しい構成] のスクリーンショット。]
-6. 次の手順の前に、アカウント スーパー ユーザーとして承認されていることを確認します。 ユーザーがアカウント スーパー ユーザーであるかどうかを確認するには、 [Vonage 管理ポータル](http://admin.vonage.com)でログインを実行します。 以下のような画像が左上に表示されるはずです。
-
-    [Image: [プロビジョニング] タブのユーザーのスクリーンショット。]
-7. [ **管理者の資格情報** ] セクションで、[承認] を選択し、アカウント スーパー ユーザーの資格情報を入力することを確認します。資格情報の入力が求められない場合は、アカウント スーパー ユーザーでログインしていることを確認します (左上の http://admin.vonage.com/ 確認できます。"アカウント スーパー ユーザー" と表示するために必要な名前を下に入力します)。 [**Test Connection** を選択して、Microsoft Entra IDが Vonage に接続できることを確認します。 接続に失敗した場合は、Vonage アカウントに管理者アクセス許可があることを確認してから、もう一度やり直してください。
-
-    [Image: トークンのスクリーンショット。]
-8. [ **作成]** を選択して構成を作成します。
-9. [**概要**] ページで **[プロパティ**] を選択します。
-10. **[編集**] アイコンを選択してプロパティを編集します。 通知メールを有効にし、検疫通知を受信する電子メールを提供します。 **誤削除防止を**有効にします。 **[適用]** を選択して変更を保存します。
-
-    [Image: プロビジョニングプロパティのスクリーンショット。]
-11. 左側のパネルで **[属性マッピング** ] を選択し、ユーザーを選択 **します**。
-12. **Attribute-Mapping** セクションで、Microsoft Entra IDから Vonage に同期されるユーザー属性を確認します。 **[照合**プロパティ] として選択されている属性は、更新操作で Vonage のユーザー アカウントとの照合に使用されます。 [一致するターゲット属性](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)を変更する場合は、Vonage API がその属性に基づくユーザーのフィルター処理をサポートしていることを確認する必要があります。 [ **保存** ] ボタンを選択して変更をコミットします。
-
-    | 特性 | タイプ | フィルター処理でサポートされます |
-    | --- | --- | --- |
-    | ユーザー名 | 糸 | ✓ |
-    | 活動中 | ブール値 |  |
-    | emails[type eq "仕事"].value | 糸 |  |
-    | 名前.名 | 糸 |  |
-    | 名前.姓 | 糸 |  |
-13. スコープ フィルターを構成するには、スコープ フィルターに関する記事に記載されている手順 [を](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)参照してください。
-14. [オンデマンド プロビジョニングを](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/provision-on-demand)使用して、少数のユーザーとの同期を検証してから、組織内でより広範にデプロイします。
-15. プロビジョニングの準備ができたら、[**概要**] ページから [**プロビジョニングの開始**] を選択します。
-
-### 手順 6: デプロイを監視する
-
-プロビジョニングを構成したら、次のリソースを使用してデプロイを監視します。
-
-1. [プロビジョニング ログを](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-provisioning-logs)使用して、どのユーザーが正常にプロビジョニングされたか、または正常にプロビジョニングされなかったかを判断する
-2. [進行状況バー](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)を確認して、プロビジョニング サイクルの状態と完了までの近さを確認します
-3. プロビジョニング構成が異常な状態にあると思われる場合、アプリケーションは検疫に入ります。 検疫状態の詳細については、 [アプリケーションプロビジョニングの検疫状態](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/application-provisioning-quarantine-status) に関する記事を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/vonage-tutorial"} -->
-## Microsoft Entra ID で vonage for Single sign-on を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vonage-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と vonage の間にシングル サインオンを構成する方法について説明します。
-
-この記事では、vonage と Microsoft Entra ID を統合する方法について説明します。 vonage と Microsoft Entra ID を統合すると、次のことができます。
-
-- vonage にアクセスできるユーザーを Microsoft Entra ID で制御する。
-- ユーザーが自分の Microsoft Entra アカウントを使って vonage に自動的にサインインできるようにする。
-- 1 つの中央の場所でアカウントを管理します。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- シングル サインオン (SSO) が有効な vonage サブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- vonage では、**SP Initiated SSO と IDP Initiated SSO** がサポートされます。
-- vonage では、[自動化されたユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vonage-provisioning-tutorial)がサポートされます。
-
-### ギャラリーからの vonage の追加
-
-Microsoft Entra ID への vonage の統合を構成するには、ギャラリーからマネージド SaaS アプリの一覧に vonage を追加する必要があります。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**vonage**」と入力します。
-4. 結果パネルから **[vonage]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、 [エンタープライズ アプリ構成ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### vonage 用に Microsoft Entra SSO を構成してテストする
-
-**B.Simon** というテスト ユーザーを使用して、vonage に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するためには、Microsoft Entra ユーザーと vonage の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-vonage に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します:
-
-1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **vonage の SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. vonage テストユーザーを作成して、vonage内でB.Simonに対応するユーザーを設け、そのユーザーをMicrosoft EntraのB.Simonにリンクさせます。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-Microsoft Entra SSO を有効にするには、次の手順に従います。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**vonage**&gt;**シングルサインオン**にアクセスします。
-3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的なSAML構成の編集]
-5. [ **基本的な SAML 構成]** セクションで、 **IDP** 開始モードでアプリケーションを構成する場合は、次のフィールドの値を入力します。
-
-    ある。 [ **識別子** ] テキスト ボックスに、次のパターンを使用して値を入力します。 `wso2is-<ENVIRONMENT>`
-
-    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://login.auth-<ENVIRONMENT>.vonage.com/accountrecoveryendpoint/saml-translator.jsp?id=<ID>&env=<ENVIRONMENT>&client=Web`
-6. **追加の URL を設定** を選択し、**SP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
-
-    [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://admin.<ENVIRONMENT>.vocal-<ENVIRONMENT>.com/`
-
-    注
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、[vonage クライアント サポート チーム](mailto:office@vonage.com)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
-7. [ **SAML でのシングル サインオンの設定** ] ページの [ **SAML 署名証明書** ] セクションで、 **証明書 (Base64)** を探し、[ **ダウンロード** ] を選択して証明書をダウンロードし、コンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンク]
-8. **[vonage のセットアップ]** セクションで、要件に基づいて適切な URL をコピーします。
-
-    [Image: 構成 URL をコピーする]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### vonage の SSO の構成
-
-1. 別の Web ブラウザー ウィンドウで、管理者として vonage Web サイトにサインインします。
-2. **[Account](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/アカウント) &gt; [Single Sign-On Settings](シングル サインオンの設定) &gt; [Settings](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/設定)** の順に移動します。
-3. 次のページで、以下の手順を実行します。
-
-    [Image: [Single Sign-On Settings](シングル サインオンの設定) ページ]
-
-    ある。 **[Enable single sign-on for this account](このアカウントのシングル サインオンを有効にする)** を選択します。
-
-    b。 [ **エンティティ ID** ] ボックスに、前にコピーした **Microsoft Entra 識別子** の値を貼り付けます。
-
-    c. **[Sign-in URL] (サインイン)** テキスト ボックスに、先ほどコピーした**ログイン URL** の値を貼り付けます。
-
-    d. **[Upload Certificate] (証明書のアップロード)** に、ダウンロードした**証明書 (Base64)** ファイルをアップロードします。
-
-#### vonage のテスト ユーザーの作成
-
-1. 別の Web ブラウザー ウィンドウで、管理者として vonage Web サイトにサインインします。
-2. **[Phone System](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/電話システム) &gt; [Users](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザー) &gt; [Add New](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/新規追加)** の順に移動します。
-
-    [Image: ユーザー ページを追加]
-3. 次のページに必須フィールドを追加し、[ **保存]** を選択します。
-
-    [Image: ユーザーの追加フォーム ページ]
-
-注
-
-vonage では、自動ユーザー プロビジョニングもサポートされています。 自動ユーザー プロビジョニングを構成する方法の詳細 [については、こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/vonage-provisioning-tutorial) 。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-##### SP 開始:
-
-- Azure portal で **[このアプリケーションをテスト** する] を選択します。 このオプションは、サインイン フローを開始できる vonage のサインオン URL にリダイレクトします。
-- vonage のサインオン URL に直接移動し、そこからサインイン フローを開始します。
-
-##### IDP 起動しました。
-
-- [ **このアプリケーションをテスト** する] を選択すると、SSO を設定した vonage に自動的にサインインします
-
-Microsoft マイ アプリを使用して、任意のモードでアプリケーションをテストすることもできます。 マイ アプリで vonage タイルを選択すると、SP モードで構成されている場合は、サインイン フローを開始するためのアプリケーション サインオン ページにリダイレクトされます。IDP モードで構成されている場合は、SSO を設定した vonage に自動的にサインインされます。 マイ アプリの詳細については、[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関するページを参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/voyance-tutorial"} -->
-## Microsoft Entra ID でシングル サインオン用に Voyance を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/voyance-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と Voyance 間にシングル サインオンを構成する方法について説明します。
-
-この記事では、Voyance と Microsoft Entra ID を統合する方法について説明します。 Voyance と Microsoft Entra ID の統合には、次の利点があります。
-
-- Voyance にアクセスできるユーザーを Microsoft Entra ID で制御できます。
-- ユーザーが自分の Microsoft Entra アカウントを使用して Voyance に自動的にサインイン (シングル サインオン) できるように設定できます。
-- アカウントは 1 か所で管理できます。
-
-SaaS アプリと Microsoft Entra ID の統合の詳細については、「 [Microsoft Entra ID を使用したアプリケーション アクセスとシングル サインオンとは」](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on)を参照してください。 Azure サブスクリプションをお持ちでない場合は、始める前に[無料アカウントを作成](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)してください。
-
-### [前提条件]
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- Voyance でのシングル サインオンが有効なサブスクリプション
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra のシングル サインオンを構成し、テストします。
-
-- Voyance では、**SP** と **IDP** によって開始される SSO がサポートされます
-- Voyance では、**Just-In-Time** ユーザー プロビジョニングがサポートされます
-
-### ギャラリーからの Voyance の追加
-
-Microsoft Entra ID への Voyance の統合を構成するには、ギャラリーからマネージド SaaS アプリの一覧に Voyance を追加する必要があります。
-
-**ギャラリーから Voyance を追加するには、次の手順に従います。**
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. 検索ボックスに「 **Voyance」**と入力し、結果パネルで **Voyance** を選択し、[ **追加** ] ボタンを選択してアプリケーションを追加します。
-
-    [Image: 結果一覧の Voyance]
-
-### Microsoft Entra のシングル サインオンの構成とテスト
-
-このセクションでは、**Britta Simon** という名前のテスト ユーザーに基づいて、Voyance で Microsoft Entra シングル サインオンを構成してテストします。 シングル サインオンが機能するには、Microsoft Entra ユーザーと Voyance の関連ユーザーの間にリンク関係を確立する必要があります。
-
-Voyance で Microsoft Entra シングル サインオンを構成してテストするには、次の構成要素を完了する必要があります。
-
-1. ユーザーがこの機能を使用できるように**、Microsoft Entra シングル サインオンを構成**します。
-2. **Voyance シングル サインオンの構成** - アプリケーション側でシングル サインオン設定を構成します。
-3. **Microsoft Entra テスト ユーザーの作成** - Britta Simon で Microsoft Entra のシングル サインオンをテストします。
-4. **Microsoft Entra テスト ユーザーを割り当てる** - Britta Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-5. **Voyance テストユーザーの作成** - Voyance で Britta Simon に対応するユーザーを作成し、そのユーザーを Microsoft Entra の Britta Simon の表現にリンクさせます。
-6. **シングル サインオンのテスト** - 構成が機能するかどうかを確認します。
-
-#### Microsoft Entra シングル サインオンの構成
-
-このセクションでは、Microsoft Entra のシングル サインオンを有効にします。
-
-Voyance で Microsoft Entra シングル サインオンを構成するには、次の手順を実行します。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**Enterprise アプリ**&gt;**Voyance** アプリケーション統合ページに移動し、[**シングル サインオン**] を選択します。
-
-    [Image: シングル サインオン リンク] を構成する
-3. [ **シングル サインオン方法の選択** ] ダイアログで、 **SAML/WS-Fed** モードを選択してシングル サインオンを有効にします。
-
-    [Image: シングル サインオン選択モード]
-4. [ **SAML を使用した単一 Sign-On のセットアップ** ] ページで、[ **編集]** アイコンを選択して [ **基本的な SAML 構成]** ダイアログを開きます。
-
-    [Image: 基本的なSAML構成の編集]
-5. [ **基本的な SAML 構成]** セクションで、 **IDP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
-
-    [Image: スクリーンショットには、[基本的な SAML 構成] が示されています。ここで、[識別子]、[応答 URL] の順に入力し、[保存] を選択できます。]
-
-    ある。 [ **識別子** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.nyansa.com`
-
-    b。 [ **応答 URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.nyansa.com/saml/create/`
-6. **追加の URL を設定** を選択し、**SP** 開始モードでアプリケーションを構成する場合は、次の手順を実行します。
-
-    [Image: スクリーンショットには、追加のURLを設定する画面が表示されており、ここでサインオンURLを入力することができます。]
-
-    [ **サインオン URL** ] テキスト ボックスに、次のパターンを使用して URL を入力します。 `https://<companyname>.nyansa.com/`
-
-    注
-
-    これらの値は実際の値ではありません。 実際の識別子、応答 URL、サインオン URL でこれらの値を更新します。 これらの値を取得するには、[Voyance クライアント サポート チーム](mailto:support@nyansa.com)に問い合わせてください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
-7. [ **SAML を使用した単一 Sign-On のセットアップ** ] ページの [ **SAML 署名証明書** ] セクションで、[ **ダウンロード** ] を選択して、要件に従って指定されたオプションから **証明書 (Base64)** をダウンロードし、コンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンク]
-8. **[Set up Voyance]**(Voyance のセットアップ) セクションで、要件のとおりに適切な URL をコピーします。
-
-    [Image: 構成 URL をコピーする]
-
-    ある。 ログイン URL
-
-    b。 Microsoft Entra 識別子
-
-    c. ログアウト URL
-
-#### Voyance シングル サインオンの構成
-
-1. 別の Web ブラウザーのウィンドウで、管理者として Voyance テナントにサインオンします。
-2. ナビゲーション バーの右上隅に移動し、[プロファイル] を選択 **します**。
-
-    [Image: アプリ側でのシングル サインオンの構成: Acme University]
-3. [ **管理者設定] を選択します**。
-
-    [Image: アプリ側でのシングル サインオンの構成: 管理者設定]
-4. [ **ユーザー アクセス** ] タブを選択します。
-
-    [Image: アプリ側でのシングル サインオンの構成: ユーザー アクセス]
-5. SAML 2.0 を使用して Microsoft Entra ID を IdP として構成するには、[ **SSO が無効]** ボタンを選択します。
-
-    [Image: アプリ側でのシングル サインオンの構成: SSO は無効]
-6. **SAML V2** セクションに移動して、次の手順を実行します。
-
-    [Image: アプリ側でのシングル サインオンの構成: SAML V2]
-
-    ある。 **[有効] を選択します**。
-
-    b。 **ログイン URL** を **[IdP Login URL]** テキストボックスに貼り付けます。
-
-    c. ダウンロード済みの Base64 でエンコードされた証明書をメモ帳で開き、その内容をクリップボードにコピーして、**[IdP 証明書]** ボックスに貼り付けます。
-
-    d. **保存** を選択します。
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-#### Voyance のテスト ユーザーの作成
-
-このセクションでは、Britta Simon というユーザーを Voyance に作成します。 Voyance では、Just-In-Time ユーザー プロビジョニングがサポートされており、既定で有効になっています。 このセクションにはアクション項目はありません。 Voyance にユーザーがまだ存在していない場合は、認証後に新しく作成されます。
-
-注
-
-ユーザーを手動で作成する必要がある場合は、[Voyance サポート チーム](mailto:support@nyansa.com)に問い合わせてください。
-
-#### シングル サインオンのテスト
-
-このセクションでは、アクセス パネルを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-アクセス パネルで [Voyance] タイルを選択すると、SSO を設定した Voyance に自動的にサインインします。 アクセス パネルの詳細については、「アクセス パネル [の概要」を](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)参照してください。
 <!-- /MSL-PAGE -->

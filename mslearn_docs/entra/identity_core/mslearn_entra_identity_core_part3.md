@@ -1760,11 +1760,11 @@ curl https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups
 
 テナント間同期では、次のクラウド ペアがサポートされます。
 
-| 情報源 | 目標 | Azure portal のリンク ドメイン |
-| --- | --- | --- |
-| Azure 商用 | Azure 商用 | `portal.azure.com` --&gt;`portal.azure.com` |
-| Azure Government | Azure Government | `portal.azure.us` --&gt;`portal.azure.us` |
-| 21Vianet (中国) | 21Vianet (中国) | `portal.azure.cn` --&gt;`portal.azure.cn` |
+| 情報源 | 目標 | サポートされているオブジェクト | Azure portal のリンク ドメイン |
+| --- | --- | --- | --- |
+| Azure 商用 | Azure 商用 | ユーザーとグループ | `portal.azure.com` --&gt;`portal.azure.com` |
+| Azure Government | Azure Government | ユーザーとグループ | `portal.azure.us` --&gt;`portal.azure.us` |
+| 21Vianet (中国) | 21Vianet (中国) | ユーザー | `portal.azure.cn` --&gt;`portal.azure.cn` |
 
 ::: zone-end
 
@@ -1772,11 +1772,11 @@ curl https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups
 
 クラウド間同期では、次のクラウド ペアがサポートされます。
 
-| 情報源 | 目標 | Azure portal のリンク ドメイン |
-| --- | --- | --- |
-| Azure 商用 | Azure Government | `portal.azure.com` --&gt;`portal.azure.us` |
-| Azure Government | Azure 商用 | `portal.azure.us` --&gt;`portal.azure.com` |
-| Azure 商用 | 21Vianet によって運営される Azure(中国の Azure) | `portal.azure.com` --&gt;`portal.azure.cn` |
+| 情報源 | 目標 | サポートされているオブジェクト | Azure portal のリンク ドメイン |
+| --- | --- | --- | --- |
+| Azure 商用 | Azure Government | ユーザー | `portal.azure.com` --&gt;`portal.azure.us` |
+| Azure Government | Azure 商用 | ユーザー | `portal.azure.us` --&gt;`portal.azure.com` |
+| Azure 商用 | 21Vianet によって運営される Azure(中国の Azure) | ユーザー | `portal.azure.com` --&gt;`portal.azure.cn` |
 
 ::: zone-end
 
@@ -1832,7 +1832,7 @@ curl https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups
 
 1. [組織内のテナントを構成](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-topology)する方法を定義します。
 2. [プロビジョニング サービスのしくみについて説明](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-provisioning-works)します。
-3. プロビジョニングの対象となるユーザー [を決定します](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts?pivots=cross-tenant-synchronization)。
+3. [プロビジョニングの対象](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts?pivots=cross-tenant-synchronization)を決定します。
 4. [テナント間でマップ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)するデータを決定します。
 
 ::: zone-end
@@ -2021,7 +2021,7 @@ Microsoft Entra プロビジョニング サービスを使うと、次のいず
 
 小さいところから始めましょう。 全員にロールアウトする前に、少数のユーザーでテストします。 プロビジョニングのスコープを割り当て済みのユーザーとグループに設定すると、構成に 1 人または 2 人のユーザーを割り当てることで、それを制御できます。 次の手順で説明する属性ベースのスコープ フィルターを作成することで、プロビジョニングの対象となるユーザーをさらに絞り込むことができます。
 
-1. ソース テナントの **[概要** ] ページで、[ **プロパティ** ] タブを選択します。
+1. ソース テナントの **[概要]** ページで、**[プロパティ]** タブを選択します。
 
     [Image: [プロパティ] タブを示す [概要] ページのスクリーンショット。]
 2. [ **基本** ] 見出しの横にある鉛筆アイコンを選択して、[ **基本** ] ウィンドウを開きます。
@@ -2029,14 +2029,14 @@ Microsoft Entra プロビジョニング サービスを使うと、次のいず
     [Image: [スコープ] オプションと [プロビジョニング状態] オプションが表示された [設定] セクションを示す [プロビジョニング] ページのスクリーンショット。]
 3. **[スコープ**] ボックスの一覧で、ソース テナント内のすべてのユーザーを同期するか、構成に割り当てられているユーザーのみを同期するかを選択します。
 
-    [すべてのユーザーを同期する] ではなく、[**割り当てられたユーザーのみを同期** **する**] を選択することをお勧めします。 スコープ内のユーザーの数を減らすと、パフォーマンスが向上します。
+    [**割り当てられたユーザーのみを同期する**] ではなく、[**すべてのユーザーを同期する**] を選択することをお勧めします。 スコープ内のユーザーの数を減らすと、パフォーマンスが向上します。
 
 ::: zone pivot="same-cloud-synchronization"
 
 グループを同期する場合は、[ **割り当てられたユーザーとグループのみを同期する**] を選択する必要があります。
 
 ::: zone-end
-4. 変更を加えた場合は、[ **適用**] を選択します。
+4. 変更を加えた場合は、**適用** を選択してください。
 5. [構成] ページで、[ **ユーザーとグループ**] を選択します。
 
     テナント間同期が機能するには、少なくとも 1 人の内部ユーザーを構成に割り当てる必要があります。
@@ -2099,7 +2099,7 @@ Microsoft Entra プロビジョニング サービスを使うと、次のいず
 
     [Image: Microsoft Entra 属性の一覧を示す [属性マッピング] ページのスクリーンショット。]
 3. **Member (userType)** 属性の場合は、鉛筆アイコンを選択して [**属性マッピングの編集]** ページを開きます。
-4. **定数属性**の設定を確認します。この設定は既定で **[メンバー**] に設定されています。
+4. **Constant 属性**の設定を確認します。この設定は既定で**メンバー**に設定されています。
 
     この設定では、ターゲット テナントに作成されるユーザーの種類を定義し、次の表のいずれかの値を指定できます。 既定では、ユーザーは外部メンバー (B2B コラボレーション ユーザー) として作成されます。 詳細については、「 [Microsoft Entra B2B コラボレーション ユーザーのプロパティ」](https://learn.microsoft.com/ja-jp/entra/external-id/user-properties)を参照してください。
 
@@ -2146,7 +2146,7 @@ Microsoft Entra プロビジョニング サービスを使うと、次のいず
 
 [Image: ソース テナントのアイコン。]**ソース テナント**
 
-1. ソース テナントの **[概要** ] ページで、[ **プロパティ** ] タブを選択します。
+1. ソース テナントの **概要** ページで、**プロパティ** タブを選択します。
 2. [ **基本** ] 見出しの横にある鉛筆アイコンを選択して、[ **基本** ] ウィンドウを開きます。
 
     [Image: [スコープ] オプションと [プロビジョニング状態] オプションが表示された [設定] セクションを示す [プロビジョニング] ページのスクリーンショット。]
@@ -2156,7 +2156,7 @@ Microsoft Entra プロビジョニング サービスを使うと、次のいず
 4. 誤って削除されないようにするには、[ **誤って削除されないように** する] を選択し、しきい値を指定します。 既定では、しきい値は 500 に設定されます。
 
     詳細については、「 [Microsoft Entra プロビジョニング サービスで誤削除防止を有効にする」を](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/accidental-deletions?pivots=cross-tenant-synchronization)参照してください。
-5. [ **適用]** を選択して変更を保存します。
+5. **適用** を選択して変更を保存します。
 
 ### 手順 11: オンデマンドのプロビジョニングをテストする
 
@@ -4261,7 +4261,7 @@ Microsoft Entra IDを使用して [サービスとしてのソフトウェア (S
 | グループのテナント間同期 (同じクラウド) | Microsoft Entra ID ガバナンスまたは Microsoft Entra スイート ライセンス | 適用なし |
 | [クラウド間同期](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) | Microsoft Entra ID ガバナンスまたは Microsoft Entra スイート ライセンス | 適用なし |
 
-**Source テナント**: テナント間同期と同期する各ユーザーは、ホーム/ソース テナントに Microsoft Entra ID P1 ライセンスを持っている必要があります。 クラウド間同期と同期する各ユーザーは、ホーム/ソース テナントにMicrosoft Entra ID ガバナンスまたはMicrosoft Entra スイートライセンスを持っている必要があります。 詳細については、[Microsoft Entra のプランと価格、](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)[および Microsoft Entra ID ガバナンス のライセンスの基礎を参照してください](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)。
+**Source テナント**: テナント間同期と同期する各ユーザーは、ホーム/ソース テナントに Microsoft Entra ID P1 ライセンスを持っている必要があります。 グループとそのメンバーを同期するには、ソース テナント内の同期された各ユーザーに対してMicrosoft Entra ID ガバナンスまたはMicrosoft Entra スイートライセンスが必要です。 グループ自体を同期せずに同期するユーザーを特定するためにグループのみを使用するには、Microsoft Entra ID P1 ライセンスが必要です。 クラウド間同期と同期する各ユーザーは、ホーム/ソース テナントにMicrosoft Entra ID ガバナンスまたはMicrosoft Entra スイートライセンスを持っている必要があります。 詳細については、[Microsoft Entra のプランと価格、](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)[および Microsoft Entra ID ガバナンス のライセンスの基礎を参照してください](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)。
 
 **ターゲット テナント: ターゲット テナント**でのテナント間同期またはクラウド間同期にはライセンスは必要ありません。 ただし、ターゲット テナントで使用している機能によっては、追加のライセンスが必要になる場合があります。 たとえば、外部 ID の課金を有効にし、外部ゲストをプロビジョニングしている顧客は、[Microsoft Entra 外部 ID](https://learn.microsoft.com/ja-jp/entra/external-id/external-identities-pricing) の課金モデルに従って課金される場合があります。
 
@@ -4273,11 +4273,11 @@ Microsoft Entra IDを使用して [サービスとしてのソフトウェア (S
 
 テナント間同期は、商用クラウド、Azure Government、21Vianet 内でサポートされます。
 
-| 情報源 | 目標 | Azure portal のリンク ドメイン |
-| --- | --- | --- |
-| Azure 商用 | Azure 商用 | `portal.azure.com` --&gt;`portal.azure.com` |
-| Azure Government | Azure Government | `portal.azure.us` --&gt;`portal.azure.us` |
-| 21Vianet (中国) | 21Vianet (中国) | `portal.azure.cn` --&gt;`portal.azure.cn` |
+| 情報源 | 目標 | サポートされているオブジェクト | Azure portal のリンク ドメイン |
+| --- | --- | --- | --- |
+| Azure 商用 | Azure 商用 | ユーザーとグループ | `portal.azure.com` --&gt;`portal.azure.com` |
+| Azure Government | Azure Government | ユーザーとグループ | `portal.azure.us` --&gt;`portal.azure.us` |
+| 21Vianet (中国) | 21Vianet (中国) | ユーザー | `portal.azure.cn` --&gt;`portal.azure.cn` |
 
 ##### クラウド間同期はサポートされていますか?
 
@@ -4289,11 +4289,11 @@ Azure クラウド環境とMicrosoft 365 (GCC、GCC High) の関係について�
 
 クラウド間同期では、次のクラウド ペアがサポートされます。
 
-| 情報源 | 目標 | Azure portal のリンク ドメイン |
-| --- | --- | --- |
-| Azure 商用 | Azure Government | `portal.azure.com` --&gt;`portal.azure.us` |
-| Azure Government | Azure 商用 | `portal.azure.us` --&gt;`portal.azure.com` |
-| Azure 商用 | 21Vianet によって運営される Azure(中国の Azure) | `portal.azure.com` --&gt;`portal.azure.cn` |
+| 情報源 | 目標 | サポートされているオブジェクト | Azure portal のリンク ドメイン |
+| --- | --- | --- | --- |
+| Azure 商用 | Azure Government | ユーザー | `portal.azure.com` --&gt;`portal.azure.us` |
+| Azure Government | Azure 商用 | ユーザー | `portal.azure.us` --&gt;`portal.azure.com` |
+| Azure 商用 | 21Vianet によって運営される Azure(中国の Azure) | ユーザー | `portal.azure.com` --&gt;`portal.azure.cn` |
 
 ##### テナント間同期とクラウド間同期の違いは何ですか?
 
@@ -9151,31 +9151,31 @@ Microsoft Entra ID での組み込みロールの使用は無料です。 カス
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/role-based-access-control/delegate-app-roles"} -->
-## アプリケーション管理の管理者アクセス許可を委任する - Microsoft Entra ID
+## アプリケーション管理とエージェント管理の管理者権限を委任する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/delegate-app-roles
 - Service: entra-id / role-based-access-control
-- Article date: 2024-11-17
-- Summary: Microsoft Entra ID でアプリケーション アクセス管理のアクセス許可を付与する
+- Article date: 2026-10-12
+- Summary: Microsoft Entra IDでアプリケーションとエージェントのアクセス管理のアクセス許可を付与する
 
-この記事では、Microsoft Entra ID のカスタム ロールによって付与されたアクセス許可を使用して、アプリケーション管理のニーズに対応する方法について説明します。 Microsoft Entra ID では、アプリケーションの作成と管理のアクセス許可を次の方法で委任できます。
+この記事では、Microsoft Entra IDのカスタム ロールによって付与されたアクセス許可を使用して、アプリケーションとエージェントの管理のニーズに対処する方法について説明します。 Microsoft Entra IDでは、次の方法でアプリケーションとエージェントの作成と管理のアクセス許可を委任できます。
 
-- アプリケーションを作成できるユーザーを制限し、作成されたアプリケーションを管理できるユーザーを制限する。 Microsoft Entra ID の既定では、すべてのユーザーがアプリケーションを登録し、作成されたアプリケーションのすべての側面を管理できます。 この権限は、選択されたユーザーのみがそのアクセス許可を持つように制限できます。
-- アプリケーションに 1 人以上の所有者を割り当てる。 これは、特定のアプリケーションについての Microsoft Entra 構成のすべての側面を管理する能力を一部のユーザーに付与するための簡単な方法です。
+- 誰がアプリケーションを作成するのか、そのアプリケーションは誰が管理するのかを制限します。 Microsoft Entra ID の既定では、すべてのユーザーがアプリケーションを登録し、ユーザーが作成したアプリケーションのすべての側面を管理できます。 これは、選択されたユーザーのみにその権限を許可するよう制限できます。
+- アプリケーションに 1 人以上の所有者を割り当てる。 これは Microsoft Entra 設定のあらゆる側面を特定のアプリケーションで管理する能力を誰かに付与するシンプルな方法です。
 - すべてのアプリケーションに対する Microsoft Entra ID での構成を管理するためのアクセス権を付与する、組み込みの管理ロールを割り当てる。 これは、IT エキスパートに、幅広いアプリケーション構成を管理するためのアクセス権を付与しつつ、アプリケーション構成に関連しない Microsoft Entra の他の部分を管理するためのアクセス権を付与しないようにするための推奨される方法です。
-- 非常に限定されたアクセス許可を定義するカスタム ロールを作成し、それを一部のユーザーに、限定された所有者として 1 つのアプリケーションのスコープに対して割り当てるか、または制限付き管理者としてディレクトリ スコープ (すべてのアプリケーション) で割り当てます。
+- カスタム ロールを作成して非常に限定されたアクセス許可を定義し、それを特定のユーザーに、1 つのアプリケーションのスコープでは限定された所有者として、またはディレクトリ スコープ (すべてのアプリケーション) では制限付き管理者として割り当てます。
 
-上記の方法のいずれかを使用してアクセス権を付与することを検討することは、2 つの理由から重要です。 まず、管理タスクを実行する機能を委任すると、高い特権を持つ管理者のオーバーヘッドが削減されます。 2 番目の理由として、制限付きアクセス許可を使用することでセキュリティ体制が改善され、未承認アクセスの可能性が減少します。 ロール セキュリティの計画のガイドラインについては、「[Microsoft Entra ID でのハイブリッドおよびクラウド デプロイ用の特権アクセスをセキュリティで保護する](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/security-planning)」を参照してください。
+上記の方法のいずれかを使用してアクセス権を付与することを検討することは、2 つの理由から重要です。 まず、管理タスクを実行する機能を委任すると、高い特権を持つ管理者のオーバーヘッドが削減されます。 第二に、制限付きアクセス許可を使用することでセキュリティ体制が改善され、未承認アクセスの可能性が減少します。 ロール セキュリティの計画のガイドラインについては、「[Microsoft Entra ID でのハイブリッドおよびクラウド デプロイ用の特権アクセスをセキュリティで保護する](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/security-planning)」を参照してください。
 
-### アプリケーションを作成できるユーザーを制限する
+### アプリケーションとエージェントを作成できるユーザーを制限する
 
-Microsoft Entra ID の既定では、すべてのユーザーがアプリケーションを登録し、作成されたアプリケーションのすべての側面を管理できます。 また、すべてのユーザーは、アプリがユーザーの代わりに会社のデータにアクセスすることに同意することができます。 グローバル スイッチを [いいえ] に設定し、選択したユーザーをアプリケーション開発者ロールに追加することで、これらのアクセス許可を選択的に付与することができます。
+Microsoft Entra ID のデフォルトでは、すべてのユーザーがアプリケーションを登録することができ、自分が作成したアプリケーションのあらゆる側面を自分で管理できます。 また、エージェント ID ブループリントを作成し、それらのエージェントのエージェント ID を作成し、作成したエージェントに関するあらゆる項目を管理することもできます。 また、自分の代わりにアプリやエージェントから会社のデータにアクセスすることに同意する能力は、全員にあります。 グローバル スイッチを [いいえ] に設定し、選択したユーザーをアプリケーション開発者ロールに追加することで、これらのアクセス許可を選択的に付与することができます。
 
-#### アプリケーション登録またはアプリケーションへの同意を作成する既定の機能を無効にするには
+#### アプリケーション登録を作成したり、アプリケーションへの同意を行ったりする既定の機能を無効にするには
 
-アプリケーションの登録またはアプリケーションへの同意を作成する既定の機能を無効にするには、次の手順に従って、組織にこれらの設定の一方または両方を設定してください。
+アプリケーション登録を作成したり、アプリケーションに同意したりする既定の機能を無効にするには、次の手順に従って、組織に対してこれらの設定の一方または両方を設定してください。
 
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)としてサインインします。
 2. **Entra ID**&gt;**ユーザー**&gt;**ユーザー設定**に移動します。
 3. **[ユーザーはアプリケーションを登録できます]** の設定を **[いいえ]** に設定してください。
 
@@ -9185,9 +9185,19 @@ Microsoft Entra ID の既定では、すべてのユーザーがアプリケー�
 
     これにより、アプリケーションがユーザーの代わりに会社のデータにアクセスすることにユーザーが同意する既定の機能が無効になります。
 
+#### 新規エージェント (エージェント ID ブループリント) を作成するデフォルトの能力を無効化するには
+
+既定では、組織内のユーザーはエージェント ID ブループリントを作成できます。 エージェント ID 開発者ロールが割り当てられている管理者とユーザーに作成を制限するには、[ **ユーザーはエージェント ブループリントを作成できます**] をオフにします。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも [クラウド アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) としてサインインします。
+2. **Entra ID**&gt;**ユーザー**&gt;**ユーザー設定**に移動します。
+3. **[ユーザーがエージェント ブループリントを作成する]** 設定を **[いいえ]** に設定します。
+
+    これにより、ユーザーが Entra 内で新しいエージェントを作成する既定の機能が無効になります。
+
 #### 既定の機能が無効になっている場合にアプリケーションを作成して同意するための個々のアクセス許可を付与する
 
-[\[ユーザーはアプリケーションを登録できる\]](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-developer) 設定が [いいえ] に設定されている場合に、アプリケーション登録を作成できる能力を付与するための**アプリケーション開発者ロール**を割り当てます。 さらにこのロールでは、 **[ユーザーはアプリが自身の代わりに会社のデータにアクセスすることを許可できます]** 設定が [いいえ] に設定されている場合に、代わりに同意する権限を付与します。
+**[ユーザーはアプリケーションを登録できる]** 設定が [いいえ] に設定されている場合に、アプリケーション登録を作成できる能力を付与するための[アプリケーション開発者ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-developer)を割り当てます。 さらにこのロールでは、 **[ユーザーはアプリが自身の代わりに会社のデータにアクセスすることを許可できます]** 設定が [いいえ] に設定されている場合に、代わりに同意する権限を付与します。
 
 ### アプリケーションの所有者を割り当てる
 
@@ -9197,7 +9207,7 @@ Microsoft Entra ID の既定では、すべてのユーザーがアプリケー�
 
 Microsoft Entra ID には、すべてのアプリケーションに対する Microsoft Entra ID での構成を管理するためのアクセス権を付与する、一連の組み込みの管理者ロールがあります。 これらのロールは、IT エキスパートに、幅広いアプリケーション構成を管理するためのアクセス権を付与しつつ、アプリケーション構成に関連しない Microsoft Entra の他の部分を管理するためのアクセス権を付与しないようにするために推奨される方法です。
 
-- アプリケーション管理者:このロールのユーザーは、エンタープライズ アプリケーション、アプリケーション登録、アプリケーション プロキシの設定の全側面を作成して管理できます。 さらに、このロールは、委任されたアクセス許可とアプリケーション アクセス許可 (Microsoft Graph を除く) に同意する権限を付与します。 このロールに割り当てられたユーザーは、新しいアプリケーション登録またはエンタープライズ アプリケーションを作成する際に、所有者として追加されません。
+- アプリケーション管理者: このロールのユーザーは、エンタープライズ アプリケーション、アプリケーション登録、アプリケーション プロキシ設定のあらゆる側面を作成および管理できます。 さらに、このロールは、委任済みアクセス許可とアプリケーション アクセス許可 (Microsoft Graph を除く) に同意する権限も付与します。 このロールに割り当てられたユーザーは、新しいアプリケーション登録またはエンタープライズ アプリケーションを作成する際に、所有者として追加されません。
 - クラウド アプリケーション管理者:このロールのユーザーは、(アプリケーション プロキシを管理する権限を除き) アプリケーション管理者ロールと同じアクセス許可を持ちます。 このロールに割り当てられたユーザーは、新しいアプリケーション登録またはエンタープライズ アプリケーションを作成する際に、所有者として追加されません。
 
 詳細およびこれらのロールの説明については、「[Microsoft Entra の組み込みロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference)」を参照してください。
@@ -9206,7 +9216,7 @@ Microsoft Entra ID には、すべてのアプリケーションに対する Mic
 
 重要
 
-アプリケーション管理者およびクラウド アプリケーション管理者は、アプリケーションに資格情報を追加し、その資格情報を使用してアプリケーションの ID を偽装することができます。 アプリケーションは、管理者ロールのアクセス許可を上回る特権の昇格となるアクセス許可を持つことができます。 このロールの管理者は、アプリケーションのアクセス許可に応じて、アプリケーションの偽装中にユーザーや他のオブジェクトを作成または更新する可能性があります。 いずれのロールでも、条件付きアクセスの設定の管理権限は付与されません。
+アプリケーション管理者およびクラウド アプリケーション管理者は、アプリケーションに資格情報を追加し、その資格情報を使用してアプリケーションの ID を偽装することができます。 アプリケーションは、管理者ロールのアクセス許可を上回る特権の昇格となるアクセス許可を持つことができます。 このロールの管理者は、アプリケーションのアクセス許可に応じて、アプリケーションになりすましてユーザーや他のオブジェクトを作成または更新する可能性があります。 いずれのロールでも、条件付きアクセスの設定の管理権限は付与されません。
 
 ### カスタム ロールの作成と割り当て (プレビュー)
 
@@ -9215,13 +9225,13 @@ Microsoft Entra ID には、すべてのアプリケーションに対する Mic
 - [カスタムの*ロール定義*を作成](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/custom-create)し、[あらかじめ設定されている一覧からアクセス許可をその定義に追加](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/custom-available-permissions)します。 これらは、組み込みロールで使用されるものと同じアクセス許可です。
 - [*ロールの割り当て*を作成](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/manage-roles-portal)し、カスタム ロールを割り当てます。
 
-この分離により、1 つのロール定義を作成し、それを異なる*スコープ*で何度も割り当てることができます。 カスタム ロールは、組織全体のスコープで割り当てることも、単一の Microsoft Entra オブジェクトの場合はそのスコープで割り当てることもできます。 オブジェクト スコープの例としては、単一のアプリ登録があります。 異なるスコープを使用すると、組織内のすべてのアプリ登録に対して同じロール定義を Sally に割り当て、次に Contoso Expense Reports アプリ登録に対してのみ Naveen に割り当てることができます。
+この分離により、1 つのロール定義を作成し、それを異なる*スコープ*で何度も割り当てることができます。 カスタム ロールは、組織全体のスコープで割り当てることも、単一の Microsoft Entra オブジェクトのスコープで割り当てることもできます。 オブジェクト スコープの例としては、単一のアプリ登録があります。 異なるスコープを使用すると、組織内のすべてのアプリ登録に対して同じロール定義を Sally に割り当て、次に Contoso Expense Reports アプリ登録に対してのみ Naveen に割り当てることができます。
 
 アプリケーション管理の委任のためにカスタム ロールを作成して使用する場合のヒント:
 
-- カスタム役割は、Microsoft Entra 管理センターの最新の [アプリ登録] ペインでのみアクセス権を付与します。 レガシ アプリ登録ブレードではアクセス権は付与されません。
+- カスタム ロールは、Microsoft Entra 管理センターの現在のアプリ登録ブレードのほとんどに対するアクセス権を付与するだけです。 レガシ アプリ登録ブレードではアクセス権は付与されません。
 - [\[Microsoft Entra 管理ポータルへのアクセスを制限する\]](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions) ユーザー設定が **[はい]** に設定されている場合、カスタム役割は、Microsoft Entra 管理センターへのアクセス権を付与しません。
-- ロールの割り当てを使用してユーザーがアクセス権を持っているアプリ登録は、アプリの登録ページの [すべてのアプリケーション] タブにのみ表示されます。 これらは [所有しているアプリケーション] タブには表示されません。
+- ロールの割り当てを使用してユーザーがアクセス権を持っているアプリ登録は、アプリの登録ページの [すべてのアプリケーション] タブにのみ表示されます。 「所有済みのアプリ」タブには表示されません。
 
 カスタム ロールの基本の詳細については、[カスタム ロールの概要](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/custom-overview)に関するページと、[カスタム ロールの作成](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/custom-create)方法と[ロールの割り当て](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/manage-roles-portal)方法に関するページを参照してください。
 
@@ -9248,5 +9258,5 @@ You don't have permission to register applications in the <directoryName> direct
 管理者に連絡して次のいずれかを行ってもらってください。
 
 - あなたにアプリケーション開発者ロールを割り当てることで、アプリケーションを作成して同意するためのアクセス許可を付与してもらう。
-- アプリケーション登録をあなたの代わりに作成してあなたをアプリケーション所有者として割り当ててもらう。
+- あなたのためにアプリケーション登録を作成し、あなたをアプリケーション所有者として割り当てます。
 <!-- /MSL-PAGE -->

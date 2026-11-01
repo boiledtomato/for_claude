@@ -42,6 +42,7 @@ Microsoft Entra エージェント IDは、組織全体の AI エージェント
 - [エージェントの ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-id-governance-overview)
 - [エージェントのアクセス パッケージ](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-access-packages)
 - [エージェントのスポンサーとライフサイクルを維持する](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks)
+- [既定のエージェント非アクティブ ポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-default-inactivity-policy)
 
 #### リソースへのエージェント アクセスを保護する
 
@@ -121,6 +122,7 @@ Microsoft Entra特権管理は、ガバナンスの手段としてアクセス�
 2. 承認は次のいずれかです。
 
     - エージェントは、ターゲット リソースの API にアクセスできるようにするために、ターゲット リソース (Microsoft Graph やアプリケーションなど) に対する OAuth *アプリケーションのアクセス許可* を自分の ID に割り当てる必要があります。
+    - エージェントは、ターゲット リソースの API にアクセスするときにユーザーを支援できるようにするために、Microsoft Graph やアプリケーションなどのターゲット リソースに対する OAuth *委任されたアクセス許可*がその ID に割り当てられている必要があります。
     - エージェントは、グループのメンバーとして ID を割り当てる必要があります。
     - エージェントは、その ID をディレクトリ ロールに割り当てる必要があります。 許可されている役割は、エージェントのために許可されている[Microsoft Entra のロール](https://learn.microsoft.com/ja-jp/entra/agent-id/authorization-agent-id#microsoft-entra-roles-allowed-for-agents)に一覧表示されています。
 3. これらのリソースを保持するのに適したエンタイトルメント管理カタログがある、または作成できます。 作成するアクセス パッケージと、それに含まれるすべてのリソースがカタログに追加されます。 詳細については、 [カタログの作成を](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-catalog-create)参照してください。
@@ -2735,13 +2737,13 @@ AI コーディング アシスタントは、多くの場合、従来のワー�
         "TenantId": "<your-tenant-id>",
         "ClientId": "<agent-blueprint-id>",
     
-       // Other client creedentials available. See <https://aka.ms/ms-id-web/client-credentials>
+       // Other client credentials available. See <https://aka.ms/ms-id-web/client-credentials>
         "ClientCredentials": [
           {
             "SourceType": "ClientSecret",
             "ClientSecret": "your-client-secret"
           }
-        ]   
+        ]
       }
     }
     ```
@@ -4606,7 +4608,7 @@ Content-Type: application/json
 
 - [特権ロール管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator)ロールは、Microsoft Graphアプリケーションのアクセス許可を付与するために必要な最小限の特権ロールです。
 - [Cloud アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)または[アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)は、Microsoft Graph に委任されたアクセス許可を付与する必要があります。
-- [エージェント ID 開発者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-developer)ロールと[エージェント ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator)ロールの両方で、エージェント ID ブループリントとエージェント ID ブループリント プリンシパルを作成できます。
+- 組織全体で**エージェント ブループリントを作成できるユーザー**設定が**はい**に設定されている場合、テナント内のすべてのユーザーがエージェント ID ブループリントとそのエージェント ID ブループリント プリンシパルを作成できます。 それ以外の場合、 [エージェント ID 開発者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-developer) ロールと [エージェント ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator)ロールの両方で、エージェント ID ブループリントとエージェント ID ブループリント プリンシパルを作成できます。
     - [エージェント ID 開発者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-developer) は、エージェント ID ブループリントでフェデレーション ID 資格情報を構成できます。
     - [エージェント ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator) は、エージェント ID ブループリントでフェデレーション ID 資格情報を構成でき、シークレットまたは証明書の資格情報を追加する必要があります。
 - PowerShell を使用する場合は、バージョン 7 が必要です。
@@ -5249,10 +5251,11 @@ Microsoft Entra テナントには、Microsoft Entra エージェント ID の�
 
 ### エージェント ID の無効化に関する考慮事項
 
-テナントでエージェント ID を無効にすると、新しい AI エージェントの作成や使用を単に停止するよりも、より広範な結果が生じることがあります。 続行する前に、次の考慮事項を評価します。
+テナント内でエージェント ID やエージェント ID ブループリントを無効にすると、単に新しい AI エージェントの作成や使用が停止されるだけでなく、それ以上の影響が生じる可能性があります。 続行する前に、次の考慮事項を評価します。
 
 - 貴社内で動作中の既存のエージェントが失敗する恐れがあります。
 - エージェント ID を利用できることを前提とする Microsoft 製品エクスペリエンス (たとえば、Copilot Studio エージェント、Security Copilot シナリオ エージェント、Microsoft Entra 条件付きアクセス 最適化エージェント) は、失敗するか、エージェント固有の追跡機能と制御機能を備えていない標準のサービス プリンシパルにフォールバックする可能性があります。
+- すべてのテナントでマルチテナント エージェント ID ブループリントを無効にし、ブループリントに他のテナントで作成されたプリンシパルと子 ID がある場合、それらのテナント内の関連エージェントが正常に動作しなくなったり、機能が失われる可能性があります。
 
 ### エージェント ID の作成とアクティビティの監視
 
@@ -5299,6 +5302,12 @@ Microsoft Entra テナントには、Microsoft Entra エージェント ID の�
 1. 少なくとも [Microsoft Entra 管理センター](https://entra.microsoft.com)[Agent ID Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator) としてサインインします。
 2. **Entra ID**&gt;**エージェント**&gt;**エージェント設計図**に移動してください。
 3. 無効にするエージェント ID ブループリントを選択し、[ **無効]** を選択します。
+
+すべてのテナントでエージェント ID ブループリントを無効にするには:
+
+1. 少なくとも [Microsoft Entra 管理センター](https://entra.microsoft.com)[Agent ID Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator) としてサインインします。
+2. **Entra ID**&gt;**エージェント**&gt;**エージェント設計図**に移動してください。
+3. グローバルに無効にする対象のエージェント ID ブループリントを選択し、[**無効**] メニューを選択して、**［すべてのテナントで無効にする］** を選択します。
 
 ### エージェント アクティビティを無効にする条件付きアクセス ポリシーを作成する
 
@@ -5770,6 +5779,235 @@ Microsoft。Identity.Web には、.NET アプリケーションでエージェ�
 Microsoft Entra ID認証 SDK (サイドカー) は、アプリケーションと共に実行されるコンテナー化された Web サービスとして、Microsoft Entra認証とトークン管理機能を提供します。 エージェントがコンテナー化された環境 (Kubernetes、Docker、Azure コンテナー サービスなど) で実行されている場合、またはエージェントが.NETに組み込まれていないときに、言語に依存しない HTTP インターフェイスが必要な場合に使用します。 .NET アプリケーションの場合は、Microsoft。Identity.Web では、同等のインプロセス統合が提供されます。 詳細については、「[Microsoft Entra ID認証 SDK (サイドカー)](https://learn.microsoft.com/ja-jp/entra/msidweb/agent-id-sdk/overview)」を参照してください。
 
 Microsoft Graph API は、他のオプションがシナリオに合わない場合にエージェント ID 管理を提供します。 詳細については、「エージェント ID ブループリントの[Microsoft Graph API](https://learn.microsoft.com/ja-jp/graph/api/resources/agentidentityblueprint)」を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/agent-id/govern-agent-access-azure-postgresql"} -->
+## Azure Database for PostgreSQL フレキシブル サーバー内のデータへのエージェント アクセスを管理する
+
+- Source: https://learn.microsoft.com/ja-jp/entra/agent-id/govern-agent-access-azure-postgresql
+- Service: entra-id / agent-id
+- Article date: 2026-10-28
+- Summary: Azure Database for PostgreSQL データベースにアクセスするエージェントに対して、Microsoft Entra エージェント ID の ID ガバナンスと条件付きアクセスを使用する方法について説明します。
+
+Microsoft Entra エージェント IDでは、エージェント ID とそれらのアプリケーションへのアクセスを管理するための一元化されたツール セットが提供されます。 このガイドでは、サンプル アプリケーションである [Azure Database for PostgreSQL](https://azure.microsoft.com/products/postgresql/) 内のデータへのアクセスを必要とする Microsoft Entra エージェント ID を使用してエージェントを統制する方法について説明します。 Azure Database for PostgreSQLは、サービス プリンシパルとエージェント ID の認証と承認のためのMicrosoft Entraと統合されます。 詳細については、[Azure Database for PostgreSQL フレキシブル サーバーでの Microsoft Entra ID 認証の使用](https://learn.microsoft.com/ja-jp/azure/postgresql/security/security-entra-configure)を参照してください。
+
+このチュートリアルでは、AI エージェントが独自の Entra エージェント ID エンティティを使用して認証され、データベースとの対話が承認されるように、Microsoft Entra と Azure Database for PostgreSQL を構成します。 **Microsoft Entraエンタイトルメント管理**アクセス パッケージを構成して、データベース内のテーブルへのアクセスをエージェントに許可するセキュリティ グループ メンバーシップを設定します。 これにより、追加のエージェントは、独自の ID を維持しながら、データベース セキュリティ プリンシパルに変更を加えることなく、このエージェントと同じアクセスを取得できます。
+
+### 前提条件
+
+Microsoft Entra エージェント IDは、エージェント ID とエージェント ID ブループリントを作成および管理するためのプラットフォームを提供する、Microsoft Entra内の製品です。 エージェント ID は、すべてのMicrosoft Entraユーザーが使用できます。
+
+[Microsoft Agent 365](https://learn.microsoft.com/ja-jp/microsoft-agent-365/overview) を使用すると、エージェントはMicrosoft 365サービスとエンタープライズ ワークフロー全体で動作できます。これには、ユーザーごとに **Microsoft Agent 365** ライセンスが必要です。 価格の詳細については、「[Microsoft Agent 365 のプランと価格](https://www.microsoft.com/microsoft-agent-365#plans-and-pricing)を参照してください。
+
+Microsoft Entraセキュリティ機能をエージェントに拡張するには、Microsoft Agent 365 が必要です。 エージェント 365 は Microsoft 365 E7 に含まれており、Microsoft E5/A5/Business Premium (または Microsoft Defender スイート + Microsoft Purview スイート) のアドオンとして使用できます。 詳細については、 [最新の Agent 365 製品条項を参照してください](https://www.microsoft.com/licensing/terms/productoffering/Agent365/EAEAS#clause-2755-h3-1)。
+
+Azure サブスクリプション内に Azure Database for PostgreSQL サーバーがあり、自分が管理者であるデータベースが必要です。 まだお持ちでない場合は、「[クイック スタート: Azure Database for PostgreSQLフレキシブル サーバーを作成する](https://learn.microsoft.com/ja-jp/azure/postgresql/configure-maintain/quickstart-create-server)」を参照してください。
+
+また、Microsoft Entra エージェント ID を持つエージェントも必要です。
+
+### Architecture
+
+[Image: エージェント、Microsoft Entra コンポーネント、およびAzure Database for PostgreSQLの関係を示す図。]
+
+#### 認証のやり取り
+
+エージェントは、2 段階のトークン交換フローを使用して、Microsoft Entra エージェント IDから派生したAzure Database for PostgreSQLの有効期間が短いアクセス トークンを取得します。 エージェントがデータベースを使用する必要がある場合は、
+
+1. エージェントは、ブループリント資格情報とエージェント ID を指定して、エージェント ブループリントとしてMicrosoft Entraに対して認証を行います。
+2. エージェントは、Microsoft Entra 認証エンドポイントで、Azure Database スコープのアクセス トークンを取得します。
+3. エージェントは、セキュリティ グループ名とそのアクセス トークンを、認証に使用する資格情報として Azure Database for PostgreSQL サーバーに送信します。
+4. Azure Database for PostgreSQLは、トークン内のエージェント ID がグループのメンバーであることを検証し、その結果、サーバーのデータベース内でそのグループによって名前付けされたプリンシパルとして機能することが認可されます。
+
+### Azure Database for PostgreSQLのMicrosoft Entra認証と承認を有効にする
+
+このセクションでは、エージェントが Microsoft Entra エージェント ID を使用してデータベースに対して認証できるようにし、データベース内の `employees` という名前のテーブルの読み取りを承認するセキュリティ グループを作成します。
+
+#### PostgreSQL データ セットから読み取るための承認用のセキュリティ グループを作成する
+
+1. Microsoft Entra管理センターで、[**Microsoft Entra ID**] に移動し、[**グループ**] を選択して、[**新しいグループ**] を選択します。
+2. **[グループの種類]** を **[セキュリティ]** に設定します。
+3. `pg-employees-readers`を、たとえばのように入力します。 名前は短くしてください。PostgreSQL 内でそのまま使用します。
+4. エンタイトルメント管理を使用してメンバーシップを割り当てるため、メンバーシップの種類は **割り当て済み** のままにします。 メンバーはまだ追加しないでください。
+5. **作成**を選択します。
+6. 作成後、グループを開き、名前とオブジェクト ID をメモします。これらは、PostgreSQL データベースでプリンシパルとロールの割り当てを作成するときに使用します。
+
+#### Azure Database for PostgreSQL でMicrosoft Entra認証を有効にする
+
+データベースで Microsoft Entra 認証を有効にしていない場合は、エージェントが Microsoft Entra エージェント ID を使用できるように、有効にしてください。 Microsoft Entra認証を既に構成している場合は、次のセクションに進んでください。
+
+1. [Azure ポータル](https://portal.azure.com)で、**Azure Database for PostgreSQL** リソースを開きます。
+2. 左側のメニューで、[ **セキュリティ**&gt;**認証**] に移動します。
+3. [**Microsoft Entra認証**] で、[**有効にする]** をオンに切り替えます。
+4. [ **Microsoft Entra Admins の追加]** を選択します。
+5. 自分のアカウント (またはデータベース管理者のグループ) を検索して選択します。 このアカウントには、スーパーユーザー相当の Entra ID として PostgreSQL 内で操作を実行する機能があります。
+6. **保存** を選択します。
+
+Important
+
+Entra 認証を有効にしても、パスワード認証は無効になりません。 Entra のみの接続を適用する場合は、追加でサーバー パラメーター `azure.enable_passwordless_auth=on` (プレビュー) を設定するか、ローカル `postgres` スーパーユーザー パスワードを削除し、Entra ID のみを使用するようにします。
+
+#### データベースにテーブルを作成する
+
+構成した Entra 管理者アカウントを使用して、Azure Database for PostgreQL サーバーに接続します。
+
+接続したら、 `employees` テーブルがあることを確認します。 PostgreSQL データベースにその名前のテーブルがない場合は、PostgreSQL に接続し、そのテーブルを作成してください。
+
+#### そのデータベースから読み取るためのセキュリティ グループ用のデータベース ロールを作成する
+
+前に作成したセキュリティ グループ用の PostgreSQL プリンシパルを作成し、`employees` テーブルに対する SELECT アクセス権を付与します。
+
+```sql
+-- Create a role whose name matches the Entra security group name exactly (case-sensitive)
+SELECT pgaadauth_create_principal('pg-employees-readers', false, false);
+
+-- Grant the group role read access to the employees table
+GRANT SELECT ON TABLE employees TO "pg-employees-readers";
+```
+
+Note
+
+`pgaadauth_create_principal`は、entra 認証が有効な場合に自動的に読み込まれるAzure Database for PostgreSQL`pgaadauth`拡張機能によって提供されるヘルパー関数です。 2 番目のパラメーターは、ロールがスーパーユーザーかどうかを制御します。エージェント ID には常に `false` を設定します。 3 番目のパラメーターは、ロール自体でログインを有効にするかどうかを制御します。(グループ ロールではなく) 個々のMicrosoft Entra ID プリンシパルがログインするため、`false`に設定します。
+
+次に、ロールと権限が存在することを確認します。
+
+```sql
+-- List Entra-authenticated roles
+SELECT * FROM pgaadauth_list_principals(false);
+
+-- Confirm the table grant
+\dp employees
+```
+
+`pg-employees-readers` テーブルに対する `r` (SELECT) 権限を持つ `employees` が一覧表示されます。
+
+### セキュリティ グループにエージェント ID エンティティを割り当てるアクセス パッケージを作成する
+
+エンタイトルメント管理を使用すると、セキュリティ グループのメンバーシップをバンドルする *アクセス パッケージ* を定義し、エージェント ID を含む ID がアクセスを要求する方法を説明するポリシーをアタッチできます。
+
+#### アクセス パッケージを格納するカタログを作成する
+
+1. Entra 管理センターで、 **Identity Governance**&gt;**Entitlement management**&gt;**Catalogs** に移動します。
+2. 選択して、**新しいカタログ**を作成します。
+3. `AI Agents`名前を付け、説明を付けます。 **[有効]** を **[はい]** に設定します。 **作成**を選択します。
+4. 新しいカタログを開き、[**リソース**] &gt;**[リソースの追加]** を選択します。
+5. **[グループとチーム]** を選択し、`pg-employees-readers`を選択して、[**追加]** を選択します。
+
+#### アクセス パッケージを作成する
+
+1. カタログで、**Access パッケージ** に変更します。
+2. **[新しいアクセス パッケージ]** を選択します。
+3. [基本] タブで、次の **操作**を行います。
+    - **名前**: `Employee Database Readers`
+    - **カタログ**: `AI Agents`
+    - **[次へ: リソース ロール]** を選択します。
+4. ［**リソース ロール**］タブ:
+    - **[グループとチーム]** を選択し、`pg-employees-readers` を選択します。
+    - ロールを **[メンバー]** に設定します。
+    - **[Next: Requests](次へ: 要求)** を選択します。
+5. **リクエスト**タブで:
+    - **アクセスを要求できるユーザー** で、**なし (管理者の直接割り当てのみ)** を選択します。 この最初のポリシーでは、人間の管理者がどのエージェント ID にアクセスを許可するかを制御します。エージェントが自ら要求することはありません。
+    - [ **次へ: 要求者情報**]、[省略可能な質問をスキップする]、[ **次へ: ライフサイクル**] の順に選択します。
+6. **ライフサイクル**タブで:
+    - **Access パッケージの割り当ての有効期限**を適切な期間 (180 日など) に設定してください。
+    - [**次へ: ルール**]、[**次へ: 確認と作成**] の順に選択します。
+7. **作成**を選択します。
+
+### Microsoft Entraにエージェント ブループリントとエージェント ID を登録する
+
+このセクションでは、Microsoft Entraでエージェントを表すオブジェクトを作成します。
+
+1. **エージェント ID 開発者**ロールまたは**エージェント ID 管理者**ロールのユーザーとして Entra 管理センターにサインインしていることを確認します。
+2. **[エージェント]**、**[エージェント ブループリント]** の順に移動し、**[新しいエージェント ブループリント (プレビュー)]** を選択します。
+3. エージェントに `EmployeeAgentIdentity` などの名前を付け、スポンサーを確認してください。
+4. ブループリントが作成されたら、ブループリントに移動し、**資格情報 (プレビュー)**、**クライアント シークレット** の順に選択し、**新しいクライアント シークレット** を選択します。
+5. 表示されたクライアント シークレットの値を記録します。
+6. **概要 (プレビュー)** タブに移動し、ブループリント アプリ ID とブループリント プリンシパル オブジェクト ID を記録します。
+7. **[リンク されたエージェント ID (プレビュー)]** タブに移動し、エージェント ID を選択します。 オブジェクト ID を記録します。
+
+Microsoft Entra でのエージェント ID の作成方法に関するその他のオプションの詳細については、[「エージェント ID の作成方法」](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-id-creation-channels)を参照してください。
+
+### Microsoft Entraエンタイトルメント管理を使用してエージェント ID を認可する
+
+エージェント ID をアクセス パッケージに直接割り当てることで、エージェントを承認できます。
+
+1. Entra 管理センターで、 **Identity Governance**&gt;**Entitlement management**&gt;**Access パッケージ**に移動します。
+2. 先ほど作成した **Employee Database Readers** アクセス パッケージを開きます。
+3. [**割り当て]**&gt;**[新しい割り当て]** を選択します。
+4. [ **ポリシーの選択**] で、 **初期ポリシー** (または作成した管理者割り当てポリシー) を選択します。
+5. **ユーザーまたはサービス プリンシパルを選択** で、`EmployeeAgentIdentity` を検索して選択します。
+6. ライフサイクル ポリシーと一致する割り当ての終了日を設定します。
+7. **追加**を選択します。
+
+割り当て要求が処理された後 (通常は数分以内)、 `EmployeeAgentIdentity` は `pg-employees-readers` セキュリティ グループのメンバーになります。
+
+Note
+
+Microsoft Entra管理センターでグループ メンバーシップを確認するには、**Microsoft Entra ID**&gt;**Groups** に変更し、**pg-employees-readers** を選択して**メンバー**を表示します。
+
+### エージェントがデータベースに接続する
+
+エージェントの ID がセキュリティ グループのメンバーになったので、Azure Database for PostgreSQL サーバーに接続すると、サーバーはその ID 情報を検証し、以降の SQL 呼び出しの認可を確認できます。 データベースに接続するために、エージェントは最初にリソースとしてデータベースを対象とするトークンを取得します。
+
+[Image: エージェントの自律アプリ トークン取得フローのトークン シーケンスを示す図。]
+
+1. エージェントはブループリントに従って Microsoft Entra に認証を行い、エージェント ID を示します。
+
+    この手順では、エージェントはブループリント資格情報とエージェントIDの識別情報を指定し、中間トークンを受け取ります。 その他の認証オプションの詳細については、「 [エージェント自律アプリの OAuth フロー - アプリ専用プロトコル](https://learn.microsoft.com/ja-jp/entra/agent-id/agent-autonomous-app-oauth-flow)」を参照してください。
+
+    ```
+    POST https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &scope=api%3A%2F%2FAzureADTokenExchange%2F.default
+    &client_id=<blueprint-client-id>
+    &client_secret=<blueprint-client-secret>
+    &Fmi_Path=<agent-id>
+    ```
+
+    この手順では、Microsoft Entra ID は次を確認します:
+
+    - ブループリントの認証情報は有効です。
+    - ブループリント プリンシパルに割り当てられた条件付きアクセス ポリシーが満たされています。
+    - `Fmi_Path`値は、テナント内の既知のエージェント ID に解決されます。
+2. チェックが成功した場合、Microsoft Entra IDは中間トークンを含む応答をエージェントに提供します。
+
+    このトークンは、有効期間が短い JWT (中間トークン) で構成され、`api://AzureADTokenExchange` 向けに発行されます。
+3. エージェントは、Microsoft Entra ID から PostgreSQL アクセス トークンを取得します。
+
+    この手順では、エージェントは中間トークンを、Azure Database for PostgreSQL に提示できるアクセス トークンと交換します。
+
+    ```
+    POST https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token
+    Content-Type: application/x-www-form-urlencoded
+    
+    grant_type=client_credentials
+    &client_id=<agent-id>
+    &scope=https%3A%2F%2Fossrdbms-aad.database.windows.net%2F.default
+    &client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer
+    &client_assertion=<intermediate-token>
+    ```
+
+    この手順では、Microsoft Entra ID は次の項目を確認します：
+
+    - 中間トークン署名とaudienceは有効です。
+    - `client_id`は、エージェントの本人確認登録と一致します。
+    - `EmployeeAgentIdentity` サービス プリンシパルに割り当てられている条件付きアクセス ポリシーは、ここで評価されます。 要求がネットワークまたはリスク ポリシーに違反している場合、Entra は `conditional_access_failed` を返し、エージェントは接続できません。
+    - エージェント ID がブロックまたは無効にされていません。
+4. チェックが成功した場合、Microsoft Entra IDはリソースのトークンを含む応答を提供します。
+
+    応答には、`https://ossrdbms-aad.database.windows.net` 対象に対して発行された有効期間の短い JWT アクセス トークンが含まれます。
+5. エージェントがデータベースに接続します。
+
+    接続時に、エージェントはユーザー名としてグループ名を使用し、アクセス トークンを PostgreSQL ユーザー パスワードとして使用します。 次に PostgreSQL:
+
+    1. Entra の公開キーを使用してトークン署名を検証します。
+    2. トークンのaudienceが `https://ossrdbms-aad.database.windows.net`であることを確認します。
+6. エージェントがデータベースに要求を送信します。
+
+    `groups` クレームに含まれるセッションに `pg-employees-readers` が含まれているため、セッションには、`SELECT` テーブルに対する `employees` を含め、そのロールに関連付けられている特権があります。
 <!-- /MSL-PAGE -->
 
 ---
@@ -10145,121 +10383,4 @@ mpca.getPreferredAuthConfiguration()
 - QR コードのスキャン フローは、マネージド デバイスに対してより合理化されます。
 
 この構成は、デバイスが管理され、IT 管理者がカメラのアクセス許可を事前に構成できるエンタープライズ環境で役立ちます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity-platform/app-objects-and-service-principals"} -->
-## Microsoft Entra ID のアプリケーションとサービス プリンシパル - Microsoft identity platform
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity-platform/app-objects-and-service-principals
-- Service: identity-platform
-- Article date: 2024-10-01
-- Summary: Microsoft Entra ID におけるアプリケーションとサービス プリンシパルの各オブジェクト間のリレーションシップについて説明します。
-
-この記事では、Microsoft Entra ID のアプリケーション登録、アプリケーション オブジェクト、およびサービス プリンシパルの概要、使用方法、相互関係について説明します。 アプリケーションのアプリケーション オブジェクトと対応するサービス プリンシパル オブジェクトの間の関係を示すために、マルチテナントのシナリオ例も紹介します。
-
-### アプリケーションの登録
-
-ID およびアクセス管理の機能を Microsoft Entra ID に委任するには、アプリケーションを Microsoft Entra テナントに登録する必要があります。 アプリケーションを Microsoft Entra ID に登録するとき、アプリケーションの ID 構成を作成します。これによって Microsoft Entra ID との統合が可能になります。 アプリを登録するときに、そのアプリが[シングル テナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps#who-can-sign-in-to-your-app)か[マルチテナント](https://learn.microsoft.com/ja-jp/entra/identity-platform/single-and-multi-tenant-apps#who-can-sign-in-to-your-app)かを選択し、必要に応じて[リダイレクト URI](https://learn.microsoft.com/ja-jp/entra/identity-platform/reply-url) を設定します。 アプリを登録する手順については、[アプリの登録に関するクイックスタート](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app)を参照してください。
-
-アプリの登録が完了すると、ホーム テナントまたはディレクトリ内に存在するアプリ (アプリケーション オブジェクト) のグローバルに一意なインスタンスが作成されます。 また、アプリにグローバルに一意な ID (アプリまたはクライアント ID) も割り当てられます。 シークレットまたは証明書とスコープを追加してアプリを機能させたり、サインイン ダイアログでアプリのブランド化をカスタマイズしたりすることができます。
-
-アプリケーションを登録すると、ホーム テナントにアプリケーション オブジェクトとサービス プリンシパル オブジェクトが自動的に作成されます。 Microsoft Graph API を使用してアプリケーションを登録または作成する場合、サービス プリンシパル オブジェクトの作成は別の手順です。
-
-### アプリケーション オブジェクト
-
-Microsoft Entra アプリケーションは、その唯一のアプリケーション オブジェクトによって定義されます。アプリケーション オブジェクトは、アプリケーションの登録先の Microsoft Entra テナント (アプリケーションの "ホーム" テナントという) 内にあります。 アプリケーション オブジェクトは、1 つ以上のサービス プリンシパル オブジェクトを作成するためのテンプレートまたはブループリントとして使用されます。 サービス プリンシパルは、アプリケーションが使用されるすべてのテナントに作成されます。 オブジェクト指向プログラミングのクラスと同様に、アプリケーション オブジェクトには、作成されたすべてのサービス プリンシパル (またはアプリケーション インスタンス) に適用されるいくつかの静的プロパティがあります。
-
-アプリケーション オブジェクトでは、アプリケーションの 3 つの側面について説明します。
-
-- サービスがアプリケーションにアクセスするためにトークンを発行する方法
-- アプリケーションがアクセスする必要があるリソース
-- アプリケーションが実行できるアクション
-
-**Microsoft Entra 管理センター**の [\[アプリの登録\]](https://entra.microsoft.com) ページを使用して、ホーム テナントのアプリケーション オブジェクトを一覧表示し、管理することができます。
-
-[Image: [アプリの登録] ブレード]
-
-アプリケーション オブジェクトのプロパティのスキーマは、Microsoft Graph [Application エンティティ](https://learn.microsoft.com/ja-jp/graph/api/resources/application)によって定義されています。
-
-### サービス プリンシパル オブジェクト
-
-Microsoft Entra テナントによってセキュリティ保護されているリソースにアクセスするには、アクセスを必要とするエンティティをセキュリティ プリンシパルで表す必要があります。 この要件は、ユーザー (ユーザー プリンシパル) とアプリケーション (サービス プリンシパル) の両方に当てはまります。 セキュリティ プリンシパルは、その Microsoft Entra テナント内のユーザー/アプリケーションのアクセス ポリシーとアクセス許可を定義します。 これにより、サインイン時のユーザー/アプリケーションの認証、リソースへのアクセス時の承認などのコア機能を利用できるようになります。
-
-サービス プリンシパルには、次の 3 種類があります。
-
-- **アプリケーション** - この種類のサービス プリンシパルは、単一のテナントまたはディレクトリ内のグローバル アプリケーション オブジェクトのローカル表現、つまりアプリケーション インスタンスです。 この場合、サービス プリンシパルは、アプリケーション オブジェクトから作成された具象インスタンスであり、そのアプリケーション オブジェクトから特定のプロパティが継承されます。 サービス プリンシパルは、アプリケーションが使用される各テナントで作成され、グローバルに一意なアプリ オブジェクトが参照されます。 サービス プリンシパル オブジェクトには、特定のテナント内でアプリが実際に実行できること、アプリにアクセスできるユーザー、アプリからアクセスできるリソースを定義します。
-
-    アプリケーションが (登録または同意によって) テナント内のリソースへのアクセス許可を与えられると、サービス プリンシパル オブジェクトが作成されます。 アプリケーションを登録すると、サービス プリンシパルが自動的に作成されます。 Azure PowerShell、Azure CLI、Microsoft Graph、およびその他のツールを使用して、テナントにサービス プリンシパル オブジェクトを作成することもできます。
-- **マネージド ID** - この種類のサービス プリンシパルは、[マネージド ID](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview) を表す目的で使用されます。 マネージド ID により、開発者は資格情報を管理する必要がなくなります。 マネージド ID は、Microsoft Entra 認証をサポートするリソースに接続するときに使う ID をアプリケーションに提供します。 マネージド ID が有効になっている場合、そのマネージド ID を表すサービス プリンシパルがテナントに作成されます。 マネージド ID を表すサービス プリンシパルには、権利やアクセス許可を付与できますが、直接更新したり変更を加えたりすることはできません。 マネージド ID を表すサービス プリンシパルには、(上記のアプリケーションの種類とは異なり) アプリ オブジェクトが関連付けられません。
-- **レガシ** - この種類のサービス プリンシパルは、レガシ アプリを表します。これは、アプリの登録前に作成されたアプリ、またはレガシ エクスペリエンスを使用して作成されたアプリです。 レガシ サービス プリンシパルには、資格情報、サービス プリンシパル名、応答 URL など、許可されているユーザーが編集できるプロパティを割り当てることができますが、アプリの登録は関連付けられません。 このサービス プリンシパルは、その作成元のテナントでのみ使用できます。
-
-サービス プリンシパル オブジェクトのプロパティのスキーマは、Microsoft Graph [ServicePrincipal エンティティ](https://learn.microsoft.com/ja-jp/graph/api/resources/serviceprincipal)によって定義されています。
-
-Microsoft Entra 管理センターの **[エンタープライズ アプリケーション]** ページを使用して、テナントのサービス プリンシパルを一覧表示および管理することができます。 サービス プリンシパルのアクセス許可、ユーザーが同意したアクセス許可、その同意を行ったユーザー、サインイン情報などを確認できます。
-
-[Image: エンタープライズ アプリ ブレード]
-
-### アプリケーション オブジェクトとサービス プリンシパル間のリレーションシップ
-
-アプリケーション オブジェクトは、すべてのテナントで使用するアプリケーションの "*グローバル*" 表現であり、サービス プリンシパルは、特定のテナントで使用する "*ローカル*" 表現です。 アプリケーション オブジェクトは、対応するサービス プリンシパル オブジェクトの作成に使用するために、一般的な既定のプロパティが*派生*するテンプレートとして機能します。
-
-アプリケーション オブジェクトには以下があります。
-
-- ソフトウェア アプリケーションとの 1 対 1 の関係
-- 対応するサービス プリンシパル オブジェクトとの 1 対多のリレーションシップ。
-
-サービス プリンシパルは、テナントによってセキュリティ保護されているリソースにサインインまたはアクセスするための ID を確立できるように、アプリケーションが使用される各テナントで作成する必要があります。 シングルテナント アプリケーションには、アプリケーション登録中に作成され、使用が同意されたサービス プリンシパルが (そのホーム テナントに) 1 つだけあります。 マルチテナント アプリケーションには、そのテナントのユーザーが使用に同意した各テナントで作成されたサービス プリンシパルもあります。
-
-#### アプリに関連するサービス プリンシパルを一覧表示する
-
-アプリケーション オブジェクトに関連するサービス プリンシパルを見つけることができます。
-
-## [ブラウザー](#tab/browser)
-Microsoft Entra 管理センターで、アプリケーション登録の概要に移動します。 **[ローカル ディレクトリでのマネージド アプリケーション]** を選びます。
-
-[Image: 概要の [ローカル ディレクトリでのマネージド アプリケーション] オプションを示すスクリーン ショット。]
-
-## [PowerShell](#tab/azure-powershell)
-Microsoft Graph PowerShell を使用する:
-
-```azurepowershell
-Get-MgServicePrincipal -Filter "appId eq '{AppId}'"
-```
-
-## [Azure CLI](#tab/azure-cli)
-Azure CLI の使用:
-
-```azurecli
-az ad sp list --filter "appId eq '{AppId}'"
-```
-
----
-
-#### アプリケーションの変更と削除の結果
-
-アプリケーション オブジェクトに加えたすべての変更は、アプリケーションのホーム テナント (アプリケーションが登録されたテナント) にだけ存在するサービス プリンシパル オブジェクトにも反映されます。 つまり、アプリケーション オブジェクトを削除すると、そのホーム テナントのサービス プリンシパル オブジェクトも削除されます。 ただし、アプリの登録 UI からそのアプリケーション オブジェクトを復元しても、対応するサービス プリンシパルは復元されません。
-
-完全削除ではなく一時的な中断が必要なアプリケーションの場合は、 [アプリケーションを非アクティブ化](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/deactivate-application-portal)できます。 非アクティブ化により、調査または将来の再アクティブ化のためにアプリケーション オブジェクトとサービス プリンシパルを保持しながら、新しいトークンの発行が防止されます。
-
-アプリケーションとそのサービス プリンシパル オブジェクトの削除と復元について詳しくは、[アプリケーションとサービス プリンシパル オブジェクトの削除と復元](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/delete-recover-faq)に関する記事を参照してください。
-
-### 例
-
-次の図は、**HR アプリ**という名前のサンプル マルチテナント アプリケーションを基に、アプリケーションのアプリケーション オブジェクトと、対応するサービス プリンシパル オブジェクトの間のリレーションシップを表しています。 このサンプル シナリオには、次の 3 つの Microsoft Entra テナントがあります。
-
-- **Adatum** - **HR アプリ**を開発した会社が使用するテナント
-- **Contoso** - **HR アプリ**のコンシューマーである Contoso という組織が使用するテナント
-- **Fabrikam** - Contoso と同じく **HR アプリ**のコンシューマーである Fabrikam という組織が使用するテナント
-
-[Image: アプリ オブジェクトとサービス プリンシパル オブジェクトの間のリレーションシップ]
-
-このサンプル シナリオの内容:
-
-| 手順 | 説明 |
-| --- | --- |
-| 1 | アプリケーションとサービス プリンシパル オブジェクトを、アプリケーションのホーム テナント内に作成するプロセスです。 |
-| 2 | Contoso と Fabrikam の管理者が同意を終えると、それぞれの会社の Microsoft Entra テナント内にサービス プリンシパル オブジェクトが作成され、それに管理者が付与したアクセス許可が割り当てられます。 HR アプリは、個々のユーザー用として、ユーザーによる同意を許可するように構成/設計することができる点にも注目してください。 |
-| 3 | HR アプリケーション (Contoso と Fabrikam) のコンシューマー テナントにそれぞれ独自のサービス プリンシパル オブジェクトが作成されます。 それぞれ実行時におけるアプリケーションのインスタンスの使用を表し、それぞれの管理者によって同意されたアクセス許可によって管理されます。 |
 <!-- /MSL-PAGE -->

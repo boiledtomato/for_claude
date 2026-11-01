@@ -1,7 +1,1018 @@
 # Microsoft Learn — Microsoft Entra / 認証 (MFA・パスワードレス・SSPR) (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 46
+Pages in this file: 50
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-authentication-sms-signin"} -->
+## Microsoft Entra IDの SMS ベースのユーザー サインイン - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-sms-signin
+- Service: entra-id / authentication
+- Article date: 2026-10-29
+- Summary: ユーザーが SMS を使用してMicrosoft Entra IDにサインインできるように構成し、有効にする方法について説明します
+
+Warning
+
+**Microsoft提供の SMS および音声認証は、2027 年 2 月 1 日に廃止されます。** この廃止には、SMS を第 1 要素とするサインインが含まれます。 サインインの中断を回避するために、ユーザーをパスキーに移行するか、顧客管理の通信プロバイダーを構成します。 詳細については、 [SMS と音声認証の廃止に](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement)関するページを参照してください。
+
+アプリケーションとサービスへのサインインを簡素化し、セキュリティで保護するために、Microsoft Entra ID は SMS ベースの認証を提供します。 この方法を使用すると、現場担当者などのユーザーは、登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。
+
+### フィッシングに強い最新の認証に移行する
+
+Important
+
+Microsoft では、セキュリティを強化するために、フィッシングに強い認証方法を推奨しています。 ユーザーを次のいずれかの方法に移行することを検討してください。
+
+- [パスキー (FIDO2)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)
+- [Windows Hello for Business](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-overview)
+- [証明書ベースの認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication)
+
+SMS ベースの認証Microsoft Entra、ユーザーは登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。 これは、MICROSOFT ENTRA SMS 多要素認証とは異なります。通常、MFA メソッドとしてユーザー名、パスワード、SMS が必要です。 この認証方法は、主に現場担当者のサインイン エクスペリエンスを簡素化するように設計されており、インフォメーション ワーカー (IW) には推奨されません。
+
+Microsoft Entraには、[QR コード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-qr-code)と呼ばれる現場担当者向けの代替アプローチもあります。これは、組織が現場共有デバイスのシナリオを検討する場合があります。
+
+この記事の残りの部分では、Microsoft Entra IDで選択したユーザーまたはグループの最初の要素として SMS ベースの認証を有効にする方法について説明します。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
+
+### 開始する前に
+
+開始する前に、いくつかの重要なポイントを次に示します。
+
+- SMS 認証は、現場担当者 *に対してのみ* 有効にする必要があります。
+- SMS 認証を有効にする場合は、現場担当者の職場または自宅へのアクセスにセキュリティ制御を使用するためのベスト プラクティスに従ってください。 詳細については、「 [現場担当者を保護するためのベスト プラクティス](https://learn.microsoft.com/ja-jp/entra/identity-platform/security-best-practices-for-frontline-workers)」を参照してください。
+- 現場担当者に対して SMS 認証を有効にする場合は、QR コード認証の使用に移行することをお勧めします。 詳細については、「Microsoft Entra IDの認証方法 - QR コード認証方法の認証方法」を参照してください。
+
+アプリケーションとサービスへのサインインを簡略化してセキュリティで保護するために、Microsoft Entra IDには複数の認証オプションが用意されています。 SMS ベースの認証を使用すると、現場担当者などのユーザーは、サインインの最初の要素として SMS コードを入力できます。 ユーザーは、ユーザー名とパスワードを指定したり、知ったりする必要はありません。
+
+ユーザーは、ID 管理者によってアカウントが作成された後、サインイン プロンプトで電話番号を入力できます。 ユーザーは、サインインを完了するために指定できる SMS 認証コードを受け取ります。 この認証方法を使用すると、特に第一線で働くユーザーにとっては、アプリケーションやサービスへのアクセスが簡単になります。
+
+### [前提条件]
+
+この記事を完了するには、以下のリソースと特権が必要です。
+
+- アクティブなAzure サブスクリプション。
+    - Azure サブスクリプションをお持ちでない場合は、[アカウントを作成します](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)。
+- サブスクリプションに関連付けられているMicrosoft Entra テナント。
+    - 必要に応じて、[Microsoft Entra テナント](https://learn.microsoft.com/ja-jp/entra/fundamentals/sign-up-organization)または[アカウントにAzureサブスクリプションを関連付けます](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-subscriptions-associated-directory)。
+- SMS ベースの認証を有効にするには、Microsoft Entra テナントに少なくとも [Authentication Policy Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) ロールが必要です。
+- SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 有効になっている各ユーザーには、Microsoft Entra ID、EMS、またはMicrosoft 365の次のいずれかのライセンスが必要です。
+    - [Microsoft 365 F1 または F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+    - [Microsoft Entra ID P1 または P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+    - [Enterprise Mobility + Security (EMS) E3 または E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) または [Microsoft 365 E3 または E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+    - [Office 365 F3](https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab)
+
+### 既知の問題
+
+既知の問題の一部をここに挙げます。
+
+- SMS ベースの認証は現在、Microsoft Entra多要素認証と互換性がありません。
+- Teams を除き、SMS ベース認証には、ネイティブな Office アプリケーションとの互換性はありません。
+- B2B アカウントの場合、SMS ベース認証はサポートされていません。
+- フェデレーション ユーザーは、ホーム テナントでは認証されません。 クラウドでのみ認証されます。
+- 既定のサインイン方法を電話番号に対するテキスト メッセージまたは音声通話にしている場合は、多要素認証時に、SMS コードか音声呼び出しを自動的に発信します。 2021 年 6 月の時点で、一部のアプリではユーザーに **テキスト** または **通話** を最初に選択するよう求められます。 このオプションにより、さまざまなアプリに対して必要以上に多くのセキュリティ コードを送信しなくて済みます。 既定のサインイン方法がMicrosoft Authenticator アプリ () の場合、アプリ通知は自動的に送信されます。
+- [テナント間同期](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/known-issues?pivots=cross-tenant-synchronization) では、SMS サインインが有効になっているユーザーはサポートされません。
+
+### SMS ベースの認証方法を有効にする
+
+組織で SMS ベース認証を有効にして使用するには、次の 3 つの主要な手順があります。
+
+- 認証方法ポリシーを有効にする。
+- SMS ベースの認証方法を使用できるユーザーまたはグループを選択する。
+- 各ユーザー アカウントに電話番号を割り当てる。
+    - この電話番号は、Microsoft Entra管理センター (この記事で示します) と、*My Staff* または *My Account* で割り当てることができます。
+
+注
+
+フィッシング詐欺や不正行為のリスクを軽減するために、Microsoftでは、過去 30 日間に SMS 第一要素サインイン トラフィックがないテナントの SMS 第一要素サインインが無効になります。 テナント管理者は、**[第 1 要素サインインを有効にする]** チェック ボックスをオンにすることで、いつでも SMS の第 1 要素サインインを再度有効にすることができます。
+
+まず、Microsoft Entra テナントに対して SMS ベースの認証を有効にしましょう。
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)としてサインインします。
+2. **Entra ID**&gt;**認証メソッド**&gt;**ポリシー** に移動します。
+3. 使用可能な認証方法の一覧から、[ **SMS**] を選択します。
+
+    [Image: SMS 認証方法を選択する方法を示すスクリーンショット。]
+4. **[有効にする]** を選択し、[**ターゲット ユーザー]** を選択します。 *すべてのユーザー*またはグループに対して SMS ベースの認証を有効にすることを選択できます。
+
+    注
+
+    第 1 要素用に SMS ベースの認証を構成するには (つまり、ユーザーがこの方法でサインインできるようにするには)、**[最初の要素のサインインを有効にする]** チェック ボックスをオンにします。 これをオフのままにすると、SMS ベースの認証は多要素認証とセルフサービス パスワード リセットのみに使用できるようになります。
+
+    [Image: [第1要素のサインインを有効にする] チェック ボックスがオンの SMS 設定のスクリーンショット。]
+
+### 認証方法をユーザーとグループに割り当てる
+
+Microsoft Entra テナントで SMS ベースの認証が有効になっているので、この認証方法の使用を許可する一部のユーザーまたはグループを選択します。
+
+1. [SMS 認証ポリシー] ウィンドウで、[ **ターゲット]** を *[ユーザーの選択*] に設定します。
+2. [ **すべてのユーザーまたはグループの追加]** を選択し、 *Contoso ユーザー* や *Contoso SMS ユーザー*などのテスト ユーザーまたはグループを選択します。
+3. ユーザーまたはグループを選択したら、[ **選択**] を選択し、更新された認証方法ポリシーを **保存します** 。
+
+SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 特に、大規模なユーザー グループに対して機能を有効にする場合は、認証方法ポリシーで有効にするユーザーに適切なライセンスがあることを確認してください。
+
+### ユーザー アカウントに電話番号を設定する
+
+ユーザーは SMS ベースの認証が有効になりましたが、サインインする前に、Microsoft Entra IDのユーザー プロファイルに電話番号を関連付ける必要があります。 ユーザーは [My Account](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) でこの電話番号を自分で設定することができるほか、*Microsoft Entra 管理センター* を使用して電話番号を割り当てることもできます。 電話番号は、少なくとも [認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator) ロールを持つユーザーが設定できます。
+
+SMS ベースのサインインに電話番号が設定されている場合は、[Microsoft Entra多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-azure-mfa)および[サービスパスワードリセット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-sspr)で使用することもできます。
+
+1. **Microsoft Entra ID** を検索して選択します。
+2. Microsoft Entra ウィンドウの左側にあるナビゲーション メニューから、**Users** を選択します。
+3. 前のセクションで SMS ベースの認証を有効にしたユーザー ( *Contoso ユーザー*など) を選択し、[ **認証方法**] を選択します。
+4. [ **+ 認証方法の追加]** を選択し、[ *方法の選択* ] ドロップダウン メニューで [ **電話番号**] を選択します。
+
+    *+1 xxxxxxxxx* など、国コードを含むユーザーの電話番号を入力します。 Microsoft Entra管理センターは、電話番号が正しい形式であることを検証します。
+
+    次に、[ *電話の種類* ] ドロップダウン メニューから、必要に応じて [ *モバイル*]、[ *代替モバイル*]、または *[その他* ] を選択します。
+
+    [Image: SMS ベースの認証で使用するMicrosoft Entra管理センターのユーザーの電話番号を設定します]
+
+    電話番号はテナント内で一意にする必要があります。 複数のユーザーに同じ電話番号を使用しようとすると、エラー メッセージが表示されます。
+5. ユーザーのアカウントに電話番号を適用するには、[追加] を選択 **します**。
+
+正常にプロビジョニングされると、 *SMS サインインが有効*になっているかどうかのチェック マークが表示されます。
+
+### SMS ベースのサインインをテストする
+
+SMS ベースのサインインが有効になったユーザー アカウントをテストするには、次の手順を実行します。
+
+1. https://www.office.com に新しい InPrivate または Incognito Web ブラウザー ウィンドウを開きます
+2. 右上隅にある [ **サインイン**] を選択します。
+3. サインイン プロンプトで、前のセクションでユーザーに関連付けられている電話番号を入力し、[ **次へ**] を選択します。
+
+    [Image: テスト ユーザーのサインイン プロンプトで電話番号を入力する]
+4. 指定された電話番号に、SMS メッセージが送信されます。 サインイン プロセスを完了するには、SMS メッセージに記載されている 6 桁のコードをサインイン プロンプトに入力します。
+
+    [Image: ユーザーの電話番号に送信された SMS 確認コードを入力します]
+5. これでユーザーは、ユーザー名やパスワードを入力しなくてもサインインできるようになりました。
+
+### SMS ベースのサインインをトラブルシューティングする
+
+SMS ベースのサインインの有効化と使用に問題がある場合は、次のシナリオとトラブルシューティング手順を使用できます。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
+
+#### ユーザー アカウントに既に電話番号が設定されている
+
+ユーザーが既に多要素認証またはセルフサービス パスワード リセット (SSPR) Microsoft Entra登録している場合は、アカウントに既に電話番号が関連付けられています。 SMS ベースのサインインに使用できるように、この電話番号が自動的に利用可能になるわけではありません。
+
+エンド ユーザー エクスペリエンスの詳細については、 [電話番号の SMS サインイン ユーザー エクスペリエンスに関する説明を](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42)参照してください。
+
+#### ユーザーのアカウントに電話番号を設定しようとするとエラーが発生する
+
+Microsoft Entra管理センターでユーザー アカウントの電話番号を設定しようとしたときにエラーが発生した場合は、次のトラブルシューティング手順を確認してください。
+
+1. SMS ベースのサインインに対してご自身が有効になっていることを確認します。
+2. **SMS** 認証方法ポリシーでユーザー アカウントが有効になっていることを確認します。
+3. Microsoft Entra管理センター (+1 4251234567) で検証されているように、適切な書式で電話番号を設定してください。
+4. 電話番号がテナント内の他の場所に使用されていないことを確認します。
+5. アカウントに音声番号が設定されていないことを確認します。 音声番号が設定されている場合は、削除してからもう一度電話番号の設定を試してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-authentication-temporary-access-pass"} -->
+## パスワードレス認証方法を登録するようにMicrosoft Entra IDで一時アクセス パスを構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-temporary-access-pass
+- Service: entra-id / authentication
+- Article date: 2026-03-04
+- Summary: 一時アクセス パス (TAP) を使用してパスワードレス認証方法を登録するように構成し、ユーザーが利用できるようにする方法を説明します。
+
+パスキー (FIDO2) などのパスワードなしの認証方法を使用すると、ユーザーはパスワードなしで安全にサインインできます。 ユーザーは、次の 2 つの方法のいずれかでパスワードレスの方法をブートストラップできます。
+
+- 既存のMicrosoft Entra多要素認証方法を使用する
+- 一時アクセス パスを使用する
+
+一時アクセス パス (TAP) は、1 回の使用または複数のサインイン用に構成できる時間制限付きパスコードです。ユーザーは TAP を使用してサインインして、他のパスワードレス認証方法をオンボードできます。 TAP を使用すると、ユーザーが強力な認証方法を失ったり忘れたりした場合の回復も容易になります。
+
+この記事では、[Microsoft Entra 管理センター](https://entra.microsoft.com)を使用して TAP を有効にして使用する方法について説明します。 これらのアクションは、REST API を使用して実行することもできます。
+
+### 一時アクセス パス ポリシーを有効にする
+
+TAP ポリシーは、テナントで作成されたパスの有効期間や、TAP を使用してサインインできるユーザーとグループなどの設定を定義します。
+
+ユーザーが TAP を使用してサインインできるようにするには、認証方法ポリシーでこの方法を有効にし、TAP を使用してサインインできるユーザーとグループを選択する必要があります。
+
+TAP は任意のユーザーに対して作成できますが、ポリシーに含まれるユーザーのみがサインインできます。 TAP 認証方法ポリシーを更新するには、 [認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) ロールが必要です。
+
+認証方法ポリシーで TAP を構成するには:
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)としてサインインします。
+2. **Entra ID**&gt;**認証メソッド**&gt;**ポリシー** に移動します。
+3. 使用可能な認証方法の一覧から、[ **一時アクセス パス**] を選択します。
+
+    [Image: 認証方法ポリシー エクスペリエンス内で一時アクセス パスを管理する方法のスクリーンショット。]
+4. **[有効にする]** を選択し、ポリシーに含めるユーザーまたはポリシーから除外するユーザーを選択します。
+
+    [Image: 認証方法ポリシーで一時アクセス パスを有効にする方法のスクリーンショット。]
+5. (省略可能)[ **構成] を** 選択して、最大有効期間や長さの設定など、一時アクセス パスの既定の設定を変更し、[ **更新**] を選択します。
+
+    [Image: 一時アクセス パスの設定をカスタマイズする方法のスクリーンショット。]
+6. [ **保存] を** 選択してポリシーを適用します。
+
+    次の表では、既定値と許可される値の範囲について説明します。
+
+    | 設定 | 既定値 | 使用できる値 | コメント |
+    | --- | --- | --- | --- |
+    | 最短有効期間 | 1 時間 | 10 – 43,200 分 (30 日) | TAP が有効である最短時間 (分)。 |
+    | 最長有効期間 | 8 時間 | 10 – 43,200 分 (30 日) | TAP が有効である最長時間 (分)。 |
+    | 既定の有効期間 | 1 時間 | 10 – 43,200 分 (30 日) | ポリシーによって構成される最短と最長の有効期間内の個々のパスによって、規定値をオーバーライドできます。 |
+    | 1 回限りの使用 | いいえ | 真/偽 | ポリシーが false に設定されている場合、テナント内の TAP は、その有効期間中に 1 回または複数回使用できます (最長有効期間)。 TAP ポリシーで 1 回限りの使用を強制する場合、テナントで作成されたすべてのパスは 1 回限りの使用になります。 |
+    | Length | 8 | 8 ～ 48 文字 | パスコードの長さを定義します。 |
+
+### 一時アクセス パスを作成する
+
+TAP ポリシーを有効にすると、Microsoft Entra IDのユーザーに対して TAP ポリシーを作成できます。 次のロールは、TAP に関連するさまざまなアクションを実行できます。
+
+- [特権認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#privileged-authentication-administrator) は、管理者とメンバー (それ自体を除く) の TAP を作成、削除、および表示できます。
+- [認証管理者は](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator) 、メンバー (それ自体を除く) の TAP を作成、削除、および表示できます。
+- [認証ポリシー管理者は](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) 、TAP を有効にしたり、グループを含めたり除外したり、認証方法ポリシーを編集したりできます。
+- [グローバル閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#global-reader) は、(コード自体を読まずに) ユーザーの TAP の詳細を表示できます。
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator)としてサインインします。
+2. **Entra ID**&gt;**Users** に移動します。
+3. TAP を作成するユーザーを選びます。
+4. [ **認証方法** ] を選択し、[ **認証方法の追加]** を選択します。
+
+    [Image: 一時アクセス パスを作成する方法のスクリーンショット。]
+5. [ **一時アクセス パス]** を選択します。
+6. カスタムのアクティブ化時間または期間を定義し、[ **追加**] を選択します。
+
+    [Image: メソッドの追加のスクリーンショット - 一時アクセス パス。]
+7. 追加されると、TAP の詳細が表示されます。
+
+    重要
+
+    ユーザーにこの値を指定するため、実際の TAP 値を書き留めます。 **[OK]** を選択した後は、この値を表示できません。
+
+    [Image: 一時アクセス パスの詳細のスクリーンショット。]
+8. 完了したら、[ **OK] を選択します** 。
+
+次のコマンドは、PowerShell を使用して TAP を作成および取得する方法を示しています。
+
+```powershell
+# Create a Temporary Access Pass for a user
+$properties = @{}
+$properties.isUsableOnce = $True
+$properties.startDateTime = '2022-05-23 06:00:00'
+$propertiesJSON = $properties | ConvertTo-Json
+
+New-MgUserAuthenticationTemporaryAccessPassMethod -UserId user2@contoso.com -BodyParameter $propertiesJSON
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+00aa00aa-bb11-cc22-dd33-44ee44ee44ee 5/22/2022 11:19:17 PM False    True         60                NotYetValid           23/05/2022 6:00:00 AM TAPRocks!
+
+# Get a user's Temporary Access Pass
+Get-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com
+
+Id                                   CreatedDateTime       IsUsable IsUsableOnce LifetimeInMinutes MethodUsabilityReason StartDateTime         TemporaryAccessPass
+--                                   ---------------       -------- ------------ ----------------- --------------------- -------------         -------------------
+00aa00aa-bb11-cc22-dd33-44ee44ee44ee 5/22/2022 11:19:17 PM False    True         60                NotYetValid           23/05/2022 6:00:00 AM
+
+```
+
+詳細については、「 [New-MgUserAuthenticationTemporaryAccessPassMethod](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.identity.signins/new-mguserauthenticationtemporaryaccesspassmethod) 」および [「Get-MgUserAuthenticationTemporaryAccessPassMethod](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.identity.signins/get-mguserauthenticationtemporaryaccesspassmethod)」を参照してください。
+
+### 一時アクセス パスを使用する
+
+TAP は、ユーザーが最初のサインインやデバイスのセットアップの際に認証の詳細を登録する場合に最もよく使用されます。その場合、追加のセキュリティ プロンプトを完了する必要はありません。 認証方法は [、セキュリティ情報](https://mysignins.microsoft.com/security-info)に登録されます。 ユーザーは、ここで既存の認証方法を更新することもできます。
+
+1. Web ブラウザーを開き、 [セキュリティ情報を表示します](https://mysignins.microsoft.com/security-info)。
+2. *tapuser@contoso.com*など、TAP を作成したアカウントの UPN を入力します。
+3. ユーザーが TAP ポリシーに含まれている場合、TAP を入力する画面が表示されます。
+4. Microsoft Entra管理センターに表示された TAP を入力します。
+
+    [Image: 一時アクセス パスを入力する方法のスクリーンショット。]
+
+注
+
+フェデレーション ドメインの場合は、フェデレーションよりも TAP を使用することをお勧めします。 TAP を持つユーザーは、Microsoft Entra IDで認証を完了し、フェデレーション ID プロバイダー (IdP) にリダイレクトされません。
+
+これでユーザーがサインインし、FIDO2 セキュリティ キーなどの方法を更新または登録できるようになりました。 資格情報やデバイスを紛失したために認証方法を更新するユーザーは、古い認証方法を必ず削除する必要があります。 ユーザーは、パスワードを使用して引き続きサインインすることもできます。TAP はユーザーのパスワードを置き換えません。
+
+#### 一時アクセス パスのユーザー管理
+
+[セキュリティ情報](https://mysignins.microsoft.com/security-info)を管理しているユーザーには、一時アクセス パスのエントリが表示されます。 ユーザーが他の登録メソッドを持っていない場合は、新しいサインイン 方法を追加することを示すバナーが画面の上部に表示されます。 ユーザーは TAP の有効期限を表示したり、不要になった TAP を削除したりできます。
+
+[Image: ユーザーがマイ セキュリティ情報で一時アクセス パスを管理する方法のスクリーンショット。]
+
+#### デバイス登録とパスワードレス登録
+
+デバイス登録とパスワードレス資格情報の登録 (Windows Hello for Businessなど) をサポートするために一時アクセス パス (TAP) を使用する場合、エンド ユーザー エクスペリエンスを円滑にするための 2 つの方法がサポートされます。
+
+| Option | プロセスの説明 | Steps |
+| --- | --- | --- |
+| 2つの使い捨てタップ | 組織が単一使用の TAP を適用し、デバイスの登録プロセス全体に 10 分以上かかる場合、ユーザーはパスワードレス資格情報の登録に 2 つ目の単一使用 TAP を入力する必要があります。 注: ユーザーがシングルユース TAP を入力してパスワードレス認証方法を登録する場合は、サインインから 10 分以内に登録を完了する必要があります。 この動作は、多要素認証 (MFA) を必要とするすべての新しい認証方法の登録 ( [セキュリティ情報](https://mysignins.microsoft.com/security-info)を使用して開始された登録を含む) で一貫しています。 10 分間の要件は、資格情報の登録中の MFA の適用に関連しますが、特に TAP には関係しません。 | デバイスの登録を完了するには、最初の単一使用 TAP が使用されます。デバイス登録プロセスが 10 分を超えてWindows Hello for Business登録手順に達した場合は、資格情報を登録するために 2 つ目の単一使用 TAP を指定する必要があります。 |
+| 多用途のTAP | 組織で複数の TAP を有効にしている場合、ユーザーは有効期間中に 1 回の TAP で複数回サインインできます。 たとえば、ユーザーは 1 時間に 1 回の TAP で複数回サインインできます。マルチユース TAP を使用すると、複数のパスコードを配布する必要性を減らすことで、エンド ユーザー エクスペリエンスを簡素化できます。 TAP の使用状況を監視して、有効期間中に予想以上の時間が使用されていないことを確認します。 | ユーザーは同じ TAP を 1 回入力してデバイスを登録し、もう一度Windows Hello for Business登録できます。ユーザーが新しい認証方法の登録を開始すると、10 分間の MFA 要件が効果的に再起動します。 タイマーの再起動により、デバイスのセットアップが中断されないようにします。 |
+
+#### Windows デバイスのセットアップ
+
+TAP を使用しているユーザーは、Windows 10と 11 のセットアップ プロセスを移動して、デバイス参加操作を実行し、Windows Hello for Businessを構成できます。 Windows Hello for Businessを設定するための TAP の使用は、デバイスの参加状態によって異なります。
+
+Microsoft Entra IDに参加しているデバイスの場合:
+
+- Microsoft Entra参加のセットアップ プロセス中に、ユーザーは TAP で認証を行い (パスワードは必要ありません)、デバイスに参加してWindows Hello for Business登録できます。
+- 既に参加しているデバイスでは、TAP を使用してWindows Hello for Businessを設定する前に、まずパスワード、スマートカード、FIDO2 キーなどの別の方法で認証する必要があります。
+- Windowsの [Web サインイン](https://learn.microsoft.com/ja-jp/windows/client-management/mdm/policy-csp-authentication#authentication-enablewebsignin)機能も有効になっている場合、ユーザーは TAP を使用してデバイスにサインインできます。 これは、デバイスの初期セットアップの完了、またはユーザーがパスワードを知らない場合やパスワードを持っていない場合の回復のみを目的としています。
+
+ハイブリッド参加済みデバイスの場合、ユーザーは TAP を使用してWindows Hello for Businessを設定する前に、パスワード、スマートカード、FIDO2 キーなどの別の方法で認証する必要があります。
+
+注
+
+フェデレーション ドメインの場合、MFA が必要な場合、 **FederatedIdpMfaBehavior** 設定によって動作が変更されます。
+
+- **enforceMfaByFederatedIdp** に設定すると、ユーザーは MFA のフェデレーション ID プロバイダー (IdP) にリダイレクトされ、TAP でWindows Hello for Businessを設定するように求められることはありません。
+- **acceptIfMfaDoneByFederatedIdp** に設定した場合、ユーザーは、Windows Hello for Business のプロビジョニングのための MFA 中に Microsoft Entra ID で TAP プロンプトを表示します。
+
+スクリーンショット: Windows を設定するときに一時アクセスパスを入力する方法。
+
+#### Microsoft Authenticatorでの TAP の使用
+
+ユーザーは TAP を使用して、自分のアカウントにMicrosoft Authenticatorを登録することもできます。 職場または学校のアカウントを追加し、TAP を使用してサインインすることで、ユーザーは Authenticator アプリから直接パスキーとパスワードレス電話サインインの両方を登録できます。
+
+詳細については、「[職場または学校アカウントを Microsoft Authenticator アプリに追加する](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)を参照してください。
+
+[Image: 職場または学校アカウントを使用して一時アクセス パスを入力する方法のスクリーンショット。]
+
+#### ゲスト アクセス
+
+TAP をサインイン方法として内部ゲストに追加できますが、他の種類のゲストには追加できません。 内部ゲストには、ユーザー オブジェクト **UserType** が **Guest** に設定されています。 Microsoft Entra IDに登録されている認証方法があります。 内部ゲストとその他のゲスト アカウントの詳細については、「 [B2B ゲスト ユーザーのプロパティ](https://learn.microsoft.com/ja-jp/entra/external-id/user-properties)」を参照してください。
+
+Microsoft Entra管理センターまたはMicrosoft Graphの外部ゲスト アカウントに TAP を追加しようとすると、外部ゲスト ユーザーに **Temporary Access Pass を追加できないというエラーが表示されます**
+
+外部ゲスト ユーザーは、TAP がホーム テナント認証要件を満たし、クロステナント アクセス ポリシーがユーザーのホーム テナントから MFA を信頼するように構成されている場合、ホーム テナントによって発行された TAP を使用してリソース テナントにサインインできます。「 [B2B コラボレーションのテナント間アクセス設定の管理](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration)」を参照してください。
+
+#### 有効期限
+
+有効期限が切れたか、または削除された TAP を、対話型または非対話型認証に使用することはできません。
+
+TAP の有効期限が切れたか、または削除された後、ユーザーは別の認証方法で再認証する必要があります。
+
+TAP サインイン中に発行されたトークン (セッション トークン、更新トークン、アクセス トークンなど) は、発行時の TAP 有効期限時に最大有効期間を上限とします。 ただし、TAP の有効期限は、既に確立されているセッションをさかのぼって無効にすることはありません。 セッション トークンの有効期間は [条件付きアクセス セッション制御](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-session-lifetime)によって制御されるため、TAP を使用してサインインしたユーザーは、条件付きアクセスの構成に応じて、TAP の有効期間よりも長くアクセスを保持できます。 TAP サインイン後のアクセスの期間を制限するには、 [サインイン頻度](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/howto-conditional-access-session-lifetime#sign-in-frequency) ポリシーを構成します。
+
+### 期限切れの一時アクセス パスを削除する
+
+ユーザーの **認証方法の** 下の **[詳細]** 列には、TAP の有効期限が切れた日時が表示されます。 以下の手順に従って、有効期限切れの TAP を削除できます。
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator)としてサインインします。
+2. **Entra ID**&gt;**Users** に移動し、ユーザー*タップ*などのユーザーを選択してから、[**認証方法**] を選択します。
+3. 一覧に表示されている **一時アクセス パス** 認証方法の右側で、[削除] を選択 **します**。
+
+PowerShell を使用することもできます。
+
+```powershell
+# Remove a user's Temporary Access Pass
+Remove-MgUserAuthenticationTemporaryAccessPassMethod -UserId user3@contoso.com -TemporaryAccessPassAuthenticationMethodId 00aa00aa-bb11-cc22-dd33-44ee44ee44ee
+```
+
+詳細については、「 [Remove-MgUserAuthenticationTemporaryAccessPassMethod](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.identity.signins/remove-mguserauthenticationtemporaryaccesspassmethod)」を参照してください。
+
+### 一時アクセス パスを置き換える
+
+- ユーザーは、1 つの TAP しか持つことができません。 パスコードは、TAP の開始時から終了時にかけて使用できます。
+- ユーザーが新しい TAP を必要とする場合、次のようになります。
+    - 既存の TAP が有効な場合、管理者は新しい TAP を作成して、既存の有効な TAP をオーバーライドできます。
+    - 既存の TAP の有効期限が切れている場合は、新しい TAP によって既存の TAP がオーバーライドされます。
+
+オンボードと復旧のための NIST 標準の詳細については、「 [NIST Special Publication 800-63A](https://pages.nist.gov/800-63-3/sp800-63a.html#sec4)」を参照してください。
+
+### 制限事項
+
+以下の制限事項に留意してください。
+
+- 1 回限りの TAP を使用して FIDO2 セキュリティ キーや電話によるサインインなどのパスワードレスの方法を登録する場合、ユーザーは 1 回限りの TAP を使って 10 分以内に登録を完了する必要があります。 この制限は、複数回使用できる TAP には適用されません。
+- セルフサービス パスワード リセット (SSPR) 登録ポリシー *or*[Microsoft Entra ID Protection 多要素認証登録ポリシー](https://learn.microsoft.com/ja-jp/entra/id-protection/howto-identity-protection-configure-mfa-policy)のスコープ内のユーザーは、ブラウザーを使用して TAP でサインインした後に認証方法を登録する必要があります。 これらのポリシーの対象となるユーザーは、[統合登録の割り込みモードに](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-registration-mfa-sspr-combined#combined-registration-modes)リダイレクトされます。 現在、このエクスペリエンスでは、FIDO2 と電話によるサインインの登録はサポートされていません。
+- TAP は、ネットワーク ポリシー サーバー (NPS) 拡張機能と Active Directory Federation Services (AD FS) アダプターでは使用できません。
+- 変更がレプリケートされるまで数分かかる場合があります。 このため、TAP がアカウントに追加された後、プロンプトが表示されるまでにしばらく時間がかかることがあります。 同様の理由で、TAP の有効期限が切れた後も、ユーザーには TAP のプロンプトが表示されることがあります。
+
+### トラブルシューティング
+
+- サインイン中に TAP がユーザーに提供されない場合、次を実行します。
+    - ユーザーが認証方法ポリシーで TAP 使用のスコープ内にあることを確認します。
+    - ユーザーが有効な TAP を持っていることを確認します。 TAP が 1 回限りの使用である場合は、まだ使われていないことを確認します。
+- TAP を使用した **サインイン時にユーザー資格情報ポリシーが表示されるために一時アクセス パス**のサインインがブロックされた場合:
+    - ユーザーが TAP ポリシーのスコープ内にあることを確認します。
+    - 認証方法ポリシーで 1 回限りの TAP が必要な場合は、ユーザーが複数使用するための TAP を持っていないことを確認します。
+    - 1 回限りの TAP が既に使われているかどうかを確認します。
+- アカウントに認証方法として TAP を追加しようとした際に、「一時アクセスパスを外部ゲストユーザーに追加できません」というエラーメッセージが表示された場合、そのアカウントは外部ゲストであることを示しています。 内部ゲスト アカウントと外部ゲスト アカウントの両方に、Microsoft Entra管理センターと Microsoft Graph API にサインインするための TAP を追加するオプションがあります。 ただし、TAP を発行できるのは内部ゲスト アカウントのみです。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-authentication-use-email-signin"} -->
+## 代替ログイン ID としてメール アドレスを使用して Microsoft Entra ID にサインインする - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-use-email-signin
+- Service: entra-id / authentication
+- Article date: 2025-04-17
+- Summary: ユーザーが代替ログイン ID としてメール アドレスを使用して Microsoft Entra ID にサインインできるようにする方法について説明します
+
+注
+
+メールを代替ログイン ID としてMicrosoft Entra ID にサインインすることは、Microsoft Entra ID のパブリック プレビュー機能です。 プレビューの詳細については、「 [Microsoft Azure プレビューの追加使用条件](https://aka.ms/EntraPreviewsTermsOfUse)」を参照してください。
+
+多くの組織では、ユーザーがオンプレミス ディレクトリ環境と同じ資格情報を使用して Microsoft Entra ID にサインインできるようにしたいと考えています。 ハイブリッド認証と呼ばれるこの方法では、ユーザーは 1 組の資格情報を記憶しておくだけでよくなります。
+
+一部の組織では、次の理由によりハイブリッド認証に移行していません。
+
+- 既定で、Microsoft Entra のユーザー プリンシパル名 (UPN) が、オンプレミス UPN と同じ値に設定されています。
+- Microsoft Entra UPN を変更すると、オンプレミス環境と Microsoft Entra 環境の間で不一致が生じ、特定のアプリケーションやサービスで問題が発生する可能性があります。
+- ビジネスまたはコンプライアンス上の理由により、組織では、Microsoft Entra ID へのサインインにオンプレミスの UPN を使用したくないと考えています。
+
+ハイブリッド認証に移行するために、ユーザーが代替ログイン ID として各自のメール アドレスでサインインできるようにMicrosoft Entra ID を構成できます。 たとえば、*Contoso が*レガシ  UPN でサインインし続けるのではなく、`ana@contoso.com` にブランド変更した場合、代替ログイン ID として電子メールを使用できます。 アプリケーションまたはサービスにアクセスするために、ユーザーは、UPN 以外のメール アドレス (`ana@fabrikam.com` など) を使用して Microsoft Entra ID にサインインします。
+
+[Image: 代替ログイン ID としての電子メールの図。]
+
+この記事では、代替ログイン ID として電子メールを有効にして使用する方法について説明します。
+
+### 開始する前に
+
+代替ログイン ID としてのメール アドレスについて知る必要がある情報を次に示します。
+
+- この機能は、Microsoft Entra ID Free エディション以降で使用できます。
+- この機能により、クラウド認証された Microsoft Entra ユーザーに対して、UPN に加えて *ProxyAddresses* を使用したサインインが可能になります。 これは、 B2B セクションの Microsoft Entra Business-to-Business (B2B) コラボレーションにどのように適用されるかについて詳しく説明します。
+- ユーザーが UPN 以外の電子メールでサインインすると、`unique_name`内の`preferred_username`要求と要求 (存在する場合) は、UPN 以外の電子メールを返します。
+    - 使用中の UPN 以外のメール アドレスが古くなった (ユーザーに属さなくなった) 場合、これらの要求は代わりに UPN を返します。
+- この機能では、パスワード ハッシュ同期 (PHS) またはパススルー認証 (PTA) による、マネージド認証がサポートされています。
+- この機能を構成するには、次の 2 つのオプションがあります。
+    - ホーム領域検出 (HRD) ポリシー - このオプションを使用して、テナント全体の機能を有効にします。 少なくとも [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator) ロールが必要です。
+    - 段階的ロールアウト ポリシー - このオプションを使用して、特定の Microsoft Entra グループで機能をテストします。 段階的なロールアウトで、セキュリティ グループを初めて追加する時点では、UX タイムアウトを回避するために、200 ユーザーに制限されます。グループを追加した後、必要に応じて、そのグループにさらにユーザーを直接追加できます。
+
+### プレビューの制限事項
+
+現在のプレビュー状態では、代替ログイン ID としてのメール アドレスに次の制限が適用されます。
+
+- **ユーザー エクスペリエンス** - UPN 以外のメールでサインインした場合でも、UPN が表示される場合があります。 次のような動作の例が表示されます。
+
+    - `login_hint=<non-UPN email>` を使用した Microsoft Entra サインインに誘導される場合、ユーザーは UPN でサインインするように求められます。
+    - ユーザーが UPN 以外の電子メールでサインインし、正しくないパスワードを入力すると、[パスワードの *入力* ] ページが変更され、UPN が表示されます。
+    - Microsoft Office などの一部の Microsoft サイトやアプリでは、通常、右上に表示される *アカウント マネージャー* コントロールに、サインインに使用される UPN 以外の電子メールではなく、ユーザーの UPN が表示される場合があります。
+- **サポートされていないフロー** - 一部のフローは、次のような UPN 以外の電子メールと現在互換性がありません。
+
+    - Microsoft Entra ID Protection は、UPN 以外の電子メールと*漏洩した資格情報の*リスク検出を一致させません。 このリスク検出では、UPN を使用して、漏洩した認証情報を照合します。 詳細については、「 [方法: リスクを調査する」を](https://learn.microsoft.com/ja-jp/entra/id-protection/howto-identity-protection-investigate-risk)参照してください。
+    - ユーザーが UPN 以外のメール アドレスを使用してサインインしている場合、ユーザーは自分のパスワードを変更できません。 Microsoft Entra セルフサービス パスワード リセット (SSPR) は想定どおりに機能します。 SSPR 中に、ユーザーが UPN 以外のメール アドレスを使用して自分の ID を確認すると、UPN が表示される場合があります。
+- **サポートされていないシナリオ** - 次のシナリオはサポートされていません。 UPN 以外のメール アドレスを使用した次へのサインイン:
+
+    - [Microsoft Entra ハイブリッドに参加したデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-hybrid-join)
+    - [Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)
+    - [Microsoft Entra 登録済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-device-registration)
+    - [モバイルプラットフォームにおけるシングル Sign-On とアプリ保護ポリシー](https://learn.microsoft.com/ja-jp/entra/identity-platform/mobile-sso-support-overview)
+    - POP3 や SMTP などのレガシ認証
+- **サポートされていないアプリ** - 一部のサード パーティ製アプリケーションは、 `unique_name` または `preferred_username` 要求が不変であると想定している場合や、常に UPN などの特定のユーザー属性と一致すると想定した場合に動作しない可能性があります。
+- **ログ -** HRD ポリシーで機能の構成に加えられた変更は、監査ログに明示的に表示されません。
+- **段階的ロールアウト ポリシー** - 次の制限は、段階的ロールアウト ポリシーを使用して機能が有効になっている場合にのみ適用されます。
+
+    - この機能は、他の段階的ロールアウト ポリシーに含まれているユーザーに対しては想定どおりに機能しません。
+    - 段階的ロールアウト ポリシーでは、機能ごとに最大 10 個のグループがサポートされます。
+    - 段階的ロールアウト ポリシーでは、入れ子になったグループはサポートされていません。
+    - 段階的ロールアウト ポリシーでは、動的メンバーシップ グループはサポートされていません。
+    - グループ内の連絡先オブジェクトによって、段階的ロールアウト ポリシーへのグループの追加がブロックされます。
+- **値の重複** - テナント内では、クラウド専用ユーザーの UPN は、オンプレミス ディレクトリから同期された別のユーザーのプロキシ アドレスと同じ値にすることができます。 このシナリオでは、機能を有効にすると、クラウド専用のユーザーは UPN でサインインできなくなります。 この問題の詳細については、「 トラブルシューティング 」セクションを参照してください。
+
+### 代替ログイン ID オプションの概要
+
+Microsoft Entra ID にサインインするために、ユーザーは自分のアカウントを一意に識別する値を入力します。 これまでは、サインイン ID として使用できるのは Microsoft Entra UPN のみでした。
+
+オンプレミスの UPN がユーザーの推奨されるサインイン メールである組織の場合、この方法は優れていました。 そうした組織では、Microsoft Entra UPN をオンプレミスの UPN とまったく同じ値に設定することで、ユーザーの一貫したサインイン エクスペリエンスを実現しています。
+
+#### AD FS の代替ログイン ID
+
+ただし、組織によっては、オンプレミスの UPN をサインイン ID として使用していません。 オンプレミス環境では、代替ログイン ID を使用してサインインできるようにローカル AD DS を構成しています。 Microsoft Entra ID でユーザーはその値を使用してサインインするよう求められるため、Microsoft Entra UPN をオンプレミスの UPN と同じ値に設定することはできません。
+
+#### Microsoft Entra Connect の代替ログイン ID
+
+この問題の一般的な回避策は、 Microsoft Entra UPN を、ユーザーがサインインに使用することを想定しているメール アドレスに設定することでした。 この方法は有効ですが、結果的にオンプレミスの AD と Microsoft Entra ID で UPN が異なります。また、この構成はすべての Microsoft 365 ワークロードと互換性があるわけではありません。
+
+#### 代替ログイン ID としてのメール アドレス
+
+別の方法は、Microsoft Entra ID とオンプレミスの UPN を同じ値に同期し、ユーザーが検証済みの電子メールで Microsoft Entra ID にサインインできるように Microsoft Entra ID を構成することです。 この機能を提供するには、オンプレミス ディレクトリのユーザーの *ProxyAddresses* 属性に 1 つ以上の電子メール アドレスを定義します。 *ProxyAddresses* は、Microsoft Entra Connect を使用して Microsoft Entra ID に自動的に同期されます。
+
+| オプション | 説明 |
+| --- | --- |
+| [AD FS の代替ログイン ID](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) | AD FS ユーザーの代替属性 (Mail など) を使用したサインインを有効にします。 |
+| [Microsoft Entra Connect の代替ログイン ID](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-userprincipalname#alternate-login-id) | 代替属性 (Mail など) を Microsoft Entra UPN として同期します。 |
+| 代替ログイン ID としてのメール アドレス | Microsoft Entra ユーザーの検証済みドメイン *ProxyAddresses* を使用してサインインを有効にします。 |
+
+### サインイン電子メール アドレスを Microsoft Entra ID に同期する
+
+従来の Active Directory ドメイン サービス (AD DS) 認証または Active Directory フェデレーションサービス (AD FS) 認証は、ネットワーク上で直接行われ、AD DS インフラストラクチャによって処理されます。 ハイブリッド認証では、ユーザーは代わりに Microsoft Entra ID に直接サインインすることができます。
+
+このハイブリッド認証アプローチをサポートするには、Microsoft Entra Connect を使用してオンプレミスの AD DS 環境を [Microsoft Entra](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/whatis-azure-ad-connect) ID に同期し、PHS または PTA を使用するように構成します。 詳細については、「 [Microsoft Entra ハイブリッド ID ソリューションに適した認証方法を選択](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/choose-ad-authn)する」を参照してください。
+
+どちらの構成オプションでも、ユーザーはユーザー名とパスワードを Microsoft Entra ID に送信し、ここで資格情報が検証され、チケットが発行されます。 ユーザーが Microsoft Entra ID にサインインすると、組織が AD FS インフラストラクチャをホストし管理する必要性はなくなります。
+
+Microsoft Entra Connect によって自動的に同期されるユーザー属性の 1 つは *ProxyAddresses です*。 ユーザーが *ProxyAddresses* 属性の一部としてオンプレミスの AD DS 環境で定義されているメール アドレスを持っている場合は、自動的に Microsoft Entra ID に同期されます。 このメール アドレスは、直接 Microsoft Entra サインイン プロセスで、代替ログイン ID として使用できます。
+
+重要
+
+テナントの確認済みドメインのメールのみが Microsoft Entra ID に同期されます。 それぞれの Microsoft Entra テナントには、1 つ以上の確認済みドメインがあり、これらは所有権が実証され、テナントに一意にバインドされます。
+
+詳細については、「 [Microsoft Entra ID でカスタム ドメイン名を追加して確認](https://learn.microsoft.com/ja-jp/entra/fundamentals/add-custom-domain)する」を参照してください。
+
+### メール アドレスを使用した B2B ゲスト ユーザーのサインイン
+
+[Image: B 2 B ゲスト ユーザー サインインの代替ログイン ID としての電子メールの図。]
+
+代替ログイン ID としての電子メールは、"Bring your own sign-in identifiers" モデルの下で [Microsoft Entra B2B コラボレーション](https://learn.microsoft.com/ja-jp/entra/external-id/what-is-b2b) に適用されます。 代替ログイン ID としてのメール アドレスがホーム テナントで有効になっている場合、Microsoft Entra ユーザーは、UPN 以外のメール アドレスを使用して、リソース テナント エンドポイントでゲスト サインインを実行できます。 この機能を有効にするために、リソース テナントで要求される操作はありません。
+
+注
+
+機能が有効になっていないリソース テナント エンドポイントで代替ログイン ID を使用すると、サインイン プロセスはシームレスに動作しますが、SSO は中断されます。
+
+### メール アドレスを使用してユーザーのサインインを有効にする
+
+注
+
+この構成オプションには HRD ポリシーを使用します。 詳細については、「 [homeRealmDiscoveryPolicy リソースの種類」を参照してください](https://learn.microsoft.com/ja-jp/graph/api/resources/homerealmdiscoverypolicy)。
+
+*ProxyAddresses* 属性が適用されたユーザーが Microsoft Entra Connect を使用して Microsoft Entra ID に同期されたら、ユーザーがテナントの代替ログイン ID として電子メールでサインインする機能を有効にする必要があります。 この機能は、UPN 値に対してサインイン識別子を確認するだけでなく、電子メール アドレスの *ProxyAddresses* 値に対しても確認するように Microsoft Entra ログイン サーバーに指示します。
+
+Microsoft Entra 管理センターか Graph PowerShell 使用し、機能を設定できます。
+
+#### Microsoft Entra 管理センター
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ハイブリッド ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)としてサインインします。
+2. **Entra ID**&gt;**Entra Connect**&gt;**Connect Sync** に移動します
+3. [代替ログイン ID として電子メール] を選択します\*\*。
+
+    [Image: Microsoft Entra 管理センターの代替ログイン ID オプションとしての電子メールのスクリーンショット。]
+4. [ *代替ログイン ID として電子メールを送信*する] の横にあるチェック ボックスをオンにします。
+5. [ **保存] をクリックします**。
+
+    [Image: Microsoft Entra 管理センターの [代替ログイン ID] ブレードとしての電子メールのスクリーンショット。]
+
+ポリシーが適用されている場合は、伝達されて、ユーザーが代替ログイン ID を使用してサインインできるようになるまでに、最大 1 時間かかることがあります。
+
+#### PowerShell
+
+注
+
+この構成オプションには HRD ポリシーを使用します。 詳細については、「 [homeRealmDiscoveryPolicy リソースの種類」を参照してください](https://learn.microsoft.com/ja-jp/graph/api/resources/homeRealmDiscoveryPolicy?view=graph-rest-1.0&preserve-view=true)。
+
+*ProxyAddresses* 属性が適用されたユーザーが Microsoft Entra Connect を使用して Microsoft Entra ID に同期されたら、ユーザーがテナントの代替ログイン ID として電子メールでサインインする機能を有効にする必要があります。 この機能は、UPN 値に対してサインイン識別子を確認するだけでなく、電子メール アドレスの *ProxyAddresses* 値に対しても確認するように Microsoft Entra ログイン サーバーに指示します。
+
+1. 管理者として PowerShell セッションを開き、 コマンドレットを使用して `Install-Module` モジュールをインストールします。
+
+    ```powershell
+    Install-Module Microsoft.Graph
+    ```
+
+    インストールの詳細については、「 [Microsoft Graph PowerShell SDK のインストール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation)」を参照してください。
+2. `Connect-MgGraph` コマンドレットを使用して、Microsoft Entra テナントにサインインします:
+
+    ```powershell
+    Connect-MgGraph -Scopes "Policy.ReadWrite.ApplicationConfiguration" -TenantId organizations
+    ```
+
+    このコマンドにより、Web ブラウザーを使用して認証するよう求められます。
+3. 次のように、 コマンドレットを使用して、テナントに `Get-MgPolicyHomeRealmDiscoveryPolicy` が既に存在するかどうかを確認します。
+
+    ```powershell
+    Get-MgPolicyHomeRealmDiscoveryPolicy
+    ```
+4. 現在構成されているポリシーがない場合、コマンドは何も返しません。 ポリシーが返された場合は、この手順をスキップし、次の手順に進んで、既存のポリシーを更新します。
+
+    *HomeRealmDiscoveryPolicy を*テナントに追加するには、`New-MgPolicyHomeRealmDiscoveryPolicy` コマンドレットを使用し、*AlternateIdLogin* 属性を *"Enabled" に設定します。次*の例に示すように true。
+
+    ```powershell
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    
+    $AzureADPolicyParameters = @{
+      Definition            = $AzureADPolicyDefinition
+      DisplayName           = "BasicAutoAccelerationPolicy"
+      AdditionalProperties  = @{ IsOrganizationDefault = $true }
+    }
+    
+    New-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
+    ```
+
+    ポリシーが正常に作成されると、次の出力例に示すように、コマンドによってポリシー ID が返されます。
+
+    ```powershell
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
+    ```
+5. 構成済みのポリシーが既にある場合は、次のポリシー出力例に示すように、 *AlternateIdLogin* 属性が有効になっているかどうかを確認します。
+
+    ```powershell
+    Definition                                                           DeletedDateTime Description DisplayName                 Id            IsOrganizationDefault
+    ----------                                                           --------------- ----------- -----------                 --            ---------------------
+    {{"HomeRealmDiscoveryPolicy":{"AlternateIdLogin":{"Enabled":true}}}}                             BasicAutoAccelerationPolicy HRD_POLICY_ID True
+    ```
+
+    ポリシーが存在するが *、AlternateIdLogin* 属性が存在しないか有効になっていない場合、または保持するポリシーに他の属性が存在する場合は、 `Update-MgPolicyHomeRealmDiscoveryPolicy` コマンドレットを使用して既存のポリシーを更新します。
+
+    重要
+
+    ポリシーを更新するときは、古い設定と新しい *AlternateIdLogin* 属性が含まれていることを確認します。
+
+    次の例では、 *AlternateIdLogin* 属性を追加し、以前に設定した *AllowCloudPasswordValidation* 属性を保持します。
+
+    ```powershell
+    $AzureADPolicyDefinition = @(
+      @{
+         "HomeRealmDiscoveryPolicy" = @{
+            "AllowCloudPasswordValidation" = $true
+            "AlternateIdLogin" = @{
+               "Enabled" = $true
+            }
+         }
+      } | ConvertTo-JSON -Compress
+    )
+    
+    $AzureADPolicyParameters = @{
+      HomeRealmDiscoveryPolicyId = "HRD_POLICY_ID"
+      Definition                 = $AzureADPolicyDefinition
+      DisplayName                = "BasicAutoAccelerationPolicy"
+      AdditionalProperties       = @{ "IsOrganizationDefault" = $true }
+    }
+    
+    Update-MgPolicyHomeRealmDiscoveryPolicy @AzureADPolicyParameters
+    ```
+
+    更新されたポリシーに変更内容が表示され *、AlternateIdLogin* 属性が有効になっていることを確認します。
+
+    ```powershell
+    Get-MgPolicyHomeRealmDiscoveryPolicy
+    ```
+
+注
+
+ポリシーが適用されている場合は、伝達されて、ユーザーが代替ログイン ID としてメールを使用してサインインできるようになるまでに、最大 1 時間かかることがあります。
+
+#### ポリシーの削除
+
+HRD ポリシーを削除するには、`Remove-MgPolicyHomeRealmDiscoveryPolicy` コマンドレットを使用します。
+
+```powershell
+Remove-MgPolicyHomeRealmDiscoveryPolicy -HomeRealmDiscoveryPolicyId "HRD_POLICY_ID"
+```
+
+### メール アドレスを使用したユーザー サインインをテストするために段階的なロールアウトを有効にする
+
+注
+
+この構成オプションには、段階的ロールアウト ポリシーを使用します。 詳細については、「 [featureRolloutPolicy リソースの種類](https://learn.microsoft.com/ja-jp/graph/api/resources/featurerolloutpolicy)」を参照してください。
+
+段階的なロールアウト ポリシーを使用すると、テナント管理者は特定の Microsoft Entraグループに対して各機能を有効にすることができます。 テナント管理者が、段階的なロールアウトを使用して、メール アドレスでのユーザー サインインをテストすることをお勧めします。 管理者がこの機能をテナント全体に展開する準備ができたら、 HRD ポリシーを使用する必要があります。
+
+1. 管理者として PowerShell セッションを開き、*Install-Module* コマンドレットを使用して [Microsoft.Graph.Beta](https://learn.microsoft.com/ja-jp/powershell/module/powershellget/install-module) モジュールをインストールします。
+
+    ```powershell
+    Install-Module Microsoft.Graph.Beta
+    ```
+
+    メッセージが表示されたら、 **Y** を選択して NuGet をインストールするか、信頼されていないリポジトリからインストールします。
+2. [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/authentication-commands#using-connect-mggraph) コマンドレットを使用して Microsoft Entra テナントにサインインします。
+
+    ```powershell
+    Connect-MgGraph -Scopes "Directory.ReadWrite.All"
+    ```
+
+    このコマンドは、アカウント、環境、およびテナント ID に関する情報を返します。
+3. 次のコマンドレットを使用して、既存の段階的なロールアウト ポリシーをすべて一覧表示します。
+
+    ```powershell
+    Get-MgBetaPolicyFeatureRolloutPolicy
+    ```
+4. この機能について既存の段階的なロールアウト ポリシーが存在しない場合は、段階的ロールアウト ポリシーを新たに作成し、ポリシー ID を書き留めておきます。
+
+    ```powershell
+    $MgPolicyFeatureRolloutPolicy = @{
+    Feature    = "EmailAsAlternateId"
+    DisplayName = "EmailAsAlternateId Rollout Policy"
+    IsEnabled   = $true
+    }
+    New-MgBetaPolicyFeatureRolloutPolicy @MgPolicyFeatureRolloutPolicy
+    ```
+5. 段階的なロールアウト ポリシーに追加されるグループの directoryObject ID を検索します。 次の手順で使用するため、 *Id* パラメーターに返される値に注意してください。
+
+    ```powershell
+    Get-MgBetaGroup -Filter "DisplayName eq 'Name of group to be added to the staged rollout policy'"
+    ```
+6. 次の例に示すように、グループを段階的なロールアウト ポリシーに追加します。 *-FeatureRolloutPolicyId* パラメーターの値を、手順 4 でポリシー ID に返された値に置き換え*、-OdataId* パラメーターの値を手順 5 で示した *ID* に置き換えます。 グループ内のユーザーが代替ログイン ID としてメール アドレスを使用して Microsoft Entra ID にサインインできるようになるまで、最大 1 時間かかることがあります。
+
+    ```powershell
+    New-MgBetaDirectoryFeatureRolloutPolicyApplyToByRef `
+       -FeatureRolloutPolicyId "ROLLOUT_POLICY_ID" `
+       -OdataId "https://graph.microsoft.com/v1.0/directoryObjects/{GROUP_OBJECT_ID}"
+    ```
+
+新しいメンバーをグループに追加した場合、代替ログイン ID としてメール アドレスを使用して Microsoft Entra ID にサインインできるようになるまで、最大で 24 時間かかることがあります。
+
+#### グループの削除
+
+段階的なロールアウト ポリシーからグループを削除するには、次のコマンドを実行します。
+
+```powershell
+Remove-MgBetaPolicyFeatureRolloutPolicyApplyToByRef -FeatureRolloutPolicyId "ROLLOUT_POLICY_ID" -DirectoryObjectId "GROUP_OBJECT_ID"
+```
+
+#### ポリシーの削除
+
+段階的なロールアウト ポリシーを削除するには、まずポリシーを無効にして、システムから削除します。
+
+```powershell
+Update-MgBetaPolicyFeatureRolloutPolicy -FeatureRolloutPolicyId "ROLLOUT_POLICY_ID" -IsEnabled:$false 
+Remove-MgBetaPolicyFeatureRolloutPolicy -FeatureRolloutPolicyId "ROLLOUT_POLICY_ID"
+```
+
+### メール アドレスを使用してユーザーのサインインをテストする
+
+ユーザーがメール アドレスを使用してサインインできるかどうかをテストするには、https://myprofile.microsoft.com に移動し、UPN 以外のメール アドレス (`balas@fabrikam.com` など) を使用してサインインします。 サインイン エクスペリエンスは、UPN を使用したサインインと同じ外観になります。
+
+### トラブルシューティング
+
+ユーザーがメール アドレスを使用してサインインするときに問題が発生した場合は、次のトラブルシューティングの手順を確認してください。
+
+1. メール アドレスが代替ログイン ID として有効になってから少なくとも 1 時間が経過していることを確認します。 段階的ロールアウト ポリシーの適用対象であるグループにユーザーが最近追加された場合は、グループに追加されてから少なくとも 24 時間が経過していることを確認します。
+2. HRD ポリシーを使用している場合は、Microsoft Entra ID *HomeRealmDiscoveryPolicy* の *AlternateIdLogin* 定義プロパティが *"Enabled": true に* 設定され、 *IsOrganizationDefault プロパティが* *True* に設定されていることを確認します。
+
+    ```powershell
+    Get-MgBetaPolicyHomeRealmDiscoveryPolicy | Format-List *
+    ```
+
+    段階的ロールアウト ポリシーを使用している場合は、Microsoft Entra ID *FeatureRolloutPolicy* に *IsEnabled* プロパティが *True* に設定されていることを確認します。
+
+    ```powershell
+    Get-MgBetaPolicyFeatureRolloutPolicy
+    ```
+3. ユーザー アカウントのメール アドレスが、Microsoft Entra ID の *ProxyAddresses* 属性に設定されていることを確認します。
+
+#### サインイン ログ
+
+[Image: 代替ログイン ID アクティビティとして電子メールを示す Microsoft Entra サインイン ログのスクリーンショット。]
+
+詳細については、 [Microsoft Entra ID のサインイン ログ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-ins) を確認できます。 代替ログイン ID として電子メールを使用したサインインでは、[`proxyAddress`] フィールドにが出力され、[*サインイン識別子*] フィールドに入力されたユーザー名が出力されます。
+
+#### クラウド専用ユーザーと同期されたユーザーの間で競合する値
+
+テナント内では、クラウド専用ユーザーの UPN が、オンプレミス ディレクトリから同期された別のユーザーのプロキシ アドレスと同じ値になる場合があります。 このシナリオでは、機能を有効にすると、クラウド専用のユーザーは UPN でサインインできなくなります。 この問題のインスタンスを検出する手順を次に示します。
+
+1. 管理者として PowerShell セッションを開き、 [Install-Module](https://learn.microsoft.com/ja-jp/powershell/module/powershellget/install-module) コマンドレットを使用して Microsoft Graph をインストールします。
+
+    ```powershell
+    Install-Module Microsoft.Graph.Authentication
+    ```
+
+    メッセージが表示されたら、 **Y** を選択して NuGet をインストールするか、信頼されていないリポジトリからインストールします。
+2. Microsoft Graph に接続する
+
+    ```powershell
+    Connect-MgGraph -Scopes "User.Read.All"
+    ```
+3. 影響を受けるユーザーを取得します。
+
+    ```powershell
+    # Get all users
+    $allUsers = Get-MgUser -All
+    
+    # Get list of proxy addresses from all synced users
+    $syncedProxyAddresses = $allUsers |
+        Where-Object {$_.ImmutableId} |
+        Select-Object -ExpandProperty ProxyAddresses |
+        ForEach-Object {$_ -Replace "smtp:", ""}
+    
+    # Get list of user principal names from all cloud-only users
+    $cloudOnlyUserPrincipalNames = $allUsers |
+        Where-Object {!$_.ImmutableId} |
+        Select-Object -ExpandProperty UserPrincipalName
+    
+    # Get intersection of two lists
+    $duplicateValues = $syncedProxyAddresses |
+        Where-Object {$cloudOnlyUserPrincipalNames -Contains $_}
+    ```
+4. 影響を受けるユーザーを出力するには:
+
+    ```powershell
+    # Output affected synced users
+    $allUsers |
+        Where-Object {$_.ImmutableId -And ($_.ProxyAddresses | Where-Object {($duplicateValues | ForEach-Object {"smtp:$_"}) -Contains $_}).Length -GT 0} |
+        Select-Object ObjectId, DisplayName, UserPrincipalName, ProxyAddresses, ImmutableId, UserType
+    
+    # Output affected cloud-only users
+    $allUsers |
+        Where-Object {!$_.ImmutableId -And $duplicateValues -Contains $_.UserPrincipalName} |
+        Select-Object ObjectId, DisplayName, UserPrincipalName, ProxyAddresses, ImmutableId, UserType
+    ```
+5. 影響を受けるユーザーを CSV に出力するには:
+
+    ```powershell
+    # Output affected users to CSV
+    $allUsers |
+        Where-Object {
+            ($_.ImmutableId -And ($_.ProxyAddresses | Where-Object {($duplicateValues | ForEach-Object {"smtp:$_"}) -Contains $_}).Length -GT 0) -Or
+            (!$_.ImmutableId -And $duplicateValues -Contains $_.UserPrincipalName)
+        } |
+        Select-Object ObjectId, DisplayName, UserPrincipalName, @{n="ProxyAddresses"; e={$_.ProxyAddresses -Join ','}}, @{n="IsSyncedUser"; e={$_.ImmutableId.Length -GT 0}}, UserType |
+        Export-Csv -Path .\AffectedUsers.csv -NoTypeInformation
+    ```
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-mfa-adfs"} -->
+## Microsoft Entra 多要素認証と ADFS を使用してリソースをセキュリティで保護する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-mfa-adfs
+- Service: entra-id / authentication
+- Article date: 2025-03-04
+- Summary: これは、クラウドでの Microsoft Entra 多要素認証と AD FS の使用を開始する方法を説明する Microsoft Entra 多要素認証ページです。
+
+組織が Microsoft Entra ID とフェデレーションされている場合は、Microsoft Entra 多要素認証または Active Directory フェデレーション サービス (AD FS) を使用して、Microsoft Entra ID によってアクセスされるリソースをセキュリティで保護します。 Microsoft Entra 多要素認証または Active Directory フェデレーション サービス (ADFS) を使用して Microsoft Entra リソースをセキュリティで保護するには、次の手順に従います。
+
+注
+
+ドメイン設定 [federatedIdpMfaBehavior](https://learn.microsoft.com/ja-jp/graph/api/resources/internaldomainfederation?view=graph-rest-beta&preserve-view=true#federatedidpmfabehavior-values) を `enforceMfaByFederatedIdp` に設定するか (推奨)、**SupportsMFA** を `$True` に設定します。 両方が設定されている場合、**federatedIdpMfaBehavior** 設定によって **SupportsMFA** がオーバーライドされます。
+
+### AD FS を使用して Microsoft Entra リソースをセキュリティで確保する
+
+クラウド リソースをセキュリティで保護するには、ユーザーが 2 段階認証の実行に成功したときに、Active Directory フェデレーション サービスが multipleauthn 要求を出力するよう要求規則を設定します。 この要求は、Microsoft Entra ID に渡されます。 以下では、その手順を説明します。
+
+1. AD FS 管理を開きます。
+2. 左側で、 **[証明書利用者信頼]** を選択します。
+3. **Microsoft Office 365 ID プラットフォーム**を右選択し、[**要求規則の編集]** を選択します。
+
+    [Image: ADFS コンソール - 証明書利用者信頼]
+4. [発行変換規則] で、**[規則の追加]** を選択します。
+
+    [Image: 発行変換規則の編集]
+5. 変換要求規則の追加ウィザードで、ドロップダウンから **[パススルー] または [受信要求のフィルター処理** ] を選択し、[ **次へ**] を選択します。
+
+    [Image: 変換要求規則の追加ウィザードを示すスクリーンショット。ここでは、要求規則テンプレートを選択できます。]
+6. 規則に名前を付けます。
+7. 受信要求の種類として **[認証方法の参照]** を選択します。
+8. **[すべての要求値をパススルーする]** を選択します。
+
+    [Image: 変換要求規則の追加ウィザードを示すスクリーンショット。ここでは、[すべての要求値をパススルーする] を選択できます。]
+9. **完了** を選択します。 AD FS 管理コンソールを閉じます。
+
+### フェデレーション ユーザー用の信頼できる IP
+
+管理者は信頼できる IP を使用すると、特定の IP アドレス、またはイントラネット内から要求が送信されているフェデレーション ユーザーの 2 段階認証をバイパスできます。 次のセクションでは、信頼できる IP を使用してバイパスを構成する方法について説明します。 これは、要求の種類 [企業ネットワーク内] で [入力方向の要求をパススルーまたはフィルター処理] テンプレートを使用するように AD FS を構成することによって実現されます。
+
+ここで示す例では、証明書利用者信頼で Microsoft 365 を使用します。
+
+#### AD FS 要求規則を構成する
+
+最初に実行する必要があるのは、AD FS の要求を構成することです。 2 つの要求規則を作成します。1 つは [企業ネットワーク内] という要求の種類用であり、もう 1 つはユーザーのサインイン状態を維持するためのものです。
+
+1. AD FS 管理を開きます。
+2. 左側で、 **[証明書利用者信頼]** を選択します。
+3. **Microsoft Office 365 ID プラットフォーム**を右選択し、[**要求規則の編集]を選択します。..**
+
+    [Image: ADFS コンソール - 要求規則の編集]
+4. [発行変換規則] で、**[規則の追加]** を選択します。
+
+    [Image: 要求規則の追加]
+5. 変換要求規則の追加ウィザードで、ドロップダウンから **[パススルー] または [受信要求のフィルター処理** ] を選択し、[ **次へ**] を選択します。
+
+    [Image: 変換要求規則の追加ウィザードを示すスクリーンショット。ここでは、[入力方向の要求をパススルーまたはフィルター処理] を選択できます。]
+6. [要求規則名] の横にあるボックスに、規則の名前を入力します。 次に例を示します。InsideCorpNet。
+7. [入力方向の要求の種類] の横にあるドロップダウンから、 **[企業ネットワーク内]** を選択します。
+
+    [Image: 企業ネットワーク内要求の追加]
+8. **完了** を選択します。
+9. [発行変換規則] で、**[規則の追加]** を選択します。
+10. 変換要求規則の追加ウィザードで、ドロップダウンから **[カスタム規則を使用して要求を送信** ] を選択し、[ **次へ**] を選択します。
+11. [要求規則名] の下のボックスに 「*Keep Users Signed In*」(ユーザーをサインインしたままにする) と入力します。
+12. [カスタム規則:] ボックスに次のように入力します。
+
+    ```ad
+        c:[Type == "https://schemas.microsoft.com/2014/03/psso"]
+            => issue(claim = c); 
+    ```
+
+    [Image: ユーザーをサインインしたままにするカスタム要求を作成する]
+13. **完了** を選択します。
+14. **を選択して**を適用します。
+15. **OK** を選択します。
+16. AD FS 管理を閉じます。
+
+#### フェデレーション ユーザーを使用して Microsoft Entra 多要素認証の信頼できる IP を構成する
+
+これで要求が準備できたので、信頼できる IP を構成できます。
+
+1. 少なくとも[認証ポリシー管理者](https://entra.microsoft.com)として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)にサインインします。
+2. **条件付きアクセス**&gt;**名前付きの場所**を参照します。
+3. **[条件付きアクセス - ネームド ロケーション]** ブレードから **[MFA の信頼できる IP の構成]** を選択します。
+
+    [Image: [Microsoft Entra 条件付きアクセス] のネームド ロケーションの [MFA の信頼できる IP の構成]]
+4. [サービス設定] ページの **[信頼できる IP]** で、**[イントラネット内のフェデレーション ユーザーからのリクエストの場合、多要素認証をスキップする]** を選択します。
+5. **[保存]** を選択します。
+
+それです！ この時点で、Microsoft 365 のフェデレーション ユーザーは、企業のイントラネットの外部から要求を送信するときに、MFA のみを使用するだけですみます。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-mfa-app-passwords"} -->
+## Microsoft Entra 多要素認証のアプリ パスワードを構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-mfa-app-passwords
+- Service: entra-id / authentication
+- Article date: 2025-03-04
+- Summary: Microsoft Entra 多要素認証でレガシ アプリケーションのアプリ パスワードを構成して使用する方法について説明します
+
+一部の古い非ブラウザー アプリ (Office 2010 以前や iOS 11 より前の Apple Mail など) では、認証プロセスの一時停止や中断が認識されません。 これらの古い非ブラウザー アプリのいずれかにサインインしようとする Microsoft Entra 多要素認証 (多要素認証の Microsoft Entra) ユーザーは、正常に認証できません。 ユーザー アカウントに対して適用されている Microsoft Entra 多要素認証を使用した安全な方法でこれらのアプリケーションを使用するには、アプリ パスワードを使用できます。 これらのアプリ パスワードは従来のパスワードを置き換え、アプリは多要素認証をバイパスして正常に動作できるようになります。
+
+Microsoft Office 2013 クライアント以降向けの最新の認証がサポートされています。 Office 2013 クライアント (Outlook を含む) は、最新の認証プロトコルをサポートしており、2 段階認証で正しく機能します。 Microsoft Entra 多要素認証を適用した後は、クライアントにアプリ パスワードは必要ありません。
+
+この記事では、多要素認証プロンプトをサポートしていないレガシ アプリケーションで、アプリ パスワードを使用する方法について説明します。
+
+注
+
+アプリ パスワードは、先進認証を使用するように要求されるアカウントでは機能しません。
+
+### 概要と考慮事項
+
+ユーザー アカウントに Microsoft Entra 多要素認証が適用されると、通常のサインイン プロンプトが追加の検証の要求によっ、中断されます。 一部の古いアプリケーションでは、サインイン プロセスのこの中断を認識しないため、認証が失敗します。 ユーザー アカウントのセキュリティを維持し、Microsoft Entra 多要素認証が適用されたままにするには、ユーザーの通常のユーザー名とパスワードの代わりにアプリ パスワードを使用できます。 サインイン時にアプリ パスワードを使用すると、追加の検証プロンプトが表示されず、認証が成功します。
+
+アプリ パスワードは自動的に生成され、ユーザーが指定しません。 この自動的に生成されたパスワードの方が攻撃者から推測されづらく、より安全です。 アプリ パスワードはアプリケーションごとに 1 回入力するだけであるため、ユーザーはパスワードを追跡したり、毎回それらを入力したりする必要がありません。
+
+アプリ パスワードを使用する場合は、次の考慮事項が適用されます。
+
+- ユーザー 1 人あたりのアプリ パスワード数の上限は 40 個である。
+- パスワードをキャッシュし、オンプレミス シナリオで使用しているアプリケーションでは、職場または学校アカウント以外で、アプリ パスワードが不明であるため、失敗する可能性があります。 このシナリオの例として、Exchangeのメールがオンプレミスであるが、そのアーカイブメールがクラウドにある場合があります。 このシナリオでは、同じパスワードは機能しません。
+- ユーザーのアカウントに Microsoft Entra 多要素認証が適用された後は、Outlook や Microsoft Skype for Business などのほとんどの非ブラウザー クライアントでアプリ パスワードを使用できます。 ただし、Windows PowerShell などの非ブラウザー アプリケーションからアプリ パスワードを使用して、管理操作を実行することはできません。 ユーザーが管理者アカウントを持っている場合でも、操作を実行することはできません。
+    - PowerShell スクリプトを実行するには、サービス アカウントを強固なパスワードで作成します。そのアカウントで 2 段階認証を適用しないでください。
+- ユーザー アカウントが侵害された疑いがあり、アカウント パスワードを取り消すか、またはリセットした場合は、アプリ パスワードも更新する必要があります。 ユーザー アカウントのパスワードが取り消されるか、またはリセットされても、アプリ パスワードは自動的には取り消されません。 ユーザーは既存のアプリ パスワードを削除し、新しいアプリ パスワードを作成する必要があります。
+    - 詳細については、「[\[追加のセキュリティ確認\] ページを使用してアプリ パスワードを作成および削除する](https://support.microsoft.com/account-billing/manage-app-passwords-for-two-step-verification-d6dc8c6d-4bf7-4851-ad95-6d07799387e9#create-and-delete-app-passwords-from-the-additional-security-verification-page)」を参照してください。
+
+警告
+
+クライアントがオンプレミスの自動検出エンドポイントとクラウドの自動検出エンドポイントの両方と通信するハイブリッド環境では、アプリ パスワードは機能しません。 オンプレミスでの認証にはドメイン パスワードが必要です。 クラウドでの認証にはアプリ パスワードが必要です。
+
+#### アプリ パスワード名
+
+アプリ パスワードの名前は、それが使用されるデバイスを反映させるようにします。 Outlook、Word、Excel などのブラウザー以外のアプリケーションがあるラップトップでは、これらのアプリに対して **Laptop** という名前のアプリ パスワードを 1 つ作成します。 デスクトップ コンピューター上で実行される同じアプリケーションに対しては、**Desktop** という名前の別のアプリ パスワードを作成します。
+
+アプリケーションごとに 1 つのアプリ パスワードではなく、デバイスごとに 1 つのアプリ パスワードを作成することをお勧めします。
+
+### フェデレーション (シングル サインオン) アプリ パスワード
+
+Microsoft Entra ID では、オンプレミスの Active Directory Domain Services (AD DS) とのフェデレーション (シングル サインオン (SSO)) がサポートされています。 組織が Microsoft Entra ID とフェデレーションされており、Microsoft Entra 多要素認証を使用している場合は、次のアプリ パスワードの考慮事項が適用されます。
+
+注
+
+次の点はフェデレーション (SSO) 顧客にのみ適用されます。
+
+- アプリ パスワードは Microsoft Entra ID によって検証されます。したがって、フェデレーションをバイパスします。 フェデレーションは、アプリ パスワードを設定するときにのみアクティブに使用されます。
+- フェデレーション (SSO) ユーザーの場合、パッシブ フローとは異なり、ID プロバイダー (IdP) には接続されません。 アプリ パスワードは職場または学校アカウントに格納されます。 ユーザーが退職した場合、そのユーザーの情報は、**DirSync** を使用して、リアルタイムで職場または学校アカウントに送信されます。 アカウントの無効化/削除を同期させるには最大 3 時間かかる場合があり、Microsoft Entra ID 内のアプリ パスワードの無効化または削除が遅れることがあります。
+- オンプレミスのクライアント アクセス制御設定は、アプリ パスワード機能には適用されません。
+- アプリ パスワード機能で使用できるオンプレミスの認証ログまたは監査機能はありません。
+
+一部の高度なアーキテクチャでは、多要素認証をクライアントで使用するときに資格情報の組み合わせが必要になります。 これらの資格情報には、職場または学校アカウントのユーザー名とパスワード、およびアプリ パスワードを含めることができます。 要件は認証の実行方法によって異なります。 オンプレミスのインフラストラクチャに対して認証するクライアントの場合は、職場または学校アカウントのユーザー名が必要です。 Microsoft Entra ID に対して認証するクライアントの場合は、アプリ パスワードが必要です。
+
+たとえば、次のアーキテクチャがあるとします。
+
+- Active Directory のオンプレミスのインスタンスが Microsoft Entra ID とフェデレーションされている。
+- Exchange Online を使用している。
+- Skype for Business をオンプレミスで使用している。
+- Microsoft Entra 多要素認証を使用している。
+
+このシナリオでは、次の資格情報を使用します。
+
+- Skype for Business にサインインする場合は、職場または学校アカウントのユーザー名とパスワードを使用します。
+- Exchange にオンラインで接続している Outlook クライアントからアドレス帳にアクセスする場合は、アプリ パスワードを使用します。
+
+### ユーザーがアプリ パスワードを作成できるようにする
+
+既定では、ユーザーはアプリ パスワードを作成できません。 アプリ パスワード機能を有効にして、ユーザーがそれらを使えるようにする必要があります。 ユーザーがアプリ パスワードを作成できるようにするには、**管理者が次の手順を実行する必要があります**。
+
+1. 少なくとも[認証ポリシー管理者](https://entra.microsoft.com)として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)にサインインします。
+2. **条件付きアクセス**&gt;**名前付きの場所**を参照します。
+3. [条件付きアクセス | ネームド ロケーション] ウィンドウの上部のバーで **[MFA の信頼できる IP の構成]** を選択します。
+4. **[多要素認証]** ページで、**[ブラウザーではないアプリケーションへのサインイン用にアプリケーション パスワードの作成を許可する]** オプションを選択します。
+
+    [Image: アプリ パスワードをユーザーに許可するための多要素認証サービス設定を示すスクリーンショット]
+
+注
+
+アプリ パスワードが有効になっている場合、ユーザーは Microsoft Entra 多要素認証登録の一部としてアプリ パスワードを作成する必要があります。
+
+ユーザーがアプリ パスワードを作成できないようにしても、既存のアプリ パスワードを引き続き使用できます。 ただし、この機能を無効にされると、ユーザーはこれらの既存のアプリ パスワードを管理したり削除したりできなくなります。
+
+アプリ パスワードの作成機能を無効にする場合は、[条件付きアクセス ポリシーを作成して、レガシ認証を使用できないようにする](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/policy-block-legacy-authentication)こともお勧めします。 この方法を使用すると、既存のアプリ パスワードは機能しなくなり、最新の認証方法が強制的に使用されます。
+
+### アプリケーション パスワードの作成
+
+ユーザーが Microsoft Entra 多要素認証の初期登録を完了すると、登録プロセスの最後にアプリ パスワードを作成するように求められます。
+
+ユーザーによるアプリ パスワードの作成は、登録後も可能です。 詳細情報とユーザー向けの詳細な手順については、次のリソースを参照してください。
+
+- [\[セキュリティ情報\] ページからアプリ パスワードを作成する](https://support.microsoft.com/account-billing/create-app-passwords-from-the-security-info-preview-page-d8bc744a-ce3f-4d4d-89c9-eb38ab9d4137)
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -5468,100 +6479,15 @@ ConsistencyLevel: eventual
 
 ---
 
-<!-- MSL-PAGE {"url":"entra/identity/authentication/kerberos-server-key-rotation"} -->
-## Microsoft Entra Kerberos の Kerberos サーバー キーをローテーションする - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/kerberos-server-key-rotation
-- Service: entra-id / authentication
-- Article date: 2026-04-23
-- Summary: Microsoft Entra Kerberos サーバー キーをローテーションしてセキュリティを維持し、ハイブリッド ID 環境のベスト プラクティスに合わせる方法について説明します。
-
-ハイブリッド ID 環境では、Microsoft Entra Kerberos はオンプレミス Active Directory Domain Services (AD DS) とMicrosoft Entra IDの間で共有 Kerberos サーバー キーを使用します。 このキーは、Microsoft Entra IDによって発行されたチケット許可チケット (TGT) を暗号化して保護します。 この記事では、キーをローテーションしてセキュリティを維持し、Active Directoryのベスト プラクティスに合わせる方法について説明します。
-
-キーは、オンプレミスの Active Directory内の専用Microsoft Entra Kerberos サーバー オブジェクトに格納され、Microsoft Entra IDに安全に発行されます。 このオブジェクトは論理であり、物理サーバーではなく、Kerberos 信頼の読み取り専用ドメイン コントローラー (RODC) のように機能します。
-
-### 前提条件
-
-- `AzureADHybridAuthenticationManagement` PowerShell モジュールがインストールされています。
-- オンプレミス AD DS のドメイン管理者または同等の資格情報。
-- Microsoft Entra IDのクラウド管理者の資格情報。
-- オンプレミスの Active Directoryで既に構成されているMicrosoft Entra Kerberos サーバー オブジェクト。
-
-### キーローテーションが重要な理由を理解する
-
-Kerberos サーバー キーの定期的なローテーションは、次の場合に役立ちます。
-
-- 暗号化マテリアルの有効期間を制限します。
-- キーが侵害された場合のリスクを軽減します。
-- 標準的な Kerberos とActive Directoryのセキュリティ プラクティスに合わせます。
-
-Microsoftでは、他のActive Directory Kerberos (`krbtgt`) キーに使用するのと同じスケジュールで、Microsoft Entra Kerberos サーバー キーをローテーションすることをお勧めします。
-
-### キーのローテーションのしくみ
-
-Microsoft Entra Kerberos では、ローテーション中のサービス中断を回避するためにデュアルキー モデルを使用します。
-
-- **主キー**: 新しく発行されたすべての Kerberos チケットに使用されます。
-- **セカンダリ キー**: 既存のチケットが自然に期限切れになるまで、前のキーを保持して既存のチケットを検証します。
-
-キーをローテーションすると、新しいキーが主キーになり、前の主キーがセカンダリ キーとして保持されます。 Microsoft Entra IDは、セカンダリ キーによって保護されたチケットを引き続き受け入れながら、主キーを使用して Kerberos チケットを検証します。 このプロセスは、ユーザー アクセスを中断しません。
-
-### Kerberos サーバー キーをローテーションする
-
-キーをローテーションするには、 `Set-AzureADKerberosServer` コマンドレットを使用します。 このコマンド:
-
-- 新しい Kerberos サーバー キーを生成します。
-- オンプレミスの Active Directory Kerberos サーバー オブジェクトにキーを格納します。
-- キーをMicrosoft Entra IDに安全に発行します。
-- 両方の環境のキー バージョンを更新します。
-
-```powershell
-Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
-```
-
-Warning
-
-`krbtgt` キーを回転できる他のツールがあります。 ただし、`Set-AzureADKerberosServer` コマンドレットを使用して、Microsoft Entra Kerberos サーバーの `krbtgt` キーをローテーションする必要があります。 これにより、オンプレミスの Active Directory と Microsoft Entra ID の両方でキーが確実に更新されます。
-
-Important
-
-古いキーを完全に廃止するには、元のプライマリ キーとセカンダリ キーの両方の有効期限が切れたことを確認して、ローテーションを 2 回実行します。
-
-#### -Force パラメーターを使用する
-
-`-Force`で`Set-AzureADKerberosServer`を使用すると、確認プロンプトなしで Kerberos サーバー構成を適用または更新できます。 このフラグは、完全なセキュリティ制御を維持しながら、一貫性のある中断のない実行を保証します。
-
-```powershell
-Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey -Force
-```
-
-通常、 `-Force` は次の場合に使用されます。
-
-- コマンドを再実行して、構成を修復または調整します。
-- Kerberos のセットアップまたはキー管理を自動化する。
-- 不完全または失敗した構成からの復旧。
-- 手動による確認なしで、環境間で一貫性のある状態を確保します。
-
-### キーを回転させるタイミング
-
-Microsoftでは、固定ローテーション間隔は必須ではありませんが、既存の Kerberos セキュリティ プラクティスに合わせることをお勧めします。 一般的な方法は次のとおりです。
-
-- Active Directory `krbtgt` キーと同じ周期で回転します。
-- スケジュールされたセキュリティ メンテナンス期間の一部としてローテーションする。
-- 資格情報の侵害の疑いがある直後にローテーションする。
-<!-- /MSL-PAGE -->
-
----
-
 <!-- MSL-PAGE {"url":"entra/identity/authentication/multi-factor-authentication-faq"} -->
 ## Microsoft Entra 多要素認証に関してよく寄せられる質問 - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/multi-factor-authentication-faq
 - Service: entra-id / authentication
-- Article date: 2026-02-09
+- Article date: 2026-10-12
 - Summary: Microsoft Entra 多要素認証に関してよく寄せられる質問と回答。
 
-この FAQ では、Microsoft Entra 多要素認証と多要素認証サービスの利用について、よく寄せられる質問に回答します。 FAQ の内容は、サービス全般、課金モデル、ユーザー エクスペリエンス、トラブルシューティングに分けてまとめられています。
+この FAQ では、Microsoft Entra 多要素認証と多要素認証サービスの利用について、よく寄せられる質問に回答します。 質問は、サービス全般、課金モデル、ユーザー エクスペリエンス、トラブルシューティングに分けてまとめられています。
 
 ### 全般
 
@@ -5575,33 +6501,49 @@ Microsoftでは、固定ローテーション間隔は必須ではありませ�
 | カナダ | 208733710797671673803759731 |
 | イタリア | 39439000927394390009264 |
 
-SMS メッセージまたは音声ベースの多要素認証のプロンプトが常に同一番号で配信されるという保証はありません。 ユーザーのために、Microsoft は、ルートを調整して SMS メッセージの配信率を向上させる際に任意のタイミングでショート コードを追加または削除する場合があります。
+SMS メッセージまたは音声ベースの多要素認証のプロンプトが常に同一番号で配信されるという保証はありません。 ユーザーのために、ルートを調整して SMS メッセージの配信率を向上させる際に、任意のタイミングでショート コードを追加または削除する場合があります。
 
 Microsoft は、米国とカナダ以外の国または地域ではショート コードをサポートしていません。
 
-#### Microsoft Entra 多要素認証ではユーザーのサインインが調整されますか。
+#### Microsoft Entra 多要素認証ではユーザーのサインイン試行は制限されますか。
 
-はい。通常、短い時間枠で認証要求が繰り返される場合、Microsoft Entra 多要素認証では、通信ネットワークを保護し、MFA 疲労スタイルの攻撃を軽減し、すべての顧客の利益のために独自のシステムを保護するためのユーザー サインイン試行が調整されます。
+はい。通常、短時間のうちに認証要求が繰り返される特定のケースでは、Microsoft Entra 多要素認証は、通信ネットワークを保護し、MFA疲労攻撃を軽減し、すべてのお客様の利益のために独自のシステムを保護するため、ユーザーのサインイン試行を制限します。
 
-特定の調整制限は共有しませんが、適切な使用に基づいています。
+具体的な調整に関する制限については共有しませんが、妥当な使用状況に基づいています。
 
-#### 認証用の電話呼び出しやテキスト メッセージの送信について、自分の組織に料金が請求されることはありますか。
+#### 認証用の電話やテキスト メッセージの送信について、自分の組織に料金が請求されることはありますか。
 
 いいえ。Microsoft Entra 多要素認証経由でユーザーに対して行われる電話呼び出しや送信されるテキスト メッセージの料金が個別に請求されることはありません。
 
-ユーザーが受ける電話呼び出しやテキスト メッセージの料金は、個人で契約している電話サービスに従って請求されます。
+ユーザーが受ける電話やテキスト メッセージについては、ご利用の通信会社の契約内容により料金が発生する場合があります。
 
 ### ユーザー アカウントの管理とサポート
 
 #### ユーザーが電話で応答を受信できない場合、そのユーザーにはどのように伝えればよいですか。
 
-認証用の電話または SMS メッセージを受け取るための操作を、5 分間に 5 回を上限として試行するようユーザーに伝えてください。 Microsoft では、発信と SMS メッセージの配信には複数のプロバイダーを使っています。 このアプローチがうまくいかない場合は、サポート ケースを開いてさらにトラブルシューティングを行うことができます。
+認証のための音声通話または SMS メッセージを受け取ることを、5 分間に最大 5 回までユーザーに試してもらってください。 Microsoft では、通話と SMS メッセージの配信には複数のプロバイダーを使っています。 このアプローチがうまくいかない場合は、サポート ケースを開いてさらにトラブルシューティングを行うことができます。
 
-サードパーティのセキュリティ アプリでは、確認コードのテキスト メッセージまたは音声通話をブロックすることもできます。 サードパーティのセキュリティ アプリを使用している場合は、保護を無効にしてから、別の MFA 検証コードを送信するように依頼するようにしてください。
+サードパーティのセキュリティ アプリでは、確認コードを含むSMSまたは音声通話をブロックすることもあります。 サードパーティのセキュリティ アプリを使用している場合は、保護を無効にしてから、別の MFA 検証コードを送信するように依頼するようにしてください。
 
-前の手順が機能しない場合は、ユーザーが複数の検証方法用に構成されているかどうかを確認します。 再度サインインを試しますが、その際にサインイン ページで別の認証方法を選択します。
+前の手順が機能しない場合は、ユーザーが複数の検証方法用に構成されているかどうかを確認します。 再度サインインを試し、サインイン ページで別の認証方法を選択してください。
 
 詳細については、[エンドユーザー向けトラブルシューティング ガイド](https://support.microsoft.com/account-billing/common-problems-with-two-step-verification-for-a-work-or-school-account-63acbb9b-16a1-47b9-8619-6a865e8071a5)を参照してください。
+
+#### 認証オプションの最初の一覧に SMS または音声オプションが表示されないのはなぜですか?
+
+SMS または音声に加えて、ユーザーが少なくとも 1 つのテレフォニー以外の検証方法を使用できる場合は、Microsoft Entra IDにテレフォニー以外の方法が最初に表示されることがあります。 この場合、**SMS と音声検証のオプションは引き続き使用できます**。**その他の確認方法を表示** を選択すると表示されます。
+
+SMS または音声がフローに使用できる唯一の方法である場合、メソッドの表示エクスペリエンスは変更されません。
+
+ヘルプ デスク チームは、SMS と音声が削除されていないことをユーザーに安心させることができます。 Microsoft Authenticatorやパスキーなど、より強力なメソッド (使用可能な場合) の登録と使用をユーザーに勧めます。
+
+#### SMS または音声オプションをもう一度選択しても、すぐに別のコードが送信されないのはなぜですか?
+
+有効な SMS または音声コードが送信された後、 **別のコードが送信されるまでに数分の待ち時間が発生する可能性があります。この待機期間中にユーザーが同じ方法をもう一度選択した場合、別のコードが送信されない可能性があります。** ユーザーは、既に要求されているコードの到着を待つ必要があります。 以前に送信されたコードは、待機期間中も有効なままです。
+
+待機時間が経過するまでにコードが到着しない場合、ユーザーは現在使用しているのと同じエクスペリエンスを使用して別のコードを要求できます。 別の検証方法を使用できる場合は、代わりにその方法を使用することもできます。
+
+SMS と音声配信は、通信事業者やプロバイダーのルーティング、リージョン、信号の可用性など、Microsoft Entra ID外の要因の影響を受ける可能性があります。 ユーザーが SMS または音声コードを受信できないことが多い場合は、別の認証方法を登録して使用するようユーザーに勧めてください。
 
 #### アカウントに入れないユーザーがいる場合はどうすればよいですか。
 
@@ -5611,36 +6553,36 @@ Microsoft は、米国とカナダ以外の国または地域ではショート 
 
 サービスの信頼性に影響する可能性がある制御不能な要因があるため、SMS メッセージの配信は保証されません。 これらの要因には、宛先の国または地域、携帯電話会社、信号の強さなどがあります。
 
-サードパーティのセキュリティ アプリでは、確認コードのテキスト メッセージまたは音声通話をブロックすることもできます。 サードパーティのセキュリティ アプリを使用している場合は、保護を無効にしてから、別の MFA 検証コードを送信するように依頼するようにしてください。
+サードパーティのセキュリティ アプリでは、確認コードを含むテキスト メッセージまたは音声通話をブロックすることもできます。 サードパーティのセキュリティ アプリを使用している場合は、保護を無効にしてから、別の MFA 検証コードを送信するように依頼するようにしてください。
 
-テキスト メッセージがユーザーに確実に届かない問題が頻発する場合は、代わりに Microsoft Authenticator アプリか電話呼び出しによる認証方法を使用するようユーザーに指示してください。 Microsoft Authenticator は、携帯電話と Wi-Fi 接続の両方で通知を受け取ることができます。 さらに、デバイスに信号がまったくない場合でも、モバイル アプリは検証コードを生成できます。 Microsoft Authenticator アプリは、[Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073)、[Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) で利用できます。
+テキスト メッセージがユーザーに確実に届かない問題が頻発する場合は、代わりに Microsoft Authenticator アプリか電話呼び出しによる認証方法を使用するようユーザーに指示してください。 Microsoft Authenticator は、携帯ネットワークと Wi-Fi 接続の両方で通知を受け取ることができます。 さらに、デバイスに信号がまったくない場合でも、モバイル アプリは検証コードを生成できます。 Microsoft Authenticator アプリは、[Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073)、[Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) で利用できます。
 
 #### セキュリティ情報の登録を求めるメッセージがユーザーに表示されるのはなぜでしょうか。
 
 セキュリティ情報の登録を求めるメッセージがユーザーに表示される場合、以下のようないくつかの理由が考えられます。
 
-- そのユーザーは Microsoft Entra ID の管理者によって MFA が有効化されているが、まだアカウントにセキュリティ情報を登録していない。
+- そのユーザーは Microsoft Entra ID の管理者によって MFA が有効化されているが、まだそのアカウントにセキュリティ情報が登録されていない。
 - そのユーザーに対して、Microsoft Entra ID でのセルフサービス パスワード リセット が有効化されている。 セキュリティ情報は、将来パスワードを忘れた場合に、それをリセットするために役立ちます。
 - そのユーザーは、MFA を要求する条件付きアクセス ポリシーが設定されたアプリケーションにアクセスしたが、以前に MFA に登録していない。
 - そのユーザーは Microsoft Entra ID (Microsoft Entra Join を含む) にデバイスを登録しようとしており、ユーザーの組織ではデバイスの登録に MFA を要求しているが、ユーザーは事前に MFA への登録を行っていない。
 - そのユーザーは Windows 10 で (MFA を要求する) Windows Hello for Business を生成しているが、以前に MFA に登録していない。
-- 組織で作成および有効化されている MFA 登録ポリシーが、そのユーザーに適用されている。
+- 組織が作成して有効化した MFA 登録ポリシーが、そのユーザーに適用されている。
 - そのユーザーは事前に MFA への登録を行っているが、選択した認証方法が、その後管理者によって無効化されている。 このため、ユーザーはもう一度 MFA 登録を行い、新しい既定の認証方法を選択する必要があります。
 
 ### エラー
 
-#### モバイル アプリ通知の使用時に "認証要求がアクティブ化されたアカウントに対してではありません" というエラー メッセージが表示された場合、ユーザーはどうすればよいですか?
+#### モバイル アプリ通知の使用時に "認証要求は有効化されたアカウントに対するものではありません" というエラー メッセージが表示された場合、ユーザーはどうすればよいですか?
 
 次の手順を完了して、Microsoft Authenticator から自分のアカウントを削除し、再度追加するようにユーザーに依頼します。
 
 1. [自分のアカウント プロファイル](https://account.activedirectory.windowsazure.com/profile/)に移動して、組織のアカウントでサインインします。
-2. **[追加のセキュリティ確認]** を選択します。
+2. **追加のセキュリティ確認** を選択します。
 3. Microsoft Authenticator アプリから既存のアカウントを削除します。
-4. **[**の構成] を選択し、指示に従って Microsoft Authenticator を再構成します。
+4. **[構成]** を選択し、Microsoft Authenticator を再構成するための手順を行います。
 
 #### 非ブラウザー アプリケーションへのサインイン時に 0x800434D4L エラー メッセージが表示された場合、ユーザーはどうすればよいですか?
 
-*0x800434D4L* エラーは、2 段階認証を必要とするアカウントでは機能しないローカル コンピューターにインストールされている非ブラウザー アプリケーションにサインインしようとすると発生します。
+*0x800434D4L* エラーは、ローカル コンピューターにインストールされている、2 段階認証を必要とするアカウントでは機能しない非ブラウザー アプリケーションにサインインしようとすると発生します。
 
 このエラーの回避策は、管理者関連の操作と管理者以外の操作用に個別のユーザー アカウントを持つことです。 後で、管理者アカウントと非管理者アカウントの間でメールボックスをリンクして、管理者以外のアカウントを使用して Outlook にサインインできるようにします。 このソリューションの詳細については、「[管理者がユーザーのメールボックスの内容を開いたり表示したりできるようにする](https://help.outlook.com/141/gg709759.aspx?sl=1)」を参照してください。
 <!-- /MSL-PAGE -->
@@ -6178,94 +7120,130 @@ Microsoft Entra ID とセルフサービス パスワード リセット (SSPR) 
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/authentication/phone-providers-faq"} -->
-## Microsoft Entra IDのテレフォニー プロバイダーに関してよく寄せられる質問 - Microsoft Entra ID
+## Choose Your Own Telephony Provider に関するよくある質問 - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/phone-providers-faq
 - Service: entra-id / authentication
-- Article date: 2026-09-20
-- Summary: Microsoft Entra IDに対する独自のテレフォニー プロバイダーの選択、構成、評価、サポートに関する一般的な質問に対する回答を見つけます。
+- Article date: 2026-10-30
+- Summary: BYOT プロバイダーの選択、サポートされているシナリオ、コスト、評価、移行、信頼性、回復、サポートに関する回答を Microsoft Entra ID で確認できます。
 
-Microsoft Entra IDで独自のテレフォニー プロバイダーを選択する方法についてよく寄せられる質問を次に示します。 ここで回答できない質問については、[Microsoft Entra ID の Microsoft Q&A 質問ページ](https://learn.microsoft.com/ja-jp/answers/topics/azure-active-directory.html)のコミュニティにお問い合わせください。
+これらは、Microsoft Entra IDでの Choose Your Own テレフォニー プロバイダー (CYOT) に関する一般的な質問です。 概要については、「 [SMS および音声認証用に独自のテレフォニー プロバイダーを選択する」](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers)を参照してください。
 
 この FAQ では、次の内容について説明します。
 
-- プロバイダーの選択と可用性
-- コストと課金
-- 移行と評価
-- サポートとトラブルシューティング
+- プロバイダーの選択と可用性。
+- サポートされているシナリオ。
+- コストと課金。
+- 評価と移行。
+- 信頼性と復旧。
+- サポート。
 
 ### プロバイダーの選択と可用性
 
-#### 独自のテレフォニー プロバイダーをいつ選択できますか?
+#### CYOT はいつ利用できますか?
 
-プライベート プレビューに参加しているテレフォニー プロバイダーに関する情報が利用可能になりました。 構成エクスペリエンスは、2026 年 10 月 30 日以降に利用可能になります。
+CYOT は、2026 年 10 月 30 日より、グローバル AzureのMicrosoft Entra ID従業員テナント向けに一般公開されています。
 
-構成エクスペリエンスが使用可能になるまで、サポートされているプロバイダー オプションを確認し、Microsoft管理された SMS および音声認証からの移行の計画を開始します。
+#### どの通信プロバイダーを使用できますか?
 
-#### プライベート プレビュー中に利用できるテレフォニー プロバイダーはどれですか?
+ソプラノ、Telesign、または Infobip を選択できます。 対象範囲、価格、使用条件については、[利用可能な通信プロバイダー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers#available-telephony-providers)と各プロバイダーの [Microsoft Security Store](https://securitystore.microsoft.com/) 掲載ページを参照してください。
 
-Soprano と Telesign は、プライベート プレビュー中に利用できる初期テレフォニー プロバイダーです。 一般提供により、より多くのプロバイダーが利用できるようになります。
+#### プロバイダーで既存のアカウントを使用できますか?
 
-これらのプロバイダーの価格やその他の商用の詳細は、Microsoft Security ストアで入手できます。
+プロバイダーに問い合わせてください。 プロバイダーには、送信者の登録など、独自の登録が必要な場合もあります。
 
-#### 既存の SMS プロバイダーを使用できますか?
+#### 一覧にないプロバイダーを使用できますか?
 
-はい。サポートされているテレフォニー プロバイダーの 1 つである場合は、既存のプロバイダーを使用できます。 現在のプロバイダーがサポートされていない場合は、サポートされているプロバイダーを選択して、Microsoftマネージド テレフォニーが廃止された後も SMS または音声認証を使用し続ける必要があります。
+CYOT では、[利用可能な通信事業者](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers#available-telephony-providers)に記載されているプロバイダーがサポートされています。 プロバイダーが追加されたら、その一覧を確認します。
 
-#### [Choose Your Own テレフォニー プロバイダー] を使用して、SMS サインインをプライマリ認証方法として保持することはできますか?
+#### SMS と音声に異なるプロバイダーを使用できますか?
 
-No. この機能では、プライマリ認証方法としての SMS サインインはサポートされていません。 プライマリ認証方法としての SMS サインインの廃止は、Choose Your Own テレフォニー プロバイダーを使用している場合でも適用されます。 組織が現在、プライマリ認証に SMS サインインを使用している場合は、シナリオに基づいて、サポートされている代替手段にユーザーを移行します。 代わりに、パスキー、QR コード認証、FIDO2 セキュリティ キー、およびMicrosoft Entra IDでサポートされているその他の認証方法があります。
+Yes. SMS には 1 つのプロバイダーを使用し、音声には別のプロバイダーを使用できます。
 
-#### これは、MICROSOFT ENTRA ID、Microsoft Entra 外部 ID、Azure AD B2C で動作しますか?
+### サポートされているシナリオ
 
-[独自のテレフォニー プロバイダーの選択] は現在、Microsoft Entra IDでのみ使用できます。 Microsoft Entra 外部 IDとAzure AD B2C は含まれません。
+#### CYOT をサポートするMicrosoft Entra製品はどれですか?
 
-#### 複数のテレフォニー プロバイダーを構成できますか?
+CYOT は、Microsoft Entra ID の workforce テナントで使用できます。 現在、Microsoft Entra 外部 IDまたはAzure AD B2Cでは使用できません。
 
-2026 年 10 月 30 日以降、チャネルごとに 1 つのテレフォニー プロバイダー (SMS 用のプロバイダーと音声用のプロバイダー) を構成できます。
+#### CYOT を SMS サインインの主要な方法として使用できますか?
+
+No. CYOT では、プライマリ サインインとしてではなく、SMS と音声を確認方法としてサポートしています。 SMS でサインインするユーザーのサインイン方法を、サポートされている別の方法に変更します。
+
+Important
+
+Microsoftでは、[パスキー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)などのフィッシングに強い方法をお勧めします。 SMS または音声は、ビジネス、規制、または技術的な必要があるユーザーにのみ使用してください。
 
 ### コストと課金
 
-#### 独自のテレフォニー プロバイダーの選択コストはどのくらいですか?
+#### CYOT のコストはどのくらいですか?
 
-主なコストは、プロバイダーの価格と使用状況に基づいて、選択したテレフォニー プロバイダーが SMS および音声メッセージに対して課金する料金です。 この機能では、Azure サブスクリプションにデプロイされたルーティング機能を使用して、選択したテレフォニー プロバイダーにMicrosoft Entra IDを安全に接続します。 ルーティング機能には標準のAzure消費料金が適用されますが、ほとんどのお客様はテレフォニー プロバイダーの料金と比較して、これらのコストが最小限に抑えられると予想されます。
+2 つのコストの計画:
 
-利用可能なプロバイダー オファーの価格とその他の商用の詳細を確認します。
+- **プロバイダーの料金:**[Microsoft Security ストア](https://securitystore.microsoft.com/)でのプロバイダーのオファーで設定された SMS と音声の料金。
+- **Azure コスト:** お客様のサブスクリプション内で統合をホストするリソース。
 
-- ソプラノ: Microsoft Security ストアでの[ユーザー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_user)[ごとのオファーまたはトランザクションごとのオファー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_transaction)。
-- Telesign: Microsoft Security Store の[Microsoft Entra 向け Telesign Verify](https://securitystore.microsoft.com/solutions/telesigncorporation1779799505747.telesign-verify-cyot-azure)。
+見積もりについては、「[通信プロバイダーと Azure のホスティング コストを見積もる](https://github.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/blob/main/docs/COST-CALCULATOR.md)」を参照してください。
 
-### 移行と評価
+#### Microsoft は、プロバイダー経由で送信された SMS と音声に対して課金しますか?
 
-#### 移行するにはどうすればよいですか？
+プロバイダーは、[Microsoft Security ストア](https://securitystore.microsoft.com/)で購入したオファーに基づいて、SMS と音声の料金が適用されます。 Azureホスティング コストは、Azure サブスクリプションに課金されます。
 
-Choose Your Own テレフォニー プロバイダーは、2026 年 10 月 30 日以降に利用可能になります。 使用可能になったら、Microsoft Entra 管理センターから機能を構成します。
+### 評価と移行
 
-移行には通常、次の手順が含まれます。
+#### 自分の通信プロバイダーに移行するにはどうすればよいですか?
 
-1. サポートされているテレフォニー プロバイダーを選択し、そのプロバイダーとのアカウントを確立します。
-2. Azure サブスクリプションにルーティング関数をデプロイします。 ルーティング関数は、Microsoft Entra IDからプロバイダーに認証要求を安全に送信します。
-3. SMS、音声、またはその両方にプロバイダーを使用するユーザーまたはグループを選択します。
-4. ユーザーに影響を与える前に、統合を評価します。
-5. 本番環境の認証トラフィックに対して、プロバイダを段階的に有効化します。
+1. [Microsoft Security ストア](https://securitystore.microsoft.com/)でプロバイダー オファーを購読します。
+2. Azure サブスクリプションで統合を設定します。
+3. SMS と音声プロファイルを作成します。
+4. 統合を評価します。
+5. プロバイダーにトラフィックを段階的に送ります。
 
-この機能がリリースされると、詳細な構成とデプロイの手順を使用できるようになります。 2027 年 2 月 1 日にMicrosoftマネージド テレフォニーが廃止される前に移行を完了して、テストと段階的な運用ロールアウトに十分な時間を確保します。
+詳細については、 [API を使用して独自の通信プロバイダーで SMS と音声を設定する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)方法に関するページを参照してください。
 
-#### ユーザーを新しいプロバイダーに切り替える前に評価できますか?
+#### トラフィックを移動する前に CYOT をテストできますか?
 
-Yes. 評価モードでは、ユーザーの認証エクスペリエンスを変更することなく、認証要求がテレフォニー プロバイダーに正常にルーティングされたことを検証できます。
+Yes. **評価**モードでは、Microsoftがユーザーにコードを配信し続けている間に、要求が連携先に送信されます。 `migrationPercentage`を使用して、API を使用してポリシーを構成するときの評価サンプリング率を設定します。 プロバイダー経由の配信を確認するには、トラフィックの割合が低い **Production** に切り替えます。
 
-ユーザーは、評価結果を確認しながら、現在アクティブな配信方法を通じて認証メッセージを受け取り続けます。 統合が期待どおりに動作していることを確認したら、運用トラフィックに対してプロバイダーを有効にし、ロールアウトを徐々に展開できます。
+#### 通信トラフィックを段階的に移行できますか?
 
-### サポートとトラブルシューティング
+Yes. プロバイダー経由で **ルーティングされるトラフィックの割合を** 段階的に増やし、各増加の前に結果を確認します。
 
-#### サポート モデルとは
+#### ポリシーの変更が適用されるまでにどのくらいの時間がかかりますか?
 
-Microsoftは、テレフォニー プロバイダーの構成エクスペリエンス、認証ワークフロー、Microsoft Entra IDとテレフォニー プロバイダー間のルーティングなど、Microsoft Entra ID プラットフォームのサポートを提供します。
+認証方法ポリシーの変更は、適用に最大約 1 時間かかることがあります。
 
-組織は、プロバイダー アカウントの構成、サービスの可用性、メッセージ配信、SMS または音声配信に関連する問題など、選択したテレフォニー プロバイダーの関係を管理する責任を負います。 プロバイダーまたはメッセージ配信の問題については、プロバイダーのサポート チームにお問い合わせください。
+#### Cloud Shell が閉じたときに、セットアップの出力を失いました。 何をしたらいいですか ?
 
-Microsoftでは、問題がMicrosoft Entra ID プラットフォームとテレフォニー プロバイダーの統合のいずれに関連しているかを判断するのに役立つ診断とトラブルシューティングのガイダンスを提供します。
+スクリプトが完了したらすぐにデプロイの概要をコピーしてください。 Cloud Shellセッションは一時的なものであり、タブを切り替えると閉じる可能性があります。 見失った場合は、Azure ポータルでデプロイされたリソースを見つけてください。
+
+### 信頼性と回復
+
+#### SMS または音声コードが届かない場合はどうすればよいですか?
+
+ロールアウトの途中である場合は、一時停止してください。 次に、[利用中の通信事業者と SMS と音声を監視してトラブルシューティングする](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-troubleshoot#monitor-and-troubleshoot-your-own-telephony-provider) を使用して、要求が停止した場所と誰に連絡すべきかを見つけます。
+
+#### 高可用性を計画するにはどうすればよいですか?
+
+複数のAzure リージョンに統合をデプロイし、プロバイダーの冗長性を確認し、セカンダリ プロバイダーを追加できます。 マルチリージョンとセカンダリ プロバイダーの設計は、サンプルのみのガイダンスです。 フェールオーバーに依存する前に、フェールオーバーをテストしてください。 [回復性と高可用性の計画](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-reliability)を参照してください。
+
+### Support
+
+#### CYOT の各部分を管理しているのは誰ですか？
+
+| Owner | 責任 |
+| --- | --- |
+| Microsoft | Microsoft Entra認証とエンドポイントへのハンドオフ |
+| あなたの組織 | 統合のデプロイと実行、プロバイダー アカウントの管理、統合の資格情報と証明書の更新 |
+| 通信プロバイダー | SMS と音声の送信、および不正行為の制御 |
+
+#### 誰に問い合わせすればよいですか?
+
+| 問題点 | 連絡先 |
+| --- | --- |
+| Microsoft Entra 認証、コード検証、またはエンドポイントへのハンドオフ | [Microsoft サポート](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-get-support) |
+| Azure 関数またはAzure リソース | あなたの Azure チーム |
+| 配信、送信者の登録、宛先、不正行為の制御、または料金 | あなたの通信プロバイダー。 連絡先の詳細は、 [セキュリティ ストア](https://securitystore.microsoft.com/) の登録情報に記載されています。 |
 <!-- /MSL-PAGE -->
 
 ---
@@ -6964,7 +7942,7 @@ Microsoft Entra ID やセルフサービス パスワード リセットに関�
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/troubleshoot-voice-call-sms
 - Service: entra-id / authentication
 - Article date: 2026-04-09
-- Summary: MFAに関する音声通話とSMSの問題をトラブルシューティングし、通信配信を理解し、Microsoft Supportが配信の問題を調査する際にサポートする方法について説明します。
+- Summary: MFAに関する音声通話とSMSの問題をトラブルシューティングし、通信配信を理解し、Microsoft サポートが配信の問題を調査する際にサポートする方法について説明します。
 
 この記事では、多要素認証 (MFA) の音声通話または SMS サインイン方法に関する問題を調査して解決する方法について説明します。 このセクションでは、通信配信がバックグラウンドでどのように機能するか、Microsoft が見ることができるもの、見ることができないもの、調査中に何を期待するかを説明します。
 
@@ -6986,7 +7964,7 @@ Microsoftは、グローバルに利用できる主要な通信プロバイダ�
 
 Microsoft では、すべての SMS および音声 MFA 要求の配信を確実に成功させるために、堅牢なプロセスを維持しています。 ただし、要求が Microsoft ネットワークから離れると、外部通信プロバイダーに配信が委任されます。
 
-これらのプロバイダーは、多くの場合、特定の目的地の国で同じ最終ルートと運送業者を共有しますが、異なる契約契約または交通の優先順位の下で動作する可能性があります。 その結果、別のプロバイダーを介して要求をルーティングしても、常に問題が解決されるわけではありません。新しい要求は同じダウンストリーム パスに従い、同じ障害が発生する可能性があります。
+これらのプロバイダーは、多くの場合、特定の宛先の国/地域で同じ最終経路と配送事業者を使用することが多いですが、異なる契約上の取り決めまたはトラフィックの優先順位の下で動作する可能性があります。 その結果、別のプロバイダーを介して要求をルーティングしても、常に問題が解決されるわけではありません。新しい要求は同じダウンストリーム パスに従い、同じ障害が発生する可能性があります。
 
 ### SMS または音声 MFA 要求の流れ
 
@@ -7009,7 +7987,7 @@ Microsoft では、すべての SMS および音声 MFA 要求の配信を確実
 
 - **デバイス レベルの構成。** メッセージを送信するすべての手順が正しい場合でも、デバイス自体は通話を拒否したり、ボイスメールにルーティングしたりすることができます。 Microsoftは、異なるプロバイダー間でこれらのエラーを自動的に再試行します。
 - **キャリア側でのブロック。** 国際自動不正検出システムにより、通信事業者が通話またはメッセージをブロックする場合があります。
-- **リージョンの可用性の問題。** まれに、特定の国の可用性の問題が原因でメッセージが削除されます。 Microsoftとそのプロバイダーは、これらのシナリオに対して堅牢な再試行と再ルーティングのメカニズムを備え、影響が広く報告されたときに自動停止通信を行います。
+- **リージョンの可用性の問題。** まれに、特定の国/リージョンでの可用性の問題が原因でメッセージが破棄されます。 Microsoftとそのプロバイダーは、これらのシナリオに対して堅牢な再試行と再ルーティングのメカニズムを備え、影響が広く報告されたときに自動停止通信を行います。
 
 #### 呼び出しまたはメッセージは、ダウンストリームの通信事業者によって変更されます
 
@@ -7023,7 +8001,7 @@ Microsoft では、すべての SMS および音声 MFA 要求の配信を確実
 
 グローバルな通信ルーティングの複雑さとプロバイダーを超えた可視性の制限により、通信配信の調査には、複数の企業と利害関係者間の調整が含まれます。
 
-#### タイムライン
+#### Timeline
 
 ダウンストリームの顧客から報告された配信の問題の調査には、4 ~ 6 週間かかる場合があります。 プロバイダーはログをチェックし、ローカルで問題が見つからない場合は、追加のプロバイダーを使用する可能性があるダウンストリーム パートナーにクエリを実行します。
 
@@ -7037,10 +8015,10 @@ Microsoftのサポートがプロバイダー関連の問題を調査するの�
 
 - 調査が必要なサインインの**関連付け ID とタイムスタンプを送信**します。 これらの値は [、サインイン ログ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-ins)で確認できます。 関連付け ID は、サインインに関連付けられているすべての要求 ID を返します。
 
-    Microsoft Entra admin centerからサインイン ログを表示するには:
+    Microsoft Entra 管理センターからサインイン ログを表示するには:
 
-    1. [Microsoft Entra admin center](https://entra.microsoft.com) に少なくとも [Reports Reader](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader) としてサインインします。
-    2. **Entra ID**&gt;**Monitoring & health**&gt;**Sign-in logs** に移動して参照します。
+    1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[レポート閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader)としてサインインします。
+    2. **Entra ID**&gt;に移動し、**モニタリングとヘルス**&gt;の**サインイン ログ**を参照します。
 
     [Image: Microsoft Entra 管理センターのサインイン ログにおける [日付] フィールドと [関連 ID] フィールドを示すスクリーンショット]
 - **新しいサンプルを提供します。** エンド キャリアでは、多くの場合、過去 48 ~ 72 時間の関連付け ID が必要です。 古い要求は、調査に間に合って最終的なエンド キャリアに伝達されない場合があります。 複数のサンプルを提供するように求められる場合があります。

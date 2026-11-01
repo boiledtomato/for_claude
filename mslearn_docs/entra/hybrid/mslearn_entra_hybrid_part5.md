@@ -252,27 +252,26 @@ Microsoft Entra Connect Sync に移行する前に、代わりにクラウド同
 ## Microsoft Entra ID との統合を開始する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/get-started
-- Service: entra-id / hybrid
-- Article date: 2025-04-09
-- Summary: この記事では、Active Directory と統合するために必要な手順について説明します。
+- Service: entra-id
+- Article date: 2026-10-06
+- Summary: ユーザー、グループ、デバイスの Cloud Sync または Connect Sync を選択して構成することで、オンプレミスの Active DirectoryとMicrosoft Entra IDの統合を開始します。
 
-ハイブリッド ID を初めて使用する場合は、このドキュメントを開始する必要があります。 まだ行っていない場合は、[ハイブリッド ID とは何ですか？](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/whatis-hybrid-identity) のドキュメントをよく読んで理解してください。先に進む前に必ず参照しましょう。
+このガイドを使用して、オンプレミスの Active DirectoryとMicrosoft Entra IDを統合します。 Microsoft Entra Cloud Sync と Microsoft Entra Connect Sync のどちらを選択し、ユーザー、グループ、デバイスの同期を構成する方法について説明します。
 
-このドキュメントでは、オンプレミスの Active Directory と Microsoft Entra ID を統合するために必要な手順について説明します。 Active Directory との統合は、Microsoft Entra ID を使用してユーザーとグループの同期を設定するプロセスです。 これらの手順は、使用するツールによって若干異なります。
-
-最初に [\[適切な同期ツールの選択\]](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) を使用して、適切な同期ツールを指定します。 推奨されたツールについては、次のセクションを使用してください。
+まず、[適切な同期ツールを選択する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) を使用して、同期ツールを選択します。 次に、そのツールのセクションに進みます。
 
 ### クラウド同期
 
-Active Directory と統合するためにクラウド同期をデプロイする場合は、これらのタスクを使用します。
+これらのタスクを使用して、Cloud Sync をデプロイし、Active DirectoryをMicrosoft Entra IDと統合します。
 
 | タスク | 説明 |
 | --- | --- |
-| [どの同期ツールが正しいかを判断](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) | ウィザードを使用して、クラウド同期と Microsoft Entra Connect のどちらを適切なツールにするかを判断します。 |
-| [クラウド同期の前提条件を確認する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites) | 作業を開始する前に、必要な前提条件を確認してください。 |
+| [適切な同期ツールを選択する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) | ウィザードを使用して、Cloud Sync または Connect Sync が適切かどうかを判断します。 |
+| [クラウド同期の前提条件を確認する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites) | 開始する前に、前提条件を確認してください。 |
 | [プロビジョニング エージェント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-install) をダウンロードしてインストールする | Microsoft Entra プロビジョニング エージェントをダウンロードしてインストールします。 |
-| [クラウド同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure) を構成する | 組織の同期を構成して調整します。 |
-| [ユーザーが](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-single-forest#verify-users-are-created-and-synchronization-is-occurring) を同期していることを確認する | 動作していることを確認します。 |
+| [クラウド同期を設定](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure) | 組織の同期を設定します。 |
+| [デバイスの同期を構成する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync) | Microsoft Entra ハイブリッド参加に向けて、Active Directory のコンピュータ オブジェクトを Microsoft Entra ID と同期します。 |
+| [ユーザーが同期することを確認する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-single-forest#verify-users-are-created-and-synchronization-is-occurring) | 同期が機能していることを確認してください。 |
 
 ### Microsoft Entra Connect
 
@@ -280,7 +279,7 @@ Microsoft Entra Connect を展開して Active Directory と統合する場合�
 
 | タスク | 説明 |
 | --- | --- |
-| [どの同期ツールが正しいかを判断](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) | ウィザードを使用して、クラウド同期と Microsoft Entra Connect のどちらを適切なツールにするかを判断します。 |
+| [適切な同期ツールを選択する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios) | ウィザードを使用して、Cloud Sync または Connect Sync が適切かどうかを判断します。 |
 | [Microsoft Entra Connect の前提条件を確認](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-install-prerequisites) | 作業を開始する前に、必要な前提条件を確認してください。 |
 | [インストールの種類を確認して選択](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-install-select-installation) | 高速インストールとカスタム インストールのどちらを使用するかを決定します。 |
 | [Microsoft Entra Connect](https://www.microsoft.com/download/details.aspx?id=47594) をダウンロードする | Microsoft Entra Connect をダウンロードします。 |
@@ -2128,22 +2127,22 @@ Microsoft Entra シームレス シングル サインオン (シームレス �
 ## 同期に使用されるツール - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/sync-tools
-- Service: entra-id / hybrid
-- Article date: 2025-04-09
-- Summary: この記事では、クラウド環境とオンプレミス環境の同期に使用できるさまざまなツールについて説明します。
+- Service: entra-id
+- Article date: 2026-10-06
+- Summary: ユーザー、グループ、連絡先、デバイス向けの Microsoft ID 同期ツールを比較して、Active Directory を使用したハイブリッド ID のアプローチを選択します。
 
-以下の記事では、同期を行うために現在使用できる Microsoft ツールについて簡単に説明しています。
+この記事では、Microsoft Entra Cloud Sync、Connect Sync、Microsoft Identity Manager (MIM)、および ECMA ホスト コネクタを比較します。 比較を使用して、ID を同期したり、ユーザーをオンプレミスのアプリケーションにプロビジョニングしたりするツールを選択します。
 
 ### ツールの一覧
 
-- **クラウド同期とプロビジョニング エージェント** - Microsoft Entra クラウド同期は、ユーザー、グループ、連絡先を Microsoft Entra ID に同期するというハイブリッド ID の目標を実現するように設計された Microsoft の最新のオファリングです。 軽量のプロビジョニング エージェントを使用しており、ポータルから完全に構成できます。 詳細については、[クラウド同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)に関するページと[プロビジョニング エージェント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-provisioning-agent)に関するページを参照してください。
-- **Connect 同期** - Microsoft Entra Connect は、ハイブリッド ID の目標を達成するために設計されたオンプレミスの Microsoft アプリケーションです。 詳細については、「[Microsoft Sentinel Connect とは?](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/whatis-azure-ad-connect-v2)」を参照してください。
+- **Cloud Sync とプロビジョニング エージェント** - Microsoft Entra Cloud Sync は、ユーザー、グループ、および連絡先をActive DirectoryからMicrosoft Entra IDに同期します。 デバイスの同期が有効になっている場合、Microsoft Entra ハイブリッド参加用のコンピューター オブジェクトも同期できます。 Cloud Sync は軽量プロビジョニング エージェントを使用し、Microsoft Entra 管理センターを使用して構成できます。 詳細については、「[Microsoft Entra Cloud Sync とは](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)」、「[プロビジョニング エージェントとは](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-provisioning-agent)」、および「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。
+- **Connect Sync** - Microsoft Entra Connect は、ID を Microsoft Entra ID と同期するためのオンプレミス アプリケーションです。 詳細については、「[Microsoft Sentinel Connect とは?](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/whatis-azure-ad-connect-v2)」を参照してください。
 - **Graph コネクタを使用した Microsoft Identity Manager** - Active Directory や Microsoft Entra ID などのディレクトリのためのハイブリッド ID 環境を実現する高度なディレクトリ間プロビジョニングを提供する、Microsoft のオンプレミス ID およびアクセス管理ソリューションです。 詳細については、[Microsoft Identity Manager](https://learn.microsoft.com/ja-jp/microsoft-identity-manager/microsoft-identity-manager-2016) に関するページを参照してください。 MIM は徐々に非推奨になるため、高度なシナリオでのみ使用するようにしてください。 詳細については、「[非推奨の機能と将来の計画](https://learn.microsoft.com/ja-jp/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features)」を参照してください。
 - **ECMA ホスト コネクタ** - ECMA ホストはプロビジョニング エージェントと連携して、クラウドから SQL や LDAP などのオンプレミス アプリケーションにユーザーをプロビジョニングおよび同期します。 詳細については、「[Microsoft Entra オンプレミス アプリケーション ID プロビジョニングのアーキテクチャ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture)」と「[プロビジョニング エージェントとは?](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-provisioning-agent)」に関するページを参照してください。
 
 ### 適切なツールを選択する
 
-これらのツールを使用することで得られる結果は、それぞれ似通っています。 そのため、適切なツールを選択することが不可欠です。 ほとんどのシナリオでは、クラウド同期が推奨されるツールになります。 その後、同期を接続し、高度で複雑なシナリオには MIM を使用します。 オンプレミスアプリケーションに適しているツールは、ECMA ホストになります。 詳細については、[サポートされている同期シナリオの表を参照](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios#supported-sync-scenarios)してください。 適切なツールを特定するには、[適切な同期ツールの選択](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios)サイトにあるウィザードを使用する必要があります。
+これらのツールは、さまざまなハイブリッド ID シナリオをサポートします。 [サポートされている同期シナリオの表](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios#supported-sync-scenarios)でそれらの機能を比較し、[同期ツールの選択ウィザード](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios)を使用してツールを選択します。
 <!-- /MSL-PAGE -->
 
 ---

@@ -1,7 +1,138 @@
 # Microsoft Learn — Microsoft Entra / ユーザー・デバイス・ロール・マネージド ID (part 5)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 46
+Pages in this file: 47
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/role-based-access-control/protected-actions-overview"} -->
+## Microsoft Entra ID の保護されたアクションとは - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-overview
+- Service: entra-id / role-based-access-control
+- Article date: 2025-11-03
+- Summary: Microsoft Entra ID で保護されたアクションについて説明します。
+
+Microsoft Entra ID の保護されたアクションは、[条件付きアクセス ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)に割り当てられている権限です。 ユーザーが保護されたアクションを実行しようとすると、まず、必要なアクセス許可に割り当てられている条件付きアクセス ポリシーを満たす必要があります。 たとえば、管理者が条件付きアクセス ポリシーを更新できるようにするには、最初にフィッシング詐欺に強い MFA [ポリシー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-strengths#built-in-authentication-strengths) 満たす必要があります。
+
+この記事では、保護されたアクションの概要と、それらの使用を開始する方法について説明します。
+
+### 保護されたアクションを使用する理由
+
+保護のレイヤーを追加する場合は、保護されたアクションを使用します。 保護されたアクションは、使用されているロールやユーザーにアクセス許可が与えられた方法に関係なく、強力な条件付きアクセス ポリシー保護を必要とするアクセス許可に適用できます。 ポリシーの適用は、ユーザーがユーザーのサインインまたはルールのアクティブ化中ではなく、保護されたアクションを実行しようとしたときに行われるため、ユーザーは必要な場合にのみプロンプトが表示されます。
+
+### 保護されたアクションで通常使用されるポリシーは何ですか?
+
+すべてのアカウント (特に特権ロールを持つアカウント) で多要素認証を使用することをお勧めします。 保護されたアクションを使用して、追加のセキュリティを要求できます。 一般的な強力な条件付きアクセス ポリシーを次に示します。
+
+- [パスワードレス MFA](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-strengths#built-in-authentication-strengths) やフィッシングに強い MFA など、より強力な MFA 認証の強度
+- 特権アクセスワークステーションは、条件付きアクセスポリシー[とデバイスフィルター](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-condition-filters-for-devices)を使用して管理されます。
+- 条件付きアクセス [サインイン頻度セッション制御を使用して、セッションタイムアウトを短縮](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-session-lifetime#user-sign-in-frequency)。
+
+### 保護されたアクションで使用できるアクセス許可は何ですか？
+
+条件付きアクセス ポリシーは、制限されたアクセス許可のセットに適用できます。 保護されたアクションは、次の領域で使用できます。
+
+- 条件付きアクセス ポリシーの管理
+- テナント間アクセス設定の管理
+- 一部のディレクトリ オブジェクトのハード削除
+- ネットワークの場所を定義するカスタム ルール
+- 保護されたアクション管理
+
+アクセス許可の初期セットを次に示します。
+
+| 許可 | 説明 |
+| --- | --- |
+| microsoft.directory/conditionalAccessPolicies/basic/update | 条件付きアクセス ポリシーの基本プロパティを更新する |
+| microsoft.directory/conditionalAccessPolicies/create | 条件付きアクセス ポリシーを作成する |
+| microsoft.directory/conditionalAccessPolicies/delete (条件付きアクセス ポリシー削除) | 条件付きアクセス ポリシーを削除する |
+| microsoft.directory/conditionalAccessPolicies/basic/update | 条件付きアクセス ポリシーの基本プロパティを更新する |
+| microsoft.directory/conditionalAccessPolicies/create | 条件付きアクセス ポリシーを作成する |
+| microsoft.directory/conditionalAccessPolicies/delete (条件付きアクセス ポリシー削除) | 条件付きアクセス ポリシーを削除する |
+| microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | テナント間アクセス ポリシーの許可されたクラウド エンドポイントを更新する |
+| microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | 既定のテナント間アクセス ポリシーの Microsoft Entra B2B コラボレーション設定を更新する |
+| microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | 既定のテナント間アクセス ポリシーの Microsoft Entra B2B 直接接続設定を更新する |
+| microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | 既定のテナント間アクセス ポリシーのクラウド間 Teams 会議設定を更新します。 |
+| microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | 既定のテナント間アクセス ポリシーのテナント制限を更新します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | パートナーのテナント間アクセス ポリシーの Microsoft Entra B2B コラボレーション設定を更新します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | パートナー向けのテナント間アクセス ポリシーの Microsoft Entra B2B 直接接続設定を更新します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/create | パートナーのテナント間アクセス ポリシーを作成します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | パートナーのテナント間アクセス ポリシーのクラウド間 Teams 会議設定を更新します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/delete | パートナーのテナント間アクセス ポリシーを削除します。 |
+| microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | パートナーのテナント間アクセス ポリシーのテナント制限を更新します。 |
+| microsoft.directory/deletedItems/delete | 復元できなくなったオブジェクトを完全に削除する |
+| microsoft.directory/namedLocations/basic/update | ネットワークの場所を定義するカスタム 規則の基本プロパティを更新する |
+| microsoft.directory/namedLocations/create | ネットワークの場所を定義するカスタム ルールを作成する |
+| microsoft.directory/namedLocations/delete | ネットワークの場所を定義するカスタム ルールを削除する |
+| microsoft.directory/resourceNamespaces/resourceActions/authenticationContext/update | Microsoft 365 ロールベースのアクセス制御 (RBAC) リソース アクションの条件付きアクセス認証コンテキストを更新する |
+
+### ディレクトリ オブジェクトの削除
+
+Microsoft Entra ID では、ほとんどのディレクトリ オブジェクトに対して、論理的な削除とハード削除という 2 種類の削除がサポートされています。 ディレクトリ オブジェクトが論理的に削除されると、そのオブジェクトのプロパティ値とリレーションシップはごみ箱に 30 日間保持されます。 論理的に削除されたオブジェクトは、同じ ID とすべてのプロパティ値とリレーションシップをそのまま使用して復元できます。 論理的に削除されたオブジェクトがハード削除されると、オブジェクトは完全に削除され、同じオブジェクト ID で再作成することはできません。
+
+ごみ箱からソフト削除されたディレクトリ オブジェクトが偶発的または悪意のあるハード削除や永続的なデータ損失から保護されるようにするため、次のアクセス許可に保護アクションを追加できます。 この削除は、ユーザー、Microsoft 365 グループ、クラウド セキュリティ グループ、アプリケーションに適用されます。
+
+- microsoft.directory/deletedItems/delete
+
+### 保護されたアクションと Privileged Identity Management ロールのアクティブ化の比較
+
+[Privileged Identity Management ロールのアクティブ化](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings) には、条件付きアクセス ポリシーを割り当てることもできます。 この機能を使用すると、ユーザーがロールをアクティブ化した場合にのみポリシーを適用でき、最も包括的な保護が提供されます。 保護されたアクションは、条件付きアクセス ポリシーが割り当てられているアクセス許可を必要とするアクションをユーザーが実行した場合にのみ適用されます。 保護されたアクションを使用すると、ユーザー ロールに関係なく、影響の大きいアクセス許可を保護できます。 Privileged Identity Management ロールのアクティブ化と保護されたアクションを一緒に使用して、より強力なカバレッジを実現できます。
+
+### 保護されたアクションを使用する手順
+
+手記
+
+保護されたアクションが適切に構成され、適用されるようにするには、次の順序でこれらの手順を実行する必要があります。 この順序に従わないと、[を再認証する要求を繰り返し受け取る](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#symptom---policy-is-never-satisfied)など、予期しない動作が発生する可能性があります。
+
+1. **アクセス許可を調べる**
+
+    [条件付きアクセス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator) または [セキュリティ管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#security-administrator) のロールが割り当てられていることを確認します。 そうでない場合は、管理者に確認して適切なロールを割り当てます。
+2. 条件付きアクセス ポリシー **を構成する**
+
+    条件付きアクセス認証コンテキストと、関連付けられている条件付きアクセス ポリシーを構成します。 保護されたアクションは認証コンテキストを使用します。これにより、Microsoft Entra のアクセス許可など、サービス内のきめ細かなリソースに対するポリシーの適用が可能になります。 最初に、パスワードなしの MFA を要求し、緊急アカウントを除外することをお勧めします。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-1-configure-conditional-access-policy)
+3. **保護されたアクション** を追加する
+
+    選択したアクセス許可に条件付きアクセス認証コンテキスト値を割り当てることで、保護されたアクションを追加します。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-2-add-protected-actions)
+4. **保護されたアクション** をテストする
+
+    ユーザーとしてサインインし、保護されたアクションを実行してユーザー エクスペリエンスをテストします。 条件付きアクセス ポリシーの要件を満たすように求められます。 たとえば、ポリシーで多要素認証が必要な場合は、サインイン ページにリダイレクトされ、強力な認証を求められます。 [詳細情報](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/protected-actions-add#step-3-test-protected-actions)
+
+### 保護されたアクションとアプリケーションはどうなりますか?
+
+アプリケーションまたはサービスが保護アクションを実行しようとすると、必要な条件付きアクセス ポリシーを処理できる必要があります。 場合によっては、ユーザーが介入してポリシーを満たす必要がある場合があります。 たとえば、多要素認証を完了するために必要な場合があります。 次のアプリケーションでは、保護されたアクションのステップアップ認証がサポートされています。
+
+- [Microsoft Entra 管理センターの操作における管理者向けのエクスペリエンス](https://entra.microsoft.com)
+- [Microsoft Graph PowerShell](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/overview?branch=main)
+- [グラフ エクスプローラー](https://learn.microsoft.com/ja-jp/graph/graph-explorer/graph-explorer-overview?branch=main)
+
+既知の制限事項と予想される制限事項がいくつかあります。 次のアプリケーションは、保護されたアクションを実行しようとすると失敗します。
+
+- [Azure PowerShell](https://learn.microsoft.com/ja-jp/powershell/azure/what-is-azure-powershell?branch=main)
+- 新しい [使用条件](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) ページを作成するか、Microsoft Entra 管理センターで [カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) を作成します。 新しい利用規約ページまたはカスタム コントロールは条件付きアクセスに登録されるため、条件付きアクセスによる保護されたアクションの作成、更新、削除の対象となります。 条件付きアクセスの作成、更新、および削除アクションからポリシー要件を一時的に削除すると、新しい利用規約ページまたはカスタム コントロールを作成できます。
+
+組織で Microsoft Graph API を呼び出して保護されたアクションを実行するアプリケーションを開発している場合は、ステップアップ認証を使用して要求チャレンジを処理する方法のコード サンプルを確認する必要があります。 詳細については、「条件付きアクセス認証コンテキストの [に関する開発者ガイド](https://learn.microsoft.com/ja-jp/entra/identity-platform/developer-guide-conditional-access-authentication-context)参照してください。
+
+### ベスト プラクティス
+
+保護されたアクションを使用するためのベスト プラクティスを次に示します。
+
+- **緊急アカウント** がある
+
+    保護されたアクションに対して条件付きアクセス ポリシーを構成する場合は、ポリシーから除外される緊急アカウントがあることを確認してください。 これにより、偶発的なロックアウトに対する軽減策が提供されます。
+- **ユーザーとサインインのリスク ポリシーを条件付きアクセス** に移動する
+
+    条件付きアクセスのアクセス許可は、Microsoft Entra ID Protection リスク ポリシーを管理するときに使用されません。 ユーザーとサインインのリスク ポリシーを条件付きアクセスに移行することをお勧めします。
+- **名前付きネットワークの場所を使用する**
+
+    多要素認証の信頼できる IP を管理する場合、名前付きネットワークの場所のアクセス許可は使用されません。 [名前付きのネットワークの場所](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-assignment-network)を使用することをお勧めします。
+- **保護されたアクションを使用して、ID またはグループ メンバーシップの** に基づいてアクセスをブロックしない
+
+    保護されたアクションは、保護されたアクションを実行するためのアクセス要件を適用するために使用されます。 ユーザー ID またはグループ メンバーシップのみに基づいてアクセス許可の使用をブロックすることを目的としていません。 特定のアクセス許可にアクセスできるユーザーは承認の決定であり、ロールの割り当てによって制御する必要があります。
+
+### ライセンス要件
+
+この機能を使用するには、Microsoft Entra ID P1 ライセンスが必要です。 要件に適したライセンスを見つけるには、「[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)の一般公開機能を比較する」を参照してください。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -2190,7 +2321,7 @@ Microsoft Entra サービスの使用上の制約とその他のサービスの�
 | アプリ ロールと公開されているアクセス許可スコープ | アプリケーションまたはサービス プリンシパルごとに最大 700 個の既定のアクセス許可定義。アプリ ロール (`appRoles`) と公開された委任されたアクセス許可スコープ間で共有されます。 有効な定義と無効な定義の両方がカウントされます。 この制限は、1,200 エントリのアプリケーション マニフェストの制限と、アプリ ロールの割り当ての制限とは別です。 ルールのカウント、制限を超える既存のオブジェクトの動作、および設計ガイダンスについては、「 [アプリ ロールの制限](https://learn.microsoft.com/ja-jp/entra/identity-platform/howto-add-app-roles-in-apps#app-role-limits)」を参照してください。 |
 | Applications | - 最大 100 人のユーザーおよびサービス プリンシパルが 1 つのアプリケーションの所有者になれます。<br>- ユーザー、グループ、またはサービス プリンシパルに割り当てることのできるアプリ ロールは 1,500 までです。 この制限は、すべてのアプリ ロールにわたる割り当て済みサービス プリンシパル、ユーザー、グループが対象です。1 つのアプリ ロールの割り当ての数に対するものではありません。 この制限には、リソース サービス プリンシパルが論理的に削除されたアプリ ロールの割り当てが含まれます。<br>- ユーザーは、パスワードベースのシングル サインオンを使用して、最大 48 個のアプリに対して資格情報を構成できます。 この制限は、ユーザーが割り当てられているグループのメンバーである場合ではなく、ユーザーがアプリに直接割り当てられているときに構成された資格情報にのみ適用されます。<br>- 1 つのグループでは、パスワードベースのシングル サインオンを使用して、最大 48 個のアプリに対して資格情報を構成できます。<br>- 追加の制限については、[サポートされているアカウントの種類別の検証の相違点](https://learn.microsoft.com/ja-jp/entra/identity-platform/supported-accounts-validation)に関するページをご覧ください。 |
 | アプリケーション マニフェスト | アプリケーション マニフェストには、最大で 1200 のエントリを追加できます。追加の制限については、[サポートされているアカウントの種類別の検証の相違点](https://learn.microsoft.com/ja-jp/entra/identity-platform/supported-accounts-validation)に関するページをご覧ください。 |
-| Groups | - 管理者以外のユーザーは、Microsoft Entra 組織に最大 250 個のグループを作成できます。 このクォータは、他の Entra リソースと共有されます。 組織内のグループを管理できる Microsoft Entra 管理者であれば、グループを無制限に作成することもできます (Microsoft Entra オブジェクトの上限まで)。 ユーザーにロールを割り当ててそのユーザーの制限を削除するには、ユーザー管理者やグループ管理者など、特権の低い組み込みロールを割り当ててください。<br>- Microsoft Entra 組織は、最大 15,000 個の動的グループ (Microsoft Entra エンタイトルメント管理の自動割り当てポリシーからのグループを含む) と動的管理単位を組み合わせることができます。<br>- 1 つの Microsoft Entra 組織 (テナント) には、最大 500 個の[ロール割り当て可能なグループ](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/groups-concept)を作成できます。<br>- 最大 100 人のユーザーが 1 つのグループの所有者になれます。<br>- [Entra Kerberos](https://learn.microsoft.com/ja-jp/troubleshoot/windows-server/windows-security/logging-on-user-account-fails)では、トークンあたり 1010 グループの制限があります。<br>- 任意の数の Microsoft Entra リソースが 1 つのグループのメンバーになることができます。<br>- ユーザー (またはグループ) が 2,048 を超えるグループ (直接および入れ子) のメンバーである場合、アクセスがブロックされる可能性があります。 この制限は、直接グループ メンバーシップと入れ子になったグループ メンバーシップの両方に適用されます。 [条件付きアクセスのユーザー、グループ、およびワークロード ID の割り当てを](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-conditional-access-users-groups)参照してください。<br>- ユーザーは任意の数のグループのメンバーになることができます。 認証または承認でグループ メンバーシップを使用する場合 (直接メンバーシップと間接メンバーシップを含む) には、次のサービス固有の制限が適用されます。<br>    - **SharePoint Online:** SharePoint Online でセキュリティ グループを使用する場合、ユーザーは、直接メンバーシップと間接メンバーシップを含め、合計で最大 2,047 のセキュリティ グループの一部にすることができます。 この制限を超えると、認証と検索結果が予測不能になる可能性があります。 [SharePoint の制限を](https://learn.microsoft.com/ja-jp/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)参照してください。<br>    - **SAML トークン:** オプションのグループ要求が有効になっている場合、最大 150 個のグループ メンバーシップ (入れ子になったグループを含む) が SAML アサーションに含まれます。 ユーザーが 150 を超えるグループに含まれている場合、グループ要求は省略され、代わりに超過分要求が送信されます。 Microsoft Entra ID では、ユーザーが 1,000 以下のグループ (ダイレクト メンバーシップや推移メンバーシップを含む) に属している場合にのみ、グループ のフィルター処理がサポートされます。 この制限を超えた場合、フィルター処理は適用されません。代わりに超過分の要求が送信されます。 実装ガイダンスについては、 [オプションの要求の構成](https://learn.microsoft.com/ja-jp/entra/identity-platform/optional-claims) と [SAML トークン要求のリファレンスを参照](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-saml-tokens#claims-in-saml-tokens) してください。<br>    - **JWT/OIDC トークン:** オプションのグループ要求が有効になっている場合、JWT トークンには最大 200 個のグループ メンバーシップ (入れ子になったグループを含む) が含まれます。 ユーザーが 200 を超えるグループに含まれている場合、グループ要求は省略され、代わりに超過分要求が送信されます。 実装ガイダンスについては、 [オプションの要求の構成](https://learn.microsoft.com/ja-jp/entra/identity-platform/optional-claims) と [アクセス トークン要求のリファレンスを参照](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-token-claims-reference#payload-claims) してください。<br>    - **条件付きアクセス ポリシー:** ポリシー評価では、ユーザーあたり最大 4,096 個のグループ メンバーシップ (直接および間接) がサポートされます。 この制限を超えると、ポリシーの適用が失敗する可能性があります。 [条件付きアクセスのユーザー、グループ、およびワークロード ID の割り当てを](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-conditional-access-users-groups)参照してください。<br>- Microsoft Entra Connect v2.0 以降、V2 エンドポイントが既定の API になりました。 Microsoft Entra Connect を使ってオンプレミスの Active Directory から Microsoft Entra ID に同期できるグループ内のメンバーの数は、250,000 ユーザーに制限されています。 詳細については、[Microsoft Entra Connect 同期 V2](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-endpoint-api-v2) に関するページを参照してください。<br>- グループのリストを選択すると、グループの有効期限ポリシーを最大 500 の Microsoft 365 グループに割り当てることができます。 ポリシーがすべての Microsoft 365 グループに適用される場合、制限はありません。<br><br>現時点では、入れ子になったグループでは次のシナリオがサポートされています。<br>- 1 つのグループを別のグループのメンバーとして追加することができるため、グループの入れ子を実現できます。<br>- グループ メンバーシップ クレーム アプリがトークンでグループ メンバーシップ クレームを受信するように構成されている場合は、サインインしているユーザーがメンバーになっている入れ子になったグループが含まれます。<br>- 条件付きアクセス (条件付きアクセス ポリシーにグループのスコープが設定されている場合)<br>- セルフサービスのパスワード リセットへのアクセスの制限。<br>- Microsoft Entra 参加とデバイス登録を実行できるユーザーの制限。<br><br>次のシナリオは、入れ子になったグループではサポート "されません"。<br>- アクセスとプロビジョニングの両方を対象としたアプリ ロールの割り当て。 アプリへのグループの割り当てはサポートされますが、直接割り当てられたグループ内に入れ子になったグループにはアクセスできません。<br>- グループベースのライセンス (グループのすべてのメンバーにライセンスを自動的に割り当てます)。<br>- Microsoft 365 グループ。 |
+| Groups | - 管理者以外のユーザーは、Microsoft Entra 組織に最大 250 個のグループを作成できます。 このクォータは、他の Entra リソースと共有されます。 組織内のグループを管理できる Microsoft Entra 管理者であれば、グループを無制限に作成することもできます (Microsoft Entra オブジェクトの上限まで)。 ユーザーにロールを割り当ててそのユーザーの制限を削除するには、ユーザー管理者やグループ管理者など、特権の低い組み込みロールを割り当ててください。<br>- Microsoft Entra 組織は、最大 15,000 個の動的グループ (Microsoft Entra エンタイトルメント管理の自動割り当てポリシーからのグループを含む) と動的管理単位を組み合わせることができます。<br>- 1 つの Microsoft Entra 組織 (テナント) には、最大 500 個の[ロール割り当て可能なグループ](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/groups-concept)を作成できます。<br>- 最大 100 人のユーザーが 1 つのグループの所有者になれます。<br>- [Entra Kerberos](https://learn.microsoft.com/ja-jp/troubleshoot/windows-server/windows-security/logging-on-user-account-fails)では、トークンあたり 1010 グループの制限があります。<br>- 任意の数の Microsoft Entra リソースが 1 つのグループのメンバーになることができます。<br>- ユーザー (またはグループ) が 2,048 を超えるグループ (直接および入れ子) のメンバーである場合、アクセスがブロックされる可能性があります。 この制限は、直接グループ メンバーシップと入れ子になったグループ メンバーシップの両方に適用されます。 [条件付きアクセスのユーザー、グループ、およびワークロード ID の割り当てを](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-conditional-access-users-groups)参照してください。<br>- ユーザーは任意の数のグループのメンバーになることができます。 認証または承認でグループ メンバーシップを使用する場合 (直接メンバーシップと間接メンバーシップを含む) には、次のサービス固有の制限が適用されます。<br>    - **SharePoint Online:** SharePoint Online でセキュリティ グループを使用する場合、ユーザーは、直接メンバーシップと間接メンバーシップを含め、合計で最大 2,047 のセキュリティ グループの一部にすることができます。 この制限を超えると、認証と検索結果が予測不能になる可能性があります。 [SharePoint の制限を](https://learn.microsoft.com/ja-jp/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits)参照してください。<br>    - **SAML トークン:** オプションのグループ要求が有効になっている場合、最大 150 個のグループ メンバーシップ (入れ子になったグループを含む) が SAML アサーションに含まれます。 ユーザーが 150 を超えるグループに含まれている場合、グループ要求は省略され、代わりに超過分要求が送信されます。 Microsoft Entra ID では、ユーザーが 1,000 以下のグループ (ダイレクト メンバーシップや推移メンバーシップを含む) に属している場合にのみ、グループ のフィルター処理がサポートされます。 この制限を超えた場合、フィルター処理は適用されません。代わりに超過分の要求が送信されます。 実装ガイダンスについては、 [オプションの要求の構成](https://learn.microsoft.com/ja-jp/entra/identity-platform/optional-claims) と [SAML トークン要求のリファレンスを参照](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-saml-tokens#claims-in-saml-tokens) してください。<br>    - **JWT/OIDC トークン:** オプションのグループ要求が有効になっている場合、JWT トークンには最大 200 個のグループ メンバーシップ (入れ子になったグループを含む) が含まれます。 ユーザーが 200 を超えるグループに含まれている場合、グループ要求は省略され、代わりに超過分要求が送信されます。 実装ガイダンスについては、 [オプションの要求の構成](https://learn.microsoft.com/ja-jp/entra/identity-platform/optional-claims) と [アクセス トークン要求のリファレンスを参照](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-token-claims-reference#payload-claims) してください。<br>    - **条件付きアクセス ポリシー:** ポリシー評価では、ユーザーあたり最大 2,048 個のグループ メンバーシップ (直接および間接) がサポートされます。 この制限を超えると、ポリシーの適用が失敗する可能性があります。 [条件付きアクセスのユーザー、グループ、およびワークロード ID の割り当てを](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/concept-conditional-access-users-groups)参照してください。<br>- Microsoft Entra Connect v2.0 以降、V2 エンドポイントが既定の API になりました。 Microsoft Entra Connect を使ってオンプレミスの Active Directory から Microsoft Entra ID に同期できるグループ内のメンバーの数は、250,000 ユーザーに制限されています。 詳細については、[Microsoft Entra Connect 同期 V2](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-endpoint-api-v2) に関するページを参照してください。<br>- グループのリストを選択すると、グループの有効期限ポリシーを最大 500 の Microsoft 365 グループに割り当てることができます。 ポリシーがすべての Microsoft 365 グループに適用される場合、制限はありません。<br><br>現時点では、入れ子になったグループでは次のシナリオがサポートされています。<br>- 1 つのグループを別のグループのメンバーとして追加することができるため、グループの入れ子を実現できます。<br>- グループ メンバーシップ クレーム アプリがトークンでグループ メンバーシップ クレームを受信するように構成されている場合は、サインインしているユーザーがメンバーになっている入れ子になったグループが含まれます。<br>- 条件付きアクセス (条件付きアクセス ポリシーにグループのスコープが設定されている場合)<br>- セルフサービスのパスワード リセットへのアクセスの制限。<br>- Microsoft Entra 参加とデバイス登録を実行できるユーザーの制限。<br><br>次のシナリオは、入れ子になったグループではサポート "されません"。<br>- アクセスとプロビジョニングの両方を対象としたアプリ ロールの割り当て。 アプリへのグループの割り当てはサポートされますが、直接割り当てられたグループ内に入れ子になったグループにはアクセスできません。<br>- グループベースのライセンス (グループのすべてのメンバーにライセンスを自動的に割り当てます)。<br>- Microsoft 365 グループ。 |
 | アプリケーション プロキシ | - アプリケーション プロキシ アプリケーションごとに 1 秒あたり最大 500 件のトランザクション。<br>- Microsoft Entra 組織に対する 1 秒あたり最大 750 件のトランザクション。<br><br>\*トランザクションは、単一の HTTP 要求と一意のリソースの応答として定義されます。 クライアントは調整された場合、429 応答を受け取ることになります (要求が多すぎます)。 トランザクション メトリックは各コネクタで収集され、オブジェクト名 `Microsoft Entra private network connector` の下のパフォーマンス カウンターを使用して監視できます。 |
 | アクセス パネル | 割り当てられたライセンス数に関係なく、アクセス パネルに表示できる、各ユーザーのアプリケーション数に制限はありません。 |
 | Reports | いずれのレポートでも、最大 1,000 行を表示またはダウンロードできます。 それを超えるデータは切り捨てられます。 |

@@ -4678,7 +4678,7 @@ Microsoft Entra Private Accessアプリケーションにユーザーまたは�
 
 - [メンバー ユーザーの既定のアクセス許可を制限する](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#restrict-member-users-default-permissions)
 - [テナント作成者ロールを割り当てる](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#tenant-creator)
-- [テナント作成イベントを確認します](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-audit-activities#core-directory)。 OperationName=="Create Company"、Category == "DirectoryManagement" を検索します。
+- [テナント作成イベントを確認します](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-audit-activities#core-directory)。 OperationName=="Create Company", Category == "DirectoryManagement" を検索します。
 
 #### 影響の大きい管理タスクに対して保護されたアクションが有効になっている
 
@@ -4788,7 +4788,7 @@ Microsoft Entra Private Accessアプリケーションにユーザーまたは�
 
 - [Microsoft Entra 外部 ID を使用してゲスト セルフサービス サインアップを構成する](https://learn.microsoft.com/ja-jp/entra/external-id/external-collaboration-settings-configure#to-configure-guest-self-service-sign-up)
 
-#### テナント間の送信アクセス設定が構成されている
+#### テナント間のアウトバウンド アクセス設定が構成されています
 
 未確認の組織との無制限の外部コラボレーションを許可すると、適切なセキュリティ制御を持たない可能性のあるゲスト アカウントが許可されるため、テナントのリスク領域が増加する可能性があります。 脅威アクターは、これらの緩やかに管理された外部テナントの ID を侵害することで、アクセスを試みることができます。 ゲスト アクセスが許可されると、正当なコラボレーション 経路を使用してテナント内のリソースに侵入し、機密情報の取得を試みることができます。 脅威アクターは、正しく構成されていないアクセス許可を悪用して特権をエスカレートし、さまざまな種類の攻撃を試みることもできます。
 

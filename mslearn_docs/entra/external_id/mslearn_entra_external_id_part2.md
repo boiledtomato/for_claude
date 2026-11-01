@@ -1,7 +1,1055 @@
 # Microsoft Learn — Microsoft Entra / External ID・Verified ID (part 2)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 65
+Pages in this file: 61
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/customers/how-to-migrate-passwords-just-in-time"} -->
+## Just-In-Time パスワードを Microsoft Entra 外部 ID に移行する - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-migrate-passwords-just-in-time
+- Service: entra-external-id / external
+- Article date: 2026-04-03
+- Summary: Just-In-Time (JIT) 移行を使用して、別の ID プロバイダーからMicrosoft Entra 外部 IDにパスワードを移行する方法について説明します。
+
+**適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
+
+このガイドでは、Just-In-Time (JIT) パスワード移行を実装して、ユーザー資格情報をレガシ ID プロバイダーから Microsoft Entra 外部 ID に移行する方法について説明します。 ユーザー ID の管理を担当する開発者または管理者の場合、このガイドは移行プロセスに関連する手順を理解するのに役立ちます。
+
+AZURE AD B2C のお客様で、移行に使用できるオプションをまだ確認していない場合は、「[Azure AD B2C から外部 ID への移行を計画する](https://learn.microsoft.com/ja-jp/entra/external-id/customers/plan-your-migration-from-b2c-to-external-id)を参照してください。
+
+注
+
+レガシ システムのユーザー パスワード (保存時または実行時) にアクセスできる場合は、事前に設定することもできます。 詳細については、「 [ユーザーと資格情報を外部 ID に移行する」を](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-migrate-users)参照してください。
+
+Important
+
+2025 年 5 月 1 日より、Azure AD B2C は新規のお客様に対して購入できなくなります。 詳細については、[AZURE AD B2C を引き続き購入できますか?](https://learn.microsoft.com/ja-jp/azure/active-directory-b2c/faq?tabs=app-reg-ga#azure-ad-b2c-end-of-sale)に関する FAQ を参照してください。
+
+### [前提条件]
+
+開始する前に、次のことを確認します。
+
+- **Microsoft Entra 外部 ID テナント**: アクティブな外部 ID テナント。 お持ちでない場合は、「[get started with Microsoft Entra 外部 ID](https://learn.microsoft.com/ja-jp/entra/external-id/customers/quickstart-tenant-setup)」を参照してください。
+- **従来の ID プロバイダー アクセス**: 既存の ID プロバイダーに対してユーザーの資格情報を検証する機能。
+- **開発環境**: 運用環境にデプロイする前に、移行の実装をテストします。
+- **次の概念について理解します**。
+    - Microsoft Entra ID: ユーザー アカウントの作成と管理
+    - [アプリの登録](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app): Microsoft Entra IDでのアプリケーションの登録
+    - [Microsoft Graph API](https://learn.microsoft.com/ja-jp/graph/api/user-post-users): プログラムによるユーザーとディレクトリの管理
+    - [ディレクトリ拡張機能: ディレクトリ](https://learn.microsoft.com/ja-jp/graph/extensibility-overview) オブジェクトへのカスタム プロパティの追加
+    - [Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-overview): カスタム ロジックをホストするためのサーバーレス コンピューティング
+- 次のロールが割り当てられているアカウント:
+    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
+    - [ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)
+    - [認証機能拡張パスワード管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-extensibility-password-administrator)。 この組み込みロールは、Azure ポータルで使用でき、パスワード移行用のカスタム認証拡張機能を作成および管理するために必要なアクセス許可を付与します。 ロールの割り当ての詳細については、「[assign Microsoft Entra roles](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/manage-roles-portal)」を参照してください。
+
+### JIT 移行プロセスの概要
+
+JIT 移行は、サインイン プロセス中にカスタム API を呼び出して、レガシ ID プロバイダーに対してユーザー資格情報を検証することで機能します。 Microsoft Entra 外部 IDでは、統合を容易にするために、[custom 認証拡張機能](https://learn.microsoft.com/ja-jp/graph/api/resources/customauthenticationextension)を使用して、このプロセスをサポートしています。 これらの拡張機能を使用すると、認証プロセス中に実行されるカスタム ロジックを定義できるため、外部システムと対話し、サインイン フローの一部としてより多くの処理を実行できます。
+
+ユーザーの観点からは、移行は完全にシームレスです。 ユーザーは、レガシ システムの既存の資格情報でサインインします。 資格情報が正しい場合は、正常に認証され、アプリケーションにアクセスできます。 バックグラウンドでパスワードは安全にMicrosoft Entra 外部 IDに移行され、その後のサインインはレガシ システムを呼び出さずに Entra に対して直接認証されます。 この方法では、移行中の中断を最小限に抑え、ユーザーが自分のパスワードをリセットしたり、新しい資格情報を学習したりする必要がなくなります。
+
+注
+
+このプロセスはパスワードの移行を目的としており、パスワードの検証ではありません。 レガシ システムは、最初のサインイン時のパスワードの検証にのみ使用されます。 その後、パスワードはMicrosoft Entra 外部 IDに直接保存され、検証されます。
+
+JIT 移行プロセスを次の図に示します。
+
+[Image: 従来の資格情報を使用したユーザー サインイン、移行フラグのチェック、カスタム API を使用したパスワード検証を示す JIT 移行プロセスの図。]
+
+#### JIT 移行プロセスのしくみ
+
+移行フラグが `true` に設定されたコンシューマー ユーザー アカウントがサインインすると、次のプロセスが発生します。
+
+- **コンシューマー ユーザーがサインイン** する - ユーザーはレガシ ID プロバイダーから資格情報を入力します。
+- **移行フラグのチェック**- 入力されたパスワードに応じて、次の 2 つの結果が考えられます。
+    - 入力したパスワードがユーザーのレコードのパスワードと一致しない場合、外部 ID はカスタム拡張プロパティをチェックし、移行が必要な場合は OnPasswordSubmit リスナーを呼び出します。
+    - パスワードが記録されているパスワードと一致する場合、認証は正常に続行され、ユーザーは自動的に移行済みとしてマークされます。
+- **パスワード暗号化** - 外部 ID は公開キー (RSA JWE 形式) を使用してパスワードを暗号化し、プレーンテキストが送信されないようにします。 秘密キーはAzure Key Vaultに残り、関数コードでは公開されません。
+- **カスタム拡張機能の呼び出し** - 外部 ID は、暗号化されたペイロード、ユーザー情報、および認証コンテキストを使用してコードを呼び出します。
+- **復号化と検証** - 関数は秘密キーを使用してパスワードの暗号化を解除し、レガシ ID プロバイダーに対して資格情報を検証します。
+- **応答アクション**- 関数は、次の 4 つのアクションのいずれかを返します。
+    - **MigratePassword**: パスワードは有効です。外部 ID はそれを格納し、移行フラグを 〗〗に設定します。 `false`
+    - **UpdatePassword**: パスワードは正しいが脆弱です。ユーザーがパスワードをリセットする必要がある
+    - **再試行**: パスワードが正しくありません。ユーザーはもう一度試すことができます
+    - **ブロック**: 認証がブロックされました (レガシ システムでロックされているアカウントなど)
+- **認証の完了** - 成功した場合、ユーザーは認証され、今後のサインインではカスタム拡張機能がバイパスされます。
+
+#### レガシーな複雑性要件との不一致には、disableStrongPassword オプションを使用する
+
+Microsoft Entra 外部 IDは、独自のパスワードの複雑さの要件を適用します。 複雑さのルールが外部 ID と異なるレガシ ID プロバイダーからユーザーを移行する場合、レガシ システムで有効だったパスワードが外部 ID の強力なパスワード ポリシーを満たしていない可能性があります。 既定では、これらのユーザーは `UpdatePassword` フローを介してルーティングされ、資格情報が正しい場合でも、サインイン時にパスワードをリセットする必要があります。
+
+JIT パスワード移行の `disableStrongPassword` オプションによって、この動作が変更されます。 ブラウザー ベースの認証フローやネイティブ認証フローなど、 `OnPasswordSubmit` カスタム認証拡張機能を呼び出すすべてのサインイン サーフェイスに適用されます。
+
+- `disableStrongPassword`が有効になっている場合、既存のパスワードが外部 ID の強力なパスワードの複雑さの規則を満たしていないため、ユーザーはパスワードのリセットを強制されません。
+- パスワードの最小文字数は 8 文字のままです。 8 文字未満のパスワードは引き続きリセットが必要です。
+- 期限切れのパスワードは引き続きリセットが必要です。 このオプションは、有効期限やその他の資格情報の有効性シグナルではなく、複雑さのチェックのみを緩和します。
+- `Retry`や`Block`応答アクションなど、他のすべての認証制御は変更されずに適用されます。
+
+このオプションは、異なる複雑さのルールを持つレガシ ID プロバイダーから大規模にユーザーを移行する場合に、共存期間中に影響を受けるすべてのユーザーに対して強制的にリセットされないようにする場合に使用します。 このオプションは、JIT 移行シナリオにのみ影響します。既に移行されているユーザーや、外部 ID で直接作成された新しいアカウントの認証が弱まることはありません。
+
+**セキュリティのトレードオフ**: このオプションを有効にすると、外部 ID は、ユーザーが次にパスワードを変更するまで、標準の複雑さのルールを満たしていない移行されたパスワードを格納して受け入れます。 JIT 共存期間を時間ボックスに設定し、最終的にパスワードローテーションまたは強制リセットを計画して、保存されているすべての資格情報が最終的に外部 ID ポリシーを満たすようにします。
+
+レガシ プロバイダーの複雑さの規則が外部 ID の強力なパスワード ポリシーと同等または厳格である場合は、 `disableStrongPassword` 無効のままにして、脆弱なパスワードが `UpdatePassword` フローを通じてキャッチおよびリセットされるようにします。
+
+注
+
+`disableStrongPassword`の構成手順は、ステージ 2 とステージ 3 のカスタム認証拡張機能のセットアップと共に維持されます。 運用環境でこのオプションを有効にする前に、JIT 移行機能のドキュメントで現在の構成画面を確認します。
+
+### スロットリングとサービス制限
+
+JIT パスワードの移行は、Microsoft Entraサービスの制限と調整の対象となる[カスタム認証拡張機能](https://learn.microsoft.com/ja-jp/graph/api/resources/customauthenticationextension)に依存します。 大量の移行または大規模な初期サインインウェーブの場合は、ロールアウトをバッチでステージングし、カスタム拡張機能エラーのサインイン テレメトリを監視します。
+
+- 信頼できる制限 (呼び出しごとのタイムアウト、自動再試行、テナントごとの呼び出しの上限) については、[サービスの制限Microsoft Entra 外部 ID](https://learn.microsoft.com/ja-jp/entra/external-id/customers/reference-service-limits)参照してください。
+- `CustomExtensionThrottlingError`や`CustomExtensionTimedOut`など、拡張機能の呼び出しが失敗または調整されたときに表示されるエラー コードについては、「[カスタム認証拡張機能のトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity-platform/custom-extension-troubleshoot#error-codes-reference)」を参照してください。
+
+カスタム拡張機能からの発信呼び出し (Microsoft Graphやレガシ ID プロバイダーなど) は、ターゲット サービス独自の調整によって制御され、Microsoft Entra拡張機能の制限の一部ではありません。 これらの一時的なエラーを個別に処理するように関数を設計します。
+
+### ステージ 1: 移行のためのユーザーの準備
+
+JIT 移行を実装する前に、「 [ユーザーと資格情報を外部 ID に移行する](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-migrate-users)」のステージ 1 と 2 を完了してください。 これにより、以下のことが指定されます。
+
+- 外部 ID テナント (ステージ 1) にユーザー アカウントが存在します。
+- 移行拡張機能プロパティが定義され、各ユーザーに `toBeMigrated: true` (ステージ 2) のフラグが設定されます。
+
+ユーザーの準備ができたら、カスタム認証拡張機能の構成に進みます。
+
+### ステージ 2: カスタム認証拡張機能を構成する
+
+ユーザーを準備したら、認証プロセス中に JIT 移行を有効にするコンポーネントを構成します。 これには、証明書の安全な格納、カスタム拡張機能のホスト、認証拡張機能アプリケーションの構成が含まれます。
+
+#### 2.1 証明書を安全に保存する
+
+Azure Key Vaultで暗号化証明書を作成し、Azure関数のセキュリティで保護されたアクセスを構成します。
+
+##### 2.1.1 マネージド ID を有効にする
+
+Azure関数は、パスワード ペイロードを復号化するために、Key Vaultに格納されている秘密キーにアクセスする必要があります。 証明書を生成する前に、Azure関数のマネージド ID を設定します。
+
+1. [Azure portal](https://portal.azure.com) にサインインし、**Function App** に移動します。
+2. 関数アプリを選択します。
+3. 左側のメニューの **[設定]** で 、[ **ID] を**選択します。
+4. [ **システム割り当て済み** ] タブで、[ **状態]** を **[オン] に**設定します。
+5. **保存** を選択します。
+6. ID が作成されたら、 **オブジェクト (プリンシパル) ID** の値をコピーします。 次の手順で使用します。
+
+##### 2.1.2 Key Vault アクセス権を付与する
+
+1. Azure ポータルで、Key Vaultに移動します (または、[必要に応じて新しいもの](https://learn.microsoft.com/ja-jp/azure/key-vault/general/quick-create-portal)を作成します)。
+2. 左側のメニューの **[設定]** で、[ **アクセス ポリシー**] を選択します。
+3. **を選択して**を作成します。
+4. [ **シークレットのアクセス許可**] で 、[ **取得**] を選択し、[ **次へ**] を選択します。
+5. [ **プリンシパル** ] ページで、前の手順でコピーしたオブジェクト ID を貼り付けます。
+6. 検索結果から関数アプリのマネージド ID を選択します。
+7. **次へ** を選択して、もう一度 **次へ** を選択します。
+8. [ **作成]**を選択して、次のアクセス許可を持つアクセス ポリシーを作成します。
+    - **シークレットのアクセス許可**: 取得
+    - **プリンシパル**: 関数アプリ名
+
+これらのアクセス許可は、ロール ベースのアクセス制御を使用して付与することもできます。
+
+##### 2.1.3 Azure Key Vaultで証明書を生成する
+
+Azure Key Vaultで暗号化証明書を生成します。 公開キーは外部 ID アプリの登録で構成されますが、秘密キーはKey Vaultのままであり、マネージド ID を使用して Azure 関数によってアクセスされます。
+
+1. Azure ポータルで、Key Vaultに移動します。
+2. 左側のメニューの [ **オブジェクト**] で [ **証明書**] を選択します。
+3. **[Generate/Import](https://learn.microsoft.com/ja-jp/entra/external-id/customers/生成/インポート)** を選択します。
+4. [ **証明書の作成**] ページで、次の値を入力します。
+    - **証明書の作成方法**: [ **生成**] を選択します。
+    - **証明書名**: **JitMigrationEncryptionCert** を入力します。
+    - **証明機関 (CA) の種類**: **自己署名証明書を**選択します。
+    - **件名**: **CN=JitMigration** と入力します。
+    - **コンテンツ タイプ**: **PKCS #12** を選択します。
+5. [ **詳細ポリシーの構成] を**展開し、次の値を入力します。
+    - **キーの種類**: **RSA** を選択します。
+    - **キー サイズ**: セキュリティを強化するために **2048** または **4096** を選択します。
+    - **キーの再利用**: オフのままにします。
+    - **エクスポート可能な秘密キー**: このオプションを選択します (関数アクセスに必要)。
+6. **を選択して**を作成します。
+
+ヒント
+
+Azure Key Vaultで証明書を直接生成することで、秘密キーがセキュリティで保護された環境から離れることがないようにし、キーの自動ローテーション、アクセス監査、HSM 保護などのエンタープライズ機能を提供します。
+
+#### 2.2 カスタム拡張機能をホストする
+
+レガシ ID プロバイダーに対してユーザー資格情報を検証するAzure関数を作成します。
+
+Important
+
+OnPasswordSubmit カスタム認証拡張機能用に構成されたカスタマー ホステッド エンドポイントは、通常、Azure関数として実装される、カスタマー マネージド HTTPS エンドポイントである必要があります。 このエンドポイントは、サインイン中にMicrosoft Entra 外部 IDによって呼び出され、レガシ ID システムに対してユーザーのパスワードが検証され、移行結果が返されます。
+
+URL は、Microsoft Graph、Microsoft Entra サービス エンドポイント、またはレガシ ID プロバイダーの対話型サインイン URL を指してはなりません。 検証ロジックを実装する Function App 関数エンドポイントを参照する必要があります。 このエンドポイントをセキュリティで保護する必要があります。
+
+##### 2.2.1 要求スキーマ
+
+カスタム認証拡張機能に要求を送信すると、Entra には次のスキーマを含むペイロードが含まれます。 このサンプル ペイロードには、例示のみを目的としたダミー データが含まれています。
+
+```json
+{  
+  "type": "microsoft.graph.authenticationEvent.passwordSubmit",  
+  "source": "/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/applications/00001111-aaaa-2222-bbbb-3333cccc4444",  
+  "data": {  
+    "@odata.type": "microsoft.graph.onPasswordSubmitCalloutData",  
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",  
+    "authenticationEventListenerId": "11112222-bbbb-3333-cccc-4444dddd5555",  
+    "customAuthenticationExtensionId": "22223333-cccc-4444-dddd-5555eeee6666", 
+    "encryptedPasswordContext": "{5-part-JWE}", 
+    "authenticationContext": {  
+      "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",  
+      "client": {  
+        "ip": "127.0.0.1",  
+        "locale": "en-us",  
+        "market": "en-us"  
+      },  
+      "protocol": "OAUTH2.0",  
+      "clientServicePrincipal": {  
+        "id": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",  
+        "appId": "00001111-aaaa-2222-bbbb-3333cccc4444",  
+        "appDisplayName": "My Test application",  
+        "displayName": "My Test application"  
+      },  
+      "user": {  
+        "companyName": "Casey Jensen",  
+        "createdDateTime": "2023-08-16T00:00:00Z",  
+        "displayName": "Casey Jensen",  
+        "givenName": "Casey",  
+        "id": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",  
+        "mail": "casey@contoso.com",  
+        "onPremisesSamAccountName": "Casey Jensen",  
+        "onPremisesSecurityIdentifier": "<Enter Security Identifier>",  
+        "onPremisesUserPrincipalName": "Casey Jensen",  
+        "preferredLanguage": "en-us",  
+        "surname": "Jensen",  
+        "userPrincipalName": "casey@contoso.com",  
+        "userType": "Member"   
+      } 
+    }  
+  }  
+} 
+
+```
+
+要求の `encryptedPasswordContext` フィールドには、暗号化された JWE 形式の次の要求が含まれています。
+
+- **user-password**: ユーザーがサインイン時に入力したパスワード テキスト
+- **username**: ユーザーがサインイン時に入力したサインイン識別子 (電子メール/ユーザー名)
+- **nonce**: 要求に固有であり、検証のために応答に含める必要がある GUID
+
+##### 2.2.2 応答スキーマ
+
+Entra は、カスタム拡張機能からの応答を次の形式で受け取ります。
+
+```json
+{  
+  "data": {  
+    "@odata.type": "microsoft.graph.onPasswordSubmitResponseData",  
+    "actions": [  
+      {  
+        "@odata.type": "microsoft.graph.passwordSubmit.MigratePassword"  
+      } 
+    ],
+    "nonce": "{nonce-value-from-external-id}"
+  }  
+}  
+```
+
+注
+
+外部 ID は、要求ペイロードから encryptedPasswordContext の要求として nonce を送信し、検証のために拡張機能からの応答で要求を受け取ります。
+
+使用可能な各応答アクションは、認証プロセス中の特定のシナリオに対応します。 次の表では、考えられる応答アクションとその使用方法について説明します。
+
+| 応答アクション | Scenario | Entra の動作 |
+| --- | --- | --- |
+| microsoft.graph.passwordSubmit.MigratePassword | パスワードの検証に成功しました。Entra は認証を続行します。 パスワードが弱い場合は、UpdatePassword フローをトリガーします。 | パスワードが基本的な検証を満たしているが強度要件が満たされない場合に使用します。 |
+| microsoft.graph.passwordSubmit.UpdatePassword | パスワードは正しいですが、弱いか期限切れです。 | パスワード リセット フローを介してユーザーをルーティングします。 |
+| microsoft.graph.passwordSubmit.Retry | パスワードが正しくありません。 | 許可されている場合、ユーザーが認証を再試行できるようにします。 |
+| Microsoft.Graph.パスワード送信.ブロック | 認証はブロックする必要があります。 | アプリによって提供されるカスタム メッセージを含むブロック画面を表示します。 |
+
+##### 2.2.3 テンプレート コード
+
+独自のコードを使用するか、次のサンプル Azure関数をAzure環境にデプロイできます。 この関数例では、次の方法を示します。
+
+- マネージド ID を使用してKey Vaultから暗号化証明書を取得する
+- パスワード ペイロードの暗号化を解除する
+- レガシ ID プロバイダーに対して資格情報を検証する
+- 適切な応答アクションを返す
+
+注
+
+**必須パッケージ**: この関数には、次の NuGet パッケージが必要です。
+
+- **Azure。Identity** (バージョン 1.12.0 以降)
+- **Azure。Security.KeyVault.Secrets** (バージョン 4.6.0 以降)
+- **Jose-jwt** (JWT 復号化用)
+- **Newtonsoft.Json** (JSON 解析用)
+
+**必要なアプリケーション設定**:
+
+- **KeyVaultUrl**: Key Vault URLを入力してください (例: `https://your-keyvault-name.vault.azure.net/`)
+- **CiamJitMigrationEncryptionCertName**: Key Vault内の証明書の名前 (例: `JitMigrationEncryptionCert`)
+
+```csharp
+using Jose;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace dev_functions
+{
+    public static class JitMigrationEndpoint
+    {
+        #region Configuration Constants
+
+        /// <summary>
+        /// Static cache for RSA private key retrieved from Key Vault
+        /// </summary>
+        private static RSA _cachedRsa = null;
+        private static readonly object _lockObject = new object();
+
+        /// <summary>
+        /// Key Vault URL from environment configuration (fetches the environment variable from local.settings.json)
+        /// </summary>
+        private static readonly string KeyVaultUrl =
+            Environment.GetEnvironmentVariable("KeyVaultUrl");
+
+        /// <summary>
+        /// Certificate name in Key Vault (fetches the environment variable from local.settings.json)
+        /// </summary>
+        private static readonly string CertificateName =
+            Environment.GetEnvironmentVariable("CiamJitMigrationEncryptionCertName");
+
+        #endregion
+
+        /// <summary>
+        /// Retrieves RSA private key from Key Vault certificate stored as secret with caching
+        /// </summary>
+        private static async Task<RSA> GetRsaFromKeyVaultAsync(ILogger log)
+        {
+            // Return cached RSA if available
+            if (_cachedRsa != null)
+            {
+                log.LogDebug("Using cached RSA private key");
+                return _cachedRsa;
+            }
+
+            // Thread-safe retrieval
+            lock (_lockObject)
+            {
+                // Double-check after acquiring lock
+                if (_cachedRsa != null)
+                    return _cachedRsa;
+
+                try
+                {
+                    log.LogInformation($"Retrieving certificate '{CertificateName}' from Key Vault");
+
+                    // Validate configuration
+                    if (string.IsNullOrEmpty(KeyVaultUrl))
+                    {
+                        throw new InvalidOperationException(
+                            "KeyVaultUrl environment variable is not configured"
+                        );
+                    }
+
+                    if (string.IsNullOrEmpty(CertificateName))
+                    {
+                        throw new InvalidOperationException(
+                            "CiamJitMigrationEncryptionCertName environment variable is not configured"
+                        );
+                    }
+
+                    // Use DefaultAzureCredential for authentication
+                    var credential = new DefaultAzureCredential();
+                    var secretClient = new SecretClient(new Uri(KeyVaultUrl), credential);
+
+                    // Retrieve the certificate stored as a secret (synchronous for thread safety in lock)
+                    KeyVaultSecret secret = secretClient.GetSecret(CertificateName);
+
+                    if (string.IsNullOrEmpty(secret.Value))
+                    {
+                        throw new InvalidOperationException("Secret value is empty");
+                    }
+
+                    // Secret value is base64-encoded certificate (PFX/PKCS12)
+                    byte[] certBytes = Convert.FromBase64String(secret.Value);
+
+                    // Load certificate with private key
+                    X509Certificate2 certificate = new X509Certificate2(
+                        certBytes,
+                        (string)null, // No password
+                        X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable
+                    );
+
+                    if (!certificate.HasPrivateKey)
+                    {
+                        throw new InvalidOperationException(
+                            "Certificate does not contain a private key"
+                        );
+                    }
+
+                    // Extract RSA private key
+                    _cachedRsa = certificate.GetRSAPrivateKey();
+
+                    if (_cachedRsa == null)
+                    {
+                        throw new InvalidOperationException(
+                            "Failed to extract RSA private key from certificate"
+                        );
+                    }
+
+                    log.LogInformation("RSA private key retrieved and cached successfully");
+                    return _cachedRsa;
+                }
+                catch (Exception ex)
+                {
+                    log.LogError($"Failed to retrieve certificate from Key Vault: {ex.Message}");
+                    log.LogError($"Stack trace: {ex.StackTrace}");
+                    throw;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Main Azure Function entry point for handling JIT migration requests
+        /// </summary>
+        /// <param name="req">The HTTP request from Entra External ID</param>
+        /// <param name="log">Logger instance for tracking execution</param>
+        /// <returns>Action result containing the migration response</returns>
+        [FunctionName("JitMigrationEndpoint")]
+        public static async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation($"Processing {req.Method} request for JIT migration.");
+
+            // Handle GET requests (health check)
+            if (req.Method == HttpMethods.Get)
+            {
+                log.LogInformation("GET request received. Returning 200 OK for health check.");
+                return new OkResult();
+            }
+
+            // Validate request body
+            if (req.Body == null || req.Body.Length == 0)
+            {
+                log.LogError("Request body is empty or null.");
+                return new BadRequestObjectResult("Request body is required for POST requests.");
+            }
+
+            try
+            {
+                // Parse the incoming request to extract user information
+                var userInfo = await ParseRequestAsync(req, log);
+
+                if (userInfo == null)
+                {
+                    log.LogError("Failed to parse user information from request.");
+                    return new BadRequestObjectResult("Failed to parse request body.");
+                }
+
+                if (string.IsNullOrEmpty(userInfo.UserId))
+                {
+                    log.LogError("User ID is missing from the request.");
+                    return new BadRequestObjectResult("User ID is required in the authentication context.");
+                }
+
+                if (string.IsNullOrEmpty(userInfo.Password))
+                {
+                    log.LogError("User password is missing from the request.");
+                    return new BadRequestObjectResult("User password is required for migration.");
+                }
+
+                // Process the response based on legacy system validation
+                ResponseContent response = await ProcessResponse(req, userInfo.UserId, userInfo.Password, userInfo.Nonce, log);
+
+                log.LogInformation($"Returning response action: {response.Data.Actions[0].OdataType}.");
+
+                return new OkObjectResult(response);
+            }
+            catch (Exception ex)
+            {
+                log.LogError($"Unexpected error during JIT migration processing: {ex.Message}");
+                log.LogError($"Stack trace: {ex.StackTrace}");
+
+                // Return a generic error response to avoid exposing internal details
+                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        #region Core Processing Methods
+
+        /// <summary>
+        /// Processes the migration response by validating credentials against a legacy authentication system.
+        /// This example demonstrates how to integrate with your existing user store to determine migration actions.
+        /// </summary>
+        /// <param name="req">The HTTP request containing query parameters</param>
+        /// <param name="userId">The user ID to validate</param>
+        /// <param name="password">The user's password to validate</param>
+        /// <param name="nonce">The nonce from the request</param>
+        /// <param name="log">Logger instance</param>
+        /// <returns>ResponseContent with appropriate action based on legacy system validation</returns>
+        private static async Task<ResponseContent> ProcessResponse(HttpRequest req, string userId, string password, string nonce, ILogger log)
+        {
+            log.LogInformation($"Processing JIT migration response for user: {userId}");
+
+            // TODO: Call your legacy authentication provider here
+            //
+            // Then based on the response from your legacy provider:
+            // - If authentication successful AND password strong: return MigratePassword
+            // - If authentication successful BUT password weak: return UpdatePassword  
+            // - If authentication failed: return Retry
+            // - If system error: return Block
+
+            // PLACEHOLDER: Always return Retry for now
+            log.LogInformation("Using placeholder implementation - returning Retry action");
+
+            return CreateResponse(ResponseActionType.Retry, nonce, "Authentication Pending",
+                "Please implement legacy authentication integration.");
+        }
+
+        /// <summary>
+        /// Creates a response with the specified action type and user-facing messages
+        /// </summary>
+        /// <param name="actionType">The response action type</param>
+        /// <param name="nonce">The nonce from the request</param>
+        /// <param name="title">User-facing title (optional)</param>
+        /// <param name="message">User-facing message (optional)</param>
+        /// <returns>ResponseContent with the specified action and messages</returns>
+        private static ResponseContent CreateResponse(ResponseActionType actionType, string nonce, string title = null, string message = null)
+        {
+            var response = new ResponseContent(actionType, nonce);
+
+            if (!string.IsNullOrEmpty(title))
+                response.Data.Actions[0].Title = title;
+
+            if (!string.IsNullOrEmpty(message))
+                response.Data.Actions[0].Message = message;
+
+            return response;
+        }
+
+        /// <summary>
+        /// Parses the incoming request to extract user information including ID, email, password, and nonce
+        /// </summary>
+        private static async Task<PasswordSubmitUserInfo> ParseRequestAsync(HttpRequest req, ILogger log)
+        {
+            log.LogInformation($"Parsing request from URL: {req.Path}{req.QueryString}");
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            if (string.IsNullOrWhiteSpace(requestBody))
+            {
+                log.LogError("Request body is empty or whitespace.");
+                return null;
+            }
+
+            try
+            {
+                JObject jObject = JObject.Parse(requestBody);
+                log.LogDebug($"Parsed request body: {jObject}");
+
+                // Extract user information from authentication context
+                string userId = jObject["data"]?["authenticationContext"]?["user"]?["id"]?.ToString();
+                string email = jObject["data"]?["authenticationContext"]?["user"]?["mail"]?.ToString();
+                string userPrincipalName = jObject["data"]?["authenticationContext"]?["user"]?["userPrincipalName"]?.ToString();
+
+                // Handle both encrypted and plain text password contexts
+                string encryptedPasswordContext = jObject["data"]?["encryptedPasswordContext"]?.ToString();
+
+                (string userPassword, string nonce) = await ExtractPasswordAndNonce(encryptedPasswordContext, log);
+
+                log.LogInformation($"Extracted User Info - UserId: {userId}, Email: {email}, UPN: {userPrincipalName}");
+
+                return new PasswordSubmitUserInfo
+                {
+                    UserId = userId,
+                    Email = email,
+                    UserPrincipalName = userPrincipalName,
+                    Password = userPassword,
+                    Nonce = nonce
+                };
+            }
+            catch (JsonReaderException ex)
+            {
+                log.LogError($"Failed to parse request body as JSON: {ex.Message}");
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Extracts password and nonce from encrypted password context using Key Vault certificate
+        /// </summary>
+        private static async Task<(string password, string nonce)> ExtractPasswordAndNonce(
+            string encryptedContext,
+            ILogger log
+        )
+        {
+            try
+            {
+                log.LogInformation("Starting password and nonce extraction from encrypted context");
+
+                // Validate input
+                if (string.IsNullOrEmpty(encryptedContext))
+                {
+                    log.LogError("Encrypted context is null or empty");
+                    return (string.Empty, string.Empty);
+                }
+
+                RSA rsa = null;
+                try
+                {
+                    // Get RSA private key from Key Vault (cached after first call)
+                    rsa = await GetRsaFromKeyVaultAsync(log);
+                    log.LogDebug("RSA private key obtained from Key Vault successfully");
+                }
+                catch (Exception ex)
+                {
+                    log.LogError($"Failed to retrieve RSA key from Key Vault: {ex.Message}");
+                    return (string.Empty, string.Empty);
+                }
+
+                string decryptedPayload;
+                try
+                {
+                    // Decrypt the JWT
+                    log.LogDebug("Attempting JWT decryption");
+                    decryptedPayload = JWT.Decode(encryptedContext, rsa);
+                    log.LogDebug($"JWT decrypted successfully, payload length: {decryptedPayload?.Length ?? 0}");
+
+                    if (string.IsNullOrEmpty(decryptedPayload))
+                    {
+                        log.LogError("JWT decryption resulted in empty payload");
+                        return (string.Empty, string.Empty);
+                    }
+                }
+                catch (Jose.JoseException ex)
+                {
+                    log.LogError($"Jose JWT library error during decryption: {ex.Message}");
+                    return (string.Empty, string.Empty);
+                }
+
+                JObject payloadObj;
+                try
+                {
+                    // Parse the decrypted JSON payload
+                    log.LogDebug("Parsing decrypted JSON payload");
+                    string jsonPayload = Jose.JWT.Decode(decryptedPayload, null, JwsAlgorithm.none);
+                    payloadObj = JObject.Parse(jsonPayload);
+                    log.LogDebug("JSON payload parsed successfully");
+                }
+                catch (JsonReaderException ex)
+                {
+                    log.LogError($"Failed to parse decrypted payload as JSON: {ex.Message}");
+                    return (string.Empty, string.Empty);
+                }
+
+                // Extract password and nonce from the payload
+                string password = payloadObj["user-password"]?.ToString();
+                string nonce = payloadObj["nonce"]?.ToString();
+
+                log.LogInformation($"Password extraction: {(string.IsNullOrEmpty(password) ? "FAILED" : "SUCCESS")}");
+                log.LogInformation($"Nonce extraction: {(string.IsNullOrEmpty(nonce) ? "FAILED" : "SUCCESS")}");
+
+                return (password ?? string.Empty, nonce ?? string.Empty);
+            }
+            catch (Exception ex)
+            {
+                log.LogError($"Critical error in ExtractPasswordAndNonce: {ex.Message}");
+                log.LogError($"Stack trace: {ex.StackTrace}");
+
+                // Return empty values to allow the function to continue with fallback behavior
+                return (string.Empty, string.Empty);
+            }
+        }
+
+        #endregion
+
+        #region Response Models
+
+        /// <summary>
+        /// Root response object for JIT migration
+        /// </summary>
+        public class ResponseContent
+        {
+            [JsonProperty("data")]
+            public Data Data { get; set; }
+
+            public ResponseContent(ResponseActionType actionType, string nonce = null)
+            {
+                Data = new Data(actionType, nonce);
+            }
+        }
+
+        /// <summary>
+        /// Data payload containing actions and metadata
+        /// </summary>
+        public class Data
+        {
+            [JsonProperty("@odata.type")]
+            public string OdataType { get; set; }
+
+            [JsonProperty("actions")]
+            public List<ActionItem> Actions { get; set; }
+
+            [JsonProperty("nonce")]
+            public string Nonce { get; set; }
+
+            public Data(ResponseActionType actionType, string nonce = null)
+            {
+                OdataType = "microsoft.graph.onPasswordSubmitResponseData";
+                Nonce = nonce;
+                Actions = new List<ActionItem> { new ActionItem(actionType) };
+            }
+        }
+
+        /// <summary>
+        /// Individual action item in the response
+        /// </summary>
+        public class ActionItem
+        {
+            [JsonProperty("@odata.type")]
+            public string OdataType { get; set; }
+
+            [JsonProperty("title", DefaultValueHandling = DefaultValueHandling.Ignore)]
+            public string Title { get; set; }
+
+            [JsonProperty("message", DefaultValueHandling = DefaultValueHandling.Ignore)]
+            public string Message { get; set; }
+
+            public ActionItem(ResponseActionType type)
+            {
+                OdataType = type switch
+                {
+                    ResponseActionType.MigratePassword => "microsoft.graph.passwordsubmit.MigratePassword",
+                    ResponseActionType.UpdatePassword => "microsoft.graph.passwordsubmit.UpdatePassword",
+                    ResponseActionType.Block => "microsoft.graph.passwordsubmit.Block",
+                    ResponseActionType.Retry => "microsoft.graph.passwordsubmit.Retry",
+                    _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+                };
+
+                // Set user-facing messages for block actions
+                if (type == ResponseActionType.Block)
+                {
+                    Title = "Sign-in blocked";
+                    Message = "Admin has blocked your sign-in attempt. Please contact support.";
+                }
+            }
+        }
+
+        /// <summary>
+        /// Available response action types for JIT migration
+        /// </summary>
+        public enum ResponseActionType
+        {
+            /// <summary>
+            /// Migrate the user's password to Azure AD
+            /// </summary>
+            MigratePassword,
+
+            /// <summary>
+            /// Update the user's existing password
+            /// </summary>
+            UpdatePassword,
+
+            /// <summary>
+            /// Block the user's sign-in attempt
+            /// </summary>
+            Block,
+
+            /// <summary>
+            /// Retry the authentication process
+            /// </summary>
+            Retry
+        }
+
+        /// <summary>
+        /// Data Transfer Object containing user information extracted from password submit request
+        /// </summary>
+        public class PasswordSubmitUserInfo
+        {
+            /// <summary>
+            /// The user's unique identifier from the authentication context
+            /// </summary>
+            public string UserId { get; set; }
+
+            /// <summary>
+            /// The user's email address from the authentication context
+            /// </summary>
+            public string Email { get; set; }
+
+            /// <summary>
+            /// The user's User Principal Name from the authentication context
+            /// </summary>
+            public string UserPrincipalName { get; set; }
+
+            /// <summary>
+            /// The user's password extracted from the encrypted context
+            /// </summary>
+            public string Password { get; set; }
+
+            /// <summary>
+            /// The nonce value from the encrypted context
+            /// </summary>
+            public string Nonce { get; set; }
+        }
+
+        #endregion
+    }
+}
+```
+
+##### 2.2.4 関数をデプロイする
+
+関数コードを構成したら、Visual Studio 2022 を使用してAzureにデプロイします。
+
+1. ソリューション エクスプローラーで、関数プロジェクトを右クリックします。
+2. **公開**を選択します。
+3. 発行プロファイルを設定していない場合:
+    1. **Azure** を選択し、 **Next** を選択します。
+    2. **Azure Function App (Windows)** を選択し、 **Next** を選択します。
+    3. メッセージが表示されたら、Azure アカウントにサインインします。
+    4. サブスクリプションと関数アプリを選択します。
+    5. **完了** を選択します。
+4. **[発行]** ページで **[発行]** を選択します。
+5. デプロイが完了するまで待ちます。 デプロイが完了すると、"発行に成功しました" というメッセージが表示されます。
+
+### ステージ 3: カスタム拡張機能アプリケーションを構成する
+
+カスタム認証拡張機能を表すアプリケーション登録を作成し、暗号化証明書で構成します。
+
+#### 3.1 EEID 認証拡張機能アプリケーションを作成する
+
+カスタム認証拡張機能を表すアプリケーション登録を作成します。 このアプリケーションは、Microsoft Entra 外部 IDと Azure 関数の間の呼び出しを認証します。 アプリの登録に関する一般的なガイダンスについては、「 [アプリケーションの登録」を](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app)参照してください。
+
+次の設定を使用して、[Microsoft Entra 管理センター](https://entra.microsoft.com/) に新しいアプリケーションを登録します。
+
+- **名前**: JIT 移行拡張機能のわかりやすい名前を入力します
+- **サポートされているアカウントの種類**: この組織のディレクトリ内のアカウントのみ
+
+##### 3.1.1 識別子 URI の作成
+
+識別子 URI は、カスタム認証拡張機能 API を一意に識別します。 プレースホルダーを実際の値に置き換えて、アプリケーション マニフェストに次のコードを追加します。
+
+```json
+"identifierUris": [  
+    "api://[Function_URL_Hostname]/[App_ID]"  
+], 
+```
+
+- **Function\_URL\_Hostname**: Azure関数のホスト名 (例: `contoso.azurewebsites.net`)
+- **App\_ID**: アプリ登録 **の [概要** ] ページのアプリケーション (クライアント) ID
+
+例: `"api://contoso.azurewebsites.net/aaaabbbb-0000-cccc-1111-dddd2222eeee"`
+
+##### 3.1.2 API のアクセス許可
+
+カスタム認証拡張機能では、認証イベントから HTTP 要求を受信するために、 `CustomAuthenticationExtension.Receive.Payload` アプリケーションのアクセス許可が必要です。 このアクセス許可を設定するには、次の手順に従います。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com/)で、**Entra ID**&gt;**アプリの登録** に移動し、カスタム認証拡張機能アプリケーションを選択します。
+2. API の**アクセス許可**に移動します&gt;**アクセス許可を追加します**。
+3. **Microsoft Graph**&gt;**アプリケーションのアクセス許可**を選択します。
+4. **CustomAuthenticationExtension.Receive.Payload** を検索して選択し、[**アクセス許可の追加**] をクリックします。
+5. 最後に、[ **テナント] に管理者の同意を与** える] をクリックしてアクセス許可を付与します。
+
+#### 3.2 暗号化キーを構成する
+
+カスタム拡張機能に送信する前に、外部 ID がパスワード ペイロードを暗号化できるように、証明書の公開キーを構成します。
+
+##### 3.2.1 公開キーをエクスポートする
+
+1. Key Vaultの **Certificates** で、**JitMigrationEncryptionCert** を選択します。
+2. 現在のバージョン (GUID として表示) を選択します。
+3. **[CER 形式でダウンロード]** を選択します。
+4. ファイルを保存します (例: `jitmigrationencryptioncert.cer`)。
+5. PowerShell を開きます。
+6. ファイル パスを証明書の場所に置き換えて、次のコマンドを実行します。
+
+    ```powershell
+    $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2("{path-to-your-cer-file}\jitmigrationencryptioncert.cer")
+    $certBase64 = [Convert]::ToBase64String($cert.RawData)
+    $certBase64
+    ```
+7. 出力から base64 でエンコードされた公開キーをコピーします。
+
+##### 3.2.2 アプリケーションにキーを追加する
+
+Microsoft Graph APIを使用して、カスタム認証拡張機能アプリの登録で証明書を構成します。 `keyId`と`tokenEncryptionKeyId`の両方に同じ GUID を使用していることを確認します。 次の情報を使用して PATCH 要求を行います。
+
+プレースホルダーを実際の値に置き換えます。
+
+- `{object-id}`: カスタム認証拡張機能アプリのオブジェクト ID (アプリケーション ID ではありません)。
+- `{end-date}`: 証明書の有効期限 ( `2026-11-25T17:44:47Z`など)。
+- `{key-guid}`: 新しい GUID。 PowerShell を使用して生成できます: `[guid]::NewGuid()`。
+- `{start-date}`: 証明書の開始日 (例: `2025-11-25T17:44:47Z`)。
+- `{base64-encoded-public-key}`: 前の手順の base64 文字列。
+
+```http
+PATCH https://graph.microsoft.com/v1.0/applications/{object-id}
+Content-Type: application/json
+Authorization: Bearer {access-token}
+
+{
+  "keyCredentials": [
+    {
+      "endDateTime": "{end-date}",
+      "keyId": "{key-guid}",
+      "startDateTime": "{start-date}",
+      "type": "AsymmetricX509Cert",
+      "usage": "Encrypt",
+      "key": "{base64-encoded-public-key}",
+      "displayName": "CN=JitMigration"
+    }
+  ],
+  "tokenEncryptionKeyId": "{key-guid}"
+}
+```
+
+この構成では、カスタム拡張機能のパスワード コンテキストを暗号化するときに公開キーを使用するように外部 ID に指示します。
+
+#### 3.3 カスタム拡張機能ポリシー
+
+ユーザーのサインイン時に JIT 移行プロセスを実行する方法を定義するカスタム拡張機能ポリシーを作成します。 このポリシーは、サインイン プロセス中にカスタム認証アプリケーションを呼び出します。
+
+次の例を使用して、Microsoft Graph API を使用してカスタム拡張機能ポリシーを作成します。
+
+```http
+POST https://graph.microsoft.com/beta/identity/customAuthenticationExtensions 
+{   
+    "@odata.type": "#microsoft.graph.onPasswordSubmitCustomExtension",   
+    "displayName": "OnPasswordSubmitCustomExtension",   
+    "description": "Validate password",   
+    "endpointConfiguration": {   
+        "@odata.type": "#microsoft.graph.httpRequestEndpoint",   
+        "targetUrl": "{extension-url-from-create-custom-extension-section}"   
+    },   
+    "authenticationConfiguration": {   
+        "@odata.type": "#microsoft.graph.azureAdTokenAuthentication",   
+        "resourceId": "{identifierUri-used-in-above-section}"   
+    } , 
+    "clientConfiguration": { 
+       "timeoutInMilliseconds": 2000, 
+       "maximumRetries": 1 
+   }, 
+}  
+```
+
+### ステージ 4: レガシ アプリを外部 ID に切り替える
+
+カスタム認証拡張機能を構成したら、クライアント アプリケーションを登録し、JIT 移行をアクティブにするリスナー ポリシーを作成して、運用カットオーバーの準備をします。
+
+#### 4.1 アプリを作成する
+
+JIT 移行プロセスをテストするためのクライアント アプリケーションを登録します。 このアプリケーションは、サインイン中にカスタム認証拡張機能をトリガーします。 アプリケーションの登録の詳細な手順については、「 [クイック スタート: アプリケーションを登録する」を](https://learn.microsoft.com/ja-jp/entra/identity-platform/quickstart-register-app)参照してください。
+
+次の JIT 移行固有の設定で新しい Web アプリケーションを登録します。
+
+- **リダイレクト URI**: テスト用に `https://jwt.ms` (Web プラットフォーム) に設定
+- **認証**: 暗黙的な許可フローとハイブリッド フローで **ID トークン** を有効にする
+- **API アクセス許可**: **User.Read** (委任されたMicrosoft Graphアクセス許可) に管理者の同意を付与します。 アクセス許可が既に存在する場合でも、適切な構成のために同意を再付与する必要があります。
+
+ヒント
+
+テスト用に構成されている場合は、既存のアプリケーション登録を使用できます。
+
+#### 4.2 リスナー ポリシーを作成する
+
+カスタム拡張機能ポリシーをクライアント アプリケーションにリンクするリスナー ポリシーを作成します。 このポリシーにより、ユーザーのサインイン時にカスタム認証拡張機能が確実に呼び出されます。
+
+Microsoft Graph API を使用してリスナー ポリシーを作成するには、次の例を使用します。 このポリシーにより、クライアント アプリケーションがカスタム認証拡張機能に関連付けられます。
+
+これらのプレースホルダーを、構成の次の情報に置き換えます。
+
+- *App\_ID*: 登録したクライアント アプリケーションのアプリケーション ID。 アプリケーション ID は、アプリケーションの **[概要]** ページで確認できます。
+- *migrationPropertyId*: ユーザーの移行状態を追跡するために、このチュートリアルで前に作成した拡張機能属性 ID。
+- *customExtensionObjectId*: このチュートリアルで前に作成したカスタム認証拡張機能のポリシー ID。
+
+```http
+POST https://graph.microsoft.com/beta/identity/authenticationEventListeners 
+
+Content-type: application/json  
+
+{  
+    "@odata.type": "#microsoft.graph.onPasswordSubmitListener",  
+    "conditions": {  
+        "applications": {  
+            "includeAllApplications": false,  
+            "includeApplications": [  
+                {  
+                    "appId": "{client-appid-you-created-above }"  
+                }  
+            ]  
+        }  
+    },  
+    "priority": 500,  
+    "handler": {  
+        "@odata.type": "#microsoft.graph.onPasswordMigrationCustomExtensionHandler",  
+        "migrationPropertyId": "{migrationPropertyId}",  
+        "customExtension": {  
+            "id": "{customExtensionObjectId}"  
+        }  
+    }  
+}  
+```
+
+### ステージ 5: 運用環境にデプロイする前にテストと検証を行う
+
+JIT 移行を運用環境にデプロイする前に、実装を十分にテストして、正しく安全に動作することを確認してください。 カスタム拡張機能のテストの詳細については、「 [カスタム認証拡張機能をテストする」を参照してください](https://learn.microsoft.com/ja-jp/entra/identity-platform/custom-extension-tokenissuancestart-configuration#step-5-test-the-application)。
+
+次のテスト チェックリストを検討してください。
+
+- **ユーザーのサブセットを使用してテスト**する: ユーザー ベース全体を移行する前に、テスト ユーザーの少数のグループから開始します。
+- **資格情報の検証**: Azure関数がレガシ ID プロバイダーに対して資格情報を正しく検証していることを確認します。
+- **移行フラグの更新を確認**する: 移行が成功した後、移行フラグが `false` に設定されていることを確認します。
+- **さまざまな応答アクションをテスト**する: すべての応答アクション (MigratePassword、UpdatePassword、Retry、Block) が期待どおりに動作することを確認します。
+- **Monitor Azure関数ログ**: 認証プロセス中のエラーや問題を特定するためにログを確認します。
+- **暗号化を検証**する: パスワードがエンドツーエンドで暗号化され、ログやエラー メッセージで公開されないようにします。
+
+テスト中に問題が発生した場合は、一般的な問題と解決策に関するガイダンスについては、 [カスタム認証拡張機能](https://learn.microsoft.com/ja-jp/entra/identity-platform/custom-extension-troubleshoot) のトラブルシューティングを参照してください。
+
+### 既知の問題
+
+**ネイティブ認証でのパスワードの複雑さの不一致**: ネイティブ認証フロー中に、ユーザーが従来の ID プロバイダーに従って正しいパスワードを入力したが、外部 ID パスワードの複雑さの標準では脆弱と見なされた場合、SSPR にリダイレクトするのではなく、エラーが返されます。
+
+これは、レガシ パスワードが外部 ID 要件を満たしていないユーザーにのみ影響します。 既に外部 ID 標準を満たしているパスワードを持つユーザーは、追加のプロンプトなしでシームレスに移行できます。 レガシ パスワードが外部 ID の複雑さの規則を満たしていないが有効なユーザーに対してパスワードのリセットを強制しないようにするには、「 従来の複雑さの不一致に対して disableStrongPassword オプションを使用する」を参照してください。
+
+### よく寄せられる質問
+
+#### OnPasswordSubmit カスタム認証拡張機能には、どの URL を使用する必要がありますか?
+
+レガシ ID システムに対してパスワードを検証する、カスタマー ホステッド HTTPS エンドポイント (通常は Azure 関数) を使用します。 URL は、Microsoft Graph、Microsoft Entra サービス、またはレガシ ID プロバイダーの対話型サインイン エンドポイントを参照してはなりません。 検証ロジックを実装する Function App 関数エンドポイントを指す必要があります。
+
+#### オンプレミスの属性がユーザー スキーマに表示される理由
+
+外部 ID は、オンプレミスの属性を含む共有Microsoft Entraユーザー モデルを使用します。 外部 ID では、これらの属性は読み取り専用であり、JIT パスワードの移行中の ID 照合やライトバックには使用されません。 ユーザー解決は、UPN や電子メールなどの構成済みのサインイン識別子を使用して、サインイン フローの前に行われます。
+
+#### JIT 移行コンポーネントをデプロイする必要がある場所
+
+制限付きの RBAC を使用して、安全な ID サブスクリプションに JIT 移行コンポーネントをデプロイします。 管理アクセスを厳密に制御して、顧客がホストする認証ロジックに対する未承認の変更を防ぎます。 この分離は、認証フローとユーザー アカウントを侵害から保護するのに役立ちます。
+
+### 完全な検証と移行
+
+JIT パスワード移行のセットアップとテストが完了したら、移行ガイドに戻り、エンドツーエンドの認証フローを検証し、アプリケーションのカットオーバーを計画します。 [ステージ 4: カットオーバーの検証、監視、計画](https://learn.microsoft.com/ja-jp/entra/external-id/customers/migrate-from-b2c-to-external-id#stage-4-validate-monitor-and-plan-cutover)。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -889,7 +1937,7 @@ Content-type: application/json
 
 - Source: https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-sign-in-with-passkey
 - Service: entra-external-id / external
-- Article date: 2026-10-05
+- Article date: 2026-10-24
 - Summary: Microsoft Entra 外部 IDを使用して、コンシューマーおよびビジネス顧客アプリでフィッシングに強く、パスワードなしのサインインに対してパスキー (FIDO2) を有効にする方法について説明します。
 
 **適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
@@ -954,9 +2002,11 @@ Content-type: application/json
 - 登録されているパスキーを表示します。
 - パスキーを削除します。
 
+委任されたアクセス許可を持つセルフサービス削除には、[Delete a credential method](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-credential-management-api#delete-a-credential-method) エンドポイントを使用します。
+
 アプリでパスキー管理をサポートするには、[パスキー認証情報管理サンプル アプリ](https://github.com/Azure-Samples/ms-identity-ciam-native-javascript-samples/tree/main/passkey-sample)を使用します。 このサンプルでは、委任されたアクセス許可を持つ資格情報管理 API を使用して、サインインしているユーザーが自分のパスキーを一覧表示して登録する方法を示します。 サンプルのREADMEの手順に従って、アプリを設定して実行してください。
 
-Von Bedeutung
+Important
 
 サンプルの削除フローでは、依然として、高い特権を持つアプリケーションのアクセス許可とブラウザー コード内のクライアント シークレットを使用する Microsoft Graph が使用されています。 テスト テナントでのみサンプルを実行します。 運用環境にデプロイしないでください。
 
@@ -1084,7 +2134,7 @@ Von Bedeutung
 
 #### 資格情報管理エクスペリエンスを構築するための特権が低い API はありますか。
 
-はい。 [資格情報管理 API](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-credential-management-api) を使用して、サインインしている顧客が委任権限で自身のパスキーを一覧表示および登録できるようにします。
+はい。 [資格情報管理 API](https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-credential-management-api) を使用して、サインインしている顧客が委任されたアクセス許可で自身のパスキーを一覧表示、登録、削除できるようにします。
 
 #### 複数のドメイン (関連するオリジン) で同じパスキーを使用できますか?
 
@@ -1569,6 +2619,106 @@ User Insights は、 **2026 年 8 月 31** 日に廃止されます。 その日
 #### 次のステップ
 
 2026 年 8 月 31 日より前は、User Insights または `reports/userInsights/*` エンドポイントに依存するダッシュボード、Power BI レポート、アプリ登録のインベントリを作成し、Azure MonitorまたはMicrosoft Graph アクティビティ ログ API を使用してビューを再構築します。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/external-id/customers/identity-verification-integration"} -->
+## Microsoft Entra 外部 IDの ID 検証統合 - Microsoft Entra External ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/external-id/customers/identity-verification-integration
+- Service: entra-external-id / external
+- Article date: 2026-10-20
+- Summary: 検証済み ID 資格情報、直接 REST API クレーム、OIDC フェデレーションなど、Microsoft Entra 外部 ID アプリの ID 検証パターンを比較します。
+
+ID 検証では、アカウントの認証だけでなく、ユーザーが誰であるかを確認します。 Microsoft Entra 外部 IDを使用するアプリケーションは、ID 検証 (IDV) パートナーと統合して、政府発行のドキュメント チェックと生体認証またはライブネス チェックを通じてユーザーの ID を検証できます。 これらのチェックは、オンボーディング、アカウントの回復、およびリスクの高いトランザクションを支援できます。
+
+この記事では、アプリケーションでオーケストレーションする 2 つの REST API ベースの統合パターンについて説明します。 **パターン 1a** では、Microsoft Entra Verified ID資格情報が使用されます。 **パターン 1b** は、検証済みのクレームをアプリケーションに直接返します。 また、この記事では、OpenID Connect (OIDC) フェデレーションを使用する **パターン 2** とこれらのアプローチを比較します。
+
+### アプリケーション主導の ID 検証
+
+アプリケーションは検証の過程を管理し、結果の使用方法を決定します。 ID 検証は、外部 ID ユーザー フローで有効にする組み込みの確認手順ではありません。 パートナーは本人確認を実行します。外部 ID は、アプリケーションに認証機能を提供します。
+
+ユーザーが保持する認証情報、データの最小化、アプリケーション間での再利用が優先される場合は、パターン 1a を選択します。 クレームがアプリケーションに直接返される必要があり、結果として得られる個人データを管理する準備が整っている場合は、パターン 1b を選択します。
+
+ライブ本人確認には、ドキュメントのキャプチャ、ライブネス チェック、パートナーによる処理が含まれる場合があります。 アプリケーションでは、同期カスタム認証拡張機能呼び出しとは別に、この実行時間の長い対話を管理する必要があります。 ブロッキング拡張機能呼び出しを使用して、ユーザーが本人確認を完了するのを待機しないでください。
+
+### パターン 1a: IDV REST API と Verified ID API の統合
+
+パターン 1a は、プライバシーと資格情報の再利用が重要な場合に推奨されるアプローチです。 IDV パートナーは、ユーザーを検証し、証明済みクレームを検証済み ID 資格情報 (`VerifiedIdentity`など) としてユーザーの**Microsoft Authenticator アプリ**に発行します。 アプリケーションでは、検証済み ID REST API を使用して、その資格情報の提示を要求および検証します。
+
+#### 校正、発行、およびプレゼンテーション
+
+本人確認と資格情報の表示は、エクスペリエンスの個別の部分です。
+
+- **本人確認と発行:** ユーザーが必要な資格情報を持っていない場合、アプリケーションはパートナーの検証エクスペリエンスにユーザーを誘導します。 本人確認が正常に完了すると、パートナーは資格情報の発行を開始します。 ユーザーは、QR コードまたはディープ リンクを使用してMicrosoft Authenticatorに資格情報を追加します。
+- **プレゼンテーション:** アプリケーションは、Verified ID を使用して必要な資格証明書を要求します。 ユーザーがMicrosoft Authenticatorから提示すると、アプリケーションはプレゼンテーションから検証済みの請求を受け取ります。
+- **再利用:** 既に受け入れられた資格情報を持っているユーザーは、各アプリケーションに対してパートナーの本人確認プロセスを繰り返すことなく、資格情報を提示できます。
+
+資格情報はユーザーの手元に残ります。 アプリケーションは、パートナーから直接本人確認データを受け取るのではなく、ユーザーが提示した請求を受け取ります。 これはデータの最小化をサポートしますが、提示された請求には個人データが含まれる可能性があります。
+
+パートナーの校正エクスペリエンスと資格情報の要件は、そのパートナーとの契約によって異なります。 パートナーと協力して、オンボーディング要件と直接請求契約を策定します。 正規の発行者と検証者のフローについては、 [検証済み ID API の統合に関するページを](https://learn.microsoft.com/ja-jp/entra/verified-id/integration-guidance)参照してください。
+
+#### 外部テナントのセットアップ
+
+このパターンで使用される外部 ID テナント構成については、[「外部テナントでのMicrosoft Entra Verified IDの構成」](https://learn.microsoft.com/ja-jp/entra/external-id/customers/verified-id-setup-issuance-presentation)を参照してください。 この記事では、サポートされているセットアップ方法と外部テナントの制限について説明します。 IDV パートナーは、パートナーの ID 資格情報を発行する責任があります。アプリケーションは、その提示を要求して検証します。
+
+### パターン 1b: IDV REST API とアプリケーションに返される請求の統合
+
+パターン 1b では、アプリケーションは IDV パートナーの REST API を呼び出して検証を開始し、検証済み属性情報を受信します。 パートナーは、依拠当事者であるアプリケーションに請求を直接返します。 このパターンの一部として検証済み ID 資格情報はユーザーに発行されず、Microsoft Authenticatorは必要ありません。
+
+この方法では、資格情報処理コンポーネントの数が少なくなります。アプリケーションは検証セッションを開始し、パートナーがユーザーの本人確認を行い、アプリケーションはパートナーの API 統合を通じて結果を受け取ります。 API コントラクトと結果処理の要件については、パートナーのドキュメントを使用してください。
+
+返されるクレームには、個人データが含まれることがあります。 アプリケーションはそのデータを受信して保持するため、データの最小化、データ所在地、保持は、統合のプライバシーとコンプライアンスの責任の一部です。 パターン 1a とは異なり、このパターンでは、ユーザーが他の証明書利用者に提示できるユーザー保有の資格情報は生成されません。
+
+パターン 1a と同様に、IDV パートナーと直接契約します。
+
+### REST API パターンの比較
+
+REST API パターンの主な違いは、証明済みクレームが配信される場所、ユーザーが再利用可能なクレデンシャルを受け取るかどうか、および誰が返された個人データを処理するかです。
+
+| Consideration | Verified ID APIs を使用した IDV REST API | claims を含む IDV REST API |
+| --- | --- | --- |
+| **校正の結果** | ユーザーのMicrosoft Authenticator アプリに発行された認証情報 | アプリケーションに直接返される検証済み請求 |
+| **アプリケーション統合** | パートナーの本人確認エクスペリエンスを使用した資格情報のプレゼンテーション用の検証済み ID REST API | パートナーの REST API |
+| **ユーザーが保持する資格情報** | はい | No |
+| **依拠当事者間で再利用する** | ユーザーはその資格情報を受け入れるアプリケーションに資格情報を提示できます | 再利用可能な資格情報が発行されない |
+| **個人データの取り扱い** | アプリケーションは、ユーザーが提示した請求を受け取ります | アプリケーションは、パートナーから返された請求を受信して保持します |
+| **Microsoft Authenticator への依存** | ここで説明する認証情報の利用に必要です | 必須ではない |
+| **取引関係** | IDV パートナーとの直接契約 | IDV パートナーとの直接契約 |
+
+### パターン 2: OIDC フェデレーション
+
+パターン 2 では、IDV パートナーは OIDC ID プロバイダーとして機能し、Microsoft Entra 外部 ID はそのパートナーとフェデレーションを確立します。 パートナーは、独自のエクスペリエンスで ID 検証を実行し、OIDC ID トークン内の ID クレームを External ID に返します。 パターン 1b とは異なり、アプリケーションはパートナーの REST API を呼び出して検証結果を受け取りません。
+
+2 つの異なる関係があります。アプリケーションでは認証に外部 ID を使用し、外部 ID は外部認証プロバイダーとしてパートナーを使用します。 パートナーは、アプリケーションに直接ではなく、外部 ID に ID トークンを発行します。
+
+#### フェデレーション フロー
+
+サインインと検証のエクスペリエンスは、アプリケーション、External ID、およびパートナーにまたがっています。
+
+- **アプリケーションサインイン:** アプリケーションが外部 ID を使用してサインインを開始します。 ユーザーは、ユーザー フローで ID プロバイダーとして構成された IDV パートナーを選択します。
+- **パートナーの確認:** 外部 ID は、パートナーの OIDC 承認エンドポイントにユーザーをリダイレクトします。 パートナーは、契約に従って、書類やライブネス チェックなどの本人確認プロセスを実施します。
+- **フェデレーション応答:** パートナーは、外部 ID の登録済みリダイレクト URI に承認コードを返します。 外部 ID では、コードを使用してパートナーの ID トークンを取得します。このトークンには、パートナーが提供する ID クレームが含まれます。
+- **アプリケーションのサインインの完了:** External ID はユーザー フローを完了し、アプリケーションに対してトークンを発行します。 アプリケーションで使用できるクレームは、External ID のサポートされているクレーム マッピングとトークンの構成によって異なります。パートナーの ID トークン全体がアプリケーションに渡されるわけではありません。
+
+この方向性は重要です。IDV パートナーは、External ID の認証プロバイダーです。 パートナー独自のアプリケーションの ID プロバイダーとして外部 ID を構成することは逆の統合であり、このパターンにはなりません。
+
+#### パートナーの要件とクレーム対応
+
+パートナーは、外部 ID のフェデレーション要件と互換性のある OIDC サービスを提供する必要があります。 構成には、OIDC 検出エンドポイント、発行者、クライアント登録、サポートされているクライアント認証方法、スコープ、およびクレーム マッピングが含まれます。 外部 ID は、このフェデレーションの認可コード応答タイプをサポートします。 検出エンドポイントは、プロバイダーが OIDC メタデータを公開することを確立しますが、それ自体では External ID との互換性を確立しません。
+
+IDV プロバイダーは、最上位の ID トークンクレームとして、または `verified_claims` 構造内で ID 属性または証明結果を返す場合があります。 外部IDのドキュメントに記載されている[請求のマッピング](https://learn.microsoft.com/ja-jp/entra/external-id/customers/reference-oidc-claims-mapping-customers)は、特定の標準の請求およびユーザー属性について規定しています。これは、任意の検証結果請求やネストされた構造が、お客様のアプリケーションに確実に渡されることを保証するものではありません。 本人確認のためにフェデレーションに依存する前に、必要な証明結果を表すパートナー請求、外部 ID が必要なマッピングをサポートしているかどうか、アプリケーションが実際に受け取る内容を確認します。 フェデレーション サインインだけでは、必要な本人確認が行われたことは確立されません。
+
+外部 ID が OIDC `claims` パラメーターを使用して特定の本人確認クレームを動的に要求できることを想定しないでください。 プロバイダーのドキュメントと検出メタデータは異なる場合があり、そのいずれも、External ID を通じたエンドツーエンドのサポートを確立するものではありません。 選択したパートナーとの構成済み請求配信を検証します(新しい本人確認と既存の検証のどちらを表すかを含む)。
+
+`email_verified`や`phone_number_verified`のみを政府が発行した本人確認の証明として扱ってはいけません。 これらの請求は、メール アドレスまたは電話番号の検証を記述します。 どの請求が必要な本人確認結果を確立するか、およびそのフローで新たに本人確認を実行するか既存の検証を使用するかについて、パートナーと合意します。
+
+#### トレードオフと構成
+
+OIDC フェデレーションは、パートナーの検証エクスペリエンスをサインイン リダイレクト フローに取り込みます。 パートナーは互換性のある OIDC ID プロバイダーを運用する必要があります。REST 専用サービスでは不十分です。 このパターンでは、再利用可能な検証済み ID 資格情報を Microsoft Authenticator に発行するのではなく、フェデレーションを通じて結果が配信されます。
+
+IDV パートナーと直接契約します。 外部 ID のセットアップ手順については、「[OpenID Connect を外部 ID プロバイダーとして追加する](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-custom-oidc-federation-customers)」を参照してください。 統合に依存する前に、選択したパートナーとのエンドツーエンドのフェデレーションとクレーム処理を検証してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -3312,12 +4462,12 @@ Visual Studio Code の Microsoft Entra External ID 拡張機能を使用する�
 ---
 
 <!-- MSL-PAGE {"url":"entra/external-id/customers/samples-ciam-all"} -->
-## 外部 ID を持つアプリを統合するためのサンプルとガイド - Microsoft Entra External ID
+## Microsoft Entra 外部 ID アプリのサンプルとガイド - Microsoft Entra External ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/external-id/customers/samples-ciam-all
 - Service: entra-external-id / external
-- Article date: 2026-10-05
-- Summary: サインアップ、サインイン、API を呼び出すアクセス トークンの取得などのシナリオで、外部テナントとアプリを構築して統合する方法について説明します。
+- Article date: 2026-10-06
+- Summary: サインアップ、サインイン、API を呼び出すアクセス トークンの取得などのシナリオで、アプリをビルドしてMicrosoft Entra 外部 IDと統合する方法について説明します。
 
 Microsoft では、さまざまな種類のアプリケーションを Microsoft Entra 外部 ID に統合する方法を示すコード サンプルを保持しています。 一般的な認証と承認のシナリオ、開発言語、プラットフォームに基づいて、サンプルをダウンロードして使用したり、独自のアプリを構築したりする手順について説明します。 プロジェクトをビルドし (該当する場合)、サンプル アプリケーションを実行する手順が含まれています。 サンプル コード内ではコメントにより、これらのライブラリをアプリケーション内でどのように使用して、外部テナント内で認証と認可を行うかを理解することができます。
 
@@ -3325,13 +4475,13 @@ Tip
 
 Microsoft Entra 外部 IDでは、2 つの認証方法がサポートされています。**ブラウザー委任認証**は、ユーザーをMicrosoftホスト型サインイン ページにリダイレクトし、**ネイティブ認証を**使用してアプリで直接サインイン UI を構築できます。 この記事のサンプルには、両方が含まれています。 使用する方法がわからない場合は、「 [認証方法の選択」を](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-choose-authentication-approach)参照してください。
 
+Von Bedeutung
+
+パスキー資格情報管理サンプルでは、委任されたアクセス許可を使用して一覧表示と登録を行います。 削除フローでは、Microsoft Graph が使用されており、ブラウザのコード内には高権限のアプリケーション アクセス許可とクライアント シークレットが含まれています。 運用環境ではなく、テスト テナントでのみこのサンプルを実行してください。
+
 ### サンプルとガイド
 
 タブを使って、アプリの種類または優先される言語やプラットフォームでサンプルを並べ替えます。
-
-Von Bedeutung
-
-パスキー資格情報管理サンプルでは、委任されたアクセス許可を使用して一覧表示と登録を行います。 その削除フローでは、高い特権のアプリケーション権限を持つMicrosoft Graphと、ブラウザー コード内のクライアント シークレットが引き続き使用されます。 運用環境ではなく、テスト テナントでのみこのサンプルを実行してください。
 
 ## [アプリの種類別](#tab/apptype)
 #### シングルページ アプリケーション (SPA)
@@ -3499,18 +4649,18 @@ Von Bedeutung
 ---
 
 <!-- MSL-PAGE {"url":"entra/external-id/customers/services-integration-partners"} -->
-## Azure AD B2C からMicrosoft Entra External ID移行のパートナー - Microsoft Entra External ID
+## Azure AD B2C からMicrosoft Entra 外部 ID移行のパートナー - Microsoft Entra External ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/external-id/customers/services-integration-partners
 - Service: entra-external-id / external
-- Article date: 2026-03-26
-- Summary: Microsoft Entra External IDを使用した顧客 ID およびアクセス管理 (CIAM) シナリオのデプロイと統合に役立つパートナーについて説明します。
+- Article date: 2026-10-21
+- Summary: Microsoft Entra 外部 IDを使用した顧客 ID およびアクセス管理 (CIAM) シナリオのデプロイと統合に役立つパートナーについて説明します。
 
 **適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
 
-### Microsoft Entra External IDのサービスと統合パートナー
+### Microsoft Entra 外部 IDのサービスと統合パートナー
 
-以下に示すパートナーは、Azure AD B2C から Microsoft Entra External ID への移行の計画と実行に役立ちます。 このページを使用して、アドバイザリ、実装、エンジニアリング サポートなど、移行のニーズに基づいてパートナーを特定して連絡します。 各パートナーは、そのアプローチと機能を概説する追加のコンテンツを公開しています。
+以下に示すパートナーは、Azure AD B2C から Microsoft Entra 外部 ID への移行の計画と実行に役立ちます。 このページを使用して、アドバイザリ、実装、エンジニアリング サポートなど、移行のニーズに基づいてパートナーを特定して連絡します。 各パートナーは、そのアプローチと機能を概説する追加のコンテンツを公開しています。
 
 **この一覧の使用方法**
 
@@ -3521,21 +4671,22 @@ Von Bedeutung
 | 名前 | 説明 | 連絡先 |
 | --- | --- | --- |
 | [アバナード](https://www.avanade.com/en/services/microsoft-tech/microsoft-security/advanced-identity) | 「Avanade は、クライアントを Entra B2C から Entra External ID に移行するためのMicrosoftの立ち上げパートナーになることに興奮しています。 Entra B2C と Entra External ID の両方に関する当社の深い専門知識により、Entra External ID への移行を高速化し、移行リスクを軽減し、エンド ユーザー エクスペリエンスを向上させる独自の資産を開発しました。 Avanade は、Entra External ID のグリーンフィールドデプロイと移行サービスの両方を提供し、お客様のニーズに合わせてサービスを調整し、セキュリティを損なうことなく、消費者のサインインに可能な限り最高のエクスペリエンスを提供するようにクライアントと協力しています。" | identity@avanade.com |
-| [Edgile (Wipro 企業)](https://edgile.com/blog/edgile-a-wipro-company-announced-as-eeid-migration-partner-by-microsoft/) | Wipro の会社である Edgile は、Microsoft Entra External IDのMicrosoft移行パートナーになることに興奮しています。 長年にわたり、Azure AD B2C を含む顧客 ID 環境のデプロイと管理を支援してきました。 カスタマー ID 管理、Azure AD B2C、Microsoftの後継の Entra External ID に関する豊富な経験により、プログラムが成功を収めるために独自に位置付けられます。 当社のプロジェクト アクセラレータは、お客様のリスクを軽減し、より迅速に結果を提供します。」 | info@edgile.com |
-| [EY](https://www.ey.com/en_us/alliances/microsoft) | 「EY 組織は、深い業界分析情報と洗練された人間中心のアプローチを適用して、企業がMicrosoft Entra External IDで外部 ID を再考するのを支援します。 EY-Microsoft Alliance を通じて、実証済みのアクセラレータと配信方法により、Azure AD B2C からの移行が合理化され、複雑な統合が簡素化され、セキュリティで保護されたスケーラブルな ID 基盤が実現され、顧客、パートナー、開発者のコミュニティ全体の信頼が強化されます。" | americasmicrosoftallianceteam@ey.com |
-| [グリット](https://www.gritiam.com/migration.html) | 「Grit Software は、コンシューマー ID とアクセス管理に関する深い専門知識を持ち、Fortune 500 および中堅企業が複雑な変革プロジェクトを適切かつ時間的に実行するのを支援してきた強力な実績を持っています。 Azure AD B2C から Microsoft Entra External ID への移行において、Grit の AI を活用した移行サービスは、高度なコーディングエージェントを使用することで、数日で正確な移行を実現しながら、顧客データが AI モデルに送信されないことを保証します。 | info@gritsoftwaresystems.com |
-| [モダン 42](https://www.modern42.com/blog/microsoft-recommends-modern-42-for-azure-ad-b2c-entra-external-id-migrations-australia) | 「Modern 42 は、オーストラリア全体でエンタープライズ レベルの ID アドバイザリとエンジニアリング サービスを提供する専門の ID コンサルタントです。 Modern 42 は政府および民間セクターのお客様向けに Microsoft Entra External ID の経験を持ち、Azure AD B2C から Microsoft Entra External ID への移行を、どのような複雑さのある組織でも支援できる技術的な専門知識と経験を備えています。 Modern 42 のアプローチでは、戦略的コンサルティングと実践的な技術実装が組み合わされ、CIAM ソリューションがビジネス目標、規制要件、カスタマー エクスペリエンスの期待、セキュリティのベスト プラクティスに合わせて調整されます。" | hello@modern42.com |
-| [PlanB。](https://www.planb.net/en/post/microsoft-entra-external-id) | "PlanB. は、ID とセキュリティに関する深い専門知識と、測定可能なビジネス成果に強い焦点を当てています。 microsoft は、Microsoft Entra エコシステム内の経験豊富なパートナーとして、顧客、エージェント、パートナー、サプライヤーなど、大規模な外部 ID をデジタル プラットフォーム全体に安全に統合して管理できるように支援します。 ID 戦略とアーキテクチャから、Microsoft Entra External IDの実践的な実装まで、セキュリティ、ガバナンス、コンプライアンス、ユーザー エクスペリエンスがシームレスに連携することを保証します。 私たちの使命は、複雑な ID シナリオを簡素化し、リスクを軽減し、信頼できる ID 基盤に基づいて構築された持続可能なデジタル成長を可能にすることです。 | Felix Rohmeier (Id のソリューション エキスパート) Identity@plan-b-gmbh.com |
+| [Edgile (Wipro 企業)](https://edgile.com/information-security/microsoft-entra-id-governance/external-identities-b2c/) | Wipro の会社である Edgile は、Microsoft Entra 外部 IDのMicrosoft移行パートナーになることに興奮しています。 長年にわたり、Azure AD B2C を含む顧客 ID 環境のデプロイと管理を支援してきました。 カスタマー ID 管理、Azure AD B2C、Microsoftの後継の Entra External ID に関する豊富な経験により、プログラムが成功を収めるために独自に位置付けられます。 当社のプロジェクト アクセラレータは、お客様のリスクを軽減し、より迅速に結果を提供します。」 | info@edgile.com |
+| [EY](https://www.ey.com/en_us/alliances/microsoft) | 「EY 組織は、深い業界分析情報と洗練された人間中心のアプローチを適用して、企業がMicrosoft Entra 外部 IDで外部 ID を再考するのを支援します。 EY-Microsoft Alliance を通じて、実証済みのアクセラレータと配信方法により、Azure AD B2C からの移行が合理化され、複雑な統合が簡素化され、セキュリティで保護されたスケーラブルな ID 基盤が実現され、顧客、パートナー、開発者のコミュニティ全体の信頼が強化されます。" | americasmicrosoftallianceteam@ey.com |
+| [Fortytwo](https://fortytwo.io/article/security/migrating-from-azure-ad-b2c-to-microsoft-entra-external-id-protecting-the-customer-journey/) | "Fortytwo は、組織が顧客のサインインの中断を最小限に抑えながら、Azure AD B2C からMicrosoft Entra 外部 IDに移行するのに役立ちます。 ID 管理エンジニアは、既存の ID フロー、カスタム ポリシー、ユーザーと資格情報の移行、アプリケーション統合を評価します。 アーキテクチャ、テスト、段階的なカットオーバー、移行後の検証など、移行を一貫して管理し、運用環境の準備を確保します。 | Hello@fortytwo.io |
+| [グリット](https://www.gritiam.com/migration.html) | 「Grit Software は、コンシューマー ID とアクセス管理に関する深い専門知識を持ち、Fortune 500 および中堅企業が複雑な変革プロジェクトを適切かつ時間的に実行するのを支援してきた強力な実績を持っています。 Azure AD B2C から Microsoft Entra 外部 ID への移行において、Grit の AI を活用した移行サービスは、高度なコーディングエージェントを使用することで、数日で正確な移行を実現しながら、顧客データが AI モデルに送信されないことを保証します。 | info@gritsoftwaresystems.com |
+| [モダン 42](https://www.modern42.com/blog/microsoft-recommends-modern-42-for-azure-ad-b2c-entra-external-id-migrations-australia) | 「Modern 42 は、オーストラリア全体でエンタープライズ レベルの ID アドバイザリとエンジニアリング サービスを提供する専門の ID コンサルタントです。 Modern 42 は政府および民間セクターのお客様向けに Microsoft Entra 外部 ID の経験を持ち、Azure AD B2C から Microsoft Entra 外部 ID への移行を、どのような複雑さのある組織でも支援できる技術的な専門知識と経験を備えています。 Modern 42 のアプローチでは、戦略的コンサルティングと実践的な技術実装が組み合わされ、CIAM ソリューションがビジネス目標、規制要件、カスタマー エクスペリエンスの期待、セキュリティのベスト プラクティスに合わせて調整されます。" | hello@modern42.com |
+| [PlanB。](https://www.planb.net/en/post/microsoft-entra-external-id) | "PlanB. は、ID とセキュリティに関する深い専門知識と、測定可能なビジネス成果に強い焦点を当てています。 microsoft は、Microsoft Entra エコシステム内の経験豊富なパートナーとして、顧客、エージェント、パートナー、サプライヤーなど、大規模な外部 ID をデジタル プラットフォーム全体に安全に統合して管理できるように支援します。 ID 戦略とアーキテクチャから、Microsoft Entra 外部 IDの実践的な実装まで、セキュリティ、ガバナンス、コンプライアンス、ユーザー エクスペリエンスがシームレスに連携することを保証します。 私たちの使命は、複雑な ID シナリオを簡素化し、リスクを軽減し、信頼できる ID 基盤に基づいて構築された持続可能なデジタル成長を可能にすることです。 | Felix Rohmeier (Id のソリューション エキスパート) Identity@plan-b-gmbh.com |
 | [スラローム](https://www.slalom.com/us/en/who-we-are/newsroom/microsoft-slalom-accelerate-microsoft-entra-migrations) | 「Slalom は、組織が大規模に ID システムを最新化するのに役立つ信頼できるMicrosoft パートナーです。 Entra External ID 移行の統合パートナーとして、Slalom は ID の移行、組織の変更管理、およびセキュリティで保護された顧客アクセスに関する実用的な経験を提供します。 B2C から Entra 外部 ID への移行アプローチでは、戦略的な計画、アーキテクチャの専門知識、実証済みの配信ツールを組み合わせて、複雑な移行を簡素化し、リスクを軽減します。 これにより、組織は、セキュリティで保護されたスケーラブルな顧客 ID ソリューションを提供し、Microsoft Entra プラットフォームを完全に活用できるようになります。 | MoreTogether@Slalom.com |
-| [WhoIAM](https://whoiam.ai/product/azureadb2c-to-entraexternalid-migrati/) | 「WhoIAM は、Microsoft顧客 ID の信頼できるスペシャリストであり、Azure AD B2C から Microsoft Entra External ID への移行を通じて組織を導く独自の立場にあります。 元Microsoftの ID エンジニアリング リーダーによって設立された WhoIAM は、Azure AD B2C、Entra、および大規模な CIAM プラットフォーム全体に深い実践的な専門知識をもたらします。 目的に応じた移行ツール、実証済みの Just-In-Time および一括移行パターン、顧客エンジニアリングチームやセキュリティ チームとの緊密なコラボレーションにより、WhoIAM は組織が中断を最小限に抑えて ID を最新化し、Microsoft Entraで将来対応できる外部 ID 基盤を構築しながら、今日の継続性を確保するのに役立ちます。" | Info@whoiam.ai |
+| [WhoIAM](https://whoiam.ai/product/azureadb2c-to-entraexternalid-migrati/) | 「WhoIAM は、Microsoft顧客 ID の信頼できるスペシャリストであり、Azure AD B2C から Microsoft Entra 外部 ID への移行を通じて組織を導く独自の立場にあります。 元Microsoftの ID エンジニアリング リーダーによって設立された WhoIAM は、Azure AD B2C、Entra、および大規模な CIAM プラットフォーム全体に深い実践的な専門知識をもたらします。 目的に応じた移行ツール、実証済みの Just-In-Time および一括移行パターン、顧客エンジニアリングチームやセキュリティ チームとの緊密なコラボレーションにより、WhoIAM は組織が中断を最小限に抑えて ID を最新化し、Microsoft Entraで将来対応できる外部 ID 基盤を構築しながら、今日の継続性を確保するのに役立ちます。" | Info@whoiam.ai |
 
 #### 次のステップ
 
 - 上記の一覧からパートナーに問い合わせて移行を開始する
-- Microsoft account チームと連携してサポートを受ける
-- Microsoft Entra External ID の移行ガイダンスを確認します。
+- Microsoft アカウント チームと連携してサポートを受ける
+- Microsoft Entra 外部 ID の移行ガイダンスを確認します。
     - [AZURE AD B2C から外部 ID への移行を計画します](https://learn.microsoft.com/ja-jp/entra/external-id/customers/plan-your-migration-from-b2c-to-external-id)
-    - [Azure AD B2C から Microsoft Entra External ID に移行します](https://learn.microsoft.com/ja-jp/entra/external-id/customers/migrate-from-b2c-to-external-id)
+    - [Azure AD B2C から Microsoft Entra 外部 ID に移行します](https://learn.microsoft.com/ja-jp/entra/external-id/customers/migrate-from-b2c-to-external-id)
     - [外部 ID ハイ スケール互換性 (HSC) モードを有効にする](https://learn.microsoft.com/ja-jp/entra/external-id/customers/enable-external-id-high-scale-compatibility-mode)
 <!-- /MSL-PAGE -->
 
@@ -7727,827 +8878,4 @@ HTTP 状態コードは、応答の本文で、"status" 値であることに加
 - 401 または 403 HTTP 状態コードは、通常、認証に問題があることを示しています。 API コネクタで API の認証レイヤーとそれに対応する構成を再確認します。
 - 開発では、必要に応じて、より積極的なログ レベル ("トレース" や "デバッグ" など) を使用します。
 - 長い応答時間について API を監視します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-add-approvals"} -->
-## セルフサービス サインアップ フローにカスタム承認を追加する - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-approvals
-- Service: entra-external-id / external
-- Article date: 2025-05-20
-- Summary: 外部 ID セルフサービス サインアップにカスタム承認ワークフローの API コネクタを追加する
-
-**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-[API コネクタ](https://learn.microsoft.com/ja-jp/entra/external-id/api-connectors-overview)を使用すると、セルフサービス サインアップを使用して独自のカスタム承認ワークフローと統合できるため、テナントに作成されるゲスト ユーザー アカウントを管理できます。
-
-この記事では、承認システムと統合する方法の例を示します。 この例では、セルフサービス サインアップ ユーザー フローがサインアップ プロセス中にユーザー データを収集し、データを承認システムに渡します。 承認システムでは、次のことが可能です。
-
-- ユーザーを自動的に承認し、Microsoft Entra ID にユーザー アカウントの作成を許可します。
-- 手動レビューをトリガーします。 要求が承認された場合、承認システムは Microsoft Graph を使用してユーザー アカウントをプロビジョニングします。 承認システムは、アカウントが作成されたことをユーザーに通知することもできます。
-
-### 承認システム用のアプリケーションを登録する
-
-承認システムは Microsoft Entra テナントのアプリケーションとして登録する必要があります。登録すると、そのシステムは Microsoft Entra ID で認証されて、ユーザーを作成するアクセス許可が付与されます。 [Microsoft Graph の認証と承認の基本について](https://learn.microsoft.com/ja-jp/graph/auth/auth-concepts)詳しく説明します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**App registrations** に移動し、[**新規登録**] を選択します。
-3. アプリケーションの **名前** (サインアップ承認など) を入力 *します*。
-4. [ **登録**] を選択します。 他のすべてのフィールドは既定値のままにすることができます。
-
-[Image: [登録] ボタンが強調表示されているスクリーンショット。]
-
-1. 左側のメニューの [ **管理** ] で 、[ **API のアクセス許可**] を選択し、[ **アクセス許可の追加]** を選択します。
-2. [ **API のアクセス許可の要求** ] ページ **で、Microsoft Graph** を選択し、[ **アプリケーションのアクセス許可**] を選択します。
-3. [ **アクセス許可の選択**] で [ **ユーザー**] を展開し、[ **User.ReadWrite.All** ] チェック ボックスをオンにします。 このアクセス許可は、承認システムが承認時にユーザーを作成することを許可します。 次に、[ **アクセス許可の追加]** を選択します。
-
-[Image: API アクセス許可の要求のスクリーンショット。]
-
-1. **[API のアクセス許可**] ページで、[**管理者の同意を付与する (テナント名)]** を選択し、[**はい**] を選択します。
-2. 左側のメニューの [ **管理** ] で[ **証明書とシークレット**] を選択し、[ **新しいクライアント シークレット**] を選択します。
-3. シークレットの **説明** ( *承認クライアント シークレット*など) を入力し、クライアント シークレットの有効期限を選択 **します**。 次に、[ **追加]** を選択します。
-4. クライアント シークレットの値をコピーします。 クライアント シークレットの値を表示できるのは、作成直後のみです。 シークレットを作成したら、ページを離れる前に必ず保存してください。
-
-[Image: クライアント シークレットのコピーのスクリーンショット。]
-
-1. **アプリケーション ID をクライアント ID** として使用し、Microsoft Entra ID で認証するために生成した**クライアント シークレット**を使用するように承認システムを構成します。
-
-### API コネクタを作成する
-
-次に、セルフサービス サインアップ ユーザー フロー用 [の API コネクタを作成](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector#create-an-api-connector) します。 承認システム API には、次に示す例のように、2 つのコネクタとそれに対応するエンドポイントが必要です。 これらの API コネクタは次の処理を実行します。
-
-- **承認の状態を確認します**。 ユーザーが既存の承認要求を持っているか、既に拒否されているかどうかを確認するために、ユーザーが ID プロバイダーでサインインした直後に承認システムに呼び出しを送信します。 承認システムが自動承認の決定のみを行う場合、この API コネクタは必要ないことがあります。 "承認状態の確認" API コネクタの例。
-
-[Image: 承認状態の確認 API コネクタ構成のスクリーンショット。]
-
-- **承認の要求** - ユーザーが属性コレクション ページを完了した後、ユーザー アカウントが作成される前に承認システムに呼び出しを送信して、承認を要求します。 承認要求は、自動的に許可したり手動で確認したりすることができます。 "要求の承認" API コネクタの例。
-
-[Image: 要求承認 API コネクタの構成のスクリーンショット。]
-
-これらのコネクタを作成するには、 [API コネクタを作成する手順に](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector#create-an-api-connector)従います。
-
-### ユーザー フローで API コネクタを有効にする
-
-ここで、次の手順を使用して、セルフサービス サインアップ ユーザー フローに API コネクタを追加します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**External Identities**&gt;**User フロー**を参照し、API コネクタを有効にするユーザー フローを選択します。
-3. **API コネクタを**選択し、ユーザー フローの次の手順で呼び出す API エンドポイントを選択します。
-
-    - **サインアップ中に ID プロバイダーとフェデレーションした後**: 承認状態 API コネクタを選択します (承認 *状態の確認*など)。
-    - **ユーザーを作成する前に**:承認要求 API コネクタ (承認 *要求*など) を選択します。
-
-[Image: ユーザー フローの API コネクタのスクリーンショット。]
-
-1. **[保存] を選択します**。
-
-### API 応答を使用してサインアップ フローを制御する
-
-承認システムでは、呼び出し時にその応答を使用して、サインアップ フローを制御できます。
-
-#### "承認状態の確認" API コネクタの要求と応答
-
-API によって "承認状態の確認" API コネクタから受信した要求の例:
-
-```http
-POST <API-endpoint>
-Content-type: application/json
-
-{
- "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google, Facebook, and Email One Time Passcode identity providers 
-     {
-     "signInType":"federated",
-     "issuer":"facebook.com",
-     "issuerAssignedId":"0123456789"
-     }
- ],
- "displayName": "John Smith",
- "givenName":"John",
- "lastName":"Smith",
- "ui_locales":"en-US"
-}
-```
-
-API に送信される正確な要求は、ID プロバイダーによって提供される情報によって異なります。 "email" は常に送信されます。
-
-##### "承認状態の確認" の継続応答
-
-**承認状態の確認** API エンドポイントは、次の場合に継続応答を返す必要があります。
-
-- ユーザーが以前承認を要求していない。
-
-継続応答の例:
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "Continue"
-}
-```
-
-##### "承認状態の確認" のブロック応答
-
-**承認状態の確認** API エンドポイントは、次の場合にブロック応答を返す必要があります。
-
-- ユーザー承認が保留されている。
-- ユーザーが拒否され、再度承認を要求することができない。
-
-ブロック応答の例は次のとおりです。
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "ShowBlockPage",
-    "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-}
-```
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "ShowBlockPage",
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-}
-```
-
-#### "要求の承認" API コネクタの要求と応答
-
-API によって受信された "要求の承認" API コネクタからの HTTP 要求の例:
-
-```http
-POST <API-endpoint>
-Content-type: application/json
-
-{
- "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
-     {
-     "signInType":"federated",
-     "issuer":"facebook.com",
-     "issuerAssignedId":"0123456789"
-     }
- ],
- "displayName": "John Smith",
- "givenName":"John",
- "surname":"Smith",
- "jobTitle":"Supplier",
- "streetAddress":"1000 Microsoft Way",
- "city":"Seattle",
- "postalCode": "12345",
- "state":"Washington",
- "country":"United States",
- "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
- "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "ui_locales":"en-US"
-}
-```
-
-API に送信される正確な要求は、ユーザーから収集される情報または ID プロバイダーによって提供される情報によって異なります。
-
-##### "要求の承認" の継続応答
-
-**要求承認** API エンドポイントは、次の場合に継続応答を返す必要があります。
-
-- ユーザーは ***自動的に承認できます***。
-
-継続応答の例:
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "Continue"
-}
-```
-
-重要
-
-継続応答を受信すると、Microsoft Entra ID によってユーザー アカウントが作成され、そのユーザーがアプリケーションに送られます。
-
-##### "要求の承認" のブロック応答
-
-**要求承認** API エンドポイントは、次の場合にブロック応答を返す必要があります。
-
-- ユーザー承認要求が作成されて現在保留になっている。
-- ユーザー承認要求が自動的に拒否された。
-
-ブロック応答の例は次のとおりです。
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "ShowBlockPage",
-    "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-}
-```
-
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-
-{
-    "version": "1.0.0",
-    "action": "ShowBlockPage",
-    "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-}
-```
-
-応答内の `userMessage` がユーザーに表示されます。次に例を示します。
-
-[Image: 承認待ちのページの例]
-
-### 手動承認後のユーザー アカウントの作成
-
-カスタム承認システムは、手動承認を取得した後、[Microsoft Graph](https://learn.microsoft.com/ja-jp/graph/azuread-users-concept-overview) を使用して[ユーザー](https://learn.microsoft.com/ja-jp/graph/use-the-api) アカウントを作成します。 承認システムがユーザー アカウントをプロビジョニングする方法は、ユーザーによって使用された ID プロバイダーによって異なります。
-
-#### Google または Facebook のフェデレーション ユーザーおよび電子メール ワンタイム パスコードの場合
-
-重要
-
-この方法を使用するには、承認システムは、`identities`、`identities[0]`、および `identities[0].issuer` が存在し、`identities[0].issuer` が 'facebook'、'google'、または 'mail' に一致することを明示的に確認する必要があります。
-
-ユーザーが Google または Facebook アカウントでサインインした場合、またはワンタイム パスコードを電子メールで送信する場合は、 [ユーザー作成 API](https://learn.microsoft.com/ja-jp/graph/api/user-post-users?tabs=http) を使用できます。
-
-1. 承認システムはユーザー フローから HTTP 要求を受信します。
-
-```http
-POST <Approvals-API-endpoint>
-Content-type: application/json
-
-{
- "email": "johnsmith@outlook.com",
- "identities": [
-     {
-     "signInType":"federated",
-     "issuer":"facebook.com",
-     "issuerAssignedId":"0123456789"
-     }
- ],
- "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
- "ui_locales":"en-US"
-}
-```
-
-1. 承認システムは、Microsoft Graph を使用してユーザー アカウントを作成します。
-
-```http
-POST https://graph.microsoft.com/v1.0/users
-Content-type: application/json
-
-{
- "userPrincipalName": "johnsmith_outlook.com#EXT@contoso.onmicrosoft.com",
- "accountEnabled": true,
- "mail": "johnsmith@outlook.com",
- "userType": "Guest",
- "identities": [
-     {
-     "signInType":"federated",
-     "issuer":"facebook.com",
-     "issuerAssignedId":"0123456789"
-     }
- ],
- "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
-}
-```
-
-| パラメーター | 必須 | 説明 |
-| --- | --- | --- |
-| userPrincipalName | あり | API に送信された `email` 要求を取得し、`@` 文字を `_` に置き換え、これを `#EXT@<tenant-name>.onmicrosoft.com` の先頭に追加することによって生成できます。 |
-| accountEnabled | あり | `true` に設定する必要があります。 |
-| メール | あり | API に送信される `email` 要求と同じです。 |
-| ユーザータイプ | あり | `Guest`である必要があります。 このユーザーをゲスト ユーザーとして指定します。 |
-| ID | あり | フェデレーション ID 情報。 |
-| &lt;その他の組み込み属性&gt; | いいえ | `displayName`、`city` などの他の組み込み属性。 パラメーター名は、API コネクタによって送信されるパラメーターと同じです。 |
-| &lt;extension\_{extensions-app-id}\_CustomAttribute&gt; | いいえ | ユーザーに関するカスタム属性。 パラメーター名は、API コネクタによって送信されるパラメーターと同じです。 |
-
-#### フェデレーションされた Microsoft Entra ユーザーまたは Microsoft アカウントユーザーの場合
-
-ユーザーがフェデレーション Microsoft Entra アカウントまたは Microsoft アカウントでサインインする場合は、 [招待 API を](https://learn.microsoft.com/ja-jp/graph/api/invitation-post) 使用してユーザーを作成し、必要に応じて [ユーザー更新 API](https://learn.microsoft.com/ja-jp/graph/api/user-update) を使用してユーザーに属性を割り当てる必要があります。
-
-1. 承認システムはユーザー フローから HTTP 要求を受信します。
-
-```http
-POST <Approvals-API-endpoint>
-Content-type: application/json
-
-{
- "email": "johnsmith@fabrikam.onmicrosoft.com",
- "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
- "ui_locales":"en-US"
-}
-```
-
-1. 承認システムは、API コネクタによって提供される `email` を使用して招待を作成します。
-
-```http
-POST https://graph.microsoft.com/v1.0/invitations
-Content-type: application/json
-
-{
-    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
-}
-```
-
-応答の例:
-
-```http
-HTTP/1.1 201 OK
-Content-type: application/json
-
-{
-    ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
-}
-```
-
-1. 承認システムは、招待されたユーザーの ID を使用して、収集されたユーザー属性でユーザーのアカウントを更新します (省略可能)。
-
-```http
-PATCH https://graph.microsoft.com/v1.0/users/<generated-user-guid>
-Content-type: application/json
-
-{
-    "displayName": "John Smith",
-    "city": "Redmond",
-    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
-}
-```
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-overview"} -->
-## セルフサービス サインアップ - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-overview
-- Service: entra-external-id / external
-- Article date: 2024-10-21
-- Summary: Microsoft Entra External ID のセルフサービス サインアップを有効にする方法について説明します。 外部ユーザーが自分でアプリケーションにサインアップし、サインアップ エクスペリエンスをカスタマイズし、ユーザー フローを管理できるようにします。
-
-**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 従業員テナント [Image: :次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-セルフサービス サインアップは、外部 ID の従業員と顧客シナリオに不可欠な機能です。 これは、パートナーやコンシューマー、その他の外部ユーザーが、ユーザーの介入なしにサインアップしてアプリにアクセスするための円滑な方法を提供します。
-
-- B2B コラボレーション シナリオでは、共有するアプリケーションにアクセスする必要があるユーザーが必ずしも事前にわかっているとは限りません。 セルフサービス サインアップを有効にすることで、個人に招待を直接送信する代わりに、外部ユーザーが自分で特定のアプリケーションにサインアップするようにできます。 方法については、「[B2B コラボレーションのためのセルフサービス サインアップ ユーザー フローを作成する](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-user-flow)」を参照してください。
-- 顧客 ID とアクセス管理 (CIAM) のシナリオでは、コンシューマー向けに構築したアプリに、セルフサービス サインアップ エクスペリエンスを追加することが重要です。 これを行うには、セルフサービス サインアップ ユーザー フローを構成します。 「[カスタマー エクスペリエンスの計画](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-planning-your-solution)」、または「[顧客向けのサインアップとサインインのユーザー フローを作成する](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)」を参照してください。
-
-どちらのシナリオでも、外観をカスタマイズしてソーシャル ID プロバイダーでサインインを提供し、サインアップ プロセス中にユーザーに関する情報を収集することで、パーソナライズされたサインアップ エクスペリエンスを作成できます。
-
-注
-
-組織によって構築されたアプリにユーザー フローを関連付けることができます。 ユーザー フローは、SharePoint や Teams などの Microsoft アプリには使用できません。
-
-### セルフサービス サインアップのユーザー フロー
-
-セルフサービス サインアップ のユーザー フローでは、外部ユーザーに提供するアプリケーションのサインアップ エクスペリエンスを作成します。 ユーザー フローの設定を構成して、ユーザーがアプリケーションにサインアップする方法を制御できます。
-
-- サインインに使用するアカウントの種類 (Facebook などのソーシャル アカウント、または Microsoft Entra アカウント)
-- ユーザー サインアップから収集する属性 (名、郵便番号、居住国/地域など)
-
-ユーザーは、Web、モバイル、デスクトップ、またはシングルページ アプリケーション (SPA) を使用して、アプリケーションにサインインできます。 アプリケーションは、ユーザー フローによって提供されるエンドポイントに対する認可要求を開始します。 ユーザー フローによって、ユーザーのエクスペリエンスが定義および制御されます。 ユーザーがサインアップ ユーザー フローが完了すると、Microsoft Entra ID によってトークンが生成され、ユーザーはアプリケーションにリダイレクトされます。 サインアップが完了すると、ディレクトリ内のユーザーに対してアカウントがプロビジョニングされます。 複数のアプリケーションで同じユーザー フローを使用できます。
-
-### セルフサービス サインアップの例
-
-次の B2B コラボレーションの例は、ゲスト ユーザー向けのセルフサービス サインアップ機能を示しています。 Woodgrove のパートナーが Woodgrove アプリを開きます。 ユーザーがサプライヤー アカウントにサインアップすることを決定して、サプライヤー アカウントの要求を選択すると、セルフサービス サインアップのフローが開始されます。
-
-[Image: セルフサービス サインアップの開始ページの例]
-
-ユーザーは、選択した電子メールを使用してサインアップを行います。
-
-[Image: Facebook を選択してサインインする例]
-
-Microsoft Entra ID により、パートナーの Facebook アカウントを使用して Woodgrove との関係が作成され、サインアップした後にユーザーの新しいゲスト アカウントが作成されます。
-
-Woodgrove は、氏名、勤務先名、ビジネス登録コード、電話番号など、ユーザーの詳細を知りたいと考えています。
-
-[Image: ユーザーのサインアップ属性を示す例]
-
-ユーザーは情報を入力し、サインアップ フローを続行して、必要なリソースにアクセスできるようになります。
-
-[Image: サインインしたユーザーを示す例]
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-secure-api-connector"} -->
-## Microsoft Entra External ID セルフサービス サインアップのユーザー フローで API コネクタとして使用される API をセキュリティで保護する - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-secure-api-connector
-- Service: entra-external-id / external
-- Article date: 2025-04-15
-- Summary: セルフサービス サインアップのユーザー フローで API コネクタとして使用されるカスタム RESTful API をセキュリティで保護します。
-
-**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-Microsoft Entra External ID セルフサービス サインアップのユーザー フロー内で REST API を統合する場合は、認証を使用して REST API エンドポイントを保護する必要があります。 REST API 認証により、Microsoft Entra ID などの適切な資格情報を備えたサービスだけが REST API エンドポイントを呼び出すことができます。 この記事では、REST API をセキュリティで保護する方法について説明します。
-
-### 必須コンポーネント
-
-「 [チュートリアル: サインアップ ユーザー フロー ガイドに API コネクタを追加する](https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-add-api-connector) 」の手順を完了します。
-
-API エンドポイントを保護するには、HTTP 基本認証または HTTPS クライアント証明書認証を使用します。 どちらの場合も、API エンドポイントを呼び出すときに Microsoft Entra ID によって使用される資格情報を指定します。 次に、API エンドポイントは資格情報を確認し、承認の決定を行います。
-
-### HTTP 基本認証
-
-HTTP 基本認証は [RFC 2617](https://tools.ietf.org/html/rfc2617) で定義されています。 基本認証は、次のように動作します。Microsoft Entra ID によって、クライアントの資格情報 (`username` と `password`) が `Authorization` ヘッダーに含まれた HTTP 要求が送信されます。 資格情報は、Base64 でエンコードされた文字列 `username:password` として書式設定されます。 その後、お使いの API によってこれらの値がチェックされ、他の承認決定が実行されます。
-
-HTTP 基本認証を使用して API コネクタを構成するには、次の手順を実行します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**外部ID**&gt;**概要** に移動します。
-3. **[すべての API コネクタ**] を選択し、構成する **API コネクタ**を選択します。
-4. **[認証の種類] で** 、[**基本**] を選択します。
-5. REST API エンドポイントの **ユーザー名**と **パスワード** を指定します。 [Image: API コネクタの基本的な認証構成のスクリーンショット。]
-6. **[保存] を選択します**。
-
-### HTTPS クライアント証明書認証
-
-クライアント証明書認証は、相互証明書ベースの認証です。 クライアントである Microsoft Entra ID は、SSL ハンドシェイクの一部として ID を証明するクライアント証明書をサーバーに提供します。 お使いの API によって、証明書が有効なクライアント (Microsoft Entra ID など) に属していることが確認され、承認の決定が実行されます。 クライアント証明書は、X.509 デジタル証明書です。
-
-重要
-
-運用環境では、この証明書は証明機関によって署名されている必要があります。
-
-#### 証明書を作成する
-
-##### オプション 1: Azure Key Vault を使用する (推奨)
-
-証明書を作成するには、 [Azure Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/certificates/create-certificate) を使用できます。このコンテナーには、自己署名証明書のオプションと、署名された証明書の証明書発行者プロバイダーとの統合が含まれています。 推奨設定には次が含まれます。
-
-- **件名**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
-- **コンテンツ タイプ**: `PKCS #12`
-- **有効期間の種類**: `Email all contacts at a given percentage lifetime` または `Email all contacts a given number of days before expiry`
-- **キーの種類**: `RSA`
-- **キー サイズ**: `2048`
-- **エクスポート可能な秘密キー**: `Yes` ( `.pfx` ファイルをエクスポートできるようにするため)
-
-その後、 [証明書をエクスポート](https://learn.microsoft.com/ja-jp/azure/key-vault/certificates/how-to-export-certificate)できます。
-
-##### オプション 2: PowerShell を使用して自己署名証明書を準備する
-
-証明書をまだ持っていない場合は、自己署名証明書を使用できます。 自己署名証明書は、証明機関 (CA) によって署名されていないセキュリティ証明書であり、CA によって署名された証明書のセキュリティ保証を提供するものではありません。
-
-## [ウィンドウズ](#tab/windows)
-Windows では、PowerShell の [New-SelfSignedCertificate](https://learn.microsoft.com/ja-jp/powershell/module/pki/new-selfsignedcertificate) コマンドレットを使用して証明書を生成します。
-
-1. この PowerShell コマンドを実行して、自己署名証明書を生成します。 `-Subject` などのアプリケーションと Azure AD B2C のテナント名に合わせて `contosowebapp.contoso.onmicrosoft.com` 引数を変更します。 また、証明書に別の有効期限を指定するように `-NotAfter` 日付を調整することもできます。
-
-    ```PowerShell
-    New-SelfSignedCertificate `
-        -KeyExportPolicy Exportable `
-        -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
-        -KeyAlgorithm RSA `
-        -KeyLength 2048 `
-        -KeyUsage DigitalSignature `
-        -NotAfter (Get-Date).AddMonths(12) `
-        -CertStoreLocation "Cert:\CurrentUser\My"
-    ```
-2. Windows コンピューターで、[**ユーザー証明書の管理**] を検索して選択します
-3. [ **証明書 - 現在のユーザー**] で、[ **個人用**&gt;**Certificates**&gt;*yourappname.yourtenant.onmicrosoft.com* を選択します。
-4. 証明書を選択し、 **アクション**&gt;**すべてのタスク**&gt;**Export** を選択します。
-5. [**次へ**&gt;次へ] を選択し**、秘密キーをエクスポート**します&gt;**次へ**。
-6. [ **ファイル形式のエクスポート**] の既定値をそのまま使用し、[ **次へ**] を選択します。
-7. **[パスワード**] オプションを有効にし、証明書のパスワードを入力して、[**次へ**] を選択します。
-8. 証明書を保存する場所を指定するには、[ **参照** ] を選択し、任意のディレクトリに移動します。
-9. [ **名前を付けて保存** ] ウィンドウで、 **ファイル名**を入力し、[保存] を選択 **します**。
-10. [ **次へ**&gt;**完了] を選択**します。
-
-Azure AD B2C で .pfx ファイルのパスワードを受け入れるには、Windows 証明書ストアのエクスポート ユーティリティで、AES256-SHA256 ではなく、TripleDES-SHA1 オプションを使用してパスワードを暗号化する必要があります。
-
-## [macOS](#tab/macos)
-macOS では、キーチェーン アクセスの [証明書アシスタント](https://support.apple.com/guide/keychain-access/aside/glosa3ed0609/11.0/mac/11.0) を使用して証明書を生成します。
-
-1. Mac 上の [キーチェーン アクセスで自己署名証明書を作成](https://support.apple.com/guide/keychain-access/kyca8916/mac)する方法の手順に従います。
-2. Mac 上のキーチェーン アクセス アプリで、作成した証明書を選択します。
-3. [**ファイル**] &gt;**[アイテムのエクスポート] を選択します**。
-4. 証明書を保存するファイル名を選択します。 例: **自己署名証明書.p12**。
-5. **[ファイル形式**] で、[**Personal Information Exchange (.p12)]** を選択します。
-6. **[保存] を選択します**。
-7. [パスワード] ボックスと [**確認**] ボックスに**パスワード**を入力します。
-8. ファイル拡張子を .pfx に置き換えます。 例: **自己署名証明書.pfx**。
-
----
-
-#### API コネクタを構成する
-
-クライアント証明書認証を使用して API コネクタを構成するには、次の手順を実行します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**外部ID**&gt;**概要** に移動します。
-3. **[すべての API コネクタ**] を選択し、構成する **API コネクタ**を選択します。
-4. **[認証の種類] で** [**証明書**] を選択します。
-5. [ **証明書のアップロード** ] ボックスで、秘密キーを含む証明書の .pfx ファイルを選択します。
-6. [ **パスワードの入力** ] ボックスに、証明書のパスワードを入力します。 [Image: API コネクタの証明書認証構成のスクリーンショット。]
-7. **[保存] を選択します**。
-
-#### 承認の決定を実行する
-
-API エンドポイントを保護するために、API では、送信されたクライアント証明書に基づいて承認が実装される必要があります。 Azure App Service と Azure Functions については、[API コードから証明書](https://learn.microsoft.com/ja-jp/azure/app-service/app-service-web-configure-tls-mutual-auth)を有効にして検証する方法については、*TLS 相互認証の構成*に関するページを参照してください。 または、任意の API サービスの前のレイヤーとして Azure API Management を使用して、 [クライアント証明書のプロパティ](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-mutual-certificates-for-clients) を目的の値と照合することもできます。
-
-#### 証明書を書き換える
-
-証明書の有効期限が切れたときのアラーム アラートを設定することをお勧めします。 新しい証明書を生成し、使用されている証明書の有効期限が切れそうになったら、この記事の手順を繰り返す必要があります。 新しい証明書の使用を "ロール" するために、新しい証明書がデプロイされている間、一時的に、お使いの API サービスで引き続き古い証明書と新しい証明書を受け入れることができます。
-
-既存の API コネクタに新しい証明書をアップロードするには、API **コネクタで API** コネクタを選択し、[ **新しい証明書のアップロード**] を選択します。 Microsoft Entra ID は、有効期限が切れていない、および開始日が経過した、最近アップロードされた証明書を自動的に使用します。
-
-[Image: 新しい証明書が既に存在する場合のスクリーンショット。]
-
-### API キー認証
-
-一部のサービスは、"API キー" メカニズムを使用して、呼び出し元に HTTP ヘッダーまたは HTTP クエリ パラメーターとして一意のキーを含めることを要求することにより、開発中に HTTP エンドポイントへのアクセスを難読化します。 [Azure Functions](https://learn.microsoft.com/ja-jp/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys) の場合は、API コネクタの`code` にクエリ パラメーターとしてを含めます。 たとえば、`https://contoso.azurewebsites.net/api/endpoint`**`?code=0123456789`** です。
-
-運用環境では、このメカニズムを単独で使用しないでください。 そのため、基本認証または証明書認証の構成は常に必要です。 開発上の目的により、いずれの認証方法も実装しない場合 (推奨されません)、API コネクタの構成で "基本" 認証を選択し、適切な承認を実装する間、API が無視できる一時的な値を `username` と `password` に使用します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/self-service-sign-up-user-flow"} -->
-## B2B ゲスト サインインを追加する - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/self-service-sign-up-user-flow
-- Service: entra-external-id / external
-- Article date: 2026-03-27
-- Summary: 作成するアプリのサインアップとサインインのユーザー フローを作成します。 外部 ID を持つユーザーは、サインアップ、ユーザー属性の送信、B2B Collaboration ゲスト アカウントの作成を行うことができます。
-
-**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-ヒント
-
-この記事の対象は、従業員テナントでの B2B コラボレーションのユーザー フローです。 外部テナントの詳細については、「 [サインアップとサインインのユーザー フローの作成](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-user-flow-sign-up-sign-in-customers)」を参照してください。
-
-構築するアプリケーションのために、ユーザーがアプリにサインアップして新しいゲスト アカウントを作成できるようにするユーザー フローを作成できます。 セルフサービス サインアップ ユーザー フローでは、サインアップ時にユーザーが従う一連の手順、使用を許可する [ID プロバイダー](https://learn.microsoft.com/ja-jp/entra/external-id/identity-providers) 、および収集するユーザー属性を定義します。 1 つのユーザー フローに、1 つ以上のアプリケーションを関連付けることができます。
-
-注
-
-組織によって構築されたアプリにユーザー フローを関連付けることができます。 ユーザー フローは、SharePoint や Teams などの Microsoft アプリには使用できません。
-
-### 前提条件
-
-開始する前に、ID プロバイダーを追加し、カスタム属性を定義することが必要になる場合があります。
-
-#### ID プロバイダーを追加する (省略可能)
-
-Microsoft Entra ID は、セルフサービス サインアップ用の既定の ID プロバイダーです。 つまり、ユーザーは既定で Microsoft Entra アカウントでサインアップできます。 セルフサービス サインアップのユーザー フローに、Google や Facebook などのソーシャル ID プロバイダー、Microsoft アカウント、メールのワンタイム パスコード機能を含めることもできます。 詳細と例については、次の記事をご覧ください。
-
-- [ソーシャル ID プロバイダーの一覧に Google を追加する](https://learn.microsoft.com/ja-jp/entra/external-id/google-federation)
-- [ソーシャル ID プロバイダーの一覧に Facebook を追加する](https://learn.microsoft.com/ja-jp/entra/external-id/facebook-federation)
-- [ID プロバイダーとして Microsoft アカウントを追加する](https://learn.microsoft.com/ja-jp/entra/external-id/microsoft-account)
-- [電子メール ワンタイム パスコード認証](https://learn.microsoft.com/ja-jp/entra/external-id/one-time-passcode)
-
-#### カスタム属性を定義する (省略可能)
-
-ユーザー属性は、セルフサービス サインアップ時にユーザーから収集される値です。 Microsoft Entra External ID には組み込みで一連の属性が付属していますが、ユーザー フローで使用するカスタム属性を作成することもできます。 また、Microsoft Graph API を使用してこれらの属性を読み書きすることもできます。 [ユーザー フローのカスタム属性の定義を](https://learn.microsoft.com/ja-jp/entra/external-id/user-flow-add-custom-attributes)参照してください。
-
-### テナントのセルフサービス サインアップを有効にする
-
-セルフサービス サインアップのユーザー フローをアプリケーションに追加する前に、テナントに対してこの機能を有効にする必要があります。 その後、コントロールを使用できるようになり、これによってユーザー フローをアプリケーションに関連付けることができます。
-
-注
-
-この設定は、Microsoft Graph API の [authenticationFlowsPolicy](https://learn.microsoft.com/ja-jp/graph/api/resources/authenticationflowspolicy?view=graph-rest-1.0&preserve-view=true) リソースの種類を使用して構成することもできます。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**外部 ID**&gt;**外部コラボレーション設定**に移動します。
-3. [ **ユーザー フローによるゲスト セルフサービス サインアップを有効にする]** トグルを **[はい**] に設定します。
-
-    [Image: [ゲストセルフサービスサインアップを有効にする] トグルのスクリーンショット。]
-4. **[保存] を選択します**。
-
-### セルフサービス サインアップのユーザー フローを作成する
-
-次に、セルフサービス サインアップのユーザー フローを作成し、アプリケーションに追加します。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**External Identities**&gt;**ユーザーフロー**に移動し、[**新しいユーザーフロー**] を選択します。
-
-    [Image: 新しいユーザー フロー ボタンのスクリーンショット。]
-3. [ **作成** ] ページで、ユーザー フローの名前を入力 **します** 。 名前の先頭に B2X\_1\_ が自動的 **に付けられます**。
-4. **ID プロバイダー**の一覧で、外部ユーザーがアプリケーションへのログインに使用できる 1 つ以上の ID プロバイダーを選択します。 (ID プロバイダーを追加する方法については、この記事の前半で *始める前* に参照してください)。
-5. [ **ユーザー属性**] で、ユーザーから収集する属性を選択します。 その他の属性については、[ **さらに表示**] を選択します。 たとえば、[ **詳細を表示**] を選択し、[ **国/地域**]、[ **表示名]**、[郵便番号] の属性と要求を選択 **します**。 [ **OK] を選択します**。
-
-    [Image: 新しいユーザー フロー作成ページのスクリーンショット。]
-
-    注
-
-    初回のみ、ユーザーの新規登録時に属性を収集できます。 ユーザーがサインアップした後、ユーザー フローを変更した場合でも、属性情報の収集を求めるメッセージは表示されなくなります。
-6. **作成**を選択します。
-7. 新しいユーザー フローがユーザー **フロー** の一覧に表示されます。 必要に応じて、ページを更新してください。
-
-### 属性コレクション フォームのレイアウトを選択する
-
-サインアップ ページに属性を表示する順序を選択できます。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**外部 ID**&gt;**ユーザーフロー**を参照します。
-3. 一覧から、セルフサービス サインアップのユーザー フローを選択します。
-4. [ **カスタマイズ**] で、[ **ページ レイアウト**] を選択します。
-5. 収集することを選択した属性が一覧表示されます。 表示順序を変更するには、属性を選択し、[ **上へ移動**]、[ **下へ移動**]、[ **上へ移動**]、または **[下へ移動**] を選択します。
-6. **[保存] を選択します**。
-
-### セルフサービス サインアップのユーザー フローにアプリケーションを追加する
-
-これで、アプリケーションをユーザー フローに関連付けて、このようなアプリケーションにサインアップできるようになります。 関連付けられているアプリケーションにアクセスする新しいユーザーには、新しいセルフサービス サインアップ エクスペリエンスが表示されます。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**External Identities**&gt;**ユーザーフロー**に移動します
-3. 一覧から、セルフサービス サインアップのユーザー フローを選択します。
-4. 左側のメニューの [ **使用**] で、[ **アプリケーション**] を選択します。
-5. [ **アプリケーションの追加] を選択します**。
-
-    [Image: ユーザー フローにアプリケーションを追加するスクリーンショット。]
-6. 一覧からアプリケーションを選択します。 または、検索ボックスを使用してアプリケーションを検索し、それを選択します。
-7. **選択**を選択します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/tenant-configurations"} -->
-## テナント構成 - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations
-- Service: entra-external-id / external
-- Article date: 2025-05-20
-- Summary: 従業員と外部テナントの違いなど、Microsoft Entra External ID のテナント構成について説明します。
-
-*テナント*は、Microsoft Entra ID 専用および信頼されたインスタンスです。 これには、登録済みのアプリやユーザーのディレクトリなど、組織のリソースが含まれています。 テナントを構成する方法は、組織がテナントを使用する方法と、管理するリソースに応じて 2 とおりあります。
-
-- *従業員*テナント構成は、従業員、社内ビジネス アプリ、およびその他の組織リソース向けです。 外部のビジネス パートナーとゲストを従業員テナントに招待できます。
-- *外部*テナント構成は、コンシューマーまたはビジネスユーザーにアプリを発行する Microsoft Entra 外部 ID シナリオ専用です。 [外部テナントの外部 ID についてさらに知る](https://learn.microsoft.com/ja-jp/entra/external-id/customers/overview-customers-ciam)。
-
-各テナント構成は、組織外のユーザーと連携するための異なるシナリオを表します。
-
-[Image: 外部 ID テナントの構成を示す図。]
-
-### 従業員テナント
-
-従業員テナントは、1 つの組織を表します。 これを使用して、従業員、ビジネス アプリ、およびその他の内部リソースを管理します。 Microsoft Entra ID を使用したことがあれば、すでに職場テナントを知っていることでしょう。 これは、組織が Microsoft Azure、Microsoft Intune、Microsoft 365 などの Microsoft クラウド サービス サブスクリプションにサインアップしたときに自動的に作成される標準テナントです。
-
-従業員テナントでは、外部 ID 機能である [B2B コラボレーション](https://learn.microsoft.com/ja-jp/entra/external-id/what-is-b2b)を使用して、従業員は外部のビジネス パートナーやゲストと共同作業することができます。
-
-Microsoft Entra 管理センターまたは Azure portal のいずれかで、追加の従業員テナントを作成できます。
-
-### 外部テナント
-
-外部 ID を使用してアプリに顧客の ID 管理とアクセス管理 (CIAM) を追加する場合は、*外部*構成で新しいテナントを作成します。 このテナントは従業員テナントとは別個のものであり、分離しています。 また、Microsoft Entra の標準的なテナント モデルに従っていますが、コンシューマーとビジネス顧客のシナリオに合わせて構成されています。
-
-外部テナントは、アプリの登録、サインアップとサインインのユーザー フローの作成、アプリのユーザーの管理を行う場所です。 アプリにサインアップしたコンシューマーとビジネス顧客はテナント ディレクトリに追加されますが、[制限付きの既定のアクセス許可](https://learn.microsoft.com/ja-jp/entra/external-id/customers/reference-user-permissions)が付与されます。
-
-#### 外部テナントの作成が必要なタイミング
-
-コンシューマーまたはビジネスのお客様向けのアプリに外部 ID を使用する予定の場合、最初に作成する必要があるリソースは、外部構成を持つ新しいテナントです。
-
-外部テナントは、次の 2 つの方法で作成できます。
-
-- Azure サブスクリプションが既にある場合は、Microsoft Entra 管理センターで[新しいテナントを作成](https://learn.microsoft.com/ja-jp/entra/external-id/customers/how-to-create-customer-tenant-portal)できます。 テナントを作成するときに、外部構成を選択します。 従業員テナントの作成のみをサポートする Azure portal を使用して外部テナントを作成することはできません。
-- まだ Microsoft Entra テナントを持っていなくても、外部テナントで外部 ID 機能を試したい場合は、get-started エクスペリエンスを使用して無料試用版を開始することをお勧めします。
-
-テナントを作成するときに、正しい地理的な場所とドメイン名を設定できます。 現在 Azure Active Directory B2C (Azure AD B2C) を使用している場合、新しい従業員と顧客のテナント モデルは、既存の Azure AD B2C テナントには影響しません。
-
-Von Bedeutung
-
-2025 年 5 月 1 日より、Azure AD B2C は新規のお客様向けに購入できなくなります。 詳細については、FAQ で [Azure AD B2C を引き続き購入できますか](https://learn.microsoft.com/ja-jp/azure/active-directory-b2c/faq?tabs=app-reg-ga#azure-ad-b2c-end-of-sale) ? を参照してください。
-
-### 従業員と外部テナントの比較
-
-従業員テナントと外部テナントは基になる同じ Microsoft Entra プラットフォーム上に構築されていますが、いくつかの機能の違いがあります。 テナントの機能の詳細な比較については、「 [従業員と外部テナントでサポートされる機能](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-supported-features-customers)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/external-id/tenant-restrictions-migration"} -->
-## テナント制限の計画 v1 テナント制限への移行 v2 - Microsoft Entra External ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-migration
-- Service: entra-external-id / external
-- Article date: 2024-02-12
-- Summary: ユーザー、グループ、アプリケーションのテナント レベルの制限と制御、およびクラウドベースのポータルでのポリシー管理について説明します。
-
-**適用対象**: [Image: 次の内容が従業員テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] ワークフォース テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
-
-管理者は、[テナント制限 v1](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/tenant-restrictions) を使用して、ネットワーク上の外部テナントへのユーザー アクセスを制御します。 ただし、テナント間アクセス設定 [を使用するテナント制限 v2](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2) では、テナント レベルの制限が追加されます。 テナント制限 v2 では、個々のユーザー、グループ、アプリケーションの制御など、細分性も高くなります。
-
-テナント制限 v2 は、ポリシー管理をネットワーク プロキシからクラウドベースのポータルに移動します。 プロキシ ヘッダーのサイズ制限により、組織がターゲットテナントの最大数に達しなくなりました。
-
-テナント制限 v1 からテナント制限 v2 への移行は、その他のライセンス要件のない 1 回限りのプロセスです。 移行を計画する際に、ネットワーク チームと ID チームの利害関係者を含めます。
-
-### 前提条件
-
-- テナント制限 v1 ヘッダーを挿入するプロキシへの管理者アクセス。 プロキシは、オンプレミスでもクラウドベースのサービスからでもかまいません。
-- [Microsoft Entra ID P1 または P2](https://learn.microsoft.com/ja-jp/entra/fundamentals/get-started-premium) ライセンス。
-- 移行の実現可能性の検証。 [テナント制限 v2 については、サポートされていないシナリオを](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#unsupported-scenarios)参照してください。
-
-### 必要なロール
-
-このセクションでは、デプロイに必要な最小限の権限ロールを示します。 セキュリティ管理者ロールを使用するか、 `Microsoft.directory/crossTenantAccessPolicy/`で少なくとも次のアクセス許可を持つカスタム ロールを使用します。
-
-- `Standard/read`
-- `Partners/standard/read`
-- `Default/standard/read`
-- `Basic/update`
-- `Default/tenantRestrictions/update`
-- `Partners/tenantRestrictions/update`
-- `Partners/create`
-- `Partners/b2bCollaboration/update`
-- `Default/b2bCollaboration/update`
-
-### 新しいテナント制限ポリシーを作成して指定する
-
-プロキシが挿入している現在のヘッダー文字列を取得します。 現在のポリシーを評価し、不要なテナント ID または許可されている宛先を削除します。 評価後、外部テナント ID または外部ドメイン、あるいはその両方の一覧を作成します。
-
-移行用のテナント間アクセス設定とテナント制限 v2 ポリシーを構成します。 テナント間アクセスの送信設定は、内部 ID がアクセスするテナントを定義します。 テナント間アクセス設定では、テナント制限 v2 によって、他の外部 ID がマネージド ネットワーク上にある間にアクセスするテナントが定義されます。
-
-### 技術的な考慮事項
-
-テナント間アクセスの送信設定を構成すると、ポリシーは 1 時間以内に有効になり、テナント制限 v1 ポリシーに加えて評価されます。 テナント間アクセス設定とテナント制限 v1 が評価され、より制限の厳しいオプションが適用されます。
-
-ユーザーに悪影響を与えないようにするには、新しいポリシーでテナント制限 v1 ポリシーを可能な限りミラー化します。 クロステナント アクセス設定で構成するテナント制限 v2 ポリシーは、プロキシを新しいヘッダーで更新した後に有効になります。
-
-次のセクションでは、一般的なシナリオに合った移行と構成の管理を設定します。 このガイダンスを使用して、組織に必要なポリシーを作成します。
-
-#### 特定の外部テナントへのアクセスを内部 ID だけに許可する
-
-従業員などの内部 ID がマネージド ネットワーク上の特定の外部テナントにアクセスすることを許可します。 内部 ID の許可リストにないテナントへのアクセスをブロックします。 請負業者やベンダーなどの外部 ID による外部テナントへのアクセスをすべてブロックします。
-
-1. **テナント間アクセス設定の** [**組織設定**] タブで、[各ドメインまたはテナントを組織として追加](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#add-an-organization)します。
-2. すべてのユーザーとグループを許可し、すべてのアプリケーションを許可するには、追加された組織ごとに、 [企業間 (B2B) コラボレーションの送信アクセスを構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#modify-outbound-access-settings)します。
-
-    [Image: [クロステナント アクセス設定] の下の組織設定のタブのスクリーンショット。]
-3. すべてのユーザーとグループ、および B2B コラボレーションのすべてのアプリケーションをブロックするには、 [テナント間アクセスの既定の送信設定を構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#configure-default-settings)します。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
-
-    [Image: [クロステナント アクセス設定] の既定の設定のタブのスクリーンショット。]
-4. **テナント制限の**既定値で、ポリシー ID を作成します (まだ作成していない場合)。 次 [に、すべてのユーザー、グループ、および外部アプリケーションをブロックするようにポリシーを構成します](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#configure-a-server-side-cloud-policy-for-tenant-restrictions-v2)。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
-
-    [Image: テナント制限の既定値のスクリーンショット。]
-
-#### 特定の外部テナントへのアクセスを内部 ID と外部 ID に許可する
-
-従業員などの内部 ID と、請負業者やベンダーなどの外部 ID が、マネージド ネットワーク上の特定の外部テナントにアクセスできるようにします。 すべての ID の許可リストにないテナントへのアクセスをブロックします。
-
-1. **テナント間アクセス設定の** [**組織設定**] タブで、[各ドメインまたはテナント ID を組織として追加](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#add-an-organization)します。
-2. 追加された組織ごとに、内部 ID を有効にするには、すべてのユーザー、グループ、およびアプリケーションを許可するように [B2B コラボレーションの送信アクセスを構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#modify-outbound-access-settings) します。
-3. 追加された組織ごとに、外部 ID を有効にするには、すべてのユーザー、グループ、およびアプリケーションを許可するように [組織のテナント制限を構成](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#step-2-configure-tenant-restrictions-v2-for-specific-partners) します。
-
-    [Image: [組織の設定] の下の送信アクセスとテナント制限の詳細のスクリーンショット。]
-4. B2B コラボレーションのすべてのユーザー、グループ、アプリケーションをブロックするには、 [テナント間アクセスの既定の送信設定を構成](https://learn.microsoft.com/ja-jp/entra/external-id/cross-tenant-access-settings-b2b-collaboration#configure-default-settings)します。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
-
-    [Image: 既定の設定の下の送信アクセス設定のスクリーンショット。]
-5. **テナント制限の**既定値で、ポリシー ID を作成します (まだ作成していない場合)。 次 [に、すべてのユーザー、グループ、および外部アプリケーションをブロックするようにポリシーを構成します](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#configure-a-server-side-cloud-policy-for-tenant-restrictions-v2)。 このアクションは、手順 1 で追加しなかったテナントにのみ適用されます。
-
-    [Image: 外部ユーザーとグループ、および外部アプリケーションがブロックされているテナント制限のスクリーンショット。]
-
-注
-
-- コンシューマー Microsoft アカウントを対象にするには、テナント ID: `9188040d-6c67-4c5b-b112-36a304b66dad`を持つ組織を追加します。
-- テナント制限 v2 ポリシーは作成されますが、有効ではありません。
-
-### テナント制限 v2 を有効にする
-
-[テナント ID とポリシー ID の値を使用して](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-restrictions-v2#option-2-set-up-tenant-restrictions-v2-on-your-corporate-proxy)、新しいヘッダーを作成します。 ネットワーク プロキシを更新して、新しいヘッダーを挿入します。
-
-新しい `sec-Restrict-Tenant-Access-Policy` ヘッダーを挿入するようにネットワーク プロキシを更新する場合は、2 つのテナント制限 v1 ヘッダー ( `Restrict-Access-To-Tenants` と `Restrict-Access-Context`) を削除します。
-
-ヒント
-
-- フェーズ ロールアウトでネットワーク プロキシを更新します。 現在のテナント制限 v1 のヘッダーと値を保存します。
-- 潜在的な問題のナビゲートに役立つロールバック計画を作成します。
-
-以下のいずれかのパターンを使用して、プロキシ構成を移行します。 プロキシが選択したパターンをサポートしていることを確認します。
-
-- **テナント制限 v2 ヘッダーを使用して一度に 1 つのプロキシをアップグレード**します。このプロキシを経由するユーザーは更新されたヘッダーを受け取り、新しいポリシーが適用されます。 問題を監視します。 問題が発生しない場合は、次のプロキシを更新し、すべてのプロキシを更新するまで続行します。
-- **ユーザーに基づいてヘッダーの挿入を更新**する: 一部のプロキシでは認証されたユーザーが必要であり、ユーザーとグループに基づいて挿入するヘッダーを選択する場合があります。 新しいテナント制限 v2 ヘッダーをテスト グループのユーザーにロールアウトします。 問題を監視します。 問題が発生しない場合は、トラフィックの 100% がスコープ内になるまで、段階的にユーザーを追加します。
-- **新しいテナント制限 v2 ヘッダーを一度に適用するようにサービスを更新**します。このオプションはお勧めしません。
-
-新しいヘッダーの更新をロールアウトする際には、ユーザーが経験しているのが期待される動作であることをテストして検証します。
-
-### モニター
-
-テナント間アクセスのテナント制限 v2 と送信設定を展開する場合は、サインイン ログを監視します。 また、 [クロステナント アクセス アクティビティ ブック](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/workbook-cross-tenant-access-activity) を使用して、ユーザーが承認されていないテナントにアクセスしていないことを確認することもできます。 これらのツールは、誰がどの外部アプリケーションにアクセスしているかを特定するのに役立ちます。
-
-テナント間アクセスとテナント制限の送信設定を構成して、グループ メンバーシップや特定のアプリケーションに基づいて送信アクセスを制限できます。
 <!-- /MSL-PAGE -->

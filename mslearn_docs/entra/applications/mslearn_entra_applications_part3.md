@@ -1,7 +1,623 @@
 # Microsoft Learn — Microsoft Entra / エンタープライズアプリ・プロビジョニング・アプリプロキシ (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 59
+Pages in this file: 56
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/tutorial-ecma-sql-connector"} -->
+## SQL アプリケーションへの Microsoft Entra プロビジョニング - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/tutorial-ecma-sql-connector
+- Service: entra-id / app-provisioning
+- Article date: 2025-04-09
+- Summary: このチュートリアルでは、Microsoft Entra ID から SQL データベースにユーザーをプロビジョニングする方法について説明します。
+
+このドキュメントでは、ユーザーを Microsoft Entra ID から SQL データベースに自動的にプロビジョニングおよびプロビジョニング解除するために実行する必要がある手順について説明します。
+
+このサービスが実行する内容、仕組み、よく寄せられる質問の重要な詳細については、「[Microsoft Entra ID による SaaS アプリケーションへのユーザー プロビジョニングとプロビジョニング解除の自動化](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)」および「[オンプレミス アプリケーション プロビジョニング アーキテクチャ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture)」に関する記事を確認してください。
+
+次のビデオでは、オンプレミス プロビジョニングの概要を紹介しています。
+
+### SQL Database にプロビジョニングするための前提条件
+
+#### オンプレミスの前提条件
+
+アプリケーションは SQL データベースに依存します。このデータベースでは、ユーザーのレコードを作成、更新、および削除できます。 プロビジョニング エージェントを実行するコンピューターには、次のものが必要です。
+
+- Windows Server 2016 以降のバージョン。
+- ターゲット データベース システムへの接続、および login.microsoftonline.com、[その他の Microsoft Online Services](https://learn.microsoft.com/ja-jp/microsoft-365/enterprise/urls-and-ip-address-ranges)、[Azure](https://learn.microsoft.com/ja-jp/azure/azure-portal/azure-portal-safelist-urls) ドメインへの送信接続。 1 つの例は、Azure IaaS でホストされているか、またはプロキシの背後にある Windows Server 2016 仮想マシンです。
+- 少なくとも 3 GB の RAM。
+- .NET Framework 4.7.2
+- SQL データベースの ODBC ドライバー。
+
+アプリケーションのデータベースへの接続の構成は、ウィザードを使用して行います。 選択するオプションによっては、ウィザードの一部の画面を使用できない場合があり、情報も多少異なる可能性があります。 次の情報を使用して構成を進めます。
+
+##### サポートされるデータベース
+
+- Microsoft SQL Server と Azure SQL
+- IBM DB2 9.x
+- IBM DB2 10.x
+- IBM DB2 11.5
+- Oracle 10g および 11g
+- Oracle 12c および 18c
+- MySQL 5.x
+- MySQL 8.x
+- Postgres
+
+#### クラウドの要件
+
+- Microsoft Entra ID P1 あるいは Premium P2 (または EMS E3 または E5) を使用する、Microsoft Entra テナント。
+
+    この機能を使用するには、Microsoft Entra ID P1 ライセンスが必要です。 自分の要件に適したライセンスを探すには、「[一般提供されている Microsoft Entra ID の機能の比較](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)」を参照してください。
+- プロビジョニング エージェントを構成するためのハイブリッド ID 管理者ロールと、Azure portal でプロビジョニングを構成するためのアプリケーション管理者またはクラウド アプリケーション管理者ロール。
+- データベースにプロビジョニングされる Microsoft Entra ユーザーには、データベース スキーマで必要とされ、データベース自体によって生成されない属性が既に設定されている必要があります。
+
+### サンプル データベースの準備
+
+この記事では、アプリケーションのリレーショナル データベースと対話するように Microsoft Entra SQL コネクタを構成します。 通常、アプリケーションは、ユーザーごとに 1 行ずつある SQL データベース内のテーブルで、アクセスを管理します。 既にデータベースとアプリケーションがある場合は、次のセクションに進みます。
+
+適切なテーブルを持つデータベースがまだない場合は、デモンストレーション用に、Microsoft Entra ID による使用を許可したテーブルを作成する必要があります。 SQL Server を使用している場合は、「付録 A」に記載されている SQL スクリプトを実行します。このスクリプトは、1つのテーブル `Employees` を含む、CONTOSO という名前のサンプル データベースを作成します。 これは、ユーザーをプロビジョニングするデータベース テーブルです。
+
+| [テーブル列] | Source |
+| --- | --- |
+| ContosoLogin | Microsoft Entra ユーザー プリンシパル名 |
+| ファーストネーム | Microsoft Entra の指定された名前 |
+| LastName | Microsoft Entra 姓 |
+| Email | Exchange Online 電子メールアドレス |
+| InternalGUID | データベース自体によって生成されます |
+| AzureID | Microsoft Entra オブジェクト ID |
+| textID | Microsoft Entra ID メール ニックネーム |
+
+### Microsoft Entra SQL コネクタがデータベースとどのように対話するかを決定する
+
+SQL インスタンスに、データベースのテーブル内のデータを更新する権限を持つユーザー アカウントが存在する必要があります。 SQL データベースが他のユーザーによって管理されている場合は、そのユーザーに連絡して、データベースに対する認証に Microsoft Entra ID で使用するアカウント名とパスワードを入手してください。 SQL インスタンスが別のコンピューターにインストールされている場合は、SQL データベースでエージェント コンピューター上の ODBC ドライバーからの受信接続を許可する必要もあります。
+
+アプリケーションに既存のデータベースが既にある場合、Microsoft Entra ID がそのデータベースと対話する方法を決定する必要があります。これは、テーブルとビューを直接操作する方法、データベース内に既に存在するストアド プロシージャを使用する方法、クエリと更新用に指定する SQL ステートメントを使用する方法です。 この設定は、より複雑なアプリケーションが、そのデータベースに他の補助テーブルを持ち、何千人ものユーザーを持つテーブルのページングを必要としたり、暗号化、ハッシュ化、妥当性チェックなどの追加のデータ処理を実行するストアド プロシージャを Microsoft Entra ID が呼び出す必要があったりする可能性があるからです。
+
+アプリケーションのデータベースと対話するようにコネクタの構成を作成する場合は、まず、コネクタ ホストがデータベースのスキーマを読み取る方法についてのアプローチを構成してから、次に実行プロファイルを介してコネクタが継続的に使用するアプローチを構成します。 各実行プロファイルでは、コネクタが SQL ステートメントを生成する方法を指定します。 実行プロファイルの選択と実行プロファイル内のメソッドは、データベース エンジンがサポートする内容とアプリケーションで必要とされるものによって異なります。
+
+- 構成が完了すると、プロビジョニング サービスが開始する際、**完全インポート**実行プロファイルで構成された相互作用が自動的に実行されます。 この実行プロファイルでは、コネクタは、通常 **SELECT** ステートメントを使用して、アプリケーションのデータベースからのユーザーのすべてのレコードを読み取ります。 この実行プロファイルは、後で Microsoft Entra ID がユーザーに変更を加える必要がある場合に、そのユーザーに対して新しいレコードを作成するのではなく、データベース内のそのユーザーの既存のレコードを更新することを認識するために必要になります。
+- 新しいユーザーをアプリケーションに割り当てる場合や既存のユーザーを更新する場合など、Microsoft Entra ID で変更が行われるたびに、プロビジョニング サービスは、SQL データベース相互作用によって構成された**エクスポート**実行プロファイルを実行します。 **エクスポート**実行プロファイルでは、データベースの内容を Microsoft Entra ID と同期させるために、Microsoft Entra ID が SQL ステートメントを発行してデータベースのレコードを挿入、更新、および削除します。
+- データベースでサポートされている場合は、必要に応じて **差分インポート**実行プロファイルを構成することもできます。 この実行プロファイルでは、前回の完全インポート、または差分インポート以降に Microsoft Entra ID 以外のデータベースで行われた変更が Microsoft Entra ID によって読み取られます。 この実行プロファイルは、変更を読み取ることができるようにデータベースを構造化する必要があるため、省略可能です。
+
+コネクタの各実行プロファイルの構成では、Microsoft Entra ID コネクタがテーブルまたはビューに対して独自の SQL ステートメントを生成するか、ストアド プロシージャを呼び出すか、または指定したカスタム SQL クエリを使用するかどうかを指定します。 通常は、コネクタ内のすべての実行プロファイルに同じ方法を使用します。
+
+- 実行プロファイルのテーブルまたはビューメソッドを選択すると、Microsoft Entra コネクタによって、データベース内のテーブルまたはビューと対話するために必要な SQL ステートメント、*SELECT*、*INSERT*、*UPDATE*、および *DELETE* が生成されます。 この方法は、データベースに 1 つのテーブル、または既存の行数が少ない更新可能なビューがある場合に、最も簡単なアプローチです。
+- ストアド プロシージャのメソッドを選択した場合、データベースには、ユーザーのページの読み取り、ユーザーの追加、ユーザーの更新、ユーザーの削除という 4 つのストアド プロシージャが必要になります。Microsoft Entra コネクタは、呼び出すストアド プロシージャの名前とパラメーターを使用して構成することになります。 この方法では、SQL データベースにより多くの構成が必要となります。通常は、アプリケーションで、ユーザーに対する変更ごとまたは大規模な結果セットをページングするため追加の処理が必要な場合にのみ必要になります。
+- SQL クエリ メソッドを選択した場合は、実行プロファイルの実行時にコネクタが発行する特定の SQL ステートメントを入力します。 コネクタは、SQL ステートメントにコネクタが入力するパラメーター (インポート時の結果セットのページング、エクスポート中に作成される新しいユーザーの属性を設定するなど) を使用して構成します。
+
+この記事では、`Employees`と**フル インポート**の実行プロファイルで、サンプル データベースのテーブル と対話するためにテーブル メソッドを使用する方法について説明します。 ストアド プロシージャまたは SQL クエリ メソッドの構成の詳細情報と具体的な要件については、「[汎用 SQL 構成ガイド](https://learn.microsoft.com/ja-jp/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)」を参照してください。
+
+### アプリケーションのデータベース スキーマで一意の識別子を選択する
+
+ほとんどのアプリケーションは、アプリケーションのユーザーごとに一意の識別子を持ちます。 既存のデータベース テーブルにプロビジョニングする場合は、各ユーザーの値を持つそのテーブルのカラムを特定する必要があり、その値は一意であり、変更されることはありません。 この列は**アンカー**となり、Microsoft Entra ID が既存の行を識別して更新や削除ができるようにするために使用します。 アンカーの詳細については、「[アンカー属性と識別名について](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names)」を参照してください。
+
+アプリケーションのデータベースが既に存在していて、その中にユーザーが存在し、Microsoft Entra ID でそれらのユーザーを最新に保ちたい場合は、アプリケーションのデータベースと Microsoft Entra のスキーマの間で同じ各ユーザーの識別子を用意する必要があります。 たとえば、Microsoft Entra ID でアプリケーションにユーザーを割り当て、そのユーザーが既にそのデータベースに存在する場合、Microsoft Entra ID でそのユーザーに変更を加えると、新しい行が追加されるのではなく、そのユーザーの既存の行が更新されます。 Microsoft Entra ID は、そのユーザーのアプリケーションの内部識別子を保存しない可能性が高いので、データベースの**クエリ**に使用する別の列を選択することになります。 この列の値には、アプリケーションのスコープ内にある各ユーザーの Microsoft Entra ID に存在するユーザー プリンシパル名、メールアドレス、従業員 ID、またはその他の識別子を指定することができます。 アプリケーションが使用するユーザー識別子が、ユーザーの Microsoft Entra 表現に格納されている属性でない場合は、Microsoft Entra ユーザー スキーマを拡張して拡張属性を指定してデータベースからその属性を設定する必要はありません。 [PowerShell](https://learn.microsoft.com/ja-jp/powershell/azure/active-directory/using-extension-attributes-sample) を使用して Microsoft Entra スキーマを拡張し、拡張値を設定できます。
+
+### Microsoft Entra ID 内の属性をデータベース スキーマにマップする
+
+データベースに既に存在するユーザーであっても新しいユーザーであっても、Microsoft Entra ID 内のユーザーとデータベース内のレコードの間に Microsoft Entra ID でリンクが確立されている場合は、Microsoft Entra ID で Microsoft Entra ユーザーからデータベースに属性の変更をプロビジョニングできます。 一意の識別子に加え、データベースを調べて他に必要なプロパティがあるかどうかを特定します。 存在する場合は、データベースにプロビジョニングされるユーザーに、必要なプロパティにマップできる属性があることを確認します。
+
+[プロビジョニング解除](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-provisioning-works#deprovisioning)の動作を構成することもできます。 Microsoft Entra ID でアプリケーションに割り当てられているユーザーが削除された場合、Microsoft Entra ID は削除操作をデータベースに送信します。 また、ユーザーがアプリケーションを使用できるスコープから外れる場合に、Microsoft Entra ID にデータベースを更新させることもできます。 ユーザーがアプリから割り当て解除されたか、Microsoft Entra ID で論理的に削除されたか、またはサインインがブロックされた場合は、Microsoft Entra ID が属性の変更を送信するように構成できます。 既存のデータベース テーブルにプロビジョニングする場合は、そのテーブルの列を **isSoftDeleted** にマップできます。 ユーザーがスコープから外れると、Microsoft Entra ID によってそのユーザーの値が **True** に設定されます。
+
+### 1. ODBC ドライバーをインストールする
+
+プロビジョニング エージェントをインストールする Windows Server には、ターゲット データベース用の ODBC ドライバーが必要です。 SQL Server または Azure SQL データベースに接続する予定がある場合は、[ODBC driver for SQL Server (x64)](https://learn.microsoft.com/ja-jp/sql/connect/odbc/download-odbc-driver-for-sql-server) をダウンロードし、Windows サーバーにインストールする必要があります。 他の SQL データベースについては、ODBC ドライバーのインストール方法について独立系ソフトウェア ベンダーによるガイダンスを参照してください。
+
+### 2. DSN 接続ファイルを作成する
+
+Generic SQL コネクタでは、SQL エンドポイントに接続するためにデータソース名 (DSN) のファイルが必要です。 最初に、ODBC 接続情報を含むファイルを作成する必要があります。
+
+1. サーバー上で ODBC 管理ユーティリティを起動します。 64 ビット版を使用します。
+
+    [Image: ODBC 管理を示すスクリーンショット。]
+2. **[ファイル DSN]** タブを選択し、 **[追加]** を選択します。
+
+    [Image: [ファイル DSN] タブを示すスクリーンショット。]
+3. SQL Server または Azure SQL を使用している場合は、[**SQL Server Native Client 11.0**] を選択し、[**次へ**] を選択します。 別のデータベースを使用している場合は、その ODBC ドライバーを選択します。
+
+    [Image: ネイティブ クライアントの選択を示すスクリーンショット。]
+4. ファイルに **GenericSQL** などの名前を付け、 **[次へ]** を選択します。 [Image: コネクタの名前を示すスクリーンショット。]
+5. **完了** を選択します。
+
+    [Image: 終了を示すスクリーンショット。]
+6. ここで接続を構成します。 次の手順は、使用している ODBC ドライバーによって異なります。 この図では、ドライバーを使って SQL Server に接続していることが想定されています。 SQL Server が別のサーバー コンピューターにある場合は、サーバーの名前を入力します。 次に、 **[次へ]** を選択します。
+
+    [Image: サーバー名の入力を示すスクリーンショット。]
+7. この手順を実行しているユーザーがデータベースに接続するためのアクセス許可を持っている場合は、Windows 認証を選択したままにします。 SQL Server 管理者が SQL ローカル アカウントを必要とする場合は、代わりにそれらの資格情報を指定します。 **[次へ]** を選択します。
+
+    [Image: Windows 認証を示すスクリーンショット。]
+8. データベースの名前を入力します。このサンプルでは、**CONTOSO** になります。
+
+    [Image: データベース名の入力を示すスクリーンショット。]
+9. この画面はすべて既定値のままにし、 **[完了]** を選択します。
+
+    [Image: 完了の選択を示すスクリーンショット。]
+10. 問題なく動作することを確認するには、 **[データ ソースのテスト]** を選択します。
+
+    [Image: テスト データ ソースを示すスクリーンショット。]
+11. テストの成功を確認します。
+
+    [Image: 成功を示すスクリーンショット。]
+12. **[OK]** を 2 回選びます。 ODBC データ ソース アドミニストレーターを閉じます。 既定では、DSN 接続ファイルは **Documents** フォルダーに保存されます。
+
+    Note
+
+    SQL コネクタでは、DSN 接続ファイルが UTF-8 でエンコードされることを想定しています。 ファイルが UTF-8 でエンコードされていない場合は、メモ帳を使用して UTF-8 エンコードでファイルを保存します。
+
+### 3. Microsoft Entra Connect のプロビジョニング エージェントをインストールして構成する
+
+プロビジョニング エージェントを既にダウンロードし、別のオンプレミス アプリケーション用に構成している場合は、次のセクションに進んでください。
+
+1. Azure portal にサインインします。
+2. **[エンタープライズ アプリケーション]** に移動し、**[新規アプリケーション]** を選択します。
+3. **オンプレミスの ECMA アプリ** アプリケーションを検索し、アプリに名前を付けて、**[作成]** を選択してテナントに追加します。
+4. メニューから、アプリケーションの **[プロビジョニング]** ページに移動します。
+5. **開始する**を選択します。
+6. **[プロビジョニング]** ページで、モードを **[自動]** に変更します。
+
+[Image: [自動] を選択しているスクリーンショット。]
+
+1. **[オンプレミス接続]** で、**[ダウンロードしてインストール]** を選択し、**[条項に同意してダウンロード]** を選択します。
+
+[Image: エージェントのダウンロード場所のスクリーンショット。]
+
+1. ポータルを開いたままにして、プロビジョニング エージェント インストーラーを実行し、サービス使用条件に同意して、**[インストール]** を選択します。
+2. Microsoft Entra プロビジョニング エージェント構成ウィザードが表示されるのを待ってから、**[次へ]** を選択します。
+3. **[拡張機能を選択]** ステップで、**[オンプレミス アプリケーションのプロビジョニング]** を選択し、**[次へ]** を選択します。
+4. プロビジョニング エージェントは、オペレーティング システムの Web ブラウザーを使用して、Microsoft Entra ID (および場合によっては組織の ID プロバイダー) に対する認証を行うためのポップアップ ウィンドウを表示します。 Windows Server でブラウザーとして Internet Explorer を使用している場合は、JavaScript を正しく実行できるように、ブラウザーの信頼済みサイト リストに Microsoft Web サイトを追加する必要がある場合があります。
+5. 承認を求められたら、Microsoft Entra 管理者の資格情報を入力します。 ユーザーは、少なくとも[ハイブリッド ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator)ロールを持っている必要があります。
+6. **[Confirm]** を選択して設定を確認します。 インストールが成功したら、**[終了]** を選択し、プロビジョニング エージェント パッケージ インストーラーも閉じます。
+
+### 4. オンプレミスの ECMA アプリを構成する
+
+1. Portal に戻り、**[オンプレミス接続]** セクションで、デプロイしたエージェントを選択し、**[エージェントの割り当て]** を選択します。
+
+    [Image: エージェントを選択して割り当てる方法を示すスクリーンショット。]
+2. このブラウザー ウィンドウを開いたままにして、構成ウィザードを使用して構成の次の手順を完了します。
+
+### 5. Microsoft Entra ECMA Connector Host の証明書を構成する
+
+1. プロビジョニング エージェントがインストールされている Windows Server で、スタート メニューから **Microsoft ECMA2Host 構成ウィザード**を右クリックし、管理者として実行します。 ウィザードで必要な Windows イベント ログを作成するには、Windows 管理者として実行する必要があります。
+2. このウィザードを初めて実行する場合は、ECMA Connector Host 構成の開始後に証明書の作成を求められます。 既定のポート **8585** のままにし、**[証明書の生成]** を選択して証明書を生成します。 自動生成された証明書は、信頼ルートの一部として自己署名されます。 証明書の SAN はホスト名と一致します。
+
+    [Image: 設定の構成を示すスクリーンショット。]
+3. **保存**を選択します。
+
+Note
+
+新しい証明書を生成することを選択した場合は、証明書の有効期限を記録した後、構成ウィザードに戻り、有効期限が切れる前に証明書を生成し直すようにしてください。
+
+### 6. 汎用 SQL コネクタを作成する
+
+このセクションでは、データベースのコネクタ構成を作成します。
+
+#### 6.1 SQL 接続を構成する
+
+汎用 SQL コネクタを作成するには、以下の手順に従ってください。
+
+1. コネクタに対して Microsoft Entra ID を認証するために使用されるシークレット トークンを生成します。 これは、アプリケーションごとに最小 12 文字で、一意である必要があります。
+2. まだ実行していない場合は、Windows スタート メニューから **Microsoft ECMA2Host 構成ウィザード**を起動します。
+3. **[新しいコネクタ]** を選択します。
+4. [**プロパティ]** ページで、次の表で指定した値をボックスに入力し、[次へ] を選択します。
+
+    | プロパティ | [値] |
+    | --- | --- |
+    | 名前 | コネクタに対して選択した名前。これは、環境内のすべてのコネクタで一意である必要があります。 たとえば、SQL データベースが 1 つしかない場合は、`SQL` とします。 |
+    | AutoSync タイマー (分) | 120 |
+    | シークレット トークン | このコネクタ用に生成したシークレット トークンを入力します。 キーは 12 文字以上である必要があります。 |
+    | 拡張 DLL | Generic SQL コネクタの場合、**Microsoft.IAM.Connector.GenericSql.dll** を選択します。 |
+5. [**接続**] ページで、次の表で指定した値をボックスに入力し、[次 ] を選択します。
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | DSN ファイル | SQL インスタンスに接続するために使用される、前の手順で作成したデータ ソース名ファイル。 |
+    | ユーザー名 | SQL インスタンスのテーブルを更新する権限を持つアカウントのユーザー名。 ターゲット データベースが SQL Server であり、Windows 認証を使用している場合は、ユーザー名は、スタンドアロン サーバーの場合は hostname\sqladminaccount、ドメイン メンバー サーバーの場合は domain\sqladminaccount の形式にする必要があります。 他のデータベースの場合、ユーザー名はデータベース内のローカル アカウントになります。 |
+    | パスワード | 指定したユーザー名のパスワード。 |
+    | DN is Anchor (DN はアンカー) | お使いの環境でこれらの設定が必要であるとわかっている場合を除いて、 **[DN is Anchor](DN はアンカー)** および **[エクスポートの種類: オブジェクトの置換]** チェックボックスを選択しないでください。 |
+
+#### 6.2 データベースからスキーマを取得する
+
+資格情報を提供すると、ECMA コネクタ ホストはデータベースのスキーマを取得する準備が整います。 SQL 接続の構成を続けます。
+
+1. **[スキーマ 1]** ページで、オブジェクトの種類の一覧を指定します。 このサンプルでは、オブジェクトの種類は `User` の 1 つです。 画像の下にある表に指定される値をボックスに入力し、[**次へ**] を選択します。
+
+    [Image: [スキーマ 1] ページを示すスクリーンショット。]
+
+    | プロパティ | [値] |
+    | --- | --- |
+    | オブジェクトの種類の検出方法 | 固定値 |
+    | 固定値のリスト/テーブル/ビュー/SP | User |
+2. **[次へ]** を選択すると、`User` オブジェクトの種類を構成するための次のページが自動的に表示されます。 [**スキーマ 2**] ページで、データベースでのユーザーの表示方法を指定します。 このサンプルでは、`Employees` という名前の 1 つの SQL テーブルです。 画像の下にある表に指定される値をボックスに入力し、[**次へ**] を選択します。
+
+    [Image: [スキーマ 2] ページを示すスクリーンショット。]
+
+    | プロパティ | [値] |
+    | --- | --- |
+    | ユーザー: 属性の検出 | テーブル |
+    | ユーザー: テーブル/ビュー/SP | データベース内のテーブルの名前 (`Employees` など) |
+
+    Note
+
+    エラーが発生した場合は、データベース構成を調べて、**[接続]** ページで指定したユーザーがデータベースのスキーマへの読み取りアクセス権を持っていることを確認します。
+3. **[次へ]** を選ぶと次のページが自動的に表示され、前に指定したテーブル (この例では `Employees` テーブル) で、ユーザーの `Anchor` および `DN` として使用する列を選択できます。 これらの列には、データベース内の一意の識別子が含まれます。 使用する列は同じ列でも異なる列でもかまいませんが、このデータベースに既に存在する行が、これらの列で必ず一意の値を持っているようにしてください。 **[スキーマ 3]** ページでは、画像の下にある表に指定される値をボックスに入力し、 **[次へ]** を選択します。
+
+    [Image: [スキーマ 3] ページを示すスクリーンショット。]
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | [:User] に [アンカー] を選択します | アンカーとして使用するデータベース テーブルの列 (`User:ContosoLogin` など) |
+    | ユーザーの DN 属性を選択してください | DN 属性として使用するデータベースの列 (`AzureID` など) |
+4. **[次へ]** を選択すると、`Employee` テーブルの各列のデータ型と、コネクタがそれらをインポート、またはエクスポートする必要があるかどうかを確認するための次のページが自動的に表示されます。 **[スキーマ 4]** ページでは、既定値のままにし、 **[次へ]** を選択します。
+
+    [Image: [スキーマ 4] ページを示すスクリーンショット。]
+5. **[グローバル]** ページで、ボックスに入力し、 **[次へ]** を選択します。 個々のボックスのガイダンスについては、画像の下にある表を参照してください。
+
+    [Image: [グローバル] ページを示すスクリーンショット。]
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | Delta Strategy (差分方式) | IBM DB2 の場合は、`None` を選択します |
+    | ウォーター マーク クエリ | IBM DB2 の場合は、「`SELECT CURRENT TIMESTAMP FROM SYSIBM.SYSDUMMY1;`」と入力します |
+    | データ ソースの日付と時刻の形式 | SQL Server の場合は `yyyy-MM-dd HH:mm:ss`、IBM DB2 の場合は `YYYY-MM-DD` |
+6. **[パーティション]** ページで **[次へ]** を選択します。
+
+    [Image: [パーティション] ページを示すスクリーンショット。]
+
+#### 6.3 実行プロファイルを構成する
+
+次に、**エクスポート**と**完全インポート**の実行プロファイルを構成します。 **エクスポート**実行プロファイルは、ECMA コネクタ ホストが Microsoft Entra ID からデータベースに変更を送信し、レコードの挿入、更新、削除を行う必要がある場合に使用されます。 **完全インポート**実行プロファイルは、ECMA コネクタ ホスト サービスの開始時に、データベースの現在のコンテンツを読み取るために使用されます。 このサンプルでは、ECMA コネクタ ホストが必要な SQL ステートメントを生成するように、両方の実行プロファイルでテーブル メソッドを使用します。
+
+SQL 接続の構成を続けます。
+
+1. **[プロファイルの実行]** ページで **[エクスポート]** チェックボックスを選択したままにします。 **[フル インポート]** チェックボックスを選択して、 **[次へ]** を選択します。
+
+    [Image: [実行プロファイル] ページを示すスクリーンショット。]
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | エクスポート | データを SQL にエクスポートする実行プロファイル。 この実行プロファイルは必須です。 |
+    | フル インポート | 前に指定した SQL ソースからすべてのデータをインポートする実行プロファイル。 |
+    | 差分インポート | 最後のフルまたは差分インポート以降の SQL からの変更のみをインポートする実行プロファイル。 |
+2. **[次へ]** を選択すると、**[エクスポート]** 実行プロファイルのメソッドを構成するための次のページが自動的に表示されます。 **[エクスポート]** ページで、ボックスに入力し、 **[次へ]** を選択します。 個々のボックスのガイダンスについては、画像の下にある表を参照してください。
+
+    [Image: [エクスポート] ページを示すスクリーンショット。]
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | 操作方法 | テーブル |
+    | テーブル/ビュー/SP | [スキーマ 2] タブで構成されているのと同じテーブル (`Employees` など) |
+3. **[フル インポート]** ページで、ボックスに入力し、 **[次へ]** を選択します。 個々のボックスのガイダンスについては、画像の下にある表を参照してください。
+
+    [Image: [フル インポート] ページを示すスクリーンショット。]
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | 操作方法 | テーブル |
+    | テーブル/ビュー/SP | [スキーマ 2] タブで構成されているのと同じテーブル (`Employees` など) |
+
+#### 6.4 Microsoft Entra ID で属性がどのように表示されるかを構成する
+
+SQL 接続設定の最後の手順で、Microsoft Entra ID で属性がどのように表示されるかを構成します。
+
+1. **[オブジェクトの種類]** ページで、ボックスに入力し、 **[次へ]** を選択します。 個々のボックスのガイダンスについては、画像の下にある表を参照してください。
+
+    - **アンカー**: この属性の値は、ターゲット データベース内のオブジェクトごとに一意である必要があります。 Microsoft Entra プロビジョニング サービスでは、初期サイクル後、この属性を使用して ECMA コネクタ ホストに対してクエリを実行します。 このアンカー列は、先に**スキーマ 3** のページで構成したアンカー値と同じである必要があります。
+    - **クエリ属性**: この属性はアンカーと同じである必要があります。
+    - **DN**: ほとんどの場合、**[自動生成]** オプションを選択する必要があります。 オフになっている場合は、`CN = anchorValue, Object = objectType` の形式で DN が格納されている Microsoft Entra ID の属性に、DN 属性がマップされるようにします。 アンカーと DN の詳細については、「[アンカー属性と識別名について](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names)」を参照してください。
+
+    | プロパティ | 説明 |
+    | --- | --- |
+    | ターゲット オブジェクト | User |
+    | アンカー | [スキーマ 3] タブで構成されている列 (`ContosoLogin` など) |
+    | クエリ属性 | アンカーと同じ列 (`ContosoLogin` など) |
+    | DN | [スキーマ 3] タブで構成されているのと同じ列 (`ContosoLogin` など) |
+    | 自動生成 | チェック済み |
+2. ECMA コネクタ ホストにより、ターゲット データベースがサポートする属性が検出されます。 Microsoft Entra ID に公開する属性を選択できます。 プロビジョニングのために、これらの属性を Azure portal で構成できます。 **[属性の選択]** ページで、ドロップダウン リストのすべての属性を 1 つずつ追加します。
+
+**[属性]** ドロップダウン リストには、ターゲット データベースで検出され、先ほどの *[属性の選択]* ページでは選択 "されなかった" 属性が示されます。 関連するすべての属性が追加されたら、**[次へ]** を選択します。
+
+[Image: 属性ドロップダウン リストのスクリーンショット。]
+
+1. **[プロビジョニング解除]** ページの **[フローを無効化]** で **[削除]** を選択します。 前のページで選択した属性を [プロビジョニング解除] ページで選択することはできません。 **完了** を選択します。
+
+Note
+
+**[Set attribute value](Set 属性値)**を使用すると、ブール値のみが許可されることに注意してください。
+
+[Image: プロビジョニング解除のページを示すスクリーンショット。]
+
+### 7. ECMA2Host サービスが実行されていることを確認する
+
+1. Microsoft Entra ECMA Connector Host を実行しているサーバーで、**[開始]** をクリックします。
+2. **「run」** と入力し、ボックスに **「services.msc」** と入力します。
+3. **サービス** リストで、**Microsoft ECMA2Host** が確実に存在し、実行中であるようにします。 そうでない場合は、 **[開始]** を選択します。
+
+    [Image: サービスが稼働中であることを示すスクリーンショット。]
+
+新しいデータベース、または空でユーザーがいないデータベースに接続している場合は、次のセクションに進んでください。 それ以外の場合は、次の手順に従って、コネクタがデータベースから既存のユーザーを識別したことを確認してください。
+
+1. 最近サービスを開始し、データベースに多数のユーザー オブジェクトがある場合は、コネクタがデータベースとの接続を確立するまで数分待ってください。
+
+### 8. Azure portal でアプリケーション接続を構成する
+
+1. アプリケーション プロビジョニングを構成していた Web ブラウザー ウィンドウに戻ります。
+
+    Note
+
+    ウィンドウがタイムアウトした場合は、エージェントを再選択する必要があります。
+
+    1. Azure portal にサインインします。
+    2. **[エンタープライズ アプリケーション]** の **[On-premises ECMA app](オンプレミス ECMA アプリ)** アプリケーションに移動します。
+    3. **[プロビジョニング]** を選択します。
+    4. **[作業の開始]** が表示された場合は、モードを **[自動]** に変更し、**[オンプレミス接続]** セクションで、デプロイしたエージェントを選択し、**[エージェントの割り当て]** を選択します。 それ以外の場合は、**[プロビジョニングの編集]** に移動します。
+2. **[管理者資格情報]** セクションで、次の URL を入力します。 `{connectorName}` の部分を ECMA コネクタ ホスト上のコネクタの名前 (**SQL** など) に置き換えます。 コネクタ名は大文字と小文字が区別され、ウィザードで構成したのと同じ大文字と小文字の区別にする必要があります。 `localhost` をマシンのホスト名に置き換えることもできます。
+
+    | プロパティ | [値] |
+    | --- | --- |
+    | テナントの URL | `https://localhost:8585/ecma2host_{connectorName}/scim` |
+3. コネクタの作成時に定義した**シークレット トークン**の値を入力します。
+
+    Note
+
+    アプリケーションにエージェントを割り当てたばかりの場合は、登録が完了するまで 10 分間お待ちください。 登録が完了するまで、接続テストは機能しません。 サーバーでプロビジョニング エージェントを再起動してエージェントの登録を強制的に完了すると、登録プロセスを高速化することができます。 サーバーに移動し、Windows 検索バーで**サービス**を検索し、**Microsoft Entra Connect プロビジョニング エージェント サービス**を特定し、サービスを右クリックして再起動します。
+4. **[接続のテスト]** をクリックし、1 分待ちます。
+
+    [Image: エージェントの割り当てを示すスクリーンショット。]
+5. 接続テストが成功し、指定された資格情報が認証されてプロビジョニングが有効になったことが示されたら、**[保存]** を選択します。
+
+    [Image: エージェントのテストを示すスクリーンショット。]
+
+### 9. 属性マッピングを構成する
+
+次に、Microsoft Entra ID のユーザーの表現と、オンプレミス アプリケーションの SQL データベースのユーザーの表現との間で属性をマップする必要があります。
+
+Azure portal を使用して、Microsoft Entra ユーザーの属性と、ECMA ホスト構成ウィザードで以前に選択した属性の間のマッピングを構成します。
+
+1. Microsoft Entra スキーマに、データベースによって必要とされる属性が含まれていることを確認します。 ユーザーに `uidNumber` などの属性があることがデータベースによって要求され、その属性がユーザーの Microsoft Entra スキーマにまだ含まれていない場合は、[ディレクトリ拡張機能](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning-sync-attributes-for-mapping)を使用して、その属性を拡張機能として追加する必要があります。
+2. Microsoft Entra 管理センターの **[エンタープライズ アプリケーション]** で、**[オンプレミスの ECMA アプリ]** アプリケーションを選択し、**[プロビジョニング]** ページを選択します。
+3. **[プロビジョニングの編集]** を選択し、10 秒待ちます。
+4. **[マッピング]** を展開し、**[Microsoft Entra ID ユーザーをプロビジョニング]** マッピングを選びます。 このアプリケーションの属性マッピングを初めて構成した場合、プレースホルダーのマッピングとして存在するのは、この 1 つのみです。
+
+    [Image: ユーザーのプロビジョニングを示すスクリーンショット。]
+5. データベースのスキーマが Microsoft Entra ID で使用可能であることを確認するには、**[詳細オプションの表示]** チェック ボックスをオンにし、**[ScimOnPremises の属性リストの編集]** を選択します。 構成ウィザードで選択したすべての属性が一覧表示されていることを確認します。 そうでない場合は、スキーマが更新されるまで数分待ってから、ページを再読み込みします。 属性が一覧表示されたら、このページを閉じてマッピング一覧に戻ります。
+6. ここで、**userPrincipalNam** PLACEHOLDER のマッピングをクリックします。 このマッピングは、オンプレミス プロビジョニングを初めて構成するときに既定で追加されます。
+
+[Image: プレースホルダーのスクリーンショット。] 属性の値を次のように変更します。
+
+| マッピングの種類 | ソース属性 | ターゲット属性 |
+| --- | --- | --- |
+| 直接 | userPrincipalName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin |
+
+[Image: 値の変更のスクリーンショット。]
+
+1. ここで **[新しいマッピングの追加]** を選択し、マッピングごとに次の手順を繰り返します。
+
+    [Image: 新しいマッピングの追加を示すスクリーンショット。]
+2. 次の表のマッピングごとにソース属性とターゲット属性を指定します。
+
+    [Image: マッピングの保存を示すスクリーンショット。]
+
+    | マッピングの種類 | ソース属性 | ターゲット属性 |
+    | --- | --- | --- |
+    | 直接 | userPrincipalName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin |
+    | 直接 | オブジェクトID | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:AzureID |
+    | 直接 | メール | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:Email |
+    | 直接 | givenName | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:FirstName |
+    | 直接 | 名字 | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:LastName |
+    | 直接 | メールニックネーム | urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:textID |
+3. マッピングをすべて追加したら、**[保存]** を選択します。
+
+### 10. アプリケーションにユーザーを割り当てる
+
+これで Microsoft Entra ECMA Connector Host が Microsoft Entra ID と通信できるようになり、属性マッピングが構成されたので、プロビジョニングの範囲に含めるユーザーの構成に進むことができます。
+
+重要
+
+ハイブリッド ID 管理者ロールを使用してサインインした場合は、少なくともこのセクションのアプリケーション管理者ロールを持つアカウントでサインアウトしてサインインする必要があります。 ハイブリッド ID の管理者ロールには、ユーザーをアプリケーションに割り当てるためのアクセス許可がありません。
+
+SQL データベースに既存のユーザーが存在する場合は、それらの既存のユーザー向けのアプリケーション ロールの割り当てを作成する必要があります。 アプリケーション ロールの割り当てを一括で作成する方法の詳細については、[Microsoft Entra ID でのアプリケーションの既存ユーザーの管理](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-existing-users)に関するページを参照してください。
+
+アプリケーションの既存のユーザーが存在しない場合は、アプリケーションに対してプロビジョニングされるテスト ユーザーを Microsoft Entra から選択します。
+
+1. 選択したユーザーに、データベース スキーマの必須属性にマップされるすべてのプロパティがあることを確認します。
+2. Azure portal で、 **[エンタープライズ アプリケーション]** を選択します。
+3. **[オンプレミスの ECMA アプリ]** アプリケーションを選択します。
+4. 左側のウィンドウの **[管理]** で、 **[ユーザーとグループ]** を選択します。
+5. **[Add user/group](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/ユーザーまたはグループの追加)** を選択します。
+
+    [Image: ユーザーの追加を示すスクリーンショット。]
+6. **[ユーザー]** で **[選択なし]** を選択します。
+
+    [Image: [選択なし] を示すスクリーンショット。]
+7. 右側からユーザーを選択し、 **[選択]** ボタンを選択します。
+
+    [Image: ユーザーの選択を示すスクリーンショット。]
+8. **[割り当て]** を選択します。
+
+    [Image: ユーザーの割り当てを示すスクリーンショット。]
+
+### 11. プロビジョニングをテストする
+
+属性がマップされ、ユーザーが割り当てられたので、ユーザーの 1 人でオンデマンド プロビジョニングをテストできます。
+
+1. Azure portal で、 **[エンタープライズ アプリケーション]** を選択します。
+2. **[オンプレミスの ECMA アプリ]** アプリケーションを選択します。
+3. 左側で **プロビジョニング** を選択します。
+4. **[Provision on demand] (オンデマンドでプロビジョニングする)** を選択します。
+5. テスト ユーザーのものを検索し、 **[プロビジョニング]** を選択します。
+
+    [Image: プロビジョニングのテストを示すスクリーンショット。]
+6. 数秒後に、**ターゲット システムでユーザーが正常に作成されました**というメッセージが表示され、ユーザー属性の一覧が表示されます。
+
+### 12. ユーザーのプロビジョニングを開始する
+
+1. オンデマンド プロビジョニングが成功したら、プロビジョニングの構成ページに戻ります。 スコープが割り当てられたユーザーとグループのみに確実に設定されているようにし、プロビジョニングを [**オン]** にして、 **[保存]** を選択します。
+
+    [Image: プロビジョニングの開始を示すスクリーンショット。]
+2. プロビジョニングが開始されるまで数分待機します。 最大 40 分かかる場合があります。 プロビジョニング ジョブが完了した後、テストが終了している場合は、次のセクションで説明されているように、プロビジョニングの状態を **[オフ]** に変更し、**[保存]** を選択できます。 これにより、プロビジョニング サービスは今後実行されなくなります。
+
+### プロビジョニング エラーのトラブルシューティング
+
+エラーが表示された場合は、**[プロビジョニング ログの表示]** を選択します。 [状態] が **[失敗]** になっている行をログで確認し、その行を選択します。
+
+エラー メッセージが**ユーザーを作成できませんでした**である場合は、データベース スキーマの要件に照らして表示される属性を確認します。
+
+詳細については、**[トラブルシューティングと推奨事項]** タブを開きます。ODBC ドライバーがメッセージを返した場合は、ここに表示される場合があります。 たとえば、メッセージ `ERROR [23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Cannot insert the value NULL into column 'FirstName', table 'CONTOSO.dbo.Employees'; column does not allow nulls.` は ODBC ドライバーのエラーです。 この場合、`column does not allow nulls` は、データベース内の `FirstName` 列は必須ですが、プロビジョニングされるユーザーに `givenName` 属性がないため、ユーザーをプロビジョニングできなかったことを示している可能性があります。
+
+### ユーザーが正常にプロビジョニングされたことを確認する
+
+待機した後、SQL データベースを確認して、ユーザーがプロビジョニングされているのを確認します。
+
+[Image: ユーザーがプロビジョニングされていることを確認するスクリーンショット。]
+
+### Azure BLOB ストレージ アカウントにデータを取得/アップロードする方法については、
+
+SQL Server を使用している場合は、次の SQL スクリプトを使用して、サンプル データベースを作成できます。
+
+```SQL
+---Creating the Database---------
+Create Database CONTOSO
+Go
+-------Using the Database-----------
+Use [CONTOSO]
+Go
+-------------------------------------
+
+/****** Object:  Table [dbo].[Employees]    Script Date: 1/6/2020 7:18:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Employees]([ContosoLogin] [nvarchar](128) NULL,[FirstName] [nvarchar](50) NOT NULL,[LastName] [nvarchar](50) NOT NULL,[Email] [nvarchar](128) NULL,[InternalGUID] [uniqueidentifier] NULL,[AzureID] [uniqueidentifier] NULL,[textID] [nvarchar](128) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Employees] ADD  CONSTRAINT [DF_Employees_InternalGUID]  DEFAULT (newid()) FOR [InternalGUID]
+GO
+
+```
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/use-scim-to-build-users-and-groups-endpoints"} -->
+## Microsoft Entra ID からアプリにユーザーをプロビジョニングするための SCIM エンドポイントを構築する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-build-users-and-groups-endpoints
+- Service: entra-id / app-provisioning
+- Article date: 2026-04-27
+- Summary: SCIM エンドポイントを開発し、SCIM API を AMicrosoft Entra ID と統合し、ユーザーとグループをクラウド アプリケーションへ自動でプロビジョニングする方法を学習します。
+
+このチュートリアルでは、[Azure App Service](https://aka.ms/scimreferencecode) を使用して SCIM [参照コード](https://learn.microsoft.com/ja-jp/azure/app-service/)をデプロイする方法について説明します。 次に、cURL などのツールを使用するか、Microsoft Entra プロビジョニング サービスと統合してコードをテストします。 このチュートリアルは、SCIM の使用を開始したい開発者、または [SCIM エンドポイント](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups)のテストに関心のある方を対象としています。
+
+Important
+
+このチュートリアルからリンクされている.NET参照コードは、.NET Core 3.1 をターゲットにしています。これは  Microsoft。 アップストリーム リポジトリは、アクティブなメンテナンス ([SCIM リファレンス コード README](https://github.com/AzureAD/SCIMReferenceCode#readme)) の保証なしでサンプルを "そのまま" 提供します。 現在サポートされている.NET ランタイムに対してサンプルをビルドまたは変更するには、ターゲット フレームワークと依存関係のアップグレードが必要になる場合があります。 既知の問題と機能要求については、 [アップストリーム リポジトリの未解決の問題を](https://github.com/AzureAD/SCIMReferenceCode/issues)参照してください。
+
+このチュートリアルでは、以下の内容を学習します。
+
+- SCIM エンドポイントを Azure にデプロイする。
+- SCIM エンドポイントをテストする。
+
+### SCIM エンドポイントを Azure にデプロイする
+
+ここで説明する手順では、[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) および [Visual Studio Code](https://code.visualstudio.com/) を [Azure App Service](https://learn.microsoft.com/ja-jp/azure/app-service/) と使用して SCIM エンドポイントをサービスにデプロイします。 SCIM リファレンス コードは、ローカルで実行したり、オンプレミス サーバーでホストしたり、別の外部サービスにデプロイしたりできます。 SCIM エンドポイントのプロビジョニングについては、[SCIM エンドポイントのプロビジョニングの開発と計画に関するチュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups)を参照してください。
+
+#### サンプル アプリを取得してデプロイする
+
+GitHub から[リファレンス コード](https://github.com/AzureAD/SCIMReferenceCode)にアクセスし、 **[クローンまたはダウンロード]** を選択します。 **[デスクトップで開く]** を選択します。または、リンクをコピーし、Visual Studio を開き、 **[Clone or check out code](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/コードをクローンまたはチェックアウトする)** を選択し、コピーしたリンクを入力してローカル コピーを作成します。 パスの全文字列の長さが 260 文字以下となるフォルダーにファイルを保存します。
+
+## [Visual Studio](#tab/visual-studio)
+1. Visual Studio では、必ず、ホスティング リソースにアクセスできるアカウントにサインインしてください。
+2. ソリューション エクスプローラーで、*Microsoft.SCIM.sln* を開き、*Microsoft.SCIM.WebHostSample* ファイルを右クリックします。 **[発行]** を選択します。
+
+    [Image: サンプル ファイルを示すスクリーンショット。]
+
+    注意
+
+    このソリューションをローカルで実行するには、プロジェクトをダブルクリックし、 **[IIS Express]** を選択し、ローカル ホストの URL を使用する Web ページとしてプロジェクトを起動します。 詳細については、「[IIS Express の概要](https://learn.microsoft.com/ja-jp/iis/extensions/introduction-to-iis-express/iis-express-overview)」を参照してください。
+3. **[プロファイルの作成]** を選択し、 **[App Service]** と **[新規作成]** が選択されていることを確認します。
+
+    [Image: [発行] ウィンドウを示すスクリーンショット。]
+4. ダイアログ オプションをステップ実行し、アプリの名前を任意の名前に変更します。 この名前は、アプリと SCIM エンドポイント URL の両方で使用されます。
+
+    [Image: 新しいアプリ サービスの作成を示すスクリーンショット。]
+5. 使用するリソース グループを選択し、 **[発行]** を選択します。
+
+    [Image: 新しいアプリ サービスの発行を示すスクリーンショット。]
+
+## [Visual Studio Code](#tab/visual-studio-code)
+1. Visual Studio Code では、必ず、ホスティング リソースにアクセスできるアカウントにサインインしてください。
+2. Visual Studio Code で、*Microsoft.SCIM.sln* ファイルを含むフォルダーを開きます。
+3. Visual Studio Code 統合[ターミナル](https://code.visualstudio.com/docs/terminal/basics)を開き、[dotnet restore](https://learn.microsoft.com/ja-jp/nuget/consume-packages/install-use-packages-dotnet-cli#restore-packages) コマンドを実行します。 このコマンドは、プロジェクト ファイルに一覧表示されているパッケージを復元します。
+4. ターミナルで、`cd Microsoft.SCIM.WebHostSample` コマンドを使用してディレクトリを変更します
+5. アプリをローカルで実行するには、ターミナルで .NET CLI コマンドを実行します。 [dotnet run](https://learn.microsoft.com/ja-jp/dotnet/core/tools/dotnet-run) は[開発環境](https://learn.microsoft.com/ja-jp/aspnet/core/fundamentals/environments#set-environment-on-the-command-line)を使用して Microsoft.SCIM.WebHostSample プロジェクトを実行します。
+
+    ```dotnetcli
+    dotnet run --environment Development
+    ```
+6. インストールされていない場合は、[Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) 拡張機能を追加します。
+7. Microsoft.SCIM.WebHostSample アプリを Azure アプリ Services にデプロイするには、[新しい App Services を作成](https://learn.microsoft.com/ja-jp/azure/app-service/quickstart-dotnetcore?tabs=net60&pivots=development-environment-vscode#2-publish-your-web-app)します。
+8. Visual Studio Code ターミナルで、.NET CLI コマンドを実行します。 このコマンドは、bin/debug/publish ディレクトリにアプリのデプロイ可能な発行フォルダーを生成します。
+
+    ```dotnetcli
+    dotnet publish -c Debug
+    ```
+9. Visual Studio Code エクスプローラーで生成された**発行**フォルダーを右クリックし、[Web アプリへのデプロイ] を選択します。
+10. 画面の上部にあるコマンド パレットに新しいワークフローが開きます。 アプリの発行先とする**サブスクリプション**を選択します。
+11. 先ほど作成した **App Service** Web アプリを選択します。
+12. Visual Studio Code に確認を求めるメッセージが表示されたら、**[デプロイ]** を選択します。 デプロイ プロセスには、しばらく時間がかかる場合があります。 プロセスが完了すると、右下隅に通知が表示され、デプロイされたアプリを参照するように求めるメッセージが表示されます。
+
+---
+
+#### App Service を構成する
+
+**[Azure App Service]**&gt;**[構成]** でアプリケーションに移動し、 **[新しいアプリケーション設定]** を選択して、*Token\_\_TokenIssuer* 設定を `https://sts.windows.net/<tenant_id>/` の値で追加します。 `<tenant_id>` を Microsoft Entra テナント ID に置き換えます。
+
+[Image: [アプリケーション設定] ウィンドウを示すスクリーンショット。]
+
+[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups#integrate-your-scim-endpoint-with-the-azure-ad-provisioning-service)でエンタープライズ アプリケーションを使用してエンドポイントをテストする場合、2 つのオプションがあります。 環境を `Development` のままにして、トークンは `/scim/token` エンドポイントからテスト用に生成したものを指定するか、環境を `Production` に変更してトークン フィールドは空のままにすることができます。
+
+これで完了です。 SCIM エンドポイントが発行されたので、Azure App Service の URL を使用して SCIM エンドポイントをテストできるようになりました。
+
+### SCIM エンドポイントをテストする
+
+SCIM エンドポイントへの要求には認可が必要です。 SCIM 標準には、複数のオプションがあります。 要求では、Cookie、基本認証、TLS クライアント認証、または [RFC 7644](https://tools.ietf.org/html/rfc7644#section-2) に規定されているメソッドのいずれかを使用できます。
+
+ユーザー名とパスワードなどの安全でない方法は避けて、OAuth などのより安全な方法を優先してください。 Microsoft Entra ID では、有効期間が長いベアラー トークン (ギャラリーおよび非ギャラリー アプリケーション用) と、OAuth 認可付与 (ギャラリー アプリケーション用) がサポートされています。
+
+注意
+
+リポジトリで提供される認可方法はテスト専用です。 Microsoft Entra ID と統合する場合は、認可のガイダンスを参照できます。 [SCIM エンドポイントのプロビジョニングの計画](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups)に関する記事を参照してください。
+
+開発環境では、セキュリティ トークン検証の動作を制御するためのリファレンス コードなど、運用環境では安全でない機能が有効になります。 トークン検証コードでは自己署名セキュリティ トークンが使用され、署名キーは構成ファイルに保存されます。 **appsettings.Development.json** ファイルの *Token:IssuerSigningKey* パラメーターを参照してください。
+
+```json
+"Token": {
+    "TokenAudience": "Microsoft.Security.Bearer",
+    "TokenIssuer": "Microsoft.Security.Bearer",
+    "IssuerSigningKey": "A1B2C3D4E5F6A1B2C3D4E5F6",
+    "TokenLifetimeInMins": "120"
+}
+```
+
+注意
+
+エンドポイントに**GET**リクエストを送信すると、構成されたキーを使用してトークンが発行されます。 そのトークンを、後続の認可用のベアラー トークンとして使用できます。
+
+既定のトークン検証コードは、Microsoft Entra トークンを使用するように構成されており、発行元のテナントは、**appsettings.json** ファイルの *Token:TokenIssuer* パラメーターを使用して構成する必要があります。
+
+```json
+"Token": {
+    "TokenAudience": "8adf8e6e-67b2-4cf2-a259-e3dc5476c621",
+    "TokenIssuer": "https://sts.windows.net/<tenant_id>/"
+}
+```
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -5390,6 +6006,10 @@ Microsoft Entra アプリケーション プロキシを使用するには、Mic
 
 少なくとも Microsoft Entra ID P1 または P2 ライセンスと、Microsoft Entra プライベート ネットワーク コネクタがインストールされていることを確認してください。 最初のコネクタを正常にインストールすると、Microsoft Entra アプリケーション プロキシ サービスが自動的に有効になります。
 
+#### アプリケーション プロキシ アプリを作成または有効化する際、なぜ「割り当て必須」を「はい」に設定するのですか？
+
+Microsoft Entraアプリケーション プロキシでは、ロール割り当て済みユーザーとグループのみにアプリへのアクセスを制限することをお勧めします。アプリケーション プロキシ アプリの作成時または既存のエンタープライズ アプリケーションで有効化されたときに、この動作を強制するため、既定の設定である [割り当てが必要] = [はい] が使用されます。
+
 ### コネクタの構成
 
 #### アプリケーション プロキシは、Microsoft Entra Private Access と同じコネクタを使用しますか?
@@ -5406,7 +6026,7 @@ ConnectorTroubleshooterLauncher.exe は非推奨となり、機能しなくな�
 
 正しい構成:
 
-Microsoft Entra Private Network Connector: *Network Service* Microsoft Entra Private Network Connector Updater: *NT Authority\System*
+Microsoft Entra プライベート ネットワーク コネクタ: *ネットワーク サービス* Microsoft Entra プライベート ネットワーク コネクタ アップデーター: *NT Authority\System*
 
 ### アプリケーションの構成
 
@@ -8583,667 +9203,4 @@ SSO を構成するには、まず、アプリケーションが Microsoft Entra
 このページには、もう 1 つのサインオン オプション ( **リンクされたサインオン**) も表示されます。 アプリケーション プロキシでは、このオプションがサポートされます。 ただし、このオプションによって、アプリケーションにシングル サインオンは追加されません。 つまり、アプリケーションには、Active Directory フェデレーション サービスなどの別のサービスを使用して、既にシングル サインオンが実装されている可能性があります。
 
 このオプションを使用すると、管理者は、ユーザーがアプリケーションにアクセスするときに最初にアクセスするアプリケーションへのリンクを作成できます。 たとえば、Active Directory フェデレーション サービス 2.0 を使用してユーザーを認証するように構成されたアプリケーションでは、 **リンクされたサインオン** オプションを使用して、[ **マイ アプリ]** ページにリンクを作成できます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-proxy/how-to-configure-sso-with-kcd"} -->
-## アプリケーション プロキシを使用してアプリにシングル サインオン (SSO) を実現する Kerberos 制約付き委任 - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/how-to-configure-sso-with-kcd
-- Service: entra-id / app-proxy
-- Article date: 2026-03-25
-- Summary: Microsoft Entra アプリケーション プロキシで Kerberos 制約付き委任 (KCD) を使用して、オンプレミス アプリケーションの Kerberos ベースの SSO を構成します。
-
-### 概要
-
-統合 Windows 認証でセキュリティ保護されているアプリケーション プロキシを使って公開されているオンプレミスのアプリケーションにシングル サインオンを提供できます。 これらのアプリケーションにアクセスするには Kerberos チケットが必要です。 アプリケーション プロキシは、Kerberos の制約付き委任 (KCD) を使って、これらのアプリケーションをサポートします。
-
-シングル サインオン (SSO) の詳細については、[シングル サインオンの概要](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/what-is-single-sign-on)に関するページを参照してください。
-
-統合 Windows 認証 (IWA) を使用してアプリケーションへのシングル サインオンができるようにするには、ユーザーの権限を借用できるように Active Directory でプライベート ネットワーク コネクタにアクセス許可を与えます。 コネクタはこのアクセス許可を利用し、ユーザーの代理としてトークンを送受信します。
-
-### KCD を使ったシングル サインオンのしくみ
-
-この図では、ユーザーが IWA を使用するオンプレミス アプリケーションにアクセスしようとしたときのフローについて説明します。
-
-[Image: Microsoft Entra 認証フローの図。]
-
-1. ユーザーは、オンプレミスのアプリケーションにアプリケーション プロキシをとおしてアクセスするための URL を入力します。
-2. この要求がアプリケーション プロキシによって Microsoft Entra 認証サービスにリダイレクトされて、事前認証が行われます。 この時点で、Microsoft Entra ID の認証および承認のポリシーのうち、該当するものが適用されます (たとえば多要素認証)。 ユーザーの正当性が確認された場合、Microsoft Entra ID はトークンを作成し、ユーザーに送信します。
-3. ユーザーは、このトークンをアプリケーション プロキシに渡します。
-4. アプリケーション プロキシはトークンを検証し、そこからユーザー プリンシパル名 (UPN) を取得した後、コネクタは、デュアル認証されたセキュリティで保護されたチャネルを介して UPN とサービス プリンシパル名 (SPN) をプルします。
-5. コネクタは、オンプレミス AD との Kerberos 制約付き委任 (KCD) ネゴシエーションを実行し、ユーザーを偽装して Kerberos トークンをアプリケーションに取得します。
-6. Active Directory は、アプリケーションの Kerberos トークンをコネクタに送信します。
-7. コネクタは、AD から受信した Kerberos トークンを使用して、元の要求をアプリケーション サーバーに送信します。
-8. アプリケーションはコネクタに応答を送信し、その後アプリケーション プロキシ サービスに返され、最後にユーザーに返されます。
-
-### 前提条件
-
-IWA アプリケーションでのシングル サインオンに着手する前に、ご使用の環境が次の設定と構成に対応していることを確認してください。
-
-- 対象のアプリ (SharePoint Web アプリなど) が統合 Windows 認証を使用するように設定されていること。 詳細については、「[Kerberos 認証のサポートを有効にする](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd759186%28v=ws.11%29)」を参照してください。SharePoint の場合は、「[SharePoint 2013 で Kerberos 認証を計画する](https://learn.microsoft.com/ja-jp/SharePoint/security-for-sharepoint-server/kerberos-authentication-planning)」を参照してください。
-- すべてのアプリには[サービス プリンシパル名](https://learn.microsoft.com/ja-jp/windows/win32/ad/service-principal-names)があります。
-- コネクタを実行しているサーバーとアプリを実行しているサーバーは、ドメインに参加しており、同じドメインまたは信頼するドメインの一部です。 ドメインへの参加の詳細については、「 [コンピューターをドメインに参加させる](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807102%28v=ws.11%29)」を参照してください。
-- コネクタ サーバーがユーザーの `TokenGroupsGlobalAndUniversal` 属性を読み取ることができることを確認します。 セキュリティ強化によって、このアクセスが制限される場合があります。 *Windows 承認アクセス* グループにコネクタ サーバーを追加して、コネクタ サーバーを有効にします。
-
-#### Active Directory を構成する
-
-Active Directory の構成は、プライベート ネットワーク コネクタとアプリケーション サーバーが同じドメイン内にあるかどうかによって異なります。
-
-##### 同じドメインにあるコネクタとアプリケーション サーバー
-
-1. Active Directory で、 **[ツール]**&gt;**[ユーザーとコンピューター]** の順に移動します。
-2. コネクタを実行しているサーバーを選択します。
-3. 右クリックし、 **[プロパティ]**&gt;**[委任]** を選択します。
-4. **[指定されたサービスへの委任でのみこのコンピューターを信頼する]** をクリックします。
-5. **[任意の認証プロトコルを使う]** を選択します。
-6. **このアカウントが委任された資格情報を提示できるサービス**で、アプリケーション サーバーの SPN ID の値を追加します。 この設定により、プライベート ネットワーク コネクタは、一覧で定義されているアプリケーションに対して AD のユーザーを偽装できます。
-
-    [Image: [委任] タブの [Connector-SVR プロパティ] ウィンドウを示すスクリーンショット。]
-
-##### 異なるドメインにあるコネクタとアプリケーション サーバー
-
-1. ドメイン間の KCD を使用するための前提条件の一覧については、「 [ドメイン間の Kerberos の制約付き委任](https://learn.microsoft.com/ja-jp/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477%28v=ws.11%29)」を参照してください。
-2. アプリケーション プロキシ (コネクタ) からの Kerberos 認証委任を有効にするには、Web アプリケーションのサービス アカウント (`PrincipalsAllowedToDelegateTo`) の `webserviceaccount` プロパティを使用します。 アプリケーション サーバーは `webserviceaccount`で実行され、委任サーバーは `connectorcomputeraccount`。 `webserviceaccount`と同じドメイン内のドメイン コントローラー (Windows Server 2012 R2 以降) で次のコマンドを実行します。 両方のアカウントにフラット名 (UPN 以外) を使用します。
-
-    `webserviceaccount` がコンピューター アカウントの場合は、次のコマンドを使用します。
-
-    ```powershell
-    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
-    
-    Set-ADComputer -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
-    
-    Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-    ```
-
-    `webserviceaccount` がユーザー アカウントの場合は、次のコマンドを使用します。
-
-    ```powershell
-    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
-    
-    Set-ADUser -Identity webserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
-    
-    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
-    ```
-
-### シングル サインオンの設定
-
-1. アプリケーション プロキシを使用したアプリケーションの発行に関するページの手順に従って [、アプリケーションを発行します](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-add-on-premises-application)。 **事前認証方法**として、必ず **[Microsoft Entra ID]** を選んでください。
-2. アプリケーションがエンタープライズ アプリケーションの一覧に表示されたら、それを選択し、[ **シングル サインオン**] を選択します。
-3. シングル サインオン モードを **[統合 Windows 認証]** に設定します。
-4. アプリケーション サーバーの **[内部アプリケーション SPN]** を入力します。 この例では、公開されたアプリケーションの SPN は、`http/www.contoso.com` です。 SPN は、コネクタが委任された資格情報を提示できるサービスの一覧に含まれている必要があります。
-5. ユーザーの代わりに使うコネクタに**委任されたログイン ID** を選択します。 詳細については、「さまざまなオンプレミス ID とクラウド ID の操作」を参照してください。
-
-    [Image: 統合 Windows 認証の構成設定を示すスクリーンショット。]
-
-### Windows 以外のアプリの SSO
-
-Microsoft Entra アプリケーション プロキシの Kerberos 委任フローは、Microsoft Entra ID がクラウドでユーザーを認証すると開始されます。 要求がオンプレミスに到着すると、Microsoft Entra プライベート ネットワーク コネクタは、ローカル Active Directory と対話することで、ユーザーに代わって Kerberos チケットを発行します。 このプロセスは Kerberos 制約付き委任 (KCD) と呼ばれます。
-
-次のフェーズで、要求がこの Kerberos チケットを使用してバックエンド アプリケーションに送信されます。
-
-このような要求で Kerberos チケットを送信する方法を定義するメカニズムはいくつかあります。 Windows 以外のほとんどのサーバーでは、SPNEGO トークンの形式で受信することが想定されています。 このメカニズムは Microsoft Entra アプリケーション プロキシでサポートされていますが、既定では無効になっています。 コネクタは SPNEGO または標準の Kerberos トークン用に構成できますが、両方を構成することはできません。
-
-SPNEGO 用にコネクタ マシンを構成する場合は、そのコネクタ グループ内の他のすべてのコネクタも SPNEGO で構成されていることを確認します。 標準の Kerberos トークンを必要とするアプリケーションは、SPNEGO 用に構成されていない他のコネクタを介してルーティングする必要があります。 一部の Web アプリケーションでは、構成を変更せずに両方の形式を使用できます。
-
-SPNEGO を有効にするには:
-
-1. 管理者として実行しているコマンド プロンプトを開きます。
-2. SPNEGO が必要なコネクタ サーバーで次のコマンドを実行します。
-
-    ```
-    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft Entra private network connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
-    net stop WAPCSvc & net start WAPCSvc
-    ```
-
-Windows 以外のアプリでは、通常、ドメインのメール アドレスの代わりにユーザー名または SAM アカウント名が使用されます。 このような状況がアプリケーションに適用される場合は、クラウド ID をアプリケーション ID に接続するように委任されたサインイン ID フィールドを構成する必要があります。
-
-### さまざまなオンプレミス ID とクラウド ID の操作
-
-アプリケーション プロキシは、ユーザーがクラウドとオンプレミスで同じ ID を持っていることを前提としています。 ただし、一部の組織では、会社のポリシーまたはアプリケーションの要件により、サインインに代替 ID を使用する必要があります。 各アプリケーションの **委任されたログイン ID を** 構成することで、シングル サインオンに対して KCD を有効にできます。 この設定では、シングル サインオンに使用する ID を指定します。
-
-この機能を使用すると、組織は、ユーザーが異なるユーザー名とパスワードを管理しなくても、クラウドからオンプレミスのアプリへの SSO を有効にすることができます。 一般的なシナリオは、次のとおりです。
-
-- 1 つのクラウド ドメイン (joe@us.contoso.com など) で複数の内部ドメイン (joe@eu.contoso.com、joe@contoso.comなど) を使用する。
-- クラウドで有効なドメイン名を使用しているときに、ルーティング不可能な内部ドメイン名 (たとえば、 joe@contoso.usa) を持つ。
-- 内部ドメイン名 (joe など) なしで動作します。
-- オンプレミスとクラウドのユーザーに異なるエイリアスを割り当てる (たとえば、 joe-johns@contoso.com と joej@contoso.com)。
-
-アプリケーション プロキシでは、Kerberos チケットの取得に使用する ID を選択できます。 この設定はアプリケーションごとに構成され、nonemail 形式または代替サインイン方法を必要とするシステムをサポートします。
-
-[Image: [委任されたログイン ID] ドロップダウン オプションを示すスクリーンショット。]
-
-委任されたサインイン ID が使用されている場合、組織内のすべてのドメインまたはフォレストで値が一意ではない可能性があります。 異なる 2 つのコネクタ グループを使用してこれらのアプリケーションを 2 回発行することで、この問題を回避できます。 アプリケーションごとにユーザー対象ユーザーが異なるため、そのコネクタを別のドメインに参加させることができます。
-
-サインイン ID **にオンプレミスの SAM アカウント名** を使用する場合は、コネクタをホストしているコンピューターを、ユーザー アカウントが配置されているドメインに追加する必要があります。
-
-#### ID が異なる場合の SSO の構成
-
-1. Microsoft Entra Connect の設定を、メイン ID がメール アドレス (メール) になるように構成します。 構成は、同期設定の **[ユーザー プリンシパル名** ] フィールドを変更することで、カスタマイズ プロセスの一環として行われます。 これらの設定は、ユーザーが Microsoft 365、Windows コンピューター、および Microsoft Entra ID を ID ストアとして使う他のアプリケーションにサインインする方法も決定します。[Image: ユーザーを識別するための [ユーザー プリンシパル名] ドロップダウン。]
-2. 変更するアプリケーションの [アプリケーションの構成] 設定で、使用する **[委任されたログイン ID]** を選択します。
-
-    - ユーザー プリンシパル名 (`joe@contoso.com` など)
-    - 代替ユーザー プリンシパル名 (`joed@contoso.local` など)
-    - ユーザー プリンシパル名のユーザー名部分 (`joe` など)
-    - 代替ユーザー プリンシパル名のユーザー名部分 (`joed` など)
-    - オンプレミスのソフトウェア アセット管理アカウント名 (ドメイン コントローラーの構成に依存)
-
-#### ID が異なる場合の SSO のトラブルシューティング
-
-バックエンド アプリケーションが予期しない HTTP 応答で応答する場合は、コネクタ コンピューターのアプリケーション プロキシ セッション イベント ログでイベント 24029 を確認してトラブルシューティングを開始します。 イベントの詳細の `user` フィールドには、委任に使用される ID が表示されます。 セッション ログを有効にするには、イベント ビューアーに移動し、[ **表示** ] メニューを開き、[ **分析ログとデバッグ ログの表示**] を選択します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-proxy/overview-what-is-app-proxy"} -->
-## Microsoft Entra アプリケーション プロキシを使用してオンプレミス アプリを発行する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/overview-what-is-app-proxy
-- Service: entra-id / app-proxy
-- Article date: 2026-03-10
-- Summary: Microsoft Entra アプリケーション プロキシのアーキテクチャ、コネクタ、認証方法、セキュリティ上の利点について説明します。
-
-### 概要
-
-Microsoft Entra アプリケーション プロキシは、リモート ユーザー向けのオンプレミス Web アプリケーションへの安全なリモート アクセスを提供します。 Microsoft Entra ID へのシングル サインオン (SSO) の後、ユーザーは外部 URL または内部アプリケーション ポータルを使用してクラウドアプリケーションとオンプレミス アプリケーションの両方にアクセスできます。 たとえば、アプリケーション プロキシは、リモート デスクトップ、SharePoint、Teams、Tableau、Qlik、基幹業務 (LOB) アプリケーションへのリモート アクセスと SSO を提供できます。
-
-Microsoft Entra アプリケーション プロキシとは:
-
-- **簡単な使い方**。 ユーザーは、Microsoft Entra ID と統合された Microsoft 365 やその他のサービスとしてのソフトウェア (SaaS) アプリにアクセスするのと同じ方法で、オンプレミス アプリケーションにアクセスできます。 アプリケーション プロキシを使うために、アプリケーションを変更または更新する必要はありません。
-- **セキュリティ保護**。 オンプレミス アプリケーションでは、Microsoft Entra の承認制御とセキュリティ分析を使用できます。 たとえば、オンプレミス アプリケーションでは、Microsoft Entra 条件付きアクセスと多要素認証を使用できます。 アプリケーション プロキシでは、ファイアウォールを通過する受信接続を開く必要はありません。
-- **高いコスト効率**。 通常、オンプレミス ソリューションでは、境界ネットワーク (非武装地帯または DMZ とも呼ばれます)、エッジ サーバー、またはその他の複雑なインフラストラクチャを設定して維持する必要があります。 アプリケーション プロキシはクラウドで実行されます。 これを使用するには、ネットワーク インフラストラクチャを変更したり、オンプレミス環境に追加のアプライアンスをインストールしたりする必要はありません。
-
-ヒント
-
-Microsoft Entra ID が既にある場合は、それを 1 つのコントロール プレーンとして使用して、オンプレミス アプリケーションへのシームレスで安全なアクセスを許可できます。
-
-ハイブリッド共存シナリオでアプリケーション プロキシを使用する例を次に示します。
-
-- 境界ネットワークなしで、オンプレミスの Web アプリを簡略化された方法で外部に発行します。
-- クラウドとオンプレミスのデバイス、リソース、アプリ間で SSO をサポートします。
-- クラウドとオンプレミスのアプリの多要素認証をサポートします。
-- Microsoft クラウドのセキュリティでクラウド機能をすばやく使用できます。
-- ユーザー アカウント管理を一元化します。
-- ID とセキュリティの一元管理。
-- グループ メンバーシップに基づいて、アプリケーションへのユーザー アクセスを自動的に追加または削除します。
-
-この記事では、アプリケーション プロキシがクラウドの機能とセキュリティをオンプレミスの Web アプリケーションに提供する方法について説明し、サポートされているアーキテクチャとトポロジについて説明します。
-
-### 過去と現在のリモート アクセス
-
-以前は、リモート ユーザーによるアクセスを容易にしながら内部リソースを攻撃者から保護するためのコントロール プレーンがすべて境界ネットワークにありました。 ただし、境界ネットワークにデプロイされ、外部クライアントが企業リソースへのアクセスに使用する VPN およびリバース プロキシ ソリューションは、クラウドの世界には適していません。 通常、次のようになります。
-
-- ハードウェア コストを増やします。
-- 修正プログラムの適用やポートの監視など、継続的なセキュリティ メンテナンスが必要です。
-- エッジでユーザーを認証します。
-- 境界ネットワーク内の Web サーバーに対してユーザーを認証します。
-- リモート アクセスを維持するには、VPN クライアント ソフトウェアの配布と構成が必要です。
-- 境界ネットワーク内のドメイン参加済みサーバーを維持します。これは、外部攻撃に対して脆弱になる可能性があります。
-
-今日のデジタルワークプレースでは、ユーザーは複数のデバイスを使用してどこからでもアプリにアクセスし、作業を行います。 定数係数はユーザー ID です。
-
-Microsoft Entra ID を使用して、ネットワークに入るユーザーと情報を制御できます。 Microsoft Entra アプリケーション プロキシは、最新の認証およびクラウドベースのテクノロジ (SaaS アプリケーションや ID プロバイダーなど) と統合されます。 この統合により、ユーザーはどこからでもアプリケーションにアクセスできます。
-
-[Image: Microsoft Entra ID に接続されているアプリを示す図。]
-
-アプリケーション プロキシは、今日のデジタル ワークプレースに適しているだけでなく、VPN やリバース プロキシ ソリューションよりも安全です。 実装も簡単です。 リモート ユーザーは、Microsoft および Microsoft Entra ID と統合された他の SaaS アプリにアクセスするのと同じ方法で、オンプレミス のアプリケーションにアクセスできます。 アプリケーション プロキシを使うために、アプリケーションを変更または更新する必要はありません。 アプリケーション プロキシでは、ファイアウォール経由で受信接続を開く必要はありません。
-
-セキュリティ コントロール プレーンとして [Microsoft Entra ID 管理](https://learn.microsoft.com/ja-jp/azure/security/fundamentals/identity-management-overview) を使用して、ネットワークのセキュリティ保護を開始できます。 この ID ベースのモデルには、次のコンポーネントが含まれています。
-
-- ユーザーおよびユーザーに関連する情報を追跡する ID プロバイダー。
-- 企業リソースにアクセスできるデバイスの一覧を保持するデバイス ディレクトリ。 このディレクトリには、対応するデバイス情報 (デバイスの種類や整合性など) が含まれています。
-- ポリシー評価サービス。管理者が設定したセキュリティ ポリシーをユーザーとデバイスが満たしているかどうかを確認します。
-- 組織のリソースへのアクセスを許可または拒否する権限。
-
-Microsoft Entra ID は、オンプレミスおよびクラウドで発行された Web アプリにアクセスするユーザーを追跡します。 これらのアプリを管理するための中心的なポイントが提供されます。
-
-セキュリティを強化するには、Microsoft Entra 条件付きアクセスを有効にします。 この機能により、認証とアクセスの条件を設定することで、適切なユーザーのみがアプリケーションにアクセスできるようになります。
-
-注
-
-Microsoft Entra アプリケーション プロキシは、内部リソースにアクセスするリモート ユーザーの VPN またはリバース プロキシを置き換えます。 企業ネットワーク上の内部ユーザー向けに設計されていません。 内部ユーザーがアプリケーション プロキシを不必要に使用すると、予期しないパフォーマンスの問題が発生する可能性があります。
-
-### アプリケーション プロキシの動作の概要
-
-アプリケーション プロキシには、 *アプリケーション プロキシ サービス* と *プライベート ネットワーク コネクタ*の両方が含まれます。 アプリケーション プロキシ サービスはクラウドで実行され、プライベート ネットワーク コネクタはオンプレミス サーバー上の軽量エージェントとして動作します。 Microsoft Entra ID は ID プロバイダーとして機能します。
-
-次の図は、Microsoft Entra ID、アプリケーション プロキシ サービス、プライベート ネットワーク コネクタが連携して、シームレスな SSO エクスペリエンスでユーザーがオンプレミスの Web アプリケーションにアクセスできるようにする方法を示しています。
-
-[Image: Microsoft Entra アプリケーション プロキシでのシングル サインオンの 6 つの手順を示す図。]
-
-1. ユーザーはエンドポイントを介してアプリケーションにアクセスし、Microsoft Entra サインイン ページにリダイレクトされます。
-2. サインインに成功すると、Microsoft Entra ID ではトークンをユーザーのクライアント デバイスに送信します。
-3. クライアントからは、トークンをアプリケーション プロキシ サービスに送信します。 サービスでは、トークンからユーザー プリンシパル名 (UPN) とセキュリティ プリンシパル名 (SPN) を取得します。 その後、アプリケーション プロキシ サービスがコネクタに要求を送信します。
-4. コネクタは、ユーザーに代わって必要な SSO 認証を実行します。
-5. コネクタはオンプレミスのアプリケーションに要求を送信します。
-6. コネクタとアプリケーション プロキシ サービスは、応答をユーザーに送信します。
-
-注
-
-ほとんどの Microsoft Entra ハイブリッド エージェントと同様に、プライベート ネットワーク コネクタでは、ファイアウォールを通して受信接続を開く必要はありません。 手順 3 のユーザー トラフィックは、アプリケーション プロキシ サービスで終了します。 残りの通信は、お使いのプライベート ネットワーク内にあるプライベート ネットワーク コネクタが行います。
-
-| コンポーネント | 説明 |
-| --- | --- |
-| エンドポイント | エンドポイントは URL または [ユーザー ポータル](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/end-user-experiences)です。 ユーザーは、外部 URL を使用して、ネットワークの外部からアプリケーションにアクセスできます。 ネットワーク内のユーザーは、URL またはユーザー ポータルを使用してアプリケーションにアクセスできます。 ユーザーは、これらのエンドポイントの 1 つに移動すると、Microsoft Entra ID で認証され、コネクタを介してオンプレミスのアプリケーションにルーティングされます。 |
-| Microsoft Entra ID | Microsoft Entra ID は、クラウドに格納されているテナント ディレクトリを使用して認証を実行します。 |
-| アプリケーション プロキシ サービス | アプリケーション プロキシ サービスは、Microsoft Entra ID の一部としてクラウドで実行されます。 これは、ユーザーからプライベート ネットワーク コネクタにサインオン トークンを渡します。 サービスは要求でアクセス可能なヘッダーを転送し、(プロトコルに従って) ヘッダーをクライアント IP アドレスに設定します。 プロキシへの受信要求にそのヘッダーが既に含まれている場合、クライアント IP アドレスは、ヘッダーの値であるコンマ区切りリストの末尾に追加されます。 |
-| プライベート ネットワーク コネクタ | コネクタは、ネットワーク内の Windows Server 上で実行される軽量エージェントです。 コネクタでは、クラウドのアプリケーション プロキシ サービスとオンプレミス アプリケーションの間の通信を管理します。 コネクタは、アプリケーション プロキシ サービスからの要求をリッスンし、アプリケーションへの接続を処理します。 コネクタは送信接続のみを使用するため、インターネットに接続するネットワークで受信ポートを開く必要はありません。 Microsoft Entra Private Access では、同じコネクタが使用されます。 コネクタはステートレスであり、必要に応じてクラウドから情報をプルします。 負荷分散と認証方法など、コネクタの詳細については、 [Microsoft Entra プライベート ネットワーク コネクタ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-connectors)を参照してください。 |
-| Active Directory | Active Directory はオンプレミスで実行され、ドメイン アカウントの認証を行います。 SSO が構成されると、コネクタは Active Directory と通信して、必要な追加認証を実行します。 |
-| オンプレミスのアプリケーション | 最後に、ユーザーはオンプレミスのアプリケーションにアクセスできます。 |
-
-アプリケーション プロキシ サービスは、Microsoft Entra 管理センターで構成します。 このサービスを使用して、組織内の内部アプリケーション サーバー URL に接続する外部パブリック HTTP/HTTPS URL エンドポイントを Azure に発行できます。 これらのオンプレミス Web アプリは、SSO をサポートするために Microsoft Entra ID と統合できます。 その後、ユーザーは、Microsoft 365 やその他の SaaS アプリにアクセスするのと同じ方法で、オンプレミスの Web アプリにアクセスできます。
-
-認証後、外部ユーザーは、デスクトップまたは iOS デバイスから表示 URL または [マイ アプリ](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) を使用して、オンプレミスの Web アプリにアクセスできます。 たとえば、アプリケーション プロキシは、リモート デスクトップ、SharePoint サイト、Tableau、Qlik、Outlook on the web、LOB アプリケーションへのリモート アクセスと SSO を提供できます。
-
-[Image: Microsoft Entra アプリケーション プロキシ アーキテクチャの図。]
-
-#### 認証
-
-SSO 用にアプリケーションを構成するには、いくつかの方法があります。 選択する方法は、アプリケーションが使用する認証によって異なります。 アプリケーション プロキシでは、次の種類のアプリケーションがサポートされています。
-
-- ネイティブ認証プロトコルとして [統合 Windows 認証 (IWA)](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/how-to-configure-sso-with-kcd) を使用する Web アプリケーション。 IWA の場合、プライベート ネットワーク コネクタは Kerberos 制約付き委任 (KCD) を使用して Kerberos アプリケーションに対してユーザーを認証します。
-- フォーム ベースまたは [ヘッダー](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-single-sign-on-with-headers) ベースのアクセスを使用する Web アプリケーション。 ヘッダーベースの認証では、Microsoft 以外のパートナー サービスである PingAccess を使用して、ヘッダーに依存するアプリケーションの認証を処理します。
-- さまざまなデバイス上のリッチ アプリケーションに公開する Web API。
-- [リモート デスクトップ ゲートウェイ](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-remote-desktop-services)の背後でホストされているアプリケーション。
-- Microsoft Authentication Library (MSAL) と統合されたリッチ クライアント アプリ。
-
-アプリケーション プロキシでは、特定の構成シナリオで Microsoft 以外のパートナーとの認証プロトコルもサポートされています。
-
-- [パスワード ベースの認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-single-sign-on-password-vaulting)。 この認証方法では、ユーザーが初めてアクセスする際にユーザー名とパスワードを使用してアプリケーションにサインインします。 最初のサインイン後、Microsoft Entra ID はユーザー名とパスワードをアプリケーションに提供します。 このシナリオでは、Microsoft Entra ID が認証を処理します。
-- [セキュリティ アサーション マークアップ言語 (SAML) 認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/conceptual-sso-apps)。 SAML ベースの SSO は、SAML 2.0 または WS-Federation プロトコルを使用するアプリケーションでサポートされています。 SAML SSO を使用すると、Microsoft Entra ID はユーザーの Microsoft Entra アカウントを使用してアプリケーションに対して認証を行います。
-
-サポートされている方法の詳細については、「 [シングル サインオン オプション](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/plan-sso-deployment#choosing-a-single-sign-on-method)」を参照してください。
-
-#### セキュリティ上の利点
-
-アプリケーション プロキシと Microsoft Entra が提供するリモート アクセス ソリューションでは、いくつかのセキュリティ上の利点がサポートされています。
-
-- **認証済みのアクセス**。 アプリケーション プロキシは [事前認証](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-security#authenticated-access) を使用して、認証された接続のみがネットワークに到達するようにします。 事前認証で構成されたアプリケーションに対して有効なトークンがないすべてのトラフィックをブロックします。 このアプローチでは、検証済みの ID のみがバックエンド アプリケーションにアクセスできるようにすることで、標的型攻撃を大幅に削減できます。
-- **条件付きアクセス**。 ネットワークへの接続が確立される前に、より豊富なポリシー制御を適用できます。 条件付きアクセスを使用すると、バックエンド アプリケーションへのアクセスを許可するトラフィックに対する制限を定義できます。 場所、認証の強度、ユーザーのリスク プロファイルに基づいてサインインを制限するポリシーを作成します。
-
-    セキュリティを強化するために、条件付きアクセスは Microsoft Defender for Cloud Apps とも統合されます。 この統合により、条件付きアクセス ポリシーに基づいて [リアルタイム監視](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-microsoft-cloud-application-security) 用のオンプレミス アプリケーションを構成できます。
-- **トラフィックの終了**。 バックエンド アプリケーションへのすべてのトラフィックは、バックエンド サーバーとのセッションの再確立中に、クラウド内のアプリケーション プロキシ サービスで終了されます。 この接続戦略は、バックエンド サーバーが直接 HTTP トラフィックに公開されていないことを意味します。 ファイアウォールが攻撃を受けないため、対象となるサービス拒否 (DoS) 攻撃からより適切に保護されます。
-- **送信専用アクセス**。 プライベート ネットワーク コネクタは、ポート 80 と 443 経由でクラウド内のアプリケーション プロキシ サービスへの送信接続のみを使用します。 受信接続がない場合、境界ネットワーク内の受信接続またはコンポーネントのファイアウォール ポートを開く必要はありません。 すべての送信接続は、セキュリティで保護されたチャネル経由で行われます。
-- **セキュリティ分析と機械学習に基づくインテリジェンス**。 アプリケーション プロキシは Microsoft Entra ID の一部であるため、 [Microsoft Entra ID 保護 を](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection)使用できます。 Microsoft Entra ID 保護 は、機械学習のセキュリティ インテリジェンスと、Microsoft [のデジタル犯罪ユニット](https://news.microsoft.com/stories/cybercrime/index.html) と [Microsoft セキュリティ対応センター](https://www.microsoft.com/msrc) からのデータ フィードを組み合わせて、侵害されたアカウントを事前に特定します。 [Premium P2 ライセンスが必要です](https://www.microsoft.com/security/business/microsoft-entra-pricing)。
-
-    Microsoft Entra ID 保護 は、リスクの高いサインインからのリアルタイム保護を提供します。これは、感染したデバイスからのアクセス試行、ネットワークの匿名化、セッションのリスク プロファイルを向上させる非定型でありそうもない場所からのアクセス試行などの要因を考慮します。 このリスク プロファイルは、リアルタイム保護に使用されます。 これらのレポートとイベントの多くは、お客様のセキュリティ情報およびイベント管理 (SIEM) システムとの統合を可能にする API を通じて既に使用可能です。
-- **サービスとしてのリモート アクセス**。 リモート アクセスを可能にするために、オンプレミス サーバーの保守やパッチの適用について心配する必要がありません。 アプリケーション プロキシは、インターネット規模の Microsoft が管理するサービスであるため、常に最新のセキュリティ パッチとアップグレードを入手できます。
-
-    パッチの適用されていないソフトウェアは、依然として多数の攻撃の的となっています。 サイバーセキュリティおよびインフラストラクチャ セキュリティ機関 (CISA) によると、 [標的型攻撃の 85% は予防可能です](https://www.cisa.gov/news-events/alerts/2015/04/29/top-30-targeted-high-risk-vulnerabilities)。 このサービス モデルでは、エッジ サーバーを管理する負担を軽減し、必要に応じてパッチを適用する必要がなくなります。
-
-#### クラウドへのロードマップ
-
-アプリケーション プロキシを実装するもう 1 つの大きなメリットは、Microsoft Entra ID がオンプレミス環境に拡張される点です。 アプリケーション プロキシの実装は、組織とアプリをクラウドに移行する上で重要なステップになります。 クラウドに移行してオンプレミスの認証から解放されることで、オンプレミスのフットプリントを削減し、Microsoft Entra の ID 管理機能をコントロール プレーンとして使用することができます。
-
-既存のアプリケーションに対する更新が最小限またはまったくない場合は、SSO、多要素認証、集中管理などのクラウド機能にアクセスできます。 アプリケーション プロキシに必要なコンポーネントのインストールは簡単です。 また、クラウドに移行することで、高可用性やディザスター リカバリーなどの最新の Microsoft Entra の機能、更新プログラム、機能にアクセスできます。
-
-アプリを Microsoft Entra ID に移行する方法の詳細については、「 [アプリケーションを Microsoft Entra ID に移行するためのリソース」を](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/migration-resources)参照してください。
-
-### アーキテクチャ
-
-次の図は、一般に、Microsoft Entra 認証サービスとアプリケーション プロキシが連携してオンプレミス アプリケーションに SSO を提供する方法を示しています。
-
-[Image: Microsoft Entra アプリケーション プロキシの認証フローを示す図。]
-
-1. ユーザーはエンドポイントを介してアプリケーションにアクセスし、Microsoft Entra サインイン ページにリダイレクトされます。 条件付きアクセス ポリシーは、特定の条件をチェックして、組織のセキュリティ要件に準拠していることを確認します。
-2. Microsoft Entra ID は、ユーザーのクライアント デバイスにトークンを送信します。
-3. クライアントは、トークンをアプリケーション プロキシ サービスに送信し、トークンから UPN と SPN を抽出します。
-4. アプリケーション プロキシ サービスは、 [プライベート ネットワーク コネクタ](https://learn.microsoft.com/ja-jp/entra/global-secure-access/concept-connectors)に要求を転送します。
-5. コネクタは、必要な追加の認証 (*認証方法に基づいて省略可能)* を処理し、アプリケーション サーバーの内部エンドポイントを取得して、オンプレミス アプリケーションに要求を送信します。
-6. アプリケーション サーバーが応答し、コネクタが応答をアプリケーション プロキシ サービスに返します。
-7. アプリケーション プロキシ サービスは、ユーザーに応答を配信します。
-
-すべての通信はトランスポート層セキュリティ (TLS) 経由で行われ、常にコネクタからアプリケーション プロキシ サービスに送信されます。 コネクタではクライアント証明書を使用して、すべての呼び出しに対してアプリケーション プロキシ サービスを認証します。 接続のセキュリティの唯一の例外は、クライアント証明書が確立される最初のセットアップ手順です。
-
-詳細については、「 [Microsoft Entra アプリケーション プロキシを使用してアプリにリモートでアクセスするためのセキュリティに関する考慮事項](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-security#under-the-hood)」を参照してください。
-
-### その他のユース ケース
-
-この記事では、アプリケーション プロキシを使用してオンプレミス アプリを外部に発行し、すべてのクラウドアプリとオンプレミス アプリの SSO を有効にすることに重点を置いています。 ただし、アプリケーション プロキシでは、次のようなその他のユース ケースもサポートされています。
-
-- **REST API の安全な発行**。 アプリケーション プロキシを使用して、オンプレミスまたはクラウドでホストされる API のパブリック エンドポイントを作成します。 受信ポートを開かずに認証と承認を制御します。 詳細については、「 [ネイティブ クライアント アプリケーションがプロキシ アプリケーションと対話できるようにする](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-native-client-application) 」および「 [Microsoft Entra ID を使用した OAuth 2.0 承認を使用した Azure API Management での API の保護」を](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-protect-backend-with-aad)参照してください。
-- **リモート デスクトップ サービス (RDS) を使用してアプリケーションを発行**します。 標準の RDS デプロイでは、開いている受信接続が必要です。 ただし、[アプリケーション プロキシを使用した RDS デプロイ](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-integrate-with-remote-desktop-services)には、コネクタ サービスを実行しているサーバーからの永続的な送信接続があります。 これにより、RDS を介してオンプレミス アプリケーションを発行することで、ユーザーにさらに多くのアプリケーションを提供できます。 RDS に対する多要素認証と条件付きアクセス制御の限られたセットを使用して、展開の攻撃対象領域を減らすこともできます。
-- **WebSocket 経由で接続するアプリケーションを発行**します。 [Qlik Sense](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-qlik) でのサポートはプレビュー段階です。
-- **ネイティブ クライアント アプリケーションからプロキシ アプリケーションを操作できるようにする**。 Microsoft Entra アプリケーション プロキシを使用して Web アプリを発行できますが、MSAL で構成されている [ネイティブ クライアント アプリケーション](https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/application-proxy-configure-native-client-application) を発行することもできます。 クライアント アプリケーションはデバイスにインストールされますが、Web アプリにはブラウザー経由でアクセスされます。
-
-### まとめ
-
-組織は、作業とツールの急速な変化に適応します。 従業員は自分のデバイスを使用し、SaaS アプリケーションに依存します。 データは、従来の境界をはるかに超えて、オンプレミスとクラウドの環境間で移動するようになりました。 このシフトにより、生産性とコラボレーションが向上しますが、機密データの保護も困難になります。
-
-Microsoft Entra アプリケーション プロキシは、サービスとしてのリモート アクセスを提供することで、オンプレミスのフットプリントを削減します。 ハイブリッド セットアップで Microsoft Entra ID を既に使用してユーザーを管理している場合でも、クラウド体験を開始する予定の場合でも、アプリケーション プロキシはリモート アクセスを簡素化し、セキュリティを強化します。
-
-組織では、アプリケーション プロキシを使用して、次の利点を活用できます。
-
-- 従来の VPN やその他のオンプレミス Web 発行ソリューションや境界ネットワーク アプローチを維持するオーバーヘッドをかけずに、オンプレミス アプリを外部で発行します。
-- Microsoft 365、その他の SaaS アプリ、オンプレミス アプリケーションなど、すべてのアプリケーションに対して SSO を有効にします。
-- Microsoft Entra ID が不正アクセスの防止に役立つクラウド規模のセキュリティを提供します。
-- ユーザー アカウント管理を一元化します。
-- 自動更新を受け取り、最新のセキュリティ パッチが適用されていることを確認します。
-- SAML SSO のサポートやアプリケーション Cookie のより詳細な管理など、リリースされた新機能にアクセスします。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-assign-group-to-app"} -->
-## PowerShell の例 - Microsoft Entra アプリケーション プロキシ アプリにグループを割り当てる - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-assign-group-to-app
-- Service: entra-id / app-proxy
-- Article date: 2026-03-11
-- Summary: Microsoft Entra アプリケーション プロキシ アプリケーションにグループを割り当てる PowerShell の例。
-
-### 概要
-
-PowerShell スクリプトの例では、Microsoft Entra アプリケーション プロキシ アプリケーションに特定のグループを割り当てます。
-
-[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
-
-注
-
-Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
-
-このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
-
-### サンプル スクリプト
-
-```powershell
-#  This sample script assigns a group to a specific Microsoft Entra application proxy application.
-#
-#  Tip: You can identify the parameters by using the following PS commands:
-#    ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" 
-#    GroupObjectId - Get-MgBetaGroup -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the group>"'"
-#
-# Version 1.0
-#
-# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
-#
-# Microsoft.Graph.Beta ver 2.10 or newer
-#
-# Before you begin:
-#    
-#    Required Microsoft Entra role at least Application Administrator
-#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
-#
-# 
-
-param(
-[parameter(Mandatory=$true)]
-[string] $ServicePrincipalObjectId = "null",
-[parameter(Mandatory=$true)]
-[string] $GroupObjectId = "null"
-)
-
-$servicePrincipalObjectId = $ServicePrincipalObjectId
-$groupObjectId = $GroupObjectId
-
-If (($servicePrincipalObjectId -eq "null") -or ($groupObjectId -eq "null")) {
-
-    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host ".\assign-group-to-app.ps1 -ServicePrincipalObjectId <ObjectId of the Microsoft Entra application proxy application service principal> -UserObjectId <ObjectId of the User>" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host "Hints:" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host "You can easily identify the parameters by using the following PS commands:" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host "ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" " -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host "UserObjectId - Get-MgBetaGroup -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the group>"'" -BackgroundColor "Black" -ForegroundColor "Green"
-
-    Exit
-}
-
-Import-Module Microsoft.Graph.Beta.Applications
-
-Connect-MgGraph -Scope Directory.ReadWrite.All -NoWelcome
-
-New-MgBetaGroupAppRoleAssignment -GroupId $groupObjectId -PrincipalId $groupObjectId -ResourceId $servicePrincipalObjectId -AppRoleId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
-
-Write-Host ("")
-Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
-Write-Host ("")
-Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet." 
-```
-
-### スクリプトの説明
-
-| コマンド | 注記 |
-| --- | --- |
-| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
-| [New-MgBetaGroupAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/new-mgbetagroupapproleassignment) | アプリ ロールをグループに割り当てます |
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-assign-user-to-app"} -->
-## PowerShell の例 - Microsoft Entra アプリケーション プロキシ アプリにユーザーを割り当てる - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-assign-user-to-app
-- Service: entra-id / app-proxy
-- Article date: 2026-03-11
-- Summary: Microsoft Entra アプリケーション プロキシ アプリケーションにユーザーを割り当てる PowerShell の例。
-
-### 概要
-
-PowerShell スクリプトの例では、特定の Microsoft Entra アプリケーション プロキシ アプリケーションにユーザーを割り当てます。
-
-[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
-
-注
-
-Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
-
-このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
-
-### サンプル スクリプト
-
-```powershell
-#  This sample script assigns a user to a specific Microsoft Entra application proxy application.
-#
-#  Tip: You can identify the parameters by using the following PS commands:
-#    ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" 
-#    UserObjectId - Get-MgBetaUser -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the user>"'"
-#
-# Version 1.0
-#
-# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
-#
-# Microsoft.Graph.Beta ver 2.10 or newer
-#
-# Before you begin:
-#    
-#    Required Microsoft Entra role at least Application Administrator
-#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
-#
-# 
-
-param(
-[parameter(Mandatory=$true)]
-[string] $ServicePrincipalObjectId = "null",
-[parameter(Mandatory=$true)]
-[string] $UserObjectId = "null"
-)
-
-$servicePrincipalObjectId = $ServicePrincipalObjectId
-$userObjectId = $UserObjectId
-
-If (($servicePrincipalObjectId -eq "null") -or ($userObjectId -eq "null")) {
-
-    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host ".\assign-user-to-app.ps1 -ServicePrincipalObjectId <ObjectId of the Microsoft Entra application proxy application service principal> -UserObjectId <ObjectId of the User>" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host "Hints:" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host "You can easily identify the parameters by using the following PS commands:" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host "ServicePrincipalObjectId - Get-MgBetaServicePrincipal -Filter "DisplayName eq '<displayname of the app>'" " -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host "UserObjectId - Get-MgBetaUser -ConsistencyLevel eventual -Count userCount -Search '"DisplayName:<name of the user>"'" -BackgroundColor "Black" -ForegroundColor "Green"
-
-    Exit
-}
-
-Import-Module Microsoft.Graph.Beta.Applications
-
-Connect-MgGraph -Scope Directory.ReadWrite.All -NoWelcome
-
-New-MgBetaUserAppRoleAssignment -UserId $userObjectId -PrincipalId $userObjectId -ResourceId $servicePrincipalObjectId -AppRoleId "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
-
-Write-Host ("")
-Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
-Write-Host ("")
-Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet."
-
-```
-
-### スクリプトの説明
-
-| コマンド | 注記 |
-| --- | --- |
-| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
-| [New-MgBetaUserAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/new-mgbetauserapproleassignment) | ユーザーにアプリ ロールを割り当てます |
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-proxy/scripts/powershell-display-users-group-of-app"} -->
-## PowerShell サンプル - Microsoft Entra アプリケーション プロキシ アプリのユーザーとグループを一覧表示する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-proxy/scripts/powershell-display-users-group-of-app
-- Service: entra-id / app-proxy
-- Article date: 2026-03-11
-- Summary: 特定の Microsoft Entra アプリケーション プロキシ アプリケーションに割り当てられているすべてのユーザーとグループを一覧表示する PowerShell の例。
-
-### 概要
-
-PowerShell スクリプトの例では、特定の Microsoft Entra アプリケーション プロキシ アプリケーションに割り当てられているユーザーとグループを一覧表示します。
-
-[Azure サブスクリプション](https://learn.microsoft.com/ja-jp/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)をお持ちでない場合は、開始する前に [Azure 無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を作成してください。
-
-注
-
-Azure Az PowerShell モジュールを使用して Azure と対話することをお勧めします。 作業を開始するには、[Azure PowerShell のインストール](https://learn.microsoft.com/ja-jp/powershell/azure/install-azure-powershell)に関する記事を参照してください。 Az PowerShell モジュールに移行する方法については、「 [Azure PowerShell を AzureRM から Az に移行する」](https://learn.microsoft.com/ja-jp/powershell/azure/migrate-from-azurerm-to-az)を参照してください。
-
-このサンプルには、 [Microsoft Graph Beta PowerShell モジュール](https://learn.microsoft.com/ja-jp/powershell/microsoftgraph/installation) 2.10 以降が必要です。
-
-### サンプル スクリプト
-
-```powershell
-# This sample script displays users and groups assigned to the specified Microsoft Entra application proxy application.
-#
-# .\display-users-group-of-an-app.ps1 -ObjectId <ObjectId of the service principal> (Enterprise App)
-#
-# Version 1.0
-#
-# This script requires PowerShell 5.1 (x64) or beyond and one of the following modules:
-#
-# Microsoft.Graph.Beta ver 2.10 or newer
-#
-# Before you begin:
-#    
-#    Required Microsoft Entra role at least Application Administrator
-#    or appropriate custom permissions as documented https://learn.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions
-#
-# 
-
-param(
-[parameter(Mandatory=$true)]
-[string] $ObjectId = "null"
-)
-
-$aadapServPrincObjId=$ObjectId
-
-If ($aadapServPrincObjId -eq "null") {
-
-    Write-Host "Parameter is missing." -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-    Write-Host ".\display-users-group-of-an-app.ps1 -ObjectId <ObjectId of the service principal (Enterprise App)>" -BackgroundColor "Black" -ForegroundColor "Green"
-    Write-Host " "
-
-    Exit
-}
-
-Import-Module Microsoft.Graph.Beta.Applications
-
-Connect-MgGraph -Scope Directory.Read.All -NoWelcome
-
-Write-Host "Reading users. This operation might take longer..." -BackgroundColor "Black" -ForegroundColor "Green"
-
-$users= Get-MgBetaUser -Top 1000000
-
-Write-Host "Reading groups. This operation might take longer..." -BackgroundColor "Black" -ForegroundColor "Green"
-
-$groups = Get-MgBetaGroup -Top 1000000 
-
-try {$app = Get-MgBetaServicePrincipalById -Id $aadapServPrincObjId}
-
-catch {
-
-    Write-Host "Possibly the ObjetId is incorrect." -BackgroundColor "Black" -ForegroundColor "Red"
-    Write-Host " "
-
-    Exit
-}
-
-Write-Host ("Application: " + $app.DisplayName + "(ServicePrinc. ObjID:" + $aadapServPrincObjId + ")")
-Write-Host ("")
-Write-Host ("Assigned (directly and through group membership) users:")
-Write-Host ("")
-
-$number=0
-
-foreach ($item in $users) {
-
-   $listOfAssignments = Get-MgBetaUserAppRoleAssignment -UserId $item.Id
-
-   $assigned = $false
-
-   foreach ($item2 in $listOfAssignments) { if ($item2.ResourceId -eq $aadapServPrincObjId) { $assigned = $true } }
-
-     If ($assigned -eq $true) {
-        Write-Host ("DisplayName: " + $item.DisplayName + " UPN: " + $item.UserPrincipalName + " ObjectID: " + $item.Id)
-        $number = $number + 1
-     }
-}
-
-Write-Host ("")
-Write-Host ("Number of (directly and through group membership) users: " + $number)
-Write-Host ("")
-Write-Host ("")
-Write-Host ("Assigned groups:")
-Write-Host ("")
-
-$number=0
-
-foreach ($item in $groups) {
-
-   $listOfAssignments = Get-MgBetaGroupAppRoleAssignment -GroupId $item.Id
-
-   $assigned = $false
-
-   foreach ($item2 in $listOfAssignments) { If ($item2.ResourceID -eq $aadapServPrincObjId) { $assigned = $true } }
-
-   If ($assigned -eq $true) {
-        Write-Host ("DisplayName: " + $item.DisplayName + " ObjectID: " + $item.Id)
-        $number=$number+1
-   }
-}
-
-Write-Host ("")
-Write-Host ("Number of assigned groups: " + $number)
-Write-Host ("")
-
-Write-Host ("")
-Write-Host ("Finished.") -BackgroundColor "Black" -ForegroundColor "Green"
-Write-Host ("") 
-Write-Host "To disconnect from Microsoft Graph, please use the Disconnect-MgGraph cmdlet."
-```
-
-### スクリプトの説明
-
-| コマンド | 注記 |
-| --- | --- |
-| [Connect-MgGraph](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.authentication/connect-mggraph) | Microsoft Graph に接続する |
-| [Get-MgBetaServicePrincipalById](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/get-mgbetaserviceprincipalbyid) (このコマンドは、特定のサービスプリンシパルをIDで取得します) | ID でサービス プリンシパルを取得します。 |
-| [Get-MgBetaUser](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.users/get-mgbetauser) | ユーザーを取得します。 |
-| [Get-MgBetaGroup](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.groups/get-mgbetagroup) | グループを取得します。 |
-| [Get-MgBetaUserAppRoleAssignment](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.graph.beta.applications/get-mgbetagroupapproleassignment) | アプリケーション ロールの割り当てを取得します。 |
 <!-- /MSL-PAGE -->

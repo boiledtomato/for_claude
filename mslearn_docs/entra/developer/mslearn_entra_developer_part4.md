@@ -6375,12 +6375,12 @@ ID 要素は、要求の値を提供するソースのプロパティを特定�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity-platform/reference-credential-management-api
 - Service: identity-platform / external
-- Article date: 2026-10-05
-- Summary: Microsoft Entra 外部 ID資格情報管理 API を使用して、サインインしている顧客がパスキーを一覧表示して登録できるようにします。
+- Article date: 2026-10-29
+- Summary: Microsoft Entra 外部 ID資格情報管理 API を使用して、サインインしている顧客がパスキーを一覧表示、登録、削除できるようにします。
 
 **適用対象**: [Image: 次の内容が外部テナントに適用されることを示す白いチェック マーク記号が付いた緑の円。] 外部テナント ([詳細](https://learn.microsoft.com/ja-jp/entra/external-id/tenant-configurations))
 
-Microsoft Entra 外部 ID資格情報管理 API を使用すると、アプリケーションはサインインしている顧客に、パスキーを一覧表示および登録するためのセルフサービス フローを提供できます。 アプリケーションはクライアント エクスペリエンスを所有し、顧客の代わりに API を呼び出します。
+Microsoft Entra 外部 ID資格情報管理 API を使用すると、アプリケーションはサインインしている顧客に、パスキーを一覧表示、登録、削除するためのセルフサービス フローを提供できます。 アプリケーションはクライアント エクスペリエンスを所有し、顧客の代わりに API を呼び出します。
 
 資格情報管理 API は、[ネイティブ認証](https://learn.microsoft.com/ja-jp/entra/identity-platform/concept-native-authentication)Microsoft Entra補完します。アプリケーションでは、ブラウザーに委任するのではなく、サインイン エクスペリエンスをホストします。 顧客がサインインした後、資格情報管理 API を使用します。
 
@@ -6390,7 +6390,9 @@ Von Bedeutung
 
 サンプルの削除フローでは、高い特権を持つアプリケーションのアクセス許可と、ブラウザー コード内のクライアント シークレットを持つMicrosoft Graphが引き続き使用されます。 テスト テナントでのみサンプルを実行します。 運用環境にデプロイしないでください。
 
-成功したリソース応答では、HAL+JSON (`application/hal+json`) が使用されます。 アクティブ化要求とエラーでは JSON (`application/json`) が使用されます。
+セルフサービス削除の場合は、サンプルの削除フローではなく、 資格情報の削除方法 エンドポイントを使用します。
+
+成功したリソース応答では、HAL+JSON (`application/hal+json`) が使用されます。 アクティブ化要求では JSON (`application/json`) が使用され、削除成功応答には本文がなく、エラーでは JSON が使用されます。
 
 ### Prerequisites
 
@@ -6456,7 +6458,7 @@ Note
 | Operation | 承認済みの委任されたアクセス許可 (最小特権優先) |
 | --- | --- |
 | 読み取り (顧客のパスキーの一覧など) | `Me.UserAuthenticationMethod.Passkey.Read`、`Me.UserAuthenticationMethod.Read`、`Me.UserAuthenticationMethod.Passkey.ReadWrite`、`Me.UserAuthenticationMethod.ReadWrite` |
-| 書き込み (パスキーの登録など) | `Me.UserAuthenticationMethod.Passkey.ReadWrite`、`Me.UserAuthenticationMethod.ReadWrite` |
+| 書き込み (パスキーの登録や削除など) | `Me.UserAuthenticationMethod.Passkey.ReadWrite`、`Me.UserAuthenticationMethod.ReadWrite` |
 
 アプリケーションのみのアクセス (クライアント資格情報フロー) はサポートされていません。
 
@@ -6599,7 +6601,7 @@ Content-Type: application/hal+json
 }
 ```
 
-識別子から操作 URL を作成する代わりに、返された HAL リンクに従って一覧表示と登録を行います。
+識別子から操作 URL を作成する代わりに、返された HAL リンクに従います。
 
 | 財産 | タイプ | 必須 | Description |
 | --- | --- | --- | --- |
@@ -6624,7 +6626,7 @@ Content-Type: application/hal+json
 | `model` | 文字列 | No | Authenticator モデル。 |
 | `passkeyType` | 文字列 | No | サービスによって報告されるパスキー分類。 |
 | `displayName` | 文字列 | No | 顧客が指定したパスキー名。 |
-| `_links` | オブジェクト | Yes | `self` 登録されたパスキーのリンクを `delete` します。 削除する場合は、返された`delete` リンクの代わりにMicrosoft Graphを使用します。 |
+| `_links` | オブジェクト | Yes | `self` 登録されたパスキーのリンクを `delete` します。 |
 
 このエンドポイントは、 `400`、 `401`、または `403`を返すことができます。 共有エンベロープと呼び出し元のアクションについては、「 エラー応答」を参照してください。
 
@@ -6880,25 +6882,72 @@ Content-Type: application/hal+json
 | `id` | 文字列 | Yes | 登録済みのパスキーに対して返される識別子。 |
 | `type` | 文字列 | Yes | 資格情報メソッドの種類。 値は `fido` です。 |
 | `createdDateTime` | 文字列 | No | 登録が完了した時刻。 |
-| `displayName` | 文字列 | No | 顧客が指定したパスキー名。 |
 | `aaGuid` | 文字列 | No | Authenticator Attestation GUID (AAGUID)。 |
 | `attestationCertificates` | 文字列の配列 | No | 認証子が構成証明を提供する場合の構成証明証明書の値。 |
 | `attestationLevel` | 文字列 | No | 認証子に対して報告された構成証明レベル。 |
 | `model` | 文字列 | No | Authenticator モデル。 |
 | `passkeyType` | 文字列 | No | サービスによって報告されるパスキー分類。 |
-| `_links` | オブジェクト | Yes | `self` 登録されたパスキーのリンクを `delete` します。 削除する場合は、返された`delete` リンクの代わりにMicrosoft Graphを使用します。 |
+| `_links` | オブジェクト | Yes | `self` 登録されたパスキーのリンクを `delete` します。 |
 
 認証子固有のプロパティは、異なる場合と存在しない場合があります。 アクティブ化エンドポイントは、 `400`、 `401`、または `403`を返すことができます。 共有エンベロープと呼び出し元のアクションについては、「 エラー応答」を参照してください。
 
 ### 資格情報メソッドを削除する
 
-資格情報管理 API でのパスキー削除のサポートは近日公開予定です。 それまでは、Microsoft Graph [Delete fido2AuthenticationMethod API (beta)](https://learn.microsoft.com/ja-jp/graph/api/fido2authenticationmethod-delete?view=graph-rest-beta&preserve-view=true&tabs=http) を使用して、顧客の登録済みパスキーを削除します。
+サインインしている顧客の登録済みパスキーの 1 つを完全に削除します。 顧客の資格情報の方法を一覧表示した後、および顧客がアプリケーションの資格情報管理フローでパスキーを削除することを選択した場合は、このエンドポイントを使用します。 削除は即時であり、元に戻すことはできません。 置換パスキーは、削除されたパスキーとは関係のない新しい資格情報です。
 
-Note
+Warning
 
-リストとアクティブ化の応答には、登録済みのパスキーの `_links.delete` が含まれます。 これらのリンクはまだサポートされていません。代わりに、Microsoft Graphを使用してパスキーを削除します。
+顧客が現在のセッションへのサインインに使用したパスキーを削除すると、そのセッションは終了します。
 
-この操作の認証要件、アクセス許可、要求形式、応答については、Microsoft Graphリファレンスに従ってください。
+次のシーケンス図は、削除フローを示しています。
+
+[Image: 顧客のアクセス トークンを使用して削除エンドポイントを呼び出し、パスキーを削除して 204 No Content を返Microsoft Entra 外部 IDアプリを示すシーケンス図。]
+
+アプリケーションがこのエンドポイントを呼び出すために必要なアクセス トークンの 認証と承認 を参照してください。 このエンドポイントには、書き込みアクセス許可、 `Me.UserAuthenticationMethod.Passkey.ReadWrite` 、または `Me.UserAuthenticationMethod.ReadWrite` が必要です ( 「必要なアクセス許可」を参照)。
+
+#### HTTP 要求
+
+```http
+DELETE https://{tenant-subdomain}.ciamlogin.com/{tenant-id}/api/v1.0/me/methods/{type}/{id}
+```
+
+`{tenant-subdomain}`URL には、外部テナントのサブドメイン (*たとえば、contoso.ciamlogin.com* の *contoso*) があります。
+
+サンプルリクエスト:
+
+```http
+DELETE https://contoso.ciamlogin.com/8f1c8e2a-1234-4abc-9876-1f1e1d1c1b1a/api/v1.0/me/methods/fido/{id} HTTP/1.1
+Host: contoso.ciamlogin.com
+Authorization: Bearer <access_token>
+```
+
+#### 要求パラメーター
+
+パス パラメーター:
+
+| 名前 | 必須 | Description |
+| --- | --- | --- |
+| `tenant-id` | Yes | テナント ID (GUID) または検証済みドメインのいずれかの外部テナント識別子。 `common`、`client`、`organizations`、または`consumers`ではなく、テナント固有の値を使用します。 GUID 値は、アクセス トークン内のテナントと一致する必要があります。 |
+| `type` | Yes | 削除する資格情報メソッドの種類。 現在、 `fido` (パスキー) のみがサポートされています。 |
+| `id` | Yes | 削除する登録済みパスキーの識別子。 顧客の登録メソッドの信頼のソースである List ユーザー資格情報メソッドの`id` (または`delete` リンクに従います) を使用します。 |
+
+要求ヘッダー:
+
+| 名前 | 必須 | 価値 |
+| --- | --- | --- |
+| `Authorization` | Yes | `Bearer <access_token>` |
+
+このエンドポイントは要求本文を受け取りません。 削除するパスキーは、URL によって完全に識別されます。
+
+#### 成功応答
+
+削除が成功すると、空の応答が返されます。
+
+```http
+HTTP/1.1 204 No Content
+```
+
+このエンドポイントは、 `400`、 `401`、または `403`を返すことができます。 共有エンベロープと呼び出し元のアクションについては、「 エラー応答」を参照してください。
 
 ### エラー応答
 
@@ -8169,7 +8218,7 @@ POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com
 Content-Type: application/x-www-form-urlencoded
 client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &challenge_type=oob password redirect
-&username=contoso-consumer@contoso.com 
+&username=contoso-consumer@contoso.com
 ```
 
 例 2 (要求にユーザー属性とパスワードを含める):
@@ -8181,7 +8230,7 @@ client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &challenge_type=oob password redirect
 &password={secure_password}
 &attributes={"displayName": "{given_name}", "extension_2588abcdwhtfeehjjeeqwertc_age": "{user_age}", "postalCode": "{user_postal_code}"}
-&username=contoso-consumer@contoso.com 
+&username=contoso-consumer@contoso.com
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -8206,7 +8255,7 @@ Content-Type: application/json
 ```json
 {
     "continuation_token": "AQABAAEAAA…",
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8223,9 +8272,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -8245,15 +8294,15 @@ Content-Type: application/json
 
 ```json
 {
-    "error": "user_already_exists", 
-    "error_description": "AADSTS1003037: It looks like you may already have an account.... .\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...", 
-    "error_codes": [ 
-        1003037 
+    "error": "user_already_exists",
+    "error_description": "AADSTS1003037: It looks like you may already have an account.... .\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
+    "error_codes": [
+        1003037
     ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8338,7 +8387,7 @@ Content-Type: application/json
     "challenge_channel": "email",
     "challenge_target_label": "c***r@co**o**o.com",
     "code_length": 8
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8382,16 +8431,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8422,8 +8471,8 @@ Content-Type: application/json
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/signup/v1.0/continue
 Content-Type: application/x-www-form-urlencoded
 continuation_token=uY29tL2F1dGhlbnRpY...
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-&grant_type=oob 
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&grant_type=oob
 &oob={otp_code}
 ```
 
@@ -8461,7 +8510,7 @@ Content-Type: application/json
     "trace_id": "d6966055-...-80500",
     "correlation_id": "3944-...-60d6",
     "continuation_token": "AQABEQEAAAA..."
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8540,9 +8589,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-    "challenge_type": "redirect" 
-} 
+{
+    "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -8561,8 +8610,8 @@ Content-Type: application/json
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/signup/v1.0/continue
 Content-Type: application/x-www-form-urlencoded
 continuation_token=uY29tL2F1dGhlbnRpY...
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-&grant_type=password 
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&grant_type=password
 &password={secure_password}
 ```
 
@@ -8658,9 +8707,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -8684,9 +8733,9 @@ Content-Type: application/json
     "error_description": "New password is too weak",
     "error_codes": [
         399246
-    ], 
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "suberror": "password_too_weak"
 }
@@ -8731,8 +8780,8 @@ Content-Type: application/json
 ```http
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/signup/v1.0/continue
 Content-Type: application/x-www-form-urlencoded
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-&grant_type=attributes 
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&grant_type=attributes
 &attributes={"displayName": "{given_name}", "extension_2588abcdwhtfeehjjeeqwertc_age": "{user_age}", "postalCode": "{postal_code}"}
 &continuation_token=AQABAAEAAAAtn...
 ```
@@ -8755,9 +8804,9 @@ Content-Type: application/json
 ```
 
 ```json
-{  
+{
     "continuation_token": "AQABAAEAAAYn..."
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -8774,9 +8823,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -8797,13 +8846,13 @@ Content-Type: application/json
 ```json
 {
     "error": "expired_token",
-    "error_description": "AADSTS901007: The continuation_token is expired.  .\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...", 
+    "error_description": "AADSTS901007: The continuation_token is expired.  .\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
     "error_codes": [
         552003
-    ], 
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
-    "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd" 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
+    "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
 }
 ```
 
@@ -8992,9 +9041,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -9013,16 +9062,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9060,8 +9109,8 @@ Content-Type: application/json
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/oauth2/v2.0/challenge
 Content-Type: application/x-www-form-urlencoded
 client_id=00001111-aaaa-2222-bbbb-3333cccc4444
-&challenge_type=password redirect 
-&continuation_token=uY29tL2F1dGhlbnRpY... 
+&challenge_type=password redirect
+&continuation_token=uY29tL2F1dGhlbnRpY...
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -9088,11 +9137,11 @@ Content-Type: application/json
 {
     "continuation_token": "uY29tL2F1dGhlbnRpY...",
     "challenge_type": "oob",
-    "binding_method": "prompt ", 
+    "binding_method": "prompt ",
     "challenge_channel": "email",
     "challenge_target_label ": "c***r@co**o**o.com ",
     "code_length": 8
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9119,10 +9168,10 @@ Content-Type: application/json
 ```
 
 ```json
-{   
-   "continuation_token": "uY29tL2F1dGhlbnRpY",   
-   "challenge_type": "password" 
-} 
+{
+   "continuation_token": "uY29tL2F1dGhlbnRpY",
+   "challenge_type": "password"
+}
 ```
 
 | 財産 | 説明 |
@@ -9143,11 +9192,11 @@ Content-Type: application/json
 {
     "continuation_token": "uY29tL2F1dGhlbnRpY...",
     "challenge_type": "oob",
-    "binding_method": "prompt ", 
+    "binding_method": "prompt ",
     "challenge_channel": "email",
     "challenge_target_label ": "c***r@co**o**o.com ",
     "code_length": 8
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9176,9 +9225,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -9197,16 +9246,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9396,10 +9445,10 @@ Content-Type: application/json
             "challenge_channel":"email",
             "login_hint":"c***r@co**o**o.com"
         },
-        {   
-          "id": "1b1b1b1b-2222-cccc-3333-4d4d4d4d4d4d",   
-          "challenge_type": "oob",   
-          "challenge_channel": "sms",   
+        {  
+          "id": "1b1b1b1b-2222-cccc-3333-4d4d4d4d4d4d",  
+          "challenge_type": "oob",  
+          "challenge_channel": "sms",  
           "login_hint": "+1********6"
         }
     ]
@@ -9430,9 +9479,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 ##### エラー応答
@@ -9445,16 +9494,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The continuation_token provided is not valid for this endpoint.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        50126 
-    ], 
+    "error_codes": [
+        50126
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9481,10 +9530,10 @@ Content-Type: application/json
 
     ```http
     POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/oauth2/v2.0/challenge
-    Content-Type: application/x-www-form-urlencoded    
+    Content-Type: application/x-www-form-urlencoded
     client_id=00001111-aaaa-2222-bbbb-3333cccc4444
-    &id=0a0a0a0a-1111-bbbb-2222-3c3c3c3c3c3c 
-    &continuation_token=uY29tL2F1dGhlbnRpY... 
+    &id=0a0a0a0a-1111-bbbb-2222-3c3c3c3c3c3c
+    &continuation_token=uY29tL2F1dGhlbnRpY...
     ```
 2. Microsoft Entra、電子メールなどのチャレンジ コードをユーザーのチャレンジ チャネルに送信し、継続トークンと MFA チャレンジの詳細を使用してクライアント アプリに応答します。
 
@@ -9497,27 +9546,27 @@ Content-Type: application/json
     {
         "continuation_token": "uY29tL2F1dGhlbnRpY...",
         "challenge_type": "oob",
-        "binding_method": "prompt ", 
+        "binding_method": "prompt ",
         "challenge_channel": "email",
         "challenge_target_label ": "c***r@co**o**o.com ",
         "code_length": 8
-    } 
+    }
     ```
 3. アプリは、 `/oauth2/v2.0/token` エンドポイントに POST 要求を行い、継続トークン、正しい許可の種類、対応する許可の種類の値を含め、セキュリティ トークンを取得できるようになりました。 セキュリティ トークンの要求で想定される応答を参照してください。
 
     ```http
     POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/oauth2/v2.0/token
-    Content-Type: application/x-www-form-urlencoded    
-    client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-    &continuation_token=uY29tL2F1dGhlbnRpY...   
-    &grant_type=mfa_oob  
+    Content-Type: application/x-www-form-urlencoded
+    client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+    &continuation_token=uY29tL2F1dGhlbnRpY...
+    &grant_type=mfa_oob
     &oob={otp_code}
     &scope=openid offline_access
     ```
 
 ### 強力な認証方法の API リファレンスを登録する
 
-ネイティブ認証では、強力な認証方法の登録がサポートされます。 アプリが /oauth2/v2.0/token エンドポイントを呼び出し、MFA が必要であるが、ユーザーに厳密なメソッドが登録されていない場合、応答 *(registeration\_required*) は、トークンを発行する前にユーザーに登録するようアプリに指示します。
+ネイティブ認証では、強力な認証方法の登録がサポートされます。 アプリが /oauth2/v2.0/token エンドポイントを呼び出し、MFA が必要であるが、ユーザーに強力なメソッドが登録されていない場合、応答 *registration\_required*は、トークンを発行する前にユーザーに登録するようアプリに指示します。
 
 クライアント アプリは、強力な認証方法を登録するフローを完了した後、 `/oauth2/v2.0/token` エンドポイントを呼び出してセキュリティ トークンを要求します。
 
@@ -9540,8 +9589,8 @@ Content-Type: application/json
 ```http
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/register/v1.0/introspect
 Content-Type: application/x-www-form-urlencoded
-?continuation_token=uY29tL2F1dGhlbnRpY... 
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444  
+?continuation_token=uY29tL2F1dGhlbnRpY...
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -9568,9 +9617,9 @@ Content-Type: application/json
             "challenge_channel":"email",
             "login_hint":"caseyjensen@contoso.com"
         },
-        {   
-          "id": "sms",   
-          "challenge_type": "oob",   
+        {  
+          "id": "sms",  
+          "challenge_type": "oob",  
           "challenge_channel": "sms"
         }
     ]
@@ -9601,16 +9650,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The continuation_token provided is not valid for this endpoint.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        50126 
-    ], 
+    "error_codes": [
+        50126
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9636,13 +9685,13 @@ Content-Type: application/json
 要求の例を次に示します (読みやすくするために、要求の例を複数行で示します):
 
 ```http
-POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/register/v1.0/challenge 
+POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/register/v1.0/challenge
 
-?continuation_token=uY29tL2F1dGhlbnRpY... 
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444  
-&challenge_type=oob  
-&challenge_channel=email 
-&challenge_target=contoso-consumer@contoso.com 
+?continuation_token=uY29tL2F1dGhlbnRpY...
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&challenge_type=oob
+&challenge_channel=email
+&challenge_target=contoso-consumer@contoso.com
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -9666,14 +9715,14 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-  "continuation_token": "uY29tL2F1dGhlbnRpY...", 
-  "challenge_type": "oob", 
-  "binding_method": "prompt", 
-  "challenge_target": "contoso-consumer@contoso.com", 
-  "challenge_channel": "email", 
-  "code_length": 8 
-} 
+{
+  "continuation_token": "uY29tL2F1dGhlbnRpY...",
+  "challenge_type": "oob",
+  "binding_method": "prompt",
+  "challenge_target": "contoso-consumer@contoso.com",
+  "challenge_channel": "email",
+  "code_length": 8
+}
 ```
 
 例 2:
@@ -9686,9 +9735,9 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
+{
   "continuation_token": "uY29tL2F1dGhlbnRpY...",
-  "challenge_type": "preverified" 
+  "challenge_type": "preverified"
 }
 ```
 
@@ -9726,11 +9775,11 @@ Content-Type: application/json
 要求の例を次に示します (読みやすくするために、要求の例を複数行で示します):
 
 ```http
-POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/register/v1.0/continue 
+POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/register/v1.0/continue
 
-?continuation_token=uY29tL2F1dGhlbnRpY... 
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444  
-&grant_type=oob  
+?continuation_token=uY29tL2F1dGhlbnRpY...
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&grant_type=oob
 &oob={otp_code}
 ```
 
@@ -9752,9 +9801,9 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
+{
   "continuation_token": "uY29tL2F1dGhlbnRpY..."
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9771,14 +9820,14 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS55200: The continuation_token is invalid.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        55200 
-    ], 
+    "error_codes": [
+        55200
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
 }
 ```
@@ -9848,9 +9897,9 @@ SSPR フローの場合、チャレンジ型の値は oob および redirect で
 ```http
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/resetpassword/v1.0/start
 Content-Type: application/x-www-form-urlencoded
-client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-&challenge_type=oob redirect 
-&username=contoso-consumer@contoso.com 
+client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&challenge_type=oob redirect
+&username=contoso-consumer@contoso.com
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -9890,9 +9939,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -9911,16 +9960,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -9959,7 +10008,7 @@ POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com
 Content-Type: application/x-www-form-urlencoded
 client_id=00001111-aaaa-2222-bbbb-3333cccc4444
 &challenge_type=oob redirect
-&continuation_token=uY29tL2F1dGhlbnRpY... 
+&continuation_token=uY29tL2F1dGhlbnRpY...
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -9982,11 +10031,11 @@ Content-Type: application/json
 {
     "continuation_token": "uY29tL2F1dGhlbnRpY...",
     "challenge_type": "oob",
-    "binding_method": "prompt ", 
+    "binding_method": "prompt ",
     "challenge_channel": "email",
     "challenge_target_label ": "c***r@co**o**o.com ",
     "code_length": 8
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10008,9 +10057,9 @@ Content-Type: application/json
 ```
 
 ```json
-{     
-   "challenge_type": "redirect" 
-} 
+{
+   "challenge_type": "redirect"
+}
 ```
 
 | 財産 | 説明 |
@@ -10029,16 +10078,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10067,9 +10116,9 @@ Content-Type: application/json
 ```http
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/resetpassword/v1.0/continue
 Content-Type: application/x-www-form-urlencoded
-continuation_token=uY29tL2F1dGhlbnRpY... 
-&client_id=00001111-aaaa-2222-bbbb-3333cccc4444 
-&grant_type=oob 
+continuation_token=uY29tL2F1dGhlbnRpY...
+&client_id=00001111-aaaa-2222-bbbb-3333cccc4444
+&grant_type=oob
 &oob={otp_code}
 ```
 
@@ -10091,10 +10140,10 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
+{
     "expires_in": 600,
     "continuation_token": "czZCaGRSa3F0MzpnW...",
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10112,16 +10161,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS55200: The continuation_token is invalid.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        55200 
-    ], 
+    "error_codes": [
+        55200
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10200,16 +10249,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "invalid_request", 
+{
+    "error": "invalid_request",
     "error_description": "AADSTS901007: The challenge_type list parameter does not include the 'redirect' type.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        901007 
-    ], 
+    "error_codes": [
+        901007
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10251,7 +10300,7 @@ Content-Type: application/json
 POST https://{tenant_subdomain}.ciamlogin.com/{tenant_subdomain}.onmicrosoft.com/resetpassword/v1.0/poll_completion
 Content-Type: application/x-www-form-urlencoded
 client_id=00001111-aaaa-2222-bbbb-3333cccc4444
-&continuation_token=czZCaGRSa3F0... 
+&continuation_token=czZCaGRSa3F0...
 ```
 
 | パラメーター | 必須 | 説明 |
@@ -10273,7 +10322,7 @@ Content-Type: application/json
 {
     "status": "succeeded",
     "continuation_token":"czZCaGRSa3F0..."
-} 
+}
 ```
 
 | 財産 | 説明 |
@@ -10300,16 +10349,16 @@ Content-Type: application/json
 ```
 
 ```json
-{ 
-    "error": "expired_token", 
+{
+    "error": "expired_token",
     "error_description": "AADSTS901007: The continuation_token is expired.\r\nTrace ID: 0000aaaa-11bb-cccc-dd22-eeeeee333333\r\nCorrelation ID: aaaa0000-bb11-2222-33cc-444444dddddd\r\nTimestamp: yyyy-...",
-    "error_codes": [ 
-        552003 
-    ], 
+    "error_codes": [
+        552003
+    ],
     "timestamp": "yyyy-mm-dd 10:15:00Z",
-    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333", 
+    "trace_id": "0000aaaa-11bb-cccc-dd22-eeeeee333333",
     "correlation_id": "aaaa0000-bb11-2222-33cc-444444dddddd"
-} 
+}
 ```
 
 | 財産 | 説明 |

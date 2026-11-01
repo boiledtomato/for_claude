@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / エンタープライズアプリ・プロビジョニング・アプリプロキシ (part 1)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 48
+Pages in this file: 50
 
 ---
 
@@ -2167,7 +2167,7 @@ Note
 
     Note
 
-    ワークロード ID アプリ登録の [**API の公開**] で、ガイド付きエクスペリエンスによって**アプリケーション ID URI が**`api://<app-client-id>/<successfactors-api-endpoint-url>`に設定されます。
+    ワークロード ID アプリの登録において、**API の公開**のセクションでは、ガイドに従って設定を行うと、**アプリケーション ID URI** が `api://<app-client-id>/<successfactors-api-endpoint-url>` に設定されます。
 
     ワークロード ID ベースの認証を初めて構成すると、統合によって、テナントに Microsoft ファースト パーティ サービス プリンシパル **SyncFabric Workload Identity ISV Integration Client** が自動的に作成されます。 そのオブジェクト ID はテナントに一意なものであり、SAP IAS に送信される Microsoft Entra によって発行された `sub` クレームとして使用されます。 ワークロード ID アプリケーションのクライアント ID は、JWT `aud` 要求として個別に使用されます。
 3. ワークロード ID アプリケーションを選択すると、Microsoft Entra に、SAP Cloud Identity Services がお客様のテナントによって発行されたトークンを信頼するために必要な値が表示されます。 このパネルを開いたまま、SAP Cloud Identity Services 管理コンソールに切り替えます。
@@ -2188,7 +2188,7 @@ OIDC アプリケーションを作成し、Microsoft Entra信頼パラメータ
     | Microsoft Entra フィールド | SAP Cloud Identity Services フィールド |
     | --- | --- |
     | **トークン発行者** | Issuer |
-    | **JWKS URI** | JSON Web キー セット URI |
+    | **JWKS URI** | JSON Web Key Set URI |
     | **件名** | サブジェクト |
     | **オーディエンス** | オーディエンス |
 
@@ -2256,7 +2256,7 @@ SAP が基本認証をサポートしている間にロールバックする必�
 
 | 症状: | 考えられる原因 | アクション |
 | --- | --- | --- |
-| 既存のワークロード ID が使用できないか、`This app is configured for a different Application API host and cannot be selected` が表示される | ワークロード ID は、別の SAP SuccessFactors アプリケーション API ホストを使用します。 ホストが一致する場合は、プロビジョニング エンタープライズ アプリが 2026 年 9 月 15 日より前に作成され、その日以降にワークロード ID が作成されている可能性があります。 ワークロード ID は、この実装更新において前方互換性がありますが、下位互換性はありません。 | 両方のアプリに構成されている **アプリケーション API URL を** 比較します。 ホストが一致する場合は、プロビジョニング アプリで利用可能なワークロード ID を使用します。 互換性のあるワークロード ID がない場合は、アプリの新しいワークロード ID を登録してください。 |
+| 既存のワークロード ID が利用できないか、または `This app is configured for a different Application API host and cannot be selected` と表示されています | このワークロード IDで は、別の SAP SuccessFactors アプリケーションの API ホストが使用されています。 ホストが一致する場合は、プロビジョニング エンタープライズ アプリが 2026 年 9 月 15 日より前に作成され、その日以降にワークロード ID が作成されている可能性があります。 ワークロード ID は、この実装更新において前方互換性がありますが、下位互換性はありません。 | 両方のアプリに構成されている **アプリケーション API URL を** 比較します。 ホストが一致する場合は、プロビジョニング アプリから利用可能なワークロード ID を使用してください。 互換性のあるワークロード ID が見つからない場合は、そのアプリ用に新しいワークロード ID を登録してください。 |
 | `invalid_client_assertion` SAP IAS から | AT1 の件名または対象ユーザーが、SAP IAS Trust-by-Issuer ルールと一致しません。 | Microsoft Entraによって提供される**サブジェクト**と**対象ユーザー**の値を、SAP IAS 信頼規則の対応する値と比較します。 |
 | `unauthorized_client` SAP IAS から | JWKS URI に到達できないか、署名の検証に失敗しました。 | MICROSOFT ENTRA OIDC 検出エンドポイントが SAP IAS から到達可能であり、発行者要求のテナント ID が一致することを確認します。 |
 | OData 呼び出しは 403 を返します | SAP IAS クライアント ID が適切な API ユーザー ID にマップされていないか、API ユーザーに適切なロールベースのアクセス許可がありません。 | SAP SuccessFactors の OIDC OAuth クライアント マッピングと API ユーザーのアクセス許可グループを再検証します。 |
@@ -7025,6 +7025,354 @@ MCP サーバーは、サポートされている要求をMicrosoft Graphに転�
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/hr-intermittent-timeouts-slow-performance"} -->
+## Microsoft Entra の HR プロビジョニング タイムアウト - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/hr-intermittent-timeouts-slow-performance
+- Service: entra-id / app-provisioning
+- Article date: 2026-10-22
+- Summary: 一致する属性、エージェント、接続性を確認して、オンプレミスの Active Directory へのMicrosoft EntraのHRプロビジョニングの断続的なタイムアウトと遅延を診断します。
+
+Microsoft Entra のインバウンド プロビジョニングは、Workday、SAP SuccessFactors、API 主導の HR 統合からユーザーを、Microsoft Entra プロビジョニング エージェントを介してオンプレミスの Active Directory にプロビジョニングできます。
+
+この記事を使用して、異常に低速なプロビジョニングまたは断続的なタイムアウト エラーを診断します。 これにより、管理者は、HRデータの取得とプロビジョニングの処理の遅延と、Active Directory のルックアップの問題と接続性の問題を区別できます。
+
+### Prerequisites
+
+開始する前に、次の前提条件を確認してください。
+
+- プロビジョニング アプリケーション、プロビジョニング エージェント サーバー、Active Directory、ネットワークを管理するチームと連携します。
+- プロビジョニング エージェント サーバーからオプションの PowerShell 接続チェックを実行します。 プロビジョニング エージェント パッケージには、`ADConnectivityTools`に`C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility`が含まれています。 コマンドレットの詳細については、 [ADConnectivityTools PowerShell リファレンスを参照してください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-adconnectivitytools)。
+- 属性のインデックスを作成する必要がある場合、 [インデックス作成手順](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/index-employeeid-attribute-entra-id-to-active-directory) には **Schema Admins** グループのメンバーシップが必要です。 この要件は、すべての診断チェックではなく、スキーマの変更に適用されます。
+- 承認された診断、構成、またはスキーマ変更タスクにのみ特権アクセスを使用し、各タスクが完了したときに昇格されたアクセス権を削除します。
+- [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)ロールを使用して、プロビジョニング アプリケーションの属性マッピングを構成します。
+- プロビジョニング エージェントを構成するときは、 [ハイブリッド ID 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#hybrid-identity-administrator) ロールを使用します。
+
+### ジョブの状態を確認し、症状を特定する
+
+プロビジョニング ジョブが実行されていることを確認し、動作が遅い、または失敗する操作の症状を確認します。
+
+#### プロビジョニング ジョブの状態を確認する
+
+ディレクトリの待機時間を調査する前に、プロビジョニング アプリケーションの **現在の状態を確認します**。 最後の同期時刻、現在の初期または増分サイクルの進行状況、および検疫の理由を確認します。
+
+プロビジョニング ジョブが実行されていることを確認します。 登録済みの正常なプロビジョニング エージェントだけでは、ジョブがユーザーを正常に処理していることを確認できません。 ジョブが開始されていない場合、または検疫中の場合は、進捗がない状況を低速なActive Directory操作として扱う前に、報告されているステータスを調査します。
+
+詳細については、「[ユーザー プロビジョニングの状態を確認する](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/check-status-user-account-provisioning#provisioning-progress-bar)」を参照してください。
+
+#### 症状を特定する
+
+次の現象の 1 つ以上が発生する可能性があります。
+
+- プロビジョニング操作が断続的にタイムアウトします。
+- プロビジョニング ジョブは、ユーザーを処理するのに予想以上に時間がかかります。
+- 個々の作成操作または更新操作には、異常に長い時間がかかります。
+- プロビジョニングは、一部のユーザーでは正常に機能しますが、他のユーザーではタイムアウトします。
+- プロビジョニングの動作は、provisioning-agent インスタンスによって異なります。
+- 操作は再試行されると成功します。
+- ネットワーク トレースは、すぐに応答しないドメイン コントローラーまたはディレクトリ エンドポイントへのライトウェイト ディレクトリ アクセス プロトコル (LDAP) 接続を示します。
+- 複数のプロビジョニング エージェントが異なるドメイン コントローラーと通信しているように見えます。
+
+これらのタイムアウトの問題の場合、プロビジョニングログまたは監査ログにエラー コード `HybridIdentityServiceAgentTimeout`が表示されることがあります。 短縮された例には、次の診断フィールドが含まれます。
+
+```text
+ErrorCode: HybridIdentityServiceAgentTimeout
+Response Status Code: GatewayTimeout
+x-ms-proxy-error-details: ConnectorTimeout
+Response Content: The provisioning service did not receive a timely response from your on-premises environment.
+```
+
+このエラーはタイムアウトを示しますが、その根本原因は特定しません。 この記事の確認項目を使用して、Active Directory 操作、ドメイン コントローラーの検出、DNS、およびネットワーク接続を調査してください。
+
+再試行が成功しただけ、または異なるドメイン コントローラーを選択しただけでは、問題の原因を特定することはできません。 診断チェックを使用して、これらの観測値を低速操作または失敗した操作と関連付けます。
+
+### トラブルシューティング チェックリスト
+
+この表を使用して、観察した動作に基づいて開始点を選択します。 同じタイムアウト エラーには、いくつかの原因が考えられます。 構成を変更する前に、診断結果で原因を確認します。
+
+| Potential cause (潜在的な原因) | 診断チェック | Resolution |
+| --- | --- | --- |
+| インデックス付けされていない一致属性は、ディレクトリ検索を遅くします。 | 設定されているすべての照合プロパティについて、照合属性のインデックス作成を確認します。 | ストレージとレプリケーションへの影響を考慮して、文書化された手順を使用して関連する属性にインデックスを付けます。 |
+| 複数の一致するプロパティには、追加の検索が必要です。 | 一致するプロパティを確認 し、それぞれが必要かどうかを判断します。 | ID 結合を評価して変更をテストした後にのみ、照合を簡略化します。 |
+| 古い DNS エントリまたは不適切なサブネットとサイトの対応付けは、検出に影響します。 | プロビジョニング エージェント サーバーから DNS とサイト トポロジを検証します。 | 確認された古い DNS エントリを削除し、サブネットとサイト間の関連付けの欠落または誤りを修正します。 |
+| 選択したドメイン コントローラーが使用できないか、応答が遅い。 | プロビジョニング パス全体で使用されるドメイン コントローラーを調査します。エージェント間で選択を比較します。 | コントローラーの可用性または接続の問題に対処し、必要に応じてコントローラーの優先順位を確認します。 |
+| ネットワーク、ファイアウォール、またはプロキシの問題によって通信が中断される。 | 内部および外部の DNS 解決を含む、ネットワークとファイアウォールの動作を確認します。 | 識別された DNS、ネットワーク パス、ファイアウォール、またはプロキシの構成を修正します。 |
+| Active Directory接続を確立するには、当然、より時間が必要になる場合があります。 | 接続タイミングを確認 する前に接続の問題を調査します。 | LDAP接続タイムアウトを増やすことを軽減策として検討してください。接続性の問題を解決することの代わりとして使用しないでください。 |
+
+開始する場所がわからない場合は、ログを収集し、遅延が発生している箇所を特定します。
+
+#### Active Directoryに一致する属性を確認する
+
+プロビジョニング中、Microsoft Entra は Active Directory を検索して、入力される HR ID 情報が既存の Active Directory アカウントに対応しているかどうかを判断します。
+
+プロビジョニング アプリケーションの属性マッピングを確認し、**一致するプロパティ**として構成されているすべてのターゲット Active Directory属性を特定します。
+
+次のような例がよく見られます。
+
+- `employeeId`。
+- `sAMAccountName`。
+- 拡張属性。
+- 組織固有の変更できない識別子。
+
+複数の一致するプロパティが一致する優先順位で構成されている場合は、それらすべてを確認します。
+
+**この属性を使用してMatchオブジェクト**および**照合の優先順位**を構成する方法の詳細については、[属性マッピングのプロパティの解釈](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes#understanding-attribute-mapping-properties)を参照してください。
+
+##### 一致する属性にインデックスが付与されていることを確認する
+
+`employeeId`属性は、既定では Active Directory でインデックスが作成されません。 インデックスのない照合プロパティとして使用される場合、ディレクトリの拡張に伴ってディレクトリ検索の速度が低下する可能性があります。
+
+同じ原則は、一致するプロパティとして構成された他の属性にも適用されます。
+
+複数の一致するプロパティを持つ構成の場合は、プロビジョニング アプリケーションで使用されるすべての一致する属性がActive Directoryでインデックス付けされているかどうかを確認します。
+
+インデックス作成のガイダンスについては、「[employeeId 属性のインデックスを作成する](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/index-employeeid-attribute-entra-id-to-active-directory)」を参照してください。
+
+##### 複数の一致する属性が必要かどうかを確認する
+
+複数の一致するプロパティを使用するには、追加のActive Directory検索が必要な場合があります。
+
+一致するプロパティが複数構成されている場合は、既存のIDと一致するためにすべてが必要かどうかを判断します。 構成を変更する前に、原因と解決策に記載されている是正措置を確認してから変更してください。
+
+#### Active Directory アクセス中に遅延が発生するかどうかを判断する
+
+一致する属性が正しくインデックス付けされていてもプロビジョニングが遅い場合は、操作の各部分で費やされた時間を切り分けます。
+
+調査では、次の項目を区別する必要があります。
+
+- ソース HR データの取得。
+- プロビジョニング マッピングと同期規則の適用。
+- Active Directoryでのユーザーの読み取りまたは照合。
+- Active Directory オブジェクトの作成または更新。
+
+[`Export-AADCloudSyncToolsLogs`](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/reference-powershell#export-aadcloudsynctoolslogs)を使用して、provisioning-agent ログを収集し、影響を受けた操作のタイムスタンプを比較します。
+
+Important
+
+既定のコレクションでは、詳細トレースを有効または無効にし、provisioning-agent サービスが再起動されます。 エージェントを管理するチームと収集ウィンドウを調整します。
+
+ログを収集して確認するには:
+
+1. Review the [AADCloudSyncToolsモジュールの前提条件とセットアップ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/reference-powershell#prerequisites)を確認します。 provisioning-agent サーバーで、管理者特権Windows PowerShell を開き、モジュールをインポートします。
+
+    ```powershell
+    Import-Module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
+    ```
+2. ログ収集を開始:
+
+    ```powershell
+    Export-AADCloudSyncToolsLogs
+    ```
+3. キャプチャ期間中に、遅い、または失敗するプロビジョニング操作を再現します。 既定では、コマンドレットは詳細ログを 3 分間キャプチャします。 操作の時刻と、使用可能な要求または関連付け ID を記録します。
+4. コレクションが完了したら、エクスポートした`.zip`ファイルを**Documents**フォルダーで開きます。 パッケージには、過去 24 時間のエージェント ログ、詳細ログ、イベント ビューアー ログが含まれています。
+5. 影響を受ける操作のエントリを検索し、そのタイムスタンプとプロビジョニング ログを比較します。 関連するエントリ間の経過時間を使用して、遅延が発生した場所を調査します。 利用可能な場合は、操作の要求IDまたは相関IDを対応付けます。
+
+ログには、個人データと機密性の高い環境情報が含まれる場合があります。 エクスポートしたパッケージを共有する前に機密情報を確認してマスキングし、組織の承認済みサポート チャネルを使用します。
+
+ほとんどの遅延が Active Directory の操作中に発生している場合は、provisioning-agent、Active Directory、およびネットワークの確認を続けてください。
+
+#### provisioning-agent ドメイン コントローラーの選択を確認する
+
+プロビジョニング エージェントは、DNS ベースの検出を使用してActive Directoryドメイン コントローラーを見つけます。 検出プロセスの詳細については、「[Active Directoryドメイン コントローラーの検索](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-ds/manage/dc-locator?tabs=dns-based-discovery)」を参照してください。
+
+複数のドメイン コントローラー、地理的に分散されたサイト、または複数の provisioning-agent インスタンスがある環境では、エージェントが使用しているドメイン コントローラーを確認します。
+
+エラーが永続的ではなく断続的な場合は、特に注意してください。
+
+##### ドメイン コントローラーの優先度を確認する
+
+構成されたドメイン コントローラーの優先順位を確認し、プロビジョニング エージェント間で構成を比較します。
+
+既定では、プロビジョニング エージェントは DNS ベースの検出を使用します。 ドメイン コントローラーの優先セットを構成するには、プロビジョニング エージェント ウィザードでドメイン コントローラーの優先度設定を更新します。
+
+ウィザードを完了すると、プロビジョニング エージェント サービスが再起動されます。 エージェントを管理するチームと構成ウィンドウを調整します。
+
+1. プロビジョニング エージェント サーバーで、**Microsoft Entra Provisioning Agent Wizard** を開きます。
+2. **接続Microsoft Entra ID**手順で、認証し、Microsoft Entra テナントに接続します。
+3. **Active Directory の接続** 手順で、構成済みのドメインを選択し、**資格情報の変更** を選択します。
+
+    [Image: 構成済みのActive Directory ドメインの資格情報の変更が強調表示されているプロビジョニング エージェント ウィザードのスクリーンショット。]
+4. ドメイン管理者の資格情報を入力し、[**ドメイン コントローラーの優先順位を選択**] を選択します。
+5. プロビジョニング エージェントが接続するドメイン コントローラーを追加し、矢印コントロールを使用して優先順位を設定します。
+
+    [Image: [ドメイン コントローラーの優先順位の選択] と [コントローラーの一覧] が強調表示されている [AD ドメイン アカウント] ダイアログのスクリーンショット。]
+
+    一覧の最初のドメイン コントローラーが使用できない場合、エージェントは構成された順序で次のコントローラーを試行します。
+6. **OK** を選択して、ドメイン資格情報とドメイン コントローラーの優先順位の一覧を保存します。
+7. [**接続Active Directory**画面で、[**次へ**] を選択します。
+8. [ **確認** ] 画面で構成を確認し、[ **確認** ] を選択して適用し、エージェントを再起動します。
+9. エージェント構成が正常に検証されたことを示す通知を待ってから、**終了** を選択します。 初期セットアップ画面が開いたままの場合は、[ **閉じる**] を選択します。
+10. ウィザードを再度開き、ドメイン コントローラーの優先順位の一覧を確認して、目的のコントローラーと順序が保存されたことを確認します。
+
+#### Active Directory サイト トポロジを検証する
+
+プロビジョニング エージェントをホストしているサーバーは、組織のActive Directory トポロジで正しく表されている必要があります。
+
+**Active Directory サイトとサービス**で、サーバーの IP サブネットが適切なサイトに関連付けられていることを確認します。 また、ドメイン コントローラーの検出または通信に影響する可能性がある古い DNS エントリも確認します。
+
+確認:
+
+- プロビジョニング エージェント サーバー上の DNS 構成。
+- Active Directory のサブネット定義
+- サブネットからサイトへのマッピング。
+- Active Directory サイトとサービスの構成。
+- エージェント ホストから想定されるドメイン コントローラーへの接続。
+
+プロビジョニング エージェント サーバーからの DNS 検証には、 [`Confirm-DnsConnectivity`](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-adconnectivitytools#confirm-dnsconnectivity)を使用します。 このコマンドレットは、フォレストと関連するドメイン コントローラーの名前解決をテストします。 サブネットとサイトのマッピングは検証されません。**Active Directory Sites and Services** で個別に確認してください。
+
+provisioning-agent サーバーのサブネットからサイトへのマッピングを確認するには:
+
+1. provisioning-agent サーバーで、管理者として **コマンド プロンプト** を開いてください。 `ipconfig`を実行して、サーバーのIPアドレスとサブネット マスクを確認します。
+2. `nltest /dsgetsite`を実行して、サーバーの現在のActive Directory サイトを識別します。 返されたサイト名と、サーバーのネットワーク上の場所に対応すると想定されるサイトを比較します。
+3. **Active Directory サイトとサービス**で、[**サブネット]** を展開します。 サーバーの IP アドレスをカバーするサブネットが存在し、目的のサイトに関連付けられていることを確認します。
+4. サブネットが見つからないか、間違ったサイトに関連付けられている場合は、Active Directory チームと協力して構成を修正してください。 変更がレプリケートされるのを待ち、provisioning-agentサーバーからの検証を繰り返します。
+
+サブネットとサイトの関連付けのガイダンスについては、「[サイト デザインの作成](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-ds/plan/creating-a-site-design)」を参照してください。 `ipconfig`と`nltest /dsgetsite`のチェックは、[デバイスのネットワークの場所の検証](https://learn.microsoft.com/ja-jp/intune/configmgr/core/servers/deploy/configure/boundaries)にも記載されています。
+
+これらのチェックでは、特定のプロビジョニング操作で使用されたドメイン コントローラーではなく、サーバーのサイトの関連付けが確認されます。
+
+サブネットまたはサイトの構成が正しくないと、エージェント ホストが予期しないドメイン コントローラー (リモート サイト内のコントローラーを含む) を見つける可能性があります。
+
+これにより、断続的な接続の問題、同期エラー、またはプロビジョニングの待機時間の増加につながる可能性があります。
+
+Note
+
+ある顧客調査では、古いDNSエントリによってプロビジョニング エージェントからの呼び出しが応答するまでに約20秒以上かかりました。
+
+これらの遅延により、プロビジョニングを待機しているユーザーの滞留が生じ、ジョブの全体的な実行時間が長くなりました。 顧客が古い DNS エントリを削除した後、provisioning-agent のタイムアウトは観察されなくなりました。
+
+#### プロビジョニング パスで使用されるすべてのドメイン コントローラーを調査する
+
+1 つのコントローラーの正常性を使用してパス全体を評価するのではなく、プロビジョニングに関係するすべてのドメイン コントローラーを確認します。
+
+これは、次の場合に特に重要です。
+
+- マルチドメイン フォレスト。
+- 子ドメインへのデプロイ。
+- LDAP リファーラルを使用する環境。
+- 地理的に分散したActive Directoryのデプロイ。
+
+プロビジョニング パスに関係するドメイン コントローラーが使用可能であり、応答していることを確認します。
+
+ネットワーク トレースに応答しない IP アドレスへの LDAP 接続試行が繰り返し表示される場合は、Active Directoryチームとネットワーク チームでそのエンドポイントを調査してください。
+
+参照を使用する環境の場合は、参照先ドメインを担当するドメイン コントローラーの可用性も確認します。
+
+#### プロビジョニング エージェントとは別にActive Directory操作をテストする
+
+可能であれば、プロビジョニング エージェントを介さずに、provisioning-agent サーバーから直接、関連するディレクトリ操作を再現します。
+
+`employeeId` を使用して基本的な照合属性検索を行うには、[`Get-ADUser` cmdlet](https://learn.microsoft.com/ja-jp/powershell/module/activedirectory/get-aduser) を使用します。 このテストには、 `ActiveDirectory` PowerShell モジュールと、関連するユーザーを読み取るアクセス許可を持つアカウントが必要です。
+
+1. プロビジョニング エージェント サーバーで、必要なディレクトリ読み取りアクセス許可を持つアカウントを使用して、Windows PowerShell を開きます。
+2. 次のコマンドを実行し、`12345` を、遅延している、または失敗しているプロビジョニング操作に関係する既存のユーザーの有効な `employeeId` 値に置き換えます。
+
+    ```powershell
+    Get-ADUser -LDAPFilter "(employeeId=12345)"
+    ```
+3. コマンドが予想されるユーザーを返すかどうか、およびルックアップで遅延が発生するかどうかを確認します。 ユーザーが返されない場合は、従業員 ID と検索範囲を確認してください。 コマンドでエラーが報告された場合は、空の検索結果として扱うのではなく、報告されたエラーを調査してください。
+
+これは基本的な参照テストであり、プロビジョニング エージェントが同じドメイン コントローラー、資格情報、または検索スコープを使用していることを証明しません。 ルックアップが正常に成功しただけでは、エージェントの接続が正常であることを示すものではありません。
+
+Active Directory PowerShell コマンドレットは、LDAP エンドポイントに直接接続するのではなく、ポート 9389 の Active Directory Web サービス (ADWS) を介して接続します。 そのネットワーク トレースでは、プロビジョニング エージェントの LDAP 接続は直接再現されません。 詳細については、[Active Directory PowerShell 接続の動作](https://learn.microsoft.com/ja-jp/troubleshoot/windows-server/active-directory/specify-server-port-active-directory-powershell-cmdlet)を参照してください。
+
+同等の独立したルックアップで同じ遅延が発生する場合は、その証拠を使用してActive Directoryまたはネットワーク パスを調査します。
+
+ネットワーク トレースをキャプチャしながらテストを実行します。 さらなる調査のための証拠を収集 に記載されている証拠を収集します。
+
+#### ネットワークとファイアウォールの動作を確認する
+
+プロビジョニング エージェントは、Microsoft Entraとオンプレミスの Active Directoryの両方と通信します。
+
+プロビジョニング エージェント サーバーから、Active Directory ドメイン コントローラーと必要なMicrosoft Entra サービス エンドポイントについて、DNS 解決を個別に確認します。 内部Active Directory名を正常に解決しても、外部サービス名が正しく解決されることを確認できません。
+
+外部の名前解決が失敗した場合は、DNS チームとネットワーク チームと協力して、サーバーの DNS 構成と組織の DNS 転送構成を確認してください。
+
+エージェントと Microsoft Entra 間の通信の場合は、[Provisioning-agent のトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-troubleshoot#verify-the-required-open-ports)に従って、必要な送信ポート、許可された宛先、ファイアウォールまたはプロキシ規則を確認します。 同じガイドでは、エンドポイントの DNS 解決について説明します。 タイムアウトのタイムスタンプ前後のファイアウォール ログを確認して、エージェントが完了を報告する前に接続が終了したかどうかを確認します。
+
+エージェントからActive Directoryへの通信については、以下を調査します。
+
+- LDAP 接続。
+- 切断された接続または未応答の接続。
+- ドメイン コントローラーの応答が遅い。
+- エージェント ホストとドメイン コントローラー間のネットワーク パス。
+
+プロビジョニング エージェント サーバーから[`Confirm-NetworkConnectivity`](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/reference-connect-adconnectivitytools#confirm-networkconnectivity)を使用して、関連するドメイン コントローラーへの接続をテストします。 このコマンドレットは、ポート 53 (DNS)、88 (Kerberos)、および 389 (LDAP) を確認します。 DNS がドメイン コントローラーではなく別のサーバーでホストされている場合は、ドキュメントに記載されている `-SkipDnsPort` オプションを使用し、DNS 解決を個別に検証します。
+
+これらの DNS とネットワークのチェックでは、一致属性の LDAP 検索が再現されたり、プロビジョニングのパフォーマンスが正常であることを確認したりすることはありません。 独立したディレクトリ操作テストに進み、操作自体を調査します。
+
+### 原因と解決策
+
+診断証拠を使用して、是正措置を選択します。 プロビジョニングが遅いため、一致またはタイムアウトの設定を変更しないでください。
+
+#### インデックスのない一致属性に対処する
+
+チェックでインデックスのない一致する属性が識別される場合は、変更を行う前に[employeeId 属性のインデックス作成](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/index-employeeid-attribute-entra-id-to-active-directory)を確認してください。
+
+インデックス作成のガイダンスは、構成されているすべての照合プロパティに適用されます。 ドメイン ストレージの増加を計画し、スキーマの変更がすべてのドメイン コントローラーにレプリケートされるまでの時間を見込んでください。
+
+#### 必要に応じてマッチング構成を簡略化する
+
+一致するプロパティが複数構成されている場合は、1 つの安定した一意の一致プロパティを使用できるように、ID データを正規化できるかどうかを判断します。
+
+たとえば、 `employeeId` が組織全体で一意で安定している場合は、2 番目と 3 番目の照合プロパティが引き続き必要かどうかを検討します。
+
+既存のIDがどのように結合されているかを最初に評価し、変更をテストする前に、運用環境のマッチング構成を変更しないでください。
+
+#### ドメイン コントローラーの選択と接続の問題に対処する
+
+Active Directoryおよびネットワーク チームと協力して、チェックリストで識別される DNS、サイト トポロジ、ドメイン コントローラーの可用性、または接続の問題に対処します。
+
+調査で古い DNS エントリが識別された場合は、関係チームと協力して、確認済みの古いエントリを削除してください。 **Active Directory サイトとサービス**でサーバーのサブネットからサイトへのマッピングを確認し、影響を受けるプロビジョニング操作を繰り返して、遅延とタイムアウトが持続するかどうかを確認します。
+
+複数のプロビジョニング エージェントが同じプロビジョニング構成を処理する場合は、ドメイン コントローラーの検出で一貫した順序を使用する必要があるかどうかを確認します。 構成手順については、「 ドメイン コントローラーの優先度の確認」を参照してください。
+
+#### 接続を調査した後にのみ LDAP 接続タイムアウトを検討する
+
+調査の結果、Active Directory へのプロビジョニング エージェントの接続の確立に定期的により多くの時間がかかることが判明した場合は、provisioning-agent LDAP 接続タイムアウトの構成を確認します。
+
+[エージェント レジストリ オプションのドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-manage-registry-options#configure-ldap-connection-timeout)では、`LdapConnectionTimeoutInMilliseconds`について説明します。 この設定は、この記事で説明する HR プロビジョニング シナリオにも適用されます。
+
+タイムアウトを増やすと、Active Directory接続に通常より時間がかかる環境で役立ちます。 異常なドメイン コントローラー、DNS の問題、不適切なActive Directory サイト構成、またはネットワークの問題を非表示にするには、タイムアウト時間を長くしないでください。
+
+基になる接続パスを調査した後、タイムアウトの変更は緩和策として扱います。
+
+#### 結果を確認する
+
+修正アクションを適用した後、以前は遅かった、または失敗していた操作を繰り返し、結果を元の動作と比較します。
+
+### さらなる調査のために証拠を収集する
+
+チェックで問題が特定されない場合は、さらに調査するための証拠をプロビジョニング チーム、Active Directoryチーム、ネットワーク チームと連携して収集します。
+
+ログとネットワーク トレースには、個人データと機密性の高い環境情報が含まれることがあります。 診断ファイルを共有する前に機密情報を確認してマスキングし、組織の承認済みサポート チャネルを使用します。
+
+収集:
+
+- 次のActive Directoryへのアクセス中に遅延が発生するかどうかを判断するに従ってエクスポートされたログ パッケージ。
+- ネットワークトレース。
+- 失敗したプロビジョニング操作のタイムスタンプ。
+- プロビジョニング ジョブID。
+- プロビジョニング ログで利用可能な要求IDまたは相関ID
+
+その他の診断ガイダンスについては、 [エージェントのトラブルシューティングに関するドキュメントを参照してください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-troubleshoot#log-files)。
+
+独立したディレクトリ操作テストの場合は、タイムスタンプを次と照合します。
+
+- ソース サーバー。
+- 対象ドメイン コントローラー
+- DNS 解決。
+- 接続の確立。
+- LDAPリクエスト。
+- 応答の待機時間。
+
+問題が解決しない場合は、サポート ケースを作成してください。
+
+- [Microsoft Entra 管理センター](https://entra.microsoft.com)で、[**新しいサポート リクエスト**] を選択します。 問題と、完了したトラブルシューティング手順について説明してください。 関連するタイムスタンプ、プロビジョニング ジョブID、要求または対応付けIDを含め、機密情報を確認し、マスキングした後に収集されたログとトレースを提供してください。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity/app-provisioning/hr-manager-update-issues"} -->
 ## HR プロビジョニングに関するマネージャーの更新に関する問題のトラブルシューティング - Microsoft Entra ID
 
@@ -9562,6 +9910,286 @@ SQL コネクタは、DSN ファイルが UTF-8 でエンコードされるこ�
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/manage-object-connections"} -->
+## オブジェクト接続の管理 - Microsoft Graph - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/manage-object-connections
+- Service: entra-id / app-provisioning
+- Article date: 2026-10-16
+- Summary: Microsoft Entra プロビジョニング ジョブのソース オブジェクトとターゲット オブジェクトの間に格納されている接続を検査および削除する方法について説明します。
+
+Microsoft Entra プロビジョニング サービスは、オブジェクトをプロビジョニングするときに、ソース オブジェクトを対応するターゲット オブジェクトに関連付けるオブジェクト接続を格納します。 サービスは、後のプロビジョニング サイクル中にこの接続を使用して、適切なターゲット オブジェクトを更新します。
+
+この記事は、既知のソース オブジェクトまたはターゲット オブジェクトの接続を調べたり、正しくない接続や古い接続を削除したりする必要があるアプリケーション所有者と管理者を対象としています。 開始する前に、サービス プリンシパルと同期ジョブ ID、既知のオブジェクト識別子、および必要な承認と Microsoft Graph のアクセス許可を用意しておいてください。
+
+オブジェクト接続を削除しても、ソース オブジェクトまたはターゲット オブジェクトは削除されません。 それらの間のプロビジョニング サービスの保存されている関連付けだけを削除します。
+
+Note
+
+プロビジョニング オブジェクト接続の管理は現在プレビュー段階です。 プレビューに適用される条件に基づき、お客様がプレビューを利用できるようにします。 これらの用語は、 [オンライン サービス](https://www.microsoft.com/licensing/terms/product/ForOnlineServices/all)に関する Microsoft 製品の用語全体で概説されています。
+
+### Prerequisites
+
+- アプリケーションのサービス プリンシパルのオブジェクト ID。
+- 同期ジョブの ID。
+- オブジェクト接続の既知のソースまたはターゲット識別子。
+- オブジェクト接続操作に対する次のMicrosoft Graphアクセス許可。
+
+    | Operation | 委任された権限 | アプリケーションのアクセス許可 |
+    | --- | --- | --- |
+    | オブジェクト接続を取得する | `SynchronizationMetadata.Read.All` | `SynchronizationMetadata.Read.OwnedBy` または `SynchronizationMetadata.Read.All` |
+    | オブジェクト接続を削除する | `SynchronizationMetadata.ReadWrite.All` | `SynchronizationMetadata.ReadWrite.OwnedBy` または `SynchronizationMetadata.ReadWrite.All` |
+
+委任されたアクセスの場合、サインインしているユーザーには、委任された Microsoft Graph アクセス許可と、プロビジョニング シナリオに対する承認の両方が必要です。
+
+| プロビジョニング シナリオ | サインインしているユーザーの認可 |
+| --- | --- |
+| 標準アプリケーションと人事プロビジョニング | アプリケーションのサービス プリンシパルの所有者、または Application Administrator、Cloud Application Administrator、もしくは Hybrid Identity Administrator のいずれかのロールが割り当てられたユーザー。 |
+| テナント間同期 | アプリケーションのサービス プリンシパルの所有者、またはユーザーが割り当てたハイブリッド ID 管理者。 |
+| Microsoft Entra クラウド同期 | ユーザーが割り当てたハイブリッド ID 管理者。 サービス プリンシパルの所有権だけでは不十分です。 |
+
+次の表に、サポートされている最小特権の管理者ロールの一覧を示します。 ロールまたはサービス プリンシパルの所有権は、委任されたアクセス許可の要件に代わるものではありません。
+
+アプリケーション アクセスの場合、 `*.OwnedBy` アクセス許可は、呼び出し元のアプリケーションがプロビジョニング ジョブのサービス プリンシパルを所有している場合にのみ適用されます。 組織全体のプロビジョニング ジョブにアクセスするには、対応する `*.All` アクセス許可を使用します。 4 つのアクセス許可はすべて、管理者の同意が必要です。
+
+#### ジョブ管理操作のアクセス許可
+
+オブジェクト接続権限は、復旧手順で使用されるジョブ管理 API 呼び出しを許可しません。 Microsoft Graphを使用してこれらの操作を実行する場合は、呼び出す操作のアクセス許可も取得してください。
+
+| Operation | 最小特権の委任アクセス許可 | 最小特権のアプリケーション アクセス許可 |
+| --- | --- | --- |
+| [ジョブの状態を読み取る](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true) | `Synchronization.Read.All` | `Application.ReadWrite.OwnedBy` |
+| [一時停止](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-beta&preserve-view=true)、[開始](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true)、または[オンデマンドでプロビジョニングする](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-beta&preserve-view=true) | `Synchronization.ReadWrite.All` | `Application.ReadWrite.OwnedBy` |
+
+この表のアプリケーション権限では、呼び出し元アプリケーションがサービス プリンシパルを所有している必要があります。 サポートされているその他のアクセス許可については、各操作の API リファレンスを参照してください。 Microsoft Entra 管理センターでジョブ管理操作を実行する場合、これらの追加の API アクセス許可は必要ありません。
+
+Important
+
+オブジェクト接続 API は、Microsoft Graph `beta` エンドポイントでのみ使用できます。 `beta` エンドポイントの API は変更される可能性があります。 運用アプリケーションでのこれらの API の使用はサポートされていません。
+
+### 必要な識別子を検索する
+
+オブジェクト接続を検査または削除する前に、サービス プリンシパル、同期ジョブ、およびオブジェクト識別子を見つけてください。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)で、**Entra ID** **&gt;Enterprise アプリ**に移動します。
+2. アプリケーションを選択します。
+3. **[プロビジョニング]** を開き、プロビジョニングの **[概要]** ページで **[概要]** タブを選択します。
+4. [**基本情報**] で、**サービス プリンシパル オブジェクト ID** と **ジョブ ID** をコピーします。 この記事のリクエストの `{servicePrincipalId}` と `{jobId}` には、これらの値を使用します。 サービス プリンシパル オブジェクト ID がアプリケーション (クライアント) ID ではありません。
+5. 検査したいオブジェクトの正確なソースまたはターゲット識別子を見つけます。 使用する属性と形式については [、プロビジョニング シナリオによるオブジェクト接続識別子](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/object-connection-identifiers) を参照してください。
+
+プロビジョニング ログは、操作に関係するソース オブジェクトとターゲット オブジェクトを識別するのに役立ちます。 詳細については、[Microsoft Entra ID でのプロビジョニングログ](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-provisioning-logs)を参照してください。
+
+### オブジェクト接続を取得する
+
+オブジェクト接続を取得して、保存されている関連付けを確認してから削除します。 同期ジョブは、アクティブ、一時停止、または無効にできます。
+
+1. 次のリクエストを送信してください。 API は最初に、指定された識別子をソース識別子として検索します。 接続が見つからない場合は、識別子をターゲット識別子として検索します。
+
+    ```http
+    GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/objectConnections('{objectId}')
+    Authorization: Bearer {token}
+    ```
+2. `200 OK`レスポンスを確認：
+
+    ```http
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+    
+    {
+      "@odata.context": "https://graph.microsoft.com/beta/$metadata#objectConnection/$entity",
+      "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+      "sourceAnchor": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+      "targetAnchor": "701984",
+      "displayName": "Adele Vance",
+      "objectTypeName": "user"
+    }
+    ```
+
+    応答には、次のプロパティが含まれています。
+
+    | プロパティ | Description |
+    | --- | --- |
+    | `objectId` | 接続の取得に使用されるオブジェクト識別子。 |
+    | `sourceAnchor` | ソース システム内のオブジェクトの識別子。 |
+    | `targetAnchor` | ターゲット システム内の対応するオブジェクトの識別子。 |
+    | `displayName` | オブジェクトに格納されている表示名 (使用可能な場合)。 |
+    | `objectTypeName` | `user`や`group`などのオブジェクトの種類。 |
+3. API から `404 Not Found` が返された場合は、オブジェクト識別子と同期ジョブ ID を確認してください。
+
+既知のオブジェクト識別子を指定する必要があります。 同期ジョブのオブジェクト接続の一覧表示、フィルター処理、または列挙はサポートされていません。 コレクションへの要求は、`400 Bad Request` を返します。
+
+```http
+GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/objectConnections
+Authorization: Bearer {token}
+```
+
+### オブジェクト接続を削除する
+
+格納されている関連付けが正しくないか、有効でなくなった場合は、オブジェクト接続を削除します。 後のプロビジョニング サイクルで同じ接続が再作成されないように、最初にソース データまたは照合構成を修正します。
+
+Caution
+
+オブジェクト接続を削除すると、永続的なプロビジョニング状態が変更されます。 接続を削除する前に、GET を使用して `sourceAnchor` と `targetAnchor` を確認してください。
+
+1. 同期ジョブを一時停止します。
+
+    ```http
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/pause
+    Authorization: Bearer {token}
+    Content-Length: 0
+    ```
+
+    または、Microsoft Entra 管理センターで **[Entra ID]**&gt;**[エンタープライズ アプリ]**&gt; お使いのアプリケーション &gt;**[プロビジョニング]** を参照します。 [**プロビジョニングの状態**] を [**オフ**] に設定し、[**保存**] を選択します。
+2. 同期ジョブを取得し、`schedule.state` が `Paused` または `Disabled` であることを確認します。 アクティブなジョブに対する DELETE 要求は、`409 Conflict` を返します。 API の詳細については、 [synchronizationJob の一時停止](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-pause?view=graph-rest-beta&preserve-view=true) と [synchronizationJob の取得](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&preserve-view=true)に関するページを参照してください。
+3. DELETE リクエストを送信します:
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/objectConnections('{objectId}')
+    Authorization: Bearer {token}
+    ```
+4. API から `204 No Content` が返されることを確認します。
+
+    ```http
+    HTTP/1.1 204 No Content
+    ```
+
+DELETE はべき等です。 どの接続にも指定された識別子が含まれていない場合、API は `204 No Content` も返します。 接続が見つからない場合と正常に削除された場合の応答は同じであるため、DELETE 要求を送信する前に GET を使用して識別子を確認してください。
+
+### 誤ったオブジェクト接続を修正する
+
+誤った接続を削除した後、オブジェクトをもう一度プロビジョニングして、修正された一致動作を検証してください。
+
+1. プロビジョニング ログを確認し、正しくない接続のソース オブジェクトとターゲット オブジェクトを特定します。
+2. 正しくない関連付けの原因となったソース データ、ターゲット データ、属性マッピング、または照合構成を修正します。
+3. GET を使用してオブジェクト接続を取得し、その `sourceAnchor` と `targetAnchor`を確認します。
+4. 同期ジョブを一時停止または無効にします。
+5. ジョブの `schedule.state` が `Paused` または `Disabled` であることを確認します。
+6. DELETE を使用して、正しくないオブジェクト接続を削除します。
+7. 修正された照合動作を検証するために、[必要に応じてオブジェクトをプロビジョニングしてください](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/provision-on-demand)。
+
+    代わりにMicrosoft Graphを使用するには、「[オンデマンドでプロビジョニングする](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-beta&preserve-view=true)」を参照してください。
+8. GET を使用するか、プロビジョニング ログを確認して、新しい接続を確認します。
+9. 同期ジョブを開始する:
+
+    ```http
+    POST https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/start
+    Authorization: Bearer {token}
+    Content-Length: 0
+    ```
+
+    API の詳細については、[Start synchronizationJob](https://learn.microsoft.com/ja-jp/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&preserve-view=true)を参照してください。
+
+#### 例: Workday と Microsoft Entra ID 間の正しくない接続を修復する
+
+Workday から Microsoft Entra ID へのプロビジョニング ジョブが、Workday ワーカーを間違ったMicrosoft Entra ユーザーにリンクしたとします。 ワーカーの Workday `WID` を使用して、保存されている接続を検査および削除してから、目的のユーザーへの新しい接続を検証します。
+
+次の値は例示です。
+
+| Object | 識別子 |
+| --- | --- |
+| Workday worker `WID` | `4f3c2b1a0e9d8c7b6a5f403122334455` |
+| 正しくリンクされていない Microsoft Entra ユーザー オブジェクト ID | `aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb` |
+| 対象の Microsoft Entra ユーザー オブジェクト ID | `bbbbbbbb-1111-2222-3333-cccccccccccc` |
+
+1. Workday プロビジョニング アプリケーション用のサービス プリンシパル ID とジョブ ID を見つけます。
+2. ワーカーの `WID` をオブジェクト識別子として使用して GET 要求を送信します。 サンプル `WID` をワーカー用の値で置き換えます。
+
+    ```http
+    GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/objectConnections('4f3c2b1a0e9d8c7b6a5f403122334455')
+    Authorization: Bearer {token}
+    ```
+3. GET 応答で `sourceAnchor` と `targetAnchor` を確認します。 この例では、`sourceAnchor` はワーカーの `WID`、`4f3c2b1a0e9d8c7b6a5f403122334455` です。 正しくない`targetAnchor`は`aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb`です。 削除する関連付けでない場合は、接続を削除しないでください。
+4. ジョブを一時停止または無効にし、`schedule.state` が `Paused` または `Disabled` であることを確認します。
+5. ワーカーが誤ったユーザーに一致した原因となったソース データ、ターゲット データ、属性マッピング、または一致構成を修正します。 接続のみを削除しても、マッチングの動作は修正されません。
+6. 同じワーカー `WID`で DELETE 要求を送信し、 `204 No Content` 応答を確認します。
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/objectConnections('4f3c2b1a0e9d8c7b6a5f403122334455')
+    Authorization: Bearer {token}
+    ```
+
+    この要求では、保存されている接続のみが削除されます。 どちらのユーザーも削除されません。
+7. ワーカー `WID` を使用して[オンデマンドでワーカーをプロビジョニングします](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/provision-on-demand)。
+8. GETリクエストを繰り返します。 `sourceAnchor`がまだワーカーの`WID`であることを確認します。 `bbbbbbbb-1111-2222-3333-cccccccccccc` が現在、意図したユーザーのオブジェクト ID（この例では `targetAnchor`）になっていることを確認します。 予想される接続が確立されていない場合は、プロビジョニング ログを確認します。
+9. 修正された接続を確認した後でのみ、同期ジョブを開始します。
+
+### HTTP 応答のトラブルシューティング
+
+GET 要求と DELETE 要求のトラブルシューティングを行うには、次の表を使用します。 より広範なプロビジョニングの問題については、「[Microsoft Entra ギャラリー アプリケーションへのプロビジョニングのトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/troubleshoot)」を参照してください。
+
+| ステータスコード | Meaning |
+| --- | --- |
+| `200 OK` | GET によりオブジェクト接続が見つかり、返されました。 |
+| `204 No Content` | DELETE によってオブジェクト接続が削除されたか、接続は既に存在していなかった。 |
+| `400 Bad Request` | 識別子が無効であるか、要求がオブジェクト接続コレクションを一覧表示しようとします。 |
+| `401 Unauthorized` | 要求に有効なアクセス トークンが含まれていない。 |
+| `403 Forbidden` | 呼び出し元には、必要なMicrosoft Graphアクセス許可、Microsoft Entra ロール、またはアプリケーション承認がありません。 |
+| `404 Not Found` | 同期ジョブまたは要求されたオブジェクト接続が見つからなかったか、ジョブで API を使用できません。 |
+| `409 Conflict` | 同期ジョブがアクティブな間に DELETE が要求されました。 ジョブを一時停止または無効にして、もう一度やり直してください。 |
+
+### 既知の制限
+
+- API は、Microsoft Graph `beta`でのみ使用できます。
+- 一度に取得できる既知のオブジェクト接続は 1 つだけです。
+- すべてのオブジェクト接続の一覧表示、フィルター処理、列挙はサポートされていません。
+- オブジェクト接続を直接作成または更新することはできません。
+- 接続を削除しても、ソース オブジェクトまたはターゲット オブジェクトは削除または変更されません。
+- 後続のプロビジョニング操作により、そのオブジェクト用の新しい接続が作成されることがあります。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/object-connection-identifiers"} -->
+## オブジェクト接続 ID - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/object-connection-identifiers
+- Service: entra-id / app-provisioning
+- Article date: 2026-10-22
+- Summary: Microsoft Graphを使用してプロビジョニング オブジェクト接続を検査または削除するときに使用するソースとターゲットの識別子を見つけます。
+
+このリファレンスは、アプリケーション管理者が、プロビジョニング オブジェクト接続で使用されるソース識別子とターゲット識別子Microsoft Entra見つけるのに役立ちます。 既知の識別子を使用して、同期ジョブの接続を検査または削除します。
+
+### ソースとターゲットの識別子
+
+オブジェクト接続要求の `{objectId}` として、正確なソースまたはターゲット識別子を使用します。 API は最初にソース識別子を検索します。 接続が見つからない場合は、ターゲット識別子を検索します。
+
+API はプロビジョニング ジョブで使用でき、要求されたオブジェクトには格納された接続が存在する必要があります。
+
+アプリケーション ターゲット識別子は、System for Cross-domain Identity Management (SCIM) コネクタと他のコネクタで異なります。
+
+| プロビジョニング シナリオ | ソース識別子 | ターゲット識別子 |
+| --- | --- | --- |
+| Workday から Microsoft Entra ID | Workday `WID` 属性 | ユーザー オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする |
+| Workday から Active Directory | Workday `WID` 属性 | Base64 でエンコードされたActive Directory `objectGUID` |
+| SAP SuccessFactors から Microsoft Entra ID | SAP SuccessFactors `personIdExternal` 属性 | ユーザー オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする |
+| SAP SuccessFactors から Active Directory へ | SAP SuccessFactors `personIdExternal` 属性 | Base64 でエンコードされたActive Directory `objectGUID` |
+| SCIM アプリケーションへのMicrosoft Entra ID | オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする | ターゲット アプリケーションの SCIM リソース `id` |
+| SCIM 以外のアプリケーションへのMicrosoft Entra ID | オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする | アプリケーションのプロビジョニング コネクタによって返されるターゲット識別子。属性と形式はコネクタによって異なります |
+| Salesforce へのMicrosoft Entra ID | オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする | Salesforce レコード ID |
+| テナント間同期 | ソース テナントのMicrosoft Entra オブジェクト ID (`objectId`)、GUID 形式 | GUID 形式のターゲット テナントのMicrosoft Entra オブジェクト ID (`objectId`) |
+| Microsoft Entra クラウド同期: ユーザーをMicrosoft Entra IDにActive Directoryする | Base64 でエンコードされたActive Directory `objectGUID` | ユーザー オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする |
+| Microsoft Entra IDへの API 主導の受信プロビジョニング | 一括アップロード要求で指定された`externalId` | オブジェクト ID (`objectId`) を GUID 形式でMicrosoft Entraする |
+| Active Directoryへの API 主導の受信プロビジョニング | 一括アップロード要求で指定された`externalId` | Base64 でエンコードされたActive Directory `objectGUID` |
+
+識別子の形式は、ターゲット アプリケーションによって異なる場合があります。 アプリケーションプロビジョニングの場合は、可能な場合はMicrosoft Entraオブジェクト ID を使用します。 ターゲット識別子は、Salesforce レコード ID など、ターゲット アプリケーションによって割り当てられます。 ユーザー名、メール アドレス、またはユーザー プリンシパル名 (UPN) とは異なる場合があります。
+
+GET 応答では、 `sourceAnchor` には格納されたソース識別子が含まれており、 `targetAnchor` には格納されたターゲット識別子が含まれます。 接続を削除する前に、両方の値を確認します。
+
+サービス プリンシパル オブジェクト ID とジョブ ID は、ソース オブジェクトまたはターゲット オブジェクトではなく、プロビジョニング ジョブを識別します。 検索するには、「 [必要な識別子の検索」を](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/manage-object-connections#find-the-required-identifiers)参照してください。
+
+### 識別子の形式を保持する
+
+大文字と小文字の区別やエンコードを含め、格納されているとおりの識別子を使用します。 API は、他の値を格納された識別子に変換しません。
+
+- Workday の場合は、`Worker_ID`や従業員 ID ではなく、`WID`を使用します。
+- SAP SuccessFactors の場合は、`personId`やユーザー名ではなく、`personIdExternal`を使用します。
+- Active Directoryの場合は、`objectGUID` バイトの base64 表現を使用します。 従来の破線 GUID は自動的に変換されません。
+- SCIM ターゲットの場合は、`externalId`または UPN ではなく、ターゲット アプリケーションによって返されるリソース `id`を使用します。 値を不透明な識別子として扱います。
+- SCIM 以外のターゲットの場合は、そのコネクタで使用される識別子を確認します。 すべてのアプリケーション コネクタで同じターゲット属性が使用されているとは考えないでください。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity/app-provisioning/on-premises-application-provisioning-architecture"} -->
 ## Microsoft Entra オンプレミス アプリケーション プロビジョニングのアーキテクチャ - Microsoft Entra ID
 
@@ -9814,294 +10442,4 @@ MIM 用に構築されたカスタム コネクタは、[ECMA フレームワー
 | 正規化 | プロビジョニング エージェントで使用されない |
 | 同時実行の操作 | プロビジョニング エージェントで使用されない |
 | DeleteAddAsReplace | プロビジョニング エージェントで使用されない |
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/app-provisioning/on-premises-ecma-troubleshoot"} -->
-## オンプレミス アプリケーションへのプロビジョニングに関する問題のトラブルシューティング - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-ecma-troubleshoot
-- Service: entra-id / app-provisioning
-- Article date: 2025-04-09
-- Summary: ECMA Connector Host をインストールして使用するときに発生する可能性のあるさまざまな問題のトラブルシューティング方法について説明します。
-
-### テスト接続の問題をトラブルシューティングする
-
-プロビジョニング エージェントと Extensible Connectivity (ECMA) ホストを構成したら、Microsoft Entra プロビジョニング サービスからプロビジョニング エージェント、ECMA ホスト、アプリケーションへの接続をテストします。 このエンド ツー エンド テストを実行するには、Azure portal でアプリケーションの **[テスト接続]** を選択します。 最初のエージェントを割り当てた後、またはエージェントを変更してから接続をテストする前に、必ず 10 分から 20 分待ってください。 この時間が過ぎた後にテスト接続に失敗した場合は、次のトラブルシューティング手順を試してください。
-
-1. エージェントと ECMA ホストが実行中であることを確認します。
-
-    1. エージェントがインストールされているサーバーの**スタート** ボタンをクリックし、**[ファイル名を指定して実行]** で「&gt;」と入力して、**[サービス]** を開きます。
-    2. **[サービス]** に **Microsoft Entra Connect プロビジョニング エージェント**と **Microsoft ECMA2Host** サービスが存在し、それらの状態が [実行中] になっていることを確認します。
-
-        [Image: ECMA サービスが実行中であることを示すスクリーンショット。]
-2. ECMA コネクタ ホスト サービスが要求に応答していることを確認します。
-
-    1. エージェントがインストールされているサーバーで、PowerShell を起動します。
-    2. ECMA ホストがインストールされたフォルダー (`C:\Program Files\Microsoft ECMA2Host` など) に変更します。
-    3. サブディレクトリ `Troubleshooting` に変更します。
-    4. そのディレクトリでスクリプト `TestECMA2HostConnection.ps1` を実行します。 プロンプトが表示されたら、コネクタ名とシークレット トークンを引数として指定します。
-
-        ```
-        PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1
-        Supply values for the following parameters:
-        ConnectorName: CORPDB1
-        SecretToken: ************
-        ```
-    5. このスクリプトでは、SCIM GET または POST 要求を送信して、ECMA Connector Host が動作していて、要求に応答することを確認します。 出力に HTTP 接続が成功したことが示されない場合は、サービスが実行されていること、および正しいシークレット トークンが指定されていることを確認します。
-3. Azure portal でアプリケーションに移動し、 **[admin connectivity](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/管理者接続)** を選択し、エージェントのドロップダウン リストを選択して、お使いのエージェントをアクティブにすることにより、エージェントを確実にアクティブにします。
-4. 指定したシークレット トークンがオンプレミスのシークレット トークンと同じであるかどうかを確認します。 オンプレミスに移動し、シークレット トークンを再度指定し、Azure portal にそれをコピーします。
-5. Azure portal で、必ず 1 つ以上のエージェントをアプリケーションに割り当てます。
-6. エージェントを割り当てた後、登録が完了するまで 10 分から 20 分待つ必要があります。 登録が完了するまで、接続テストは機能しません。
-7. 有効期限が切れていない有効な証明書を使用していることを確認します。 ECMA ホストの **[設定]** タブに移動して、証明書の有効期限を表示します。 証明書の有効期限が切れている場合は、`Generate certificate` をクリックして新しい証明書を生成します。
-8. VM 上のタスク バーに移動し、Microsoft Entra Connect プロビジョニング エージェントを検索して、プロビジョニング エージェントを再起動します。 **[停止]** を右クリックして、 **[開始]** を選択します。
-9. ECMA コネクタ ホストとプロビジョニング エージェントを再起動し、初期インポートが完了するまで待機した後も引き続き `The ECMA host is currently importing data from the target application` が表示される場合は、Azure portal でアプリケーションへのプロビジョニングの構成をいったん取り消してからもう一度やり直す必要が生じる場合があります。
-10. Azure portal でテナントの URL を指定する場合は、必ず次のパターンに従ってください。 `localhost` を、お使いのホスト名に置き換えることができますが、必須ではありません。 `connectorName` を、ECMA ホストで指定したコネクタの名前に置き換えます。 エラー メッセージ 'invalid resource' (無効なリソース) は、一般に、URL が想定される形式に従っていないことを示しています。
-
-    ```
-    https://localhost:8585/ecma2host_connectorName/scim
-    ```
-11. プロビジョニング エージェント ログを確認するには、次のフォルダーに移動します。C:\ProgramData\Microsoft\Azure AD Connect プロビジョニング エージェント\Trace
-
-    1. 次のエラーが表示される場合は、サービス アカウント "NT SERVICE\AADConnectProvisioningAgent" を "Performance Log Users" というローカル グループに追加してください。 これにより、アカウントが目的のレジストリ キー HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Perflib にアクセスできるようにすることで、"Unable to initialize metrics collector" という例外エラーが発生しなくなります。
-
-```
-Unable to initialize metrics collector, exception: 'System.UnauthorizedAccessException: Access to the registry key 'Global' is denied.
-```
-
-1. ECMA ホストを構成するときは、Windows サーバーのホスト名と一致するサブジェクトを証明書に指定してください。 ECMA ホストによって生成された証明書は自動的にこれを行いますが、テスト目的でのみ使用する必要があります。
-
-```
-Error code: SystemForCrossDomainIdentityManagementCredentialValidationUnavailable
-
-Details: We received this unexpected response from your application: Received response from Web resource. Resource: https://localhost/Users?filter=PLACEHOLDER+eq+"8646d011-1693-4cd3-9ee6-0d7482ca2219" Operation: GET Response Status Code: InternalServerError Response Headers: Response Content: An error occurred while sending the request. Please check the service and try again.
-```
-
-### ECMA ホストの構成、イベント ビューアーでのログの表示、または ECMA ホスト サービスの起動ができない
-
-次の問題を解決するには、管理者として ECMA ホスト設定ウィザードを実行します。
-
-- ECMA ホスト ウィザードを開くとエラーが発生する。
-
-    [Image: ECMA ウィザードのエラーを示すスクリーンショット。]
-- ECMA ホスト ウィザードは構成できたが、ECMA ホスト ログを表示できない: このケースでは、ECMA ホスト構成ウィザードを管理者としてオープンし、コネクタの端から端までを設定する必要があります。 この手順は、既存のコネクタをエクスポートし、再度インポートすることで簡単に行うことができます。
-
-    [Image: ホスト ログを示すスクリーンショット。]
-- ECMA ホスト ウィザードは構成できたが、ECMA ホスト サービスを開始できない:
-
-    [Image: ホスト サービスを示すスクリーンショット。]
-
-### 詳細ログをオンにする
-
-既定では、ECMA Connector Host の `switchValue` は `Verbose` に設定されます。 この設定では、トラブルシューティングの問題に役立つ詳細ログが出力されます。 出力されるログの数をエラーのみに制限する場合は、詳細レベルを `Error` に変更できます。 Windows 統合認証を使用せずに SQL コネクタを使用する場合、接続文字列がログに出力されないように、 `switchValue` を `Error` に設定することをお勧めします。 詳細レベルをエラーに変更するには、次に示すように、両方の場所で `switchValue` を "Error" に更新してください。
-
-サービスの詳細ログ ファイルは、C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config にあります。
-
-```
-<?xml version="1.0" encoding="utf-8"?> 
-<configuration> 
-    <startup>  
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
-    </startup> 
-    <appSettings> 
-      <add key="Debug" value="true" /> 
-    </appSettings> 
-    <system.diagnostics> 
-      <sources> 
-    <source name="ConnectorsLog" switchValue="Error"> 
-          <listeners> 
-            <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
-              <filter type=""/> 
-            </add> 
-          </listeners> 
-        </source> 
-        <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-        <source name="ECMA2Host" switchValue="Error"> 
-          <listeners>  
-            <add initializeData="ECMA2Host" type="System.Diagnos
-```
-
-ウィザードのログ ファイルは、C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config にあります。
-
-```
-      <source name="ConnectorsLog" switchValue="Error"> 
-        <listeners> 
-          <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
-            <filter type=""/> 
-          </add> 
-        </listeners> 
-      </source> 
-      <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-      <source name="ECMA2Host" switchValue="Error"> 
-        <listeners> 
-          <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
-```
-
-### ECMA ホスト キャッシュのクエリを実行する
-
-ECMA ホストには、アプリケーション内のユーザーのキャッシュがあります。このキャッシュは、ECMA ホスト ウィザードのプロパティ ページで指定したスケジュールに従って更新されます。 キャッシュのクエリを実行するには、次の手順を実行します。
-
-1. [デバッグ] フラグを `true` に設定します。
-
-    デバッグ フラグを `true` に設定すると、ECMA ホストでの認証が無効になることに注意してください。 キャッシュのクエリの実行が完了したら、設定を `false` に戻して、ECMA ホスト サービスを再起動する必要があります。
-
-    詳細サービス ログのファイル ロケーションは `C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config` です。
-
-    ```
-    <?xml version="1.0" encoding="utf-8"?>
-    <configuration>
-       <startup>  
-           <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6" /> 
-       </startup> 
-       <appSettings> 
-         <add key="Debug" value="true" /> 
-       </appSettings> 
-    
-    ```
-2. `Microsoft ECMA2Host` サービスを再開します。
-3. ECMA ホストがターゲット システムに接続し、接続されている各システムからキャッシュを読み取り直すのを待ちます。 接続されているシステムに多数のユーザーがいる場合、このインポート プロセスには数分かかる場合があります。
-4. ECMA ホストがインストールされているサーバーからこのエンドポイントのクエリを実行し、`{connector name}` を ECMA ホストのプロパティ ページで指定したコネクタの名前 `https://localhost:8585/ecma2host_{connectorName}/scim/cache` に置き換えます。
-
-    1. エージェントがインストールされているサーバーで、PowerShell を起動します。
-    2. ECMA ホストがインストールされたフォルダー (`C:\Program Files\Microsoft ECMA2Host` など) に変更します。
-    3. サブディレクトリ `Troubleshooting` に変更します。
-    4. そのディレクトリでスクリプト `TestECMA2HostConnection.ps1` を実行し、コネクタ名と `ObjectTypePath` 値 `cache` を引数として指定します。 ダイアログが表示されたら、そのコネクタ用に構成されたシークレット トークンを入力します。
-
-        ```
-        PS C:\Program Files\Microsoft ECMA2Host\Troubleshooting> .\TestECMA2HostConnection.ps1 -ConnectorName CORPDB1 -ObjectTypePath cache
-        Supply values for the following parameters:
-        SecretToken: ************
-        ```
-    5. このスクリプトでは、SCIM GET 要求を送信して、ECMA Connector Host が動作していて、要求に応答することを確認します。 出力に HTTP 接続が成功したことが示されない場合は、サービスが実行されていること、および正しいシークレット トークンが指定されていることを確認します。
-5. キャッシュのクエリが完了したら、デバッグ フラグを `false` に戻すか、設定を削除します。
-6. `Microsoft ECMA2Host` サービスを再開します。
-
-### ターゲット属性がない
-
-ターゲット アプリケーションの属性は、プロビジョニング サービスによって自動的に検出されます。 Azure portal のターゲット属性リストにターゲット属性が存在しないことがわかったら、次のトラブルシューティング手順を実行してください。
-
-1. ECMA ホスト構成の **[属性の選択]** ページを確認し、Azure portal に公開する属性が選択されていることを確認します。
-2. ECMA ホスト サービスが実行されていることを確認します。
-3. エージェントをエンタープライズ アプリケーションに割り当て、テスト接続手順を完了し、管理者資格情報を保存したら、ブラウザーを更新します。 これにより、プロビジョニング サービスは /schemas 要求を行い、ターゲット属性が検出されます。
-4. ECMA ホストのログを確認して、/schemas 要求が行われたことを確認し、その応答で属性を確認します。 これは、問題のトラブルシューティングをサポートするうえで有益な情報です。
-
-### イベント ビューアーから ZIP ファイルとしてログを収集する
-
-付属のスクリプトを使用して、イベント ログを ZIP ファイルにキャプチャしてエクスポートすることができます。
-
-1. エージェントがインストールされているサーバーで、[スタート] メニューの [PowerShell] を右クリックし、`Run as administrator` を選択します。
-2. ECMA ホストがインストールされたフォルダー (`C:\Program Files\Microsoft ECMA2Host` など) に変更します。
-3. サブディレクトリ `Troubleshooting` に変更します。
-4. そのディレクトリでスクリプト `CollectTroubleshootingInfo.ps1` を実行します。
-5. スクリプトは、イベント ログを含む ZIP ファイルをそのディレクトリに作成します。
-
-### イベント ビューアーでイベントを確認する
-
-ECMA Connector Host のスキーマ マッピングが構成されたら、サービスを始動して受信接続を待ち受けます。 そのうえで、受信要求を監視します。
-
-1. **スタート** メニューを選択し、「**イベント ビューアー**」と入力して、 **[イベント ビューアー]** を選択します。
-2. **イベント ビューアー**で、 **[アプリケーションとサービス ログ]** を展開し、 **[Microsoft ECMA2Host ログ]** を選択します。
-3. コネクタ ホストで変更が受信されると、イベントがアプリケーション ログに書き込まれます。
-
-#### 一般的なエラー
-
-| エラー | 解決方法 |
-| --- | --- |
-| ファイルまたはアセンブリ 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\Cache\8b514472-c18a-4641-9a44-732c296534e8\Microsoft.IAM.Connector.GenericSql.dll' またはその依存関係の 1 つを読み込めませんでした。 アクセスが拒否されました。 | ネットワーク サービス アカウントに、キャッシュ フォルダーに対する 'フル コントロール' のアクセス許可があることを確認します。 アカウントにアクセス許可があるが、.NET がコネクタ DLL のコピーを作成しようとしている場合は、DLL を[グローバル アセンブリ キャッシュ](https://learn.microsoft.com/ja-jp/dotnet/framework/tools/gacutil-exe-gac-tool)に追加することが必要な場合があります。 |
-| オブジェクトの DN の LDAP スタイルが無効です。 DN: username@domain.com" または `Target Site: ValidByLdapStyle` | ECMA ホストの [connectivity](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/接続) ページで [DN is Anchor](DN はアンカー) チェックボックスがオフになっていることを確認します。 ECMA ホストの [object types](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/オブジェクトの種類) ページで [autogenerated](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/自動生成) チェックボックスがオンになっていることを確認します。 詳細については、「[アンカー属性と識別名について](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names)」を参照してください。 |
-| ExportErrorCustomContinueRun。 objectClass: 構文につき値番号が無効 | `objectClass` 属性へのプロビジョニング属性マッピングには、ディレクトリ サーバーによって認識されるオブジェクト クラスの名前のみが含まれていることを確認します。 |
-
-### SCIM 受信リクエストを理解する
-
-Microsoft Entra ID からプロビジョニング エージェントやコネクタ ホストに対して行われる要求には、SCIM プロトコルが使用されます。 ホストからアプリに対して行われる要求には、アプリでサポートされるプロトコルが使用されます。 ホストからエージェントへ、さらに Microsoft Entra ID に対して行われる要求には、SCIM が使用されます。 SCIM の実装の詳細については、「[チュートリアル: Microsoft Entra ID の SCIM エンドポイントのプロビジョニングを開発および計画する](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups)」を参照してください。
-
-一般に、Microsoft Entra プロビジョニング サービスは get-user 呼び出しを行い、各プロビジョニング サイクルの開始時、オンデマンド プロビジョニングを実行する前、[およびテスト接続](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/use-scim-to-provision-users-and-groups#request-3)が選択されている場合の 3 つの状況で**ダミー ユーザー**を確認します。 このチェックにより、ターゲット エンドポイントが使用でき、SCIM 準拠の応答が Microsoft Entra プロビジョニング サービスに返されることが保証されます。
-
-### プロビジョニング エージェントをトラブルシューティングする方法
-
-次のエラー シナリオが発生する場合があります。
-
-#### エージェントが起動しない
-
-次の内容のエラー メッセージが表示されることがあります。
-
-サービス 'Microsoft Entra Connect Provisioning Agent' を開始できませんでした。 Check that you have sufficient privileges to start the system services. (システム サービスを起動するために十分な特権を持っていることを確認してください。)"
-
-この問題は、通常、インストーラー (NT SERVICE\AADConnectProvisioningAgent) によって作成されたローカル NT サービスのサインイン アカウントにアクセス許可が適用されないようにするグループ ポリシーが原因で発生します。 サービスを開始するには、これらのアクセス許可が必要です。
-
-これを解決するには、次の手順に従います。
-
-1. 管理者アカウントでサーバーにサインインします。
-2. **[サービス]** を開きます。これには、そこに直接移動するか、**スタート** ボタンをクリックし、&gt; で「**Services.msc**」と入力します。
-3. **[サービス]** で **[Microsoft Entra Connect プロビジョニング エージェント]** をダブルクリックします。
-4. **[ログオン]** タブで、 **[このアカウント]** をドメイン管理者に変更します。その後、サービスを再起動します。
-
-このテストでは、エージェントがポート 443 を介して Azure と通信できることを確認します。 ブラウザーを開き、エージェントがインストールされているサーバーから前の URL に移動します。
-
-#### エージェントがタイムアウトするまたは証明書が無効である
-
-エージェントを登録しようとしたときに、次のエラー メッセージが表示されることがあります。
-
-[Image: エージェントがタイムアウトになったことを示すスクリーンショット。]
-
-この問題は、通常、エージェントがハイブリッド ID サービスに接続できないことが原因で発生し、HTTP プロキシを構成する必要があります。 この問題を解決するには、送信プロキシを構成します。
-
-プロビジョニング エージェントでは、送信プロキシの使用がサポートされます。 構成するには、エージェントの構成ファイル *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config* を編集します。ファイルの末尾近くにある `</configuration>` の終了タグの直前に次の行を追加します。 `[proxy-server]` 変数と `[proxy-port]` 変数をお使いのプロキシ サーバー名とポート値に置き換えてください。
-
-```xml
-    <system.net>
-        <defaultProxy enabled="true" useDefaultCredentials="true">
-            <proxy
-                usesystemdefault="true"
-                proxyaddress="http://[proxy-server]:[proxy-port]"
-                bypassonlocal="true"
-            />
-        </defaultProxy>
-    </system.net>
-```
-
-#### セキュリティ エラーが発生してエージェントの登録が失敗する
-
-クラウド プロビジョニング エージェントのインストール時にエラー メッセージが表示されることがあります。
-
-この問題は、通常、ローカルの PowerShell 実行ポリシーのせいで、エージェントで PowerShell 登録スクリプトを実行できないことが原因で発生します。
-
-この問題を解決するには、サーバー上の PowerShell 実行ポリシーを変更します。 マシンとユーザーのポリシーを *Undefined* または *RemoteSigned* に設定する必要があります。 *Unrestricted* として設定されている場合、このエラーが表示されます。 詳細については、[PowerShell 実行ポリシー](https://learn.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_execution_policies)に関する記事を参照してください。
-
-#### ログ ファイル
-
-既定では、エージェントによって発行されるエラー メッセージとスタック トレース情報は最小限に抑えられています。 トレース ログは、C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace フォルダーにあります。
-
-エージェント関連の問題をトラブルシューティングするための詳細な情報を入手するには、次の手順に従います。
-
-1. 「`AADCloudSyncTools`」の説明に従って、`AADCloudSyncTools` PowerShell モジュールをインストールします。
-2. `Export-AADCloudSyncToolsLogs` PowerShell コマンドレットを使用して情報をキャプチャします。 次のスイッチを使用してデータ収集を微調整します。 次のコマンドを使用します。
-
-    - **SkipVerboseTrace**: 詳細ログをキャプチャせずに現在のログのみをエクスポートします (既定値 = false)。
-    - **TracingDurationMins**: 別のキャプチャ期間を指定します (既定値 = 3 分)。
-    - **OutputPath**: 別の出力パスを指定します (既定値 = ユーザーのドキュメント)。
-
-Microsoft Entra ID を使用することにより、クラウドでプロビジョニング サービスを監視し、オンプレミスでログを収集できます。 プロビジョニング サービスは、同期プロセスの一環として評価された各ユーザーのログを出力します。 それらのログは、[Azure portal の UI、API、Log Analytics](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-provisioning-logs) を通じて利用することができます。 ECMA ホストでも、オンプレミスでログが生成されます。 これは、受信された各プロビジョニング要求および Microsoft Entra ID に送信された応答を示します。
-
-#### エージェントのインストールの失敗
-
-- エラー "`System.ComponentModel.Win32Exception: The specified service already exists`" は、以前の ECMA ホストが正しくアンインストールされなかったことを示します。 ホスト アプリケーションをアンインストールします。 Program Files に移動し、ECMA ホストのフォルダーを削除します。 バックアップ用に構成ファイルを保存することもできます。
-- 次のエラーは、前提条件が満たされていないことを示します。 .NET 4.7.1 がインストールされていることを確認してください。
-
-    ```
-      Method Name : <>c__DisplayClass0_1 : 
-      RegisterNotLoadedAssemblies Error during load assembly: System.Management.Automation.resources.dll
-      --------- Outer Exception Data ---------
-      Message: Could not load file or assembly 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\System.Management.Automation.resources.dll' or one of its dependencies. The system cannot find the file specified.
-    
-    ```
-
-#### SQL で ECMA Connector Host を構成しようとすると、無効な LDAP スタイルの DN エラーが発生する
-
-既定では、汎用 SQL コネクタでは、LDAP スタイルを使用して DN が設定されていると想定されています (最初の接続ページで [DN is anchor] (DN はアンカー) 属性がオフの場合)。 エラー メッセージ `Invalid LDAP style DN` または `Target Site: ValidByLdapStyle` では、DN フィールドにコネクタで想定されている LDAP スタイルの DN ではなく、ユーザー プリンシパル名 (UPN) が入っていることがあります。
-
-このエラー メッセージを解決するには、コネクタを構成する際に [object types](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/オブジェクトの種類) ページで **[Autogenerated](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/自動生成)** が選択されていることを確認してください。
-
-詳細については、「[アンカー属性と識別名について](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture#about-anchor-attributes-and-distinguished-names)」を参照してください。
 <!-- /MSL-PAGE -->

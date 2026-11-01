@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / ハイブリッド ID (Connect / Cloud Sync) (part 1)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 65
+Pages in this file: 64
 
 ---
 
@@ -165,10 +165,10 @@ Microsoft Entra Connet アカウントの詳細と構成方法については、
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/cloud-sync-migration-faq
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2026-05-04
+- Article date: 2026-10-21
 - Summary: Microsoft Entra Connect Sync から Microsoft Entra Cloud Sync への移行についてよく寄せられる質問 (適格性、タイムライン、機能パリティ、移行後の動作など)。
 
-この記事では、Microsoft Entra Connect Sync から Microsoft Entra Cloud Sync への移行に関してよく寄せられる質問に回答します。機能の完全な比較については、[decision ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide)を参照してください。 詳細な移行手順については、「[Microsoft Entra Connect から Microsoft Entra Cloud Sync への移行](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync)を参照してください。
+この記事では、Microsoft Entra Connect Sync から Microsoft Entra Cloud Sync への移行に関してよく寄せられる質問に回答します。プラットフォームの機能については、[意思決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide)を参照してください。 ガイド付きツールの利用条件と手順については、[ガイド付き移行ツール](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を参照してください。 ガイド付きのパスまたは文書化された手動パスを選択するには、[「移行パスの選択」](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync#choose-a-migration-path)を参照してください。
 
 ### 移行の資格とタイムライン
 
@@ -178,11 +178,20 @@ Microsoftは、移行を開始する資格が得られたときに組織に通�
 
 #### 組織が推奨期間内に移行できない場合はどうすればよいでしょうか。
 
-推奨期間内に移行できない場合は、例外を要求する必要があります。 承認された場合は、Microsoftサポートまたはアカウント チームと連携しながら、既存のセットアップを引き続き使用して、適切な移行タイムラインを計画できます。
+確認された技術的またはビジネス上の阻害要因によって、テナント固有の通知の日付までに移行できない場合は、[Microsoft サポート を通じてさらに時間を依頼してください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#request-more-time-to-migrate)。 例外要求は個別に審査されますが、承認が保証されるものではなく、移行の要件が免除されるわけではありません。
+
+#### 異なる日付が表示される理由
+
+クラウド同期の移行期限とウィンドウは組織固有です。 Connect Sync バージョンの提供終了、認証の変更、およびその他の製品の変更は、それぞれ異なるタイムラインとなる場合があります。 組織のテナント固有の通知に記載された移行日に従ってください。 例外的な期間や必要な証拠については、[移行期間の延長を要求する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#request-more-time-to-migrate)を参照してください。
 
 #### 移行にはどのくらいの時間がかかりますか?
 
-移行時間は、オブジェクトの数と環境の複雑さによって異なります。 期間に影響を与える要因には、ユーザーとグループの数、カスタム同期規則、移行する組織単位 (OU) の数などがあります。
+移行時間は、環境と準備状況の結果によって異なります。 以下の項目については、別途計画を立ててください:
+
+- **準備状況の改善**: [準備状況評価](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#review-environment-readiness)で特定された課題を確認し、解決します。
+- **構成の転送:** このツールは、サポートされている設定のみを転送し、必要なクラウド同期の構成とジョブを作成します。
+- **初期同期:** アクティブ化後、Cloud Sync は初期同期を開始します。 ジョブの正常性と同期の結果を確認します。
+- **検証:** 文書化された [2 週間の検証期間中](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#validate-synchronization-results)、Connect Sync をインストールしたままにし、オブジェクト、参照、および有効な書き戻しシナリオを手動で検証します。
 
 ### 移行のプロセス
 
@@ -192,6 +201,7 @@ Microsoftは、移行を開始する資格が得られたときに組織に通�
 
 - [クラウド同期とは](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)
 - [クラウド同期の詳細 - しくみ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/concept-how-it-works)
+- [ガイド付き移行ツールの前提条件と制限](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)
 - [ステップ バイ ステップの移行ガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync)
 
 **移行シナリオ:**
@@ -202,7 +212,21 @@ Microsoftは、移行を開始する資格が得られたときに組織に通�
 
 #### Connect Sync と Cloud Sync をサイド バイ サイドで実行できますか?
 
-同じオブジェクトに対して Connect Sync と Cloud Sync を並行して実行することはサポートされていません。 移行中は、OU ベースのスコープを使用して、各組織単位が一度に 1 つの同期ツールでのみ管理されるようにします。 この段階的なアプローチでは、追加の OU を移行する前に、ユーザーのサブセットでクラウド同期を検証できます。 この方法の実装の詳細については、 [移行チュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)を参照してください。
+Connect Sync と Cloud Sync では、同じオブジェクトと属性セットの通常の変更を同時にエクスポートしてはなりません。 ドキュメントに記載されている段階的移行プロセス中、オブジェクトは Connect Sync スコープに残りますが、 `cloudNoFlow` および `JoinNoFlow` ルールでは、通常の Connect Sync エクスポートが禁止され、必要な参照が保持されます。 [手動移行の手順](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#create-a-custom-user-inbound-rule)に従い、移行と[参照の検証](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#plan-scope-removal-from-microsoft-entra-connect-sync)が完了してから、Connect Sync のスコープを削除します。
+
+#### クラウド同期への移行オプションが表示されないのはなぜですか?
+
+[ガイド付き移行ツールの前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を確認してください:
+
+- ステージング モードのサーバーではなく、アクティブな Connect Sync サーバーでタスクを開始します。
+- 現在のインストール環境でサポートされている Connect Sync バージョンを使用してください。
+- 組織とインストールは、現在の移行ウェーブの対象である必要があります。
+
+#### 移行ツールでは何が検証されますか?
+
+このツールは準備状況を評価し、サポートされている構成を転送します。 アクティブ化する前に、移行されたドメイン構成ごとに [オンデマンドプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#verify-the-configuration-with-provision-on-demand) を完了してください。 アクティブ化後、ウィザードは合計の**Total Objects**数を比較し、必要なクラウド同期ジョブの正常性を確認し、Connect Sync がステージング モードであることを確認します。
+
+個々のユーザー、グループ、メンバーシップ、マネージャーの関係、パスワード ハッシュ同期の結果、書き戻し操作、およびビジネス固有の結果には、手動検証が必要です。 [検証チェックリスト](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#what-the-migration-tool-does-not-validate-automatically)に従ってください。
 
 #### 完全にロールアウトする前に移行をテストできますか?
 
@@ -212,13 +236,21 @@ Yes. 完全なロールアウトにコミットする前に、Active Directory�
 
 #### 移行中に既存の構成は保持されますか?
 
-移行中、Connect Sync はステージング モードになり、完全に切り替える前にクラウド同期を検証できます。 必要に応じて、以前の構成にロールバックできます。 移行する前に、[インポートおよびエクスポート設定](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-import-export-config)機能を使用して、Microsoft Entra Connect 構成をバックアップします。
+[ガイド付きツールのアクティブ化](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#activate-cloud-sync)中、このツールはクラウド同期を有効にし、Connect Sync をステージング モードにします。 文書化された検証期間中に Connect Sync がインストールされた状態を維持してください。 手動での移行を行う場合は、変更を加える前に、[設定のインポートとエクスポート](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-import-export-config)機能を使用して、[Connect Sync の構成をバックアップ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#back-up-your-microsoft-entra-connect-configuration)してください。
 
 #### カスタマイズは自動的に引き継がされますか?
 
-移行ツールは、サポートされている構成を Cloud Sync に転送します。移行後、 [オンデマンド同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-on-demand-provision) を実行して、最初の運用同期に進む前に、構成が期待どおりに動作していることを検証します。サポートされている機能とカスタマイズの詳細については、 [機能の比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)を参照してください。
+サポートされている構成のみが転送されます。 ツールの [前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites) と [準備状況の結果](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#review-environment-readiness)を確認し、転送された構成を検証します。 [Provision on Demand を使用して構成を確認する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#verify-the-configuration-with-provision-on-demand) の説明に従って、アクティブ化する前に [オンデマンド プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-on-demand-provision) を完了します。 アクティブ化後、[検証手順](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#validate-synchronization-results)に従ってください。 [機能の比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)は、自動転送のサポートではなく、プラットフォームの機能を示しています。
 
 ### 機能のサポートと互換性
+
+#### ガイド付き移行ツールがブロックする機能を Cloud Sync でサポートできるのはなぜですか?
+
+この[判断ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)では、Cloud Sync プラットフォームの機能について解説しています。 [移行ツールの前提条件と制限は、](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)現在のガイド付きエクスペリエンス機能で評価および転送できる内容を示しています。 サポートされているクラウド同期機能は、ガイド付きツールで移行できることを自動的に意味するわけではありません。 状況に適したドキュメント化された手動移行手順が存在する場合にのみ、それを使用してください。 それ以外の場合は、Connect Sync を引き続き使用します。
+
+#### Cloud Sync では、デバイスの同期がサポートされています。 なぜ移行ツールが私の環境をブロックするのですか？
+
+Cloud Sync ではデバイス同期がサポートされていますが、ガイド付き移行ツールでは現在、ブロック条件として一覧表示されています。 準備完了状態を回避するために、必須の「デバイス同期」構成を削除しないでください。 移行を計画する前に、[意思決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)、[ツールの要件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)、および[Device Sync のドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)を確認してください。 デバイス同期に関する記事では、デバイス移行シーケンスではなく、構成について説明します。
 
 #### クラウド同期で現在サポートされている Connect Sync 機能はどれですか?
 
@@ -226,7 +258,7 @@ Yes. 完全なロールアウトにコミットする前に、Active Directory�
 
 #### Cloud Sync でまだ利用できない機能に依存している場合はどうなりますか?
 
-組織が依存している機能が Cloud Sync でサポートされるまで、移行する必要はありません。接続同期は、暫定的に引き続き使用できます。 これらの機能が使用可能になったら、移行を続行できます。 機能の可用性に関する更新プログラムについては、 [意思決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide) を定期的に確認してください。
+サポートされていない要件を特定するには、 [意思決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#decision-framework) を確認してください。 必要な機能または文書化された移行手順が使用できない場合は、Connect Sync を引き続き使用してください。 移行通知を受け取り、確認済みのエラーによりその期限に間に合わない場合は、[Microsoft サポートを通じて期限の延長を要求してください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#request-more-time-to-migrate)。 例外は自動的に適用されるものでも、必ず認められるものでもありません。
 
 #### Pass-Through 認証 (PTA) などのハイブリッド認証機能はどうなりますか?
 
@@ -696,16 +728,16 @@ Microsoft Entra Connect クラウド プロビジョニング エージェント
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide"} -->
-## Microsoft Entra Connect からクラウド同期への移行: 意思決定ガイド - Microsoft Entra ID
+## Microsoft Entra Cloud Sync 移行判断ガイド - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2025-02-17
-- Summary: Microsoft Entra Connect と Cloud Sync の技術的な機能を比較して、情報に基づいた移行の決定を行います。 機能の違い、制限事項、移行のタイミングについて説明します。
+- Article date: 2026-10-21
+- Summary: Microsoft Entra Connect とクラウド同期の機能 (デバイスの同期を含む) を比較して、移行の準備状況を評価し、次の手順を計画します。
 
-Microsoft Entra Cloud Sync は、ハイブリッド ID 同期のための Microsoft の戦略的方向性を表し、Active Directory と Microsoft Entra ID の間でユーザー、グループ、連絡先を同期するための最新のクラウド管理アプローチを提供します。 組織がハイブリッド ID インフラストラクチャを評価する際、情報に基づいた意思決定を行うには、技術的な利点と移行の準備状況を理解することが不可欠です。
+Microsoft Entraクラウド同期は、ハイブリッド ID 同期のMicrosoftの戦略的な方向性を表します。 Active DirectoryとMicrosoft Entra ID間のユーザー、グループ、連絡先のクラウド管理の同期を提供します。 デバイスの同期が有効になっている場合、Cloud Sync は、ハイブリッド参加のために Active Directory のコンピュータ オブジェクトを Microsoft Entra ID と同期させることができます。
 
-この意思決定ガイドは、IT アーキテクトと意思決定者が、技術的な機能を比較し、アーキテクチャ上の利点を特定し、移行準備評価を提供することで、Microsoft Entra Connect からクラウド同期への移行を評価するのに役立ちます。 基本的な概要情報については、「 [Microsoft Entra Cloud Sync とは」](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)を参照してください。詳細な移行手順については、「 [Microsoft Entra Connect から Microsoft Entra Cloud Sync への移行](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync)」を参照してください。
+この意思決定ガイドは、IT アーキテクトと意思決定者が、技術的な機能を比較し、アーキテクチャ上の利点を特定し、移行準備評価を提供することで、Microsoft Entra Connect Sync からクラウド同期への移行を評価するのに役立ちます。 基本的な概要情報については、「[Microsoft Entra Cloud Sync とは](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)」を参照してください。 詳細な移行手順については、「[Microsoft Entra Connect から Microsoft Entra Cloud Sync への移行](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync)を参照してください。
 
 新しい ID と同期機能は、主にクラウド同期プラットフォームで開発されており、ほとんどの組織で推奨されるパスです。
 
@@ -745,13 +777,17 @@ Cloud Sync は、切断された複数の Active Directory フォレストから
 
 次の表は、Microsoft Entra Connect と Cloud Sync の技術的な機能の詳細な比較を示しています。
 
+Note
+
+次の表では、Connect Sync と Cloud Sync で使用できる機能について説明します。ガイド付き移行ツールが各機能を移行できるかどうかを示すわけではありません。 移行を開始する前に、 [ガイド付き移行ツールの前提条件と制限](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites) を確認してください。
+
 | 特徴/機能 | Connect Sync | クラウド同期 | 技術ノート |
 | --- | --- | --- | --- |
 | **ユーザー、グループ、連絡先の同期** | ✓ | ✓ | 基本的なディレクトリ オブジェクト同期の完全な一致 |
 | **単一接続森** | ✓ | ✓ | どちらも標準の単一フォレスト トポロジをサポートしています |
 | **複数の接続されたフォレスト** | ✓ | ✓ | 両方とも、複数の接続されたフォレスト シナリオをサポートします |
 | **分離されたフォレストのサポート** | ✗ | ✓ | クラウド同期を使用すると、フォレストを統合せずに M&A シナリオを実現できます |
-| **デバイスの同期** | ✓ | ✗ | Connect では、Hybrid Azure AD Join がサポートされます。クラウド同期では現在サポートされていません |
+| **デバイスの同期** | ✓ | ✓ | どちらも Microsoft Entra のハイブリッド参加におけるデバイスの同期をサポートしています。Cloud Sync でデバイスの同期を個別に有効にしてください。現在のガイド付き移行ツールでは、デバイスの同期が移行の阻害要因として挙げられています。 [移行ツールの要件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を個別に確認します。 |
 | **複数のアクティブな同期インスタンス** | ✗ | ✓ | クラウド同期エージェントは、自動フェールオーバーと負荷分散を提供します |
 | **ドメインあたりのスケール制限** | 無制限 | 150K オブジェクト | クラウド同期では現在、ドメインあたり最大 150,000 個のオブジェクトがサポートされています |
 | **大規模なグループのサポート** | 250K メンバー | 50,000 人のメンバー | Connect では、より大きなグループがサポートされます。Cloud Sync のメンバー数は 50,000 人に制限 |
@@ -779,17 +815,19 @@ Cloud Sync は、切断された複数の Active Directory フォレストから
 | **シームレス シングル サインオン** | ✓ | ✓ | どちらのプラットフォームでもシームレス SSO がサポートされます |
 | **米国政府クラウド** | ✓ | ✓ | どちらもソブリン クラウドデプロイをサポートしています |
 
+構成手順については、「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。
+
 ### 移行の準備状況の評価
 
 上の表の現在の要件と機能の比較に基づいて、次のシナリオを使用して移行の準備状況を評価します。
 
 #### すぐに移行できる状態
 
-次のすべての条件を満たしている場合、組織はすぐに移行できます。
+プラットフォームの準備状況を評価するには、次の基準を使用します。 ガイド付きツールの適格性を確立したり、文書化された移行手順を置き換えたりすることはありません。
 
 - **オブジェクト スケール**: Active Directory ドメインあたり 150,000 未満のオブジェクト
 - **グループ サイズ**: メンバー数が 50,000 未満のグループ
-- **デバイス管理**: ハイブリッド Azure AD 参加を使用していない、または Cloud Kerberos Trust へ移行する意思がある
+- **デバイス管理**: Microsoft Entra ハイブリッド参加を利用する場合は、Cloud Sync の移行計画に[デバイス同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)を含めます
 - **認証**: パスワード ハッシュ同期を使用するか、ADFS/PTA 構成を個別に管理します。
 - **フィルター処理**: 複雑な属性ベースの規則ではなく、OU ベースのフィルター処理を使用する
 - **フォレストの構成**: 単一フォレストまたは接続されたフォレスト (切断されたフォレストの要件なし)
@@ -800,7 +838,6 @@ Cloud Sync は、切断された複数の Active Directory フォレストから
 
 これらの要件がサポートされる可能性がある場合は、機能の可用性に基づいて移行を計画することを検討してください。
 
-- **デバイス同期**: 現在、ハイブリッド Azure AD 参加デバイスの同期に依存しています
 - **高度なフィルター処理**: 現在のクラウド同期機能を超える複雑な属性ベースのフィルター処理を使用する
 - **AD へのユーザー プロビジョニング**: クラウドto-AD ユーザー プロビジョニング機能が必要
 
@@ -827,6 +864,12 @@ Microsoft の機能のお知らせを監視して、機能の可用性を確認�
 - **移行タイミングの計画**: 機能のお知らせの監視、ビジネス サイクルの検討、リソースの可用性の評価
 - **前提条件の検証**: 環境が[クラウド同期の前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites)を満たしていることを確認する
 - **移行プロセスのテスト**: [パイロット移行チュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp) を使用して移行プロセスを検証する
+
+プラットフォームのサポートと使用可能な移行パスの両方に基づいて結果を選択します。
+
+- **ガイド付き移行ツールを使用:** 組織とアクティブな Connect Sync のインストールが [現在のツール要件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を満たし、準備レビューによって適格性が確認されます。
+- **文書化された手動のガイダンスに従ってください:** Cloud Sync では必要なシナリオがサポートされており、Microsoft では文書化された手動移行手順が提供されています。 [移行の概要](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync#choose-a-migration-path) と [手動パイロット チュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#considerations)を確認します。
+- **Connect Sync を引き続き使用する:** 必要な機能または文書化された移行パスは利用できません。 機能比較を確認してください。 確認済みの阻害要因によって、通知された移行期限に間に合わない場合は、[時間延長をリクエストしてください](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#request-more-time-to-migrate)。
 <!-- /MSL-PAGE -->
 
 ---
@@ -1017,12 +1060,16 @@ Microsoft Entra ID では、いくつかの異なる方法でディレクトリ�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2026-09-29
+- Article date: 2026-10-21
 - Summary: Active Directory コンピューター オブジェクトをMicrosoft Entra IDに同期するように Microsoft Entra Cloud Sync を構成する方法について説明します。
 
 デバイス同期を使用すると、`AD2AADDeviceSync` Cloud Sync 構成で  ジョブを使用して、コンピューター オブジェクトを Active Directory (AD) から Microsoft Entra ID に同期できます。 同期後、デバイスは Microsoft Entra にハイブリッド参加できるようになります。
 
 デバイス同期は既定で無効になっています。 開始する前に、環境が前提条件を満たしていることを確認します。 次に、サービス接続ポイント (SCP) を構成し、デバイス同期を有効にし、オンデマンドでデバイスをプロビジョニングし、Microsoft Graphを使用してデバイスの同期を管理し、削除されたデバイスを回復します。
+
+Note
+
+この記事では、Microsoft Entra クラウド同期でデバイス同期を構成する方法について説明します。ガイド付き移行ツールがデバイス同期を Microsoft Entra Connect Sync から転送する方法については説明しません。Connect Sync からの移行を計画する前に[、移行ツールの前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を確認してください。プラットフォームの機能と使用可能な移行パスについては、[移行決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)と[移行の概要](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync#choose-a-migration-path)を参照してください。
 
 ### 前提条件
 
@@ -1874,11 +1921,11 @@ Microsoft Entra ID への誤削除防止の 4 つのグループ プロビジョ
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/hybrid/cloud-sync/how-to-active-directory-object-enforcement"} -->
-## Microsoft Entra AD オブジェクトの適用 (プレビュー) - Microsoft Entra ID
+## Microsoft Entra AD オブジェクトの強制 - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-active-directory-object-enforcement
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2026-08-11
+- Article date: 2026-10-29
 - Summary: 同期されたActive Directory オブジェクトを Microsoft Entra Cloud Sync プロビジョニング サービスによってのみ変更できるように、AD 強制プレビューを構成します。
 
 Microsoft Entra Cloud Sync では、クラウド ユーザーとグループを オンプレミスの Active Directory (AD) にプロビジョニングできます。 AD オブジェクトの適用を使用すると、特定のプロビジョニングされたユーザーとグループを保護して、Microsoft Entra プロビジョニング サービスを通じてのみ変更を実行できます。 この記事では、強制エンジンを有効にし、その共有ポリシーを構成し、適用のためにユーザーとグループをマークする方法について説明します。
@@ -1892,19 +1939,20 @@ Microsoft Entra Cloud Sync では、クラウド ユーザーとグループを 
 | 前提条件 | Details |
 | --- | --- |
 | Microsoft Entra ライセンス | ユーザーとグループを AD にプロビジョニングするために必要なライセンスを持つMicrosoft Entra テナント。 [「ライセンスの要件」を](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/overview-provision-entra-id-to-active-directory#license-requirements)参照してください。 |
-| AD ロール | ドメイン管理者。ポリシーをインストールする PowerShell スクリプトを実行し、ポリシー オブジェクトを管理します。 この特権は、ポリシーのインストールまたは変更中にのみ使用してください。 組織の Just-In-Time 特権アクセス プロセスに従って、完了したら特権アクセスを削除または非アクティブ化します。 |
-| 書き込み可能なすべての DC でサポートされているドメイン コントローラー OS | Windows Server 2022 または Windows Server 2025。 すべての書き込み可能なドメイン コントローラーで適用を有効にする必要があるため、サポートされている OS をすべて実行できることを確認します。 書き込み可能なドメイン コントローラーをサポートされている OS に持ち込めることができない場合、そのコントローラーは参加できず、ドメインに対して適用を構成することはできません。 |
+| AD ロール | ポリシー オブジェクトを作成して管理する PowerShell コマンドを実行するには、ドメイン管理者。 この特権は、ポリシーのインストールまたは変更中にのみ使用してください。 組織の Just-In-Time 特権アクセス プロセスに従って、完了したら特権アクセスを削除または非アクティブ化します。 |
+| すべての書き込み可能 DC でサポートされているドメイン コントローラー OS と更新レベル | 強制を有効にする前に、すべての書き込み可能なドメイン コントローラーを更新する必要があります。**Windows Server 2022**には 2026 年 10 月 13 日 — **KB5126655** (**OS ビルド 20348.5761**) 以降が必要です。**Windows Server 2025** には、2026 年 10 月 13 日 — **KB5126646** (**OS ビルド 26100.33650**) 以降が必要です。 |
 | エージェント ホストをプロビジョニングする | [クラウド同期エージェントの要件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites#cloud-provisioning-agent-requirements)を満たすドメイン参加済みサーバー。 Windows Server 2025 または Windows Server 2022 をお勧めします。 エージェントはドメイン コントローラーで実行する必要はありません。 |
+| ADSyncTools PowerShell モジュール | ポリシー コマンドレットを実行するコンピューターに **ADSyncTools** バージョン **2.6.0** 以降をインストールしてインポートしてください。 |
 | ドメイン機能レベルの要件なし | 強制では、ドメインまたはフォレストの機能レベルを上げる必要はありません。 機能レベルの設定ではなく、すべての書き込み可能なドメイン コントローラーを有効にすることが運用上の要件です。 |
 | Schema | Windows Server 2016 スキーマ以降に存在する既存の`msDS-ObjectSoa`属性を使用します。 スキーマ拡張機能は必要ありません。 |
-| ドメイン コントローラー インベントリ | ドメイン内のすべての書き込み可能なドメイン コントローラーのインベントリ。 それらを列挙するには、 `Get-ADDomainController -Filter * | Where-Object { -not $_.IsReadOnly }` 実行するか、 [ドメイン コントローラーの一覧を表示するを参照してください](https://learn.microsoft.com/ja-jp/powershell/module/activedirectory/get-addomaincontroller)。 |
+| ドメイン コントローラー インベントリ | ドメイン内のすべての書き込み可能なドメイン コントローラーのインベントリを保持します。 ガイダンスについては、「 [ドメイン コントローラーの一覧を表示する](https://learn.microsoft.com/ja-jp/powershell/module/activedirectory/get-addomaincontroller)」を参照してください。 |
 | AD へのプロビジョニングが構成されています | 適用するユーザーまたはグループをプロビジョニングする AD 構成へのMicrosoft Entra ID。 「[チュートリアル: Microsoft Entra IDからオンプレミス アプリへのアクセスを管理する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-users-groups-provisioning-walkthrough)」を参照してください。 |
 
+Warning
+
+書き込み可能なドメイン コントローラーをサポートされている OS および更新レベルに持ち込めない場合、そのコントローラーは参加できず、ドメインに対して適用を構成することはできません。
+
 プロビジョニング エージェントの前提条件の完全な一覧については、「[Microsoft Entra IDからActive Directoryへのプロビジョニングの前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites-provision-entra-to-active-directory)」を参照してください。
-
-Important
-
-AD ユーザーとグループの適用は **プレビュー段階です**。 プレビューは、ドメイン コントローラー上の **Active Directory 強制エンジン**と、ユーザーとグループを適用対象としてマークする **Microsoft Entra Cloud Sync** 構成の 2 つの部分で構成されます。 プレビューのAzure機能に適用される法的条件については、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)を参照してください。
 
 ### AD オブジェクトの強制適用のしくみ
 
@@ -1917,58 +1965,130 @@ AD ユーザーとグループの適用は **プレビュー段階です**。 �
 
 | Mode | Behavior |
 | --- | --- |
-| **強制適用** | ポリシーで許可されている SID のみが、適用されたユーザーとグループを変更できます。 このポリシーは、LDAP の modify 操作、modify DN 操作、およびごみ箱からの復元をブロックします。 ポリシーでは、追加に `msDS-ObjectSoa` 属性が含まれている場合でも、LDAP 追加操作が許可されます。 削除操作は、パブリック プレビュー中に許可されます。 |
+| **強制適用** | ポリシーで許可されている SID のみが、適用されたユーザーとグループを変更できます。 このポリシーは、LDAP の変更、modify DN 操作、ごみ箱からの復元をブロックし、削除操作をブロックします。 ポリシーでは、追加に `msDS-ObjectSoa` 属性が含まれている場合でも、LDAP 追加操作が許可されます。 |
 | **監査** | 変更は、既存の AD ロールベースのアクセス制御 (RBAC) ごとに許可されます。 承認されていない ID が適用されたオブジェクトを変更すると、ポリシーによって **ディレクトリ サービス** ログにイベントが書き込まれます。 [適用] に切り替える前に、監査モードを使用して帯域外の変更を検出します。 イベントを表示するには、セキュリティ診断ログを有効にします ( イベント ログの適用イベントの表示を参照してください)。 |
 
 AD オブジェクトの適用は、既存の AD RBAC モデルに **追加** されます。 追加のアクセス権を付与することなく、現在のアクセス制御の上に追加の制限を設定します。
 
 Warning
 
-**適用は、マークしたユーザーとグループにのみ適用され、マークされたオブジェクトの保護は、すべての書き込み可能なドメイン コントローラーが有効になっている場合にのみ完了します。** 適用はドメイン全体のスイッチではなく、 `msDS-ObjectSoa` 属性が設定されているオブジェクトに対してのみ有効になります。 マークされたオブジェクトごとに、ポリシーは、サポートされているオペレーティング システムを実行し、更新プログラムをインストールし、機能を有効にしているドメイン コントローラーでのみ受け入れられます。 書き込み可能なドメイン コントローラーが 1 つでも有効になっていない場合は、そのドメイン コントローラーに対する未承認の変更が成功し、そのオブジェクトのコントロールがバイパスされます。 適用に依存する前に、書き込み可能 **なすべての** ドメイン コントローラーを更新して有効にすることを計画します。
+**適用は、マークしたユーザーとグループにのみ適用され、マークされたオブジェクトの保護は、すべての書き込み可能なドメイン コントローラーが有効になっている場合にのみ完了します。** 適用はドメイン全体のスイッチではなく、 `msDS-ObjectSoa` 属性が設定されているオブジェクトに対してのみ有効になります。 マークされたオブジェクトごとに、ポリシーは、サポートされているオペレーティング システムと更新レベルで実行され、適用が有効になっているドメイン コントローラーでのみ適用されます。 書き込み可能なドメイン コントローラーが 1 つでも有効になっていない場合は、そのドメイン コントローラーに対する未承認の変更が成功し、そのオブジェクトのコントロールがバイパスされます。 使用する前に、 **すべての** 書き込み可能なドメイン コントローラーに対して適用を有効にします。 書き込み可能なドメイン コントローラーごとに、必要な累積的な更新レベルをインストールして再起動することが、適用を有効にするために必要なアクションです。
 
 ### ロールアウトを計画する
 
 大まかな構成は次のとおりです。
 
-1. 更新プログラムをインストールし、書き込み可能なすべてのドメイン コントローラーで機能を有効にします。
-2. ポリシーを適用モードまたは監査モードでインストールします。
+1. すべての書き込み可能なドメイン コントローラーに必要な累積的な更新レベルをインストールし、再起動し、強制が有効になっていることを確認します。
+2. ADSyncTools v2.6 以降をインストールし、強制モードまたは監査モードでポリシーを作成または更新します。
 3. 保護するユーザーとグループをマークします。
 
 ### 書き込み可能なすべてのドメイン コントローラーを更新して有効にする
 
-ドメイン全体で適用エンジンをオンラインにします。 **書き込み可能なすべてのドメイン コントローラー**で更新と有効化を繰り返します。
+ドメイン全体で適用エンジンをオンラインにします。 **書き込み可能なドメイン コントローラーごとに**繰り返してください。
 
-書き込み可能なドメイン コントローラーごとに、最新の累積的なWindows Server更新プログラムをインストールし、一致するグループ ポリシー (KIR) パッケージを展開して機能を有効にします。 `C:\Windows\System32\ntdsai.dll`の最小バージョンは、Windows Server 2022の場合は **10.0.20348.5257**、Windows Server **2025 の場合は 10.0.26100.32995** です。 インストールされているバージョンを確認するには、ドメイン コントローラーで `(Get-Item C:\Windows\System32\ntdsai.dll).VersionInfo.FileVersion` を実行します。
+1. ドメイン内の書き込み可能なドメイン コントローラーを列挙します。
 
-1. すべての書き込み可能なドメイン コントローラーに、最新の累積的なWindows Server更新プログラムをインストールします。
-2. 更新のプロンプトが表示されたら、ドメイン コントローラーを再起動します。
-3. 既知の問題ロールバック (KIR) 有効化モデルを使用する一致するグループ ポリシー パッケージを展開して、すべての書き込み可能なドメイン コントローラーでこの機能を有効にします。 すべての書き込み可能なドメイン コントローラーで機能を有効にする手順については、「 [グループ ポリシーを使用して既知の問題のロールバックを展開する](https://learn.microsoft.com/ja-jp/troubleshoot/windows-client/group-policy/use-group-policy-to-deploy-known-issue-rollback)」を参照してください。 一致するパッケージをダウンロードします。
+    ```powershell
+    Get-ADDomainController -Filter * | Where-Object { -not $_.IsReadOnly }
+    ```
+2. 書き込み可能な各ドメイン コントローラーに最新の累積的なWindows Server更新プログラムをインストールします。
+3. メッセージが表示されたら、各ドメイン コントローラーを再起動してください。
+4. 更新レベルの確認:
 
-    - Windows Server 2022: [Windows Server 2022のグループ ポリシー パッケージ](https://aka.ms/ADEnforcementGPMSI2022)
-    - Windows Server 2025: [Windows Server 2025 のグループ ポリシー パッケージ](https://aka.ms/ADEnforcementGPMSI2025)
-4. 有効にした後、各ドメイン コントローラーを再起動します。
+    - Windows Server 2022: **KB5126655 / OS ビルド 20348.5761 以降** またはそれ以降
+    - Windows Server 2025: **KB5126646/ OS ビルド 26100.33650** または以降
+5. enforcement バイナリのバージョンを確認します。
+
+    ```powershell
+    (Get-Item C:\Windows\System32\ntdsai.dll).VersionInfo.FileVersion
+    ```
+
+    必要なバージョン (またはそれ以降):
+
+    - Windows Server 2022:`10.0.20348.5139 (WinBuild.160101.0800)`
+    - Windows Server 2025:`10.0.26100.33648 (WinBuild.160101.0800)`
 
 プライマリ ドメイン コントローラー エミュレーター (PDCe) が更新されて有効になった後、`SOA-Policies`の下に`CN=System,DC=<your domain>` コンテナーが自動的に作成され、すべてのドメイン コントローラーにレプリケートされます。 コンテナーが存在することを確認します (実際のドメイン名に置き換えます)。 表示およびレプリケートには数分かかる場合があります。
 
 ### ポリシーを適用モードまたは監査モードでインストールする
 
-`Set-CloudSyncSOAPolicy.ps1` スクリプトは、`Cloud` コンテナー内に`SOA-Policies` ポリシー オブジェクトを作成し、プロビジョニング エージェントのグループ管理サービス アカウント (GMSA) SID をポリシーの許可リストに追加します。 `SOA-Policies` コンテナーがまだ存在しない場合は、スクリプトによって作成されます。
+ADSyncTools コマンドレットを使用して、`SOA-Policies` コンテナー内の`Cloud` ポリシー オブジェクトを作成または更新し、プロビジョニング エージェントのグループ管理サービス アカウント (GMSA) SID をポリシー許可リストに追加します。
 
-このスクリプトは、ローカルにインストールされたプロビジョニング エージェント サービスからエージェントの GMSA を読み取ります。 **Cloud Sync プロビジョニング エージェントがインストールされているマシンで実行します。**
+#### ADSyncTools のインストールとインポート (最小バージョン 2.6.0)
 
-1. Microsoft Entra Cloud Sync プロビジョニング エージェントをインストールします。 インストール手順については、「[Microsoft Entra Cloud Sync プロビジョニング エージェントのインストール」を](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-install)参照してください。
-2. プロビジョニング エージェントがインストールされているマシンにサインインします。
-3. GitHubの AzureAD/EntraIDGovernance リポジトリから [`Set-CloudSyncSOAPolicy.ps1`](https://github.com/AzureAD/EntraIDGovernance/blob/main/Set-CloudSyncSOAPolicy.ps1) PowerShell スクリプトをダウンロードします。
-4. PowerShell を管理者として開きます。
-5. スクリプトを含むフォルダーにディレクトリを変更します。
-6. スクリプトを実行します。 モードとして `Enforced` を指定します ("what-if" ロールアウトには `Audit` を使用します)。
+```powershell
+Install-Module ADSyncTools -MinimumVersion 2.6.0 -Scope CurrentUser
+Import-Module ADSyncTools -MinimumVersion 2.6.0 -Force
+```
+
+ポリシー コマンドレットが使用可能であることを確認するには:
+
+```powershell
+Get-Command -Module ADSyncTools -Name *CloudSyncSOAPolicy*
+```
+
+予想される出力:
+
+```text
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Add-ADSyncToolsCloudSyncSOAPolicyAccount           2.6.0      ADSyncTools
+Function        Get-ADSyncToolsCloudSyncSOAPolicy                  2.6.0      ADSyncTools
+Function        Remove-ADSyncToolsCloudSyncSOAPolicyAccount        2.6.0      ADSyncTools
+Function        Set-ADSyncToolsCloudSyncSOAPolicy                  2.6.0      ADSyncTools
+Function        Test-ADSyncToolsCloudSyncSOAPolicy                 2.6.0      ADSyncTools
+```
+
+#### ポリシーを構成する
+
+ポリシーを構成する前に、クラウド同期プロビジョニング サービス gMSA アカウントを特定します。
+
+1. クラウド同期エージェントがないマシンでポリシーを構成する場合は、次の手順に従って、 `-CloudSyncGmsa` を使用して gMSA を明示的に渡します。
+2. Cloud Sync プロビジョニング エージェントがインストールされているサーバーで、次を実行します。
 
     ```powershell
-    .\Set-CloudSyncSOAPolicy.ps1 -EnforcementMode Enforced -Credential (Get-Credential -Message "Enter Domain Admin credentials (format: DOMAIN\Username)")
+    Get-CimInstance Win32_Service -Filter "Name='AADConnectProvisioningAgent'" |
+      Select-Object Name, StartName, State
     ```
-7. `Cloud` ポリシーが、**強制** (または**監査**) キーワードで構成されていることを確認します。 新しいオブジェクトがドメイン間でレプリケートされる時間を許可します。
+3. `StartName`値 (たとえば、`CONTOSO\provAgentgMSA$`) に注意してください。 これは、SID が `Cloud` SOA ポリシーに存在する必要がある gMSA アカウントです。
 
-    [Image: CN=SOA-Policies コンテナーの下にある CN=Cloud ポリシー オブジェクトを示す ADSI Edit のスクリーンショット。]
+コマンドレットは、現在サインインしているアカウント (必要な権限がある場合) または明示的なドメイン管理者資格情報を使用できます。
+
+`-Credential`を使用する予定の場合は、1回キャプチャし、後続の例で`$cred`を再利用します。
+
+```powershell
+$cred = Get-Credential -Message "Enter Domain Admin credentials (format: DOMAIN\Username)"
+```
+
+- Cloud Sync がインストールされているサーバーから実行する場合は、`-Credential` を使用しないで (現在のログオン資格情報が使用されます)。
+
+    ```powershell
+    Set-ADSyncToolsCloudSyncSOAPolicy -EnforcementMode Enforced
+    ```
+- Cloud Sync がインストールされているサーバーから実行する場合は、明示的な資格情報を使用します。
+
+    ```powershell
+    Set-ADSyncToolsCloudSyncSOAPolicy -EnforcementMode Enforced -Credential $cred
+    ```
+- 明示的な gMSA を使用する場合 (たとえば、クラウド同期エージェントがインストールされていない DC から実行する場合)。
+
+    ```powershell
+    Set-ADSyncToolsCloudSyncSOAPolicy -EnforcementMode Enforced -Credential $cred -CloudSyncGmsa "CONTOSO\provAgentgMSA$"
+    ```
+
+監査モードに切り替えるには:
+
+```powershell
+Set-ADSyncToolsCloudSyncSOAPolicy -EnforcementMode Audit -Credential $cred
+```
+
+PowerShell または ADSI Edit を使用してポリシーの状態を確認します。
+
+```powershell
+Get-ADSyncToolsCloudSyncSOAPolicy
+```
+
+[Image: CN=SOA-Policies コンテナーの下にある CN=Cloud ポリシー オブジェクトを示す ADSI Edit のスクリーンショット。]
 
 ### ユーザーとグループを強制適用対象としてマークする
 
@@ -2000,14 +2120,41 @@ Cloud Sync の属性マッピングを使用して `msDS-ObjectSoa` 属性を `C
 
 ユーザー属性マッピングの詳細については、「[Active Directoryへのプロビジョニングの構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure-entra-to-active-directory#user-attribute-mappings)」を参照してください。
 
-### 強制属性を確認する
+### `msDS-ObjectSoa`属性を確認または設定する
 
-ドメイン コントローラーで ADSI Edit を使用して、マークした各オンプレミス ユーザーまたはグループにポリシーが適用されることを確認します。
+Active Directory ユーザーとコンピューター (ADUC) コンソールまたは PowerShell を使用して確認できます。
 
-1. **ADSI Edit を**開きます。
+#### ドメイン コントローラーで ADUC を使用して、マークした各オンプレミス ユーザーまたはグループにポリシーが適用されることを確認します。
+
+1. **[Active Directory ユーザーとコンピューター]** を開きます。
 2. **View**&gt;**Advanced Features** を選択します。
 3. ユーザーまたはグループに移動し、[ **プロパティ]** を開きます。
-4. `msDS-ObjectSoa` プロパティが `Cloud` に設定されていることを確認します。
+4. **[属性エディター]** タブに移動
+5. `msDS-ObjectSoa` プロパティが `Cloud` に設定されていることを確認します。
+
+#### PowerShell を使用して現在の値を取得する
+
+```powershell
+# Group
+Get-ADGroup -Identity "CN=HR-Admins,OU=Groups,DC=contoso,DC=com" -Properties msDS-ObjectSoa |
+  Select-Object Name,'msDS-ObjectSoa'
+
+# User
+Get-ADUser -Identity "CN=Adele Vance,OU=Users,DC=contoso,DC=com" -Properties msDS-ObjectSoa |
+  Select-Object Name,'msDS-ObjectSoa'
+```
+
+#### PowerShell を使用して値を設定またはクリアする
+
+```powershell
+# Set to Cloud
+Set-ADGroup -Identity "CN=HR-Admins,OU=Groups,DC=contoso,DC=com" -Replace @{ 'msDS-ObjectSoa' = 'Cloud' }
+Set-ADUser  -Identity "CN=Adele Vance,OU=Users,DC=contoso,DC=com" -Replace @{ 'msDS-ObjectSoa' = 'Cloud' }
+
+# Clear the attribute
+Set-ADGroup -Identity "CN=HR-Admins,OU=Groups,DC=contoso,DC=com" -Clear msDS-ObjectSoa
+Set-ADUser  -Identity "CN=Adele Vance,OU=Users,DC=contoso,DC=com" -Clear msDS-ObjectSoa
+```
 
 次のスクリーンショットは、グループに設定された属性を示しています。
 
@@ -2021,22 +2168,29 @@ Cloud Sync の属性マッピングを使用して `msDS-ObjectSoa` 属性を `C
 
 ### 強制モードと監査モードを切り替える
 
-モードを変更するには、`Set-CloudSyncSOAPolicy.ps1`の新しい値で`-EnforcementMode`をもう一度実行します。
+モードを変更するには、新しい `-EnforcementMode` 値を使用してポリシー コマンドレットをもう一度実行してください。
 
 ```powershell
-.\Set-CloudSyncSOAPolicy.ps1 -EnforcementMode Audit -Credential (Get-Credential -Message "Enter Domain Admin credentials (format: DOMAIN\Username)")
+Set-ADSyncToolsCloudSyncSOAPolicy -EnforcementMode Audit -Credential $cred
 ```
 
 ### 緊急アクセス用アカウント
 
-クラウド プロビジョニングが利用できないときに使用する緊急管理者アカウントなど、オンプレミスで強制ユーザーとグループを変更するための追加の ID を承認できます。 これを行うには、アカウントの SID をポリシーに追加します。
+クラウド プロビジョニングが利用できないときに使用する緊急管理者アカウントなど、オンプレミスで強制ユーザーとグループを変更するための追加の ID を承認できます。 これを行うには、アカウント SID をポリシーに追加します。
 
-1. **ADSI Edit を**開きます。
-2. **CN=SOA-Policies**&gt;**CN=Cloud** に移動します。
-3. **属性エディター**を開きます。
-4. `msDS-Settings`属性を編集し、break-glass アカウントの SID を追加します。
+```powershell
+Add-ADSyncToolsCloudSyncSOAPolicyAccount -Account "CONTOSO\breakglass-admin" -Credential $cred
+```
 
-    [Image: SID 値を持つ複数値の文字列エディターで編集されている CN=SOA-Policies の msDS-Settings 属性を示す ADSI Edit のスクリーンショット。]
+ポリシーからアカウントを削除するには:
+
+```powershell
+Remove-ADSyncToolsCloudSyncSOAPolicyAccount -Account "CONTOSO\breakglass-admin" -Credential $cred
+```
+
+Important
+
+グループが `msDS-ObjectSoa=Cloud` でマークされている場合、そのグループへの標準のオンプレミス管理者による書き込み操作は強制モードでブロックされます。 これには、オブジェクトの`msDS-ObjectSoa`をクリアしようとする試みが含まれます。 必要に応じてオブジェクトを管理または保護解除するための回復パスを保持するように、ポリシーに少なくとも 1 つのブレークグラス アカウントを保持します。
 
 次の制限と動作に注意してください。
 
@@ -2055,22 +2209,30 @@ Cloud Sync の属性マッピングを使用して `msDS-ObjectSoa` 属性を `C
 
 ### 適用ポリシーのトラブルシューティング
 
-AD オブジェクトの適用が想定どおりに動作しない場合 (たとえば、ブロックする必要があるオンプレミスの変更は引き続き処理されます)、 `Check-CloudSyncSOAPolicy.ps1` スクリプトを使用して、ドメイン コントローラーで強制が有効になっていることを確認します。
+AD オブジェクトの強制適用が想定どおりに動作しない場合 (たとえば、ブロックされるべきオンプレミスの変更が引き続き処理される場合)、`Test-ADSyncToolsCloudSyncSOAPolicy` を使用してポリシーの状態とドメイン コントローラーの診断を検証します。
 
-1. GitHubの AzureAD/EntraIDGovernance リポジトリから[`Check-CloudSyncSOAPolicy.ps1`](https://github.com/AzureAD/EntraIDGovernance/blob/main/Check-CloudSyncSOAPolicy.ps1) スクリプトをダウンロードします。
-2. 検証するドメイン コントローラーにサインインします。
-3. PowerShell を管理者として開きます。
-4. スクリプトを含むフォルダーにディレクトリを変更します。
-5. スクリプトを実行します。 そのドメイン コントローラーで AD オブジェクト強制ポリシーが有効になっているかどうかを報告します。
+1. 検証するドメイン コントローラーにサインインします。
+2. PowerShell を管理者として開きます。
+3. ADSyncTools をインポートし、check コマンドレットを実行します。
+
+    ```powershell
+    Import-Module ADSyncTools -MinimumVersion 2.6.0 -Force
+    Test-ADSyncToolsCloudSyncSOAPolicy
+    ```
+4. Cloud Sync エージェント サービスがないマシンからチェックを実行する場合は、Cloud Sync gMSA を明示的に指定します。
+
+    ```powershell
+    Test-ADSyncToolsCloudSyncSOAPolicy -Credential $cred -CloudSyncGmsa "CONTOSO\provAgentgMSA$"
+    ```
 
 ブロックする必要がある変更が引き続き成功する場合は、次の点を確認します。
 
-- 変更は、**更新されておらず**有効になっていないドメイン コントローラーに書き込まれました。 **すべての書き込み可能なドメイン コントローラー**に更新プログラムとグループ ポリシー パッケージが含まれており、後で再起動されたことを確認します。 クライアントが使用するドメイン コントローラーを見つけるには、 `nltest /dsgetdc:<your domain>`を実行します。
+- 変更は、**更新されておらず**有効になっていないドメイン コントローラーに書き込まれました。 **すべての書き込み可能なドメイン コントローラー**に必要な更新レベルがあり、その後再起動されたことを確認します。 クライアントが使用するドメイン コントローラーを見つけるには、 `nltest /dsgetdc:<your domain>`を実行します。
 - ポリシーは、強制ではなく **監査** モード **です**。
 - `SOA-Policies` コンテナーは、`CN=System,DC=<your domain>`の下に存在します。
 - `msDS-ObjectSoa`属性は、ターゲット ユーザーまたはグループに設定されます。 そうでない場合は、該当するユーザーまたはグループ属性のマッピングを確認し、プロビジョニング サイクルを実行します。
 
-承認された変更が予期せずブロックされた場合は、アクションアカウントの SID がポリシーの `msDS-Settings` 属性に存在し、変更が書き込みを処理するドメイン コントローラーにレプリケートされていることを確認します。
+承認された変更が予期せずブロックされた場合は、動作するアカウント SID がポリシーの `msDS-Settings` 属性に存在し、変更が書き込みを処理するドメイン コントローラーにレプリケートされていることを確認してください。
 
 ### ポリシーをテストする
 
@@ -2082,12 +2244,11 @@ AD オブジェクトの適用が想定どおりに動作しない場合 (たと
 - ポリシーに SID を「緊急用アカウント」として追加し、そのアカウントを使用して更新を行います。 変更は成功するはずです。
 - 書き込み可能な各ドメイン コントローラーに対して同じ未承認の変更を試み、ドメイン全体で適用が一貫することを確認します。
 
-### このプレビューでの既知の動作と制限事項
+### 既知の動作と制限事項
 
 - Microsoft Entraでユーザーまたはグループの権限のソースを変換しても、AD 内のオブジェクトは自動的にロックダウンされません。 この記事の手順を実行して、AD へのプロビジョニングによってオブジェクトを適用済みとしてマークします。
-- 強制によって削除が妨げることはありません。
 - 強制は、マークされた各オブジェクトの属性と、グループのメンバーシップを保護します。 強制グループを非強制グループにネストすることに制限はありません。
-- AD へのユーザーとグループのプロビジョニングに関する既存の制限は、このプレビュー期間中も引き続き適用されます。
+- AD へのユーザーとグループのプロビジョニングに関する既存の制限が引き続き適用されます。
 - 適用は、有効になっているドメイン コントローラーでのみ有効になります。 すべての書き込み可能なドメイン コントローラーで機能を有効にします。それ以外の場合は、有効になっていないドメイン コントローラーに書き込まれた変更が処理されます。
 <!-- /MSL-PAGE -->
 
@@ -4051,7 +4212,7 @@ Microsoft Entra Cloud Sync を使用すると、スコープ内のすべての�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2026-07-27
+- Article date: 2026-10-22
 - Summary: この記事では、クラウド同期に必要な前提条件とハードウェア要件について説明します。
 
 この記事では、ID ソリューションとして Microsoft Entra Cloud Sync を使用する方法に関するガイダンスを提供します。
@@ -4068,6 +4229,12 @@ Microsoft Entraクラウド同期を使用するには、次のものが必要�
 - Windows Credential Manager サービス (VaultSvc) は、プロビジョニング エージェントのインストールを妨げるので無効にできません。
 - 高可用性とは、Microsoft Entraクラウド同期が長時間障害なく継続的に動作する機能を指します。 複数のアクティブなエージェントをインストールして実行することで、1 つのエージェントで障害が発生した場合でも、Microsoft Entra Cloud Sync を引き続き機能させることができます。 Microsoft では、高可用性のために 3 つのアクティブなエージェントをインストールすることをお勧めします。
 - オンプレミスのファイアウォール構成。
+
+#### Active Directory サイトの構成
+
+Microsoft Entra プロビジョニング エージェントは、標準のActive Directory ドメイン コントローラー検出メカニズムを使用します。 DNS 構成、サブネットとサイトのマッピング、またはサイト構成が正しくないと、同期の失敗、パフォーマンスの問題、または断続的な接続の問題が発生する可能性があります。
+
+プロビジョニング エージェントをホストしているサーバーが、Active Directoryサイトで正しく定義されていることを確認します。 **Active Directory サイトとサービス**で、各サーバーの IP サブネットを適切なサイトに関連付けます。 適切なサイトと DNS の構成は、エージェントが適切なドメイン コントローラーを検出するのに役立ち、同期の信頼性とパフォーマンスを向上させることができます。
 
 ### Microsoft Entra プロビジョニング エージェント サーバーを強化する
 
@@ -5065,20 +5232,37 @@ Request body:
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync"} -->
-## Microsoft Entra Connect を Microsoft Entra クラウド同期に移行する - Microsoft Entra ID
+## Microsoft Entra クラウド同期に移行する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2025-04-09
-- Summary: Microsoft Entra Connect を Microsoft Entra クラウド同期に移行する手順について説明します。
+- Article date: 2026-10-21
+- Summary: デバイスの同期や前提条件のチェックなど、Microsoft Entra Connect から Microsoft Entra Cloud Sync への段階的な移行を計画する方法について説明します。
 
-Microsoft Entra クラウド同期は、ユーザー、グループ、および連絡先を Microsoft Entra ID に同期するというハイブリッド ID の目標を達成するための将来的な機能です。 この機能では、Microsoft Entra Connect アプリケーションではなく Microsoft Entra クラウド プロビジョニング エージェントが使用されます。 現在 Microsoft Entra Connect を使用しており、クラウド同期に移行したい場合は、次のドキュメントでガイダンスが提供されています。
+Microsoft Entra Cloud Sync は、Microsoft Entra プロビジョニング エージェントを使用して、ユーザー、グループ、連絡先をActive DirectoryからMicrosoft Entra IDに同期します。 デバイスの同期が有効になっている場合、Cloud Sync では、Microsoft Entra ハイブリッド参加用のコンピューター オブジェクトも同期できます。 このガイドを使用して、Microsoft Entra Connect Sync からの移行パスを選択し、文書化された手動手順が適用される場合は段階的な移行を計画します。
 
-### Microsoft Entra Connect をクラウド同期に移行するための手順
+### 移行パスを選択する
+
+移行の [決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync) から始めて、Cloud Sync プラットフォームの機能を確認してください。 次に、 [個別のガイド付き移行ツールの前提条件と制限を確認します](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)。
+
+| 移行経路 | いつ使用するか |
+| --- | --- |
+| [ガイド付き移行ツール](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool) | 移行オプションがアクティブな Connect Sync サーバーに表示され、準備状況レビューによって環境が要件を満たしていることが確認されます。 |
+| [手動段階的移行](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#considerations) | Cloud Sync は必要なシナリオをサポートしており、ガイド付きツールではサポートされておらず、Microsoftは文書化された手動移行手順を提供します。 |
+| Connect Sync の使用を続行する | 現在、必要な機能やドキュメント化された移行手順は利用できません。 [判断ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#decision-framework)を確認します。 |
+
+### Microsoft Entra Connect から Cloud Sync に移行する手順
 
 Important
 
-パイロット フェーズまたは共存フェーズの間は、OU、ドメイン、グループ、ユーザー、コンタクト、またはその他の参照されるオブジェクトを Microsoft Entra Connect Sync のスコープから削除しないでください。 オブジェクトが完全に移行され、最終的なカットオーバーの準備が整うまで、既存のスコープを構成したままにしておきます。 最終的なカットオーバーの前にスコープからオブジェクトを削除するのは安全ではありません。Microsoft Entra コネクタ スペース内の参照を削除し、参照の削除 (グループ メンバーシップの削除など) をMicrosoft Entra IDにエクスポートできます。
+段階的な移行中は、移行と参照の検証が完了する前に、Connect Sync スコープから組織単位 (OU)、ドメイン、グループ、ユーザー、連絡先、またはその他の参照オブジェクトを削除しないでください。 スコープを早期に削除すると、Microsoft Entra IDでのグループ メンバーシップの削除など、意図しない参照の削除が発生する可能性があります。 [Microsoft Entra Connect Sync からのプラン スコープの削除の確認](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#plan-scope-removal-from-microsoft-entra-connect-sync)
+
+次のプロセスでは、手動の段階的移行について説明します。 環境が対象の場合は、代わりに [ガイド付き移行ツール](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool) を使用してください。
+
+- **スコープ内**とは、そのオブジェクトが同期構成内で引き続き表現されることを意味します。
+- **エクスポート権限**とは、通常の変更をエクスポートする役割を担う同期エンジンを指します。
+- 記録された手動パイロット運用中、オブジェクトは Connect Sync の範囲内に留まりますが、`cloudNoFlow` および `JoinNoFlow` により、通常の Connect Sync エクスポートは行われません。
+- クラウド同期の移行と参照の検証が完了した後にのみ、Connect Sync スコープからオブジェクトを削除します。
 
 サポートされている共存モデルは、Microsoft Entra Connect Sync スコープにオブジェクトを保持し、`cloudNoFlow`と`JoinNoFlow`ルールを使用して、Microsoft Entra Connect Sync がオブジェクトの追加、オブジェクト削除、および非参照属性の更新をエクスポートできないようにすることです。 `member`や`manager`などの参照属性の更新は、引き続き参照解決のためにフローできます。
 
@@ -5086,8 +5270,8 @@ OU や別の定義されたバッチなど、段階的に移行することも�
 
 | ステップ | 説明 |
 | --- | --- |
-| 最適な同期ツールを選択する | クラウド同期に移行する前に、クラウド同期が現在最適な同期ツールであることを確認する必要があります。 このタスクは、 [サポートされている同期シナリオの比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios)を確認することで実行できます。 |
-| 移行の前提条件を確認する | 次のガイダンスは、簡易設定を使用して Microsoft Entra Connect をインストールし、デバイスを同期していないユーザーのみを対象としています。 また、クラウド同期の[前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites)も確認する必要があります。 |
+| 最適な同期ツールを選択する | [移行の決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)と[サポートされている同期シナリオの比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios)を確認します。 この手動プロセスを選択する前に、[ガイド付きツールの対象条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を確認してください。 |
+| 移行の前提条件を確認する | このガイダンスは、Express 設定を使用して Microsoft Entra Connect をインストールしたユーザーを対象とします。 Microsoft Entraハイブリッド参加のデバイスを同期する場合は、Cloud Sync 移行計画に[デバイス同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)を含めます。 また、[Cloud Sync の前提条件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-prerequisites)も確認してください。 |
 | Microsoft Entra Connect 構成をバックアップする | 何らかの変更を行う前に、Microsoft Entra Connect 構成をバックアップする必要があります。 これにより、ロールバックできます。 詳細については、「[Microsoft Entra Connect 構成設定をインポートおよびエクスポートする](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-import-export-config)」を参照してください。 |
 | 移行チュートリアルを確認する | 移行プロセスを理解するには、チュートリアル「[既存の同期済み AD フォレストを Microsoft Entra クラウド同期に移行する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)」を参照してください。 このチュートリアルでは、サンドボックス環境での移行プロセスについて説明します。 |
 | 移行用の OU を作成または特定する | 新しい OU を作成するか、移行をテストするユーザーを含む既存の OU を特定します。 移行中は、この OU を Microsoft Entra Connect Sync スコープに保持します。 |
@@ -5102,7 +5286,7 @@ OU や別の定義されたバッチなど、段階的に移行することも�
 | 残りのユーザーをスケジュールする | 残りのユーザー、グループ、連絡先、および関連する参照オブジェクトの段階的な移行計画を作成します。 OU 単位などでバッチごとに移行できますが、各バッチが完全に移行され、カットオーバーの準備が整うまでは、no-flow ルールを適用した Microsoft Entra Connect Sync のスコープ内に各バッチを維持してください。 |
 | すべてのユーザーがプロビジョニングされていることを確認する | ユーザーを移行するときは、ユーザーが正しくプロビジョニングおよび同期されていることを確認してください。 |
 | Microsoft Entra Connect を停止する | 移行スコープ内のすべてのオブジェクトが Microsoft Entra Cloud Sync によってプロビジョニングされ、その参照 (グループ メンバーシップやマネージャーのリレーションシップなど) がそのまま残っていることを確認したら、最終的なカットオーバーの一環として、そのスコープMicrosoft Entra Connect Sync を停止できます。 Microsoftでは、移行が成功したことを確認できるように、サーバーを一定期間無効な状態のままにすることをお勧めします。 |
-| すべてが正常であることを確認する | 一定期間が経過したら、すべてが正常であることを確認します。 |
+| 移行結果を検証する | [計画の範囲の削除](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#plan-scope-removal-from-microsoft-entra-connect-sync)に記載されている手順に従って、移行されたオブジェクトとそれらの参照を検証してください。 ガイド付きツールを用いた移行を行う場合は、[同期結果の検証](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#validate-synchronization-results)の手順に従ってください。 質問や問題については、移行に関する [FAQ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/cloud-sync-migration-faq) と [ガイド付きツールのトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#troubleshoot-common-issues)を確認してください。 |
 | Microsoft Entra Connect サーバーの使用を停止する | すべてに問題がないことを確認したら、Microsoft Entra Connect サーバーをオフラインにすることができます。 詳細については、「[Microsoft Entra Connect のアンインストール](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-uninstall)」を参照してください。 |
 
 ### ユーザー確認スクリプト
@@ -5158,10 +5342,14 @@ Write-Host "Total Users found:" + $counter
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2026-09-16
+- Article date: 2026-10-21
 - Summary: Microsoft Entra Connect Sync から Microsoft Entra Cloud Sync に移行し、アクティブ化後に同期を検証する方法について説明します。
 
 ガイド付き移行ツールを使用して、サポートされている同期設定を Microsoft Entra Connect Sync から Microsoft Entra Cloud Sync に移動します。このツールは、環境を評価し、必要なクラウド同期構成を作成し、事前アクティブ化プロビジョニング オンデマンド チェックを実行します。 次に、Connect Sync をステージング モードにし、Cloud Sync をアクティブ化して、事後アクティブ化の検証を行います。 開始する前に、前提条件とサポートされている移行シナリオを確認してください。
+
+Important
+
+アクティブな Connect Sync サーバーから移行を開始します。 移行ツールをステージング モードで Connect Sync サーバーから起動することはできません。
 
 ### 前提条件
 
@@ -5175,6 +5363,12 @@ Write-Host "Total Users found:" + $counter
 - Connect Sync と Cloud Sync の他の違いについて [、サポートされているシナリオと機能の比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync) を確認します。
 - アクティブな Microsoft Entra Connect 同期サーバーへのアクセス。 ステージング モードでサーバーから移行ツールを実行することはできません。
 - 移行後 2 週間の検証期間。 この期間中Microsoft Entra Connect Sync をインストールしたままにしておきます。
+
+Note
+
+Cloud Sync では、現在のガイド付き移行ツールでは移行できない機能にも対応しています。 このページに記載されている制限事項は、ガイド付き体験の利用資格に関するものであり、Cloud Sync のすべての機能を示すものではありません。 [移行決定ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync) を個別に確認します。
+
+Cloud Sync はデバイス同期をサポートしていますが、現在、デバイス同期はガイド付きツールの移行の阻害要因です。 準備をバイパスするために必要なデバイス同期を削除しないでください。 移行を計画する前に、決定ガイドと [デバイス同期のドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync) を確認してください。
 
 移行ツールでは、次の同期シナリオの転送がサポートされています。
 
@@ -5210,6 +5404,18 @@ Write-Host "Total Users found:" + $counter
 ### 環境の準備状況を確認する
 
 準備レビューには、ドメイン、スコープ、有効な機能、認証関連の設定、書き戻し設定、オブジェクトの制限、既存のクラウド同期エージェントまたは構成、サポートされていない同期規則を含めることができます。 ウィザードには、接続同期の誤削除保護設定と削除しきい値も表示されます。 移行を続行するには、これらの設定を読み取り可能で有効にする必要があります。
+
+準備状況の結果を使用して、次のアクションを決定します。
+
+| 準備状況 | 意味 | 顧客のアクション |
+| --- | --- | --- |
+| Supported | このシナリオは、ガイド付き移行ツールを使用して進めることができます。 | 評価を確認し、続行してください。 |
+| 注意が必要 | 環境には、確認する必要がある設定が含まれています。 | リンク先のガイダンスに従い、ドキュメントに記載されている通りに評価を再実行または再開します。 |
+| 移行がブロックされました | 環境は、現在のガイド付きツールの要件を満たしていません。 | 結果をバイパスしないでください。 記録された不具合を是正するか、必要な機能が利用可能になるまで待機するか、あるいは該当する場合は期限の延長を要求します。 |
+
+機能、スコープ、オブジェクト数上限に関するブロッカーについては、ツールの前提条件を確認してください。 デバイスの同期については、[デバイスの同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)を参照してください。誤削除の防止については、[誤削除](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-accidental-deletes)を参照してください。
+
+評価を確認し、対象になったら続行するには:
 
 1. 各結果とブロック条件を確認します。
 2. 誤削除保護の設定と削除のしきい値を確認します。
@@ -5288,9 +5494,34 @@ Caution
 
 次の Connect Sync ステージング サイクルを待機する必要がある場合は、ウィザードを閉じて、Connect Sync 構成ミューテックスを解放します。 ウィザードは遷移状態を保持します。 検証を再開するには、Connect Sync Microsoft Entra再度開き、[**クラウド同期Microsoft Entra移行**] を選択し、概要を確認して、メッセージが表示されたらもう一度Microsoft Entraにサインインします。 検証ページに進み、結果を更新します。
 
+#### 移行ツールが自動的に検証しない内容
+
+**合計オブジェクト数**の集計比較では、個々のオブジェクトやビジネス固有の成果については検証されません。 手動で検証:
+
+- 個々のユーザーとグループ。
+- グループ所属とマネージャーとの関係。
+- パスワード ハッシュ同期の結果。
+- パスワード ライトバックと Exchange ハイブリッド ライトバック。
+- その他のビジネス上重要なオブジェクトと属性の挙動。
+
+検証を完了する前に、次のチェックリストを使用してください。
+
+- 集計オブジェクトの数を確認します。
+- クラウド同期ジョブの正常性と最後の同期情報を確認します。
+- プロビジョニング エラーを確認します。
+- 代表的なユーザーとグループを検証します。
+- 組織で使用されるグループ メンバーシップとマネージャーの関係を検証します。
+- 有効になっているすべてのライトバック シナリオを検証します。
+- 永続的なオブジェクト レベルの違いを調査します。
+- 2週間の検証期間中、Connect Sync をインストールしたままにしてください。
+
 ### 移行の時間を増やす
 
 Microsoftは、製品内のエクスペリエンスと電子メールを通じて、対象となる組織に通知します。 この通知は、組織の移行期間または期限を識別し、移行ガイダンスに移動します。
+
+Important
+
+組織のテナント固有の通知には移行日を使用してください。 Connect Sync のバージョン終了、認証方法の変更、Cloud Sync への移行については、それぞれ異なるスケジュールとなる場合があります。
 
 確認された技術的またはビジネス上の阻害要因によって、通知の期限までに移行を完了できなくなる場合は、一時的な Cloud Sync 移行例外のMicrosoft サポート要求を開きます。 例外は個別にレビューされ、保証されず、移行の要件は削除されません。
 
@@ -5303,7 +5534,7 @@ Microsoftは、製品内のエクスペリエンスと電子メールを通じ�
 - 試した軽減策と、それらが阻害要因を解決しなかった理由。
 - マイルストーンと目標完了日を含む移行計画。
 
-セキュリティで保護されたMicrosoft サポート チャネル経由でのみ証拠を送信します。 レポート、ログ、またはスクリーンショットをアップロードする前に、Microsoft サポートによる調査に不要な資格情報、シークレット、トークン、証明書関連情報、個人データ、内部ホスト名、識別名、および無関係なテナント識別子を削除してください。 サポートが問題を調査できるように、要求されたテナントと相関関係の識別子を保持します。
+診断用証拠と情報のマスキングに関する要件については、Microsoft サポート向けの証拠の収集を参照してください。
 
 ### 一般的な問題のトラブルシューティング
 
@@ -5311,12 +5542,28 @@ Microsoftは、製品内のエクスペリエンスと電子メールを通じ�
 
 | Issue | 確認すべきこと | 収集する裏付け資料 |
 | --- | --- | --- |
+| 移行オプションがありません | ステージング モードのサーバーではなく、アクティブな Connect Sync サーバーで開始してください。 Connect Sync のバージョンがサポートされていること、および組織とインストールが現在の移行ウェーブの対象であることを確認します。 「前提条件」を参照してください。 | 正確なエラー テキスト (表示されている場合)、および編集されたスクリーンショット。 |
 | 準備レビューによって移行がブロックされる | ブロック機能、スコープ、オブジェクトの制限、誤削除の保護設定、または構成の競合を確認します。 | 準備レポートとブロック結果の編集されたスクリーンショット。 |
 | 転送に失敗する | Connect Sync トレース ログで、資格情報の検証、エージェントのインストール、登録、Microsoft Graph操作、ジョブ作成の失敗を確認します。 | トレース ログの抜粋、タイムスタンプ、ウィザードの手順、エラー テキスト、関連付け識別子 (表示されている場合)。 |
 | アクティブ化が失敗する | ウィザードの回復手順に従います。 手動による変更は復旧に干渉する可能性があるため、移行所有のクラウド同期リソースを削除、無効化、または再タグ付けしないでください。 | 診断 ID、エクスポートされたウィザード ログ、タイムスタンプ、ウィザード ステップ、およびエラー テキスト。 |
 | オンデマンドプロビジョニングが失敗する | エージェントの正常性、ディレクトリ接続、アクセス許可、オブジェクト識別名、および詳細なプロビジョニング結果を確認します。 | オンデマンド プロビジョニングの結果の詳細とプロビジョニング ログ。 |
 | 検証件数が一致しません | 次の Connect Sync ステージング サイクルを待機している間、ウィザードを閉じます。 ウィザードを再度開き、検証に戻り、集計カウントの比較を更新して、永続的なオブジェクト レベルの違いを調査します。 | 検証のスクリーンショット、最終同期時刻、ジョブの正常性、および関連するプロビジョニング エラー。 |
 | 既存のクラウド同期構成が検出されました | 既存の構成が互換性のある書き戻し構成であるか、競合するActive Directory対Microsoft Entra構成であるかを判断します。 | テナント識別子が伏せられた構成名、方向、スコープ、および状態。 |
+
+### Microsoft サポート向けの証拠を収集する
+
+サポート リクエストを開く前に、問題に関連する証拠を収集します。
+
+- 準備状況のレポート。
+- 正確なエラー テキスト、ウィザードの手順、タイムスタンプ。
+- 診断 ID または関連付け ID (表示されている場合)。
+- エクスポートされたウィザード ログと関連する Connect Sync トレース ログの抜粋。
+- プロビジョニング エージェントの正常性とクラウド同期ジョブの状態。
+- オンデマンド プロビジョニングの結果詳細。
+- 関連するプロビジョニング エラーと最後の同期情報。
+- イシューをマスキングしたスクリーンショット。
+
+セキュリティで保護されたMicrosoft サポート チャネル経由でのみ証拠を送信します。 レポート、ログ、またはスクリーンショットをアップロードする前に、Microsoft サポートによる調査に不要な資格情報、シークレット、トークン、証明書関連情報、個人データ、内部ホスト名、識別名、および無関係なテナント識別子を削除してください。 サポートが問題を調査できるように、要求されたテナントと相関関係の識別子を保持します。
 <!-- /MSL-PAGE -->
 
 ---
@@ -5817,7 +6064,7 @@ Active Directoryへのプロビジョニングは、構成ベースのライセ�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2025-04-09
+- Article date: 2026-10-21
 - Summary: Microsoft Entra Cloud Sync を使用する、オンプレミスと Microsoft Entra ID 間のさまざまなトポロジについて説明します。
 
 この記事では、Microsoft Entra Cloud Sync を使用する、オンプレミスと Microsoft Entra 間のさまざまなトポロジについて説明します。この記事には、サポートされている構成とシナリオのみが含まれています。
@@ -5861,9 +6108,13 @@ Active Directory から Microsoft Entra ID へのプロビジョニングでサ�
 
 [Image: 単一のMicrosoft Entra テナントを持つ単一フォレスト トポロジを示す図。]
 
-パイロット シナリオでは、Microsoft Entra Connect と Microsoft Entra Cloud Sync の両方が同じフォレストに存在し、それに応じてユーザーとグループのスコープを設定します。 注:オブジェクトは、いずれかのツールでのみスコープ内にある必要があります。
+パイロット シナリオには、同じフォレスト内で、Microsoft Entra Connect Sync と Cloud Sync が含まれます。 Connect Sync と Cloud Sync では、同じオブジェクトと属性セットの通常の変更を同時にエクスポートしてはなりません。 文書化された手動の段階的移行プロセス中、オブジェクトは Connect Sync の範囲内に残ったままとなりますが、`cloudNoFlow` と `JoinNoFlow` のルールにより、通常の Connect Sync によるエクスポートが阻止され、必要な参照関係が維持されます。
 
-このシナリオの例については、[チュートリアル: 既存の同期済み AD フォレストでの Microsoft Entra Cloud Sync のパイロット](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)に関する記事を参照してください。
+文書化されたプロセスについては、手動移行チュートリアルの [カスタム ユーザー受信ルールの作成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#create-a-custom-user-inbound-rule) を参照してください。
+
+重要
+
+移行と参照の検証が完了する前に、Connect Sync スコープからオブジェクトを削除しないでください。 スコープを早期に削除すると、意図しない参照の削除が発生する可能性があります。 [Microsoft Entra Connect Sync からのプラン範囲の削除手順](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#plan-scope-removal-from-microsoft-entra-connect-sync)に従ってください。
 
 #### 切断されたソースからのオブジェクトのマージ
 
@@ -7003,6 +7254,14 @@ AD オブジェクトの適用は、既存の RBAC モデルに追加されま�
 
 URL `https://aka.ms/cloudsyncrss` をコピーして、お使いの [Image: RSS フィード リーダー アイコン] フィード リーダーに貼り付け、更新内容を確認するためにこのページに再度アクセスするタイミングに関する通知を受け取るようにしてください。
 
+### 1.1.2507.0
+
+**リリース日:** 2026 年 10 月 8 日
+
+#### 修正された問題
+
+- ローカライズされたWindows Serverインストールでエージェントのインストールが失敗する問題を修正しました。これには、エラー `0x80070643`を含むポーランド語、ドイツ語、オランダ語の言語が含まれますが、これらに限定されません。
+
 ### 1.1.2505.0
 
 **リリース日:** 2026 年 9 月 21 日
@@ -7023,6 +7282,10 @@ URL `https://aka.ms/cloudsyncrss` をコピーして、お使いの [Image: RSS 
 #### セキュリティ強化
 
 - ハイブリッド ID 同期デプロイの信頼性と保護をさらに強化するために、セキュリティ強化の強化が追加されました。
+
+#### 既知の問題
+
+- ポーランド語、ドイツ語、オランダ語などのローカライズされたWindows Serverインストールにエージェントをインストールする場合、操作はエラー `0x80070643`とロールバックで失敗する可能性があります。
 
 ### 1.1.2334.0
 
@@ -7067,7 +7330,7 @@ URL `https://aka.ms/cloudsyncrss` をコピーして、お使いの [Image: RSS 
 
 #### 既知の問題
 
-- AzueUSGovernment のお客様で、Microsoft Entra プロビジョニング エージェントでパスワードの書き戻しを有効にしている場合、操作が失敗する可能性があります。 この問題に対処するためにエージェントをバージョン1.1.2108.0にアップグレードしてください。
+- AzureUSGovernment のお客様で、プロビジョニング エージェントでパスワードの書き戻しMicrosoft Entra有効にしている場合、操作が失敗する可能性があります。 この問題に対処するためにエージェントをバージョン1.1.2108.0にアップグレードしてください。
 
 ### 1.1.1586.0
 
@@ -8269,12 +8532,18 @@ Microsoft Entra ID によってエージェントが登録されていること�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2025-09-29
+- Article date: 2026-10-21
 - Summary: 同期された Active Directory フォレストの Microsoft Entra Cloud Sync に移行する方法について説明します。
 
 このチュートリアルでは、Microsoft Entra Connect Sync を使用して同期されたテスト Active Directory フォレストの Microsoft Entra Cloud Sync に移行する方法について説明します。
 
-この記事では、基本的な移行に関する情報を提供します。 運用環境 [の移行を試みる前に、Microsoft Entra Cloud Sync](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync) への移行に関するドキュメントを確認してください。
+このチュートリアルを参照して、ドキュメントで説明されている手動移行プロセスを試行してください。 運用環境 [の移行を試みる前に、Microsoft Entra Cloud Sync](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync) への移行に関するドキュメントを確認してください。
+
+Important
+
+このチュートリアルでは、テスト環境またはパイロット環境の高度な手動移行について説明します。 [ガイド付き移行ツール](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool)が利用可能で、準備状況レビューで適格性が確認された場合は、代わりにガイド付き移行ツールを使用します。
+
+移行と参照の検証が完了する前に、Connect Sync スコープからオブジェクトを削除しないでください。 作業を開始する前に、Microsoft Entra Connect Sync からのプラン範囲の削除を確認してください。
 
 このチュートリアルでは、以下の内容を学習します。
 
@@ -8298,7 +8567,7 @@ Microsoft Entra ID によってエージェントが登録されていること�
     Microsoft Entra Connect Sync スコープからオブジェクトを削除すると、Active Directory コネクタ スペース、メタバース、Microsoft Entra コネクタ スペースから削除されます。 この削除により、コネクタ スペース内の参照が削除され、グループ メンバーシップの削除などの参照削除がMicrosoft Entra IDにエクスポートされます。
 - Microsoft Entra Cloud Sync がオブジェクトと一致するように、パイロット スコープ内のオブジェクトに `ms-ds-consistencyGUID` が設定されていることを確認します。
 
-    Microsoft Entra Connect Sync では、グループ オブジェクトの `ms-ds-consistencyGUID` は既定では設定されません。
+    Microsoft Entra Connect Sync では、グループ オブジェクトの `ms-ds-consistencyGUID` は既定では設定されません。 オブジェクトの種類間で文書化されている違いについては、 [ソースアンカーのガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) を確認してください。
 - このチュートリアルの手順に正確に従ってください。 この構成は、高度なシナリオ用です。
 
 #### Microsoft Entra Connect Sync からのスコープの削除を計画する
@@ -8384,6 +8653,10 @@ Important
     [Image: 同期規則の変換を示すスクリーンショット。]
 
 すべてのオブジェクトの種類 (ユーザー、グループ、連絡先) に対して同じ手順に従います。 構成されている Active Directory コネクタまたは Active Directory フォレストに従って、手順を繰り返します。
+
+ノート
+
+このチュートリアルでは、デバイスの移行手順については説明しません。 デバイスの同期には、個別のクラウド同期構成が必要です。 デバイスの移行を計画する前に、 [デバイス同期のドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync) と [ガイド付き移行ツールの制限](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites) を確認してください。
 
 ### カスタム ユーザー送信規則を作成する
 
@@ -8907,24 +9180,34 @@ Tip
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/hybrid/cloud-sync/what-is-cloud-sync"} -->
-## Microsoft Entra Cloud 同期とは - Microsoft Entra ID
+## Microsoft Entra クラウド同期とは? - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/what-is-cloud-sync
 - Service: entra-id / hybrid-cloud-sync
-- Article date: 2025-02-17
-- Summary: Microsoft Entra Cloud 同期について説明します。
+- Article date: 2026-10-21
+- Summary: Microsoft Entra Cloud Sync が、Active Directory から Microsoft Entra ID へユーザー、グループ、連絡先を同期する方法、および有効化されたデバイス同期がハイブリッド参加をどのようにサポートするかについてご説明します。
 
-Microsoft Entra Cloud Sync は、Active Directory と Microsoft Entra ID の間のユーザー、グループ、および連絡先の最新のクラウド管理同期を提供するハイブリッド ID 同期サービスです。 これは、ハイブリッド ID に対する Microsoft の戦略的な方向性を表し、デプロイと管理を簡素化しながら、切断されたフォレストの同期などの高度なシナリオを可能にする、軽量のエージェントベースのアプローチを提供します。
+Microsoft Entra Cloud Sync は、ハイブリッド ID 同期サービスです。 Active DirectoryとMicrosoft Entra ID間のユーザー、グループ、連絡先のクラウド管理の同期を提供します。 デバイスの同期が有効になっている場合、Cloud Sync は Active Directory のコンピュータ オブジェクトを Microsoft Entra ID と同期できるため、デバイスを Microsoft Entra ハイブリッド参加の状態にすることができます。
 
-Cloud Sync は、単一障害点を排除し、オンプレミスの管理オーバーヘッドを削減し、組織の成長と変化をサポートする複雑なマルチフォレスト シナリオを可能にすることで、ハイブリッド ID インフラストラクチャで組織が直面する一般的な課題を解決します。
+Cloud Sync では、Microsoft Entra プロビジョニング エージェントが使用されます。 以降のセクションでは、そのアーキテクチャとサポートされるシナリオについて説明します。
 
 注
 
-クラウド同期は、Microsoft Commercial、US Government、 [および 21Vianet (China)](https://learn.microsoft.com/ja-jp/office365/servicedescriptions/office-365-platform-service-description/microsoft-365-operated-by-21vianet) クラウドのテナントに使用できます。 オンプレミス ID の SSPR は、21 Vianet (中国) クラウドのクラウド同期でまだ使用できません。
+Cloud Sync は、Microsoft Commercial、US Government、および [21Vianet (China)](https://learn.microsoft.com/ja-jp/office365/servicedescriptions/office-365-platform-service-description/microsoft-365-operated-by-21vianet) クラウドのテナントに使用できます。 オンプレミス ID の SSPR は、21Vianet (中国) クラウドのクラウド同期では使用できません。
+
+### Microsoft Entra Connect Sync からの移行
+
+現在 Microsoft Entra Connect Sync を使用している場合は、次の順序で移行パスを選択します。
+
+1. [移行判断ガイド](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)を確認して、Cloud Sync が組織の要件をサポートしているかどうかを判断します。
+2. 組織とアクティブな Connect Sync インストールが [ガイド付き移行ツールの要件](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-connect-sync-cloud-sync-tool#prerequisites)を満たしている場合は、ガイド付きツールを使用します。
+3. ガイド付きツールがシナリオをサポートしていない場合は、利用可能な場合にのみ、文書化された手動移行手順を使用してください。 それ以外の場合は、Connect Sync を引き続き使用します。移行の [概要](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/migrate-azure-ad-connect-to-cloud-sync#choose-a-migration-path) と [手動移行のチュートリアル](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp#considerations) を確認して、該当するガイダンスを特定します。
+
+一般的な質問については、[移行に関する FAQ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/cloud-sync-migration-faq) を参照してください。 デバイスの同期が必要な場合は、ガイド付きツールの資格とは別に [デバイス同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync) を確認してください。
 
 ### コア アーキテクチャとコンポーネント
 
-クラウド同期は、次の 2 つの主要なコンポーネントを備えた最新のクラウドファースト アーキテクチャに基づいて構築されています。
+Cloud Sync は、次の 2 つの主要なコンポーネントを備えたクラウドファースト アーキテクチャに基づいて構築されています。
 
 **Microsoft Entra プロビジョニング エージェント**: Active Directory と Microsoft Entra ID の間のセキュリティで保護されたブリッジとして機能する軽量のオンプレミス エージェント。 エージェントは、Microsoft Entra アプリケーション プロキシおよび Pass-Through 認証と同じ実証済みのテクノロジを使用します。送信接続のみを必要とし、クラウドから自動更新を提供します。
 
@@ -8948,10 +9231,11 @@ Cloud Sync は、単一障害点を排除し、オンプレミスの管理オー
 | クラウド管理の構成 | すべての同期構成は、Microsoft Entra 管理センターを通じて Microsoft Entra ID に格納および管理されます。 管理者は、設定の変更、状態の監視、VPN アクセスのない任意の場所からの問題のトラブルシューティングを行うことができます。 |
 | マルチエージェントサポートによる高可用性 | クラウド同期では、異なるサーバーにデプロイされた複数のアクティブなプロビジョニング エージェントがサポートされ、構成を変更せずに自動フェールオーバーが提供されます。 個々のエージェントが使用できなくなった場合、同期はシームレスに続行されます。 |
 | 切断されたフォレストの同期 | クラウド同期は、複雑な構成や複数の同期インスタンスを必要とせずに、複数の切断された Active Directory フォレストをネイティブに処理します。 この機能は、合併と買収、過去のマルチフォレスト環境、フォレストを接続できないシナリオをサポートします。 |
+| デバイスの同期 | Cloud Sync を使用すると、Active Directory のコンピューター オブジェクトを Microsoft Entra ID と同期できるため、デバイスを Microsoft Entra ハイブリッド参加の状態にすることができます。 構成手順については、「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。 |
 | インストールと管理の簡素化 | 軽量エージェント モデルでは、最小限のサーバー リソースが必要であり、ドメイン コントローラーまたは専用サーバーにデプロイできます。 エージェントは、Microsoft からセキュリティ更新プログラムとパッチを自動的に受け取ります。 |
 | 高度なプロビジョニング シナリオ | クラウド同期を使用すると、オンプレミス アプリケーションを管理するための Active Directory へのグループ プロビジョニングなど、クラウドとto-AD のプロビジョニング シナリオが可能になります。 この双方向機能は、Microsoft Entra ID が権限のある ID ソースとして機能する最新の ID アーキテクチャをサポートします。 |
 
-### Microsoft Entra Cloud 同期と Microsoft Entra Connect 同期の違い
+### Microsoft Entra クラウド同期と Microsoft Entra Connect 同期との違いは何ですか?
 
 Microsoft Entra Cloud Sync では、プロビジョニング オーケストレーションは、オンプレミスインフラストラクチャではなく、Microsoft Online Services で完全に行われます。 組織は、Microsoft Entra ID と Active Directory の間のセキュリティで保護されたブリッジとして機能するオンプレミスまたはサービスとしてのインフラストラクチャ (IaaS) 環境に軽量エージェントをデプロイします。 すべてのプロビジョニング構成、監視、および管理はクラウド サービスを通じて処理されるため、オンプレミスの同期サーバー管理の複雑さが解消されます。
 
@@ -8959,7 +9243,7 @@ Microsoft Entra Cloud Sync では、プロビジョニング オーケストレ�
 
 詳細な機能の比較表については、「 [Cloud Sync と Microsoft Entra Connect の機能の比較](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/connect-to-cloud-sync-decision-guide#comparison-between-microsoft-entra-connect-and-cloud-sync)」を参照してください。
 
-### Microsoft Entra Cloud 同期ビデオ
+### Microsoft Entra クラウド同期のビデオ
 
 次の短いビデオでは、Microsoft Entra クラウド同期の概要をわかりやすく説明しています:
 
@@ -9014,23 +9298,23 @@ Cloud Sync は、より広範な Microsoft Entra ID プラットフォームと�
 ## Microsoft Entra ID を使用した一般的なハイブリッド シナリオ - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/common-scenarios
-- Service: entra-id / hybrid
-- Article date: 2025-04-09
-- Summary: この記事では、Microsoft Entra クラウド同期と Microsoft Entra Connect の使用に関する一般的なシナリオについて説明します。
+- Service: entra-id
+- Article date: 2026-10-06
+- Summary: Microsoft Entra Cloud Sync、Connect Sync、MIM、ECMA Host のサポートについて、デバイス同期やハイブリッド参加を含むハイブリッド ID シナリオを比較します。
 
-次のドキュメントでは、サポートされている一般的なハイブリッド同期シナリオについて説明します。
+Microsoft Entra Cloud Sync、Connect Sync、Microsoft Identity Manager (MIM)、ECMA ホスト コネクタを比較して、ハイブリッド ID とプロビジョニングのシナリオをサポートするツールを見つけます。
 
 ### サポートされている同期シナリオ
 
 次の表に、サポートされている一般的な同期シナリオの概要を示します。
 
-| シナリオ | クラウド同期でのサポート | Connect 同期でのサポート | MIM と Graph Connector でのサポート | ECMA ホスト コネクタでのサポート |
+| シナリオ | クラウド同期に対応 | Connect Sync に対応 | MIM と Graph Connector でのサポート | ECMA ホスト コネクタでのサポート |
 | --- | --- | --- | --- | --- |
 | ハイブリッドを新規で使用する顧客による ID 管理 | ● | ● | ● | 対象外 |
 | 合併と買収 (切断されたフォレスト) | ● | 対象外 | ● | 対象外 |
 | 高可用性 - 待機時間 (高可用性が必要) | ● | 対象外 | ● | 対象外 |
-| Connect 同期からクラウド同期への移行 | ● | ● | 対象外 | 対象外 |
-| Microsoft Entra ハイブリッド参加 | 対象外 | ● | 対象外 | 対象外 |
+| Connect Sync から Cloud Sync への移行 | ● | ● | 対象外 | 対象外 |
+| Microsoft Entra ハイブリッド参加 | ● | ● | 対象外 | 対象外 |
 | Exchange ハイブリッド | ● | ● | 対象外 | 対象外 |
 | 1 つのフォレスト内のユーザー アカウント / リソース フォレスト内のメールボックス | 対象外 | ● | 対象外 | 対象外 |
 | オブジェクトが 250,000 個以上ある大規模ドメインの同期 | 対象外 | ● | ● | 対象外 |
@@ -9040,27 +9324,29 @@ Cloud Sync は、より広範な Microsoft Entra ID プラットフォームと�
 | クラウドからオンプレミス LDAP への同期 | 対象外 | 対象外 | ● | ● |
 | クラウドからオンプレミス SQL への同期 | 対象外 | 対象外 | ● | ● |
 
+Cloud Sync でデバイス同期を構成する手順については、「[Microsoft Entra Cloud Sync を使用してデバイス同期を構成する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。
+
 ### サポートされているプロビジョニング シナリオ
 
 次の表に、サポートされている一般的なプロビジョニング シナリオの概要を示します。
 
-| シナリオ | クラウド同期でのサポート | Connect 同期でのサポート | MIM と Graph Connector でのサポート | ECMA ホスト コネクタでのサポート |
+| シナリオ | クラウド同期に対応 | Connect Sync に対応しています | MIM と Graph Connector でのサポート | ECMA ホスト コネクタでのサポート |
 | --- | --- | --- | --- | --- |
 | Active Directory へのグループ プロビジョニング | ● | 対象外 | ● | 対象外 |
 
-詳細については、「[クラウド同期でサポートされているトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies)」と「[Connect 同期でサポートされているトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-topologies)」をご覧ください。
+詳細については、「[Cloud Sync でサポートされるトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/plan-cloud-sync-topologies)」と「[Connect Sync でサポートされるトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-topologies)」を参照してください。
 
 ### 追加情報
 
-- 次の場合は、Connect 同期とクラウド同期を使って、同じドメインからユーザーとグループを同期できます。
+- 次の場合は、Connect Sync と Cloud Sync を使用して、同じドメインのユーザーとグループを同期できます。
     - 個々の同期のスコープ フィルターが相互に排他的である場合
     - 包括的である場合は、同じ属性値が競合していないこと (優先順位はサポートされていません)
-- クラウド同期の新機能 (\*ロードマップに記載) の使用中に、Connect 同期でユーザーとグループを同期できます
+- クラウド同期の新機能を使用して、ユーザーとグループを Connect Sync と同期できます。
 - 書き戻し機能が 1 つの Microsoft Entra テナントでのみ有効になっている場合は、1 つの AD から複数の Azure AD にオブジェクトを同期できます。
 
-### クラウド同期と Connect 同期の併用
+### クラウド同期と接続同期を並行して実行する
 
-クラウド同期と Microsoft Entra Connect を同じフォレストで実行できます。 たとえば 80% をクラウド同期で処理し、比較的複雑な 20% のシナリオの一部に Microsoft Entra Connect を使用することが考えられます。 チュートリアル「[同期された既存の Active Directory フォレストの Microsoft Entra クラウド同期に移行する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)」に、それぞれの実行方法の例が示されています。
+Cloud Sync と Microsoft Entra Connect は、同じフォレストで実行できます。 たとえば、ほとんどのシナリオでは Cloud Sync を使用し、その機能を必要とするシナリオでは Microsoft Entra Connect を使用できます。 チュートリアル「[既存の同期済み AD フォレストを Microsoft Entra Cloud Sync に移行](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)」では、両方のツールを実行する方法を示します。
 
 ### 一般的な認証方法とシナリオ
 
@@ -9276,23 +9562,24 @@ AD DS から同期するグループにグループ SOA を適用すると、グ
 ## Active Directory との統合を構成する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/configure
-- Service: entra-id / hybrid
-- Article date: 2025-04-09
-- Summary: この記事では、Active Directory を使用して同期ツールを構成する方法について説明します。
+- Service: entra-id
+- Article date: 2026-10-06
+- Summary: Microsoft Entra Cloud Sync および Connect Sync を構成し、Active Directory からユーザー、グループ、連絡先を同期する方法、ハイブリッド参加済みデバイスの同期を有効にする方法について説明します。
 
-同期を構成する方法は、使用している同期ツールとビジネス目標によって異なります。 次の表を使用して、ターゲット目標を満たす機能を決定します。
+同期の目標に基づいて、Microsoft Entra Cloud Sync または Microsoft Entra Connect Sync を選択します。 次の表は、各ツールの構成タスクへのリンクです。
 
 ### クラウド同期
 
-Microsoft Entra プロビジョニング エージェントをインストールしたら、クラウド同期を構成する必要があります。この構成は、ポータルを使用して行われます。 次の表に、ビジネス目標を達成するために使用できる機能の一覧を示します。
+Microsoft Entra プロビジョニング エージェントをインストールしたら、Microsoft Entra 管理センターで Cloud Sync を構成します。 次の表に、設定タスクを示します。
 
 | タスク | 説明 |
 | --- | --- |
-| [クラウド同期](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure) の構成と新規インストール | 組織の同期を構成して調整します。 |
-| [ユーザーとグループのスコープ設定](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure#scope-provisioning-to-specific-users-and-groups) | クラウド同期のスコープを特定のユーザーとグループに設定する方法 |
+| [新しい Cloud Sync のインストールを構成する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure) | 組織の同期を設定します。 |
+| [デバイスの同期を構成する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync) | Microsoft Entra ハイブリッド参加に向けて、Active Directory のコンピュータ オブジェクトを Microsoft Entra ID と同期します。 |
+| [特定のユーザーとグループにプロビジョニングのスコープを設定する](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure#scope-provisioning-to-specific-users-and-groups) | 選択したユーザーとグループにクラウド同期のスコープを設定します。 |
 | [ユーザー属性とグループ属性のマッピング](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure#attribute-mapping) | ユーザーとグループの属性をマップします。 |
 | [ディレクトリ拡張機能とカスタム属性の操作](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-configure#directory-extensions-and-custom-attribute-mapping) | ディレクトリ拡張機能とカスタム属性を使用する |
-| [シングル サインオンの構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-sso) | シングル サインオンを使用するようにクラウド同期を設定する |
+| [シングル サインオンの構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-sso) | Cloud Sync のシングル サインオンを設定します。 |
 
 ### Microsoft Entra Connect
 
@@ -10240,204 +10527,4 @@ Microsoft Entra Connect Sync から警告が表示されたら、新しいキー
 Microsoft Entra Managed または BYOC のいずれかの自己署名証明書の場合、管理者は Microsoft Entra ID から `keyCredential` 値を削除して手動失効を実行する必要があります。 証明書のオンデマンド ローテーションもオプションです。
 
 Microsoft Entra ID に登録されている証明機関によって発行された BYOC 証明書の場合、管理者は [証明書失効プロセス](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication-certificate-revocation-list#enforce-crl-validation-for-cas)に従うことができます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/hybrid/connect/choose-ad-authn"} -->
-## Microsoft Entra ハイブリッド ID ソリューションの認証 - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/choose-ad-authn
-- Service: entra-id / hybrid-connect
-- Article date: 2025-04-09
-- Summary: このガイドは、CEO、CIO、CISO、チーフ ID アーキテクト、エンタープライズ アーキテクト、セキュリティと IT に関する意思決定者など、中規模から大規模な組織で Microsoft Entra ハイブリッド ID ソリューションの認証方法の選択を担当するユーザーの役に立ちます。
-
-注
-
-**この記事の範囲**: この記事では、Microsoft Entra ハイブリッド ID ソリューションの認証方法について説明します。 これらの認証方法は、使用される同期テクノロジ (Microsoft Entra Connect Sync またはクラウド同期) とは別に適用されます。 同期テクノロジを選択しても、ユーザー サインインの認証動作は決定または変更されません。
-
-正しい認証方法の選択は、クラウドにアプリを移行しようとしている組織にとって最大の関心事です。 次の理由により、この決定を軽く考えてはなりません。
-
-1. クラウドに移行する必要がある組織が最初に決定することです。
-2. 認証方法は、クラウドにおける組織のプレゼンスの重要なコンポーネントです。 これによって、クラウドのすべてのデータとリソースへのアクセスが制御されます。
-3. これは、Microsoft Entra ID での他の高度なセキュリティやユーザー エクスペリエンス機能すべての基盤となります。
-
-ID は IT セキュリティの新しいコントロール プレーンであるため、認証は新しいクラウド環境への組織のアクセス ガードです。 組織には、セキュリティを強化し、クラウド アプリを侵入者から保護する ID コントロール プレーンが必要です。
-
-注
-
-認証方法を変更するには、計画、テスト、予測されるダウンタイムが必要です。 [段階的なロールアウト](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-staged-rollout)は、フェデレーションからクラウド認証へのユーザーの移行をテストするための優れた方法です。
-
-#### 対象範囲外
-
-オンプレミスに既存のディレクトリ フットプリントを持たない組織は、この記事の対象範囲外です。 通常、このような企業はクラウド内にのみ ID を作成し、ハイブリッド ID ソリューションを必要としません。 クラウド専用の ID はクラウドにのみ存在し、対応するオンプレミスの ID とは関連付けられません。
-
-### 認証方法
-
-新しいコントロール プレーンとして Microsoft Entra ハイブリッド ID ソリューションを採用する場合、認証がクラウド アクセスの基盤です。 正しい認証方法の選択は、Microsoft Entra ハイブリッド ID ソリューションのセットアップにおける最初の重要な決定です。 選択する認証方法は、クラウドでのユーザーのプロビジョニングも行う Microsoft Entra Connect を使って構成されます。
-
-認証方法を選ぶには、時間、既存のインフラストラクチャ、複雑さ、および選んだ方法の実装にかかるコストを考慮する必要があります。 これらの要因は組織ごとに異なり、時間の経過とともに変化する場合があります。
-
-Microsoft Entra ID は、ハイブリッド ID ソリューションに対して次の認証方法をサポートします。
-
-#### クラウド認証
-
-この認証方法を選ぶと、Microsoft Entra ID がユーザーのサインイン プロセスを処理します。 シングル サインオン (SSO) と組み合わせると、ユーザーは資格情報を再入力しなくてもクラウド アプリにサインインできます。 クラウド認証では、2 つのオプションから選ぶことができます。
-
-**Microsoft Entra パスワード ハッシュ同期**。 Microsoft Entra ID でオンプレミスのディレクトリ オブジェクトの認証を有効にする最も簡単な方法です。 ユーザーはオンプレミスで使用しているものと同じユーザー名とパスワードを使用でき、他のインフラストラクチャをデプロイする必要はありません。 なお、Microsoft Entra ID 保護や [Microsoft Entra ドメイン サービス](https://learn.microsoft.com/ja-jp/entra/identity/domain-services/tutorial-create-instance)など、一部の Microsoft Entra ID のプレミアム機能を利用するには、どの認証方法を選択しても パスワード ハッシュ同期が必要になります。
-
-注
-
-パスワードがクリア テキストで保存されたり、Microsoft Entra ID の復元可能なアルゴリズムで暗号化されたりすることはありません。 パスワード ハッシュ同期の実際のプロセスについて詳しくは、「[Microsoft Entra Connect 同期を使用したパスワード ハッシュ同期の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization)」をご覧ください。
-
-**Microsoft Entra パススルー認証**。 1 つ以上のオンプレミス サーバーで実行されているソフトウェア エージェントを使用して、Microsoft Entra 認証サービスに簡単なパスワード検証を提供します。 オンプレミスの Active Directory を使用してサーバーで直接ユーザーが検証され、クラウドでパスワードの検証が行われることはありません。
-
-オンプレミスのユーザー アカウントの状態、パスワード ポリシー、およびサインイン時間をすぐに適用するセキュリティ要件のある企業は、この認証方法を使用します。 パススルー認証の実際のプロセスについて詳しくは、「[Microsoft Entra パススルー認証によるユーザー サインイン](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta)」をご覧ください。
-
-#### フェデレーション認証
-
-この認証方法を選ぶと、Microsoft Entra ID は別の信頼された認証システム (オンプレミスの Active Directory フェデレーション サービス (AD FS) など) に、ユーザーのパスワードを検証する認証プロセスを引き継ぎます。
-
-この認証システムには、サードパーティの多要素認証など、その他の高度な認証要件がある場合があります。
-
-次のセクションは、デシジョン ツリーを使用することで組織に適した認証方法を決定するのに役立ちます。 Microsoft Entra ハイブリッド ID ソリューションにクラウド認証とフェデレーション認証のどちらを展開すればよいかを判断できます。
-
-### デシジョン ツリー
-
-[Image: Microsoft Entra 認証に関するデシジョン ツリー]
-
-意思決定に関する質問の詳細:
-
-1. Microsoft Entra ID は、パスワードを検証するためのオンプレミス コンポーネントに依存せずにユーザーのサインインを処理できます。
-2. Microsoft Entra ID は、Microsoft の AD FS などの信頼された認証プロバイダーにユーザーのサインイン情報を渡すことができます。
-3. ユーザー レベルの Active Directory のセキュリティ ポリシー (アカウントの期限切れ、無効なアカウント、パスワードの期限切れ、アカウントのロックアウト、ユーザーのサインインごとのサインイン時間など) を適用する必要がある場合、Microsoft Entra ID では一部のオンプレミス コンポーネントが必要です。
-4. Microsoft Entra ID によってネイティブでサポートされてないサインイン機能:
-    - サード パーティの認証ソリューションを使用したサインイン。
-    - 複数サイトのオンプレミス認証ソリューション。
-5. Microsoft Entra ID Protection では、「*資格情報が漏洩したユーザー*」レポートを提供するために、選択されたサインイン方法には関係なくパスワード ハッシュの同期が必要です。 組織は主要なサインイン方法が失敗した場合、パスワード ハッシュ同期が失敗イベントの前に構成されていれば、パスワード ハッシュ同期にフェールオーバーできます。
-
-注
-
-Microsoft Entra ID Protection には、[Microsoft Entra ID P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) ライセンスが必要です。
-
-### 詳細な考慮事項
-
-#### クラウド認証: パスワード ハッシュの同期
-
-- **作業量**。 パスワード ハッシュ同期は、展開、メンテナンス、インフラストラクチャに関して最小の作業量を必要とします。 ユーザーに必要なことが、Microsoft 365、SaaS アプリ、その他の Microsoft Entra ID ベースのリソースへのサインインのみである組織に対しては、通常、このレベルの作業量が適用されます。 パスワード ハッシュ同期をオンにすると、Microsoft Entra Connect 同期プロセスの一部となって 2 分ごとに実行されます。
-- **ユーザー エクスペリエンス**。 ユーザーのサインイン エクスペリエンスを向上させるには、[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)または [Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)を使用します。 Windows デバイスを Microsoft Entra ID に参加させることができない場合は、パスワード ハッシュ同期を使用してシームレス SSO を展開することをお勧めします。 シームレス SSO によって、ユーザーのサインイン時に不要なプロンプトが表示されないようになります。
-- **高度なシナリオ**。 組織が選択した場合、Microsoft Entra ID P2 を使用して、Microsoft Entra ID Protection レポートで ID からの分析情報を使用できます。 その 1 つの例が漏洩した資格情報レポートです。 Windows Hello for Business には、[パスワード ハッシュ同期を使用するときの特定の要件](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)があります。 [Microsoft Entra Domain Services](https://learn.microsoft.com/ja-jp/entra/identity/domain-services/tutorial-create-instance) では、ユーザーが会社の資格情報を使用してマネージド ドメインでプロビジョニングできるよう、パスワードのハッシュ同期が必要です。
-
-    パスワード ハッシュ同期を使用する多要素認証が必要な組織は、Microsoft Entra の多要素認証または[条件付きアクセス カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls#custom-controls-preview)を使用する必要があります。 これらの組織は、フェデレーションに依存する、サード パーティ製またはオンプレミスの多要素認証方法を使用できません。
-
-注
-
-Microsoft Entra 条件付きアクセスには、[Microsoft Entra ID P1](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) ライセンスが必要です。
-
-- **ビジネス継続性**。 クラウド認証と共にパスワード ハッシュ同期を使用することは、すべての Microsoft データセンターに対応するようにスケーリングするクラウド サービスとして、高い可用性を実現します。 パスワード ハッシュ同期が長期間ダウンしないようにするには、2 つ目の Microsoft Entra Connect サーバーを、スタンバイ構成のステージング モードで展開します。
-- **考慮事項**。 現在、パスワード ハッシュ同期では、オンプレミスのアカウントの状態の変化はすぐには適用されません。 このような状況では、ユーザーは、Microsoft Entra ID にユーザー アカウントの状態が同期されるまで、クラウド アプリにアクセスできます。 組織がこのような制限を回避する方法の 1 つは、管理者がオンプレミスのユーザー アカウントの状態を一括更新した後に、新しい同期サイクルを実行することです。 たとえば、アカウントを無効にします。
-
-    **認証のタイミング**について: "クラウドで認証が行われます" とは、Microsoft Entra ID が資格情報を検証する場所を指します (提供されたパスワード ハッシュと格納されているハッシュを比較する)、サインインのパスワード変更の可用性は同期のタイミングによって異なります。 ユーザーがオンプレミスでパスワードを変更した場合、ユーザーがサインインする前に、新しいパスワード ハッシュを Microsoft Entra ID に同期する必要があります。 通常、この同期プロセスは 2 分ごとに実行されますが、構成によって異なる場合があります。
-
-注
-
-現在、パスワードの期限切れとアカウントのロックアウトの状態は、Microsoft Entra ID と Microsoft Entra Connect では同期されません。 ユーザーのパスワードを変更し、*[ユーザーは次回ログオン時にパスワードの変更が必要]* フラグを設定した場合、ユーザーが自分のパスワードを変更するまで Microsoft Entra ID と Microsoft Entra Connect ではパスワード ハッシュは同期されません。
-
-展開手順については、[パスワード ハッシュ同期の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-password-hash-synchronization)に関する記事をご覧ください。
-
-#### クラウド認証: パススルー認証
-
-- **作業量**。 パススルー認証の場合、既存のサーバーに、1 つまたは複数 (推奨は 3 つ) の軽量のエージェントをインストールする必要があります。 これらのエージェントは、オンプレミスの AD ドメイン コントローラーなど、オンプレミスの Active Directory Domain Services にアクセスできる必要があります。 これらは、インターネットへの発信アクセスと、ドメイン コントローラーへのアクセスが必要です。 このため、境界ネットワーク内にエージェントを展開することはできません。
-
-    パススルー認証には、ドメイン コントローラーへの制約なしのネットワーク アクセスが必要です。 すべてのネットワーク トラフィックは暗号化され、認証要求に制限されます。 このプロセスの詳細については、パススルー認証での[セキュリティの詳細](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-security-deep-dive)に関する記事をご覧ください。
-- **ユーザー エクスペリエンス**。 ユーザーのサインイン エクスペリエンスを向上させるには、[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)または [Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)を使用します。 Windows デバイスを Microsoft Entra ID に参加させることができない場合は、パスワード ハッシュ同期を使用してシームレス SSO を展開することをお勧めします。 シームレス SSO によって、ユーザーのサインイン時に不要なプロンプトが表示されないようになります。
-- **高度なシナリオ**。 パススルー認証では、サインインの時点でオンプレミスのアカウント ポリシーが適用されます。 たとえば、オンプレミスのユーザーのアカウントの状態が無効、ロックアウト、[パスワードが期限切れ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq#what-happens-if-my-user-s-password-expired-and-they-try-to-sign-in-by-using-pass-through-authentication-)であるか、ログオンの試行時にユーザーに許可されているサインイン時間が超過した場合、アクセスは拒否されます。
-
-    パススルー認証を使用する多要素認証が必要な組織は、Microsoft Entra 多要素認証または[条件付きアクセス カスタム コントロール](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls#custom-controls-preview)を使用する必要があります。 これらの組織は、フェデレーションに依存する、サード パーティ製またはオンプレミスの多要素認証方法を使用できません。 また高度な機能の利用には、パススルー認証を選択するかどうかにかかわらず、パスワード ハッシュ同期が必要になります。 高度な機能とは、例えばMicrosoft Entra ID 保護による漏洩した認証情報の検出などです。
-- **ビジネス継続性**。 2 つの追加パススルー認証エージェントを展開することをお勧めします。 Microsoft Entra Connect サーバー上の最初のエージェントに加えて、これらを追加します。 この追加の展開によって、認証要求の高可用性が保証されます。 3 つのエージェントを展開すると、メンテナンスのために 1 つのエージェントを停止しても、まだ 1 つのエージェントの障害に対応できます。
-
-    パススルー認証だけでなくパスワード ハッシュ同期も展開することの利点は、もう 1 つあります。 それは、プライマリ認証方法を利用できなくなった場合に、バックアップの認証方法として機能することです。
-- **考慮事項**。 エージェントがオンプレミスで発生した重大な障害によってユーザーの資格情報を検証できない場合は、パススルー認証のバックアップの認証方法としてパスワード ハッシュ同期を使用できます。 パスワードハッシュ同期へのフェールオーバーは自動的には行われないため、Microsoft Entra Connect を使用してサインイン方法を手動で切り替える必要があります。
-
-    代替 ID のサポートなど、パススルー認証におけるその他の考慮事項については、[よく寄せられる質問](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq)をご覧ください。
-
-展開手順については、[パススルー認証の実装](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta)に関する記事をご覧ください。
-
-#### フェデレーション認証
-
-- **作業量**。 フェデレーション認証システムでは、信頼できる外部システムを利用してユーザーを認証します。 フェデレーション システムへの既存の投資を Microsoft Entra ハイブリッド ID ソリューションで再利用したい会社もあります。 フェデレーション システムの管理とメンテナンスは、Microsoft Entra ID のコントロールの範囲外です。 フェデレーション システムが安全に展開されていて、認証の負荷を処理できるかどうかを確認するのは、フェデレーション システムを使用している組織の責任です。
-- **ユーザー エクスペリエンス**。 フェデレーション認証のユーザー エクスペリエンスは、機能、トポロジ、およびフェデレーション ファーム構成の実装に依存します。 組織によっては、セキュリティ要件に合わせてフェデレーション ファームへのアクセスを調整したり構成したりするために、この柔軟性が必要になります。 たとえば、内部的に接続されているユーザーとデバイスを構成して、資格情報の入力を要求することなく、自動的にユーザーをサインインさせることができます。 この構成が機能するのは、ユーザーが既にデバイスにサインインしているためです。 必要な場合は、高度なセキュリティ機能を利用してユーザーのサインイン プロセスをさらに困難にすることもできます。
-- **高度なシナリオ**。 フェデレーション認証ソリューションが必要になるのは、Microsoft Entra ID によってネイティブにサポートされていない認証要件がある場合です。 [適切なサインイン オプションを選択する](https://learn.microsoft.com/ja-jp/archive/blogs/samueld/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365)のに役立つ詳しい情報をご覧ください。 次の一般的な要件で考えてみましょう。
-
-    - フェデレーション ID プロバイダーを必要とするサード パーティの多要素プロバイダー。
-    - サード パーティの認証ソリューションを使用する認証。 「[Microsoft Entra のフェデレーション互換性リスト](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-compatibility)」を参照してください。
-    - ユーザー プリンシパル名 (UPN) (例: user@domain.com) ではなく、sAMAccountName (例: DOMAIN\username) を必要とするサインイン。
-- **ビジネス継続性**。 フェデレーション システムでは、通常、負荷分散されたサーバーのアレイ (ファームとも呼ばれます) が必要になります。 このファームは、認証要求の高可用性を保証するために、内部ネットワークおよび境界ネットワークのトポロジに構成されます。
-
-    プライマリ認証方法を使用できないときのために、フェデレーション認証と共に、パスワード ハッシュ同期をバックアップ認証方法として展開します。 たとえば、オンプレミスのサーバーが利用できない場合です。 大規模なエンタープライズ組織では、認証要求の待機時間を短くするため、geo-DNS で構成された複数のインターネット イングレス ポイントをフェデレーション ソリューションでサポートすることが必要になる場合があります。
-- **考慮事項**。 フェデレーション システムでは通常、オンプレミスのインフラストラクチャへのより大きな投資が必要です。 オンプレミスのフェデレーションに既に投資している組織のほとんどは、このオプションを選択します。 または、ビジネス上の理由から、単一の ID プロバイダーを使用することがどうしても必要な場合です。 運用とトラブルシューティングは、クラウド認証ソリューションよりフェデレーション認証の方が複雑です。
-
-Microsoft Entra ID では検証できないルーティング不可能なドメインの場合、ユーザー ID によるサインインを実装するには追加の構成が必要になります。 この要件は、代替ログイン ID のサポートと呼ばれます。 制限事項と要件については、「[Configuring Alternate Login ID](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)」(代替ログイン ID の構成) をご覧ください。 フェデレーションを使用したサード パーティの多要素認証プロバイダーを使用する場合は、デバイスが Microsoft Entra ID に参加できるよう、プロバイダーが WS-Trust をサポートしていることを確実にしてください。
-
-展開手順については、「[Deploying Federation Servers](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/deployment/deploying-federation-servers)」(フェデレーション サーバーの展開) をご覧ください。
-
-注
-
-Microsoft Entra ハイブリッド ID ソリューションを展開するときは、Microsoft Entra Connect のサポートされているトポロジの 1 つを実装する必要があります。 サポートされている構成とサポートされていない構成について詳しくは、「[Microsoft Entra Connect のトポロジ](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/plan-connect-topologies)」をご覧ください。
-
-### アーキテクチャ図
-
-以下の図では、Microsoft Entra ハイブリッド ID ソリューションで使用できる各認証方法に必要な、アーキテクチャ コンポーネントの概要を示します。 これにより、ソリューション間の相違点を比較することができます。
-
-- パスワード ハッシュ同期ソリューションのシンプルさ:
-
-    [Image: パスワード ハッシュ同期を使用する Microsoft Entra ハイブリッド ID]
-- 冗長性のために 2 つのエージェントを使用する、パススルー認証のエージェント要件:
-
-    [Image: パススルー認証を使用する Microsoft Entra ハイブリッド ID]
-- 組織の境界ネットワークと内部ネットワークでのフェデレーションに必要なコンポーネントの概要:
-
-    [Image: フェデレーション認証を使用する Microsoft Entra ハイブリッド ID]
-
-### 方法の比較
-
-| 考慮事項 | パスワード ハッシュの同期 | パススルー認証 | AD FS とのフェデレーション |
-| --- | --- | --- | --- |
-| 認証が行われる場所 | クラウド - パスワード ハッシュが同期され、Microsoft Entra ID が資格情報を検証する | クラウド内で、オンプレミスの認証エージェントとのセキュリティで保護されたパスワード検証の交換後 | オンプレミス |
-| プロビジョニング システム (Microsoft Entra Connect) 以外のオンプレミスのサーバーの要件とは何ですか? | なし | 追加の認証エージェントごとに 1 つのサーバー | 2 つ以上の AD FS サーバー境界/DMZ ネットワークに 2 つ以上の WAP サーバー |
-| プロビジョニング システム以外のオンプレミスのインターネットおよびネットワークの要件 | なし | 認証エージェントを実行しているサーバーからの[発信インターネット アクセス](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-quick-start) | 境界ネットワークの WAP サーバーへのインターネットからのアクセス境界の WAP サーバーから AD FS サーバーへの着信ネットワーク アクセスネットワークの負荷分散 |
-| TLS/SSL 証明書の要件 | いいえ | いいえ | はい |
-| 稼働状況の監視ソリューションはあるか? | 必要なし | [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/tshoot-connect-pass-through-authentication)によって提供されるエージェントの状態 | [Microsoft Entra Connect Health](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-health-adfs) |
-| ユーザーは会社のネットワーク内のドメイン参加済みデバイスからクラウド リソースにシングル サインオンするか? | [Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)、[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)、[Apple デバイス用の Microsoft Enterprise SSO プラグイン](https://learn.microsoft.com/ja-jp/entra/identity-platform/apple-sso-plugin)、または[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) の場合は、はい | [Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)、[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)、[Apple デバイス用の Microsoft Enterprise SSO プラグイン](https://learn.microsoft.com/ja-jp/entra/identity-platform/apple-sso-plugin)、または[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) の場合は、はい | はい |
-| サポートされているサインインの種類 | UserPrincipalName + パスワード[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) を使用した Windows 統合認証[代替ログイン ID](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-install-custom)[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication-smartcard) | UserPrincipalName + パスワード[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) を使用した Windows 統合認証[代替ログイン ID](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-pta-faq)[Microsoft Entra 参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)[Microsoft Entra ハイブリッド参加済みデバイス](https://learn.microsoft.com/ja-jp/entra/identity/devices/how-to-hybrid-join)[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication-smartcard) | UserPrincipalName + パスワードsAMAccountName + パスワードWindows 統合認証[証明書とスマート カード認証](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)[代替ログイン ID](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) |
-| Windows Hello for Business のサポート | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust) | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)*いずれも Windows Server 2016 ドメインの機能レベルが必要* | [キー信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-identity-verification)[ハイブリッド クラウドの信頼](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-kerberos-trust)[証明書信頼モデル](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs) |
-| 多要素認証のオプション | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/azure/multi-factor-authentication/)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) | [Microsoft Entra 多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/)[サード パーティの MFA](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)[条件付きアクセスを使用するカスタム コントロール*](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/controls) |
-| サポートされているユーザー アカウントの状態は何ですか？ | 無効なアカウント(最大 30 分の遅延) | 無効なアカウントアカウントのロックアウトアカウント期限切れパスワード期限切れサインイン時間 | 無効なアカウントアカウントのロックアウトアカウント期限切れパスワード期限切れサインイン時間 |
-| 条件付きアクセスのオプション | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [Microsoft Entra ID P1 または P2 を使用した Microsoft Entra 条件付きアクセス](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview)[AD FS のアクセス制御ポリシー](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/create-a-rule-to-permit-or-deny-users-based-on-an-incoming-claim) |
-| 従来のプロトコルのブロックはサポートされるか? | [あり](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [あり](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/overview) | [あり](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/access-control-policies-w2k12) |
-| サインイン ページのロゴ、イメージ、説明のカスタマイズ可能性 | [はい (Microsoft Entra ID P1 または P2 を使用)](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-customize-branding) | [はい (Microsoft Entra ID P1 または P2 を使用)](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-customize-branding) | [あり](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-management) |
-| サポートされる高度なシナリオ | [スマート パスワード ロックアウト](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout)[漏洩した資格情報レポート (Microsoft Entra ID P2 を使用)](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection) | [スマート パスワード ロックアウト](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-password-smart-lockout) | 複数サイトの低待機時間の認証システム[AD FS エクストラネットのロックアウト](https://learn.microsoft.com/ja-jp/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)[サード パーティの ID システムとの統合](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-fed-compatibility) |
-
-注
-
-Microsoft Entra 条件付きアクセスでのカスタム コントロールは、現時点ではデバイスの登録をサポートしていません。
-
-### 推奨事項
-
-ID システムによって、クラウドに移行して利用できるようにしたアプリに対するユーザーのアクセスが保証されます。 どの認証方法を選択する場合でも、次の理由により、パスワード ハッシュ同期を使用するか有効にします。
-
-1. **高可用性とディザスター リカバリー**。 パススルー認証とフェデレーションは、オンプレミスのインフラストラクチャに依存します。 パススルー認証の場合、オンプレミスのフットプリントには、パススルー認証エージェントに必要なサーバー ハードウェアとネットワークが含まれます。 フェデレーションの場合、オンプレミスのフットプリントはさらに大きくなります。 認証要求と内部フェデレーション サーバーをプロキシするために、境界ネットワーク内にサーバーが必要になるためです。
-
-    単一障害点を回避するには、冗長サーバーを展開します。 これにより、いずれかのコンポーネントで障害が発生しても、認証要求サービスが常に提供されるようにします。 また、パススルー認証とフェデレーションは、認証要求に応答するために、両方ともドメイン コントローラーにも依存しますが、ここでも障害が発生する可能性があります。 これらのコンポーネントの多くは、正常性を保つためにメンテナンスが必要です。 メンテナンスの計画や実装が適切でない場合は、システムが停止する可能性が高くなります。
-2. **オンプレミスの停止への対応**。 サイバー攻撃や災害によるオンプレミスの停止の影響は、ブランドの評判が損なわれることから、組織が麻痺して攻撃に対処できなくなることまで、大きな範囲に及ぶ可能性があります。 近年でも、オンプレミスのサーバーがダウンする原因となった特定対象へのランサムウェアなど、多くの組織がマルウェア攻撃の被害を受けました。 Microsoft は、この種の攻撃への対処を支援するなかで、組織には 2 つのカテゴリがあることに気付きました。
-
-    - 以前にフェデレーション認証またはパススルー認証でパスワード ハッシュ同期をオンにしていた組織は、パスワード ハッシュ同期を使用するようにプライマリ認証方法を変更しました。 彼らは数時間でオンラインに戻りました。 Microsoft 365 を介して電子メールにアクセスすることで、問題解決と他のクラウド ベースのワークロードへのアクセスのために作業することができました。
-    - 事前にパスワード ハッシュ同期を有効にしていなかった組織は、問題解決のために、信頼されていない外部のコンシューマー向けメール システムを通信に利用するしかありませんでした。 そのような企業は、ユーザーがクラウドベースのアプリに再度サインインできるよう、オンプレミスの ID インフラストラクチャを復元するのに数週間かかりました。
-3. **ID 保護** クラウド内のユーザーを保護する最適な方法の 1 つは、Microsoft Entra ID P2 を使用した Microsoft Entra ID 保護 です。 Microsoft は常にインターネットを精査して、闇サイトで販売され利用されているユーザーやパスワードのリストを入手しています。 Microsoft Entra ID はこの情報を使って、組織のユーザー名やパスワードのいずれかが侵害されているかどうかを確認します。 したがって、使用している認証方法がフェデレーション認証かパススルー認証かに関係なく、パスワード ハッシュ同期を有効にすることが重要になります。 漏洩した資格情報は、レポートとして示されます。 ユーザーが漏洩したパスワードでのサインインを試みた場合、この情報を使用してユーザーをブロックするか、パスワードの変更を強制します。
-
-### まとめ
-
-この記事では、組織がクラウド アプリへのアクセスをサポートするために構成して展開できるさまざまな認証オプションの概要を説明しました。 ビジネス、セキュリティ、テクノロジに関するさまざまな要件を満たすため、組織は、パスワード ハッシュ同期、パススルー認証、およびフェデレーション認証のいずれかを選択できます。
-
-各認証方法を検討してください。 ソリューションを展開するための作業量や、サインイン プロセスでのユーザーのエクスペリエンスは、ビジネス要件に合っているでしょうか。 各認証方法において、組織が高度なシナリオとビジネス継続性機能を必要とするかどうかを評価してください。 最後に、各認証方法の考慮事項を評価してください。 選択した方法を実装する妨げになる項目はありませんか。
 <!-- /MSL-PAGE -->

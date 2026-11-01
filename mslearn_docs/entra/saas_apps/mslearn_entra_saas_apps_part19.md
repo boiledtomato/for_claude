@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / SaaS アプリ連携チュートリアル (part 19)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 76
+Pages in this file: 75
 
 ---
 
@@ -2030,10 +2030,20 @@ Microsoft マイ アプリを使用して、任意のモードでアプリケー
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/puzzel-provisioning-tutorial
 - Service: entra-id / saas-apps
-- Article date: 2026-08-10
+- Article date: 2026-10-22
 - Summary: Microsoft Entra ID から Puzzel にユーザー アカウントを自動的にプロビジョニングおよびプロビジョニング解除する方法について説明します。
 
 この記事では、自動ユーザー プロビジョニングを構成するために Puzzel ID と Microsoft Entra ID の両方で実行する必要がある手順について説明します。 構成すると、Microsoft Entra ID は、Microsoft Entra プロビジョニング サービスを使用してユーザーを [Puzzel](https://www.puzzel.com/) に自動的にプロビジョニングおよびプロビジョニング解除します。 このサービスの機能、しくみ、よく寄せられる質問の重要な詳細については、「[Microsoft Entra ID](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)を使用して SaaS アプリケーションへのユーザー プロビジョニングとプロビジョニング解除を自動化する」を参照してください。
+
+Important
+
+アプリケーション プロビジョニングのセキュリティ体制を向上させるために、Microsoftは、このアプリケーションの **OAuth 2.0 承認コード付与**を廃止します。
+
+プロビジョニングの中断を回避するために、影響を受けるプロビジョニング ジョブを **移行** して **2027 年 3 月 31 日までに OAuth 2.0 クライアント資格情報付与**にします。 この日付を過ぎると、承認コード付与を引き続き使用するプロビジョニング ジョブが動作を停止し、最終的にサービスから削除される可能性があります。
+
+**この変更は SSO には影響しません。** 既存のプロビジョニング済みユーザーは引き続きサインインできますが、新しいユーザーはプロビジョニングされず、プロビジョニングが機能していない間、既存のユーザーとグループに対する変更は同期されません。
+
+OAuth 2.0 クライアント資格情報の付与に移行するには、この記事のMicrosoft Entra IDを使用した[自動ユーザー プロビジョニングの Puzzel の構成](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/puzzel-provisioning-tutorial#configure-automatic-user-provisioning-for-puzzel-in-microsoft-entra-id)に従います。
 
 ### サポートされる機能
 
@@ -2041,7 +2051,7 @@ Microsoft マイ アプリを使用して、任意のモードでアプリケー
 - アクセスが不要になった場合に Puzzel のユーザーを削除します。
 - Microsoft Entra ID と Puzzel の間でユーザー属性の同期を維持します。
 - Puzzel に[シングル サインオンします](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-setup-oidc-sso) (推奨)。
-- OAuth2 クライアント資格情報付与認証がサポートされています。
+- OAuth2 クライアントクレデンシャルグラント認証がサポートされています。
 
 ### Prerequisites
 
@@ -2087,31 +2097,31 @@ Microsoft Entra プロビジョニング サービスを使用すると、アプ
 5. [ **+ 新しい構成**] を選択します。
 
     [Image: [プロビジョニング] タブの [自動] のスクリーンショット。]
-6. Microsoft Entra IDでプロビジョニングを構成する前に、Puzzel ポータルで OIDC クライアントを作成し、クライアント資格情報を生成します。 Microsoft Entra IDは、[プロビジョニング] タブで接続を設定するときにこれらの資格情報を使用します。クライアント資格情報を取得するには:
+6. Microsoft Entra ID でプロビジョニングを構成する前に、Puzzel ポータルで OIDC クライアントを作成し、クライアント資格情報を生成します。 Microsoft Entra IDは、[プロビジョニング] タブで接続を設定するときにこれらの資格情報を使用します。クライアント資格情報を取得するには:
 
-    1. `https://app.puzzel.com/settings` にサインインします。 **OIDC クライアント**を見つけて、[構成] を選択**します**。
+    1. `https://app.puzzel.com/settings` にサインインします。 **OIDC クライアント**を見つけて、**構成**を選択します。
 
-        [Image: OIDC クライアントを示すスクリーンショット。]
-    2. [ **OIDC クライアント構成]** ページで、右上隅にある **[+ 追加** ] を選択します。
+        [Image: OIDCクライアントを表示したスクリーンショット。]
+    2. **[OIDC クライアント構成]** ページで、右上隅にある **[+ 追加]** を選択します。
     3. 次のように新しいクライアントを構成します。
 
         1. **[クライアント名]** に、わかりやすい名前 (例: `Microsoft Entra provisioning`) を入力します。
-        2. 許可の種類として、[ **クライアント資格情報]** を選択し、[ **保存]** を選択します。
+        2. 許可タイプとして、[**クライアント資格情報**] を選択し、[**保存**] を選択します。
         3. [ **有効期間** ] タブを開き、[ **アクセス トークンの有効期間** ] と [ **更新トークンの有効期間** ] の両方を `3600`に設定します。 **保存**を選びます。
 
             [Image: [有効期間] タブを示すスクリーンショット。]
-    4. クライアントの共有シークレットを生成します。
+    4. クライアントの共有シークレットを生成:
 
         1. [ **OIDC クライアント構成]** ページで、構成されているクライアント名を選択し、その行の最初のアイコン **(シークレット)** を選択します。
 
             [Image: OIDC クライアント構成ページを示すスクリーンショット。]
-        2. [ **共有シークレット &gt; 追加]** を選択します。
+        2. [ **共有シークレット &gt; 追加**] を選択します。
 
             [Image: 共有シークレットを示すスクリーンショット。]
-        3. [ **シークレットの生成]** を選択し、生成されたシークレット値をコピーして、セキュリティで保護された場所に格納します。 **保存**を選びます。
-7. [承認方法] で、**認証方法**として **[OAuth2 クライアント資格情報の付与**] を選択します。 [ **テナント URL** ] フィールドに Puzzel **テナント URL を** 入力し、Puzzel ポータルから取得した **クライアント ID**、 **クライアント シークレット** 、 **およびトークン エンドポイント** を入力します。
+        3. **シークレットの生成** を選択し、生成されたシークレット値をコピーして、安全な場所に保存します。 **保存**を選びます。
+7. [認可方法] で、**OAuth2 クライアント資格情報付与** を **認証方法** として選択します。 [ **テナント URL** ] フィールドに Puzzel **テナント URL** を入力し、Puzzel ポータルから取得した **クライアント ID**、**クライアント シークレット** および **トークン エンドポイント** を入力します。
 
-    [Image: OAuth2 クライアント資格情報の付与のスクリーンショット。]
+    [Image: OAuth2 クライアントクレデンシャルグラントのスクリーンショット。]
 8. [ **作成]** を選択して構成を作成します。
 9. [**概要**] ページで **[プロパティ**] を選択します。
 10. **[編集**] アイコンを選択してプロパティを編集します。 通知メールを有効にし、検疫メールを受信する電子メールを提供します。 誤削除防止を有効にします。 **[適用]** を選択して変更を保存します。
@@ -9424,193 +9434,4 @@ Microsoft Entra SSO を有効にするには、次の手順に従います。
 - [ **このアプリケーションをテスト**する] を選択すると、SSO を設定した Rise.com に自動的にサインインします。
 
 Microsoft マイ アプリを使用して、任意のモードでアプリケーションをテストすることもできます。 マイ アプリで [Rise.com] タイルを選択すると、SP モードで構成されている場合は、ログイン フローを開始するためのアプリケーション サインオン ページにリダイレクトされます。IDP モードで構成されている場合は、SSO を設定した Rise.com に自動的にサインインされます。 詳細については、「 [Microsoft Entra My Apps](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/riskware-tutorial"} -->
-## Microsoft Entra ID で Riskware for Single sign-on を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/riskware-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と Riskware の間にシングル サインオンを構成する方法について説明します。
-
-この記事では、Riskware と Microsoft Entra ID を統合する方法について説明します。 Riskware を Microsoft Entra ID と統合すると、次のことができます。
-
-- Riskware にアクセスできるユーザーを Microsoft Entra ID で制御する。
-- ユーザーが自分の Microsoft Entra アカウントを使って Riskware に自動的にサインインできるようにする。
-- 1 つの場所でアカウントを管理します。
-
-### 前提条件
-
-Riskware と Microsoft Entra の統合を構成するには、次の項目が必要です。
-
-- Microsoft Entra サブスクリプション。 Microsoft Entra の環境がない場合は、[無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を取得できます。
-- Riskware でのシングル サインオンが有効なサブスクリプション。
-- クラウド アプリケーション管理者と共に、アプリケーション管理者も、Microsoft Entra ID でアプリケーションを追加または管理することができます。 詳細については、[Azure の組み込みロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference)に関するページを参照してください。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra のシングル サインオンを構成し、テストします。
-
-- Riskware では、 **SP** によって開始される SSO がサポートされます。
-
-### ギャラリーからの Riskware の追加
-
-Microsoft Entra ID への Riskware の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Riskware を追加する必要があります。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**Riskware**」と入力します。
-4. 結果のパネルから **[Riskware]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### Riskware 用に Microsoft Entra SSO を構成してテストする
-
-**B.Simon** というテスト ユーザーを使って、Riskware に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するには、Microsoft Entra ユーザーと Riskware の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-Riskware に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
-
-1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **Riskware SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. **Riskware のテストユーザーを作成する** - RiskwareでB.Simonに対応するユーザーを作成し、それをMicrosoft Entraにおけるユーザーの表現にリンクさせるため。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-次の手順に従って Microsoft Entra SSO を有効にします。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**エンタープライズアプリ**&gt;**リスクウェア**&gt;**シングルサインオン**に移動します。
-3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: [基本的な SAML 構成] を編集する方法を示すスクリーンショット。]
-5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
-
-    ある。 **[識別子 (エンティティ ID)]** ボックスに、次のいずれかの URL を入力します。
-
-    | 環境 | URL |
-    | --- | --- |
-    | UAT | `https://riskcloud.net/uat` |
-    | 製品 | `https://riskcloud.net/prod` |
-    | デモ | `https://riskcloud.net/demo` |
-
-    b。 **[サインオン URL]** テキスト ボックスに、次のいずれかのパターンを使用して URL を入力します。
-
-    | 環境 | URL パターン |
-    | --- | --- |
-    | UAT | `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-    | 製品 | `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | デモ | `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
-
-    注意
-
-    サインオン URL の値は実際の値ではありません。 実際のサインオン URL でこの値を更新してください。 この値を取得するには、[Riskware クライアント サポート チーム](mailto:support@pansoftware.com.au)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
-6. **[SAML でシングル サインオンをセットアップします]** ページの **[SAML 署名証明書]** セクションで、 **[ダウンロード]** を選択して、要件のとおりに指定したオプションから**フェデレーション メタデータ XML** をダウンロードして、お使いのコンピューターに保存します。
-
-    [Image: 証明書のダウンロード リンクを示すスクリーンショット。]
-7. **[Riskware のセットアップ]** セクションで、要件に従って適切な URL をコピーします。
-
-    [Image: 構成の適切な URL をコピーすることを示すスクリーンショット。]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### Riskware SSO の構成
-
-1. 別の Web ブラウザー ウィンドウで、Riskware 企業サイトに管理者としてサインインします。
-2. 右上の [ **メンテナンス** ] を選択してメンテナンス ページを開きます。
-
-    [Image: Riskware 構成、メンテナンスを示すスクリーンショット。]
-3. メンテナンス ページで、[ **認証**] を選択します。
-4. **[Authentication Configuration](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/認証の構成)** ページで、次の手順に従います。
-
-    [Image: Riskware 構成、認証構成を示すスクリーンショット。]
-
-    ある。 認証の **[Type](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/種類)**として **[SAML]** を選択します。
-
-    b。 **[Code](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/コード)** ボックスにコードを入力します (例: AZURE\_UAT)。
-
-    c. **[Description](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/説明)** ボックスに説明を入力します (例:SSO 用 AZURE 構成)。
-
-    d. **[シングル サインオン ページ**] テキストボックスに、**[ログイン URL]** の値を貼り付けます。
-
-    え **[サインアウト ページ]** テキストボックスに、 **[ログアウト URL]** の値を貼り付けます。
-
-    f. **[Post フォーム フィールド]** ボックスに、SAML を含む Post 応答にあるフィールド名を入力します (例: SAMLResponse)。
-
-    ジー **[XML Identity Tag Name](XML ID タグ名)** ボックスに、SAML 応答内の一意の識別子を含む属性を入力します (例: NameID)。
-
-    h. Azure Portal からダウンロードした**メタデータ Xml** をメモ帳で開き、メタデータ ファイルから証明書をコピーして **[証明書]** ボックスに貼り付けます。
-
-    一. **[Consumer URL](コンシューマー URL)** ボックスに、サポート チームから入手した**応答 URL** の値を貼り付けます。
-
-    j. **[Issuer](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/発行者)** ボックスに、サポート チームから入手した**識別子**の値を貼り付けます。
-
-    注意
-
-    これらの値を取得するには、[Riskware クライアント サポート チーム](mailto:support@pansoftware.com.au)にお問い合わせください
-
-    ケー **[Use POST](POST を使用する)** チェックボックスをオンにします。
-
-    l. **[Use SAML Request](SAML 要求を使用する)** チェックボックスをオンにします。
-
-    m. **保存** を選択します。
-
-#### Riskware テスト ユーザーの作成
-
-Microsoft Entra ユーザーが Riskware にサインインできるようにするには、Riskware にプロビジョニングする必要があります。 Riskware では、プロビジョニングは手動で行います。
-
-**ユーザー アカウントをプロビジョニングするには、次の手順に従います。**
-
-1. セキュリティ管理者として Riskware にサインインします。
-2. 右上の [ **メンテナンス** ] を選択してメンテナンス ページを開きます。
-
-    [Image: Riskware 構成、メンテナンスを示すスクリーンショット。]
-3. メンテナンス ページで、**ピープル**を選択します。
-
-    [Image: Riskware 構成、ユーザーを示すスクリーンショット。]
-4. **[Details](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/詳細)** タブを選択し、次の手順を実行します。
-
-    [Image: Riskware 構成、詳細を示すスクリーンショット。]
-
-    ある。 **[Person Type](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザーの種類)** で、ユーザーの種類を選択します (例: [Employee](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員))。
-
-    b。 **[First Name](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/名)** ボックスに、ユーザーの名前を入力します (例: **Britta**)。
-
-    c. **[Surname](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/姓)** ボックスに、ユーザーの姓を入力します (例: **Simon**)。
-5. **[セキュリティ]** タブで、次の手順に従います。
-
-    [Image: Riskware 構成、セキュリティを示すスクリーンショット。]
-
-    ある。 **[Authentication](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/認証)** セクションで、既に設定済みの**認証**モードを選択します (例:SSO 用 AZURE 構成)。
-
-    b。 **[Logon Details](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ログオンの詳細)** セクションの **[User ID](ユーザー ID)** ボックスに、ユーザーのメール アドレスを入力します (例: `brittasimon@contoso.com`)。
-
-    c. **[Password](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/パスワード)** ボックスに、ユーザーのパスワードを入力します。
-6. **[Organization](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/組織)** タブで、次の手順に従います。
-
-    [Image: Riskware 構成、組織を示すスクリーンショット。]
-
-    ある。 **Level1** 組織としてオプションを選択します。
-
-    b。 **[Person's Primary Workplace](ユーザーのプライマリ ワークプレース)** セクションで、**[Location](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/場所)** ボックスに場所を入力します。
-
-    c. **[Employee](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員)** セクションで、**[Employee Status](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員のステータス)** を選択します (例: [Casual](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/カジュアル))。
-
-    d. **保存** を選択します。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-- [ **このアプリケーションをテスト**する] を選択すると、このオプションはログイン フローを開始できる Riskware Sign-On URL にリダイレクトされます。
-- Riskware のサインオン URL に直接移動し、そこからログイン フローを開始します。
-- Microsoft マイ アプリを使用することができます。 マイ アプリで [Riskware] タイルを選択すると、Riskware Sign-On URL にリダイレクトされます。 詳細については、「[Microsoft Entra のマイ アプリ](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
 <!-- /MSL-PAGE -->

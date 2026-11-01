@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / ユーザー・デバイス・ロール・マネージド ID (part 1)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 54
+Pages in this file: 55
 
 ---
 
@@ -411,8 +411,8 @@ Microsoft Entra 参加 は、次の方法のいずれかを使用してデプロ
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-hybrid-join
 - Service: entra-id / devices
-- Article date: 2025-06-27
-- Summary: デバイス ID 管理を使用して、環境内のリソースにアクセスしているデバイスを管理する方法について説明します。
+- Article date: 2026-10-06
+- Summary: Microsoft Entra Hybrid に参加しているデバイスが、Active Directory と Microsoft Entra ID をどのように連携させるか、また Cloud Sync がそれらのコンピューター オブジェクトをどのように同期させるかについてご説明します。
 
 既存の Active Directory 実装を持つ組織は、Microsoft Entra ハイブリッド参加済みデバイスを実装することで、Microsoft Entra ID によって提供される機能の一部を活用できます。 これらのデバイスは、オンプレミスの Active Directory に参加し、Microsoft Entra ID に登録されます。
 
@@ -438,7 +438,9 @@ Microsoft Entra ハイブリッド参加を使用したデバイスには、オ�
 |  | ドメイン参加または Intune (共同管理されている場合) による条件付きアクセス |
 |  | [ロック画面でのセルフサービス パスワード リセットおよび Windows Hello PIN のリセット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-sspr-windows) |
 
-[Image: ハイブリッド参加済みデバイスのしくみを示す図。]
+Microsoft Entra Cloud Sync を有効にすると、Active Directory コンピューター オブジェクトを Microsoft Entra ハイブリッド参加のために Microsoft Entra ID に同期できます。 AD FS やその他のフェデレーション設定の構成は行われません。 構成手順については、「[Microsoft Entra Cloud Sync を使用したデバイス同期の構成](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/device-sync)」を参照してください。
+
+[Image: Active Directory Domain Services がハイブリッド参加のためにデバイス情報を Microsoft Entra ID に送信することを示す図。]
 
 ### シナリオ
 
@@ -1230,7 +1232,7 @@ PSSO PRT に加えて、Microsoft Entraはオンプレミスとクラウドベ�
 ### 前提条件
 
 - **macOS 14.6 Sonoma の最小バージョン**。
-- [Microsoft Intune Company Portal](https://learn.microsoft.com/ja-jp/mem/intune/apps/apps-company-portal-macos) バージョン 5.2408.0 以降
+- [Microsoft Intune ポータル サイト](https://learn.microsoft.com/ja-jp/mem/intune/apps/apps-company-portal-macos) バージョン 5.2408.0 以降
 - モバイル デバイス管理 (MDM) に登録された Mac デバイス。
 - 管理者によるプラットフォーム SSO 設定を使用して構成された SSO 拡張機能 MDM ペイロードは、すでにデバイスに展開されています。 Intune が MDM である場合は、[プラットフォーム SSO ドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/devices/macos-psso) または [Intune 展開ガイド](https://learn.microsoft.com/ja-jp/mem/intune/configuration/platform-sso-macos) をご覧ください。
 - Microsoft Entra Kerberos をデプロイします。これは、オンプレミスの Active Directory でいくつかの Kerberos 機能に必要です。 詳細については、Windows Hello for BusinessCloud Kerberos 信頼展開ガイドを参照するか>Cloud Kerberos 信頼の構成手順を参照してセットアップを開始します。 Windowsの Cloud Kerberos 信頼またはパスワードなしのセキュリティ キーサインインを使用してWindows Hello for Businessを既に展開している場合、この手順は既に完了しています。
@@ -1239,11 +1241,11 @@ PSSO PRT に加えて、Microsoft Entraはオンプレミスとクラウドベ�
 
 プラットフォーム SSO の構成とデプロイについては、[Microsoft Entra ID macOS Platform SSO のドキュメント](https://learn.microsoft.com/ja-jp/entra/identity/devices/macos-psso)を参照してください。 このガイドを使用して Kerberos SSO を展開するかどうかに関係なく、エンタープライズ管理の Mac にはプラットフォーム SSO を展開する必要があります。
 
-### on-premises Active Directoryの Kerberos SSO MDM プロファイル構成
+### オンプレミスの Active Directoryの Kerberos SSO MDM プロファイル構成
 
-Microsoft Entra ID Cloud Kerberos 領域と on-premises Active Directory 領域の両方を使用する予定の場合は、個別の Kerberos SSO MDM プロファイルを構成する必要があります。 Microsoft Entra Cloud Kerberos TGT を使用する予定がない場合は、オンプレミスの Kerberos SSO プロファイルのみを構成する必要があります。
+Microsoft Entra ID Cloud Kerberos 領域と オンプレミスの Active Directory 領域の両方を使用する予定の場合は、個別の Kerberos SSO MDM プロファイルを構成する必要があります。 Microsoft Entra Cloud Kerberos TGT を使用する予定がない場合は、オンプレミスの Kerberos SSO プロファイルのみを構成する必要があります。
 
-次の設定を使用してon-premises Active Directory プロファイルを構成し、**contoso.com** および **Contoso** へのすべての参照を環境に適した値に置き換えます。
+次の設定を使用してオンプレミスの Active Directory プロファイルを構成し、**contoso.com** および **Contoso** へのすべての参照を環境に適した値に置き換えます。
 
 | 構成キー | 推奨値 | 注 |
 | --- | --- | --- |
@@ -1326,7 +1328,7 @@ Microsoft Entra ID Cloud Kerberos 領域と on-premises Active Directory 領域�
 
 ### Microsoft Entra ID Cloud Kerberos の Kerberos SSO MDM プロファイル構成
 
-Microsoft Entra ID Cloud Kerberos 領域と on-premises Active Directory 領域の両方を使用する予定の場合は、個別の Kerberos SSO MDM プロファイルを構成する必要があります。 Microsoft Entra ID Cloud Kerberos プロファイルの前にon-premises Active Directoryプロファイルをデプロイすることをお勧めします。
+Microsoft Entra ID Cloud Kerberos 領域と オンプレミスの Active Directory 領域の両方を使用する予定の場合は、個別の Kerberos SSO MDM プロファイルを構成する必要があります。 Microsoft Entra ID Cloud Kerberos プロファイルの前にオンプレミスの Active Directoryプロファイルをデプロイすることをお勧めします。
 
 次の設定を使用して、Microsoft Entra ID Cloud Kerberos プロファイルを構成し、すべての参照をテナントの適切な値に置き換えます。
 
@@ -1408,7 +1410,7 @@ Microsoft Entra ID Cloud Kerberos 領域と on-premises Active Directory 領域�
 
 注
 
-「usePlatformSSOTGT キーと performKerberosOnly キーを必ず注意してください。」 usePlatformSSOTGT が true に設定されている場合、Kerberos 拡張機能は同じ領域でプラットフォーム SSO からの TGT を使用します。 既定値は false です。 performKerberosOnly が true に設定されている場合、Kerberos 拡張機能はパスワードの有効期限チェック、外部パスワード変更チェック、またはユーザーのホーム ディレクトリの取得を実行しません。 既定値は false です。 これは、オンプレミスとクラウドの両方の構成に適用できます。これらのキーは両方のプロファイルで構成する必要があります。
+usePlatformSSOTGT キーと performKerberosOnly キーを必ず注意してください。 usePlatformSSOTGT が true に設定されている場合、Kerberos 拡張機能は同じ領域でプラットフォーム SSO からの TGT を使用します。 既定値は false です。 performKerberosOnly が true に設定されている場合、Kerberos 拡張機能はパスワードの有効期限チェック、外部パスワード変更チェック、またはユーザーのホーム ディレクトリの取得を実行しません。 既定値は false です。 これは、オンプレミスとクラウドの両方の構成に適用できます。これらのキーは両方のプロファイルで構成する必要があります。
 
 ### Intune の構成手順
 
@@ -1426,7 +1428,7 @@ Intune を MDM として使用する場合は、次の手順を実行してプ�
 6. **次へ**を選択します。
 7. **カスタム構成プロファイル名**ボックスに名前を入力します。
 8. **デプロイ チャネル**を選択します。 デバイス チャネルをお勧めします。
-9. フォルダーアイコンをクリックして、**構成プロファイルファイル**をアップロードします。 テンプレートをカスタマイズした後、以前に保存した *kerberos.mobileconfig* ファイルを選択します（[オンプレミス Active Directory 用の Kerberos SSO MDM プロファイル構成](#Kerberos SSO MDM profile configuration for on-premises Active Directory)）。
+9. フォルダーアイコンをクリックして、**構成プロファイルファイル**をアップロードします。 テンプレートをカスタマイズした後、以前に保存した *kerberos.mobileconfig* ファイルを選択します（[オンプレミス Active Directory 用の Kerberos SSO MDM プロファイル構成](#Kerberos SSO MDM profile configuration for オンプレミスの Active Directory)）。
 10. **次へ**を選択します。
 11. **スコープ タグ** (オプション) で、`US-NC IT Team` や `JohnGlenn_ITDepartment` など、特定の IT グループにプロファイルをフィルター処理するためのタグを割り当てます。 **次へ**を選択します。
     - スコープ タグの詳細については、「[分散 IT に RBAC ロールとスコープのタグを使用する](https://learn.microsoft.com/ja-jp/mem/intune/fundamentals/scope-tags)」を参照してください。
@@ -1452,7 +1454,7 @@ app-sso platform -s
 
 適切な Kerberos 対応リソースを使用してテストすることで、構成が機能していることを確認します。
 
-- Finder を使用してオンプレミスの AD 統合ファイル サーバーにアクセスするか、Safari を使用して Web アプリケーションにアクセスして、on-premises Active Directory機能をテストします。 ユーザーは、対話型の資格情報を要求されることなく、ファイル共有にアクセスできる必要があります。
+- Finder を使用してオンプレミスの AD 統合ファイル サーバーにアクセスするか、Safari を使用して Web アプリケーションにアクセスして、オンプレミスの Active Directory機能をテストします。 ユーザーは、対話型の資格情報を要求されることなく、ファイル共有にアクセスできる必要があります。
 - Microsoft Entra ID クラウド Kerberos を利用可能にした Azure Files 共有にアクセスして、Kerberos 機能をテストします。 ユーザーは、対話型の資格情報を要求されることなく、ファイル共有にアクセスできる必要があります。
 
 注
@@ -1461,11 +1463,11 @@ Microsoft のプラットフォーム SSO 実装は、Kerberos TGT を発行し�
 
 ### Cloud Kerberos TGT を使用して Azure ファイル ストレージにアクセスする
 
-プラットフォーム SSO を通じて発行されたクラウド TGT を使用すると、ユーザーに対話型資格情報の入力を求めることなく、Azureファイル共有にシームレスにアクセスできます。 PSSO Kerberos TGT 機能を使用したAzureファイル共有へのアクセスは、現在限定プレビュー段階であることに注意してください。 試してみる場合は、オンボード サポートの azurefiles@microsoft.com にお問い合わせください。 Azure Filesでのクラウド ファイル共有の構成に関するガイダンスが必要な場合は、[こちらのガイド](https://learn.microsoft.com/ja-jp/azure/storage/files/storage-files-identity-auth-hybrid-identities-enable)を参照してください。
+プラットフォーム SSO を通じて発行されたクラウド TGT を使用すると、ユーザーに対話型資格情報の入力を求めることなく、Azureファイル共有にシームレスにアクセスできます。 Platform SSO Kerberos TGT を使用したAzureファイル共有へのアクセスは、パブリック プレビュー段階です。 セットアップ手順については、「[プラットフォーム SSO を使用して macOS でAzure Files Microsoft Entra Kerberos 認証を有効にする](https://learn.microsoft.com/ja-jp/azure/storage/files/identity-kerberos-authentication-macos)」を参照してください。
 
 注
 
-SMB 経由でファイル共有をマウントする場合は、Azure ファイル共有のアプリ登録に関連付けられているマニフェスト ファイルに、`cifs` マッピングが **lowercase** に含まれていることを確認します。 この値を大文字の `CIFS`に設定すると、マウント プロセス中に問題が発生する可能性があります。
+SMB 経由でファイル共有をマウントする場合は、ストレージ アカウントのアプリ登録の識別子 URI が小文字の `cifs` プレフィックスを使用していることを確認します。 大文字の `CIFS` プレフィックスを使用している場合、macOS は共有をマウントできません。 手順については、「[アプリ登録識別子 URI を更新する](https://learn.microsoft.com/ja-jp/azure/storage/files/identity-kerberos-authentication-macos#update-the-app-registration-identifier-uri)」を参照してください。
 
 ### 既知の問題
 
@@ -1483,10 +1485,10 @@ macOS デバイスで Platform SSO を使って Kerberos を有効にしてい�
 
 - Safari: 既定で Kerberos SSO をサポートします
 - Microsoft Edge:
-    - AuthNegotiateDelegateAllowlist 設定を構成して、オンプレミス Active Directory フォレスト情報 (AuthNegotiateDelegateAllowlist) に含めるよう設定してください。
+    - **AuthNegotiateDelegateAllowlist** 設定を構成して、オンプレミスの Active Directory フォレスト情報 [(AuthNegotiateDelegateAllowlist)](https://learn.microsoft.com/ja-jp/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist)に含めるよう設定してください。
     - **AuthServerAllowlist** 設定を構成して、オンプレミス Active Directory フォレスト情報 ([AuthServerAllowlist](https://learn.microsoft.com/ja-jp/DeployEdge/microsoft-edge-policies#authserverallowlist)) を含めます。
 - Google Chrome
-    - AuthNegotiateDelegateAllowlist 設定を構成して、オンプレミス Active Directory フォレスト情報 (AuthNegotiateDelegateAllowlist) に含めるよう設定してください。
+    - **AuthNegotiateDelegateAllowlist** 設定を構成して、オンプレミスの Active Directory フォレスト情報 [(AuthNegotiateDelegateAllowlist)](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist)に含めるよう設定してください。
     - **AuthServerAllowlist** 設定を構成して、オンプレミス Active Directory フォレスト情報 ([AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist)) を含めます。
 - Mozilla Firefox
     - Kerberos SSO のサポートを有効にするには、Mozilla Firefox の設定 **network.negotiate-auth.trusted-uris** と **network.automatic-ntlm-auth.trusted-uris** を構成します
@@ -5625,6 +5627,241 @@ Mac で SSO をオプトアウトするには、[ **このデバイスのシン�
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity/devices/macos-platform-sso-architecture"} -->
+## Microsoft Entra IDでの macOS Platform SSO のアーキテクチャと認証フロー - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/devices/macos-platform-sso-architecture
+- Service: entra-id / devices
+- Article date: 2026-10-14
+- Summary: macOS Platform SSO 登録、デバイス キー、プラットフォーム SSO PRT、アプリ SSO、プラットフォーム資格情報がMicrosoft Entra IDでどのように機能するかを理解します。
+
+macOS プラットフォーム シングル サインオン (PSSO) は、ユーザーの組織 ID を macOS に統合します。 PSSO が Microsoft Entra ID で構成されている場合、マネージド Mac はデバイスバインド ID を確立し、ローカル ユーザーを登録し、サポートされているアプリケーションと Web サイトにシングル サインオン (SSO) を提供できます。
+
+この記事では、そのエクスペリエンスの背後にあるアーキテクチャと認証のライフサイクルについて説明します。 デバイス管理、macOS、Microsoft Enterprise SSO プラグイン、Microsoft Entra ID、アプリケーションの責任の境界に焦点を当てています。
+
+Important
+
+この記事では、概念アーキテクチャの概要について説明します。 正確な動作は、macOS のバージョン、構成された認証方法、Microsoft Enterprise SSO プラグインのバージョン、モバイル デバイス管理 (MDM) の構成、およびテナント ポリシー Microsoft Entraによって異なります。
+
+### 役割と責任
+
+PSSO は、ID プロバイダーの SSO 拡張機能を通じて実装される Apple プラットフォーム機能です。 これはスタンドアロンのMicrosoft資格情報プロバイダーではなく、アプリケーションはデバイスとユーザー登録プロトコル自体を実装しません。
+
+Microsoft Entra IDの場合:
+
+- **デバイス管理サービスは** 、拡張可能 SSO ポリシーと PSSO 構成をデプロイします。
+- **Microsoft Enterprise SSO プラグインは**、Mac とユーザーをMicrosoft Entra IDに登録し、macOS で必要な ID プロバイダー構成を提供します。
+- **macOS Platform SSO (Apple)** は、オペレーティング システムのエクスペリエンスを担います。 登録を呼び出し、プラットフォームの資格情報を保護し、認証を調整し、結果として得られるプラットフォーム SSO PRT を Apple がサポートするフレームワークを介して Microsoft SSO 拡張機能に提供します。
+- **Microsoft Entra ID**は、登録された認証情報を検証し、ユーザーとデバイスの証明を検証し、プラットフォーム SSO プライマリ更新トークン (PRT) を発行します。
+- **アプリケーションとブラウザーは** リソースへのアクセスを要求し、目的のトークンまたはセッションのみを受け取ります。
+
+[Image: プラットフォーム SSO の役割と責任を示す図。]
+
+*図 1. デバイス管理が PSSO をデプロイし、Microsoft がデバイスとユーザーを登録し、macOS が認証を調整し、アプリケーションは SSO の恩恵を受けます。*
+
+### Components
+
+| コンポーネント | 主な責任 |
+| --- | --- |
+| Microsoft Intuneまたはその他のサポート対象の MDM | Extensible SSO 構成をデプロイし、PSSO 認証方法を選択する |
+| macOS 用 ポータル サイト | Microsoft Entra PSSO に使用される Microsoft Enterprise SSO プラグインを提供する |
+| Microsoft Enterprise SSO プラグイン | Microsoft Entra を使用してデバイスとユーザーの登録を行い、macOS に ID プロバイダーを構成する |
+| macOS Platform SSO (Apple) | 登録と認証を連携し、プラットフォームの認証情報を保護し、組織の ID を macOS と統合する |
+| Microsoft Entra ID | 登録された認証情報を確認し、ユーザーとデバイスの証明を検証し、Platform SSO PRT を発行します |
+| セキュリティで保護されたエンクレーブ | デバイス バインド キーを保護し、UserSecureEnclaveKey メソッドを使用してユーザー バインド キーを保護する |
+| アプリとブラウザー | Platform SSO Foundation によってサポートされるリソース トークンまたは Web セッションを要求する |
+
+### ポリシーの展開とデバイス キー
+
+登録が開始される前に、Mac は MDM を介して拡張可能な SSO 構成を受け取ります。 この構成は SSO 拡張機能を識別し、選択した認証方法や登録動作など、組織の PSSO 設定が含まれます。
+
+デバイスが MDM に登録され、PSSO 構成の SSO 拡張機能ポリシーがデプロイされると、macOS によって、Secure Enclave によって保護されたデバイスキーが 2 つ生成されます。
+
+- **デバイス署名キー:** デバイスにバインドされた PSSO 要求に署名します。
+- **デバイス暗号化キー:** Microsoft Entra ID が応答を保護し、登録済みの Mac のみがその応答を復号できるようにします。
+
+このキー生成手順は、Microsoft Entra デバイス登録の前に行われます。 登録は既存のキーにアクセスします。サービス交換の一部としてそれらを生成することはありません。 秘密キーは Mac で保護されたままであり、アプリケーションやMicrosoft Entra IDにエクスポートされません。
+
+### デバイス登録
+
+デバイス登録により、Mac が既知のMicrosoft Entra デバイスとして確立されます。
+
+1. macOS は、Microsoft Enterprise SSO プラグインを呼び出します。
+2. macOS では、PSSO フレームワークを通じて、以前に生成されたデバイス署名キーと暗号化キーを使用できるようになります。
+3. この拡張機能は、デバイス登録証明を作成し、必要な公開キーマテリアルをMicrosoft Entra IDに送信します。
+4. Microsoft Entra IDは要求を検証し、デバイス ID エンティティを作成または更新します。
+5. Microsoft Entra IDは、デバイス署名公開キーに関連付けられている**登録証明書**を返します。
+6. この拡張機能は、PSSO フレームワークを通じて登録証明書を保存し、登録を完了します。
+
+登録証明書には、デバイス署名公開キーが含まれており、その公開キーを登録済みデバイスIDにバインドします。 秘密署名キーではなく、ユーザーの認証資格情報ではありません。
+
+### ユーザーの登録
+
+ユーザー登録は、ローカル macOS ユーザーをMicrosoft Entra ID に関連付け、管理者が選択した認証方法をプロビジョニングします。 詳細については、以下の「認証方法」セクションを参照してください。
+
+サポートされているメソッドは次のとおりです。
+
+- Password
+- UserSecureEnclaveKey
+- スマート カード
+
+[Image: プラットフォーム SSO デバイスとユーザー登録シーケンスを示す図。]
+
+*図 2. デバイス登録によってデバイスの信頼性が確立されます。ユーザー登録によって、ユーザーと認証方法が Mac に関連付けられます。*
+
+### 認証方法
+
+認証方法によって、ユーザーが自分が本人であることを証明する方法が決まります。
+
+#### Password
+
+Password メソッドを使用すると、macOS はローカル アカウントのパスワードをユーザーの Microsoft Entra パスワードと同期します。
+
+1. プラットフォーム SSO のユーザー登録が完了すると、macOS Platform SSO (Apple) はユーザーにMicrosoft Entraパスワードの入力を求めます。
+2. macOS は、ユーザーのMicrosoft Entraユーザー名とパスワードを使用して、プラットフォーム SSO PRT を要求します。 この要求には、登録済みの Mac に紐づけられたことを示すデバイスの証明情報も含まれています。
+3. Microsoft Entra ID は資格情報を検証し、デバイスの証明を検証し、PRT を発行します。
+4. PRT が正常に発行されると、macOS はローカル アカウントのパスワードを Microsoft Entra パスワードと一致するように更新します。
+5. Microsoft Entraパスワードが後で変更された場合、macOS はユーザーに認証を求め、パスワードの同期を維持するようにローカル パスワードを更新します。
+
+この方法では、ユーザーが管理する必要があるパスワードの数が減りますが、パスワードレスではなく、フィッシング耐性もありません
+
+#### UserSecureEnclaveKey
+
+UserSecureEnclaveKey メソッドを使用すると、ユーザー登録によってハードウェア にバインドされたユーザー キーもプロビジョニングされます。
+
+1. macOS Platform SSO (Apple) は、Secure Enclave によって保護されたユーザーキーを生成します。
+2. ユーザーは、Microsoft Entra認証と、キーの登録に必要な追加認証を完了します。
+3. 公開キーはMicrosoft Entra IDに登録され、ユーザーと登録済みの Mac に関連付けられます。
+4. 秘密キーはSecure Enclaveによって保護されたままで、Macからエクスポートされません。
+5. Microsoft Enterprise SSO プラグインは、ユーザーの Platform SSO 構成を完了します。
+6. プラットフォーム SSO PRT を要求すると、macOS はアサーションを作成し、Secure Enclave で保護された秘密鍵を使用して署名します。 この要求には、登録済みの Mac に紐づけられたことを示すデバイスの証明情報も含まれています。
+7. Microsoft Entra IDは、登録済みの公開キーを使用してアサーションを検証し、ユーザーとデバイスの証明を検証し、PRT を発行します。
+
+ローカル アカウントのパスワードは別個のローカル認証情報のままであり、この認証方法を使用して PSSO の一部として更新されることはありません。 Microsoftでは、ほとんどのプラットフォーム SSO デプロイに UserSecureEnclaveKey が推奨されています。
+
+#### SmartCard
+
+Smart Card メソッドを使用すると、ユーザーは証明書とそれに関連付けられている秘密キーを使用して自分の身元を証明します。
+
+1. ユーザーは、必要なスマートカードと PIN による操作を完了します。
+2. macOS は認証アサーションを作成し、スマート カードの秘密キーを使用して署名します。 秘密キーはスマート カードに残り、エクスポートされません。
+3. PRT 要求には、署名されたアサーション、関連付けられている証明書情報、および登録された Mac に要求をバインドするデバイスの証明が含まれます。
+4. Microsoft Entra の証明書ベース認証は、Microsoft Entra ID がプラットフォーム SSO PRT を発行する前に、証明書、ユーザー マッピング、署名付きアサーション、およびデバイス証明を検証します。
+
+[Image: プラットフォーム SSO 認証方法の比較を示す図。]
+
+*図 3。 パスワード、UserSecureEnclaveKey、スマート カードは、ユーザー認証の証明を提供するための代替方法です。*
+
+### ID プロバイダーの構成
+
+登録後、Microsoft拡張機能は、Microsoft Entra認証プロトコルを動作させるために必要な構成を macOS に提供します。 概念的には、この構成によって次の内容が識別されます。
+
+- Microsoft Entra 認証とエンドポイント。
+- 登録済みユーザー。
+- アクティブな認証方法。
+- プロトコルによって使用されるアプリケーション、対象ユーザー、およびスコープ。
+- サービス応答を検証するための要件。
+- 選択した認証方法の要求形式。
+- 該当する場合の Kerberos TGT マッピング。
+
+macOS は、Apple の PSSO フレームワークを通じてこの情報を保持します。 この配置により、macOS はログイン、ロック解除、アカウント管理、資格情報の更新、システム設定のエクスペリエンスを調整でき、Microsoft は Microsoft Entra の登録とサービス固有の検証を引き続き担当します。
+
+### プラットフォーム SSO PRT の取得
+
+PSSO によって使用される Microsoft Entra SSO 資格情報は、ハードウェア バインド PRT です。 ユーザー確認は認証方法によって異なりますが、大まかなフローは共通しています。
+
+1. macOS は、Platform SSO PRT を取得または更新する必要があると判断します。
+2. macOS は、登録時に保存された ID プロバイダー構成を読み込みます。
+3. macOS は、Microsoft Entra ID からリプレイ攻撃防止情報を取得します。
+4. macOS は、構成されたユーザー認証情報を収集または呼び出します。
+5. macOS は、認証を登録済みのデバイス識別情報にバインドします。
+6. Microsoft Entra IDは、登録済みの認証情報を検証し、ユーザーとデバイスの証明情報の妥当性を確認します。
+7. Microsoft Entra IDは、登録済みの Mac 用に保護されたプラットフォーム SSO PRT を返します。
+8. macOS は、オペレーティング システム保護を使用してプラットフォーム SSO PRT を復号化、検証、および保存します。
+9. macOS では、Apple の PSSO フレームワークを通じて、Microsoft SSO 拡張機能に PRT を提供します。
+10. この拡張機能では、PRT を使用してアプリ固有のトークンを取得するか、サポートされている Web SSO を実現します。
+11. macOS では、プラットフォーム SSO PRT の更新が自動的に管理されます。 プラットフォーム SSO トークンが見つからない、有効期限が切れている、または 4 時間を超えて経過している場合、macOS Platform SSO はそれらを更新するか、Microsoft Entra ID から新しいトークンを取得しようとします。
+
+ユーザーのパスワード、UserSecureEnclaveKey によって使用される秘密キー、またはスマート カードの秘密キーは PRT に変換されません。 これらの資格情報は、ユーザーの ID を証明します。 Microsoft Entra ID、その証明と登録済みのデバイス コンテキストを検証した後、PRT を発行します。
+
+[Image: macOS が Platform SSO PRT を取得して保護する方法を示す図。]
+
+*図 4. macOS は、デバイスバインド認証要求を送信し、返されたプラットフォーム SSO PRT を保護し、Microsoft SSO 拡張機能と共有します。*
+
+### Kerberos TGT を取得する
+
+プラットフォーム SSO PRT に加えて、Microsoft Entra ID は保護されたプラットフォーム SSO 応答で Kerberos チケット付与チケット (TGT) を返すことができます。
+
+- Microsoft Entra Kerberos を使用するクラウド リソースにアクセスするためのクラウド TGT。
+- オンプレミスの Active Directory Domain Services 環境のリソースにアクセスするためのオンプレミス TGT。
+
+TGT は、Microsoft Entra ID がそれらを同じ認証応答で返す場合でも、プラットフォーム SSO PRT とは別です。
+
+大まかなフローは次のとおりです。
+
+1. Microsoft Enterprise SSO プラグインは、Microsoft Entra IDから使用可能な Kerberos TGT を要求するように macOS Platform SSO (Apple) を構成します。
+2. SSO プラグインは、Microsoft Entra 応答のクラウドとオンプレミスの TGT フィールドを識別する Kerberos チケット マッピングを macOS Platform SSO (Apple) に提供します。
+3. macOS Platform SSO (Apple) は、プラットフォーム SSO PRT 要求をMicrosoft Entra IDに送信します。 SSO プラグインによって提供される構成に基づいて、要求は、同じ保護された応答で使用可能な Kerberos TGT を PRT と共に返す必要があることを示します。
+4. Microsoft Entra IDは、登録済みの認証情報を検証し、ユーザーとデバイスの証明情報の妥当性を確認します。 その後、保護された応答の中に、Platform SSO PRT と利用可能なクラウドまたはオンプレミスの TGT を返します。
+5. macOS Platform SSO (Apple) は応答を復号化して検証します。
+6. 構成された TGT マッピングに基づいて、macOS は選択した TGT を Kerberos 資格情報キャッシュにインポートします。 **custom\_tgt\_setting**が指定されていない場合、SSO プラグインは既定でクラウドとオンプレミスの両方の TGT をマップします。 管理者は、両方の TGT、クラウド TGT のみ、オンプレミス TGT のみ、またはどちらの TGT もマップしないように構成できます。
+7. Kerberos SSO 拡張機能が **usePlatformSSOTGT** を有効にして構成されている場合、macOS は、チケットのレルムが拡張機能によって要求されたレルムと一致する場合に、プラットフォーム SSO TGT を拡張機能で利用可能にします。
+8. Kerberos SSO 拡張機能は、TGT が有効であり、リソース構成で SSO が許可されている場合、ユーザーに再認証を求めることなく、一致する TGT を使用してクラウドまたはオンプレミスの Kerberos リソースのサービス チケットを取得します。
+
+### アプリケーションとブラウザーの SSO
+
+アプリケーションは、ユーザーの秘密キー、登録証明書、またはプラットフォーム SSO PRT を受け取りません。
+
+サポートされているアプリまたはブラウザーは、通常のMicrosoft Entra認証操作を開始します。 Microsoft Enterprise SSO プラグインは、macOS に互換性のあるプラットフォーム SSO PRT があるかどうかを確認します。 使用可能な場合、拡張機能はそれを使用してアプリ固有のトークンを要求するか、サポートされている Web SSO フローを完了します。
+
+生成されたリソース トークンは、要求元のクライアントとリソースのスコープ内にとどまります。 PSSO は、再利用可能なデバイスおよびユーザー認証の基盤を提供しますが、あるアプリケーションに別のアプリケーションのトークンへのアクセスを許可するものではありません。
+
+[Image: プラットフォーム SSO アプリケーションとブラウザーのサインイン シーケンスを示す図。]
+
+*図 5. この拡張機能では、プラットフォーム SSO PRT を使用して SSO を完了しますが、各アプリケーションは独自の認可のみを受け取ります。*
+
+### プラットフォームの認証情報とパスキー
+
+プラットフォーム認証情報のパスキー認証は、オプションの関連機能です。 プラットフォーム SSO PRT を取得または使用する必要はありません。
+
+サポートされている Microsoft Entra シナリオでは、Secure Enclave Platform Credential（UserSecureEnclaveKey 認証方法での PSSO 中に登録された Secure Enclave によって保護されたユーザー キー）は、WebAuthn チャレンジに応答できます。
+
+1. ブラウザーまたはアプリケーションは、Microsoft Entra IDから WebAuthn チャレンジを受け取ります。
+2. macOS は、対象となる Platform Credential を提示します。
+3. ユーザーは、必要に応じて Touch ID などの検証を完了します。
+4. セキュリティで保護されたエンクレーブ キーは、WebAuthn アサーションに署名します。
+5. Microsoft Entra IDは、登録済みの公開キーを使用してアサーションを検証します。
+
+[Image: プラットフォーム資格情報のパスキー認証を示す図。]
+
+*図 6. パスキー操作では、その秘密キーをエクスポートせずに、WebAuthn に対して登録済みのハードウェアにバインドされた認証情報を使用します。*
+
+定期的な PRT 取得とパスキー認証では、同じ登録済みのハードウェアベースの ID を使用できますが、異なるプロトコル要求に応答します。
+
+- PSSO 認証は、プラットフォーム SSO PRT を取得または更新します。
+- パスキー認証は、依存先の WebAuthn チャレンジに応答します。
+
+### ライフサイクル全体
+
+完全な概念ライフサイクルは次のとおりです。
+
+1. MDM 登録では、SSO 拡張機能ポリシーと PSSO 構成がデプロイされます。
+2. macOS では、Secure Enclave によって保護されたデバイス署名キーと暗号化キーが生成されます。
+3. macOS は、デバイス登録用の拡張機能を呼び出します。
+4. Microsoft Entra IDは、デバイスの公開キーを登録し、デバイス ID と登録証明書を返します。
+5. macOS はユーザー登録を開始します。
+6. ユーザーは、構成されたパスワード、UserSecureEnclaveKey、またはスマート カードメソッドを登録します。
+7. この拡張機能は、Apple の PSSO フレームワークを使用して、Microsoft Entra ID プロバイダの構成を保存します。
+8. macOS は、プラットフォーム SSO PRT を取得、検証、および保護します。
+9. macOS は、Apple のフレームワークを通じて PRT を Microsoft SSO 拡張機能と共有します。
+10. サポートされているアプリケーションとブラウザーでは、拡張機能を使用して独自のトークンまたはセッションを取得します。
+11. ポリシーで新しい証明情報が必要な場合、macOS は構成された認証方法を再度実行します。
+12. UserSecureEnclaveKey を使用すると、プラットフォーム認証情報は、サポートされている WebAuthn パスキーのチャレンジにも応答できます。
+13. macOS(Apple) はマシン上の登録状態を維持し、必要に応じて登録フローを再トリガーする場合があります。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity/devices/macos-psso"} -->
 ## macOS Platform Single Sign-on (PSSO) の概要 - Microsoft Entra ID
 
@@ -6110,7 +6347,7 @@ BitLocker キーを表示またはコピーするには、デバイスの所有�
 
 ### デバイスのダウンロード
 
-クラウド デバイス管理者と Intune 管理者は、**[デバイスのダウンロード]** オプションを使用して、デバイスが一覧表示された CSV ファイルをエクスポートできます。 フィルターを適用して、一覧表示するデバイスを決定できます。 フィルターを適用しないと、すべてのデバイスが一覧表示されます。 エクスポートされた一覧には、次のデバイス ID 属性が含まれています。
+すべてのユーザーは、[ **デバイスをダウンロード** ] オプションを使用して、デバイスを一覧表示する CSV ファイルをエクスポートできます。 フィルターを適用して、一覧表示するデバイスを決定できます。 フィルターを適用しないと、すべてのデバイスが一覧表示されます。 エクスポートされた一覧には、次のデバイス ID 属性が含まれています。
 
 `id,deviceId,isManaged,profileType,systemLabels,model,displayName,accountEnabled,operatingSystem,operatingSystemVersion,trustType(joinType),mdm,securitySettingsManagement,isCompliant,registrationDateTime,approximateLastSignInDateTime,owner,upnName`
 
@@ -7043,9 +7280,9 @@ Important
 IT 管理者は、Windows 11 バージョン 24H2 および 25H2 のセキュリティ更新プログラム (前述) 以降、次のレジストリ ポリシーを展開して、マネージド デバイスに対する SSO アクセス許可を自動的に受け入れることができます。
 
 >
-> **レジストリ パス:**HKLM\SOFTWARE\Policies\Microsoft\Windows\AAD**値：** AutoAcceptSsoPermission (DWORD) = 1
+> **レジストリ パス:**HKLM\SOFTWARE\Policies\Microsoft\Windows\AAD **値:** AutoAcceptSsoPermission (DWORD) = 1
 
-[Image: この画像には、Windows のレジストリ エディターが表示されています。最初の行には、]
+[Image: この画像は、Windows のレジストリエディタを表示したものです。1 行目には「ComputerHKEY_LOCAL_MACHINESOFTWAREPoliciesMicrosoftAAD」というパスが表示されています。その下にはツリー ビューがあり、右側にはコンテンツペインがあります。ツリー ビューには「Policies」が表示されており、その子要素として「Adobe」、「Google」、「Microsoft」があります。また、「Microsoft」には「AAD」という子キーがあります。右側には、作成中のレジストリ キーが表示されています。名前は「AutoAcceptSsoPermission」で、その右側には、ValueName を「AutoAcceptSsoPermission」、ValueData を「1」、基数を「16 進数」として新しい値を作成、編集するためのポップアップが表示されています。]
 
 ### 作業の開始
 

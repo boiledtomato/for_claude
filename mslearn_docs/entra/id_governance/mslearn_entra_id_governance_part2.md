@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / ID ガバナンス (PIM・アクセスレビュー等) (part 2)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 63
+Pages in this file: 61
 
 ---
 
@@ -214,7 +214,7 @@ access パッケージにリソースとして Microsoft Entra ロールを含�
 
 ### API アクセス許可を追加する
 
-このリソース ロールは、Microsoft Entra エージェント ID の一部として、サービス プリンシパルまたはエージェント ID に API アクセス許可を割り当てるために使用されます。
+このリソース ロールは、Microsoft Entra エージェント IDの一部として、AI エージェントのサービス プリンシパルまたはエージェント ID に API アクセス許可を割り当てるために使用されます。
 
 API アクセス許可の場合、リソース所有権の検証は、アクセス パッケージへのアクセス許可のオンボード中と、アクセス パッケージへのアクセス許可の追加時の両方で行われます。 この追加の検証により、承認されたリソース所有者のみがアクセス パッケージを通じて API アクセス許可へのアクセスを導入または拡張できるようになります。
 
@@ -225,7 +225,12 @@ API アクセス許可の場合、リソース所有権の検証は、アクセ�
 
 詳細については、「[Microsoft Agent 365 のプランと価格](https://www.microsoft.com/microsoft-agent-365#plans-and-pricing)」を参照してください。 エージェント固有の機能の完全な一覧については、**Microsoft Entra ID ガバナンス ライセンス表**の [Microsoft Agent 365](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals) 列を参照してください。
 
-access パッケージに API アクセス許可を含める前に、ユーザーが API アクセス許可を受け取ることができないので、access パッケージ ポリシーのスコープが、すべてのサービス プリンシパルまたはすべてのエージェント ID に設定されていることを確認してください。 次に、[ **API のアクセス許可**] を選択します。 API を提供するソース アプリケーション (Microsoft Graph、別の Microsoft 機能、または組織が使用する API) を、組織独自のアプリケーションから選択します。 Microsoft Graphを選択した場合は、エージェントに委任されたアクセス許可とアプリケーションアクセス許可のどちらを必要とするかを選択します。 次に、必要なアクセス許可のチェック ボックスをオンにし、[ **アクセス許可の更新**] を選択します。
+1. アクセス パッケージに API アクセス許可を含める前に、ユーザーが API アクセス許可を受け取ることができないので、アクセス パッケージのポリシーのスコープが、すべてのサービス プリンシパルまたはすべてのエージェント ID のいずれかに設定されていることを確認してください。
+2. [リソース ロール] タブで、[ **API のアクセス許可**] を選択します。
+3. API を提供するソース アプリケーション (Microsoft Graph、別の Microsoft 機能、または組織が使用する API) を、組織独自のアプリケーションから選択します。
+4. エージェントの ID に委任されたアクセス許可とアプリケーションアクセス許可のどちらを必要とするかを選択します。
+5. 必要なアクセス許可のチェック ボックスをオンにします。
+6. **アクセス許可の更新** を選択します。
 
 [Image: アクセス パッケージにリソース ロールとして API アクセス許可を追加するスクリーンショット]
 
@@ -411,7 +416,7 @@ Microsoft Entra でリソースへのアクセスを管理する場合は、 [�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-reviews-create
 - Service: entra-id-governance / entitlement-management
-- Article date: 2026-03-12
+- Article date: 2026-10-29
 - Summary: Microsoft Entra の一部である Microsoft Entra ID でエンタイトルメント管理アクセス パッケージのポリシーにアクセス レビューを設定する方法について説明します。
 
 古くなったアクセス権のリスクを軽減するには、エンタイトルメント管理で、アクセス パッケージに対するアクティブな割り当てを持つユーザーの定期的レビューを有効にする必要があります。 レビューを有効にできるのは、新しいアクセス パッケージを作成するとき、または既存のアクセス パッケージ割り当てポリシーを編集するときです。 この記事では、アクセス パッケージのアクセス レビューを有効にする方法について説明します。
@@ -419,6 +424,10 @@ Microsoft Entra でリソースへのアクセスを管理する場合は、 [�
 ### 前提条件
 
 この機能を使用するには、Microsoft Entra ID ガバナンスまたは Microsoft Entra スイートのライセンスが必要です。 要件に適したライセンスを見つけるには、 [Microsoft Entra ID ガバナンス のライセンスの基礎を](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)参照してください。
+
+注
+
+カタログ アクセス レビューでアクセス パッケージ (プレビュー) がサポートされるようになりました。 詳細については、「 [カタログ アクセス レビューにアクセス パッケージを含める](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews-access-packages)」を参照してください。
 
 ### アクセス パッケージのレビューを作成する
 
@@ -793,11 +802,11 @@ $catalog = New-MgEntitlementManagementCatalog -DisplayName "Marketing"
 
 - [カタログ アクセス レビュー (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews) では、 [カスタム データ提供のリソース](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-data-resource-access-reviews) をカタログに含めることもできます。
 
-\*\*前提条件ロール:\*\* [カタログにリソースを追加するために必要なロールを](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-delegate#required-roles-to-add-resources-to-a-catalog)参照してください。
+**前提条件ロール:**[カタログにリソースを追加するために必要なロールを](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-delegate#required-roles-to-add-resources-to-a-catalog)参照してください。
 
 カタログにリソースを追加するには:
 
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) としてサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) の権限としてサインインします。
 2. **ID ガバナンス**&gt;**Catalogs** に移動します。
 3. [カタログ] ページで、リソースを追加するカタログを開きます。
 4. 左側のメニューで、[リソース] を選択 **します**。
@@ -906,7 +915,7 @@ $ar.resources
 
 カタログからリソースを削除するには:
 
-1. 少なくとも [ID ガバナンス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator)として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) の権限としてサインインします。
 2. **ID ガバナンス**&gt;**Catalogs** に移動します。
 3. [カタログ] ページで、リソースを削除するカタログを開きます。
 4. 左側のメニューで、[リソース] を選択 **します**。
@@ -919,7 +928,7 @@ $ar.resources
 
 カタログ所有者ロールにユーザーを割り当てるには:
 
-1. 少なくとも[アイデンティティ ガバナンス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator)として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) の権限としてサインインします。
 
     ヒント
 
@@ -938,7 +947,7 @@ $ar.resources
 
 カタログを編集するには:
 
-1. 少なくとも[Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator)として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) の権限としてサインインします。
 
     ヒント
 
@@ -957,7 +966,7 @@ $ar.resources
 
 カタログを削除するには:
 
-1. あなたは少なくとも[Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator)として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) の権限としてサインインします。
 
     ヒント
 
@@ -1513,7 +1522,7 @@ GET https://graph.microsoft.com/v1.0/roleManagement/entitlementManagement/roleAs
 
 [Image: エンタイトルメント管理での承認者のネイティブ サポートのスクリーンショット。]
 
-[Azure Logic Apps](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) を呼び出す[カスタム拡張機能](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview)の導入により、組織固有のビジネス ロジックに基づいて、各アクセス パッケージ割り当て要求の承認要件を動的に決定できるようになりました。 アクセス パッケージの割り当て要求プロセスは、Azure Logic Apps でホストされているビジネス ロジックが [承認ステージ](https://learn.microsoft.com/ja-jp/graph/api/resources/accesspackageapprovalstage) を返すまで一時停止します。承認ステージは、 [マイ アクセス ポータル](https://myaccess.microsoft.com)を介してサブクエリ承認プロセスで利用されます。 たとえば、アクセス要求をアクセス パッケージを要求する担当者の部門長がアクセス要求を承認する必要がある場合、この機能を使用すると、人事 (HR) システムなどの外部システムに対してクエリを実行して、現在の部門長をすぐに検索し、特定のアクセス要求の承認者として割り当てることができます。
+[Azure Logic Apps](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) を呼び出す[カスタム拡張機能](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview)の導入により、組織固有のビジネス ロジックに基づいて、各アクセス パッケージ割り当て要求の承認要件を動的に決定できるようになりました。 アクセス パッケージの割り当て要求プロセスは、Azure Logic Apps でホストされているビジネス ロジックが[承認ステージ](https://learn.microsoft.com/ja-jp/graph/api/resources/accesspackageapprovalstage)[を返すまで一時停止し、返された](https://learn.microsoft.com/ja-jp/graph/api/resources/accesspackageapprovalstage)承認ステージはその後の承認プロセスで[マイ アクセス ポータル](https://myaccess.microsoft.com)を介して利用されます。 たとえば、アクセス要求をアクセス パッケージを要求する担当者の部門長がアクセス要求を承認する必要がある場合、この機能を使用すると、人事 (HR) システムなどの外部システムに対してクエリを実行して、現在の部門長をすぐに検索し、特定のアクセス要求の承認者として割り当てることができます。
 
 [Image: カスタム拡張機能を使用して承認者を決定する例のスクリーンショット。]
 
@@ -1527,7 +1536,7 @@ GET https://graph.microsoft.com/v1.0/roleManagement/entitlementManagement/roleAs
 
 ### Prerequisites
 
-- 少なくとも、カスタム拡張機能が作成または存在するカタログの [エンタイトルメント管理カタログ所有者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-delegate#entitlement-management-roles) ロール。
+- 少なくとも、カスタム拡張機能が作成される、またはすでに存在するカタログの、[権限管理カタログ所有者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-delegate#entitlement-management-roles)ロール。
 - ロジック アプリ自体、リソース グループ、サブスクリプション、またはロジック アプリが存在する管理グループに対する、少なくともロジック アプリ[共同作成者](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/built-in-roles)の [Azure 組み込みロール](https://learn.microsoft.com/ja-jp/azure/role-based-access-control/built-in-roles/integration#logic-app-contributor)。
 
 ### カスタム拡張機能と Azure Logic App を作成する
@@ -2757,7 +2766,7 @@ foreach ($c in $co) {
 
 組織内のユーザーは、さまざまなグループ、アプリケーション、SharePoint Online サイトにアクセスして仕事を行う必要があります。 要件の変化に応じて、このaccessの管理は困難です。 新しいアプリケーションが追加されるか、ID により多くのaccess権限が必要です。 このシナリオは、外部の組織と共同作業する場合はさらに複雑になります。 組織のリソースにaccessする必要がある他の組織のユーザーがわからない場合や、組織で使用しているアプリケーション、グループ、またはサイトが不明な場合があります。
 
-エンタイトルメント管理を使用すると、グループ、アプリケーション、SharePoint Online サイトへのアクセスを、内部 ID や、それらのリソースにアクセスする必要がある組織外の ID に対して、より効率的に管理できます。 また、プレビュー版のエンタイトルメント管理を使って、エージェントIDにグループ、API権限、役割を割り当てることもできます。
+エンタイトルメント管理を使用すると、グループ、アプリケーション、SharePoint Online サイトへのアクセスを、内部 ID や、それらのリソースにアクセスする必要がある組織外の ID に対して、より効率的に管理できます。 エンタイトルメント管理を使用して、グループ、API のアクセス許可、ロールをエージェント ID に割り当てることもできます。
 
 ### エンタイトルメント管理を使用する理由
 
@@ -2771,7 +2780,7 @@ foreach ($c in $co) {
 - 他社のディレクトリ内のすべての個人を把握する人物がおらず、それらのユーザーを招待できない場合がある
 - これらの ID を招待できたとしても、その組織内の誰も一貫してすべての ID を管理することを覚えていないaccess
 
-エンタイトルメント管理は、これらの課題への対処に役立ちます。 お客様がエンタイトルメント管理をどのように使用してきたかについて詳しくは、[Mississippi Division of Medicaid](https://customers.microsoft.com/story/1509263251891323344-mississippi-medicaid-microsoft-security-solutions)、[Storebrand](https://customers.microsoft.com/story/1540760473505561700-storebrand-banking-microsoft-security-solutions)、および [Digital Security and Resilience Team (Microsoft](https://customers.microsoft.com/story/1805346232767723893-microsoft-microsoft-entra-id-governance-other-en-united-states)のケース スタディを参照してください。 下記のビデオでは、エンタイトルメント管理とそのメリットについて概説しています。
+エンタイトルメント管理は、これらの課題への対処に役立ちます。 組織がエンタイトルメント管理をどのように使用してきたかについて詳しくは、ケース スタディの[デジタル セキュリティと回復性のチームMicrosoft](https://customers.microsoft.com/story/1805346232767723893-microsoft-microsoft-entra-id-governance-other-en-united-states)参照してください。 下記のビデオでは、エンタイトルメント管理とそのメリットについて概説しています。
 
 ### エンタイトルメント管理では何ができますか?
 
@@ -2803,7 +2812,7 @@ foreach ($c in $co) {
 - Microsoft 365 グループと Teams のメンバーシップ
 - フェデレーション/シングル サインオンやプロビジョニングをサポートする SaaS アプリケーションやカスタム統合アプリケーションなど、Microsoft Entraエンタープライズ アプリケーションへの割り当て
 - SharePoint Online サイトのメンバーシップ
-- エージェント ID またはサービス プリンシパルを持つエージェントの API アクセス許可(Microsoft Entra エージェント IDの一部としてプレビュー段階)
+- Microsoft Entra エージェント IDの一部として、エージェント ID またはサービス プリンシパルを持つエージェントの API アクセス許可
 - プレビュー段階の SAP IAG ビジネス ロールとその他のaccess権限
 
 Microsoft Entraセキュリティ グループまたはMicrosoft 365 グループに依存する他のリソースへのアクセスを制御することもできます。 次に例を示します。
@@ -2871,7 +2880,7 @@ Access パッケージは、*catalogs* と呼ばれるコンテナーで定義�
 
 この機能には、組織のユーザーのMicrosoft Entra ID ガバナンスまたはMicrosoft Entra スイートサブスクリプションが必要です。 この機能内の一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作する場合があります。 詳細については、各機能の記事を参照してください。 要件に適したライセンスを見つけるには、[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を参照してください。
 
-#### access パッケージにエージェントを割り当てるためのライセンス要件 (プレビュー)
+#### エージェントをアクセス パッケージに割り当てるためのライセンス要件
 
 エージェント ID [にMicrosoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を使用するには、次のいずれかのライセンス プランが必要です。
 
@@ -3041,7 +3050,7 @@ ID がアクセス パッケージに要求を送信すると、そのアクセ�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-reports
 - Service: entra-id-governance / entitlement-management
-- Article date: 2026-09-03
+- Article date: 2026-10-20
 - Summary: エンタイトルメント管理で ID 割り当てレポートと監査ログを表示する方法について説明します。
 
 エンタイトルメント管理レポートとMicrosoft Entra監査ログには、ID がアクセスできるリソースの詳細が表示されます。 管理者は、ID のアクセス パッケージとリソースの割り当てを表示したり、監査目的で要求ログを表示したり、ID 要求の状態を判断したりできます。 この記事では、エンタイトルメント管理レポートとMicrosoft Entra監査ログを使用する方法について説明します。
@@ -3168,7 +3177,7 @@ Microsoft Entra IDは、要求の進行中に、次のような追加の監査�
 
 ### アクセス パッケージのドリフトを表示する
 
-アクセス パッケージの誤差レポートには、管理グループとエンタープライズ アプリケーションへのアクセスがエンタイトルメント管理ポリシーと一致しなくなった場所が表示されます。 このレポートを使用すると、アクセス パッケージの割り当てなしで直接リソース にアクセスできるユーザーと、期待されるグループ メンバーシップまたはアプリケーションの割り当てなしでアクティブなアクセス パッケージの割り当てを持つユーザーを検索できます。
+アクセス パッケージの誤差レポートには、管理グループとエンタープライズ アプリケーションへのアクセスがエンタイトルメント管理ポリシーと一致しなくなった場所が表示されます。 このレポートを使用すると、アクセス パッケージの割り当てなしで直接リソースにアクセスできるユーザー/エージェント ID、および想定されるグループ メンバーシップまたはアプリケーション割り当てがないまま、アクティブなアクセス パッケージの割り当てを持つユーザー/エージェント ID を検索できます。
 
 アクセス パッケージのドリフト レポートはプレビュー段階にあります。
 
@@ -3188,7 +3197,7 @@ Microsoft Entra 管理センターでアクセス パッケージの誤差レポ
 - グローバル管理者。
 - ID ガバナンス管理者。
 - ディレクトリ リーダー。
-- レポートの閲覧者。
+- レポート閲覧者。
 
 アクセス パッケージのドリフト レポートには、次の項目が含まれます。
 
@@ -3196,7 +3205,9 @@ Microsoft Entra 管理センターでアクセス パッケージの誤差レポ
 - 対応するアクセス パッケージの割り当てを持たないアプリケーション ロールの割り当てを持つエンタープライズ アプリケーション。
 - 想定されるグループ メンバーシップまたはアプリケーションの割り当てが見つからないアクティブなアクセス パッケージの割り当て。
 
-アクセス パッケージのドリフトを確認するには:
+Microsoft Graphでアクセス パッケージのドリフトを確認するには、[List accessDriftSummary API](https://learn.microsoft.com/graph/api/accessdriftsummary-list?view=graph-rest-beta)を使用します。
+
+Microsoft Entra 管理センターのアクセス パッケージのドリフトを確認するには:
 
 1. [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
 2. **ID ガバナンス**&gt;**Access Guardian**&gt;**Reports**&gt;**Access Drift** に移動します。
@@ -3231,7 +3242,6 @@ Microsoft Entra 管理センターでアクセス パッケージの誤差レポ
 アクセス パッケージの誤差レポートには、次の制限があります。
 
 - エンタイトルメント管理とサード パーティ製アプリケーション、Azureロール、またはSharePoint サイトの間の誤差は含まれません。
-- ネストされたグループのドリフトは含まれません。 このレポートには、アクセス パッケージの割り当てと、グループに直接割り当てられたユーザーの間の誤差のみが表示されます。
 
 ### アプリケーションで孤立したアカウントまたはローカル アカウントを表示する
 
@@ -3563,7 +3573,7 @@ Note
 
 代理要求機能を使用するには、マネージャー/ユーザー (リクエスタ) と従業員/ユーザー (ターゲット) の両方にMicrosoft Entra ID ガバナンスまたはMicrosoft Entra スイートのライセンスが必要です。
 
-#### エージェント ID に代わって要求するためのライセンス要件 (プレビュー)
+#### エージェント ID の代理で要求するためのライセンス要件
 
 エージェント ID [にMicrosoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を使用するには、次のいずれかのライセンス プランが必要です。
 
@@ -3784,8 +3794,309 @@ New-MgEntitlementManagementAccessPackageResourceRoleScope -AccessPackageId $apid
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/id-governance/entitlement-management-sap-ac-integration"} -->
+## Microsoft Entra SAP Access Control 統合 (プレビュー) - Microsoft Entra ID Governance
+
+- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-ac-integration
+- Service: entra-id-governance / entitlement-management
+- Article date: 2026-09-08
+- Summary: SAP Access Control (SAP AC/GRC) をMicrosoft Entra ID ガバナンスと統合して、ユーザーがエンタイトルメント管理アクセス パッケージを通じて SAP ビジネス ロールを要求できるようにする方法について説明します。
+
+Microsoft Entra ID ガバナンス は、SAP ガバナンス、リスク、コンプライアンス ソリューション (SAP GRC) の一部である SAP Access Control (SAP AC) と統合されるため、Microsoft Entra から SAP アクセスを管理できます。 この統合により、SAP ビジネス ロールをエンタイトルメント管理カタログのリソースとして追加し、ユーザーが Microsoft Entra アクセス パッケージを通じて要求できるようにしますが、SAP AC は引き続き独自の承認、リスク分析、プロビジョニング ワークフローを実行します。
+
+この統合により、次のことが可能になります。
+
+- SAP AC ビジネス ロールをエンタイトルメント管理カタログのリソースとして追加します。
+- ユーザーが Microsoft Entra アクセス パッケージとマイ アクセス ポータルを使用して SAP アクセスを要求できるようにします。
+- SAP AC を SAP 側の承認とプロビジョニングの記録システムとして保持します。
+- SAP 要求の結果をMicrosoft Entraに反映して、割り当ての状態に SAP の結果が反映されるようにします。
+
+Microsoft Entra ではアクセスを*誰が要求できるのか*を定義して管理し、SAP AC では SAP 内の要求を*実行*し、SAP Business Technology Platform (BTP) ではこの 2 つをセキュアでコントロールされた方法で結び付けます。
+
+Important
+
+Microsoft Entra SAP AC 統合は現在プレビュー段階です。 ベータ版、プレビュー版、または一般公開されていないMicrosoft Entra機能に適用される法的条件については、Microsoft Azure プレビューの[追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)を参照してください。
+
+### 統合のしくみ
+
+[SAP Identity Access Governance (IAG) 統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration)と SAP AC 統合では、異なる接続パスが使用されます。 SAP IAG 統合は SAP Cloud Identity Services を介して接続しますが、SAP AC 統合は SAP BTP を介してオンプレミスの SAP AC システムに接続します。 SAP AC 要求パスは次のとおりです。
+
+**Microsoft Entra ID ガバナンス のエンタイトルメント管理 → SAP BTP Integration Suite (iFlows) → SAP Cloud Connector → オンプレミス SAP AC**
+
+- Microsoft Entra は SAP AC を直接呼び出すことはありません。 OAuth で保護された SAP Integration Suite ランタイム エンドポイントを呼び出します。
+- SAP Integration Suite iFlows は、Microsoft Entraの REST 呼び出しを、SAP AC が公開する SOAP Web サービス呼び出しに変換します。
+- SAP Cloud Connector は、SAP BTP からオンプレミスの SAP AC システムへのセキュアなトンネルです。 SAP AC がインターネットに直接公開されることはありません。
+- SAP AC は、既存のビジネス ロール、ワークフロー、承認、およびリスクコントロールを使用して要求を処理します。
+- Microsoft Entraは、同じチェーンを介して SAP AC の要求状態をポーリングし、SAP がそのワークフローを完了したときにアクセス パッケージの割り当てを更新します。 ステータスの照合には最大 10 分かかる場合があります。
+
+次の図は、Microsoft Entra、SAP BTP、およびオンプレミスの SAP AC システムにまたがる要求と状態調整パスを示しています。
+
+```mermaid
+flowchart LR
+    subgraph MS["Microsoft cloud"]
+        EM["Microsoft Entra ID Governance<br/>Entitlement management"]
+        KV["Azure Key Vault<br/>SAP BTP client secret"]
+    end
+    subgraph BTP["SAP Business Technology Platform"]
+        IS["SAP Integration Suite<br/>iFlows: REST to SOAP"]
+    end
+    subgraph ONPREM["Customer network (on-premises)"]
+        CC["SAP Cloud Connector<br/>secure tunnel"]
+        AC["SAP AC<br/>SAP GRC"]
+    end
+    KV -. "connector reads secret" .-> EM
+    EM -- "1. REST call with OAuth token" --> IS
+    IS -- "2. SOAP via virtual host" --> CC
+    CC -- "3. SOAP" --> AC
+    AC -. "4. request status (polled)" .-> CC
+    CC -. "status" .-> IS
+    IS -. "status" .-> EM
+```
+
+### ライセンス要件
+
+組織のユーザーがこの機能を使うには、Microsoft Entra ID ガバナンス または Microsoft Entra スイート のサブスクリプションが必要です。 この機能に含まれる一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作する場合があります。 詳細については、各機能の記事を参照してください。 要件に適したライセンスを見つけるには、[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を参照してください。
+
+この機能を使用するには、Microsoft Entra ID ガバナンス または Microsoft Entra スイートのライセンスが必要です。 要件に適したライセンスを見つけるには、[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を参照してください。
+
+### Prerequisites
+
+#### SAP の前提条件
+
+- オンプレミスで動作する **SAP AC** システム。
+- **SAP Cloud Connector** がネットワークにインストールされ、この統合に使用する SAP BTP サブアカウントに接続されています。
+- **SAP BTP サブアカウント**（次を備えたもの）:
+    - **SAP Integration Suite** のサブスクリプション。
+    - 統合フローを作成するための `integrationflows` エンタイトルメントと適切なクオータ。
+- **SAP Integration Suite** および **SAP AC** に適した SAP ライセンス。
+- SAP AC ロール **`SAP_GRAC_ALL`** 、SAP AC SOAP Web サービスを呼び出す権限を持つ技術 (サービス) アカウントに割り当てられます。
+- コネクタを作成する管理者に対応する SAP AC ユーザー。これらの SAP AC 承認ロールの少なくとも 1 つ ( `SAP_GRAC_ALL`、 `SAP_GRC_FN_ALL`、 `ZSAP_GRAC_ALL`、または `ZSAP_GRC_FN_ALL`) を保持します。 Microsoft Entraは、コネクタの作成時にこれらのロールの 1 つを検証します (手順 6 を参照)。
+
+Note
+
+SAP AC システムは、ターゲットまたはマネージド コネクタとして SAP AC でも利用可能である必要があります。 このシステムのリポジトリ同期ジョブを実行して、ユーザーとユーザー権限情報を SAP AC に取り込む。
+
+#### Microsoft の前提条件
+
+- Microsoft Entra ID ガバナンス ライセンス、Microsoft Entra スイート ライセンス、または Microsoft Entra ID ガバナンス ステップアップ。
+- 次のいずれかの管理者ロール: [グローバル管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#global-administrator) または [ID ガバナンス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator)。
+- SAP BTP クライアント シークレットの格納に使用する**Azure Key Vault**を含む**Azure サブスクリプション**。
+
+### 手順 1: SAP AC を準備する
+
+統合が呼び出す SOAP Web サービスを公開および承認するように SAP AC を構成します。
+
+1. SAP AC で、トランザクション **`SICF`** を開き、次の表に示す各 Web サービスをアクティブ化します。
+2. SAP SOA Manager で、各サービスにアクティブなバインドがあり、その代替アクセス URL エイリアスがテーブルの値と正確に一致していることを確認します。
+3. SAP AC に到達できるシステムから各サービス エンドポイントをテストします。 ネットワーク、認可、バインディング エラーは、SAP Cloud Connector を設定する前に解決します。
+4. 技術ユーザーまたはサービス アカウントを作成または識別し、SAP AC SOAP Web サービスを呼び出すことができるように、 `SAP_GRAC_ALL` ロールを割り当てます。
+
+#### 必要な SAP AC Web サービスとエイリアス
+
+iFlows は、固定の代替アクセス URL エイリアスを使用して SAP AC を呼び出します。 これらのエイリアス名は統合フローでハードコーディングされており、**完全に**一致する必要があります。 SAP AC や iFlows では、名前を変更しないでください。
+
+| SAP AC/GRC Web サービス | 必須の代替アクセスURLエイリアス |
+| --- | --- |
+| `GRAC_LOOKUP_WS` | `/grac_lookup_ws` |
+| `GRAC_REQUEST_STATUS_WS` | `/grac_request_status_ws` |
+| `GRAC_ROLE_DETAILS_WS` | `/grac_role_details_ws` |
+| `GRAC_SEARCH_ROLES_WS` | `/grac_search_roles_ws` |
+| `GRAC_SELECT_APPL_WS` | `/grac_select_appl_ws` |
+| `GRAC_USER_ACCESS_WS` | `/grac_user_access_ws` |
+| `GRAC_USER_EXISTING_ASSGN_WS` | `/grac_user_existing_assgn_ws` |
+
+Note
+
+SOAP 呼び出しが後で `404 Not Found`を返す場合、バインディングの不一致または非アクティブが最も一般的な原因です。
+
+### 手順 2: SAP Cloud Connector を構成する
+
+SAP Cloud Connector は、SAP BTP サブアカウントからオンプレミスの SAP AC システムへのセキュアなトンネルです。
+
+#### システム マッピングを作成する
+
+1. Cloud Connector 管理 UI (通常は `https://<cloud-connector-host>:8443`) を開きます。
+2. この統合に使用する SAP Integration Suite サブスクリプションを含むサブアカウントを選択します。
+3. **[クラウドからオンプレミスへ]** に移動して、新しいシステム マッピングを追加します。
+
+    | Setting | Value |
+    | --- | --- |
+    | バックエンドの種類 | `ABAP System` |
+    | Protocol | `HTTPS` (推奨) または `HTTP` |
+    | 内部ホスト | SAP AC ホスト名 |
+    | 内部ポート | お使いの SAP AC HTTPS ポート |
+    | 仮想ホスト | BTP が SAP AC に到達するために使用する仮想ホスト名 |
+    | 仮想ポート | BTP が SAP AC に到達するために使用する仮想ポート |
+
+    次の手順で、該当する各 iFlow に同じ **仮想ホスト** と **仮想ポート** を入力します。
+
+#### リソース アクセスを制限する
+
+統合に必要な SOAP サービス パス **に対してのみ** 、リソース アクセス規則を追加します。
+
+Warning
+
+`/sap/` を公開したり、SAP 名前空間全体への広範なアクセス権を作成したりしないでください。 統合に必要な特定のサービス パスのみを許可します。 公開されたパスを制限すると、Cloud Connector を介して到達可能な攻撃対象領域が減少します。
+
+#### 接続を検証する
+
+次のすべてを確認してください:
+
+- SAP AC システムマッピングには、Cloud Connector で **到達可能** と表示されます。
+- サブアカウント接続がアクティブです。
+- SAP BTP Cockpit の &gt;**Cloud コネクタ** の下の Cloud Connector に **接続済み** と表示されます。
+- iFlows をインポートすると、BTP からのテスト呼び出しは、構成済みの仮想ホスト経由でルーティングされます。
+
+### 手順 3: SAP BTP Integration Suite を設定する
+
+プレビューでは、統合は統合フローのダウンロード可能な ZIP パッケージとして配布されます。
+
+#### 統合パッケージをインポートする
+
+1. プレビュー チームの GitHub リポジトリ (`<add GitHub branch archive URL in the format https://github.com/microsoft/REPOSITORY/archive/refs/heads/main.zip>`) から統合フロー ZIP パッケージをダウンロードします。
+2. SAP BTP サブアカウントにサインインし、 **SAP Integration Suite**&gt;**Design**&gt;**Integrations** を開きます。
+3. **[インポート]** を選択して、ZIP ファイルをアップロードします。
+4. インポートされたパッケージとそのすべての統合フローが一覧表示されていることを確認します。 パッケージには、統合で使用される SAP AC Web サービスごとに 1 つのフローが含まれています。
+
+#### 各 iFlow を設定する
+
+ここで指定されたパラメーターのみを変更します。 構成済みのエイリアス名またはエンドポイント パスは変更しないでください。
+
+該当する iFlow ごとに、次の設定を行います。
+
+- **宛先/仮想ホスト** : Cloud Connector (`<virtual-host>:<virtual-port>`) で作成した正確な仮想ホストとポート。
+- **SAP AC への認証** — SAP AC 技術ユーザーの資格情報 (`SAP_GRAC_ALL` を保持するアカウント)。
+
+#### iFlows をデプロイする
+
+1. 各フローの構成を保存し、**デプロイ**を選択してください。
+2. デプロイを監視し、すべてのフローが**Started**状態になったことを確認します。
+3. ランタイム エンドポイント URL を記録します。パターン `https://<your-btp-subdomain>.it-<region>.cfapps.<landscape>.hana.ondemand.com/...` に従います。
+
+### 手順 4: SAP BTP 認証資格情報を取得する
+
+Microsoft Entra は、**OAuth 2.0 クライアント資格情報**フローを使用して SAP Integration Suite エンドポイントに対して認証します。 資格情報は、SAP BTP Integration Suite ランタイムのサービス キー (サービス **SAP Process Integration Runtime**、プラン**integration-flow**、サービス技術名`it-rt`) から取得されます。
+
+サービス キーを作成または開き、次の値を記録します。
+
+| フィールド | Description |
+| --- | --- |
+| `clientid` | Integration Suite ランタイムの OAuth クライアント ID |
+| `clientsecret` | OAuth クライアント シークレット |
+| `tokenurl` | OAuth トークン エンドポイントのベース URL |
+| `url` | Integration Suite ランタイムのベース URL |
+
+これらの値は、手順 6 でMicrosoft Entra コネクタを作成するときに使用します。
+
+### 手順 5: Azure Key Vaultを構成する
+
+Microsoft Entraは、SAP BTP クライアント シークレットをコネクタに格納するのではなく、Azure Key Vaultから読み取ります。
+
+1. Azure サブスクリプションで [Azure Key Vault を作成](https://learn.microsoft.com/ja-jp/azure/key-vault/general/quick-create-portal) (または既存のものを使用) します。
+2. &gt; **ネットワーク** で、**すべてのネットワークからのパブリック アクセスを許可する** を選択します。
+
+    Note
+
+    プレビュー コネクタには、Key Vaultでのパブリック ネットワーク アクセスが必要です。 プライベート エンドポイントと選択されたネットワーク構成は、プレビューではサポートされていません。
+3. [シークレット](https://learn.microsoft.com/ja-jp/azure/key-vault/secrets/quick-create-portal)を追加します。その値は、SAP BTP サービス キーの `clientsecret` です。 **サブスクリプション**、**Key Vault名**、**シークレット名**を記録します。
+
+#### Key Vaultアクセス許可を割り当てる
+
+コネクタの作成時に、サインインした管理者は、シークレットを選択して検証するためにKey Vaultにアクセスする必要があります。 コネクタが作成されると、Microsoft Entra ID ガバナンス サービス プリンシパルはバックグラウンド サービスとして統合を実行します。 要求を送信するか、SAP AC に状態をポーリングするたびに、KEY VAULTから SAP BTP クライアント シークレットを読み取ります。 そのため、コネクタを構成する管理者とサービス プリンシパルの両方が、Key Vaultにアクセスする必要があります。
+
+- セットアップを実行するユーザーには、Key Vault に対する**Owner**と**Key Vault Secrets Officer**の役割が必要です。
+- 次のサービス プリンシパルは、コネクタ構成の一部として自動的に追加されます。 これには、キー コンテナーがテナントに出現したら、**キー コンテナー シークレット ユーザー** ロールを割り当てます。
+
+    | サービス プリンシパル | アプリケーション ID |
+    | --- | --- |
+    | Microsoft Entra ID ガバナンス - SAP Cloud Identity Access Governance | `22223333-cccc-4444-dddd-5555eeee6666` |
+
+### 手順 6: Microsoft Entraで SAP AC を接続する
+
+コネクタを作成すると、Microsoft Entra が`GRAC_USER_EXISTING_ASSGN_WS` Web サービスを呼び出して、コネクタを作成する管理者に対応する SAP AC ユーザーに割り当てられている SAP AC ロールを読み取ります。 作成は、そのユーザーが次の SAP AC 承認ロールの少なくとも 1 つを保持している場合にのみ成功します。
+
+- `SAP_GRAC_ALL`
+- `SAP_GRC_FN_ALL`
+- `ZSAP_GRAC_ALL`
+- `ZSAP_GRC_FN_ALL`
+
+これらのロールがいずれも割り当てられていない場合、コネクタの作成は失敗し、*認可されていません*エラーが発生します。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)で、**ID ガバナンス**&gt;**Entitlement management**&gt;**Control 構成**を参照します。
+2. **[外部コネクタの管理 (プレビュー)]** カードで、**[コネクタの表示]** を選択します。
+3. **+ 新しいコネクタ** を選択し、**タイプ** で **SAP AC** を選択します。
+4. コネクタの次のフィールドに記入します。
+
+    | フィールド | 入力する内容 |
+    | --- | --- |
+    | タイプ | `SAP AC` |
+    | Name | コネクタのカスタム名 |
+    | Description | コネクタの説明 |
+    | サブスクリプション ID | Key Vault が含まれている Azure サブスクリプション |
+    | Key Vault名 | SAP BTP クライアント シークレットを格納するKey Vault |
+    | シークレット名 | SAP BTP `clientsecret` を含むキー コンテナー シークレット |
+    | クライアント ID | SAP BTP サービス キーの `clientid` |
+    | アクセストークンURL | SAP BTP サービスキーの に を追加したもの。 例 : `https://<subdomain>.authentication.<region>.hana.ondemand.com/oauth/token` |
+    | AC URL | SAP BTP サービス キーの に を追加したもの。 例 : `https://<subdomain>.it-<region>.cfapps.<landscape>.hana.ondemand.com/http/` |
+    | システム ID | オンプレミスの SAP AC インスタンスのシステム ID。 例 : `AC1` |
+    | ユーザー識別子 | ユーザーの SAP AC/GRC ユーザー名にマップされるMicrosoft Entra属性。 例 : `userPrincipalName` |
+
+    Important
+
+    **AC URL** は SAP AC ホスト URL ではなく SAP Integration Suite ランタイム URL であり、`/http/`で終わる必要があります。 クライアント シークレットを任意のフィールドに貼り付けないでください。コネクタはKey Vaultから読み取ります。
+5. **を選択して**を作成します。
+
+カタログ管理者は、エンタイトルメント管理カタログとアクセス パッケージに SAP AC ビジネス ロールを追加できるようになりました。
+
+### 手順 7: SAP ビジネス ロールをカタログに追加する
+
+1. Microsoft Entra 管理センターで、**ID ガバナンス**&gt;**Entitlement management**&gt;**Catalogs** を参照します。
+2. [新しいカタログを作成](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-catalog-create) するか、既存のカタログを開きます。
+3. カタログの **[リソース]** タブで、**[+ リソースの追加]**&gt;**[外部リソース]** を選択します。
+4. 構成した **SAP AC** コネクタを選択し、追加する SAP AC アクセス権を選択します。
+5. リソースの選択内容を保存します。
+
+### 手順 8: アクセス パッケージを SAP ビジネス ロール付きで作成する
+
+1. カタログで、[ **アクセス パッケージ** ] タブを開き、[ **新しいアクセス パッケージ**] を選択します。 [基本情報](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#configure-basics)を入力します。
+2. [ **リソース ロール** ] タブで、 **SAP AC** を選択し、含めるビジネス ロールを選択します。
+3. [ **リクエスト** ] タブで、パッケージをリクエストできるユーザーとリクエスト ポリシーを構成します。 エンド ツー エンド テストの場合は、**Microsoft Entra承認が不要**になるようにポリシーを構成します (SAP AC は承認機関です)。
+4. 残りのタブにも記入して、**[作成]** を選択します。 詳細については、「 [エンタイトルメント管理でのアクセス パッケージの作成](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create)」を参照してください。
+
+### 統合をテストする
+
+1. ID ガバナンス管理者として、 [テスト ユーザーをアクセス パッケージに直接割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-an-identity) か、ユーザーにマイ アクセス ポータルから [要求](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-access) してもらう。
+2. 要求が SAP AC に表示されることを確認します。
+3. SAP AC で要求を承認 (または拒否) します。 プレビューでは、SAP AC での 2 レベルの承認を示します。
+4. 承認されたら、このロールは SAP AC でプロビジョニングされることと、Microsoft Entra の割り当てのステータスが **[配信済み]** に更新されることを確認します。
+5. 状態が 2 つのシステム間で反映され一致するまで最大 10 分かかります。
+
+### Troubleshooting
+
+| 症状: | チェック |
+| --- | --- |
+| BTP から SAP への AC 接続タイムアウト | クラウド コネクタは、SAP BTP コックピットで **接続済み** と表示されます。iFlow 仮想ホストとポートは、Cloud Connector マッピングと正確に一致します。リソース アクセス規則では、必要な SOAP パスが許可されます。SAP AC 内部ホストとポートは、Cloud Connector から到達可能です。 |
+| SOAP 呼び出しは `403 Forbidden` を返します | 技術ユーザーは必要な権限を持っています。サービスは `SICF`で有効化されています。代替アクセス URL はハードコーディングされたエイリアスと一致します。SOA バインドはアクティブであり、正しく名前が付けられています。 |
+| iFlow デプロイが失敗する | このサブアカウントには SAP Integration Suite エンタイトルメントとクオータがあり、管理者には要件となる Integration Suite ロール (`PIIntegrationDeveloper` など) があり、各フローは単に保存されるのではなく **[開始済み]** に到達します。 |
+| コネクタが iFlow エンドポイントに到達できない | ランタイム エンドポイントの URL が正しい。**AC URL** は、BTP `/http/` に `url` を追加して構築されました。**クライアント ID** が正しい。Key Vault シークレットには正しい BTP `clientsecret` が格納されています。**アクセス トークン URL** は BTP `tokenurl`（`/oauth/token` 付き）と一致します。Microsoft Entraから SAP BTP への送信トラフィックはファイアウォールでブロックされません。 |
+| コネクタがKey Vaultシークレットを見つけることができません | サブスクリプション、Key Vault、シークレットの名前は正しいです。**Owner** と **Key Vault Secrets Officer** があります。必要なサービス プリンシパルが存在し、**Key Vault Secrets User** ロールがあります。Key Vault ネットワークでは、すべてのネットワークからのパブリック アクセスが許可されます。 |
+| *権限がない*エラーでコネクタの作成が失敗する | サインイン済み管理者に相当する SAP AC ユーザーは、`SAP_GRAC_ALL`、`SAP_GRC_FN_ALL`、`ZSAP_GRAC_ALL`、`ZSAP_GRC_FN_ALL` のうち 1 つを保持します。`GRAC_USER_EXISTING_ASSGN_WS` サービスがアクティブ化されて到達可能になるので、Microsoft Entra ではユーザーの既存のロール割り当てを読み取ることができます。**ユーザー識別子**属性は、正しい SAP AC ユーザー名へマッピングされます。 |
+| SAP SOAP エンドポイントは `404 Not Found` を返します | エンドポイント URL、 `SICF` アクティブ化、SAP SOA Manager バインド、およびバインド名が iFlow で想定される名前と一致することを確認します。 |
+
+### プレビューの考慮事項と制限事項
+
+- 統合はパブリック プレビュー段階です。 iFlow パッケージはプレビュー GitHub リポジトリからの ZIP として分配されており、まだ一般に入手可能な SAP Integration Suite 市場パッケージにはなていません。
+- サービス エイリアスはハードコーディングされており、名前を変更することはできません。 文書化されている iFlow パラメーターのみを変更します。
+- このプレビューでは、Azure Key Vault でパブリック ネットワーク アクセスを許可する必要があります。
+- ステータス調整はポーリングベースであり、最大 10 分かかり、イベントドリブン コールバックはまだ利用できません。
+- プレビューでは、広範な SAP ロール `SAP_GRAC_ALL`が使用されます。検証済みの最小特権ロールはまだ定義されていません。 統合で標準の `SAP_GRAC_ALL` ロールを使用しない場合は、AC SOAP Web サービスの呼び出しに必要な認可のみを付与するカスタム SAP AC ロールを定義できます。
+- クロスシステムの職務の分離の分析、ドリフト調整へのアクセス、SAP スコープの管理の委任は、まだ利用できません。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/id-governance/entitlement-management-sap-integration"} -->
-## Microsoft Entra SAP IAG 統合 (プレビュー) - Microsoft Entra ID Governance
+## Microsoft Entra と SAP IAG の統合 - Microsoft Entra ID Governance
 
 - Source: https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration
 - Service: entra-id-governance / entitlement-management
@@ -3859,7 +4170,7 @@ Microsoft Entraエンタイトルメント管理を SAP Cloud Identity Access Go
 #### 2. BTP HTTP 宛先を作成する
 
 1. SAP BTP サブアカウントで、[接続 &gt; 宛先証明書] に移動 &gt; 生成方法 'インポート' を作成して使用します。 IAG 同期システム管理者の登録手順で生成された p12 証明書ファイルをアップロードします。
-2. SAP BTP サブアカウントで、[接続] &gt; [接続先] &gt; [新しい接続先] &gt; [最初から] に移動します。
+2. SAP BTP サブアカウントで、[接続] &gt; [接続先] &gt; [新しい接続先] &gt; [最初から] の順に選択します。
 3. [名前] を SAP\_Identity\_Services\_Identity\_Directory に設定し、[種類] を HTTP に、[URL] を https://&lt;SCI\_TENANT\_ID&gt;.accounts.ondemand.com に、[プロキシの種類] を Internet に、[認証] を ClientCertificate に設定します。
 4. IAG 同期システム管理者の登録手順で作成およびアップロードされた証明書を使用して認証を構成します。 [ストア ソース] を [DestinationService] に設定し、キー ストアの場所でドロップダウン リストから証明書を選択し、[宛先証明書] にアップロードした証明書と同じにする必要があります
 5. 以下のプロパティを追加します。
@@ -3892,7 +4203,7 @@ IAG [の構成アプリ](https://help.sap.com/http.svc/login?time=1763658868990&
 | パスワード | IAS 管理者ユーザーのパスワード |
 | Description | IPS デスティネーション |
 | プロキシの種類 | インターネット |
-| URL | IPS URL を使用する - https://{YOUR\_IPS\_TENANT}&gt;。{DOMAIN}&gt;.hana.ondemand.com |
+| URL | IPS URL を使用 - https://{YOUR\_IPS\_TENANT}&gt;.{DOMAIN}&gt;.hana.ondemand.com |
 | その他のプロパティ | Accept = application/scim+jsonServiceURL = /ipsproxy/service/api/v1/scim/USERSURL = /UsersGROUPSURL = /Groups |
 
 #### 6. IAG でアプリケーションを作成する
@@ -3969,7 +4280,7 @@ SAP IAG への外部コネクタが構成されたので、その SAP IAG のビ
 
 [Image: 外部コネクタ、カタログ、およびアクセス パッケージ リソース ロールの関係の図。]
 
-1. 少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) として [Microsoft Entra 管理センター](https://entra.microsoft.com) にサインインします。
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com) に、少なくとも [Identity Governance Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) としてサインインします。
 2. **ID ガバナンス**&gt;**権限管理**&gt;**カタログ** を参照します。
 3. [新しいカタログを作成](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-catalog-create)するか、SAP ビジネス ロールを追加する既存のカタログを選択します。
 4. カタログが作成または選択されたら、その **リソース** セクションに移動し、[ **リソースの追加]** を選択します。
@@ -4101,7 +4412,7 @@ SAP IAG への外部コネクタが構成されたので、その SAP IAG のビ
 1. [マイ Access ポータルにサインインします](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-access#sign-in-to-the-my-access-portal)
 2. アクティブなアクセスパッケージを表示する
 
-### エージェントのaccessを管理する (プレビュー)
+### エージェントのアクセスを管理する
 
 エージェント ID [にMicrosoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を使用するには、次のいずれかのライセンス プランが必要です。
 
@@ -5046,17 +5357,17 @@ Important
 
 ゲスト ライフサイクル ポリシーは現在プレビュー段階です。 プレビュー機能は、サービス レベル アグリーメントなしで提供され、運用環境のワークロードには推奨されません。 一部の機能はサポートされていないか、機能が限られている可能性があります。 このプレビューは、パブリック クラウドで利用できます。
 
-ライフサイクル ワークフローのゲスト ライフサイクル ポリシーは、大規模な外部コラボレーションの管理に役立ちます。 対象となる Microsoft Entra ゲスト ユーザーを定義し、ゲスト ライフサイクル シグナルを評価するルールを構成し、スポンサーまたはゲストに通知し、ポリシー要件を満たさなくなったアカウントを自動的に無効化または削除することができます。
+ライフサイクル ワークフローのゲストのライフサイクル ポリシーを活用することで、大規模な外部コラボレーションを適切に管理できます。 対象となる Microsoft Entra ゲスト ユーザーを定義し、ゲスト ライフサイクル シグナルを評価するルールを構成し、スポンサーまたはゲストに通知し、ポリシー要件を満たさなくなったアカウントを自動的に無効化または削除することができます。
 
 ゲスト ライフサイクル ポリシーを使用すると、個々のワークフローを構築および管理する代わりに、大規模に適用されるビジネス ルールに集中できます。
 
 ### 主な利点
 
-- **古いゲスト アクセスを減らす:** 通常の構成証明と非アクティブ制御は、アクセスが不要になった外部アカウントを削除するのに役立ちます。
+- **古いゲスト アクセスを減らす:** 定期的な確認と非アクティブなアカウントの管理を行うことで、アクセス権が不要となった外部アカウントを削除できます。
 - **一貫性のあるガバナンスを適用します。** テナント全体の既定値、属性とグループのスコープ、除外、ポリシーの優先順位により、予測可能な適用が提供されます。
-- **ゲストの強制を自動化する:** 削除、無効化、または無効化を選択し、猶予期間後の削除を選択します。
-- **スポンサーのアカウンタビリティの向上:** 実施アクションの前にスポンサーに通知します。
-- **段階的な導入をサポートする:** 複数のポリシーと対象範囲を使用して、選択した母集団に制御を導入します。
+- **ゲストの強制を自動化する:** 「削除」、「無効化」、または「無効化」の後に猶予期間を経て「削除」を行う、のいずれかを選択します。
+- **スポンサーのアカウンタビリティの向上:** 実施アクションの前に、スポンサーに通知します。
+- **段階的な導入をサポートする:** 複数のポリシーと対象範囲を組み合わせ、特定の対象グループに対して制御措置を導入します。
 - **運用の可視性を高めます。** 処理状態、スコープ内のユーザー、コンプライアンス状態、およびゲストに適用されるポリシーを確認します。
 
 ### 始める前の準備
@@ -5066,11 +5377,11 @@ Important
 ゲスト ライフサイクル ポリシーを構成するには、テナントに次のものが必要です。
 
 - Microsoft Entra ID ガバナンス ライセンス。
-- ゲスト アドオン メーターの接続Azureサブスクリプション。
+- ゲスト アドオン メーターに紐付けられた Azure サブスクリプション。
 
 Important
 
-ゲスト ライフサイクル ポリシーでは、ゲスト ユーザーの月次アクティブ ユーザー (MAU) 課金モデルMicrosoft Entra ID ガバナンス使用されます。 課金対象のアクションとライセンス要件については、[ゲスト ユーザーのMicrosoft Entra ID ガバナンスライセンスに関する説明を](https://learn.microsoft.com/ja-jp/entra/id-governance/microsoft-entra-id-governance-licensing-for-guest-users)参照してください。
+ゲストのライフサイクル ポリシーでは、ゲスト ユーザーに対して Microsoft Entra ID ガバナンス の月間アクティブ ユーザー (MAU) の課金モデルが適用されます。 課金対象となる操作やライセンス要件については、[ゲストユーザー向けの Microsoft Entra ID ガバナンス ライセンス](https://learn.microsoft.com/ja-jp/entra/id-governance/microsoft-entra-id-governance-licensing-for-guest-users)を参照してください。
 
 #### 役割と権限
 
@@ -5085,8 +5396,8 @@ Important
 - ポリシーは、ゲスト アカウントの作成方法や招待方法に関係なく、Microsoft Entra `userType` プロパティが `Guest` に設定されているユーザーに適用されます。
 - 作成日スコープでは、ゲスト オブジェクトの `createdDateTime` プロパティが使用され、ファースト パーティ アプリケーションまたはその他の招待ソースを使用して作成されたゲストを含めることができます。
 - 属性ベースのルールでは、プレビュー エクスペリエンスで公開されている属性に従って、サポートされている標準ユーザー プロパティ、オンプレミス拡張機能の属性 1 から 15、ディレクトリ拡張機能、およびカスタム セキュリティ属性を使用できます。
-- グループの包含と除外では、直接メンバーシップが使用されます。 入れ子になったグループは評価されません。
-- アクセス ベースの条件は、アクセス パッケージの割り当てデータによって異なります。
+- グループへの包含と除外には、直接メンバーシップが使用されます。 入れ子になったグループは評価されません。
+- アクセス ベースの条件は、アクセス パッケージの割り当てデータに依存します。
 
 #### ポリシーの概念
 
@@ -5094,28 +5405,28 @@ Important
 | --- | --- |
 | **Policy** | ゲスト スコープ条件、ポリシー ルール、ポリシー アクション、および通知のセット。 |
 | **ルール** | スポンサー構成証明、最近のアクティビティ、アクセス パッケージの割り当て、最小スポンサー数、引き換え状態など、ゲストが満たす必要があることを示すライフサイクルシグナル。 |
-| **Scope** | テナント全体のカバレッジ、作成日、属性、グループ、除外など、ポリシーが適用されるゲスト。 |
-| **Precedence** | 複数のポリシーがゲストと一致する場合の競合の解決に使用される優先順位。 |
-| **操作** | ゲストがポリシー要件を満たしていない場合に実行される自動適用アクション。 |
+| **Scope** | ポリシーが適用されるゲスト対象者 (テナント全体を対象とする補償範囲、作成日、属性、グループ、または除外事項を含む)。 |
+| **優先順位** | 複数のポリシーがゲストと一致する場合の競合の解決に使用される優先順位。 |
+| **操作** | ゲストがポリシー要件を満たさない場合に実施される自動適用のアクション。 |
 
-次の手順では、ゲスト ライフサイクル ポリシーを作成し、そのスコープとルールを定義し、強制アクションを選択し、その優先順位を設定する方法について説明します。 広範な適用を有効にする前に、ゲストの数が限られた構成を検証します。
+以下の手順では、ゲスト ライフサイクル ポリシーの作成方法、その適用範囲とルールの定義、適用アクションの選択、優先順位の設定について説明します。 広範囲に適用する前に、限定されたゲスト対象者で構成の検証を行ってください。
 
 ### ゲスト ライフサイクル ポリシーを作成する
 
-1. ゲスト ライフサイクル ポリシーを管理できるロールを使用して、[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
-2. **ID ガバナンス**&gt;**ライフ サイクル ワークフロー**&gt;**ライフ サイクル ポリシー**&gt;**Guest ライフサイクル ポリシー**&gt;**作成ポリシー**を参照します。
-3. 一意のポリシー名と、目的のゲストの作成と目的を識別する説明を入力します。
-4. ポリシーのスコープとルールを構成します。
+1. ゲストのライフサイクル ポリシーを管理できるロールで、[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **ID ガバナンス**&gt;**ライフサイクル ワークフロー**&gt;**ライフサイクル ポリシー**&gt;**ゲストのライフサイクルポリシー**&gt;の順に選択し、**ポリシーの作成**をクリックします。
+3. 一意のポリシー名と、対象となるゲスト層と目的を明示する説明を入力してください。
+4. ポリシーの適用範囲とルールを構成します。
 5. ポリシー アクションを選択し、必要に応じて猶予期間を選択します。
 6. 通知の動作を確認します。
-7. 他のゲストライフサイクルポリシーがある場合は、ポリシーの優先順位を設定します。
+7. 他のゲストのライフサイクル ポリシーが存在する場合は、ポリシーの優先順位を設定します。
 8. 構成を確認し、ポリシーを作成し、評価と適用の準備ができたら有効化します。
 
-ポリシーを保存すると、ライフサイクル ワークフローによってポリシーが定期的に評価され、ポリシー ルールに違反したゲストが識別され、ポリシー構成に従って適用サイクルが開始されます。
+ポリシーを保存すると、Lifecycle Workflows はそのポリシーを定期的に評価し、ポリシーのルールに違反しているゲストを特定して、ポリシーの構成に従って適用サイクルを開始します。
 
-### ポリシー スコープを定義する
+### ポリシーのスコープを定義する
 
-**[すべてのゲスト**] から幅広く開始するか、選択した人口にポリシーを絞り込むことができます。 **[すべてのゲスト**] を選択した場合、ポリシーには、招待元に関係なく、テナント内の既存のゲスト ユーザーが含まれます。
+**すべてのゲスト**という広い範囲から設定を始めることも、対象を特定のグループに絞り込んでポリシーを設定することも可能です。 **すべてのゲスト**を選択した場合、招待元にかかわらず、テナント内の既存のゲストユーザーもこのポリシーの対象となります。
 
 スコープ オプションは次のとおりです。
 
@@ -5130,46 +5441,46 @@ Note
 
 ### ポリシールールの設定
 
-ポリシーには複数のルールを含めることができます。 ルールは、ゲストが準拠したままであるか、適用対象になるかを決定します。 運用環境でポリシーを有効にする前に、テスト環境で最終的なルールの組み合わせ動作を確認します。
+ポリシーには複数のルールを含めることができます。 ルールによって、ゲストが引き続きコンプライアンスを遵守しているか、それとも措置の対象となるかが決定されます。 運用環境でポリシーを有効にする前に、テスト環境で最終的なルールの組み合わせ動作を確認します。
 
 | ポリシー規則 | デフォルト | 構成範囲 | Purpose |
 | --- | --- | --- | --- |
-| **スポンサー構成証明** | 90 日間 | 30～365日 | スポンサーは、ゲストがまだアクセス権を必要としていることを定期的に確認する必要があります。 スポンサーは、スポンサー付きゲストの [マイ アクセス] で構成証明 **を完了します**。 |
-| **アクティビティの要件** | 90 日間 | 30 ~ 730 日 | 構成された期間内にゲストをアクティブにする必要があります。 テナントへのサインインなど、サービスが認識するアクティビティは、この要件を満たします。 |
+| **スポンサーの構成証明** | 90 日間 | 30～365日 | スポンサーは、ゲストがまだアクセス権を必要としていることを定期的に確認する必要があります。 スポンサーは、My Access の**スポンサー付きゲスト**で証明を完了します。 |
+| **アクティビティの要件** | 90 日間 | 30 ～ 730 日 | 構成された期間内にゲストがアクティブである必要があります。 テナントへのサインインなど、サービスが認識するアクティビティは、この要件を満たします。 |
 | **アクセス パッケージの割り当ての有効期限** | N/A | 有効または無効にする | ゲストが最後のアクセス パッケージの割り当てを失った後、ゲストの無効化または削除を開始します。 この規則は、エンタイトルメント管理で管理対象としてマークされたユーザーだけでなく、すべてのゲスト ユーザーに適用されます。 詳細については、「 [エンタイトルメント管理で外部ユーザーのライフサイクルを構成する」を](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-manage-lifecycle)参照してください。 |
-| **スポンサーの最小数** | 1 | 1~5人のスポンサー | ゲストには、少なくとも構成されたスポンサーの数が必要です。 グループ値のスポンサーは、1 つのスポンサーとしてカウントされます。 |
-| **ゲストの引き換え** | 30 日間 | 1 ~ 30 日 | `externalUserState` プロパティが `PendingAcceptance` に設定されている招待されたゲストの削除を開始します。 |
+| **スポンサーの最小数** | 1 | 1–5 スポンサー | ゲストには、構成された数以上のスポンサーがいる必要があります。 グループ単位のスポンサーは、1 人のスポンサーとしてカウントされます。 |
+| **ゲストの引き換え** | 30 日間 | 1 ～ 30 日 | `externalUserState` プロパティが `PendingAcceptance` に設定されている招待されたゲストの削除を開始します。 |
 
 ### 適用を設定する
 
 #### ポリシー アクション
 
-適用期限までにゲストがポリシーを満たさない場合に実行するアクションを選択します。
+ゲストが適用期限までにポリシーを満たさない場合、どのような措置を講じるかを選択します:
 
 - **削除:** ゲスト アカウントを削除します。
 - **無効にする:** ゲスト アカウントを無効にする。
-- **無効にしてから削除します。** すぐにアカウントを無効にし、猶予期間が 7 日から 90 日後に自動的に削除されます。 既定値は 30 日です。
+- **無効にしてから削除:** アカウントを直ちに無効化し、7 日から 90 日の猶予期間を経た後に自動的に削除します。 既定値は 30 日です。
 - **猶予期間:** ゲストがポリシー規則に準拠していない場合は、少なくとも 1 日の猶予期間を構成してポリシー アクションを遅らせます。 既定は 7 日です。
 
 #### Notifications
 
-ライフサイクル ワークフローでは、強制適用中に最大 3 件の通知を送信できます。 通知イベントは、選択したポリシー アクションと猶予期間が構成されているかどうかによって異なります。
+ライフサイクル ワークフローでは、強制適用中に最大 3 件の通知を送信できます。 通知イベントは、選択されたポリシー アクションと猶予期間が構成されているかどうかに依存します。
 
-- **アクション前の通知:** ゲストが非準拠になり、猶予期間が構成されると、ライフサイクル ワークフローは適用前にゲストとスポンサーに通知します。
-- **通知の無効化:** ライフサイクル ワークフローでは、ゲスト アカウントが無効になり、アクセスが取り消されると、スポンサーに直ちに通知します。
-- **削除通知:** ライフサイクル ワークフローは、ゲスト アカウントが削除され、アクセスが取り消されると、スポンサーに直ちに通知します。
+- **アクション前の通知:** ゲストが規約に違反し、猶予期間が構成されている場合、ライフサイクルのワークフローは、措置を講じる前にゲストとスポンサーに通知します。
+- **通知の無効化:** ゲスト アカウントが無効化され、アクセス権が取り消されると、ライフサイクル ワークフローは直ちにスポンサーに通知します。
+- **通知の削除:** ライフサイクル ワークフローでは、ゲスト アカウントが削除され、アクセス権が取り消されると、直ちにスポンサーに通知されます。
 
 #### 複数のポリシーと優先順位
 
-スコープと設定が異なる複数のゲスト ライフサイクル ポリシーを構成できます。 ポリシーの表示、有効化、無効化、削除、並べ替えを行うことができます。 1つのゲストに複数のポリシーが一致する場合、設定された優先度によってどのポリシーが適用されるかが決まります。
+スコープや設定が異なる複数のゲスト ライフサイクル ポリシーを構成できます。 ポリシーの表示、有効化、無効化、削除、並べ替えを行うことができます。 1つのゲストに複数のポリシーが一致する場合、設定された優先度によってどのポリシーが適用されるかが決まります。
 
 Important
 
-ゲストは、一度に1つのポリシーにしか割り当てられません。 ゲストが複数のポリシーと一致する場合は、優先順位が最も高いポリシーが適用されます。 優先順位の低いポリシーは評価されません。
+ゲストは、一度に 1 つのポリシーにしか割り当てられません。 ゲストが複数のポリシーと一致する場合は、優先順位が最も高いポリシーが適用されます。 優先順位が低いポリシーは評価されません。
 
 複数のポリシーを有効にする前に、最も具体的なポリシーまたは最も重要なポリシーを優先順位の上位に配置してください。
 
-テナントには、最大 20 個のゲスト ライフサイクル ポリシーを設定できます。
+テナントごとに、最大 20 件のゲスト ライフサイクル ポリシーを設定できます。
 
 ### ポリシーを監視して管理する
 
@@ -5184,13 +5495,13 @@ Important
 
 #### ポリシーの削除と復元
 
-削除されたポリシーは論理的に削除され、復元できます。 復元されたポリシーは、以前の状態に関係なく無効になり、優先度が最も低くなります。 再度有効にする前に、スコープ、ルール、通知、アクション、および優先順位を確認してください。
+削除されたポリシーは論理的に削除され、復元できます。 復元されたポリシーは、以前の状態に関係なく無効になり、優先度が最も低くなります。 再度有効にする前に、その適用範囲、ルール、通知、動作、優先順位を確認してください。
 
 ### ゲスト ライフサイクル ポリシーの適用のしくみ
 
 1. **スコープの評価:** ライフサイクル ワークフローは、ポリシーの包含ルールに一致し、その除外に一致しないゲスト ユーザーを識別します。
 2. **条件の評価:** ライフサイクル ワークフローは、各ゲストのポリシー 規則を評価して、ゲストが準拠しているか非準拠であるかを判断します。
-3. **適用:** ゲストが非準拠の場合、ライフサイクル ワークフローは構成されたアクションを実行します。 猶予期間が有効になっている場合は、猶予期間が終了したときに適用されます。
+3. **適用:** ゲストが非準拠の場合、Lifecycle Workflows は構成されたアクションを実行します。 猶予期間が有効になっている場合、猶予期間の終了時に適用が行われます。
 4. **通知:** ライフサイクル ワークフローは、該当する通知をスポンサーとゲストに送信します。
 5. **状態の更新:** ライフサイクル ワークフローは、管理エクスペリエンスにおけるポリシー処理とゲスト コンプライアンスに関する情報を更新します。
 
@@ -5201,20 +5512,20 @@ Important
 ゲスト ライフサイクル ポリシーをデプロイするときは、次のプラクティスを使用します。
 
 - 限られたゲストの数から始めて、より広範な実装の前にポリシーのスコープと動作を確認します。
-- 組織で完全な削除の前に復旧期間が必要な場合は、無効化機能の後に削除を使用します。
+- 組織内で、完全削除の前に復旧期間を設ける必要がある場合は、「無効化」を行った後に「削除」を行ってください。
 - リマインダーが目的の受信者に届くよう、ゲストにスポンサーが設定されていることを確認します。
 - より限定的なポリシーを、より広範なポリシーより上に配置し、優先順位を変更するたびに重複するスコープを確認します。
-- 各ポリシーの変更後に、処理状態、強制エラー、およびゲスト コンプライアンスを監視します。
+- ポリシーの変更後は、処理状態、適用エラー、ゲストのコンプライアンス状態を監視してください。
 - 除外を文書化し、例外が永続的なアンマネージド アクセスにならないように定期的に確認します。
 
 ### Troubleshooting
 
 | 問題点 | 確認すべきこと |
 | --- | --- |
-| ゲストがスコープ内にない | オブジェクトが`userType``Guest`に設定されていることを確認します。 作成日ルール、属性ルール、および直接グループのルールを確認します。 明示的なユーザーとグループの除外を確認し、より優先度の高いポリシーを調べます。 |
-| ポリシーはまだ開始されていません | ポリシーが有効であること、テナントがライセンスとゲスト メーターの要件を満たしていること、Lifecycle Workflows の管理対象スケジュールが実行されるだけの時間があったことを確認します。 |
-| 想定外のポリシーが適用されています | 条件に一致するすべてのポリシーとその優先順位を確認します。 重複する対象への影響を評価してからのみ、対象のポリシーを上位に移動してください。 |
-| スポンサーにメールが届きませんでした | スポンサーが割り当てられ、使用可能なメール属性があることを確認します。 スポンサーがいない場合は、ゲストが郵便物を受け取れることを確認します。 配信エラーと追加受信者の設定を確認します。 |
+| ゲストがスコープ内にない | そのオブジェクトの `userType` が `Guest` に設定されていることを確認してください。 作成日、属性、直接グループのルールを確認します。 明示的なユーザーとグループの除外を確認し、より優先度の高いポリシーを調べます。 |
+| ポリシーはまだ開始されていません | ポリシーが有効になっていること、テナントがライセンスとゲストメーターの要件を満たしていること、および「ライフサイクル ワークフロー」の管理スケジュールが実行されるまでの時間が確保されていることを確認してください。 |
+| 予期せぬポリシーが適用されました | 該当するすべてのポリシーとその優先順位を確認します。 重複する対象集団への影響を評価した上で、対象となるポリシーをより上位に位置づけてください。 |
+| スポンサーにメールが届きませんでした | スポンサーが割り当てられ、使用可能なメール属性があることを確認します。 スポンサーがいない場合は、ゲストがメールを受信できることを確認してください。 配信エラーと追加受信者の設定を確認します。 |
 | 復元されたポリシーが動作していない | 復元されたポリシーは無効になり、最低優先順位に設定されます。 ポリシーを確認し、明示的に有効にします。 |
 <!-- /MSL-PAGE -->
 
@@ -6531,21 +6842,21 @@ ServiceNow をお持ちの場合は、必要に応じて、Logic Apps による 
 ---
 
 <!-- MSL-PAGE {"url":"entra/id-governance/identity-governance-applications-prepare"} -->
-## 環境内のアプリケーションのアクセスを制御する - Microsoft Entra ID Governance
+## 環境内のアプリケーションへのアクセスを制御する - Microsoft Entra ID Governance
 
 - Source: https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-prepare
 - Service: entra-id-governance
 - Article date: 2024-11-21
-- Summary: Microsoft Entra ID Governance を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 これらの機能は、既存のビジネス クリティカルなサード パーティのオンプレミスおよびクラウドベースのアプリケーションに使用できます。
+- Summary: Microsoft Entra ID ガバナンス を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 これらの機能は、既存のビジネス クリティカルなサード パーティのオンプレミスおよびクラウドベースのアプリケーション向けに使用できます。
 
-Microsoft Entra ID Governance を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 その機能により、ユーザーとエージェント ID は、適切なタイミングで組織内の適切なリソースに適切なアクセス権を持つことができます。
+Microsoft Entra ID ガバナンス を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 その機能により、ユーザーとエージェント ID は、適切なタイミングで組織内の適切なリソースに適切なアクセス権を持つことができます。
 
 コンプライアンス要件またはリスク管理計画がある組織には、機密性の高いアプリケーションまたはビジネス クリティカルなアプリケーションがあります。 アプリケーションの機密性は、その目的やそれに含まれるデータ (組織の顧客の財務情報や個人情報など) に基づいている場合があります。 これらのアプリケーションでは、通常、組織内のすべてのユーザー ID とエージェント ID のサブセットのみがアクセスを許可され、アクセスは文書化されたビジネス要件に基づいてのみ許可される必要があります。
 
 アクセスを管理するための組織のコントロールの一環として、Microsoft Entra の機能を使って、次のことを実行できます。
 
 - 適切なアクセス権を設定する
-- アプリケーションにユーザーをプロビジョニングする
+- ユーザーをアプリケーションに割り当てる
 - アクセス チェックを適用する
 - コンプライアンスとリスク管理の目標を満たすためにこれらのコントロールがどのように使用されているかを示すレポートを生成する
 
@@ -6553,7 +6864,7 @@ Microsoft Entra ID Governance を使うと、セキュリティや従業員の�
 
 ### ライセンス要件
 
-この機能を使用するには、Microsoft Entra ID Governance または Microsoft Entra スイートのライセンスが必要です。 要件に適したライセンスを見つけるには、「[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)」をご覧ください。
+この機能を使用するには、Microsoft Entra ID ガバナンス または Microsoft Entra スイートのライセンスが必要です。 要件に適したライセンスを見つけるには、「[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)」をご覧ください。
 
 ### アプリケーションへのアクセス ガバナンスの概要
 
@@ -6562,7 +6873,7 @@ Microsoft Entra ID ガバナンスは、OpenID Connect、SAML、SCIM、SQL、LDA
 以下のセクションで説明するように、Microsoft Entra 環境の準備が完了したら、3 ステップの計画でアプリケーションを Microsoft Entra ID に接続する方法をカバーし、そのアプリケーションで ID ガバナンス機能を使用できるようにします。
 
 1. [アプリケーションへのアクセスを管理するための組織のポリシーを定義する](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-define)
-2. [アプリケーションを Microsoft Entra ID と統合して](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-integrate)、許可されているユーザーのみがアプリケーションにアクセスできるようにし、アプリケーションへのユーザーの既存のアクセスを確認して、確認されたすべてのユーザーのベースラインを設定します。 これにより、認証とユーザー プロビジョニングが可能になります
+2. [アプリケーションを Microsoft Entra ID と統合して](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-integrate)、承認されたユーザーのみがアプリケーションにアクセスできることを確認し、ユーザーのアプリケーションへの既存のアクセスをレビューして、レビューされたすべてのユーザーのベースラインを設定します これにより、認証とユーザー プロビジョニングが可能になります
 3. [シングル](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-deploy) サインオン (SSO) を制御し、そのアプリケーションのアクセス割り当てを自動化するためのポリシーをデプロイする
 
 ### ID ガバナンスのために Microsoft Entra ID と Microsoft Entra ID ガバナンスを構成する前の前提条件
@@ -6570,18 +6881,18 @@ Microsoft Entra ID ガバナンスは、OpenID Connect、SAML、SCIM、SQL、LDA
 Microsoft Entra ID ガバナンスからのアプリケーション アクセスを管理するプロセスを開始する前に、Microsoft Entra 環境が適切に構成されていることを確認する必要があります。
 
 - **適切なテナント展開アーキテクチャを選択します。** ビジネス パートナーと従業員ユーザーにアプリケーションへのアクセスを提供する場合は、テナントを選択してアプリケーションを統合し、ID ガバナンス機能を展開します。テナントは、ビジネス パートナー シナリオのコラボレーションまたは分離の要件に合わせて構成されます。 詳細については、Microsoft Entraを使用した Microsoft Entra 外部 ID 展開アーキテクチャの に関するページを参照してください。
-- **Microsoft Entra ID と Microsoft Online Services 環境が、アプリケーションを統合して適切にライセンス設定するための[コンプライアンス要件](https://learn.microsoft.com/ja-jp/entra/standards/standards-overview)に対する準備ができていることを確認します**。 コンプライアンスは、Microsoft、クラウド サービス プロバイダー (CSP)、および組織の間での共同責任です。 アプリケーションへのアクセスの管理に Microsoft Entra ID を使用するには、テナントに次のいずれかの[ライセンスの組み合わせ](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)が必要です。
+- **アプリケーションを統合して適切にライセンスを取得するための[コンプライアンス要件](https://learn.microsoft.com/ja-jp/entra/standards/standards-overview)に対して、Microsoft Entra ID と Microsoft Online Services 環境の準備ができていることを確認します**。 コンプライアンスは、Microsoft、クラウド サービス プロバイダー (CSP)、および組織の間での共同責任です。 アプリケーションへのアクセスの管理に Microsoft Entra ID を使用するには、テナントに次のいずれかの[ライセンスの組み合わせ](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)が必要です。
 
-    - **Microsoft Entra ID ガバナンス**とその前提条件、Microsoft Entra ID P1
-    - **Microsoft Entra ID Governance Step Up for Microsoft Entra ID P2** とその前提条件、Microsoft Entra ID P2 または Enterprise Mobility + Security (EMS) E5 のいずれか
+    - **Microsoft Entra ID ガバナンス**とその前提条件である Microsoft Entra ID P1
+    - **Microsoft Entra ID ガバナンス Step Up for Microsoft Entra ID P2** とその前提条件、Microsoft Entra ID P2 または Enterprise Mobility + Security (EMS) E5 のいずれか
     - **Microsoft Entra スイート**
 
-    テナントには、アプリケーションへのアクセスを要求したり、アプリケーションへのアクセスを承認またはレビューしたりできるユーザーを含め、管理されているメンバー (ゲスト以外) ユーザーの数と同数以上のライセンスが必要です。 これらのユーザーに適切なライセンスを使用すると、ユーザーごとに最大 1500 のアプリケーションへのアクセスを管理できます。 詳細については、ライセンス シナリオの例を参照してください。
-- **アプリケーションへのゲストのアクセスを管理する場合は、Microsoft Entra テナントを MAU 課金のためのサブスクリプションにリンクします**。 このステップは、ゲストにアクセスを要求またはレビューさせる前に必要です。 詳細については、「[Microsoft Entra 外部 IDの課金モデル](https://learn.microsoft.com/ja-jp/entra/external-id/external-identities-pricing)」を参照してください。
-- **Microsoft Entra ID が、監査ログおよび必要に応じて他のログを Azure Monitor に既に送信していることを確認します。** Microsoft Entra では監査イベントが監査ログに保存されるのは最大 30 日間だけであるため、Azure Monitor は省略可能ですがアプリへのアクセスの管理に有用です。 監査データは、「[Microsoft Entra ID にレポート データが保存される期間は?](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-reports-data-retention)」で説明されている既定の保持期間よりも長く保持でき、Azure Monitor ブック、カスタム クエリ、監査データ履歴に関するレポートを使用できます。 Microsoft Entra 管理センターの **[Microsoft Entra ID]** で **[Workbooks]** をクリックすることで、Microsoft Entra 構成をチェックしてこれが Azure Monitor を使用しているかどうかを確認できます。 この統合が構成されておらず、Azure サブスクリプションが手元にあり、自分が `Global Administrator` または `Security Administrator` ロールに含まれている場合は、[Azure Monitor を使用するように Microsoft Entra ID を構成](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logs-and-reporting)できます。
+    テナントには、アプリケーションへのアクセスを要求したり、アプリケーションへのアクセスを承認またはレビューしたりできるユーザーを含め、管理されているメンバー (ゲスト以外) ユーザーの数と同数以上のライセンスが必要です。 これらのユーザーに適切なライセンスがあれば、ユーザーごとに最大 1500 のアプリケーションへのアクセスを管理できます。 詳細については、[ライセンス シナリオ](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を参照してください。
+- **アプリケーションへのゲストのアクセスを管理する場合は、Microsoft Entra テナントを MAU 課金のためのサブスクリプションにリンクしてください**。 このステップは、ゲスト要求を行うか、アクセス権を確認する前に必要です。 詳細については、「[Microsoft Entra 外部 IDの課金モデル](https://learn.microsoft.com/ja-jp/entra/external-id/external-identities-pricing)」を参照してください。
+- **Microsoft Entra ID が、監査ログおよび必要に応じて他のログを Azure Monitor に既に送信していることを確認します。** Microsoft Entra では監査イベントが監査ログに保存されるのは最大 30 日間だけであるため、Azure Monitor はオプションですが、アプリへのアクセスの管理に有用です。 監査データは、既定の保持期間よりも長く保持できます。詳細については、[Microsoft Entra ID にレポート データが保存される期間](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-reports-data-retention)を参照してください。また、Azure Monitor ブックとカスタム クエリとレポートを監査履歴データに対して使用できます。 Microsoft Entra 管理センターの **[Microsoft Entra ID]** で **[Workbooks]** をクリックすることで、Microsoft Entra 構成をチェックしてこれが Azure Monitor を使用しているかどうかを確認できます。 この統合が構成されておらず、Azure サブスクリプションが手元にあり、自分が `Global Administrator` または `Security Administrator` ロールに含まれている場合は、[Azure Monitor を使用するように Microsoft Entra ID を構成](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logs-and-reporting)できます。
 - **オブジェクトの保持方法を選択します。** 過去 1 年間にアプリケーションにアクセスしたユーザーやエージェント ID (その後 Microsoft Entra から削除されたユーザーを含む) を一覧表示するレポートなど、過去の Microsoft Entra オブジェクトを報告できるようにする必要がある場合は、保持とレポートのために、Microsoft Entra から別のリポジトリにオブジェクトをアーカイブすることを計画する必要があります。 詳細については、「[Microsoft Entra ID のデータを使用して Azure Data Explorer (ADX) でレポートをカスタマイズする](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-entitlement-report-with-adx-and-entra-id)」を参照してください。
-- **許可されているユーザーのみが Microsoft Entra テナントの高い特権を持つ管理者ロールに含まれるようにします。***グローバル管理者*、*ID ガバナンス管理者*、*ユーザー管理者*、*アプリケーション管理者*、*クラウド アプリケーション管理者*、*特権ロール管理者*に含まれる管理者は、ユーザーとそのアプリケーション ロールの割り当てを変更できます。 これらのロールのメンバーシップが最近レビューされていない場合は、*これらのディレクトリ ロールのアクセス レビュー*が確実に開始されるようにするために、"グローバル管理者" または "特権ロール管理者" のユーザーが必要です。 また、Azure Monitor、Logic Apps、Microsoft Entra 構成の操作に必要なその他のリソースを保持するサブスクリプションの Azure ロールのユーザーが確認済みであることを確かめる必要もあります。
-- **テナントが適切に分離されていることを確認します。** 組織がオンプレミスで Active Directory を使用していて、それらの AD ドメインが Microsoft Entra ID に接続されている場合は、クラウドでホストされるサービスに対する高い特権を使用する管理操作が、オンプレミス アカウントから分離されていることを確認する必要があります。 [オンプレミスの侵害から Microsoft 365 のクラウド環境を保護するようにシステムを構成している](https://learn.microsoft.com/ja-jp/entra/architecture/protect-m365-from-on-premises-attacks)ことを確認します。
+- **許可されているユーザーのみが Microsoft Entra テナントの高い特権を持つ管理者ロールに含まれるようにします。***グローバル管理者*、*ID ガバナンス管理者*、*ユーザー管理者*、*アプリケーション管理者*、*クラウド アプリケーション管理者*、*特権ロール管理者*に含まれる管理者は、ユーザーとそのアプリケーション ロールの割り当てを変更できます。 これらのロールのメンバーシップが最近レビューされていない場合は、[これらのディレクトリ ロールのアクセス レビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-create-roles-and-resource-roles-review)が確実に開始されるようにするために、*グローバル管理者*または*特権ロール管理者*のユーザーが必要です。 また、Azure Monitor、Logic Apps、Microsoft Entra の構成の操作に必要なその他のリソースを保持するサブスクリプションの Azure ロールのユーザーがレビューされていることも確認する必要があります。
+- **テナントが適切に分離されていることを確認します。** 組織がオンプレミスで Active Directory を使用していて、それらの AD ドメインが Microsoft Entra ID に接続されている場合は、クラウドでホストされるサービスに対する高度な特権を持つ管理操作が、オンプレミス アカウントから分離されていることを確認する必要があります。 [オンプレミスの侵害から Microsoft 365 のクラウド環境を保護するようにシステムを構成している](https://learn.microsoft.com/ja-jp/entra/architecture/protect-m365-from-on-premises-attacks)ことを確認します。
 
 Microsoft Entra 環境の準備ができていることを確認したら、アプリケーションの[ガバナンス ポリシーの定義](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-define)に進みます。
 <!-- /MSL-PAGE -->
@@ -7009,7 +7320,7 @@ Identity Governance 機能に関するフィードバックがある場合は、
 | その他のスケジュール済みタスク | Azure Automation、Microsoft を介したMicrosoft Graph。Graph.Identity.Governance PowerShell モジュール |
 | アプリケーションで孤立したアカウントまたはローカル アカウントを検出する | アプリケーション内の既存のユーザーを[検出](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery)します。 |
 
-### エージェントの ID ガバナンス (プレビュー)
+### エージェントIDのアイデンティティ ガバナンス
 
 Microsoft エージェント ID プラットフォームを追加することで、エージェントの ID とアクセスをユーザーと同じ方法で管理することは、組織のガバナンス ライフサイクルでも同様に重要になります。 Microsoft Entra エージェント IDでは、AI エージェント用の専用の ID コンストラクトである [agent ID](https://learn.microsoft.com/ja-jp/entra/agent-id/what-is-microsoft-entra-agent-id) を導入し、企業規模で運用される自律型および半自律的なエージェントの固有の課題に対処するガバナンス コントロールを使用します。
 
@@ -7017,7 +7328,7 @@ Microsoft エージェント ID プラットフォームを追加することで
 
 エージェント ID は、人間の ID で使用できるのと同じ [エンタイトルメント管理](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview) アクセス パッケージを通じて管理され、承認ワークフローを使用して時間制限付きの監査可能なアクセスを提供します。 スポンサーは有効期限の通知を受け取り、拡張機能を要求したり、アクセスを期限切れにしたりすることができます。 [ライフサイクル ワークフローは、](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks) スポンサープランの変更が発生したときにスポンサー切り替え通知を自動化します。 すべてのエージェント ID は、Microsoft Entra 管理センターとMicrosoft Graphを介して検出可能、検索可能、およびクエリ可能であり、エージェントのスプロールとシャドウ AI を防ぐための一元的な可視性を組織に提供します。
 
-詳細については、「 [エージェント ID の管理 (プレビュー)」を](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-id-governance-overview)参照してください。
+詳細については、「 [エージェント ID の管理」を](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-id-governance-overview)参照してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -7032,15 +7343,15 @@ Microsoft エージェント ID プラットフォームを追加することで
 
 この記事では、従業員のMicrosoft Entra ID ガバナンスライセンスについて説明します。 IT の意思決定者、IT 管理者、および組織のMicrosoft Entra ID ガバナンス サービスを検討している IT プロフェッショナルを対象としています。
 
-ゲスト ユーザーのガバナンス ライセンスについては、「ゲスト ユーザーの[Microsoft Entra ID ガバナンスライセンス](https://learn.microsoft.com/ja-jp/entra/id-governance/microsoft-entra-id-governance-licensing-for-guest-users)」を参照してください。 プレビューのエージェント ID ライセンス要件については、「 [エージェント ID の管理 (プレビュー)」を](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-id-governance-overview#license-requirements)参照してください。 テナント ガバナンス管理者と機能に適用されるライセンスについては、「[Microsoft Entra テナント ガバナンスのライセンス](https://learn.microsoft.com/ja-jp/entra/id-governance/tenant-governance/licensing)」を参照してください。
+ゲスト ユーザーのガバナンス ライセンスについては、「ゲスト ユーザーの[Microsoft Entra ID ガバナンスライセンス](https://learn.microsoft.com/ja-jp/entra/id-governance/microsoft-entra-id-governance-licensing-for-guest-users)」を参照してください。 エージェント ID のライセンス要件については、「[エージェント ID の管理](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-id-governance-overview#license-requirements)」を参照してください。 テナント ガバナンス管理者と機能に適用されるライセンスについては、「[Microsoft Entra テナント ガバナンスのライセンス](https://learn.microsoft.com/ja-jp/entra/id-governance/tenant-governance/licensing)」を参照してください。
 
 ### ライセンスの種類
 
 次のライセンスは、商用クラウドおよび政府機関向けクラウドのMicrosoft Entra ID ガバナンスで使用できます。 テナントで必要なライセンスのラインアップは、テナントで使用している機能によって異なります。
 
 - **Free** - Microsoft Azure、Microsoft 365などのMicrosoftクラウド サブスクリプションに含まれます。
-- **Microsoft Entra ID P1** - Microsoft Entra ID P1 はスタンドアロン製品として使用できます。または、エンタープライズのお客様向けのMicrosoft 365 E3と中小企業向けのMicrosoft 365 Business Premiumに含まれています。
-- **Microsoft Entra ID P2** - Microsoft Entra ID P2 はスタンドアロン製品として使用できます。または、企業のお客様向けのMicrosoft 365 E5に含まれています。
+- **Microsoft Entra ID P1** - Microsoft Entra ID P1 はスタンドアロン製品として利用できます。または、エンタープライズのお客様向けの Microsoft 365 E3、E5、E7、および中小企業向けのMicrosoft 365 Business Premiumに含まれています。
+- **Microsoft Entra ID P2** - Microsoft Entra ID P2 はスタンドアロン製品として使用できます。また、企業のお客様向けに Microsoft 365 E5 または E7 に含まれています。
 - **Microsoft Entra ID ガバナンス** - Microsoft Entra ID ガバナンスは、Microsoft Entra ID P1 および P2 のお客様が利用できる高度な ID ガバナンス機能のセットです。 Microsoft Entra ID ガバナンス は、6 つの製品として利用可能です: **Microsoft Entra ID ガバナンス**、**Microsoft Entra ID ガバナンス Step Up for Microsoft Entra ID P2**、**Entra ID ガバナンス フロントライン ワーカー**、**Microsoft Entra ID ガバナンス Step Up for Microsoft Entra ID F2**、**Microsoft Entra ID ガバナンス for Government**、および**Microsoft Entra ID ガバナンス Add-on for Microsoft Entra ID P2 for Government**。 これら 6 つの製品は、前提条件のみが異なります。エンタイトルメント管理、特権 ID 管理とアクセス レビューの両方の機能 (Microsoft Entra ID P2) と、追加の高度な ID ガバナンス機能が含まれています。 次のセクションでは、これらの製品のさまざまな前提条件について詳しく説明します。
 - **Microsoft Entra スイート** - Microsoft Entra スイートは、Microsoft Entra ID P1 および P2 のお客様が利用できる、従業員アクセスのための完全なクラウドベースのソリューションです。 Microsoft Entra スイートは、Microsoft Entra Private Access、Microsoft Entra Internet Access、Microsoft Entra ID ガバナンス、Microsoft Entra ID 保護、および Microsoft Entra Verified ID。 Microsoft Entra ID ガバナンス部分は、**Microsoft Entra ID ガバナンス** 製品と同じ ID ガバナンス機能を提供します。 違いは、前提条件が異なっていることです。
 - **Microsoft Agent 365** - Microsoft Agent 365 は、エージェント ID の ID ガバナンス機能を提供し、Entra のエンタイトルメント管理によるエージェントとサービス プリンシパルのアクセス ガバナンス、ライフサイクル ワークフローによる追加の自動化、およびエージェント ID とアクセス ライフサイクルを管理するためのスポンサー向けのエンド ユーザー エクスペリエンスを提供します。 次のセクションでは、前提条件と機能について詳しく説明します。 Microsoft エージェント 365 の詳細については、「[Microsoft Agent 365](https://www.microsoft.com/licensing/faqs/122)を参照してください。
@@ -7061,7 +7372,7 @@ Microsoft Entra ID ガバナンス機能は現在、6 つのスタンドアロ�
 - **Microsoft Entra ID ガバナンス Step-Up for Microsoft Entra ID F2** のサブスクリプションは、製品の用語において **Microsoft Entra ID ガバナンス F2** または **Microsoft Entra ID ガバナンス Step-Up for Microsoft Entra ID F2 for Frontline Worker (User SL)** として記載されています。テナントは、`AAD_PREMIUM_P2` サービス プランを含む別の製品へのアクティブなサブスクリプションも保持している必要があります。 この前提条件を満たす製品の例としては、**Microsoft Entra ID F2**があります。
 - **Microsoft Agent 365** のサブスクリプションでは、テナントにも、`AAD_PREMIUM` サービス プランを含む別の製品へのアクティブなサブスクリプションが必要です。 この前提条件を満たす製品の例としては、**Microsoft Entra ID P1** または **Microsoft 365 E3** があります。
 
-Microsoft Entra ID ガバナンス機能もMicrosoft Entra スイートに含まれています。 使用可能なMicrosoft Entra スイート製品には、**Microsoft Entra スイート (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID F2 for FLW (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID P2 (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID P2 EDU (User SL)**、**Microsoft Entra スイート FLW (User SL)**、および**Microsoft Entra スイート for EDU (User SL)**が含まれます。
+Microsoft Entra ID ガバナンス機能は、Microsoft Entra スイートおよび Microsoft 365 E7 にも含まれています。 使用可能なMicrosoft Entra スイート製品には、**Microsoft Entra スイート (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID F2 for FLW (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID P2 (User SL)**、**Microsoft Entra スイート アドオン for Microsoft Entra ID P2 EDU (User SL)**、**Microsoft Entra スイート FLW (User SL)**、および**Microsoft Entra スイート for EDU (User SL)**が含まれます。
 
 [ライセンスの製品名とサービス プラン識別子には、前提条件となるサービス プラン](https://learn.microsoft.com/ja-jp/entra/identity/users/licensing-service-plan-reference)を含む追加の製品が一覧表示されます。
 
@@ -7090,120 +7401,99 @@ Microsoft Entra ID P1 など、適切な前提条件製品を既に購入して�
 
 ### Microsoft Entra ID ガバナンス 機能
 
-次の表に、メンバー ユーザーのMicrosoft Entra ID ガバナンス機能のライセンス要件を示します。 Microsoft Entra スイートには、Microsoft Entra ID ガバナンスのすべての機能が含まれています。 Microsoft 365 E7 には、Entra スイートおよび Agent 365 を通じてのすべての ID ガバナンス機能も含まれています。 ライセンス情報と、エンタイトルメント管理、アクセス レビュー、ライフサイクル ワークフローのライセンス シナリオの例を表の後に示します。
+次の表に、メンバー ユーザーのMicrosoft Entra ID ガバナンス機能のライセンス要件を示します。 Microsoft Entra スイートには、Microsoft Entra ID ガバナンスのすべての機能が含まれています。 Microsoft 365 E7 には、Entra スイートおよび Agent 365 を通じてのすべての ID ガバナンス機能も含まれています。 エンタイトルメント管理、アクセス レビュー、ライフサイクル ワークフローのライセンス情報は、表の後に記載されています。
 
 #### ライセンス別の機能
 
 次の表に、各ライセンスで使用できる ID ガバナンスに関連付けられている機能を示します。 その他の機能の詳細については、「[Microsoft Entra プランと価格](https://www.microsoft.com/security/business/microsoft-entra-pricing)を参照してください。 すべての機能がすべてのクラウドで利用できるわけではありません。Azure Governmentについては、[Microsoft Entra機能の可用性](https://learn.microsoft.com/ja-jp/entra/identity/authentication/feature-availability)に関する記事を参照してください。
 
-| 特徴 | Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 | Microsoft Entra ID ガバナンス | Microsoft Entra スイート | Microsoft エージェント 365 |
-| --- | --- | --- | --- | --- | --- | --- |
-| **プロビジョニング** |  |  |  |  |  |  |
-| [API 駆動型のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/inbound-provisioning-api-concepts) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [人事主導のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/what-is-hr-driven-provisioning) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [アカウントの検出](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery) |  |  |  | ✅ | ✅ |  |
-| [SaaS アプリへの自動ユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) | ✅ | ✅ | ✅ | ✅ | ✅ |  |
-| [SaaS アプリへの自動グループ プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [オンプレミス アプリへの自動プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [ユーザーのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [グループのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  |
-| [クラウド間同期](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  |
-| **ライフサイクル ワークフロー (LCW)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [ライフサイクル ワークフロー](https://learn.microsoft.com/ja-jp/entra/id-governance/what-are-lifecycle-workflows) |  |  |  | ✅ | ✅ |  |
-| [LCW + カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-extensibility) |  |  |  | ✅ | ✅ |  |
-| [LCW + エージェント スポンサーシップ タスク](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks) |  |  |  |  |  | ✅ |
-| **アクセス レビュー (AR)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| AR - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  |
-| [AR - グループ向け PIM (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review-pim-for-groups) |  |  |  | ✅ | ✅ |  |
-| [AR - レビューでアクティブなユーザーがいない非アクティブなユーザーを対象にしたレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review#scope) |  |  |  | ✅ | ✅ |  |
-| [AR - アクティブおよび非アクティブユーザーを対象にし、レビュアーが非アクティブユーザー向けのレビュー意思決定ヘルパーを使用するレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#inactive-user-recommendations) |  |  | ✅ | ✅ | ✅ |  |
-| [AR - 機械学習支援アクセスの認定とレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#user-to-group-affiliation) |  |  |  | ✅ | ✅ |  |
-| [AR - カタログ アクセス レビュー (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews) |  |  |  | ✅ | ✅ |  |
-| [AR - カスタム データ提供リソース (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-data-resource-access-reviews) |  |  |  | ✅ | ✅ |  |
-| **エンタイトルメント管理 (EM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| EM - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージに割り当てられたユーザー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージに割り当てられたエージェントとサービス プリンシパル](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  |  |  |  | ✅ |
-| [EM - ユーザーが自分のアクセス権を要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 管理者がユーザーの割り当てを直接割り当てる (ゲストを含む)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-an-identity) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 管理者がエージェントとサービス プリンシパルを直接割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  |  |  | ✅ |
-| [EM - 管理者は、ディレクトリにまだ存在しないユーザーの電子メール アドレスを使用して、ユーザーを直接割り当てます](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  | ✅ | ✅ |  |
-| [EM - 従業員に代わって要求するマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf) |  |  |  | ✅ | ✅ |  |
-| [EM - 所有者とスポンサーがエージェントまたはサービス プリンシパルに代わってアクセスを要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf#scenarios-for-requesting-on-behalf-of-agent-identities) |  |  |  |  |  | ✅ |
-| **EM - サポートされているリソース** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - アクセス パッケージ内のグループとチーム](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-group-or-team-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージの対象となるグループの所有権とメンバーシップ (グループの場合は PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-eligible) |  |  |  | ✅ | ✅ |  |
-| [EM - アクセス パッケージ内のアプリケーション](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-application-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージ内のSharePointサイト](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-sharepoint-site-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - Microsoft Entra 役割 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-roles) |  |  |  | ✅ | ✅ |  |
-| [EM - SAP Identity Access Governance (IAG) ビジネス ロール (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration) |  |  |  | ✅ | ✅ |  |
-| [EM - アクセス パッケージ内の API アクセス許可](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-api-permission) |  |  |  |  |  | ✅ |
-| **EM - 承認オプション** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - アクションが実行されない場合は、代替承認者による複数ステージの承認](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 指定の承認者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 承認者としてのマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 担当者の所属組織から接続された内部スポンサーが承認者となる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 承認者としての外部のスポンサー (担当者の関連組織から)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 承認者としてのスポンサー (アサインされたユーザーのプロファイルから)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  | ✅ | ✅ |  |
-| [EM - 承認者としてのエージェント スポンサー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  |  |  | ✅ |
-| [EM - カスタム拡張機能を使用して承認要件を外部で決定する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-dynamic-approval) |  |  |  | ✅ | ✅ |  |
-| [EM - 承認のために追加の要求者情報を収集する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy#collect-additional-requestor-information-for-approval) |  |  | ✅ | ✅ | ✅ |  |
-| **EM - ライフサイクル** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - アクセス パッケージの割り当ての有効期限](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-lifecycle-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 外部ユーザーのライフサイクルを管理する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#manage-the-lifecycle-of-external-users) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - ゲストを管理対象としてマークする](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-manage-lifecycle) |  |  |  | ✅ | ✅ |  |
-| **EM - その他の機能** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - 職務の分離](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-incompatible) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) |  |  |  | ✅ | ✅ |  |
-| [EM - 自動割り当てポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-auto-assignment-policy) |  |  |  | ✅ | ✅ |  |
-| [EM - 検証済み ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-verified-id-settings) |  |  |  | ✅ | ✅ |  |
-| [EM - Microsoft Entra ID 保護 の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-id-protection-approvals) |  |  |  | ✅ | ✅ |  |
-| [EM - Microsoft Purview インサイダー リスク管理統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-insider-risk-management-approvals) |  |  |  | ✅ | ✅ |  |
-| [EM - 条件付きアクセススコープ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#review-your-conditional-access-policies) |  |  | ✅ | ✅ | ✅ |  |
-| **マイ アクセス** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [マイ アクセス ポータル](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - マイ アクセス検索](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - マイ アクセスで推奨されるアクセス パッケージ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-suggested-access-packages) |  |  |  | ✅ | ✅ |  |
-| [EM - 要求者がマイ アクセス (プレビュー) で承認者の詳細を表示できるかどうかを構成する](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-approver-details) |  |  |  | ✅ | ✅ |  |
-| [EM - マイ アクセスで承認を委任する (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  |  | ✅ | ✅ |  |
-| **Privileged Identity Management (PIM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-configure) |  |  | ✅ | ✅ | ✅ |  |
-| [グループの PIM](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/concept-pim-for-groups) |  |  | ✅ | ✅ | ✅ |  |
-| [PIM 条件付きアクセス制御](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings#on-activation-require-microsoft-entra-conditional-access-authentication-context) |  |  | ✅ | ✅ | ✅ |  |
-| [PIM - ロールアクティブ化のカスタム拡張機能 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/privileged-identity-management-custom-extensions) |  |  |  | ✅ | ✅ |  |
-| **その他** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [ID ガバナンス ダッシュボード](https://learn.microsoft.com/ja-jp/entra/id-governance/governance-dashboard) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [分析情報とレポート - 非アクティブなゲスト アカウント](https://learn.microsoft.com/ja-jp/entra/identity/users/clean-up-stale-guest-accounts) |  |  |  | ✅ | ✅ |  |
-| [条件付きアクセス - 使用条件の承認](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) |  | ✅ | ✅ | ✅ | ✅ |  |
+| 特徴 | Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 | Microsoft Entra ID ガバナンス | Microsoft Entra スイート | Microsoft エージェント 365 | Microsoft 365 E7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **プロビジョニング** |  |  |  |  |  |  |  |
+| [API 駆動型のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/inbound-provisioning-api-concepts) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [人事主導のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/what-is-hr-driven-provisioning) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [アカウントの検出](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery) |  |  |  | ✅ | ✅ |  | ✅ |
+| [SaaS アプリへの自動ユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) | ✅ | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [SaaS アプリへの自動グループ プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [オンプレミス アプリへの自動プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [ユーザーのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [グループのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  | ✅ |
+| [クラウド間同期](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  | ✅ |
+| **ライフサイクル ワークフロー (LCW)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [ライフサイクル ワークフロー](https://learn.microsoft.com/ja-jp/entra/id-governance/what-are-lifecycle-workflows) |  |  |  | ✅ | ✅ |  | ✅ |
+| [LCW + カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-extensibility) |  |  |  | ✅ | ✅ |  | ✅ |
+| [LCW + エージェント スポンサーシップ タスク](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks) |  |  |  |  |  | ✅ | ✅ |
+| **アクセス レビュー (AR)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| AR - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [AR - グループ向け PIM (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review-pim-for-groups) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - レビューでアクティブなユーザーがいない非アクティブなユーザーを対象にしたレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review#scope) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - アクティブおよび非アクティブユーザーを対象にし、レビュアーが非アクティブユーザー向けのレビュー意思決定ヘルパーを使用するレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#inactive-user-recommendations) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [AR - 機械学習支援アクセスの認定とレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#user-to-group-affiliation) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - カタログ アクセス レビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - カスタム データが提供されたリソース](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-data-resource-access-reviews) |  |  |  | ✅ | ✅ |  | ✅ |
+| **エンタイトルメント管理 (EM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| EM - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージに割り当てられたユーザー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージに割り当てられたエージェントとサービス プリンシパル](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  |  |  |  | ✅ | ✅ |
+| [EM - ユーザーが自分のアクセス権を要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 管理者がユーザーの割り当てを直接割り当てる (ゲストを含む)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-an-identity) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 管理者がエージェントとサービス プリンシパルを直接割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  |  |  | ✅ | ✅ |
+| [EM - 管理者は、ディレクトリにまだ存在しないユーザーの電子メール アドレスを使用して、ユーザーを直接割り当てます](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 従業員に代わって要求するマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 所有者とスポンサーがエージェントまたはサービス プリンシパルに代わってアクセスを要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf#scenarios-for-requesting-on-behalf-of-agent-identities) |  |  |  |  |  | ✅ | ✅ |
+| **EM - サポートされているリソース** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - アクセス パッケージ内のグループとチーム](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-group-or-team-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージの対象となるグループの所有権とメンバーシップ (グループの場合は PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-eligible) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージ内のアプリケーション](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-application-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージ内のSharePointサイト](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-sharepoint-site-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Entra 役割 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-roles) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - SAP Identity Access Governance (IAG) ビジネス ロール (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージ内の API アクセス許可](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-api-permission) |  |  |  |  |  | ✅ | ✅ |
+| **EM - 承認オプション** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - アクションが実行されない場合は、代替承認者による複数ステージの承認](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 指定の承認者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 承認者としてのマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 担当者の所属組織から接続された内部スポンサーが承認者となる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としての外部のスポンサー (担当者の関連組織から)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としてのスポンサー (アサインされたユーザーのプロファイルから)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としてのエージェント スポンサー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  |  |  | ✅ | ✅ |
+| [EM - カスタム拡張機能を使用して承認要件を外部で決定する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-dynamic-approval) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 承認のために追加の要求者情報を収集する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy#collect-additional-requestor-information-for-approval) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| **EM - ライフサイクル** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - アクセス パッケージの割り当ての有効期限](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-lifecycle-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 外部ユーザーのライフサイクルを管理する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#manage-the-lifecycle-of-external-users) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - ゲストを管理対象としてマークする](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-manage-lifecycle) |  |  |  | ✅ | ✅ |  | ✅ |
+| **EM - その他の機能** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - 職務の分離](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-incompatible) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 自動割り当てポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-auto-assignment-policy) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 検証済み ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-verified-id-settings) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Entra ID 保護 の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-id-protection-approvals) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Purview インサイダー リスク管理統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-insider-risk-management-approvals) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 条件付きアクセススコープ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#review-your-conditional-access-policies) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| **マイ アクセス** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [マイ アクセス ポータル](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - マイ アクセス検索](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - マイ アクセスで推奨されるアクセス パッケージ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-suggested-access-packages) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 要求者がマイ アクセス (プレビュー) で承認者の詳細を表示できるかどうかを構成する](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-approver-details) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - マイ アクセスで承認を委任する (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  |  | ✅ | ✅ |  | ✅ |
+| **Privileged Identity Management (PIM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-configure) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [グループの PIM](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/concept-pim-for-groups) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [PIM 条件付きアクセス制御](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings#on-activation-require-microsoft-entra-conditional-access-authentication-context) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [PIM - ロールアクティブ化のカスタム拡張機能 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/privileged-identity-management-custom-extensions) |  |  |  | ✅ | ✅ |  | ✅ |
+| **その他** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [ID ガバナンス ダッシュボード](https://learn.microsoft.com/ja-jp/entra/id-governance/governance-dashboard) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [分析情報とレポート - 非アクティブなゲスト アカウント](https://learn.microsoft.com/ja-jp/entra/identity/users/clean-up-stale-guest-accounts) |  |  |  | ✅ | ✅ |  | ✅ |
+| [条件付きアクセス - 使用条件の承認](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
 
 #### エンタイトルメント管理
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。 この機能内の一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作できます。 この機能内の一部の機能には、ゲスト課金が必要です。
 
-##### ライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| Woodgrove Bank の ID ガバナンス管理者が初期カタログを作成します。 ポリシーの 1 つは、 **すべての従業員** (2,000 人の従業員) が特定のアクセス パッケージのセットを要求できることを指定します。 150 人の従業員がアクセス パッケージを要求します。 | アクセス パッケージを要求可能な従業員は 2,000 人いる | 二千 |
-| Woodgrove Bank の ID ガバナンス管理者が初期カタログを作成します。 **営業部門のすべてのメンバー** (350 人の従業員) に特定のアクセス パッケージへのアクセス権を付与する自動割り当てポリシーを作成します。 350 人の従業員がアクセス パッケージに自動的に割り当てられます。 | 350 人の従業員にライセンスが必要です。 | 3:51 |
-
 #### アクセス レビュー
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。これには、アクセス権を確認している従業員やアクセス権をレビューしているすべての従業員が含まれます。 この機能内の一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作する場合があります。 この機能内の一部の機能には、ゲスト課金が必要です。
-
-##### ライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| 管理者は、75 人のメンバー ユーザーと 1 人のグループ所有者を持つグループ A のアクセス レビューを作成し、グループ所有者をレビュー担当者として割り当てます。 | レビュー担当者としてのグループ所有者のライセンスが 1 つ、75 人のユーザーに対して 75 ライセンス。 | 76 |
-| 管理者は、500 人のメンバー ユーザーと 3 人のグループ所有者を含むグループ B のアクセス レビューを作成し、3 人のグループ所有者をレビュー担当者として割り当てます。 | ユーザーには 500 ライセンス、レビュー担当者としてグループ所有者ごとに 3 つのライセンス。 | 503 |
-| 管理者は、500 人のメンバー ユーザーを含むグループ B のアクセス レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 500 ライセンス | 5:00 |
-| 管理者は、メンバー ユーザーが 50 人のグループ C のアクセス レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 50 ライセンス。 | 50 |
-| 管理者は、メンバー ユーザーが 6 人のグループ D のアクセス レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 6 ライセンス。 その他のライセンスは不要です。 | 6 |
 
 #### ライフサイクル ワークフロー
 
@@ -7215,13 +7505,6 @@ Microsoft Entra ID P1 など、適切な前提条件製品を既に購入して�
 - ワークフローで使用するカスタム タスク拡張機能を最大 100 個作成します。
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。 この機能内の一部の機能には、ゲスト課金が必要です。
-
-##### ライセンスのシナリオ例
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| ライフサイクル ワークフロー管理者はワークフローを作成し、マーケティング部門の新入社員をマーケティング チーム グループに追加します。 このワークフローを使用して、250 人の新規採用メンバー ユーザーがマーケティング チーム グループに 1 回割り当てられます。 他の 150 人の新規採用メンバー ユーザーは、同じ年の後半にこのワークフローを介してマーケティング チーム グループに割り当てられます。 | ライフサイクル ワークフロー管理者に 1 ライセンス、ユーザーに 400 ライセンス。 | 401 |
-| ライフサイクル ワークフロー管理者は、雇用最終日の前に従業員のグループに事前オフボードするためのワークフローを作成します。 事前オフボードされるユーザーの範囲は、一度に 40 人です。 40 人のライセンスユーザーをオフボードします。 これらの 40 ライセンスを再割り当てし、今年の後半にさらに 10 ライセンスを割り当てることにより、さらに 50 人のユーザーを事前オフボードできます。 | ユーザーに 50 ライセンス、ライフサイクル ワークフロー管理者に 1 ライセンス。 | 51 |
 
 ### Privileged Identity Management
 
@@ -7240,16 +7523,6 @@ PIM とそのすべての設定を使用するには、Microsoft Entra ID ガバ
 - PIM でアクティブ化要求を承認または却下できるユーザー
 - アクセス レビューに割り当てられたユーザー
 - アクセス レビューを実行するユーザー
-
-#### PIM のライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| Woodgrove Bank には、部門ごとに 10 人の管理者と、PIM を構成および管理する 2 人の [特権ロール管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator) がいます。 5 人の管理者を対象とします。 | 資格のある管理者用の 5 ライセンス | 5 |
-| Graphic Design Institute には 25 人の管理者がいて、そのうちの 14 人は PIM で管理されています。 ロールのアクティブ化には承認が必要であり、組織にはアクティブ化を承認できるユーザーが 3 人います。 | 資格のある役割用のライセンス 14 件と承認者 3 名 | 十七 |
-| Contoso には 50 人の管理者がいて、そのうちの 42 人は PIM で管理されています。 ロールのアクティブ化には承認が必要であり、組織にはアクティブ化を承認できるユーザーが 5 人います。 Contoso は、管理者ロールに割り当てられたユーザーの月単位のレビューも行い、レビュー担当者はユーザーのマネージャーであり、そのうち 6 人は PIM によって管理される管理者ロールに含まれていません。 | 資格のある役割に対する42ライセンス+5人の承認者+6人のレビュー担当者 | 53 |
 
 #### PIM のライセンスの有効期限が切れた場合
 
@@ -7664,255 +7937,4 @@ No. 検疫をクリアするには承認が必要です。 検疫されたワー
 **ワークフローを検疫に手動で配置できますか?**
 
 No. 検疫は自動であり、実行制限を超えた場合にのみトリガーされます。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/id-governance/lifecycle-workflow-extensibility"} -->
-## ワークフローの拡張性 - Microsoft Entra ID Governance
-
-- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-extensibility
-- Service: entra-id-governance / lifecycle-workflows
-- Article date: 2026-03-12
-- Summary: ライフサイクル ワークフローを使用したワークフローの拡張性について説明する概念記事
-
-ライフサイクル ワークフローを使うと、就職者、異動者、または退職者のシナリオに基づいてトリガーできるワークフローを作成できます。 ライフサイクル ワークフローには、ユーザーのライフサイクル全体の一般的なシナリオを自動化する組み込みタスクがいくつか用意されていますが、最終的にはこれらの組み込みタスクの制限に達する可能性があります。 機能拡張機能を使用すると、カスタム タスク拡張機能の概念を利用して、ワークフローの一部として外部システムを呼び出すことができるようになります。 たとえば、ユーザーが組織に参加するときに、Teams 番号を割り当てるカスタム タスク拡張機能を含むワークフローを作成したり、ユーザーが退職したときにマネージャーの電子メール アカウントへのアクセスを許可する別のワークフローを作成したりできます。 機能拡張機能により、ライフサイクル ワークフローでは現在、 [Azure Logic Apps](https://learn.microsoft.com/ja-jp/azure/logic-apps/logic-apps-overview) を呼び出すカスタム タスク拡張機能の作成がサポートされています。
-
-### Logic Apps の前提条件
-
-Azure Logic App とカスタム タスク拡張機能をリンクするには、次の前提条件を満たす必要があります。
-
-- Azure サブスクリプション
-- リソース グループ
-- 新しい従量課金ベースのロジック アプリを作成するためのアクセス許可、または既存の従量課金ベースのロジック アプリへのアクセス許可
-
-ロジック アプリ自体またはリソース グループ、サブスクリプション、管理グループなどの上位のスコープで、次のいずれかの Azure ロールの割り当てが必要です。
-
-- **ロジック アプリの共同作成者**
-- **投稿者**
-- **所有者**
-
-注
-
-**ロジック アプリ オペレーター** ロールでは不十分です。
-
-### カスタム タスク拡張機能の展開シナリオ
-
-カスタム タスク拡張機能を作成する場合、ライフサイクル ワークフローと対話する方法のシナリオは、次の 2 つの方法のいずれかになります。
-
-[Image: カスタム タスク展開シナリオのスクリーンショット。]
-
-- **起動して続行** する - Azure ロジック アプリが開始され、次のタスクの実行はすぐに続行され、Azure Logic App からの応答は期待されません。 このシナリオは、ライフサイクル ワークフローが Azure Logic App からのフィードバック (状態を含む) を必要としない場合に最適です。 ロジック アプリが正常に開始された場合、ライフサイクル ワークフロー タスクは成功と見なされます。
-- **起動と待機** - Azure ロジック アプリが開始され、次のタスクの実行はロジック アプリからの応答を待機します。 カスタム タスク拡張機能が Azure Logic App からの応答を待機する期間を入力します。 定義された期間期間内に応答が受信されない場合、タスクは失敗したと見なされます。 [Image: カスタム タスクの起動と待機タスクの選択のスクリーンショット。]
-
-注
-
-応答は必ずしもロジック アプリによって提供される必要はありません。ロジック アプリが仲介者としてのみ機能する場合は、サード パーティシステムが応答できます。 詳細については、「 [taskProcessingResult: resume」を](https://learn.microsoft.com/ja-jp/graph/api/identitygovernance-taskprocessingresult-resume)参照してください。
-
-### 応答の承認
-
-ロジック アプリからの応答を待機するカスタム タスク拡張機能を作成すると、応答を送信できるアプリケーションを定義できます。
-
-[Image: カスタム タスク拡張機能の起動と待機オプションのスクリーンショット。]
-
-応答は、次のいずれかの方法で承認できます。
-
-- **システム割り当てマネージド ID (既定)** - この選択により、Logic Apps のシステム割り当てマネージド ID を有効にして利用できます。 詳細については、「Azure [Logic Apps でマネージド ID を使用して Azure リソースへのアクセスを認証する」を](https://learn.microsoft.com/ja-jp/azure/logic-apps/create-managed-service-identity)参照してください。
-- **承認なし** - この選択では承認は付与されません。アプリケーションのアクセス許可 (LifecycleWorkflows.ReadWrite.All) またはロールの割り当て (ライフサイクル ワークフロー管理者) を個別に割り当てる必要があります。 アプリケーションが応答している場合、最小特権の原則に従っていないため、このオプションは推奨されません。 このオプションは、応答がユーザーに代わってのみ提供される場合にも使用できます (LifecycleWorkflows.ReadWrite.All の委任されたアクセス許可とライフサイクル ワークフロー管理者ロールの割り当て)。
-- **既存のアプリケーション** - この選択により、応答する既存のアプリケーションを選択できます。 通常のアプリケーションと、システムまたはユーザー割り当てマネージド ID を指定できます。 マネージド ID の種類の詳細については、「 [マネージド ID の種類」を](https://learn.microsoft.com/ja-jp/entra/identity/managed-identities-azure-resources/overview#managed-identity-types)参照してください。
-
-### カスタム タスク拡張機能と Azure Logic Apps の高度な手順の統合
-
-Azure Logic Apps 統合の手順の概要は次のとおりです。
-
-注
-
-Microsoft Entra 管理センターを使用してカスタム タスク拡張機能とロジック アプリを作成すると、これらの手順の大部分が自動化されます。 この方法でカスタム タスク拡張機能を作成する方法のガイドについては、「 [カスタム タスク拡張機能に基づいて Logic Apps をトリガー](https://learn.microsoft.com/ja-jp/entra/id-governance/trigger-custom-task)する」を参照してください。
-
-- **従量課金ベースの Azure ロジック アプリを作成**する: カスタム タスク拡張機能から呼び出される従量課金ベースの Azure ロジック アプリ。
-- **ライフサイクル ワークフローと互換性のあるように Azure Logic App を構成**する: カスタム タスク拡張機能で使用できるように従量課金ベースの Azure ロジック アプリを構成します。 詳細については、「[ライフサイクル ワークフローを使用するためのロジック アプリの構成](https://learn.microsoft.com/ja-jp/entra/id-governance/configure-logic-app-lifecycle-workflows)」を参照してください。
-- **Azure ロジック アプリ内でカスタム ビジネス ロジックを構築する: ロジック アプリ** デザイナーを使用して、Azure Logic App 内でビジネス ロジックを設定します。
-- **Azure Logic App に関する必要な情報を保持するライフサイクル ワークフロー customTaskExtension を作成**します。構成された Azure Logic App を参照するカスタム タスク拡張機能を作成します。
-- **"カスタム タスク拡張機能の実行" タスクを使用してライフサイクル ワークフローを更新または作成し、作成した customTaskExtension を参照**します。新しく作成したカスタム タスク拡張機能を新しいワークフローに追加するか、既存のワークフローに情報を更新します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/id-governance/lifecycle-workflow-history"} -->
-## ライフサイクル ワークフローの履歴 - Microsoft Entra ID Governance
-
-- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-history
-- Service: entra-id-governance / lifecycle-workflows
-- Article date: 2026-03-12
-- Summary: ライフサイクル ワークフローのレポートおよび履歴の機能の概念に関する記事
-
-ライフサイクル ワークフローを使用して作成されたワークフローを使用すると、組織内の ID ライフサイクルの Joiner-Mover-Leaver (JML) モデルに分類される場所に関係なく、ユーザーのライフサイクル タスクを自動化できます。 ワークフローが正しく処理されるようにすることは、組織のライフサイクル管理プロセスの重要な部分です。 ワークフローが正しく処理されないと、セキュリティとコンプライアンスに関する多くの問題が発生するおそれがあります。 ライフサイクル ワークフローの履歴機能を使用すると、ユーザー、実行、またはタスクの概要に基づいて、履歴を表示するワークフロー イベントを指定できます。 このレポート機能を使用すると、どのユーザーに対して何が実行されたか、そしてそれが正常に成功したかどうかをすばやく確認できます。 これらの特定の領域の概要と共に、記録された各特定イベントに関する詳細情報をそれぞれのセクションで表示することもできます。 また、[これらのレポートを CSV ファイルとしてダウンロードする](https://learn.microsoft.com/ja-jp/entra/id-governance/download-workflow-history)こともできます。 この記事では、組織内のユーザーにワークフローがどのように利用されたかについての詳細を取得する際、どのようなときにこれらの各機能を使うかについて説明します。 テナント全体の集約ワークフローについては、[ライフサイクル ワークフロー分析情報](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-insights)に関する記事をご覧ください。 ライフサイクル ワークフローで実行するすべてのアクションの詳細については、「[ライフサイクル ワークフローの監査](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-audits)」を参照してください。
-
-### ライフサイクル ワークフローの履歴の概要
-
-ライフサイクル ワークフローでは、概要と詳細に基づく履歴機能が導入されています。 これらの履歴の概要を使用すると、ワークフローが実行されたユーザーと、この実行が成功したかどうかに関する情報をすばやく取得できます。 これが重要なのは、監査ログによって提供される大量の情報セットが多くなりすぎて、効率的に使用できなくなる可能性があるためです。 この大量に処理される情報セットを読みやすくするため、ライフサイクル ワークフローには手軽に利用できる概要が用意されています。 これらの履歴の概要は、3 つの方法で表示できます。
-
-- **ユーザーの概要**: ワークフローによって処理されたユーザーの概要を表示します。 特定のユーザーごとの成功、失敗、および合計実行情報が表示されます。
-- **実行の概要**: ワークフローの実行の概要をワークフローの観点から表示します。 ワークフローの実行時に、成功した、失敗した、完全に実行されたタスクの情報が記録されます。
-- **タスクの概要**: 成功、失敗、実行されたタスクの合計数など、ワークフローによって処理されたタスクの概要が表示されます。
-
-概要を利用すると、ログの詳細に進まずに、ワークフローがそれ自体またはユーザーに関してどのように実行されたかに関する詳細をすばやく取得できます。 この情報を取得するための詳細なガイドについては、「 [ワークフローの状態を確認する」を](https://learn.microsoft.com/ja-jp/entra/id-governance/check-status-workflow)参照してください。
-
-### ユーザーの概要情報
-
-ユーザーの概要を利用すると、処理されたユーザーの観点でワークフローの情報を表示できます。
-
-[Image: ワークフローのユーザーの概要のスクリーンショット。]
-
-ユーザーの概要内では、次の情報を見つけることができます。
-
-| パラメーター | 説明 |
-| --- | --- |
-| Total Processed (処理された合計) | 選択した期間中にワークフローによって処理されたユーザーの合計数。 |
-| 成功 | 選択した期間中にワークフローによって処理された、成功したユーザーの合計数。 |
-| 失敗 | 選択した期間中にワークフローによって処理された、失敗したユーザーの合計数。 |
-| 合計タスク数 | 選択した期間中にワークフローでユーザーに対して処理されたタスクの合計数。 |
-| 失敗したタスク | 選択した期間中にワークフローでユーザーに対して処理された、失敗したタスクの合計数。 |
-
-#### ユーザー履歴の詳細
-
-ユーザーの詳細な履歴情報を使用すると、以下に基づいて特定の情報をフィルター処理できます。
-
-- **日付**: ワークフローが実行されたときの特定の範囲 (最短で 24 時間から最長で 30 日間まで) をフィルター処理できます。
-- **状態**: 処理されたユーザーの特定の状態をフィルター処理できます。 サポートされている状態は、**[完了]**、**[進行中]**、**[キューに挿入済み]**、**[キャンセル済み]**、**[完了済み (エラーあり)]**、**[失敗]** です。
-- **ワークフローの実行タイプ**: **[スケジュール設定]** や **[要求時]** など、ワークフローの実行の種類でフィルター処理できます
-- **完了日**: ユーザーがワークフローで処理されたときの特定の範囲 (最短 24 時間から最長で 30 日まで)をフィルター処理できます。
-
-#### ユーザー履歴の状態の詳細
-
-ユーザー処理履歴の状態を表示する場合、状態の値は次の情報に対応します。
-
-| ステータス | 詳細 |
-| --- | --- |
-| 完了 | この状態は、ワークフローのすべてのタスクがユーザーに対して正常に処理された場合に報告されます。 |
-| 進行中 | この状態は、ワークフローがユーザーのタスクの実行を開始したときに報告されます。 ワークフローのすべてのタスクがユーザー用に処理されるか、失敗するまで、ステータスはこの状態を維持します。 |
-| キュー登録済み | この状態は、ワークフローの実行条件を満たすライフサイクル ワークフロー エンジンによってユーザーが識別されたときに報告されます。 ここから、ユーザーは、ワークフローがユーザーのために実行を開始した場合、*進行中*の状態に入ります。管理者がワークフローを手動でキャンセルした場合は、キャンセルの状態になります。 |
-| 取り消し済み | この状態は、次の理由で報告されます。**1.**ワークフローが削除された場合、実行するように設定されているすべてのスケジュールされたユーザーが取り消されます。**2.**ワークフローが無効になっている場合、実行するように設定されているすべてのスケジュールされたユーザーが取り消されます。**3**.ワークフローのスケジュールが無効になっている場合、実行するように設定されているすべてのスケジュールされたユーザーが取り消されます。**4.**ワークフローに新しいバージョンが作成され、すべてのタスクが無効になっている場合、実行するように設定されているすべてのスケジュールされたユーザーが取り消されます。**5.**ユーザーがワークフローの新しいバージョンの現在の実行条件を満たしていない場合、スケジュールされた実行が取り消されます。**6.**ユーザーがワークフローを実行するためにキューに登録されていたが、実行直前にプロファイルが変更され、ワークフローの現在の実行条件を満たさなくなった場合、処理は取り消されます。 |
-| 完了 (エラーあり) | この状態は、ワークフローは完了したが、**ContinueOnError** が *true* に設定されている 1 つ以上のタスクが失敗した場合に報告されます。 |
-| 失敗 | この状態は、**continueOnError** が *false* に設定されているタスクが失敗した場合に報告されます。 |
-
-処理されたユーザーの概要情報の取得に関する詳細なガイドについては、「[Microsoft Entra 管理センターを使用したユーザー ワークフローの履歴](https://learn.microsoft.com/ja-jp/entra/id-governance/check-status-workflow#user-workflow-history-using-the-microsoft-entra-admin-center)」を参照してください。
-
-### 実行の概要
-
-実行の概要を利用すると、その実行履歴の観点でワークフローの情報を表示できます。
-
-[Image: ワークフローの実行の概要のスクリーンショット。]
-
-実行の概要内では、次の情報を見つけることができます。
-
-| パラメーター | 説明 |
-| --- | --- |
-| Total Processed (処理された合計) | 実行されたワークフローの合計数。 |
-| 成功 | 正常に実行されたワークフロー。 |
-| 失敗 | 実行に失敗したワークフロー。 |
-| 失敗したタスク | タスクが失敗した状態で実行されたワークフロー。 |
-
-#### 実行履歴の詳細
-
-実行履歴の詳細情報を使用すると、特定の情報を以下の基準でフィルターできます。
-
-- **日付**: ワークフローが実行されたときの特定の範囲 (最短で 24 時間から最長で 30 日間まで) をフィルター処理できます。
-- **状態**: 実行されたワークフローの特定の状態をフィルター処理できます。 サポートされている状態は、**[完了]**、**[進行中]**、**[キューに挿入済み]**、**[キャンセル済み]**、**[完了済み (エラーあり)]**、**[失敗]** です。
-- **ワークフローの実行タイプ**: **[スケジュール設定]** や **[要求時]** など、ワークフローの実行の種類でフィルター処理できます。
-- **完了日**: ワークフローが実行されたときの特定の範囲 (最短で 24 時間から最長で 30 日間まで) をフィルター処理できます。
-
-#### 実行履歴の状態の詳細
-
-実行履歴の状態を表示する場合、状態の値は次の情報に対応します。
-
-| ステータス | 詳細 |
-| --- | --- |
-| キュー登録済み | この状態は、ワークフローが初めて実行するように設定されたときに報告されます。 |
-| 進行中 | この状態は、ワークフローが最初のタスクの処理を開始するとすぐに報告されます。 |
-| 取り消し済み | この状態は、ある時点で "進行中" だったが、現在はその状態で凍結されている場合に報告されます。 |
-| 完了 (エラーあり) | この状態は、ワークフローが一部に対して正常に実行されたが、その他に対しては正常に実行されなかった場合に報告されます。 ワークフローがキューに入った状態に入っても、そのインスタンスがすべて実行前に取り消された場合は、 *進行中の状態*に入る前にこの状態も表示されます。 |
-| 完了 | この状態は、ワークフローがすべてのユーザーに対して正常に実行された場合に報告されます。 |
-| 失敗 | この状態は、ワークフローの実行対象であるすべてのユーザーに対してすべてのタスクが失敗した場合に報告されます。 レポートでは、取り消されたユーザーはエラーとしてカウントされません。 |
-
-実行に関する情報を取得する方法の詳細なガイドについては、「[Microsoft Entra 管理センターを使用したワークフロー実行履歴](https://learn.microsoft.com/ja-jp/entra/id-governance/check-status-workflow#run-workflow-history-using-the-microsoft-entra-admin-center)」を参照してください。
-
-### タスクの概要
-
-タスクの概要を利用すると、そのタスクの観点でワークフローの情報を表示できます。
-
-[Image: ワークフロー タスクの概要のスクリーンショット。]
-
-タスクの概要内では、次の情報を見つけることができます。
-
-| パラメーター | 説明 |
-| --- | --- |
-| Total Processed (処理された合計) | ワークフローによって処理されたタスクの合計数。 |
-| 成功 | ワークフローによって正常に処理されたタスクの数。 |
-| 失敗 | ワークフローによって処理され、失敗したタスクの数。 |
-| 未処理 | ワークフローによって処理されなかったタスクの数。 |
-
-#### タスク履歴の詳細
-
-タスクの詳細な履歴情報を使用すると、以下に基づいて特定の情報をフィルター処理できます。
-
-- **日付**: ワークフローが実行されたときの特定の範囲 (最短で 24 時間から最長で 30 日間まで) をフィルター処理できます。
-- **状態**: 実行されたワークフローの特定の状態をフィルター処理できます。 サポートされている状態は、**[完了]**、**[進行中]**、**[キューに挿入済み]**、**[キャンセル済み]**、**[完了済み (エラーあり)]**、**[失敗]** です。
-- **完了日**: ワークフローが実行されたときの特定の範囲 (最短で 24 時間から最長で 30 日間まで) をフィルター処理できます。
-- **タスク**: 特定のタスク名に基づいてフィルター処理できます。
-
-#### タスク履歴の状態の詳細
-
-タスク履歴の状態を表示する場合、状態の値は次の情報に対応します。
-
-| ステータス | 詳細 |
-| --- | --- |
-| キュー登録済み | この状態は、ワークフロー インスタンスの実行がスケジュールされると報告されます。ワークフロー内のすべてのタスクのタスク レポートも、この状態で実行レコードと共に作成されます。 各タスク レポートにはすべてのユーザーが含まれますが、特定のタスクを表します。 |
-| 進行中 | この状態は、最初のタスクの処理が開始されるとすぐに報告されます。 |
-| 取り消し済み | この状態は、ワークフローが取り消される前に処理されたタスクがない場合に報告されます。 タスクを含むワークフローが削除されると、状態も取り消し済みと表示されます。 |
-| 完了 (エラーあり) | この状態は、ユーザーに対してタスクが処理されたが、必ずしもすべてのタスクが成功していない場合に報告されます。 |
-| 完了 | この状態は、すべてのユーザーに対してすべてのタスクが正常に実行された場合に報告されます。 |
-| 失敗 | この状態は、すべてのタスクが失敗した場合に報告されます。 |
-
-ワークフローの処理とタスクを分離することが重要です。1 つのワークフロー内で、ユーザーの処理時に特定のタスクが成功し、他のものが失敗する場合があるためです。 ワークフローで失敗したタスクの後にタスクを実行するかどうかは、[エラー時に続行する] を有効にするといったパラメーターと、ワークフロー内でのそれらの配置によって決まります。 詳細については、[タスクの共通パラメーター](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-tasks#common-task-parameters)に関するページを参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/id-governance/lifecycle-workflow-inactive-users"} -->
-## ライフサイクル ワークフローを使用して非アクティブなユーザーを管理する - Microsoft Entra ID Governance
-
-- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-inactive-users
-- Service: entra-id-governance / lifecycle-workflows
-- Article date: 2026-03-12
-- Summary: この記事では、ライフサイクル ワークフローを使用して非アクティブなユーザーを管理する手順について説明します。
-
-ライフサイクル ワークフローでは、組織内のライフサイクルの Joiner-Mover-Leaver (JML) モデルのどこにあってもユーザーをサポートする一環として、ユーザーが一定の期間非アクティブになると、ユーザーの無効化と削除の自動化がサポートされます。 この [サインイン非アクティブ](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-execution-conditions#sign-in-inactivity-trigger) では、ユーザーが一定の日数非アクティブな場合に実行するワークフローを設定できます。 この機能を使用すると、組織に設定した条件に基づいて非アクティブなユーザーの削除を自動化することで、セキュリティで保護された環境をシームレスに維持できます。
-
-### [前提条件]
-
-この機能を使用するには、Microsoft Entra ID ガバナンスまたは Microsoft Entra スイートのライセンスが必要です。 要件に適したライセンスを見つけるには、 [Microsoft Entra ID ガバナンス のライセンスの基礎を](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)参照してください。
-
-### Microsoft Entra 管理センターを使用して非アクティブなユーザーを管理する
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ライフサイクル ワークフロー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator)としてサインインします。
-2. **ID ガバナンス**&gt;**ライフサイクル ワークフロー**&gt;**のワークフローを参照してください**。
-3. ワークフロー画面で、非アクティブなユーザー タスクを追加する特定のワークフローを選択するか、テンプレートに基づいて新しいワークフローを作成します。
-
-    注
-
-    いずれかの leaver タスクを使用するには、leaver ワークフロー テンプレートを選択する必要があります。
-4. [ **基本** ] タブで、ワークフローの一意の表示名と説明を入力した後、 **サインイン非アクティブ** トリガーを選択します。
-5. 目的のワークフロー テンプレートを選択したら、基本的な詳細を入力し、[ **サインイン非アクティブ]** トリガーを選択します。
-6. [ **非アクティブな日数] で**、超過した場合にトリガーを実行する日数を入力し、[ **次へ**] を選択します。 [Image: 非アクティブな日数のスクリーンショット。]
-
-    注
-
-    サインイン非アクティブは、 `lastSuccessfulSignInDateTime` 属性によって決まります。
-7. [ **スコープ** ] ページで、トリガーに必要なスコープを入力し、[ **次へ**] を選択します。
-8. [ **タスクの確認]** ページで、非アクティブと見なすユーザーに対して実行するタスクを選択し、[ **確認と作成**] を選択します。
-
-    注
-
-    ライフサイクル ワークフローには、非アクティブなユーザーの管理に直接関連する、 [ユーザーの非アクティブに関するメールの送信](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-tasks#send-email-about-user-inactivity)という組み込みのタスクが付属しています。
 <!-- /MSL-PAGE -->

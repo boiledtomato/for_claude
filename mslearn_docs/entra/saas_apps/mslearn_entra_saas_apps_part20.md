@@ -1,7 +1,196 @@
 # Microsoft Learn — Microsoft Entra / SaaS アプリ連携チュートリアル (part 20)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 56
+Pages in this file: 55
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/saas-apps/riskware-tutorial"} -->
+## Microsoft Entra ID で Riskware for Single sign-on を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/riskware-tutorial
+- Service: entra-id / saas-apps
+- Article date: 2025-05-20
+- Summary: Microsoft Entra ID と Riskware の間にシングル サインオンを構成する方法について説明します。
+
+この記事では、Riskware と Microsoft Entra ID を統合する方法について説明します。 Riskware を Microsoft Entra ID と統合すると、次のことができます。
+
+- Riskware にアクセスできるユーザーを Microsoft Entra ID で制御する。
+- ユーザーが自分の Microsoft Entra アカウントを使って Riskware に自動的にサインインできるようにする。
+- 1 つの場所でアカウントを管理します。
+
+### 前提条件
+
+Riskware と Microsoft Entra の統合を構成するには、次の項目が必要です。
+
+- Microsoft Entra サブスクリプション。 Microsoft Entra の環境がない場合は、[無料アカウント](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)を取得できます。
+- Riskware でのシングル サインオンが有効なサブスクリプション。
+- クラウド アプリケーション管理者と共に、アプリケーション管理者も、Microsoft Entra ID でアプリケーションを追加または管理することができます。 詳細については、[Azure の組み込みロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference)に関するページを参照してください。
+
+### シナリオの説明
+
+この記事では、テスト環境で Microsoft Entra のシングル サインオンを構成し、テストします。
+
+- Riskware では、 **SP** によって開始される SSO がサポートされます。
+
+### ギャラリーからの Riskware の追加
+
+Microsoft Entra ID への Riskware の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に Riskware を追加する必要があります。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
+3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**Riskware**」と入力します。
+4. 結果のパネルから **[Riskware]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
+
+または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
+
+### Riskware 用に Microsoft Entra SSO を構成してテストする
+
+**B.Simon** というテスト ユーザーを使って、Riskware に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するには、Microsoft Entra ユーザーと Riskware の関連ユーザーとの間にリンク関係を確立する必要があります。
+
+Riskware に対して Microsoft Entra SSO を構成してテストするには、次の手順を実行します。
+
+1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
+    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
+    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
+2. **Riskware SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
+    1. **Riskware のテストユーザーを作成する** - RiskwareでB.Simonに対応するユーザーを作成し、それをMicrosoft Entraにおけるユーザーの表現にリンクさせるため。
+3. **SSO のテスト** - 構成が機能するかどうかを確認します。
+
+### Microsoft Entra SSO の構成
+
+次の手順に従って Microsoft Entra SSO を有効にします。
+
+1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
+2. **Entra ID**&gt;**エンタープライズアプリ**&gt;**リスクウェア**&gt;**シングルサインオン**に移動します。
+3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
+4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
+
+    [Image: [基本的な SAML 構成] を編集する方法を示すスクリーンショット。]
+5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
+
+    ある。 **[識別子 (エンティティ ID)]** ボックスに、次のいずれかの URL を入力します。
+
+    | 環境 | URL |
+    | --- | --- |
+    | UAT | `https://riskcloud.net/uat` |
+    | 製品 | `https://riskcloud.net/prod` |
+    | デモ | `https://riskcloud.net/demo` |
+
+    b。 **[サインオン URL]** テキスト ボックスに、次のいずれかのパターンを使用して URL を入力します。
+
+    | 環境 | URL パターン |
+    | --- | --- |
+    | UAT | `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+    | 製品 | `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+    | デモ | `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
+
+    注意
+
+    サインオン URL の値は実際の値ではありません。 実際のサインオン URL でこの値を更新してください。 この値を取得するには、[Riskware クライアント サポート チーム](mailto:support@pansoftware.com.au)にお問い合わせください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
+6. **[SAML でシングル サインオンをセットアップします]** ページの **[SAML 署名証明書]** セクションで、 **[ダウンロード]** を選択して、要件のとおりに指定したオプションから**フェデレーション メタデータ XML** をダウンロードして、お使いのコンピューターに保存します。
+
+    [Image: 証明書のダウンロード リンクを示すスクリーンショット。]
+7. **[Riskware のセットアップ]** セクションで、要件に従って適切な URL をコピーします。
+
+    [Image: 構成の適切な URL をコピーすることを示すスクリーンショット。]
+
+#### Microsoft Entra テスト ユーザーの作成と割り当て
+
+ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
+
+### Riskware SSO の構成
+
+1. 別の Web ブラウザー ウィンドウで、Riskware 企業サイトに管理者としてサインインします。
+2. 右上の [ **メンテナンス** ] を選択してメンテナンス ページを開きます。
+
+    [Image: Riskware 構成、メンテナンスを示すスクリーンショット。]
+3. メンテナンス ページで、[ **認証**] を選択します。
+4. **[Authentication Configuration](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/認証の構成)** ページで、次の手順に従います。
+
+    [Image: Riskware 構成、認証構成を示すスクリーンショット。]
+
+    ある。 認証の **[Type](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/種類)**として **[SAML]** を選択します。
+
+    b。 **[Code](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/コード)** ボックスにコードを入力します (例: AZURE\_UAT)。
+
+    c. **[Description](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/説明)** ボックスに説明を入力します (例:SSO 用 AZURE 構成)。
+
+    d. **[シングル サインオン ページ**] テキストボックスに、**[ログイン URL]** の値を貼り付けます。
+
+    え **[サインアウト ページ]** テキストボックスに、 **[ログアウト URL]** の値を貼り付けます。
+
+    f. **[Post フォーム フィールド]** ボックスに、SAML を含む Post 応答にあるフィールド名を入力します (例: SAMLResponse)。
+
+    ジー **[XML Identity Tag Name](XML ID タグ名)** ボックスに、SAML 応答内の一意の識別子を含む属性を入力します (例: NameID)。
+
+    h. Azure Portal からダウンロードした**メタデータ Xml** をメモ帳で開き、メタデータ ファイルから証明書をコピーして **[証明書]** ボックスに貼り付けます。
+
+    一. **[Consumer URL](コンシューマー URL)** ボックスに、サポート チームから入手した**応答 URL** の値を貼り付けます。
+
+    j. **[Issuer](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/発行者)** ボックスに、サポート チームから入手した**識別子**の値を貼り付けます。
+
+    注意
+
+    これらの値を取得するには、[Riskware クライアント サポート チーム](mailto:support@pansoftware.com.au)にお問い合わせください
+
+    ケー **[Use POST](POST を使用する)** チェックボックスをオンにします。
+
+    l. **[Use SAML Request](SAML 要求を使用する)** チェックボックスをオンにします。
+
+    m. **保存** を選択します。
+
+#### Riskware テスト ユーザーの作成
+
+Microsoft Entra ユーザーが Riskware にサインインできるようにするには、Riskware にプロビジョニングする必要があります。 Riskware では、プロビジョニングは手動で行います。
+
+**ユーザー アカウントをプロビジョニングするには、次の手順に従います。**
+
+1. セキュリティ管理者として Riskware にサインインします。
+2. 右上の [ **メンテナンス** ] を選択してメンテナンス ページを開きます。
+
+    [Image: Riskware 構成、メンテナンスを示すスクリーンショット。]
+3. メンテナンス ページで、**ピープル**を選択します。
+
+    [Image: Riskware 構成、ユーザーを示すスクリーンショット。]
+4. **[Details](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/詳細)** タブを選択し、次の手順を実行します。
+
+    [Image: Riskware 構成、詳細を示すスクリーンショット。]
+
+    ある。 **[Person Type](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザーの種類)** で、ユーザーの種類を選択します (例: [Employee](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員))。
+
+    b。 **[First Name](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/名)** ボックスに、ユーザーの名前を入力します (例: **Britta**)。
+
+    c. **[Surname](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/姓)** ボックスに、ユーザーの姓を入力します (例: **Simon**)。
+5. **[セキュリティ]** タブで、次の手順に従います。
+
+    [Image: Riskware 構成、セキュリティを示すスクリーンショット。]
+
+    ある。 **[Authentication](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/認証)** セクションで、既に設定済みの**認証**モードを選択します (例:SSO 用 AZURE 構成)。
+
+    b。 **[Logon Details](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ログオンの詳細)** セクションの **[User ID](ユーザー ID)** ボックスに、ユーザーのメール アドレスを入力します (例: `brittasimon@contoso.com`)。
+
+    c. **[Password](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/パスワード)** ボックスに、ユーザーのパスワードを入力します。
+6. **[Organization](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/組織)** タブで、次の手順に従います。
+
+    [Image: Riskware 構成、組織を示すスクリーンショット。]
+
+    ある。 **Level1** 組織としてオプションを選択します。
+
+    b。 **[Person's Primary Workplace](ユーザーのプライマリ ワークプレース)** セクションで、**[Location](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/場所)** ボックスに場所を入力します。
+
+    c. **[Employee](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員)** セクションで、**[Employee Status](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/従業員のステータス)** を選択します (例: [Casual](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/カジュアル))。
+
+    d. **保存** を選択します。
+
+### SSO のテスト
+
+このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
+
+- [ **このアプリケーションをテスト**する] を選択すると、このオプションはログイン フローを開始できる Riskware Sign-On URL にリダイレクトされます。
+- Riskware のサインオン URL に直接移動し、そこからログイン フローを開始します。
+- Microsoft マイ アプリを使用することができます。 マイ アプリで [Riskware] タイルを選択すると、Riskware Sign-On URL にリダイレクトされます。 詳細については、「[Microsoft Entra のマイ アプリ](https://learn.microsoft.com/ja-jp/azure/active-directory/manage-apps/end-user-experiences#azure-ad-my-apps)」を参照してください。
+<!-- /MSL-PAGE -->
 
 ---
 
@@ -8389,323 +8578,4 @@ SuccessFactors プロビジョニング アプリの構成が完了すると、�
 6. 初期同期が完了すると、次に示すように、[ **プロビジョニング** ] タブに監査概要レポートが書き込まれます。
 
 [Image: プロビジョニングの進行状況バー]
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/sapboc-tutorial"} -->
-## Microsoft Entra ID を使用してシングル サインオン用に SAP Analytics Cloud を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/sapboc-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と SAP Analytics Cloud の間でシングル サインオンを構成する方法について説明します。
-
-この記事では、SAP Analytics Cloud と Microsoft Entra ID を統合する方法について説明します。 SAP Analytics Cloud を Microsoft Entra ID を統合すると、次のことができます。
-
-- 1 つの場所でアカウントを管理します。
-- ユーザーが自分の Microsoft Entra アカウントを使って SAP Analytics Cloud に自動的にサインインできるようにする。
-
-### 前提条件
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- SAP Analytics Cloud でのシングル サインオン (SSO) が有効なサブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- SAP Analytics Cloud では、**SP** Initiated SSO がサポートされます。
-- SAP Analytics Cloud では、[自動化されたユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/sap-analytics-cloud-provisioning-tutorial)がサポートされます。
-
-### ギャラリーからの SAP Analytics Cloud の追加
-
-Microsoft Entra ID への SAP Analytics Cloud の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に SAP Analytics Cloud を追加する必要があります。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに、「**SAP Analytics Cloud**」と入力します。
-4. 結果のパネルから **[SAP Analytics Cloud]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントにアプリケーションを追加したり、ユーザー/グループをアプリに追加したり、ロールを割り当てたり、SSO 構成を確認したりできます。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### SAP Analytics Cloud 用に Microsoft Entra SSO を構成してテストする
-
-**B.Simon** というテスト ユーザーを使って、SAP Analytics Cloud に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するには、Microsoft Entra ユーザーと SAP Analytics Cloud の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-SAP Analytics Cloud に対する Microsoft Entra SSO を構成してテストするには、次の手順を行います。
-
-1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **SAP Analytics Cloud SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. **SAP Analytics Cloud のテスト ユーザーの作成** - SAP Analytics Cloud で B.Simon に対応するユーザーを作成し、Microsoft Entra の B.Simon にリンクさせます。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-### Microsoft Entra SSO の構成
-
-次の手順に従って Microsoft Entra SSO を有効にします。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**Enterprise apps**&gt;**SAP Analytics Cloud** アプリケーション統合ページに移動し、[**管理**] セクションを見つけて、[**シングル サインオン**] を選択します。
-3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-4. **[SAML によるシングル サインオンのセットアップ]** ページで、 **[基本的な SAML 構成]** の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的な SAML 構成を編集する]
-5. **[基本的な SAML 構成]** セクションで、次のフィールドの値を入力します。
-
-    「a」 **[識別子 (エンティティ ID)]** ボックスに、次のいずれかのパターンを使用して値を入力します。
-
-    | **識別子** |
-    | --- |
-    | `<sub-domain>.sapbusinessobjects.cloud` |
-    | `<sub-domain>.sapanalytics.cloud` |
-
-    b。 **[サインオン URL]** テキスト ボックスに、次のいずれかのパターンを使用して URL を入力します。
-
-    | **サインオン URL** |
-    | --- |
-    | `https://<sub-domain>.sapanalytics.cloud/` |
-    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
-
-    注意
-
-    これらの URL の値は、単なる例です。 値を実際の識別子とサインオン URL で更新してください。 サインオン URL を取得するには、[SAP Analytics Cloud クライアント サポート チーム](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/)に問い合わせてください。 識別子 URL は、管理コンソールから SAP Analytics Cloud のメタデータをダウンロードすることで取得できます。 これについては、この記事の後半で説明します。
-6. **[SAML でシングル サインオンをセットアップします]** ページの **[SAML 署名証明書]** セクションで、 **[フェデレーション メタデータ XML]** を探して **[ダウンロード]** を選択し、証明書をダウンロードしてコンピューターに保存します。
-
-    [Image: 証明書のダウンロードのリンク]
-7. **[SAP Analytics Cloud のセットアップ]** セクションで、要件に基づいて適切な URL をコピーします。
-
-    [Image: 構成 URL をコピーする]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### SAP Analytics Cloud SSO の構成
-
-1. Web ブラウザーの別のウィンドウで、SAP Analytics Cloud 企業サイトに管理者としてサインインします。
-2. **[Menu](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/メニュー)**&gt;**[System](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/システム)**&gt;**[Administration](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/管理)** を選択します。
-
-    [Image: [Menu](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/メニュー)、[System](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/システム)、および [Administration](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/管理) の選択]
-3. **[Security](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/セキュリティ)** タブで **[Edit](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/編集)** (ペン) アイコンを選択します。
-
-    [Image: [Security](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/セキュリティ) タブで [Edit](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/編集)アイコンを選択]
-4. **[Authentication Method](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/認証方法)** として **[SAML Single Sign-On (SSO)](SAML シングル サインオン (SSO))** を選択します。
-
-    [Image: 認証方法として [SAML Single Sign-On (SSO)](SAML シングル サインオン (SSO)) を選択]
-5. サービス プロバイダーのメタデータをダウンロードする (手順 1) には、**[Download](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ダウンロード)** を選択します。 メタデータ ファイルで、**entityID** を見つけてその値をコピーします。 Azure portal で、**[基本的な SAML 構成]** ダイアログの **[識別子]** ボックスに値を貼り付けます。
-
-    [Image: EntityID 値をコピーして貼り付ける]
-6. ダウンロードしたファイル内のサービス プロバイダーのメタデータをアップロードする (手順 2) には、**[Upload Identity Provider metadata] (ID プロバイダーのメタデータのアップロード)** で、**[アップロード]** を選択します。
-
-    [Image: [Upload Identity Provider metadata](ID プロバイダーのメタデータのアップロード) で [アップロード] を選択]
-7. **[User Attribute](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザー属性)** の一覧で、実装で使用するユーザー属性を選択します (手順 3)。 このユーザー属性が ID プロバイダーにマップされます。 ユーザーのページでカスタム属性を入力するには、**[Custom SAML Mapping](カスタム SAML マッピング)** オプションを使用します。 または、ユーザー属性として **[Email](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/電子メール)** または **[USER ID](ユーザー ID)** のいずれかを選択できます。 この例では、**[ユーザー属性とクレーム]** セクションの **userprincipalname** 属性にユーザー識別子要求をマップしたため、**[メール]** を選択しています。 これにより、一意のユーザーのメールが用意され、SAML 応答が成功するたびに SAP Analytics Cloud アプリケーションに送信されます。
-
-    [Image: ユーザー属性の選択]
-8. アカウントを ID プロバイダーで確認する (ステップ 4) には、**[Login Credential (Email)](ログイン資格情報 (電子メール))** ボックスに、ユーザーの電子メール アドレスを入力します。 次に、**[Verify Account](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/アカウントの確認)** を選択します。 システムがサインイン資格情報をユーザー アカウントに追加します。
-
-    [Image: 電子メール アドレスを入力し、[Verify Account](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/アカウントの確認) を選択]
-9. **[Save](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/保存) ** アイコンを選択します。
-
-    [Image: [Save](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/保存) アイコン]
-
-#### SAP Analytics Cloud のテスト ユーザーの作成
-
-Microsoft Entra ユーザーが SAP Analytics Cloud にサインインできるようにするには、そのユーザーを SAP Analytics Cloud にプロビジョニングしておく必要があります。 SAP Analytics Cloud では、プロビジョニングは手動のタスクです。
-
-ユーザー アカウントをプロビジョニングするには:
-
-1. SAP Analytics Cloud 企業サイトに管理者としてサインインします。
-2. **[Menu](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/メニュー)**&gt;**[Security](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/セキュリティ)**&gt;**[Users](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザー)** を選択します。
-
-    [Image: 従業員の追加]
-3. **[Users](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザー)** ページで、新しいユーザーの詳細を追加するには、**+** を選択します。
-
-    [Image: [Add Users](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ユーザーの追加) ページ]
-
-    その後、次の手順を完了します。
-
-    1. **[USER ID](ユーザー ID)** ボックスに、ユーザーのユーザー ID を入力します (**B** など)。
-    2. **[FIRST NAME](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/名)** ボックスに、ユーザーの名を入力します (**B** など)。
-    3. **[LAST NAME](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/姓)** ボックスに、ユーザーの姓を入力します (この例では **Simon**)。
-    4. **[DISPLAY NAME](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/表示名)** ボックスに、ユーザーのフル ネームを入力します (**B.Simon** など)。
-    5. **[E-MAIL](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/電子メール)** ボックスに、ユーザーの電子メール アドレスを入力します (この例では `b.simon@contoso.com`)。
-    6. **[Select Roles](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/ロールの選択)** ページで、ユーザーの適切なロールを選択し、**[OK]** を選択します。
-
-        [Image: ロールの選択]
-    7. **[Save](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/保存) ** アイコンを選択します。
-
-注意
-
-SAP Analytics Cloud では、自動ユーザー プロビジョニングもサポートされます。自動ユーザー プロビジョニングの構成方法について詳しくは、[こちら](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/sap-analytics-cloud-provisioning-tutorial)をご覧ください。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-- [ **このアプリケーションをテスト**する] を選択すると、このオプションはログイン フローを開始できる SAP Analytics Cloud のサインオン URL にリダイレクトされます。
-- SAP Analytics Cloud のサインオン URL に直接移動し、そこからログイン フローを開始します。
-- Microsoft マイ アプリを使用することができます。 マイ アプリで [SAP Analytics Cloud] タイルを選択すると、このオプションは SAP Analytics Cloud のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)に関するページを参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/saas-apps/sapbusinessbydesign-tutorial"} -->
-## Microsoft Entra ID でシングル サインオン用に SAP Business ByDesign を構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/sapbusinessbydesign-tutorial
-- Service: entra-id / saas-apps
-- Article date: 2025-05-20
-- Summary: Microsoft Entra ID と SAP Business ByDesign の間でシングル サインオンを構成する方法について説明します。
-
-この記事では、SAP Business ByDesign と Microsoft Entra ID を統合する方法について説明します。 SAP Business ByDesign を Microsoft Entra ID を統合すると、次のことができます。
-
-- SAP Business ByDesign にアクセスできるユーザーを Microsoft Entra ID で制御する。
-- ユーザーが自分の Microsoft Entra アカウントを使って SAP Business ByDesign に自動的にサインインできるようにする。
-- 1 つの場所でアカウントを管理します。
-
-### 前提条件
-
-この記事で説明するシナリオでは、次の前提条件が既にあることを前提としています。
-
-- アクティブなサブスクリプションを持つ Microsoft Entra ユーザー アカウント。 まだアカウントがない場合は、[無料でアカウントを作成する](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)ことができます。
-- 次のいずれかのロール:
-    - [アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#application-administrator)
-    - [クラウドのアプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
-    - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
-
-- シングル サインオン (SSO) が有効な SAP Business ByDesign サブスクリプション。
-
-### シナリオの説明
-
-この記事では、テスト環境で Microsoft Entra SSO を構成してテストします。
-
-- SAP Business ByDesign では、**SP** によって開始される SSO がサポートされます
-
-### ギャラリーからの SAP Business ByDesign の追加
-
-Microsoft Entra ID への SAP Business ByDesign の統合を構成するには、ギャラリーから管理対象 SaaS アプリの一覧に SAP Business ByDesign を追加する必要があります。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;の**Enterprise apps**&gt;に移動し、**新しいアプリケーション**を選択します。
-3. **[ギャラリーから追加する]** セクションで、検索ボックスに「**SAP Business ByDesign**」と入力します。
-4. 結果パネルから **[SAP Business ByDesign]** を選択し、アプリを追加します。 お使いのテナントにアプリが追加されるのを数秒待機します。
-
-または、[Enterprise App Configuration ウィザード](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration)を使用することもできます。 このウィザードでは、テナントへのアプリケーションの追加、アプリへのユーザーとグループの追加、ロールの割り当て、および SSO 構成の設定が可能です。 [Microsoft 365 ウィザードの詳細をご覧ください。](https://learn.microsoft.com/ja-jp/microsoft-365/admin/misc/azure-ad-setup-guides)
-
-### Microsoft Entra SSO の構成とテスト
-
-**B.Simon** というテスト ユーザーを使って、SAP Business ByDesign に対する Microsoft Entra SSO を構成してテストします。 SSO が機能するには、Microsoft Entra ユーザーと SAP Business ByDesign の関連ユーザーとの間にリンク関係を確立する必要があります。
-
-SAP Business ByDesign に対する Microsoft Entra SSO を構成してテストするには、次の手順を行います。
-
-1. **Microsoft Entra SSO を構成する**- ユーザーがこの機能を使用できるようにします。
-    1. **Microsoft Entra テスト ユーザーの作成** - B.Simon で Microsoft Entra のシングル サインオンをテストします。
-    2. **Microsoft Entra テスト ユーザーを割り当てる** - B.Simon が Microsoft Entra シングル サインオンを使用できるようにします。
-2. **SAP Business ByDesign の SSO の構成**- アプリケーション側でシングル サインオン設定を構成します。
-    1. **SAP Business ByDesign のテスト ユーザーの作成** - SAP Business ByDesign で Britta Simon の対応ユーザーを設定し、Microsoft Entra におけるユーザーとリンクさせます。
-3. **SSO のテスト** - 構成が機能するかどうかを確認します。
-
-#### Microsoft Entra SSO の構成
-
-次の手順に従って Microsoft Entra SSO を有効にします。
-
-1. [クラウド アプリケーション管理者](https://entra.microsoft.com)以上として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)にサインインします。
-2. **Entra ID**&gt;**エンタープライズアプリ**&gt;**SAP Business ByDesign**&gt;**シングルサインオン**に移動します。
-3. **[シングル サインオン方式の選択]** ページで、 **[SAML]** を選択します。
-4. [ **SAML でのシングル サインオンの設定** ] ページで、[ **基本的な SAML 構成** ] の鉛筆アイコンを選択して設定を編集します。
-
-    [Image: 基本的な SAML 構成を編集する]
-5. **[基本的な SAML 構成]** セクションで、次の手順を実行します。
-
-    ある。 **[サインオン URL]** ボックスに、次のパターンを使用して URL を入力します。`https://<servername>.sapbydesign.com`
-
-    b。 **[識別子 (エンティティ ID)]** ボックスに、次のパターンを使用して URL を入力します。`https://<servername>.sapbydesign.com`
-
-    注意
-
-    これらの値は実際の値ではありません。 実際のサインオン URL と識別子でこれらの値を更新します。 これらの値を取得するには、SAP Business ByDesign クライアント サポート チームに問い合わせてください。 **[基本的な SAML 構成]** セクションに示されているパターンを参照することもできます。
-6. SAP Business ByDesign アプリケーションは、特定の形式で構成された SAML アサーションを受け入れます。 このアプリケーションには、次の要求を構成します。 これらの属性の値は、アプリケーション統合ページの **[ユーザー属性]** セクションで管理できます。 [ **SAML を使用した単一 Sign-On のセットアップ** ] ページで、[ **編集]** ボタンを選択して [ **ユーザー属性] ダイアログを** 開きます。
-
-    [Image: image1]
-7. [ **編集** ] アイコンを選択して **、[名前識別子] の値**を編集します。
-
-    [Image: Image2]
-8. **[ユーザー要求の管理]** セクションで、以下の手順を実行します。
-
-    [Image: image3]
-
-    ある。 **[ソース]** として **[変換]** を選択します。
-
-    b。 **[変換]** ドロップダウン リストで、 **[ExtractMailPrefix()]** を選択します。
-
-    注意
-
-    既定では、SAP Business ByDesign はユーザー マッピングに**指定されていない** NameID の形式を使用します。 このアプリケーションは、SAML アサーションの NameID を SAP Business ByDesign のユーザー別名にマッピングします。 さらに、このアプリケーションは、名前 ID の形式 **emailAddress** をサポートしています。 この場合、アプリケーションは、SAML アサーションの NameID を、SAP Business ByDesign 従業員の連絡先データの SAP Business ByDesign ユーザー メール アドレスにマップします。 詳細については、[SAP Business ByDesign でのシングル サインオン (SSO)](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-sap/single-sign-on-sso-with-sap-business-bydesign/ba-p/13337088) に関するページを参照してください。
-9. **[SAML でシングル サインオンをセットアップします]** ページの **[SAML 署名証明書]** セクションで、 **[ダウンロード]** を選択して、要件のとおりに指定したオプションから**フェデレーション メタデータ XML** をダウンロードして、お使いのコンピューターに保存します。
-
-    [Image: 証明書のダウンロードのリンク]
-10. **[SAP Business ByDesign のセットアップ]** セクションで、アプリケーションに必要な適切な URL をコピーします。
-
-    [Image: 構成 URL をコピーする]
-
-#### Microsoft Entra テスト ユーザーの作成と割り当て
-
-ユーザー [アカウントの作成と割り当ての](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/add-application-portal-assign-users) クイックスタートのガイドラインに従って、B.Simon というテスト ユーザー アカウントを作成します。
-
-### SAP Business ByDesign の SSO の構成
-
-1. SAP Business ByDesign ポータルに管理者権限でサインオンします。
-2. **アプリケーションとユーザー管理の共通タスク**に移動し、[**ID プロバイダー**] タブを選択します。
-3. **[新しい ID プロバイダー] を**選択し、ダウンロードしたメタデータ XML ファイルを選択します。 メタデータをインポートした後、必要な署名証明書と暗号化証明書が、アプリケーションによって自動的にアップロードされます。
-
-    [Image: シングル サインオンの構成 1]
-4. **Assertion Consumer Service URL** を SAML 要求に追加するには、 **[Include Assertion Consumer Service URL (Assertion Consumer Service URL を含める)]** を選択します。
-5. [ **シングル サインオンのアクティブ化]** を選択します。
-6. 変更を保存します。
-7. [ **マイ システム** ] タブを選択します。
-
-    [Image: シングル サインオンの構成 2]
-8. **[Microsoft Entra ID サインオン URL]** テキストボックスに、先ほどコピーした**ログイン URL** の値を貼り付けます。
-
-    [Image: シングル サインオンの構成 3]
-9. ユーザー ID とパスワードでログオンするか、SSO でログオンするかを従業員が手動で選択できるかどうかを、 **[Manual Identity Provider Selection (ID プロバイダーの手動選択)]** を選択して指定します。
-10. **[SSO URL]** セクションには、従業員がアプリケーションへのサインオンに使用する URL を指定します。 [URL Sent to Employee (従業員に送信する URL)] ボックスの一覧で、次のオプションを選択できます。
-
-    **非SSO URL (Non-SSO URL)**
-
-    従業員に送信されるのは、システムの通常の URL のみです。 従業員のサインオンに SSO は使用できず、パスワードまたは証明書を使用する必要があります。
-
-    **SSO URL**
-
-    従業員に送信されるのは、SSO の URL のみです。 従業員は SSO を使用してサインオンすることができます。 認証要求は IdP を介してリダイレクトされます。
-
-    **[Automatic Selection (自動選択)]**
-
-    SSO が有効ではない場合、システムの通常の URL が従業員に送信されます。 SSO が有効である場合は、従業員がパスワードを持っているかどうかがシステムによってチェックされます。 パスワードを持っていた場合は、SSO の URL と非 SSO の URL の両方が従業員に送信されます。 一方、従業員がパスワードを持っていない場合は、SSO の URL だけが従業員に送信されます。
-11. 変更を保存します。
-
-#### SAP Business ByDesign テスト ユーザーの作成
-
-このセクションでは、SAP Business ByDesign で Britta Simon というユーザーを作成します。 SAP Business ByDesign クライアント サポート チームと協力して、SAP Business ByDesign プラットフォームにユーザーを追加してください。
-
-注意
-
-NameID 値は必ず、SAP Business ByDesign プラットフォームのユーザー名フィールドと一致させてください。
-
-### SSO のテスト
-
-このセクションでは、次のオプションを使用して Microsoft Entra のシングル サインオン構成をテストします。
-
-1. [ **このアプリケーションをテスト**する] を選択すると、Web ブラウザーが SAP Business ByDesign のサインオン URL にリダイレクトされ、そこでログイン フローを開始できます。
-2. SAP Business ByDesign のサインオン URL に直接移動し、そこからログイン フローを開始します。
-3. Microsoft マイ アプリを使用することができます。 マイ アプリで [SAP Business ByDesign] タイルを選択すると、Web ブラウザーは SAP Business ByDesign のサインオン URL にリダイレクトされます。 マイ アプリの詳細については、「[マイ アプリの概要](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)」を参照してください。
 <!-- /MSL-PAGE -->

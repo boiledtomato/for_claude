@@ -210,10 +210,10 @@ Microsoft Entra 多要素認証の詳細については、「 [しくみ: Micros
 
 - Source: https://learn.microsoft.com/ja-jp/entra/id-protection/concept-identity-protection-risks
 - Service: entra-id-protection
-- Article date: 2026-04-22
+- Article date: 2026-10-21
 - Summary: 各リスク イベントの種類の説明と共に、リスク検出とそれに対応するリスク イベントの種類の完全な一覧を確認します。
 
-Microsoft Entra ID Protection は、組織内の疑わしいアクティビティを識別するために使用できる、幅広いリスク検出を提供できます。 この記事に含まれる表は、ライセンス要件を含むサインインとユーザー リスク検出の一覧、または検出がリアルタイムまたはオフラインで行われるかどうかをまとめたものです。 各リスク検出の詳細については、次の表を参照してください。
+Microsoft Entra ID 保護 は、組織内の疑わしいアクティビティを識別するために使用できる、幅広いリスク検出を提供できます。 この記事に含まれる表は、ライセンス要件を含むサインインとユーザー リスク検出の一覧、または検出がリアルタイムまたはオフラインで行われるかどうかをまとめたものです。 各リスク検出の詳細については、次の表を参照してください。
 
 - ほとんどのリスク検出の詳細については、Microsoft Entra ID P2 が必要です。
     - Microsoft Entra ID P2 ライセンスを持たないお客様は、リスク検出の詳細なしで **検出された追加のリスク** というタイトルの検出を受け取ります。
@@ -236,7 +236,7 @@ Note
 | ユーザーに対する管理者確認済みのセキュリティ侵害 | Offline | Nonpremium | adminConfirmedUserCompromised |
 | 異常なトークン (サインイン) | リアルタイムまたはオフライン | Premium | anomalousToken |
 | 匿名 IP アドレス | Real-time | Nonpremium | anonymizedIPAddress |
-| 非定型旅行 | Offline | Premium | unlikelyTravel |
+| 非定型旅行 | Real-time | Premium | unlikelyTravel |
 | 不可能な移動 | Offline | Premium | mcasImpossibleTravel |
 | 悪意のある IP アドレス | Offline | Premium | maliciousIPAddress |
 | 機密ファイルへの大量アクセス | Offline | Premium | mcasFinSuspiciousFileAccess |
@@ -266,6 +266,7 @@ Note
 | Microsoft Entra の脅威インテリジェンス (ユーザー) | リアルタイムまたはオフライン | Nonpremium | investigationsThreatIntelligence |
 | プライマリ更新トークン (PRT) へのアクセス試行の可能性 | Offline | Premium | attemptedPrtAccess |
 | 不審な API トラフィック | Offline | Premium | suspiciousAPITraffic |
+| 疑わしい資格情報の追加 | Real-time | Premium | suspiciousCredentialAddition |
 | 疑わしい送信パターン | Offline | Premium | suspiciousSendingPatterns |
 | ユーザーから報告された疑わしいアクティビティ | Offline | Premium | userReportedSuspiciousActivity |
 
@@ -324,9 +325,9 @@ Note
 
 このリスク検出の種類では、地理的に離れた場所で行われた 2 つのサインインを識別します。少なくとも 1 つの場所は、ユーザーの過去の行動から考えて、ユーザーの通常とは異なる可能性のある場所でもあります。 このアルゴリズムでは、2 回のサインインの間隔や、最初の場所から 2 回目の場所にユーザーが移動するのに要する時間など、複数の要因が考慮に入れられます。 このリスクは、別のユーザーが同じ資格情報を使用していることを示している可能性があります。
 
-このアルゴリズムは、組織内の他のユーザーによって普通に使用される VPN や場所など、不可能な移動状況の原因になる明らかな "誤検知" を無視します。 システムには、最短で 14 日間または 10 回のログインの初期学習期間があり、その間に新しいユーザーのサインイン行動が学習されます。
+システムは、アダプティブ 学習を使用して、新しいユーザーのサインイン動作を学習します。
 
-- オフラインで計算される
+- リアルタイムで計算
 - ライセンス要件: Microsoft Entra ID P2
 - [通常とは異なる移動の検出の調査に関するヒント。](https://learn.microsoft.com/ja-jp/entra/id-protection/howto-identity-protection-investigate-risk#atypical-travel-detections)
 
@@ -500,6 +501,13 @@ Microsoft Entra 脅威インテリジェンスは、ユーザーにとって通�
 このリスク検出は、異常な GraphAPI トラフィックまたはディレクトリの列挙が観察されたときに報告されます。 不審な API トラフィックは、ユーザーが侵害され、環境内で偵察を行っていることを示している可能性があります。
 
 - オフラインで計算される
+- ライセンス要件: Microsoft Entra ID P2
+
+#### 疑わしい資格情報の追加
+
+この検出は、疑わしい状況で新しい認証方法がアカウントに追加されるタイミングを識別します。 このアクティビティは、攻撃者がアカウントにアクセスし、新しい資格情報を登録したことを示している可能性があります。
+
+- リアルタイムで計算
 - ライセンス要件: Microsoft Entra ID P2
 
 #### 疑わしい送信パターン

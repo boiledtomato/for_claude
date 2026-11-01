@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) (part 13)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 24
+Pages in this file: 25
 
 ---
 
@@ -4625,6 +4625,168 @@ Microsoft Entra ワークロード ID は、アプリやサービスなど、デ
 #### 攻略ガイド
 
 - [サービス プリンシパルのアクセス レビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-create-roles-and-resource-roles-review)
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/workload-id/troubleshoot-revoked-credentials"} -->
+## 失効したアプリケーション資格情報のトラブルシューティング - Microsoft Entra Workload ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/workload-id/troubleshoot-revoked-credentials
+- Service: entra-workload-id
+- Article date: 2026-10-22
+- Summary: 失効した資格情報エラーを解決し、tokenRevocations を検査し、Microsoft がアプリケーション資格情報を取り消したかどうかを判断します。
+
+資格情報が取り消されたためにアプリケーションがトークンを取得できない場合、Microsoft Entra セキュリティ トークン サービス (STS) は、これらのエラーのいずれかを返すことができます。
+
+| エラー コード | 名前エラー | エラー メッセージ |
+| --- | --- | --- |
+| AADSTS700027 | `InvalidClientAssertionRevokedKeysProvided` | {X} 用に提供されたクライアント アサーションは、取り消されたキーを使用しています。 有効なクライアント アサーションを指定してください。 |
+| AADSTS7005003 | `InvalidClientSecretRevokedKeysProvided` | アプリ '{X}' に指定されたクライアント シークレット キーが取り消されています。 有効なクライアント シークレットを指定してください。 |
+| AADSTS7005004 | `InvalidClientAssertionRevokedKeysProvided` | {X} 用に提供されたクライアント アサーションは、取り消されたキーを使用しています。 有効なクライアント アサーションを指定してください。 |
+| AADSTS7005005 | `FederatedIdentityCredentialRevoked` | アプリケーション '{X}' に指定された ID '{Y}' のフェデレーション資格情報が取り消されました。 |
+| AADSTS7005006 | `TokenRevocationBlocksIssuance` | {X} はこのリクエストのトークン発行をブロックしました。 |
+
+これらのメッセージでは、 `{X}` はアプリケーションのアプリケーション (クライアント) ID、 `{Y}` はフェデレーション ID 資格情報 ID です。 メッセージとコードを一致させます。`AADSTS700027` は、他のクライアント アサーションの検証エラーを示すこともできます。
+
+Important
+
+失効した資格情報エラーは、それ自体では、Microsoft がその資格情報を失効させたことを意味するものではありません。 十分なアクセス許可を持つアプリケーション所有者と管理者は、資格情報を取り消すこともできます。 設定済みの `tokenRevocations` コレクションでは、失効を実行したユーザーも特定されません。 この記事のチェックに従って、ソースを判断します。
+
+### 資格情報が取り消された理由を理解する
+
+テナント管理者またはMicrosoftは認証情報を取り消すことができます。 Microsoft は、脅威アクターによって資格情報が侵害されたことを検出した後、テナント内の資格情報を取り消すことができます。 これには、脅威アクターが既存の資格情報を盗むか、サービス プリンシパルまたはアプリケーション オブジェクトに資格情報を追加することが含まれます。
+
+`tokenRevocations` プロパティは、アプリケーションまたはサービス プリンシパルの失効を記録します。 資格情報を取り消す場合、次の影響があります。
+
+- 失効した資格情報は、新しいトークンを取得するためのクライアント資格情報として使用できなくなりました。
+- 一部の Microsoft リソースでは、資格情報を使用して既に発行されたトークンは、有効期限が切れる前に無効化されます。
+- その他のリソースの場合、資格情報を使用して既に発行されているトークンは、有効期限が切れるまで引き続き機能し、最大で 24 時間かかることがあります。 失効した資格情報は、置換トークンを取得できません。
+
+失効によってすべてのリソースへのアクセスがすぐに終了するとは考えないでください。 侵害と、アプリケーションがアクセスできるリソースを調査します。
+
+### アプリケーションとサービス プリンシパルの両方を確認する
+
+Microsoft Graph を使用して、影響を受けるテナントの両方のオブジェクトの種類について `tokenRevocations` を読み取ります。 テナントには、アプリケーション オブジェクトのみ、サービス プリンシパル オブジェクトのみ、または同じアプリケーション ID に対する両方のオブジェクトが含まれている場合があります。 取り消しは、どちらのオブジェクトにも記録できます。 背景については、「 [アプリケーション オブジェクトとサービス プリンシパル オブジェクト」](https://learn.microsoft.com/ja-jp/entra/identity-platform/app-objects-and-service-principals)を参照してください。
+
+影響を受けるオブジェクトを読み取る権限を持つアカウントを使用します。 次の要求では、Microsoft Graph `/beta` エンドポイントを使用します。
+
+1. エラーからアプリケーション (クライアント) ID を記録し、失敗したトークン要求の対象となったテナントを確認します。
+2. `{appId}`は、オブジェクト ID ではなく、そのアプリケーション (クライアント) ID に置き換えます。 アプリケーション オブジェクトの失効のクエリを実行します。
+
+    ```http
+    GET https://graph.microsoft.com/beta/applications(appId='{appId}')/tokenRevocations
+    ```
+3. 同じアプリケーション ID を使用して、サービス プリンシパル オブジェクトの失効に対してクエリを実行します。
+
+    ```http
+    GET https://graph.microsoft.com/beta/servicePrincipals(appId='{appId}')/tokenRevocations
+    ```
+4. 両方の応答を確認してください。 最初の応答で一致するものが見つかる場合でも、各失効を含むオブジェクトを記録しておきます。
+
+Tip
+
+これらのリクエストは[Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)で実行できます。 承認されたアカウントを使用して、影響を受けるテナントにサインインします。サインインしていないサンプル テナントには構成が表示されません。 **GET** と **beta** を選択し、`{appId}` を置き換えた要求 URL を貼り付けて、**[クエリの実行]** を選択します。 サインインしたアカウントには適切なアクセス権が必要であり、Graph Explorer には、必要な Microsoft Graph のアクセス許可への同意が必要です。 詳細については、「[Use Graph Explorer](https://learn.microsoft.com/ja-jp/graph/graph-explorer/graph-explorer-overview)」を参照してください。
+
+#### 応答を解釈する
+
+成功した応答には、 `value` 配列が含まれています。 空でない配列は、オブジェクトに失効エントリがあることを意味します。 たとえば、この説明的な応答は、取り消されたクライアント シークレットを示しています。 関連のないフィールドは省略されます。
+
+```json
+{
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.passwordCredentialRevocation",
+      "id": "11111111-2222-3333-4444-555555555555",
+      "auditDetails": {
+        "reason": "Compromised credential",
+        "fromDateTime": "2026-10-22T12:00:00Z",
+        "issuedBy": "0e0fb671-b107-448b-a273-9d0ded7627a7"
+      },
+      "credential": {
+        "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+      }
+    }
+  ]
+}
+```
+
+資格情報に影響する失効について、次のフィールドを確認してください。
+
+| Field | 注目すべきポイント |
+| --- | --- |
+| `id` | 失効 ID。 失効を削除する必要がある場合は、この値を保存してください。 それは、アプリケーション ID でも資格情報 ID でもありません。 |
+| `credential.id` | 影響を受ける認証情報の ID。 フェデレーション ID 資格情報エラーの場合は、エラー メッセージの `{Y}` と比較します。 |
+| `auditDetails.issuedBy` | 発行者の識別子。 次のセクションのチェックを使用して、Microsoft が失効を発行したかどうかを判断します。 |
+| `auditDetails.reason` | 失効に関する任意の自由記述のコンテキスト。 テキストは異なる場合があり、誰が発行したかの証明ではありません。 |
+| `auditDetails.fromDateTime` | 失効の監査の詳細に記録されたタイムスタンプ。 これを使用して、対応する監査イベントを見つけるのに役立ちます。 |
+
+他の応答を次のように処理します。
+
+- 空の `"value": []` は、そのオブジェクトに対して失効が返されなかったことを意味します。 引き続き他のオブジェクト タイプを確認します。
+- オブジェクトが見つからない応答は、オブジェクトの種類がテナントに存在しないことを意味する可能性があります。 テナントとアプリケーション ID を確認し、他のオブジェクトの種類を確認します。
+- 認可エラーは、失効情報が存在しないことを意味するものではありません。 結論を出す前に、アクセスまたは同意の問題を解決してください。
+- 応答に `@odata.nextLink` が含まれている場合は、それに従って残りのエントリを調べます。
+
+どちらのオブジェクトにも一致する失効が存在しない場合は、失敗した要求によって使用されたアプリケーション ID、テナント、および資格情報を確認してください。 次に説明する証拠がない限り、失敗を Microsoft のせいにしないでください。
+
+### Microsoft が資格情報を取り消したかどうかを確認する
+
+次のいずれかのチェックで、Microsoft によって開始された失効が確認されます。 両方を一致させる必要はありません。
+
+#### 失効情報の発行者を確認する
+
+一致する失効で `auditDetails.issuedBy` を調査します。 次の値と等しい場合は、Microsoft は資格情報を取り消しました。
+
+```text
+0e0fb671-b107-448b-a273-9d0ded7627a7
+```
+
+前のセクションの応答例には、この値が含まれています。 監査ログを使用してアクターを調査することもできます。
+
+#### テナント監査ログを確認する
+
+影響を受けるオブジェクトの失効を記録した更新を探します。
+
+1. 影響を受けるテナントの[Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[レポート閲覧者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#reports-reader)としてサインインします。
+2. **Entra ID**&gt;**監視と健康**&gt;**監査ログ**に移動します。
+3. 失効を含むように日付範囲を設定します。 影響を受けるオブジェクトの **アプリケーションの更新** または **サービス プリンシパルの更新** アクティビティを探します。
+4. イベントを開き、そのターゲット、変更されたプロパティ、およびイニシエーターを確認します。 **Azure Active Directory Protection Services** によって開始された対応する失効更新は、Microsoft が資格情報を取り消したことを意味します。
+
+イベントが対象オブジェクトと失効に関連していることを確認します。関連のない更新ではありません。 イベントが見つからない場合は、時間範囲とテナントの [監査ログの保持期間](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/reference-reports-data-retention)を確認します。 監査履歴がないだけでは、誰が資格情報を取り消したかは特定できません。
+
+### アプリケーション アクセスを復元する
+
+アクセスを復元する前に、セキュリティ チームと資格情報および承認されていない変更を調査してください。 Microsoft がそれを取り消した場合は、その失効は資格情報が侵害されたことを示すものとして扱います。
+
+推奨される復旧方法は、侵害された認証情報を置き換え、置き換え後の認証情報を使用するようにワークロードを更新することです。 侵害された資格情報は失効したままにし、脅威アクターが追加した認証情報またはアクセスを削除します。 アプリケーション資格情報のセットアップについては、「 [アプリケーション資格情報の追加と管理](https://learn.microsoft.com/ja-jp/entra/identity-platform/how-to-add-credentials)」を参照してください。
+
+#### 失効を削除する
+
+調査で失効が正しくなかったと判断され、証明書が安全に使用できる場合は、失効を解除できます。 影響を受けるオブジェクトの失効を管理するためのアクセス許可が必要です。
+
+Warning
+
+失効を削除すると、その他が有効であれば、その資格情報を再び使用できるようになります。 資格情報をローテーションしたり、脅威アクターのコピーを削除したりすることはありません。 サインイン エラーを解決するためだけに、侵害された認証情報の失効を解除しないでください。
+
+1. 調査のために失効の詳細を保存します。 エントリを含むオブジェクト、およびそのエントリの最上位レベルの `id`を識別します。
+2. `{appId}`をアプリケーション (クライアント) ID に置き換え、`{revocationId}`をその失効 ID に置き換えます。 エントリを含むオブジェクトのリクエストを使用します。
+
+    アプリケーション オブジェクトの失効の場合:
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/applications(appId='{appId}')/tokenRevocations/{revocationId}
+    ```
+
+    サービス プリンシパル オブジェクトの失効の場合:
+
+    ```http
+    DELETE https://graph.microsoft.com/beta/servicePrincipals(appId='{appId}')/tokenRevocations/{revocationId}
+    ```
+
+    これらのリクエストには、リクエスト本文は必要ありません。 削除するエントリのみを削除します。関係のない失効を消去しないでください。
+3. 前の `GET` 要求を繰り返して、選択したエントリが消えたことを確認し、資格情報に影響を与える残りの失効があるかどうかを確認します。 1 つのオブジェクトからエントリを削除しても、もう一方のオブジェクトからエントリは削除されません。
+4. 目的の資格情報を使用してトークンの取得を再試行します。 それでも失敗する場合は、新しいエラーと残っている失効項目を確認してください。
 <!-- /MSL-PAGE -->
 
 ---

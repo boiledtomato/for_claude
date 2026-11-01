@@ -332,7 +332,7 @@ Microsoft マイ アプリを使用して、任意のモードでアプリケー
 
 ### Atlassian Cloud で既存のユーザーを検出する
 
-Microsoft Entraと統合する前に、Atlassian アカウントに既に 1 人以上のユーザーが存在する可能性があります。 アカウント検出機能を使用すると、Atlassian Cloud のすべてのユーザーのレポートを生成し、Entra で一致するアカウントを持っているユーザーと、Atlassian Cloud にローカルなユーザーを 1 回のクリックで識別できます。 アカウント検出機能の詳細については [、こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery)。 これにより、Entra へのオンボードを簡素化しながら、承認されていないアクセスを段階的に監視することもできます。
+Microsoft Entraと統合する前に、Atlassian アカウントに既に 1 人以上のユーザーが存在する可能性があります。 アカウント検出機能を使用すると、Atlassian Cloud のすべてのユーザーのレポートを生成し、Entra で一致するアカウントを持っているユーザーと、Atlassian Cloud にローカルなユーザーを 1 回のクリックで識別できます。 アカウント検出機能の詳細については [、こちらをご覧ください](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery)。 これにより、Entra へのオンボードを簡素化しながら、承認されていないアクセスを定期的に監視することもできます。
 <!-- /MSL-PAGE -->
 
 ---

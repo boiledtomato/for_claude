@@ -3555,8 +3555,8 @@ if (resetState instanceof ResetPasswordCompletedState) {
             username,
         });
     
-        // Thge result may have the different states,
-        // such as Password required state, OTP code rquired state, Failed state and Completed state.
+        // The result may have the different states,
+        // such as Password required state, OTP code required state, Failed state and Completed state.
     
         if (result.isFailed()) {
             if (result.error?.isUserNotFound()) {

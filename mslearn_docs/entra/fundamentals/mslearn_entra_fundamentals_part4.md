@@ -3508,7 +3508,7 @@ Entra ID P1 は、中小企業向けのMicrosoft 365 Business Premiumにも含�
 - Microsoft 365 E5、E7
 - Microsoft Defender スイート (以前のMicrosoft 365 E5 Security)
 - Microsoft Defender スイート FLW
-- Microsoft Defender + FLW Purview スイート
+- Microsoft Defender + Purview スイート FLW
 - Enterprise Mobility + Security E5
 
 Entra ID P2 は、Microsoft 365 Business Premium、Microsoft Defender、Purview Suites for Microsoft 365 Business Premium のMicrosoft Defender スイートにも含まれています中小企業向け。 詳細については、[中小企業向けのMicrosoft 365の価格に関するページを](https://www.microsoft.com/security/pricing/small-medium-business/security-add-on-plans)参照してください。
@@ -3570,120 +3570,99 @@ Microsoft Entraセキュリティ機能をエージェントに拡張するに�
 
 ### Microsoft Entra ID ガバナンス
 
-次の表に、メンバー ユーザーのMicrosoft Entra ID ガバナンス機能のライセンス要件を示します。 Microsoft Entra スイートには、Microsoft Entra ID ガバナンスのすべての機能が含まれています。 Microsoft 365 E7 には、Entra スイートおよび Agent 365 を通じてのすべての ID ガバナンス機能も含まれています。 エンタイトルメント管理、Access レビュー、ライフサイクル ワークフローのライセンス情報とライセンス シナリオの例を次の表に示します。
+次の表に、メンバー ユーザーのMicrosoft Entra ID ガバナンス機能のライセンス要件を示します。 Microsoft Entra スイートには、Microsoft Entra ID ガバナンスのすべての機能が含まれています。 Microsoft 365 E7 には、Entra スイートおよび Agent 365 を通じてのすべての ID ガバナンス機能も含まれています。 エンタイトルメント管理、アクセス レビュー、ライフサイクル ワークフローのライセンス情報は、表の後に記載しています。
 
 #### ライセンス別の機能
 
 次の表に、各ライセンスで使用できる ID ガバナンスに関連付けられている機能を示します。 その他の機能の詳細については、「[Microsoft Entra プランと価格](https://www.microsoft.com/security/business/microsoft-entra-pricing)を参照してください。 すべての機能がすべてのクラウドで利用できるわけではありません。Azure Governmentについては、[Microsoft Entra機能の可用性](https://learn.microsoft.com/ja-jp/entra/identity/authentication/feature-availability)に関する記事を参照してください。
 
-| 機能 | Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 | Microsoft Entra ID ガバナンス | Microsoft Entra スイート | Microsoft エージェント 365 |
-| --- | --- | --- | --- | --- | --- | --- |
-| **プロビジョニング** |  |  |  |  |  |  |
-| [API 駆動型のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/inbound-provisioning-api-concepts) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [人事主導のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/what-is-hr-driven-provisioning) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [アカウントの検出](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery) |  |  |  | ✅ | ✅ |  |
-| [SaaS アプリへの自動ユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) | ✅ | ✅ | ✅ | ✅ | ✅ |  |
-| [SaaS アプリへの自動グループ プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [オンプレミス アプリへの自動プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [ユーザーのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [グループのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  |
-| [クラウド間同期](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  |
-| **ライフサイクル ワークフロー (LCW)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [ライフサイクル ワークフロー](https://learn.microsoft.com/ja-jp/entra/id-governance/what-are-lifecycle-workflows) |  |  |  | ✅ | ✅ |  |
-| [LCW + カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-extensibility) |  |  |  | ✅ | ✅ |  |
-| [LCW + エージェント スポンサーシップ タスク](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks) |  |  |  |  |  | ✅ |
-| **アクセスレビュー (AR)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| AR - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  |
-| [AR - グループ用 PIM (プレビュー版)](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review-pim-for-groups) |  |  |  | ✅ | ✅ |  |
-| [AR - レビューでアクティブなユーザーがいない非アクティブなユーザーを対象にしたレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review#scope) |  |  |  | ✅ | ✅ |  |
-| [AR - レビュー対象をアクティブ ユーザーと非アクティブ ユーザーに限定し、非アクティブ ユーザーについてはレビュー担当者が判断を下せる支援機能を提供](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#inactive-user-recommendations) |  |  | ✅ | ✅ | ✅ |  |
-| [AR - 機械学習支援アクセスの認証とレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#user-to-group-affiliation) |  |  |  | ✅ | ✅ |  |
-| [AR - カタログアクセスレビュー (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews) |  |  |  | ✅ | ✅ |  |
-| [AR - カスタム データ提供リソース (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-data-resource-access-reviews) |  |  |  | ✅ | ✅ |  |
-| **エンタイトルメント管理 (EM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| EM - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセスパッケージにユーザーを割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージに割り当てられたエージェントとサービス プリンシパル](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  |  |  |  | ✅ |
-| [EM - ユーザーは自分でaccessを要求します](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 管理者がユーザーの割り当てを直接割り当てる (ゲストを含む)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-an-identity) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 管理者がエージェントとサービス プリンシパルを直接割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  |  |  | ✅ |
-| [EM - 管理者は、ディレクトリにまだ存在しないユーザーの電子メール アドレスを使用して、ユーザーを直接割り当てます](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  | ✅ | ✅ |  |
-| [EM - 従業員に代わって要求するマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf) |  |  |  | ✅ | ✅ |  |
-| [EM - 所有者とスポンサーがエージェントまたはサービス プリンシパルに代わってアクセスを要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf#scenarios-for-requesting-on-behalf-of-agent-identities) |  |  |  |  |  | ✅ |
-| **EM - サポートされているリソース** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - access パッケージ内のグループとチーム](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-group-or-team-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - access パッケージの対象となるグループの所有権とメンバーシップ (グループ用 PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-eligible) |  |  |  | ✅ | ✅ |  |
-| [EM - access パッケージ内のアプリケーション](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-application-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - アクセス パッケージ内のSharePointサイト](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-sharepoint-site-resource-role) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - Microsoft Entra 役割 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-roles) |  |  |  | ✅ | ✅ |  |
-| [EM - SAP Identity Access Governance (IAG) ビジネス ロール (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration) |  |  |  | ✅ | ✅ |  |
-| [EM - アクセス パッケージ内の API アクセス許可](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-api-permission) |  |  |  |  |  | ✅ |
-| **EM - 承認オプション** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - アクションが実行されない場合は、代替承認者による複数ステージの承認](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 特定の承認者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 承認者としてのマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 承認者としての組織内部のスポンサー (担当者が所属する組織からの)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 承認者としての外部スポンサー (担当者の接続された組織から)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - 承認者としてのスポンサー (割り当てられたユーザーのプロファイルから)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  | ✅ | ✅ |  |
-| [EM - 承認者としてのエージェント スポンサー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  |  |  | ✅ |
-| [EM - カスタム拡張機能を使用して承認要件を外部で決定する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-dynamic-approval) |  |  |  | ✅ | ✅ |  |
-| [EM - 承認のために追加の要求者情報を収集します](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy#collect-additional-requestor-information-for-approval) |  |  | ✅ | ✅ | ✅ |  |
-| **EM - ライフサイクル** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - access パッケージの割り当ての有効期限](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-lifecycle-policy) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - 外部ユーザーのライフサイクルを管理する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#manage-the-lifecycle-of-external-users) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - ゲストを管理対象としてマークします](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-manage-lifecycle) |  |  |  | ✅ | ✅ |  |
-| **EM - その他の機能** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [EM - 職務の分離](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-incompatible) |  |  | ✅ | ✅ | ✅ |  |
-| [EM - カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) |  |  |  | ✅ | ✅ |  |
-| [EM - 自動割り当てポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-auto-assignment-policy) |  |  |  | ✅ | ✅ |  |
-| [EM - 検証済み ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-verified-id-settings) |  |  |  | ✅ | ✅ |  |
-| [EM - Microsoft Entra ID 保護 の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-id-protection-approvals) |  |  |  | ✅ | ✅ |  |
-| [EM - Microsoft Purview インサイダー リスク管理統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-insider-risk-management-approvals) |  |  |  | ✅ | ✅ |  |
-| [EM - 条件付きアクセス範囲](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#review-your-conditional-access-policies) |  |  | ✅ | ✅ | ✅ |  |
-| **マイ アクセス** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [My Access ポータル](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - マイ アクセス検索](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ |
-| [EM - マイ アクセスで推奨されるアクセス パッケージ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-suggested-access-packages) |  |  |  | ✅ | ✅ |  |
-| [EM - 要求者が \[マイアクセス (プレビュー)\] で承認者の詳細を表示できるかどうかを設定します](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-approver-details) |  |  |  | ✅ | ✅ |  |
-| [EM - マイアクセスで承認を委任 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  |  | ✅ | ✅ |  |
-| **Privileged Identity Management (PIM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-configure) |  |  | ✅ | ✅ | ✅ |  |
-| [PIM グループ用](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/concept-pim-for-groups) |  |  | ✅ | ✅ | ✅ |  |
-| [PIM 条件付きアクセス制御](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings#on-activation-require-microsoft-entra-conditional-access-authentication-context) |  |  | ✅ | ✅ | ✅ |  |
-| [PIM - ロールアクティブ化のカスタム拡張機能 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/privileged-identity-management-custom-extensions) |  |  |  | ✅ | ✅ |  |
-| **その他** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** |
-| [ID ガバナンス ダッシュボード](https://learn.microsoft.com/ja-jp/entra/id-governance/governance-dashboard) |  | ✅ | ✅ | ✅ | ✅ |  |
-| [分析情報とレポート - 非アクティブなゲスト アカウント](https://learn.microsoft.com/ja-jp/entra/identity/users/clean-up-stale-guest-accounts) |  |  |  | ✅ | ✅ |  |
-| [Conditional Access - 使用条件の確認](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) |  | ✅ | ✅ | ✅ | ✅ |  |
+| 機能 | Free | Microsoft Entra ID P1 | Microsoft Entra ID P2 | Microsoft Entra ID ガバナンス | Microsoft Entra スイート | Microsoft エージェント 365 | Microsoft 365 E7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| **プロビジョニング** |  |  |  |  |  |  |  |
+| [API 駆動型のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/inbound-provisioning-api-concepts) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [人事主導のプロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/what-is-hr-driven-provisioning) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [アカウントの検出](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/how-to-account-discovery) |  |  |  | ✅ | ✅ |  | ✅ |
+| [SaaS アプリへの自動ユーザー プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) | ✅ | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [SaaS アプリへの自動グループ プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [オンプレミス アプリへの自動プロビジョニング](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/on-premises-application-provisioning-architecture) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [ユーザーのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [グループのテナント間同期 (同じクラウド)](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  | ✅ |
+| [クラウド間同期](https://learn.microsoft.com/ja-jp/entra/identity/multi-tenant-organizations/cross-tenant-synchronization-configure?pivots=cross-cloud-synchronization) |  |  |  | ✅ | ✅ |  | ✅ |
+| **ライフサイクル ワークフロー (LCW)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [ライフサイクル ワークフロー](https://learn.microsoft.com/ja-jp/entra/id-governance/what-are-lifecycle-workflows) |  |  |  | ✅ | ✅ |  | ✅ |
+| [LCW + カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/lifecycle-workflow-extensibility) |  |  |  | ✅ | ✅ |  | ✅ |
+| [LCW + エージェント スポンサーシップ タスク](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks) |  |  |  |  |  | ✅ | ✅ |
+| **アクセスレビュー (AR)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| AR - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [AR - グループ用 PIM (プレビュー版)](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review-pim-for-groups) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - レビューでアクティブなユーザーがいない非アクティブなユーザーを対象にしたレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/create-access-review#scope) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - レビュー対象をアクティブ ユーザーと非アクティブ ユーザーに限定し、非アクティブ ユーザーについてはレビュー担当者が判断を下せる支援機能を提供](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#inactive-user-recommendations) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [AR - 機械学習支援アクセスの認証とレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/review-recommendations-access-reviews#user-to-group-affiliation) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - カタログ アクセス レビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews) |  |  |  | ✅ | ✅ |  | ✅ |
+| [AR - カスタム データ提供リソース](https://learn.microsoft.com/ja-jp/entra/id-governance/custom-data-resource-access-reviews) |  |  |  | ✅ | ✅ |  | ✅ |
+| **エンタイトルメント管理 (EM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| EM - 以前は Microsoft Entra ID P2 |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセスパッケージにユーザーを割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージに割り当てられたエージェントとサービス プリンシパル](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-create#allow-users-service-principals-and-agent-identities-in-your-directory-to-request-the-access-package) |  |  |  |  |  | ✅ | ✅ |
+| [EM - ユーザーは自分でaccessを要求します](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 管理者がユーザーの割り当てを直接割り当てる (ゲストを含む)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-an-identity) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 管理者がエージェントとサービス プリンシパルを直接割り当てる](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  |  |  | ✅ | ✅ |
+| [EM - 管理者は、ディレクトリにまだ存在しないユーザーの電子メール アドレスを使用して、ユーザーを直接割り当てます](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-assignments#directly-assign-any-identity) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 従業員に代わって要求するマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 所有者とスポンサーがエージェントまたはサービス プリンシパルに代わってアクセスを要求する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-request-behalf#scenarios-for-requesting-on-behalf-of-agent-identities) |  |  |  |  |  | ✅ | ✅ |
+| **EM - サポートされているリソース** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - access パッケージ内のグループとチーム](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-group-or-team-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - access パッケージの対象となるグループの所有権とメンバーシップ (グループ用 PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-eligible) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - access パッケージ内のアプリケーション](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-application-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージ内のSharePointサイト](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-a-sharepoint-site-resource-role) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Entra 役割 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-roles) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - SAP Identity Access Governance (IAG) ビジネス ロール (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-sap-integration) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - アクセス パッケージ内の API アクセス許可](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-resources#add-an-api-permission) |  |  |  |  |  | ✅ | ✅ |
+| **EM - 承認オプション** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - アクションが実行されない場合は、代替承認者による複数ステージの承認](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 特定の承認者](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 承認者としてのマネージャー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としての組織内部のスポンサー (担当者が所属する組織からの)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としての外部スポンサー (担当者の接続された組織から)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としてのスポンサー (割り当てられたユーザーのプロファイルから)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 承認者としてのエージェント スポンサー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy) |  |  |  |  |  | ✅ | ✅ |
+| [EM - カスタム拡張機能を使用して承認要件を外部で決定する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-dynamic-approval) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 承認のために追加の要求者情報を収集します](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-approval-policy#collect-additional-requestor-information-for-approval) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| **EM - ライフサイクル** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - access パッケージの割り当ての有効期限](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-lifecycle-policy) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - 外部ユーザーのライフサイクルを管理する](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#manage-the-lifecycle-of-external-users) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - ゲストを管理対象としてマークします](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-manage-lifecycle) |  |  |  | ✅ | ✅ |  | ✅ |
+| **EM - その他の機能** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [EM - 職務の分離](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-incompatible) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [EM - カスタム拡張機能 (Logic Apps)](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-logic-apps-integration) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 自動割り当てポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-access-package-auto-assignment-policy) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 検証済み ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-verified-id-settings) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Entra ID 保護 の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-id-protection-approvals) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - Microsoft Purview インサイダー リスク管理統合](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-configure-insider-risk-management-approvals) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 条件付きアクセス範囲](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-external-users#review-your-conditional-access-policies) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| **マイ アクセス** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [My Access ポータル](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - マイ アクセス検索](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [EM - マイ アクセスで推奨されるアクセス パッケージ](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-suggested-access-packages) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - 要求者が \[マイアクセス (プレビュー)\] で承認者の詳細を表示できるかどうかを設定します](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-approver-details) |  |  |  | ✅ | ✅ |  | ✅ |
+| [EM - マイアクセスで承認を委任 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/my-access-portal-overview) |  |  |  | ✅ | ✅ |  | ✅ |
+| **Privileged Identity Management (PIM)** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [Privileged Identity Management (PIM)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-configure) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [PIM グループ用](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/concept-pim-for-groups) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [PIM 条件付きアクセス制御](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings#on-activation-require-microsoft-entra-conditional-access-authentication-context) |  |  | ✅ | ✅ | ✅ |  | ✅ |
+| [PIM - ロールアクティブ化のカスタム拡張機能 (プレビュー)](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/privileged-identity-management-custom-extensions) |  |  |  | ✅ | ✅ |  | ✅ |
+| **その他** | **無料** | **Microsoft Entra ID P1** | **Microsoft Entra ID P2** | **Microsoft Entra ID ガバナンス** | **Microsoft Entra スイート** | **Microsoft エージェント 365** | **Microsoft 365 E7** |
+| [ID ガバナンス ダッシュボード](https://learn.microsoft.com/ja-jp/entra/id-governance/governance-dashboard) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
+| [分析情報とレポート - 非アクティブなゲスト アカウント](https://learn.microsoft.com/ja-jp/entra/identity/users/clean-up-stale-guest-accounts) |  |  |  | ✅ | ✅ |  | ✅ |
+| [Conditional Access - 使用条件の確認](https://learn.microsoft.com/ja-jp/entra/identity/conditional-access/terms-of-use) |  | ✅ | ✅ | ✅ | ✅ |  | ✅ |
 
 #### エンタイトルメント管理
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。 この機能内の一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作できます。 この機能内の一部の機能には、ゲスト課金が必要です。
 
-##### ライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| Woodgrove Bank の ID ガバナンス管理者が初期カタログを作成します。 ポリシーの 1 つは、**すべての従業員** (2,000 人の従業員) が特定のaccess パッケージセットを要求できることを指定します。 150 人の従業員がアクセスパッケージを申請します。 | 2,000 人の従業員がアクセスパッケージを要求することができる | 二千 |
-| Woodgrove Bank の ID ガバナンス管理者が初期カタログを作成します。 ** Sales 部門のメンバー全員** (350 人の従業員) に特定のaccess パッケージのセットにaccessを付与する自動割り当てポリシーを作成します。 access パッケージには 350 人の従業員が自動的に割り当てられます。 | 350 人の従業員にライセンスが必要です。 | 3:51 |
-
 #### Accessのレビュー
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。これには、アクセス権を確認している従業員やアクセス権をレビューしているすべての従業員が含まれます。 この機能内の一部の機能は、Microsoft Entra ID P2 サブスクリプションで動作する場合があります。 この機能内の一部の機能には、ゲスト課金が必要です。
-
-##### ライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| 管理者は、75 人のメンバー ユーザーと 1 人のグループ所有者を持つグループ A のaccess レビューを作成し、グループ所有者をレビュー担当者として割り当てます。 | レビュー担当者としてのグループ所有者のライセンスが 1 つ、75 人のユーザーに対して 75 ライセンス。 | 76 |
-| 管理者は、500 人のメンバー ユーザーと 3 人のグループ所有者を含むグループ B のaccess レビューを作成し、3 人のグループ所有者をレビュー担当者として割り当てます。 | ユーザーには 500 ライセンス、レビュー担当者としてグループ所有者ごとに 3 つのライセンス。 | 503 |
-| 管理者は、500 人のメンバー ユーザーを含むグループ B のaccess レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 500 ライセンス | 5:00 |
-| 管理者は、50 人のメンバー ユーザーを含むグループ C のaccess レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 50 ライセンス。 | 50 |
-| 管理者は、6 人のメンバー ユーザーを含むグループ D のaccess レビューを作成します。 自己レビューにします。 | 自己レビュー担当者としての各ユーザー用に 6 ライセンス。 追加のライセンスは必要ありません。 | 6 |
 
 #### ライフサイクル ワークフロー
 
@@ -3695,13 +3674,6 @@ Microsoft Entraセキュリティ機能をエージェントに拡張するに�
 - ワークフローで使用するカスタム タスク拡張機能を最大 100 個作成します。
 
 この機能を使用するには、組織のメンバー ユーザーのMicrosoft Entra ID ガバナンス サブスクリプションが必要です。 この機能内の一部の機能には、ゲスト課金が必要です。
-
-##### ライセンスのシナリオ例
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| ライフサイクル ワークフロー管理者はワークフローを作成し、Marketing 部門の新入社員をマーケティング チーム グループに追加します。 このワークフローを使用して、250 人の新規採用メンバー ユーザーがマーケティング チーム グループに 1 回割り当てられます。 他の 150 人の新規採用メンバー ユーザーは、同じ年の後半にこのワークフローを介してマーケティング チーム グループに割り当てられます。 | ライフサイクル ワークフロー管理者に 1 ライセンス、ユーザーに 400 ライセンス。 | 401 |
-| ライフサイクル ワークフロー管理者は、雇用最終日の前に従業員のグループに事前オフボードするためのワークフローを作成します。 事前オフボードされるユーザーの範囲は、一度に 40 人です。 ライセンスを取得したユーザー 40 名をオフボードしました。 これで、これらの 40 個のライセンスを再割り当てし、今年後半にさらに 10 個のライセンスを、オフボード前の 50 人のユーザーに割り当てることができます。 | ユーザーに 50 ライセンス、ライフサイクル ワークフロー管理者に 1 ライセンス。 | 51 |
 
 ### Microsoft Entra テナント ガバナンス
 
@@ -3755,7 +3727,7 @@ Microsoft 365 Business Premium ライセンス条件付きアクセス機能に�
 
 リスクベースのポリシーでは、Microsoft Entra ID P2 機能である [Microsoft Entra ID 保護](https://learn.microsoft.com/ja-jp/entra/id-protection/overview-identity-protection) へのアクセスが必要です。
 
-エージェントの条件付きアクセスでは、Microsoft Entra エージェント IDを介してエージェントにポリシーを適用するには、Microsoft Agent [365 ライセンス](https://www.microsoft.com/microsoft-agent-365#plans-and-pricing)[が必要です](https://learn.microsoft.com/ja-jp/entra/agent-id/what-is-microsoft-entra-agent-id#how-to-get-started)。 これには、次のいずれかのライセンス プラン (エージェント 365 とMicrosoft Entra スイートを含む **Microsoft 365 E7**) を使用して、ユーザー ID とエージェント ID のガバナンスを提供できます。 - **Microsoftエージェント 365** ライセンスは、少なくとも Microsoft Entra P1 または Microsoft 365 E3 とペアリングされています。
+エージェント向けの条件付きアクセスでは、[Microsoft Entra エージェント ID](https://learn.microsoft.com/ja-jp/entra/agent-id/what-is-microsoft-entra-agent-id#how-to-get-started) を通じてエージェントにポリシーを適用するために、[Microsoft Agent 365](https://www.microsoft.com/microsoft-agent-365#plans-and-pricing) のライセンスが必要です。 これには、次のライセンス プランのいずれかが適用されます: - **Microsoft 365 E7** (Agent 365 および Microsoft Entra スイート を含む)。これにより、ユーザーおよびエージェントの ID に関するガバナンスが提供されます。 - **Microsoft Agent 365** のライセンスと、Microsoft Entra P1 または Microsoft 365 E3 以上のプランを組み合わせたもの。
 
 条件付きAccess ポリシーと対話できるその他の製品と機能には、それらの製品と機能に対する適切なライセンスが必要です。
 
@@ -3827,16 +3799,6 @@ PIM とそのすべての設定を使用するには、Microsoft Entra ID ガバ
 - PIM でアクティブ化要求を承認または却下できるユーザー
 - アクセスレビューに割り当てられたユーザー
 - アクセスレビューを実行するユーザー
-
-#### PIM ライセンスのシナリオ例
-
-必要なライセンス数の決定に役立つライセンスのシナリオ例をいくつか以下に示します。
-
-| シナリオ | 計算 | ライセンス数 |
-| --- | --- | --- |
-| Woodgrove Bank には、部門ごとに 10 人の管理者と、PIM を構成および管理する 2 [特権ロール管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator)がいます。 5 人の管理者を対象とします。 | 資格のある管理者用の 5 ライセンス | 5 |
-| Graphic Design Institute には 25 人の管理者がいて、そのうちの 14 人は PIM で管理されています。 ロールのアクティブ化には承認が必要であり、組織にはアクティブ化を承認できるユーザーが 3 人います。 | 資格のあるロール用の 14 ライセンス + 3 承認者 | 十七 |
-| Contoso には 50 人の管理者がいて、そのうちの 42 人は PIM で管理されています。 ロールのアクティブ化には承認が必要であり、組織にはアクティブ化を承認できるユーザーが 5 人います。 Contoso は、管理者ロールに割り当てられたユーザーの月単位のレビューも行い、レビュー担当者はユーザーのマネージャーであり、そのうち 6 人は PIM によって管理される管理者ロールに含まれていません。 | 資格のあるロール用の 42 ライセンス + 5 承認者 + 6 レビュー担当者 | 53 |
 
 #### PIM ライセンスの有効期限が切れた場合
 
@@ -5404,7 +5366,7 @@ Microsoft Entraの機能には、複数の方法でライセンスが付与さ�
 
 **種類：** 機能の変更**サービス カテゴリ:** 認証 (ログイン)**製品の機能:** ユーザー認証
 
-Microsoft Entra Kerberos キーローテーションの一般提供により、特に受信信頼紹介フローを使用する環境の信頼性が向上しました。 以前は、紹介チケットがセカンダリ キーで暗号化されている場合、Kerberos キーのローテーション中に認証エラーが発生する可能性がありました。 この更新プログラムは、プライマリキーとセカンダリ Kerberos キーの両方で復号化を試みる検証ロジックを強化し、キーのロールオーバー操作中の回復性を向上させ、ローテーション イベント中の認証の中断を減らします。 詳細については、[Kerberos の Kerberos サーバー キーのローテーションMicrosoft Entra](https://learn.microsoft.com/ja-jp/entra/identity/authentication/kerberos-server-key-rotation)参照してください。
+Microsoft Entra Kerberos キーローテーションの一般提供により、特に受信信頼紹介フローを使用する環境の信頼性が向上しました。 以前は、紹介チケットがセカンダリ キーで暗号化されている場合、Kerberos キーのローテーション中に認証エラーが発生する可能性がありました。 この更新プログラムは、プライマリキーとセカンダリ Kerberos キーの両方で復号化を試みる検証ロジックを強化し、キーのロールオーバー操作中の回復性を向上させ、ローテーション イベント中の認証の中断を減らします。 詳細については、[Kerberos の Kerberos サーバー キーのローテーションMicrosoft Entra](https://learn.microsoft.com/ja-jp/entra/identity/authentication/configure-microsoft-entra-kerberos-trust)参照してください。
 
 #### 一般提供 - Entra 登録を使用した Windows クライアントの BYOD サポート
 

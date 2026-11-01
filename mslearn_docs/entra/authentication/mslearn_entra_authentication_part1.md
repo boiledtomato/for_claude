@@ -560,6 +560,256 @@ iOS 9 以降では、ネイティブの iOS メール クライアントがサ�
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/identity/authentication/choose-your-own-telephony-fraud-costs"} -->
+## 自社の通信事業者を利用して電話詐欺を防ぐ - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-fraud-costs
+- Service: entra-id / authentication
+- Article date: 2026-10-30
+- Summary: プロバイダーの不正行為の防止、宛先と支出の制御を構成し、CYOT 統合を保護し、異常なアクティビティを監視し、疑わしい不正行為に対応します。
+
+Choose Your Own テレフォニー プロバイダー (CYOT) を使用すると、SMS および音声トラフィックはお客様自身の通信事業者アカウントを介して実行されます。 組織のトラフィックとリスク プロファイルに一致する不正行為の保護、許可された宛先、支出上限を制御します。
+
+Important
+
+運用トラフィックを CYOT に移行する前に、プロバイダーの不正利用対策と支出管理を設定してください。
+
+### 共有責任
+
+| Owner | 責任 |
+| --- | --- |
+| Microsoft | Microsoft Entra IDでのコードの生成と検証、およびエンドポイントへのハンドオフを保護します。 |
+| あなたの組織 | プロバイダー アカウントを管理し、統合をセキュリティで保護し、不正行為の制御を構成します。 |
+| 通信プロバイダー | SMS と音声通話を配信し、不正行為、宛先、支出の制御を提供します。 |
+
+### プロバイダーで不正利用防止を構成する
+
+プロバイダーと連携して、アカウントで使用できるコントロールを有効にしてください。
+
+- **詐欺防止:** 不審な SMS と音声トラフィックに対するプロバイダーの検出を有効にします。
+- **宛先の制限:** ユーザーがいる国と地域のみを許可します。
+- **チャネルの制限:** 使用するチャネルのみをオンにします。
+- **支出管理:** 使用制限と予算アラートを設定します。
+- **通知:** 異常なアクティビティのアラートを有効にします。
+
+Note
+
+コントロールと既定値はプロバイダーによって異なります。 既定で有効になっている保護と構成する必要がある保護をプロバイダーに問い合わせてください。
+
+### 統合を安全に保つ
+
+セットアップ スクリプトは、Azure関数の認証と要求の検証を構成します。 関数をカスタマイズする場合を含め、これらの設定はそのままにします。
+
+お客様の組織は、統合のアプリケーション認証情報と証明書を更新およびローテーションする責任を負います。
+
+### 異常なアクティビティを監視する
+
+プロバイダーの使用状況レポートで SMS と通話の使用量を確認します。 ボリュームの急激な増加、または予期しない宛先へのトラフィックは、不正の兆候である可能性があります。
+
+### 詐欺の疑いへの対応
+
+1. 影響を受けたトラフィックの確認について、通信プロバイダーに問い合わせてください。
+2. 影響を受ける宛先、チャネル、または使用を、プロバイダーのコントロールで制限します。
+3. Microsoft Entra監査ログ、Function App ログ、プロバイダーのレコードを使用してリクエストを調査します。
+4. トラフィックを復元する前に、保護を更新してください。
+
+### サポートを受ける
+
+| 問題点 | 連絡先 |
+| --- | --- |
+| 不正行為、販売者アカウントの制限、配送、または料金 | お使いの通信プロバイダー。 プロバイダーの [Microsoft Security Store](https://securitystore.microsoft.com/) 登録情報で連絡先の詳細を確認します。 |
+| Microsoft Entra 認証、コード検証、またはエンドポイントへのハンドオフ | Microsoft サポート。 [Microsoft Entra のヘルプとサポートを参照](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-get-support)してください。 |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/choose-your-own-telephony-reliability"} -->
+## 回復性と高可用性を計画する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-reliability
+- Service: entra-id / authentication
+- Article date: 2026-10-30
+- Summary: 複数リージョンのAzure Functions、Azure Front Door、セカンダリ 通信プロバイダー、フェールオーバーと復旧のテストを使用して、CYOT の回復性を計画します。
+
+SMS と音声認証は、アプリケーションへのクリティカル パス上にあります。 ユーザーが多要素認証 (MFA) またはセルフサービス パスワード リセット (SSPR) のために電話コードに依存している場合、そのコードの可用性によってサインインできるかどうかが決まります。
+
+Choose Your Own テレフォニー プロバイダー (CYOT) を使用すると、配信パスには、組織が所有するコンポーネント (サブスクリプションのAzure関数とお客様の通信プロバイダー) が含まれます。 リージョンの停止やプロバイダー インシデントを通じて認証を利用できるように、回復性のためにこれらのコンポーネントを設計します。
+
+### 配達経路を理解する
+
+| コンポーネント | 管理されている | それが何をするか |
+| --- | --- | --- |
+| Microsoft Entra ID | Microsoft | コードを生成して検証し、お客様のエンドポイントに要求を送信します。 |
+| エンドポイントとAzure関数 | お客様の組織 | Azure サブスクリプションで要求を受信し、プロバイダーに送信します。 |
+| 通信プロバイダー | お客様のプロバイダー | SMS メッセージまたは音声通話をユーザーの電話に配信します。 |
+
+ガイド付きセットアップでは、1 つのリージョンに 1 つの Azure Function が作成され、1 つの通信プロバイダーに接続されます。 このセットアップは、評価と多くの運用ワークロードに適しています。 リージョンの停止やプロバイダー インシデントから保護するには、この記事で紹介するオプションを使用して拡張してください。
+
+Important
+
+お客様の組織は、サブスクリプション内の Azure リソースとプロバイダー統合の可用性と回復を管理します。 本番環境の認証に依存する前に、回復性の設計を事前にテストしてください。
+
+Note
+
+この記事のマルチリージョンとセカンダリ プロバイダーの設計は、サンプルのみのガイダンスです。 これらは標準デプロイの一部ではありません。 組織は、これらのカスタマイズの検証と保守を行う責任があります。
+
+### 回復力の方法を選択
+
+まず、どの中断に耐えなければならないか、認証をどのくらい迅速に回復させる必要があるか、組織が必要とするサインインの可用性レベルなどの要件から始めます。 次に、それらを満たすアプローチを選択します。
+
+| Approach | 保護対象 | いつ使用するか |
+| --- | --- | --- |
+| 1 つのリージョン、1 つのプロバイダー (既定のセットアップ) | リージョン内の Function App インスタンスの障害 | リージョンの停止を許容できる評価ワークロードと運用ワークロード |
+| Azure Front Doorを使用した複数リージョン | リージョン障害 | リージョン障害時に認証を必要とする運用ワークロード |
+| 副通信プロバイダー | プロバイダー固有のインシデント | プライマリ プロバイダーだけでは可用性またはカバレッジの要件を満たしていない場合 |
+| 複数リージョンとセカンダリ プロバイダー | リージョン障害とプロバイダー インシデント | 可用性要件が最も高い組織 |
+
+### 複数のリージョンにデプロイする
+
+複数リージョンのデプロイでは、Azure Front Doorを使用して、2 つ以上のリージョンの Function Apps をバックエンドとする 1 つのエンドポイントを公開します。 Microsoft Entra IDは Front Door エンドポイントを呼び出し、Front Door は各要求を正常なリージョンにルーティングします。 単一リージョンのデプロイを検証した後に手動で設定します。[API を使用して独自の通信プロバイダーで SMS と音声を設定](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)で SMS と音声を設定するセットアップ スクリプトでは、一度に 1 つのリージョンがデプロイされるためです。
+
+複数リージョンのデプロイを計画する場合:
+
+- **各リージョンをフルワークロード向けにサイズ調整します。** 1 つのリージョンが使用できない場合、残りのリージョンはすべての認証トラフィックを処理する必要があります。
+- すべてのリージョンで同じコード、設定、暗号化キーを使用し、リージョン間で証明書の更新を調整します。
+- **フェールオーバーに時間がかかることが予想されます。** Front Door が異常なリージョンを検出し、トラフィックをシフトしている間、一部の要求が失敗することがあります。
+- **追加コストを見込んでください。** 各リージョンには、独自の Function App プラン、ストレージ、Key Vault、監視に加えて、さらに Front Door も追加されます。 見積もりについては、「[通信プロバイダーとAzureホスティング コストの見積もり](https://github.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/blob/main/docs/COST-CALCULATOR.md)」を参照してください。
+- リージョンを追加すると、配信速度ではなく可用性が向上します。 SMS と音声配信時間は、主にプロバイダーと通信事業者によって異なります。
+
+アーキテクチャ、リージョンと容量の計画、およびステップ バイ ステップのセットアップについては、[Azure Front Door の複数リージョン デプロイ](https://github.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/blob/main/docs/FRONTDOOR.md)を参照してください。
+
+### 副回線の通信事業者を追加する
+
+複数リージョンのデプロイは、通信プロバイダーに引き続き依存します。 プロバイダーの可用性コミットメント、冗長性、ディザスター リカバリーが、サービスを提供する国/地域におけるお客様の要件を満たしていることを確認します。
+
+1 つのプロバイダーで十分でない場合は、Azure関数でセカンダリ プロバイダーへのフォールバックを実装できます。 ユーザーに 2 つのコードを送信しないようにするには、プライマリ プロバイダーが要求を受け入れなかったことを確認できた場合にのみ、セカンダリ プロバイダーを使用します。 プライマリ プロバイダーが既にコードを送信している可能性があるため、タイムアウトまたは不明な結果の後に再送信しないでください。
+
+フォールバック設計については、[セカンダリプロバイダーの設計](https://github.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/blob/main/docs/MULTI-PROVIDER-IMPLEMENTATION.md)を参照してください。
+
+### フェールオーバーと復旧をテストする
+
+運用環境で使用する前に、非運用環境で設計をテストしてください。
+
+- 1 つのリージョンまたはプロバイダーをオフラインにし、トラフィックが正常なリージョンまたはプロバイダーに移動し、完全なワークロードを処理することを確認します。
+- タイムアウトと不明なプロバイダーの結果が 2 回目の送信をトリガーしないことを確認します。
+- 失敗したコンポーネントを復元し、トラフィックがエラーや重複メッセージなく再開することを確認します。
+- フェールオーバーと復旧のたびにユーザーが SMS と音声の認証を完了したことを確認し、ターゲットに対する復旧時間を測定します。
+
+評価モードではプロバイダーは呼び出されません。 コード、ルーティング、構成、またはプロバイダーの統合を変更した後、テストを再実行してください。
+
+各リージョンとプロバイダーを監視するには、[独自の通信プロバイダーで SMS と音声を監視してトラブルシューティングする](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-troubleshoot#monitor-and-troubleshoot-your-own-telephony-provider)を参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/choose-your-own-telephony-troubleshoot"} -->
+## お使いの通信事業者で SMS と音声のトラブルシューティングを行う - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-troubleshoot
+- Service: entra-id / authentication
+- Article date: 2026-10-30
+- Summary: CYOT SMS と音声要求を監査ログ、サインイン ログ、Function App ログでトレースし、問題を特定し、適切なサポート チームに問い合わせてください。
+
+この記事を使用して、SMS と音声の要求を Choose Your Own Telephony Provider (CYOT) でエンドツーエンドに追跡し、要求が停止した場所を見つけ、適切なチーム（Microsoft サポート、Azure チーム、または通信プロバイダー）に連絡して解決できます。
+
+### CYOT リクエストの流れ
+
+各要求は 4 つのステージを通過し、各ステージは独自のログに記録されます。
+
+| 段階 | 何が起きるか | 見る場所 |
+| --- | --- | --- |
+| 1. Microsoft Entraが要求を送信する | Microsoft Entra では SMS または音声コードが必要であり、エンドポイントに要求を送信します。 | Microsoft Entra 監査ログ |
+| 2. お使いのエンドポイントが処理します | 関数アプリは要求を受け取り、通信プロバイダーに送信します。 | 関数アプリのログ |
+| 3. プロバイダーがそれを提供します | プロバイダーは、SMS メッセージまたは音声通話をユーザーの電話に送信します。 | プロバイダーのポータル |
+| 4. ユーザーがサインインする | ユーザーがコードを入力し、Microsoft Entra が認証を完了します。 | Microsoft Entra のサインイン ログ |
+
+### 監査ログで要求を検索する
+
+1. 少なくともレポート閲覧者として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **Entra ID**&gt;**監視と正常性**&gt;**Audit ログ**に移動し、[**ディレクトリ**] タブを選択します。
+3. **日付範囲**を設定し、次のフィルターを追加します: **サービス: Azure MFA** と **カテゴリ: 認証**。
+4. 成功した要求と失敗した要求の両方が表示されるように、[**アクティビティ** **] を [すべて**] に設定したままにします。
+
+[Image: Service Azure MFA とカテゴリ認証でフィルター処理された監査ログのスクリーンショット。CyotDeliverySucceeded アクティビティと CyotDeliveryFailed アクティビティが示されています。]
+
+**監査ログの詳細**を開くリクエストを選択し、次の値に注意してください。
+
+| フィールド | それがあなたに伝えるもの |
+| --- | --- |
+| アクティビティの種類 | `CyotDeliverySucceeded` は、エンドポイントが要求を受け入れたという意味です。 `CyotDeliveryFailed` は、完了しなかったことを意味します。 |
+| DeliveryMethod | `Cyot` プロバイダーを介したライブリクエストの場合。 `CyotEvaluation` 評価要求用 |
+| Channel | `Sms` または `Voice`。 |
+| AuthenticationMethod | 使用されるメソッド（`OneWaySms`や`OneWayVoiceMobileOtp`など）。 |
+| 相関 ID | サポートと共有する識別子。 |
+| 失敗理由 | 失敗した要求が完了しなかった理由。 |
+
+[Image: DeliveryMethod Cyot と Channel Voice を使用した CyotDeliverySucceeded の監査ログの詳細のスクリーンショット。]
+
+### サインイン ログを確認する
+
+サインイン ログを使用して、ユーザーが認証を完了したかどうかを確認します。
+
+1. **Entra ID**&gt;**監視と正常性**&gt;**サインイン ログに**移動します。
+2. ユーザーと時刻でサインインを見つけて開きます。
+3. **[認証の詳細]** で、方法、手順が成功したかどうか、および結果の詳細を確認します。
+
+サインイン ログには、メソッドが **テキスト メッセージ** または **音声**として表示されます。 要求がプロバイダーを通じて送信されたことを確認するには、監査ログを使用してください。
+
+### 関数アプリのログを確認する
+
+Function App ログを使用して、エンドポイントで要求がどのように処理され、何がMicrosoft Entraに返されたかを確認します。
+
+1. Azure ポータルで、セットアップによって作成された Function App を開きます。
+2. **Monitoring**&gt;**Application Insights** に移動し、リンクされた Application Insights リソースを開きます。
+3. **[ログ]** を選択し、試行の時刻に対して次のクエリを実行します。
+
+    ```kusto
+     AppRequests
+     | where TimeGenerated > ago(1h)
+     | where Url has "/api/SendOtp"
+     | project TimeGenerated, ResultCode, Success, DurationMs, OperationId
+     | order by TimeGenerated desc
+    ```
+
+`ResultCode`は、関数アプリがMicrosoft Entraに返した内容を示します。 同じ要求に対するプロバイダーの応答を確認するには、その`AppTraces`を使用して`OperationId`をクエリします。
+
+### 誰が助けてくれるかを特定する
+
+監査ログに表示される情報を使用して、適切な連絡先を見つけます。
+
+| あなたが見るもの | 確認すべきこと | 連絡先 |
+| --- | --- | --- |
+| 監査ログに CYOT アクティビティがない | 日付範囲とフィルター、ユーザーが SMS または音声のターゲット設定に含まれていること、および新しい電話チャレンジが必要であることを確認します。 | Microsoft サポート |
+| `CyotEvaluation` のアクティビティのみ | プロファイルは **評価**段階にあります。 **運用環境**に切り替えて、プロバイダー経由でトラフィックをルーティングします。 | サポートは必要ありません |
+| `CyotDeliveryFailed` と `EndpointClientError` | エンドポイントが要求を拒否しました。 Function App のログと認証設定を確認してください。 | お客様の Azure チーム |
+| `CyotDeliveryFailed` と `EndpointServerError` | エンドポイントがエラーを返したか、時間内に応答しませんでした。 Function App のログとプロバイダーの状態を確認してください。 | お客様の Azure チーム |
+| `CyotDeliveryFailed` と `NonceMismatch` | エンドポイントの応答が、Microsoft Entraが期待する応答と一致しませんでした。 カスタマイズを CYOT サンプルと比較します。 | お客様の Azure チーム |
+| `CyotDeliverySucceeded`が、ユーザーはコードを受け取れなかった | エンドポイントが要求を受け入れた。 プロバイダーの配信レコードを確認してください。 | お使いの通信プロバイダー |
+| ユーザーはコードを受け取りましたが、サインインに失敗しました | サインイン ログで、期限切れ、再利用された、または正しくないコードがないか確認します。 | Microsoft サポート |
+| 特定の国/地域への配送のブロック、不正検知によるブロック、または予期しない料金 | プロバイダーの不正行為、宛先、支出管理を確認してください。 | お使いの通信プロバイダー |
+
+Tip
+
+要求がタイムアウトしたら、もう一度試す前にプロバイダーのレコードを確認してください。 プロバイダーが元の要求を既に受け入れている可能性があります。
+
+### サポートに連絡する
+
+| 連絡先 | カバー | アクセス方法 |
+| --- | --- | --- |
+| Microsoft サポート | 認証方法ポリシー、Microsoft Entra 認証、お客様のエンドポイントへのリクエスト | [Microsoft Entraのサポートを受ける](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-get-support) |
+| お客様の Azure チーム | お使いの関数アプリ、その構成、およびAzureリソース | 内部。 Azureプラットフォームの問題については、Azure サポートにお問い合わせください。 |
+| お使いの通信プロバイダー | プロバイダー アカウント、配信、不正防止、使用料金 | プロバイダーの [Microsoft Security Store](https://securitystore.microsoft.com/) 掲載情報のサポートの詳細 |
+
+#### 含める情報
+
+- テナント ID、チャネル (SMS または音声)、および試行の UTC 時刻。
+- 監査ログ、**関連付け ID**、`DeliveryMethod`、および `FailureReason`。
+- プロバイダーのトランザクション ID (使用可能な場合)。
+- 最近の設定変更。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/identity/authentication/concept-account-recovery-overview"} -->
 ## Microsoft Entra IDのアカウント回復の概要 - Microsoft Entra ID
 
@@ -4817,7 +5067,7 @@ MDM で管理されるデバイス上の Apple の拡張可能な SSO フレー�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-fido2-hardware-vendor
 - Service: entra-id / authentication
-- Article date: 2026-09-17
+- Article date: 2026-10-06
 - Summary: Microsoft Entra IDを使用して構成証明用に FIDO2 ハードウェアを準備するための要件について説明します。
 
 パスキー (FIDO2) を使用すると、フィッシングに対する耐性のある認証が有効になります。 脆弱な資格情報を、サービス間で再利用、再生、共有できない強力なフィッシング耐性の公開/秘密キー資格情報に置き換えることができます。 これらは、デバイスに安全に保存することも、暗号化されたクラウド サービスを介して信頼されたデバイス間で同期することもできます。
@@ -4860,7 +5110,7 @@ Microsoftは、毎月最新バージョンの FIDO Alliance MDS を取り込み�
 
 ### Microsoft Entra ID での認証の対象となる FIDO2 セキュリティ キー
 
-次の表には、MICROSOFT ENTRA IDでの構成証明の対象となる MDS バージョン 279 に記載されている各 FIDO2 セキュリティ キー モデルが含まれています。 以下のテーブルに、各モデルの Authenticator Attestation Globally Unique Identifier (AAGUID) と機能を示します。
+次の表には、MICROSOFT ENTRA IDでの構成証明の対象となる MDS バージョン 285 に記載されている各 FIDO2 セキュリティ キー モデルが含まれています。 以下のテーブルに、各モデルの Authenticator Attestation Globally Unique Identifier (AAGUID) と機能を示します。
 
 | 説明 | AAGUID | 経歴 | USB | NFC | BLE |
 | --- | --- | --- | --- | --- | --- |
@@ -4935,7 +5185,7 @@ Microsoftは、毎月最新バージョンの FIDO Alliance MDS を取り込み�
 | GoTrust Idem カード | 9f0d8150-baa5-4c00-9299-ad62c8bb4e87 | ❌ | ❌ | ❌ | ❌ |
 | GoTrust Idem キー | 3b1adb99-0dfe-46fd-90b8-7f7614a4de2a | ❌ | ✅ | ✅ | ❌ |
 | GoTrust Idem キー | c611b55c-77b2-4527-8082-590e931b2f08 | ❌ | ✅ | ✅ | ❌ |
-| GoTrust Idem Key mini | 72a2b5b1-95a5-4df9-a881-4192aff4f72e | ❌ | ✅ | ❌ | ❌ |
+| GoTrust Idem Key Mini | 72a2b5b1-95a5-4df9-a881-4192aff4f72e | ❌ | ✅ | ❌ | ❌ |
 | GSTAG OAK FIDO2 認証器 | 773c30d9-5919-4e96-a4f5-db65e95cf890 | ❌ | ❌ | ✅ | ❌ |
 | HID Crescendo 4000 | 0b8b05a4-ebd4-4b0b-8f5f-33d7b6e606ab | ❌ | ❌ | ✅ | ❌ |
 | HID Crescendo 4000 | 2a55aee6-27cb-42c0-bc6e-04efe999e88a | ❌ | ❌ | ✅ | ❌ |
@@ -4950,6 +5200,7 @@ Microsoftは、毎月最新バージョンの FIDO Alliance MDS を取り込み�
 | HID クレッシェンド キー V3 | 7991798a-a7f3-487f-98c0-3faf7a458a04 | ❌ | ✅ | ✅ | ❌ |
 | HID クレッシェンド キー V3 | 87c13177-85d6-40ac-8c61-fe7ab3de9dfb | ❌ | ✅ | ✅ | ❌ |
 | HID クレッシェンド キー V3 - Enterprise Edition | 13ac47cf-1d78-4fd5-9060-aedaabacf826 | ❌ | ✅ | ✅ | ❌ |
+| HID Crescendo Key V3 FIPS | 19bca99b-7c09-44fe-a969-8cba45764542 | ❌ | ✅ | ✅ | ❌ |
 | Hideez Key 4 FIDO2 ソフトウェア開発キット (SDK) | 4e768f2c-5fab-48b3-b300-220eb487752b | ❌ | ✅ | ✅ | ✅ |
 | Hyper FIDO Bio セキュリティ キー | d821a7d4-e97c-4cb6-bd82-4237731fd4be | ✅ | ✅ | ❌ | ❌ |
 | Hyper FIDO Pro | 9f77e279-a6e2-4d58-b700-31e5943c6a98 | ❌ | ✅ | ❌ | ❌ |
@@ -4963,6 +5214,7 @@ Microsoftは、毎月最新バージョンの FIDO Alliance MDS を取り込み�
 | IDEMIA ID-ONE カード | 8d1b1fcb-3c76-49a9-9129-5515b346aa02 | ❌ | ✅ | ✅ | ❌ |
 | IDEMIA SOLVO Fly 80 R3 FIDO Card c | dda9aa35-aaf1-4d3c-b6db-7902fd7dbbbf | ❌ | ❌ | ✅ | ❌ |
 | IDEMIA SOLVO Fly 80 R3 FIDO カード e | def8ab1a-9f91-44f1-a103-088d8dc7d681 | ❌ | ❌ | ✅ | ❌ |
+| IDEMIA SOLVO Fly 80 R3 FIDO Card for j | b68c4b8d-65cb-42ae-b4f6-8606dfba3c22 | ❌ | ❌ | ✅ | ❌ |
 | IDEX CTAP2.1 生体認証 | 49a15c1c-3f63-3f51-23a7-b9e00096edd1 | ✅ | ✅ | ✅ | ❌ |
 | IDmelon Authenticator | 820d89ed-d65a-409e-85cb-f73f0578f82a | ✅ | ✅ | ❌ | ✅ |
 | IDmelon キー | 39a5647e-1853-446c-a1f6-a79bae9f5bc7 | ✅ | ✅ | ✅ | ❌ |
@@ -5046,12 +5298,15 @@ Microsoftは、毎月最新バージョンの FIDO Alliance MDS を取り込み�
 | Taglio CTAP2.1 EP | 7d2afadd-bf6b-44a2-a66b-e831fceb8eff | ❌ | ❌ | ✅ | ❌ |
 | Thales IDPrime FIDO Bio | 4d41190c-7beb-4a84-8018-adf265a6352d | ✅ | ❌ | ✅ | ❌ |
 | Thales PAY GFCX13 認証装置 | 04a8fcf2-19c1-457b-911e-69219f17583f | ❌ | ❌ | ✅ | ❌ |
+| Thales PAY GFCX19 Authenticator | 0fbb74b5-f1ac-4f14-a0f1-ec39b5edfdae | ❌ | ❌ | ✅ | ❌ |
+| Thales PAY GFCX20.1 認証器 | 11544c3c-3693-40ba-9dbb-3b8d2b977988 | ❌ | ❌ | ✅ | ❌ |
 | Thetis Pro FIDO2 キー | 1f8e43df-71ff-e11d-bea3-c4ee7003b232 | ❌ | ✅ | ✅ | ❌ |
 | Token Ring 3 FIDO2 Authenticator | c62100de-759b-4bf8-b22b-63b3e3a80401 | ✅ | ❌ | ✅ | ❌ |
 | トークンリング FIDO2 認証デバイス | 91ad6b93-264b-4987-8737-3a690cad6917 | ✅ | ❌ | ✅ | ❌ |
 | TOKEN2 FIDO2 セキュリティ キー | ab32f0c6-2239-afbb-c470-d2ef4e254db7 | ❌ | ❌ | ❌ | ❌ |
 | TOKEN2 PIN Plus セキュリティ キー シリーズ | eabb46cc-e241-80bf-ae9e-96fa6d2975cf | ❌ | ✅ | ✅ | ❌ |
 | TruU FIDO2 認証ツール | bb878d7b-cf54-4784-b390-357030497043 | ❌ | ❌ | ❌ | ❌ |
+| USB GoldKey セキュリティ トークン | 39502df1-646d-4e31-81a1-2ef68b324678 | ❌ | ✅ | ✅ | ❌ |
 | uTrust FIDO2 セキュリティ キー | 73402251-f2a8-4f03-873e-3cb6db604b03 | ❌ | ✅ | ✅ | ❌ |
 | VALMIDO PRO FIDO | 5626bed4-e756-430b-a7ff-ca78c8b12738 | ✅ | ❌ | ❌ | ✅ |
 | VeridiumID Passkey Android SDK | 8d4378b0-725d-4432-b3c2-01fcdaf46286 | ✅ | ❌ | ❌ | ✅ |
@@ -6596,42 +6851,103 @@ Microsoft Entra Password Protection に必要な 2 つのエージェント イ�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers
 - Service: entra-id / authentication
-- Article date: 2026-09-23
-- Summary: Microsoft Entra IDでの SMS および音声認証用に独自のテレフォニー プロバイダーを選択する方法について説明します。
+- Article date: 2026-10-30
+- Summary: CYOT のしくみ、利用可能な通信プロバイダー、セットアップ、不正防止、回復性、コストを計画する方法について学びます。
 
-Microsoft Entra IDは Choose Your Own テレフォニー プロバイダーをサポートします。これにより、組織はサポートされているテレフォニー プロバイダーで SMS または音声認証を引き続き使用できます。 Microsoft Security ストアからテレフォニー プロバイダーを選択し、組織のプロバイダー関係を管理します。
+独自のテレフォニー プロバイダー (CYOT) を選択すると、組織はサポートされている通信プロバイダーを使用して、Microsoft Entra ID の SMS と音声認証を実現できます。
 
-Microsoftでは、SMS や音声ではなく、[パスキー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)などのフィッシングに強い認証方法をお勧めします。 テレフォニー プロバイダーは、テレフォニー ベースの認証にビジネス、規制、または技術的な要件があるユーザー集団にのみ使用します。
+CYOT を使用すると、Microsoft Entraはワンタイム パスコード (OTP) の生成と検証を含む認証エクスペリエンスを引き続き管理します。一方、SMS メッセージと音声通話は、組織が選択して構成する通信プロバイダーを通じて配信されます。
+
+CYOT を使用すると、お客様の組織が通信プロバイダーの選択、地理的範囲、価格、通信配信に対してより大きな管理権限を持てます。
 
 Important
 
-「独自のテレフォニー プロバイダーを選択」は、まだ構成できません。 プライベート プレビューに参加しているプロバイダーに関する情報が利用可能になりました。 構成エクスペリエンスは、2026 年 10 月 30 日以降に利用可能になります。
+Microsoftでは、SMS や音声ではなく、[パスキー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)などのフィッシングに強い認証方法をお勧めします。 テレフォニー プロバイダーは、テレフォニー ベースの認証にビジネス、規制、または技術的な要件があるユーザー集団にのみ使用します。
+
+### CYOT のしくみ
+
+SMS または音声認証が必要な場合:
+
+1. Microsoft Entraは認証要求を開始します。
+2. Microsoft Entraは、Azure サブスクリプションにデプロイされた CYOT 統合に要求を送信します。
+3. 統合によって、構成済みの通信プロバイダーに要求が送信されます。
+4. 通信プロバイダーは、SMS メッセージまたは音声通話をユーザーに配信します。
+5. Microsoft Entra が認証フローを完了します。
+
+サブスクリプションにデプロイされた Azure 関数は、Microsoft Entra と通信プロバイダーを接続します。
+
+[Image: Azure サブスクリプションのAzure関数を介して通信プロバイダーに接続されているMicrosoft Entraを示す簡略化された CYOT アーキテクチャ図。]
 
 ### 使用可能なテレフォニー プロバイダー
 
-Soprano と Telesign は、プライベート プレビュー中に利用できる初期テレフォニー プロバイダーです。 一般提供により、より多くのプロバイダーが利用できるようになります。
+組織のカバレッジ、価格、およびその他の要件に基づいて、サポートされている通信プロバイダーを選択します。
 
 利用可能なプロバイダー オファーの価格とその他の商用の詳細を確認します。
 
-- ソプラノ: Microsoft Security ストアでの[ユーザー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_user)[ごとのオファーまたはトランザクションごとのオファー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_transaction)。
-- Telesign: Microsoft Security Store の[Microsoft Entra 向け Telesign Verify](https://securitystore.microsoft.com/solutions/telesigncorporation1779799505747.telesign-verify-cyot-azure)。
+- ソプラノ: [ユーザーごとのオファー](https://securitystore.microsoft.com/)または[トランザクションごとのオファー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_user)（[Microsoft Security ストア](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_transaction)内）。
+- Telesign: [Microsoft Entra の Telesign Verify](https://securitystore.microsoft.com/) を [Microsoft Security ストア](https://securitystore.microsoft.com/solutions/telesigncorporation1779799505747.telesign-verify-cyot-azure) で実行します。
+- Infobip。
 
-### 独自のテレフォニー プロバイダーの選択のしくみ
+Note
 
-選択したテレフォニー プロバイダーは、ユーザーが認証を完了するために必要な SMS メッセージまたは音声通話を配信します。 Microsoft Entra IDは引き続き認証方法ポリシーを適用し、認証エクスペリエンスを調整します。
+プロバイダーの可用性、対象範囲、価格、および商業条件は異なる場合があります。 購入する前に、プロバイダーの [Microsoft Security Store](https://securitystore.microsoft.com/) 掲載情報で最新情報を確認してください。
 
-組織は、テレフォニー プロバイダーの選択、地域のカバレッジと条件の確認、プロバイダー契約の完了、Microsoft Entra ID用のプロバイダーの構成、サービスの監視を担当します。
+### 自分の責任を理解する
 
-完全な移行スケジュールについては、[既定でのパスキーと、Microsoft提供される SMS および音声認証の廃止](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement)に関するページを参照してください。
+CYOT を使用すると、組織はサブスクリプションと通信プロバイダー アカウントにデプロイされた Azure リソースを所有しているため、それらの動作を完全に制御できます。 ガイド付きデプロイによって統合が自動的に設定され、その後Azure関数とプロバイダー アカウントがチームによって管理されます。
 
-### 独自のテレフォニー プロバイダー導入を計画する
+| Owner | Responsibilities |
+| --- | --- |
+| Microsoft | Microsoft Entra 認証とエンドポイントへのハンドオフ |
+| Customer | 統合の展開と運用、通信プロバイダー アカウントの管理、不正利用防止設定の構成。 |
+| 電話サービス プロバイダー | SMS と音声配信、および不正行為の制御を提供します。 |
 
-プロバイダーを選択する前に、次の操作を行います。
+### CYOT を使い始める
 
-- SMS または音声認証の要件が文書化されているユーザーを特定します。
-- フィッシング対策の方法が要件を満たしていないことを確認します。
-- 地理的範囲、サポートされている配信チャネル、価格、サポート、セキュリティ、コンプライアンス機能に基づいて、サポートされているテレフォニー プロバイダーを比較します。
-- 調達、プライバシー、規制の要件を組織内の適切なチームで確認します。
+大まかに言うと、CYOT の設定には次の作業が含まれます。
+
+1. **通信プロバイダーに加入します。**[Microsoft Security ストア](https://securitystore.microsoft.com/)で利用可能なプロバイダー オファーを確認し、組織の要件を満たすオファーを購入してください。
+2. **プロバイダー統合を設定します。** Azure サブスクリプションに統合をデプロイし、それをプロバイダーに接続します。
+3. **SMS または音声プロファイルを作成します。** プロバイダー経由で SMS または音声認証をルーティングします。
+4. **評価する。** ユーザーが影響を受けないように、Microsoftが引き続きメッセージを配信している間に統合を検証します。
+5. **ロールアウトします。** 各段階で検証して、トラフィックをプロバイダーに徐々に移動します。
+
+詳細な手順については、「[API を使用して独自の通信プロバイダーで SMS と音声を設定する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)」を参照してください。
+
+### デプロイを計画する
+
+運用認証トラフィックを CYOT に移行する前に、組織の要件に基づいて不正行為の保護、回復性、コストを考慮してください。
+
+#### 電話詐欺を防ぐ
+
+通信プロバイダーと協力して、組織のトラフィックとリスクの要件に適した不正行為の防止、宛先、使用状況、支出の制御を設定します。
+
+[独自の通信プロバイダーを使用する場合のテレフォニー詐欺の防止を](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-fraud-costs)参照してください。
+
+#### 回復力を考慮した計画
+
+お客様のCYOT 統合で使用する Azure リソースと通信プロバイダーの可用性と回復を計画します。
+
+追加の可用性要件を持つ組織は、リージョン間の回復性を実装し、必要に応じてプロバイダーの冗長性を構成できます。
+
+[独自の通信プロバイダーを使用する場合の回復性の計画を](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-reliability)参照してください。
+
+#### コストを理解する
+
+CYOT には、次の 2 つの異なるカテゴリのコストが含まれる場合があります。
+
+- 選択したプロバイダーを介した SMS と音声配信の通信プロバイダーのコスト。
+- Azure Function と、サブスクリプションにデプロイされた関連リソースの Azure コスト
+
+運用認証トラフィックを CYOT に移行する前に、両方を確認してください。
+
+[通信プロバイダーとAzureホスティング コストの見積もり](https://learn.microsoft.com/ja-jp/entra/identity/authentication/phone-providers-faq#how-much-does-choose-your-own-telephony-provider-cost)を参照してください。
+
+### CYOT のトラブルシューティング
+
+SMS または音声の問題を診断するには、問題がMicrosoft Entra認証と構成、CYOT 統合、通信プロバイダーの配信のいずれにあるかを特定します。
+
+診断ガイダンスとサポートを受ける場所については、[ご利用の通信事業者による SMS と音声のトラブルシューティング](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-troubleshoot#monitor-and-troubleshoot-your-own-telephony-provider)を参照してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -6641,7 +6957,7 @@ Soprano と Telesign は、プライベート プレビュー中に利用でき�
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-registration-mfa-sspr-combined
 - Service: entra-id / authentication
-- Article date: 2025-03-04
+- Article date: 2026-09-11
 - Summary: Microsoft Entra 多要素認証とセルフサービス パスワード リセットの両方でユーザーの登録を実現する、Microsoft Entra ID の統合された登録エクスペリエンスについて説明します。
 
 統合された登録の前、ユーザーは Microsoft Entra 多要素認証とセルフサービス パスワード リセット (SSPR) の認証方法を別々に登録しました。 ユーザーは 多要素認証 と セルフサービス パスワード リセット に同様の方法が使用されることに困惑しましたが、どちらのフィーチャーも登録する必要がありました。 現在では、統合された登録を使用することで、ユーザーは 1 回登録して 多要素認証 と セルフサービス パスワード リセット の両方のベネフィットを得ることができます。 「[Microsoft Entra ID で SSPR を有効にして構成する方法](https://www.youtube.com/watch?v=rA8TvhNcCvQ)」の動画をぜひご覧ください。
@@ -6761,9 +7077,13 @@ SSPR ポリシーでユーザーが定期的に自分のセキュリティ情報
 
 ### 主な使用シナリオ
 
-#### MySignIns でパスワードを変更する
+#### マイ Sign-Ins でパスワードを変更する
 
-ユーザーが [\[セキュリティ情報\]](https://aka.ms/mysecurityinfo) に移動します。 サインインした後、ユーザーは自分のパスワードを変更できます。 ユーザーがパスワードと多要素認証方法を使用して認証を行う場合、既存のパスワードを入力せずに、強化されたユーザー エクスペリエンスを使用してパスワードを変更できます。 完了すると、ユーザーの [セキュリティ情報] ページのパスワードが新しいパスワードに更新されます。 一時アクセス パス (TAP) などの認証方法の場合、ユーザーが既存のパスワードを知らない限り、パスワードを変更できません。
+ユーザーが [\[セキュリティ情報\]](https://aka.ms/mysecurityinfo) に移動します。 サインインした後、ユーザーは自分のパスワードを変更できます。 ユーザーがパスワードと多要素認証方法を使用して認証を行う場合、既存のパスワードを入力せずにパスワードを変更できます。
+
+組織では、ユーザーが Microsoft Entra 証明書ベースの認証 (CBA)、パスキー (FIDO2)、またはMicrosoft Authenticatorパスワードなしの電話によるサインイン通知を使用してサインインした後で、クラウド パスワードを変更することもできます。 ユーザーは現在のパスワードを知ったり入力したりする必要がなく、SSPR に登録する必要はありません。 管理者の構成、ユーザーの手順、制限事項については、「[セキュリティで保護されたサインイン後にパスワードの変更を許可する](https://review.learn.microsoft.com/en-us/entra/identity/authentication/concept-sspr-howitworks?branch=pr-en-us-14357&amp;tabs=secure-sign-in#tab/secure-sign-in)」を参照してください。
+
+一時アクセス パス (TAP) などの認証方法の場合、ユーザーが既存のパスワードを知らない限り、パスワードを変更できません。
 
 Note
 
@@ -7264,7 +7584,7 @@ SMS と音声の提供終了、テレフォニー プロバイダー、オプト
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement-faq
 - Service: entra-id / authentication
-- Article date: 2026-09-23
+- Article date: 2026-10-20
 - Summary: Microsoft Entra IDでのMicrosoft提供された SMS および音声認証の廃止と、パスキーへの移行に関してよく寄せられる質問。
 
 この記事では、Microsoft Entra IDでのMicrosoftが提供する SMS および音声認証の廃止に関してよく寄せられる質問に回答します。 完全なタイムラインと移行のガイダンスについては、[既定でのパスキーと、Microsoft提供される SMS および音声認証の廃止](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement)に関するページを参照してください。
@@ -7314,6 +7634,20 @@ SMS または音声をまだ使用しているユーザーを見つけるには�
 ### このタイムラインに含まれるクラウド環境はどれですか?
 
 このタイムラインは、パブリック クラウド環境にのみ適用されます。 その他のクラウド環境は、後のスケジュールに従い、お客様が移行に備えるのに役立つ事前の通信を提供します。
+
+### Microsoft提供の SMS と音声が廃止されるため、中国で組織はどのような認証オプションを使用できますか?
+
+パスキーは、サポートされている場合に推奨されるオプションのままです。 ただし、中国の Android デバイスを含め、デバイス、ブラウザー、アプリによって可用性が異なる場合があります。 ユーザーがモバイル パスキーを使用できない場合、組織では次のオプションを検討できます。
+
+- **FIDO2 セキュリティ キー:** サポートされているハードウェア セキュリティ キーを、モバイル パスキーの代わりにフィッシング対策として使用します。
+- **Authenticator 検証コード:**Microsoft Authenticatorまたは別の OATH TOTP 互換アプリによって生成された時間ベースのワンタイム パスワード (TOTP) コードを使用します。 TOTP は SMS 配信やプッシュ通知に依存しませんが、フィッシングに対する耐性はなく、フィッシングに対する耐性のある認証を必要とする条件付きアクセス ポリシーを満たしていません。 詳細については、「 [OATH トークン](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-oath-tokens)」を参照してください。
+- **テレフォニー プロバイダー:** ユーザーがビジネス、規制、または技術的な理由で引き続き SMS または音声を必要とする場合は、Microsoft Security ストアを通じてサポートされているプロバイダーを構成し、該当する提供終了日より前にそれらのユーザーを移行します。 [SMS および音声認証用の電話プロバイダーを選択する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers)を参照してください。
+
+ユーザーに対してソフトウェア OATH トークンを有効にすると、Microsoft Authenticatorまたは別の OATH TOTP 互換アプリを使用して検証コードを生成できます。 サードパーティ製ソフトウェア OATH トークンは、管理者によって無効にされていない限り、既定でサインインに対して有効になっており、Microsoft Authenticator が使用できない場合の代替手段となります。 詳細については、「 [サード パーティ製ソフトウェア OATH トークンの管理](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-mfa-manage-oath-tokens#manage-third-party-software-oath-tokens)」を参照してください。
+
+TOTP は、組織のポリシーに従って、2027 年 2 月 1 日以降も既存の登録と新規登録に対して引き続きサポートされます。 MFA に TOTP を登録して使用しているユーザーは、パスキー登録をブロックするプロンプトを受け取りません。 ブロック ナッジは、利用可能な MFA 方法が Microsoft 提供の SMS または音声のみで、テレフォニー プロバイダーに移行されていないユーザーに適用されます。
+
+SMS または音声を有効のままにしているユーザーは、スヌーズ可能なパスキー登録キャンペーン プロンプトを受け取ることができます。 ユーザーが置換メソッドを正常に登録してテストした後、追加のナッジを防ぐためにそれらのメソッドが不要になった場合は、ユーザーを **SMS** および **音声通話** のポリシー スコープから削除します。
 
 ### AZURE AD B2C または Microsoft Entra 外部 ID テナントはこの発表の影響を受けますか?
 
@@ -7692,7 +8026,7 @@ Microsoft Entra 管理センター で事前構築済みのレポートを使用
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sspr-howitworks
 - Service: entra-id / authentication
-- Article date: 2025-03-04
+- Article date: 2026-10-05
 - Summary: セルフサービス パスワード リセットのしくみ
 
 Microsoft Entra セルフサービス パスワード リセット (SSPR) により、ユーザーは、管理者やヘルプ デスクが関与することなく、自分のパスワードを変更またはリセットできるようになります。 ユーザーのアカウントがロックされている場合、またはパスワードを忘れた場合は、プロンプトに従ってブロックを解除し、作業に戻ることができます。 この機能により、ユーザーが自分のデバイスまたはアプリケーションにサインインできない場合のヘルプ デスクの呼び出しと生産性の低下が軽減されます。 [Microsoft Entra ID で SSPR を有効にして構成する方法については、](https://www.youtube.com/watch?v=rA8TvhNcCvQ)このビデオをお勧めします。
@@ -7703,8 +8037,7 @@ Von Bedeutung
 
 ユーザーが自分でパスワードをリセットする機能が IT チームによって有効にされていない場合は、ヘルプデスクに連絡して追加のサポートを依頼してください。
 
-### パスワード リセット プロセスのしくみ
-
+## [セルフサービスパスワードリセット](#tab/sspr)
 ユーザーは [、SSPR ポータル](https://aka.ms/sspr)を使用してパスワードをリセットまたは変更できます。 また、[SSPR for Administrators]\(管理者の SSPR\) を強調表示するには、SSPR はエンド ユーザー専用であるため、既定ではテナントで有効になっていません。 最初に、必要な認証方法を登録する必要があります。 ユーザーが SSPR ポータルにアクセスすると、Microsoft Entra プラットフォームでは次の要因が考慮されます。
 
 - ページをローカライズする方法
@@ -7741,6 +8074,54 @@ SSPR は、パスワード リセット プロセスの一環としてユーザ�
 SMTP リレー サービスは、電子メール本文を受信して処理しますが、保存しません。 顧客から提供された情報を含む可能性がある SSPR 電子メールの本文は、SMTP リレー サービス ログに格納されません。 ログにはプロトコル メタデータのみが含まれます。
 
 SSPR の使用を開始するには、次のチュートリアルを完了します。
+
+## [セキュリティで保護されたサインイン後にパスワードの変更を許可します。](#tab/secure-sign-in)
+Von Bedeutung
+
+この機能は、2026 年 10 月下旬からすべてのクラウドにロールアウトされ、ロールアウトは 2026 年 11 月末までに完了する予定です。 テナントに設定が表示されない場合は、ロールアウトがまだテナントに反映されていない可能性があります。
+
+パスワードなしのユーザーは、現在のパスワードを知らなくても、入力しなくても、**セキュリティ情報** からクラウド パスワードを変更できます。 新しいパスワードを作成する前に、次のいずれかのパスワードなしの方法でサインインします。
+
+- Microsoft Entra 証明書ベース認証 (CBA)
+- パスキー (FIDO2)。
+- Microsoft Authenticatorパスワードレス電話サインイン通知。
+
+このエクスペリエンスは、主にパスワードなしでサインインするが、従来のアプリケーションにはパスワードが必要なユーザーに役立ちます。
+
+このパスワード変更エクスペリエンスは、SSPR とは別です。 ユーザーは SSPR に登録されている必要はありません。また、SSPR ポリシーで必要な認証方法の数は適用されません。
+
+この機能を使用するには、Microsoft Entra ID P1 または P2 ライセンスが必要です。
+
+#### 設定を有効にする
+
+既定では、パスワードレス ユーザーは、現在のパスワードを入力しないとパスワードを変更できません。 エクスペリエンスを有効にするには、少なくとも [認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) ロールが必要です。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **Entra ID**&gt;**認証メソッド**&gt;**ポリシー** に移動します。
+3. [ **パスワード**] を選択し、[ **構成する**] を選択します。
+4. **セキュリティで保護されたサインイン後にパスワードの変更を許可する**
+5. **保存** を選択します。
+
+この設定は、テナント内のすべてのユーザーに適用されます。 個々のユーザーまたはグループを対象にしたり除外したりすることはできません。
+
+#### パスワードの変更
+
+自分のパスワードを変更するには、対象ユーザーが次の手順を実行します。
+
+1. [セキュリティ情報](https://aka.ms/mysecurityinfo) に移動します。
+2. Microsoft Entra CBA、パスキー (FIDO2)、または Microsoft Authenticator のパスワードレス電話サインイン通知でサインインします。
+3. **パスワード** の横にある **変更** を選択します。
+4. 新しいパスワードを入力して確認し、**送信** を選択します。
+
+ユーザーは現在のパスワードの入力を求められません。 設定が有効になっていない場合、またはサポートされているパスワードレスメソッドをユーザーが使用できない場合は、別の使用可能なパスワード変更またはリセット オプションを使用する必要があります。
+
+新しいパスワードが格納される場所は、ID 環境によって異なります。
+
+- **クラウド専用テナント:**パスワードはMicrosoft Entra IDで更新されます。
+- **パスワード ライトバックが有効なハイブリッド テナント:**パスワードはMicrosoft Entra IDで更新され、Active Directoryに書き戻されます。
+- **オンプレミスのみの環境:** My Sign-Ins は、Microsoft Entra ID に存在しない ID を管理できません。
+
+---
 
 ### サインイン時にユーザーに登録を要求する
 
@@ -7803,7 +8184,9 @@ Warnung
 
 ##### モバイル アプリと SSPR
 
-Microsoft Authenticator などのパスワード リセットの方法としてモバイル アプリを使用する場合、組織が [一元化された認証方法ポリシーに移行](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-methods-manage)していない場合は、次の考慮事項が適用されます。
+SSPR、Microsoft Authenticator、ソフトウェア OATH トークン、およびハードウェア OATH トークンは、1 つの認証方法としてカウントされます。 この動作は、組織が[一元化された認証方法ポリシーに移行した](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-methods-manage)かどうかにかかわらず適用されます。 ユーザーは、2 つの認証方法の要件を満たすために、これらの方法を組み合わせて使用することはできません。
+
+組織が一元化された認証方法ポリシーに移行していない場合は、ユーザーが Microsoft Authenticator などのモバイル アプリでパスワードをリセットする場合にも、次の考慮事項が適用されます。
 
 - 管理者がパスワードのリセットに 1 つの方法を使用する必要がある場合は、確認コードのみが使用可能なオプションです。
 - 管理者がパスワードのリセットに 2 つの方法を使用する必要がある場合、ユーザーは、他の有効な方法に加えて、通知 **または** 確認コードを使用できます。
@@ -8339,20 +8722,16 @@ Active Directory (AD) で [パスワードの有効期限が切れない] オプ
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-system-preferred-authentication
 - Service: entra-id / authentication
-- Article date: 2026-04-15
+- Article date: 2026-10-23
 - Summary: システム優先認証で、第 1 要素認証と第 2 要素認証の両方について、最も安全なサインイン オプションをユーザーに求める方法を評価する方法について説明します。
 
-システム優先認証では、ユーザーが登録した最も安全な方法を使用してサインインするように求められます。 これは、パスワードや SMS などの安全性の低い方法を使用して認証を行うユーザーにとって重要なセキュリティ強化です。
+システム優先認証では、最も安全な登録済み認証方法を使用してサインインするようにユーザーに求められます。 パスキーの場合、ユーザーがサインインに使用しているデバイスとブラウザも考慮し、ローカルで使用できるパスキーを優先します。 これは、パスワードや SMS などの安全性の低い方法を使用して認証を行うユーザーにとって重要なセキュリティ強化です。
 
-たとえば、ユーザーがパスワードとパスキーの両方を登録した場合、システム優先認証では、パスワードではなくパスキーを使用してサインインするように求められます。 ユーザーは別の方法を使用してサインインすることもできますが、最初に登録した最も安全な方法を試すように求められます。
+たとえば、システム優先認証が第 1 要素サインインに適用される場合、現在のデバイスで使用できるパスワードとパスキーの両方を持つユーザーは、パスワードではなくパスキーを使用するように求められます。 パスキーを 1 つのデバイスに登録しても、ユーザーはすべてのデバイスでパスキーを使用するように求められるわけではありません。 ユーザーは引き続き、別の許可されたサインイン方法を選択できます。
 
 システム優先認証は、Microsoft が管理する設定です。これは、3 状態のポリシー（有効、無効、または Microsoft 管理）です。 システム優先認証を有効にしない場合は、状態を **Microsoft managed** から **Disabled** に変更するか、ポリシーからユーザーとグループを除外します。
 
-Note
-
-**Microsoft 管理**状態での動作は、第一要素認証と多要素認証の両方に影響し、2026 年 8 月にかけてテナントに段階的に展開されます。 **State** が **Microsoft managed** の場合、テナントまたはユーザーがシステム優先認証を最初の要素として使用していない場合、ロールアウトはまだテナントに対してデプロイされていません。
-
-システム優先認証が有効になった後、認証システムはすべての処理を実行します。 システムにより、常に、登録した最も安全な方法を決定して提示されるため、ユーザーはどの認証方法も既定として設定する必要はありません。
+システム優先認証が有効になった後、ユーザーは既定の認証方法を設定する必要はありません。 システムは、該当する認証手順に適した方法を選択します。 パスキーの場合、初期エクスペリエンスはデバイスとブラウザーによって異なる場合があります。
 
 ### サインインにシステム優先認証を適用する方法
 
@@ -8372,22 +8751,118 @@ Note
 
 システム優先認証は、デバイスではなく、ユーザーにスコープが設定されます。 管理者はユーザーまたはグループを含めるか除外しますが、特定のデバイスまたはデバイス グループに機能を割り当てることはできません。
 
+このポリシー スコープは、ユーザーにすべてのデバイスで同じパスキー プロンプトが表示されることを意味するわけではありません。 パスキーの選択では、サインインに使用されるデバイスとブラウザーも考慮されます。
+
 #### 既知の制限
 
 - ターゲット グループのポリシーを変更すると、ユーザーの次のサインインに変更が反映されないことがあります。 それ以降のすべてのサインインに適用されます。
 - 条件付きアクセス ポリシーは第 2 要素認証に対してのみ検証され、第 1 要素認証には適用されません。 最初に認証が行われ、次に条件付きアクセスによって承認が評価されます。 システム優先認証は、条件付きアクセス ポリシーや認証強度の要件をオーバーライドしません。
 
-#### 第一要素サインインにおけるWindows Hello for BusinessとmacOS Platform SSO
+#### 現在のデバイスのパスキーの選択方法
 
-Windows Hello for Businessと macOS Platform SSO は、最初の要素としてのみ機能するデバイス バインドパスキーです。 **Microsoftマネージド**状態では、最初の要素でシステム優先認証が適用されるため、パスワードの前にこれらの資格情報を提供できます。
+パスキーが優先認証方法である場合、**システム優先認証では、使用可能な場合はローカル パスキーが優先されます**。 ローカル パスキーは、ユーザーが現在のデバイスの組み込み認証システム、またはそのデバイスまたはブラウザーで使用可能なパスキー プロバイダーを介してアクセスできるパスキーです。 ユーザーが別のデバイスに切り替えて使用する必要はありません。
 
-現在のデバイスで使用しない、または完了できないデバイスバインド資格情報をユーザーに求めないように、システム優先認証では、ユーザーがパスキーを使用して最近サインインした場合にのみ、最初の要素として Windows Hello for Business または macOS Platform SSO が提供されます。 動作は、ユーザーが登録したパスキーによって異なります。
+Important
 
-- ユーザーが Windows Hello for Business または macOS Platform SSO 以外のパスキーを持っている場合、システム優先認証では、第 2 要素サインイン時にそのパスキーの入力を既に求めているのと同様に、最初の要素でパスキーの入力を求められます。
-- ユーザーの登録済みパスキーのみが Windows Hello for Business または macOS Platform SSO で、ユーザーが最後にパスキーでサインインした場合、システム優先認証では最初の要素でパスキー のサインインを求められます。
-- ユーザーの登録されたパスキーのみが Windows Hello for Business または macOS Platform SSO であり、ユーザーの最新のサインインがパスキーを使用していない場合、システム優先認証では最初の要素でスキップされ、代わりにユーザーの資格情報の順序で次にランクが高い方法が求められます。
+**最初のパスキー プロンプトは、制限ではなく、開始点です。** どのパスキー エクスペリエンスが最初に表示されるかに関わらず、ユーザーは、ブラウザーまたはオペレーティング システムのパスキー オプションを操作して、アクセス可能で、サポートされており、組織のポリシーで許可されている登録済みのローカル パスキーか移植可能なパスキーを使用することができます。 推奨されるパスキーを使用したり、試行が失敗するのを待つ必要はありません。 「別のパスキーまたはサインイン方法を選択する」を参照してください。
 
-ユーザーはいつでも別 **の方法でサインイン** を選択して、別の登録済み方法を選択できます。
+たとえば、ユーザーが Windows PC で使用できるパスキーと、自分の電話で別のパスキーを使用できる場合、ローカル パスキー エクスペリエンスは、電話の使用を要求するよりも優先されます。
+
+**Local は、すべてのデバイスまたはブラウザーで同じプロバイダーを意味するわけではありません。** Chrome では、Google パスワード マネージャーに保存されたパスキーがローカル オプションになることがあります。 Windows では、Windows Hello for Business をローカル オプションに指定できます。 ブラウザーとオペレーティング システムによって表示される使用可能なローカル プロバイダーが決まるため、複数のローカル パスキーを持つユーザーが必ずしも最初にWindows Helloを求められるとは限りません。
+
+正確なエクスペリエンスは、ブラウザーとオペレーティング システムのサポートによっても異なります。 デバイスまたはブラウザーを確実に識別できない場合、ブラウザーまたはオペレーティング システムは既定のパスキー エクスペリエンスを提供します。
+
+Note
+
+登録済みのパスキーは、使用されているデバイスで必ずしもアクセスできるわけではありません。 たとえば、同期されたパスキーはユーザーのパスキー プロバイダーで使用できる必要があり、ユーザーはそのプロバイダーまたはブラウザー プロファイルにサインインする必要がある場合があります。 パスキー プロンプトでは、一致するパスキーが存在することは保証されません。
+
+##### デバイスに固定された移植可能なパスキー
+
+システム優先認証には、デバイスにバインドされた非ポータブルなプラットフォーム資格情報向けのロジックが含まれます: **Windows Hello for Business**、**Windows での Microsoft Entra パスキー**、**macOS Platform SSO**。 これらの資格情報は、作成元のデバイスに残ります。 これらは他のデバイスと同期されず、クロスデバイス QR コード サインインを介して別のデバイスから使用することはできません。
+
+システム優先認証では、オペレーティング システムを使用して、これらのプラットフォーム エクスペリエンスのいずれかを提示するかどうかを決定します。 資格情報を使用する場合も、元のデバイス上で秘密キーが必要です。
+
+| 登録済み資格情報 | プロンプトを表示可能な場所 | 資格情報が機能する場所 |
+| --- | --- | --- |
+| Windows Hello for Business | Windows。 | 資格情報が作成された Windows PC のみ。 |
+| [Windows での Microsoft Entra パスキー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-entra-passkeys-on-windows) | Windows。 | パスキーが作成されたWindows PC のみ。 |
+| macOS プラットフォーム SSO | macOS | 資格情報が作成された Mac のみ。 |
+
+**これらの資格情報は、互換性のないプラットフォームでは提供されません。**
+
+- WindowsのWindows Hello for BusinessとMicrosoft Entraパスキーは、Mac、iPhone、iPad、Android デバイス、Linux デバイスなど、Windows以外のデバイスでは提供されません。
+- macOS Platform SSO は、macOS 以外のデバイスでは提供されません。
+
+他の適用可能なパスキーが登録されていない場合、システム優先認証は、次の適用可能な登録済み認証方法で続行されます。
+
+Note
+
+Microsoft Entra ID はオペレーティング システムを特定できますが、プロンプトが表示される前に、現在のデバイスが資格情報の秘密キーを保持していることを確認することはできません。 そのため、ユーザーは、そのデバイスで資格情報を使用できない場合でも、互換性のあるオペレーティング システムでプロンプトを受け取る可能性があります。 一致する認証情報が利用できない場合、ユーザーは別の許可されたサインイン方法を選択する必要があります。
+
+これらの資格情報の種類は、認証時に適用される場所も異なります。
+
+- **Windows Hello for Businessと macOS Platform SSO:** 第 1 要素のみ。 **Microsoft マネージド**状態では、互換性のあるオペレーティング システムではパスワードの前にそれらのプラットフォーム エクスペリエンスを提供できます。 サインインを完了するには、現在のデバイスの資格情報が必要です。
+- **Windows の Microsoft Entra パスキー:** この第 1 要素のみの制限の対象ではない個別の FIDO2 パスキー型。
+
+Note
+
+この移植できない動作は、デバイス間のサインインをサポートする電話のパスキーや、ユーザーが別のサポートされているデバイスに接続できるセキュリティ キーとは異なります。 **[別の方法でサインイン]** を選択すると、ユーザーは別の許可された方法を選択できます。これを選択しても、移植できない資格情報を別のデバイスで使用できるようになるわけではありません。
+
+##### パスキーの選択の例
+
+テーブルは1つの質問に答えます。**このデバイスとブラウザーでは、どのローカル パスキー エクスペリエンスが優先されますか?** 各第一要素認証の例では、次のことを前提としています。
+
+- システムが優先する認証は **Microsoft マネージド**です。
+- ユーザーは、その行に一覧表示されているパスキーのみを持っています。
+- ローカル パスキーはアクセス可能で、ユーザーの認証ポリシーによって許可されます。
+
+他の登録済みパスキー プロバイダーは、最初に表示されるローカル エクスペリエンスを変更できます。 これらの例では、 全体的な認証方法のランク付けは変更されません。
+
+| ユーザーがサインインする場所 | アカウントに登録されているパスキー | ローカル エクスペリエンスが優先される |
+| --- | --- | --- |
+| WINDOWS PC、Microsoft Edge | この PC 上の Windows Hello for Business と、電話上の Microsoft Authenticator のパスキー | Authenticator パスキーを使用するために電話に切り替えるのではなく、**この PC の Windows Hello for Business**。 |
+| Windows PC、Google Chrome | Chrome でアクセス可能な Google パスワード マネージャーのパスキー、またはこの PC の Windows Hello for Business | **Chrome の Google パスワード マネージャー。** Windows を使用していても、Windows Helloが常に最初に表示されるわけではありません。 |
+| Mac, Google Chrome | Chrome でアクセス可能な Google パスワード マネージャーのパスキーと、Windows PC でのWindows Hello for Business | **Chrome の Google パスワード マネージャー。** Windows PC からのWindows Hello資格情報は Mac では使用されません。 |
+| Mac、Google Chrome | この Mac での macOS Platform SSO。このアカウントの Google パスワード マネージャーにパスキーは保存されていません | **この Mac の macOS プラットフォーム SSO。** Chrome では、対応する Google パスワード マネージャーのパスキーがない場合に、ローカル プラットフォーム エクスペリエンスを使用できます。 |
+| iOS 17以降を搭載したiPhone、Safari | この iPhone の Microsoft Authenticator 内のパスキー。Authenticator が iOS のパスキー プロバイダーとして有効になっており、Windows PC では Windows Hello for Business が有効になっているもの | **この iPhone の Authenticator パスキー。** ユーザーは iOS パスキー オプションを使用してそれを選択し、Face ID、Touch ID、またはデバイスの PIN で確認します。 Windows Hello 資格情報は iPhone では利用できません。 |
+
+##### その他のパスキー エクスペリエンス
+
+登録されているパスキーの種類と現在のプラットフォームがローカル パスキー エクスペリエンスに至らない場合、ユーザーは必ずしもパスワードの入力を求められるとは限りません。 その他の考えられるエクスペリエンスは次のとおりです。
+
+- **クロスデバイス サインインをサポートする電話のパスキー:** ユーザーには、その電話でスキャンするための QR コードが表示される場合があります。
+- **唯一のパスキーとしての FIDO2 セキュリティ キー:** ユーザーは、サポートされているデバイスとブラウザーでキーを挿入するか、タップするよう求められます。
+- **別のオペレーティング システム向けの非ポータブルなパスキーのみ:**たとえば、ユーザーは Windows で Windows Hello for Business または Microsoft Entra パスキーを持っていますが、iPhone、Android デバイス、または Mac でサインインしています。 これらの Windows 資格情報は提供されません。 ユーザーは、代わりに、次に適用可能な登録された認証方法を求められます。
+
+これらは個別のケースであり、フォールバック シーケンスではありません。 ユーザーが電話のパスキーとセキュリティ キーの両方を持っている場合、最初に提供されるエクスペリエンスは、デバイス、ブラウザー、パスキーの種類によって異なります。
+
+###### 例: iPhone で Authenticator パスキーを使用してWindowsにサインインする
+
+この例では、システムが優先する認証は **Microsoft マネージド**で、パスキーは推奨される方法です。 ユーザーの唯一のパスキーは、iPhone のMicrosoft Authenticatorにあります。 Windows PC と iPhone の両方にBluetoothとインターネット接続が必要です。
+
+1. ユーザーは、Windows PC で Microsoft Edge でのサインインを開始します。
+2. パスキーは電話上にあるため、PC は QR コードを使用したクロスデバイス パスキー エクスペリエンスを提供します。
+3. ユーザーは、iPhoneの **カメラ** アプリでQRコードをスキャンします。
+4. ユーザーは、iPhone で Face ID、Touch ID、またはデバイス PIN を使用して検証します。
+5. Windows PC でサインインが完了します。
+
+これは **パスキー認証**であり、Authenticator プッシュ通知ではありません。
+
+同じユーザーが iPhone で直接サインインした場合、表に示すように、別のデバイスから QR コードをスキャンすることなく、iPhone でその Authenticator パスキーを使用できます。 詳細な手順については、「 [Authenticator でパスキーを使用してサインインする」](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-sign-in-passkey-authenticator)を参照してください。
+
+##### 別のパスキーまたはサインイン方法を選択する
+
+推奨されるパスキーが使用可能な場合でも、ユーザーは別のパスキーを選択できます。 サインインをキャンセルしたり、推奨されるパスキーをまず試したりする必要はありません。 ブラウザーまたはオペレーティング システムのパスキー オプションを使用して、次の項目を選択できます。
+
+- **別のローカル パスキー:** 現在のデバイスで使用できる別のパスキー プロバイダーを使用してください。
+- **セキュリティ キー:** 登録済みパスキーを含んだサポートされているキーを接続またはタップします。
+- **別のデバイスのパスキー:** 電話で QR コードをスキャンするなど、サポートされているデバイス間エクスペリエンスを使用します。
+
+オプション名と使用可能な選択肢は、ブラウザーとオペレーティング システムによって異なります。 別のパスキーを選択しても、持ち運べない認証情報が元のデバイス以外で使用可能になるわけではありません。
+
+ユーザーがパスキー プロンプトをキャンセルした場合、または試行が失敗した場合は、サインイン メソッド ピッカーに返されます。 パスキーのサインインをもう一度選択してパスキー オプションを再度開くか、表示されたら [**別の方法でサインイン**] を選択して、別の許可された登録方法を選択できます。
+
+すべての選択肢は、組織の認証ポリシーと条件付きアクセスの要件の対象となります。
 
 ### Microsoft Entra 管理センターでシステム優先認証を有効にする
 
@@ -8462,23 +8937,23 @@ Content-Type: application/json
 
 #### システム優先認証で最も安全な方法はどのように決定されますか?
 
-ユーザーがサインインすると、認証プロセスによって、登録されているメソッドが確認されます。 ユーザーは、次の順序に従って、最も安全な方法でサインインするように求められます。 メソッドの順序は動的であり、セキュリティ ランドスケープが変化すると更新されます。 ユーザーはいつでもキャンセルして、別の使用可能なサインイン方法を選択できます。 特定の認証方法を必要とする条件付きアクセス ポリシーが組織にある場合、これらのポリシーはシステム優先の認証順序よりも引き続き優先されます。
+ユーザーがサインインすると、認証プロセスによって、登録されているメソッドが確認されます。 ユーザーは、次の順序に従って、最も安全な適用可能な方法でサインインするように求められます。 パスキーの場合、「現在のデバイスで パスキーを選択する方法」の説明に従って、システムはデバイスとブラウザーも考慮します。 メソッドの順序は動的であり、セキュリティ ランドスケープが変化すると更新されます。 ユーザーはいつでもキャンセルして、別の使用可能なサインイン方法を選択できます。 特定の認証方法を必要とする条件付きアクセス ポリシーが組織にある場合、これらのポリシーはシステム優先の認証順序よりも引き続き優先されます。
 
 **Microsoft managed** 状態の場合、システムは使用可能な資格情報を評価し、第 1 要素認証と第 2 要素認証の両方に対して最高ランクの方法を選択します。
 
 | Rank | 資格情報 | Category | の要件を満たす |
 | --- | --- | --- | --- |
-| 1 | [一時アクセス パス (TAP)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-temporary-access-pass) | 復元 | 1FA (単要素認証) + MFA (多要素認証) |
-| 2 | [Passkey](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)^1^ | フィッシングに対する耐性 | 1FA (単要素認証) + MFA (多要素認証) |
+| 1 | [一時アクセス パス (TAP)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-temporary-access-pass) | 復元 | 1FA (1 要素認証) + MFA (多要素認証) |
+| 2 | [Passkey](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)^1^ | フィッシングに対する耐性 | 1FA (1 要素認証) + MFA (多要素認証) |
 | 3 | [証明書ベースの認証 (CBA)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication) | フィッシングに対する耐性 | 1FA または 1FA + MFA |
-| 4 | [Microsoft Authenticator 通知](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-authenticator-app) | パスワードレス | 1FA (単要素認証) + MFA (多要素認証) |
+| 4 | [Microsoft Authenticator 通知](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-authenticator-app) | パスワードレス | 1FA (1 要素認証) + MFA (多要素認証) |
 | 5 | [外部多要素認証 (MFA)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-external-method-manage) | — | MFA |
 | 6 | [時間ベースのワンタイム パスワード (TOTP)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-oath-tokens)^2^ | — | MFA |
 | 7 | [テレフォニー](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-phone-options)^3^ | — | MFA |
 | 8 | QRコード | 現場担当者 | 1FA |
 | 9 | パスワード | — | 1FA |
 
-^1^セキュリティ キー、Authenticator アプリのパスキー、同期されたパスキー、Windows Hello for Business、macOS Platform SSO が含まれます。
+^1^セキュリティ キー、Authenticator アプリでのパスキー、同期されたパスキー、Windows Hello for Business、WindowsでのMicrosoft Entraパスキー、macOS Platform SSO が含まれます。 この行は、他の認証方法に対してパスキーをランク付けします。登録されているすべてのパスキーがすべてのデバイスで使用できるわけではありません。 プラットフォームの制限については、「デバイスに紐づけられた、移植できないパスキー」を参照してください。 Windows Hello for Businessと macOS Platform SSO は、第1要素のサインインにのみ適用されます。
 
 ^2^Microsoft Authenticator、Authenticator Lite、またはサード パーティ製アプリケーションのハードウェアまたはソフトウェア TOTP が含まれます。
 
@@ -8500,13 +8975,70 @@ Important
 
 #### システム優先認証は第 1 要素サインインにどのように影響しますか?
 
-**Microsoft managed** に設定すると、システムは資格情報のランク付けを第 1 要素認証と第 2 要素認証の両方に適用します。 たとえば、ユーザーがパスワードとパスキーの両方を登録している場合、パスワードではなく、最初の要素のサインイン時にパスキーを求められます。 ユーザーは引き続き他のサインイン オプションを選択できます。
+**Microsoft managed** に設定すると、システムは資格情報のランク付けを第 1 要素認証と第 2 要素認証の両方に適用します。 たとえば、ユーザーが現在のデバイスで使用できるパスワードとパスキーの両方を持っている場合、パスワードではなく、第一要素でのサインイン時にパスキーを求められます。 互換性のないオペレーティング システムでは、非ポータブル プラットフォーム資格情報は提供されません。Windows の Windows Hello for Business と Microsoft Entra パスキーは Windows 以外のデバイスでは提供されず、macOS Platform SSO は macOS 以外のデバイスでは提供されません。 その他の例については、 パスキー選択の例を参照してください。 ユーザーは引き続き、許可されている他のサインイン オプションを選択できます。
 
 **[有効]** に設定すると、資格情報のランク付けは第 2 要素認証にのみ適用されます。 第 1 要素のサインイン動作は変更されません。
 
 #### ユーザーは引き続き別のサインイン方法を選択できますか?
 
 Yes. システム優先認証では、最も高いランクの資格情報を持つユーザーにプロンプトが表示されますが、ユーザーはサインイン時に他の許可される方法を選択できます。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/concept-telephony-risk-based-captcha"} -->
+## テレフォニーベースのサインイン向けのリスクベースのボット対策確認 (CAPTCHA) - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-telephony-risk-based-captcha
+- Service: entra-id / authentication
+- Article date: 2026-10-14
+- Summary: Microsoft Entra ID が SMS メッセージを送信したり、テレフォニー ベースのサインインの音声通話を発信したりする前に、リスクベースのボット対策検証について確認します。
+
+Microsoft Entra IDでは、セーフガードを使用して、テレフォニー ベースのサインインの自動不正使用を軽減します。 場合によっては、Microsoft がサインインのための SMS メッセージを送信したり、音声通話を発信したりする前に、ユーザーが CAPTCHA などのリスクベースのボット対策検証手順を完了するよう求められる場合があります。 このセーフガードは、国際収益シェア詐欺 (IRSF) などのテレフォニー詐欺から保護するのに役立ちます。
+
+テレフォニー詐欺の詳細と、Microsoftが不正行為の影響を制限する方法については、「[テレフォニー詐欺リスクについて理解する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-mfa-telephony-fraud)」を参照してください。
+
+### アンチボット検証とは
+
+この CAPTCHA エクスペリエンスのプロバイダーは Arkose Labs です。 認証フロー中に、ダイアログでチャレンジが開きます。 この対話は、Microsoft が SMS メッセージを送信したり音声通話を行ったりする前に、その要求が人によって行われていることを確認するのに役立ちます。
+
+エクスペリエンスはリスクベースであり、クライアントの動作シグナルを使用するため、すべてのユーザーまたは認証の試行が影響を受けるわけではありません。 Microsoftでは、ボット対策の検証がいつ表示されるかを決定するリスク基準や実装の詳細は公開されません。
+
+### どのようなユーザー体験か
+
+アンチボット検証が必要な場合、ユーザーは Microsoft が SMS メッセージを送信するか、音声通話を発信する前に検証手順を完了する必要があります。 ユーザーが検証手順を完了できない場合は、もう一度試すか、別の使用可能な認証方法を使用する必要があります。 CAPTCHA ダイアログが読み込まれない場合は、組織で Arkose Labs ドメインを許可することが必要になる場合があります。 詳細については、「ネットワーク要件」を参照してください。
+
+ヘルプ デスク チームは、次のことを伝えるべきです。
+
+- SMS と音声認証は、このセーフガードによって削除されません。
+- ユーザーは、SMS メッセージまたは音声通話を受信する前に、ボット対策の検証手順を完了する必要がある場合があります。
+- 検証手順が読み込まれない場合、問題はネットワークまたはファイアウォールの制限に関連している可能性があります。 詳細については、「ネットワーク要件」を参照してください。
+- ユーザーは、可能であれば、別の使用可能なテレフォニー以外の認証方法を使用する必要があります。 テレフォニー以外の方法は安全性が高く、このセーフガードの対象ではなく、ユーザー エクスペリエンスが向上する可能性があります。
+
+### ネットワークの要件
+
+アンチボット検証は、認証フロー中に読み込まれるリソースに依存する場合があります。 組織で制限付きファイアウォール、プロキシ、または Web フィルターを使用している場合、必要なエンドポイントが許可されていない場合、ユーザーが検証の完了をブロックされる可能性があります。
+
+認証中に Arkose Labs 検証チャレンジの読み込みと完了を許可するには、ファイアウォール、プロキシ、セキュア Web ゲートウェイを構成して、ユーザーのデバイスから次への TCP ポート 443 経由のアウトバウンド HTTPS トラフィックを許可します。
+
+- `*.arkoselabs.com`
+- `arkoselabs.com`
+
+ルールがすべてのサブドメインを対象とするように、製品のワイルドカード ドメインまたは完全修飾ドメイン名 (FQDN) 許可リスト構文を使用します。 一部の製品は、ワイルドカード エントリではベース ドメインに一致しないため、両方のドメインを追加します。
+
+また、次の点も確認してください。
+
+- DNS フィルタリングポリシーと Web コンテンツ/カテゴリフィルタリングポリシーがこれらのドメインをブロックせず、許可ルールがカテゴリベースのブロックよりも優先されることを確認してください。
+- これらのドメインは TLS/SSL 検査 (HTTPS 復号化) から除外されるため、チャレンジの読み込みや検証が妨げられることがあります。
+
+### ユーザーとヘルプ デスク向けの準備をする
+
+リスクベースのアンチボット検証を準備するには:
+
+- 一部の SMS および音声認証の試行では、Microsoft が SMS メッセージを送信したり音声通話を発信したりする前に、ボット対策の確認が必要になる場合があることをユーザーに伝えます。
+- リスクベースのセーフガードが適用されるときに検証手順が必要であることをヘルプ デスク チームが認識していることを確認します。
+- 検証エクスペリエンスが読み込まれない場合は、ネットワーク要件を確認します。
+- パスキーなど、可能な場合はフィッシングに強い認証方法を登録して使用するようユーザーに勧めます。
 <!-- /MSL-PAGE -->
 
 ---
@@ -8642,6 +9174,305 @@ Microsoft は、アクセス許可が最も少ないロールを使用するこ�
 | --- | --- | --- |
 | SSO | [Microsoft Entra 参加](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-directory-join)、[Microsoft Entra ハイブリッド参加](https://learn.microsoft.com/ja-jp/entra/identity/devices/concept-hybrid-join)、またはアンマネージド デバイス向けの[シームレス SSO](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sso) | Microsoft Entra 参加または Microsoft Entra ハイブリッド参加 |
 | 再認証の設定 | **サインインしたままにする表示オプション**。 | サインインの頻度と永続的なブラウザー セッションの条件付きアクセス ポリシー |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/configure-microsoft-entra-kerberos-trust"} -->
+## Microsoft Entra Kerberos の信頼を構成する - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/configure-microsoft-entra-kerberos-trust
+- Service: entra-id / authentication
+- Article date: 2026-10-19
+- Summary: Microsoft Entra ID と Active Directory Domain Services 間の Microsoft Entra Kerberos 信頼を構成および管理する方法について説明します。
+
+Microsoft Entra Kerberos トラストでは、Microsoft Entra Kerberos レルム `KERBEROS.MICROSOFTONLINE.COM` 用にオンプレミスの Active Directory ドメイン サービス (AD DS) に信頼済みドメイン オブジェクト (TDO) を作成することで、受信側のトラストに基づくフローが構成されます。 AD DS ドメインの観点からは、この信頼関係は「インバウンド」です。つまり、Microsoft Entra ID は、このレルムに対して AD が発行したクロス レルム参照チケットを信頼しています。 AD 認証クライアントは、これらの紹介チケットを使用して、Azure FilesやAzure SQL Managed InstanceなどのリソースのMicrosoft Entra IDから Kerberos サービス チケットを取得できます。
+
+この記事では、信頼されたドメイン オブジェクトを作成する方法、Kerberos チケットを取得するようにクライアントを構成する方法、Kerberos キーをローテーションする方法、および信頼構成を削除する方法について説明します。
+
+Note
+
+信頼されたドメイン オブジェクトは、Windows Hello for Business のクラウド Kerberos 信頼、またはオンプレミス リソースへのパスワードレス セキュリティ キー (FIDO2) サインインには必要ありません。 これらのシナリオでは、Microsoft Entra Kerberos サーバーオブジェクトのみが必要であり、これは `-SetupCloudTrust` パラメーターを指定せずに `Set-AzureADKerberosServer` を使用して作成します。 詳細については、「 [オンプレミス リソースへのパスワードレス セキュリティ キーのサインインを有効にする](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises)」を参照してください。
+
+### Prerequisites
+
+この記事の手順を完了するには、以下が必要です。
+
+- Active Directoryに参加している、サポート対象のWindowsクライアント。 ドメインには、Windows Server 2012 以降の機能レベルが必要です。
+- ドメインの Domain Admins グループのメンバーであるか、フォレストの Enterprise Admins グループのメンバーであるオンプレミスの Active Directory管理者アカウント。
+- Microsoft Entraグローバル管理者アカウント。
+- オンプレミスの AD DS とMicrosoft Entra IDの間で同期されるハイブリッド ID。
+
+### Microsoft Entra Kerberos 信頼されたドメイン オブジェクトの作成と構成
+
+Microsoft Entra Kerberos Trusted Domain Object を作成して構成するには、[Azure AD ハイブリッド認証管理](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/) PowerShell モジュールを使用します。
+
+#### 信頼ドメインオブジェクトをMicrosoft Entra IDで登録してください
+
+Azure AD ハイブリッド認証管理 PowerShell モジュールを使用して、AD DS ドメインに信頼されたドメイン オブジェクトを作成し、信頼情報をMicrosoft Entra IDに登録します。 これにより、AD DS ドメインの観点から受信方向の信頼関係が作成され、Microsoft Entra ID がオンプレミスの AD DS を信頼できるようになります。
+
+信頼されたドメイン オブジェクトを設定する必要があるのは、ドメインごとに 1 回だけです。 ドメインに対してこのオブジェクトを既に設定している場合は、このセクションをスキップして、Kerberos チケットを取得するためのクライアントの構成に進んでください。
+
+##### Azure AD ハイブリッド認証管理 PowerShell モジュールをインストールする
+
+1. **管理者として実行** オプションを使用して、Windows PowerShell セッションを開始します。
+2. 次のスクリプトを使用して、Azure AD ハイブリッド認証管理 PowerShell モジュールをインストールします。 スクリプトは次のようになります。
+
+    1. 通信に対して TLS 1.2 を有効にします。
+    2. NuGet パッケージ プロバイダーをインストールします。
+    3. PSGallery リポジトリがまだ登録されていない場合は、それを登録します。
+    4. PSGallery を信頼できるリポジトリとして構成します。
+    5. PowerShellGet モジュールをインストールします。
+    6. Azure AD ハイブリッド認証管理 PowerShell モジュールをインストールします。
+
+    Azure AD ハイブリッド認証管理 PowerShell モジュールは、高度なMicrosoft Entra管理機能を提供する AzureADPreview モジュールを使用します。 Azure AD PowerShell モジュールとの不要なインストールの競合を防ぐために、インストール コマンドには `-AllowClobber` パラメーターが含まれています。
+
+    ```powershell
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-PackageProvider -Name NuGet -Force
+    
+    if (@(Get-PSRepository | Where-Object { $_.Name -eq "PSGallery" }).Count -eq 0) {
+        Register-PSRepository -Default
+    }
+    
+    Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+    
+    Install-Module -Name PowerShellGet -Force
+    
+    Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
+    ```
+
+##### 信頼されたドメイン オブジェクトを作成する
+
+1. **管理者として実行** オプションを使用して、Windows PowerShell セッションを開始します。
+2. 共通のパラメーターを設定します。 スクリプトを実行する前にカスタマイズします。
+
+    1. `$domain`パラメーターをオンプレミスの Active Directory ドメイン名に設定します。
+    2. `Get-Credential` によって求められたら、オンプレミスの Active Directory 管理者アカウントの資格情報を入力します。 アカウントは、「 前提条件」で説明されているアクセス許可を満たしている必要があります。
+    3. `$cloudUserName` パラメーターを、Microsoft Entraグローバル管理者アカウントのユーザー プリンシパル名に設定します。
+
+    Note
+
+    オンプレミスの Active Directoryアクセスに現在のWindows サインイン アカウントを使用するには、`$domainCred`に資格情報を割り当てないで、この記事の PowerShell コマンドから `-DomainCredential` パラメーターを省略してください。
+
+    ```powershell
+    $domain = "your on-premises domain name, for example contoso.com"
+    $domainCred = Get-Credential
+    $cloudUserName = "Microsoft Entra ID user principal name, for example admin@contoso.onmicrosoft.com"
+    ```
+3. 現在の Kerberos ドメイン設定を確認してください:
+
+    ```powershell
+    Get-AzureADKerberosServer -Domain $domain `
+        -DomainCredential $domainCred `
+        -UserPrincipalName $cloudUserName
+    ```
+
+    Microsoft Entra Kerberos コマンドを初めて呼び出すと、Microsoft Entra IDアクセスを求められます。 Microsoft Entra グローバル管理者アカウントのパスワードを入力します。 組織で、Microsoft Entra 多要素認証やスマート カードなど、別の最新の認証方法を使用している場合は、サインインの手順に従います。
+
+    Microsoft Entra Kerberos が構成されていない場合、[Get-AzureADKerberosServer コマンドレット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises#view-and-verify-the-microsoft-entra-kerberos-server)は空の情報を表示します。
+
+    ```output
+    ID                  :
+    UserAccount         :
+    ComputerAccount     :
+    DisplayName         :
+    DomainDnsName       :
+    KeyVersion          :
+    KeyUpdatedOn        :
+    KeyUpdatedFrom      :
+    CloudDisplayName    :
+    CloudDomainDnsName  :
+    CloudId             :
+    CloudKeyVersion     :
+    CloudKeyUpdatedOn   :
+    CloudTrustDisplay   :
+    ```
+
+    ドメインが既に FIDO2 セキュリティ キー認証をサポートしている場合、コマンドレットは Microsoft Entra のサービス アカウント情報を表示します。 `CloudTrustDisplay` フィールドは空です。
+
+    ```output
+    ID                  : XXXXX
+    UserAccount         : CN=krbtgt-AzureAD, CN=Users, DC=contoso, DC=com
+    ComputerAccount     : CN=AzureADKerberos, OU=Domain Controllers, DC=contoso, DC=com
+    DisplayName         : XXXXXX_XXXXX
+    DomainDnsName       : contoso.com
+    KeyVersion          : 53325
+    KeyUpdatedOn        : 2/24/2024 9:03:15 AM
+    KeyUpdatedFrom      : ds-aad-auth-dem.contoso.com
+    CloudDisplayName    : XXXXXX_XXXXX
+    CloudDomainDnsName  : contoso.com
+    CloudId             : XXXXX
+    CloudKeyVersion     : 53325
+    CloudKeyUpdatedOn   : 2/24/2024 9:03:15 AM
+    CloudTrustDisplay   :
+    ```
+4. 信頼されたドメイン オブジェクトを追加してください。
+
+    `-SetupCloudTrust` パラメーターを指定して [Set-AzureADKerberosServer コマンドレット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises#create-a-kerberos-server-object)を実行します。 Microsoft Entra サービス アカウントが存在しない場合、このコマンドはそれを作成します。 このコマンドは、Microsoft Entra サービス アカウントが使用可能な場合にのみ、信頼されたドメイン オブジェクトを作成します。
+
+    ```powershell
+    Set-AzureADKerberosServer -Domain $domain `
+        -UserPrincipalName $cloudUserName `
+        -DomainCredential $domainCred `
+        -SetupCloudTrust
+    ```
+
+    Note
+
+    マルチドメイン フォレストでは、次の手順に従って、子ドメインでコマンドを実行する際に *LsaCreateTrustedDomainEx 0x549* エラーが発生しないようにします。
+
+    1. `-SetupCloudTrust` パラメーターを使用して、ルート ドメインでコマンドを実行します。
+    2. 子ドメインで、`-SetupCloudTrust` パラメーターを指定せずに同じコマンドを実行します。
+
+    信頼されたドメイン オブジェクトを作成したら、`Get-AzureADKerberosServer` コマンドレットを使用して、更新された Kerberos 設定を確認してください。 `Set-AzureADKerberosServer` パラメーターを使用して `-SetupCloudTrust` コマンドレットが正常に完了すると、`CloudTrustDisplay` フィールドは `Microsoft.AzureAD.Kdc.Service.TrustDisplay` を返します。
+
+    ```output
+    ID                  : XXXXX
+    UserAccount         : CN=krbtgt-AzureAD, CN=Users, DC=contoso, DC=com
+    ComputerAccount     : CN=AzureADKerberos, OU=Domain Controllers, DC=contoso, DC=com
+    DisplayName         : XXXXXX_XXXXX
+    DomainDnsName       : contoso.com
+    KeyVersion          : 53325
+    KeyUpdatedOn        : 2/24/2024 9:03:15 AM
+    KeyUpdatedFrom      : ds-aad-auth-dem.contoso.com
+    CloudDisplayName    : XXXXXX_XXXXX
+    CloudDomainDnsName  : contoso.com
+    CloudId             : XXXXX
+    CloudKeyVersion     : 53325
+    CloudKeyUpdatedOn   : 2/24/2024 9:03:15 AM
+    CloudTrustDisplay   : Microsoft.AzureAD.Kdc.Service.TrustDisplay
+    ```
+
+    Note
+
+    Azure ソブリン クラウドでは、既定で `TopLevelNames` に設定されている `windows.net` プロパティを設定する必要があります。 一部のソブリン クラウド サービスでは、Azure Government の場合は `usgovcloudapi.net` など、別の最上位ドメイン名が使用されます。 信頼されたドメイン オブジェクトを必要な最上位ドメイン名に設定してください:
+
+    ```powershell
+    Set-AzureADKerberosServer -Domain $domain `
+        -DomainCredential $domainCred `
+        -UserPrincipalName $cloudUserName `
+        -SetupCloudTrust `
+        -TopLevelNames "usgovcloudapi.net,windows.net"
+    ```
+
+    設定を確認します。
+
+    ```powershell
+    Get-AzureADKerberosServer -Domain $domain `
+        -DomainCredential $domainCred `
+        -UserPrincipalName $cloudUserName |
+        Select-Object -ExpandProperty CloudTrustDisplay
+    ```
+
+### Kerberos チケットを取得するようにクライアントを構成する
+
+[Microsoft Entra テナント ID を](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-to-find-tenant)特定し、グループ ポリシーを使用して、Microsoft Entra Kerberos チケットを取得する必要があるすべてのクライアントを構成します。
+
+**管理用テンプレート\System\Kerberos\Kerberos クライアントの KDC プロキシ サーバーを指定する** を **有効** に設定します。
+
+1. 「**管理用テンプレート\システム\KERBEROS\Kerberos クライアントのKDC プロキシ サーバーの指定**」ポリシー設定を編集します。
+2. **[有効]** を選択します。
+3. **オプション** で、**表示...** を選択します。
+4. 次の表に示す KDC プロキシ サーバー マッピングを定義します。 `your_Microsoft_Entra_tenant_ID` を実際のテナント ID に置き換えます。 `https`後と終了`/`の前のスペースを値に含めます。
+
+    | 値の名称 | Value |
+    | --- | --- |
+    | KERBEROS.MICROSOFTONLINE.COM | &lt;https login.microsoftonline.com:443:`your_Microsoft_Entra_tenant_ID`/Kerberos /&gt; |
+5. **OK** を選択して、[**コンテンツの表示**] ダイアログを閉じます。
+6. [**Kerberos クライアントの KDC プロキシ サーバーの指定**] ダイアログで [**適用**] を選択します。
+
+### Kerberos キーをローテーションする
+
+Microsoft Entra Kerberos では、オンプレミスの AD DS とMicrosoft Entra IDの間で共有 Kerberos サーバー キーが使用されます。 キーは、Microsoft Entra IDによって発行されたチケット許可チケット (TGT) を暗号化して保護します。 これは、オンプレミス Active Directory 内の専用の Microsoft Entra Kerberos サーバー オブジェクトに格納され、Microsoft Entra ID に安全に発行されます。 このオブジェクトは論理であり、物理サーバーではなく、Kerberos 信頼の読み取り専用ドメイン コントローラー (RODC) のように機能します。
+
+Microsoft Entra サービス アカウントと信頼されたドメイン オブジェクトのキーを定期的にローテーションします。 通常の回転:
+
+- 暗号化マテリアルの有効期間を制限します。
+- キーが侵害された場合のリスクを軽減します。
+- 標準的な Kerberos およびActive Directoryセキュリティプラクティスに準拠します。
+
+Microsoft では、固定のローテーション間隔を義務付けていません。 Microsoft Entra Kerberos サーバー キーを、他のActive Directory Kerberos (`krbtgt`) キーと同じスケジュールで、スケジュールされたセキュリティ メンテナンス期間中、および資格情報の侵害の疑いがある直後にローテーションします。
+
+#### キーのローテーションのしくみ
+
+Microsoft Entra Kerberos では、ローテーション中のサービス中断を回避するためにデュアルキー モデルを使用します。
+
+- **プライマリ キー**: 新たに発行されるすべての Kerberos チケットを暗号化します。
+- **セカンダリ キー**: 既存のチケットの有効期限が切れるまで、前のキーを保持して検証します。
+
+キーをローテーションすると、新しいキーが主キーになり、前の主キーがセカンダリ キーになります。 Microsoft Entra ID は、新しい Kerberos チケットに主キーを使用し、セカンダリ キーによって保護されたチケットを引き続き受け入れます。 このプロセスは、ユーザー アクセスを中断しません。
+
+#### キーを回転する
+
+キーをローテーションするには、 `Set-AzureADKerberosServer` コマンドレットを使用します。 コマンド:
+
+- 新しい Kerberos サーバー キーを生成します。
+- オンプレミスの Active Directory Kerberos サーバー オブジェクトにキーを格納します。
+- キーをMicrosoft Entra IDに安全に発行します。
+- 両方の環境のキー バージョンを更新します。
+
+```powershell
+Set-AzureADKerberosServer -Domain $domain `
+    -DomainCredential $domainCred `
+    -UserPrincipalName $cloudUserName `
+    -SetupCloudTrust `
+    -RotateServerKey
+```
+
+Warning
+
+他のツールでは`krbtgt`キーをローテーションできますが、Microsoft Entra Kerberos サーバーには `Set-AzureADKerberosServer` コマンドレットを使用する必要があります。 このコマンドレットにより、オンプレミスの Active DirectoryとMicrosoft Entra IDの両方でキーが更新されます。
+
+キーをローテーションした後、変更されたキーが Kerberos KDC サーバー間で反映されるまで数時間かかります。 このキー分散のタイミングにより、キーを 24 時間以内に 1 回ローテーションすることができます。
+
+Important
+
+古いキーを完全に廃止するには、元のプライマリ キーとセカンダリ キーおよびそれらのチケットの有効期限が切れた後、ローテーションを 2 回実行します。
+
+#### -Force パラメーターを使用する
+
+信頼されたドメイン オブジェクトを作成した直後など、24 時間以内にキーをもう一度ローテーションする必要がある場合は、`-Force` パラメーターを追加してください。
+
+```powershell
+Set-AzureADKerberosServer -Domain $domain `
+    -DomainCredential $domainCred `
+    -UserPrincipalName $cloudUserName `
+    -SetupCloudTrust `
+    -RotateServerKey `
+    -Force
+```
+
+`-Force` パラメーターは、セキュリティ制御を維持しながら、確認プロンプトなしで Kerberos サーバー構成を適用または更新します。 次の場合に使用します。
+
+- 24 時間以内にもう一度キーをローテーションする必要があります。
+- コマンドを再実行して、構成を修復または整合させます。
+- Kerberos のセットアップやキーの管理を自動化します。
+- 構成の試行が部分的に完了した場合や失敗した場合に復旧します。
+- 手動で確認することなく、環境間で一貫した状態を確保する必要があります。
+
+### 信頼されたドメイン オブジェクトを削除する
+
+信頼されたドメイン オブジェクトを削除:
+
+```powershell
+Remove-AzureADKerberosServerTrustedDomainObject -Domain $domain `
+    -DomainCredential $domainCred `
+    -UserPrincipalName $cloudUserName
+```
+
+このコマンドは、信頼されたドメイン オブジェクトのみを削除します。 ドメインで FIDO2 セキュリティ キー認証がサポートされている場合は、その認証サービスに必要なMicrosoft Entra サービス アカウントを維持しながら、オブジェクトを削除できます。
+
+### すべての Kerberos 設定を削除する
+
+Microsoft Entra サービス アカウントと信頼されたドメイン オブジェクトの両方を削除します。
+
+```powershell
+Remove-AzureADKerberosServer -Domain $domain `
+    -DomainCredential $domainCred `
+    -UserPrincipalName $cloudUserName
+```
 <!-- /MSL-PAGE -->
 
 ---
@@ -8827,700 +9658,4 @@ Important
 
 - 1 か月あたり 195 ドル
 - 1 か月あたり 3.1 時間回復
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-account-recovery-enable"} -->
-## Microsoft Entra IDでアカウントの回復を有効にして構成する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-account-recovery-enable
-- Service: entra-id / authentication
-- Article date: 2026-04-29
-- Summary: ユーザーが ID 検証を使用してアクセスを回復できるように、Microsoft Entra IDでアカウントの回復を構成します。 プロファイルとプロバイダーを設定する方法について説明します。
-
-アカウントの回復は、電話、ハードウェア トークン、パスキーを紛失した場合など、すべての認証方法を失ったときにユーザーが自分のアカウントへのアクセスを回復するのに役立つMicrosoft Entra ID機能です。 この機能では、サードパーティの ID 検証プロバイダーを使用して、政府発行の ID を使用してユーザーの ID を検証し、アカウントを回復して認証方法を再登録できるようにします。
-
-この記事では、初期セットアップから ID 検証プロファイルの作成、運用環境へのデプロイまで、アカウントの回復を有効にして構成する完全なプロセスについて説明します。
-
-### [前提条件]
-
-- Microsoft Entra ID P1 ライセンス
-- [検証済み ID](https://learn.microsoft.com/ja-jp/entra/verified-id/verifiable-credentials-configure-tenant-quick) が有効になっており、[Face Check](https://learn.microsoft.com/ja-jp/entra/verified-id/using-facecheck) があなたのテナントで構成済みです。
-- Microsoft Entra テナントの [Authentication Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator) ロール
-- Azure サブスクリプションの共同作成者または課金管理者ロール (ID 検証プロバイダー サブスクリプションに必要)
-
-### アカウントの回復を開く
-
-1. 少なくとも[認証管理者](https://entra.microsoft.com)として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator)にサインインします。
-2. **Entra ID**&gt;**Account recovery** に移動します。
-3. 初めてアカウントの回復を開く場合は、セットアップ チェックリストが表示された **[作業の開始** ] ページが表示されます。
-4. セットアップが完了すると、[ **アカウント回復** の概要] ページに各セットアップ タスクの状態が表示され、機能に関する情報が表示されます。
-
-    [Image: アカウント回復の概要ページを示すスクリーンショット。概要チェックリストと機能情報が示されています。]
-
-概要ページでは、必要なセットアップ タスクについて説明します。
-
-- **検証済み ID の設定** - セキュリティで保護された準拠アカウントの回復をサポートするために、数回のクリックで検証済み ID を構成します。
-- **検証済み ID を使用して Face Check を設定** する - 適切なユーザーがアクセスを回復できるように、Face Check を使用して ID を確認します。
-- **回復後にパスキーを設定する - アクセスを回復** した後にパスキーを追加するようユーザーに依頼します。 これにより、アカウントを強力な状態に戻すのに役立ちます。 認証方法ポリシーでパスキーが有効になっていない場合は、ユーザーが回復できるようにパスキーを有効にします。
-- **最初の ID 検証プロバイダーを選択してサブスクライブします** — アカウントの回復のために、Microsoft Security ストアから ID 検証プロバイダーを選択します。
-- **最初の ID 検証プロファイルを作成** する - 構成ウィザードを完了してプロバイダーに接続し、アカウントの回復を有効にします。
-
-Tip
-
-[概要] ページで [削減額の **見積もり** ] を選択して、コスト削減見積もりツールを開きます。 このツールを使用すると、従来のヘルプ デスクの回復コストとセルフサービス アカウント回復のコストを比較することで、潜在的な節約を予測できます。
-
-[Image: コスト削減の見積もりパネルを示すスクリーンショット。ユーザーのフィールド、回復率、および予想される節約額が表示されています。]
-
-### ID 検証プロバイダーをサブスクライブする
-
-ID 検証プロファイルを作成する前に、Microsoft Security ストアを介して少なくとも 1 つの ID 検証プロバイダーをサブスクライブします。
-
-1. [アカウントの回復の概要] ページで、[ **最初の ID 検証プロバイダーを選択してサブスクライブ**する] を選択するか、[ **プロファイル** ] タブを選択して **[追加**] を選択します。
-2. [ **ID 検証プロバイダー** ] パネルで、使用可能なプロバイダーを参照します。 コンプライアンス標準でフィルター処理できます。
-
-    [Image: 使用可能なプロバイダー、価格、コンプライアンス バッジ、サブスクリプション オプションを含む ID 検証プロバイダー パネルを示すスクリーンショット。]
-3. サブスクライブしていないプロバイダーの場合は、**Get Solution** を選択して、Microsoft Security ストアでプロバイダーの登録情報を開きます。
-4. Microsoft Security ストアで次の手順を実行します。
-
-    1. [ **アカウントの詳細**] で、 **課金サブスクリプション** と **リソース グループ**を選択し、 **リソース名**を指定します。
-    2. **[ソリューションの詳細**] で、[**プランの選択**] を選択し、価格プランを選択します。
-    3. [ **次へ**] を選択し、注文の詳細を確認して、[ **注文]** を選択します。
-5. SaaS サブスクリプションの準備ができたら、[ **今すぐアカウントの構成]** を選択します。 アクティブ化を完了するには、SaaS プロバイダーの管理ポータルにリダイレクトされます。
-6. プロバイダーの **[全般]** ページで、必要な詳細 (連絡先名、電子メール、電話番号) を入力し、[ **アクティブ化**] を選択します。
-7. 成功の確認が表示されたら、Microsoft Entra 管理センターの [アカウントの回復] ページに戻ります。
-
-既にサブスクライブしているプロバイダーの場合は、[ **選択** ] を選択してプロファイルで使用します。
-
-### ID 検証プロファイルを作成する
-
-ID 検証プロファイルは、特定のユーザー グループに対するアカウントの回復のしくみ (検証を実行するプロバイダー、使用する回復モード、アカウント検証の処理方法) を定義します。 異なる構成を持つ複数のユーザーグループをサポートするために、複数のプロファイルを作成できます。
-
-1. Microsoft Entra 管理センターで、**Entra ID**&gt;**Account recovery** に移動し、**Profiles** タブを選択します。
-2. [ **追加]** を選択してプロファイル作成ウィザードを開始します。
-
-#### プロファイルの詳細を追加する
-
-1. [ **プロファイルの詳細** ] ステップで、プロファイルの **名前** とオプションの **説明** を入力して、後で識別できるようにします。
-
-    [Image: プロファイル名と説明のフィールドを含むウィザードのプロファイルの詳細ステップを示すスクリーンショット。]
-2. [**次へ**] を選択します。
-
-#### 回復モードを選択する
-
-1. **回復モード**の手順で、次のいずれかのモードを選択します。
-
-    - **評価** - ユーザーは、実際にアカウントを回復することなく、ID 検証プロセスをテストできます。 運用環境のデプロイ前にフローを検証するには、このモードを使用します。
-    - **運用** — ID 検証を完了したユーザーは、アカウントを完全に回復し、認証方法を再登録できます。
-
-    [Image: [評価] オプションと [運用] オプションとその説明を含む回復モードの手順を示すスクリーンショット。]
-
-    注
-
-    評価 **モードから** 開始し、完全復旧を有効にする前に、小さなグループで ID 検証フローをテストします。 評価モードでは、アカウントは復旧 **されません** 。ユーザーはプロセスが動作することを確認することしかできません。
-2. [**次へ**] を選択します。
-
-#### ユーザー グループの選択
-
-1. **[ユーザー グループの選択**] ステップで、この回復プロファイルを使用できるユーザーを選択します。
-
-    - [ **含める** ] タブを選択して、特定のグループを対象とします。 [ **すべてのユーザー]** または **[ターゲットの選択** ] を選択し、[ **グループの選択** ] を選択して特定のグループを選択します。
-    - プロファイルから特定のグループを除外するには、[ **除外** ] タブを選択します。 除外は機能全体で行います。
-
-    [Image: [含める] タブと [除外] タブとグループ選択オプションを含むユーザー グループの選択手順を示すスクリーンショット。]
-2. [**次へ**] を選択します。
-
-#### ID 検証プロバイダーを選択する
-
-1. [ **ID 検証プロバイダー** ] ステップで、このプロファイルに使用するプロバイダーを選択します。 一覧には、既にサブスクライブしているプロバイダーと、新しいサブスクリプションで使用できるプロバイダーが表示されます。
-
-    [Image: ID 検証プロバイダーのステップと、使用可能なプロバイダーとそのコンプライアンス バッジを示すスクリーンショット。]
-
-    - サブスクライブしているプロバイダーの場合は、[ **選択**] を選択します。
-    - 新しいプロバイダーの場合は、**Get Solution** を選択して、最初に Microsoft Security ストアをサブスクライブします。
-2. [**次へ**] を選択します。
-
-#### アカウントの検証を構成する
-
-1. **Account 検証** ステップで、検証プロバイダーからの ID 要求をMicrosoft Entra IDのユーザー プロパティと照合する方法を構成します。
-
-    [Image: ID 要求の照合、一致の信頼度、カスタム認証拡張機能オプションを含むアカウント検証手順を示すスクリーンショット。]
-
-    **ID 要求照合**は、プロバイダーの要求とMicrosoft Entra属性の間の既定の要求マッピングを示します。
-
-    | プロバイダー・クレーム（ターゲット） | Entra クレーム (ソース) |
-    | --- | --- |
-    | 名（ファーストネーム） | firstName |
-    | 姓 | surName |
-2. [ **一致の信頼度**] で、一致する動作を選択します。
-
-    - **Exact** — 要求は正確に一致する必要があります。
-    - **Relaxed** — クロスフィールド ワード マッチングを使用して、政府発行のドキュメントとMicrosoft Entra IDユーザー プロファイルでの名前の表示方法のバリエーションに対応します。 一致の緩和のしくみの詳細については、「[確認済み ID とMicrosoft Entra IDアカウントの詳細の照合方法」を参照してください](https://learn.microsoft.com/ja-jp/entra/identity/authentication/self-service-account-recovery#how-is-the-verified-id-matched-against-microsoft-entra-id-account-details-)
-3. (推奨)[ **追加の要求の検証**] で、カスタム認証拡張機能を有効にして、復旧中に組織固有のアカウント照合ロジックを追加します。 アカウントの復旧中に検証済み ID 要求を検証するカスタム認証拡張機能の例については、「Microsoft Entra [アカウント回復要求検証用のカスタム認証拡張機能の作成](https://learn.microsoft.com/ja-jp/entra/identity-platform/tutorial-custom-authentication-extension-account-recovery)を参照してください。
-
-    この手順では、HRIS システム、従業員ディレクトリ、その他の権限のあるソースなど、組織のデータに接続する事前に構成されたAzure関数、ロジック アプリ、または REST エンドポイントが必要です。 復旧中に、ID 検証プロバイダーからの検証済み要求がエンドポイントに渡され、組織のデータに対して検証され、一致の決定が返されます。
-
-    Important
-
-    カスタム認証拡張機能によって処理されるすべてのデータは、組織の信頼境界内に留まります。 組織データはMicrosoftと共有されません。一致した結果のみがアカウント復旧フローに返されます。
-
-    追加の要求検証を構成するには:
-
-    1. **[有効化**] トグルをオンに設定します。
-    2. 既存のカスタム認証拡張機能を選択するか、**Create new extension** を選択して、新しいAzure関数、ロジック アプリ、または REST API エンドポイントを登録します。
-
-    [Image: 有効化トグルと拡張機能の選択を含むカスタム認証拡張機能の構成を示すスクリーンショット。]
-4. [**次へ**] を選択します。
-
-#### レビューと最終処理
-
-1. [ **確認と最終処理** ] 手順で、すべての構成の選択肢を確認します。
-
-    - **回復モード** - 評価または運用
-    - **ユーザー グループ** - 含まれているグループと除外されたグループ
-    - **ID 検証プロバイダー** — 選択したプロバイダー
-    - **アカウントの検証** - 要求マッピング、一致の信頼度、カスタム認証拡張機能の設定
-
-    [Image: すべてのプロファイル構成設定の概要を示す、レビューと最終処理の手順を示すスクリーンショット。]
-
-    セクションの横にある **[編集]** を選択して戻り、設定を変更します。
-2. [ **完了]** を選択してプロファイルを作成します。
-
-### ID 検証プロファイルを管理する
-
-1 つ以上のプロファイルを作成すると、[ **プロファイル** ] タブに、テーブル ビューにすべての ID 検証プロファイルが表示されます。
-
-[Image: プロファイル名、プロバイダー、状態、モード、優先度、アクションを一覧表示するテーブルを含む [プロファイル] タブを示すスクリーンショット。]
-
-このページからは、次のことを行うことができます。
-
-- **[追加]** - 別の ID 検証プロファイルを作成します。
-- **更新** - プロファイルの一覧を更新します。
-- **監査ログの表示** - アカウント回復の変更に関する監査ログ エントリを確認します。
-- **優先度の設定** - ユーザーが複数のプロファイルにアクセスできる場合にプロファイルを評価する順序を変更します。
-- **列の編集** - テーブルに表示する列をカスタマイズします。
-- プロファイルの**編集** - 編集アイコンを選択して、既存のプロファイルの構成を変更します。
-- プロファイルを**コピー**する - 既存のプロファイルを新しいプロファイルの開始点として複製します。
-- プロファイルを**削除**する - 不要になったプロファイルを削除します。
-
-### ユーザー プロファイルがアカウント回復の準備ができているかどうかを確認する
-
-アカウントの回復が正しく機能するためには、ユーザー プロパティが ID 検証プロバイダーによって返される要求と一致する必要があります。
-
-1. [Microsoft Entra 管理センター](https://entra.microsoft.com)に、少なくとも[ユーザー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#user-administrator)としてサインインします。
-2. **Entra ID**&gt;**Users**&gt;**All Users** に移動し、確認するユーザーを選択します。
-3. [ **プロパティの編集] を選択します**。
-4. **[名**] プロパティと [**姓]** プロパティが入力され、ユーザーの政府発行 ID と一致していることを確認します。 表示名は、アカウント回復照合プロセスでは使用されません。 **名** と **姓** のプロパティのみが使用されます。
-
-Important
-
-First Name プロパティまたは Last Name プロパティが空白の場合、アカウントの回復は ID 検証プロバイダーからの要求と一致しません。 ユーザーの政府機関 ID の実際の名前が、Microsoft Entra ID アカウントに記載されているものと一致しない場合があります。これらのプロパティを確認して修正してから、それらのユーザーの回復を有効にします。
-
-### プロファイルを評価から運用環境に移動する
-
-評価モードでアカウントの回復をテストし、ID 検証が期待どおりに動作することを確認したら、プロファイルを更新して完全復旧を有効にします。
-
-1. Microsoft Entra 管理センターで、**Entra ID**&gt;**Account recovery** に移動し、**Profiles** タブを選択します。
-2. 更新するプロファイルの横にある編集アイコンを選択します。
-3. **回復モード**の手順で、**実稼働**を選択してアカウントの完全復旧を有効にします。
-4. その他の設定を確認して確認し、[ **完了** ] を選択して変更を適用します。
-
-プロファイルを運用モードに設定すると、スコープ付きグループのユーザーはアカウントの回復を使用して、アカウントへのアクセスを完全に回復できます。 構成されたプロバイダーを介して ID 検証を完了し、一時アクセス パスを受け取って認証方法を再登録します。
-
-Caution
-
-運用モードに切り替える前に、アカウントの回復の対象になっているユーザーを確認します。 組織のセキュリティ要件に基づいて、適切なユーザー集団のみがこの機能にアクセスできるかどうかを確認します。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-account-recovery-for-users"} -->
-## Microsoft Entra IDでアカウントの回復を実行する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-account-recovery-for-users
-- Service: entra-id / authentication
-- Article date: 2026-04-02
-- Summary: すべての認証方法が失われた場合に、エンド ユーザーが ID 検証を通じてMicrosoft Entra ID アカウントを回復する方法について説明します。 ステップ バイ ステップの復旧プロセスに従います。
-
-ユーザーは、いくつかの簡単な手順でアカウントを回復できます。 この記事では、ユーザーがアカウント回復プロセスを検出して開始する方法と、組織の構成済みプロバイダーを介した ID 検証中に想定される内容について説明します。
-
-### ビデオ: Microsoft Entra IDで職場または学校アカウントを回復する
-
-### ユーザーステップ
-
-1. まず、Microsoft Teamsなどのアプリケーションにサインインするか、https://login.microsoftonline.com で直接サインインします。
-2. サインインに使用する初期認証方法が表示されます。
-3. この方法を使用できないため、[ **その他のサインイン方法**] を選択します。 追加のサインイン オプションが表示されます。
-4. どの方法でもサインインできない場合は、[アカウントの回復] を選択 **します**。
-
-    [Image: サインインしてアカウントの回復を設定する方法を示すスクリーンショット。]
-5. アカウントの回復プロセスを説明し、組織の構成済みの外部 ID 証明サービスを通じて ID 検証を完了するためのガイダンスを提供する情報画面が表示されます。
-6. 組織によって構成された ID 証明サービスにリダイレクトされ、ID 証明プロセスを開始します。
-
-    注
-
-    ID 検証に必要な具体的な手順は、組織によって構成された ID 検証パートナーによって異なる場合があります。 プロバイダーがユーザーに提示できる一般的な手順を次に示します。
-7. モバイル デバイスでカメラを開き、ID 証明アプリケーションの Web サイトで QR コードをスキャンします。
-8. モバイル デバイスで ID 校正アプリケーションまたはページが開いたら、[ **続行**] を選択します。
-9. 名前と電子メールを入力し、アプリの使用条件に同意して、[続行] を選択 **します**。
-10. お客様の国/地域、および **パスポート** や運転免許証など、お持ちの本人確認書類の種類を選択 **します**。
-11. 明確なドキュメント写真を撮る方法を確認し、各手順を読んだ後に **[続行** ] を選択します。
-12. 写真を撮影したら、[写真の **送信]** を選択します。
-13. 顔を鮮明に撮れるようにする方法を確認し、各手順を読んだ後に**続行**を選択します。
-14. 写真を撮ると、ID 証明アプリケーションまたはページによって ID が検証され、Microsoft Authenticator アプリに検証可能な資格情報が発行されます。
-
-    注
-
-    これは、検証済み **ID の追加** や **Authenticator で開く**などのオプションとしてプロバイダーによって表示される場合があります。
-15. メッセージが表示されたら、**Open** を選択し、Microsoft Authenticatorのロックを解除します。
-16. アカウントの所有権を検証する前に、簡単な Face Check を完了するように求められます。
-17. プロセスが完了すると、一時的なアクセス パスが取得されます。 このコードをコピーし、[サインイン] を選択 **します**。
-18. 最後に、新しい認証方法を登録し、アクセスを完全に回復できる [セキュリティ情報](https://mysignins.microsoft.com/security-info)にリダイレクトされます。
-
-    [Image: アカウント回復用のパスキーを作成する方法を示すスクリーンショット。]
-
-### トラブルシューティング
-
-#### ユーザーが評価モードでアカウントを回復できない
-
-プロファイルが既定の評価モードの場合、ID 検証 (IDV) プロバイダーと Face Check を使用してユーザー検証に合格すると、次の画面が表示されます。 このエクスペリエンスは、評価モードで想定されます。 認証ポリシー管理者は、一時アクセス パス (TAP) を発行する前に、ユーザーを運用モードにする必要があります。
-
-[Image: ユーザーのプロファイルが評価モードであることを示すスクリーンショット。]
-
-#### ユーザーが TAP を発行していない
-
-TAP 画面に赤いエラー メッセージが表示され、TAP が発行されない場合は、要求 ID 情報と実際の名前Microsoft Graph一致することを確認します。
-
-[Image: TAP 画面に赤いエラー メッセージを示すスクリーンショット。]
-
-#### ユーザーが他のサインイン方法を選択した場合、[アカウントの回復] オプションが表示されない場合があります
-
-アカウントの回復は、以前の認証イベントがあるアクティブに使用されるアカウント用に設計されています。 アカウント回復のスコープを有効または変更した後、回復オプションを使用できるようにするには、ユーザーが初期認証を完了することが必要になる場合があります。 テスト アカウントを使用して復旧を評価する場合は、アカウントの回復を試みる前に、まずユーザーの認証を行ってください。
-
-後でサインインしても **アカウントの回復** が表示されない場合は、アカウント回復プロファイル (エンジニアリングなど) に含めるグループに、セルフサービス回復を許可するすべてのユーザーが含まれていることを確認します。 選択したグループに含まれていない場合、ログイン中に回復タスクは提供されません。
-
-[Image: サインインする別の方法を選択する方法を示すスクリーンショット。]
-
-#### 回復の開始時に要求を完了できないことを示すエラーがユーザーに表示される場合があります
-
-これは、アカウントの回復で設定された ID 検証プロバイダーが使用できない場合、またはセキュリティ ストアに問題がある場合に発生します。 管理者は、プロバイダーのアカウント回復の構成とセキュリティ ストアの状態を確認する必要があります。
-
-[Image: エラーを示し、もう一度試すスクリーンショット。]
-
-#### ID 検証プロバイダーのエラー
-
-ドキュメント検証中に、IDV (IDV) プロバイダーが政府のドキュメントまたは運転免許証のアップロードまたは自撮りの写真画像を読み取る際に問題が発生する可能性があります。 天井灯や窓からの反射光によって、プラスチックカードの撮影が困難になり、IDVが処理するためのデータをすべて確認するのが難しくなる可能性があります。
-
-ID 検証プロバイダーは、通常、アップロードした ID の写真に対して独自の顔生体認証チェックを行います。
-
-照明環境を変更したり、別の利用可能な政府機関文書を使用したりすると役立つ場合があります。
-
-[Image: ID 検証プロバイダーのドキュメント検証中の名前の不一致エラーを示すスクリーンショット。]
-
-#### Face Check の完了時のエラー
-
-Face Check のパフォーマンスは、キャプチャ中のユーザーの照明条件と背景によって影響を受ける可能性があります。 障害が発生した場合、イベント ログを使用すると、管理者は Face Check によって達成された信頼度スコアを確認できます。 改善された結果を得るには、明るいウィンドウやライトから離れた暗い環境で Face Check を実行することをお勧めします。
-
-顔チェックは、過度に明るい設定に適応するように設計されたアクティブモードが含まれています。このモードは困難な照明条件の下で正確さを高めるためにユーザー姿勢の手掛かりを利用する。
-
-[Image: アカウントの回復中の一般的なエラーを示すスクリーンショット。]
-
-アカウントの回復の一環として、提示された検証済み ID の写真がアクティブな Face Check と照合されます。 検証済み ID の写真は、ぼやけすぎたり品質が低かったりすると問題になる可能性がありますが、通常は政府のドキュメントと ID 検証プロバイダーのプロセスに由来するため問題ありません。 Microsoft Authenticatorウォレットの検証済みID写真をチェックして、顔を正確に比較するのに十分明確であることを確認します。
-
-[Image: 写真の一致を示すスクリーンショット。]
-
-#### ID 検証ドキュメントの検証後の一時アクセス パス コードの問題
-
-ユーザーが検証済み ID を Microsoft Entra と共有した後、アカウントの検証を試み、ID 検証プロバイダーによって発行された ID の検証済み要求と照合します。 このエラーは、アカウントの所有権を確認できなかった場合に発生する可能性があります。多くの場合、ユーザーのプロファイルの姓と ID の名前が一致していないことが原因です。 "John" と "Jonathan" の違い、または複雑な姓など、これらの問題が発生する可能性があります。 管理者は、プロファイル情報を更新することで、プレビュー中にこれを解決できます。 もう 1 つの考えられる原因は、回復中のユーザーに対する不適切な一時アクセス パス発行グループの構成です。 認証方法ポリシーを確認し、復旧のスコープ内のユーザーが一時アクセス パスメソッドでも有効になっていることを確認します。
-
-#### パスキーが発行されていません
-
-ユーザーが完全に検証され、新しい資格情報を登録するために MySignIns にリダイレクトされたら、監査ログを確認してパスキー登録エラーを評価する必要があります。 詳細については、 [パスキーを登録する方法 (FIDO2)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-register-passkey) を参照してください。
-
-同期されたパスキーの場合は、これらのパスキーがオペレーティング システムにネイティブであるため、デバイスのオペレーティング システムが更新されていることを確認します。 一時アクセス パスの有効期限が切れる前に新しい認証方法が登録されていない場合、ユーザーはアカウントの回復を再開して新しい一時アクセス パスを取得する必要があります。
-
-[Image: パスキーが登録されていない場合のエラーを示すスクリーンショット。]
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-authentication-entra-passkeys-on-windows"} -->
-## Windows で Microsoft Entra パスキーを有効にする - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-entra-passkeys-on-windows
-- Service: entra-id / authentication
-- Article date: 2026-07-05
-- Summary: Windows 上の Microsoft Entra パスキーが、Windows Hello を FIDO2 パスキー プロバイダーとして使用することで、職場または学校のアカウントでフィッシング耐性のある認証を可能にする仕組みについて説明します。
-
-この記事では、Windowsのパスキー Microsoft Entra、そのしくみ、およびWindows Hello for Businessとの違いについて説明します。
-
-Windows Hello を FIDO2 パスキー プロバイダーとして許可するパスキー プロファイルを構成するには、Windows で Microsoft Entra パスキー用のプロファイルを構成するを参照してください。
-
-### 概要
-
-Windows 上の Microsoft Entra パスキーでは、ユーザーはパスキー（FIDO2）を各自のデバイス上のローカル Windows Hello コンテナーに直接登録できます。 その後、ユーザーはこれらのパスキーを使用して、Microsoft Entra IDにサインインできます。 Windows 上の Microsoft Entra パスキーを使用すると、デバイスを Microsoft Entra に参加または登録しなくても、Windows Hello 生体認証または PIN を使用してフィッシングに対する耐性のあるサインインが可能になります。
-
-Windows で Microsoft Entra パスキーを使用する方法:
-
-- ユーザーは、ローカルの Windows Hello コンテナーにパスキー (FIDO2) を登録できます。
-- ローカル Windows パスキーを使用するために、デバイスを Microsoft Entra に参加または登録する必要はありません。
-- 1 つの Windows PC で、複数の Microsoft Entra アカウントの複数のパスキーを格納できます。
-- Windows Hello に登録されているパスキー (FIDO2) は、Microsoft Entra passkey (FIDO2) ポリシーとパスキー プロファイルによって管理されます。
-
-### Microsoft Entra パスキーが Windows でどのように機能するか
-
-Windows Hello は、Windows デバイス上のセキュリティで保護されたローカル資格情報コンテナーとして機能します。 コンテナーは、次のようなユーザープレゼンス検証によって保護されます。
-
-- PIN
-- 指紋
-- 顔認識
-
-Windows 上の Microsoft Entra パスキーを使用すると、この Windows Hello コンテナー内にパスキー (FIDO2) を作成して格納し、Microsoft Entra ID への認証に使用できます。
-
-この動作は、デバイスが Microsoft Intune で構成された Windows Hello for Business ポリシーによって管理されている場合にも適用されます。 ただし、パスキー（FIDO2）は、Microsoft Entra ID へのデバイス登録時に自動的に登録される可能性がある Windows Hello for Business の資格情報とは異なります。
-
-### Windows での Microsoft Entra パスキーと Windows Hello for Business の比較
-
-どちらの機能も Windows Hello を使用しますが、Windows と Windows Hello for Business の Microsoft Entra パスキーの目的と動作は異なります。
-
-| 特徴 | Windows での Microsoft Entra パスキー | Windows Hello for Business |
-| --- | --- | --- |
-| 標準ベース | Fido2 | 認証用の FIDO2、デバイス サインイン用のファースト パーティ (1P) プロトコル |
-| Registration | ユーザーが開始した場合、デバイスの参加や登録は必要ありません | デバイス登録中に一部の Microsoft Entra 参加済みまたは登録済みデバイスで自動的にプロビジョニングされる |
-| デバイスのサインインとシングル サインオン (SSO) | N/A | デバイスのサインイン後に Microsoft Entra 統合リソースへのデバイス サインインと SSO を有効にします |
-| パスキーの種類 | デバイスに結び付けられた | デバイスに結び付けられた |
-| 資格情報のバインディング | デバイスにバインドされ、ローカルの Windows Hello コンテナーに格納されます。 ユーザーは、同じデバイス上の複数の職場または学校アカウントに対して複数のパスキーを登録できます。 | 主に、デバイスの信頼にリンクされたデバイス バインドサインイン方法。 資格情報は、デバイスの登録に使用される職場または学校アカウントにのみ関連付けられます。 |
-| 管理 | Microsoft Entra ID 認証方法ポリシー | Microsoft Intuneグループ ポリシー |
-
-注
-
-Microsoft Entra 参加済みデバイスまたは Microsoft Entra 登録済みデバイスを使用している場合、Windows Hello を設定すると、デバイスのリンクされたアカウントの Windows Hello for Business 資格情報が自動的に登録される場合があります。 その後、同じアカウントの Windows にパスキーを登録しようとすると、Windows Hello for Business 資格情報が既に存在するため、登録は失敗します。 再試行時に、パスキーが既に登録されていることを示すエラーが表示されます。
-
-### Windows での Microsoft Entra パスキーの前提条件
-
-- 認証方法を構成するための少なくとも [認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) アクセス許可を持つアカウント。
-- Microsoft Entra 管理センターの[認証方法](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-passkeys-fido2#enable-passkey-profiles)にある**Passkey (FIDO2)**ポリシーで、**パスキーによるサインインを有効にする**必要があります。
-- Windows 10またはWindows 11
-- デバイスが Windows Hello をサポートしている必要がある
-
-### サポートされている Windows Hello パスキー AAGUID
-
-Windows Helloパスキーは、次の AAGUID を使用して識別および制御されます。 登録を有効にするには、パスキー プロファイルでこれらの AAGUID を明示的に許可する必要があります。
-
-| Windows Hello Authenticator | AAGUID | 説明 |
-| --- | --- | --- |
-| Windows Hello ハードウェア認証システム | 08987058-cadc-4b81-b6e1-30de50dcbe96 | ハードウェア ベースの TPM に格納されている秘密キー。 |
-| Windows Hello VBS ハードウェア認証システム | 9ddd1817-af5a-4672-a2b9-3e3dd95000a9 | 仮想化ベースのセキュリティ (VBS) は、ハードウェア仮想化と Windows ハイパーバイザーを使用して、ホスト コンピューターの TPM に秘密キーを格納します。 |
-| Windows Hello ソフトウェア認証システム | 6028b017-b1d4-4c02-b4b3-afcdafc96bb2 | ソフトウェア ベースの TPM に格納されている秘密キー。 |
-
-### Windows で Microsoft Entra パスキー用のプロファイルを構成する
-
-Windows 上で Microsoft Entra パスキーを使用するには、認証ポリシー管理者が以下の設定でパスキー プロファイルを構成する必要があります。
-
-- プロファイルは、特定のWindows Hello AAGUID を対象とする必要があります。
-- このプロファイルでは **構成証明を強制**できません。
-
-1. 少なくとも [認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)として Microsoft Entra 管理センターにサインインします。
-2. **[Entra ID]**&gt;**[Authentication メソッド]** に移動します。
-3. **認証方法 |[ポリシー] ページで**、**パスキー (FIDO2)**&gt;**構成**を選択します。
-4. [ **+ プロファイルの追加] を選択します**。
-
-    [Image: パスキー プロファイルを追加する方法を示すスクリーンショット。]
-5. プロファイルの**名前**を入力します。たとえば、**Windows 上の Entra パスキー**などです。
-6. **Passkey 型**の場合は、[**デバイス バインド]** を選択します。
-7. **[ターゲット固有の AAGUIDS**] を選択し、[**動作**] を **[許可**] に設定します。
-8. **+ AAGUID を追加**&gt;**Windows Hello** と **保存**を選択します。
-
-    [Image: Windows Hello AAGUIDs 構成オプションを示すパスキー プロファイル構成設定のスクリーンショット。]
-
-#### 例: Microsoft Authenticator と Windows Hello のパスキーを許可する
-
-特定の AAGUID をターゲットにして、ユーザーが登録できる認証子を制御できます。 この例では、パスキー プロファイルにより、Windows または Microsoft Authenticator でのパスキーの使用が許可されます。
-
-このプロファイルを構成するには:
-
-1. **ターゲット固有の AAGUID を選択します**。
-2. **[動作]** を **[許可**] に設定します。
-3. **+ AAGUID を追加**&gt;**Windows Hello** と **保存**を選択します。 **+ AAGUID を追加**&gt;**Microsoft Authenticator**、**保存** の順に選択します。
-
-この構成では、両方の AAGUID セットが許可リストに含まれているため、ユーザーはパスキーをMicrosoft AuthenticatorまたはWindowsのWindows Helloに登録できます。
-
-[Image: ターゲット固有の AAGUID が選択され、動作が [許可] に設定され、Microsoft Authenticatorと Windows Hello AAGUID が追加されたパスキー プロファイル設定の追加のスクリーンショット。]
-
-#### 例: Windows Helloハードウェア認証子のみを許可する
-
-また、特定の AAGUID をターゲットにして、ハードウェアベースのWindows Helloパスキーを要求することもできます。 この例では、高保証パスキー プロファイルでは、Windows Helloハードウェア認証子のみが許可され、Windows Helloソフトウェア認証システムは許可されません。
-
-この制限を構成するには:
-
-1. **ターゲット固有の AAGUID を選択します**。
-2. **[動作]** を **[許可**] に設定します。
-3. **モデル/プロバイダー AAGUID** で、**Windows Hello Hardware Authenticator** と **Windows Hello VBS Hardware Authenticator** の AAGUID を追加し、**保存**します。
-
-この構成では、ユーザーは、デバイスがハードウェアベースのWindows Helloをサポートしている場合にのみ、Windowsにパスキーを登録できます。 Windows Hello ソフトウェア認証システム AAGUID は許可リストに含まれていないため、ソフトウェアのみの登録はブロックされます。
-
-[Image: [ターゲット固有の AAGUID] が選択され、[動作] が [許可] に設定され、Windows Hello ハードウェア認証器と Windows Hello VBS ハードウェア認証器の AAGUID が追加された [パスキー プロファイルの追加] 設定のスクリーンショット。]
-
-### Windows で Microsoft Entra パスキー用プロファイルのグループを有効にしてターゲットにする
-
-1. 少なくとも [認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)として Microsoft Entra 管理センターにサインインします。
-2. **[Entra ID]**&gt;**[Authentication メソッド]** に移動します。
-3. **認証方法 | ポリシー** ページで、**パスキー (FIDO2)**&gt;**有効化して対象を指定** を選択します。
-4. [ **有効化] タブと [ターゲット** ] タブで、[ **有効]** が **[オン]** になっていることを確認します。
-5. [ **ターゲットの追加]** を選択し、[ **すべてのユーザー** ] または **[ターゲットの選択]** を選択して特定のグループを選択します。
-
-    [Image: パスキー プロファイルのターゲットを追加する方法を示すスクリーンショット。]
-6. Windows 上の Microsoft Entra パスキーのプロファイルを選択し、[**Save**] を選択します。
-
-    [Image: Windows で Microsoft Entra パスキー用のプロファイルを有効にして対象にする方法を示すスクリーンショット。]
-
-### FAQ
-
-**質問**: Windows での Microsoft Entra パスキーのユース ケースは何ですか?
-
-**回答**: 次の場合は、Windows で Microsoft Entra パスキーを使用します。
-
-- Windows にパスキー (FIDO2) をローカルに格納する必要があります。
-- ユーザーは、1 台の PC から複数の Microsoft Entra アカウントにアクセスします。
-- 未登録、個人用、または共有デバイスで、標準ベースのフィッシングに強い Microsoft Entra へのサインインが必要です。
-
-**質問**: Windows 上の Microsoft Entra パスキーは Windows Hello for Business に置き換えられますか?
-
-**回答 :** いいえ。 Windows 上の Microsoft Entra パスキーは、Windows Hello for Business に代わることはありません。 Windows Hello for Business は、企業の管理対象デバイス、Microsoft Entra 参加済みデバイス、または登録済みデバイスにサインインするための推奨ソリューションです。 Windows 上の Microsoft Entra passkey は、デバイスが参加または登録されていないシナリオで Windows でパスキー (FIDO2) を有効にすることで、Windows Hello for Business を補完します。 Windows 上の Microsoft Entra パスキーは、デバイスのサインインをサポートしていません。
-
-注
-
-Windows Hello for Business 資格情報が同じアカウントとコンテナーに既に存在する場合、ユーザーは Windows にパスキーを登録できません。 このブロックは、ユーザーが合計 50 個のプラットフォーム資格情報を超えると適用されない場合があります。
-
-**質問**: Microsoft Entra パスキーは同期されていますか?
-
-**回答 :** いいえ。 Windows 上の Microsoft Entra パスキーはデバイスにバインドされ、ローカルの Windows Hello コンテナーに格納されます。 デバイス間で同期されることはありません。 各デバイスには、Microsoft Entra アカウントごとに個別のパスキー登録が必要です。
-
-### WindowsにMicrosoft Entraパスキーを登録する
-
-管理者が Windows パスキー プロファイルを作成した後、ユーザーはパスキーをデバイス上のローカル Windows Hello コンテナーに直接登録できます。
-
-登録手順については、「[WindowsにMicrosoft Entraパスキーを登録する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-register-entra-passkey-windows)」を参照してください。
-
-### Windowsで Microsoft Entra パスキーを使用してサインインする
-
-登録後、ユーザーはデバイスのWindows Helloに格納されているパスキーを使用して、Microsoft Entra IDにサインインできます。
-
-サインイン手順については、「Windows[でMicrosoft Entraパスキーを使用してサインインする](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-sign-in-entra-passkey-windows)」を参照してください。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-authentication-external-method-manage"} -->
-## Microsoft Entra ID で外部 MFA を管理する方法 - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-external-method-manage
-- Service: entra-id / authentication
-- Article date: 2026-02-24
-- Summary: Microsoft Entra 多要素認証の外部 MFA メソッドを管理する方法について説明します
-
-以前は外部認証方法と呼ばれる外部多要素認証 (MFA) を使用すると、ユーザーは職場または学校アカウントでサインインするときに MFA 要件を満たすために外部プロバイダーを選択できます。 Microsoft Entra ID は、ID コントロール プレーンとして、ポリシーの完全な評価とアクセスの決定を引き続き処理します。
-
-### 外部 MFA を構成するために必要なメタデータ
-
-外部 MFA を構成するには、外部認証プロバイダーから次の情報が必要です。
-
-- **アプリケーション ID** は、一般的にはプロバイダーのマルチテナント アプリケーションで、統合の一部として使用されます。 テナントのこのアプリケーションには、管理者の同意が必要です。
-- **クライアント ID** は、認証を要求する Microsoft Entra ID を識別するために、認証統合の一部として使用されるプロバイダーの識別子です。
-- **探索 URL** は、外部認証プロバイダーの OpenID Connect (OIDC) 検出エンドポイントです。
-
-    アプリの登録を設定する方法の詳細については、「 [Microsoft Entra ID を使用して新しい外部認証プロバイダーを構成する」を](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-external-method-provider#configure-a-new-external-authentication-provider-with-microsoft-entra-id)参照してください。
-
-    重要
-
-    kid (キー ID) プロパティが、id\_tokenの JSON Web トークン (JWT) ヘッダーと、プロバイダーのjwks\_uriから取得した JSON Web キー セット (JWKS) の両方で base64 でエンコードされていることを確認します。 このエンコードアラインメントは、認証プロセス中にトークン署名をシームレスに検証するために不可欠です。 配置が間違うと、キーの一致または署名の検証に問題が発生する可能性があります。
-
-### Microsoft Entra 管理センターで外部 MFA を管理する
-
-外部 MFA は、組み込みメソッドと同様に、Microsoft Entra ID 認証方法ポリシーを使用して管理されます。
-
-#### 管理センターで外部 MFA を構成する
-
-管理センターで外部 MFA を構成する前に、 外部 MFA を構成するためのメタデータがあることを確認してください。
-
-1. 少なくとも[認証ポリシー管理者](https://entra.microsoft.com)として [Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)にサインインします。
-2. **Entra ID**&gt;**Authentication メソッド**&gt;**外部 MFA の追加**に移動します。
-
-    [Image: Microsoft Entra 管理センターで外部 MFA を追加する方法のスクリーンショット。]
-
-    プロバイダーからの構成情報に基づいてメソッドのプロパティを追加します。 次に例を示します。
-
-    - 名前: Adatum
-    - クライアント ID: 00001111-aaaa-2222-bbbb-3333cccc4444
-    - 探索エンドポイント: `https://adatum.com/.well-known/openid-configuration`
-    - アプリ ID: 11112222-bbbb-3333-cccc-4444dddd5555
-
-    重要
-
-    ユーザーには、メソッド ピッカーに表示名が表示されます。 メソッドの作成後に名前を変更することはできません。 表示名は一意である必要があります。
-
-    [Image: 外部 MFA プロパティを追加する方法のスクリーンショット。]
-
-    プロバイダーのアプリケーションに対する管理者の同意を付与するには、少なくとも[特権ロール管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#privileged-role-administrator)ロールが必要です。 同意の付与に必要なロールがない場合でも、認証方法を保存することはできますが、同意が付与されるまで有効にすることはできません。
-
-    プロバイダーからの値を入力した後、ボタンを押して、正しく認証するために必要な情報をユーザーから読み取ることができるように、アプリケーションに管理者の同意を付与するよう要求します。 管理者アクセス許可を持つアカウントでサインインし、プロバイダーのアプリケーションに必要なアクセス許可を付与するよう要求されます。
-
-    サインインした後、[ **同意** する] を選択して管理者の同意を付与します。
-
-    [Image: 管理者の同意を付与する方法を示すスクリーンショット。]
-
-    同意を付与する前に、プロバイダーのアプリケーションで要求されているアクセス許可を確認できます。 管理者の同意を付与し、変更が複製されると、管理者の同意が付与されたことを示すためにページが更新されます。
-
-    [Image: 同意が付与された後の認証方法ポリシーのスクリーンショット。]
-
-アプリケーションにアクセス許可がある場合は、保存する前にメソッドを有効にすることもできます。 そうでない場合は、メソッドを無効の状態で保存し、アプリケーションの同意が付与された後に有効にする必要があります。
-
-メソッドが有効になると、範囲内のすべてのユーザーが MFA プロンプトに対してこのメソッドを選択できるようになります。 プロバイダーからのアプリケーションの同意が承認されていない場合、そのメソッドでのサインインは失敗します。
-
-アプリケーションが削除されたり、アクセス許可がなくなったりすると、ユーザーにエラーが表示され、サインインに失敗します。 メソッドは使用できません。
-
-#### 管理センターで外部 MFA を管理する
-
-Microsoft Entra 管理センターで外部 MFA を管理するには、認証方法ポリシーを開きます。 メソッド名を選択すると、構成オプションが開きます。 どのユーザーをこのメソッドに含めるか、除外するかを選択することができます。
-
-[Image: 特定のユーザーの外部 MFA の使用状況をスコープ設定する方法のスクリーンショット。]
-
-#### 管理センターで外部 MFA を削除する
-
-ユーザーが外部 MFA を使用できないようにする場合は、次のいずれかを実行できます。
-
-- **[有効にする]** を **[オフ]** に設定して、メソッド構成を保存します
-- **[削除] を**選択してメソッドを削除する
-
-[Image: 外部 MFA を削除する方法のスクリーンショット。]
-
-### Microsoft Graph を使用して外部 MFA を管理する
-
-Microsoft Graph を使用して認証方法ポリシーを管理するには、`Policy.ReadWrite.AuthenticationMethod` アクセス許可が必要です。 詳細については、「[authenticationMethodsPolicy を更新する](https://learn.microsoft.com/ja-jp/graph/api/authenticationmethodspolicy-update)」を参照してください。
-
-### ユーザー エクスペリエンス
-
-外部 MFA が有効になっているユーザーは、サインイン時に多要素認証が必要な場合に使用できます。
-
-ユーザーがサインインする他の方法があり、 [システム優先認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-system-preferred-authentication) が有効になっている場合、それらの他の方法は既定の順序で表示されます。 ユーザーは別の方法を使用して、外部 MFA を選択できます。 たとえば、ユーザーが別の方法として Authenticator を有効にしている場合、[数値の一致](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-mfa-number-match)が要求されます。
-
-[Image: システム優先認証が有効になっているときに外部 MFA を選択する方法のスクリーンショット。]
-
-ユーザーが他の方法を有効にしていない場合は、外部 MFA のみを選択できます。 外部認証プロバイダーにリダイレクトされ、認証が完了します。
-
-[Image: 外部 MFA を使用してサインインする方法のスクリーンショット。]
-
-### 外部 MFA の認証方法の登録
-
-外部 MFA が有効になっているグループのメンバーであるユーザーは、外部 MFA を使用して MFA を満たすことができます。 これらのユーザーは、認証方法の登録に関するレポートには含まれません。
-
-#### ユーザーがセキュリティ情報に外部 MFA を登録する方法
-
-ユーザーは、次の手順に従って、セキュリティ情報に外部 MFA を登録できます。
-
-1. [セキュリティ情報](https://mysignins.microsoft.com/security-info)にサインインします。
-2. [ **+ サインイン方法の追加]** を選択します。
-3. 使用可能なオプションの一覧からサインイン方法を選択するように求められたら、[ **外部認証方法**] を選択します。
-4. 確認画面で **[次へ** ] を選択します。
-5. 外部プロバイダーで 2 番目の要素チャレンジを完了します。 成功した場合、ユーザーはサインイン方法に一覧表示されている外部 MFA を確認できます。
-
-#### 登録ウィザードを使用してユーザーが外部 MFA を登録する方法
-
-ユーザーがサインインすると、登録ウィザードによって、使用が有効になっている外部 MFA メソッドを登録できます。 他の認証方法が使用可能になっている場合は、**別の方法を設定する**&gt;**外部認証方法**を選択し、続行する必要があるかもしれません。 外部 MFA を Microsoft Entra ID に登録するには、外部 MFA プロバイダーで認証する必要があります。
-
-認証が成功すると、登録が完了したことを確認するメッセージが表示され、外部 MFA が登録されます。 ユーザーは、アクセスするリソースにリダイレクトされます。
-
-認証に失敗した場合、ユーザーは登録ウィザードにリダイレクトされ、登録ページにエラー メッセージが表示されます。 ユーザーは、もう一度試すか、他の方法で有効になっている場合は、別のサインイン方法を選択できます。
-
-#### 管理者がユーザーの外部 MFA を登録する方法
-
-管理者は、外部 MFA のユーザーを登録できます。 外部 MFA にユーザーを登録する場合、ユーザーは [、セキュリティ情報](https://mysignins.microsoft.com/security-info) または登録ウィザードを使用して外部 MFA を登録する必要はありません。
-
-管理者は、ユーザーの代わりに登録を削除することもできます。 次の署名によって新しい登録がトリガーされるため、ユーザーは回復シナリオで役立つ登録を削除できます。 外部 MFA 登録は、 [Microsoft Entra 管理センター](https://entra.microsoft.com/) または [Microsoft Graph](https://learn.microsoft.com/ja-jp/graph/api/resources/externalauthenticationmethod) で削除できます。 管理者は、PowerShell スクリプトを作成して、複数のユーザーの登録状態を一度に更新できます。
-
-Microsoft Entra 管理センターの場合:
-
-1. **[ユーザー]**&gt;**[すべてのユーザー]** の順に選択します。
-2. 外部 MFA に登録する必要があるユーザーを選択します。
-3. [ユーザー] メニューの [ **認証方法**] を選択し、[ **+ 認証方法の追加]** を選択します。
-4. **[外部認証方法]** を選択します。
-5. 1 つ以上の外部 MFA メソッドを選択し、[ **保存]** を選択します。
-6. 成功メッセージが表示され、前に選択した方法が **[使用可能な認証方法]** に一覧表示されます。
-
-### 外部 MFA と条件付きアクセスを使用するためのベスト プラクティス
-
-外部 MFA と条件付きアクセスを使用する場合は、いくつかの重要な要素を考慮する必要があります。
-
-#### 外部 MFA と条件付きアクセスのカスタム コントロールを並列で使用する
-
-外部 MFA とカスタム コントロールは並列で動作できます。 Microsoft では、管理者に次の 2 つの条件付きアクセス ポリシーを構成することを推奨しています。
-
-- カスタム コントロールを適用するための 1 つのポリシー
-- MFA の付与が必要なもう 1 つのポリシー
-
-各ポリシーにユーザーのテスト グループを含めますが、両方ではありません。 ユーザーが両方のポリシーに含まれる場合、または両方の条件を持つポリシーに含まれる場合、ユーザーはサインイン時に MFA を満たす必要があります。 また、カスタム コントロールを満たす必要があるため、外部プロバイダーに 2 回リダイレクトされます。
-
-#### 条件付きアクセスにおけるサインイン頻度ポリシーでの外部 MFA の使用
-
-調査では、MFA プロンプトをユーザーの意図に合わせることの重要性が強化されました。 外部 MFA では、ユーザーは条件付きアクセス サインイン頻度ポリシーを使用して構成された MFA の鮮度要件に基づいて、MFA プロバイダーにリダイレクトされます。 ユーザーエクスペリエンスに悪影響を与え、生産性を低下させ、ユーザーが資格情報を入力するように調整することでフィッシングリスクを高める可能性があるため、過度に頻繁に再認証することはお勧めしません。 サインイン頻度ポリシーを構成するときは、 [再認証のガイダンス](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime) に従うことをお勧めします。
-
-### FAQ
-
-**質問：** デバイスのセットアップ中に Windows 10 で外部 MFA が機能しないのはなぜですか?
-
-**答え：** **外部 MFA 専用 ID を**使用して **Windows 10** を実行しているデバイスを設定すると、**Out-of-Box (OOB) セットアップ エクスペリエンス**が失敗し、サインインを続行できないという問題が発生する可能性があります。
-
-この動作は、 **Windows 10 が OOBE (Out-of-Box Experience) 中に外部 MFA をネイティブにサポートしていないため**に発生します。 Microsoft は Windows 10 (https://www.microsoft.com/windows/end-of-support?msockid=26a3312b6b246f501ec624846a4f6e11) をサポートしなくなり、 **外部 MFA サポートを拡張する予定はありません** 。
-
-サインインに外部 MFA を使用するには、 **Windows 11 にアップグレードします**。
-<!-- /MSL-PAGE -->
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-authentication-find-coverage-gaps"} -->
-## Microsoft Entra ID で管理者の強力な認証範囲にギャップがないか見つけて対処する - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-find-coverage-gaps
-- Service: entra-id / authentication
-- Article date: 2025-03-04
-- Summary: Microsoft Entra ID で管理者の強力な認証範囲にギャップがないか見つけて対処する方法について説明します
-
-テナントの管理者に対して多要素認証 (MFA) を要求することは、テナントのセキュリティを強化するために実行できる最初の手順の 1 つです。 この記事では、すべての管理者を確実に多要素認証の対象とする方法について説明します。
-
-### Microsoft Entra ビルトイン Administrator ロールの現在の使用状況を検出する
-
-[Microsoft Entra ID のセキュア スコア](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-identity-secure-score)を使うと、テナントで**管理者ロールに対して MFA が必須になっているかどうか**についてのスコアが提供されます。 この改善のための処置では、[管理者ロール](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference)を持つユーザーの MFA 使用状況を追跡します。
-
-管理者が MFA ポリシーの対象となっているかどうかは、さまざまな方法で確認できます。
-
-- 特定の管理者のサインインのトラブルシューティングを行う場合は、サインイン ログを使用できます。 サインイン ログでは、特定のユーザーの **[認証要件]** をフィルター処理できます。 **[認証要件]** が **[単一要素認証]** となっているサインインは、サインインに必要な多要素認証ポリシーが適用されていないことを意味します。
-
-    [Image: サインイン ログのスクリーンショット。]
-
-    特定のサインインの詳細を表示する場合は、**[認証の詳細]** タブを選択して、MFA 要件の詳細を確認します。 詳細については、「[サインイン ログ アクティビティの詳細](https://learn.microsoft.com/ja-jp/entra/identity/monitoring-health/concept-sign-in-log-activity-details)」を参照してください。
-
-    [Image: 認証アクティビティの詳細のスクリーンショット。]
-- ユーザー ライセンスに基づいて有効にするポリシーを選択できるように、[MFA ポリシーを比較し](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-mfa-licensing#compare-multi-factor-authentication-policies)、組織にとって最適な手順を確認するうえで役立つ新しい MFA 有効化ウィザードが用意されています。 ウィザードには、過去 30 日間に MFA によって保護された管理者が表示されます。
-
-    [Image: 多要素認証有効化ウィザードのスクリーンショット。]
-- [このスクリプト](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-AADToolkitUnprotectedUsersWithAdminRoles.ps1)を実行すると、過去 30 日間に MFA を使用して、またはなしでサインインしたディレクトリ ロールの割り当てを持つすべてのユーザーのレポートをプログラムで生成できます。 このスクリプトでは、すべてのアクティブな組み込みロールとカスタムロールの割り当て、すべての利用可能な組み込みロールとカスタムロールの割り当て、およびロールが割り当てられているグループが列挙されます。
-
-### 管理者に多要素認証を適用する
-
-多要素認証で保護されていない管理者を見つけた場合は、次のいずれかの方法で保護できます。
-
-- 管理者に Microsoft Entra ID P1 または P2 のライセンスが付与されている場合は、[条件付きアクセス ポリシーを作成](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-azure-mfa)して管理者に MFA を適用することができます。 このポリシーを更新することで、カスタム ロールに含まれるユーザーに MFA を要求することもできます。
-- [MFA 有効化ウィザード](https://aka.ms/MFASetupGuide)を実行して MFA ポリシーを選択します。
-- [Privileged Identity Management](https://learn.microsoft.com/ja-jp/entra/id-governance/privileged-identity-management/pim-configure) でカスタムまたは組み込みの管理者ロールを割り当てると、ロールのアクティブ化時に多要素認証が必要になります。
-
-### 管理者に対してパスワードレスおよびフィッシングに抵抗できる認証方法を使用する
-
-管理者が多要素認証の対象となり、しばらく使用した後、認証強度を高め、パスワードレスでフィッシングに対抗できる認証方法を使用します。
-
-- [電話によるサインイン (Microsoft Authenticator を使用)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-authenticator-app)
-- [FIDO2](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)
-- [Windows Hello for Business](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/)
-
-これらの認証方法とそのセキュリティに関する考慮事項の詳細については、[Microsoft Entra の認証方法](https://learn.microsoft.com/ja-jp/entra/identity/authentication/overview-authentication)に関するページ参照してください。
 <!-- /MSL-PAGE -->

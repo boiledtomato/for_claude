@@ -3338,7 +3338,7 @@ ISV の主要なトークンカスタマイズ方法は、アプリ登録のト�
 - Source: https://learn.microsoft.com/ja-jp/entra/architecture/deployment-external-authentication-access-control
 - Service: entra-external-id
 - Article date: 2025-05-22
-- Summary: 認証プロトコル エンドポイント、拡張機能の設計、イベント ハンドラーの詳細などについては、Microsoft Entra External ID を参照してください。
+- Summary: 認証プロトコル エンドポイント、拡張機能の設計、イベント ハンドラーの詳細などについては、Microsoft Entra 外部 ID を参照してください。
 
 認証は ID の検証に役立ち、アクセス制御はユーザーとグループにリソースへのアクセスを許可するプロセスです。
 
@@ -3346,20 +3346,20 @@ ISV の主要なトークンカスタマイズ方法は、アプリ登録のト�
 
 顧客向けアプリケーションは、Open Authorization 2.0 ([OAuth](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-protocols) 2) または Security Assertion Markup Language 2.0 ([SAML 2](https://en.wikipedia.org/wiki/SAML_2.0)) を使用して、Microsoft Entra 外部 ID で認証できます。
 
-次の表は、OAuth 2 と OpendID Connect (OIDC) のアプリケーション統合オプションをまとめたものです。
+次の表は、OAuth 2 と OpenID Connect (OIDC) のアプリケーション統合オプションをまとめたものです。
 
 | アプリケーションの種類 | 認証イニシエーター | 認証オプション |
 | --- | --- | --- |
 | ネイティブ クライアント: モバイル アプリとプラットフォーム アプリ | アプリを操作するユーザー | - [MSAL（Microsoft Authentication Libraries）によるネイティブ認証](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-native-authentication)、 - 、 |
 | サーバー上で実行されている Web アプリケーション | アプリケーションと対話するユーザー | Authorization code (承認コード) |
-| ブラウザーで実行されている Web アプリケーション、シングルページ アプリケーション (SPA) | アプリケーションと対話するユーザー | - MSAL を使用した - コード交換用の証明キー (PKCE) を使用した認証コード - [Hybrid または暗黙的](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-auth-code-flow) |
-| サーバー上で実行されている Web アプリケーション: ミドルウェア | ユーザーに代わってアプリケーションを作成する | [〜の代理として](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| ブラウザーで実行されている Web アプリケーション、シングルページ アプリケーション (SPA) | アプリケーションと対話するユーザー | - [MSAL による](https://learn.microsoft.com/ja-jp/entra/external-id/customers/concept-native-authentication) ネイティブ認証  - 認証コード  - [ハイブリッドまたは暗黙的](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-auth-code-flow)、コード交換用証明キー (PKCE) |
+| サーバー上で実行されている Web アプリケーション: ミドルウェア | ユーザーに代わってアプリケーションを作成する | [On behalf of](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 | サーバー上で実行されている Web アプリケーション | ヘッドレス サービスまたはアプリケーション | [クライアントの資格情報](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-client-creds-grant-flow) |
 | 制限付き入力デバイス | デバイスと対話するユーザー | [デバイス コード フロー](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
 
 注
 
-**代わりに**、ミドルウェアとバックエンドに提示されるサブ (サブジェクト) 要求が異なります。 [アクセス トークン要求リファレンス](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-token-claims-reference)のペイロードを参照してください。 サブジェクトは、アプリケーション ID に対して一意のペアワイズ識別子です。 ユーザーが異なるクライアント ID を使用して 2 つのアプリケーションにサインインすると、アプリケーションは 2 つのサブジェクト要求値を受け取ります。 2 つの値がアーキテクチャとプライバシーの要件に依存する場合に使用します。 オブジェクト識別子 (OID) 要求を書き留めます。これは、テナント内のアプリケーション間で同じままです。
+**on behalf of** に関して、ミドルウェアとバックエンドに提示されるサブ (対象) の要求内容が異なります。 [アクセス トークン要求リファレンス](https://learn.microsoft.com/ja-jp/entra/identity-platform/access-token-claims-reference)のペイロードを参照してください。 サブジェクトは、アプリケーション ID に対して一意のペアワイズ識別子です。 ユーザーが異なるクライアント ID を使用して 2 つのアプリケーションにサインインすると、アプリケーションは 2 つのサブジェクト要求値を受け取ります。 2 つの値がアーキテクチャとプライバシーの要件に依存する場合に使用します。 オブジェクト識別子 (OID) 要求を書き留めます。これは、テナント内のアプリケーション間で同じままです。
 
 OAuth 2 と OIDC フローの次の図は、OAuth アプリケーション統合オプションを示しています。
 
@@ -3387,7 +3387,7 @@ API を専用 API として実装するか、API マネージャーなどのミ�
 
 前の記事の一覧は、リソースの種類を追加するにつれて大きくなります。
 
-Microsoft は、Azure Functions アプリを構築[する .NET 開発者向けの NuGet パッケージ](https://learn.microsoft.com/ja-jp/azure/azure-functions/)を提供しています。 このソリューションは、Microsoft Entra 認証イベントの受信 HTTP 要求のバックエンド処理を処理します。 IDE IntelliSense を使用して API 呼び出し、オブジェクト モデル、型をセキュリティで保護するためのトークン検証を見つけます。 また、API 要求スキーマと応答スキーマの受信検証と送信検証も検索します。
+Microsoft は、[Azure Functions](https://learn.microsoft.com/ja-jp/dotnet/api/overview/azure/functions) アプリを構築[する .NET 開発者向けの NuGet パッケージ](https://learn.microsoft.com/ja-jp/azure/azure-functions/)を提供しています。 このソリューションは、Microsoft Entra 認証イベントの受信 HTTP 要求のバックエンド処理を処理します。 IDE IntelliSense を使用して API 呼び出し、オブジェクト モデル、型をセキュリティで保護するためのトークン検証を見つけます。 また、API 要求スキーマと応答スキーマの受信検証と送信検証も検索します。
 
 認証拡張機能は、サインインフローとサインアップ フローと共にインラインで実行されます。 シナリオが高パフォーマンスで堅牢で、セキュリティで保護されていることを確認します。 Azure Functions には、ライブラリ、シークレット ストレージ用 [の Azure Key Vault](https://learn.microsoft.com/ja-jp/azure/key-vault/general/basic-concepts) 、キャッシュ、自動スケール、監視などのセキュリティで保護されたインフラストラクチャが用意されています。 [セキュリティ操作](https://learn.microsoft.com/ja-jp/entra/architecture/deployment-external-operations)には、その他の推奨事項があります。
 <!-- /MSL-PAGE -->
@@ -6014,7 +6014,7 @@ Microsoft Entra サインイン ログをエクスポートし、セキュリテ
 3. カスタム拡張機能を編集します。
 4. アクセス パッケージにカスタム拡張機能を追加します。
 
-Microsoft Entra ID ガバナンスのカスタム機能とアクセス パッケージについては、次のビデオを参照してください。
+Microsoft Entra ID ガバナンスのカスタム拡張機能とアクセス パッケージについては、次のビデオを参照してください。
 
 ### 認証再確認: アクセス確認
 

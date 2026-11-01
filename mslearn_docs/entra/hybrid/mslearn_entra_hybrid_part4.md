@@ -5992,7 +5992,7 @@ Microsoft Entra Connect をアップグレードした後、 `miiserver.exe.conf
 
 1. 移動先: \Microsoft Azure AD Sync\Bin %programfiles%
 2. `miiserver.exe.config`をバックアップします。
-3. `miiserver.exe.config`開き、assemblyBinding セクション内に次のエントリを追加します。`<dependentAssembly> <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" /> <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />  </dependentAssembly>`
+3. `miiserver.exe.config`開き、assemblyBinding セクション内に次のエントリを追加します。`<dependentAssembly> <assemblyIdentity name="System.Diagnostics.DiagnosticSource" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" /> <bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" /> </dependentAssembly>`
 4. ファイルを保存します。
 5. ADSync サービスを再起動します。
 
@@ -6359,7 +6359,7 @@ Microsoft Graphアクセス許可が Microsoft Entra Connect に追加されま�
 - 既定のルールの更新:「onPremisesObjectIdentifier」属性が「**AD から入力 - ユーザー アカウントが有効化**」の同期規則に追加されました。 この規則を追加すると、同期エンジンは、次のようなシナリオで、有効になっているユーザーから **onPremisesObjectIdentifier** 属性を選択できます。
 - 同じユーザーが異なるフォレスト間で表され、
 - ユーザーがいずれかのフォレストで無効になっている
-- 必要に応じて、カスタム規則の優先順位番号を 100 を超える値に設定できるレジストリ キーが導入されました。 最初の標準規則の優先順位は、HLKM:\SOFTWARE\Microsoft\Azure AD Connect\FirstStandardRulePrecedence **キーを使用して設定**、より多くのカスタム 規則を許可できます。 値が設定されていない場合、既定値として 100 が使用されます。
+- 必要に応じて、カスタム規則の優先順位番号を 100 を超える値に設定できるレジストリ キーが導入されました。 最初の標準規則の優先順位は、キー **HKLM:\SOFTWARE\Microsoft\Azure AD Connect\FirstStandardRulePrecedence を**使用して設定でき、より多くのカスタム 規則を使用できます。 値が設定されていない場合、既定値として 100 が使用されます。
 - Microsoft Entra ID と通信する ADSync PowerShell モジュールのコマンドレットで、`Add-ADSyncAADServiceAccount` や `Get-ADSyncExportDeletionThreshold` などの Microsoft Entra ID ログインが必要になりました
 
 #### 使用停止された機能

@@ -6350,7 +6350,7 @@ MSAL Browser ライブラリには、認証フローの動作をカスタマイ�
 
 Microsoft ID プラットフォームでは、*スコープ中心の*モデルを使用してリソースにアクセスします。 ここでは、*リソース*とは、**アクセス トークン**の受信者 ([MS Graph API](https://learn.microsoft.com/ja-jp/graph/overview)や独自の Web API など) を指し、*スコープ* ("アクセス許可" *とも呼ばれる*) は**、アクセス トークン**が権限を付与するリソースの任意の側面を指します。
 
-**アクセストークン** の要求は、**MSAL.js** では *リソースごと、スコープごと* になるように設計されています。 これは、スコープ`scp1`でリソース**A**に対して要求された**アクセス トークン**が存在することを意味します。
+**アクセストークン** の要求は、**MSAL.js** では *リソースごと、スコープごと* になるように設計されています。 これは、スコープでリソース**A**に対して要求された`scp1`が存在することを意味します。
 
 - は、スコープ を使用してリソース `scp2` にアクセスするために使用できません。
 - は、どのスコープのリソース **B** にもアクセスするために使用できません。
@@ -6439,7 +6439,7 @@ const myToken = await msalInstance.acquireTokenSilent({
 
 ### 同意の有効期間
 
-Microsoft Entra IDでは、同意はアプリケーションの有効期間を超えて存続します。 つまり、リソース **のアクセス トークン** を要求すると、その時点で要求されたスコープに関係なく、そのリソースに対して以前に同意したすべてのスコープが返されます。 つまり、今日`User.Read`と`Mail.Read`に同意し、明日アプリケーションの新しいインスタンスを実行して、**アクセストークン**を`User.Read`についてのみ要求した場合でも、**両方の**`User.Read`と`Mail.Read`に対して発行されたトークンを引き続き受け取ることになります。 詳細については、「 [アクセス許可と同意」](https://learn.microsoft.com/ja-jp/entra/identity-platform/v2-permissions-and-consent#scopes-and-permissions)を参照してください。
+Microsoft Entra IDでは、同意はアプリケーションの有効期間を超えて存続します。 つまり、リソース **のアクセス トークン** を要求すると、その時点で要求されたスコープに関係なく、そのリソースに対して以前に同意したすべてのスコープが返されます。 つまり、今日`User.Read`と`Mail.Read`に同意し、明日アプリケーションの新しいインスタンスを実行して、**アクセストークン**を`User.Read`についてのみ要求した場合でも、**両方の**`User.Read`と`Mail.Read`に対して発行されたトークンを引き続き受け取ることになります。 詳細については、「 [アクセス許可と同意」](https://learn.microsoft.com/ja-jp/entra/identity-platform/permissions-consent-overview)を参照してください。
 <!-- /MSL-PAGE -->
 
 ---
@@ -8615,7 +8615,7 @@ MSAL Node ではさまざまな承認コード許可がサポートされてい�
 
 #### パブリック API
 
-- [getAuthCodeUrl()](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-getauthcodeurl): この API は、MSAL ノードの `authorization code grant` の最初の区間です。 要求は [AuthorizationUrlRequest 型です](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/authorizationurlrequest)。 アプリケーションには、 `authorization code`の生成に使用できる URL が送信されます。 この URL は任意のブラウザーで開くことができ、そこでユーザーは認証情報を入力すると、[アプリの登録](https://learn.microsoft.com/ja-jp/entra/identity-platform/scenario-desktop-app-registration)時に登録された `redirectUri` に `authorization code` 付きでリダイレクトされます。 `authorization code`は、次の手順で`token`に引き換えることができます。 パブリック クライアント アプリケーションに対して承認コード フローが実行されている場合は、 [PKCE](https://tools.ietf.org/html/rfc7636) をお勧めします。
+- [getAuthCodeUrl()](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-getauthcodeurl): この API は、MSAL ノードの `authorization code grant` の最初の区間です。 要求は [AuthorizationUrlRequest 型です](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/authorizationurlrequest)。 アプリケーションには、 `authorization code`の生成に使用できる URL が送信されます。 この URL は任意のブラウザーで開くことができ、そこでユーザーは認証情報を入力すると、`redirectUri`時に登録された  に `authorization code` 付きでリダイレクトされます。 `authorization code`は、次の手順で`token`に引き換えることができます。 パブリック クライアント アプリケーションに対して承認コード フローが実行されている場合は、 [PKCE](https://tools.ietf.org/html/rfc7636) をお勧めします。
 - [acquireTokenByCode()](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/publicclientapplication#@azure-msal-node-publicclientapplication-acquiretokenbycode): この API は、MSAL ノードの `authorization code grant` の第 2 段階です。 ここで構築される要求は、 [AuthorizationCodeRequest](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/authorizationcoderequest) 型である必要があります。 アプリケーションは、上記の手順の一環として受信した `authorization code` を渡し、 `token`と交換しました。 パブリック クライアント アプリケーションに対して承認コード フローが実行されている場合は、[PKCE](https://tools.ietf.org/html/rfc7636) をお勧めします。
 
 ```javascript
@@ -8677,7 +8677,7 @@ pca.acquireTokenByDeviceCode(deviceCodeRequest).then((response) => {
 
 #### パブリック API
 
-- [acquireTokenByRefreshToken](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/apiid): この API は、新しいトークン セットに提供された更新トークンを交換することによってトークンを取得します。 要求の種類は [RefreshTokenRequest です](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/refreshtokenrequest)。 `refresh token`は応答でユーザーに返されることはありませんが、ユーザー キャッシュからアクセスできます。 非対話型のシナリオでは、 `acquireTokenSilent()` を使用することをお勧めします。 [acquireTokenSilent()を](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/clientapplication)使用する場合、MSAL はトークンのキャッシュと更新を自動的に処理します。
+- [acquireTokenByRefreshToken](https://learn.microsoft.com/ja-jp/entra/msal/javascript/node/acquire-token-requests#public-apis-2): この API は、新しいトークン セットに提供された更新トークンを交換することによってトークンを取得します。 要求の種類は [RefreshTokenRequest です](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/refreshtokenrequest)。 `refresh token`は応答でユーザーに返されることはありませんが、ユーザー キャッシュからアクセスできます。 非対話型のシナリオでは、 `acquireTokenSilent()` を使用することをお勧めします。 [acquireTokenSilent()を](https://learn.microsoft.com/ja-jp/javascript/api/@azure/msal-node/clientapplication)使用する場合、MSAL はトークンのキャッシュと更新を自動的に処理します。
 
 ```javascript
 const config = {

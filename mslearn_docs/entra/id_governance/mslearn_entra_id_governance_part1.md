@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / ID ガバナンス (PIM・アクセスレビュー等) (part 1)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 44
+Pages in this file: 47
 
 ---
 
@@ -519,6 +519,95 @@ Microsoft Entra ID を使用すると、組織内のユーザーおよび外部�
 
 ---
 
+<!-- MSL-PAGE {"url":"entra/id-governance/agent-default-inactivity-policy"} -->
+## Microsoft Entra エージェント ID の既定の非アクティブ ポリシー - Microsoft Entra ID Governance
+
+- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/agent-default-inactivity-policy
+- Service: entra-id-governance
+- Article date: 2026-10-13
+- Summary: 非アクティブなエージェント ID を自動的に無効にするように既定のMicrosoft Entra エージェント ID非アクティブ ポリシーを構成する
+
+Microsoftユーザーのエージェント ID のセキュリティと管理性を確保するために、Microsoft Entra エージェント IDはすべてのテナントに既定の非アクティブ ポリシーを提供します。 このポリシーは、非アクティブなエージェント ID を識別し、関連するユーザーに通知した後、新しいアクティビティが検出されない場合は ID の無効化に進みます。 組織では、この既定のポリシーを使用して、ライセンスの状態に関係なく、非アクティブなエージェント ID をクリーンアップできます。
+
+エージェント ID の既定の非アクティブ時間ポリシーでは、制限付きのカスタマイズのみが許可されます。 追加のポリシー ルールとカスタマイズを使用してカスタム ライフサイクル ポリシーを作成したいお客様は、適切なライセンスを持っていることを確認する必要があります。 詳細については、以下をご覧ください。 [エージェント ライフサイクル ポリシー](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-lifecycle-policies)
+
+Important
+
+エージェント ID ライフサイクル ポリシーはプレビュー段階です。 プレビュー機能は、サービス レベル アグリーメントなしで提供され、運用環境のワークロードには推奨されません。 一部の機能はサポートされていないか、機能が限られている可能性があります。
+
+### Prerequisites
+
+#### ライセンス要件
+
+エージェント ID の既定の非アクティブ ポリシーを使用するためにライセンスは必要ありません。
+
+#### Roles
+
+次のいずれかのロール:
+
+- [ライフサイクル ワークフロー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator)
+- [AI 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#ai-administrator)
+- [エージェントID管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#agent-id-administrator)
+
+### エージェント ID の既定の非アクティブ時ポリシーを有効にする
+
+非アクティブなエージェント ID について所有者とスポンサーに通知する既定の非アクティブ ポリシーを有効にしてから、エージェントが非アクティブなままである場合は、ID を無効にして削除します。
+
+1. 上記でサポートされているロールのいずれかを使用して[、Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **ID ガバナンス**&gt; > **Lifecycle ワークフロー**&gt; > **Lifecycle ポリシー**&gt; > **Agent ID (プレビュー)** に移動します。
+3. **既定のエージェント ID の非アクティブなライフサイクル ポリシー**を選択
+4. **ポリシーの構成** タブを選択します。
+5. **ポリシーの有効化**を切り替えます。
+6. 構成を確認し、[ **保存]** を選択します。
+
+ポリシーが有効になると、Microsoft Entra エージェント IDはスコープ内のエージェント ID を定期的に評価します。 エージェント ID が 60 日間非アクティブになっている場合、ID は通知と適用プロセスに入ります。
+
+### Microsoft Entra エージェント ID の既定のポリシー動作
+
+非アクティブであり、既定の非アクティブ ポリシーの対象となるエージェント ID は、次の段階を経ます。 アクションと期間は、既定のポリシーを使用するユーザーにはカスタマイズできません。
+
+| 非アクティブな日数 | アクション |
+| --- | --- |
+| 60 日 | エージェント ID のスポンサーと所有者に通知する |
+| 90 日間 | エージェント ID を無効にする |
+| 455 日 | エージェント ID を削除する |
+
+エージェントをアクティブな状態に戻すには、ユーザーがエージェントと対話するか、それ以外の方法でエージェントが動作するようにする必要があります。 アクティブにしないと、非アクティブ化ポリシーの対象である非アクティブなエージェントをユーザーが自由に保持することはできません。
+
+エージェントを無効または削除した後は、所有者または管理者のみが復元できます。 スポンサーは、エージェント ID を再び有効または復元する権限を持っていません。
+
+### エージェント ID の既定のアイドル時ポリシーを構成する
+
+管理者は、既定の非アクティビティ ポリシーのスコープを構成し、フォールバック通知の受信者を設定できます。
+
+#### 方針の範囲
+
+既定の非アクティブ ポリシーでは、2 つのスコープ (**すべてのエージェント ID** と **選択したものを除くすべてのエージェント ID**) がサポートされます。
+
+- **すべてのエージェント ID**: すべてのエージェントの識別情報がポリシーの対象となります。
+- **選択したものを除くすべてのエージェント ID**: 管理者は、ポリシーから除外する特定の ID を選択できます。 これらの識別情報は、無期限に非アクティブなままにできます。
+
+組織で季節エージェント、制限付きエージェント、または通常はアクティブでないその他のエージェントが無効にならないようにする必要がある場合は、**選択したものを除くすべてのエージェント ID** オプションを使用します。
+
+ポリシーから特定のエージェント ID を除外するには、**選択したものを除くすべてのエージェント ID** を選択します。 次に、[**+ エージェント ID の選択**] を選択し、表示される一覧で必要なエージェント ID を選択して、**[選択]** を選択します。 **保存** を選択して、ポリシーへの変更を保存します。
+
+#### フォールバック通知の受信者
+
+通知は、エージェント ID が少なくとも 60 日間非アクティブになったときに、責任者に通知します。 スポンサーまたは所有者がエージェント ID で利用可能になると、スポンサーまたは所有者に通知されます。 スポンサーまたは所有者が存在しない場合、システムは管理者が指定したフォールバック受信者に通知します。
+
+フォールバック受信者を指定するには、スペース、コンマ、またはセミコロンで区切って 1 つ以上のメール アドレスを入力し、**[保存]** を選択します。 グループ メールボックスがサポートされていることに注意してください。
+
+### ポリシー優先順位
+
+適切なライセンスをお持ちのお客様は、スコープ、ルール、アクションが異なる複数のエージェント ID ライフサイクル ポリシーを作成できます。 ポリシーの優先順位は、エージェント ID が複数のポリシーに含まれている場合に適用されるポリシーを決定します。
+
+既定の非アクティブ ポリシーは、常に最後に適用されるポリシーです。 アクティブなカスタム ポリシーが優先されます。
+
+詳細については、[Microsoft Entra エージェント IDライフサイクル ポリシーに関するページを](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-lifecycle-policies)参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
 <!-- MSL-PAGE {"url":"entra/id-governance/agent-id-governance-overview"} -->
 ## エージェント ID の管理 - Microsoft Entra ID Governance
 
@@ -556,7 +645,7 @@ Microsoft Entraを使用すると、適切なユーザーが適切なアプリ�
 
 - **Microsoft Foundry** は、エージェントのライフサイクル全体にわたってエージェント ID を自動的にプロビジョニングおよび管理します。 Foundry プロジェクトの最初のエージェントが作成されると、Microsoft Foundry はプロジェクトの既定のエージェント ID ブループリントと既定のエージェント ID をプロビジョニングし、プロジェクト内のエージェントは共有プロジェクトのエージェント ID を使用して認証します。 エージェントを発行すると、専用のエージェント ID ブループリントとエージェント ID が自動的に作成され、エージェントは一意のエージェント ID を使用して認証されます。 Foundry では、モデル コンテキスト プロトコル (MCP) およびエージェント間 (A2A) ツールでの認証にエージェント ID の使用がサポートされています。 詳細については、[Microsoft Foundry のエージェント ID 概念](https://learn.microsoft.com/ja-jp/azure/ai-foundry/agents/concepts/agent-identity) を参照してください。
 - Microsoft Entra エージェント ID プラットフォームを使用してリソースにエージェントとして安全に接続するように、**Azure App ServiceまたはAzure Functions アプリ**を構成できます。 詳細については、「 App Service および Azure Functionsを参照してください。
-- **Microsoft Copilot Studio** で作成されたエージェントは、エージェント ID に自動的に割り当てされるように構成できます。 この設定を有効にした後、Power Platform 環境でエージェント ID が最初に作成されると、Microsoft Copilot Studio エージェント ID ブループリントとエージェント ID ブループリント プリンシパルが自動的に作成されます。 詳細については、「[Copilot Studio エージェントの Entra エージェント ID を自動的に作成する (プレビュー)](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-use-entra-agent-identities)」を参照>。
+- **Microsoft Copilot Studio** で作成されたエージェントは、エージェント ID に自動的に割り当てされるように構成できます。 この設定を有効にした後、Power Platform 環境でエージェント ID が最初に作成されると、Microsoft Copilot Studio エージェント ID ブループリントとエージェント ID ブループリント プリンシパルが自動的に作成されます。 詳細については、[Copilot Studio エージェント用の Microsoft Entra Agent ID](https://learn.microsoft.com/ja-jp/microsoft-copilot-studio/admin-use-entra-agent-identities) を参照してください。
 - **Microsoft Teams** プラットフォームのエージェントの場合、開発者は Teams の開発者ポータルでエージェント ID ブループリントを作成および管理できます。 詳細については、「 [開発者ポータルでのアプリの管理」を参照してください](https://learn.microsoft.com/ja-jp/microsoftteams/platform/concepts/build-and-test/manage-your-apps-in-developer-portal)。
 - **Microsoft Agent 365** は、ID、ライフサイクル、アクセス管理のために、各 AI エージェントに独自のMicrosoft Entra エージェント IDを提供します。 詳細については、 [エージェント 365 のエージェント ID プラットフォーム機能を](https://learn.microsoft.com/ja-jp/microsoft-agent-365/admin/capabilities-entra)参照してください。
 
@@ -565,7 +654,7 @@ Microsoft Entraを使用すると、適切なユーザーが適切なアプリ�
 エージェント ID を作成すると、 [親エージェント ID ブループリントから継承された](https://learn.microsoft.com/ja-jp/entra/agent-id/configure-inheritable-permissions-blueprints) OAuth 2 の委任されたアクセス許可スコープなど、アクセス許可が制限されます。 さらに、エージェント ID には、アクセス パッケージを介して直接リソース アクセスを割り当てることができます。 エージェントは、独自のエージェント ID のアクセス パッケージを要求したり、所有者またはスポンサーに代わってアクセス パッケージを要求したりすることができます。 アクセス パッケージを使用すると、エージェント ID アクセスを次のリソースに割り当てることができます。
 
 - セキュリティ グループのメンバーシップ
-- [OAuth API のアクセス許可（Graph アプリケーションのアクセス許可を含む）](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/assign-agent-identities-to-applications)
+- Microsoft Graph とアプリケーションに対する[OAuth API のアクセス許可](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/assign-agent-identities-to-applications)、委任されたアクセス許可、アプリケーションのアクセス許可
 - [Microsoft Entra のロール](https://learn.microsoft.com/ja-jp/entra/agent-id/authorization-agent-id#microsoft-entra-role-assignments-for-agent-identities)
 
 エージェント ID にアクセス パッケージを使用するには、必要なポリシー設定を使用してアクセス パッケージを構成します。 アクセス パッケージの割り当てポリシーを作成するときに、[ **アクセスできるユーザー** ] セクション **で、ディレクトリ内の [ユーザー、サービス プリンシパル、およびエージェント ID] を**選択し、[ **すべてのエージェント**] オプションを選択します。
@@ -603,6 +692,157 @@ Microsoft Entraを使用すると、適切なユーザーが適切なアプリ�
 ### エージェント ID のスポンサー管理
 
 エージェント ID を管理する最も重要な部分の 1 つは、エージェント ID のリソースへのアクセスが最新であることを確認するために、委任された人間のユーザーが常に割り当てられていることを確認することです。 スポンサーが組織を離れる場合、エージェント ID のスポンサーシップは自動的にマネージャーに転送されます。 スポンサーシップが移転された場合、エージェント ID のアクセスとライフサイクルを管理すべき責任を負う人間のユーザーが常に存在します。 Microsoft Entra ID ガバナンス機能は、組織内でこのプロセスを効率化するのに役立ちます。 ライフサイクル ワークフローには、スポンサープランの変更が迫っていることを共同スポンサーやスポンサーのマネージャーに通知する複数のタスクが含まれます。 エージェント ID スポンサーのワークフローの設定に関するガイドについては、「 [ライフサイクル ワークフローのエージェント ID スポンサー タスク」を](https://learn.microsoft.com/ja-jp/entra/id-governance/agent-sponsor-tasks)参照してください。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/id-governance/agent-lifecycle-policies"} -->
+## Entra エージェント IDライフサイクル ポリシー - Microsoft Entra ID Governance
+
+- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/agent-lifecycle-policies
+- Service: entra-id-governance / lifecycle-workflows
+- Article date: 2026-10-06
+- Summary: Microsoft Entra エージェント ID ライフサイクル ポリシーを構成して、エージェント ID のライフサイクル管理を自動化する
+
+AI エージェントの導入が加速し、重要なリソースにアクセスできるエージェント ID の数が増えています。 明確なライフサイクル制御がないと、これらの ID は有用性を超えて保持され、セキュリティ リスクが生じる可能性があります。 エージェント ID が不要になったときにエージェント ID を保持すると、忘れた ID が攻撃者にとって簡単なターゲットになる可能性があるため、セキュリティ インシデントにつながる可能性があります。一方、明確なアカウンタビリティのないエージェント ID は、アクセスを無期限に保持し続ける可能性があります。 組織がより多くの AI エージェントをデプロイするにつれて、これらのリスクが増幅されます。 そのため、セキュリティ管理者と ID 管理者は、監視されていない、非アクティブ、孤立したエージェント ID を管理する際のエージェントの急増を回避するために、自動化されたライフサイクル管理を必要とします。
+
+Important
+
+エージェント ID ライフサイクル ポリシーはプレビュー段階です。 プレビュー機能は、サービス レベル アグリーメントなしで提供され、運用環境のワークロードには推奨されません。 一部の機能はサポートされていないか、機能が限られている可能性があります。
+
+### Prerequisites
+
+#### ライセンス要件
+
+エージェント ID [にMicrosoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)を使用するには、次のいずれかのライセンス プランが必要です。
+
+- **Microsoft 365 E7** (エージェント 365 とMicrosoft Entra スイートを含む) は、ユーザー ID とエージェント ID のガバナンスを提供します。
+- **Microsoftエージェント 365** ライセンスは、少なくとも Microsoft Entra P1 または Microsoft 365 E3 とペアリングされています。
+
+詳細については、「[Microsoft Agent 365 のプランと価格](https://www.microsoft.com/microsoft-agent-365#plans-and-pricing)」を参照してください。 エージェント固有の機能の完全な一覧については、**Microsoft Entra ID ガバナンス ライセンス表**の [Microsoft Agent 365](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals) 列を参照してください。
+
+#### 役割
+
+次のいずれかのロール:
+
+- [ライフサイクル ワークフロー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator)
+- [AI 管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#ai-administrator)
+
+### エージェント ライフサイクル ポリシーを作成する
+
+ポリシーを作成して、評価する必要があるエージェント ID と、エージェント ID が有効になっているルールを満たしていない場合の動作を定義します。
+
+1. 少なくとも[ライフサイクル ワークフロー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#ai-administrator)または[AI 管理者](https://entra.microsoft.com)として[Microsoft Entra 管理センター](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#lifecycle-workflows-administrator)にサインインします。
+2. **ID ガバナンス**&gt;**ライフサイクル ワークフロー**&gt;**ライフサイクル ポリシー**&gt;**Agent ID (プレビュー)** に移動します。
+3. **[新しいポリシー]** を選択します。
+4. 一意のポリシー名と説明を入力してください。
+5. ライフサイクル ポリシーを有効にします。
+6. ポリシーによって管理する必要があるエージェント ID のスコープを選択します。
+7. 1 つ以上のライフサイクル ルールを設定します:
+    - 定期的な再確認
+    - スポンサーの最小要件
+    - 非アクティブ状態の監視
+8. ポリシー アクションを選択し、必要に応じて猶予期間を構成します。
+9. 通知の動作を確認します。
+10. 必要に応じて、1 つ以上のフォールバック受信者を追加して、エージェント ID にスポンサーや所有者などの責任者がいない場合にライフサイクル通知を受け取れるようにします。
+11. 構成を確認し、[ **保存]** を選択します。
+12. 複数のエージェント ID ライフサイクル ポリシーが存在する場合は、ポリシーの優先順位を構成します。
+
+ポリシーを作成すると、そのスコープ内でエージェント ID が定期的に評価されます。 エージェント ID が有効なライフサイクル ポリシー規則に違反すると、ID は構成済みの通知と適用プロセスに入ります。
+
+### ライフサイクル ルールを設定する
+
+各エージェント ID ライフサイクル ポリシーには、1 つ以上のルールを含めることができます。 継続的な使用と説明責任に関する組織の要件を表すルールを構成します。
+
+#### 定期的な再確認を設定する
+
+定期的な再確認を使用して、エージェント ID がまだ必要であることを確認します。
+
+1. **定期的な再確認**を有効にします。
+2. 再確認の頻度を設定します。つまり、スポンサーまたは所有者がエージェント ID 情報が引き続き必要であることを再確認する必要がある頻度（30 日から 730 日の間）を設定します。
+
+構成された期間内にエージェント ID が再確認されない場合、構成されたポリシー アクションがトリガーされ、担当担当者がエージェントの管理エクスペリエンス (`https://myaccount.microsoft.com/agents`) を介してアクションを実行できるようになります。
+
+#### スポンサーの最小要件を設定する
+
+各エージェント ID が明確なアカウンタビリティを持っていることを確認するには、スポンサーの最小要件を使用します。
+
+1. **最小スポンサー要件**を有効にします。
+2. 各エージェント ID に必要なスポンサーの最小数を指定します。
+
+エージェント ID のスポンサー数が構成済みの数を下回る場合、構成済みのポリシー アクションがトリガーされるため、対応可能な責任者は、エージェントの管理エクスペリエンス (`https://myaccount.microsoft.com/agents`) を介してスポンサーを追加/更新するよう対応し、エージェント ID が無効化または削除されないようにすることができます。 エージェント ID に対応する責任者がいない場合は、フォールバック受信者に通知されます。
+
+#### 非アクティブ状態の監視を設定する
+
+非アクティブ状態の監視を使用して、古いエージェント ID と未使用のエージェント ID を識別します。
+
+1. **非アクティブ状態の監視**を有効にします。
+2. 非アクティブ期間を指定します。
+3. 構成されたポリシー アクションがトリガーされるまでに、エージェント ID が非アクティブな状態を維持できる期間を定義します。
+
+エージェント ID が構成された期間を超えて非アクティブになっている場合(つまり、その間に ID に対してトークンが発行されていない場合)、構成されたポリシー アクションがトリガーされ、説明責任を負う担当者が適切なアクションを実行できるようになります。
+
+### ポリシー アクションを設定
+
+ポリシー アクションは、エージェント ID がポリシー要件を満たしていない場合に実行できるアクションを定義します
+
+| アクション | Result |
+| --- | --- |
+| **無効にする** | エージェント ID を無効にし、今後のサインインや使用を防ぎます。 |
+| **削除** | エージェント ID を論理的に削除します。 |
+| **無効化と削除** | エージェント ID をすぐに無効にし、構成可能な猶予期間後に削除します。 |
+
+1. 組織のポリシー 規則を満たしていないエージェント ID に対して実行する必要があるアクションを選択します。
+2. **[無効と削除]** を選択した場合は、無効化が完了した後に削除アクションがトリガーされる日数を指定します。
+3. 説明責任を負う担当者にポリシー違反を修復する時間を与えるために、猶予期間を有効にし、その期間を指定します。
+4. ポリシーを作成または更新する前に、選択したアクションを確認します。
+
+### 通知を構成する
+
+通知は、エージェント ID が違反したライフサイクル ポリシー ルールと、必要なアクションが実行されない場合にトリガーされるポリシー アクションを、説明責任を負う担当者に通知します。
+
+1. スポンサー、所有者、またはその他の担当者に送信された通知を確認します。
+2. エージェント ID にスポンサーまたは所有者がいない場合に通知が他のユーザーに届く必要がある場合は、1 つ以上のフォールバック受信者を追加します。
+3. 通知スケジュールによって、無効/削除アクションがトリガーされる前に、違反を是正するのに十分な時間が受信者に与えられることを確認します。
+
+構成された期間内に違反が修復されない場合、ライフサイクル ワークフローがポリシー アクションを自動的に実行します。
+
+### ポリシーの優先順位を設定する
+
+スコープ、ルール、アクションが異なる複数のエージェント ID ライフサイクル ポリシーを作成できます。 ポリシーの優先順位は、エージェント ID が複数のポリシーに含まれている場合に適用されるポリシーを決定します。
+
+1. エージェント ID ライフサイクル ポリシーの一覧を開きます。
+2. エージェント ID スコープが重複するポリシーを確認します。
+3. 他の一致するポリシーよりも優先されるべきポリシーを移動します。
+4. 広範な適用を有効にする前に、スコープをもう一度確認してください。
+
+最も優先度の高い照合ポリシーは、エージェント ID に適用されます。
+
+### ポリシーを確認する
+
+広範に適用する前に、限られたテスト エージェント ID セットでポリシーを検証してください。
+
+1. ポリシー スコープとして **[特定のエージェント]** を選択します。
+2. 少数のテスト エージェント ID のセットを追加します。
+3. 定期的な再確認テストでは、30 日という最短の許容間隔を使用します。
+4. スポンサーまたはその他の構成済みの受信者が予期される通知を受信することを確認します。
+5. [\[エージェントの管理エクスペリエンス\]](https://myaccount.microsoft.com/agents) で、スポンサーがエージェント ID を再確認または延長したり、無効にしたりできることを確認します。
+6. 修復されていない違反は、該当する期間と猶予期間の後に構成されたポリシー アクションが実行されます。
+
+### ポリシーの適用のしくみ
+
+ライフサイクル ポリシーでは、次のプロセスを使用して、エージェント ID ライフサイクル ポリシーを評価して適用します。
+
+1. **スコープの評価:** ポリシー スコープに含まれるエージェント ID を識別します。
+2. **ルールの評価:** 有効になっている各ポリシー ルールを評価します。 エージェント ID は、有効なルールに違反すると非準拠になります。
+3. **通知:** 該当するスポンサー、所有者、またはフォールバック受信者に通知します。
+4. **強制:** 構成された期間内に違反が修復されない場合、ライフサイクル ワークフローはポリシー構成に従ってエージェント ID を無効化、削除、または無効化してから削除します。
+
+| 規則違反 | 通知の受信者 | 必要なアクション |
+| --- | --- | --- |
+| 再確認期限超過 | スポンサーまたは所有者またはフォールバック受信者 | 不要になった場合は無効にするか、[エージェントの管理エクスペリエンス] で [拡張] をクリックして、エージェント ID が引き続き必要であることを再確認してください |
+| 最低スポンサー要件が満たされていません | スポンサーまたは所有者またはフォールバック受信者 | [エージェントの管理エクスペリエンス] でスポンサーを更新する |
+| 設定されたしきい値を超えて非アクティブ | スポンサーまたは担当者 | 不要になった場合は無効にするか、操作してアクティブにする |
 <!-- /MSL-PAGE -->
 
 ---
@@ -663,11 +903,11 @@ Microsoft Entraを使用すると、適切なユーザーが適切なアプリ�
 - Article date: 2025-12-03
 - Summary: このページでは、プロビジョニングとガバナンスの制御を自動化するために使用できる Microsoft Entra ID ガバナンス統合の概要について説明します。
 
-[Microsoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-prepare) を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 このページでは、利用可能な数百の Microsoft Entra ID ガバナンス統合の概要について説明します。 これらのアプリケーション統合は、[ID ライフサイクル管理](https://learn.microsoft.com/ja-jp/entra/id-governance/scenarios/govern-the-employee-lifecycle)を自動化し、組織全体にガバナンス制御を実装するために使用されます。 これらの豊富な統合により、ユーザーに対する[アプリケーションへのアクセス権](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview)付与の自動化、アプリケーションへのアクセス権を持つユーザーの[定期的なレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/access-reviews-overview)の実行、多要素認証などの機能によるセキュリティ保護が可能になります。
+[Microsoft Entra ID ガバナンス](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-prepare) を使うと、セキュリティや従業員の生産性に対する組織のニーズと、適切なプロセスや可視性とのバランスを取ることができます。 このページでは、利用可能な数百の Microsoft Entra ID ガバナンス統合の概要について説明します。 これらのアプリケーション統合は、従業員 [アイデンティティ ライフサイクル管理](https://learn.microsoft.com/ja-jp/entra/id-governance/scenarios/govern-the-employee-lifecycle) を自動化して組織全体にガバナンス制御を実装するために使用されます。 これらの豊富な統合により、ユーザーに対する[アプリケーションへのアクセス権](https://learn.microsoft.com/ja-jp/entra/id-governance/entitlement-management-overview)付与の自動化、アプリケーションへのアクセス権を持つユーザーの[定期的なレビュー](https://learn.microsoft.com/ja-jp/entra/id-governance/access-reviews-overview)の実行、多要素認証などの機能によるセキュリティ保護が可能になります。 また、Microsoft Entra ID ガバナンスを拡張して、ここに記載されていないオンプレミスおよびプライベート クラウド アプリケーションなど、追加のアプリケーションに適用範囲を拡張することもできます。
 
 ### おすすめの統合
 
-一般的な統合の一部には、次の表にアプリケーションが含まれています。 統合の詳細については、 Microsoft Entra ID ガバナンスに関するトピックを参照してください。
+一般的な統合の一部には、次の表にアプリケーションが含まれています。 その他の統合については、Microsoft Entra ID ガバナンス アプリケーション統合を参照してください。
 
 | カテゴリ | アプリケーション |
 | --- | --- |
@@ -687,9 +927,9 @@ Microsoft Entraを使用すると、適切なユーザーが適切なアプリ�
 
 ### Microsoft Entra ID ガバナンス アプリケーションの統合
 
-次の一覧では、Microsoft Entra ID ガバナンスと、自動プロビジョニングと SSO Just-In-Time プロビジョニング統合の両方を含むさまざまなアプリケーションの間の主要な統合を示します。 Microsoft Entra ID が SSO 専用に統合されるアプリケーションの完全な一覧については、Microsoft [Entra ID の SaaS アプリ構成ガイド](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list)を参照してください。
+次の一覧は、自動ユーザー プロビジョニングまたはシングル サインオン (SSO) の Just-In-Time ユーザー プロビジョニングをサポートする、Microsoft Entra ID ガバナンスとさまざまなアプリケーションの統合をまとめたものです。 Microsoft Entra ID が SSO 向けに統合するその他のアプリケーションの一覧については、[Microsoft Entra ID の SaaS アプリ構成ガイド](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/tutorial-list)を参照してください。
 
-Microsoft Entra ID ガバナンス は、OpenID Connect、SAML、SCIM、SQL、LDAP などの標準を使用して、他の多くのアプリケーションと統合できます。 一覧にないアプリケーションを使用していて、SaaS である場合は、 [SaaS ベンダーにオンボードを依頼](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/v2-howto-app-gallery-listing)してください。 他のアプリケーションとの統合については、[アプリケーションと Microsoft Entra ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-integrate)をご覧ください。
+これらのアプリケーションに加えて、Microsoft Entra ID ガバナンスは、OpenID Connect、SAML、SCIM、SQL、LDAP などの標準を使用して、他の多くのアプリケーションと統合できます。 一覧にないアプリケーションを使用していて、SaaS である場合は、 [SaaS ベンダーにオンボードを依頼](https://learn.microsoft.com/ja-jp/entra/identity/enterprise-apps/v2-howto-app-gallery-listing)してください。 他のアプリケーションとの統合については、[アプリケーションと Microsoft Entra ID の統合](https://learn.microsoft.com/ja-jp/entra/id-governance/identity-governance-applications-integrate)をご覧ください。
 
 | アプリケーション | 自動プロビジョニング | シングル サインオン (SSO) |
 | --- | --- | --- |
@@ -1355,6 +1595,7 @@ Microsoft Entra ID ガバナンス は、OpenID Connect、SAML、SCIM、SQL、LD
 | [ScreenSteps](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/screensteps-provisioning-tutorial) | ● | ● |
 | [SDS & 化学情報管理](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/sds-chemical-information-management-tutorial) |  | ● |
 | [Second Nature AI](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/second-nature-ai-tutorial) |  | ● |
+| [セキュアクラウド](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/secure-cloud-user-integration-provisioning-tutorial) | ● | ● |
 | [Secure Deliver](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/securedeliver-tutorial) |  | ● |
 | [SecureLogin](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/secure-login-provisioning-tutorial) | ● |  |
 | [SeekOut](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/seekout-tutorial) |  | ● |
@@ -1558,7 +1799,8 @@ Microsoft Entra ID ガバナンス は、OpenID Connect、SAML、SCIM、SQL、LD
 | [Zscaler Three](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-three-provisioning-tutorial) | ● | ● |
 | [Zscaler Two](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-two-provisioning-tutorial) | ● | ● |
 | [Zscaler ZSCloud](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-zscloud-provisioning-tutorial) | ● | ● |
-| [Zscaler](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-provisioning-tutorial) | ● | ● |
+| [Zscaler ZSNet](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-provisioning-tutorial) | ● | ● |
+| [Zscaler](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zscaler-zidentity-provisioning-tutorial) | ● | ● |
 | [Zylo](https://learn.microsoft.com/ja-jp/entra/identity/saas-apps/zylo-tutorial) |  | ● |
 
 ### パートナー主導の統合
@@ -1804,6 +2046,62 @@ Microsoft Graph を使用してプログラムでアクセス レビューを作
 5. [ **送信]** を選択して決定を記録します。
 
 レビューの終了日には、カスタムの切断されたリソースを除くすべての決定が自動的に適用されます。
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/id-governance/catalog-access-reviews-access-packages"} -->
+## カタログ アクセス レビューにアクセス パッケージを含める (プレビュー) - Microsoft Entra ID Governance
+
+- Source: https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews-access-packages
+- Service: entra-id-governance / access-reviews
+- Article date: 2026-10-29
+- Summary: Microsoft Entra のカタログ アクセス レビューにアクセス パッケージを含める方法、レビュー担当者を割り当てる方法、アクセス パッケージを拒否した場合の影響を理解する方法について説明します。
+
+Microsoft Entra ID ガバナンス、カタログ アクセス レビュー (プレビュー) にアクセス パッケージを含める機能がサポートされるようになりました。 ユーザーがアクセス パッケージを介してMicrosoft EntraアプリケーションまたはMicrosoft Entra グループにアクセスできる場合、レビュー担当者は、含まれるリソースごとに個別のエントリではなく、アクセス パッケージを表示します。
+
+この記事では、カタログ アクセス レビューでアクセス パッケージを有効にする方法、誰がレビューするか、レビュー担当者がアクセス パッケージを拒否した場合の動作について説明します。
+
+### Prerequisites
+
+- Microsoft Entra ID ガバナンスまたはMicrosoft Entra スイート サブスクリプション。 詳細については、「[Microsoft Entra ID ガバナンス ライセンスの基礎](https://learn.microsoft.com/ja-jp/entra/id-governance/licensing-fundamentals)」を参照してください。
+- カタログ アクセス レビューを作成するには、少なくとも [ID ガバナンス管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#identity-governance-administrator) ロールが必要です。
+- 確認するアクセス パッケージを含むカタログ。
+
+### レビューにアクセス パッケージを含める
+
+カタログ アクセス レビューを作成するときに、アクセス パッケージ プレビュー オプションを有効にします。
+
+1. [Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **ID ガバナンス**&gt;**アクセス レビュー**&gt;**新しいアクセス レビュー**に移動します。
+3. **1 つのカタログ内の複数のリソースの種類にまたがるユーザー アクセスの確認** を選択します。
+4. レビューの基本情報を入力し、[ **次へ**] を選択します。
+5. [ **リソース** ] タブで、[ **カタログの選択** ] を使用して、確認するアクセス パッケージを含むカタログを選択します。
+6. **[アクセス パッケージを含める (プレビュー)]**を選択します。
+
+    [Image: [カタログの選択] の下で [アクセス パッケージを含める (プレビュー)] チェックボックスが選択されている [リソース] タブのスクリーンショット。]
+7. **次へ** を選択します。 [ **校閲者とスケジュール** ] タブで、校閲者を選択し、スケジュールを構成します。
+
+    リソース所有者をレビュー担当者として選択した場合、特定のアクセス パッケージごとにアクセス パッケージ割り当てマネージャーがそのパッケージをレビューします。
+8. レビュー担当者のエクスペリエンスと完了設定を構成し、[**作成**] を選択します。
+
+レビュー設定の詳細については、「[カタログ アクセス レビューの作成](https://learn.microsoft.com/ja-jp/entra/id-governance/catalog-access-reviews#create-a-catalog-access-review)」を参照してください。
+
+### アクセス パッケージの割り当てを確認する
+
+レビュー担当者は、そのパッケージを通じて付与された各Microsoft Entra グループまたはアプリケーションについて個別に決定するのではなく、アクセス パッケージを 1 つの項目として確認します。
+
+Note
+
+アクセス パッケージを通じて配信されるMicrosoft EntraアプリケーションとMicrosoft Entra グループのみが、レビューのアクセス パッケージの下に統合されます。
+
+1. [マイ アクセス ポータル](https://myaccess.microsoft.com)にレビュー担当者としてサインインします。
+2. [ **アクセス レビュー**] を選択し、[ **マルチリソース** ] タブを選択します。
+3. カタログアクセスレビューを開く
+4. アクセス パッケージごとに、**承認** または **拒否** を選択し、必要に応じて正当な理由を指定します。
+5. [ **送信]** を選択して決定を記録します。
+
+レビュー担当者がアクセス パッケージを拒否すると、レビュー終了日にユーザーのアクセス パッケージの割り当てが削除されます。 割り当てを削除すると、レビューに統合されたMicrosoft Entra アプリケーションとMicrosoft Entra グループだけでなく、そのパッケージを通じて付与されたすべてのリソースに対するユーザーのアクセス権が削除されます。
 <!-- /MSL-PAGE -->
 
 ---
@@ -5421,17 +5719,17 @@ Microsoft Entra のライフサイクル ワークフロー機能では、オン
 
 注
 
-アクセス パッケージごとに 1 つの自動割り当てポリシーのみを使用することをお勧めします。 複数の自動割り当てポリシーの構成は、ポリシーごとにスコープ内のユーザーと重複がないことを確認する場合にのみサポートされます。 ユーザーが複数の自動割り当てポリシーに一致する場合、これはサポートされておらず、ユーザーが 1 つのポリシーのスコープから外れ、もう一方のポリシーのスコープから外れた場合にアクセスが失われる可能性があります。
+アクセス パッケージごとに 1 つの自動割り当てポリシーのみを使用することをお勧めします。 複数の自動割り当てポリシーの構成は、各ポリシーのスコープ内ユーザー同士に重複がないことを確実にした場合にのみサポートされます。 これには、ユーザーが同時に複数のポリシーに一致せず、あるポリシーのスコープから別のポリシーに移行しないようにすることが含まれます。 ユーザーが複数の自動割り当てポリシーに一致した場合、またはあるポリシーから別のポリシーに移行した場合、これはサポートされていないため、その後、アクセスを失うなどの問題が発生する可能性があります。
 
 Important
 
-`memberOf`ルール演算子のプレビューが終了します。 2026 年 11 月 3 日から、メンバーシップ ルールで `memberOf` を使用する自動割り当てポリシーが検疫されます。 ポリシーは残りますが、割り当ての処理は停止し、ルールから `memberOf` を削除するまで割り当ては追加または削除されません。 2026 年 11 月 3 日より前に、 memberOf 属性を使用するポリシーを特定 し、サポートされている属性ベースの演算子を使用して各ルールを再構築します。 シナリオに対応する同等のルールがない場合は、ルールを含むポリシーを削除する前に代替の割り当て方法を計画し、割り当てが削除されないようにします。 `memberOf`を使用しない自動割り当てポリシーは影響を受けません。 詳細については、「 [memberOf 属性を使用して動的メンバーシップ グループを構成する」を](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-rule-member-of)参照してください。
+`memberOf`ルール演算子のプレビューが終了します。 2026 年 11 月 3 日から、メンバーシップ ルールで `memberOf` を使用する自動割り当てポリシーが隔離されます。 ポリシーは残りますが、割り当ての処理は停止し、ルールから `memberOf` を削除するまで割り当ては追加または削除されません。 2026 年 11 月 3 日より前に、memberOf 属性を使用するポリシーを特定し、サポートされている属性ベースの演算子を使用して各ルールを再構築してください。 シナリオに対応する同等のルールがない場合は、ルールを含むポリシーを削除する前に代替の割り当て方法を計画し、割り当てが削除されないようにします。 `memberOf`を使用しない自動割り当てポリシーは影響を受けません。 詳細については、「[memberOf 属性を使用して動的メンバーシップ グループを構成する](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-rule-member-of)」を参照してください。
 
 この記事では、既存のアクセス パッケージのアクセス パッケージ自動割り当てポリシーを作成する方法について説明します。
 
 ### 開始する前に
 
-アクセスが割り当てられるスコープ内の ID に属性を設定する必要があります。 アクセス パッケージ割り当てポリシーのルール条件で使用できる属性は、 [サポートされているプロパティ](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-membership#supported-properties)に一覧表示されている属性と、 [拡張機能の属性とカスタム拡張プロパティ](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-membership#extension-attributes-and-custom-extension-properties)です。 これらの属性は、[ユーザー](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-for-cloud-only-users-using-microsoft-graph)、[SuccessFactors](https://learn.microsoft.com/ja-jp/graph/api/resources/user)、Microsoft [Entra Connect クラウド同期、Microsoft Entra Connect](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/sap-successfactors-integration-reference) Sync などの人事システムに[修正プログラムを適用](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-attribute-mapping)することで、[Microsoft Entra](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-feature-directory-extensions) ID に取り込むことができます。ルールには、ポリシーごとに最大 15,000 人のユーザーを含めることができます。
+アクセス割り当ての対象となる ID には、必要な属性値をあらかじめ設定しておく必要があります。 アクセス パッケージ割り当てポリシーのルール条件で使用できる属性は、 [サポートされているプロパティ](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-membership#supported-properties)に一覧表示されている属性と、 [拡張機能の属性とカスタム拡張プロパティ](https://learn.microsoft.com/ja-jp/entra/identity/users/groups-dynamic-membership#extension-attributes-and-custom-extension-properties)です。 これらの属性は、[ユーザー](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-for-cloud-only-users-using-microsoft-graph)、[SuccessFactors](https://learn.microsoft.com/ja-jp/graph/api/resources/user)、Microsoft [Entra Connect クラウド同期、Microsoft Entra Connect](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/sap-successfactors-integration-reference) Sync などの人事システムに[修正プログラムを適用](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/cloud-sync/how-to-attribute-mapping)することで、[Microsoft Entra](https://learn.microsoft.com/ja-jp/entra/identity/hybrid/connect/how-to-connect-sync-feature-directory-extensions) ID に取り込むことができます。ルールには、ポリシーごとに最大 15,000 人のユーザーを含めることができます。
 
 ### ライセンス要件
 
@@ -5512,11 +5810,11 @@ New-MgEntitlementManagementAssignmentPolicy -BodyParameter $pparams
 
 ### memberOf 属性を使用する自動割り当てポリシーを検索する
 
-`memberOf` ルール オペレーターのサポートは 2026 年 11 月 3 日に終了するため、メンバーシップ ルールに`memberOf`が含まれるテナントで自動割り当てポリシーを見つける必要があります。そうすることで、それらのルールを再構築したり、別の割り当て方法を計画したりできます。
+`memberOf` ルール オペレーターのサポートは 2026 年 11 月 3 日に終了するため、メンバーシップ ルールに`memberOf`が含まれる自動割り当てポリシーをテナント内で見つける必要があります。そうすることで、それらのルールを再構築したり、別の割り当て方法を計画したりできます。
 
-これらのポリシーは、[Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph.Authentication/)`Microsoft.Graph.Authentication` モジュールを使用して PowerShell で確認できます。 委任された `EntitlementManagement.Read.All` アクセス許可を持つ適切なロールの ID は、次のスクリプトを実行できます。 スクリプトは読み取り専用であるため、ポリシーは変更されません。
+これらのポリシーは、[Microsoft Graph PowerShell](https://www.powershellgallery.com/packages/Microsoft.Graph.Authentication/)`Microsoft.Graph.Authentication` モジュールを使用して PowerShell で確認できます。 委任された `EntitlementManagement.Read.All` アクセス許可を持つ適切なロールの ID/プリンシパルは、次のスクリプトを実行できます。 スクリプトは読み取り専用であるため、ポリシーは変更されません。
 
-このスクリプトでは、テナント内のすべてのアクセス パッケージ割り当てポリシーが一覧表示され、自動割り当てポリシーのみが選択され、その他のポリシーの種類は無視され、それらの各ポリシーのメンバーシップ 規則で `memberOf`が確認されます。 ポリシーが一致しない場合でも常に CSV ファイルが作成されるため、スキャンの結果が記録されます。 ポリシーが一致しない場合、ファイルには列見出しのみが含まれます。
+このスクリプトでは、テナント内のすべてのアクセス パッケージ割り当てポリシーが一覧表示され、自動割り当てポリシーのみが選択され、その他のポリシーの種類は無視され、それらの各ポリシーのメンバーシップ 規則で `memberOf`が確認されます。 ポリシーが一致しない場合でも常に CSV ファイルが作成されるため、スキャン結果の記録を残せるようにします。 ポリシーが一致しない場合、ファイルには列見出しのみが含まれます。
 
 ```powershell
 Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
@@ -5567,7 +5865,7 @@ if ($results.Count -eq 0) {
 }
 ```
 
-スクリプトから返されるポリシーごとに、サポートされている属性ベースの演算子を使用してメンバーシップ ルールを再構築できるかどうかを判断します。 可能な場合は、Microsoft Entra 管理センターの新しい規則または powerShell Microsoft Graph使用してポリシーを更新します。 サポートされているオペレーターが同等のルールを提供しない場合は、ルールを含むポリシーを削除する前に代替の割り当て方法を計画し、ID が割り当てを失わないようにします。 ポリシーを更新した後、アクセス パッケージの割り当てが正しいことを確認します。
+スクリプトから返されるポリシーごとに、サポートされている属性ベースの演算子を使用してメンバーシップ ルールを再構築できるかどうかを判断します。 可能な場合は、Microsoft Entra 管理センターで新しい規則を使用するか、Microsoft Graph PowerShell を使用してポリシーを更新します。 サポートされているオペレーターが同等のルールを提供しない場合は、ルールを含むポリシーを削除する前に代替の割り当て方法を計画し、ID が割り当てを失わないようにします。 ポリシーを更新した後、アクセス パッケージの割り当てが正しいことを確認します。
 <!-- /MSL-PAGE -->
 
 ---

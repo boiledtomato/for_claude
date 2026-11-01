@@ -3169,7 +3169,7 @@ Britive では、自動ユーザー プロビジョニングもサポートさ�
     - [Cloud アプリケーション管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator)
     - [アプリケーション所有者](https://learn.microsoft.com/ja-jp/entra/fundamentals/users-default-permissions#owned-enterprise-applications)。
 
-- [Brivo Onair Identity Connector のテナント](https://www.brivo.com/lp/quote)
+- [Brivo Onair Identity Connector のテナント](https://www.brivo.com/contact/)
 - 上級管理者アクセス許可を持つ Brivo Onair Identity Connector のユーザー アカウント。
 
 ### Brivo Onair Identity Connector へのユーザーの割り当て
