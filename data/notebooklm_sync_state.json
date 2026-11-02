@@ -7,207 +7,207 @@
   "ai_security_part1.md": {
    "added_at": "2026-10-05T09:39:12Z",
    "rel": "ai_security/ai_security_part1.md",
-   "sha256": "15088a83f25c7a529640d34ddd4b65872aedefe3821d211cf4f89acf635a60c0",
-   "source_id": "828d0649-a6f3-4518-a45e-80f653b1efc5"
+   "sha256": "b6612557a7b7ada79193f1752e992df4b4a2e78437927a85da3ede24efecc7db",
+   "source_id": "b75526e2-7de1-4a2a-84b7-8412a0147a22"
   },
   "api_part1.md": {
    "added_at": "2026-10-05T09:39:39Z",
    "rel": "api/api_part1.md",
-   "sha256": "efa2419ff5909f4014ae6349372a93a271a1d9b9bf523e23f02ff1364a7b7cf2",
-   "source_id": "3d198424-d294-402b-8a77-9c7bea65eca4"
+   "sha256": "39a9c5021cb0c6b6a4a48de8c7f28ad65ac71ec260198c0ec6f6d818662bb4e2",
+   "source_id": "8f58109b-1bde-4a7b-947f-6faf464348f3"
   },
   "api_part2.md": {
    "added_at": "2026-10-05T09:39:58Z",
    "rel": "api/api_part2.md",
-   "sha256": "b41447fda045fc8800751d4a234b9f0cc44445335e4ab9de3fb7e1d5d4a00414",
-   "source_id": "0150075f-9fa3-4510-85db-31d225a50b0d"
+   "sha256": "da7281bff1f838c2112c433bdba27628db46364cb0eb4a05997ff3febdc0b1bc",
+   "source_id": "e97454dd-f47d-4e8a-aa15-9b91f3a5a96b"
   },
   "api_part3.md": {
    "added_at": "2026-10-05T09:40:17Z",
    "rel": "api/api_part3.md",
-   "sha256": "ad47de8115cb3d45649f732b7ee7fe8ef0ccda72a43e08b53c4cf626728bdc9c",
-   "source_id": "067c7cb2-d2b6-4701-a8c5-65f765036c77"
+   "sha256": "8be95c39d68b46be7fc708e672b26a80b9766d3bac02e53a1c5d16356452be96",
+   "source_id": "589d197e-b684-481b-a83f-12736aecfa45"
   },
   "branch_part1.md": {
    "added_at": "2026-10-05T09:40:44Z",
    "rel": "branch/branch_part1.md",
-   "sha256": "bef6f4471a42c75dcac1a4b1ef3e175831217f24d5cf718bf514dd992365947f",
-   "source_id": "c65b93a0-b49f-4a6e-bce6-5ffaf2d6555b"
+   "sha256": "7b336a514fc62d6676ef4cbffbd3c57ec15c7fa13fa39082b7176086dadf79e9",
+   "source_id": "7bf1274a-bfbf-47fc-bd89-08cdcf4efa52"
   },
   "browser_part1.md": {
    "added_at": "2026-10-05T09:41:11Z",
    "rel": "browser/browser_part1.md",
-   "sha256": "ba3f90379c3644522d31e2f0cb5834a45889243b4cbb98d74b47c206e61ca4dc",
-   "source_id": "158df2f9-c969-4f90-acac-fed22707d190"
+   "sha256": "d4f09d133dd3e01aedb77ae721072b712201c70ff0bf8f52c7271417104899ea",
+   "source_id": "e374ec66-82df-483b-bc05-86d94358c357"
   },
   "data_security_part1.md": {
    "added_at": "2026-10-05T09:41:39Z",
    "rel": "data_security/data_security_part1.md",
-   "sha256": "74696b1fc98537903b8063fcc4793090dda67dae8db442fe6423d69a741fe033",
-   "source_id": "2d83a5a7-3708-4243-90f6-51611bf7058c"
+   "sha256": "1f21502ec3145b1766ab2970dea17d0d6b0a59497b6f224e8e2c9a6610e11342",
+   "source_id": "f671df9f-7864-4ff7-a6db-6ba2720d2d0f"
   },
   "data_security_part2.md": {
    "added_at": "2026-10-05T09:41:46Z",
    "rel": "data_security/data_security_part2.md",
-   "sha256": "3b103adacca9c2b3aa8c36783a07462f901ebdba4ea905ee52d4837452bf551d",
-   "source_id": "efa581ec-e149-4f8d-9ca2-6d67070f2732"
+   "sha256": "441c13c5e97bf97e1fec6d0f014eac33b6078795c510bcd2ae2414c7f119364a",
+   "source_id": "99d653cf-c043-4691-9239-70690a28173c"
   },
   "deception_part1.md": {
    "added_at": "2026-10-05T09:42:13Z",
    "rel": "deception/deception_part1.md",
-   "sha256": "28bf9aa16cbb95f20e882be21cec85f39994ad700f7f0cb86d0901fc46a7305e",
-   "source_id": "242513b6-9f59-49c7-9c4a-467eb43681e8"
+   "sha256": "b3cadad9b2e2381594b07b2e1aea51e8725113f4106ad2a26698c88e0e902c31",
+   "source_id": "b01a6767-85c4-471e-b967-b5d1e0a191eb"
   },
   "deception_part2.md": {
    "added_at": "2026-10-05T09:42:19Z",
    "rel": "deception/deception_part2.md",
-   "sha256": "81073d0271d1323a581d6bec4f59f107e2022526a04e20f884e22ee432086c74",
-   "source_id": "4f9fabcc-9432-429b-a48e-61929f959b6d"
+   "sha256": "fe43fe66fc0031b300728e3a5ac859466b0d95447ce4410eb431312288c0746c",
+   "source_id": "406942a0-e2bf-484c-9308-7f7d7d03e56e"
   },
   "exposure_mgmt_part1.md": {
    "added_at": "2026-10-05T09:42:38Z",
    "rel": "exposure_mgmt/exposure_mgmt_part1.md",
-   "sha256": "96a33b8513ae5284de4997742acbf4b24954946f91ff2f67097be2f6ce1f3cfc",
-   "source_id": "7ee4fbb1-5260-4c36-a315-ed89fbd10ef5"
+   "sha256": "e62b2183a3c941ab28d8f8805f4c8eb1abf5f6e8c43018fac9ea1fcce168563f",
+   "source_id": "2244fa25-07f0-4eae-b940-6b7300956a1d"
   },
   "exposure_mgmt_part2.md": {
    "added_at": "2026-10-05T09:42:56Z",
    "rel": "exposure_mgmt/exposure_mgmt_part2.md",
-   "sha256": "045428a4b669a7f69579ae7aa0488bb614fc8444d9a7aca47f5fb76424e69914",
-   "source_id": "8c7e05cc-2245-466e-b271-4b0d7412f5cc"
+   "sha256": "73ddb308914444b39d32f7d08a86e010b4bdfe85b2344de3edaf72611451c7f2",
+   "source_id": "1c5137e2-f8e1-4021-826f-426c25c38681"
   },
   "operations_part1.md": {
    "added_at": "2026-10-05T09:43:24Z",
    "rel": "operations/operations_part1.md",
-   "sha256": "72b41e38b04a0ad50229554ad4c63ea2f2058cecabbb03ca8f98eb13fc800836",
-   "source_id": "d35298ff-488e-4eef-b775-0d2b5cc954db"
+   "sha256": "fa6d0403db2bdbd53b48e3e100c0620863d963e926f8020c7ab9335c3a51968d",
+   "source_id": "7673321a-3bec-41f4-b661-5ea33fd86de5"
   },
   "operations_part2.md": {
    "added_at": "2026-10-05T09:43:43Z",
    "rel": "operations/operations_part2.md",
-   "sha256": "6e78a58f223aba830b3ec8569407f29671bfc9e5e77ece800fb96ec7b380fb2c",
-   "source_id": "16b7bbf6-f795-4a7f-be7d-2a220a7e4c53"
+   "sha256": "da8ed0c7f8e03098382483e1d8ba13bd488e2a73b6083928cb82adebdb21ee56",
+   "source_id": "67397dce-2b71-46ca-8061-27a16835ea2b"
   },
   "other_part1.md": {
    "added_at": "2026-10-05T09:43:49Z",
    "rel": "other/other_part1.md",
-   "sha256": "dd6c8aa8f82daa067b4fc24e93b6297d4c062ee2efad9538c66b52cc6b052669",
-   "source_id": "04bc0565-e0af-43fd-8768-c4fa82575211"
+   "sha256": "f29f8bc0da22f1cdd5ffa94f9d74bbf484a32bce20f2b6a6a48367e010dc32aa",
+   "source_id": "e1b0153d-526a-40d1-8516-f2a6814355a2"
   },
   "other_part2.md": {
    "added_at": "2026-11-02T13:47:21Z",
    "rel": "other/other_part2.md",
-   "sha256": "5ea6292804f628557a939ecbdb7fbb682626e282838ecb24ed696d315d51c297",
-   "source_id": "52cb4ed1-c12d-481a-bed1-f6b90e45f8bd"
+   "sha256": "36b2542413542294a5983dc68d36bb44230c927ba5244c2e6d3ee90d1be86496",
+   "source_id": "f2587968-abb6-49c8-9454-dff386dddfa7"
   },
   "partners_part1.md": {
    "added_at": "2026-10-05T09:43:57Z",
    "rel": "partners/partners_part1.md",
-   "sha256": "5b186385f2187b3dfe2d131c7de1dd4a51ff8aa1bc2aeea2982bff9fd21958d4",
-   "source_id": "4d1fe1b8-3d13-4c7f-9e76-12295fd22be6"
+   "sha256": "aa895f48ac0f7ee9d39ce95dde56fe08880b870af0436be15241b4c5332d2f15",
+   "source_id": "8232326e-9d7d-4135-b20b-c8c482b51de6"
   },
   "platform_part1.md": {
    "added_at": "2026-10-05T09:44:24Z",
    "rel": "platform/platform_part1.md",
-   "sha256": "ebfd299a43ff059e99bb2d5d5fd48c46613aa33d36ef1c6c96211ba3dd1fb71b",
-   "source_id": "4b5e7538-ce86-4fd6-bc9b-9a9831c83652"
+   "sha256": "e314325de69f9525d7cb98480c3063b9c7e564bb2941dc9fe85f9925da9e933a",
+   "source_id": "c7ba75eb-c187-4d9b-b0aa-271e0596486f"
   },
   "platform_part2.md": {
    "added_at": "2026-10-05T09:44:52Z",
    "rel": "platform/platform_part2.md",
-   "sha256": "9c8f4776fde9481339e625ac1e6d9d6d8f5ebb49553278b03404ac6e9df35b3d",
-   "source_id": "fd7ea7d2-4b97-4813-88f7-0d9b18b65412"
+   "sha256": "645691cf3cdf211614f63c9c436575acab314fec05fb22770af3ca64c3a2c24f",
+   "source_id": "aecc6235-3ea0-42dd-809e-d50a2795a2f6"
   },
   "zcc_part1.md": {
    "added_at": "2026-10-05T09:45:30Z",
    "rel": "zcc/zcc_part1.md",
-   "sha256": "d2941fea3c75cb8a923dc359612270b28d46430ada44b3c267cd15145f074db8",
-   "source_id": "fdc47f3d-fa13-4c04-a6c6-35381a580bab"
+   "sha256": "662a287cf8a09cd47f10f5ca40d061f71c83bffd10234469e3418f5e07690040",
+   "source_id": "6868a358-ede5-44fd-aa2e-8d1dd79c5c5d"
   },
   "zcc_part2.md": {
    "added_at": "2026-10-05T09:45:39Z",
    "rel": "zcc/zcc_part2.md",
-   "sha256": "831366163d7476ddf14af045a1484251374068ce39cfdb0cb62b646239d3576b",
-   "source_id": "725730e0-688b-44ac-802f-fe4c949f2fe9"
+   "sha256": "2f16ad2dd40a84ae933a4bcb9cc5d31067bda8ee827b8770732f2831d51684e2",
+   "source_id": "a49bcc9d-7245-4a33-8513-c695a137b830"
   },
   "zdx_part1.md": {
    "added_at": "2026-10-05T09:45:58Z",
    "rel": "zdx/zdx_part1.md",
-   "sha256": "def1f89a3273f4a44513fe0c1a2c23c5747ba88d807580a92d3dfb2439f625e1",
-   "source_id": "1d243484-3764-4a83-9536-ddfd546b6979"
+   "sha256": "8bd632f1304111ae5d2896a776d13874e01785da87083d8c6b6f66ea1e7142cc",
+   "source_id": "7294b824-f462-499f-8d6e-3e05bfbd145b"
   },
   "zia_part1.md": {
    "added_at": "2026-10-05T09:46:25Z",
    "rel": "zia/zia_part1.md",
-   "sha256": "9f743ca22ae8e5fef0421cb88681ab481d8aa696d39d314419876871c4e706d8",
-   "source_id": "1da8f430-ce26-4ab6-93d1-842ccbf7cb9e"
+   "sha256": "fb088bca639bec71c3ad5d8be4a0d698f9e7b72a44b5ac12d159cb7c07f28a08",
+   "source_id": "d01458b8-3324-45a9-a077-57bb14fd9b81"
   },
   "zia_part2.md": {
    "added_at": "2026-10-05T09:46:52Z",
    "rel": "zia/zia_part2.md",
-   "sha256": "879d398a121a6d68b5d49cee205679af391d1c06a4d44a44c2d5f5ca9ac6e599",
-   "source_id": "fff5078a-ed28-4783-b455-3eca7ca75c94"
+   "sha256": "035ea8b87c28ffd59263e004203cbbebd251afb4109951f16d6da1daf40f07a3",
+   "source_id": "5a5f8ec1-9db5-42d8-b8f2-5db19784732d"
   },
   "zia_part3.md": {
    "added_at": "2026-10-05T09:47:11Z",
    "rel": "zia/zia_part3.md",
-   "sha256": "ddad71e85ce8e65eff81901167e85c49286c25396ff67c3206b44155c00bdd0e",
-   "source_id": "bed7d1a5-2307-413b-af10-962c2afe0021"
+   "sha256": "385c2cd31bc83da611acb240f807a6f77045febcefa1745ad8e2160d12f91f45",
+   "source_id": "f866ed73-2a3c-4131-94e9-e0ba6fc8e446"
   },
   "zia_part4.md": {
    "added_at": "2026-10-05T09:47:38Z",
    "rel": "zia/zia_part4.md",
-   "sha256": "a5b392bde5e13d62f2bc071516d68d005a55a6b80512cb132c1535adac892902",
-   "source_id": "da962dfa-23fb-48b2-ba34-5eb10719e3ab"
+   "sha256": "96e4c9ecd36980f8a26e45b2ebbc6ea48cdde67ebafed9b8d1ea9a419c308630",
+   "source_id": "b2d9ccce-64ec-4c9c-9922-31796b423031"
   },
   "zia_part5.md": {
    "added_at": "2026-10-05T09:47:57Z",
    "rel": "zia/zia_part5.md",
-   "sha256": "7a05a459b4a73d7494837eb02dc2bcc8ce6bcf62ffc6b28604be74c8f05db85e",
-   "source_id": "01e51c16-bf8b-4314-8504-07f56dd1826d"
+   "sha256": "0ff483b313d5286af65065d27aa2362f4715ca94cb4541dfd5ce05c9ba1bf33b",
+   "source_id": "43efe59e-9f4f-4f29-ba0a-e68342f11f2f"
   },
   "zia_part6.md": {
    "added_at": "2026-10-05T09:48:25Z",
    "rel": "zia/zia_part6.md",
-   "sha256": "3426d51ebf5ecfbaca9e0a30366500a9b574e45034ddf80565bc3e5a41c5dbdf",
-   "source_id": "8b5079bc-c322-4b59-8904-905f5781f98b"
+   "sha256": "3d62792e25e6ef543539d41ad99971a0f88bb17fe1ad4760542c1e08cf40c18a",
+   "source_id": "0dcbcc76-60d7-49f8-ab85-f592fc8c75ff"
   },
   "zia_part7.md": {
    "added_at": "2026-10-05T09:48:52Z",
    "rel": "zia/zia_part7.md",
-   "sha256": "36ec88402ed5a790796fda8bc2b990e60c653b1e66255a746a9ea2ee8c8cd47c",
-   "source_id": "82b9fff6-cc11-4bb2-89cf-2909cdca6040"
+   "sha256": "788e5a4ba4bbda292202f8200a02ac0ff239a2dfd34e02e224d44008fda555b7",
+   "source_id": "cb65525e-910d-4133-8e68-eb5f28fd2e0f"
   },
   "zia_part8.md": {
    "added_at": "2026-10-05T09:48:58Z",
    "rel": "zia/zia_part8.md",
-   "sha256": "91d0dc54a40c03a482c597eebb29651ef87d6eb9e946efe817abc4ba571bc608",
-   "source_id": "9d268fd3-3038-4792-86b5-2da1274c7a06"
+   "sha256": "5141624743ecbdadc8c2bce4786fe81e3f1c72dff643a2a8dcc182963893f0d6",
+   "source_id": "f1cf6911-b725-4c7b-ac67-d275c270ff18"
   },
   "zpa_part1.md": {
    "added_at": "2026-10-05T09:49:17Z",
    "rel": "zpa/zpa_part1.md",
-   "sha256": "4822d51cb8ed478fa88afb14d2403d8029ae42891de58bdc54b16ca5484ca7cd",
-   "source_id": "b64d3684-f217-4ca2-8f7f-1b2697166f14"
+   "sha256": "07ce890b367603a76ac4b599a650e9bed4c73765e7d352b08e7f869fc8fca734",
+   "source_id": "374e7f07-7c1c-43e4-8bc1-420edf862f7a"
   },
   "zpa_part2.md": {
    "added_at": "2026-10-05T09:49:55Z",
    "rel": "zpa/zpa_part2.md",
-   "sha256": "fd04f36998cd87c3141d7c25ccc6db418a67b6153b3384fe1a142eb34bdaefca",
-   "source_id": "317a0e64-99e1-43bd-a0b9-2797491e8c83"
+   "sha256": "277e4f7d0e0571fdb907c492702de359f711cd8dd6f73ca3da4f5db530a7c3f3",
+   "source_id": "494dcb82-802f-466b-a7b1-203af648b5e2"
   },
   "zpa_part3.md": {
    "added_at": "2026-10-05T09:50:22Z",
    "rel": "zpa/zpa_part3.md",
-   "sha256": "77f54fb8386d2db74fbbb61a82ddbdf535be263fdec7f9c36020bab313a455cd",
-   "source_id": "0ae77953-2d46-48d5-8102-97598f2c9bc6"
+   "sha256": "53a3b52ba67a2e647353e8e0fd85d56a53d1c1c5fa91d8451a8f1b52a8e356b9",
+   "source_id": "e950045d-0031-49ea-98db-9629313ca308"
   },
   "zpa_part4.md": {
    "added_at": "2026-10-05T09:50:34Z",
    "rel": "zpa/zpa_part4.md",
-   "sha256": "e5da40292fd39e00e1862f0153a241cd428e5d7ed164ba04a92f9f2b8ea917cc",
-   "source_id": "60edcf79-3c6f-4f5c-91c9-23c8779c5a65"
+   "sha256": "c3aea04d53ab8b9c20980fee09052229eb80d1c47db0ca71e17d00ec5c320fd8",
+   "source_id": "449adf86-dca7-4d69-8424-89d757becb81"
   }
  },
- "synced_at": "2026-11-02T13:54:30Z"
+ "synced_at": "2026-11-02T14:14:06Z"
 }
