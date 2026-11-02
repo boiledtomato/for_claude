@@ -1,6 +1,6 @@
 # Zenith Community — NotebookLM ソース
 
-生成: 2026-11-02 11:37 UTC  
+生成: 2026-11-02 13:37 UTC  
 取得モード: `prerender`  
 収録: 3,890 件 / 17 ファイル / 約 1,778,022 語
 
