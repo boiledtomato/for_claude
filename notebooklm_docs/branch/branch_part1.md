@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 92
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 93
 
 ---
 
@@ -2450,7 +2450,7 @@ This method uses the URL that you saved during the [Adding a Site](https://help.
 
 [Image: Browser showing that the gateway activation completed]
 
-[Image: Site details showing a green check mark icon showing the gateway is activated]
+[Image: Site details showing a green check mark icon showing the appliance is activated]
 
 [Image: Send Activation Link icon at the end of the row for a site on the Sites page]
 
@@ -3657,32 +3657,39 @@ To configure route preference:
 2. On the **Sites**page, locate the entry for the site whose forwarding policy settings must be updated, and click the name of the site in the **Site Name**column. See image.
 3. On the site details page, click the **Forwarding Policy**tab.
 4. Click **Settings**. See image.
-5. In the **Policy Routing Settings** drawer, enable or disable **Prefer local learned routes over the ZIA and ZPA policies**. See image.
+5. In the **Policy Routing Settings** drawer: See image.
+  - Enable or disable **Prefer local learned routes over the ZIA and ZPA policies**.
+  - **WAN Failover Settings**:
+    - **Switchover** **Threshold**: Drag the slider to specify the minimum WAN score difference required to initiate failover. The default value is 6.
+    - **Performance SLA Metrics**: Enable or disable the following metrics used to evaluate WAN performance:
+      - **Packet Loss**: Enable to include packet loss in WAN performance evaluation.
+      - **Latency**: Enable to include latency in WAN performance evaluation.
+      - **Jitter**: Enable to include jitter in WAN performance evaluation.
 6. Click **Save**. The routing preference is applied.
 
-[Image: Selecting a site to manage routing policies]
+[Image: Selecting a site to manage forwarding policies]
 
 [Image: Site details page showing the option to edit a policy]
 
-[Image: Editing a routing rule]
+[Image: Editing a forwarding rule]
 
 [Image: Site details page showing the option to commit changes]
 
-[Image: Selecting a site to manage routing policies]
+[Image: Selecting a site to manage forwarding policies]
 
 [Image: Site details page showing the option to reorder policies]
 
-[Image: Animation showing how to reorder routing policies]
+[Image: Animation showing how to reorder forwarding policies]
 
-[Image: Selecting a site to manage routing policies]
+[Image: Selecting a site to manage forwarding policies]
 
 [Image: Site details page showing the option to delete policy]
 
-[Image: Deleting a routing policy]
+[Image: Deleting a forwarding policy]
 
-[Image: Selecting a site to manage routing policies]
+[Image: Selecting a site to manage forwarding policies]
 
-[Image: Site details page showing the option to configure routing policy settings]
+[Image: Site details page showing the option to configure forwarding policy settings]
 
 [Image: Configuring policy routing settings]
 <!-- /ZS-ARTICLE -->
@@ -3749,6 +3756,86 @@ To delete a user-defined group object:
 [Image: Objects page showing the option to delete an object]
 
 [Image: Deleting an object]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-security-policies","lastmod":"2026-10-30T07:47Z","nid":"1509381"} -->
+## Managing Security Policies
+
+- Source: https://help.zscaler.com/zero-trust-branch/managing-security-policies
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Deployment Preparation > Firewall Policies > Managing Security Policies
+- Last modified: 2026-10-30T07:47Z
+- Summary: Information about managing security policies in the Zscaler Admin Console.
+
+You can view, edit, clone, delete, or organize security policies at global, template, or site levels. Thesystem (default) policiescreated for each site are editable but cannot be reordered.
+
+## Editing a Policy
+
+To edit a policy:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Security**> **Device Segmentation** **Policy**. Click the tab for the scope (**Global Policy**, **Template Policy**, or **Site Policy**) that includes the policy you want to edit.
+2. Locate the policy that you want to edit, click the corresponding **Gear**icon, and select **Edit**. See image.
+3. In the **Edit Policy**drawer, make the necessary changes. See image.
+4. Click **Save**. The policy changes are saved.
+5. Click **Commit**to apply the changes. See image.
+
+## Reordering Policies
+
+You can reorder policies to change the order of evaluation.
+
+To reorder policies:
+
+1. Go to **Zero Trust Branch** > **Security**> **Device Segmentation** **Policy**. Click the tab for the scope (**Global Policy**, **Template Policy**, or **Site Policy**) under which you want to reorder policies.
+2. Click **Reorder**. See image. A **Drag**icon appears for each custom policy.
+3. Use the **Drag**icon to rearrange the policies as required. You can either click and drag the policies using the **Drag**icon or click the **Drag**icon to select the policy name, after which the policy must be inserted. See image.
+4. Click **Save Policy Order**. See image.
+
+## Cloning a Policy
+
+You can clone an existing policy and create a new policy with minimal changes.
+
+To clone a policy:
+
+1. Go to **Zero Trust Branch** > **Security**> **Device Segmentation** **Policy**. Click the tab for the scope (**Global Policy**, **Template Policy**, or **Site Policy**) under which you want to clone a policy.
+2. Locate the policy that you want to clone, click the corresponding **Gear**icon, and select **Clone**. See image.
+3. In the **Clone <policy_name> Policy**drawer, make the necessary changes. See image.
+4. Click **Clone**. The new policy is added.
+5. Click **Commit**to apply the changes. See image.
+
+## Deleting a Policy
+
+To delete a policy:
+
+1. Go to **Zero Trust Branch** > **Security**> **Device Segmentation** **Policy**. Click the tab for the scope (**Global Policy**, **Template Policy**, or **Site Policy**) that includes the policy you want to delete.
+2. Locate the policy that you want to delete, click the corresponding **Gear**icon, and select **Delete**. See image.
+3. In the delete confirmation window, enter `DELETE` and click **Confirm**. See image.
+4. Click **Commit**to apply the changes. See image. The policy is removed from the Zscaler Admin Console.
+
+[Image: Security Policies page showing the option to edit a policy]
+
+[Image: Editing a security policy]
+
+[Image: Security Policies page showing the option to commit changes]
+
+[Image: Security Policies page showing the option to reorder security policies]
+
+[Image: Security Policies page showing different methods to reorder security policies]
+
+[Image: Security Policies page showing the option to save the order of policies]
+
+[Image: Security Policies page showing the option to delete a policy]
+
+[Image: Confirming the security policy deletion]
+
+[Image: Security Policies page showing the option to commit changes]
+
+[Image: Security Policies page showing the option to clone a policy]
+
+[Image: Cloning a security policy]
+
+[Image: Security Policies page showing the option to commit changes]
 <!-- /ZS-ARTICLE -->
 
 ---

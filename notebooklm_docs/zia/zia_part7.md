@@ -1,8 +1,80 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 91
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 94
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1401611"} -->
+## Understanding DLP Engines
+
+- Source: https://help.zscaler.com/zia/understanding-dlp-engines
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding DLP Engines
+- Last modified: 2026-09-24T11:09Z
+- Summary: Information on Data Loss Prevention (DLP) engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
+
+A [Data Loss Prevention (DLP) engine](https://help.zscaler.com/zia/about-dlp-engines) is a collection of one or more DLP dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines:
+
+- Predefined DLP Engines: The Zscaler service provides 5 predefined engines (HIPAA, GLBA, PCI, Offensive Language, and Self-Harm & Cyberbullying). These engines contain default DLP dictionaries. For example, the PCI engine contains the Credit Cards and Social Security Number dictionaries. You can also edit predefined engines. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines).
+
+The Self-Harm & Cyberbullying engine is intended for use by K-12 educators. If you’re an educator, contact your Zscaler Account team to enable this feature.
+
+- Custom DLP Engines: You can create custom DLP engines to detect content that is relevant to your organization on the DLP Engines page or through the Cloud Service API. You can create a maximum of 512 custom DLP engines. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine) and [Understanding Cloud Service and Sandbox Submission APIs.](https://help.zscaler.com/zia/about-api)
+- If you use a parent dictionary to configure the engine, you have the option to select a sub-dictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for sub-dictionaries), then you must select a sub-dictionary from the drop-down menu.
+
+See image.
+
+When you use parent and sub-dictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and sub-dictionaries can match independently of one another). To learn more about configuring parent and sub-dictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
+
+## Building Expressions for DLP Engines
+
+When configuring a predefined or custom DLP engine, you can combine DLP dictionaries with operators to create a logical expression. The operators include All (AND), Any (OR), Exclude (AND NOT), and Sum. The Sum operator allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
+
+See image.
+
+To build a DLP engine expression, create subexpressions with operators and dictionaries. Subexpressions determine the logic for how the engine’s dictionaries must trigger in order for the engine to trigger. You can use the Sum operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the Sum operator.
+
+See image.
+
+For example, the following expressions use the same dictionaries. However, because the subexpressions are applied differently, the logic for each expression is different.
+
+- `((ABA Bank Routing Numbers > 0) AND (Credit Cards > 0)) OR (Financial Statements > 0)`
+- `(ABA Bank Routing Numbers > 0) AND ((Credit Cards > 0) OR (Financial Statements > 0))`
+
+The following expression uses sub-dictionaries, which appear in brackets within the expression:
+
+`((Parent Container (Canada) [Canadian Driver License] > 0) AND ((Parent Container (Canada) [Canadian Passport Pattern] > 0)))`
+
+## Configuring the Match Count
+
+Depending on the operator and the dictionary you select, you must also configure the match count value for a dictionary or group of dictionaries when adding them to a DLP engine. The match count is the threshold that triggers a dictionary or group of dictionaries.
+
+See image.
+
+The dictionary or dictionaries trigger only if they find more matches than the number specified. For example:
+
+- If you use the Sum operator in your expression with 3 dictionaries, and you enter a match count of 6, then the policy triggers only if there are 7 or more matches across the 3 dictionaries.
+- Similarly, if you use any of the other operators (All, Any, or Exclude) with a dictionary that requires a match count, and you enter a match count of 6, the dictionary triggers only upon finding 7 or more matches in that dictionary. If you select multiple dictionaries with individual match counts, the dictionary is triggered only when the threshold is reached for an individual dictionary.
+
+You can add a dictionary to multiple engines and specify a different match count value each time you add a dictionary to an engine. For example, consider that you want to create a DLP policy rule to block all file uploads containing 5 or more instances of personally identifiable information (PII), and another policy rule to send an email notification whenever a file upload contains at least one instance of PII. In this scenario, you can:
+
+- For your block policy rule, create one DLP engine with PII dictionaries that each have a match count value of 4. You must also ensure that this rule’s order number is before the notification policy rule.
+- For your notification policy rule, create a second DLP engine with PII dictionaries that each have a match count value of 0.
+
+To modify the Confidence Score Threshold of a predefined dictionary, you must configure this setting in the dictionary itself. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+[Image: The DLP Engine Expression Builder Using a Parent and Sub-Dictionary]
+
+[Image: The DLP Engine Expression Builder Using a Logical Operator]
+
+[Image: The DLP Engine Expression Builder Using a Sum Operator]
+
+[Image: Subexpressions for the DLP Engine Expression]
+
+[Image: The Match Count for the DLP Dictionary in the Engine]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1615,6 +1687,88 @@ The following diagram provides an overview of the JWT authentication flow with Z
 4. The traffic proceeds to its destination and a 200 OK verification code is sent back to the client and Zscaler service.
 
 [Image: Traffic flow for JWT authentication]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-kerberos-authentication","lastmod":"2026-10-30T04:49Z","nid":"1399556"} -->
+## Understanding Kerberos Authentication
+
+- Source: https://help.zscaler.com/zia/understanding-kerberos-authentication
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Understanding Kerberos Authentication
+- Last modified: 2026-10-30T04:49Z
+- Summary: Information on using Kerberos authentication, an industry standard secure protocol, and how it works with the Zscaler service.
+
+Zscaler supports authentication using Kerberos, an industry standard secure protocol. Unlike the other supported authentication mechanisms, Kerberos doesn't use cookies for authentication. It is a ticket-based authentication protocol that is widely used to authenticate users to network services. To learn more about the Kerberos protocol, see [RFC 4120 The Kerberos Network Authentication Service (V5)](https://tools.ietf.org/html/rfc4120).
+
+## How Kerberos Authentication Works With Zscaler
+
+The Zscaler service uses Kerberos cross-realm authentication, enabling clients from your organization’s domain to authenticate themselves to the Public Service Edges for Internet & SaaS (ZIA) in the Zscaler domain. Your organization and the Zscaler domain establish a one-way trust relationship based on a shared password, eliminating the need to upload and manage keytab files or to join the Public Service Edges to your domain.
+
+The following diagram shows a simplified view of the authentication process after the trust relationship is established. Review the following:
+
+- In the organization's domain, the Kerberos Key Distribution Center (KDC) is integrated in the domain controller on the Windows server.
+- In the Zscaler domain, the Central Authority (CA) hosts the KDC.
+- The user is logged in to the corporate domain.
+- The user's browser uses the default Kerberos PAC file to identify the primary Public Service Edge.
+
+[Image: An illustration showing the relationship between the organizational realm and the Zscaler realm]
+
+1. The user's browser sends the request to the Public Service Edge (HTTPS requests are also sent as HTTP CONNECT method requests to the Public Service Edge). If the Public Service Edge doesn't find a Zscaler cookie for the domain in the HTTP request, it issues a 407 Negotiate challenge.
+2. Because the user has already logged into the domain, the user has a session ticket for the domain controller. Using this session ticket, the client sends the domain controller an authentication request for the Zscaler service. The domain controller issues a cross-realm ticket. See image.
+3. The client sends the cross-realm ticket to Zscaler KDC, which issues a ticket for the Public Service Edge.
+4. The client sends the HTTP request with the proxy authorization header and ticket, which contains the client information. The Public Service Edge decrypts the ticket, and after verifying the username, sends the request to the website.
+
+As shown in the diagram, users authenticate themselves only once when they log in to the corporate domain. They don't need to log in separately to the Zscaler service. Additionally, the Zscaler service is able to identify users through the proxy authorization header. This allows the service to then apply user, group, and department policies on FTP and HTTPS transactions without decrypting them.
+
+## Kerberos Authentication Overview
+
+You can review the features, benefits, requirements, and limitations for your organization:
+
+- Features
+- Benefits
+- Requirements
+- Limitations
+
+Before deploying Kerberos, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines). To deploy Kerberos, see [Deploying Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
+
+Using Kerberos to authenticate users provides the following benefits:
+
+- It enables the Zscaler service to authenticate users when they use applications that do not support cookies, such as Office 365 and Windows Metro apps.
+- It enables transparent Single Sign-On (SSO) authentication for users. Users authenticate themselves once, when they log in to their corporate domain. They do not need to explicitly authenticate to the Zscaler service, because authentication occurs transparently with Kerberos.
+- The service can enforce granular user, group, and department policies on proxied FTP transactions as well as HTTPS transactions, without having to decrypt the HTTPS transactions.
+- Your organization doesn't need to configure its firewall to allow incoming connections from Public Service Edges.
+- Kerberos is a secure, open standard protocol that most operating systems support, including Windows 11, macOS, Linux, and FreeBSD. Additionally, most browsers support Kerberos authentication, including Microsoft Edge and Google Chrome.
+
+The Zscaler Kerberos implementation provides the following features:
+
+- It is simple to configure and manage. Your organization and the Zscaler service establish a one-way trust that is based on a shared password, eliminating the need to upload and manage keytab files or to join the Public Service Edges to your domain.
+- It offers various deployment options. Your organization can use Kerberos as its sole authentication method or combine it with another method, such as SAML or LDAP. To learn more, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines#Kerberos-Deployment-Options).
+- It can be used to authenticate road warriors as well. DirectAccess is required (to learn more, see [Kerberos Deployment Guidelines](https://help.zscaler.com/zia/kerberos-deployment-guidelines#Kerberos-Deployment-Options)).
+
+The Zscaler service doesn't support Kerberos on Windows XP, Apple iOS, or Android devices.
+
+To use Kerberos as an authentication mechanism, your organization must do the following:
+
+- Provision users on the Zscaler service. Kerberos is an authentication mechanism. It is not a provisioning method, like [SAML](https://help.zscaler.com/zia/configuring-saml) or [LDAP synchronization](https://help.zscaler.com/zia/configuring-zscaler-service-synchronize-data). Users must be provisioned on the Zscaler service before they can use Kerberos for authentication. For supported provisioning methods, see [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods).
+- Use a [PAC file](https://help.zscaler.com/zia/how-do-i-use-default-pac-files-forward-traffic-zia) to forward traffic to the Zscaler service.
+
+The service supports Kerberos authentication only for traffic forwarded in explicit mode. It doesn't support Kerberos for traffic forwarded in transparent mode, which is traffic forwarded through a [GRE](https://help.zscaler.com/zia/configuring-gre-tunnels) or [IPSec](https://help.zscaler.com/zia/how-do-i-configure-ipsec-vpn-tunnels) tunnel and the browser isn't configured to use a PAC file to forward traffic. To learn more, see [Using the Default Zscaler Kerberos PAC File](https://help.zscaler.com/zia/using-default-zscaler-kerberos-pac-file).
+
+- Ensure that the DNS server on site can resolve the Zscaler service host names (Zscaler PAC servers; Central Authority, which hosts the Zscaler Key Distribution Center (KDC); and Public Service Edges). If this isn't possible from the location, then your organization must conditionally forward Zscaler cloud domain resolution to the Zscaler DNS servers.
+- Ensure that your firewall allows connections to port 88/8800 to enable Kerberos authentication.
+- Ensure that the domain suffix of either the client or server, in the Kerberos ticket obtained from your organization's domain controller, is a registered domain in the Zscaler account. In the example below, the domain suffix is SAFEMARCH.COM. To see the Kerberos tickets, open Windows PowerShell and run the command klist. See image.
+
+Additionally, the following are required in a Windows environment:
+
+- A domain controller that runs Windows Server 2008 or higher
+- Client devices must run Windows Vista or higher
+- Client devices must be joined to the domain
+
+[Image: Authentication request for Kerberos authentication on Windows]
+
+[Image: The klist command and the Kerberos ticket in Windows PowerShell]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5390,6 +5544,46 @@ You can enable SAML auto-provisioning to allow the service to automatically retr
 - If the user display name, group, and department values don't exist in the SAML response, then these values are removed from the database too.
 
 To learn more, see [Configuring SAML](https://help.zscaler.com/zia/configuring-saml).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-sandbox-end-user-notifications","lastmod":"2026-10-29T09:34Z","nid":"1400381"} -->
+## Understanding Sandbox End User Notifications
+
+- Source: https://help.zscaler.com/zia/understanding-sandbox-end-user-notifications
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Understanding Sandbox End User Notifications
+- Last modified: 2026-10-29T09:34Z
+- Summary: Information on the end user notifications for the Zscaler Sandbox.
+
+When [configuring](https://help.zscaler.com/zia/configuring-sandbox-policy) the Sandbox policy, you can choose the action the Sandbox takes when users download a file. Depending on the following action you choose, your users might see a particular end user notification (EUN).
+
+- Allow
+- Quarantine
+- Block
+
+To learn about the recommended Sandbox actions, see [Recommended Sandbox Policy](https://help.zscaler.com/zia/recommended-sandbox-policy).
+
+- If you choose **Allow** for **Action for Subsequent Downloads**, users can download a file if it's known to be malicious, and no EUN is displayed.
+- If you choose **Allow and do not scan** for **First-Time Action**, users can download an unknown file, and it's not sent for behavioral analysis. No EUN is displayed.
+- If you choose **Allow and scan**for **First-Time Action**, users can download an unknown file, and it's sent for behavioral analysis. No EUN is displayed.
+
+If your organization has Advanced Sandbox, you can add rules to the Sandbox policy and choose **Quarantine** for **First-Time Action**. When a user attempts to download an unknown file, the Zscaler service quarantines the file and then sends it to the Sandbox for analysis. The service also displays the following quarantine notification for the user:
+
+****[Image: The Sandbox quarantine end user notification (EUN)]****
+
+You can customize this quarantine notification on the End User Notifications page. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
+
+The Sandbox analysis might take a few minutes, depending on the size and type of the file. If the file is safe, the download begins automatically. If the file is unsafe, then based on your configured Sandbox policy, the download might be blocked.
+
+If a user manually refreshes this page or the service automatically refreshes it, a new quarantine transaction log is created for the file. However, the wait time for the Sandbox analysis isn't affected.
+
+If you choose **Block** for **Action for Subsequent Downloads**, users are unable to download the file if it's known to be malicious, and the block EUN is displayed:
+
+****[Image: The Sandbox block end user notification (EUN)]****
+
+You can customize this block notification on the End User Notifications page under Security Violation Notifications. To learn more, see [Configuring Browser-Based Global End User Notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications).
 <!-- /ZS-ARTICLE -->
 
 ---

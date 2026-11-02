@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
+Generated: 2026-11-02 13:41 UTC
 Articles in this file: 252
 
 ---
@@ -14893,7 +14893,7 @@ To install the Executive Insights App on your iOS device:
 
 - Source: https://help.zscaler.com/unified/adding-adaptive-access-profile
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Adding an Adaptive Access Profile
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Adding an Adaptive Access Profile
 - Last modified: 2026-09-07T05:01Z
 - Summary: How to add Adaptive Access profiles in the Experience Center and manage the entities' access control to sensitive applications.
 

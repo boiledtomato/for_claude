@@ -14124,7 +14124,7 @@
   "/unified/adding-adaptive-access-profile": {
    "canonical": "/unified/adding-adaptive-access-profile",
    "category": "platform",
-   "hash": "f3c3c850b995b57a",
+   "hash": "b990b423cf8373ad",
    "in_bulletins": false,
    "lastmod": "2026-09-07T05:01Z",
    "nid": "1544666",
@@ -14547,7 +14547,7 @@
   "/unified/editing-or-deleting-adaptive-access-profile": {
    "canonical": "/unified/editing-or-deleting-adaptive-access-profile",
    "category": "platform",
-   "hash": "fa79025a8b51f277",
+   "hash": "1de0f27057c2d54a",
    "in_bulletins": false,
    "lastmod": "2026-02-11T06:47Z",
    "nid": "1544709",
@@ -14637,7 +14637,7 @@
   "/unified/integrating-silverfort-adaptive-access-engine": {
    "canonical": "/unified/integrating-silverfort-adaptive-access-engine",
    "category": "platform",
-   "hash": "b70ec2aad982e496",
+   "hash": "46fd7d29d1adb1e4",
    "in_bulletins": false,
    "lastmod": "2026-02-11T06:48Z",
    "nid": "1545059",
@@ -15285,7 +15285,7 @@
   "/unified/viewing-health360-dashboard": {
    "canonical": "/unified/viewing-health360-dashboard",
    "category": "platform",
-   "hash": "745b9704a3fe4f37",
+   "hash": "0a8d3c5eb223527b",
    "in_bulletins": false,
    "lastmod": "2026-08-28T21:06Z",
    "nid": "1545187",
@@ -15299,6 +15299,15 @@
    "lastmod": "2026-10-28T08:10Z",
    "nid": "1547016",
    "title": "Viewing the Inline CASB Data Security Dashboard"
+  },
+  "/unified/viewing-inline-dlp-data-security-dashboard": {
+   "canonical": "/unified/viewing-inline-dlp-data-security-dashboard",
+   "category": "platform",
+   "hash": "d07712ac9b441b35",
+   "in_bulletins": false,
+   "lastmod": "2026-10-28T11:09Z",
+   "nid": "1545167",
+   "title": "Viewing the Inline DLP Data Security Dashboard"
   },
   "/unified/viewing-items-widget-segment": {
    "canonical": "/unified/viewing-items-widget-segment",
@@ -15321,7 +15330,7 @@
   "/unified/viewing-overrides": {
    "canonical": "/unified/viewing-overrides",
    "category": "platform",
-   "hash": "84b86a7dae299145",
+   "hash": "7fdb9973c00df8d1",
    "in_bulletins": false,
    "lastmod": "2026-04-03T21:06Z",
    "nid": "1544670",
@@ -15357,7 +15366,7 @@
   "/unified/viewing-ssl-inspection-dashboard": {
    "canonical": "/unified/viewing-ssl-inspection-dashboard",
    "category": "platform",
-   "hash": "8d7f4497fabcef32",
+   "hash": "efcefa1c6de7fc14",
    "in_bulletins": false,
    "lastmod": "2026-02-11T06:07Z",
    "nid": "1544538",
@@ -18363,7 +18372,7 @@
   "/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster": {
    "canonical": "/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster",
    "category": "branch",
-   "hash": "1a3eebb60baa22bd",
+   "hash": "05b027c8428bfc57",
    "in_bulletins": false,
    "lastmod": "2026-08-25T13:42Z",
    "nid": "1533622",
@@ -18480,7 +18489,7 @@
   "/zero-trust-branch/managing-forwarding-policies": {
    "canonical": "/zero-trust-branch/managing-forwarding-policies",
    "category": "branch",
-   "hash": "e5e5a38fedd0611a",
+   "hash": "a37f142d030eddc2",
    "in_bulletins": false,
    "lastmod": "2026-10-01T21:06Z",
    "nid": "1532642",
@@ -18494,6 +18503,15 @@
    "lastmod": "2026-10-01T21:06Z",
    "nid": "1525226",
    "title": "Managing Objects"
+  },
+  "/zero-trust-branch/managing-security-policies": {
+   "canonical": "/zero-trust-branch/managing-security-policies",
+   "category": "branch",
+   "hash": "22e051bcb0bc3aad",
+   "in_bulletins": false,
+   "lastmod": "2026-10-30T07:47Z",
+   "nid": "1509381",
+   "title": "Managing Security Policies"
   },
   "/zero-trust-branch/managing-sites": {
    "canonical": "/zero-trust-branch/managing-sites",
@@ -19287,6 +19305,1626 @@
    "nid": "1477996",
    "title": "Interactive Reports for Zero Trust Browser in Internet & SaaS"
   },
+  "/zero-trust-cloud/about-amazon-web-services-account-groups": {
+   "canonical": "/zero-trust-cloud/about-amazon-web-services-account-groups",
+   "category": "other",
+   "hash": "4e74f96033cebe63",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1479491",
+   "title": "About Amazon Web Services Account Groups"
+  },
+  "/zero-trust-cloud/about-amazon-web-services-accounts": {
+   "canonical": "/zero-trust-cloud/about-amazon-web-services-accounts",
+   "category": "other",
+   "hash": "c7c6cc6565be9cf7",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1463456",
+   "title": "About Amazon Web Services Accounts"
+  },
+  "/zero-trust-cloud/about-amazon-web-services-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/about-amazon-web-services-zero-trust-gateways",
+   "category": "other",
+   "hash": "5e66ddfd4f3894df",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516706",
+   "title": "About Amazon Web Services Zero Trust Gateways"
+  },
+  "/zero-trust-cloud/about-audit-logs": {
+   "canonical": "/zero-trust-cloud/about-audit-logs",
+   "category": "other",
+   "hash": "37e1ba6d1f87ff9f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420581",
+   "title": "About Audit Logs"
+  },
+  "/zero-trust-cloud/about-branch-configuration-templates": {
+   "canonical": "/zero-trust-cloud/about-branch-configuration-templates",
+   "category": "other",
+   "hash": "e5acf9892779cc25",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420651",
+   "title": "About Branch Configuration Templates"
+  },
+  "/zero-trust-cloud/about-cloud-branch-connector-api-management": {
+   "canonical": "/zero-trust-cloud/about-cloud-branch-connector-api-management",
+   "category": "other",
+   "hash": "7f85c196d0da4f34",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420801",
+   "title": "About Cloud & Branch Connector API Management"
+  },
+  "/zero-trust-cloud/about-cloud-connector-groups": {
+   "canonical": "/zero-trust-cloud/about-cloud-connector-groups",
+   "category": "other",
+   "hash": "fbc34a322c937135",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420476",
+   "title": "About Cloud Connector Groups"
+  },
+  "/zero-trust-cloud/about-cloud-nss-feeds": {
+   "canonical": "/zero-trust-cloud/about-cloud-nss-feeds",
+   "category": "other",
+   "hash": "da0f1ccac3330f87",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1452731",
+   "title": "About Cloud NSS Feeds"
+  },
+  "/zero-trust-cloud/about-cloud-provisioning-templates": {
+   "canonical": "/zero-trust-cloud/about-cloud-provisioning-templates",
+   "category": "other",
+   "hash": "5a954f8dc6c60a93",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420426",
+   "title": "About Cloud Provisioning Templates"
+  },
+  "/zero-trust-cloud/about-destination-ip-groups": {
+   "canonical": "/zero-trust-cloud/about-destination-ip-groups",
+   "category": "other",
+   "hash": "6728095ee844182d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420381",
+   "title": "About Destination IP Groups"
+  },
+  "/zero-trust-cloud/about-dns-gateways": {
+   "canonical": "/zero-trust-cloud/about-dns-gateways",
+   "category": "other",
+   "hash": "367efe18eb649868",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471251",
+   "title": "About DNS Gateways"
+  },
+  "/zero-trust-cloud/about-dns-policies": {
+   "canonical": "/zero-trust-cloud/about-dns-policies",
+   "category": "other",
+   "hash": "a8f5486c2b7f776d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420511",
+   "title": "About DNS Policies"
+  },
+  "/zero-trust-cloud/about-google-cloud-platform-accounts": {
+   "canonical": "/zero-trust-cloud/about-google-cloud-platform-accounts",
+   "category": "other",
+   "hash": "5a8bbc0ea1e533a9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1528867",
+   "title": "About Google Cloud Platform Accounts"
+  },
+  "/zero-trust-cloud/about-google-cloud-platform-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/about-google-cloud-platform-zero-trust-gateways",
+   "category": "other",
+   "hash": "0235b10ad794f68d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1540272",
+   "title": "About Google Cloud Platform Zero Trust Gateways"
+  },
+  "/zero-trust-cloud/about-insights": {
+   "canonical": "/zero-trust-cloud/about-insights",
+   "category": "other",
+   "hash": "a8ceb75503b1f637",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420536",
+   "title": "About Insights"
+  },
+  "/zero-trust-cloud/about-insights-logs": {
+   "canonical": "/zero-trust-cloud/about-insights-logs",
+   "category": "other",
+   "hash": "b4a278bcb3f6bb42",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420541",
+   "title": "About Insights Logs"
+  },
+  "/zero-trust-cloud/about-internet-access-gateways": {
+   "canonical": "/zero-trust-cloud/about-internet-access-gateways",
+   "category": "other",
+   "hash": "7fd89aa94d228cf1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420556",
+   "title": "About Internet Access Gateways"
+  },
+  "/zero-trust-cloud/about-ip-pool": {
+   "canonical": "/zero-trust-cloud/about-ip-pool",
+   "category": "other",
+   "hash": "014d2d2986d1376f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420391",
+   "title": "About IP Pool"
+  },
+  "/zero-trust-cloud/about-location-templates": {
+   "canonical": "/zero-trust-cloud/about-location-templates",
+   "category": "other",
+   "hash": "d28881788716c770",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420601",
+   "title": "About Location Templates"
+  },
+  "/zero-trust-cloud/about-locations": {
+   "canonical": "/zero-trust-cloud/about-locations",
+   "category": "other",
+   "hash": "d98cbed3f29137b9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420551",
+   "title": "About Locations"
+  },
+  "/zero-trust-cloud/about-log-and-control-forwarding": {
+   "canonical": "/zero-trust-cloud/about-log-and-control-forwarding",
+   "category": "other",
+   "hash": "d2eed21ff8188bff",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420501",
+   "title": "About Log and Control Forwarding"
+  },
+  "/zero-trust-cloud/about-log-and-control-gateways": {
+   "canonical": "/zero-trust-cloud/about-log-and-control-gateways",
+   "category": "other",
+   "hash": "01f0652547d96a1e",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420566",
+   "title": "About Log and Control Gateways"
+  },
+  "/zero-trust-cloud/about-microsoft-azure-accounts": {
+   "canonical": "/zero-trust-cloud/about-microsoft-azure-accounts",
+   "category": "other",
+   "hash": "e460ea2c1712f0d0",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1507556",
+   "title": "About Microsoft Azure Accounts"
+  },
+  "/zero-trust-cloud/about-network-service-groups": {
+   "canonical": "/zero-trust-cloud/about-network-service-groups",
+   "category": "other",
+   "hash": "1a1d16477cdad203",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420401",
+   "title": "About Network Service Groups"
+  },
+  "/zero-trust-cloud/about-network-services": {
+   "canonical": "/zero-trust-cloud/about-network-services",
+   "category": "other",
+   "hash": "f1e1a1124d61605f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420396",
+   "title": "About Network Services"
+  },
+  "/zero-trust-cloud/about-nss-feeds": {
+   "canonical": "/zero-trust-cloud/about-nss-feeds",
+   "category": "other",
+   "hash": "52234fdcb23cce4a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420626",
+   "title": "About NSS Feeds"
+  },
+  "/zero-trust-cloud/about-nss-servers": {
+   "canonical": "/zero-trust-cloud/about-nss-servers",
+   "category": "other",
+   "hash": "65042c958486cd97",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420736",
+   "title": "About NSS Servers"
+  },
+  "/zero-trust-cloud/about-physical-branch-devices": {
+   "canonical": "/zero-trust-cloud/about-physical-branch-devices",
+   "category": "other",
+   "hash": "bd8a2a2f050d4c40",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1467026",
+   "title": "About Physical Branch Devices"
+  },
+  "/zero-trust-cloud/about-role-management": {
+   "canonical": "/zero-trust-cloud/about-role-management",
+   "category": "other",
+   "hash": "66bdf59263297fca",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420521",
+   "title": "About Role Management"
+  },
+  "/zero-trust-cloud/about-source-ip-groups": {
+   "canonical": "/zero-trust-cloud/about-source-ip-groups",
+   "category": "other",
+   "hash": "400abc9edb2a88a2",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420386",
+   "title": "About Source IP Groups"
+  },
+  "/zero-trust-cloud/about-traffic-forwarding": {
+   "canonical": "/zero-trust-cloud/about-traffic-forwarding",
+   "category": "other",
+   "hash": "cd8a7b4b6568262b",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420486",
+   "title": "About Traffic Forwarding"
+  },
+  "/zero-trust-cloud/about-upgrade-manager": {
+   "canonical": "/zero-trust-cloud/about-upgrade-manager",
+   "category": "other",
+   "hash": "96c99d7f4b974b57",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1534347",
+   "title": "About Upgrade Manager"
+  },
+  "/zero-trust-cloud/about-vdi-devices": {
+   "canonical": "/zero-trust-cloud/about-vdi-devices",
+   "category": "other",
+   "hash": "6e06aaf3ef294c6d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471691",
+   "title": "About VDI Devices"
+  },
+  "/zero-trust-cloud/about-vdi-forwarding-profiles": {
+   "canonical": "/zero-trust-cloud/about-vdi-forwarding-profiles",
+   "category": "other",
+   "hash": "b5ee1903c82ac8b1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471721",
+   "title": "About VDI Forwarding Profiles"
+  },
+  "/zero-trust-cloud/about-vdi-groups": {
+   "canonical": "/zero-trust-cloud/about-vdi-groups",
+   "category": "other",
+   "hash": "454535c2080cac3a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471696",
+   "title": "About VDI Groups"
+  },
+  "/zero-trust-cloud/about-vdi-templates": {
+   "canonical": "/zero-trust-cloud/about-vdi-templates",
+   "category": "other",
+   "hash": "adef463c063a6ebf",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471706",
+   "title": "About VDI Templates"
+  },
+  "/zero-trust-cloud/about-virtual-branch-devices": {
+   "canonical": "/zero-trust-cloud/about-virtual-branch-devices",
+   "category": "other",
+   "hash": "d59c3fbd78bea6e6",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1467036",
+   "title": "About Virtual Branch Devices"
+  },
+  "/zero-trust-cloud/about-zero-trust-branch-devices": {
+   "canonical": "/zero-trust-cloud/about-zero-trust-branch-devices",
+   "category": "other",
+   "hash": "798b7336449a1b28",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1467021",
+   "title": "About Zero Trust Branch Devices"
+  },
+  "/zero-trust-cloud/accessing-cloud-branch-connector-monitoring": {
+   "canonical": "/zero-trust-cloud/accessing-cloud-branch-connector-monitoring",
+   "category": "other",
+   "hash": "485ea9c28f553b47",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420526",
+   "title": "Accessing Cloud & Branch Connector Monitoring"
+  },
+  "/zero-trust-cloud/adding-admin-roles": {
+   "canonical": "/zero-trust-cloud/adding-admin-roles",
+   "category": "other",
+   "hash": "e639c658814c26a8",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420576",
+   "title": "Adding Admin Roles"
+  },
+  "/zero-trust-cloud/adding-amazon-web-services-account": {
+   "canonical": "/zero-trust-cloud/adding-amazon-web-services-account",
+   "category": "other",
+   "hash": "957a4111af931455",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1464091",
+   "title": "Adding an Amazon Web Services Account"
+  },
+  "/zero-trust-cloud/adding-amazon-web-services-account-group": {
+   "canonical": "/zero-trust-cloud/adding-amazon-web-services-account-group",
+   "category": "other",
+   "hash": "ecfe93a443fe29ab",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1479496",
+   "title": "Adding an Amazon Web Services Account Group"
+  },
+  "/zero-trust-cloud/adding-amazon-web-services-zero-trust-gateway": {
+   "canonical": "/zero-trust-cloud/adding-amazon-web-services-zero-trust-gateway",
+   "category": "other",
+   "hash": "c3b307db9f1df448",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516711",
+   "title": "Adding an Amazon Web Services Zero Trust Gateway"
+  },
+  "/zero-trust-cloud/adding-cloud-nss-feeds": {
+   "canonical": "/zero-trust-cloud/adding-cloud-nss-feeds",
+   "category": "other",
+   "hash": "8902ccf36da1bb70",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1452736",
+   "title": "Adding Cloud NSS Feeds "
+  },
+  "/zero-trust-cloud/adding-cloud-nss-feeds-dns-logs": {
+   "canonical": "/zero-trust-cloud/adding-cloud-nss-feeds-dns-logs",
+   "category": "other",
+   "hash": "0808a209a5ff17c0",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1452746",
+   "title": "Adding Cloud NSS Feeds for DNS Logs"
+  },
+  "/zero-trust-cloud/adding-cloud-nss-feeds-event-logs": {
+   "canonical": "/zero-trust-cloud/adding-cloud-nss-feeds-event-logs",
+   "category": "other",
+   "hash": "2b121a64162d7d73",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1458976",
+   "title": "Adding Cloud NSS Feeds for Event Logs"
+  },
+  "/zero-trust-cloud/adding-cloud-nss-feeds-metrics-logs": {
+   "canonical": "/zero-trust-cloud/adding-cloud-nss-feeds-metrics-logs",
+   "category": "other",
+   "hash": "df93eebb42dde056",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1458981",
+   "title": "Adding Cloud NSS Feeds for Metrics Logs"
+  },
+  "/zero-trust-cloud/adding-cloud-nss-feeds-session-logs": {
+   "canonical": "/zero-trust-cloud/adding-cloud-nss-feeds-session-logs",
+   "category": "other",
+   "hash": "93a567b2227290ff",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1452741",
+   "title": "Adding Cloud NSS Feeds for Session Logs"
+  },
+  "/zero-trust-cloud/adding-google-cloud-platform-account": {
+   "canonical": "/zero-trust-cloud/adding-google-cloud-platform-account",
+   "category": "other",
+   "hash": "ea58141454ec85da",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1528924",
+   "title": "Adding a Google Cloud Platform Account"
+  },
+  "/zero-trust-cloud/adding-google-cloud-platform-zero-trust-gateway": {
+   "canonical": "/zero-trust-cloud/adding-google-cloud-platform-zero-trust-gateway",
+   "category": "other",
+   "hash": "982a124fedb61e03",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1540310",
+   "title": "Adding a Google Cloud Platform Zero Trust Gateway"
+  },
+  "/zero-trust-cloud/adding-nss-feeds": {
+   "canonical": "/zero-trust-cloud/adding-nss-feeds",
+   "category": "other",
+   "hash": "c8070ed55595af1b",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420631",
+   "title": "Adding NSS Feeds"
+  },
+  "/zero-trust-cloud/adding-nss-feeds-dns-logs": {
+   "canonical": "/zero-trust-cloud/adding-nss-feeds-dns-logs",
+   "category": "other",
+   "hash": "de6790a8f67aed91",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420716",
+   "title": "Adding NSS Feeds for DNS Logs"
+  },
+  "/zero-trust-cloud/adding-nss-feeds-event-logs": {
+   "canonical": "/zero-trust-cloud/adding-nss-feeds-event-logs",
+   "category": "other",
+   "hash": "b5c19f8355effbff",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1458956",
+   "title": "Adding NSS Feeds for Event Logs"
+  },
+  "/zero-trust-cloud/adding-nss-feeds-metrics-logs": {
+   "canonical": "/zero-trust-cloud/adding-nss-feeds-metrics-logs",
+   "category": "other",
+   "hash": "287a39b772535fde",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1458961",
+   "title": "Adding NSS Feeds for Metrics Logs"
+  },
+  "/zero-trust-cloud/adding-nss-feeds-session-logs": {
+   "canonical": "/zero-trust-cloud/adding-nss-feeds-session-logs",
+   "category": "other",
+   "hash": "913e3fc585694b4b",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420721",
+   "title": "Adding NSS Feeds for Session Logs"
+  },
+  "/zero-trust-cloud/adding-nss-servers": {
+   "canonical": "/zero-trust-cloud/adding-nss-servers",
+   "category": "other",
+   "hash": "6e6e4596f508122a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420616",
+   "title": "Adding NSS Servers"
+  },
+  "/zero-trust-cloud/admin-saml-configuration-guide-ad-fs-3.0": {
+   "canonical": "/zero-trust-cloud/admin-saml-configuration-guide-ad-fs-3.0",
+   "category": "other",
+   "hash": "d0ed6a5f0b3cb77e",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420896",
+   "title": "Admin SAML Configuration Guide for AD FS 3.0"
+  },
+  "/zero-trust-cloud/admin-saml-configuration-guide-azure-active-directory": {
+   "canonical": "/zero-trust-cloud/admin-saml-configuration-guide-azure-active-directory",
+   "category": "other",
+   "hash": "1d68b7db08848f1f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420901",
+   "title": "Admin SAML Configuration Guide for Azure Active Directory"
+  },
+  "/zero-trust-cloud/admin-saml-configuration-guide-okta": {
+   "canonical": "/zero-trust-cloud/admin-saml-configuration-guide-okta",
+   "category": "other",
+   "hash": "d1953fd06eda246c",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420891",
+   "title": "Admin SAML Configuration Guide for Okta"
+  },
+  "/zero-trust-cloud/analyzing-amazon-web-services-account-details": {
+   "canonical": "/zero-trust-cloud/analyzing-amazon-web-services-account-details",
+   "category": "other",
+   "hash": "d66bb341c7537a39",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1529425",
+   "title": "Analyzing Amazon Web Services Account Details"
+  },
+  "/zero-trust-cloud/analyzing-amazon-web-services-account-group-details": {
+   "canonical": "/zero-trust-cloud/analyzing-amazon-web-services-account-group-details",
+   "category": "other",
+   "hash": "d4ea184c7b45f7f2",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1529426",
+   "title": "Analyzing Amazon Web Services Account Group Details"
+  },
+  "/zero-trust-cloud/analyzing-amazon-web-services-zero-trust-gateway-details": {
+   "canonical": "/zero-trust-cloud/analyzing-amazon-web-services-zero-trust-gateway-details",
+   "category": "other",
+   "hash": "1d7afac27d75d11c",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516716",
+   "title": "Analyzing Amazon Web Services Zero Trust Gateway Details"
+  },
+  "/zero-trust-cloud/analyzing-branch-connector-details": {
+   "canonical": "/zero-trust-cloud/analyzing-branch-connector-details",
+   "category": "other",
+   "hash": "b52c84854271af47",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1447011",
+   "title": "Analyzing Branch Connector Details"
+  },
+  "/zero-trust-cloud/analyzing-cloud-connector-details": {
+   "canonical": "/zero-trust-cloud/analyzing-cloud-connector-details",
+   "category": "other",
+   "hash": "c3631fe57f2baa94",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420706",
+   "title": "Analyzing Cloud Connector Details"
+  },
+  "/zero-trust-cloud/analyzing-google-cloud-platform-account-details": {
+   "canonical": "/zero-trust-cloud/analyzing-google-cloud-platform-account-details",
+   "category": "other",
+   "hash": "ca83ab8186e97e0d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1528942",
+   "title": "Analyzing Google Cloud Platform Account Details"
+  },
+  "/zero-trust-cloud/analyzing-google-cloud-platform-zero-trust-gateway-details": {
+   "canonical": "/zero-trust-cloud/analyzing-google-cloud-platform-zero-trust-gateway-details",
+   "category": "other",
+   "hash": "2cc5b36cfb10f737",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1540927",
+   "title": "Analyzing Google Cloud Platform Zero Trust Gateway Details"
+  },
+  "/zero-trust-cloud/analyzing-microsoft-azure-account-details": {
+   "canonical": "/zero-trust-cloud/analyzing-microsoft-azure-account-details",
+   "category": "other",
+   "hash": "4d100f31e0fd5e94",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1507806",
+   "title": "Analyzing Microsoft Azure Account Details"
+  },
+  "/zero-trust-cloud/analyzing-traffic-flow": {
+   "canonical": "/zero-trust-cloud/analyzing-traffic-flow",
+   "category": "other",
+   "hash": "68a5b6121c1dd3d7",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420711",
+   "title": "Analyzing Traffic Flow"
+  },
+  "/zero-trust-cloud/analyzing-traffic-monitoring": {
+   "canonical": "/zero-trust-cloud/analyzing-traffic-monitoring",
+   "category": "other",
+   "hash": "3301d05aa07e8f67",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420531",
+   "title": "Analyzing Traffic Monitoring"
+  },
+  "/zero-trust-cloud/analyzing-traffic-using-insights": {
+   "canonical": "/zero-trust-cloud/analyzing-traffic-using-insights",
+   "category": "other",
+   "hash": "71bf6e772556d652",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420666",
+   "title": "Analyzing Traffic Using Insights"
+  },
+  "/zero-trust-cloud/analyzing-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/analyzing-zero-trust-gateways",
+   "category": "other",
+   "hash": "242056e62b513411",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516906",
+   "title": "Analyzing Zero Trust Gateways"
+  },
+  "/zero-trust-cloud/configuring-advanced-settings-cloud-connector": {
+   "canonical": "/zero-trust-cloud/configuring-advanced-settings-cloud-connector",
+   "category": "other",
+   "hash": "8eb9fd797ea4c4f9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420861",
+   "title": "Configuring Advanced Settings for Cloud Connector"
+  },
+  "/zero-trust-cloud/configuring-branch-connector-configuration-template": {
+   "canonical": "/zero-trust-cloud/configuring-branch-connector-configuration-template",
+   "category": "other",
+   "hash": "d3aeae50b2d50da6",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420656",
+   "title": "Configuring a Branch Connector Configuration Template"
+  },
+  "/zero-trust-cloud/configuring-cloud-provisioning-template": {
+   "canonical": "/zero-trust-cloud/configuring-cloud-provisioning-template",
+   "category": "other",
+   "hash": "e81144d10a6e48d1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420466",
+   "title": "Configuring a Cloud Provisioning Template"
+  },
+  "/zero-trust-cloud/configuring-destination-ip-groups": {
+   "canonical": "/zero-trust-cloud/configuring-destination-ip-groups",
+   "category": "other",
+   "hash": "1b5757ea5c0b9391",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420461",
+   "title": "Configuring Destination IP Groups"
+  },
+  "/zero-trust-cloud/configuring-dns-filtering-rule": {
+   "canonical": "/zero-trust-cloud/configuring-dns-filtering-rule",
+   "category": "other",
+   "hash": "9ba2a8bc81f9cba5",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420516",
+   "title": "Configuring the DNS Filtering Rule"
+  },
+  "/zero-trust-cloud/configuring-dns-gateway": {
+   "canonical": "/zero-trust-cloud/configuring-dns-gateway",
+   "category": "other",
+   "hash": "d90fc10911d9bb09",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471256",
+   "title": "Configuring a DNS Gateway"
+  },
+  "/zero-trust-cloud/configuring-iam-roles-and-permissions-microsoft-azure": {
+   "canonical": "/zero-trust-cloud/configuring-iam-roles-and-permissions-microsoft-azure",
+   "category": "other",
+   "hash": "239a5c3b068cabb5",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1507516",
+   "title": "Configuring IAM Roles and Permissions for Microsoft Azure"
+  },
+  "/zero-trust-cloud/configuring-internet-access-gateway": {
+   "canonical": "/zero-trust-cloud/configuring-internet-access-gateway",
+   "category": "other",
+   "hash": "e5732f5966abb125",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420561",
+   "title": "Configuring an Internet Access Gateway"
+  },
+  "/zero-trust-cloud/configuring-ip-pool": {
+   "canonical": "/zero-trust-cloud/configuring-ip-pool",
+   "category": "other",
+   "hash": "16da6324a9db81af",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420471",
+   "title": "Configuring IP Pool"
+  },
+  "/zero-trust-cloud/configuring-location-template": {
+   "canonical": "/zero-trust-cloud/configuring-location-template",
+   "category": "other",
+   "hash": "be41d0166f6092f3",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420606",
+   "title": "Configuring a Location Template"
+  },
+  "/zero-trust-cloud/configuring-log-and-control-forwarding-rule": {
+   "canonical": "/zero-trust-cloud/configuring-log-and-control-forwarding-rule",
+   "category": "other",
+   "hash": "8682bc81c5d8dd1d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420506",
+   "title": "Configuring a Log and Control Forwarding Rule"
+  },
+  "/zero-trust-cloud/configuring-log-and-control-gateway": {
+   "canonical": "/zero-trust-cloud/configuring-log-and-control-gateway",
+   "category": "other",
+   "hash": "5f4f748604ac4044",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420571",
+   "title": "Configuring a Log and Control Gateway"
+  },
+  "/zero-trust-cloud/configuring-network-service-groups": {
+   "canonical": "/zero-trust-cloud/configuring-network-service-groups",
+   "category": "other",
+   "hash": "48e8cc9d83436620",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420446",
+   "title": "Configuring Network Service Groups"
+  },
+  "/zero-trust-cloud/configuring-network-services": {
+   "canonical": "/zero-trust-cloud/configuring-network-services",
+   "category": "other",
+   "hash": "ac606f75d2de483b",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420441",
+   "title": "Configuring Network Services"
+  },
+  "/zero-trust-cloud/configuring-remote-access": {
+   "canonical": "/zero-trust-cloud/configuring-remote-access",
+   "category": "other",
+   "hash": "b7b393aeb74efcc6",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420846",
+   "title": "Configuring Remote Access"
+  },
+  "/zero-trust-cloud/configuring-saml-admins": {
+   "canonical": "/zero-trust-cloud/configuring-saml-admins",
+   "category": "other",
+   "hash": "39132f304c1aeffe",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420806",
+   "title": "Configuring SAML for Admins"
+  },
+  "/zero-trust-cloud/configuring-source-ip-groups": {
+   "canonical": "/zero-trust-cloud/configuring-source-ip-groups",
+   "category": "other",
+   "hash": "7515a90beba992a5",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420456",
+   "title": "Configuring Source IP Groups"
+  },
+  "/zero-trust-cloud/configuring-traffic-forwarding-rule": {
+   "canonical": "/zero-trust-cloud/configuring-traffic-forwarding-rule",
+   "category": "other",
+   "hash": "ab3bd40cec22e0bf",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420496",
+   "title": "Configuring Traffic Forwarding Rules"
+  },
+  "/zero-trust-cloud/configuring-vdi-forwarding-profiles": {
+   "canonical": "/zero-trust-cloud/configuring-vdi-forwarding-profiles",
+   "category": "other",
+   "hash": "44439089c91b52ed",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471726",
+   "title": "Configuring VDI Forwarding Profiles"
+  },
+  "/zero-trust-cloud/configuring-vdi-groups": {
+   "canonical": "/zero-trust-cloud/configuring-vdi-groups",
+   "category": "other",
+   "hash": "74a3560ed7f3c9a7",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471701",
+   "title": "Configuring VDI Groups"
+  },
+  "/zero-trust-cloud/configuring-vdi-templates": {
+   "canonical": "/zero-trust-cloud/configuring-vdi-templates",
+   "category": "other",
+   "hash": "7cf0705f17e412eb",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1471711",
+   "title": "Configuring VDI Templates"
+  },
+  "/zero-trust-cloud/configuring-workload-discovery-service-microsoft-azure-accounts": {
+   "canonical": "/zero-trust-cloud/configuring-workload-discovery-service-microsoft-azure-accounts",
+   "category": "other",
+   "hash": "e3528b7ebd894876",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1507561",
+   "title": "Configuring the Workload Discovery Service for Microsoft Azure Accounts"
+  },
+  "/zero-trust-cloud/configuring-workload-discovery-workloads-amazon-web-services": {
+   "canonical": "/zero-trust-cloud/configuring-workload-discovery-workloads-amazon-web-services",
+   "category": "other",
+   "hash": "f2d0ce0da1f9ad31",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1470596",
+   "title": "Configuring Workload Discovery for Workloads in Amazon Web Services"
+  },
+  "/zero-trust-cloud/configuring-workload-discovery-workloads-google-cloud-platform": {
+   "canonical": "/zero-trust-cloud/configuring-workload-discovery-workloads-google-cloud-platform",
+   "category": "other",
+   "hash": "c1baa163b48160e7",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1531144",
+   "title": "Configuring Workload Discovery for Workloads in Google Cloud Platform"
+  },
+  "/zero-trust-cloud/customizing-zscaler-client-connector-vdi-install-options-msi": {
+   "canonical": "/zero-trust-cloud/customizing-zscaler-client-connector-vdi-install-options-msi",
+   "category": "other",
+   "hash": "c0e53c75ecfd4792",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1472251",
+   "title": "Customizing Zscaler Client Connector for VDI with Install Options for MSI"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-app-connector-hyper-v": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-app-connector-hyper-v",
+   "category": "other",
+   "hash": "34e354293a541a22",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1478961",
+   "title": "Deploying Branch Connector & App Connector with Hyper-V"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-app-connector-linux-kvm": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-app-connector-linux-kvm",
+   "category": "other",
+   "hash": "ba40cde6e3de7556",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1447021",
+   "title": "Deploying Branch Connector & App Connector with Linux KVM"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-app-connector-vmware-platforms": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-app-connector-vmware-platforms",
+   "category": "other",
+   "hash": "862b4fb0149bfb7d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1447016",
+   "title": "Deploying Branch Connector & App Connector on VMware Platforms"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-hyper-v": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-hyper-v",
+   "category": "other",
+   "hash": "75bfe7e1e8ede8ce",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1478956",
+   "title": "Deploying Branch Connector with Hyper-V"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-linux-kvm": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-linux-kvm",
+   "category": "other",
+   "hash": "c5557dabec1ed143",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420926",
+   "title": "Deploying Branch Connector with Linux KVM"
+  },
+  "/zero-trust-cloud/deploying-branch-connector-vmware-platforms": {
+   "canonical": "/zero-trust-cloud/deploying-branch-connector-vmware-platforms",
+   "category": "other",
+   "hash": "72e020743b152646",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420821",
+   "title": "Deploying Branch Connector on VMware Platforms"
+  },
+  "/zero-trust-cloud/deploying-nss-virtual-appliances": {
+   "canonical": "/zero-trust-cloud/deploying-nss-virtual-appliances",
+   "category": "other",
+   "hash": "b9e9c76557d27b62",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420621",
+   "title": "Deploying NSS Virtual Appliances"
+  },
+  "/zero-trust-cloud/deploying-zero-trust-sd-wan-devices": {
+   "canonical": "/zero-trust-cloud/deploying-zero-trust-sd-wan-devices",
+   "category": "other",
+   "hash": "bc1516ab27f0ebb4",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1468301",
+   "title": "Deploying Zero Trust SD-WAN Devices"
+  },
+  "/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services": {
+   "canonical": "/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services",
+   "category": "other",
+   "hash": "3ecb41d63d591eb3",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420746",
+   "title": "Deploying Zscaler Cloud Connector with Amazon Web Services"
+  },
+  "/zero-trust-cloud/deploying-zscaler-cloud-connector-google-cloud-platform": {
+   "canonical": "/zero-trust-cloud/deploying-zscaler-cloud-connector-google-cloud-platform",
+   "category": "other",
+   "hash": "fb487df3d7b17b78",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1461611",
+   "title": "Deploying Zscaler Cloud Connector on the Google Cloud Platform"
+  },
+  "/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure": {
+   "canonical": "/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure",
+   "category": "other",
+   "hash": "3db146905017e3aa",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420751",
+   "title": "Deploying Zscaler Cloud Connector with Microsoft Azure"
+  },
+  "/zero-trust-cloud/deployment-templates-branch-connector-app-connector": {
+   "canonical": "/zero-trust-cloud/deployment-templates-branch-connector-app-connector",
+   "category": "other",
+   "hash": "fc80569aa85cedfa",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1444481",
+   "title": "Deployment Templates for Branch Connector & App Connector"
+  },
+  "/zero-trust-cloud/deployment-templates-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/deployment-templates-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "e67b4035703ce1e1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1443361",
+   "title": "Deployment Templates for Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/dns-insights-logs-columns": {
+   "canonical": "/zero-trust-cloud/dns-insights-logs-columns",
+   "category": "other",
+   "hash": "b3e9babf69636a04",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420671",
+   "title": "DNS Insights Logs: Columns"
+  },
+  "/zero-trust-cloud/dns-insights-logs-filters": {
+   "canonical": "/zero-trust-cloud/dns-insights-logs-filters",
+   "category": "other",
+   "hash": "04e1de11314eac53",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420676",
+   "title": "DNS Insights Logs: Filters"
+  },
+  "/zero-trust-cloud/downloading-branch-connector-images": {
+   "canonical": "/zero-trust-cloud/downloading-branch-connector-images",
+   "category": "other",
+   "hash": "88e3ee2113d0db3b",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420741",
+   "title": "Downloading Branch Connector Images"
+  },
+  "/zero-trust-cloud/downloading-zscaler-client-connector-vdi": {
+   "canonical": "/zero-trust-cloud/downloading-zscaler-client-connector-vdi",
+   "category": "other",
+   "hash": "afcf93c0c3de610d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1475381",
+   "title": "Downloading Zscaler Client Connector for VDI"
+  },
+  "/zero-trust-cloud/editing-cloud-connectors": {
+   "canonical": "/zero-trust-cloud/editing-cloud-connectors",
+   "category": "other",
+   "hash": "11857ad0c45ba4a3",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420856",
+   "title": "Editing Cloud Connectors"
+  },
+  "/zero-trust-cloud/editing-physical-branch-devices": {
+   "canonical": "/zero-trust-cloud/editing-physical-branch-devices",
+   "category": "other",
+   "hash": "5c7bf022a49de864",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1467031",
+   "title": "Editing Physical Branch Devices"
+  },
+  "/zero-trust-cloud/editing-virtual-branch-devices": {
+   "canonical": "/zero-trust-cloud/editing-virtual-branch-devices",
+   "category": "other",
+   "hash": "2e6154a40d023cdd",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1467041",
+   "title": "Editing Virtual Branch Devices"
+  },
+  "/zero-trust-cloud/editing-zero-trust-branch-devices": {
+   "canonical": "/zero-trust-cloud/editing-zero-trust-branch-devices",
+   "category": "other",
+   "hash": "4b3a7ecd9ed4fcea",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1483146",
+   "title": "Editing Zero Trust Branch Devices"
+  },
+  "/zero-trust-cloud/editing-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/editing-zero-trust-gateways",
+   "category": "other",
+   "hash": "1b256178892be299",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1529794",
+   "title": "Editing Zero Trust Gateways"
+  },
+  "/zero-trust-cloud/enabling-remote-assistance": {
+   "canonical": "/zero-trust-cloud/enabling-remote-assistance",
+   "category": "other",
+   "hash": "9a443ea8f6ced763",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420811",
+   "title": "Enabling Remote Assistance"
+  },
+  "/zero-trust-cloud/general-guidelines-nss-feeds-and-feed-formats": {
+   "canonical": "/zero-trust-cloud/general-guidelines-nss-feeds-and-feed-formats",
+   "category": "other",
+   "hash": "065e0fc2e8892c2a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420831",
+   "title": "General Guidelines for NSS Feeds and Feed Formats"
+  },
+  "/zero-trust-cloud/handling-dns-resolutions-zscaler-branch-connector": {
+   "canonical": "/zero-trust-cloud/handling-dns-resolutions-zscaler-branch-connector",
+   "category": "other",
+   "hash": "104231dc4694b7e5",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1446986",
+   "title": "Handling DNS Resolutions for Zscaler Branch Connector"
+  },
+  "/zero-trust-cloud/handling-dns-resolutions-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/handling-dns-resolutions-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "a6c33b6ca9b97291",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1443521",
+   "title": "Handling DNS Resolutions for Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/identifying-zscaler-cloud-connector-version": {
+   "canonical": "/zero-trust-cloud/identifying-zscaler-cloud-connector-version",
+   "category": "other",
+   "hash": "73184fff77912e68",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1446981",
+   "title": "Identifying the Zscaler Cloud Connector Version"
+  },
+  "/zero-trust-cloud/installing-zero-trust-sd-wan-devices": {
+   "canonical": "/zero-trust-cloud/installing-zero-trust-sd-wan-devices",
+   "category": "other",
+   "hash": "920c2e35722b091e",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1468541",
+   "title": "Installing Zero Trust SD-WAN Devices"
+  },
+  "/zero-trust-cloud/managing-cloud-branch-connector-upgrades": {
+   "canonical": "/zero-trust-cloud/managing-cloud-branch-connector-upgrades",
+   "category": "other",
+   "hash": "34337282eeb53171",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1446991",
+   "title": "Managing Cloud & Branch Connector Upgrades"
+  },
+  "/zero-trust-cloud/managing-organization-api-keys": {
+   "canonical": "/zero-trust-cloud/managing-organization-api-keys",
+   "category": "other",
+   "hash": "b82be934605dfeee",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420826",
+   "title": "Managing Organization API Keys"
+  },
+  "/zero-trust-cloud/modifying-default-dns-control-rule": {
+   "canonical": "/zero-trust-cloud/modifying-default-dns-control-rule",
+   "category": "other",
+   "hash": "87106e3cec521904",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420546",
+   "title": "Modifying the Default DNS Control Rule"
+  },
+  "/zero-trust-cloud/networking-flows-cloud-connector": {
+   "canonical": "/zero-trust-cloud/networking-flows-cloud-connector",
+   "category": "other",
+   "hash": "b17afc8760a451c8",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1452806",
+   "title": "Networking Flows for Cloud Connector"
+  },
+  "/zero-trust-cloud/nss-feed-output-format-dns-logs": {
+   "canonical": "/zero-trust-cloud/nss-feed-output-format-dns-logs",
+   "category": "other",
+   "hash": "c7368406355fddb6",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420841",
+   "title": "NSS Feed Output Format: DNS Logs"
+  },
+  "/zero-trust-cloud/nss-feed-output-format-event-logs": {
+   "canonical": "/zero-trust-cloud/nss-feed-output-format-event-logs",
+   "category": "other",
+   "hash": "b70934813ea89f30",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1459131",
+   "title": "NSS Feed Output Format: Event Logs"
+  },
+  "/zero-trust-cloud/nss-feed-output-format-metrics-logs": {
+   "canonical": "/zero-trust-cloud/nss-feed-output-format-metrics-logs",
+   "category": "other",
+   "hash": "2a04de32ec83d624",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1459136",
+   "title": "NSS Feed Output Format: Metrics Logs"
+  },
+  "/zero-trust-cloud/nss-feed-output-format-session-logs": {
+   "canonical": "/zero-trust-cloud/nss-feed-output-format-session-logs",
+   "category": "other",
+   "hash": "b7ce07d860e6c1c2",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420836",
+   "title": "NSS Feed Output Format: Session Logs"
+  },
+  "/zero-trust-cloud/registering-endpoint-amazon-web-services": {
+   "canonical": "/zero-trust-cloud/registering-endpoint-amazon-web-services",
+   "category": "other",
+   "hash": "6ad42f31c06839de",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1519146",
+   "title": "Registering an Endpoint in Amazon Web Services"
+  },
+  "/zero-trust-cloud/registering-virtual-private-cloud-google-cloud-platform-zero-trust-gateway": {
+   "canonical": "/zero-trust-cloud/registering-virtual-private-cloud-google-cloud-platform-zero-trust-gateway",
+   "category": "other",
+   "hash": "e2a0acaf98345a77",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1542803",
+   "title": "Registering a Virtual Private Cloud with the Google Cloud Platform Zero Trust Gateway"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2021": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2021",
+   "category": "other",
+   "hash": "982892a94a4fb1c9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420641",
+   "title": "Release Upgrade Summary (2021)"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2022": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2022",
+   "category": "other",
+   "hash": "c679b3198b6f8ab4",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420816",
+   "title": "Release Upgrade Summary (2022)"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2023": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2023",
+   "category": "other",
+   "hash": "7dd10592b2d6e772",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1440736",
+   "title": "Release Upgrade Summary (2023)"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2024": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2024",
+   "category": "other",
+   "hash": "4e7840c3eab232ef",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1473301",
+   "title": "Release Upgrade Summary (2024)"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2025": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2025",
+   "category": "other",
+   "hash": "a2052e18b1d6e4cc",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1515711",
+   "title": "Release Upgrade Summary (2025)"
+  },
+  "/zero-trust-cloud/release-upgrade-summary-2026": {
+   "canonical": "/zero-trust-cloud/release-upgrade-summary-2026",
+   "category": "other",
+   "hash": "4fdbc0312b25792f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1534301",
+   "title": "Release Upgrade Summary (2026)"
+  },
+  "/zero-trust-cloud/rotating-zscaler-service-account-passwords": {
+   "canonical": "/zero-trust-cloud/rotating-zscaler-service-account-passwords",
+   "category": "other",
+   "hash": "aa44264410213794",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1532225",
+   "title": "Rotating Zscaler Service Account Passwords"
+  },
+  "/zero-trust-cloud/session-data-types-filters": {
+   "canonical": "/zero-trust-cloud/session-data-types-filters",
+   "category": "other",
+   "hash": "5bb29e8241d6e9ae",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420701",
+   "title": "Session Data Types and Filters"
+  },
+  "/zero-trust-cloud/session-insights-logs-columns": {
+   "canonical": "/zero-trust-cloud/session-insights-logs-columns",
+   "category": "other",
+   "hash": "5401e482c6777f68",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420691",
+   "title": "Session Insights Logs: Columns"
+  },
+  "/zero-trust-cloud/session-insights-logs-filters": {
+   "canonical": "/zero-trust-cloud/session-insights-logs-filters",
+   "category": "other",
+   "hash": "7a9a33c218d3a6d0",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420696",
+   "title": "Session Insights Logs: Filters"
+  },
+  "/zero-trust-cloud/siem-integration-nss": {
+   "canonical": "/zero-trust-cloud/siem-integration-nss",
+   "category": "other",
+   "hash": "6a13ed0f5f3fa1d1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1455426",
+   "title": "SIEM Integration for NSS"
+  },
+  "/zero-trust-cloud/step-step-configuration-guide-zscaler-branch-connector": {
+   "canonical": "/zero-trust-cloud/step-step-configuration-guide-zscaler-branch-connector",
+   "category": "other",
+   "hash": "f4621495b74b809e",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420916",
+   "title": "Step-by-Step Configuration Guide for Zscaler Branch Connector"
+  },
+  "/zero-trust-cloud/step-step-configuration-guide-zscaler-client-connector-vdi": {
+   "canonical": "/zero-trust-cloud/step-step-configuration-guide-zscaler-client-connector-vdi",
+   "category": "other",
+   "hash": "570e6a5da5da6da9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1472246",
+   "title": "Step-by-Step Configuration Guide for Zscaler Client Connector for VDI"
+  },
+  "/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "1ce17ab95c843a17",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420756",
+   "title": "Step-by-Step Configuration Guide for Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/storing-your-secret-credentials-hashicorp-vault": {
+   "canonical": "/zero-trust-cloud/storing-your-secret-credentials-hashicorp-vault",
+   "category": "other",
+   "hash": "3aa138deb2cb7371",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1519691",
+   "title": "Storing Your Secret Credentials in HashiCorp Vault for Google Cloud Platform-Based Cloud Connectors"
+  },
+  "/zero-trust-cloud/supported-regions-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/supported-regions-zero-trust-gateways",
+   "category": "other",
+   "hash": "131f847facb0da4a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1538721",
+   "title": "Supported Regions for Zero Trust Gateways"
+  },
+  "/zero-trust-cloud/troubleshooting-cloud-connector-amazon-web-services": {
+   "canonical": "/zero-trust-cloud/troubleshooting-cloud-connector-amazon-web-services",
+   "category": "other",
+   "hash": "ecdbadb3d0bc2126",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420646",
+   "title": "Troubleshooting Cloud Connector with Amazon Web Services"
+  },
+  "/zero-trust-cloud/troubleshooting-cloud-connector-google-cloud-platform": {
+   "canonical": "/zero-trust-cloud/troubleshooting-cloud-connector-google-cloud-platform",
+   "category": "other",
+   "hash": "6b80d86735dd6a74",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1462141",
+   "title": "Troubleshooting Cloud Connector with Google Cloud Platform"
+  },
+  "/zero-trust-cloud/troubleshooting-cloud-connector-hashicorp-vault-google-cloud-platform": {
+   "canonical": "/zero-trust-cloud/troubleshooting-cloud-connector-hashicorp-vault-google-cloud-platform",
+   "category": "other",
+   "hash": "1b094a6fc6eb4764",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1515891",
+   "title": "Troubleshooting Cloud Connector with HashiCorp Vault for Google Cloud Platform"
+  },
+  "/zero-trust-cloud/troubleshooting-cloud-connector-microsoft-azure": {
+   "canonical": "/zero-trust-cloud/troubleshooting-cloud-connector-microsoft-azure",
+   "category": "other",
+   "hash": "dad58c2af0d2b67d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420786",
+   "title": "Troubleshooting Cloud Connector with Microsoft Azure"
+  },
+  "/zero-trust-cloud/troubleshooting-zscaler-client-connector-vdi": {
+   "canonical": "/zero-trust-cloud/troubleshooting-zscaler-client-connector-vdi",
+   "category": "other",
+   "hash": "6e4c01a4b0101412",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1494866",
+   "title": "Troubleshooting Zscaler Client Connector for VDI"
+  },
+  "/zero-trust-cloud/tunnel-data-types-filters": {
+   "canonical": "/zero-trust-cloud/tunnel-data-types-filters",
+   "category": "other",
+   "hash": "d2aca32f9449f21a",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420661",
+   "title": "Tunnel Data Types and Filters"
+  },
+  "/zero-trust-cloud/tunnel-insights-logs-columns": {
+   "canonical": "/zero-trust-cloud/tunnel-insights-logs-columns",
+   "category": "other",
+   "hash": "a9f7f25d1bafddbe",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420681",
+   "title": "Tunnel Insights Logs: Columns"
+  },
+  "/zero-trust-cloud/tunnel-insights-logs-filters": {
+   "canonical": "/zero-trust-cloud/tunnel-insights-logs-filters",
+   "category": "other",
+   "hash": "af2ee059d7690726",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420686",
+   "title": "Tunnel Insights Logs: Filters"
+  },
+  "/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups": {
+   "canonical": "/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups",
+   "category": "other",
+   "hash": "f8937503bb61aa30",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1529197",
+   "title": "Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups"
+  },
+  "/zero-trust-cloud/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets": {
+   "canonical": "/zero-trust-cloud/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets",
+   "category": "other",
+   "hash": "2bb7ec307afc73b2",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1528441",
+   "title": "Understanding Cloud Connector Deployments with Azure Virtual Machine Scale Sets"
+  },
+  "/zero-trust-cloud/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling": {
+   "canonical": "/zero-trust-cloud/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling",
+   "category": "other",
+   "hash": "ba1907d96569c36e",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1535452",
+   "title": "Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling"
+  },
+  "/zero-trust-cloud/understanding-cloud-connector-repository-certificate-expiry-and-renewal": {
+   "canonical": "/zero-trust-cloud/understanding-cloud-connector-repository-certificate-expiry-and-renewal",
+   "category": "other",
+   "hash": "870761b86f8fc379",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1546120",
+   "title": "Understanding Cloud Connector Repository Certificate Expiry and Renewal"
+  },
+  "/zero-trust-cloud/understanding-high-availability-and-failover": {
+   "canonical": "/zero-trust-cloud/understanding-high-availability-and-failover",
+   "category": "other",
+   "hash": "1cf16f7ef30c8a26",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1455436",
+   "title": "Understanding High Availability and Failover"
+  },
+  "/zero-trust-cloud/understanding-namespaces": {
+   "canonical": "/zero-trust-cloud/understanding-namespaces",
+   "category": "other",
+   "hash": "dfc790e8404f69e0",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1508906",
+   "title": "Understanding Namespaces"
+  },
+  "/zero-trust-cloud/understanding-zero-trust-sd-wan-devices": {
+   "canonical": "/zero-trust-cloud/understanding-zero-trust-sd-wan-devices",
+   "category": "other",
+   "hash": "c495ee38ef0c9139",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1468276",
+   "title": "Understanding Zero Trust SD-WAN Devices"
+  },
+  "/zero-trust-cloud/using-sublocation-scopes-group-cloud-connector-workloads-amazon-web": {
+   "canonical": "/zero-trust-cloud/using-sublocation-scopes-group-cloud-connector-workloads-amazon-web",
+   "category": "other",
+   "hash": "7e957b50aa7b0a9f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1532858",
+   "title": "Using Sublocation Scopes to Group Cloud Connector Workloads in Amazon Web Services"
+  },
+  "/zero-trust-cloud/what-zero-trust-gateways": {
+   "canonical": "/zero-trust-cloud/what-zero-trust-gateways",
+   "category": "other",
+   "hash": "66fb7f6af1a5600d",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1517756",
+   "title": "What Are Zero Trust Gateways?"
+  },
+  "/zero-trust-cloud/what-zscaler-branch-connector": {
+   "canonical": "/zero-trust-cloud/what-zscaler-branch-connector",
+   "category": "other",
+   "hash": "519acece0500aebf",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420881",
+   "title": "What Is Zscaler Branch Connector?"
+  },
+  "/zero-trust-cloud/what-zscaler-client-connector-vdi": {
+   "canonical": "/zero-trust-cloud/what-zscaler-client-connector-vdi",
+   "category": "other",
+   "hash": "21f18e2375f1e270",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1472116",
+   "title": "What Is Zscaler Client Connector for VDI?"
+  },
+  "/zero-trust-cloud/what-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/what-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "912de3391cc12dca",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:52Z",
+   "nid": "1420636",
+   "title": "What Is Zscaler Cloud Connector?"
+  },
+  "/zero-trust-cloud/what-zscaler-zero-trust-sd-wan": {
+   "canonical": "/zero-trust-cloud/what-zscaler-zero-trust-sd-wan",
+   "category": "other",
+   "hash": "27f90e8729807728",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1478621",
+   "title": "What Is Zscaler Zero Trust SD-WAN?"
+  },
+  "/zero-trust-cloud/zero-trust-branch-connectivity-zscaler-branch-connector": {
+   "canonical": "/zero-trust-cloud/zero-trust-branch-connectivity-zscaler-branch-connector",
+   "category": "other",
+   "hash": "099f32348b50365f",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1514256",
+   "title": "Zero Trust Branch Connectivity with Zscaler Branch Connector"
+  },
+  "/zero-trust-cloud/zero-trust-sd-wan-devices-wall-and-rack-mount-instruction-manual": {
+   "canonical": "/zero-trust-cloud/zero-trust-sd-wan-devices-wall-and-rack-mount-instruction-manual",
+   "category": "other",
+   "hash": "5538bda7f3ab91be",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1478656",
+   "title": "Zero Trust SD-WAN Devices Wall and Rack Mount Instruction Manual"
+  },
+  "/zero-trust-cloud/zero-trust-security-aws-workloads-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/zero-trust-security-aws-workloads-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "74ec7d041db5b7df",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420871",
+   "title": "Zero Trust Security for AWS Workloads with Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/zero-trust-security-azure-workloads-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/zero-trust-security-azure-workloads-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "5bf446edfd2572e7",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1420866",
+   "title": "Zero Trust Security for Azure Workloads with Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/zero-trust-security-gcp-workloads-zscaler-cloud-connector": {
+   "canonical": "/zero-trust-cloud/zero-trust-security-gcp-workloads-zscaler-cloud-connector",
+   "category": "other",
+   "hash": "fafe4c93990e7b19",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1474436",
+   "title": "Zero Trust Security for GCP Workloads with Zscaler Cloud Connector"
+  },
+  "/zero-trust-cloud/zscaler-client-connector-vdi-processes-allowlist": {
+   "canonical": "/zero-trust-cloud/zscaler-client-connector-vdi-processes-allowlist",
+   "category": "other",
+   "hash": "e96219da0a70c951",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516321",
+   "title": "Zscaler Client Connector for VDI Processes to Allowlist"
+  },
+  "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2024": {
+   "canonical": "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2024",
+   "category": "other",
+   "hash": "67fa46152122d8e1",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1478781",
+   "title": "Zscaler Client Connector for VDI Release Summary (2024)"
+  },
+  "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2025": {
+   "canonical": "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2025",
+   "category": "other",
+   "hash": "22b50e350d6bbecc",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1516236",
+   "title": "Zscaler Client Connector for VDI Release Summary (2025)"
+  },
+  "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026": {
+   "canonical": "/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026",
+   "category": "other",
+   "hash": "1c3b2cb6ae4ae4a9",
+   "in_bulletins": false,
+   "lastmod": "2026-11-01T23:53Z",
+   "nid": "1534300",
+   "title": "Zscaler Client Connector for VDI Release Summary (2026)"
+  },
   "/zia/3rd-party-app-governance-policies": {
    "canonical": "/zia/3rd-party-app-governance-policies",
    "category": "zia",
@@ -19794,7 +21432,7 @@
   "/zia/about-dlp-endpoint-resources-context": {
    "canonical": "/zia/about-dlp-endpoint-resources-context",
    "category": "zia",
-   "hash": "0fe0cf7c885c2d4d",
+   "hash": "7058e1a8dc0790aa",
    "in_bulletins": false,
    "lastmod": "2026-07-02T13:20Z",
    "nid": "1541423",
@@ -20610,6 +22248,15 @@
    "nid": "1534405",
    "title": "About Settings in 3rd-Party App Governance"
   },
+  "/zia/about-shadow-it-report": {
+   "canonical": "/zia/about-shadow-it-report",
+   "category": "zia",
+   "hash": "336ccf16a7f971be",
+   "in_bulletins": false,
+   "lastmod": "2026-10-30T00:34Z",
+   "nid": "1401911",
+   "title": "About the Shadow IT Report"
+  },
   "/zia/about-source-ip-groups": {
    "canonical": "/zia/about-source-ip-groups",
    "category": "zia",
@@ -20757,7 +22404,7 @@
   "/zia/about-user-confirmation-notification-templates": {
    "canonical": "/zia/about-user-confirmation-notification-templates",
    "category": "zia",
-   "hash": "38b8c7a605f8bcca",
+   "hash": "2b99755bb35b70a2",
    "in_bulletins": false,
    "lastmod": "2026-10-28T05:05Z",
    "nid": "1492901",
@@ -23160,7 +24807,7 @@
   "/zia/configuring-policies-for-unauthenticated-traffic": {
    "canonical": "/zia/configuring-policies-for-unauthenticated-traffic",
    "category": "zia",
-   "hash": "2da8dfb34d252ef6",
+   "hash": "eaf96cf0c44b0bfd",
    "in_bulletins": false,
    "lastmod": "2026-10-20T21:06Z",
    "nid": "1398691",
@@ -24807,7 +26454,7 @@
   "/zia/internet-saas-authentication-error-codes": {
    "canonical": "/zia/internet-saas-authentication-error-codes",
    "category": "zia",
-   "hash": "d472d34686ccff54",
+   "hash": "48045896ec1835c5",
    "in_bulletins": false,
    "lastmod": "2026-06-11T12:32Z",
    "nid": "1414716",
@@ -25136,6 +26783,15 @@
    "lastmod": "2026-10-08T22:53Z",
    "nid": "1415071",
    "title": "Managing Sandbox API Token"
+  },
+  "/zia/managing-sd-wan-partner-keys": {
+   "canonical": "/zia/managing-sd-wan-partner-keys",
+   "category": "zia",
+   "hash": "88838dc43c275632",
+   "in_bulletins": false,
+   "lastmod": "2026-10-26T12:16Z",
+   "nid": "1400586",
+   "title": "Managing SD-WAN Partner Keys"
   },
   "/zia/measuring-performance-zscaler-service": {
    "canonical": "/zia/measuring-performance-zscaler-service",
@@ -25640,6 +27296,15 @@
    "lastmod": "2026-06-10T14:55Z",
    "nid": "1402316",
    "title": "Recommended Security Settings for Microsoft Edge Browser"
+  },
+  "/zia/recommended-url-filtering-policy": {
+   "canonical": "/zia/recommended-url-filtering-policy",
+   "category": "zia",
+   "hash": "eed91ccfe3a47ee8",
+   "in_bulletins": false,
+   "lastmod": "2026-10-29T23:36Z",
+   "nid": "1399416",
+   "title": "Recommended URL Filtering Policy"
   },
   "/zia/release-upgrade-summary-2019": {
    "canonical": "/zia/release-upgrade-summary-2019",
@@ -26388,6 +28053,15 @@
    "nid": "1530875",
    "title": "Understanding JWT Authentication"
   },
+  "/zia/understanding-kerberos-authentication": {
+   "canonical": "/zia/understanding-kerberos-authentication",
+   "category": "zia",
+   "hash": "19ae34acbc468201",
+   "in_bulletins": false,
+   "lastmod": "2026-10-30T04:49Z",
+   "nid": "1399556",
+   "title": "Understanding Kerberos Authentication"
+  },
   "/zia/understanding-ldap-user-synchronization": {
    "canonical": "/zia/understanding-ldap-user-synchronization",
    "category": "zia",
@@ -26576,6 +28250,15 @@
    "lastmod": "2026-07-14T09:51Z",
    "nid": "1399681",
    "title": "Understanding SAML"
+  },
+  "/zia/understanding-sandbox-end-user-notifications": {
+   "canonical": "/zia/understanding-sandbox-end-user-notifications",
+   "category": "zia",
+   "hash": "cccc6eadbb224649",
+   "in_bulletins": false,
+   "lastmod": "2026-10-29T09:34Z",
+   "nid": "1400381",
+   "title": "Understanding Sandbox End User Notifications"
   },
   "/zia/understanding-scim": {
    "canonical": "/zia/understanding-scim",
@@ -28371,7 +30054,7 @@
   "/zpa/app-connector-deployment-guide-google-cloud-platform": {
    "canonical": "/zpa/app-connector-deployment-guide-google-cloud-platform",
    "category": "zpa",
-   "hash": "6c1a0abecefe7265",
+   "hash": "7d52663970d4148a",
    "in_bulletins": false,
    "lastmod": "2026-09-30T16:22Z",
    "nid": "1505701",
@@ -28416,7 +30099,7 @@
   "/zpa/app-connector-deployment-guide-openshift": {
    "canonical": "/zpa/app-connector-deployment-guide-openshift",
    "category": "zpa",
-   "hash": "7e2cf02d224c5586",
+   "hash": "f642051b61a527ad",
    "in_bulletins": false,
    "lastmod": "2026-09-30T16:45Z",
    "nid": "1485886",
@@ -30288,7 +31971,7 @@
   "/zpa/network-connector-deployment-guide-linux": {
    "canonical": "/zpa/network-connector-deployment-guide-linux",
    "category": "zpa",
-   "hash": "3051a2c057d6e4f3",
+   "hash": "7e56382aaca67298",
    "in_bulletins": false,
    "lastmod": "2026-10-08T14:29Z",
    "nid": "1517176",
@@ -30297,7 +31980,7 @@
   "/zpa/network-connector-deployment-guide-vmware-platforms": {
    "canonical": "/zpa/network-connector-deployment-guide-vmware-platforms",
    "category": "zpa",
-   "hash": "2bfc392780e54c74",
+   "hash": "0d4a3d1e4c067be0",
    "in_bulletins": false,
    "lastmod": "2026-10-01T07:06Z",
    "nid": "1541935",
@@ -30378,7 +32061,7 @@
   "/zpa/private-cloud-controller-deployment-guide-amazon-web-services": {
    "canonical": "/zpa/private-cloud-controller-deployment-guide-amazon-web-services",
    "category": "zpa",
-   "hash": "60cdf2a569a5bb04",
+   "hash": "08b8f88a1297bb2b",
    "in_bulletins": false,
    "lastmod": "2026-09-15T14:57Z",
    "nid": "1545500",
@@ -30405,7 +32088,7 @@
   "/zpa/private-cloud-controller-deployment-guide-vmware-platforms": {
    "canonical": "/zpa/private-cloud-controller-deployment-guide-vmware-platforms",
    "category": "zpa",
-   "hash": "6fc9a46eddbab67b",
+   "hash": "15852e7031c32450",
    "in_bulletins": false,
    "lastmod": "2026-09-20T07:06Z",
    "nid": "1529183",
@@ -30450,7 +32133,7 @@
   "/zpa/private-service-edge-deployment-guide-amazon-web-services": {
    "canonical": "/zpa/private-service-edge-deployment-guide-amazon-web-services",
    "category": "zpa",
-   "hash": "d1d4a3aa9dd6a9af",
+   "hash": "42d682624c223359",
    "in_bulletins": false,
    "lastmod": "2026-10-02T21:06Z",
    "nid": "1484556",
@@ -35893,34 +37576,36 @@
    "title": "Zscaler and Tanium Deployment Guide"
   }
  },
- "generated_at": "2026-11-02T09:57:37Z",
+ "generated_at": "2026-11-02T13:41:09Z",
  "last_run": {
-  "at": "2026-11-02T09:57:37Z",
+  "at": "2026-11-02T13:41:09Z",
   "drifted": [
-   "/unified/about-adaptive-access-profiles",
-   "/unified/viewing-connector-activity-dashboard",
-   "/unified/viewing-connectors-tunnels-zscaler-client-connector-health",
-   "/unified/viewing-executive-insights-zscaler-services",
-   "/unified/viewing-zscaler-service-adoption",
-   "/unified/what-health360",
-   "/zia/configuring-custom-ports",
-   "/zpa/about-consoles-policy",
-   "/zpa/connector-deployment-guide-amazon-web-services",
-   "/zpa/replacing-or-migrating-network-connectors-support-redundancy"
+   "/unified/adding-adaptive-access-profile",
+   "/unified/editing-or-deleting-adaptive-access-profile",
+   "/unified/integrating-silverfort-adaptive-access-engine",
+   "/unified/viewing-health360-dashboard",
+   "/unified/viewing-overrides",
+   "/unified/viewing-ssl-inspection-dashboard",
+   "/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster",
+   "/zero-trust-branch/managing-forwarding-policies",
+   "/zia/about-dlp-endpoint-resources-context",
+   "/zia/about-user-confirmation-notification-templates",
+   "/zia/configuring-policies-for-unauthenticated-traffic",
+   "/zia/internet-saas-authentication-error-codes",
+   "/zpa/app-connector-deployment-guide-google-cloud-platform",
+   "/zpa/app-connector-deployment-guide-openshift",
+   "/zpa/network-connector-deployment-guide-linux",
+   "/zpa/network-connector-deployment-guide-vmware-platforms",
+   "/zpa/private-cloud-controller-deployment-guide-amazon-web-services",
+   "/zpa/private-cloud-controller-deployment-guide-vmware-platforms",
+   "/zpa/private-service-edge-deployment-guide-amazon-web-services"
   ],
-  "failed": 1,
-  "fetched": 1492,
-  "new_failures": [
-   "/product-usage-terms/eos-and-eol-policy"
-  ],
-  "removed": 461,
-  "revalidated": 800
+  "failed": 0,
+  "fetched": 1190,
+  "new_failures": [],
+  "removed": 0,
+  "revalidated": 1003
  },
- "revalidate_slot": 3,
- "unavailable": {
-  "/product-usage-terms/eos-and-eol-policy": {
-   "lastmod": "2025-02-03T07:01Z",
-   "since": "2026-11-02"
-  }
- }
+ "revalidate_slot": 0,
+ "unavailable": {}
 }

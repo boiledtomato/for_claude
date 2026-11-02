@@ -1,8 +1,149 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
+Generated: 2026-11-02 13:41 UTC
 Articles in this file: 110
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-10-06T02:06Z","nid":"1457606"} -->
+## Accessing and Navigating the 3rd-Party App Governance Admin Portal
+
+- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
+- Last modified: 2026-10-06T02:06Z
+- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
+
+Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
+
+## Signing In to the 3rd-Party App Governance Admin Portal
+
+You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
+
+To access 3rd-Party App Governance:
+
+1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
+
+The 3rd-Party App Governance sign-in page appears.
+
+See image.
+
+1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
+
+The 3rd-Party App Governance dashboard appears.
+
+Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
+
+On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
+
+A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
+
+[Image: Screenshot of Sign-in Page]
+
+## Accessing 3rd-Party App Governance from the Zscaler Admin Console
+
+You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
+
+To access the 3rd-Party App Governance Admin Portal from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
+
+See image.
+
+You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
+
+[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
+
+## Navigating within the 3rd-Party App Governance Admin Portal
+
+The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
+
+- App Dashboard
+- Apps
+- Users
+- Policies
+- Reports
+- Audit Log
+- Settings
+- Log Out
+
+Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
+
+Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
+
+Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
+
+Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
+
+Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
+
+Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
+
+Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
+
+Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
+
+[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-endpoint-data-scan-report","lastmod":"2026-05-27T03:01Z","nid":"1486096"} -->
+## Accessing and Navigating the Endpoint Data Scan Report
+
+- Source: https://help.zscaler.com/zia/accessing-and-navigating-endpoint-data-scan-report
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Accessing and Navigating the Endpoint Data Scan Report
+- Last modified: 2026-05-27T03:01Z
+- Summary: Information on the Endpoint Data Scan Report, including how to access and navigate it.
+
+This article covers the following topics:
+
+- Accessing the Endpoint Data Scan Report
+- Navigating within the Endpoint Data Scan Report
+
+Endpoint Data Scan Report is an analytics and metrics report where in-depth data scan results can be viewed for all the endpoints connected to your organization's user traffic. You can view everyday scan results performed on endpoints by recording and formulating metrics for activities, incidents, and sensitive files discovered for each user in the form of visually intuitive and highly interactive graphs and widgets.
+
+To access the Endpoint Data Scan Report, go to Analytics > Endpoint Data Scan; you're redirected to the Endpoint Data Scan Report pages in a new browser tab.
+
+See image.
+
+The report has the following items on the left-side navigation:
+
+- Endpoint Data Scan
+- User Investigation
+- Device Investigation
+- Device Control
+- Sensitive Information
+- Inventory
+- Activation
+- Configuration
+- Account
+- Logout
+
+[Image: This image shows the Endpoint Data Scan tabs]
+
+Click **User Investigation** to view scan results and data specific to endpoints connected to a user. You can view the user with the most activities, incidents, department information, risk profile, and other significant metrics. To learn more, see [About User Investigation](https://help.zscaler.com/zia/about-user-investigation) and [Analyzing Endpoint DLP Scan for a User](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user).
+
+Click **Device Investigation** for a comprehensive view of all the endpoint details, including real-time device health status. You can view the Shadow IT of all the detected applications on the endpoint. To learn more, see [About Device Investigation](https://help.zscaler.com/zia/about-device-investigation) and [Analyzing Device Investigation Details](https://help.zscaler.com/zia/analyzing-device-investigation-details).
+
+Click **Endpoint Data Scan** to view sensitive data stored locally within all the endpoints connected to your organization's traffic. You can view various metrics for each endpoint and the users connected to these endpoints. To learn more, see [About Endpoint Data Scan](https://help.zscaler.com/zia/about-endpoint-data-scan).
+
+Click **Device Control** to create and manage device control policy rules for removable storage devices (e.g., USB drives, external hard drives) and printers to align within specific use cases within your organization. Administrators can define and set up policy rules for the usage of devices based on rule criteria, such as user, department, endpoint, device, etc. To learn more, see [About Device Control](https://help.zscaler.com/zia/about-device-control).
+
+Click **Inventory**to view information about the devices connected by the end users in the organization and their associated incidents and activities. You can view metrics for each connected device and the users connected to the devices and their endpoints. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory).
+
+Click **Activation**to enable the device control policy rules that you created in the **Device Control**tab or **Inventory**tab, or any changes made in the **Configuration**tab. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
+
+Click **Configuration**to configure endpoint data scan and other endpoint settings, such as continuous classification and endpoint DLP exemption duration. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
+
+Click **Sensitive Information** to view Indexed Document Match (IDM) information, which enables authorized users to fingerprint documents containing sensitive data on endpoints. To learn more, see [About Sensitive Information](https://help.zscaler.com/zia/about-sensitive-information) and [Configuring Sensitive Information Settings](https://help.zscaler.com/zia/configuring-sensitive-information-settings).
+
+Click **Account**to view your username, organization name, organization ID, and cloud name.
+
+Click **Logout** to log out when you're done analyzing the endpoint scan data.
+
+[Image: This image shows how to access the Endpoint Data Scan Page.]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -12086,215 +12227,4 @@ To configure a TCP NSS feed for SaaS Security activity logs:
   - **Activity**: Filter logs based on specific activity. You can specify multiple types of activity.
   - **Object 1 Type**and **Object 2 Type**: Filter logs based on the type of object (e.g., Organization). You can search for specific object types. If applicable, the activity can have a second object listed. The default option is **None**.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-10-28T16:02Z","nid":"1401471"} -->
-## Adding TCP NSS Feeds for SaaS Security Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
-- Last modified: 2026-10-28T16:02Z
-- Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
-
-You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
-
-Before you start configuring a feed for SaaS Security logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for SaaS Security logs:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** >**Internet Log Streaming** - **Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Type**:Choose **SaaS Security**.
-  - **Application Category**: Choose an application category to limit the data to a specific category:
-    - **Collaboration**
-      - Microsoft Teams
-      - Slack
-      - Webex Teams
-      - Zoom
-    - **CRM**
-      - Salesforce
-      - Microsoft Dynamics 365
-    - **Email**
-      - Gmail
-      - Microsoft Exchange
-    - **File**
-      - Box
-      - Citrix ShareFile
-      - Confluence
-      - Dropbox
-      - Google Drive
-      - Microsoft OneDrive
-      - Microsoft SharePoint
-      - Smartsheet
-    - **Gen AI**
-      - ChatGPT
-    - **ITSM**
-      - Jira Software
-      - ServiceNow
-    - **Public Cloud Storage**
-      - Amazon S3
-      - Google Cloud Platform
-      - Microsoft Azure
-    - **Repository**
-      - Bitbucket
-      - GitHub
-      - GitLab
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM can parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that are displayed in the output. Edit the default list. If you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SaaS Security Logs](https://help.zscaler.com/zia/nss-feed-output-format-saas-security-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Action
-  - Who
-  - Collaboration
-  - CRM
-  - Email
-  - File
-  - ITSM
-  - Public Cloud Storage
-  - Repository
-  - DLP
-  - Malware
-  - Application
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Policy Type**: Filter logs based on the specific policy type. You can specify multiple policies. By default, the **DLP** and **Malware** policy types are not selected. Therefore, all incidents and violations with or without a rule name are exported through the NSS. You must explicitly select **DLP** and **Malware** policy types from the list to export only the incidents with valid rule names through the NSS.
-- **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
-- **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet Access (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
-  - **Any**: Any type of event in the scan.
-  - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
-  - **Scan**: No violation was detected in the scan. The scan is considered normal.
-  - **Violation**: A violation was detected in the scan (i.e., either a DLP engine was matched or malware was detected.)
-
-- **User**: Filter logs to specific users that generated transactions. You can search for users by username or email address. There's no limit to the number of users that you can select. Users that are deleted after they are selected appear with a strikethrough line.
-- **Departments**: Filter logs to specific departments that generated transactions. You can search for departments. There's no limit to the number of departments that you can select. Departments that are deleted after they are selected appear with a strikethrough line.
-
-- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
-- **Internal Recipients**: Filter logs to specific recipients within your organization. Multiple selections are allowed.
-- **Channel Name**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Object Type**: Choose **Any**to inspect all object types or choose an object type.
-- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
-
-- **Message Size**: Filter logs by the size of the email message.
-- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
-- **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Object Type**: Choose **Any**to inspect all object types or choose an object type
-- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
-
-- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
-- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
-- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
-- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
-- **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
-- **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
-
-- **DLP Engines**: Filter logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
-- **DLP Dictionaries**: Filter logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
-- **Severity**: Choose the severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-
-- **Malware Classes**: Filter logs based on the specific malware class. You can specify multiple malware classes.
-- **Malware Names**: Filter logs based on the specific malware names. You can specify multiple malware names.
-- **Threat Name**: Filter logs based on specific threats that were detected. You can specify multiple threat names separated by commas.
-
-- **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
-- **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-28T18:57Z","nid":"1520331"} -->
-## Adding TCP NSS Feeds for Sandbox Verdict Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-10-28T18:57Z
-- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
-
-A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for Sandbox verdict logs:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination.
-    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
-  - **Log Type**:Select **Sandbox Verdict**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Security
-  - File Type
-  - Sandbox Verdict
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
-- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
-- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
-- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
 <!-- /ZS-ARTICLE -->

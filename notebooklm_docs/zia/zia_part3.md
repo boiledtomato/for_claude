@@ -1,8 +1,219 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
+Generated: 2026-11-02 13:41 UTC
 Articles in this file: 108
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-10-28T16:02Z","nid":"1401471"} -->
+## Adding TCP NSS Feeds for SaaS Security Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
+- Last modified: 2026-10-28T16:02Z
+- Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
+
+You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
+
+Before you start configuring a feed for SaaS Security logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for SaaS Security logs:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** >**Internet Log Streaming** - **Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Choose **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination:
+    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
+  - **Log Type**:Choose **SaaS Security**.
+  - **Application Category**: Choose an application category to limit the data to a specific category:
+    - **Collaboration**
+      - Microsoft Teams
+      - Slack
+      - Webex Teams
+      - Zoom
+    - **CRM**
+      - Salesforce
+      - Microsoft Dynamics 365
+    - **Email**
+      - Gmail
+      - Microsoft Exchange
+    - **File**
+      - Box
+      - Citrix ShareFile
+      - Confluence
+      - Dropbox
+      - Google Drive
+      - Microsoft OneDrive
+      - Microsoft SharePoint
+      - Smartsheet
+    - **Gen AI**
+      - ChatGPT
+    - **ITSM**
+      - Jira Software
+      - ServiceNow
+    - **Public Cloud Storage**
+      - Amazon S3
+      - Google Cloud Platform
+      - Microsoft Azure
+    - **Repository**
+      - Bitbucket
+      - GitHub
+      - GitLab
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Choose **Tab-separated**to create a tab-separated list. Choose **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the feed output format. This menu also lists feed output types for specific SIEMs.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM can parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that are displayed in the output. Edit the default list. If you choose **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: SaaS Security Logs](https://help.zscaler.com/zia/nss-feed-output-format-saas-security-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Action
+  - Who
+  - Collaboration
+  - CRM
+  - Email
+  - File
+  - ITSM
+  - Public Cloud Storage
+  - Repository
+  - DLP
+  - Malware
+  - Application
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Policy Type**: Filter logs based on the specific policy type. You can specify multiple policies. By default, the **DLP** and **Malware** policy types are not selected. Therefore, all incidents and violations with or without a rule name are exported through the NSS. You must explicitly select **DLP** and **Malware** policy types from the list to export only the incidents with valid rule names through the NSS.
+- **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
+- **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
+- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet Access (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
+  - **Any**: Any type of event in the scan.
+  - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
+  - **Scan**: No violation was detected in the scan. The scan is considered normal.
+  - **Violation**: A violation was detected in the scan (i.e., either a DLP engine was matched or malware was detected.)
+
+- **User**: Filter logs to specific users that generated transactions. You can search for users by username or email address. There's no limit to the number of users that you can select. Users that are deleted after they are selected appear with a strikethrough line.
+- **Departments**: Filter logs to specific departments that generated transactions. You can search for departments. There's no limit to the number of departments that you can select. Departments that are deleted after they are selected appear with a strikethrough line.
+
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific recipients within your organization. Multiple selections are allowed.
+- **Channel Name**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type.
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **Message Size**: Filter logs by the size of the email message.
+- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
+- **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Object Type**: Choose **Any**to inspect all object types or choose an object type
+- **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
+
+- **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
+- **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
+- **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
+- **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
+- **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
+- **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
+
+- **DLP Engines**: Filter logs to transactions in which data leakage was detected based on specific [DLP engines](https://help.zscaler.com/zia/about-dlp-engines). Multiple selections are allowed.
+- **DLP Dictionaries**: Filter logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
+- **Severity**: Choose the severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+
+- **Malware Classes**: Filter logs based on the specific malware class. You can specify multiple malware classes.
+- **Malware Names**: Filter logs based on the specific malware names. You can specify multiple malware names.
+- **Threat Name**: Filter logs based on specific threats that were detected. You can specify multiple threat names separated by commas.
+
+- **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
+- **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-28T18:57Z","nid":"1520331"} -->
+## Adding TCP NSS Feeds for Sandbox Verdict Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-10-28T18:57Z
+- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Sandbox verdict logs:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Sandbox Verdict**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Security
+  - File Type
+  - Sandbox Verdict
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
+- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
+- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
+- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -11924,213 +12135,4 @@ You can edit custom notification messages, but the **Channel** field cannot be m
 After customizing the notification message, you must enable the EUN for an [IPS Control rule](https://help.zscaler.com/zia/configuring-ips-control-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
 
 [Image: Add custom message for IPS channel of [[zscaler-client-connector]] EUN]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-extranet","lastmod":"2026-10-28T07:59Z","nid":"1508701"} -->
-## Configuring an Extranet
-
-- Source: https://help.zscaler.com/zia/configuring-extranet
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Extranet > Configuring an Extranet
-- Last modified: 2026-10-28T07:59Z
-- Summary: How to configure an extranet in the Zscaler Admin Console.
-
-[Extranet resources](https://help.zscaler.com/zia/about-extranet) are created in the Zscaler Admin Console and assigned to locations to give organizations and their partners access to each other's applications. To learn more, see [Understanding Extranet Application Support](https://help.zscaler.com/zia/understanding-extranet-application-support).
-
-To configure an extranet in the Zscaler Admin Console:
-
-- 1. Create an extranet.
-- 2. Configure VPN credentials.
-- 3. Assign the extranet to a location.
-
-## Post Configuration
-
-After you have configured extranet resources and locations in the Zscaler Admin Console, they become available when configuring [server groups](https://help.zscaler.com/zpa/configuring-server-groups) and [application segments](https://help.zscaler.com/zpa/configuring-application-segments). You can configure [Private Access (ZPA) access policies](https://help.zscaler.com/zpa/configuring-access-policies) to manage extranet applications. When you finish extranet configuration for the Zscaler service, communicate with the partners who manage the extranet resources. They need the VPN credentials associated with the extranet location to create the [IPSec tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) to the Zscaler service.
-
-Extranet Application Support does not support NULL encryption for IPSec IKE Phase 2 configuration. Zscaler recommends using the AES-GCM-based encryption algorithm instead.
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**B2B Exchange**>**Extranet**.
-2. Click **Add Extranet**.
-3. In the **Add Extranet**window: See image.
-  - **Name**: Enter a name for the extranet.
-  - **Description**: (Optional) Enter a description for the extranet.
-  - Add a **Traffic Selector**.You can add more than one:
-    - **Default**: Enable this to designate a traffic selector as the default. You must select a default traffic selector.
-    - **Name**: Enter a name for the traffic selector.
-    - **IP Address Start**: Enter the starting address of the range for the traffic selector.
-    - **IP Address End**: Enter the ending address of the range for the traffic selector. The value must be greater than the starting address. The range of the traffic selector must include a minimum of 20 IP addresses.
-  - Add a **DNS Server**. You can add more than one:
-    - **Default**: Enable this to designate a DNS server as the default. You must select a default DNS server.
-    - **Name**: Enter a name for the DNS server.
-    - **DNS Server 1**: Enter the IP address of the DNS server 1.
-    - **DNS Server 2**: Enter the IP address of the DNS server 2.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-Extranet locations must have a VPN credential assigned to them. If you do not already have any VPN credentials created, see [Adding VPN Credentials](https://help.zscaler.com/zia/adding-vpn-credentials).
-
-To use extranet resources, the extranet must be assigned to a location.
-
-To assign an extranet to a location:
-
-1. Go to **Infrastructure**> **Location Management**> **Legacy Locations**.
-2. [Add a new location](https://help.zscaler.com/zia/configuring-locations) or edit an existing one.
-3. For **Location Type**, select **Extranet**from the drop-down menu. The **Extranet**section appears.
-4. In the **Extranet**section, select the **Extranet Resource** that you would like to use for the location. See image.
-5. Select a **Traffic Selector**and **DNS Server**from the drop-down menus, or use the defaults.
-6. In the **Addressing**section: See image.
-  - **Static IP Addresses and GRE Tunnels**: Choose the IP addresses of your local gateway. Do not choose a shared public IP address for a specific tenant’s location. The static IP addresses that appear in the drop-down menu are provisioned for your organization. To learn more, see [Self-Provisioning of Static IP Addresses](https://help.zscaler.com/zia/self-provisioning-static-ip-addresses). If you want Zscaler to provision your static IP addresses, submit them to Zscaler Support to be properly added to the menu. If the Zscaler Client Connector traffic does not match any of the IP addresses listed here, the location is tagged as "Road Warrior" in the logs.
-  - **VPN Credentials**: Select the appropriate VPN credentialfor the extranet you are using.
-7. In the **Gateway Options**section: See image.
-  - **Enforce Firewall Control**: [Firewall control](https://help.zscaler.com/zia/about-firewall-filtering) is automatically enabled for extranet locations and cannot be disabled.
-  - **Enable IPS Control**: Because firewall control is enabled, select to enable the service's [IPS Control](https://help.zscaler.com/zia/about-ips-control).
-8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). After a location is assigned to an extranet, it is automatically added to a dynamic location group for the assigned extranet resource. The Zscaler service creates one if a dynamic location group for the extranet does not already exist.
-
-[Image: The Add Extranet window showing the Traffic Selector and DNS Server sections]
-
-[Image: The Extranet section for an extranet location]
-
-[Image: The Addressing Section for an extranet location showing Static IP Addresses & GRE Tunnels and VPN Credentials]
-
-[Image: The Gateway Options section with Enforce Firewall Control and Enable IPS Control for an extranet location]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-10-23T08:13Z","nid":"1398726"} -->
-## Configuring the File Type Control Policy
-
-- Source: https://help.zscaler.com/zia/configuring-file-type-control-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring the File Type Control Policy
-- Last modified: 2026-10-23T08:13Z
-- Summary: How to configure the Zscaler File Type Control policy by adding rules to restrict the upload and download of various types of files.
-
-File Type Control policies enable you to create rules to restrict the upload and download of various types of files. You can capture and store traffic blocked through this policy as PCAP files. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture-settings). You can also use the [recommended File Type Control policy](https://help.zscaler.com/zia/recommended-file-type-control-policy) for guidance when configuring File Type Control policies.
-
-## Policy Execution
-
-The File Type Control rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
-
-[File Types (`AND`) URL Categories (`AND`) Cloud Applications (`AND`) Application Segment] (`AND`) [Users (`OR`) Groups (`OR`) Departments] (`AND`) [Location Groups (`OR`) Locations] (`AND`) Time (`AND`) [Device Groups (`OR`) Devices] (`AND`) Protocols (`AND`) Device Trust Level (`AND`) Minimum File Size (`AND`) Maximum File Size.
-
-## Configuring File Type Control Policy
-
-To configure the File Type Control policy:
-
-1. Go to **Internet Access**>**Policy**> **File Type Control**.
-2. Click **Add Rule**. The **Add Rule** window appears.
-3. On the **Add Rule** page, you can configure the following sections:
-  - Criteria
-  - Actions
-  - Details
-  - Rule Expiration
-4. Save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-In the Criteria section, when you click**Add Criteria**, you see the rule condition categories in gray (e.g., Who) and the individual rule conditions (e.g., Users) under each category.
-
-See image.
-
-After you click on the various conditions, you notice that some conditions contain preconfigured values (e.g., File Types) and others require manual value specification (e.g., Minimum File Size (KB)).
-
-- Criteria with Preconfigured Values
-- Criteria Requiring Manual Value Specification
-
-Refer to the following condition categories for details on configuring their individual conditions:
-
-- What
-- Who
-- Where
-- Location
-- Devices
-- When
-- Risk
-
-See image.
-
-To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
-
-For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking Select All. After selecting the values, click outside the window to close it.
-
-To clear selected items, click the field to open the multi-select window, then use the Remove icon displayed for individual entries. To remove all selected values, click Remove All.
-
-See image.
-
-[Image: Select preconfigured values]
-
-For conditions without preconfigured values, manually enter the value in the field.
-
-See image.
-
-[Image: Enter manual values]
-
-In the **Actions** section, select the action to apply when the rule conditions are met:
-
-- **Action**: Choose to **Allow**, **Block**, or **Caution** users from uploading or downloading files. If Traffic Capture is enabled, the **Capture** option appears when **Block** is selected. Captured traffic is stored in PCAP files for later analysis. To enable Traffic Capture for this policy, see [Configuring Traffic Capture Settings](https://help.zscaler.com/zia/configuring-traffic-capture-settings).
-- **Upload/Download**: Choose whether the specified action applies to uploading files, downloading files, or both.
-- **Browser Notification Template**: (Optional) Select a browser-based EUN message from the drop-down menu to display the message in the browser when the user activity triggers the File Type Control Policy rule. This field appears when the application access is set to either **Caution** or **Block**.
-
-See image.
-
-**File Types**:(Required) Select file types to which you want to apply the rule. You can also select **Undetectable File** under **Other** to apply the rule to unknown file types. For unknown file types, the service checks for the file type in the file header using true file type detection. If the file is still unknown, the service performs MIME type checks and tags as an unknown file type for any that fall outside of well-defined MIME types for common apps. You can select any number of file types and also search for file types. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured.
-
-- Zscaler-defined file types are considered before custom file types and custom file types inside archives are not detected.
-- **Protocols**: Select the protocols to which the rule applies.
-  - **FTP over HTTP**: Files from FTP over HTTP websites. (Requires Firewall subscription.)
-  - **HTTP**: Files from HTTP websites.
-  - **HTTPS**: Files from HTTP websites encrypted by TLS/SSL.**Native FTP**: Files from native FTP servers. (Requires Firewall subscription.)
-- **Minimum/Maximum File Size**: Enter a number value between 0 and 409,600 (KB) to apply a minimum and a maximum file size limit. Entering no value ignores the criteria in the policy evaluation.
-- **Active Content, Unscannable File, Password-Protected File**:
-  - **Active Content**: Enable the toggle button to apply the rule to files with active content. This criterion is applicable only to Microsoft Word, Microsoft Excel, Microsoft PowerPoint, and PDF file formats. The**File Types** field must be set to one of the supported file formats in order to configure this criterion.
-  - **Unscannable Files**: Enable the toggle button to apply the rule only to files that the Zscaler service is unable to scan. This might occur if the file is in an unrecognized file format, excessive size, corrupted, or recursively compressed. After enabling the **Unscannable Files** option, the corresponding file type policy only applies to those files that Zscaler is unable to scan. The policy is not applied to any other file types.
-  - **Password-Protected File**: Enable the toggle button to apply the rule only to files with password protection. When enabled, only the file types that are password-protected are available. This criterion is applicable only to 7-Zip, RAR, Zip, Zipx, Password-Protected Microsoft Office Documents, Password-Protected/Encrypted Files, and PDF file types. If the toggle is not enabled, any files that are in the drop-down menu are not explicitly password-protected or encrypted.
-
-- **Users**:Select **Select All**to apply the rule to all users, or select the checkbox next to the user you want to add. To remove a user, re-select the user, or to remove all users, select **Remove All**.
-- **Groups**:Select **Select All**to apply the rule to all groups, or select the checkbox next to the group you want to add. To remove a group, re-select the user, or to remove all groups, select **Remove All**.
-- **Departments**:Select**Select All** to apply the rule to all departments, or select the checkbox next to a department. Any rule that applies to unauthenticated traffic must apply to all **Groups**and **Departments**. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
-
-- **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/about-url-categories) to which you want to apply the rule. The service applies the rule when users upload to or download files from sites in the selected categories. Select **Any**to apply the rule to all categories, or select any number of categories. You can also search for URL categories, or add a [custom category](https://help.zscaler.com/zia/configuring-custom-url-categories). You can also select [custom TLD categories](https://help.zscaler.com/zia/about-tld-categories) from this field.
-- **Cloud Applications**: Select any number of [cloud applications or cloud application classes](https://help.zscaler.com/zia/about-cloud-app-control). Selecting no value ignores the criterion in the policy evaluation.
-- **ZPA Application Segment**: Select a [ZPA application segment](https://help.zscaler.com/zpa/about-applications).
-
-- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
-- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
-
-- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores the criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
-- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) for which you want to apply the rule. You can also search for a device. Selecting no value ignores the criterion in the policy evaluation.
-
-**Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals.
-
-**Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation.
-
-The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
-
-In the **Details** section, provide general information about the rule:
-
-- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
-- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
-- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
-- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order:
-  1. Click **Edit**.
-  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
-  3. Click **Apply**.
-- **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the rule. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). By default, the admin ranking is disabled. To use this feature, you must enable Admin Rank in Policies > Common Configuration > Advanced > Advanced Settings. To learn more, see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings).
-- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
-
-See image.
-
-**Rule Expiration**: (Optional) **Enable**to set a date and time to automatically stop enforcing this rule when the expiration is reached. The rule retains its place in the rule order but is not evaluated after it expires.
-
-See image.
-
-[Image: Configure Actions for File Type Control Policy Rules]
-
-[Image: Configure Details for File Type Control Policy]
-
-[Image: Enable Rule Expiration]
-
-[Image: Select Criteria to add to File Type Control Policy]
-
-[Image: Add Criteria when configuring a File Type Control Policy]
 <!-- /ZS-ARTICLE -->

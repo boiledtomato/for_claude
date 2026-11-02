@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 178
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 177
 
 ---
 
@@ -5253,82 +5253,82 @@ On the **DLP Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resou
 - Removable Storage Devices
 - Applications
 
-On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Network Shares), you can do the following:
 
-1. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
-2. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
+1. Search for a network share.
+2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
+3. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
   1. **Name**: The network share's name. You can sort this column.
   2. **Server Name**: The name of the server where the network share is located.
-5. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-6. Search for a network share.
+6. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 8. Go to the **Printers** page.
 9. Go to the **Printer Tags** page.
 10. Go to the **Removable Storage Devices** page.
-11. Go to the **Removable Storage Devices** **Tags**page.
+11. Go to the **Removable Storage Device** **Tags**page.
 12. Go to the **Endpoint Applications** page.
-13. Go to the **Endpoint Applications** page.
+13. Go to the **Endpoint Application Tags** page.
 
-[Image: About Network Shares in DLP & Endpoint Resources]
+[[Image: About Network Shares in DLP & Endpoint Resources]](https://help.zscaler.com/downloads/zia/policies/endpoint-data-loss-prevention/about-dlp-endpoint-resources/networkshares.png)
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
 
-1. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
-2. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
+1. Search for a printer.
+2. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
+3. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
   - **Name**: The printer's name. You can sort this column.
   - **Domain**: The name of the domain where the network printer is located.
-  - **Printer Name**: The printer's name as it appears in the operating system list of printers.
+  - **Printer Name**: The printer's name as it appears in the OS list of printers.
   - **IP Address**: The printer's IP address.
   - **Description**: The printer's description.
-  - Search for a network printer.
-5. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-6. Search for a Printer.
-7. Go to the **Network Shares** page.
-8. Go to the **Network Shares Tags** page.
+6. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+7. Go to the **Network**page.
+8. Go to the **Network Share Tags** page.
 9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
 11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
-13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: About Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Removable Storage Devices), you can do the following:
 
-1. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
-2. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
+1. Search for a removable storage device.
+2. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
+3. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
   - **Name**: The removable storage device's name. You can sort this column.
   - **Vendor ID**: The removable storage device's manufacturer.
   - **Product ID**: The removable storage device's product ID number.
   - **Serial Number**: The removable storage device's serial number.
   - **Description**: The removable storage device's description.
-5. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-6. Search for a removable storage device.
+6. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 9. Go to the **Printers** page.
 10. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 12. Go to the **Endpoint Applications**page.
-13. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
 [Image: `About Removeable Storage Devices in Endpoint DLP Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Endpoint Applications), you can do the following:
 
-1. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-3. Filter by Operating System or Application Type.
-4. Search for an application.
-5. View a list of all configured applications for your organization. For applications, you can see the following:
+1. Search for an application.
+2. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. Filter by OS or Application Type.
+6. View a list of all configured applications for your organization. For applications, you can see the following:
   - **Name**: The name of the application.
   - **Operating System**: The OS that the application uses.
   - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
@@ -5339,42 +5339,57 @@ On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resour
     - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
     - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
     - **Custom**: Applications added to a tenant by an administrator.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-8. Go to the **Network Shares** page.
-9. Go to the **Printers** page.
-10. Go to the **Removable Storage Devices**page.
-11. [Go to the Endpoint Application Tags page](https://help.zscaler.com/zia/adding-resource-tags).
-
-[Image: About Applications in Endpoint DLP Resources]
-
-The **Endpoint Resources**page is available if your organization has licensed Endpoint Context but not Endpoint DLP.
-
-From the **Endpoint Resources**page, on the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
-
-1. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
-2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-3. Filter by Operating System or Application Type.
-4. Search for an application.
-5. View a list of all configured applications for your organization. For applications, you can see the following:
-  - **Name**: The name of the application.
-  - **Operating System**: The OS that the application uses.
-  - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
-  - **Bundle ID**: (macOS only) The bundle identifier that uniquely identifies the application.
-  - **File Name**: The name of the executable that runs the application.
-  - **Digitally Signed**: The setting to indicate whether the application file must be digitally signed by a trusted provider (i.e., **Any**, **Yes**, or **No**).
-  - **Application Type**: The application type as determined by the Zscaler service:
-    - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
-    - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
-    - **Custom**: Applications added to a tenant by an administrator.
+  - **Version**: The version number of the application.
   - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
     - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
     - **High**: The application presents a high risk, based on analysis by the Zscaler service.
     - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
     - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+8. [Go to the Network Shares page.](https://help.zscaler.com/zia/adding-resource-tags)
+9. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. [Go to the Printers page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+12. [Go to the Removable Storage Devices page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+14. [Go to the Endpoint Application Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+
+[Image: About Applications in Endpoint DLP Resources]
+
+The **Endpoint Resources**page is available if your organization has licensed Endpoint Context but not Endpoint DLP.
+
+On the **Endpoint Applications**(Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+
+1. Search for an application.
+2. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
+3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. Filter by OS or Application Type.
+6. View a list of all configured applications for your organization. For applications, you can see the following:
+  - **Name**: The name of the application.
+  - **Operating System**: The OS that the application uses.
+  - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
+  - **Bundle ID**: (macOS only) The bundle identifier that uniquely identifies the application.
+  - **File Name**: The name of the executable that runs the application.
+  - **Digitally Signed**: The setting to indicate whether the application file must be digitally signed by a trusted provider (i.e., **Any**, **Yes**, or **No**).
+  - **Application Type**: The application type as determined by the Zscaler service:
+    - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
+    - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
+    - **Custom**: Applications added to a tenant by an administrator.
+  - **Version**: The version number of the application.
+  - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
+    - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
+    - **High**: The application presents a high risk, based on analysis by the Zscaler service.
+    - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
+    - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
 7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources). You cannot delete applications identified as **Discovered** or **Well-Known** by the Zscaler service.
-8. [Go to the Endpoint Application Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+8. [Go to the Network Shares page.](https://help.zscaler.com/zia/adding-resource-tags)
+9. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. [Go to the Printers page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+12. [Go to the Removable Storage Devices page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+14. [Go to the Endpoint Application Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 
 [Image: Endpoint Resources Page with the Endpoint Applications page selected]
 
@@ -5389,70 +5404,80 @@ On the **DLP & Endpoint Resources** page (Data Security > Endpoint DLP > Endpoin
 
 On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
 
-1. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+1. Search for a network share.
 2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
-3. Search for a network share.
-4. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
+3. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
   - **Name**: The network share's name. You can sort this column.
   - **Server Name**: The name of the server where the network share is located.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 6. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-7. Go to the **Printers** page.
-8. Go to the **Removable Storage Devices** page.
-9. Go to the **Applications** page.
-10. [Go to the Network Share Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+7. [Go to the Network Share Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+8. Go to the **Printers** page.
+9. Go to the **Printer Tags** page.
+10. Go to the **Removable Storage Devices** page.
+11. Go to the **Removable Storage Device Tags** page.
+12. Go to the **Endpoint Applications** page.
+13. Go to the **Endpoint Application Tags** page.
 
 [Image: Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
 
-1. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+1. Search for a network printer.
 2. [Import network printers](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
-3. Search for a network printer.
-4. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
+3. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
   - **Name**: The printer's name. You can sort this column.
   - **Domain**: The name of the domain where the network printer is located.
-  - **Printer Name**: The printer's name as it appears in the operating system list of printers.
+  - **Printer Name**: The printer's name as it appears in the OS list of printers.
   - **IP Address**: The printer's IP address.
   - **Description**: The printer's description.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 6. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. Go to the **Removable Storage Devices** page.
-9. Go to the **Applications** page.
-10. [Go to the Printer Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+8. Go to the **Network Share Tags** page.
+9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. Go to the **Removable Storage Devices** page.
+11. Go to the **Removable Storage Device Tags** page.
+12. Go to the **Endpoint Applications** page.
+13. Go to the **Endpoint Application Tags** page.
 
 [Image: Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Removable Storage Devices), you can do the following:
 
-1. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+1. Search for a removable storage device.
 2. [Import removable storage devices](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
-3. Search for a removable storage device.
-4. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
+3. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
   - **Name**: The removable storage device's name. You can sort this column.
   - **Vendor ID**: The removable storage device's manufacturer.
   - **Product ID**: The removable storage device's product ID number.
   - **Serial Number**: The removable storage device's serial number.
   - **Description**: The removable storage device's description.
-5. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 6. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. Go to the **Printers** page.
-9. Go to the **Applications**page.
-10. [Go to the Removable Storage Device Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+8. Go to the **Network Share Tags** page.
+9. Go to the **Printers** page.
+10. Go to the **Printer Tags** page.
+11. [Go to the Removable Storage Device Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+12. Go to the **Endpoint Applications**page.
+13. Go to the **Endpoint Application Tags**page.
 
 [Image: Removeable Storages in DLP & Endpoint Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Endpoint Applications), you can do the following:
 
-1. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
-2. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-resources#add-application-single).
-3. Filter by Operating System or Application Type.
-4. Search for an application.
-5. View a list of all configured applications for your organization. For applications, you can see the following:
+1. Search for an application.
+2. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
+3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-resources#add-application-single).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. Filter by OS or Application Type.
+6. View a list of all configured applications for your organization. For applications, you can see the following:
   - **Name**: The name of the application.
   - **Operating System**: The OS that the application uses.
   - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
@@ -5463,17 +5488,20 @@ On the **Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resour
     - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
     - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
     - **Custom**: Applications added to a tenant by an administrator.
+  - **Version**: The version number of the application.
   - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
     - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
     - **High**: The application presents a high risk, based on analysis by the Zscaler service.
     - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
     - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources). You cannot delete applications identified as **Discovered** or **Well-Known** by the Zscaler service.
 8. Go to the **Network Shares** page.
-9. Go to the **Printers** page.
-10. Go to the **Removable Storage Devices**page.
-11. [Go to the Endpoint Application Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+9. Go to the **Network Share Tags**page.
+10. Go to the **Printers** page.
+11. Go to the **Printer Tags** page.
+12. Go to the **Removable Storage Devices**page.
+13. Go to the **Removable Storage Device Tags**page.
+14. [Go to the Endpoint Application Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
 
 [Image: DLP & Endpoint Resources page]
 <!-- /ZS-ARTICLE -->
@@ -13002,6 +13030,229 @@ On the**Notifications** tab, you can do the following:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/about-shadow-it-report","lastmod":"2026-10-30T00:34Z","nid":"1401911"} -->
+## About the Shadow IT Report
+
+- Source: https://help.zscaler.com/zia/about-shadow-it-report
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the Shadow IT Report
+- Last modified: 2026-10-30T00:34Z
+- Summary: Information about the Shadow IT Report, which shows the number of sanctioned and unsanctioned applications being used and their number of users.
+
+The Shadow IT gives a breakdown of applications by their status — sanctioned, unsanctioned, unclassified, or under review and their number of users. It also shows the application categories, the risk index, and the certifications for each application. Zscaler supports up to 50K cloud applications.
+
+Shadow IT has drastically grown in recent years, especially with the adoption of multiple applications. These applications are installed by bypassing the IT department's approval for different reasons, like the ease of setting up applications with fewer approval stages and bottlenecks, the application being more efficient than the choices provided by the organization, etc.
+
+On the other hand, IT departments also appreciate fewer application requests so that they can direct their focus on more business-critical tasks. However, lack of oversight by the IT department can lead to significant security risks. These unsanctioned or unclassified applications must come under the radar of your IT team or the relevant department at some stage to monitor their vulnerabilities and mitigate the exploitation surface for the attackers.
+
+The Shadow IT Report provides the following benefits and enables you to:
+
+- Discover and manage shadow IT applications used by your organization's user, department, or location.
+- Gain comprehensive visibility and assurance for SaaS applications by scrutinizing them across multiple risk attributes to demonstrate trustworthiness.
+- Analyze and secure your organization's traffic from potential threats and vulnerabilities posed by the usage of these applications.
+- View the report from different perspectives, like users, location, risk level, data consumption, security certifications, etc. and build your organization's shadow IT traffic resilient to cyberattacks.
+- Increase the visibility of your SaaS applications by viewing security events generated by the Zscaler service and other third-party vendor devices, like Palo Alto Networks.
+
+## About the Shadow IT Report Page
+
+On the Shadow IT page (Data Security > Inline CASB > Shadow IT), you can do the following:
+
+1. **Time Period:** You can view data from the last 1 day, 7 days, 15 days, month, or quarter. The default time period is the last 7 days.
+2. Filter the data of the entire Shadow IT with your selections. You can click **Clear** to remove filters at any time.
+  - Application Category
+  - Risk Index
+  - Application Status
+  - Total Bytes
+  - Tags
+  - Number of Employees
+  - Certifications
+  - SSL Cert Key Size
+  - Signature Algorithm of SSL Certification
+  - Hosting and Security Characteristics
+3. **Overview**: The following sections give an overview of the applications. The information in these sections changes according to the filters that you select.
+  - **Total** **Applications**: The total number of sanctioned, unsanctioned, unclassified, or under review applications that are in use.
+  - **Total Bytes**: The total bytes consumed by all the applications, both upload and download.
+  - **Upload Bytes**: The total upload bytes for all the applications.
+  - **Download Bytes**: The total download bytes for all the applications.
+4. **Applications by Status**: This section shows the distribution of sanctioned, unsanctioned, unclassified, or under review applications in your organization.
+5. **Applications with Potential Access to Corporate Platforms**: This section shows the number of applications with potential access to your corporate SaaS platforms (e.g., Google Workspace, Azure AD). In the Cloud Applications table, if the number in the Potential Integrations column is greater than zero, then the application has potential access. Data in this section is populated by [Zscaler 3rd-Party App Governance](https://help.zscaler.com/zia/what-3rd-party-app-governance).
+6. **Top Application Categories**: This section shows the categorization of applications. You can filter this section to view the data for the Number of Applications, Download Bytes, Total Bytes, or Upload Bytes for each application category. Hover over a category to view the breakdown of applications into sanctioned, unsanctioned, unclassified, and under review.
+7. **Applications by Risk Index**: This section shows the number of applications in each risk index (1–5, 1 being the lowest risk and 5 being the highest).
+8. Search for an application by name.
+9. Download the report as a CSV file.
+10. [Schedule a daily, weekly, or monthly Shadow IT Report](https://help.zscaler.com/zia/scheduling-reports#schedule-report). You can view and manage your scheduled Shadow IT Report on the [Scheduled Reports page](https://help.zscaler.com/zia/about-scheduled-reports) (Analytics > Reports > Interactive Reports > Scheduled Reports).
+11. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+12. **Cloud Applications**: View a list of all the applications. For each application, you can view:
+  - **Application**: The application name. When you click on an application, you are redirected to the [Application Information](https://help.zscaler.com/zia/about-application-information) page.
+  - **Application Category**: The application category of the application.
+  - **Total Bytes**: The sum of upload and download bytes of the application.
+  - **Upload Bytes**: The total bytes uploaded by the application.
+  - **Download Bytes**: The total bytes downloaded by the application.
+  - **Users**: The number of unique authenticated users who accessed the application within the specified time range. When you click on the user number for an application, you are redirected to the Users table on the [Application Information](https://help.zscaler.com/zia/about-application-information) page.
+  - **Locations**: The number of unauthenticated locations from where the application is accessed. When you click on the location number for an application, you are redirected to the Location table on the [Application Information](https://help.zscaler.com/zia/about-application-information) page. This information is displayed only when you select the **Source**as Zscaler.
+  - **Potential Integrations**: The number of potential integrations associated with the application in your organization. For example, if your organization uses Grammarly and the application shows at least one integration in this column, then Grammarly has potential access to your corporate SaaS platforms, such as Google Workspace. Data in this column is populated by [Zscaler 3rd-Party App Governance](https://help.zscaler.com/zia/what-3rd-party-app-governance).
+  - **Application Risk Index**: The risk index number.
+  - **Application Status**: Whether the application is sanctioned, unsanctioned, unclassified, or under review.
+  - **Tags**: The tags associated with the application. You can create tags on the [Cloud Application Tags](https://help.zscaler.com/zia/adding-cloud-application-tag) page and associate them to apps on the [Application Information](https://help.zscaler.com/zia/about-application-information) or [Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) page.
+  - **No. of Transactions**: The number of transactions per application. These transactions can be viewed based on their status (allowed or blocked) by applying the global filter **Actions**(**All**, **Allowed**, or **Blocked**).
+  - **Notes**: The notes that you added for the application on the [Application Information](https://help.zscaler.com/zia/about-application-information) page. The column stays blank if you haven't added any notes.
+
+Filter by the following application categories:
+
+- All
+- Administration
+- AI & ML Applications
+- Productivity and CRM Tools
+- Consumer
+- Custom Applications
+- DNS Over HTTPS Services
+- Collaboration and Online Meetings
+- File Sharing
+- Finance
+- General Browsing
+- Health Care
+- Hosting Providers
+- Human Resources
+- Instant Messaging
+- IT Services
+- Legal
+- Sales & Marketing
+- Social Networking
+- Streaming Media
+- System & Development
+- Web Mail
+- Web Search
+
+Filter by the risk index number (1–5, 1 being the lowest risk and 5 being the highest).
+
+Filter by the following sanctioned states of the applications:
+
+- All
+- Sanctioned
+- Unsanctioned
+- Unclassified
+- Under Review
+
+Filter by the sum of upload and download bytes of the application:
+
+- All
+- <100 MB
+- >100 GB
+- 1 GB - 10 GB
+- 10 GB-100 GB
+- 100 MB - 1 GB
+
+Filter the report for applications associated with specific tags.
+
+Filter by the number of employees the application company has:
+
+- All
+- <100
+- 100–1000
+- 1000–10000
+- >10000
+
+Filter by the types of certifications that the organization adheres to. You can choose to include or exclude:
+
+- All
+- AICPA
+- CCPA
+- CISP
+- COPPA
+- CSA STAR
+- EU-U.S. Privacy Shield Framework
+- EU-U.S. and Swiss-U.S. Privacy Shield
+- FedRAMP
+- FERPA
+- FIPS
+- FISMA
+- GDPR
+- HIPAA
+- HITECH
+- ISAE 3000
+- ISO 10002
+- ISO 14001
+- ISO 20243
+- ISO 20252
+- ISO 26262
+- ISO 27001
+- ISO 27017
+- ISO 27018
+- JIS Q 15001
+- NIST
+- None
+- PCI DSS
+- RGPD
+- SAFE-BioPharma
+- SOC
+- SOC 1
+- SOC 2
+- SOC 3
+- SSAE 18
+- TRUSTe
+
+Filter by the size of the SSL cert key that the organization uses. As per the current standards, the 2048-bit SSL RSA key size is considered to be secure. A 1024-bit key is outdated, and a 4096-bit SSL key is the latest and the most secure size:
+
+- All
+- 256 Bits
+- 384 Bits
+- 1024 Bits
+- 2048 Bits
+- 3072 Bits
+- 4096 Bits
+- Unknown
+
+Filters the list of SaaS applications based on the cryptographic signature algorithms used in their SSL/TLS certificates.
+
+- All
+- MD5-SHA1 RSA
+- SHA1 ECDSA
+- SHA1 RSA
+- SHA256 ECDSA
+- SHA256 RSA
+- SHA256 RSA-PSS
+- SHA384 ECDSA
+- SHA384 RSA
+- SHA512 ECDSA
+- SHA512 RSA
+- SHA512 RSA-PSS
+- Unknown
+
+View the hosting and security characteristics of each application. You can modify the characteristics:
+
+- **Yes**: Has the characteristic
+- **No**: Does not have the characteristic
+- **Unknown**: Not determined
+- **All**: Considers all the preceding options
+  - **Poor Terms of Service**: Checks the legal terms and conditions that include questionable parameters (e.g., if the application uses shared customer data for other purposes or with other third-party applications).
+  - **Data Breaches in the Last 3 Years**: Checks if the application reported a known data breach.
+  - **Source IP Restrictions**: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Checks if the application provides options to allow or restrict access from specific IP addresses. If the application does not provide this option, the attack surface widens as anyone can access the application.
+  - **MFA Support**: Checks if the application supports multi-factor authentication.
+  - **Admin Audit Logs**: Checks if the application supports logging or provides a trail of all admin activities. This helps in identifying any malicious or anomalous activities.
+  - **SSL Pinned**: Checks if the application has SSL certification pinned. Pinned certificates make the traffic difficult to decrypt and validate its contents, which can have malicious files.
+  - **Data Encryption in Transit**: Checks the minimum TLS version that the application supports. The latest TLS version is the most secure. Applications still using any version earlier than TLS 1.1 are considered less secure.
+  - **Evasive**: Checks if the application supports accessing data anonymously without expecting the user to create an account and log in. If there is no login option, anyone can access the application anonymously without providing their identity. For example, some applications allow users to share files without authenticating them. This can lead malicious users to spread malware and makes identifying the user difficult.
+  - **HTTP Security Header Support**: Checks if all security headers (i.e., X-XSS-Protection, X-Frame-Options, Strict-Transport-Security, Content-Security-Policy, and X-Content-Type-Options) are securely implemented.
+  - **Valid SSL Certificate**: Checks if the application's SSL certificate is valid or not. In case, the validity is less than 6 months, displays that.
+  - **Published CVE Vulnerability**: Checks if the application has published CVE vulnerabilities.
+  - **DNS CAA Policy**: The DNS Certification Authority Authorization (CAA) is an internet security policy mechanism. Domain name holders indicate to certificate authorities whether they are authorized to issue digital certificates for a particular domain name. This attribute captures if domains mention particular CAA authorities for this application.
+  - **Weak Cipher Support**: Checks for weak ciphers. Ciphers are also known as encryption or decryption algorithms. This attribute indicates key sizes that are less than 128 bits. The keys are used for making SSL connections with the servers.
+  - **File Sharing**: Checks if the application supports file sharing, which can be risky as content can be shared outside the organization by users.
+  - **Vulnerable to Heartbleed**: Checks if the application is vulnerable to a Heartbleed attack. Shows the CVE ID of the vulnerability.
+  - **Vulnerable to POODLE**: Checks if the application is vulnerable to POODLE attack. Shows the CVE ID of the vulnerability.
+  - **Vulnerable to Logjam**: Checks if the application is vulnerable to Logjam attack. Shows the CVE ID of the vulnerability.
+  - **Support for WAF**: Checks if the application supports web application firewall (WAF). Shows the name of the firewall in use.
+  - **Remote Access Screen Sharing**: Checks if the application supports remote access screen sharing. This can be risky as it widens the attack surface. If a malicious user gets hold of a valid remote access session, it can lead to data exfiltration.
+  - **Vulnerability Disclosure Policy**: Checks if the application has a vulnerability disclosure policy. Applications should provide this option so that ethical users or hackers can report on any misconfigurations that could lead to attacks. Shows the URL to the vulnerability disclosure policy.
+  - **Sender Policy Framework**: Checks if the application supports sender policy framework (SPF) authentication. SPF authentication works by strictly specifying the number of allowed domain IP addresses that can send emails from your domain. When setting up SPF, the domain owner adds a file or record on the server which indicates to the receiving server what domains are allowed to send emails.
+  - **DomainKeys Identified Mail**: Checks if the application supports DomainKeys Identified Mail (DKIM). DKIM authentication is similar to SPF; this is added as a TXT record by adding it in your domain panel. It makes sure that none of the emails going from server to server are tampered with by anyone in the middle and that emails can be clearly identified from the other end.
+  - **Domain-Based Message Authentication**: Checks if the application supports Domain-Based Message Authentication, Reporting, and Conformance (DMARC). DMARC builds on SPF and DKIM to further validate emails by verifying SPF and DKIM records. This enables you to configure policies in case DMARC validation fails, and it also generates reports.
+
+[Image: The Shadow IT Report page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/about-source-ip-groups","lastmod":"2026-10-21T10:49Z","nid":"1400191"} -->
 ## About Source IP Groups
 
@@ -14303,7 +14554,7 @@ User Confirmation notification templates provide the following benefits and allo
 
 ## About the User Confirmation Notification Templates Page
 
-On the DLP User Confirmation Templates page (Administration > End User Notification > Data Protection User Confirmation), you can do the following:
+On the User Confirmation Templates page (Administration > End User Notification > Data Protection User Confirmation), you can do the following:
 
 1. [Add a customer user notification message for your organization](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
 2. Search for a user confirmation template.
@@ -14966,145 +15217,4 @@ On the Zscaler Incident Receiver page (Data Security > Common Resources > DLP In
 11. [View the Cloud-to-Cloud Incident Forwarding page](https://help.zscaler.com/zia/about-cloud-cloud-incident-forwarding).
 
 [Image: The Zscaler Incident Receiver page shows a list Incident Receivers and details about each one]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-10-06T02:06Z","nid":"1457606"} -->
-## Accessing and Navigating the 3rd-Party App Governance Admin Portal
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
-- Last modified: 2026-10-06T02:06Z
-- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
-
-Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
-
-## Signing In to the 3rd-Party App Governance Admin Portal
-
-You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
-
-To access 3rd-Party App Governance:
-
-1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
-
-The 3rd-Party App Governance sign-in page appears.
-
-See image.
-
-1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
-
-The 3rd-Party App Governance dashboard appears.
-
-Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
-
-On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
-
-A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
-
-[Image: Screenshot of Sign-in Page]
-
-## Accessing 3rd-Party App Governance from the Zscaler Admin Console
-
-You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
-
-To access the 3rd-Party App Governance Admin Portal from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
-
-See image.
-
-You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
-
-[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
-
-## Navigating within the 3rd-Party App Governance Admin Portal
-
-The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
-
-- App Dashboard
-- Apps
-- Users
-- Policies
-- Reports
-- Audit Log
-- Settings
-- Log Out
-
-Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
-
-Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
-
-Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
-
-Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
-
-Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
-
-Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
-
-Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
-
-Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
-
-[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-endpoint-data-scan-report","lastmod":"2026-05-27T03:01Z","nid":"1486096"} -->
-## Accessing and Navigating the Endpoint Data Scan Report
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-endpoint-data-scan-report
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Accessing and Navigating the Endpoint Data Scan Report
-- Last modified: 2026-05-27T03:01Z
-- Summary: Information on the Endpoint Data Scan Report, including how to access and navigate it.
-
-This article covers the following topics:
-
-- Accessing the Endpoint Data Scan Report
-- Navigating within the Endpoint Data Scan Report
-
-Endpoint Data Scan Report is an analytics and metrics report where in-depth data scan results can be viewed for all the endpoints connected to your organization's user traffic. You can view everyday scan results performed on endpoints by recording and formulating metrics for activities, incidents, and sensitive files discovered for each user in the form of visually intuitive and highly interactive graphs and widgets.
-
-To access the Endpoint Data Scan Report, go to Analytics > Endpoint Data Scan; you're redirected to the Endpoint Data Scan Report pages in a new browser tab.
-
-See image.
-
-The report has the following items on the left-side navigation:
-
-- Endpoint Data Scan
-- User Investigation
-- Device Investigation
-- Device Control
-- Sensitive Information
-- Inventory
-- Activation
-- Configuration
-- Account
-- Logout
-
-[Image: This image shows the Endpoint Data Scan tabs]
-
-Click **User Investigation** to view scan results and data specific to endpoints connected to a user. You can view the user with the most activities, incidents, department information, risk profile, and other significant metrics. To learn more, see [About User Investigation](https://help.zscaler.com/zia/about-user-investigation) and [Analyzing Endpoint DLP Scan for a User](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user).
-
-Click **Device Investigation** for a comprehensive view of all the endpoint details, including real-time device health status. You can view the Shadow IT of all the detected applications on the endpoint. To learn more, see [About Device Investigation](https://help.zscaler.com/zia/about-device-investigation) and [Analyzing Device Investigation Details](https://help.zscaler.com/zia/analyzing-device-investigation-details).
-
-Click **Endpoint Data Scan** to view sensitive data stored locally within all the endpoints connected to your organization's traffic. You can view various metrics for each endpoint and the users connected to these endpoints. To learn more, see [About Endpoint Data Scan](https://help.zscaler.com/zia/about-endpoint-data-scan).
-
-Click **Device Control** to create and manage device control policy rules for removable storage devices (e.g., USB drives, external hard drives) and printers to align within specific use cases within your organization. Administrators can define and set up policy rules for the usage of devices based on rule criteria, such as user, department, endpoint, device, etc. To learn more, see [About Device Control](https://help.zscaler.com/zia/about-device-control).
-
-Click **Inventory**to view information about the devices connected by the end users in the organization and their associated incidents and activities. You can view metrics for each connected device and the users connected to the devices and their endpoints. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory).
-
-Click **Activation**to enable the device control policy rules that you created in the **Device Control**tab or **Inventory**tab, or any changes made in the **Configuration**tab. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
-
-Click **Configuration**to configure endpoint data scan and other endpoint settings, such as continuous classification and endpoint DLP exemption duration. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
-
-Click **Sensitive Information** to view Indexed Document Match (IDM) information, which enables authorized users to fingerprint documents containing sensitive data on endpoints. To learn more, see [About Sensitive Information](https://help.zscaler.com/zia/about-sensitive-information) and [Configuring Sensitive Information Settings](https://help.zscaler.com/zia/configuring-sensitive-information-settings).
-
-Click **Account**to view your username, organization name, organization ID, and cloud name.
-
-Click **Logout** to log out when you're done analyzing the endpoint scan data.
-
-[Image: This image shows how to access the Endpoint Data Scan Page.]
 <!-- /ZS-ARTICLE -->

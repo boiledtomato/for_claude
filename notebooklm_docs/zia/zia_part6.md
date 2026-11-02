@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
+Generated: 2026-11-02 13:41 UTC
 Articles in this file: 110
 
 ---
@@ -8742,6 +8742,37 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/recommended-url-filtering-policy","lastmod":"2026-10-29T23:36Z","nid":"1399416"} -->
+## Recommended URL Filtering Policy
+
+- Source: https://help.zscaler.com/zia/recommended-url-filtering-policy
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Recommended URL Filtering Policy
+- Last modified: 2026-10-29T23:36Z
+- Summary: Information on Zscaler's recommended policy configurations for URL Filtering and Cloud App Control.
+
+This article contains the recommended policy for URL Filtering.
+
+Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring-url-filtering-policy) the following for [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policy:
+
+- **Rule Order**: Select a Rule Order that is appropriate for your organization. Rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on).
+- **Rule Status**: Select **Enabled**. Enabled rules are actively enforced.
+- **URL Categories**: Select**Adult Material**, **Drugs**, **Gambling**, **Illegal** or **Questionable**, and **Militancy/Hate** **and** **Extremism** to apply the rule to these URL categories.
+- **HTTP Requests**: Select **All** so that the rule is applied to all HTTP requests.
+- **Users**: Select **Any** to apply the rule to all users.
+- **Groups**: Select **Any** to apply the rule to all groups.
+- **Departments**: Select **Any** to apply the rule to all departments.
+- **Locations**: Select **Any** to apply the rule to all locations.
+- **Location Groups**: Select **Any** to apply the rule to all location groups.
+- **Time**: Select **Always** to apply the rule to all time intervals.
+- **Protocols**: Select **HTTP** and **HTTPS** to apply the rule to these two protocols.
+- **Action**: Select **Block** to block access to all sites in the selected URL categories.
+- **Device Groups**: Select **OS Type**, **No Client Connector**, and **Cloud Browser isolation**to apply the rule to these device groups.
+- **Device Trust Level**: Select device trust levels based on posture definition.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2019","lastmod":"2026-02-03T22:12Z","nid":"1401411"} -->
 ## Release Upgrade Summary (2019)
 
@@ -16618,76 +16649,4 @@ When you define a DLP or Malware Detection rule for public cloud storage applica
 - After you create the list and save the scan schedule, you can edit the rule and configure the Buckets, Bucket Owner, Blob Containers, or Blob Container Owner fields.
 
 1. Start scheduled scans from the [SaaS Security Scan Configuration page](https://help.zscaler.com/zia/about-saas-security-api-scan-configuration).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1401611"} -->
-## Understanding DLP Engines
-
-- Source: https://help.zscaler.com/zia/understanding-dlp-engines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding DLP Engines
-- Last modified: 2026-09-24T11:09Z
-- Summary: Information on Data Loss Prevention (DLP) engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
-
-A [Data Loss Prevention (DLP) engine](https://help.zscaler.com/zia/about-dlp-engines) is a collection of one or more DLP dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines:
-
-- Predefined DLP Engines: The Zscaler service provides 5 predefined engines (HIPAA, GLBA, PCI, Offensive Language, and Self-Harm & Cyberbullying). These engines contain default DLP dictionaries. For example, the PCI engine contains the Credit Cards and Social Security Number dictionaries. You can also edit predefined engines. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines).
-
-The Self-Harm & Cyberbullying engine is intended for use by K-12 educators. If you’re an educator, contact your Zscaler Account team to enable this feature.
-
-- Custom DLP Engines: You can create custom DLP engines to detect content that is relevant to your organization on the DLP Engines page or through the Cloud Service API. You can create a maximum of 512 custom DLP engines. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine) and [Understanding Cloud Service and Sandbox Submission APIs.](https://help.zscaler.com/zia/about-api)
-- If you use a parent dictionary to configure the engine, you have the option to select a sub-dictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for sub-dictionaries), then you must select a sub-dictionary from the drop-down menu.
-
-See image.
-
-When you use parent and sub-dictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and sub-dictionaries can match independently of one another). To learn more about configuring parent and sub-dictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
-
-## Building Expressions for DLP Engines
-
-When configuring a predefined or custom DLP engine, you can combine DLP dictionaries with operators to create a logical expression. The operators include All (AND), Any (OR), Exclude (AND NOT), and Sum. The Sum operator allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
-
-See image.
-
-To build a DLP engine expression, create subexpressions with operators and dictionaries. Subexpressions determine the logic for how the engine’s dictionaries must trigger in order for the engine to trigger. You can use the Sum operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the Sum operator.
-
-See image.
-
-For example, the following expressions use the same dictionaries. However, because the subexpressions are applied differently, the logic for each expression is different.
-
-- `((ABA Bank Routing Numbers > 0) AND (Credit Cards > 0)) OR (Financial Statements > 0)`
-- `(ABA Bank Routing Numbers > 0) AND ((Credit Cards > 0) OR (Financial Statements > 0))`
-
-The following expression uses sub-dictionaries, which appear in brackets within the expression:
-
-`((Parent Container (Canada) [Canadian Driver License] > 0) AND ((Parent Container (Canada) [Canadian Passport Pattern] > 0)))`
-
-## Configuring the Match Count
-
-Depending on the operator and the dictionary you select, you must also configure the match count value for a dictionary or group of dictionaries when adding them to a DLP engine. The match count is the threshold that triggers a dictionary or group of dictionaries.
-
-See image.
-
-The dictionary or dictionaries trigger only if they find more matches than the number specified. For example:
-
-- If you use the Sum operator in your expression with 3 dictionaries, and you enter a match count of 6, then the policy triggers only if there are 7 or more matches across the 3 dictionaries.
-- Similarly, if you use any of the other operators (All, Any, or Exclude) with a dictionary that requires a match count, and you enter a match count of 6, the dictionary triggers only upon finding 7 or more matches in that dictionary. If you select multiple dictionaries with individual match counts, the dictionary is triggered only when the threshold is reached for an individual dictionary.
-
-You can add a dictionary to multiple engines and specify a different match count value each time you add a dictionary to an engine. For example, consider that you want to create a DLP policy rule to block all file uploads containing 5 or more instances of personally identifiable information (PII), and another policy rule to send an email notification whenever a file upload contains at least one instance of PII. In this scenario, you can:
-
-- For your block policy rule, create one DLP engine with PII dictionaries that each have a match count value of 4. You must also ensure that this rule’s order number is before the notification policy rule.
-- For your notification policy rule, create a second DLP engine with PII dictionaries that each have a match count value of 0.
-
-To modify the Confidence Score Threshold of a predefined dictionary, you must configure this setting in the dictionary itself. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
-
-[Image: The DLP Engine Expression Builder Using a Parent and Sub-Dictionary]
-
-[Image: The DLP Engine Expression Builder Using a Logical Operator]
-
-[Image: The DLP Engine Expression Builder Using a Sum Operator]
-
-[Image: Subexpressions for the DLP Engine Expression]
-
-[Image: The Match Count for the DLP Dictionary in the Engine]
 <!-- /ZS-ARTICLE -->

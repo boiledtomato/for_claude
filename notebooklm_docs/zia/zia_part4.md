@@ -1,8 +1,217 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 115
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 117
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-extranet","lastmod":"2026-10-28T07:59Z","nid":"1508701"} -->
+## Configuring an Extranet
+
+- Source: https://help.zscaler.com/zia/configuring-extranet
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Extranet > Configuring an Extranet
+- Last modified: 2026-10-28T07:59Z
+- Summary: How to configure an extranet in the Zscaler Admin Console.
+
+[Extranet resources](https://help.zscaler.com/zia/about-extranet) are created in the Zscaler Admin Console and assigned to locations to give organizations and their partners access to each other's applications. To learn more, see [Understanding Extranet Application Support](https://help.zscaler.com/zia/understanding-extranet-application-support).
+
+To configure an extranet in the Zscaler Admin Console:
+
+- 1. Create an extranet.
+- 2. Configure VPN credentials.
+- 3. Assign the extranet to a location.
+
+## Post Configuration
+
+After you have configured extranet resources and locations in the Zscaler Admin Console, they become available when configuring [server groups](https://help.zscaler.com/zpa/configuring-server-groups) and [application segments](https://help.zscaler.com/zpa/configuring-application-segments). You can configure [Private Access (ZPA) access policies](https://help.zscaler.com/zpa/configuring-access-policies) to manage extranet applications. When you finish extranet configuration for the Zscaler service, communicate with the partners who manage the extranet resources. They need the VPN credentials associated with the extranet location to create the [IPSec tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) to the Zscaler service.
+
+Extranet Application Support does not support NULL encryption for IPSec IKE Phase 2 configuration. Zscaler recommends using the AES-GCM-based encryption algorithm instead.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**B2B Exchange**>**Extranet**.
+2. Click **Add Extranet**.
+3. In the **Add Extranet**window: See image.
+  - **Name**: Enter a name for the extranet.
+  - **Description**: (Optional) Enter a description for the extranet.
+  - Add a **Traffic Selector**.You can add more than one:
+    - **Default**: Enable this to designate a traffic selector as the default. You must select a default traffic selector.
+    - **Name**: Enter a name for the traffic selector.
+    - **IP Address Start**: Enter the starting address of the range for the traffic selector.
+    - **IP Address End**: Enter the ending address of the range for the traffic selector. The value must be greater than the starting address. The range of the traffic selector must include a minimum of 20 IP addresses.
+  - Add a **DNS Server**. You can add more than one:
+    - **Default**: Enable this to designate a DNS server as the default. You must select a default DNS server.
+    - **Name**: Enter a name for the DNS server.
+    - **DNS Server 1**: Enter the IP address of the DNS server 1.
+    - **DNS Server 2**: Enter the IP address of the DNS server 2.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+Extranet locations must have a VPN credential assigned to them. If you do not already have any VPN credentials created, see [Adding VPN Credentials](https://help.zscaler.com/zia/adding-vpn-credentials).
+
+To use extranet resources, the extranet must be assigned to a location.
+
+To assign an extranet to a location:
+
+1. Go to **Infrastructure**> **Location Management**> **Legacy Locations**.
+2. [Add a new location](https://help.zscaler.com/zia/configuring-locations) or edit an existing one.
+3. For **Location Type**, select **Extranet**from the drop-down menu. The **Extranet**section appears.
+4. In the **Extranet**section, select the **Extranet Resource** that you would like to use for the location. See image.
+5. Select a **Traffic Selector**and **DNS Server**from the drop-down menus, or use the defaults.
+6. In the **Addressing**section: See image.
+  - **Static IP Addresses and GRE Tunnels**: Choose the IP addresses of your local gateway. Do not choose a shared public IP address for a specific tenant’s location. The static IP addresses that appear in the drop-down menu are provisioned for your organization. To learn more, see [Self-Provisioning of Static IP Addresses](https://help.zscaler.com/zia/self-provisioning-static-ip-addresses). If you want Zscaler to provision your static IP addresses, submit them to Zscaler Support to be properly added to the menu. If the Zscaler Client Connector traffic does not match any of the IP addresses listed here, the location is tagged as "Road Warrior" in the logs.
+  - **VPN Credentials**: Select the appropriate VPN credentialfor the extranet you are using.
+7. In the **Gateway Options**section: See image.
+  - **Enforce Firewall Control**: [Firewall control](https://help.zscaler.com/zia/about-firewall-filtering) is automatically enabled for extranet locations and cannot be disabled.
+  - **Enable IPS Control**: Because firewall control is enabled, select to enable the service's [IPS Control](https://help.zscaler.com/zia/about-ips-control).
+8. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). After a location is assigned to an extranet, it is automatically added to a dynamic location group for the assigned extranet resource. The Zscaler service creates one if a dynamic location group for the extranet does not already exist.
+
+[Image: The Add Extranet window showing the Traffic Selector and DNS Server sections]
+
+[Image: The Extranet section for an extranet location]
+
+[Image: The Addressing Section for an extranet location showing Static IP Addresses & GRE Tunnels and VPN Credentials]
+
+[Image: The Gateway Options section with Enforce Firewall Control and Enable IPS Control for an extranet location]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-file-type-control-policy","lastmod":"2026-10-23T08:13Z","nid":"1398726"} -->
+## Configuring the File Type Control Policy
+
+- Source: https://help.zscaler.com/zia/configuring-file-type-control-policy
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > File Type Control > Configuring the File Type Control Policy
+- Last modified: 2026-10-23T08:13Z
+- Summary: How to configure the Zscaler File Type Control policy by adding rules to restrict the upload and download of various types of files.
+
+File Type Control policies enable you to create rules to restrict the upload and download of various types of files. You can capture and store traffic blocked through this policy as PCAP files. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture-settings). You can also use the [recommended File Type Control policy](https://help.zscaler.com/zia/recommended-file-type-control-policy) for guidance when configuring File Type Control policies.
+
+## Policy Execution
+
+The File Type Control rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
+
+[File Types (`AND`) URL Categories (`AND`) Cloud Applications (`AND`) Application Segment] (`AND`) [Users (`OR`) Groups (`OR`) Departments] (`AND`) [Location Groups (`OR`) Locations] (`AND`) Time (`AND`) [Device Groups (`OR`) Devices] (`AND`) Protocols (`AND`) Device Trust Level (`AND`) Minimum File Size (`AND`) Maximum File Size.
+
+## Configuring File Type Control Policy
+
+To configure the File Type Control policy:
+
+1. Go to **Internet Access**>**Policy**> **File Type Control**.
+2. Click **Add Rule**. The **Add Rule** window appears.
+3. On the **Add Rule** page, you can configure the following sections:
+  - Criteria
+  - Actions
+  - Details
+  - Rule Expiration
+4. Save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+In the Criteria section, when you click**Add Criteria**, you see the rule condition categories in gray (e.g., Who) and the individual rule conditions (e.g., Users) under each category.
+
+See image.
+
+After you click on the various conditions, you notice that some conditions contain preconfigured values (e.g., File Types) and others require manual value specification (e.g., Minimum File Size (KB)).
+
+- Criteria with Preconfigured Values
+- Criteria Requiring Manual Value Specification
+
+Refer to the following condition categories for details on configuring their individual conditions:
+
+- What
+- Who
+- Where
+- Location
+- Devices
+- When
+- Risk
+
+See image.
+
+To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
+
+For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking Select All. After selecting the values, click outside the window to close it.
+
+To clear selected items, click the field to open the multi-select window, then use the Remove icon displayed for individual entries. To remove all selected values, click Remove All.
+
+See image.
+
+[Image: Select preconfigured values]
+
+For conditions without preconfigured values, manually enter the value in the field.
+
+See image.
+
+[Image: Enter manual values]
+
+In the **Actions** section, select the action to apply when the rule conditions are met:
+
+- **Action**: Choose to **Allow**, **Block**, or **Caution** users from uploading or downloading files. If Traffic Capture is enabled, the **Capture** option appears when **Block** is selected. Captured traffic is stored in PCAP files for later analysis. To enable Traffic Capture for this policy, see [Configuring Traffic Capture Settings](https://help.zscaler.com/zia/configuring-traffic-capture-settings).
+- **Upload/Download**: Choose whether the specified action applies to uploading files, downloading files, or both.
+- **Browser Notification Template**: (Optional) Select a browser-based EUN message from the drop-down menu to display the message in the browser when the user activity triggers the File Type Control Policy rule. This field appears when the application access is set to either **Caution** or **Block**.
+
+See image.
+
+**File Types**:(Required) Select file types to which you want to apply the rule. You can also select **Undetectable File** under **Other** to apply the rule to unknown file types. For unknown file types, the service checks for the file type in the file header using true file type detection. If the file is still unknown, the service performs MIME type checks and tags as an unknown file type for any that fall outside of well-defined MIME types for common apps. You can select any number of file types and also search for file types. You can also select [custom file types](https://help.zscaler.com/zia/configuring-custom-file-types) you have previously configured.
+
+- Zscaler-defined file types are considered before custom file types and custom file types inside archives are not detected.
+- **Protocols**: Select the protocols to which the rule applies.
+  - **FTP over HTTP**: Files from FTP over HTTP websites. (Requires Firewall subscription.)
+  - **HTTP**: Files from HTTP websites.
+  - **HTTPS**: Files from HTTP websites encrypted by TLS/SSL.**Native FTP**: Files from native FTP servers. (Requires Firewall subscription.)
+- **Minimum/Maximum File Size**: Enter a number value between 0 and 409,600 (KB) to apply a minimum and a maximum file size limit. Entering no value ignores the criteria in the policy evaluation.
+- **Active Content, Unscannable File, Password-Protected File**:
+  - **Active Content**: Enable the toggle button to apply the rule to files with active content. This criterion is applicable only to Microsoft Word, Microsoft Excel, Microsoft PowerPoint, and PDF file formats. The**File Types** field must be set to one of the supported file formats in order to configure this criterion.
+  - **Unscannable Files**: Enable the toggle button to apply the rule only to files that the Zscaler service is unable to scan. This might occur if the file is in an unrecognized file format, excessive size, corrupted, or recursively compressed. After enabling the **Unscannable Files** option, the corresponding file type policy only applies to those files that Zscaler is unable to scan. The policy is not applied to any other file types.
+  - **Password-Protected File**: Enable the toggle button to apply the rule only to files with password protection. When enabled, only the file types that are password-protected are available. This criterion is applicable only to 7-Zip, RAR, Zip, Zipx, Password-Protected Microsoft Office Documents, Password-Protected/Encrypted Files, and PDF file types. If the toggle is not enabled, any files that are in the drop-down menu are not explicitly password-protected or encrypted.
+
+- **Users**:Select **Select All**to apply the rule to all users, or select the checkbox next to the user you want to add. To remove a user, re-select the user, or to remove all users, select **Remove All**.
+- **Groups**:Select **Select All**to apply the rule to all groups, or select the checkbox next to the group you want to add. To remove a group, re-select the user, or to remove all groups, select **Remove All**.
+- **Departments**:Select**Select All** to apply the rule to all departments, or select the checkbox next to a department. Any rule that applies to unauthenticated traffic must apply to all **Groups**and **Departments**. So, if you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, select **Any**from the drop-down menus for **Groups** and **Departments**.
+
+- **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/about-url-categories) to which you want to apply the rule. The service applies the rule when users upload to or download files from sites in the selected categories. Select **Any**to apply the rule to all categories, or select any number of categories. You can also search for URL categories, or add a [custom category](https://help.zscaler.com/zia/configuring-custom-url-categories). You can also select [custom TLD categories](https://help.zscaler.com/zia/about-tld-categories) from this field.
+- **Cloud Applications**: Select any number of [cloud applications or cloud application classes](https://help.zscaler.com/zia/about-cloud-app-control). Selecting no value ignores the criterion in the policy evaluation.
+- **ZPA Application Segment**: Select a [ZPA application segment](https://help.zscaler.com/zpa/about-applications).
+
+- **Location Groups**: Select **Any** to apply the rule to all [location groups](https://help.zscaler.com/zia/about-location-groups), or select up to 32 location groups. You can also search for a location group.
+- **Locations**:Select **Any** to apply the rule to all [locations](https://help.zscaler.com/zia/about-locations), or select up to 32 locations. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
+
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) for which you want to apply the rule. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation** or **No Client Connector** to apply the rule to isolation traffic or to traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores the criterion in the policy evaluation. The **Cloud Browser Isolation** group is available only if Zero Trust Browser (formerly Isolation) is enabled for your organization.
+- **Devices**: Select the [devices](https://help.zscaler.com/zia/about-devices) for which you want to apply the rule. You can also search for a device. Selecting no value ignores the criterion in the policy evaluation.
+
+**Time**: Select **Always** to apply this rule to all [time intervals](https://help.zscaler.com/zia/defining-time-intervals), or select up to two time intervals.
+
+**Device Trust Level**: Select the device trust level values (**High Trust**, **Medium Trust**, **Low Trust**, or **Unknown**) to which the rule applies. While the **High Trust**, **Medium Trust**, or **Low Trust** evaluation is applicable only to Zscaler Client Connector traffic, **Unknown** evaluation applies to all traffic. Selecting no value ignores the criterion in the policy evaluation.
+
+The trust levels assigned to the devices are based on your [posture configurations](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles) in the Zscaler Admin Console.
+
+In the **Details** section, provide general information about the rule:
+
+- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/understanding-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order:
+  1. Click **Edit**.
+  2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
+  3. Click **Apply**.
+- **Admin Rank**: The assigned [admin rank](https://help.zscaler.com/zia/about-admin-rank) for the rule. This is visible only if admin ranking is enabled in the [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#admin-ranking). By default, the admin ranking is disabled. To use this feature, you must enable Admin Rank in Policies > Common Configuration > Advanced > Advanced Settings. To learn more, see [Configuring Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings).
+- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
+
+See image.
+
+**Rule Expiration**: (Optional) **Enable**to set a date and time to automatically stop enforcing this rule when the expiration is reached. The rule retains its place in the rule order but is not evaluated after it expires.
+
+See image.
+
+[Image: Configure Actions for File Type Control Policy Rules]
+
+[Image: Configure Details for File Type Control Policy]
+
+[Image: Enable Rule Expiration]
+
+[Image: Select Criteria to add to File Type Control Policy]
+
+[Image: Add Criteria when configuring a File Type Control Policy]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -4371,7 +4580,7 @@ To configure a policy for unauthenticated traffic:
 
 [Image: The Enable Policy for Unauthenticated Traffic toggle is enabled.]
 
-[Image: Creating a URL Filtering rule for General Users.]
+[Image: Creating a URL Filtering rule for General Users]
 <!-- /ZS-ARTICLE -->
 
 ---

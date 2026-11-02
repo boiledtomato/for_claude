@@ -5,9 +5,9 @@ Markdown へまとめたものです。NotebookLM に読み込ませる用途を
 
 - 生成: `scripts/build_help_docs.py`
 - 更新: `.github/workflows/notebooklm-weekly.yml`（毎週月曜 09:00 JST）
-- 記事数: **3,988**
-- ファイル数: **33** / 総語数: **3,934,894**
-- 最終更新: 2026-11-02T09:57:37Z
+- 記事数: **4,175**
+- ファイル数: **34** / 総語数: **4,101,366**
+- 最終更新: 2026-11-02T13:41:09Z
 
 ## NotebookLM への読み込み
 
@@ -37,19 +37,19 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 
 | ファイル | カテゴリ | 語数 | サイズ |
 |---|---|---|---|
-| `zia/zia_part1.md` | ZIA — Internet & SaaS | 169,897 | 1,163 KB |
-| `zia/zia_part2.md` | ZIA — Internet & SaaS | 171,065 | 1,172 KB |
-| `zia/zia_part3.md` | ZIA — Internet & SaaS | 166,507 | 1,162 KB |
-| `zia/zia_part4.md` | ZIA — Internet & SaaS | 162,271 | 1,145 KB |
-| `zia/zia_part5.md` | ZIA — Internet & SaaS | 171,719 | 1,161 KB |
-| `zia/zia_part6.md` | ZIA — Internet & SaaS | 175,357 | 1,170 KB |
-| `zia/zia_part7.md` | ZIA — Internet & SaaS | 170,866 | 1,144 KB |
+| `zia/zia_part1.md` | ZIA — Internet & SaaS | 171,114 | 1,171 KB |
+| `zia/zia_part2.md` | ZIA — Internet & SaaS | 168,292 | 1,155 KB |
+| `zia/zia_part3.md` | ZIA — Internet & SaaS | 168,021 | 1,169 KB |
+| `zia/zia_part4.md` | ZIA — Internet & SaaS | 164,943 | 1,164 KB |
+| `zia/zia_part5.md` | ZIA — Internet & SaaS | 172,429 | 1,166 KB |
+| `zia/zia_part6.md` | ZIA — Internet & SaaS | 174,717 | 1,166 KB |
+| `zia/zia_part7.md` | ZIA — Internet & SaaS | 173,320 | 1,162 KB |
 | `zia/zia_part8.md` | ZIA — Internet & SaaS | 7,727 | 57 KB |
-| *(ZIA — Internet & SaaS 記事数: 872)* | | | |
-| `zpa/zpa_part1.md` | ZPA — Private Access | 158,702 | 1,131 KB |
+| *(ZIA — Internet & SaaS 記事数: 877)* | | | |
+| `zpa/zpa_part1.md` | ZPA — Private Access | 157,355 | 1,122 KB |
 | `zpa/zpa_part2.md` | ZPA — Private Access | 157,389 | 1,139 KB |
-| `zpa/zpa_part3.md` | ZPA — Private Access | 156,920 | 1,172 KB |
-| `zpa/zpa_part4.md` | ZPA — Private Access | 44,164 | 296 KB |
+| `zpa/zpa_part3.md` | ZPA — Private Access | 156,325 | 1,168 KB |
+| `zpa/zpa_part4.md` | ZPA — Private Access | 37,482 | 252 KB |
 | *(ZPA — Private Access 記事数: 513)* | | | |
 | `zdx/zdx_part1.md` | ZDX — Digital Experience Monitoring | 110,329 | 755 KB |
 | *(ZDX — Digital Experience Monitoring 記事数: 122)* | | | |
@@ -69,13 +69,13 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 | `exposure_mgmt/exposure_mgmt_part1.md` | Risk & Exposure Management | 170,175 | 1,160 KB |
 | `exposure_mgmt/exposure_mgmt_part2.md` | Risk & Exposure Management | 148,094 | 1,048 KB |
 | *(Risk & Exposure Management 記事数: 390)* | | | |
-| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 68,055 | 474 KB |
-| *(Branch / Cellular / Cloud Connector 記事数: 92)* | | | |
+| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 68,705 | 479 KB |
+| *(Branch / Cellular / Cloud Connector 記事数: 93)* | | | |
 | `partners/partners_part1.md` | Technology Partners | 28,297 | 272 KB |
 | *(Technology Partners 記事数: 146)* | | | |
-| `platform/platform_part1.md` | Unified Platform / Admin / Logs | 161,320 | 1,160 KB |
-| `platform/platform_part2.md` | Unified Platform / Admin / Logs | 110,801 | 783 KB |
-| *(Unified Platform / Admin / Logs 記事数: 390)* | | | |
+| `platform/platform_part1.md` | Unified Platform / Admin / Logs | 161,317 | 1,160 KB |
+| `platform/platform_part2.md` | Unified Platform / Admin / Logs | 111,039 | 785 KB |
+| *(Unified Platform / Admin / Logs 記事数: 391)* | | | |
 | `ai_security/ai_security_part1.md` | AI Security | 69,298 | 465 KB |
 | *(AI Security 記事数: 90)* | | | |
 | `browser/browser_part1.md` | Zero Trust Browser | 21,784 | 172 KB |
@@ -83,8 +83,9 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 | `operations/operations_part1.md` | Deployment / Operations / Terms | 167,009 | 1,146 KB |
 | `operations/operations_part2.md` | Deployment / Operations / Terms | 112,560 | 811 KB |
 | *(Deployment / Operations / Terms 記事数: 154)* | | | |
-| `other/other_part1.md` | Other | 29,964 | 219 KB |
-| *(Other 記事数: 79)* | | | |
+| `other/other_part1.md` | Other | 151,727 | 1,162 KB |
+| `other/other_part2.md` | Other | 47,294 | 329 KB |
+| *(Other 記事数: 259)* | | | |
 
 ## 注意
 

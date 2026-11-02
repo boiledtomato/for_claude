@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 138
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 139
 
 ---
 
@@ -3498,7 +3498,7 @@ To edit user details:
 
 - Source: https://help.zscaler.com/unified/editing-or-deleting-adaptive-access-profile
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Editing or Deleting an Adaptive Access Profile
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Editing or Deleting an Adaptive Access Profile
 - Last modified: 2026-02-11T06:47Z
 - Summary: How to edit or delete and Adaptive Access profile in Experience Center.
 
@@ -4076,7 +4076,7 @@ To configure the Okta SSF settings in Experience Center:
 
 - Source: https://help.zscaler.com/unified/integrating-silverfort-adaptive-access-engine
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Integrating Silverfort with Adaptive Access Engine
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Integrating Silverfort with Adaptive Access Engine
 - Last modified: 2026-02-11T06:48Z
 - Summary: How to integrate Silverfort with Adaptive Access Engine in Experience Center.
 
@@ -10605,7 +10605,7 @@ See image.
 
 - Source: https://help.zscaler.com/unified/viewing-health360-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing the Health360 Dashboard
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing the Health360 Dashboard
 - Last modified: 2026-08-28T21:06Z
 - Summary: Information about the Health360 dashboard in the Zscaler Admin Console.
 
@@ -10697,6 +10697,48 @@ See image.
 [Image: Top High Risk Applications to Eliminate chart on the Inline CASB Data Security dashboard]
 
 [Image: Top High Risk Applications to Secure chart on the Inline CASB Data Security dashboard]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-inline-dlp-data-security-dashboard","lastmod":"2026-10-28T11:09Z","nid":"1545167"} -->
+## Viewing the Inline DLP Data Security Dashboard
+
+- Source: https://help.zscaler.com/unified/viewing-inline-dlp-data-security-dashboard
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Inline DLP Data Security Dashboard
+- Last modified: 2026-10-28T11:09Z
+- Summary: Information on the Inline data security dashboard and widgets accessible within the Zscaler Admin Console.
+
+The Inline DLP Data Security dashboard provides detailed information about data loss incidents from inline (web) sources in your organization.
+
+## Dashboard Widgets
+
+The following widgets are available:
+
+- Incidents
+- Top Sensitive Data Types
+- Sensitive Files in Top 10 ML Categories
+
+This widget shows the total number of incidents involving Inline DLP policy violations across your organization.
+
+See image.
+
+This bar chart shows the top types of sensitive inline DLP data in your organization.
+
+See image.
+
+This Sankey diagram shows information about files within various machine learning categories within your organization. Hover over a line in the chart to see the percentage that the files in the category represents as it relates to the total number of files.
+
+Click **View All Data Discovery** to open the [Data Discovery Report](https://help.zscaler.com/zia/about-data-discovery-report), filtered for machine learning categories.
+
+See image.
+
+[Image: Total number of inline DLP incidents on the Inline DLP Data Security dashboard]
+
+[Image: Top Sensitive Data Types chart on the Inline DLP Data Security dashboard]
+
+[Image: Sensitive Files in Top 10 ML Categories chart on the Inline DLP Data Security dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10799,7 +10841,7 @@ See image.
 
 - Source: https://help.zscaler.com/unified/viewing-overrides
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Policies > Adaptive Access Engine > Viewing Overrides
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Viewing Overrides
 - Last modified: 2026-04-03T21:06Z
 - Summary: Information on overrides related to the Adaptive Access Engine.
 
@@ -11024,7 +11066,7 @@ To learn more, see [Managing Internet & SaaS Use in China](https://help.zscaler.
 
 - Source: https://help.zscaler.com/unified/viewing-ssl-inspection-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Cybersecurity > Viewing the SSL Inspection Dashboard
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Cybersecurity > Viewing the SSL Inspection Dashboard
 - Last modified: 2026-02-11T06:07Z
 - Summary: Information on the SSL Inspection dashboard and widgets accessible within the Admin Portal.
 

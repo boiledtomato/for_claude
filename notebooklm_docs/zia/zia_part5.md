@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 09:57 UTC
-Articles in this file: 154
+Generated: 2026-11-02 13:41 UTC
+Articles in this file: 155
 
 ---
 
@@ -8916,7 +8916,7 @@ The following table lists the error codes that the Zscaler service displays when
 | 115 | Login failed. The configuration changed. | An admin activated new configuration settings in the Zscaler Admin Console. | Retry. |
 | 116 | Login failed. The user was deleted. | A deleted user tried to log in. | Check if the user is in the list of synchronized users. Synchronize the user data and retry. |
 
-If Kerberos authentication fails, the Zscaler service displays a page with an error code. The following table lists the information on the Kerberos authentication error codes. For instructions on how to troubleshoot Kerberos, see [Troubleshooting Kerberos Authentication](https://help.zscaler.com/zia/troubleshooting-kerberos-authentication).
+If Kerberos authentication fails, the Zscaler service displays a page with an error code. The following table lists the information on the Kerberos authentication error codes. To learn how to troubleshoot Kerberos, see [Troubleshooting Kerberos Authentication](https://help.zscaler.com/zia/troubleshooting-kerberos-authentication).
 
 | Error Code | Description | When It Occurs | What to Do |
 | --- | --- | --- | --- |
@@ -8926,7 +8926,7 @@ If Kerberos authentication fails, the Zscaler service displays a page with an er
 | 471000 (Occurrence 1) | The proxy authorization header does not contain the encoded Kerberos ticket. In almost all cases, this means that NTLM was used. | The traffic was sent to the Public Service Edge for Internet & SaaS (ZIA) IP address. The default Zscaler PAC file was used instead of the Kerberos PAC file. **Symptoms**: klist does not show either the Public Service Edge or KDC tickets. | Change the PAC file. Ensure that you use the Kerberos PAC file. |
 | 471000 (Occurrence 2) |  | The user's computer does not have the GPO updates, the GPO updates are not on the domain controller, or the user is not logged in to the domain. **Symptoms**: A traffic capture from the user's computer does not show any query to the domain controller for the Zscaler ticket. | Verify the registry settings to ensure the user's computer has the Zscaler Kerberos settings. If they are not on the computer, verify that the domain controller has the GPO configurations. Verify that the user is logged in to the domain. |
 | 471000 (Occurrence 3) |  | AES encryption is not enabled in the realm trust on the domain controller. **Symptoms**: klist does not show either the Public Service Edge or KDC tickets. A traffic capture shows the domain controller returning ETYPE_NOSUPP errors. | Modify the realm trust relationship and ensure that the AES encryption option is selected. |
-| 471000 (Occurrence 4) |  | The realm trust relationship is not configured on the domain controller or the realm trust was configured with an incorrect password. **Symptoms**: klist does not show the Zscaler KDC or Public Service Edge tickets. A traffic capture shows the domain controller returning PRINCIPAL_UNKNOWN error. | Verify the realm trust configuration. Ensure that the realm name is in upper case and that the Zscaler cloud name is correct. To learn how you can find your cloud name, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). If they are both correct, then the passwords in the organization's realm and the Zscaler realm might not match. Log in to the Zscaler Admin Console, regenerate the trust password, and copy it. On the domain controller, delete the trust configuration and create a new one as described in [Kerberos Trust Relationship Configuration Guide for Windows Server and GPO Push](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push#create-new-trust). Ensure that you use the newly generated password that you copied from the Zscaler Admin Console. |
+| 471000 (Occurrence 4) |  | The realm trust relationship is not configured on the domain controller or the realm trust was configured with an incorrect password. **Symptoms**: klist does not show the Zscaler KDC or Public Service Edge tickets. A traffic capture shows the domain controller returning PRINCIPAL_UNKNOWN error. | Verify the realm trust configuration. Ensure that the realm name is in upper case and that the Zscaler cloud name is correct. To learn how you can find your cloud name, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). If they are both correct, then the passwords in the organization's realm and the Zscaler realm might not match. Log in to the Zscaler Admin Console, regenerate the trust password, and copy it. On the domain controller, delete the trust configuration and create a new one as described in [Kerberos Trust Relationship Configuration for Windows Server and GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push#create-new-trust). Ensure that you use the newly generated password that you copied from the Zscaler Admin Console. |
 | 471000 (Occurrence 5) |  | The user's computer cannot connect to the domain controller. **Symptoms**: When you run klist purge to clear the tickets, refresh the browser, and then run klist again, Kerberos tickets are not displayed, including those of the domain controller. | Verify that the computer can contact the domain controller. If the user is using DirectAccess, run netsh name show effectivepolicy to determine if the DirectAccess client considers the workstation as being in the intranet or outside. |
 | 48100 | Invalid encoding of Kerberos credentials. | Possible header corruption. Ensure that there is no intermediate proxy or L7 device that might be corrupting the header. | Contact Zscaler Support. |
 | 491000, 501000 (Occurrence 1) | Invalid Kerberos token or username. | The computer time is incorrect. | Kerberos is very sensitive to clocks being in sync. Ensure that computer time is correct and it synchronizes with an NTP server. |
@@ -14632,6 +14632,103 @@ After this, the token is immediately removed and invalidated.
 [Image: Regenerate Sandbox API Token button to regenerate sandbox token]
 
 [Image: Delete Sandbox API Token button to remove a sandbox token]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/managing-sd-wan-partner-keys","lastmod":"2026-10-26T12:16Z","nid":"1400586"} -->
+## Managing SD-WAN Partner Keys
+
+- Source: https://help.zscaler.com/zia/managing-sd-wan-partner-keys
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Managing SD-WAN Partner Keys
+- Last modified: 2026-10-26T12:16Z
+- Summary: How to configure an SD-WAN partner integration for the Zscaler service.
+
+On the Partner Integrations page (Internet Access > Partner Integrations - SDWAN), you can view information regarding your organization's SD-WAN partner keys. For the partner key, you can see:
+
+- **Partner Name**: The name of the partner.
+- **Key**: The partner key string.
+- **Last Modified By**: Admin that last modified the partner key
+- **Last Modified On**: The date and time the partner key was last modified.
+
+[Image: SD-WAN Tab]
+
+You can also perform the following tasks for your SD-WAN partner keys:
+
+- Add a New Partner Key
+- Edit the Partner Key
+- Regenerate the Partner Key
+- Delete the Partner Key
+
+After you have added a [new partner key](https://help.zscaler.com/zia/configuring-sdwan-integration#AddNewKey), make sure that you provide the following information to your SD-WAN partner:
+
+- Their SD-WAN partner API client credentials
+- The partner key
+
+If you have [edited](https://help.zscaler.com/zia/configuring-sdwan-integration#EditNewKey), [regenerated](https://help.zscaler.com/zia/configuring-sdwan-integration#RegenerateKey), or [deleted](https://help.zscaler.com/zia/configuring-sdwan-integration#DeleteKey) the partner key, make sure that you have informed your partner of the change.
+
+To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
+
+Before adding a new partner key, make sure that you have completed the following prerequisites:
+
+- Configure a [SD-WAN partner API role](https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles) with SD-WAN partner access enabled.
+- Configure a [SD-WAN partner API client](https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients) for the SD-WAN partner, and make sure to apply the proper partner role.
+- Review your configured [locations](https://help.zscaler.com/zia/about-locations) and [VPN credentials](https://help.zscaler.com/zia/about-vpn-credentials) and assign the proper partner to manage them. The partner's name should be displayed in the **Managed By** column for the location or VPN credential.
+
+Your organization can only have one partner key per SD-WAN partner. You must delete the existing key before you can add a new key.
+
+To add a new partner key:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Partner Integrations** - **SDWAN**.
+2. On the **SD-WAN**tab, click **Add Partner Key**. The **Add Partner Key** window appears.
+3. In the **Add Partner Key** window, select one of the following partners from the **Name**drop-down menu. You can also search for the partner name.
+  - Cisco Viptela
+  - VMware SD-WAN
+  - Citrix SD-WAN
+  - CloudGenix
+  - HPE Aruba
+  - ngena
+  - Riverbed SteelConnect
+  - Silver Peak
+  - VMware VeloCloud
+  - Nile Secure
+
+For VMware SD-WAN, you must also enter an SSO URL. After adding a URL, you can click the VMware SD-WAN link to go the VMware SD-WAN portal via the Location Management page.
+
+See image.
+
+1. Click **Generate**.
+
+The new partner key is immediately valid and displayed on the **Partner Integrations** page. Send the new partner key and the SD-WAN partner API client credentials to your SD-WAN partner.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Partner Integrations** - **SDWAN**.
+2. On the **SD-WAN** tab, locate the partner name in the table and click the **Edit** icon.
+
+The **Edit Partner Key** window appears.
+
+1. In the **Edit Partner Key** window, enter the **New Partner Key**. The new key must meet the following requirements: See image.
+  - The new key must be alphanumeric (A-Z, a-z, 0-9) and exactly 12 characters in length.
+  - The new key cannot be the same as the **Current Partner Key**.
+2. Click **Confirm**.
+
+After confirmation, the old partner key is immediately invalidated. Send the new partner key to your SD-WAN partner.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Partner Integrations** - **SDWAN**.
+2. On the **SD-WAN**tab, locate the partner name in the table and click the **Regenerate**icon.
+3. In the confirmation window that appears, click **Ok**.
+
+After confirmation, a random partner key string is immediately generated and the old string is invalidated. Send the new partner key to your SD-WAN partner.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Partner Integrations** - **SDWAN**.
+2. On the **SD-WAN**tab, locate the partner name in the table and click the **Delete** icon.
+3. In the confirmation window that appears, click **Ok**.
+
+After confirmation, the partner key is immediately removed and invalidated. Inform your SD-WAN partner, if necessary.
+
+[Image: Add Partner Key Window]
+
+[Image: Edit Partner Key window]
 <!-- /ZS-ARTICLE -->
 
 ---
