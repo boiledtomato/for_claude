@@ -1,5 +1,89 @@
 {
-  "last_updated": "2026-11-02T03:50:09Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-11-02T13:42:36Z",
+  "total": 8,
+  "articles": [
+    {
+      "id": "3d28f297be3bf992",
+      "title": "AI is Raising the Stakes for the SOC–Here’s What Comes Next",
+      "url": "https://www.zscaler.com/blogs/company-news/ai-raising-stakes-soc-here-s-what-comes-next",
+      "summary": "The SOC today suffers from limited scope, operational complexity, and slow response times. AI didn't create these challenges, but it has made solving them urgent.",
+      "date": "2026-09-09T10:12:33Z",
+      "source": "Zscaler News",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "619c479337bd2bca",
+      "title": "How Deception Helps Amex Global Business Travel Trap Autonomous AI Attacks",
+      "url": "https://www.zscaler.com/blogs/customer-stories/how-deception-helps-amex-global-business-travel-trap-autonomous-ai-attacks",
+      "summary": "Agentic AI attacks make dwell time and the kill chain obsolete. But their speed and aggressive reconnaissance can be exploited with deception technologies.",
+      "date": "2026-08-24T16:28:34Z",
+      "source": "Zscaler Customer Stories",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "6c34954d5bbfc7f3",
+      "title": "The Hidden Threat in Your Software Development Lifecycle: Why Self-Hosted Runners Need Zero Trust",
+      "url": "https://www.zscaler.com/blogs/product-insights/hidden-threat-your-software-development-lifecycle-why-self-hosted-runners",
+      "summary": "Protect your SDLC with Zscaler Zero Trust Cloud. Secure self-hosted GitHub Runners, prevent supply chain attacks and data exfiltration, and eliminate firewall bottlenecks to boost developer velocity without compromising network security.",
+      "date": "2026-08-11T07:36:20Z",
+      "source": "Zscaler Product Blog",
+      "category": "product_update",
+      "tags": [
+        "ZIA",
+        "ZPA"
+      ]
+    },
+    {
+      "id": "c18328bf9904e959",
+      "title": "Formula One and Cybersecurity in the AI Era",
+      "url": "https://www.zscaler.com/blogs/cxo-insights/formula-one-and-cybersecurity-ai-era",
+      "summary": "From the race track to the enterprise, this article looks at why cybersecurity should enable speed—not slow it down—as organizations navigate AI-driven transformation.",
+      "date": "2026-07-13T12:45:00Z",
+      "source": "Zscaler CXO Insights",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "57f661cd2b81419f",
+      "title": "The AI Paradox: To Earn Enough Trust to Move Fast, You Have to Trust Nothing",
+      "url": "https://www.zscaler.com/blogs/partner/ai-paradox-earn-enough-trust-move-fast-you-have-trust-nothing",
+      "summary": "The market won't reward speed alone, and it won't reward caution alone either. It will reward the partners who resolve the paradox for their customers.",
+      "date": "2026-06-25T21:46:52Z",
+      "source": "Zscaler Partners",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "dabbc9cd8a750e24",
+      "title": "How threat hunting evolves at scale",
+      "url": "https://www.zscaler.com/blogs/cybersecurity-best-practices/threat-hunting-scaled",
+      "summary": "We offer a practical roadmap for evolving informal, ad hoc threat hunting practices into a mature, scalable program—covering key friction points, structural strategies, and tooling approaches organizations need to grow effectively",
+      "date": "2026-06-11T07:00:00Z",
+      "source": "Zscaler Best Practices",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "7aa0ee3f849c6094",
+      "title": "AI is Now Default Enterprise Accelerator: Takeaways from ThreatLabz 2026 AI Security Report",
+      "url": "https://www.zscaler.com/blogs/security-research/ai-now-default-enterprise-accelerator-takeaways-threatlabz-2026-ai-security",
+      "summary": "With enterprise AI adoption up 83%, this overview breaks down the latest findings on usage trends, risks, and how to stay secure.",
+      "date": "2026-01-27T18:24:48Z",
+      "source": "Zscaler ThreatLabz",
+      "category": "tech_blog",
+      "tags": []
+    },
+    {
+      "id": "0f5a6a9fc2ab5afb",
+      "title": "10 Years of Growth and Impact at Zscaler",
+      "url": "https://www.zscaler.com/blogs/zscaler-life/10-years-growth-and-impact-zscaler",
+      "summary": "Meet Suruchi Sharma, Senior Director of Digital Marketing, as she shares her journey of growth and impact at Zscaler.",
+      "date": "2025-08-14T17:21:26Z",
+      "source": "Zscaler Life",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }

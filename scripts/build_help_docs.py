@@ -79,6 +79,11 @@ CATEGORIES: dict[str, tuple[str, list[str]]] = {
     "zcc": ("ZCC — Zscaler Client Connector", ["zscaler-client-connector", "client-connector"]),
     "api": ("API / SDK", ["legacy-apis", "zsdk"]),
     "deception": ("Zscaler Deception", ["deception"]),
+    # どちらも 2026-10 に新設されたセクション。追加するまで全記事が other に落ちていた
+    # （microsegmentation 59 件、agentic-soc 20 件）。Zscaler が製品セクションを増やす
+    # たびに起きるので、other バケットは定期的に中身を見ること。
+    "microsegmentation": ("Microsegmentation", ["microsegmentation"]),
+    "agentic_soc": ("Agentic SOC", ["agentic-soc"]),
     "data_security": ("Data Security — DSPM", ["dspm"]),
     "exposure_mgmt": (
         "Risk & Exposure Management",
