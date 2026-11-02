@@ -79,8 +79,8 @@
   "mslearn_entra_developer_part10.md": {
    "added_at": "2026-10-07T00:58:06Z",
    "rel": "developer/mslearn_entra_developer_part10.md",
-   "sha256": "f77db11c2f2b8bba03e44a1bc2161aabe74e580f11c9c0dae31201e60179409d",
-   "source_id": "d9ace464-beca-4956-8842-28535caaacf1"
+   "sha256": "87f1aebd9c71cb0dd19622ab9accf0670c041f6097e991bf70f88e8f233149c9",
+   "source_id": "c43b49a8-a6ed-4cae-a05b-2d4e014d5dd4"
   },
   "mslearn_entra_developer_part11.md": {
    "added_at": "2026-10-07T00:58:24Z",
@@ -109,8 +109,8 @@
   "mslearn_entra_developer_part3.md": {
    "added_at": "2026-10-07T00:59:45Z",
    "rel": "developer/mslearn_entra_developer_part3.md",
-   "sha256": "549f142b4e5c7d1237a52dbb4640303db51a224f1c3aaf03b59b23592057d9e7",
-   "source_id": "18e30c27-f379-4ac3-93ae-dd029373ce27"
+   "sha256": "b047ccfb9e269b99402058ef4709765e4623ef08795e41244de47a1354c6d013",
+   "source_id": "0abe8468-cb60-4427-90c9-0919c46112c8"
   },
   "mslearn_entra_developer_part4.md": {
    "added_at": "2026-10-07T01:00:04Z",
@@ -133,14 +133,14 @@
   "mslearn_entra_developer_part7.md": {
    "added_at": "2026-10-07T01:01:07Z",
    "rel": "developer/mslearn_entra_developer_part7.md",
-   "sha256": "7e0f4f405548a4aef1937852b4ce60a3a6554001fecdaacc1f891d78295a2dbd",
-   "source_id": "df901676-a250-4b45-8aea-cdf94a7211a2"
+   "sha256": "0d61ecf58a797d4286d7eec0fb61290369937e648eb4521297898913ad6de755",
+   "source_id": "0e59552b-06ed-4b3c-b276-0ab944a29555"
   },
   "mslearn_entra_developer_part8.md": {
    "added_at": "2026-10-07T01:01:35Z",
    "rel": "developer/mslearn_entra_developer_part8.md",
-   "sha256": "91203211ee73ba5b886365e702413a044311ad925de8a8c98a39c9e4d30b00e5",
-   "source_id": "02007fa5-b824-4a2c-b5c4-ee18ce098dbc"
+   "sha256": "4c2adf91b24e0362b906696aa8a3655408e58d88534b2ec8a3e1d5d7c4c74cd2",
+   "source_id": "cfe3db8e-c4a4-4900-a1b3-9df021457258"
   },
   "mslearn_entra_developer_part9.md": {
    "added_at": "2026-10-07T01:02:02Z",
@@ -515,5 +515,5 @@
    "source_id": "e7c3fc63-ea80-4236-96c7-dd52f6e8d41e"
   }
  },
- "synced_at": "2026-11-02T14:10:46Z"
+ "synced_at": "2026-11-02T14:23:47Z"
 }
