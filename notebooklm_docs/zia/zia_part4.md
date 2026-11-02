@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:41 UTC
+Generated: 2026-11-02 13:58 UTC
 Articles in this file: 117
 
 ---
@@ -5534,9 +5534,9 @@ To learn more, see [Configuring Settings for User Confirmation Notification Temp
 
 To configure global settings for user confirmation notification templates:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Administration > End User Notification > Data Protection User Confirmation**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > End User Notification > Data Protection User Confirmation**.
 2. Click **Settings**, located in the top-right corner of the page. The **Settings** window appears. See image.
-3. Configure the following **General Details**:
+3. In the **Settings** window, configure the following **General Details**:
   - **Company Name**: Add a company name that appears on each user confirmation message. By default, the messages use Zscaler as the company name.
   - **Company Logo**: Click **Upload** to upload a company logo that appears at the top of each user confirmation message. The logo must be a PNG file that is 10 KB or smaller. By default, the messages use the Zscaler company logo.
 4. Configure the following **Duration** settings:
@@ -6303,19 +6303,26 @@ To configure a proxy:
 
 [Image: The Add Proxy drawer for configuring third-party proxies]
 
-You can use Forwarding policies to configure appropriate rules for traffic that needs to be forwarded to a third-party proxy service of your choice.
+You can use Forwarding policies to configure appropriate rules for traffic that needs to be forwarded to a third-party proxy service of your choice. To learn more, see [Understanding Third-Party Proxy Chaining](https://help.zscaler.com/zia/understanding-third-party-proxy-chaining).
 
 To configure a Forwarding rule for third-party proxy chaining:
 
-1. From the [navigating menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Policy**>**Forwarding Control Policy**.
-2. Click **Add Rule**. The **Add Forwarding Rule** page appears.
-3. On the **Add Forwarding Rule** page, you can configure the following sections:
-  1. Forwarding Rule
-  2. Criteria
-  3. Actions
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Policy**>**Forwarding Control**.
+2. Click **Add Rule**. The**Add Forwarding Rule** page appears.
+3. On the **Add Forwarding Rule** page, configure the following sections:
+  - a. Forwarding Rule
+  - b. Criteria
+  - c. Actions
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
 
-In the **Criteria**section, when you click **Add Criteria**, you see the rule condition categories in gray (e.g., Source IP) and the individual rule conditions (e.g., Source IP Groups) under each category.
+In the **Criteria**section, when you click **Add Criteria**, you see the rule condition categories in gray (e.g., Source) and the individual rule conditions (e.g., Source IPv4 Groups) under each category.
+
+See image.
+
+After you click on the various conditions, you notice that some conditions contain preconfigured values (e.g., Users and Locations) and others require manual value specification (e.g., IP Addresses).
+
+- Criteria with Preconfigured Values
+- Criteria Requiring Manual Value Specification
 
 Refer to the following condition categories for details on configuring their individual conditions:
 
@@ -6326,53 +6333,101 @@ Refer to the following condition categories for details on configuring their ind
 - Source
 - Destination
 
-To remove an individual condition from the rule, click the Delete icon. You can expand or collapse individual criteria tiles as needed.
+See image.
 
-In the **Forwarding Rule** section, provide general information about the policy:
+To remove an individual condition from the rule, click the **Delete** icon. You can expand or collapse individual criteria tiles as needed.
 
-- **Rule Name**: Enter a user-friendly name for the rule. Forwarding Control automatically creates a rule name, which you can change. The maximum length is 63 characters.
-- **Description**: (Optional) Enter a description of the rule.
-- **Rule Label**: Select a rule label to associate with the rule. To learn more, see [About Rule Labels](https://help.zscaler.com/zia/about-rule-labels).
-- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you enabled Admin Rank, your assigned admin rank determines the rule order values you can select. To modify the rule order:
+For conditions with preconfigured values, a multi-select window with a search bar appears. You can select values by selecting the checkbox for individual items or by clicking **Select All**. After selecting the values, click outside the window to close it.
+
+To clear selected items, click the field to open the multi-select window, then use the **Remove** icon displayed for individual entries. To remove all selected values, click **Remove All**.
+
+See image.
+
+For conditions without preconfigured values, manually enter the value in the field, then click **Add**. To add multiple entries, enter each value and click **Add** or press `Enter`.
+
+You can also perform the following actions:
+
+- Remove items by clicking the **Delete** icon for individual entries or by using the **Remove All** option.
+- The entries are paginated, and you can select the number of items to display per page.
+- You can specify the page number to view, or use the **Next** and **Previous** icons to navigate through different pages.
+
+See image.
+
+In the **Forwarding Rule** section, provide general information about the rule:
+
+- **Rule Name**: A system-generated rule name is automatically populated, and the name can be edited. The name cannot exceed 63 characters.
+- **Description**: (Optional) Click **Add Description** and enter additional notes or information about the rule in the text field. You can adjust this field's size as needed, depending on your content length. The description cannot exceed 10,240 characters.
+- **Rule Label**: (Optional) Click **Add Rule Label** and select a [label](https://help.zscaler.com/zia/about-rule-labels) from the drop-down menu.
+- **Rule Order**: A rule order is automatically assigned and displayed. It determines the rule's position in the ascending order of evaluation used for all rules within the policy. You can modify the rule order, but if you've enabled [Admin Rank](https://help.zscaler.com/zia/about-admin-rank), your assigned admin rank determines the rule order values you can select. To modify the rule order: See image.
   1. Click **Edit**.
   2. In the **Edit Rule Order** drawer that appears, enter the required rule order under **Current Rule**. You can review the existing rules shown in the drawer and modify your current rule order. You can also adjust the number of rules displayed per page and navigate through the next and previous pages.
-  3. Click **Apply**.
-- **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable Admin Ranking on the Advanced Settings page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
-- **Rule Status**: Enable this option to enforce the rule actively. Disabling this option does not actively enforce the rule and the service skips it and moves to the next rule. However, the rule does not lose its place in the rule order.
-- **Forwarding Method**: Select the forwarding method to be used for this rule. Choose **Proxy Chaining** to forward the traffic to a third-party proxy service. If you select **Direct**, Zscaler forwards the traffic directly to the destination server using the Zscaler service IP address.
+  3. Select **Apply**.
+- **Admin Rank**: Click **Edit** and select an admin rank 0 to 7 (0 is the highest rank) from the drop-down menu. This option appears if you enable [Admin Ranking](https://help.zscaler.com/zia/about-admin-rank) on the [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings) page. Your assigned admin rank determines the values you can select (e.g., you cannot select a rank higher than your own). The rule's admin rank determines the value you can select for rule order, so that a rule with a higher admin rank always precedes a rule with a lower admin rank.
+- **Rule Status**:By default, the status is **Disabled**. You need to enable the rule to activate and enforce it on your traffic. Disabled rules can have a rule order assigned. During evaluation, the service skips the disabled rules and moves to the successive ones.
+- **Forwarding Method**: From the drop-down menu, choose **Proxy Chaining** to forward the traffic to a third-party proxy service. Select **Direct** to directly forward the traffic to the destination server using the Zscaler service IP address.
 
-In the **Actions** section, from the **Forward to Proxy Gateway** drop-down menu, choose the appropriate proxy gateway. To configure a proxy gateway, see [Configuring Gateways for Proxies](https://help.zscaler.com/zia/configuring-gateways-proxies).
+See image.
 
-- **Locations**: Select **Any** to apply the rule to all locations, or select up to 32 locations. You can also search for a location or click the **Add** icon to add a new location. To apply this rule to unauthenticated traffic, the rule must apply to all locations. The rules configured for the Road Warrior location apply to Z-Tunnel 1.0 and PAC only when the **Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors** option is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#firewall-remote-users).
-  - If you want to use the IP address mentioned in the XFF header, use this option instead of the **Source IPs Groups** option under the **Source** criteria because the sublocation is used to detect the source IP addresses based on the XFF header.
+After configuring the rule criteria, configure the gateway:
+
+- **Forward to Gateway**: Choose the appropriate proxy gateway. To configure a proxy gateway, see [Configuring Gateways for Proxies](https://help.zscaler.com/zia/configuring-gateways-proxies).
+
+See image.
+
+Contact Zscaler Support to increase the default limit for **Users**, **Groups**, or **Departments**.
+
+- **Users**: Select up to 32 organization users to which the rule applies.
+- **Groups**: Select up to 32 user groups to which this rule applies.
+- **Departments**: Select up to 32 departments to which the rule applies.
+
+If you do not select specific values for any of these fields, the field is set to **Any** by default, and the criterion is ignored during policy evaluation.
+
+If you've enabled the policy for unauthenticated users under[Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings) and want to apply this rule to unauthenticated traffic, you can do so by making selections accordingly in the **Users**and **Departments**fields. To learn more, see [Configuring Policies for Unauthenticated Traffic](https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic).
+
+Contact Zscaler Support to increase the default limit for **Locations**.
+
+- **Locations**: Select up to 32 locations to which the rule applies. To apply this rule to unauthenticated traffic, the rule must apply to all locations. The rules configured for the Road Warrior location apply to Z-Tunnel 1.0 and PAC only when the **Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors** option is enabled in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#firewall-remote-users).
+  - If you want to use the IP address mentioned in the XFF header, use this option instead of the **Source IPs Groups** option under the **Source IP** criteria because the sublocation is used to detect the source IP addresses based on the XFF header.
   - If you want to apply this rule only to remote users’ traffic, select **Road Warrior** from the **Locations** field. Rules configured for locations other than **Road Warrior** also apply to remote user traffic from those locations.
-- **Location Groups**: Select **Any** to apply the rule to all location groups, or select up to 32 location groups.
-- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or**No Client Connector** to apply the rule to Isolation traffic, IoT traffic, or traffic that is not tunneled through Zscaler Client Connector, respectively. You can also search for a device group. Selecting no value ignores this criterion in the policy evaluation. The**Cloud Browser Isolation** and**IoT** groups are available only if Zero Trust Browser and IoT Discovery are enabled for your organization.
+- **Location Groups**: Select up to 32 [location groups](https://help.zscaler.com/zia/about-location-groups) to which the rule applies.
+- **Device Groups**: Select the [device groups](https://help.zscaler.com/zia/about-device-groups) to which the rule applies. For Zscaler Client Connector traffic, select the appropriate group based on the device platform. Select **Cloud Browser Isolation**, **IoT**, or**No Client Connector** to apply the rule to isolation traffic, IoT traffic, or traffic that is not tunneled through Zscaler Client Connector, respectively. The**Cloud Browser Isolation** and**IoT** groups are available only if Zero Trust Browser (formerly Isolation) and IoT discovery are enabled for your organization.
 
-- **Users**: Select **Any** to apply the rule to all users. You can also manually select up to 32 general or special users.
-- **Groups**: Select **Any** to apply the rule to all groups, or select up to 32 groups. You can search for groups.
-- **Departments**: Select **Any** to apply the rule to all departments, or select up to 32 departments. Contact Zscaler Support to increase the limit of **Users**, **Groups**, **Departments**, or **Locations**.
+If you do not select specific values for any of these fields, the field is set to **Any** by default, and the criterion is ignored during policy evaluation.
 
-- **Network Service Group**: Select any number of predefined or custom network service groups to which the rule applies.
-- **Network Services**: Select **Any** to apply the rule to all network services or select specific network services. The Zscaler Firewall has predefined services, and you can configure up to 832 additional custom services.
+- **Network Service Groups:** Select the [network service groups](https://help.zscaler.com/zia/configuring-network-service-groups) to which the rule applies.
+- **Network Services:**Select the [network services](https://help.zscaler.com/zia/about-network-services) to which the rule applies. By default, this field is set to **Any**. The Zscaler Firewall has predefined services, and you can configure up to 832 additional custom services.
 
-- **Application Service Groups**: Select any number of application service groups to which the rule applies.
+- **Application Service Groups**: Select any number of [application service groups](https://help.zscaler.com/zia/about-application-service-groups) to which the rule applies. The service provides predefined and custom application services.
 
-- **Source IPv4 Groups**: Select the [source IPv4 groups](https://help.zscaler.com/zia/about-source-ip-groups) that you want to control with this rule. You can also add a new Source IPv4 Group by clicking the **Add**icon.
+- **Source IPv4 Groups**: Select the [source IPv4 groups](https://help.zscaler.com/zia/about-source-ip-groups) that you want to control with this rule.
 - **Source IPv6 Groups**: To control source IPv6 addresses with this rule, select the **All IPv6** group, which is the default source IPv6 group for all IPv6 addresses. Custom source IPv6 groups are not currently supported. To learn more, see [About Source IP Groups](https://help.zscaler.com/zia/about-source-ip-groups).
 - **IP Addresses**: Enter the source IP address (IPv4 only) in any of the following formats: Specifying individual, subnet, or range of IPv6 addresses is not currently supported.
   - An individual address, such as 192.0.2.1
   - A subnet, such as 192.0.2.0/24
-  - An address range, such as 192.0.2.1–192.0.2.5
+  - An address range, such as 192.0.2.1 - 192.0.2.5
 
+- **Destination IPv4 Groups**: Select the [destination IPv4 groups](https://help.zscaler.com/zia/how-do-i-configure-destination-ip-groups) that you want to control with this rule.
+- **Destination IPv6 Groups**: To control destination IPv6 addresses with this rule, select the **All IPv6** Group, which is the default destination IPv6 group for all IPv6 addresses. Custom destination IPv6 groups are not currently supported. To learn more, see [About Destination IP Groups](https://help.zscaler.com/zia/about-destination-ip-groups).
 - **Destination IP Address/Wildcard FQDN**: Enter IP addresses (IPv4 only) or FQDNs, if the domain has multiple destination IP addresses or if its IP addresses might change. You can also enter wildcard FQDNs using an asterisk (*) as the wildcard character. For guidelines on configuring wildcard FQDNs, see [Configuring Destination IP Groups](https://help.zscaler.com/zia/configuring-destination-ip-groups). For IP addresses, you can enter individual IP addresses (IPv4 only), subnets, or address ranges. You can specify IP addresses in any of the following formats: If you are adding multiple items, press `Enter` after each entry. Specifying individual, subnet, or range of IPv6 addresses is not currently supported.; Forwarding rules based on Wildcard FQDNs require DNS requests from clients to be forwarded to the Zscaler service to evaluate criteria match. To learn how DNS resolution is handled by the Zscaler service, see [Handling DNS Resolution for Various Traffic Forwarding Methods](https://help.zscaler.com/zia/handling-dns-resolution-various-traffic-forwarding-methods).
   - An individual address, such as 192.0.2.1
   - A subnet, such as 192.0.2.0/24
-  - An address range, such as 192.0.2.1–192.0.2.5
-- **Destination IPv4 Groups**: Select the [destination IPv4 groups](https://help.zscaler.com/zia/configuring-destination-ip-groups) that you want to control with this rule. You can also add a new Destination IPv4 Group by clicking the **Add**icon.
-- **Destination IPv6 Groups**: To control destination IPv6 addresses with this rule, select the **All IPv6** Group, which is the default destination IPv6 group for all IPv6 addresses. Custom destination IPv6 groups are not currently supported. To learn more, see [About Destination IP Groups](https://help.zscaler.com/zia/about-destination-ip-groups).
+  - An address range, such as 192.0.2.1 - 192.0.2.5
 - **Destination Country**: To identify destinations based on the location of a server, select **Any** to apply the rule to all countries or select the countries to which you want to control traffic.
 - **URL Category**: To identify destinations based on the domain's URL category, select any number of categories. You can also select [custom TLD categories](https://help.zscaler.com/zia/about-tld-categories) from this field.
+
+[Image: List of criteria grouped into categories in Forwarding Control rule]
+
+[Image: Specifying a field value manually in a Forwarding Control rule]
+
+[Image: Selecting values for fields with predefined values in a Forwarding Control rule]
+
+[Image: Selecting criteria and building a ruleset for matching traffic in Forwarding Control rule]
+
+[Image: Specifying details about the Forwarding Control rule, including name, description, rule order, rank, status, and label]
+
+[Image: The Actions section to select the appropriate gateway for the Forwarding Rule]
+
+[Image: Editing the rule order for a Forwarding Control rule]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6935,8 +6990,8 @@ For rules that are configured with an action other than Confirm (i.e., Allow, Bl
 5. Click **Save** and [activate](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console) the change.
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > End User Notification > Data Protection User Confirmation**
-2. Locate the user confirmation template in the table and click the **Edit**icon.
-3. In the **Message** section:
+2. Locate the user confirmation template in the table and click the **Edit**icon. The **Edit Custom Message** window appears.
+3. In the **Edit Custom Message** window, in the **Message** section:
   1. Select a language from the drop-down menu to show the introductory text for the message in that language.
     - Supported languages
   2. Update the introductory text as needed. Only the introductory text can be edited. You can embed links in the message content by using the following format: __url[Link text | example.com]. For example, __url[Learn more | https://acme.com/policy]. You can also introduce line breaks in the message content by using the //n character.

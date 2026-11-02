@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:41 UTC
+Generated: 2026-11-02 13:58 UTC
 Articles in this file: 94
 
 ---
@@ -1047,7 +1047,7 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
-- Path: Product Usage Terms & Policies > Software Policy & Support > Supported Versions
+- Path: Product Usage Terms & Policies > Product Policy & Support > Supported Versions
 - Last modified: 2026-10-16T09:13Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 

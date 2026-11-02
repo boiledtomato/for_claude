@@ -6,8 +6,8 @@ Markdown へまとめたものです。NotebookLM に読み込ませる用途を
 - 生成: `scripts/build_help_docs.py`
 - 更新: `.github/workflows/notebooklm-weekly.yml`（毎週月曜 09:00 JST）
 - 記事数: **4,175**
-- ファイル数: **34** / 総語数: **4,101,366**
-- 最終更新: 2026-11-02T13:41:09Z
+- ファイル数: **34** / 総語数: **4,102,096**
+- 最終更新: 2026-11-02T13:58:59Z
 
 ## NotebookLM への読み込み
 
@@ -40,15 +40,15 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 | `zia/zia_part1.md` | ZIA — Internet & SaaS | 171,114 | 1,171 KB |
 | `zia/zia_part2.md` | ZIA — Internet & SaaS | 168,292 | 1,155 KB |
 | `zia/zia_part3.md` | ZIA — Internet & SaaS | 168,021 | 1,169 KB |
-| `zia/zia_part4.md` | ZIA — Internet & SaaS | 164,943 | 1,164 KB |
+| `zia/zia_part4.md` | ZIA — Internet & SaaS | 165,302 | 1,167 KB |
 | `zia/zia_part5.md` | ZIA — Internet & SaaS | 172,429 | 1,166 KB |
 | `zia/zia_part6.md` | ZIA — Internet & SaaS | 174,717 | 1,166 KB |
 | `zia/zia_part7.md` | ZIA — Internet & SaaS | 173,320 | 1,162 KB |
 | `zia/zia_part8.md` | ZIA — Internet & SaaS | 7,727 | 57 KB |
 | *(ZIA — Internet & SaaS 記事数: 877)* | | | |
-| `zpa/zpa_part1.md` | ZPA — Private Access | 157,355 | 1,122 KB |
+| `zpa/zpa_part1.md` | ZPA — Private Access | 157,362 | 1,122 KB |
 | `zpa/zpa_part2.md` | ZPA — Private Access | 157,389 | 1,139 KB |
-| `zpa/zpa_part3.md` | ZPA — Private Access | 156,325 | 1,168 KB |
+| `zpa/zpa_part3.md` | ZPA — Private Access | 156,386 | 1,168 KB |
 | `zpa/zpa_part4.md` | ZPA — Private Access | 37,482 | 252 KB |
 | *(ZPA — Private Access 記事数: 513)* | | | |
 | `zdx/zdx_part1.md` | ZDX — Digital Experience Monitoring | 110,329 | 755 KB |
@@ -69,7 +69,7 @@ NotebookLM の制限は「1ノートブックあたりのソース数」と「1�
 | `exposure_mgmt/exposure_mgmt_part1.md` | Risk & Exposure Management | 170,175 | 1,160 KB |
 | `exposure_mgmt/exposure_mgmt_part2.md` | Risk & Exposure Management | 148,094 | 1,048 KB |
 | *(Risk & Exposure Management 記事数: 390)* | | | |
-| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 68,705 | 479 KB |
+| `branch/branch_part1.md` | Branch / Cellular / Cloud Connector | 69,008 | 481 KB |
 | *(Branch / Cellular / Cloud Connector 記事数: 93)* | | | |
 | `partners/partners_part1.md` | Technology Partners | 28,297 | 272 KB |
 | *(Technology Partners 記事数: 146)* | | | |

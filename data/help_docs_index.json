@@ -12342,7 +12342,7 @@
   "/product-usage-terms/supported-versions": {
    "canonical": "/product-usage-terms/supported-versions",
    "category": "operations",
-   "hash": "1b3dda7588c0116a",
+   "hash": "21a93717be53d2b3",
    "in_bulletins": false,
    "lastmod": "2026-10-16T09:13Z",
    "nid": "1269771",
@@ -18210,7 +18210,7 @@
   "/zero-trust-branch/adding-app-connector-site": {
    "canonical": "/zero-trust-branch/adding-app-connector-site",
    "category": "branch",
-   "hash": "7c438e476e0a29b3",
+   "hash": "f981ce123497cea9",
    "in_bulletins": false,
    "lastmod": "2026-10-01T21:06Z",
    "nid": "1529430",
@@ -18237,7 +18237,7 @@
   "/zero-trust-branch/adding-objects": {
    "canonical": "/zero-trust-branch/adding-objects",
    "category": "branch",
-   "hash": "35a876cb1deb06a8",
+   "hash": "e620b63ea9848130",
    "in_bulletins": false,
    "lastmod": "2026-10-01T21:06Z",
    "nid": "1533897",
@@ -24951,7 +24951,7 @@
   "/zia/configuring-settings-user-confirmation-notification-templates": {
    "canonical": "/zia/configuring-settings-user-confirmation-notification-templates",
    "category": "zia",
-   "hash": "02d9ba94c0364376",
+   "hash": "4077a2677da5efb1",
    "in_bulletins": false,
    "lastmod": "2026-10-06T21:06Z",
    "nid": "1492911",
@@ -25050,7 +25050,7 @@
   "/zia/configuring-third-party-proxy-chaining": {
    "canonical": "/zia/configuring-third-party-proxy-chaining",
    "category": "zia",
-   "hash": "20145e06472c1b4d",
+   "hash": "4a4b0dfe47b2e23a",
    "in_bulletins": false,
    "lastmod": "2026-06-25T10:59Z",
    "nid": "1401556",
@@ -25095,7 +25095,7 @@
   "/zia/configuring-user-confirmation-notification-templates": {
    "canonical": "/zia/configuring-user-confirmation-notification-templates",
    "category": "zia",
-   "hash": "c3cbebc19f1b8002",
+   "hash": "979ef681ea7cf808",
    "in_bulletins": false,
    "lastmod": "2026-10-28T04:43Z",
    "nid": "1492906",
@@ -28848,7 +28848,7 @@
   "/zpa/about-access-policies-global-rules": {
    "canonical": "/zpa/about-access-policies-global-rules",
    "category": "zpa",
-   "hash": "3d93ecff9d2b5d07",
+   "hash": "2b1527dc31fb94b4",
    "in_bulletins": false,
    "lastmod": "2026-10-05T06:31Z",
    "nid": "1546212",
@@ -32196,7 +32196,7 @@
   "/zpa/private-service-edge-deployment-guide-vmware": {
    "canonical": "/zpa/private-service-edge-deployment-guide-vmware",
    "category": "zpa",
-   "hash": "ec025090737b332e",
+   "hash": "f2e525de42911c53",
    "in_bulletins": false,
    "lastmod": "2026-10-01T21:06Z",
    "nid": "1484541",
@@ -37576,36 +37576,52 @@
    "title": "Zscaler and Tanium Deployment Guide"
   }
  },
- "generated_at": "2026-11-02T13:41:09Z",
+ "generated_at": "2026-11-02T13:58:59Z",
  "last_run": {
-  "at": "2026-11-02T13:41:09Z",
+  "at": "2026-11-02T13:58:59Z",
   "drifted": [
-   "/unified/adding-adaptive-access-profile",
-   "/unified/editing-or-deleting-adaptive-access-profile",
-   "/unified/integrating-silverfort-adaptive-access-engine",
-   "/unified/viewing-health360-dashboard",
-   "/unified/viewing-overrides",
-   "/unified/viewing-ssl-inspection-dashboard",
-   "/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster",
-   "/zero-trust-branch/managing-forwarding-policies",
-   "/zia/about-dlp-endpoint-resources-context",
-   "/zia/about-user-confirmation-notification-templates",
-   "/zia/configuring-policies-for-unauthenticated-traffic",
-   "/zia/internet-saas-authentication-error-codes",
-   "/zpa/app-connector-deployment-guide-google-cloud-platform",
-   "/zpa/app-connector-deployment-guide-openshift",
-   "/zpa/network-connector-deployment-guide-linux",
-   "/zpa/network-connector-deployment-guide-vmware-platforms",
-   "/zpa/private-cloud-controller-deployment-guide-amazon-web-services",
-   "/zpa/private-cloud-controller-deployment-guide-vmware-platforms",
-   "/zpa/private-service-edge-deployment-guide-amazon-web-services"
+   "/product-usage-terms/supported-versions",
+   "/zero-trust-branch/adding-app-connector-site",
+   "/zero-trust-branch/adding-objects",
+   "/zia/configuring-settings-user-confirmation-notification-templates",
+   "/zia/configuring-third-party-proxy-chaining",
+   "/zia/configuring-user-confirmation-notification-templates",
+   "/zpa/about-access-policies-global-rules",
+   "/zpa/private-service-edge-deployment-guide-vmware"
   ],
-  "failed": 0,
-  "fetched": 1190,
-  "new_failures": [],
+  "failed": 5,
+  "fetched": 1012,
+  "new_failures": [
+   "/agentic-soc/about-alerts",
+   "/risk360/customizing-your-admin-account-settings",
+   "/zia/adding-tcp-nss-feeds-saas-security-logs",
+   "/zia/configuring-data-rest-scanning-malware-detection-policy",
+   "/zia/configuring-multiple-locations-and-sublocations"
+  ],
   "removed": 0,
-  "revalidated": 1003
+  "revalidated": 1017
  },
- "revalidate_slot": 0,
- "unavailable": {}
+ "revalidate_slot": 1,
+ "unavailable": {
+  "/agentic-soc/about-alerts": {
+   "lastmod": "2026-09-17T11:45Z",
+   "since": "2026-11-02"
+  },
+  "/risk360/customizing-your-admin-account-settings": {
+   "lastmod": "2023-11-07T05:26Z",
+   "since": "2026-11-02"
+  },
+  "/zia/adding-tcp-nss-feeds-saas-security-logs": {
+   "lastmod": "2026-10-28T16:02Z",
+   "since": "2026-11-02"
+  },
+  "/zia/configuring-data-rest-scanning-malware-detection-policy": {
+   "lastmod": "2026-10-22T15:27Z",
+   "since": "2026-11-02"
+  },
+  "/zia/configuring-multiple-locations-and-sublocations": {
+   "lastmod": "2026-10-29T21:06Z",
+   "since": "2026-11-02"
+  }
+ }
 }

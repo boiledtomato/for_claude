@@ -1,7 +1,7 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:41 UTC
+Generated: 2026-11-02 13:58 UTC
 Articles in this file: 93
 
 ---
@@ -219,11 +219,16 @@ To add an App Connector to a site, complete the following steps:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch**> **Deployments**> **Sites**.
 2. In the**Site Name** column, click the name of the site to which you want to add an App Connector. See image.
 3. In the left-side navigation, click **Connectivity**, then click the **App Connectors (Private Access)** tab.
-4. To optionally use global DNS mappings for private applications on this site, enable **Use Static App Segment to IP Mappings**. This uses the globally defined static mappings to resolve application segment FQDNs, ensuring that private applications consistently resolve to a predictable IP address across all sites where this option is enabled. To learn more, see [Managing App Segment IP Mappings](https://help.zscaler.com/zero-trust-branch/managing-app-segment-ip-mappings). See image.
-5. Click **Add** in the upper-right corner to add a new App Connector. In the **Add App Connector**panel: See image.
+4. To optionally configure Private Access settings, click**Private Access Settings**.
+5. (Optional) In the **Private Access Settings**drawer: See image.
+  - **Use Static App Segment to IP Mappings**: Enable this to use global DNS mappings for private applications on this site. This uses the globally defined static mappings to resolve application segment FQDNs, ensuring that private applications consistently resolve to a predictable IP address across all sites where this option is enabled. To learn more, see [Managing App Segment IP Mappings](https://help.zscaler.com/zero-trust-branch/managing-app-segment-ip-mappings).
+  - **Private Application TCP Idle Timeout (minutes)**: Enter the maximum idle time for TCP connections to private applications and click **Save**.
+  - **Private Access Sythentic IP Range**: Enter the synthetic IP address range for Private Access and click **Save**.
+6. Click **Add App Connector**.
+7. In the **Add App Connector**drawer: See image.
   - **Name**: Enter a name for this App Connector.
   - **Provision Key**: Enter the provisioning key for this App Connector.
-6. Click **Save** to save the configuration.
+8. Click **Save**.
 
 ## App Connector Behavior in HA Deployments
 
@@ -325,14 +330,15 @@ Zero Trust Branch supports several different types of objects (e.g., devices, ne
 To add an object:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Branch** > **Resources**> **Objects**.
-2. In the **User Defined Groups** tab, click **Add**and select the object type. See image.
+2. On the **User Defined Groups** tab, click **Add**and select the object type. See image.
 3. Define any of the following object types, as required:
-  - Device
-  - Domain
+  - Devices
+  - Domains
   - DNS Gateways
-  - Network
-  - MAC
-  - Port
+  - Internet & SaaS Gateway
+  - Networks
+  - MACs
+  - Ports
   - Time Schedule
   - Zone
   - SaaS Apps
@@ -342,10 +348,10 @@ The object is added and displayed on the Objects page in the Zscaler Admin Conso
 
 A device object provides the ability to group devices based on different attributes.
 
-In the **Add Device**drawer:
+In the **Add Devices**drawer:
 
 - **Name:**Enter a name for this device object.
-- **Autonomous**: Enable this to automatically add newly discovered assets matching the defined attributes to this group.
+- **Dynamic**: Enable this to automatically add newly discovered assets matching the defined attributes to this group.
 - **Device Attribute:** Select an attribute from the drop-down menu and define additional parameters:
   - **Manufacturers**:Select the device manufacturer from the **Attribute Value** drop-down menu.
   - **Operating System**: Select the OS that runs on the device from the **Attribute Value** drop-down menu.
@@ -357,7 +363,7 @@ Click the **Add**icon to add multiple groups.
 
 See image.
 
-You can reference device objects as source or destination criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
+You can reference device objects as source or destination criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
 
 A domain object provides specific domains that you can use as a destination in a DNS policy rule, or in other policy engines. In addition to custom domains, you can use predefined domain objects, such as **All Zscaler App Segments** and **All Zscaler Domains**, to support one or more domains.
 
@@ -369,7 +375,7 @@ In the **Add Domains**drawer:
 
 See image.
 
-You can reference domain objects when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) (as destination criteria) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) (as source and destination criteria) policies.
+You can reference domain objects when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) (as destination criteria) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) (as source and destination criteria) policies.
 
 A DNS object supports the addition of one or more DNS servers that can be used as redirect (forwarding) targets in a DNS policy rule. To learn more, see [Configuring Site DNS Policies](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies).
 
@@ -383,9 +389,26 @@ In the **Add DNS Gateways**drawer:
 
 See image.
 
+In the **Add Internet & SaaS Gateway** drawer:
+
+- **Name**: Enter a name for the Internet & SaaS gateway.
+- **Primary Service Edge**: Select one of the following options:
+  - **Automatic**: Select this to automatically select an Internet & SaaS Service Edge
+  - **Manual**: Select this to manually choose an Internet & SaaS Service Edge from the available data centers and select the data center from the drop-down menu. The option to select data centers is available only for Zero Trust Branch appliances running version 8.3.0 or later.
+  - **Override**: Select this to choose a specific Internet & SaaS Service Edge and enter its IP address or FQDN.
+- **Secondary Service Edge**: Select one of the following options:
+  - **Automatic**: Select this to automatically select an Internet & SaaS Service Edge
+  - **Manual**: Select this to manually choose an Internet & SaaS Service Edge from the available data centers and select the data center from the drop-down menu. The option to select data centers is available only for Zero Trust Branch appliances running version 8.3.0 or later.
+  - **Override**: Select this to choose a specific Internet & SaaS Service Edge and enter its IP address or FQDN.
+- **On Failure**: Select one of the following options:
+  - **Fail-Close (Drop)**: Drop outbound traffic when both Service Edges are unreachable to prevent uninspected traffic.
+  - **Fail-Open (Allow)**: Allow outbound traffic when both Service Edges are unreachable, even though the traffic is not going to be inspected.
+
+See image.
+
 A network object supports grouping networks based on both a CIDR block and FQDN.
 
-In the **Add Network**drawer:
+In the **Add Networks**drawer:
 
 - **Name**: Enter a name for this object.
 - Enter the network address in CIDR notations or FQDNs and click **Add**. Non-CIDR block IP address ranges (e.g., 192.168.0.2–192.168.0.10) are converted to CIDR notation.; When an FQDN is added to a network group, the branch appliance resolves the FQDN locally and adds the IP addresses to the group. The branch appliance also honors the Time to Live (TTL) value of the DNS records, and it refreshes when the TTL value expires.
@@ -393,11 +416,11 @@ In the **Add Network**drawer:
 
 See image.
 
-You can reference network objects as source or destination criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
+You can reference network objects as source or destination criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
 
 A MAC object supports grouping of MAC addresses.
 
-In the**Add MAC**drawer:
+In the**Add MACs**drawer:
 
 - **Name**: Enter a name for this object.
 - Enter a MAC address (e.g., `20:7B:D2:24:33:83`) and click **Add**.
@@ -405,7 +428,7 @@ In the**Add MAC**drawer:
 
 See image.
 
-You can reference MAC objects as source criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
+You can reference MAC objects as source criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
 
 A port object supports ports in several formats:
 
@@ -413,14 +436,14 @@ A port object supports ports in several formats:
 - protocol:port-range pairs (e.g., `TCP:1024-1030`)
 - Well-known protocols or ports (e.g., `bgp`)
 
-In the **Add Port**drawer:
+In the **Add Ports**drawer:
 
 - **Name**: Enter a name for this object.
 - Enter a port (e.g., `udp:8080, TCP:1024-1030`) and click **Add**.
 
 See image.
 
-You can reference port objects as source criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
+You can reference port objects as source criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
 
 A time schedule object allows you to specify a group of absolute and periodic time ranges.
 
@@ -435,7 +458,7 @@ To add multiple pairs of absolute and periodic time ranges within this object, c
 
 See image.
 
-You can reference time schedule objects as time schedule group criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) policies.
+You can reference time schedule objects as time schedule group criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) policies.
 
 A zone object allows you to group one or more networks of the same type.
 
@@ -450,9 +473,9 @@ In the **Add Zone**drawer:
 
 See image.
 
-You can reference zone objects as source zone or destination zone criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) policies.
+You can reference zone objects as source zone or destination zone criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) policies.
 
-A SaaS Apps object is a list of predefined Software as a Service (SaaS) apps. You can use this object as a destination in [firewall policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or an [application-based routing policy](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies).
+A SaaS Apps object is a list of predefined Software as a Service (SaaS) apps. You can use this object as a destination in [security policies](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or an [application-based forwarding policy](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies).
 
 In the **Add SaaS Apps**drawer:
 
@@ -461,7 +484,7 @@ In the **Add SaaS Apps**drawer:
 
 See image.
 
-You can reference SaaS Apps objects as destination criteria when creating [firewall](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [routing](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
+You can reference SaaS Apps objects as destination criteria when creating [security](https://help.zscaler.com/zero-trust-branch/configuring-firewall-policies) or [forwarding](https://help.zscaler.com/zero-trust-branch/configuring-routing-policies) policies.
 
 [Image: The Objects page showing the option to add an object]
 
@@ -470,6 +493,8 @@ You can reference SaaS Apps objects as destination criteria when creating [firew
 [Image: The Objects page showing the Add Domains drawer]
 
 [Image: The Objects page showing the Add DNS Gateways drawer]
+
+[Image: Adding Internet & SaaS gateway objects]
 
 [Image: The Objects page showing the Add Network drawer]
 

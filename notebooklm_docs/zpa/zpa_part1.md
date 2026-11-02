@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:41 UTC
+Generated: 2026-11-02 13:58 UTC
 Articles in this file: 162
 
 ---
@@ -164,11 +164,12 @@ On the Global Rules page (Private Access > Policy > Access Policy > Global Rules
   - **Rule Name**: The name of the rule.
   - **Status**: The status of the rule (i.e., **Enabled** or **Disabled**).
   - **Rule Action**: Indicates the action for the rule (i.e., **Allow Access**, **Block Access**, or **Require Approval**).
-7. Edit a global rule.
-8. Delete a global rule.
-9. Move or copy the global rule.
-10. Display more rows or a different page of the table.
-11. Go to the [Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups) page to view all configured policy groups.
+7. Bulk move or delete global rules.
+8. Edit a global rule.
+9. Delete a global rule.
+10. Move or copy the global rule.
+11. Display more rows or a different page of the table.
+12. Go to the [Policy Groups](https://help.zscaler.com/zpa/about-access-policies-policy-groups) page to view all configured policy groups.
 
 [Image: Global Rules page]
 <!-- /ZS-ARTICLE -->

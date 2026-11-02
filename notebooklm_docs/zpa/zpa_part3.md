@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:41 UTC
+Generated: 2026-11-02 13:58 UTC
 Articles in this file: 120
 
 ---
@@ -6551,6 +6551,14 @@ To learn more, see the [Private Service Edge Deployment Guide](https://help.zsca
 - Network Card: 1 NIC (minimum)
 
 Depending on your deployment use case, each Private Service Edge must be able to accept incoming connections from either internal or external sources or both internal and external sources on TCP port 443. For example, if you enable Private Access for remote and office users, each Private Service Edge needs to accept incoming connections from both internal and external endpoints running Zscaler Client Connector.
+
+For Microsoft Hyper-V deployment, ensure that you have the following:
+
+- Physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
+- Intel VT-x or AMD-V hardware virtualization support
+- Second Level Address Translation (SLAT) support
+- Minimum 16 GB RAM (recommended based on VM workload requirements)
+- Sufficient local storage for Host OS and VM VHDX files
 
 Private Service Edges are reachable over the internet for remote users in a disaster recovery scenario, or when the Private Service Edge is the closest Service Edge.
 
