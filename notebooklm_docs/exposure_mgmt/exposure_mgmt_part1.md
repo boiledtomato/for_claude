@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 196
 
 ---
@@ -958,6 +958,66 @@ To delete a rule:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/aem/managing-manual-ticket-grouping","lastmod":"2026-10-30T12:05Z","nid":"1546666"} -->
+## Managing Manual Ticket Grouping
+
+- Source: https://help.zscaler.com/aem/managing-manual-ticket-grouping
+- Product: Asset Exposure Management
+- Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Managing Manual Ticket Grouping
+- Last modified: 2026-10-30T12:05Z
+- Summary: How to manage ticket grouping in Asset Exposure Management (AEM).
+
+Violation tickets help track, investigate, and resolve policy violations discovered in Asset Exposure Management (AEM). To support different remediation workflows, you can manage violation tickets in several ways, including splitting unrelated policy violations from an existing violation ticket into one or more new tickets, and merging multiple violation tickets into a single ticket. These actions help you organize the remediation work and keep all related context in one place.
+
+## Splitting Policy Violations
+
+You can split policy violations from a violation ticket into one or more new tickets. For example, if a violation ticket contains multiple unrelated policy violations, you can split them into separate tickets so each violation is tracked and resolved independently.
+
+To split violations from an existing violation ticket into a new ticket:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**in the top navigation bar.
+2. In the left-side navigation, click **Violation Tickets**. The **Violation Tickets** page appears. See image.
+3. Click the violation ticket you want to split. The ticket details drawer opens.
+4. Click the **Policy Violations**tab.
+5. Select the policy violations you want to split. See image. To select all the policy violations on the current page, select the checkbox at the top of the list. Use the pagination controls to move to other pages and select additional policy violations. At least one of the selected policy violations must be active; inactive selections cannot be split. The **Split Into a New Violation Ticket** drop-down menu appears.
+6. From the drop-down menu, select one of the following options: See image. A dialog window appears.
+  - **Split Into a New Violation Ticket**: Split all policy violations into one ticket.
+  - **Split Into**<#>**New Violation Tickets**: Create separate tickets for each policy violation.
+7. In the dialog window: See image.
+  1. **Assignee**: Enter the user responsible for reviewing or resolving the violation ticket.
+  2. **Status**: Select the current state of the ticket (e.g., **New**, **Open**, **In Progress**, etc.).
+8. Click **Split**. A dialog window appears in the bottom-right corner of the page, where you can click and view the split ticket when processing is complete. When the process is complete, click **View Ticket** to review your newly split ticket. You can view the original ticket from which policy violations were split on the Related Ticketstab of your newly created ticket.
+
+[Image: The Violation Tickets page in the Assets app]
+
+[Image: List of policy violations]
+
+[Image: Split all policy violations into one ticket]
+
+[Image: Split the selected policy violations into multiple tickets]
+
+## Merging Violation Tickets
+
+You can merge violation tickets when you want to combine tickets with related findings into a single ticket. A common use case for merging violation tickets is when multiple violation tickets contain similar policy violations that can be resolved with the same fix. Merging them creates a single work item that is easier to assign, track, and remediate.
+
+To merge multiple violation tickets into one single ticket:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**in the top navigation bar.
+2. In the left-side navigation, click **Violation Tickets**. The **Violation Tickets** page appears.
+3. Select the violation tickets you want to merge.
+4. Click **Merge**. See image. A dialog window opens.
+5. In the dialog window: See image.
+  1. **Assignee**: Enter the name of the user responsible for reviewing or resolving the violation ticket.
+  2. **Status**: Select a status for the new ticket (e.g., **New**, **Open**, **In Progress**, etc.).
+6. Click **Merge**. A dialog window appears in the bottom-right corner of the page, indicating the merge process. When the process is complete, click **View Ticket** to review your newly merged ticket.
+
+[Image: Select violation tickets to merge]
+
+**[Image: Merge the selected violation tickets into a single ticket]**
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/aem/managing-violation-ticket-statuses-aem","lastmod":"2026-05-17T07:06Z","nid":"1539573"} -->
 ## Managing Violation Ticket Statuses in AEM
 
@@ -1455,6 +1515,54 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 [Image: The Assets page]
 
 [Image: Click an asset to view its details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/aem/viewing-managing-tickets-aem","lastmod":"2026-10-30T12:05Z","nid":"1546667"} -->
+## Viewing & Managing Tickets in AEM
+
+- Source: https://help.zscaler.com/aem/viewing-managing-tickets-aem
+- Product: Asset Exposure Management
+- Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing & Managing Tickets in AEM
+- Last modified: 2026-10-30T12:05Z
+- Summary: How to view and manage ticket details in Asset Exposure Management (AEM) in the Agentic Security Operations Platform.
+
+Violation tickets help track, investigate, and resolve policy violations discovered in Asset Exposure Management (AEM). To support different remediation workflows, you can manage violation tickets in several ways, including adding comments and attachments and reviewing the activity tab for ticket history. These actions help you organize the remediation work and keep all related context in one place.
+
+## Adding Comments for a Violation Ticket
+
+You can add comments and view discussions related to a violation ticket. This helps teams collaborate, share updates, document findings, and maintain a record of communication and progress in one place.
+
+To add a comment to a violation ticket:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets** in the top navigation bar.
+2. In the left-side navigation, click **Violation Tickets**. The **Violation Tickets** page appears.
+3. Click a violation ticket. The ticket details drawer opens.
+4. Click the **Comments**tab.
+5. Enter a comment in the field. See image.
+
+[Image: Comments Tab]
+
+You can also add supporting information to a violation ticket comment. This enables the security team to attach evidence related to the policy violation, providing additional context and making the violation easier to review.
+
+Click the **Add Attachment** icon and add the required attachment.
+See image.
+
+[Image: Add an attachment to the comment]
+
+## Viewing the Activity Log
+
+The Activity tab displays the history of actions performed on the violation ticket. It provides an audit trail of violation ticket activities such as status changes, assignment changes, ticket updates, system-recorded events, who performed each action, and when each action occurred. This helps track the history of the violation ticket and understand how the ticket has been handled over time.
+
+To view the activity log:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets** in the top navigation bar.
+2. In the left-side navigation, click **Violation Tickets**. The **Violation Tickets** page appears.
+3. Click a violation ticket. The ticket details drawer opens.
+4. Click the **Activity**tab. See image.
+
+[Image: View history of changes made to the violation ticket]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2535,36 +2643,35 @@ Use this tab to view a list of issues that were discovered. For each issue, you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-resources-identities","lastmod":"2026-07-30T03:50Z","nid":"1540215"} -->
-## About AI Resources - Identities
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/about-ai-resources-identities","lastmod":"2026-10-27T22:48Z","nid":"1540215"} -->
+## About Identities
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/about-ai-resources-identities
 - Product: AI Asset Management
-- Path: AI Asset Management Help > Asset Discovery > AI Resources > About AI Resources - Identities
-- Last modified: 2026-07-30T03:50Z
+- Path: AI Asset Management Help > Asset Discovery > About Identities
+- Last modified: 2026-10-27T22:48Z
 - Summary: Information about the Identities in the AI Resources page in the AI Security Admin Portal, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
 
 An identity represents a user, device, application, or service that can access data stores containing sensitive data in the cloud environment. While securing sensitive data, it is crucial to control and manage the permissions assigned to identities, as excessive permissions and insecure configurations could lead to security breaches. AI Security detects identities in all the onboarded cloud accounts (AWS, Azure, and GCP), including managed and unmanaged databases, and Snowflake.
 
-The AI Assets - Identities Page provides the following benefits and enables you to:
+The Identities Page provides the following benefits and enables you to:
 
 - View the identities that can access resources containing sensitive data within your cloud environment.
 - View the data stores accessed by an identity.
 - View the type of sensitive data accessed by each identity.
 - View the security posture of the identity.
 
-## About the AI Resources - Identities Page
+## About the Identities Page
 
-On the AI Resources Identities page (AI Infrastructure > AI Resources > Identities), you can do the following:
+On the Identities page (AI Infrastructure > Identities), you can do the following:
 
-1. Filter by **Business Units**.
-2. View the following widgets for a quick, at-a-glance summary of your identities:
+1. View the following widgets for a quick, at-a-glance summary of your identities:
   - **Identities by Type**: Distribution of identity types that access AI resources, eg., AWS IAM User, AWS IAM Role, AWS IAM Policy, GCP Service Account, Azure, etc.
   - **Identities by Status**: Distribution of the software libraries by their governance status, e.g., **Sanctioned**(reviewed and approved), **Unsanctioned**(reviewed and not approved), or **Pending**(awaiting review).
   - **Identities by Risk Posture**: Distribution of identities by security posture risk category, e.g., privileged access, Inactive Certificate, MFA disabled, or Dual Authentication Disabled.
-3. Search for specific data in the searchable columns.
-4. Apply [filters](https://help.zscaler.com/ai-asset-mgmt/using-filters) to view specific data.
-5. View the list of identities. For each identity, you can see:
+2. Search for specific data in the searchable columns.
+3. Apply [filters](https://help.zscaler.com/ai-asset-mgmt/using-filters) to view specific data.
+4. View the list of identities. For each identity, you can see:
   - **Name**: The name of the entity. Click the entity name to view additional details.
   - **Environment**: The cloud service provider in which the identity is present.
   - **Access Type**: The permission level granted to the entity for the selected resource, e.g., **Read**, **Edit**, or **Full Access**.
@@ -7524,13 +7631,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-10-14T07:52Z","nid":"1539939"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/iam-roles-and-permissions-aws","lastmod":"2026-10-30T06:46Z","nid":"1539939"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/iam-roles-and-permissions-aws
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-10-14T07:52Z
+- Last modified: 2026-10-30T06:46Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization) process, you need to deploy the AI Security templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between AI Security, the [orchestrator account](https://help.zscaler.com/ai-asset-mgmt/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -7571,12 +7678,6 @@ The resource discovery role is required for AI Security to discover resources wi
 | `bedrock:List*` | Allow | Monitored Accounts | To list all Amazon Bedrock resources such as models, agents, and knowledge bases |
 | `bedrock:Get*` | Allow | Monitored Accounts | To retrieve detailed configuration and metadata for Amazon Bedrock resources |
 | `s3:GetReplicationConfiguration` | Allow | Monitored Accounts | To retrieve the replication configuration set on an S3 bucket |
-| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
-| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by AI Security (based on tags) | To update Zscaler AI Security’s Auto Scaling group |
-| `ec2:TerminateInstances` | Allow | Only resources created by AI Security (based on tags) | To terminate one or more Zscaler AI Security’s Amazon EC2 instances |
-| `kms:GenerateDataKey` | Allow | Only resources created by AI Security (based on tags) | To generate a data key for Zscaler AI Security’s key that can be used to encrypt data |
-| `kms:Decrypt` | Allow | Only resources created by AI Security (based on tags) | To decrypt ciphertext that was encrypted using Zscaler AI Security’s key in the AWS Key Management Service (KMS) |
-| `sqs:PurgeQueue` | Allow | Only resources created by AI Security (based on tags) | To purge the messages from AI Security-created queues |
 | `s3:GetObject` | Deny | Monitored Accounts |  |
 | `dynamodb:BatchGetItem` | Deny | Monitored Accounts |  |
 | `dynamodb:GetItem` | Deny | Monitored Accounts |  |
@@ -7653,6 +7754,12 @@ The orchestrator instance profile role is used by the orchestrator instance pres
 | `tiros:GetQueryAnswer` | Allow | Orchestrator Account | To get the VPC reachability query answer This permission is conditional and only required if Custom Network is used. |
 | `tiros:GetQueryExplanation` | Allow | Orchestrator Account | To get the VPC reachability query explanation This permission is conditional and only required if Custom Network is used. |
 | `tiros:GetQueryExtensionAccounts` | Allow | Orchestrator Account | To list accounts that might be useful in a new query This permission is conditional and only required if Custom Network is used. |
+| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
+| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by AI Security (based on tags) | To update Zscaler AI Security’s Auto Scaling group |
+| `ec2:TerminateInstances` | Allow | Only resources created by AI Security (based on tags) | To terminate one or more Zscaler AI Security’s Amazon EC2 instances |
+| `kms:GenerateDataKey` | Allow | Only resources created by AI Security (based on tags) | To generate a data key for Zscaler AI Security’s key that can be used to encrypt data |
+| `kms:Decrypt` | Allow | Only resources created by AI Security (based on tags) | To decrypt ciphertext that was encrypted using Zscaler AI Security’s key in the AWS Key Management Service (KMS) |
+| `sqs:PurgeQueue` | Allow | Only resources created by AI Security (based on tags) | To purge the messages from AI Security-created queues |
 
 The scanner instance profile role is used by the scanner instances to perform data scanning and has the following permissions:
 
@@ -9364,13 +9471,13 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-20T23:58Z","nid":"1542892"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-29T23:40Z","nid":"1542892"} -->
 ## Onboarding an Azure Subscription
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-subscription
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Azure Subscription > Onboarding an Azure Subscription
-- Last modified: 2026-10-20T23:58Z
+- Last modified: 2026-10-29T23:40Z
 - Summary: Information on how to onboard a single Azure subscription.
 
 You can onboard a single Azure subscription for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
@@ -9390,7 +9497,6 @@ Before onboarding an Azure subscription, ensure you have completed the following
   - Resource Group
   - Storage Account
   - Storage Account Container
-- Ensure the user has the following permissions.
 
 ## Onboarding a Single Azure Subscription
 
@@ -9669,15 +9775,6 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 | Target subscriptions | User Access Administrator |
 | Storage account | Storage Account Contributor |
 | Microsoft Entra ID | Application Administrator |
-
-| Scope | Role | Purpose |
-| --- | --- | --- |
-| Entra ID | Application Developer | To create app registrations (creator becomes owner, enabling secret/cert/token/API config) |
-| Entra ID | Cloud Application Administrator | To grant admin consent on API permissions |
-| Entra ID | Power Platform Administrator | To manage Power Platform environments, add S2S app users, use admin connectors in flows |
-| Power Platform Environment | System Administrator | To assign security roles (Service Reader) to app user in Dataverse |
-| Power Platform Environment | Environment Maker | To create flows in the target environment |
-| Licensing | Power Automate license | To create and run Power Automate flows |
 
 [Image: Welcome to Azure Cloud Shell window with Bash and PowerShell options]
 
@@ -10385,20 +10482,22 @@ To onboard a GitHub tenant, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-08-29T07:06Z","nid":"1541053"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-11-01T23:59Z","nid":"1541053"} -->
 ## Onboarding Microsoft Copilot Studio Tenant
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > SaaS Platforms Onboarding > Microsoft Copilot Studio > Onboarding Microsoft Copilot Studio Tenant
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-11-01T23:59Z
 - Summary: Information about adding Microsoft Copilot Studio tenant details in the AI Security Admin Portal.
 
 Microsoft Copilot Studio onboarding in AI Security lets you quickly connect your Microsoft tenant so AI Security can discover and inventory Copilot Studio–related AI assets and surface security relevant findings in a centralized view. Using Account Onboarding, you authorize access to your Copilot Studio environment, assign a friendly tenant alias for identification, and complete the integration so AI Security can begin discovering agents and associated resources for monitoring and investigation.
 
+When onboarding, you must select an authentication type to establish a secure connection between AI Security and Microsoft Copilot. You can choose either Client Secret, which uses a shared secret key generated in your Azure app registration, or Certificate, which uses a PEM file for certificate-based authentication. The authentication type you select determines the credentials you need to provide during the onboarding process.
+
 ## Prerequisites
 
-Before onboarding a Microsoft Copilot Studio tenant, ensure you have completed the following:
+Before onboarding a Microsoft Copilot Studio tenant, ensure user permissions are in place and complete the following:
 
 1. Registered an app in the Azure Portal
 2. Power Platform Admin Portal Setup
@@ -10417,16 +10516,9 @@ To onboard a Microsoft Copilot Studio Tenant, do the following:
   - **Tenant ID:** Enter the Microsoft Entra tenant ID.
   - **Tenant Name**: Enter the name of the tenant that you want to onboard.
   - **Configuration Details:**
-    - **Authentication Type:**Select one of the following from the drop-down menu.
+    - **Authentication Type:**Select one of the following from the drop-down menu:
       - Client Secret
       - Client Certificate
-  - **Power Platform Environment URL:** Enter the environment URL available in the **Details**section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
-  - **Power Platform Environment ID:**Enter the environment ID available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
-  - **Power Platform Region:**Enter the region name available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
-  - **Business Units:**Select the business unit from the drop-down menu.
-  - **Flow URL:**Enter the flow URL that is generated in Power Automate Flow.
-  - Click **Add**to add multiple flows.
-6. Click **Save**. See image.
 
 The tenant is onboarded and is displayed on the [Account Onboarding](https://help.zscaler.com/ai-asset-mgmt/about-account-onboarding) page.
 
@@ -10435,7 +10527,7 @@ The tenant is onboarded and is displayed on the [Account Onboarding](https://hel
 To register an app in the Azure Portal, do the following:
 
 - 1. Create an app in Entra ID
-- 2. Add a Client Secret or Client Certificate
+- 2. Add a Client Secret
 - 3. Add API Permissions
 - 4. Configure token
 
@@ -10517,21 +10609,39 @@ To add Get Connections as an Admin action:
 2. In the **Add an action** window, under the **Power Apps for Admins**section, locate and select the **Get Connections as Admin** option. See image. The **Get Connection as Admin** step is added.
 3. Enter the **Environment ID** fetched from **Manage > Environments > Details** in the **Power Platform Admin Center**. See image.
 4. To configure the **Response**step, search and add **Response** from the **Request** section. See image.
-5. Copy the response body from the **Get Connections as Admin**output. See image.
-6. Paste it into the response body field. See image.
+5. In the **Body** field, click the **Insert Dynamic Content** icon. See image.
+6. Search with body text and select the body response content under **Get Connections as admin** field. See image. The response gets inserted in the **Body** field. See image.
 7. Click **Save** to save the flow. A flow URL is generated.
 8. Get the **Flow URL**from the Manual node. See image.
 9. Click **Save**to save the flow.
 
-Enter the following information:
+1. **Client ID**: The Application (client) ID you copied and saved from the **Overview**page in the Azure portal.
+2. **Power Platform Environment URL:** Enter the environment URL available in the **Details**section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+3. **Power Platform Environment ID:**Enter the environment ID available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+4. **Power Platform Region:**Enter the region name available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+5. **Business Units:**Select the business unit from the drop-down menu.
+6. **Flow URL:**Enter the flow URL that is generated in Power Automate Flow.
+7. Click **Add**to add multiple flows.
+8. Click **Save & Next**. See image.
+9. In the **Download Certificate** drawer, click the **Download Certificate** tab to download the certificate. See image.
+10. Upload the certificate to your Copilot Studio app registration (Service Principal).
+  1. In the **Azure Portal**, open the app registration for your Copilot Studio tenant (Service Principal).
+  2. Go to**Certificates & secrets > Certificates > Upload Certificate**.
+  3. Upload the downloaded PEM file and click **Add**. See image.
+11. Return to the **Download Certificate** section in AI Security and click **Validate**.
 
-- **Client ID**: The Application (client) ID you copied and saved from the **Overview**page in the Azure portal.
-- **Client Secret**: The client secret created for the app registration.
+1. Enter the following information:
+  - **Client ID:**The Application (client) ID you copied and saved from the **Overview**page in the Azure portal.
+  - **Client Secret:**The client secret created for the app registration.
+2. **Power Platform Environment URL:** Enter the environment URL available in the **Details**section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+3. **Power Platform Environment ID:**Enter the environment ID available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+4. **Power Platform Region:**Enter the region name available in the **Details** section of your environment in the [Power Platform admin center](https://admin.powerplatform.microsoft.com/manage/environments).
+5. **Business Units:**Select the business unit from the drop-down menu.
+6. **Flow URL:**Enter the flow URL that is generated in Power Automate Flow.
+7. Click **Add**to add multiple flows.
+8. Click **Save**.
 
 [Image: Enter all the Client Secret fields.]
-
-- Client secret
-- Certificate
 
 1. In the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com), click the newly created application.
 2. In the left-side navigation, go to **Manage**> **Certificates & secrets**.
@@ -10542,35 +10652,16 @@ Enter the following information:
 5. Click **Add**. See image. The client secret is generated and displayed. See image.
 6. Copy the secret immediately and save it for later use.
 
-1. Run any of the following commands in a CLI application:
-  1. To generate an encrypted file
-  2. To generate an unencrypted file
-2. In the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com), click the newly created application.
-3. In the left-side navigation, go to **Manage**> **Certificates & secrets**.
-4. In the **Certificates**tab, click **Upload certificate**.
-5. In the **Upload certificate** drawer:
-  - **Upload a certificate**: Upload the CER certificate file from your local folder.
-  - **Description**: Enter a description.
-6. Click **Add**.
+| Scope | Role | Purpose |
+| --- | --- | --- |
+| Entra ID | Application Developer | To create app registrations (creator becomes owner, enabling secret/cert/token/API config) |
+| Entra ID | Cloud Application Administrator | To grant admin consent on API permissions |
+| Entra ID | Power Platform Administrator | To manage Power Platform environments, add S2S app users, use admin connectors in flows |
+| Power Platform Environment | System Administrator | To assign security roles (Service Reader) to app user in Dataverse |
+| Power Platform Environment | Environment Maker | To create flows in the target environment |
+| Licensing | Power Automate license | To create and run Power Automate flows |
 
-1. To generate a private key (in 2048 bits) and save it to a specific file: `openssl genrsa -out <filename> 2048`
-2. To generate a self-signed X.509 certificate using an existing private key that is valid for 365 days: `openssl req -new -x509 -key <filename>.key -out <filename>.crt -days 365 -subj "/CN=<filename>"`
-3. To export the password for the newly created certificate: `openssl pkcs12 -export -out <filename>.pfx -inkey <filename>.key -in <filename>.crt`After you run the command, the following prompt appears: `Enter Export Password: Enter the export password`
-4. To convert the CRT file type to CER and upload to the Azure portal or Microsoft Entra admin center: `openssl x509 -in <filename>.crt -out <filename>.cer -outform DER`
-5. To create a PEM file from the CER file and upload it to the AI Security Admin Portal: `cat <filename>.key <filename>.crt > file.pem`
-
-1. To generate a certificate and a corresponding RSA private key: `openssl req -x509 -newkey rsa:2048 -days 365 \ -keyout private.key \ -out certificate.crt \ -subj "/CN=my-sp-cert-password" \ -passout pass:*<password>*`
-2. To combine the private key and certificate into a single PEM file: `cat private.key certificate.crt > combined.pem`
-
-Enter the following information:
-
-- **Client ID**: The Application (client) ID you copied and saved from the **Overview**page in the Azure portal.
-- **Client Password**: The export password for the certificate.
-- **Certificate File**: Upload the certificate file (PEM file) from your local folder or drag and drop the file.
-
-[Image: Enter all the Client Certificate details and upload the certificate file.]
-
-[Image: Enter all the fields in the Add Microsoft Copilot Studio Tenant onboarding window.]
+**[Image: Enter all the Client Certificate details and upload the certificate file.]**
 
 [Image: Create an app registration in the Microsoft Azure registrations page.]
 
@@ -11615,19 +11706,19 @@ Vulnerability scanning is supported for file types and file extensions in the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/system-logs-error-codes","lastmod":"2026-09-28T22:22Z","nid":"1545403"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/system-logs-error-codes","lastmod":"2026-10-26T21:56Z","nid":"1545403"} -->
 ## System Logs Error Codes
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/system-logs-error-codes
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Monitoring & Investigation > System Logs Error Codes
-- Last modified: 2026-09-28T22:22Z
+- Last modified: 2026-10-26T21:56Z
 - Summary: Information on the authentication error codes for system logs.
 
 This page lists all system log error codes for the AI Security scanning platform. This page also documents all the system log error codes generated by the following:
 
-- Data Collectors (DC): Error codes are grouped by their error category. The DC subsystem collects cloud resource metadata and activity logs from AWS, Azure, GCP, and other cloud providers.
-- Cloud Service Provider: Error codes generated by the onboarding platform (ai-csp-processor, subsystem onboarding). Most non-success onboarding events are categorized as CONFIGURATION_ERROR. The default successful-validation event is INFORMATION.
+- **Data Collectors (DC):** Error codes are grouped by their error category. The DC subsystem collects cloud resource metadata and activity logs from AWS, Azure, GCP, Microsoft Copilot, and other cloud providers.
+- **Cloud Service Provider:** Error codes generated by the onboarding platform (ai-csp-processor, subsystem onboarding). Most non-success onboarding events are categorized as CONFIGURATION_ERROR. The default successful-validation event is INFORMATION.
 
 The following are the error codes:
 
@@ -15829,162 +15920,4 @@ To learn more about this dashboard and how to interact with the dashboard widget
 [Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
 
 [Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-finding-details","lastmod":"2025-12-16T03:22Z","nid":"1503596"} -->
-## Understanding Finding Details
-
-- Source: https://help.zscaler.com/easm/understanding-finding-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Findings > Understanding Finding Details
-- Last modified: 2025-12-16T03:22Z
-- Summary: Information on understanding and analyzing finding details in Zscaler External Attack Surface Management (EASM), including risk assessment, impacted assets, and remediation insights.
-
-EASM investigates the security risks (or findings) that are uncovered in your organization's digital attack surface and catalogs them on the [Findings page](https://help.zscaler.com/easm/about-findings) (Insights > Findings). This page features a highly customizable, tabulated list of findings, allowing you to click each record to access detailed information about the finding and perform specific actions on a per-finding basis. The details provided for each finding are crucial for assessing the severity of risks, prioritizing them, and planning mitigation strategies. Additionally, each finding is also mapped to the assets affected by the finding in a many-to-many relationship (i.e., one finding can impact multiple assets and vice-versa).
-
-The finding details are presented in two distinct views, offering users the flexibility to drill down on the finding details as required. When you click a row in the findings table, a quick view of essential information about the finding opens in a right-side drawer (referred to as "Finding Details drawer" henceforth). This drawer features a tabbed interface for finding details, impacted assets, status change history, and Jira tickets. To view more detailed finding information, from the Finding Details drawer, you can access a full-page view of comprehensive details about the finding (referred to as "Finding Details page" henceforth). To do this, you need to click the View More Details button on the Finding Details tab of the Finding Details drawer.
-
-See image.
-
-The Finding Details page provides extensive information about the finding and also mirrors the tabbed interface for finding details, impacted assets, and tickets as seen in the Finding Details drawer. The Finding Details drawer is essentially a limited version of the Finding Details page and allows you to easily switch between different findings to view their details from the list view. On the other hand, the Finding Details page is more useful when analyzing a specific finding, and you need to access the complete data available for the finding. When you are on the Finding Details page, you can go back to the findings list view to access details of other findings.
-
-See image.
-
-The next sections cover all the finding details that are available, following the presentation layout and the comprehensive information tracked on the Finding Details page. On the Finding Details page (Insights > [Finding] > Finding Details > View More Details), the finding name is displayed at the top along with the finding's overview, details, and impacted assets.
-
-Some of the following documented fields are only available on the Finding Details page and are not present in the Finding Details drawer. Additionally, the organization of the content differs between the two views.
-
-## Finding Overview
-
-This section contains high-level information about the finding to help users get a baseline of the finding at a glance. This section includes:
-
-- **Category/Type**: The classification of the finding as **Exposure**, **Vulnerability**, or **Misconfiguration**, which provides context about the finding instantly. Each category of findings is uniquely processed and has slightly varying information presented for the findings within that category based on relevance. For example, the NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are all most relevant to vulnerability findings rather than exposures or misconfigurations.
-- **Risk Level**: The risk level quantifies the amount of risk associated with a finding, and it is derived from the risk score computed for the finding. The risk level ranges from **Low**, **Medium**, **High**, and **Critical**. Risk levels help you with instant information about prioritizing business-critical findings. For example, a critical or high risk level indicates that the finding poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk. A medium risk level might indicate that the issue needs to be resolved to improve your security defenses but might have a lower priority compared to serious risks.
-- **Impacted Asset**: The asset impacted by the risk finding. Assets and findings can have many-to-many relationships (i.e., one finding can impact multiple assets and an asset can have multiple findings), and the complete list of assets impacted by the finding is listed under the **Other Impacted Assets** tab along with the count of assets displayed in the tab name.
-- **First Seen**: The timestamp of when the finding was first detected during scanning, adding more context to understanding the interaction with the finding.
-- **Last Seen**: The timestamp when the finding was last detected during scanning, adding more context to understanding the interaction with the finding.
-- **Finding Age**: The number of days elapsed since the first encounter with the finding until it was last seen, indicating how long the finding has been present in your asset infrastructure.
-- **Status**: Indicates the current stage in which the finding is present from discovery to closure. You can modify the status of the finding using the drop-down menu. List of Available Statuses
-
-See image.
-
-## Finding Details
-
-On the Details tab, you can find crucial information about the finding that provides more context about the finding to help you understand and analyze the finding more in depth. This section includes:
-
-- **Finding Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open source intelligence (OSINT) on vulnerability risk computation and Zscaler's proprietary risk computation techniques. The risk score is a numerical value ranging from 1 to 100. The risk score is shown in a half donut chart with the risk score and risk level presented at the center and an indicator used to point towards the color-coded risk score meter in the donut chart.
-- **Scan Type**: The scanning service that was used to uncover the risk. The available scan types are **Web**, **Network**, **Certificate**, and **DNS** scans. For example, domain expiration is likely to be detected in a DNS scan, SSL/TLS outdated version might be detected in a web scan, and a CVE vulnerability might be detected in a web, DNS, or network scan.
-- **NVD CVSS Severity**: The Common Vulnerability Scoring System (CVSS) score that indicates the qualitative measure of severity of a vulnerability using a numerical value ranging from 1 to 10, if applicable.
-- **CISA KEV Likelihood**: Indicates whether a vulnerability is listed in the [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) using a Boolean value, if applicable.
-- **EPSS Likelihood**: The Exploit Prediction Scoring System (EPSS) likelihood indicates the probability that a vulnerability can be exploited in the wild, if applicable. The value is represented in a percentage.
-- **Description**: A detailed description of the finding gathered from an open-source intelligence, such as [National Vulnerability Database (NVD)](https://nvd.nist.gov/), and Zscaler's research team.
-- **[Scan Output]**: This section contains the complete output of the scan that was used to identify the finding. This section is labeled differently for assets depending on their type and the corresponding scan performed (e.g., HTTP Response, Nmap Response, and Certificate Response).
-- **Matched Evidence**: This section contains specific portions of the scan results that attest to the finding. This information provides attestation of detected findings and enables organizations to self-validate their findings using the investigative trail provided.
-
-See image.
-
-Specific finding details, such as NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are only applicable to vulnerability findings which group Common Vulnerabilities and Exposures (CVE). CVE is a list of publicly disclosed vulnerabilities maintained by MITRE.
-
-## Impacted Assets
-
-On the **Other Impacted Assets** tab, you can access the list of all assets that are impacted by the risk, excluding the asset that's already displayed in the Overview section. This section provides visibility into how widely the risk is spread within your asset infrastructure by aggregating the risk impact. The assets are tabulated, and the following information is available for each asset.
-
-Available Fields
-
-The number of assets that are impacted by the risk is included in the tab name. You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
-
-See image.
-
-## Tickets
-
-This tab is available if [Jira integration is enabled](https://help.zscaler.com/easm/configuring-jira-integration) for the organization with the finding is associated. On this tab, you can create and view Jira tickets for this finding. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee.
-
-Jira ticket creation in EASM and ticket synchronization between Jira and EASM requires an active connection established between your Jira instance and EASM organization through a valid personal access token retrieved from Jira.
-
-To add a new ticket, click **Create**, provide the required information, and submit the details. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). After the ticket is created, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files. The Jira ticket ID and status are reflected in EASM immediately along with other information submitted. The ticket record details automatically synchronize between Jira and EASM.
-
-See image.
-
-- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label, Not Verified.
-- **Verified**: Risk findings are investigated manually and are verified to be present (e.g., verifying an open port flagged on a host).
-- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
-- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is planned to be moved behind Zscaler Private Access (ZPA) as a resolution, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as Not Verified.
-- **Disputed**: If the manual verification of the finding turns out different from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
-
-See image.
-
-The Insights Overview dashboard presents data on findings that are in Not Verified and Verified statuses to highlight risks that need to be addressed to eliminate threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are not presented in the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination. To learn more, see [Modifying Finding Status](https://help.zscaler.com/easm/modifying-finding-status).
-
-- **Name**: The name of the asset.
-- **Risk Level**: The risk level assigned to the asset.
-- **Scan Type**: The type of scan through which the asset was discovered, such as Web, DNS, or Network type scans.
-- **Status**: The [status](https://help.zscaler.com/easm/changing-asset-status) of the asset from Approved, Candidate, or Archived.
-- **First Seen**: The timestamp when the finding was first detected in the asset.
-- **Last Seen**: The timestamp when the finding was last observed in the asset.
-
-You can access detailed information about each asset from the Assets page. To learn more, see [Understanding Asset Details](https://help.zscaler.com/easm/understanding-asset-details).
-
-[Image: Accessing finding details page from list view in EASM]
-
-[Image: Navigating to findings list view from details page in the EASM Admin Portal]
-
-[Image: Finding overview section in EASM showing basic information about the finding]
-
-[Image: Finding status drop-down menu in the finding details page in EASM Admin Portal]
-
-[Image: Finding details tab in EASM Admin Portal showing key information about the finding]
-
-[Image: List of assets impacted by a finding shown in the EASM Admin Portal]
-
-[Image: Creating and linking Jira ticket with EASM finding from the EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-lookalike-domain-details","lastmod":"2024-11-29T06:06Z","nid":"1508146"} -->
-## Understanding Lookalike Domain Details
-
-- Source: https://help.zscaler.com/easm/understanding-lookalike-domain-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Understanding Lookalike Domain Details
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on lookalike or phishing domains along with their details populated in EASM which can be analyzed for enforcing threat mitigation controls.
-
-The lookalike domains that are detected for your seed domains are investigated and cataloged on the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains) (Insights > Lookalike Domains). This page provides a customizable, tabulated list where you can click each domain entry to access more detailed information and take specific actions. The lookalike domain details consist of contextual information, helping you understand key aspects, such as the original domain forged by the lookalike domain, domain registration details, risk category and risk score, deception tactics used in the domain name, domain detection timeline, and status.
-
-To view comprehensive information about a lookalike domain, click on an entry in the table. A right-side drawer referred to as the Lookalike Domain Details drawer opens. In this drawer, you can access the following information about the lookalike domain:
-
-- **Original Domain**: The legitimate domain mimicked by the lookalike domain.
-- **Lookalike Domain Annotation**: A label for the lookalike domain.
-- **Risk Category**: The risk categorization of the lookalike domain. Available Risk Categories
-- **Risk Score**: A risk score assigned for the lookalike domain.
-- **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc.
-- **Lookalike Domain Registrar**: The internet company that was used to register the domain, if available. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
-- **Lookalike Domain Registered**: Indicates whether the domain is registered with a registrar or not.
-- **Lookalike Registrant Organization**: An individual or entity that owns the registered domain, if available.
-- **Lookalike Registration Expiration**: The domain registration expiration date, if available.
-- **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
-- **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
-- **Status**: The status assigned to the lookalike domain entry from Not Verified, Verified, Risk Accepted, Resolved, and Disputed. You can modify the status using the drop-down menu as needed. Available Statuses
-- **Description**: A description of the lookalike domain, why it is suspicious, and the deception tactics used.
-
-See image.
-
-- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
-- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
-- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
-
-- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
-- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
-- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watch list.
-- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
-- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
-
-See image.
-
-[Image: Lookalike domain details page showing key information in the EASM Admin Portal]
-
-[Image: Lookalike domain status change in the EASM Admin Portal]
 <!-- /ZS-ARTICLE -->

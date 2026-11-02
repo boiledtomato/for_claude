@@ -1,819 +1,18 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 112
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 110
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-29T03:07Z","nid":"1399921"} -->
-## Modifying the Predefined DNS Control Rules
-
-- Source: https://help.zscaler.com/zia/modifying-predefined-dns-control-rules
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Modifying the Predefined DNS Control Rules
-- Last modified: 2026-09-29T03:07Z
-- Summary: How to modify the default DNS Control rules in the Zscaler Admin Console.
-
-The DNS Control policy has predefined rules based on best practice recommendations to manage specific types of traffic. These rules can be used readily by an organization to protect its traffic against specific threats. Depending on the rule functionality and the severity of threats against which they offer protection, some rules are highly restrictive and do not support customization for rule conditions and actions, whereas others allow for greater flexibility, including rule deletion. Similarly, certain rules contain system-defined Rule Order (i.e., default Rule Order), which cannot be modified by admins. These rules with default Rule Order always maintain the lowest precedence.
-
-- Predefined DNS rules can be enabled or disabled based on your organization's requirements. However, these rules cannot be deleted unless specified otherwise.
-- In the event of false positives triggered by predefined DNS rules, you can either create custom rules using higher ranks or disable the rule that's causing the false positives.
-
-## Predefined DNS Control Rules
-
-The Zscaler service provides a set of predefined rules for managing your DNS traffic.
-
-List of Predefined DNS Control Rules
-
-## Modifying a Predefined DNS Control Rule
-
-To modify a predefined DNS rule:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**.
-2. Click the **Edit** icon for the rule you want to modify. The **Edit Rule** page appears.
-3. On the**Edit Rule** page, you can modify the rule attributes, criteria, and actions that are available to edit for the selected predefined rule:
-  - Unknown DNS Traffic
-  - Default Firewall DNS Rule
-  - Fallback ZPA Resolver for Locations
-  - Fallback ZPA Resolver for Road Warrior
-  - Critical Risk DNS Categories
-  - Critical Risk DNS Tunnels
-  - High-Risk DNS Categories
-  - High-Risk DNS Tunnels
-  - Risky DNS Categories
-  - Risky DNS Tunnels
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-The following table provides the list of predefined DNS rules along with their description.
-
-| Rule Name | Description |
-| --- | --- |
-| Unknown DNS Traffic | The Unknown DNS Traffic rule is predefined to take action on suspected malformed traffic, non-standard DNS traffic, or even non-DNS traffic attempting to conceal itself as DNS traffic (not otherwise identified as another application). Zscaler recommends blocking the traffic matching this rule. |
-| Default Firewall DNS Rule | The Default Firewall DNS Rule is predefined to manage all the DNS traffic that is not specifically defined and actioned in the higher-ranked, user-defined rules. Zscaler recommends blocking the traffic matching the rule, but only if the permitted DNS traffic is defined in a higher-ranked rule. If a higher-ranked allow rule is not defined, then many applications fail as DNS is essential for their operation. |
-| Fallback ZPA Resolver for Locations | The Fallback ZPA Resolver for Locations rule is predefined to redirect source IP anchored traffic from location users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
-| Fallback ZPA Resolver for Road Warrior | The Fallback ZPA Resolver for Road Warrior rule is predefined to redirect source IP anchored traffic of remote users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
-| Critical Risk DNS Categories | The Critical Risk DNS Categories rule is predefined to block DNS traffic with the highest security risks in DNS request and response categories that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. It blocks traffic that matches known or suspected critical security threats in DNS requests and responses, such as malicious IP addresses and FQDNs, Domain Generation Algorithm (DGA) domains, and other advanced security threats. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
-| Critical Risk DNS Tunnels | The Critical Risk DNS Tunnels rule is predefined to block DNS tunnels with the highest security risks (e.g., commonly blocked DNS tunnels) that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
-| High-Risk DNS Categories | The High-Risk DNS Categories rule is predefined to block DNS traffic with high security risks to an organization's network. It blocks DNS traffic that matches newly registered and observed domains, newly revived domains, and other similar security threats in DNS requests and responses. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
-| High-Risk DNS Tunnels | The High-Risk DNS Tunnels rule is predefined to block DNS tunnels with high security risks (e.g., unknown DNS tunnels) to an organization's network. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
-| Risky DNS Categories | The Risky DNS Categories rule is recommended and predefined to block common DNS security threats to an organization's network. It blocks traffic that matches risky categories in DNS requests and responses, including content representing abuse or exploitative behavior, adult material, militancy/hate and extremism, violence, malicious content, etc. Blocking these categories is recommended, but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Categories rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
-| Risky DNS Tunnels | The Risky DNS Tunnels rule is recommended and predefined to block DNS tunnels that are common security threats to an organization's network. Blocking these tunnels is recommended but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Tunnels rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
-
-The **Notification** option appears only when you select **Block** for **Network Traffic**.
-
-1. Select a **Rule Label** for the rule.
-2. Select an action for the **Network Traffic**field:
-  - **Allow**: Allows the DNS requests and responses.
-  - **Block**: Silently blocks all DNS requests and responses.
-3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
-
-The **Notification** option appears only when you select **Block** for **Network Traffic**.
-
-1. Select a **Rule Label** for the rule.
-2. Select an action for the **Network Traffic**field:
-  - **Allow**: Allows the DNS requests and responses.
-  - **Block**: Silently blocks all DNS requests and responses.
-3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
-
-Choose the **Rule Label** for the rule.
-
-Choose the **Rule Label** for the rule.
-
-1. Configure the rule attributes listed as follows:
-  - Modify the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-  - Modify the **Rule Status** to enable or disable the rule.
-  - Configure the **Rule Label**.
-2. View the rule criteria (read-only) information in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
-  - **Request Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
-  - **Response Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
-3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Network Traffic**: (Non-modifiable) **Block** is selected.
-  - **Logging**: (Non-modifiable) **Full Logging** is configured.
-  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-
-1. Configure the rule attributes listed as follows:
-  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-  - Change the **Rule Status** to enable or disable the rule.
-  - Configure the **Rule Label**.
-2. View the rule criteria information (read-only) in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
-  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Commonly Blocked DNS Tunnels** category by Zscaler are selected.
-3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Network Traffic**: (Non-modifiable) **Block** is selected.
-  - **Logging**: (Non-modifiable) **Full Logging** is configured.
-  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-
-1. Configure the rule attributes listed as follows:
-  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-  - Change the **Rule Status** to enable or disable the rule.
-  - Configure the **Rule Label**.
-2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
-  - **Request Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
-  - **Response Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
-3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Network Traffic**: (Non-modifiable) **Block** is selected.
-  - **Logging**: (Non-modifiable) **Full Logging** is configured.
-  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-
-1. Configure the rule attributes listed as follows:
-  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
-  - Change the **Rule Status** to enable or disable the rule.
-  - Configure the **Rule Label**.
-2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
-  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Unknown DNS Tunnels** category by Zscaler are selected.
-3. View the rule action details and configure the Traffic Capture option as follows:
-  - **Network Traffic**: (Non-modifiable) **Block** is selected.
-  - **Logging**: (Non-modifiable) **Full Logging** is configured.
-  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
-4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
-  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
-
-You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-
-The rule cannot have different sets of URL categories selected under **Request Categories** and **Response Categories**. However, you can have only one of the two conditions configured for the rule by clearing the selection for the other condition.
-
-You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-network-services","lastmod":"2026-10-05T21:06Z","nid":"1399961"} -->
-## Modifying Predefined Network Services
-
-- Source: https://help.zscaler.com/zia/modifying-predefined-network-services
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Modifying Predefined Network Services
-- Last modified: 2026-10-05T21:06Z
-- Summary: How to modify the ports of a predefined network service in the Zscaler Admin Console.
-
-Zscaler provides more than 50 predefined [network services](https://help.zscaler.com/zia/about-network-services), including the typical TCP and UDP source and destination ports on which these services operate. You can customize the ports assigned to these predefined services by adding new ports, as well as modifying or deleting existing ones.
-
-The following predefined network services are view-only and cannot be modified: ESP, GRE, ICMP, TCP, UDP, and Zscaler Proxy Network Services (includes all Zscaler-specific web proxy ports including customer-specific Dedicated Proxy Ports).
-
-To modify the ports of a predefined network service:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
-2. Locate the predefined network service you want to modify and click the **Edit** icon displayed for the service. The **Edit Network Service** drawer appears.
-3. In the **Edit Network Service** drawer, you can modify: See image.
-  - **Description**: Additional notes or information about the network service.
-  - **TCP Ports**: TCP source and destination ports used by the network service.
-  - **UDP Ports**: UDP source and destination ports used by the network service.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-Similarly, you can edit custom network services and modify their port assignments.
-
-[Image: Edit a network service by modifying the description and the ports]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-10-21T13:20Z","nid":"1401731"} -->
-## Modifying a Zscaler Incident Receiver
-
-- Source: https://help.zscaler.com/zia/modifying-zscaler-incident-receiver
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
-- Last modified: 2026-10-21T13:20Z
-- Summary: How to edit a Zscaler Incident Receiver, including how to delete the incident receiver and download or regenerate the certificate.
-
-To edit or delete a Zscaler Incident Receiver:
-
-1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**
-2. Select the **Zscaler Incident Receiver** tab.
-3. Locate the Zscaler Incident Receiver in the table and click **Edit**.
-
-The **Edit Zscaler Incident Receiver** window appears.
-
-1. In the **Edit Zscaler Incident Receiver** window:
-  - **Name**: Change the Incident Receiver Name.
-  - **Status**: Change the status to **Enabled** or **Disabled**.
-  - **Server URI**: Change the Incident Receiver URI. If you change the URI, make sure you update the Incident Receiver virtual machine (VM). To learn more, see [Configuring the Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
-  - **Certificate**: Download or regenerate the certificate. If you regenerate the certificate, make sure you update the Incident Receiver VM with the new file. To learn more, see [Configuring the Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
-
-If you want to remove the Incident Receiver, click **Delete**.
-
-See image.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: The Edit Zscaler Incident Receiver window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-or-blocking-outbound-content-data-size","lastmod":"2026-10-22T08:22Z","nid":"1400001"} -->
-## Monitoring or Blocking Outbound Content by Data Size
-
-- Source: https://help.zscaler.com/zia/monitoring-or-blocking-outbound-content-data-size
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Monitoring or Blocking Outbound Content by Data Size
-- Last modified: 2026-10-22T08:22Z
-- Summary: How to create a Data Loss Prevention (DLP) policy to monitor or block outbound content by file size using the Zscaler service.
-
-You might want to leverage Zscaler's Data Loss Prevention (DLP) policy to monitor or block specific types of outbound content by file size, without scanning for specific files within the content. For example, you could block outbound image files (such as GIF or JPEG). In Internet Access > Policy > File Type Control, you can set the policy to block image files.
-
-For this scenario, you can leverage the Rule Without Content Inspection policy option. When configuring the policy, you can specify the criteria Zscaler uses for monitoring or blocking content, but refrain from specifying an ICAP server. Zscaler monitors or blocks outbound content based on the criteria you specify, but does not send content to any external DLP engines. The following illustration details the process that takes place when you configure DLP policies for this scenario:
-
-[Image: Diagram showing the process that takes place when you configure DLP policies for the External DLP Engine policy option]
-
-To configure rules for this scenario:
-
-1. [Configure your DLP notification templates.](https://help.zscaler.com/zia/configuring-dlp-notification-templates) When configured, email notifications are sent to your organization's auditor when DLP rules are applied to users' content.
-2. [Define your DLP policy rule without content inspection.](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection#Add)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-04T23:21Z","nid":"1398876"} -->
-## Monitoring Virtual Service Edge Clusters for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-10-04T23:21Z
-- Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
-
-If you configure a GRE tunnel or Layer 2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the Management Information Base (MIB) files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
-
-You can use a management system that supports SNMPv3 to monitor a Virtual Service Edge cluster. Virtual Service Edge clusters include an SNMP agent that collects data and stores them as objects in MIBs. To learn more about accessing Zscaler SNMP MIBs, see [Accessing the Zscaler SNMP MIBs](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs). You can query the objects in the MIBs to retrieve information about the Virtual Service Edge. The SNMP agent can also send traps (or notifications) to alert you when certain events occur on the network or in the Virtual Service Edge.
-
-## Enabling SNMP for Virtual Service Edge
-
-To enable SNMP for Virtual Service Edge:
-
-1. Edit the `rc.conf` file: vi /etc/rc.conf
-2. Set the following setting to `YES`: snmpd_enable="YES"By default, this entry is set to `NO`.
-3. Ensure that the path of the `snmp.conf` file is as follows: snmpd_conffile="/usr/local/etc/snmpd.conf"
-4. Save the `rc.conf` file.
-5. Start the SNMP agent daemon (snmpd) service: service snmpd start
-6. Restart the Virtual Service Edge: sudo vzen restart
-
-## Zscaler-Recommended MIBs for Monitoring Virtual Service Edges
-
-The following are the Zscaler-recommended MIB objects for monitoring Virtual Service Edges:
-
-| VSE-MIB ( .1.3.6.1.4.1.46262) |  |
-| --- | --- |
-| Object | Description |
-| VSE-MIB::vseName ( .1.3.6.1.4.1.46262.9.2) | The name of the Virtual Service Edge. |
-| VSE-MIB::ca_connectivity (.1.3.6.1.4.1.46262.9.2.1.5) | The Virtual Service Edge connection to Zscaler Central Authority (CA). It's set to 3 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler Central Authority (CA) if one of the following values is returned: 0: Virtual Service Edge is not authenticated; 1: Virtual Service Edge authentication is bypassed; 2: Virtual Service Edge authentication is bypassed with probe; 4: Virtual Service Edge is down |
-| VSE-MIB::smsm_connectivity (.1.3.6.1.4.1.46262.9.2.1.6) | The Virtual Service Edge connection to Zscaler log and reporting infrastructure. It's set to 4 or 5 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler log and reporting infrastructure if one of the following values is returned: 2: Initiated logging server connection; 3: Waiting for the logging server to connect to Virtual Service Edge; 6: Closing logging server connection; 7: Closed logging server connection |
-| VSE-MIB::cpu_percentage (.1.3.6.1.4.1.46262.4.2.1.12.1) | The CPU usage percentage. It's in integer values (e.g., 5,000); divide the integer value by 100 to get a percentage value (e.g., 5,000/100 = 50%). A CPU usage percentage less than 90% is acceptable. If the CPU usage percentage is more than 90%, an alert must be triggered. |
-| VSE-MIB::swapinfo (.1.3.6.1.4.1.46262.6.2.1.11) | The swap memory usage percentage. It's in integer values (e.g., 3,500); divide the integer value by 100 to get a percentage value (e.g., 3,500/100 = 35%). A swap memory usage percentage of less than 50% is acceptable. If the swap memory usage percentage is more than 50%, an alert must be triggered. |
-
-The following Object Identifiers (OIDs) generate SNMP alert traps by default:
-
-- Process Monitoring – UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2)
-- Disk Monitoring – UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9)
-- System Load – UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10)
-- Interface Events – IF-MIB::linkDown (.1.3.6.1.6.3.1.1.5.3) and IF-MIB::linkUp (.1.3.6.1.6.3.1.1.5.4)
-
-## SNMP MIB Objects
-
-The following are the MIB objects that can be queried to retrieve information about the Virtual Service Edge cluster. To learn more about the objects, refer to the [NET-SNMP documentation](http://www.net-snmp.org/docs/mibs/ucdavis.html).
-
-| UCD-SNMP-MIB (.1.3.6.1.4.1.2021) |  |
-| --- | --- |
-| Object | Description |
-| UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2) | A table containing information on running programs/daemons configured for monitoring in the snmpd.conf file of the agent. Processes violating the number of running processes required by the agent's configuration file are flagged with numerical and textual errors. |
-| UCD-SNMP-MIB::prNames | The process name you're counting or checking on. |
-| UCD-SNMP-MIB::prCount | The number of current processes running with the name in question. |
-| UCD-SNMP-MIB::prErrorFlag | An error flag to indicate trouble with a process. It goes to 1 if there is an error, 0 if there is no error. |
-| UCD-SNMP-MIB::prErrMessage | An error message describing the problem (if one exists). |
-| UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9) | Disk-watching information. Partitions to be watched are configured by the snmpd.conf file of the agent. |
-| UCD-SNMP-MIB::dskPath | Path where the disk is mounted. |
-| UCD-SNMP-MIB::dskDevice | Path of the device for the partition. |
-| UCD-SNMP-MIB::dskMinPercent | Percentage of minimum space required on the disk before the errors are triggered. |
-| UCD-SNMP-MIB::dskTotal | Total size of the disk or partition (kBytes). For large disks (>2Tb), this value latches at INT32_MAX (2147483647). |
-| UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
-| UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10) | Load average information. |
-| UCD-SNMP-MIB::laLoad | The 1-, 5-, and 15-minute load averages (one per row). |
-| UCD-SNMP-MIB::laErrorFlag | An error flag to indicate that the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 if not. |
-| UCD-SNMP-MIB::laErrMessage | An error message describing the load average and its surpassed watch-point value. |
-| UCD-SNMP-MIB::systemStats (.1.3.6.1.4.1.2021.11) | System statistics. |
-| UCD-SNMP-MIB::memory (.1.3.6.1.4.1.2021.4) | Memory-related information. |
-
-| IF-MIB (.1.3.6.1) |  |
-| --- | --- |
-| Object | Description |
-| IF-MIB::interfaces (.1.3.6.1.2.1.2) | Information about the interfaces. |
-| IF-MIB::ifNumber (.1.3.6.1.2.1.2.1) | The number of network interfaces (regardless of their current state) present on this system. |
-| IF-MIB::ifTable - (.1.3.6.1.2.1.2.2) | A list of interface entries. The number of entries is given by the value of ifNumber. |
-| IF-MIB::ifDescr | A textual string containing information about the interface. This string should include the name of the manufacturer, the product name, and the version of the interface hardware or software. |
-| IF-MIB::ifType | The type of interface. Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention. |
-| IF-MIB::ifMtu | The size of the largest packet that can be sent or received on the interface, specified in octets. |
-| IF-MIB::ifPhysAddress | The interface's address at its protocol sublayer. For example, for an 802.x interface, this object normally contains a MAC address. The interface's media-specific MIB must define the bit and byte ordering and the format of the value of this object. |
-| IF-MIB::ifAdminStatus | The desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per-configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state). |
-| IF-MIB::ifOperStatus | The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If ifAdminStatus is down(2), then ifOperStatus should be down(2). If ifAdminStatus is changed to up(1), then ifOperStatus changes to up(1) if the interface is ready to transmit and receive network traffic. It changes to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection). It remains in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state. It remains in the notPresent(6) state if the interface has missing (typically, hardware) components. |
-| IF-MIB::ifInOctets | The total number of octets received on the interface, including framing characters. |
-| IF-MIB::ifInUcastPkts | The number of packets, delivered by this sublayer to a higher sublayer, which were not addressed to a multicast or broadcast address at this sublayer. |
-| IF-MIB::ifOutOctets | The total number of octets transmitted out of the interface, including framing characters. |
-| IF-MIB::ifOutUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
-| IF-MIB::ifOutNUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
-| IF-MIB::ifPromiscuousMode | This object has a value of false(2) if this interface only accepts packets/frames that are addressed to this station. This object has a value of true(1) if the station accepts all packets or frames transmitted on the media. |
-| IF-MIB::linkDown  (.1.3.6.1.6.3.1.1.5.3) | The interface link is down. |
-| IF-MIB::linkUp  (.1.3.6.1.6.3.1.1.5.4) | The interface link is up. |
-
-| HOST-RESOURCES-MIB (.1.3.6.1.2.1.25) |  |
-| --- | --- |
-| Object | Description |
-| HOST-RESOURCES-MIB::hrSystem (.1.3.6.1.2.1.25.1) | Information about the host. |
-| HOST-RESOURCES-MIB::hrSystemUptime | The amount of time since this host was last initialized. |
-| HOST-RESOURCES-MIB::hrSystemDate | The host's notion of the local date and time of day. |
-| HOST-RESOURCES-MIB::hrSystemProcesses | The number of process contexts currently loaded or running on this system. |
-| HOST-RESOURCES-MIB::hrSystemMaxProcesses | The number of processes that the system can support. The maximum number of process contexts this system can support. If there is no fixed maximum, the value should be zero. On systems that have a fixed maximum, this object can help diagnose failures that occur when this maximum is reached. |
-| HOST-RESOURCES-MIB::hrStorage (.1.3.6.1.2.1.25.2) | Information about the storage areas of the host. |
-| HOST-RESOURCES-MIB::hrStorageType | The type of storage represented by this entry. |
-| HOST-RESOURCES-MIB::hrStorageDescr | A description of the type and instance of the storage described by this entry. |
-| HOST-RESOURCES-MIB::hrStorageSize | The size of the storage represented by this entry, in units of hrStorageAllocationUnits. |
-| HOST-RESOURCES-MIB::hrStorageUsed | The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits. |
-| HOST-RESOURCES-MIB::hrStorageAllocationUnits | The size, in bytes, of the data objects allocated from this pool. If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number is commonly greater than one. Otherwise, this number is typically one. |
-
-| SNMPv2-MIB::system (.1.3.6.1.2.1.1) |  |
-| --- | --- |
-| Object | Description |
-| SNMPv2-MIB::sysContact | The textual identification of the contact person for this managed node, together with information on how to contact this person. If no contact information is known, the value is the zero-length string. |
-| SNMPv2-MIB::sysName | An administratively assigned name for this managed node. By convention, this is the node's FQDN. If the name is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysLocation | The physical location of this node (e.g., "telephone closet, 3rd floor"). If the location is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysServices | A value that indicates the set of services that this entity may potentially offer. The value is a sum. This sum initially takes the value 0. Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node that performs only routing functions has a value of 4 (2^(3-1)). In contrast, a node that is a host offering application services has a value of 72 (2^(4-1) + 2^(7-1)). In the context of the internet suite of protocols, values should be calculated accordingly: **Layer** **Functionality** 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., supports IP) 4 end-to-end (e.g., supports TCP) 7 applications (e.g., supports SMTP) For systems including OSI protocols, Layers 5 and 6 can also be counted. |
-| SNMPv2-MIB::snmpEnableAuthenTraps | Indicates whether the SNMP entity is permitted to generate authenticationFailure traps. The value of this object overrides any configuration information; as such, it provides a means whereby you can disable all authenticationFailure traps. |
-| SNMPv2-MIB::snmpInPkts | The total number of messages delivered to the SNMP entity from the transport service. |
-| SNMPv2-MIB::snmpOutPkts | The total number of SNMP messages that were passed from the SNMP protocol entity to the transport service. |
-| SNMPv2-MIB::snmpInGetRequests | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has accepted and processed. |
-| SNMPv2-MIB::snmpOutGetResponses | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has generated. |
-| SNMPv2-MIB::snmpOutTraps | The total number of SNMP Trap PDUs that the SNMP protocol entity has generated. |
-
-| TCP-MIB (.1.3.6.1.2.1.6) |  |
-| --- | --- |
-| Object | Description |
-| TCP-MIB::tcpActiveOpens | The number of times that TCP connections have made a direct transition to the SYN-SENT state from the CLOSED state. |
-| TCP-MIB::tcpPassiveOpens | The number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state. |
-| TCP-MIB::tcpCurrEstab | The number of TCP connections for which the current state is either ESTABLISHED or CLOSE-WAIT. |
-| TCP-MIB::tcpConnectionTable | A table containing information about existing TCP connections. |
-| TCP-MIB::tcpListenerTable | A table containing information about TCP listeners. A listening application can be represented in three possible ways: An application that is willing to accept both IPv4 and IPv6 datagrams is represented by a tcpListenerLocalAddressType of unknown (0) and a tcpListenerLocalAddress of ''h (a zero-length octet-string).; An application that is willing to accept only IPv4 or IPv6 datagrams is represented by a tcpListenerLocalAddressType of the appropriate address type and a tcpListenerLocalAddress of '0.0.0.0' or '::' respectively.; An application that is listening for data destined only to a specific IP address, but from any remote system, is represented by a tcpListenerLocalAddressType of an appropriate address type, with tcpListenerLocalAddress as the specific local address.The address type in this table represents the address type used for the communication, irrespective of the higher-layer abstraction. For example, an application using IPv6 sockets to communicate via IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use InetAddressType ipv4(1))." |
-
-## Virtual Service Edge Traps
-
-The Virtual Service Edge SNMP agent generates traps when the following events occur:
-
-### Process Monitoring
-
-- The snmpd restarts
-- The SME goes down and the link to the Zscaler cloud becomes inactive
-- The number of mountd processes is more than 1
-- The number of ntalkd processes goes out of range (0–4)
-- The number of sendmail processes goes out of range (1–10)
-
-### Disk Monitoring
-
-- The root partition has less than 10 MBs of space
-- Any of the other partitions have less than 10% space
-
-### System Load
-
-- The load average crosses the threshold: 3 for 1 minute, 2 for 5 minutes, 1 for 15 minutes
-- CPU usage goes beyond 90%
-
-### Interface events
-
-The link goes down or comes up
-
-## Virtual Service Edge Health Monitoring
-
-The Zscaler service performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Virtual Service Edge in order to monitor the health of the instance and ensure that traffic is distributed appropriately. If you want to perform this monitoring yourself, you can enable an HTTP server on a Virtual Service Edge by implementing the following commands:
-
-1. Go to the /sc/sme/conf folder: cd /sc/sme/conf
-2. Create a custom configuration file (e.g., vzen_custom.conf): touch vzen_custom.conf
-3. Edit the vzen_custom.conf file: vi vzen_custom.conf
-4. Enter the following port in the vzen_custom.conf file and save: [SME] serv_port=3128 [-end-of-SME-]
-5. Ensure that the entries are saved in the vzen_custom.conf file: cat vzen_custom.conf
-6. Restart the SME instance: /sc/update/vzen stop sme /sc/update/vzen start sme
-7. Ensure that the SME is running: vzen statusYou can check whether the Virtual Service Edge is listening to port 3128 using the following command: ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet="netstat" | grep LISTEN | grep 3128
-8. Enter the following command prompt: curl -v http://<Virtual Service Edge IP>:3128/index.html?=100The number 100 represents the size of the response sent back to the client making the cURL request. Therefore, if the monitoring tool makes a request to the URL http://<Virtual Service Edge IP>:3128/index.html?=100, the Virtual Service Edge responds with a 200 OK and a payload size of 100 bytes.
-
-After the commands have been applied, you can use the LB to fetch the page and investigate the availability of a particular Virtual Service Edge. This does not include ICMP monitoring.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-for-euns","lastmod":"2026-09-16T03:53Z","nid":"1399646"} -->
-## Multiple Language Support for EUNs
-
-- Source: https://help.zscaler.com/zia/multiple-language-support-for-euns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Global Configuration > Multiple Language Support for EUNs
-- Last modified: 2026-09-16T03:53Z
-- Summary: Information about the languages that are supported in the end-user notifications and how users can change the language.
-
-The Zscaler service supports the following languages for [end user notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) (EUNs):
-
-- English
-- Simplified Chinese
-- Traditional Chinese
-- Dutch
-- French
-- German
-- Japanese
-- Brazilian Portuguese
-- European Portuguese
-- Russian
-- Spanish
-- Spanish (Latin America)
-- Italian
-- Indonesian
-- Korean
-- Turkish
-- Thai
-- Vietnamese
-
-To have users view EUNs in one of these languages, ensure that the language setting in your users' browser is set to that language. TheZscaler service automatically detects the browser language setting and displays EUNs in that language. See the browser documentation for instructions on changing the language setting of that browser. If you configure your browser to display a language the service doesn't support, the service displays the EUNs in English.
-
-If you redirect users to an external site that hosts EUNs, keep in mind that those pages are global for the entire organization. Therefore, to enable your non-English speaking users to view EUNs in a specific language, ensure that your external site has browser language detection enabled.
-
-The Zscaler service only displays the Authentication dialog box in English. When configuring the [Acceptable Use Policy](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) notification, you can create a message containing multiple languages, because it's a free-form text field. However, a browser language check won't take place.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-zscaler-client-connector-based-euns","lastmod":"2026-08-25T09:11Z","nid":"1505071"} -->
-## Multiple Language Support for Zscaler Client Connector-Based EUNs
-
-- Source: https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Multiple Language Support for Zscaler Client Connector-Based EUNs
-- Last modified: 2026-08-25T09:11Z
-- Summary: Information about the languages that are supported in the Zscaler Client Connector-based end user notifications.
-
-Zscaler Client Connector supports the following languages for [end user notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications) (EUNs):
-
-- English
-- Chinese (Traditional)
-- French
-- German
-- Japanese
-- Spanish
-
-The EUN language is based on the OS language setting in your system. The Zscaler Client Connector automatically detects your system's OS language and displays EUNs in that language. If your system's OS language is different from the EUN supported languages, Zscaler Client Connector displays EUNs in English, by default.
-
-Only the default messages are translated to all the languages that the Zscaler Client Connector supports. You can modify the default messages per language. Modifying the message in a specific language does not impact the respective message in other languages. Zscaler Client Connector does not automatically translate customized messages.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-07-31T11:33Z","nid":"1463366"} -->
-## NSS Collector Deployment Guide for VMware vSphere
-
-- Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
-- Last modified: 2026-07-31T11:33Z
-- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
-
-The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report). To enable this feature for your organization, contact Zscaler Support.
-
-This guide describes the tasks required to deploy [Nanolog Streaming Service (NSS) Collector](https://help.zscaler.com/zia/about-nss-collector-servers) to collect logs in real time from third-party security devices inside your network perimeter and stream them to the Zscaler cloud. Each step in the guide links you to the appropriate article for that configuration task on vSphere.
-
-## Prerequisites
-
-Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to NSS Collector and review the following specifications and requirements:
-
-- VM Specs
-- Host Specs
-- Network Specs
-- Firewall Requirements
-- User Provisioning
-
-## Deploying NSS Collector
-
-To deploy NSS Collector:
-
-- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate
-- Step 2: Use the ESX/ESXi Server to Configure and Start the NSS Collector on the VM Instance
-- Step 3: Configure Third-Party syslog Feed for NSS Collector
-
-- 2 CPU cores: NSS Collector uses one core for the control plane and another core for the data plane.
-- Instance memory:
-  - 8 GB for up to 15K users
-  - 16 GB for up to 40K users
-  - 32 GB for up to 100K users
-- Data disk size: 500 GB
-
-- Hypervisor: VMware ESX/ESXi v5.0 and later
-- Host CPU: 64-bit Xeon or equivalent
-- Host CPU Speed: Greater than or equal to 2.40GHz
-- VMware vSphere Client or vCenter
-
-- Network Adapter: E1000
-- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs.
-- Bandwidth for Log Streaming: 11 Mbps for 10K users is an example average value.
-- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-  | Virtual Interface | IP Address | Description |
-  | --- | --- | --- |
-  | em0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS Collector VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS Collector VM. |
-  | em1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud. |
-
-The firewall requirements are as follows:
-
-- You must deploy the NSS Collector instance behind a VM network security group. The NSS Collector instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
-- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
-- Communication from the NSS Collector to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS Collector can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-
-To leverage complete SaaS Security Report functionality, users whose traffic traversed through third-party vendor devices need to be provisioned through one of the mechanisms supported by Zscaler. To learn about user provisioning, see [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-authentication-methods).
-
-You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-nss-collector-servers) in the Zscaler Admin Console to obtain the packaged software (VM image) that must be installed in your organization’s network perimeter. To learn more about NSS Collectors and their use in third-party log integration with Zscaler, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
-
-An organization can have up to 4 NSS Collector servers.
-
-To add an NSS Collector server:
-
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming** - **Nanolog Streaming Service**.
-2. On the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
-3. In the **Add NSS Collector Server** window:
-  - **Name**: Enter a name for the NSS Collector server.
-  - **Vendor**: Select the vendor of the third-party firewall or web proxy service used by your organization for which the logs must be integrated with Zscaler.
-  - **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions.
-4. Click **Save**.
-
-See image.
-
-When the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates the packaged software for installation and issues an SSL certificate to the server.
-
-To download the packaged software and the SSL certificate for the server:
-
-1. Click the **Edit** icon displayed against the NSS Collector server.
-2. In the **Edit NSS Server** window:
-  - Under the **SSL Certificate** field, you can download the SSL Certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
-  - Under the **Software Package**field, you can download the packaged software generated for the server for installation.
-
-See image.
-
-You can also download the SSL certificate directly from the **NSS Collector Servers** table by clicking the **Download** button against the required NSS Collector server under the **SSL Certificate** column.
-
-See image.
-
-Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file and SSL certificate from the Zscaler Admin Console.
-
-To configure the NSS Collector virtual appliance on the VM, log in to the vSphere client and perform the following actions:
-
-- a. Import the NSS Collector OVA file.
-- b. Configure the network.
-- c. Configure the NSS Collector.
-- d. Install the SSL certificate.
-- e. Download the NSS Collector binaries.
-- f. Start the NSS Collector.
-
-Go to **File** > **Deploy OVF Template** and use the Deploy OVF Template wizard to deploy the NSS Collector VM.
-
-1. Select the NSS Collector VM and either click the **Power On** button or power on the virtual machine.
-2. On the **Console** tab, log in to the ZscalerOS command prompt with the following credentials:
-  - Username: `zsroot`
-  - Password: `zsroot`
-
-By default, root login is not permitted. Administrators must use the utility `sudo` to run a command with higher privileges.
-
-Zscaler strongly recommends that you change this default password by running the command `passwd`. For more details about running this command, click here.
-
-1. Enter the command `sudo nss configure` and complete the following:
-  1. Enter the DNS server IP address (e.g., `192.168.1.1`).
-  2. Enter the management interface IP with CIDR netmask. Use the management IP address for SSH or FTP (e.g., `192.168.3.1/16`).
-  3. Enter the default gateway for the management IP address (e.g., `192.168.1.1`).
-  4. Enter the service IP address with CIDR netmask (e.g., `192.168.3.2/16`). NSS Collector uses the service IP address to communicate with the Zscaler cloud and with your security information and event management (SIEM).
-  5. Enter the default gateway for the service IP address (e.g., `192.168.1.1`).
-
-The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-
-See image.
-
-1. Check the applied network configuration by running the following command:
-
-```
-sudo nss dump-config
-```
-
-1. To change the password, enter `passwd` and your username. For example, if you are using the default username, the command is:
-
-```
-passwd zsroot
-```
-
-1. When prompted, specify the following:
-  - Your current password
-  - Your new password
-
-[Image: FreeBSD Command Prompt Password]
-
-Enter the command `sudo nss collector-configure` and then enter the third-party log vendor name (`PANFW`, `FORTIFW`, or `BLUECOAT`).
-
-The NSS Collector uses this certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active NSS Collector VM at a time. Having multiple NSS Collector VMs that use the same certificate causes cloud connection flapping, which would disrupt the streaming of logs to the Zscaler cloud.
-
-1. Navigate to the SSL certificate that you previously downloaded from the Zscaler Admin Console.
-2. Use FTP, SCP, or SFTP to upload it to the management IP address of the NSS Collector.
-3. On the vSphere client, click the **Console** tab, and log in with the following credentials:
-  - Username: `zsroot`
-  - Password: `zsroot`
-4. Go to the **Console** tab or use SSH to connect to the management IP address.
-5. Run the following command:
-
-```
-sudo nss install-cert
-```
-
-Specify the path to the uploaded certificate bundle.
-
-1. Check the configuration by running the following command:
-
-```
-sudo nss dump-config
-```
-
-Before starting the NSS Collector:
-
-1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
-2. Run the following command to download and install the NSS Collector binaries:
-
-```
-sudo nss update-now
-```
-
-After the first NSS Collector software deployment, the software is automatically updated with new versions.
-
-1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
-2. Run the following command:
-
-```
-sudo nss start
-```
-
-Ensure that the command shows that the NSS Collector started successfully. It can take a few minutes for the NSS Collector to start collecting logs and sending them to the Zscaler cloud.
-
-After starting the NSS Collector for the first time, you can run the following command to check that the latest NSS Collector software version is installed:
-
-```
-sudo nss checkversion
-```
-
-To enable the NSS Collector to start automatically after a restart, run the following command:
-
-```
-sudo nss enable-autostart
-```
-
-You can also explore other options by running the following command:
-
-```
-sudo nss help
-```
-
-The following configuration steps pertain to Palo Alto Networks and they provide information on how to configure a syslog feed for the NSS Collector to collect traffic logs of clients behind the Palo Alto Networks firewall.
-
-The configuration steps cover the minimum information required in each step and use examples where necessary. For details on all of the configuration fields, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
-
-- a. Configure Syslog Server Profile
-- b. Configure Log Forwarding Profile
-- c. Configure a Security Policy to Allow User Traffic and Enable Logging
-- d. Configure User Authentication by Enabling Captive Portal
-
-1. Log in to the Palo Alto Networks firewall via the web interface.
-2. Go to the **Devices** tab, click the **Server Profiles** drop-down menu in the left-side navigation, and select **Syslog**.
-3. Click **Add** and provide the following information in the window that appears:
-  1. **Name**: Enter a name for the syslog server profile.
-  2. On the **Servers** tab, click **Add**, and fill out the following information: See image.
-    - **Name**: Enter a name for the syslog server.
-    - **Syslog Server**: Enter the IP address of the syslog server (i.e., NSS Collector server) deployed for your organization on the Zscaler cloud. This information can be obtained from the SSL certificate generated and downloaded for the NSS Collector server that is configured in the Zscaler Admin Console.
-    - **Transport**: Select **TCP** as the transport protocol for your syslog messages.
-    - **Port**: Specify the port number of the syslog server. Default and custom ports are supported.
-    - **Format**: Select **IETF** as the syslog format.
-    - **Facility**: Select **LOG_USER** from the drop-down menu to log user-based traffic.
-  3. On the **Custom Log Format** tab, click **Log Type** to specify a custom log format. In the window that appears, click the **Traffic** field and enter the following string, and click **OK** to save the value: `CEF:0|Palo Alto Networks|PAN-OS|$sender_sw_version|$subtype|$type|1|rt=$cef-formatted-receive_time deviceExternalId=$serial src=$src dst=$dst suser=$srcuser app=$app spt=$sport proto=$proto act=$action in=$bytes_sent out=$bytes_received start=$cef-formatted-time_generated reason=$session_end_reason`See image.
-4. Click **OK** to save the settings.
-
-1. Go to the **Objects** tab, click **Log Forwarding** in the left-side navigation, and click **Add** to create a log forwarding profile.
-2. In the window that appears, enter a name and description for the profile.
-3. Click **Add** to add a match list profile and fill out the following details: See image.
-  - **Name**: Enter a name for the match list profile.
-  - **Log Type**: Select **traffic** from the drop-down menu.
-  - **Filter**: Select **All Logs** from the drop-down menu.
-  - **Forward Method**: Click **Add** and select the syslog server profile configured in the previous step from the list displayed.
-4. Click **OK** to save the log forwarding profile.
-
-1. Go to the **Policies** tab, click **Security** on the left-side navigation, and click **Add**. Alternatively, you can modify an existing security policy to include the traffic log forwarding configurations.
-2. On the **General** tab, enter a name for the rule.
-3. Configure the rule criteria under the respective tabs as necessary. The rule must be configured to allow traffic coming from the trust zone (LAN) under the **Source** tab to reach the untrust zone (WAN) under the **Destination** tab. See image.
-4. On the **Actions** tab: See image.
-  - Under **Action Setting**, select **Allow** for **Action**.
-  - Under **Log Setting**:
-    - Enable **Log at Session Start** and **Log at Session End** options.
-    - From the **Log Forwarding** drop-down menu, select the log forwarding profile configured in the previous step.
-5. Click **OK** to save the security policy.
-
-The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet & SaaS (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet & SaaS users and then forwards the logs pertaining to Internet & SaaS users to Zscaler for processing.
-
-The following sections provide step-by-step instructions for this configuration:
-
-This configuration uses a captive portal as the authentication mechanism. However, you can use other Palo Alto Networks firewall-supported authentication mechanisms per your deployment. To learn more, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
-
-- i. Create an Interface Management Profile
-- ii. Map the Interface Management Profile with the Client-Side LAN Interface
-- iii. Add Users for the Captive Portal and Map Them to an Authentication Profile
-- iv. Enable Captive Portal
-
-1. Go to the **Network** tab, click the **Network Profiles** drop-down menu in the left-side navigation, and select **Interface Mgmt**.
-2. Click **Add** to create an Interface Management profile.
-3. Enter a name for the profile.
-4. Under **Permitted Services**, select **Response Pages** and **User-ID** and any other necessary permitted services. These services are required for enabling captive portal authentication on the trust interface. See image.
-5. Click **OK** to save the Interface Management profile.
-
-1. Go to the **Network** tab, click **Interfaces**, and then click **Ethernet**.
-2. Locate the client-side LAN interface that is typically configured for your environment in the Palo Alto Networks firewall. Click the ethernet interface to modify its settings and map the Interface Management profile configured in the previous step.
-3. In the window that appears, go to the **Advanced** tab, and select the Interface Management profile configured in the previous step using the **Management Profile** drop-down menu. See image.
-4. Click **OK** to save the configuration. The following image shows an example configuration of the client-side LAN interface. See image.
-
-1. Go to the **Device** tab, click the **Local User Database** drop-down menu in the left-side navigation, and then select **Users**.
-2. Click **Add** displayed at the bottom-left corner of the page and fill out the user information in the window that appears: The username and password information in the Palo Alto Networks firewall must match the user details configured in the Zscaler Admin Console. See image.
-  - **Name**: Enter the username.
-  - **Mode**: Select **Password** as the mode.
-  - **Password**: Enter the user's login password.
-  - **Confirm Password**: Re-enter the user's login password.
-  - Select **Enable**.
-3. Click **OK** to save the configuration.
-4. On the **Device** tab, click **Authentication Profile** in the left-side navigation, and click **Add**.
-5. Fill out the following information in the authentication profile: The following image shows an example authentication profile configuration: See image.
-  1. **Name**: Enter a name for the profile.
-  2. On the **Authentication** tab:
-    - Select **Type** as **Local Database** using the drop-down menu. **Local Database** authentication type corresponds to the captive portal authentication mechanism used in this example configuration. You can select the authentication type depending on the authentication mechanism used in your firewall deployment.
-    - Optionally, you can select the **Username Modifier** using the drop-down menu to restrict the format in which users must enter their username in the authentication portal served by the Palo Alto Networks firewall. See image.
-  3. On the **Advanced** tab, click **Add**, and select the list of users configured earlier. See image.
-  4. Click **OK** to save the configuration.
-
-1. On the **Device** tab, click **User Identification** in the left-side navigation, and go to the **Captive Portal Settings** tab.
-2. Click the **Settings** icon on the top-right to make modifications. See image.
-3. In the window that appears, select **Enable Captive Portal** and enter the necessary information, such as: See image.
-  - **Authentication Profile**: Select the authentication profile configured in the previous step using the drop-down menu.
-  - **Mode**: Select the **Redirect** checkbox to allow the firewall to intercept web requests that match the authentication profile and redirect them to the specified redirect host.
-  - **Redirect Host**: Enter the IP address of the Palo Alto Networks firewall trust interface to which the client must be redirected for authentication.
-4. Click **OK** to save the configuration.
-
-[Image: The Add NSS Collector Server window]
-
-[Image: The Edit NSS Collector Server window]
-
-[Image: vSphere NSS Configure Command Prompt]
-
-[Image: The SSL certificate download option for NSS Collector server]
-
-[Image: Palo Alto Networks Firewall Syslog Server Profile Configuration]
-
-[Image: Custom log format for PAN syslog server profile]
-
-[Image: Palo Alto Networks Firewall Log Forwarding Profile Configuration]
-
-[Image: Palo Alto Networks Firewall Syslog Security Policy Action]
-
-[Image: Palo Alto Networks Firewall Security Policy Conditions]
-
-[Image: Palo Alto Networks Firewall Interface Management Profile]
-
-[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
-
-[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
-
-[Image: Palo Alto Networks Firewall Local User Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile User Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile]
-
-[Image: Palo Alto Networks Firewall Captive Portal Settings Icon]
-
-[Image: Palo Alto Networks Firewall Captive Portal Settings]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-amazon-web-services","lastmod":"2026-07-31T11:25Z","nid":"1401561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-amazon-web-services","lastmod":"2026-10-28T19:40Z","nid":"1401561"} -->
 ## NSS Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Amazon Web Services
-- Last modified: 2026-07-31T11:25Z
+- Last modified: 2026-10-28T19:40Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Amazon Web Services (AWS).
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Amazon Web Services (AWS). This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -880,9 +79,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming - Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -901,7 +100,7 @@ The NSS buffers the logs for at least one hour. If a SIEM goes offline for maint
 
 To compute the appropriate resources for your NSS:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming - Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. Click **Deploy NSS Virtual Appliance** to enter data that the Zscaler service needs to compute the appropriate resources for your NSS. The **NSS Virtual Appliance Deployment** window appears.
 3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
   - NSS for Web
@@ -934,7 +133,7 @@ See the following table for AWS EC2 instance specifications:
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for NSS and the EC2 instance.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard**> **Web Overview**. This is recommended to adjust the VM specification to your organization’s workload.
+- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards**. This is recommended to adjust the VM specification to your organization’s workload.
 
 See image.
 
@@ -945,8 +144,8 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for NSS and the EC2 instance.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **Firewall Overview**. This is recommended to adjust the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **DNS Overview**. This is recommended to adjust the VM specification to your organization’s workload.
+- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards** > **Firewall Overview**. This is recommended to adjust the VM specification to your organization’s workload.
+- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards** > **DNS Overview**. This is recommended to adjust the VM specification to your organization’s workload.
 
 See image.
 
@@ -1216,7 +415,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access (ZIA).
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -1641,13 +840,13 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-google-cloud-platform","lastmod":"2026-07-31T11:26Z","nid":"1503901"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-google-cloud-platform","lastmod":"2026-10-28T19:49Z","nid":"1503901"} -->
 ## NSS Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Google Cloud Platform
-- Last modified: 2026-07-31T11:26Z
+- Last modified: 2026-10-28T19:49Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Google Cloud Platform.
 
 Zscaler’s [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) supports the configuration and deployment of an NSS virtual machine (VM) on Google Cloud Platform (GCP).
@@ -1719,9 +918,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler configuration requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL that you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The Zscaler Hub IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -1756,7 +955,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access.
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -2390,13 +1589,13 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-09-18T17:31Z","nid":"1532796"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-hyper-v","lastmod":"2026-10-28T19:58Z","nid":"1532796"} -->
 ## NSS Deployment Guide for Hyper-V
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-hyper-v
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Hyper-V
-- Last modified: 2026-09-18T17:31Z
+- Last modified: 2026-10-28T19:58Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Hyper-V.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Hyper-V. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -2460,9 +1659,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -2497,7 +1696,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access.
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -2521,7 +1720,7 @@ The NSS buffers the logs for at least one hour. If a SIEM goes offline for maint
 
 To compute the appropriate resources for your NSS:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
 3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
   - NSS for Web
@@ -2534,7 +1733,7 @@ To compute the appropriate resources for your NSS:
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard**> **Web Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Internet Access**> **Dashboards**. It is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -2543,8 +1742,8 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the Hyper-V Manager hypervisor.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **Firewall Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** >**Internet & SaaS** > **Dashboard** > **DNS Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Internet Access**> **Dashboards** > **Firewall Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Internet Access**> **Dashboards** > **DNS Overview**. It is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -3083,13 +2282,13 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-microsoft-azure","lastmod":"2026-07-31T11:30Z","nid":"1401336"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-microsoft-azure","lastmod":"2026-10-29T10:54Z","nid":"1401336"} -->
 ## NSS Deployment Guide for Microsoft Azure
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-microsoft-azure
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Microsoft Azure
-- Last modified: 2026-07-31T11:30Z
+- Last modified: 2026-10-29T10:54Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Microsoft Azure.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via Microsoft Azure. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -3146,9 +2345,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -3429,7 +2628,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access.
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -3860,13 +3059,13 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-nutanix","lastmod":"2026-07-31T11:31Z","nid":"1530967"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-nutanix","lastmod":"2026-10-29T11:03Z","nid":"1530967"} -->
 ## NSS Deployment Guide for Nutanix
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-nutanix
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Nutanix
-- Last modified: 2026-07-31T11:31Z
+- Last modified: 2026-10-29T11:03Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Nutanix.
 
 Zscaler’s [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) supports the configuration and deployment of an NSS virtual machine (VM) on Nutanix.
@@ -3927,9 +3126,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler configuration requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL that you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The Zscaler Hub IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -3964,7 +3163,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access.
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -3988,7 +3187,7 @@ The NSS buffers the logs for at least one hour. If a SIEM goes offline for maint
 
 To compute the appropriate resources for your NSS:
 
-1. Go to **Logs**>**Log Streaming**> **Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
 3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have a subscription to Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
   - NSS for Web
@@ -4001,7 +3200,7 @@ To compute the appropriate resources for your NSS:
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The Zscaler service displays the recommended resources.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard**> **Web Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards**. This is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -4010,8 +3209,8 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The Zscaler service displays the recommended resources.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics**>**Internet & SaaS**>**Dashboard** > **Firewall Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **DNS Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Internet Access**>**Dashboards** > **Firewall Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Internet Access**> **Dashboards** > **DNS Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -4556,13 +3755,13 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-vmware-vsphere","lastmod":"2026-07-31T11:32Z","nid":"1401441"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-deployment-guide-vmware-vsphere","lastmod":"2026-10-29T11:12Z","nid":"1401441"} -->
 ## NSS Deployment Guide for VMware vSphere
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for VMware vSphere
-- Last modified: 2026-07-31T11:32Z
+- Last modified: 2026-10-29T11:12Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via VMware vSphere.
 
 Zscaler's [Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service) can be deployed via VMware vSphere. This guide describes the tasks required for NSS deployment, enabling you to stream either web or firewall logs to your security information and event management (SIEM).
@@ -4625,9 +3824,9 @@ The firewall requirements are as follows:
 - To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 - The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
 - Communication from the NSS instance to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for Internet & SaaS (ZIA) as this can result in networking, latency, and administration issues.
+- Zscaler does not recommend or support forwarding outbound traffic from the NSS to or through the Public Service Edge for [Internet Access (ZIA) as this can result in networking, latency, and administration issues.
 
-1. Go to **Logs** > **Log Streaming** > **Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
@@ -4646,7 +3845,7 @@ The NSS buffers the logs for at least one hour. If a SIEM goes offline for maint
 
 To compute the appropriate resources for your NSS:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming**-**Nanolog Streaming Service**.
 2. Click **Deploy NSS Virtual Appliance**. The **NSS Virtual Appliance Deployment** window appears.
 3. In the **NSS Virtual Appliance Deployment**window, choose either of the following NSS types: If you have Zscaler Cloud & Branch Connector, **NSS for Firewall** (NSS type) displays as **NSS for Firewall, Cloud & Branch Connector**.
   - NSS for Web
@@ -4661,7 +3860,7 @@ To compute the appropriate resources for your NSS:
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the ESX/ESXi hypervisor.
-- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard**> **Web Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Transactions per Hour**: Enter the peak number of transactions in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards**. This is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -4672,8 +3871,8 @@ The recommended internet bandwidth is the peak bandwidth required to download th
 To determine the memory and bandwidth requirements:
 
 - **Number of Users**:Enter the number of users. The service displays the recommended resources for the NSS and the ESX/ESXi hypervisor.
-- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **Firewall Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
-- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Analytics** > **Internet & SaaS** > **Dashboard** > **DNS Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak Sessions per Hour**:Enter the peak number of sessions in an hour. You can retrieve this data by going to **Internet Access**> **Dashboards** > **Firewall Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
+- **Peak DNS Requests per Hour**: Enter the peak number of DNS requests in an hour. You can retrieve this data by going to **Internet Access** > **Dashboards** > **DNS Overview**. This is recommended to fine-tune the VM specification to your organization’s workload.
 
 See image.
 
@@ -4868,7 +4067,7 @@ In addition to TCP-based NSS feeds, you can optionally stream NSS logs to SIEM o
 2. (Optional) Run the following command to configure a self-signed certificate: You can use self-signed or internally issued certificates for the SIEM connectivity test. `nss add-cert-to-trust <self-signed certificate>`Replace <self-signed certificate> with the path of your self-signed certificate from the NSS node in the command.
 3. Run the following command to restart the NSS service: `sudo nss restart`
 
-After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet & SaaS (ZIA).
+After the NSS restarts, you can configure HTTPS-based NSS feeds for Internet Access.
 
 An HTTP NSS feed specifies the data from the logs that the HTTP NSS sends to the security information and event management (SIEM) system. You can add up to 8 HTTP NSS feeds for each [NSS server](https://help.zscaler.com/zia/about-nss-servers). [Web](https://help.zscaler.com/zia/adding-nss-feeds-web-logs) and [firewall](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs) log types are each limited to two feeds per NSS server to ensure optimal performance.
 
@@ -5378,13 +4577,13 @@ The following table displays information about the 3rd-Party App Governance log 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-admin-audit-logs","lastmod":"2026-06-02T06:26Z","nid":"1402731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-admin-audit-logs","lastmod":"2026-10-30T15:46Z","nid":"1402731"} -->
 ## NSS Feed Output Format: Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-admin-audit-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Admin Audit Logs
-- Last modified: 2026-06-02T06:26Z
+- Last modified: 2026-10-30T15:46Z
 - Summary: Information on the admin audit log fields and their sample values.
 
 The admin audit Nanolog Streaming Service (NSS) feed specifies the data from the admin audit logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -5423,7 +4622,7 @@ The following are admin audit fields:
 | %s{subcategory} | The sublocation in the Zscaler Admin Console where the action was performed | DLP Dictionary |
 | %s{resource} | The specific location within a subcategory | SSL Rule Name; User Object Name |
 | %s{interface} | The means by which the user performs their actions | The interface is either the Admin UI or an API |
-| %s{adminid} | The admin ID. Possible field values include: The login ID of a user from your organization's Internet & SaaS (ZIA) tenant; The login ID of a Zscaler partner; [Zscaler Remote Assistance](https://help.zscaler.com/unified/enabling-remote-assistance); Service Support (i.e., when a partner accesses your organization’s Internet & SaaS tenant from the [Zscaler Management Portal for Partners](https://help.zscaler.com/legacy-zia/zscaler-management-portal-partners)); Partner Template (i.e., when a [Policy Template](https://help.zscaler.com/legacy-zia/about-policy-templates) is created and applied from the Management Portal for Partners to your organization’s Internet & SaaS tenant) | example@zscaler.com; example@partner.com; Zscaler remote assistance; Service support (Applicable only to Management Portal for Partners tenants); Partner Template (Applicable only to Management Portal for Partners tenants) |
+| %s{adminid} | The admin ID. Possible field values include: The login ID of a user from your organization's Internet Access (ZIA) tenant; The login ID of a Zscaler partner; [Zscaler Remote Assistance](https://help.zscaler.com/unified/enabling-remote-assistance); Service Support (i.e., when a partner accesses your organization’s Internet Access tenant from the [Zscaler Management Portal for Partners](https://help.zscaler.com/legacy-zia/zscaler-management-portal-partners)); Partner Template (i.e., when a Policy Template is created and applied from the Management Portal for Partners to your organization’s Internet Access tenant) | example@zscaler.com; example@partner.com; Zscaler remote assistance; Service support (Applicable only to Management Portal for Partners tenants); Partner Template (Applicable only to Management Portal for Partners tenants) |
 | %s{clientip} | The source IP address for the admin |  |
 | %s{result} | The outcome of an action |  |
 | %s{errorcode} | An optional field that exists only if the result is a failure | AUTHENTICATION_FAILED; INVALID_INPUT_ARGUMENT |
@@ -5502,20 +4701,20 @@ Fields that support obfuscation are documented in the following tables with the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-10-19T17:50Z","nid":"1400571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-10-30T13:16Z","nid":"1400571"} -->
 ## NSS Feed Output Format: DNS Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-10-19T17:50Z
+- Last modified: 2026-10-30T13:16Z
 - Summary: Information on the DNS log fields and their sample values.
 
 The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
 
 - View a sample DNS log.
 
-The following tables display information about the DNS fields and example values for those fields. If applicable, the DNS fields are mapped to their corresponding columns in [DNS Insights Logs](https://help.zscaler.com/zia/dns-insights-logs-columns) (Logs > Insights > Internet & SaaS - DNS Insights > Logs).
+The following tables display information about the DNS fields and example values for those fields. If applicable, the DNS fields are mapped to their corresponding columns in [DNS Insights Logs](https://help.zscaler.com/zia/dns-insights-logs-columns) (Data Explorer > Internet & SaaS > DNS Insights > Logs).
 
 ## Date/Time
 
@@ -5586,6 +4785,15 @@ The following are transaction information fields:
 | %s{dnsapp} | The type of DNS tunnel or network application | Google DNS | DNS Tunnels & Network Apps |
 | %s{protocol} | The protocol type | TCP; UDP; DoH (DNS over HTTP) | Protocol Type |
 
+## Tunnel & Network App Categories Information
+
+The following fields show the values for DNS Tunnel & Network App Categories that appear in Insights Logs in the Zscaler Admin Console.
+
+| Field | Insights Logs |
+| --- | --- |
+| dns_app: dnstun_good | Commonly Allowed DNS Tunnels |
+| dns_appcategory: network_service | Network Service |
+
 ## User Information
 
 The following are user information fields:
@@ -5654,13 +4862,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-email-dlp-logs","lastmod":"2026-06-15T11:59Z","nid":"1483226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-email-dlp-logs","lastmod":"2026-10-30T16:05Z","nid":"1483226"} -->
 ## NSS Feed Output Format: Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Email DLP Logs
-- Last modified: 2026-06-15T11:59Z
+- Last modified: 2026-10-30T16:05Z
 - Summary: Information on Email Data Loss Prevention (DLP) log fields and their sample values.
 
 The Email Data Loss Prevention (DLP) Nanolog Streaming Service (NSS) feed specifies the data from the Email DLP logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -5713,10 +4921,10 @@ The following are user information fields:
 | --- | --- | --- |
 | %s{company} | The name of the company | Company Name |
 | %s{departmentname} | The name of the department | Finance |
-| %s{username} | The user who sent the email and is provisioned to Internet & SaaS (ZIA) | name@company.com |
-| %s{extusername} | The user who sent the email but is not provisioned to Internet & SaaS. The external user can be within your organization. For example, a new employee joins the company and their company email address is created but their user account is not configured in the Zscaler Admin Console. In this case, the employee is treated as an external or "non-provisioned" user even though they are part of the company and can send email from their official company email address. | name@externalcompany.com |
-| %s{owner} | The username or email address of the user who sent the email. This field is an aggregate of %s{username} and %s{extusername}. If the user is provisioned to Internet & SaaS, they populate in %s{username} and %s{owner}. If the user is not provisioned to Internet & SaaS, they populate in %s{extusername} and %s{owner}. The fields %s{username} and %s{extusername} are not populated at the same time. The field %s{owner} is always populated whether the user is provisioned to Internet & SaaS or not. | name@company.com |
-| %s{sender} | The username or email address of the user who sent the email. This field is an aggregate of %s{username} and %s{extusername}. If the user is provisioned to Internet & SaaS, they populate in %s{username} and %s{sender}. If the user is not provisioned to Internet & SaaS, they populate in %s{extusername} and %s{sender}. The fields %s{username} and %s{extusername} are not populated at the same time. The field %s{sender} is always populated whether the user is provisioned to Internet & SaaS or not. | name@company.com |
+| %s{username} | The user who sent the email and is provisioned to Internet Access (ZIA) | name@company.com |
+| %s{extusername} | The user who sent the email but is not provisioned to Internet Access. The external user can be within your organization. For example, a new employee joins the company and their company email address is created but their user account is not configured in the Zscaler Admin Console. In this case, the employee is treated as an external or "non-provisioned" user even though they are part of the company and can send email from their official company email address. | name@externalcompany.com |
+| %s{owner} | The username or email address of the user who sent the email. This field is an aggregate of %s{username} and %s{extusername}. If the user is provisioned to Internet Access, they populate in %s{username} and %s{owner}. If the user is not provisioned to Internet Access, they populate in %s{extusername} and %s{owner}. The fields %s{username} and %s{extusername} are not populated at the same time. The field %s{owner} is always populated whether the user is provisioned to Internet Access or not. | name@company.com |
+| %s{sender} | The username or email address of the user who sent the email. This field is an aggregate of %s{username} and %s{extusername}. If the user is provisioned to Internet Access, they populate in %s{username} and %s{sender}. If the user is not provisioned to Internet Access, they populate in %s{extusername} and %s{sender}. The fields %s{username} and %s{extusername} are not populated at the same time. The field %s{sender} is always populated whether the user is provisioned to Internet Access or not. | name@company.com |
 
 ## Email Information
 
@@ -5980,13 +5188,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-firewall-logs","lastmod":"2026-10-19T17:12Z","nid":"1400561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-firewall-logs","lastmod":"2026-10-30T12:30Z","nid":"1400561"} -->
 ## NSS Feed Output Format: Firewall Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Firewall Logs
-- Last modified: 2026-10-19T17:12Z
+- Last modified: 2026-10-30T12:30Z
 - Summary: Information on the Firewall log fields and their sample values.
 
 The Firewall Nanolog Streaming Service (NSS) feed specifies the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -5999,7 +5207,7 @@ If you want detailed logging for all sessions, including blocked and allowed tra
 
 Logs are aggregated for each of the following fields within a 15-minute time window: User, Rule Slot, Network Service, Network Application, and IP Category. For consecutive sessions with the same values across these fields, Zscaler only records a single log, in which the remaining fields are taken from the last session in the 15-minute time window.
 
-The following tables display information about the Firewall fields and example values for those fields. If applicable, the Firewall fields are mapped to their corresponding columns in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns) (Logs > Insights > Firewall Insights > Logs).
+The following tables display information about the Firewall fields and example values for those fields. If applicable, the Firewall fields are mapped to their corresponding columns in [Firewall Insights Logs](https://help.zscaler.com/zia/firewall-insights-logs-columns) (Data Explorer > Internet & SaaS > Firewall Insights > Logs).
 
 ## Date/Time
 
@@ -6935,13 +6143,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-sandbox-verdict-logs","lastmod":"2026-04-08T09:33Z","nid":"1520341"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-sandbox-verdict-logs","lastmod":"2026-10-30T16:07Z","nid":"1520341"} -->
 ## NSS Feed Output Format: Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Sandbox Verdict Logs
-- Last modified: 2026-04-08T09:33Z
+- Last modified: 2026-10-30T16:07Z
 - Summary: Information on Sandbox verdict log fields and their sample values.
 
 The Sandbox verdict Nanolog Streaming Service (NSS) feed specifies the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -6976,8 +6184,8 @@ The following are date and time fields:
 | %u{rmth} | The month of the year as recorded in the feed time (`%s{rtime}`) | 10 |
 | %u{ryyyy} | Year as recorded in the feed time (`%s{rtime}`) | 2025 |
 | %s{tz} | The time zone. This is the same as the time zone you specified when you configured the NSS feed. | GMT |
-| %s{eventtime} | The event time (i.e., when the Sandbox analysis response is processed by the Public Service Edge for Internet & SaaS (ZIA)). The Public Service Edge sends the payload to the Sandbox for analysis at time X and processes the response from the Sandbox at time X+2, which is the event time. | Mon Oct 13 22:55:48 2025 |
-| %u{int_eventtime} | The event time (i.e., when the Sandbox analysis response is processed by the Public Service Edge for Internet & SaaS (ZIA)) in integer format | 1739463780 |
+| %s{eventtime} | The event time (i.e., when the Sandbox analysis response is processed by the Public Service Edge for Internet Access (ZIA)). The Public Service Edge sends the payload to the Sandbox for analysis at time X and processes the response from the Sandbox at time X+2, which is the event time. | Mon Oct 13 22:55:48 2025 |
+| %u{int_eventtime} | The event time (i.e., when the Sandbox analysis response is processed by the Public Service Edge for Internet Access) in integer format | 1739463780 |
 
 ## Data Center Information
 
@@ -7112,13 +6320,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-tunnel-logs","lastmod":"2026-06-25T10:26Z","nid":"1400976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-tunnel-logs","lastmod":"2026-10-30T13:19Z","nid":"1400976"} -->
 ## NSS Feed Output Format: Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-tunnel-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Tunnel Logs
-- Last modified: 2026-06-25T10:26Z
+- Last modified: 2026-10-30T13:19Z
 - Summary: Information on the tunnel log fields and their sample values.
 
 This article includes table pagination. Use the Search function in the tables to find your preferred field.
@@ -7127,7 +6335,7 @@ The tunnel Nanolog Streaming Service (NSS) feed specifies the data from the tunn
 
 - View a sample tunnel log.
 
-The following tables display information about the tunnel fields and example values for those fields. If applicable, the tunnel fields are mapped to their corresponding columns in [Tunnel Insights Logs](https://help.zscaler.com/zia/tunnel-insights-logs-columns) (Logs > Insights > Tunnel Insights > Logs).
+The following tables display information about the tunnel fields and example values for those fields. If applicable, the tunnel fields are mapped to their corresponding columns in [Tunnel Insights Logs](https://help.zscaler.com/zia/tunnel-insights-logs-columns) (Data Explorer > Internet & SaaS > Tunnel Insights > Logs).
 
 ## Internet Key Exchange (IKE) Phase 1
 
@@ -7273,20 +6481,20 @@ The following are obfuscated fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-web-logs","lastmod":"2026-10-19T17:48Z","nid":"1400566"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-web-logs","lastmod":"2026-10-30T12:06Z","nid":"1400566"} -->
 ## NSS Feed Output Format: Web Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-web-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Web Logs
-- Last modified: 2026-10-19T17:48Z
+- Last modified: 2026-10-30T12:06Z
 - Summary: Information on the web log fields and their sample values.
 
 The web Nanolog Streaming Service (NSS) feed specifies the data from the web logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
 
 - View a sample web log.
 
-The following tables display information about the web log fields and example values for those fields. If applicable, the web log fields are mapped to their corresponding columns in [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-columns) (Logs > Insights > Web Insights > Logs).
+The following tables display information about the web log fields and example values for those fields. If applicable, the web log fields are mapped to their corresponding columns in [Web Insights Logs](https://help.zscaler.com/zia/web-insights-logs-columns) (Data Explorer > Internet & SaaS > Web Insights > Logs).
 
 ## Date/Time
 
@@ -7478,7 +6686,7 @@ The following are network fields:
 | %d{srv_dport} | The server destination port. To enable logging for Server Destination Port, contact Zscaler Support. | 443 | Server Destination Port |
 | %s{proto} | The protocol type of the transaction | HTTP, FTP; The full list is under the Protocol filter on the [Web Insights](https://help.zscaler.com/zia/web-insights-logs-filters) page. | Protocol |
 | %s{alpnprotocol} | The Application-Layer Protocol Negotiation (ALPN) protocol | FTP, SMB; The full list is under the ALPN Protocol filter on the [Web Insights](https://help.zscaler.com/zia/web-insights-logs-filters) page. | ALPN Protocol |
-| %s{trafficredirectmethod} | The traffic forwarding method to Public Service Edges for Internet & SaaS (ZIA) | DNAT (Destination Translation); GRE (GRE Tunnel); IPSEC (IPSec Tunnel); PBF (Policy Based Forwarding); PAC (PAC File); PAC_GRE (PAC File over GRE Tunnel); PAC_IPSEC (PAC File over IPSec Tunnel); Zscaler Client Connector (Zscaler App) | Traffic Forwarding |
+| %s{trafficredirectmethod} | The traffic forwarding method to Public Service Edges for Internet Access (ZIA) | DNAT (Destination Translation); GRE (GRE Tunnel); IPSEC (IPSec Tunnel); PBF (Policy Based Forwarding); PAC (PAC File); PAC_GRE (PAC File over GRE Tunnel); PAC_IPSEC (PAC File over IPSec Tunnel); Zscaler Client Connector (Zscaler App) | Traffic Forwarding |
 | %s{location} | The gateway location or sub-location of the source. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations). | Headquarters | Location |
 | %s{userlocationname} | Applicable to the web traffic processed via [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation). The field shows the actual traffic origination point, whereas the `%s{location}` field displays the isolation location. When the web traffic is not handled by Zero Trust Browser, the field value is `None`. |  | User Location |
 
@@ -7545,7 +6753,7 @@ The following are server connection fields:
 | Field | Description | Example | Insights Logs |
 | --- | --- | --- | --- |
 | %s{srvsslcipher} | The negotiated cipher suite for communication between Zscaler and the server | SSL3_CK_RSA_NULL_MD5, SSL3_CK_RSA_NULL_SHA | Server Connection Cipher |
-| %s{srvtlsversion} | The SSL/TLS version used for communication between the Public Service Edge for Internet & SaaS (ZIA) and the server | SSL2; SSL3; TLS1_1; TLS1_2; TLS1_3 | Server Connection TLS Version |
+| %s{srvtlsversion} | The SSL/TLS version used for communication between the Public Service Edge for Internet Access and the server | SSL2; SSL3; TLS1_1; TLS1_2; TLS1_3 | Server Connection TLS Version |
 | %s{serversslsessreuse} | Server cipher reuse information | Unknown; No; Yes | Server Session Reused |
 | %s{srvocspresult} | The OCSP result/certificate revocation result | Good; Revoked; Unknown | Server Connection OCSP Result |
 | %s{srvcertchainvalpass} | The validation of the certificate chain | Unknown; Fail; Pass | Server Connection Cert Chain Validity |
@@ -7553,7 +6761,7 @@ The following are server connection fields:
 | %s{srvcertvalidationtype} | The validation method of the server certificate | EV (Extended Validation); OV (Organization Validation); DV (Domain Validation) | Server Certificate Validation Type |
 | %s{srvcertvalidityperiod} | The expiration of the server certificate | Short (0–3 months); Medium (3–12 months); Long (More than 12 months) | Server Certificate Validity Period |
 | %s{is_ssluntrustedca} | Indicates whether the server certificate is signed by a Zscaler-trusted certificate authority or not | Fail; Pass; None | Certificate Chain Validity |
-| %s{is_sslselfsigned} | Indicates whether the certificate presented by the server to the Public Service Edge for Internet & SaaS (ZIA) was self-signed | No; None; Yes | Server Certificate Self Signed |
+| %s{is_sslselfsigned} | Indicates whether the certificate presented by the server to the Public Service Edge for Internet Access was self-signed | No; None; Yes | Server Certificate Self Signed |
 | %s{is_sslexpiredca} | Indicates whether the certificate presented by the server is expired or not | No; None; Yes | Server Connection Cert Expiry |
 | %s{server_tls_keyex_alg} | The TLS server key exchange algorithm | X23319LMKEM788 | Server Side Key Exchange Algorithm |
 | %s{server_tls_sig_alg} | The TLS server digital signature algorithm | rsa_pss_rsae_sha256 | Server Side Digital Signature Algorithm |
@@ -8282,13 +7490,13 @@ To learn more about the configuration steps, refer to the [Okta documentation](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-10-22T13:42Z","nid":"1402326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-device-information-admins","lastmod":"2026-10-26T11:52Z","nid":"1402326"} -->
 ## Obfuscating Device Information for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-device-information-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating Device Information for Admins
-- Last modified: 2026-10-22T13:42Z
+- Last modified: 2026-10-26T11:52Z
 - Summary: How to obfuscate device information for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether device information (i.e., device hostname, device owner, and device name) are visible or obfuscated for an admin when they view dashboards, reports, or insights.
@@ -8323,7 +7531,7 @@ To obfuscate device information for an admin, do one of the following:
 7. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
 8. Click **Next**.
 9. On the **Summary** page, review the assignment details and click **Assign**.
-10. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+10. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** >**Legacy Admin Management**>**Internet & SaaS**.
 2. On the **Administrators** tab, in the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want device information obfuscation enabled for those admins as well. See image.
@@ -8342,13 +7550,13 @@ To obfuscate device information for an admin, do one of the following:
 8. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
 9. Click **Next**.
 10. On the **Summary** page, review the assignment details and click **Assign**.
-11. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
+11. [Activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
 
 For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
-1. [Add a new admin role with device information obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
-2. [Add a new user.](https://help.zscaler.com/zidentity/adding-users)
-3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups)
+1. [Add a new admin role with device information obfuscation enabled](https://help.zscaler.com/zia/adding-admin-roles).
+2. [Add a new user](https://help.zscaler.com/zidentity/adding-users).
+3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups).
 
 [Image: Configure entitlements for Internet & SaaS]
 
@@ -8365,13 +7573,13 @@ For convenience, Zscaler recommends creating the admin role first so you can ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-10-22T13:42Z","nid":"1399736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/obfuscating-user-names-admins","lastmod":"2026-10-26T11:51Z","nid":"1399736"} -->
 ## Obfuscating User Names for Admins
 
 - Source: https://help.zscaler.com/zia/obfuscating-user-names-admins
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Obfuscating User Names for Admins
-- Last modified: 2026-10-22T13:42Z
+- Last modified: 2026-10-26T11:51Z
 - Summary: How to obfuscate user names for admins viewing dashboards, reports, or insights in the Zscaler Admin Console.
 
 You can specify whether real user names are visible or obfuscated for an admin when they view dashboards, reports, or insights. You can also obfuscate user names in NSS feeds. To learn more, see [Adding NSS Feeds for Web Logs](https://help.zscaler.com/zia/adding-nss-feeds-web-logs), [Adding NSS Feeds for Firewall Logs](https://help.zscaler.com/zia/adding-nss-feeds-firewall-logs), and [Adding NSS Feeds for DNS Logs](https://help.zscaler.com/zia/adding-nss-feeds-dns-logs).
@@ -8406,7 +7614,7 @@ To obfuscate user names for an admin, do one of the following:
 7. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
 8. Click **Next**.
 9. On the **Summary** page, review the assignment details and click **Assign**.
-10. [Activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+10. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** >**Legacy Admin Management**>**Internet & SaaS**.
 2. On the **Administrators** tab, in the **Role** column, check which admin role is assigned to the admin you want to edit. Also, check which other admins have been assigned this specific role, and ensure you want user obfuscation enabled for those admins as well. See image.
@@ -8425,13 +7633,13 @@ To obfuscate user names for an admin, do one of the following:
 8. On the **Select Users & Roles** page, select the admins you want to enable obfuscation for and select the role that has obfuscation enabled from the drop-down menu. See image.
 9. Click **Next**.
 10. On the **Summary** page, review the assignment details and click **Assign**.
-11. [Activate the change.](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal)
+11. [Activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
 
 For convenience, Zscaler recommends creating the admin role first so you can assign the role to the new admin.
 
-1. [Add a new admin role with user obfuscation enabled.](https://help.zscaler.com/zia/adding-admin-roles)
-2. [Add a new user.](https://help.zscaler.com/authentication-service/adding-users)
-3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected.](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups)
+1. [Add a new admin role with user obfuscation enabled](https://help.zscaler.com/zia/adding-admin-roles).
+2. [Add a new user](https://help.zscaler.com/authentication-service/adding-users).
+3. [Assign an administrative entitlement for Zscaler Internet Access to the user with the newly created role selected](https://help.zscaler.com/authentication-service/assigning-entitlements-users-and-user-groups).
 
 [Image: Configure entitlements for Internet & SaaS]
 
@@ -9534,103 +8742,6 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-url-cloud-app-control-policy","lastmod":"2026-04-23T07:43Z","nid":"1399416"} -->
-## Recommended URL & Cloud App Control Policy
-
-- Source: https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Recommended URL & Cloud App Control Policy
-- Last modified: 2026-04-23T07:43Z
-- Summary: Information on Zscaler's recommended policy configurations for URL Filtering and Cloud App Control.
-
-This article contains the recommended policy for URL Filtering and Cloud App Control.
-
-## URL Filtering
-
-Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring-url-filtering-policy) the following for [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) policy:
-
-- **Rule Order**: Select a Rule Order that is appropriate for your organization. Rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on).
-- **Rule Status**: Select **Enabled**. Enabled rules are actively enforced.
-- **URL Categories**: Select all categories in the **Legal Liability** class. To see which URL categories are in the Legal Liability class, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories).
-- **HTTP Requests**: Select **All** so that the rule is applied to all HTTP requests.
-- **Users**: Select **Any** to apply the rule to all users.
-- **Groups**: Select **Any** to apply the rule to all groups.
-- **Departments**: Select **Any** to apply the rule to all departments.
-- **Locations**: Select **Any** to apply the rule to all locations.
-- **Location Groups**: Select **Any** to apply the rule to all location groups.
-- **Time**: Select **Always** to apply the rule to all time intervals.
-- **Protocols**: Select **HTTP** and **HTTPS** to apply the rule to these two protocols.
-- **Action**: Select **Block** to block access to all sites in the selected URL categories.
-
-## Advanced Policy Settings
-
-Zscaler recommends that you configure the following in the [Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings):
-
-- **Enable Suspicious New Domains Lookup**:Select**Enable**.This enables you to use the Newly Registered and Observed Domains [URL category](https://help.zscaler.com/zia/about-url-categories) in your URL Filtering policy.
-- **Enable AI/ML based Content Categorization**: Select **Enable**. This enables the service to analyze the content of uncategorized websites using AI/ML tools to check if they belong to one of these URL categories: If the service determines the site belongs in one of those categories, it will categorize those sites and apply your policy accordingly.
-  | URL Categories | URL Super Categories |
-  | --- | --- |
-  | Alcohol/Tobacco | Society and Lifestyle |
-  | Anonymizer | Illegal or Questionable |
-  | Art/Culture | Society and Lifestyle |
-  | Blogs | Internet Communication |
-  | Classifieds | Business and Economy |
-  | Continuing Education/College | Education |
-  | Dining/Restaurant | Society and Lifestyle |
-  | FileHost | Information Technology |
-  | Finance | Business and Economy |
-  | Gambling | Gambling |
-  | Government | Government and Politics |
-  | Health | Health |
-  | Job/Employment Search | Job/Employment Search |
-  | K-12 | Education |
-  | Online and Other Games | Games |
-  | Online Auctions | Shopping and Auctions |
-  | Online Shopping | Shopping and Auctions |
-  | Other Adult Material | Adult Material |
-  | Other Drugs | Drugs |
-  | Other Religion | Religion |
-  | Radio Stations | Entertainment/Recreation |
-  | Real Estate | Shopping and Auctions |
-  | Social Networking | Society and Lifestyle |
-  | Special Interests/Social Organizations | Special Interests/Social Organizations |
-  | Sports | Sports |
-  | Travel | Travel |
-  | Vehicles | Vehicles |
-  | Weapons/Bombs | Weapons/Bombs |
-  | Webmail | Internet Communication |
-- **Enable Embedded Sites Categorization**: Select**Disable**. With this disabled, the service won't enforce the URL Filtering policy for sites that are translated using translation service websites.
-- **Enforce SafeSearch**: Select **Enable**. The following drop-down field appears when this option is enabled: **SafeSearch Applications**: Select **Any** to return safe content from searches on AOL, Bing Search, Dailymotion, DuckDuckGo, Flickr, Google, Yahoo, and YouTube. [SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) must be enabled for this option.
-- **Enable Creative Commons Search Results**: Select **Enable**. This enables the service to return only Creative Commons search content from certain search engines (e.g., Bing, Google, and Yahoo).
-
-## Generative AI Prompt Configuration
-
-When using Amazon Q, be aware that Zscaler and AWS are technology partners. For more information on the Zscaler and Amazon Q integration, see the [Zscaler and AWS Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-aws-deployment-guide).
-
-Zscaler recommends that you configure the following in the [Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings):
-
-- **ChatGPT**: Select**Enable**.This enables the service to categorize and store prompts entered on ChatGPT.
-- **Microsoft Copilot**: Select **Enable**. This enables the service to categorize and store prompts entered on Microsoft Copilot.
-- **Gemini**: Select**Enable**.This enables the service to categorize and store prompts entered on Gemini.
-- **Perplexity**: Select**Enable**.This enables the service to categorize and store prompts entered on Perplexity.
-- **Poe**: Select**Enable**.This enables the service to categorize and store prompts entered on Poe.
-- **Meta AI**: Select**Enable**.This enables the service to categorize and store prompts entered on Meta AI.
-- **WRITER**: Select**Enable**.This enables the service to categorize and store prompts entered on WRITER.
-- **DeepSeek**: Select**Enable**.This enables the service to categorize and store prompts entered on DeepSeek.
-- **Grok AI**: Select**Enable**.This enables the service to categorize and store prompts entered on Grok AI.
-- **Claude**: Select**Enable**.This enables the service to categorize and store prompts entered on Claude.
-- **Mistral**: Select**Enable**.This enables the service to categorize and store prompts entered on Mistral.
-- **Grammarly**: Select**Enable**.This enables the service to categorize and store prompts entered on Grammarly.
-- **QuillBot**: Select**Enable**.This enables the service to categorize and store prompts entered on QuillBot.
-- **Google AI**: Select**Enable**.This enables the service to categorize and store prompts entered on Google AI.
-
-## Cloud App Control
-
-Configure your Cloud App Control policy based on your corporate policy.
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2019","lastmod":"2026-02-03T22:12Z","nid":"1401411"} -->
 ## Release Upgrade Summary (2019)
 
@@ -9729,13 +8840,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-10-23T12:09Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-11-01T22:29Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-23T12:09Z
+- Last modified: 2026-11-01T22:29Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9965,13 +9076,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-10-13T11:17Z","nid":"1399741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/role-based-administration-configuration-examples","lastmod":"2026-10-27T21:06Z","nid":"1399741"} -->
 ## Role-Based Administration Configuration Examples
 
 - Source: https://help.zscaler.com/zia/role-based-administration-configuration-examples
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role-Based Administration Configuration Examples
-- Last modified: 2026-10-13T11:17Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: Information on common examples of role-based administration in the Zscaler Admin Console.
 
 With [role-based administration](https://help.zscaler.com/zia/configuring-role-based-administration), organizations can assign specific [roles](https://help.zscaler.com/zia/adding-admin-roles) to admins with different levels of access to the Zscaler Admin Console features.
@@ -10310,13 +9421,13 @@ Zscaler operation processes and its Information Security Management System (ISMS
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-adfs-2.0","lastmod":"2026-07-13T21:06Z","nid":"1399686"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-adfs-2.0","lastmod":"2026-10-30T18:24Z","nid":"1399686"} -->
 ## SAML Configuration Guide for AD FS 2.0
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-adfs-2.0
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for AD FS 2.0
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T18:24Z
 - Summary: How to configure a Windows Server 2008 R2 running AD FS 2.0 as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure a Windows Server 2008 R2 running Active Directory Federation Services 2.0 (AD FS) as the identity provider (IdP) for the Zscaler service. It assumes that AD FS 2.0 is already installed on the Windows server. To learn more about the steps in Windows Server 2008 R2, refer to the [Microsoft AD FS documentation](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
@@ -10528,7 +9639,7 @@ The preceding regular expression matches any group name that begins with “Acce
 
 To configure SAML SSO in the Zscaler Admin Console:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,choose how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the following field appears:
   - **Custom Authentication Frequency (days)**: Specify 1 to 180 days.
 3. Under**Authentication Type**, choose **SAML**.
@@ -10576,13 +9687,13 @@ If you are using PAC files, enter the AD FS URL in the [PAC file](https://help.z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-adfs-3.0","lastmod":"2026-07-09T21:06Z","nid":"1402081"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-adfs-3.0","lastmod":"2026-10-30T18:18Z","nid":"1402081"} -->
 ## SAML Configuration Guide for AD FS 3.0
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-adfs-3.0
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for AD FS 3.0
-- Last modified: 2026-07-09T21:06Z
+- Last modified: 2026-10-30T18:18Z
 - Summary: How to configure a Windows Server 2012 R2 running AD FS 3.0 as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure a Windows Server 2012 R2 running Active Directory Federation Services 3.0 (AD FS) as the identity provider (IdP) for the Zscaler service. It assumes that AD FS 3.0 is already installed on the Windows server. To learn more about the steps in the Windows Server 2012 R2, refer to the [Microsoft AD FS documentation](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services).
@@ -10941,7 +10052,7 @@ See image.
 
 To configure SAML SSO in the Zscaler Admin Console:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,choose how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the following field appears:
   - **Custom Authentication Frequency (days)**: Specify 1 to 180 days.
 3. Under**Authentication Type**, choose **SAML**.
@@ -10954,7 +10065,7 @@ See image.
 
 To configure the Zscaler Authentication Exemptions list and enable users access to AD FS:
 
-1. Go to **Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Setting**> **Advanced Settings**.
 2. In the **Authentication Exemptions** section, enter your organization's AD FS URL in **Exempted URLs**.
 
 See image.
@@ -10968,13 +10079,13 @@ If you are using PAC files, enter the AD FS URL in the [PAC file](https://help.z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-ca-single-sign-on","lastmod":"2026-07-13T21:06Z","nid":"1399661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-ca-single-sign-on","lastmod":"2026-10-30T18:45Z","nid":"1399661"} -->
 ## SAML Configuration Guide for CA Single Sign-On
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-ca-single-sign-on
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for CA Single Sign-On
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T18:45Z
 - Summary: How to configure CA Single Sign-On as the IdP for the Zscaler service.
 
 This guide illustrates how to configure CA SiteMinder running version of R12 SP3 CR5 as the identity provider (IdP) for the Zscaler service.
@@ -11037,7 +10148,7 @@ The Zscaler service requires the username (JohnSmith@safemarch.com), given name 
 
 To configure SAML SSO in the Zscaler Admin Console:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,choose how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the following field appears:
   - **Custom Authentication Frequency (days)**: Specify 1 to 180 days.
 3. Under**Authentication Type**, choose **SAML**.
@@ -11058,13 +10169,13 @@ return "DIRECT";
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-onelogin","lastmod":"2026-07-13T21:06Z","nid":"1399666"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-configuration-guide-onelogin","lastmod":"2026-10-30T18:42Z","nid":"1399666"} -->
 ## SAML Configuration Guide for OneLogin
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-onelogin
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for OneLogin
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T18:42Z
 - Summary: How to configure OneLogin as an identity provider for the Zscaler service.
 
 This guide illustrates how to configure OneLogin as the identity provider (IdP) for the Zscaler service. It also describes how to integrate Active Directory and configure an AD connector. Refer to the [OneLogin documentation](https://onelogin.service-now.com/support?id=kb_view2) for additional information about the steps in the example.
@@ -11152,7 +10263,7 @@ If a proxy is in place within your network, create a proxy rule to allow the One
 
 To configure SAML SSO in the Zscaler Admin Console:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,choose how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the following field appears:
   - **Custom Authentication Frequency (days)**: Specify 1 to 180 days.
 3. Under**Authentication Type**, choose **SAML**.
@@ -11165,7 +10276,7 @@ See image.
 
 To configure the Zscaler Authentication Exemptions list and enable users access to OneLogin:
 
-1. Go to **Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Setting**> **Advanced Settings**.
 2. In the **Authentication Exemptions** section, enter `app.onelogin.com` in **Exempted URLs**.
 3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -11193,13 +10304,13 @@ If (shExpMatch(host, "app.onelogin.com"))
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-google-workspace","lastmod":"2026-07-13T21:06Z","nid":"1399656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-google-workspace","lastmod":"2026-10-30T18:36Z","nid":"1399656"} -->
 ## SAML & SCIM Configuration Guide for Google Workspace
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-google-workspace
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for Google Workspace
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T18:36Z
 - Summary: How to configure SAML and SCIM with Google Workspace as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure Google Workspace as the identity provider (IdP) for the Zscaler service.
@@ -11251,7 +10362,7 @@ Test the SAML configuration with one or both of the following methods:
 - Test the SAML Configuration by Logging Out of the Zscaler Service
 - Test the SAML Configuration with the Test URL
 
-To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**. You should see a complete list of the users and groups added to your user database.
+To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration**> **Internet & SaaS Authentication** > **Internet & SaaS Users**. You should see a complete list of the users and groups added to your user database.
 
 ## Troubleshooting
 
@@ -11294,7 +10405,7 @@ To perform SP-initiated SSO:
   - Select**First name** in the **Google directory attributes**drop-down menu and enter `DisplayName` in **App attributes**.
 8. Click **FINISH**.
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click **Add IdP**. If you have an existing IdP configuration, the **What do you want to do?** window appears. Click **Add another SAML IdP for a subset of users or locations** and then **Next**. See image.
 3. In the **Add IdP**window: See image.
   - **SAML Portal URL**: Enter the **SSO URL**that you copied from the Google Admin console.
@@ -11311,7 +10422,7 @@ To perform SP-initiated SSO:
   - **Department Name Attribute**: Enter `Department` (case-sensitive).
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). To learn more about configuring an IdP in the Zscaler Admin Console, see [Adding Identity Providers](https://help.zscaler.com/zia/adding-identity-providers).
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click the **Edit**icon for your previously configured Google IdP.
 3. In the **Edit IdP**window, select **Enable SCIM Provisioning**.
 4. Copy the **Base URL**and **Bearer Token**. You need them to configure SCIM in the Google Admin console. See image.
@@ -11342,7 +10453,7 @@ To perform SP-initiated SSO:
 13. On the home page for the Zscaler app, enable **Auto-provisioning**. See image. The **Turn on** window appears.
 14. Click **TURN ON**. See image.
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. For **Authentication Frequency**, select how often users are required to authenticate to the Zscaler service. If you select **Custom**, the **Custom Authentication Frequency (days)**field appears. Specify 1 to 180 days. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings).
 3. For**Authentication Type**, choose **SAML**. See image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -11355,7 +10466,7 @@ To perform SP-initiated SSO:
 
 To configure the list and enable users access to Google Workspace:
 
-1. Go to **Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Setting**> **Advanced Settings**.
 2. In the **Authentication Exemptions** section, enter `accounts.google.com`in **Exempted URLs**.
 3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -11417,13 +10528,13 @@ This option only applies to user traffic from known locations. To learn more, se
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-microsoft-entra-id","lastmod":"2026-07-13T21:06Z","nid":"1400361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-microsoft-entra-id","lastmod":"2026-10-30T17:29Z","nid":"1400361"} -->
 ## SAML & SCIM Configuration Guide for Microsoft Entra ID
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-microsoft-entra-id
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for Microsoft Entra ID
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T17:29Z
 - Summary: How to configure SAML and SCIM in the Microsoft Entra admin center and the Zscaler Admin Console.
 
 This guide illustrates how to configure Microsoft Entra ID (formerly Azure Active Directory) as the identity provider (IdP) for the Zscaler service. To learn more about the steps in the Microsoft Entra admin center, refer to the [Microsoft Entra ID documentation](https://learn.microsoft.com/en-us/entra/identity/saas-apps/zscaler-tutorial).
@@ -11467,7 +10578,7 @@ Test the SAML configuration with one or both of the following methods:
 Test the SCIM configuration by doing the following:
 
 - 1. Initiate a provision on demand for your application in Microsoft Entra ID.
-- 2. After provisioning successfully, in the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**. You should see a complete list of the users and groups added to your user database.
+- 2. After provisioning successfully, in the Zscaler Admin Console, go to **Administration** > **Internet & SaaS Authentication** > **Internet & SaaS Users**. You should see a complete list of the users and groups added to your user database.
 
 ## Troubleshooting
 
@@ -11560,7 +10671,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 
 [Image: The Hide extensions for known file types deselected in the View tab of the Windows File Explorer Options.]
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,select how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the **Custom Authentication Frequency (days)** field appears. In this field, specify 1 to 180 days.
 3. Under**Authentication Type**, select **SAML**. See image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -11569,7 +10680,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 
 To configure the Zscaler Authentication Exemptions list and enable users access to Microsoft Entra ID in the Zscaler Admin Console:
 
-1. Go to **Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Setting** > **Advanced Settings**.
 2. In the **Authentication Exemptions** section, enter the following exceptions in **Exempted URLs**, and click **Add Items**: See image. This option only applies to user traffic from known locations. For more information, see [Exempting URLs and Cloud Apps from Authentication](https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication).
   - `login.windows.net`
   - `login.microsoftonline.com`
@@ -11759,9 +10870,9 @@ For Microsoft Entra users to authenticate through the Zscaler service, you must 
 8. Select the user for which you want to provision.
 9. Click **Provision**. The provision on demand process is initiated. After the process is completed, the **Provision on demand** page appears, displaying the results from the 5 steps that the provisioning service takes when provisioning a user. If a step is successful, a green check mark appears next to the step. If a step is not successful, then a red circle with an X appears next to the step. See image.
 10. On the **Provision on demand** page, review the results. If there are no failures in the steps, then the provisioning configuration for your application has been properly configured. If there are failures, fix the issues that are listed and retry the provision on demand process again. Focus on the **Perform action** step. To understand why the failure occurred, click the **View details** link located under each step. For failures that you cannot fix, contact either Microsoft Entra Support or Zscaler Support for assistance. See image.
-11. Verify that the user has been added to your database in the Zscaler Admin Console. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**.
+11. Verify that the user has been added to your database in the Zscaler Admin Console. In the Zscaler Admin Console, go to **Administration** > **Internet & SaaS Authentication** > **Internet & SaaS Users**.
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Click the **Identity Providers**tab.
 3. Click **Add IdP**.
 
@@ -11803,7 +10914,7 @@ See image.
 
 To learn more about configuring an IdP in the Zscaler Admin Console, see [Adding Identity Providers](https://help.zscaler.com/zia/adding-identity-providers).
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click the **Edit** icon for the identity provider (IdP) you configured for Microsoft Entra ID. To learn more, see Add Microsoft Entra ID as the IdP for the Zscaler service in the Zscaler Admin Console. The **Edit IdP** window appears.
 3. In the **Edit IdP** window: See image.
   - **Enable SAML Auto-Provisioning**: Disable this option when enabling SCIM-based provisioning.
@@ -11845,13 +10956,13 @@ To learn more about configuring SCIM in the Zscaler Admin Console, see [Configur
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-okta","lastmod":"2026-07-13T21:06Z","nid":"1399671"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-okta","lastmod":"2026-10-30T17:41Z","nid":"1399671"} -->
 ## SAML & SCIM Configuration Guide for Okta
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-okta
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for Okta
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T17:41Z
 - Summary: How to configure SAML and SCIM with Okta as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure and install the Internet & SaaS (ZIA) app in Okta, which enables the user to use SAML as the method of authentication and System for Cross-domain Identity Management (SCIM) as the method of provisioning.
@@ -11902,7 +11013,7 @@ Test the SAML configuration with one or both of the following methods:
 - Test the SAML Configuration by Logging Out of the Zscaler Service
 - Test the SAML Configuration with the Test URL
 
-To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration**> **Identity**> **Internet & SaaS** > **User Management**. You should see a complete list of the users and groups added to your user database.
+To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration**> **Internet & SaaS Authentication** > **Internet & SaaS Users**. You should see a complete list of the users and groups added to your user database.
 
 ## Troubleshooting
 
@@ -11948,7 +11059,7 @@ To add the Internet & SaaS app in the Okta administrator portal:
 
 To configure SAML in the Zscaler Admin Console:
 
-1. Go to **Administration** > **Identity**>**Internet & SaaS > Internet Authentication Settings**>**Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click **Add IdP**.
 
 If you have an existing IdP configuration, the **What do you want to do?** window appears. Click **Add another SAML IdP for a subset of users or locations** and then **Next**.
@@ -11976,7 +11087,7 @@ To learn more about configuring an IdP in the Zscaler Admin Console, see [Adding
 
 To configure SCIM in the Zscaler Admin Console:
 
-1. Go to **Administration**>**Identity**>**Internet & SaaS**>**Internet Authentication Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings**.
 2. Click the **Identity Providers** tab.
 3. Click the **Edit** icon for the IdP you configured for Okta (step 3). The **Edit IdP** window appears.
 4. In the **Edit IdP** window: See image.
@@ -12188,13 +11299,13 @@ To perform SP-initiated SSO:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-pingfederate","lastmod":"2026-07-13T21:06Z","nid":"1401201"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-pingfederate","lastmod":"2026-10-30T17:57Z","nid":"1401201"} -->
 ## SAML & SCIM Configuration Guide for PingFederate
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-pingfederate
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for PingFederate
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T17:57Z
 - Summary: How to configure Ping Identity's PingFederate server as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure Ping Identity's PingFederate server as the identity provider (IdP) for the Zscaler service.
@@ -12222,7 +11333,7 @@ Test the SAML configuration with one or both of the following methods:
 - Test the SAML Configuration by Logging Out of the Zscaler Service
 - Test the SAML Configuration with the Test URL
 
-To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**. You should see a complete list of the users and groups added to your user database.
+To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration**> **Internet & SaaS Authentication** > **Internet & SaaS Users**. You should see a complete list of the users and groups added to your user database.
 
 ## Troubleshooting
 
@@ -12242,13 +11353,13 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-pingone","lastmod":"2026-07-14T09:53Z","nid":"1524896"} -->
+<!-- ZS-ARTICLE {"url":"/zia/saml-scim-configuration-guide-pingone","lastmod":"2026-10-30T18:09Z","nid":"1524896"} -->
 ## SAML & SCIM Configuration Guide for PingOne
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-pingone
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for PingOne
-- Last modified: 2026-07-14T09:53Z
+- Last modified: 2026-10-30T18:09Z
 - Summary: How to configure SAML and SCIM with PingOne as the identity provider for the Zscaler service.
 
 This guide illustrates how to configure SAML and SCIM with Ping Identity's PingOne server as the identity provider (IdP) for the Zscaler service.
@@ -12296,7 +11407,7 @@ Test the SAML configuration with one or both of the following methods:
 - Test the SAML Configuration by Logging Out of the Zscaler Service
 - Test the SAML Configuration with the Test URL
 
-To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**. You should see a complete list of the users and groups added to your user database.
+To test the SCIM configuration, in the Zscaler Admin Console, go to **Administration**> **Internet & SaaS Authentication** > **Internet & SaaS Users**. You should see a complete list of the users and groups added to your user database.
 
 ## Troubleshooting
 
@@ -12328,7 +11439,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
     - Change the Windows Folder Properties to View and Edit Extensions
   - Contains only one dot ("."). See image.
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click **Add IdP**. If you have an existing IdP configuration, the **What do you want to do?** window appears. Click **Add another SAML IdP for a subset of users or locations** and then **Next**. See image.
 3. In the **Add IdP**window: See image.
   - **SAML Portal URL**: Enter the **Single Signon Service**that you copied from the PingOne admin console.
@@ -12357,7 +11468,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
   - **Department Name Attribute**: Enter `department` (case-sensitive).
 6. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Identity Providers**.
 2. Click the **Edit**icon for your previously configured PingOne IdP.
 3. In the **Edit IdP**window, click **Enable SCIM Provisioning**.
 4. Copy the **Base URL**and **Bearer Token**. You need them to configure SCIM in the PingOne admin console. See image.
@@ -12406,7 +11517,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 25. Click **Target**to review the configuration.
 26. Click the toggle to enable the rule. See image. After provisioning is enabled, the provisioning details are available.
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet Authentication Settings** > **Default Settings**.
 2. Under **Authentication Frequency**,choose how often users are required to authenticate to the Zscaler service. To learn more, see [About Authentication Default Settings](https://help.zscaler.com/zia/about-authentication-default-settings). If you select **Custom**, the following field appears:
   - **Custom Authentication Frequency (days)**: Specify 1 to 180 days.
 3. Under**Authentication Type**, choose **SAML**. See image.
@@ -12420,7 +11531,7 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 
 To configure the list and enable users access to PingOne:
 
-1. Go to **Policies** > **Common Configuration** > **Advanced** > **Advanced Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Setting**> **Advanced Settings**.
 2. In the **Authentication Exemptions** section, enter the required PingOne domains in **Exempted URLs**. To see the list of PingOne domains, refer to the IP address and domain reference section in the [PingOne documentation](https://docs.pingidentity.com/pingone/p1_cloud__platform_main_landing_page.html).
 3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -12665,13 +11776,13 @@ You can edit or delete the scheduled email deliveries at any time. To learn more
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/scim-api-examples","lastmod":"2026-07-09T21:06Z","nid":"1400836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/scim-api-examples","lastmod":"2026-10-30T16:54Z","nid":"1400836"} -->
 ## SCIM API Examples
 
 - Source: https://help.zscaler.com/zia/scim-api-examples
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SCIM API Examples
-- Last modified: 2026-07-09T21:06Z
+- Last modified: 2026-10-30T16:54Z
 - Summary: Information on some of the API requests and responses that can be made using SCIM on the Zscaler service.
 
 Using SCIM operations enables you to do things like creating and deleting users and groups. To perform these operations, you need to enable SCIM-based provisioning and have your Base URL and Bearer Token. To learn how to do this, see [Configuring SCIM](https://help.zscaler.com/zia/configuring-scim). Most API calls to Zscaler SCIM servers will be authenticated using the Bearer Token. However, there are several API calls (/Schemas, /ServiceProviderConfig, /ResourceTypes) that do not require authentication, as they are informational for the SCIM server and not particular to any company.
@@ -13362,16 +12473,14 @@ To configure the self-service GRE tunnels from the Zscaler Admin Console:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-static-ip-addresses","lastmod":"2026-06-03T21:06Z","nid":"1401926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/self-provisioning-static-ip-addresses","lastmod":"2026-10-27T10:22Z","nid":"1401926"} -->
 ## Self-Provisioning of Static IP Addresses
 
 - Source: https://help.zscaler.com/zia/self-provisioning-static-ip-addresses
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Self-Provisioning of Static IP Addresses
-- Last modified: 2026-06-03T21:06Z
+- Last modified: 2026-10-27T10:22Z
 - Summary: How to self-provision static IP addresses in the Zscaler Admin Console.
-
-[Watch a video about GRE Tunnels and Static IP](https://fast.wistia.net/embed/iframe/4lx8k9aqum) (shows legacy UI).
 
 You can self provision your static IP address to connect to the Zscaler service via the Zscaler Admin Console. To learn more, see [About Static IP](https://help.zscaler.com/zia/about-static-ip).
 
@@ -13858,13 +12967,13 @@ You can also utilize the Nanolog Streaming Service (NSS). This uses a virtual ma
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-webex-teams-real-time-dlp","lastmod":"2026-10-22T08:38Z","nid":"1518511"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-webex-teams-real-time-dlp","lastmod":"2026-10-30T13:06Z","nid":"1518511"} -->
 ## Step-by-Step Configuration Guide for Webex Teams Real-Time DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-webex-teams-real-time-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Step-by-Step Configuration Guide for Webex Teams Real-Time DLP
-- Last modified: 2026-10-22T08:38Z
+- Last modified: 2026-10-30T13:06Z
 - Summary: A high-level overview of how to onboard and configure Webex Teams for Real-time Data Loss Prevention (DLP) for messages and files.
 
 This guide takes you through the configuration steps you need to complete to begin using the Zscaler real-time Data Loss Prevention (DLP) for your organization. Because Zscaler real-time DLP uses Zscaler DLP tools to monitor and prevent the leakage of sensitive data in Webex Teams messages and files, Zscaler recommends reading the following articles before you begin configuring your real-time DLP policy.
@@ -14040,13 +13149,13 @@ To learn more, see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492661"} -->
+<!-- ZS-ARTICLE {"url":"/zia/step-step-configuration-guide-zscaler-outbound-email-dlp","lastmod":"2026-10-29T06:07Z","nid":"1492661"} -->
 ## Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
-- Last modified: 2026-09-22T07:06Z
+- Last modified: 2026-10-29T06:07Z
 - Summary: A high-level overview of how to use Zscaler Outbound Email Data Loss Prevention (DLP) to prevent data loss in outbound email sent to external domains.
 
 This guide takes you through the configuration steps you need to complete to begin using the Zscaler Outbound Email Data Loss Prevention (DLP) for your organization. Because Zscaler Outbound Email DLP uses Zscaler DLP tools to monitor and prevent the leakage of sensitive data in outbound email content sent to external domains, Zscaler recommends reading the following articles before you begin configuring your outbound email policy:
@@ -14098,8 +13207,6 @@ To learn more, see [Configuring Outbound Email Policy Rules](https://help.zscale
 
 If you configured an Incident Receiver as part of your outbound email policy rules, you can integrate it with Workflow Automation to capture and remediate incidents generated by policy violations. To learn more, see [Managing Incidents](https://help.zscaler.com/workflow-automation/managing-incidents) and [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details).
 
-Workflow Automation is not supported for SEG tenants.
-
 You can configure Nanolog Streaming Service (NSS) feeds to specify the data from the Zscaler Outbound Email DLP Policy logs that the NSS sends to your security information and event management (SIEM) system. To learn more, see [Adding NSS Feeds for Email DLP Logs](https://help.zscaler.com/zia/adding-nss-feeds-email-dlp-logs).
 
 You can use Zscaler Outbound Email DLP Policy reports and logs to gain visibility and insight into your organization's outbound email activity. Specifically, dashboard or report widgets, or charts on an Insights page allow you to work with DLP data types and filters to define the outbound email policy information that you want to view.
@@ -14109,13 +13216,13 @@ To learn more, see [About the Email Security Report](https://help.zscaler.com/zi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/supported-cipher-suites-ssltls-inspection","lastmod":"2026-10-11T23:13Z","nid":"1400231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/supported-cipher-suites-ssltls-inspection","lastmod":"2026-10-30T05:09Z","nid":"1400231"} -->
 ## Supported Cipher Suites in SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/supported-cipher-suites-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Supported Cipher Suites in SSL/TLS Inspection
-- Last modified: 2026-10-11T23:13Z
+- Last modified: 2026-10-30T05:09Z
 - Summary: Information on the cipher suites supported for the different TLS protocols and configuring the SSL/TLS Inspection policy to allow or block undecryptable traffic.
 
 Zscaler supports hardware-based inspection with TLS versions 1.3, 1.2, 1.1 and 1.0, as well as Perfect Forward Secrecy (PFS) cipher suites across all TLS versions. The Public Service Edge for Internet & SaaS (ZIA) prefers and proposes the highest TLS version and strongest cipher suites on the client side (client to Public Service Edge) and server side (Public Service Edge to server) connections, respectively.
@@ -14155,7 +13262,7 @@ Zscaler supports the following RSA cipher suites:
 | TLS 1.0 TLS 1.1 | TLS_RSA_WITH_AES_256_CBC_SHA (0x0035) TLS_RSA_WITH_AES_128_CBC_SHA (0x002f) |
 | TLS 1.2 | TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d) TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c) TLS_RSA_WITH_AES_256_CBC_SHA (0x0035) TLS_RSA_WITH_AES_128_CBC_SHA (0x002f) |
 
-The Elliptic Curve Digital Signature Algorithm (ECDSA) authentication algorithm is supported only on the server-side (Public Service Edge to Server) SSL/TLS connections.
+By default, the Elliptic Curve Digital Signature Algorithm (ECDSA) authentication algorithm is supported only on the server-side (Service Edge to Server) SSL connections. However, ECDSA can be supported for client-side (Client to Service Edge) if Custom Certificate Compliance is enabled and an ECDSA custom intermediate certificate is configured.
 
 ## Unsupported Cipher Suites
 
@@ -14871,13 +13978,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/syslog-overview","lastmod":"2026-10-14T12:37Z","nid":"1401366"} -->
+<!-- ZS-ARTICLE {"url":"/zia/syslog-overview","lastmod":"2026-10-28T21:06Z","nid":"1401366"} -->
 ## Syslog Overview
 
 - Source: https://help.zscaler.com/zia/syslog-overview
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Syslog Overview
-- Last modified: 2026-10-14T12:37Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: Information on syslog formatting and the syslog formats used by security information and event management (SIEM) systems.
 
 This article provides an overview of the log messages that are being streamed through the Nanolog Streaming Service (NSS) to your security information and event management (SIEM) system. To learn more about syslog and syslog formatting, refer to the [syslog Wikipedia page](https://en.wikipedia.org/wiki/Syslog).
@@ -15131,99 +14238,85 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-kerberos-authentication","lastmod":"2026-10-16T03:24Z","nid":"1399591"} -->
+<!-- ZS-ARTICLE {"url":"/zia/troubleshooting-kerberos-authentication","lastmod":"2026-10-30T09:01Z","nid":"1399591"} -->
 ## Troubleshooting Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/troubleshooting-kerberos-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Troubleshooting Kerberos Authentication
-- Last modified: 2026-10-16T03:24Z
+- Last modified: 2026-10-30T09:01Z
 - Summary: How to troubleshoot Kerberos authentication on your domain controller and user devices.
 
 Kerberos authentication can be affected by some network configuration parameters, such as time synchronization. This article provides guidelines for troubleshooting Kerberos on your domain controller and on your users' devices.
 
 There are four major components involved with Kerberos authentication:
 
-- Your Zscaler cloud, which includes the Kerberos server (KDC), the Zscaler Central Authority (CA), and the ZIA Public Service Edge. (See [What is my cloud name for ZIA?](https://help.zscaler.com/zia/what-my-cloud-name-zia))
-- Your domain controller, which includes a KDC configured to do cross-real authentication.
-- Your users' devices, which are joined to your domain and have obtained cross-real settings from the domain controller through GPO.
-- A network infrastructure which connects all three of the above components, includes switches, routers, firewalls, etc.
+- Your Zscaler cloud, which includes the Kerberos server (KDC), the Zscaler Central Authority (CA), and the Public Service Edge for Internet & SaaS (ZIA). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+- Your domain controller, which includes a KDC configured to do cross-realm authentication.
+- Your users' devices, which are joined to your domain and have obtained cross-realm settings from the domain controller through GPO.
+- A network infrastructure that connects all three of the above components and includes switches, routers, firewalls, etc.
 
 Zscaler recommends that you first troubleshoot Kerberos on your domain controller.
 
-To learn more about using Kerberos for your organization, see [About Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication).
+To learn more about using Kerberos for your organization, see [Understanding Kerberos Authentication](https://help.zscaler.com/zia/understanding-kerberos-authentication).
 
 ## Troubleshooting on the Domain Controller
 
 Before troubleshooting, ensure that the administrator has been provisioned on the Zscaler service as a user so that Kerberos authentication doesn't fail.
 
-To troubleshoot on your domain controller:
+To troubleshoot Kerberos authentication on your domain controller:
 
 1. Log in to your domain controller.
-2. Ensure that your domain controller has the correct time and date, because the Kerberos protocol uses timestamps. If the time and date settings on your domain controller differ from the Zscaler KDC by more than five minutes, authentication will fail.
-3. Configure the browser to use Zscaler cloud on port 8800, the default Kerberos authentication port on ZIA Public Service Edges. Internet Explorer and Mozilla Firefox browsers support Kerberos authentication by default.
-4. Open [https://www.zscaler.com/](https://www.zscaler.com/). If the page is rendered properly, then the cross-realm settings are configured properly, and you can skip the next step and go to step 6.
-5. If the cross-realm settings are configured incorrectly, then the ZIA Public Service Edge displays a page with an error code. For more information about the error codes, see [ZIA Public Service Edge Error Codes for Kerberos](https://help.zscaler.com/zia/zen-error-codes-kerberos).
-6. Open Microsoft PowerShell and run the command klist purgeto clear the Kerberos ticket cache. See image.
+2. Ensure that your domain controller has the correct time and date, as the Kerberos protocol uses timestamps. If the time and date settings on your domain controller differ from the Zscaler KDC by more than five minutes, authentication will fail.
+3. Configure the browser to use Zscaler cloud on port 8800, the default Kerberos authentication port on Public Service Edges. Microsoft Edge and Mozilla Firefox browsers support Kerberos authentication by default.
+4. Open [https://www.zscaler.com/](https://www.zscaler.com/). If the page is rendered properly, then the cross-realm settings get configured properly, so you can skip the next step and go to the one after.
+5. If the cross-realm settings are configured incorrectly, then the Public Service Edge displays a page with an error code.To learn more about the error codes, see [Internet & SaaS Error Codes for Kerberos Authentication](https://help.zscaler.com/zia/zia-error-codes-kerberos-authentication).
+6. Open Microsoft PowerShell and run the following command to clear the Kerberos ticket cache: `klist purge`See image.
 7. After clearing the Kerberos ticket cache, open [https://www.zscaler.com/](https://www.zscaler.com/).
-8. In Windows PowerShell, run the command klist. If the following three Kerberos ticket-granting tickets (krbtgt) are not displayed when you run klist, then there is an issue with the server of that ticket.
-  - **Zscaler KDC krbtgt ticket**:The user device obtains this ticket from your organization's domain controller. This ticket grants access to the Zscaler KDC. If this ticket is not displayed, then the configuration on your KDC may be incorrect. Please configure your KDC again.
-  - **Your company's KDC krbtgt ticket**: The user device obtains this ticket from your organization's domain controller. This ticket grants access to that domain controller. If this ticket is not displayed, then your company's internal KDC is not issuing Zscaler KDC tickets. Please contact your company's IT support.
-  - **ZIA Public Service Edge krbtgt ticket**: The user device obtains this ticket from the Zscaler KDC. This ticket grants access to the ZIA Public Service Edge. If this ticket is not displayed, then the ZIA Public Service Edge is not issuing tickets. Please contact Zscaler Support. See image.
-9. In Windows PowerShell, run the command nltest /domain_trusts. The Zscaler domain must be in the domain trusts list as an inbound trust. See image.
-
-Your Zscaler domain name is the same as your Zscaler cloud name. In this example, it is ZSCALERTWO.NET. To learn how you can find your cloud name, see [What is my cloud name for ZIA?](https://help.zscaler.com/zia/what-my-cloud-name-zia)
-
-If you do not see the Zscaler domain in the domain trusts list, you must add it as a trusted domain. See [1. Create the New Trust](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push#create-new-trust) in *Kerberos Trust Relationship Configuration Guide for Windows Server 2012 and GPO Push*.
-
-1. If the Zscaler KDC domain is registered correctly, you run the command ping kerberos.<Zscaler Cloud> in Windows PowerShell. The IP address displayed must be the Zscaler CA's IP address. See image.
-
-If the Zscaler KDC domain has been configured incorrectly, reconfigure the KDC. For instructions, see [Kerberos Trust Relationship Configuration Guide for Windows Server 2012 and GPO Push](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push).
-
-1. To check cross-realm configuration:
+8. In Windows PowerShell, run the command klist. If the following three Kerberos ticket-granting tickets (krbtgt) are not displayed when you run klist, then there is an issue with the server of that ticket. See image.
+  - **Zscaler KDC krbtgt ticket**:The user device obtains this ticket from your organization's domain controller. This ticket grants access to the Zscaler KDC. If this ticket is not displayed, then the configuration on your KDC might be incorrect. Configure your KDC again.
+  - **Your company's KDC krbtgt ticket**: The user device obtains this ticket from your organization's domain controller. This ticket grants access to that domain controller. If this ticket is not displayed, then your company's internal KDC is not issuing Zscaler KDC tickets. Contact your company's IT support.
+  - **Public Service Edge krbtgt ticket**: The user device obtains this ticket from the Zscaler KDC. This ticket grants access to the Public Service Edge. If this ticket is not displayed, then the Public Service Edge is not issuing tickets. Contact Zscaler Support.
+9. In Windows PowerShell, run the following command: `nltest /domain_trusts`The Zscaler domain must be on the domain trusts list as an inbound trust. See image. Your Zscaler domain name is the same as your Zscaler cloud name. In this example, it is ZSCALERTWO.NET. To learn how you can find your cloud name, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). If you do not see the Zscaler domain in the domain trusts list, you must add it as a trusted domain. To learn more, see [Kerberos Trust Relationship Configuration for Windows Server & GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push).
+10. If the Zscaler KDC domain is registered correctly, run the following command in Windows PowerShell: `ping kerberos.<Zscaler Cloud>`The IP address displayed must be the Zscaler Central Authority (CA)'s IP address. See image. If the Zscaler KDC domain has been configured incorrectly, reconfigure the KDC. To learn more, see [Kerberos Trust Relationship Configuration for Windows Server & GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push).
+11. To check cross-realm configuration:
   1. Log in to the Windows server as administrator. Open the Server Manager and go to **DNS**. From the Tools menu, choose **Active Directory Domains and Trusts**.
   2. Right-click on your domain and select **Properties**. In the Properties window, go to the **Trusts** tab.
-  3. Select the Zscaler domain, and then click **Properties**. See image.
+  3. Select the Zscaler domain, and then click **Properties**. See image. If the Zscaler domain is not displayed, you must add the Zscaler domain as a trusted domain. To learn more, see [Kerberos Trust Relationship Configuration for Windows Server & GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push).
+  4. Ensure that the option **The other domain support Kerberos AES Encryption** is enabled. See image. There is no way to check the cross-realm password of an added trust. You must delete the domain trust and re-add the trust with the correct password.
+12. To validate the GPO configuration:
+  1. Open Windows PowerShell and enter the following command to list the GPO registry value for the Zscaler KDC: `get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\MitRealms" -name "Default Domain Policy"`
+  2. Verify the following values: See image.
+    - **Value**: `<k>kerberos.``<Zscaler Cloud>``</k>`. In this example, the value is `<k>kerberos.zscalertwo.net</k>`.
+    - **ValueName**: <Zscaler Cloud>. In this example, the value is ZSCALERTWO.NET
+  3. Enter the following command to list the GPO registry value for the Zscaler domain: `get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\domain_realm" -name "Default Domain Policy"`
+  4. Verify the following values: See image.
+    - **Value**: `.``<Zscaler Cloud>``; .gateway.``<Zscaler Cloud>`. In this example, the value is .zscalertwo.net; .gateway.zscalertwo.net.
+    - **ValueName**: `<Zscaler Cloud>`. In this example, the value is ZSCALERTWO.NET.
 
-If the Zscaler domain is not displayed, you must add the Zscaler domain as a trusted domain. See [1. Create the New Trust](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push#create-new-trust) in *Kerberos Trust Relationship Configuration Guide for Windows Server 2012 and GPO Push*.
-
-1. Ensure that the option **The other domain support Kerberos AES Encryption** is enabled. See image.
-
-There is no way to check the cross-realm password of an added trust. You must delete the domain trust and re-add the trust with the correct password.
-
-1. To validate the GPO configuration:
-  1. Open Windows PowerShell and enter the following command to list the GPO registry value for the Zscaler KDC:
-
-```
-get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\MitRealms" -name "Default Domain Policy"
-```
-
-1. Verify the following values:
-  - **ValueName**: <Zscaler Cloud>. In this example, the value is ZSCALERTWO.NET
-  - **Value**: <k>kerberos.<Zscaler Cloud></k>. In this example, the value is <k>kerberos.zscalertwo.net</k>. See image.
-2. Enter the following command to list the GPO registry value for the Zscaler domain:
-
-```
-get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\domain_realm" -name "Default Domain Policy"
-```
-
-1. Verify the following values:
-  - **ValueName**: <Zscaler Cloud>. In this example, the value is ZSCALERTWO.NET.
-  - **Value**: .<Zscaler Cloud>; .gateway.<Zscaler Cloud>. In this example, the value is .zscalertwo.net; .gateway.zscalertwo.net. See image.
-
-If the correct values are not displayed, verify your configuration. For instructions, see [Kerberos Trust Relationship Configuration Guide for Windows Server 2012 and GPO Push](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push).
+If the correct values are not displayed, verify your configuration. To learn more, see [Kerberos Trust Relationship Configuration for Windows Server & GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push).
 
 ## Troubleshooting on User Devices
 
-It is possible for Kerberos authentication to work on the domain controller, but to not work on a user's device. In this case, there may be an error with the GPO settings. You must check if GPO settings have been propagated from the domain controller to users. See [4. Configure GPO to Push the Configuration to Users](https://help.zscaler.com/zia/kerberos-configuration-example-trust-relationship-windows-server-2012-and-gpo-push#configure-gpo-push-users) in *Kerberos Trust Relationship Configuration Guide for Windows Server 2012 and GPO Push*.
+It is possible for Kerberos authentication to work on the domain controller, but not to work on a user's device. In this case, there might be an error with the GPO settings. You must check if GPO settings have been propagated from the domain controller to users. To learn more, see [Kerberos Trust Relationship Configuration for Windows Server & GPO Push](https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push).
 
-After configuring GPO to push the cross-realm trust to your users, complete step 6 of this article on your user's device to check for the cached Kerberos tickets. Then, complete the rest of the steps to finish troubleshooting on your user's device.
+After configuring GPO to push the cross-realm trust to your users, complete the step where you run the command `klist purge` to clear the Kerberos ticket cache on your user's device to check for the cached Kerberos tickets. Then, complete the rest of the steps to finish troubleshooting on your user's device.
 
-[Image: Screenshot of the klist purge command in Windows PowerShell]
+[Image: The klist purge command in Windows PowerShell]
 
-[Image: Screenshot of the nltest /domain_trusts command and response in Windows PowerShell]
+[Image: Zscaler KDC krbtgt ticket, your company's KDC krbtgt ticket, and the service krbtgt ticket]
 
-[Image: Screenshot pinging the Zscaler KDC domain in Windows PowerShell]
+[Image: The nltest /domain_trusts command and response in Windows PowerShell]
+
+[Image: Pinging the Zscaler KDC domain in Windows PowerShell]
+
+[Image: The Properties... button on the Trusts tab]
+
+[Image: The other domain support Kerberos AES Encryption option in the Properties window]
+
+[Image: The ValueName and Value fields for MitRealms]
+
+[Image: The ValueName and Value fields for domain_realm]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16005,4 +15098,1596 @@ The following table is a quick reference guide:
 | Advanced DLP Private Service Edge per Cluster | 2 | 2 | 2–4 |
 
 Contact your Zscaler Sales representative for further details on appropriate sizing.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-assets-report-assets-with-incidents","lastmod":"2026-10-30T05:07Z","nid":"1401971"} -->
+## Understanding the Assets Report: Assets with Incidents
+
+- Source: https://help.zscaler.com/zia/understanding-assets-report-assets-with-incidents
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > Understanding the Assets Report: Assets with Incidents
+- Last modified: 2026-10-30T05:07Z
+- Summary: Information about the Assets with Incidents page, which is part of the Assets Report. It provides a comprehensive view for each selected application and tenant in the main report page.
+
+When you click to further analyze an application or tenant in the main [Assets Report](https://help.zscaler.com/zia/saas-assets-report) page, you are redirected to the Assets with Incidents page, which provides a comprehensive view of each selected application and tenant. The filters are preset to the application or tenant, and time frame you choose to further analyze, but you can click **Clear** to reset the filtersat any time. You can also go back to the main Assets Report page by clicking the **SaaS Security Assets**link next to the page's title.
+
+To view your assets with incidents:
+
+1. Select the individual **Application** you’d like to analyze.
+2. Select which **Tenant** you’d like to analyze. You can choose **All Tenants** or specific ones. You can also search for tenants.
+3. Select to view a **Current Scan**, a **Previous Scan**, or **All Scans**.
+4. Select to view the scans for a particular time frame. You can choose to view scans for the current day, the current week, the last 24 hours, the last 7 days, or choose a custom time frame.
+5. Once you select your **Application**, **Tenant**, **Scan**, and scan time, click **Apply** to update the page with your selections. You can click **Reset** at any time.
+6. You can export the data.
+
+[Image: The filters and export button in the Assets with Incidents page, which is part of the SaaS Assets Report]
+
+## Collaboration Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Messages
+- Senders
+- Show Advanced Filters
+
+## CRM Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Objects
+- Owners
+- Collaborators
+- Show Advanced Filters
+
+## Email Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Email Messages
+- Senders
+- Recipients
+- Show Advanced Filters
+
+## File Sharing Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Files
+- Owners
+- Collaborators
+- Show Advanced Filters
+
+## Gen AI Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Messages
+- Senders
+- Show Advanced Filters
+
+## ITSM Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Objects
+- Owners
+- Collaborators
+- Show Advanced Filters
+
+## Source Code Repository Applications and Tenants
+
+The following tabs and advanced filters appear on your generated page:
+
+- Objects
+- Owners
+- Collaborators
+- Show Advanced Filters
+
+## Public Cloud Storage Applications and Tenants
+
+To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
+
+The following tabs and advanced filters appear on your generated page:
+
+- Objects
+- Owners
+- Collaborators
+- Show Advanced Filters
+
+You can select to view one of the following tiles:
+
+- Messages with Incidents Matching a Rule
+- Messages with DLP Violation
+- Messages with Malware
+- Messages with External Collaborators
+- Externally Sent Messages with DLP Violation
+- Quarantined Messages
+
+See image.
+
+Each tile has the following columns:
+
+- **File Name**: The name of the file.
+- **Message ID**: The message ID of the file.
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Workspace Name**: The workspace name for the collaboration application.
+- **Internal Recipients**: The recipients within your organization.
+- **External Recipients**: Therecipients outside your organization.
+- **Run ID**: The ID of the run. A run is when a scan is stopped and started. Every run is identified and tracked with a run ID.
+- **Collaboration Scope**: The collaboration scope and permissions for the SaaS application tenant files (e.g., External Collaborators - Edit). This column is currently only available for MS Teams.
+- **Remediation Action**: You can take the following remediation actions when you click on the ellipsis:
+  - **View Scan History**: You can view the scan history. You'll be redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+  - **Quarantine**: You can quarantine a message or file that is malware-reported, with incidents, or DLP violations.
+  - **Remove**: You can permanently remove a message or file that is quarantined, malware-reported, with incidents, or DLP violations. When you select **Quarantine** or **Remove** as a remediation action, it appears as a separate incident entry. The new entry has the most current Last Scan Time value, and the Action category is updated to reflect the remediation action you selected.
+  - **Restore**: You can restore a quarantined message or file that is malware-reported, with incidents, or DLP violations (for Slack only).
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Shared Channel Hostname**: The hostname of the Slack, Webex Teams, Microsoft Teams, or Zoom shared channel.
+- **Channel Name**: The name of the Slack, Webex Teams, Microsoft Teams, or Zoom channel.
+- **SHA**: The secure hash algorithm (SHA).
+- **Sender**: The sender of the file.
+- **Scan ID**: The ID of a scan. Every scan that is defined in the Historic Scan Configuration has a unique identifier associated with it.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS (ZIA) services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **Owner**: The owner of the file.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Messages tab in the Collaboration app category in the Assets with Incidents page]
+
+For each email message, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+
+[Image: The Messages tab in the Collaboration app category]
+
+You can select to view one of the following tiles:
+
+- Senders Affected with Incidents Matching a Rule
+- Senders of Messages with DLP Violations
+- Senders of Messages with Malware
+
+See image.
+
+Each tile has the following columns:
+
+- **Sender**: The sender of the message.
+- **Number of Messages with Incidents**: The number of messages that contain incidents.
+
+You can click on a number, and the **Messages with Incidents - Senders** window appears for that particular owner. In the **Messages with Incidents - Owners window**, the columns shown are the same ones in the **Senders** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Recipients**: The number of recipients outside your organization.
+- **Number of Internal Recipients**: The number of recipients within your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Senders tab in the Collaboration app category in the Assets with Incidents page]
+
+[Image: The Senders tab in the Collaboration app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **Number of Internal Recipients**: The recipients within your organization.
+- **Number of External Recipients**: The number of recipients outside your organization.
+- **Internal Recipients**: The recipients within your organization.
+- **File Name**: The name of the file.
+- **External Recipients**: The recipients outside your organization.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Channel Name**: The name of the Slack, Webex Teams, Microsoft Teams, or Zoom channel.
+- **Collaboration Message**: The message that was collaborated on.
+- **Shared Channel Hostname**: The hostname of the Slack, Webex Teams, Microsoft Teams, or Zoom shared channel.
+- **SHA**: The secure hash algorithm (SHA).
+- **Sender Name**: The sender of the file.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Messages with Incidents Matching a Rule
+- Messages with DLP Violation
+- Messages with Malware
+
+See image.
+
+Each tile has the following columns:
+
+- **Bot Name**: The name of the bot that triggered a DLP response.
+- **Component**: The name of the component (i.e., file or message).
+- **File Name**: The name of the file.
+- **Message ID**: The message ID of the file.
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Sender Type**: The type of sender (i.e., bot, system, or user).
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Run ID**: The ID of the run. A run is when a scan is stopped and started. Every run is identified and tracked with a run ID.
+- **Remediation Action**: You can take the following remediation action when you click on the ellipsis:
+  - **View Scan History**: You can view the scan history. You'll be redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+- **Scan ID**: The ID of a scan. Every scan that is defined in the Historic Scan Configuration has a unique identifier associated with it.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **Owner**: The owner of the file.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for column names.
+
+[Image: This image shows the Gen AI Messages Tab Column menu]
+
+[Image: This image shows the Gen AI Messages tab.filters]
+
+You can select to view one of the following tiles:
+
+- Senders Affected with Incidents Matching a Rule
+- Senders of Messages with DLP Violations
+- Senders of Messages with Malware
+
+See image.
+
+Each tile has the following columns:
+
+- **Sender**: The sender of the message.
+- **Number of Messages with Incidents**: The number of messages that contain incidents.
+
+You can click on a number, and the **Messages with Incidents - Senders** window appears for that particular sender.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can search for columns.
+
+[Image: This image shows the Gen AI Senders tab.]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Bot Name**: The name of the bot that triggered the DLP response.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **File Name**: The name of the file.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Message ID**: The message ID of the file.
+- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Sender Type**: The name of the sender (i.e., bot, system, or user).
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Tenant**: The name of the SaaS application tenant.
+- **Threat Name**: The name of the threat.
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+
+[Image: This image shows the advanced filters]
+
+You can select to view one of the following tiles:
+
+- Objects with Incidents Matching a Rule
+- Objects with DLP Violation
+- Objects with Malware
+- Objects with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Object ID**: The ID of the object.
+- **Object Name**: The name of the object.
+- **Object Type**: The type of object (e.g., report, campaign, dashboard).
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Owner**: The owner of the file.
+- **External Collaborators**: The collaborators outside your organization.
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Threat Name**: The name of the threat.
+- **Public URL**: The public URL used to access a shared file.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
+- **Internal Collaborators**: The internal collaborators within your organization.
+- **File Size**: The size of the file.
+- **File Path**: The path of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Remediation Action**: You can take the following remediation actions when you click the **Remediation Action** icon:
+  - **Restore:** You can restore a quarantined malware file to its original location provided the file was initially quarantined using the Quarantine Malware action in the DLP Malware policy. This option is currently available only for Salesforce.
+  - **Go to File**: You're redirected to the file in question. This feature is currently available only for Salesforce.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Objects tab in the CRM app category in the Assets with Incidents page]
+
+[Image: The Objects tab in the CRM app category]
+
+You can select to view one of the following tiles:
+
+- Owners of Files with Incidents Matching a Rule
+- Owners of Files with DLP Violation
+- Owners of Files with Malware
+- Owners of Files with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Owner**: The owner of the file.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the CRM app category in the Assets with Incidents page]
+
+[Image: The Owners tab in the CRM app category]
+
+You can view the External Collaborators of Files with Incidents Matching a Rule tile.
+
+See image.
+
+The tile has the following columns:
+
+- **External Collaborator**: The collaborator outside your organization.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Owners**: The owners of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Collaborators tab in the CRM app category in the Assets with Incidents page]
+
+[Image: The Collaborators tab in the CRM app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **External Collaborators**: The collaborators outside your organization.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Internal Collaborators**: The internal collaborators within your organization.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
+- **Object Name**: The name of the object.
+- **Object ID**: The ID of the object.
+- **Object Type**: The type of object (e.g., report, campaign, dashboard).
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Email Messages with Incidents Matching a Rule
+- Email Messages with DLP Violation
+- Email Messages with Malware
+- Externally Sent Email Messages with DLP Violation
+
+See image.
+
+Each tile has the following columns:
+
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Message ID**: The email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
+- **Thread Name**: The name of the email thread.
+- **Attachments**: The attachments within the email message.
+
+You can click on the attachment, click **View Details**, and the **Attachments for Message**window appears.
+
+In the **Attachments for Message** window, you can view the following columns:
+
+- **File Name**: The name of the email attachment.
+- **File Size**: The size of the email attachment.
+- **File MD5**: The MD5 hash of the email attachment.
+- **File Type**: The type of email attachment (e.g., CSV, TXT, etc.).
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns.
+
+- **Mail Sent Time**: The time and date the email was sent.
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **Sender**: The email sender.
+- **Internal Recipients**: The email recipients within your organization.
+- **External Recipients**: The email recipients outside your organization.
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Message Size**: The size of the email message.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **Advanced Threat Category**: The detected viruses or spyware.
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Non-Provisioned Owner**: The mailbox owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Threat Name**: The name of the threat.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: Screenshot of the Column Menu for the Email Messages tab in the Email app category in the Assets with Incidents page]
+
+For each email message, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+
+[Image: The Email Messages tab in the Email app category]
+
+You can select to view one of the following tiles:
+
+- Senders Affected with Incidents Matching a Rule
+- Senders of Messages with DLP Violations
+- Senders of Messages with Malware
+
+See image.
+
+Each tile has the following columns:
+
+- **Sender**: The email sender.
+- **Number of Email Messages with Incidents**: The number of email messages that contain incidents.
+
+You can click on a number, and the **Email Messages with Incidents - Senders**window appears for that particular sender. In the **Email Messages with Incidents - Senders** window, the columns shown are the same ones in the **Email Messages** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by selecting and deselecting the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Recipients**: The number of email recipients outside your organization.
+- **Number of Internal Recipients**: The number of email recipients within your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Senders tab in the Email app category in the Assets with Incidents page]
+
+[Image: The Senders tab in the Email app category]
+
+You can select to view one of the following tiles: External Recipients on Messages with DLP Violations or Users Who Received Messages with Malware.
+
+See image.
+
+Each tile has the following columns:
+
+- **External Recipients**: The email recipients outside your organization.
+- **Number of Email Messages with Incidents**: The number of email messages that contain incidents.
+
+You can click on a number, and the **Email Messages with Incidents - Recipients**window appears for that particular external recipient. In the **Email Messages with Incidents - Recipients** window, the columns shown are the same ones in the **Email Messages** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns. You can export the list.
+
+- **Senders**: The email senders that sent the email messages with incidents.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Recipients tab in the Email app category in the Assets with Incidents page]
+
+[Image: The Recipients tab in the Email app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **Thread Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **Threat Name**: The name of the threat.
+- **Attachment File Name**: The name of the attached file in the email message.
+- **Attachment File MD5**: The MD5 hash of the attached file.
+- **Message ID**: The email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
+- **Thread Name**: The name of the email thread.
+- **Number of Internal Recipients**: The email recipients within your organization.
+- **Number of External Recipients**: The number of email recipients outside your organization.
+- **Attachment File Size**: The size of the email attachment.
+- **Sender Name**: The email sender.
+- **Internal Recipients**: The email recipients within your organization.
+- **External Recipients**: The email recipients outside of your organization.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses or spyware.
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Files with Incidents Matching a Rule
+- Files with DLP Violation
+- Files with Malware
+- Files with External Collaborators
+- Publicly Shared Files with DLP Violations
+- Quarantined Files
+
+See image.
+
+Each tile has the following columns:
+
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **File ID**: The ID of the file. For example, if a file is scanned multiple times, an admin can use the file ID to view the scan trail.
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **Last Modified User**: The email address of the user who last modified the file. For Smartsheet, only the user who performed the first activity, from the time of the file scan, is displayed even though the file might have had multiple activities thereafter.
+- **Last Shared User**: The email address of the user who last shared the file. This column does not populate user details for the following applications as it is not supported: For Dropbox, only the user who last modified a shared file is displayed, even if another user shared it and modified it immediately.
+  - Google Drive
+  - Box
+  - ShareFile
+  - Confluence
+  - Smartsheet
+- **Last Shared On**: The date and time when the file was shared. This column does not populate timeline details for the following applications as it is not supported:
+  - Google Drive
+  - ShareFile
+  - Confluence
+  - Smartsheet
+- **File Path**: The path of the file.
+- **Severity of Last Incident**: The severity level of the file's last incidents detected by the Data at Rest Scanning DLP policy.
+- **Owner**: The owner of the file.
+- **External Collaborators**: The collaborators outside your organization.
+- **External Collaborator Group**: The group of collaborators outside your organization with whom the user shares assets. A group can have both internal and external members. Individual members of a group are logged under either Internal Collaborator or External Collaborators, depending upon the type of domain they belong to. A group is classified as an external collaborator group if even one member is an external collaborator, regardless of how many internal members it contains (e.g., 1 external member in a group of 100, where 99 are internal).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Remediation Action**: You can take the following remediation actions when you click on the ellipsis: Remediation actions are currently not supported for the Smartsheet application.
+  - **View Scan History**: You can view the scan history. You're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+  - **Go to File**: You're redirected to the file in question.
+  - **Remove Public Link**: You can remove the file's public link. This option will be grayed out after selecting it.
+  - **Remove Collaborators**: You can remove the file's collaborators. When you select this option, the **Remove Collaborators** window appears, where you can choose from the following options: See image.
+    - **Remove All Collaborators**: Removes all external and internal collaborators of the file.
+    - **Remove All External Collaborators**: Removes all external collaborators of the file.
+    - **Remove Specific External Collaborators**: Remove specific external collaborators from the file. From the **Collaborators** field, select the collaborators you want to remove and click **Done**, then **Remove**.
+  - **Remove Public Link and External Collaborators**: You can remove both the file's public link and the external collaborators.
+  - **Remove**: You can permanently remove a quarantined malware file or a malware reported file.
+  - **Remove Watermark**: You can remove a watermark that was applied to a file via a [watermark profile](https://help.zscaler.com/zia/adding-editing-watermark-profiles). This option is not available for image files.
+  - **Restore**: You can restore a quarantined file to its original location. The subsequent policy scans bypass the restored file until the file is modified. This action is available only for quarantined files.
+  - **Quarantine to User Root Folder**: You can quarantine an incident-reported file to the user's root folder by selecting a Tombstone Template that is used to create a tombstone file that replaces the quarantined file in its original location.
+  - **Restore Most Recent Redacted Version**: You can restore the most recent file to which redaction characters were applied via a redaction profile. Zscaler stores both the original file version and the redacted file version for possible recovery by administrators in the event of any inadvertent file deletions. To learn more, see [About Redaction](https://help.zscaler.com/zia/about-redaction) and [Adding and Editing Redaction Profiles](https://help.zscaler.com/zia/adding-editing-redaction-profiles).
+  - **Admin Quarantine**: An admin can quarantine sensitive files to a specific file location. Users must refer to the Tombstone template for admin contact details to request access to the file. This option is currently available only for Google Drive, Microsoft OneDrive, and Microsoft SharePoint.
+  - **Restore Admin Quarantine**: You can restore a file that was previously quarantined to the admin-specified location.
+  - **Apply MIP Label**: You can apply a Microsoft Information Protection (MIP) label to Excel, Word, PPT, and PDF files within MIP onboarded OneDrive and SharePoint tenants. This action is not applicable to files that have had quarantine, redaction, or watermark actions applied previously.
+  - **Remove Internal Sharing Links After Expiry**: You can set a manual expiration period to remove access to a file’s internal shareable links after expiration. This option is currently available only for Google Drive.
+  - **Remove External Sharing Links After Expiry**: You can set a manual expiration period to remove access to a file’s external shareable links after expiration. This option is currently available only for Google Drive.
+  - **Remove Collaborators After Expiry**: You can set a manual expiration period to remove a file’s collaborators after expiration, including collaborator groups after expiration. This option is currently available only for Google Drive.
+  - **Remove Sharing After Expiry**: You can set a manual expiration period to remove access to any shareable links after expiration. This option is currently available only for Google Drive. Manual file expiration dates must meet or exceed the original expiration period. For instance, if a link was initially set to expire in 30 days, the system restricts you from selecting any manual expiration date that falls before that 30-day threshold.
+- **Advanced Threat Category**: The detected viruses or spyware.
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **File MD5**: The MD5 hash of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
+- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Public URL**: The public URL used to access a shared file.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Internal Collaborators**: The internal collaborators within your organization.
+- **Internal Collaborator Group**: The group of collaborators within your organization with whom the user shares assets. A group can have both internal and external members. Individual members of a group are logged under either Internal Collaborator or External Collaborators, depending upon the type of domain they belong to.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **File Size**: The size of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Threat Name**: The name of the threat.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Files tab in the File Sharing app category in the Assets with Incidents page]
+
+[Image: The Files tab in the File Sharing app category]
+
+You can select to view one of the following tiles:
+
+- Owners of Files with Incidents Matching a Rule
+- Owners of Files with DLP Violation
+- Owners of Files with Malware
+- Owners of Files with External Collaborators
+- Owners of Publicly Shared Files
+
+See image.
+
+Each tile has the following columns:
+
+- **Owner**: The owner of the file.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Files with Incidents - Owners**window appears for that particular owner. In the **Files with Incidents - Owners** window, the columns shown are the same ones in the **Files** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the File app category in the Assets with Incidents page]
+
+[Image: The Owners tab in the File Sharing app category]
+
+You can view the External Collaborators of Files with Incidents Matching a Ruletile.
+
+See image.
+
+The tile has the following columns:
+
+- **External Collaborator**: The collaborator outside your organization.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Files with Incidents - Collaborators** window appears for that particular external collaborator. In the **Files with Incidents - Collaborators** window, the columns shown are the same ones in the **Files** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Owners**: The owners of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Collaborators tab in the File Sharing app category in the Assets with Incidents page]
+
+[Image: The Collaborators tab in the File Sharing app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
+- **File Path**: The path of the file.
+- **File MD5**: The MD5 hash of the file.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **File Size**: The size of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
+- **Internal Collaborators**: The interna collaborators within your organization.
+- **External Collaborators**: The collaborators outside your organization.
+- **External Collaborator Group**: The group of collaborators outside your organization with whom the user shares assets.
+- **Internal Collaborator Group**: The group of collaborators within your organization with whom the user shares assets.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses or spyware.
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Last Modified User**: Use this filter to view the records pertaining to the user who last modified the file that triggered the DLP violation. The default option for this filter is **None**.
+- **Last Shared User**: Use this filter to view the records pertaining to the user who last shared the file that triggered the DLP violation. The default option for this filter is **None**.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
+- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
+  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Objects with Incidents Matching a Rule
+- Objects with DLP Violation
+- Objects with Malware
+- Objects with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Object ID**: The ID of the object.
+- **Object Name**: The name of the object.
+- **Object Type**: The type of object (e.g., report, campaign, dashboard).
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Owner**: The owner of the file.
+- **External Collaborators**: The collaborators outside your organization.
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Threat Name**: The name of the threat.
+- **Public URL**: The public URL used to access a shared file.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
+- **Internal Collaborators**: The internal collaborators within your organization.
+- **File Size**: The size of the file.
+- **File Path**: The path of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **Download Time**: The download time, in milliseconds, of the file.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Objects tab in the ITSM app category in the Assets with Incidents page]
+
+[Image: The Objects tab in the ITSM app category]
+
+You can select to view one of the following tiles:
+
+- Owners of Files with Incidents Matching a Rule
+- Owners of Files with DLP Violation
+- Owners of Files with Malware
+- Owners of Files with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Owner**: The owner of the file.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the ITSM app category in the Assets with Incidents page]
+
+[Image: The Owners tab in the ITSM app category]
+
+You can view the External Collaborators of Files with Incidents Matching a Rule tile.
+
+See image.
+
+The tile has the following columns:
+
+- **External Collaborator**: The collaborator outside your organization.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Owners**: The owners of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Collaborators tab in the ITSM app category in the Assets with Incidents page]
+
+[Image: The Collaborators tab in the ITSM app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **External Collaborators**: The collaborators outside your organization.
+- **Number of Internal Collaborators**: The number of collaborators within your organization.
+- **Internal Collaborators**: The internal collaborators within your organization.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
+- **Object Name**: The name of the object.
+- **Object ID**: The ID of the object.
+- **Object Type**: The type of object (e.g., report, campaign, dashboard).
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Objects with Incidents Matching a Rule
+- Objects with DLP Violation
+- Objects with Malware
+- Objects with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Repository**: The name of the repository.
+- **Project**: The name of the project.
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Owner**: The owner of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **File MD5**: The MD5 hash of the file.
+- **File Path**: The path of the file.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **Threat Name**: The name of the threat.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **File Size**: The size of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+- **External Collaborators**: The collaborators outside your organization.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
+- **Download Time**: The download time, in milliseconds, of the file.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Objects tab in the Source Code Repository app category in the Assets with Incidents page]
+
+For each file, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+
+[Image: The Objects tab in the Source Code Repository app category]
+
+You can select to view one of the following tiles:
+
+- Owners of Files with Incidents Matching a Rule
+- Owners of Files with DLP Violation
+- Owners of Files with Malware
+- Owners of Files with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Owner**: The owner of the file.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the Source Code Repository app category in the Assets with Incidents page]
+
+[Image: The Owners tab in the Source Code Repository app category]
+
+You can view the External Collaborators of Files with Incidents Matching a Rule tile.
+
+See image.
+
+The tile has the following columns:
+
+- **External Collaborator**: The collaborator outside your organization.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Owners**: The owners of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Collaborators tab in the Source Code Repository app category in the Assets with Incidents page]
+
+[Image: The Collaborators tab in the Source Code Repository app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **Number of External Collaborators**: The number of collaborators outside your organization.
+- **External Collaborators**: The collaborators outside your organization.
+- **File MD5**: The MD5 hash of the file.
+- **File Size**: The size of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
+- **File Path**: The path of the file.
+- **Project Name**: The name of the project.
+- **Repository Name**: The name of the repository.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+You can select to view one of the following tiles:
+
+- Objects with Incidents Matching a Rule
+- Objects with DLP Violation
+- Objects with Malware
+
+Each tile has the following columns:
+
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
+- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
+- **File Path**: The path of the file.
+- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
+- **Severity of Last Incident**: The severity level of the file's last incidents detected by the Data at Rest Scanning DLP policy.
+- **Bucket Owner**: The name of the owner of the bucket.
+- **Bucket Name**: The name of the bucket.
+- **Owner**: The owner of the files.
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **File MD5**: The MD5 hash of the file.
+- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
+- **Public URL**: The public URL used to access a shared file.
+- **File Size**: The size of the file.
+- **File Type**: The type of file (e.g., CSV, TXT, etc.).
+- **SHA**: The secure hash algorithm (SHA).
+- **Number of Collaborators**: The number of file collaborators.
+- **Collaborators**: All the file collaborators.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
+- **Advanced Threat Category**: The detected viruses or spyware.
+- **Policy Type**: The type of policy that took action (e.g., DLP).
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+
+See image.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the Public Cloud Storage app category in the Assets with Incidents page]
+
+For each file, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
+
+[Image: The Objects tab in the Public Cloud Storage app category]
+
+You can select to view one of the following tiles:
+
+- Owners of Files with Incidents Matching a Rule
+- Owners of Files with DLP Violation
+- Owners of Files with Malware
+- Owners of Files with External Collaborators
+
+See image.
+
+Each tile has the following columns:
+
+- **Owner**: The owner of the files.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents** window appears for that particular external collaborator. In the **Objects with Incidents** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Collaborators**: The collaborators of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Owners tab in the Public Cloud Storage app category in the Assets with Incidents page]
+
+[Image: The Owners tab in the Public Cloud Storage app category]
+
+You can view the External Collaborators of Files with Incidents Matching a Rule tile.
+
+See image.
+
+The tile has the following columns:
+
+- **Collaborator**: The collaborator of the files.
+- **Number of Files with Incidents**: The number of files that contain incidents.
+
+You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
+
+- **Owners**: The owners of the files.
+
+Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
+
+[Image: The Column Menu for the Collaborators tab in the Public Cloud Storage app category in the Assets with Incidents page]
+
+[Image: The Collaborators tab in the Public Cloud Storage app category]
+
+You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
+
+- Equals
+- Ends with
+- Starts with
+- Contains
+- Does not equal
+- Does not start with
+- Does not end with
+- Does not contain
+
+You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
+
+See image.
+
+The following are the advanced filters you can use:
+
+- **File Name**: The name of the file.
+- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
+- **File Path**: The path of the file.
+- **SHA**: The secure hash algorithm (SHA).
+- **Bucket Name**: The name of the bucket.
+- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
+
+When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
+
+- **File MD5**: The MD5 hash of the file.
+- Number of Collaborators
+- **File Size**: The size of the file.
+- **Action**: The Data at Rest Scanning DLP policy rule action.
+- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
+- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
+- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
+- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Download Time**: The download time, in milliseconds, of the file.
+- **Threat Name**: The name of the threat.
+- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
+- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
+- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
+
+[Image: The Advanced Filters section in the Assets with Incidents page]
+
+[Image: Remove Collaborators window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-basic-authentication","lastmod":"2026-07-30T09:42Z","nid":"1498526"} -->
+## Understanding Basic Authentication
+
+- Source: https://help.zscaler.com/zia/understanding-basic-authentication
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Basic Authentication > Understanding Basic Authentication
+- Last modified: 2026-07-30T09:42Z
+- Summary: Information on using Basic authentication for Internet & SaaS, and how it works with user enrollment and traffic authentication.
+
+Zscaler supports Basic authentication, a simple authentication scheme built into the HTML protocol. Basic authentication prompts users for a username and password, which are sent as a Base64 encoded string in the HTTP request header.
+
+Basic authentication is not enabled by default. To access this feature, submit a support ticket from the Zscaler Admin Console.
+
+## How Basic Authentication Works with Zscaler
+
+The following diagram provides an overview of the Basic authentication flow with Zscaler:
+
+[Image: Basic Authentication traffic flow]
+
+1. The client sends a request along with the authentication credentials of its corresponding user enrolled with Zscaler.
+2. A Public Service Edge for Internet & SaaS (ZIA) calculates the HA1 value for the given credentials and authenticates the user upon successful validation.
+3. The traffic proceeds to its destination and a 200 OK verification code is sent back to the Zscaler service and client.
+
+## Basic Authentication Overview
+
+Basic authentication can be integrated with the following Zscaler workflows:
+
+- User Enrollment
+- Authenticating Traffic
+
+Basic authentication works with an HA1 value that must be initialized. Therefore, users need to be enrolled to the Zscaler Admin Console via API. This is necessary because Basic authentication is often used for workloads, which may not be able to interactively perform user enrollment on a browser.
+
+For more information about user enrollment, see [Deploying Basic Authentication](https://help.zscaler.com/zia/deploying-basic-authentication).
+
+After users are enrolled, they can browse the internet through an Internet & SaaS proxy and one of several forwarding proxy methods such as Static IP, DPCC, Virtual Service Edge for Internet & SaaS, or with transparent proxy such as GRE and VPN. User traffic from [locations](https://help.zscaler.com/zia/about-locations) can be configured for Basic authentication and the desired forwarding method.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-business-continuity-cloud-components","lastmod":"2026-07-01T12:02Z","nid":"1529488"} -->
+## Understanding the Business Continuity Cloud Components
+
+- Source: https://help.zscaler.com/zia/understanding-business-continuity-cloud-components
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Business Continuity > Understanding the Business Continuity Cloud Components
+- Last modified: 2026-07-01T12:02Z
+- Summary: Information on Business Continuity Cloud components: Private Policy Cache and Private PAC Servers, and their benefits and functionalities.
+
+The Zscaler-managed Business Continuity Cloud service includes two components, Private Policy Cache and Private PAC Servers, working with the Private Service Edges for Internet & SaaS (ZIA). These components apply the last known good policy configurations to the outgoing traffic and redirect traffic to the dedicated private cloud infrastructure during business continuity mode. Both Private Policy Cache and Private PAC Servers are deployed in redundant pairs in each Business Continuity Cloud site. They are managed by Zscaler and are subject to ongoing updates and enhancements at any time.
+
+The Internet & SaaS Business Continuity Cloud only supports Z-Tunnel 1.0, PAC files, and GRE tunnel connectivity.
+
+To learn more, see [Understanding Zscaler-Managed Business Continuity Cloud](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud).
+
+## Private Policy Cache
+
+This component is integrated into the Private Service Edge infrastructure and acts as a local repository for policy configurations, ensuring business continuity when Zscaler cloud is unreachable.
+
+During public cloud software upgrades, the Business Continuity Cloud upgrade is delayed on purpose to prevent upgrade-related issues. This also delays the update of any new policies or configurations to support fault isolation.
+
+### Key Benefits
+
+Private Policy Cache provides the following benefits:
+
+- Ensures the last known good policies are available when the Zscaler cloud is inaccessible.
+- Continuously fetches and syncs tenant-specific configurations (location, users, groups, etc.) during normal operations.
+- Automatically integrates version upgrades to ensure consistency in functionality.
+- Supports a seamless switch between public and private clouds in business continuity mode.
+
+### Functionality
+
+Private Policy Cache supports the following functionalities:
+
+- During normal operations:
+  - Fetches and stores tenant-specific configurations from the cloud and syncs them regularly to be readily available in business continuity mode.
+  - Serves as the primary control path for local Service Edge instances, ensuring up-to-date policy availability for business continuity.
+- During business continuity:
+  - Facilitates access to applications with full cyber and data protection.
+  - Operates independently of public clouds to maintain security policies.
+
+## Private PAC Servers
+
+This component hosts the client's PAC files and reroutes traffic to the business continuity private cloud during critical failures.
+
+### Functionality
+
+Private PAC Servers support the following functionalities:
+
+- During normal operations:
+  - Receives and locally stores PAC files from the public cloud for each Business Continuity Cloud site.
+  - Ensures stored PAC files are geographically and health-aware for seamless failover.
+- During business continuity:
+  - Hosts disaster recovery PAC files to redirect client requests to the appropriate Business Continuity Cloud.
+  - Provides geo-awareness, allowing Zscaler Client Connector to connect to the nearest Business Continuity Cloud based on its IP address or location.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-cipa-compliance","lastmod":"2026-10-28T03:58Z","nid":"1401271"} -->
+## Understanding CIPA Compliance
+
+- Source: https://help.zscaler.com/zia/understanding-cipa-compliance
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Understanding CIPA Compliance
+- Last modified: 2026-10-28T03:58Z
+- Summary: Information about the CIPA Compliance rule.
+
+The Children's Internet Protection Act (CIPA) is aimed to prevent children from accessing obscene or harmful content over the internet. To learn more, refer to the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/sites/default/files/childrens_internet_protection_act_cipa.pdf). Schools or libraries are required to be CIPA compliant to receive discounts on internet access or internal connections through the E-rate program.
+
+To aid schools and organizations to be compliant with the CIPA requirements, Zscaler provides a predefined URL filtering rule ([CIPA Compliance Rule](https://help.zscaler.com/zia/about-cipa-compliance#view-CIPA-comp-rule)) and a control ([Enable CIPA Compliance](https://help.zscaler.com/zia/about-cipa-compliance#Enable-CIPA-Compliance)) to enable the predefined rule. It also provides a [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report) which gives insights into the traffic and users that are blocked from accessing the prohibited content based on the CIPA Compliance Rule.
+
+- Enabling CIPA Compliance
+- Viewing CIPA Compliance Rule
+
+To activate the **CIPA Compliance Rule**, enable the **Enable CIPA Compliance** option from the **Data Security**> **Inline CASB** > **Advanced Policy Settings**. To learn more, see [Configuring Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings).
+
+- Effects of Enabling CIPA Compliance
+- Effects of Disabling CIPA Compliance
+
+You cannot enable the **Enable CIPA Compliance** option when:
+
+- The number of URL filtering policy rules exceeds the [limit](https://help.zscaler.com/unified/ranges-limitations).
+- A rule with rule order 1 exists with a higher admin rank.
+
+- The **CIPA Compliance Rule** is activated under **Internet Access**> **Policy** > **URL Filtering**.
+- The following **Advanced URL Filtering** **Options** under **Data Security**> **Inline CASB** > **Advanced Policy Settings** are enabled. You cannot disable the following options:
+  - Enable Suspicious New Domains Lookup
+  - Enable AI/ML-based Content Categorization
+  - Enable Embedded Sites Categorization
+  - Enforce SafeSearch
+
+To learn more, see [Configuring Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings).
+
+- The **CIPA Compliance Report** option is enabled under the following locations:
+  - Liability Exposure
+  - Scheduled Reports
+
+See image.
+
+To learn more, see [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report).
+
+- When you disable the **Enable CIPA Compliance**option, a warning message appears and we can add an image. You can get the image in beta; just disable the toggle in **Advanced Settings** and the warning appears.
+- The **CIPA Compliance Rule** gets disabled under **Internet Access**> **Policy** > **URL Filtering**. However, you can view the disabled rule.
+- The **Advanced URL Filtering** **Options** under the **Data Security**> **Inline CASB** > **Advanced Policy Settings** are set to the recommended policy settings. To learn more, see [Recommended URL & Cloud App Control Policy](https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy#adv-url-policy-settings).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Analytics**> **Reports**> **Interactive Reports**.
+2. On the **Standard Reports** tab, go to the **Liability Exposure** section to view the report.
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**> **Interactive Reports**.
+2. On the **Scheduled Reports** tab, click **Add**. The **Add Scheduled Report**window appears.
+3. In the **Add Scheduled Report**window, for **Report**, select **CIPA Compliance Report**, and configure the rest of the window.
+4. Save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You can view the **CIPA Compliance Rule** under **Internet Access**> **Policy** > **URL Filtering** if you select the **Enable CIPA Compliance** option at least once. To learn more, see Enabling CIPA Compliance.
+
+You can delete the CIPA Compliance Ruleonlywhen you disable the **Enable CIPA Compliance**toggle.
+
+The attributes defined for the rule are as follows:
+
+| Attributes | Value | Description |
+| --- | --- | --- |
+| Rule Order | 1 | (Editable) Order of precedence of the rule. When the CIPA Compliance Rule is activated for the first time, it takes the highest precedence (rule order 1) by default. The rule order is automatically incremented by 1 for the other rules. You can edit the rule order based on your preference. |
+| Admin Rank | 0 to 7 | (Editable) Admin rank of the logged-in user. If the logged-in user does not have an admin rank, then the rule is created with an admin rank 7. |
+| Rule Name | CIPA Compliance Rule | (Non-editable) Name of the rule. You cannot create any custom URL filtering rule with the name CIPA Compliance Rule. |
+| Rule Status | Disabled/Enabled | (Non-editable) Status of the rule. |
+| URL Categories | Adult Sex Education, Adult Themes, Alcohol/Tobacco, Anonymizer, Computer Hacking, Copyright Infringement, Drugs, Gambling, K-12 Sex Education, Lingerie/Bikini, Mature Humor, Militancy/Hate and Extremism, Newly Registered and Observed Domains, Nudity, Other Adult Material, Other Illegal or Questionable, Pornography, Profanity, Questionable, Body Art, Social Networking Adult, Tasteless, Violence, Weapons/Bombs | (Non-editable) List of all the predefined categories under the URL super category, **Legal Liabilities** with predefined URLs and keywords. The custom categories under **Legal Liabilities**are excluded. You cannot add or delete URL categories from the predefined list. However, you can add or delete custom URLs and keywords (CIPA related) from any predefined category under **Legal Liabilities**. |
+| HTTP Requests | OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, OTHER, ALL | (Non-editable) List of predefined HTTP requests. |
+| Users | --- | (Non-editable) Applicable to all the users in the organization. |
+| Groups | --- | (Non-editable) Applicable to all the groups in the organization. |
+| Departments | --- | (Non-editable) Applicable to all the departments in the organization. |
+| Locations | --- | (Non-editable) Applicable to all the locations of the organization. |
+| Location Groups | --- | (Non-editable) Applicable to all the location groups of the organization. |
+| Time | --- | (Non-editable) Applicable at any time. |
+| Protocols | Any | (Non-editable) Applicable to all protocols. |
+| Web Traffic | Block | (Non-editable) Access is denied to all the sites that fall under the specified URL categories. |
+| Allow Override | Disabled | (Non-editable) No exception is allowed for the blocked sites. |
+| Redirect URL | --- | (Non-editable) No redirect URL is configured. |
+| Description | --- | (Editable) Additional notes or information about the rule. |
+
+[Image: CIPA Compliance Report]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-cloud-app-categories","lastmod":"2026-10-09T00:12Z","nid":"1399341"} -->
+## Understanding Cloud App Categories
+
+- Source: https://help.zscaler.com/zia/understanding-cloud-app-categories
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Understanding Cloud App Categories
+- Last modified: 2026-10-09T00:12Z
+- Summary: Information on the Cloud App categories available with Internet & SaaS (ZIA) and which cloud apps are included in the categories.
+
+Cloud app categories are a key part of [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control). The service organizes cloud applications into 19 categories. For 11 of the categories, you can [create rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) to allow or block applications per category. For the other 8 categories, in addition to creating rules to allow or block applications per category, you can also apply granular controls (i.e., the specific actions a user can take within the application) as per your organizational requirements.
+
+## Cloud App Categories with Allow or Block Options
+
+Following are the cloud application categories with the allow or block options. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
+
+- **Consumer**
+- **Custom Applications**
+- **DNS Over HTTPS Services**
+- **Finance**
+- **Health Care**
+- **Hosting Providers**
+- **Human Resources**
+- **IT Services**
+- **Legal**
+- **Productivity & CRM Tools**
+- **Sales & Marketing**
+
+## Cloud App Categories with Granular Controls
+
+Following are the cloud application categories with granular controls. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
+
+- **AI & ML Applications**: Granular controls appear when ChatGPT or Microsoft Copilot are chosen with Application Access set to Allow.
+- **Collaboration & Online Meetings**: Granular controls appear when Microsoft Teams, SharePoint Online, Slack, or Webex Meetings are chosen with Application Access set to Allow.
+- **File Sharing**: Granular controls appear for all the applications and additional granular controls appear when Box, Dropbox, OneDrive, OneDrive for Business, or Google Drive are chosen with Viewing set to Allow.
+- **Instant Messaging**: Granular controls appear for all the applications with Chatting set to Allow.
+- **Social Networking**: Granular controls appear for all the applications and additional granular controls appear when LinkedIn is chosen with Viewing set to Allow.
+- **Streaming Media**: Granular controls appear for all the applications with Viewing/Listening set to Allow.
+- **System & Development**: Granular controls appear for all the applications and additional granular controls appear when GitHub is chosen with Viewing set to Allow.
+- **Webmail**: Granular controls appear for all the applications with Viewing Mail set to Allow.
+
+If more than one cloud application with granular controls is selected for a category, then only the actions that are common among the selected applications are displayed.
+
+## Viewing Supported Cloud Applications
+
+To view the supported cloud applications for a cloud app category from the Zscaler Admin Console:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB**> **SaaS/Cloud App Policy**.
+2. In the left-side menu, select a cloud app category, then click **Add Rule**.
+3. In the **Add Rule** window, click and open the **Cloud Applications**drop-down menu. The drop-down menu lists the supported cloud applications for the selected cloud app category. You can look up a cloud application for a URL using the [URL Lookup](https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console) tool or the [urlLookup](https://help.zscaler.com/zia/url-categories#/urlLookup-post) API.
+
+[Image: Add Cloud App Control Rule Window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-data-rest-scanning-policy","lastmod":"2026-04-28T07:49Z","nid":"1401626"} -->
+## Understanding the Data at Rest Scanning Policy
+
+- Source: https://help.zscaler.com/zia/understanding-data-rest-scanning-policy
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Understanding the Data at Rest Scanning Policy
+- Last modified: 2026-04-28T07:49Z
+- Summary: How to configure Zscaler SaaS Security Data at Rest Scanning policy, which includes the Data Loss Prevention (DLP) and Malware Detection policies.
+
+To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
+
+The Data at Rest Scanning policy consists of the [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-saas-security-api-dlp) and [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection) policies. You can configure these policies for the following SaaS application types:
+
+- Collaboration
+- CRM
+- Email
+- File sharing
+- Gen AI
+- ITSM
+- Public cloud storage
+- Source code repository
+
+## Policy Execution
+
+The Data at Rest Scanning rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
+
+DLP Engines (`AND`) SaaS Application Tenants (`AND`) [Owners (`OR`) Groups (`OR`) Departments] (`AND`) Collaboration Scope (`AND`) File Type (`AND`) [Trusted Domains (`OR`) Trusted Users].
+
+## Configuring the Data at Rest Scanning Policy
+
+To configure the Data at Rest Scanning policy:
+
+1. Configure the resources that the policies reference:
+  - [SaaS application tenants](https://help.zscaler.com/zia/adding-saas-application-tenants) for both your DLP and Malware Detection policies.
+  - [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), and [DLP engines](https://help.zscaler.com/zia/about-dlp-engines) for your Data at Rest Scanning DLP policies.
+2. Define the rules for each policy:
+  - [SaaS Security DLP](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy)
+  - [SaaS Security Malware Detection](https://help.zscaler.com/zia/configuring-saas-security-api-malware-detection-policy)
+3. [Configure SaaS Security Scan Schedules](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules) for the DLP and Malware Detection policies to inspect content in sanctioned SaaS applications.
+
+When you define a DLP or Malware Detection rule for public cloud storage applications, you can specify buckets or blob containers for inspection. To specify buckets or blob containers for the Zscaler service to inspect:
+
+- When you first define a policy rule for a public cloud storage application, the following fields can’t be changed: Buckets, Bucket Owner, Blob Containers, and Blob Container Owner. You must create and save the rule without configuring these fields.
+- After saving the policy rule, create a scan schedule for the tenant. In the table, select the bucket or blob container names to create a list of available buckets or blob containers for the DLP and Malware Detection policies.
+- After you create the list and save the scan schedule, you can edit the rule and configure the Buckets, Bucket Owner, Blob Containers, or Blob Container Owner fields.
+
+1. Start scheduled scans from the [SaaS Security Scan Configuration page](https://help.zscaler.com/zia/about-saas-security-api-scan-configuration).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1401611"} -->
+## Understanding DLP Engines
+
+- Source: https://help.zscaler.com/zia/understanding-dlp-engines
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding DLP Engines
+- Last modified: 2026-09-24T11:09Z
+- Summary: Information on Data Loss Prevention (DLP) engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
+
+A [Data Loss Prevention (DLP) engine](https://help.zscaler.com/zia/about-dlp-engines) is a collection of one or more DLP dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines:
+
+- Predefined DLP Engines: The Zscaler service provides 5 predefined engines (HIPAA, GLBA, PCI, Offensive Language, and Self-Harm & Cyberbullying). These engines contain default DLP dictionaries. For example, the PCI engine contains the Credit Cards and Social Security Number dictionaries. You can also edit predefined engines. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines).
+
+The Self-Harm & Cyberbullying engine is intended for use by K-12 educators. If you’re an educator, contact your Zscaler Account team to enable this feature.
+
+- Custom DLP Engines: You can create custom DLP engines to detect content that is relevant to your organization on the DLP Engines page or through the Cloud Service API. You can create a maximum of 512 custom DLP engines. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine) and [Understanding Cloud Service and Sandbox Submission APIs.](https://help.zscaler.com/zia/about-api)
+- If you use a parent dictionary to configure the engine, you have the option to select a sub-dictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for sub-dictionaries), then you must select a sub-dictionary from the drop-down menu.
+
+See image.
+
+When you use parent and sub-dictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and sub-dictionaries can match independently of one another). To learn more about configuring parent and sub-dictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
+
+## Building Expressions for DLP Engines
+
+When configuring a predefined or custom DLP engine, you can combine DLP dictionaries with operators to create a logical expression. The operators include All (AND), Any (OR), Exclude (AND NOT), and Sum. The Sum operator allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
+
+See image.
+
+To build a DLP engine expression, create subexpressions with operators and dictionaries. Subexpressions determine the logic for how the engine’s dictionaries must trigger in order for the engine to trigger. You can use the Sum operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the Sum operator.
+
+See image.
+
+For example, the following expressions use the same dictionaries. However, because the subexpressions are applied differently, the logic for each expression is different.
+
+- `((ABA Bank Routing Numbers > 0) AND (Credit Cards > 0)) OR (Financial Statements > 0)`
+- `(ABA Bank Routing Numbers > 0) AND ((Credit Cards > 0) OR (Financial Statements > 0))`
+
+The following expression uses sub-dictionaries, which appear in brackets within the expression:
+
+`((Parent Container (Canada) [Canadian Driver License] > 0) AND ((Parent Container (Canada) [Canadian Passport Pattern] > 0)))`
+
+## Configuring the Match Count
+
+Depending on the operator and the dictionary you select, you must also configure the match count value for a dictionary or group of dictionaries when adding them to a DLP engine. The match count is the threshold that triggers a dictionary or group of dictionaries.
+
+See image.
+
+The dictionary or dictionaries trigger only if they find more matches than the number specified. For example:
+
+- If you use the Sum operator in your expression with 3 dictionaries, and you enter a match count of 6, then the policy triggers only if there are 7 or more matches across the 3 dictionaries.
+- Similarly, if you use any of the other operators (All, Any, or Exclude) with a dictionary that requires a match count, and you enter a match count of 6, the dictionary triggers only upon finding 7 or more matches in that dictionary. If you select multiple dictionaries with individual match counts, the dictionary is triggered only when the threshold is reached for an individual dictionary.
+
+You can add a dictionary to multiple engines and specify a different match count value each time you add a dictionary to an engine. For example, consider that you want to create a DLP policy rule to block all file uploads containing 5 or more instances of personally identifiable information (PII), and another policy rule to send an email notification whenever a file upload contains at least one instance of PII. In this scenario, you can:
+
+- For your block policy rule, create one DLP engine with PII dictionaries that each have a match count value of 4. You must also ensure that this rule’s order number is before the notification policy rule.
+- For your notification policy rule, create a second DLP engine with PII dictionaries that each have a match count value of 0.
+
+To modify the Confidence Score Threshold of a predefined dictionary, you must configure this setting in the dictionary itself. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+[Image: The DLP Engine Expression Builder Using a Parent and Sub-Dictionary]
+
+[Image: The DLP Engine Expression Builder Using a Logical Operator]
+
+[Image: The DLP Engine Expression Builder Using a Sum Operator]
+
+[Image: Subexpressions for the DLP Engine Expression]
+
+[Image: The Match Count for the DLP Dictionary in the Engine]
 <!-- /ZS-ARTICLE -->

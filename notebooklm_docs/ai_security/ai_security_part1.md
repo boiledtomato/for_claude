@@ -1,7 +1,7 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 90
 
 ---
@@ -3756,13 +3756,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-19T16:20Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-26T10:35Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:20Z
+- Last modified: 2026-10-26T10:35Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -6225,13 +6225,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-09T11:32Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-27T11:04Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-10-09T11:32Z
+- Last modified: 2026-10-27T11:04Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -6292,7 +6292,7 @@ See image.
 
 To upload your AI Guard CA certificate to ZIA:
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Root Certificates**.
+1. In the Experience Center, go to **Internet Access** > **Resources** > **Root Certificates**.
 2. Click **Add Root Certificates**. The **Add Root Certificate** window appears. See image.
 3. In the **Add Root Certificate** window:
   1. **Name**: Enter a name for your certificate.
@@ -6302,7 +6302,7 @@ To upload your AI Guard CA certificate to ZIA:
 
 To configure your ZIA proxy:
 
-1. In the Zscaler Admin Console, go to **Infrastructure** > **Internet & SaaS** > **Network Policies** > **Proxies and Gateways**.
+1. In the Experience Center, go to **Internet Access** > **Resources** > **Proxies and Gateways**.
 2. In the **Proxies** tab, click **Add Proxy**. The **Add Proxy** window appears. See image.
 3. In the **Add Proxy** window:
   - **Proxy Name**: Enter a user-friendly name for the third-party proxy that you are defining.
@@ -6323,19 +6323,20 @@ To configure your ZIA proxy:
 
 To create a rule for ZIA to drop QUIC traffic:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Access Control** > **Firewall** > **Firewall Filtering Policy**. See image.
-2. On the **Firewall Filtering Policy** page, click **Add Rule**. The **Add Rule** window appears.
-3. In the **Add Rule** window: If you have ZIA Tunnel 1.0, disable the QUIC protocol from your browser. Refer to your specific browser's instructions to disable QUIC.
+1. In the Experience Center, go to **Zero Trust Cloud** > **Policy** > **Firewall Filtering**.
+2. Click the **Rules** tab.
+3. On the **Firewall Filtering Rules** page, click **Add Rule**. The **Add Rule** window appears.
+4. In the **Add Rule** window: If you have ZIA Tunnel 1.0, disable the QUIC protocol from your browser. Refer to your specific browser's instructions to disable QUIC.
   - **Criteria**: Select **Network Services** from the drop-down menu.
     - **Network Services**: Select **QUIC** from the dropdown menu.
   - **Network Services**: In the **Services** tab, click the drop-down menu and select **QUIC**.
   - **Network Traffic**: From the drop-down menu, select **Block/ICMP**.
   - **Rule Name**: Enter a name for the rule. See image.
-4. Click **Save**.
+5. Click **Save**.
 
 To create a wildcard destination group and forwarding rule:
 
-1. In the Zscaler Admin Console, go to **Policies** > **Access Control** > **Firewall** > **IP &FQDN Groups**. See image.
+1. In the Experience Center, go to **Internet Access** > **Resources** > **IP & FQDN Groups**. See image.
 2. On the **Destination IPv4 Groups** tab, click **Add Destination IPv4 Group**. The **Add Destination IPv4 Group** window opens.
 3. In the **Add Destination IPv4 Group** window: See image.
   - **Name**: Enter a name such as `AI Guard`.
@@ -6361,8 +6362,6 @@ For traffic forwarding to work, users must have signed in to ZIA through mechani
 [Image: ZIA Add Proxy window showing the Proxy Name, IP/FQDN, Port, Proxy's Root Certificate, and Insert X-Authenticated-User]
 
 [Image: ZIA Add Gateway for Proxies window showing Gateway Name, Fail Close, Primary and Secondary Proxy]
-
-[Image: ZIA Add Firewall Filtering Rule window]
 
 [Image: ZIA Add Firewall Filtering Rule window]
 

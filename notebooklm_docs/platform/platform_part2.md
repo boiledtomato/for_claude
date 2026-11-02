@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 145
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 138
 
 ---
 
@@ -624,13 +624,13 @@ Manage access to the following Private Access logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-agentic-security-operations-platform-gateway","lastmod":"2026-10-14T14:42Z","nid":"1545265"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-agentic-security-operations-platform-gateway","lastmod":"2026-10-27T11:47Z","nid":"1545265"} -->
 ## Configuring the Agentic Security Operations Platform Gateway
 
 - Source: https://help.zscaler.com/unified/configuring-agentic-security-operations-platform-gateway
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Configuring the Agentic Security Operations Platform Gateway
-- Last modified: 2026-10-14T14:42Z
+- Last modified: 2026-10-27T11:47Z
 - Summary: How to configure the Zscaler gateway to connect on-premises sources and outegrations in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) supports connecting on-premises outegrations and data sources through the Zscaler gateway at the account level, allowing for seamless onboarding of customers with on-premises installations for their vendors. In this article, the resource you intend to connect is referred to as the on-premises service. The objective is to make the on-premises service accessible through the Agentic SecOps Platform. This article outlines a recommended setup using a virtual machine (VM).
@@ -781,13 +781,13 @@ To resolve the authorization issue:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-authentication-data-sources-and-outegrations","lastmod":"2026-10-14T14:43Z","nid":"1545266"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-authentication-data-sources-and-outegrations","lastmod":"2026-10-27T11:48Z","nid":"1545266"} -->
 ## Configuring Authentication for Data Sources and Outegrations
 
 - Source: https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source & Outegration Authentication > Configuring Authentication for Data Sources and Outegrations
-- Last modified: 2026-10-14T14:43Z
+- Last modified: 2026-10-27T11:48Z
 - Summary: How to configure API authentications for connecting data sources and outegrations in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) supports integration with a wide variety of third-party tools and services, and enables secure data exchange such as retrieving findings from external scanners or sending tickets to work management systems. To connect these tools, you must first configure API authentications. Authentication ensures the Agentic SecOps Platform can access external resources using valid credentials with the necessary permissions, supporting uninterrupted automation and continuous data flow.
@@ -855,13 +855,13 @@ You can review the list of blocked countries later in the Zscaler Admin Console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-10-14T06:34Z","nid":"1545222"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-custom-dashboards","lastmod":"2026-10-28T21:06Z","nid":"1545222"} -->
 ## Configuring Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/configuring-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > Configuring Custom Dashboards
-- Last modified: 2026-10-14T06:34Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure custom dashboards and add widgets to the dashboard.
 
 You can create a custom dashboard according to your organization's requirements in the Agentic Security Operations Platform (Agentic SecOps Platform). These dashboards provide the flexibility to add and customize various widgets as required. You must add at least one widget to configure a new custom dashboard. You can also use predefined dashboard templates to create a custom dashboard. To learn more, see [Using Dashboard Templates](https://help.zscaler.com/unified/using-dashboard-templates).
@@ -1007,13 +1007,13 @@ After the drill-down hierarchy is configured, you can click the widget to drill 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-drawers","lastmod":"2026-10-13T12:38Z","nid":"1545260"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-drawers","lastmod":"2026-10-27T21:06Z","nid":"1545260"} -->
 ## Configuring Entity Drawers
 
 - Source: https://help.zscaler.com/unified/configuring-entity-drawers
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Configuring Entity Drawers
-- Last modified: 2026-10-13T12:38Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to configure entity drawers for the applications in the Agentic SecOps Platform Admin Portal.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) provides a default configuration for displaying the main entity drawers in each of its applications:
@@ -1173,13 +1173,13 @@ You cannot edit a system tab, including the name, type, and default fields. Thes
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-10-19T13:46Z","nid":"1545197"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-entity-unification","lastmod":"2026-10-27T12:15Z","nid":"1545197"} -->
 ## Configuring Entity Unification
 
 - Source: https://help.zscaler.com/unified/configuring-entity-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Entity Unification
-- Last modified: 2026-10-19T13:46Z
+- Last modified: 2026-10-27T12:15Z
 - Summary: How to configure entity unification rules to merge duplicate records.
 
 Ingesting data from multiple sources often leads to duplicate records that represent the same real-world entity. As part of the broader data unification process, entity unification focuses on data normalization by identifying and merging these duplicates to establish a single, trusted source of truth. You can create entity unification rules that specify how records are recognized as duplicates and the conditions under which they are merged. This step is especially critical for asset deduplication, and it serves as a foundation for consistent and reliable data across systems. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
@@ -1238,13 +1238,13 @@ The rules' order of appearance doesn't affect the order of their application. Ea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-field-unification","lastmod":"2026-10-19T13:46Z","nid":"1545202"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-field-unification","lastmod":"2026-10-27T12:15Z","nid":"1545202"} -->
 ## Configuring Field Unification
 
 - Source: https://help.zscaler.com/unified/configuring-field-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Configuring Field Unification
-- Last modified: 2026-10-19T13:46Z
+- Last modified: 2026-10-27T12:15Z
 - Summary: How to configure field unification rules to resolve attribute conflicts and support data cleansing and enrichment.
 
 Ingesting data from various sources often requires merging duplicate records for the same entity into a single unified record. Following deduplication through [entity unification](https://help.zscaler.com/unified/configuring-entity-unification), the next step is reconciling attribute conflicts and subsequently cleansing and enriching the data. The platform's unification capabilities transform your data into a single, trusted source of truth.
@@ -1451,13 +1451,13 @@ The expression works by:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-microsoft-entra-id-sso","lastmod":"2026-10-14T08:59Z","nid":"1545231"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-microsoft-entra-id-sso","lastmod":"2026-10-28T21:06Z","nid":"1545231"} -->
 ## Configuring Microsoft Entra ID SSO
 
 - Source: https://help.zscaler.com/unified/configuring-microsoft-entra-id-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Microsoft Entra ID SSO
-- Last modified: 2026-10-14T08:59Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure Microsoft Entra ID SSO account authentication.
 
 You can configure Microsoft Entra ID (formerly Azure AD) single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through the Microsoft Entra ID SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Microsoft Entra ID. Each user must have an account with the same email address in both the Agentic SecOps Platform and Microsoft Entra ID. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1575,13 +1575,13 @@ To configure obfuscation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-okta-sso","lastmod":"2026-10-14T10:40Z","nid":"1545232"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-okta-sso","lastmod":"2026-10-28T21:06Z","nid":"1545232"} -->
 ## Configuring Okta SSO
 
 - Source: https://help.zscaler.com/unified/configuring-okta-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Okta SSO
-- Last modified: 2026-10-14T10:40Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure Okta SSO account authentication.
 
 You can configure Okta single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your Okta SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Okta. Each user must have an account with the same email address in both the Agentic SecOps Platform and in Okta. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1675,13 +1675,53 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-pingfederate-sso","lastmod":"2026-10-14T11:22Z","nid":"1545234"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-organization-profile","lastmod":"2026-10-20T11:12Z","nid":"1543380"} -->
+## Configuring the Organization Profile
+
+- Source: https://help.zscaler.com/unified/configuring-organization-profile
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Configuring the Organization Profile
+- Last modified: 2026-10-20T11:12Z
+- Summary: How to configure the Organization profile page for your company in the Zscaler Admin Console.
+
+The Internet & SaaS service automatically creates a profile for your organization. On the Organization page (Administration > Administration > Organization), you can review and update company information.
+
+To configure your organization profile:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Administration** > **Organization**.
+2. On the **General Information**tab, click **Edit** to review information and make updates as needed. The **Edit General Information** drawer opens.
+3. On the **Edit General Information** drawer: See image.
+  - **Company ID**: The service automatically assigns your organization a **Company ID**. You might be asked to provide this ID when requesting Zscaler Support. This field is not editable.
+  - **Name**: The service displays the organization name that you provided. This field is not editable. Your organization name appears in the login form that the service displays:
+    - When users authenticate to the Zscaler service.
+    - In the user notifications, when policy violations occur.
+  - **Domains**: The service displays the domains that you provided when your tenant was provisioned.
+  - **Address**and **Primary Time Zone**: Enter the address and primary time zone for your organization.The time zones listed are those within the geographic location of your primary address. The primary time zone is used when your organization synchronizes user, group, and department information from a directory server.
+  - **Company Logo**: Click **Upload** to upload a logo. The service supports JPG, GIF, and PNG image files of 10 KB size or smaller. Your company logo appears in the login form that the service displays:
+    - When users authenticate to the Zscaler service.
+    - In the user notifications, when policy violations occur.
+4. Click **Save**.
+5. Select the **Contacts**tab to review and update key contacts. Ensure that the key contacts are current so they can open Support tickets for your organization. The **Contacts** page appears.
+6. On the **Contacts** page: See image.
+  - **Technical Contacts:** The primary and secondary contacts listed here are authorized to open Support tickets with the Zscaler service.
+  - **Billing Contacts:** The primary and secondary contacts listed here are authorized to open Support tickets with the Zscaler service.
+  - **Business Contacts:** The service displays the primary contact information that you provided, and you can enter contact information for a secondary contact. You cannot edit the information for the primary contact.
+7. Click **Save** and [activate the change.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
+
+[Image: Editing general organizational information in the Zscaler Admin Console]
+
+[Image: Editing contact information for your organization in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingfederate-sso","lastmod":"2026-10-28T21:06Z","nid":"1545234"} -->
 ## Configuring PingFederate SSO
 
 - Source: https://help.zscaler.com/unified/configuring-pingfederate-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingFederate SSO
-- Last modified: 2026-10-14T11:22Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure PingFederate SSO account authentication.
 
 You can configure PingFederate single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your PingFederate SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingFederate. Each user must have an account with the same email address in both the Agentic SecOps Platform and PingFederate. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1790,13 +1830,13 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-pingone-sso","lastmod":"2026-10-14T11:20Z","nid":"1545233"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingone-sso","lastmod":"2026-10-28T21:06Z","nid":"1545233"} -->
 ## Configuring PingOne SSO
 
 - Source: https://help.zscaler.com/unified/configuring-pingone-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingOne SSO
-- Last modified: 2026-10-14T11:20Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure PingOne SSO account authentication.
 
 You can configure PingOne SSO as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your PingOne SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingOne. Each user must have an account with the same email address in both the Agentic SecOps Platform and PingOne. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1943,13 +1983,13 @@ To create a role assignment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-secureauth-sso","lastmod":"2026-10-14T11:24Z","nid":"1545235"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-secureauth-sso","lastmod":"2026-10-28T21:06Z","nid":"1545235"} -->
 ## Configuring SecureAuth SSO
 
 - Source: https://help.zscaler.com/unified/configuring-secureauth-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring SecureAuth SSO
-- Last modified: 2026-10-14T11:24Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to configure SecureAuth SSO account authentication.
 
 You can configure SecureAuth SSO as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your SecureAuth SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through SecureAuth. Each user must have an account with the same email address in both the Agentic SecOps Platform and SecureAuth. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -2030,13 +2070,13 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-suppression-rules","lastmod":"2026-10-19T12:40Z","nid":"1545241"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-suppression-rules","lastmod":"2026-10-28T06:48Z","nid":"1545241"} -->
 ## Configuring Suppression Rules
 
 - Source: https://help.zscaler.com/unified/configuring-suppression-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Configuring Suppression Rules
-- Last modified: 2026-10-19T12:40Z
+- Last modified: 2026-10-28T06:48Z
 - Summary: How to configure suppression rules for data sources to either exclude data from ingestion, or to include a subset of the source data.
 
 When [creating a data source](https://help.zscaler.com/unified/creating-data-sources) to ingest data into the Agentic Security Operations Platform (Agentic SecOps Platform), you can apply suppression rules to control which data is included in the ingestion process. Suppression rules allow you to either exclude specific data (e.g., from decommissioned assets or test environments) or include only a targeted subset of the source data. This helps reduce noise, avoid processing irrelevant or sensitive information, and ensure that only actionable data is brought into the platform.
@@ -2085,12 +2125,13 @@ Data retrieved from the source before setting up the suppression rules is not re
 
 To delete existing data ingested by the source:
 
-1. Go to **Configure**> **Sources**.
-2. Choose a data source using one of the following methods: See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose a data source using one of the following methods: See image.
   - Hover over the data source, and click the **Delete** icon.
   - Select a data source from the list, and click **Delete** on the toolbar.
-3. Select **Keep the data source, delete the underlying data**.
-4. Click **Delete**.
+4. Select **Keep the data source, delete the underlying data**.
+5. Click **Delete**.
 
 [Image: Delete icon on the Sources page]
 
@@ -2098,8 +2139,9 @@ After you delete the existing data from the system, make sure to re-ingest the d
 
 To re-ingest the source data:
 
-1. Go to **Configure**> **Sources**.
-2. Choose a data source using one of the following methods: See image. A message appears at the top of the page, indicating whether the process action was successful. To view the run status, hover over the source and click the **See Runs**icon. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose a data source using one of the following methods: See image. A message appears at the top of the page, indicating whether the process action was successful. To view the run status, hover over the source and click the **See Runs**icon. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
   - Hover over the data source, and click the **Process Now** icon.
   - Select a data source from the list, and click **Process Now** on the toolbar.
 
@@ -2111,19 +2153,20 @@ If you're familiar with the source's original field names, you can also apply su
 
 To configure rules on a new source:
 
-1. Go to **Configure** > **Sources.**
-2. Click **Create**.
-3. Select the desired source from the gallery, and follow the setup process in [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
-4. Select the rule scope:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Click **Create**.
+4. Select the desired source from the gallery, and follow the setup process in [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources).
+5. Select the rule scope:
   - **Exclude Rows**: Filter out data that should not be ingested.
   - **Include Rows**: Ingest only data that matches your criteria. See image.
-5. In the **Select Field** drop-down menu, enter the field name, then press`Enter`.
-6. Select the field from the drop-down menu to serve as the filter criterion for data suppression. The drop-down menu is populated with field names from the source after at least one ingestion run.
-7. Select the field type (e.g., **Text**, **Date**, **Number**, **Boolean**). The field type determines the available filter operators. See image.
-8. Select a filter operator (e.g., **Equals**, **Contains**, **<**).
-9. Enter the value to filter by (i.e., to exclude or include in the data ingestion). Suppression rules arecase sensitive.
-10. (Optional) Use **AND**/**OR** logic to define compound rules.
-11. Click **Save** to save the rules to the source.
+6. In the **Select Field** drop-down menu, enter the field name, then press`Enter`.
+7. Select the field from the drop-down menu to serve as the filter criterion for data suppression. The drop-down menu is populated with field names from the source after at least one ingestion run.
+8. Select the field type (e.g., **Text**, **Date**, **Number**, **Boolean**). The field type determines the available filter operators. See image.
+9. Select a filter operator (e.g., **Equals**, **Contains**, **<**).
+10. Enter the value to filter by (i.e., to exclude or include in the data ingestion). Suppression rules arecase sensitive.
+11. (Optional) Use **AND**/**OR** logic to define compound rules.
+12. Click **Save** to save the rules to the source.
 
 Saving the source along with your configured suppression rules returns you to the Sources page.
 
@@ -2143,12 +2186,13 @@ Checking for a decrease in row count is a quick way to verify that suppression r
 
 To check for a decrease in source runs:
 
-1. Go to **Configure** > **Sources**.
-2. Choose a data source using one of the following methods:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose a data source using one of the following methods:
   - Hover over the data source, and click the **See Runs** icon.
   - Select a data source from the list, and click **See Runs** on the toolbar.
-3. Expand the most recent run to view the total number of ingested rows.
-4. Asses the row count, or compare the row count with a previous run to confirm that data has been suppressed. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+4. Expand the most recent run to view the total number of ingested rows.
+5. Asses the row count, or compare the row count with a previous run to confirm that data has been suppressed. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 
 ### Review Ingested Logs
 
@@ -2156,14 +2200,15 @@ To verify that your suppression rule is working as intended, you can search the 
 
 To search the logs for suppressed data:
 
-1. Go to **Explore** > **Logs**.
-2. Build a query to search for the suppressed or included data: See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Logs**.
+3. Build a query to search for the suppressed or included data: See image.
   1. Select the suppressed source field.
   2. Use the **Equals** operator.
   3. Enter the relevant value based on the suppression rule type:
     - **Exclude Rows**: Enter a value you specified in the suppression rule.
     - **Include Rows**: Enter a value not included in the suppression rule.
-3. Click **Search**. If the query returns no results, the suppression rule is likely to be functioning as expected.
+4. Click **Search**. If the query returns no results, the suppression rule is likely to be functioning as expected.
 
 **[Image: Query searching for Prisma Cloud CWP Compliance logs]**
 <!-- /ZS-ARTICLE -->
@@ -2231,22 +2276,23 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-automation-rules","lastmod":"2026-10-14T14:23Z","nid":"1545375"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-automation-rules","lastmod":"2026-10-30T02:37Z","nid":"1545375"} -->
 ## Creating Automation Rules
 
 - Source: https://help.zscaler.com/unified/creating-automation-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Automation Rules > Creating Automation Rules
-- Last modified: 2026-10-14T14:23Z
+- Last modified: 2026-10-30T02:37Z
 - Summary: How to create an automation rule.
 
 You can create an automation rule to automatically trigger one or more [playbooks](https://help.zscaler.com/unified/about-playbooks) when specific conditions are met. When an alert is created, the automation rule evaluates the alert against the defined conditions. If the conditions are met, the automation rule triggers the associated playbook, which performs its configured actions.
 
 To create an automation rule:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to **Agentic SOC**> **Automations** > **Automation Rules**. The **Automation Rules** page appears.
-2. Click **New Rule**. See image. The **Create** **New Automation Rule** page appears.
-3. On the **Create** **New Automation Rule** page:
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC** or **Identities**.
+2. In the left-side navigation, go to **Automations** > **Automation Rules**. The **Automation Rules** page appears.
+3. Click **New Rule**. See image. The **Create** **New Automation Rule** page appears.
+4. On the **Create** **New Automation Rule** page:
   1. In the**Details**section: See image.
     1. **Name**: Enter a name for the automation rule.
     2. **Active**: Enable to activate the automation rule. By default, this setting is enabled.
@@ -2255,6 +2301,8 @@ To create an automation rule:
     1. **Entity Type**: Select the entity type for which you want to create the automation rule.
       - **Alert**: Select to create an automation rule for an alert.
       - **Incident**: Select to create an automation rule for an incident.
+      - **User**: Select to create an automation rule for a user.
+      - **Identity Finding**: Select to create an automation rule for an identity finding.
     2. **Trigger**: Select the event that triggers the automation rule.
       - **Delete**: Triggers the rule when an entity is deleted.
       - **Update**: Triggers the rule when an entity is updated.
@@ -2270,7 +2318,7 @@ To create an automation rule:
   4. In the **Playbook** section: See image.
     1. **Search**: Enter the name of a playbook to find it in the Playbook Inventory.
     2. **Playbook Inventory**: Select one or more playbooks to associate with the automation rule. The selected playbooks appear on the left.
-4. Click **Save**. The automation rule is created and displayed on the [Automation Rules](https://help.zscaler.com/tech-pubs-drafts/about-automation-rules) page.
+5. Click **Save**. The automation rule is created and displayed on the [Automation Rules](https://help.zscaler.com/tech-pubs-drafts/about-automation-rules) page.
 
 [Image: Automation Rules page showing New Rule option]
 
@@ -2325,13 +2373,13 @@ To create a custom dashboard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-custom-roles","lastmod":"2026-10-14T11:45Z","nid":"1545206"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-custom-roles","lastmod":"2026-10-28T21:06Z","nid":"1545206"} -->
 ## Creating Custom Roles
 
 - Source: https://help.zscaler.com/unified/creating-custom-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating Custom Roles
-- Last modified: 2026-10-14T11:45Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to create custom roles in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 User roles control access to features and actions within the Agentic Security Operations Platform (Agentic SecOps Platform). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can [assign roles](https://help.zscaler.com/unified/managing-user-roles) to define their access and permissions. You can choose from [predefined system roles](https://help.zscaler.com/unified/understanding-system-roles), or the account admin can create and assign custom roles. Custom roles are configured to reflect your internal policies or workflows.
@@ -2439,18 +2487,18 @@ The following table outlines key resources of Agentic SOC and the specific types
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-10-19T12:39Z","nid":"1545239"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-data-sources","lastmod":"2026-10-28T06:40Z","nid":"1545239"} -->
 ## Creating Data Sources
 
 - Source: https://help.zscaler.com/unified/creating-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Creating Data Sources
-- Last modified: 2026-10-19T12:39Z
+- Last modified: 2026-10-28T06:40Z
 - Summary: How to create a new data source in the Agentic Security Operations Platform, including source details, retrieval settings, scheduling, remediation detection settings, and suppression rules.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) collects and correlates security data and business context from a wide range of external tools, such as vulnerability scanners, asset inventories, and cloud providers. To begin ingesting this data into your environment, you must first connect the relevant sources to your account. Establishing these connections ensures that the Agentic SecOps Platform can continuously retrieve and normalize data for analysis, prioritization, and workflows.
 
-Before you create a source, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations) for deployment prerequisites, setup considerations, and planning guidance. To identify the available sources, supported streams, and source-specific configuration requirements, see [Agentic Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source).
+Before you create a source, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations) for deployment prerequisites, setup considerations, and planning guidance. To identify the available sources, supported streams, and source-specific configuration requirements, see [Agentic Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-data-source).
 
 This article explains how to create a new data source. For information on managing existing sources, see [Managing Data Sources](https://help.zscaler.com/unified/managing-data-sources).
 
@@ -2482,12 +2530,12 @@ In the **Details** section, enter the source's basic details:
 - **Override Icon Name**: (for AnySource only) If you're connecting an AnySource connector, you can override the default icon with one that matches the vendor's branding.
 - **Description**: (Optional) Enter a brief description of the data the source retrieves.
 
-In the **Retrieval** section, define how data is fetched from the vendor’s system:
+In the **Retrieval** section, define how data is fetched from the vendor's system:
 
 - **Authentication**: Select an existing authentication or click **Create New** to add an authentication for the vendor. To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations).
-- Each source has its own unique set of required parameters outlined in the specific vendor's deployment guide in the [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides)section.
+- Each source has its own unique set of required parameters outlined in the specific vendor's deployment guide in the [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides) section.
 - **Filters and Specifications**: Configure available data retrieval filters and specifications, when supported by the source. For example, on the **CrowdStrike Managed Hosts** source, you can filter the ingested data by **Asset Types** and/or specify the **CrowdStrike Cloud Region**to target the appropriate environment. See image.
-- **Gateway**: (Optional) Select a gateway. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
+- **Gateway**: (Optional) Select a gateway. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-agentic-security-operations-platform-gateway).
 
 [Image: The Retrieval window for CrowdStrike Managed Hosts]
 
@@ -2522,13 +2570,13 @@ Zscaler recommends configuring suppression rules only after ingesting data from 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-formatting-rules","lastmod":"2026-10-13T12:40Z","nid":"1545264"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-formatting-rules","lastmod":"2026-10-27T21:06Z","nid":"1545264"} -->
 ## Creating Formatting Rules
 
 - Source: https://help.zscaler.com/unified/creating-formatting-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Creating Formatting Rules
-- Last modified: 2026-10-13T12:40Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to create and apply formatting rules to visually distinguish measurements using color-coded thresholds within the Agentic SecOps Platform Admin Portal.
 
 Formatting rules in the Agentic Security Operations Platform (Agentic SecOps Platform) allows you to apply coloring rules to [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions), making data interpretation clear and intuitive. These rules help emphasize key measurements, highlight data based on dimension values, and track trends across dashboards and compliance policies.
@@ -2631,13 +2679,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-content-permissions","lastmod":"2026-10-14T11:51Z","nid":"1545212"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-content-permissions","lastmod":"2026-10-28T21:06Z","nid":"1545212"} -->
 ## Creating & Managing Content Permissions
 
 - Source: https://help.zscaler.com/unified/creating-managing-content-permissions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating & Managing Content Permissions
-- Last modified: 2026-10-14T11:51Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to create and manage content permission sets in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Admins can configure content permission sets using specific data attributes that can be assigned to users to specify the data they can access. While role permissions dictate the actions the user can perform (e.g., create a dashboard, merge tickets), content permissions limit the scope of data the user can view and is authorized to perform those actions on. For example, a user might be assigned a role allowing them to create reports, but limited by content permissions, they'll only see data relating to their team (e.g., the team responsible for all Linux assets). To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles).
@@ -2743,13 +2791,13 @@ To delete a permission set:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-saved-views","lastmod":"2026-10-13T12:39Z","nid":"1545261"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-saved-views","lastmod":"2026-10-27T21:06Z","nid":"1545261"} -->
 ## Creating & Managing Saved Views
 
 - Source: https://help.zscaler.com/unified/creating-managing-saved-views
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Creating & Managing Saved Views
-- Last modified: 2026-10-13T12:39Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to create and manage saved views for entity pages and system dashboards.
 
 Saved views are configurable, reusable views that apply filters, grouping, sorting, and field selections to data. They improve data exploration and analysis by allowing users to return to specific data configurations without reapplying settings each time.
@@ -2844,13 +2892,13 @@ To delete a custom saved view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-third-party-tickets","lastmod":"2026-10-13T12:41Z","nid":"1545262"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-third-party-tickets","lastmod":"2026-10-27T21:06Z","nid":"1545262"} -->
 ## Creating & Managing Third-Party Tickets
 
 - Source: https://help.zscaler.com/unified/creating-managing-third-party-tickets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Creating & Managing Third-Party Tickets
-- Last modified: 2026-10-13T12:41Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to create and manage third-party tickets in Agentic Security Operations Platform applications.
 
 Third-party outegrations allow organizations to create third-party tickets in external work management systems directly from a ticket in the Agentic Security Operations Platform (Agentic SecOps Platform) (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets) in Unified Vulnerability Management (UVM), [Violation Tickets](https://help.zscaler.com/aem/about-violation-tickets) in Asset Exposure Management (AEM)) to facilitate a streamlined workflow. After a work management outegration is created and configured, third-party tickets can be dispatched and managed directly from the Agentic SecOps Platform tickets to external systems (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration), and other supported outegrations). To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
@@ -2913,13 +2961,13 @@ After the tickets are unlinked, updates between the third-party ticket and the A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-users","lastmod":"2026-10-14T11:49Z","nid":"1545211"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-users","lastmod":"2026-10-28T21:06Z","nid":"1545211"} -->
 ## Creating & Managing Users
 
 - Source: https://help.zscaler.com/unified/creating-managing-users
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating & Managing Users
-- Last modified: 2026-10-14T11:49Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to create and manage users in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Admins can create and manage users in your organization's Agentic Security Operations Platform (Agentic SecOps Platform). Managing users includes defining their access and permissions by assigning Role-Based Access Control (RBAC), optionally assigning Attribute-Based Access Control (ABAC) permissions, and deactivating or deleting users.
@@ -3020,18 +3068,18 @@ To delete multiple users:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-10-19T13:30Z","nid":"1545249"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-outegrations","lastmod":"2026-10-28T07:29Z","nid":"1545249"} -->
 ## Creating Outegrations
 
 - Source: https://help.zscaler.com/unified/creating-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Creating Outegrations
-- Last modified: 2026-10-19T13:30Z
+- Last modified: 2026-10-28T07:29Z
 - Summary: How to create a new outegration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) allows you to create outbound integrations (i.e., outegrations) that connect the Agentic SecOps Platform to external systems such as work management tools (e.g., [Jira](https://help.zscaler.com/uvm/configuring-jira-outegration), [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-outegration)), storage destinations, alert systems (e.g., Slack, email), automation tools, scanners (e.g., [Tenable](https://help.zscaler.com/uvm/configuring-tenable-outegration)), and other supported third-party services. Where supported, the Agentic SecOps Platform can synchronize updates between the systems. For information on managing existing outegrations, see [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations).
 
-To learn more about deployment prerequisites, setup considerations, and planning guidance, see [Deploying Outegration Configurations](https://help.zscaler.com/unified/deploying-outegration-configurations). To identify the available outegrations, see [Agentic Security Operations Platform Configurations by Outegration](https://help.zscaler.com/unified/security-operations-platform-configurations-outegration).
+To learn more about deployment prerequisites, setup considerations, and planning guidance, see [Deploying Outegration Configurations](https://help.zscaler.com/unified/deploying-outegration-configurations). To identify the available outegrations, see [Agentic Security Operations Platform Configurations by Outegration](https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-outegration).
 
 To create an outegration:
 
@@ -3050,13 +3098,13 @@ The new outegration appears on the Outegrations page and becomes available in th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-10-14T14:21Z","nid":"1545366"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-10-30T01:25Z","nid":"1545366"} -->
 ## Creating Playbooks
 
 - Source: https://help.zscaler.com/unified/creating-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Creating Playbooks
-- Last modified: 2026-10-14T14:21Z
+- Last modified: 2026-10-30T01:25Z
 - Summary: How to create a playbook that helps your team respond to and remediate threats in the Agentic Security Operations Platform.
 
 You can create a playbook to group one or more response actions for a supported entity. You can manually trigger a playbook or use an automation rule to run the playbook automatically.
@@ -3067,9 +3115,10 @@ The entity type selected for the playbook and automation rule must be the same (
 
 To create a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to **Agentic SOC**> **Automations** > **Playbooks**. The **Playbooks** page appears.
-2. Click **New Playbook**. See image. The **Create New Playbook** page appears.
-3. On the **Create New Playbook** page:
+1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC** or **Identities**.
+2. In the left-side navigation, go to **Automations** > **Playbooks**. The **Playbooks** page appears.
+3. Click **New Playbook**. See image. The **Create New Playbook** page appears.
+4. On the **Create New Playbook** page:
   1. In the**Details**section: See image.
     1. **Name**: Enter a name for the playbook.
     2. **Active**: Enable to activate the playbook.
@@ -3077,6 +3126,8 @@ To create a playbook:
     4. **Entity Type**: Select the entity type for which the playbook should run.
       - **Alert**: Select to run the playbook for an alert.
       - **Incident**: Select to run the playbook for an incident.
+      - **User**: Select to run the playbook for a user.
+      - **Identity Finding**: Select to run the playbook for an identity finding.
   2. In the **Permissions** section: See image.
     1. **Allow to Edit Playbook**: Select the users who can edit the playbook.
     2. **Allow Manual Triggering**: Select this checkbox to allow users to manually trigger the playbook, then complete the following steps:
@@ -3086,7 +3137,7 @@ To create a playbook:
     1. Click **Add Action**.
     2. Select an action from the drop-down menu and provide the details (e.g., specify the recipient, subject, and message for an email).
     3. Click **Add Action** to add more actions to the playbook.
-4. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
+5. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/1.0/about-playbooks) page.
 
 ## Creating a Playbook from a Template
 
@@ -3096,7 +3147,7 @@ You can use a template from the template gallery to create a playbook.
 2. Click a template. The **Template Preview** page appears.
 3. Click **Create from Template**.
 4. Review and modify the playbook information in the **Details**, **Permissions**, and **Actions** sections as required. See image.
-5. Click **Save as New**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
+5. Click **Save as New**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/1.0/about-playbooks) page.
 
 ## Creating a Playbook from a JSON File
 
@@ -3108,7 +3159,7 @@ To create a playbook from a JSON file:
 2. Click the **More** icon and select **Import from JSON**. See image.
 3. Select the JSON file that you want to import. The playbook details are automatically populated from the JSON file (e.g., name and entity type). If the imported playbook name already exists, an error message appears. Enter a new name to continue.
 4. Review the imported playbook details.
-5. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/about-playbooks) page.
+5. Click **Save**. The playbook is created and displayed on the [My Playbooks](https://help.zscaler.com/unified/1.0/about-playbooks) page.
 
 [Image: Playbooks page showing New Playbook option]
 
@@ -3302,13 +3353,13 @@ To view and change your account settings:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-10-14T14:48Z","nid":"1545188"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-data-source-configurations","lastmod":"2026-10-28T06:36Z","nid":"1545188"} -->
 ## Deploying Data Source Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-data-source-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Deploying Data Source Configurations
-- Last modified: 2026-10-14T14:48Z
+- Last modified: 2026-10-28T06:36Z
 - Summary: Information about deploying data source configuration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) collects and correlates security data and business context from a wide array of external tools, including vulnerability scanners, asset inventories, and cloud platforms. Connecting these external sources to your account establishes a continuous Extract, Transform, and Load (ETL) pipeline, ensuring raw telemetry is normalized and made available across the applications available in your account.
@@ -3317,12 +3368,12 @@ Agentic SecOps Platform data sources range from API-driven cloud services and En
 
 The specific data sources you need depend on the external tools you work with and the applications available in your account:
 
-- Unified Vulnerability Management (UVM): Requires telemetry from vulnerability scanners and Cloud Security Posture Management (CSPM) tools to correlate vulnerabilities with asset context and drive remediation workflows.
-- Asset Exposure Management (AEM): Requires telemetry from CMDBs (e.g., ServiceNow), IT asset management tools, and cloud inventories to maintain a comprehensive, continuous view of your asset inventory, coverage, and attack surface; EASM augments this by discovering internet-facing assets.
-- Identity Protection: Requires signals from IAM directories (e.g., Active Directory, Entra ID, Okta) and endpoint telemetry (via Zscaler Client Connector) to detect risky identity posture, anomalous behavior, and exposed credentials.
-- Agentic SOC: Ingests and correlates alerts from EDR, identity, and Zscaler network telemetry (e.g., Internet & SaaS), enriching them with asset and identity context to triage and investigate threats.
+- **Unified Vulnerability Management (UVM)**: Requires telemetry from vulnerability scanners and Cloud Security Posture Management (CSPM) tools to correlate vulnerabilities with asset context and drive remediation workflows.
+- **Asset Exposure Management (AEM)**: Requires telemetry from CMDBs (e.g., ServiceNow), IT asset management tools, and cloud inventories to maintain a comprehensive, continuous view of your asset inventory, coverage, and attack surface; EASM augments this by discovering internet-facing assets.
+- **Identity Protection**: Requires signals from IAM directories (e.g., Active Directory, Entra ID, Okta) and endpoint telemetry (via Zscaler Client Connector) to detect risky identity posture, anomalous behavior, and exposed credentials.
+- **Agentic SOC**: Ingests and correlates alerts from EDR, identity, and Zscaler network telemetry (e.g., Internet & SaaS), enriching them with asset and identity context to triage and investigate threats.
 
-To learn more about the available data sources, see [Agentic Security Operations Platform Configurations by Data Source.](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source)
+To learn more about the available data sources, see [Agentic Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-data-source).
 
 ## Prerequisites
 
@@ -3330,7 +3381,7 @@ Before configuring a data source in the Agentic SecOps Platform, verify the foll
 
 - Confirm you have sufficient privileges within the third-party vendor's console to generate authentication credentials (e.g., API tokens, OAuth keys) and define access scopes. Depending on the vendor, this might require full administrative access or specific role-based permissions.
 - Verify that your third-party license permits data export or API access. Ensure the credentials you generate possess the correct read-only permissions for the targeted data streams.
-- Determine if the vendor requires [Agentic SecOps Platform public IP addresses](https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses) to be allowlisted. Review API rate limits that might impact large-scale data extractions.
+- Determine if the vendor requires [Agentic SecOps Platform public IP addresses](https://help.zscaler.com/unified/agentic-security-operations-platform-public-ip-addresses) to be allowlisted. Review API rate limits that might impact large-scale data extractions.
 - All API keys, secrets, and tokens entered into the Agentic SecOps Platform are securely encrypted. Ensure you have a secure method for transferring these credentials from the vendor portal to the Agentic SecOps Platform during setup.
 
 ## Standard Deployment Flow
@@ -3357,13 +3408,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-10-25T07:06Z","nid":"1545218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-01T06:06Z","nid":"1545218"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: Information about deploying outegration configuration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move Agentic SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -3372,10 +3423,10 @@ Agentic SecOps Platform outegrations range from ticketing and workflow connector
 
 The specific outegrations you need depend on the external tools you work with and the applications available in your account:
 
-- Unified Vulnerability Management (UVM): Uses outegrations to send remediation tasks to external ticketing and workflow systems and to support validation workflows through supported third-party tools.
-- Asset Exposure Management (AEM): Uses outegrations to route asset exposure findings and related operational context into external systems so teams can track and remediate issues within established workflows.
+- **Unified Vulnerability Management (UVM)**: Uses outegrations to send remediation tasks to external ticketing and workflow systems and to support validation workflows through supported third-party tools.
+- **Asset Exposure Management (AEM)**: Uses outegrations to route asset exposure findings and related operational context into external systems so teams can track and remediate issues within established workflows.
 
-To learn more about the available outegrations, see [Security Operations Platform Configurations by Outegration.](https://help.zscaler.com/unified/security-operations-platform-configurations-outegration)
+To learn more about the available outegrations, see [Agentic Security Operations Platform Configurations by Outegration](https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-outegration).
 
 ## Prerequisites
 
@@ -3383,18 +3434,18 @@ Before configuring an outegration in the Agentic SecOps Platform, verify the fol
 
 - Confirm you have sufficient privileges within the third-party vendor's console to generate authentication credentials (e.g., API tokens, OAuth keys, or service accounts) and create or manage the destination objects used by the outegration. Depending on the vendor, this might include defining projects, queues, topics, callback URLs, or other destination settings.
 - Verify that your third-party license permits the required API access, record creation, status updates, data export, or action triggers. Ensure the credentials you generate possess the correct scopes and read or write permissions for the intended workflow, including bidirectional synchronization where supported.
-- Determine if the vendor requires [Agentic SecOps Platform public IP addresses](https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses) to be allowlisted, or specific endpoints to be reachable. Review API rate limits, payload limits, and any workflow or event-processing limits that might impact high-volume outegrations.
+- Determine if the vendor requires [Agentic SecOps Platform public IP addresses](https://help.zscaler.com/unified/agentic-security-operations-platform-public-ip-addresses) to be allowlisted, or specific endpoints to be reachable. Review API rate limits, payload limits, and any workflow or event-processing limits that might impact high-volume outegrations.
 - All API keys, secrets, and tokens entered into the Agentic SecOps Platform are securely encrypted. Ensure you have a secure method for transferring these credentials from the vendor portal to the Agentic SecOps Platform during setup.
 
 ## Standard Deployment Flow
 
 Deploying an outegration as a fully operational configuration involves a defined sequence of setup and validation steps. Zscaler recommends following this standard deployment flow:
 
-1. Collect required parameters from the vendor: Before configuring the outegration in the Agentic SecOps Platform, log in to your third-party vendor's portal. Configure the necessary permissions, allowlist IP addresses if required, generate the authentication credentials, and identify the destination settings the outegration uses. Depending on the vendor, this might include projects, queues, buckets, topics, callback URLs, or other target objects. To learn more, see [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides).
-2. Configure the authentication: In the Agentic SecOps Platform, create the authentication required for the outegration or select an existing one. This establishes the secure connection between the platform and the third-party system. To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations).
-3. Create and configure the outegration: Create the outegration in the Agentic SecOps Platform, select the appropriate authentication, define the destination settings, configure any visibility or behavior options, and map Agentic SecOps Platform fields to the destination system's schema. Depending on the outegration, this configuration can also define how records are dispatched and how synchronized updates are handled. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations) and the applicable guide in [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides). If needed, you can deactivate an outegration to temporarily stop outbound activity or synchronization without removing its configuration. This is useful during maintenance windows, troubleshooting, or external system changes.
-4. Test and validate the outegration: Test the configuration to verify that records, actions, or updates are sent successfully to the third-party system and that the configured mappings behave as expected.
-5. (Optional) Configure the webhook: If the outegration supports bidirectional synchronization, configure the webhook required to receive updates from the third-party system. This enables the Agentic SecOps Platform to process external changes, such as status updates or other synchronized events.
+1. **Collect required parameters from the vendor**: Before configuring the outegration in the Agentic SecOps Platform, log in to your third-party vendor's portal. Configure the necessary permissions, allowlist IP addresses if required, generate the authentication credentials, and identify the destination settings the outegration uses. Depending on the vendor, this might include projects, queues, buckets, topics, callback URLs, or other target objects. To learn more, see [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides).
+2. **Configure the authentication**: In the Agentic SecOps Platform, create the authentication required for the outegration or select an existing one. This establishes the secure connection between the platform and the third-party system. To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations).
+3. **Create and configure the outegration**: Create the outegration in the Agentic SecOps Platform, select the appropriate authentication, define the destination settings, configure any visibility or behavior options, and map Agentic SecOps Platform fields to the destination system's schema. Depending on the outegration, this configuration can also define how records are dispatched and how synchronized updates are handled. To learn more, see [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations) and the applicable guide in [Outegration Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/outegrations/outegration-configuration-guides). If needed, you can deactivate an outegration to temporarily stop outbound activity or synchronization without removing its configuration. This is useful during maintenance windows, troubleshooting, or external system changes.
+4. **Test and validate the outegration**: Test the configuration to verify that records, actions, or updates are sent successfully to the third-party system and that the configured mappings behave as expected.
+5. **(Optional) Configure the webhook**: If the outegration supports bidirectional synchronization, configure the webhook required to receive updates from the third-party system. This enables the Agentic SecOps Platform to process external changes, such as status updates or other synchronized events.
 
 After the outegration is saved and tested, and any required webhook is configured, it becomes available in the relevant Agentic SecOps Platform workflows. Users can then send supported items to the external system, and any configured synchronization behavior can begin processing updates between the platforms.
 
@@ -3481,13 +3532,13 @@ To delete an Adaptive Access profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-10-13T12:54Z","nid":"1545227"} -->
+<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-10-27T21:06Z","nid":"1545227"} -->
 ## Enabling Email Notifications for Failures
 
 - Source: https://help.zscaler.com/unified/enabling-email-notifications-failures
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Enabling Email Notifications for Failures
-- Last modified: 2026-10-13T12:54Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to enable outegration failure email notifications.
 
 You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and minimize disruptions.
@@ -3612,13 +3663,13 @@ To learn how to install and use the Executive Insights App, see [Accessing and U
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-10-19T13:17Z","nid":"1545246"} -->
+<!-- ZS-ARTICLE {"url":"/unified/exploring-source-data-mapping","lastmod":"2026-10-27T12:11Z","nid":"1545246"} -->
 ## Exploring Source Data in Mapping
 
 - Source: https://help.zscaler.com/unified/exploring-source-data-mapping
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Exploring Source Data in Mapping
-- Last modified: 2026-10-19T13:17Z
+- Last modified: 2026-10-27T12:11Z
 - Summary: How to explore the source fields during data source mapping.
 
 When [mapping a data source](https://help.zscaler.com/unified/mapping-data-sources) in the Agentic Security Operations Platform (Agentic SecOps Platform), you can explore the ingested source data to better understand its structure, values, and quality. This helps you accurately align vendor-provided fields with the Agentic SecOps Platform data model (e.g., choosing fields that are suitable as unique identifiers or keys).
@@ -3665,13 +3716,13 @@ After exploring the ingested source data, you can use your insights to map field
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-10-14T08:39Z","nid":"1545230"} -->
+<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-10-28T21:06Z","nid":"1545230"} -->
 ## Generating SAML Details
 
 - Source: https://help.zscaler.com/unified/generating-saml-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Generating SAML Details
-- Last modified: 2026-10-14T08:39Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to generate SAML details for setting up single sign-on to the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Agentic Security Operations Platform (Agentic SecOps Platform).
@@ -3705,13 +3756,13 @@ To generate SAML details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/grouping-data-entity-pages","lastmod":"2026-10-13T12:36Z","nid":"1545259"} -->
+<!-- ZS-ARTICLE {"url":"/unified/grouping-data-entity-pages","lastmod":"2026-10-27T21:06Z","nid":"1545259"} -->
 ## Grouping Data on Entity Pages
 
 - Source: https://help.zscaler.com/unified/grouping-data-entity-pages
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Grouping Data on Entity Pages
-- Last modified: 2026-10-13T12:36Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to group data on entity pages by key attributes within the Agentic SecOps Platform Admin Portal.
 
 You can use the grouping feature in applications in the Agentic Security Operations Platform (Agentic SecOps Platform) to organize the data on entity pages:
@@ -4065,13 +4116,13 @@ To configure the Silverfort integration in Experience Center:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-ai-capabilities-secops-platform","lastmod":"2026-10-14T08:34Z","nid":"1545229"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-ai-capabilities-agentic-secops-platform","lastmod":"2026-10-28T07:17Z","nid":"1545229"} -->
 ## Managing AI Capabilities in the Agentic Security Operations Platform
 
-- Source: https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform
+- Source: https://help.zscaler.com/unified/managing-ai-capabilities-agentic-secops-platform
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Managing AI Capabilities in the Agentic Security Operations Platform
-- Last modified: 2026-10-14T08:34Z
+- Last modified: 2026-10-28T07:17Z
 - Summary: How to manage the availability of AI capabilities in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 AI capabilities within the Agentic Security Operations Platform (Agentic SecOps Platform) offer users access to AI-powered tools (e.g., [Remediation Copilot](https://help.zscaler.com/uvm/what-remediation-copilot), [Mapping Copilot](https://help.zscaler.com/uvm/what-mapping-copilot)). Admins can manage the availability of AI capabilities within the platform to control whether these tools are available to users.
@@ -4093,13 +4144,13 @@ To learn more about Zscaler's privacy practices and AI data handling, see [Accep
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-authentication-data-sources-and-outegrations","lastmod":"2026-10-14T14:45Z","nid":"1545267"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-authentication-data-sources-and-outegrations","lastmod":"2026-10-27T11:48Z","nid":"1545267"} -->
 ## Managing Authentication for Data Sources and Outegrations
 
 - Source: https://help.zscaler.com/unified/managing-authentication-data-sources-and-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source & Outegration Authentication > Managing Authentication for Data Sources and Outegrations
-- Last modified: 2026-10-14T14:45Z
+- Last modified: 2026-10-27T11:48Z
 - Summary: How to manage configured authentications, including editing and deleting authentications.
 
 After [creating an authentication](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations) in the Agentic Security Operations Platform (Agentic SecOps Platform), you can manage and monitor it from the Authentications page. This page provides a centralized view of all configured authentications and their usage across data sources and outegrations. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources) and [Creating Outegrations](https://help.zscaler.com/unified/creating-outegrations).
@@ -4162,13 +4213,13 @@ To delete an authentication:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-automation-rules","lastmod":"2026-10-14T14:24Z","nid":"1545360"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-automation-rules","lastmod":"2026-10-30T02:41Z","nid":"1545360"} -->
 ## Managing Automation Rules
 
 - Source: https://help.zscaler.com/unified/managing-automation-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Automation Rules > Managing Automation Rules
-- Last modified: 2026-10-14T14:24Z
+- Last modified: 2026-10-30T02:41Z
 - Summary: How to manage automation rules in the Agentic Security Operations Platform.
 
 After [creating playbooks](https://help.zscaler.com/unified/creating-playbooks) and [automation rules](https://help.zscaler.com/unified/creating-automation-rules), you can manage automations to refine how and when actions are taken.
@@ -4179,7 +4230,7 @@ Edit an Automation Rule
 
 To edit an automation rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Hover over the automation rule you want to edit, and click the **Edit** icon. See image. The **Edit Automation Rule** page appears.
 4. Make the necessary changes.
@@ -4191,7 +4242,7 @@ Delete an Automation Rule
 
 To delete an automation rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Hover over the automation rule you want to delete, and click the **Delete** icon. See image. [Image: Delete icon] The **Delete Automation Rule** window opens.
 4. In the **Delete Automation Rule** window, click **Delete**. See image. [Image: Delete button to confirm automation rule deletion]
@@ -4200,7 +4251,7 @@ View Automation Rule Audit Logs
 
 To view automation rule audit logs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Click the automation rule that you want to view logs for. The **Edit Automation Rule** page appears.
 4. On the **Edit Automation Rule** page, click **More**> **Audit Logs**. See image. [Image: Audit Logs option highlighted in Edit Automation Rule page] The automation rule's **Audit Logs** page appears.
@@ -4459,16 +4510,16 @@ To access a pinned dashboard in the app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-10-19T12:39Z","nid":"1545240"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-data-sources","lastmod":"2026-10-28T06:44Z","nid":"1545240"} -->
 ## Managing Data Sources
 
 - Source: https://help.zscaler.com/unified/managing-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Managing Data Sources
-- Last modified: 2026-10-19T12:39Z
+- Last modified: 2026-10-28T06:44Z
 - Summary: How to manage existing data sources, including configuring auto-scheduling, editing, deleting, deactivating, mapping, processing, rerunning the last execution, viewing source runs, and checking audit logs.
 
-After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Agentic Security Operations Platform (Agentic SecOps Platform), you can manage it within a comprehensive list of all your data sources. This page provides access to the administrative actions used to maintain existing source configurations after deployment. For an overview of the deployment process, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). For information about available source types, see [Agentic Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/security-operations-platform-configurations-data-source).
+After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Agentic Security Operations Platform (Agentic SecOps Platform), you can manage it within a comprehensive list of all your data sources. This page provides access to the administrative actions used to maintain existing source configurations after deployment. For an overview of the deployment process, see [Deploying Data Source Configurations](https://help.zscaler.com/unified/deploying-data-source-configurations). For information about available source types, see [Agentic Security Operations Platform Configurations by Data Source](https://help.zscaler.com/unified/agentic-security-operations-platform-configurations-data-source).
 
 When managing data sources, you can perform the following actions:
 
@@ -4514,14 +4565,15 @@ You can delete a data source when it is no longer required, such as when the ass
 
 To delete a data source:
 
-1. Go to **Configure** > **Sources**.
-2. Choose one of the following deletion methods: The **Delete data from source** window appears. See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose one of the following deletion methods: The **Delete data from source** window appears. See image.
   - To delete a single data source, hover over the source and click the **Delete**icon.
   - To delete multiple data sources, select the sources from the list, and click **Delete**on the toolbar.
-3. Select a deletion option:
+4. Select a deletion option:
   - **Keep the data source, delete the underlying data**: Delete the data only, leaving the data source configuration unchanged. This is useful during initial source setup if you want to fix errors without having to recreate the entire source from scratch. After applying the changes or fixes to the source, you can rerun the last execution to repopulate the source correctly.
   - **Delete all**: Delete the data source along with all associated data.
-4. Click **Delete**. All data is permanently deleted from the system and cannot be restored.
+5. Click **Delete**. All data is permanently deleted from the system and cannot be restored.
 
 [Image: Warning message for deleting data from source with two deletion options]
 
@@ -4529,12 +4581,13 @@ You can deactivate a data source to temporarily suspend data retrieval, allowing
 
 To deactivate a data source:
 
-1. Go to **Configure**> **Sources**.
-2. Choose a data source using one of the following methods:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose a data source using one of the following methods:
   - Hover over the data source, and click the **Edit**icon.
   - Select a data source from the list, and click **Edit**on the toolbar.
-3. Disable **Active** located to the right of the source's **Name** to deactivate the data source.
-4. Click **Save** to apply your change.
+4. Disable **Active** located to the right of the source's **Name** to deactivate the data source.
+5. Click **Save** to apply your change.
 
 To deactivate multiple data sources:
 
@@ -4545,11 +4598,12 @@ You can monitor source runs to track execution timestamps and status updates, in
 
 To view a data source's runs:
 
-1. Go to **Configure**> **Sources**.
-2. Choose one of the following methods: The <Source**> Runs**page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose one of the following methods: The <Source**> Runs**page appears.
   - Hover over the source, and click the **See Runs**icon.
   - Select the data source from the list, and click **Runs**on the toolbar.
-3. View the run for the data source.
+4. View the run for the data source.
 
 To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 
@@ -4557,11 +4611,12 @@ You can view and edit the mapped connections of a data source.
 
 To view mapping for a data source:
 
-1. Go to **Configure**> **Sources**.
-2. Choose one of the following methods: The **Map <**Source**>**page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose one of the following methods: The **Map <**Source**>**page appears.
   - Hover over the source, and click the **Map Data** icon.
   - Select the data source from the list, and click **Map Data**on the toolbar.
-3. View the mapping for the data source.
+4. View the mapping for the data source.
 
 To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources) and [Managing Source Mapping](https://help.zscaler.com/unified/managing-source-mapping).
 
@@ -4569,11 +4624,12 @@ You can process a source manually to bypass its regular scheduled processing and
 
 To process a data source manually:
 
-1. Go to **Configure** > **Sources**.
-2. Choose one of the following methods:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose one of the following methods:
   - Hover over the source, and click the **Process Now**icon.
   - Select the data source from the list, and click **Process Now**on the toolbar.
-3. In the window that appears, click **Process Now**. See image.
+4. In the window that appears, click **Process Now**. See image.
 
 Processing AnySource sources manually opens a file upload window. To learn more, see [Connecting AnySource](https://help.zscaler.com/uvm/connecting-anysource).
 
@@ -4583,32 +4639,34 @@ You can rerun the latest data retrieval from a source to re-execute the previous
 
 To rerun the data source's last run manually:
 
-1. Go to **Configure**> **Sources**.
-2. Choose one of the following methods:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Choose one of the following methods:
   - Hover over the source, and click the **Rerun Last Execution**icon.
   - Select the data source from the list, and click **Rerun Last Execution**on the toolbar.
-3. In the window that appears, click **Rerun**.
+4. In the window that appears, click **Rerun**.
 
 You can view the source's audit logs to track changes that were made to it.
 
 To view the source's audit logs:
 
-1. Go to **Configure**> **Sources**.
-2. Click the source that you want to view. The source setup page appears.
-3. Click the **More**icon, and select **Audit Logs**. A list of audit logs appears. See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Click the source that you want to view. The source setup page appears.
+4. Click the **More**icon, and select **Audit Logs**. A list of audit logs appears. See image.
 
 [Image: the more icon with the audit logs visible on the rapid7 vulnerabilities connector setup page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-entity-unification","lastmod":"2026-10-19T13:54Z","nid":"1545236"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-entity-unification","lastmod":"2026-10-27T12:15Z","nid":"1545236"} -->
 ## Managing Entity Unification
 
 - Source: https://help.zscaler.com/unified/managing-entity-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Managing Entity Unification
-- Last modified: 2026-10-19T13:54Z
+- Last modified: 2026-10-27T12:15Z
 - Summary: How to manage existing entity unification rules, including duplicating, editing, and deleting rules.
 
 After [creating entity unification rules](https://help.zscaler.com/unified/configuring-entity-unification), you can manage the rules in the rule sets to refine how records are merged.
@@ -4696,13 +4754,13 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-field-unification","lastmod":"2026-10-19T13:52Z","nid":"1545203"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-field-unification","lastmod":"2026-10-28T07:39Z","nid":"1545203"} -->
 ## Managing Field Unification
 
 - Source: https://help.zscaler.com/unified/managing-field-unification
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Managing Field Unification
-- Last modified: 2026-10-19T13:52Z
+- Last modified: 2026-10-28T07:39Z
 - Summary: How to manage existing field unification rulesets and rules.
 
 After [configuring field unification](https://help.zscaler.com/unified/configuring-field-unification), you can manage unification rule sets and the rules they contain.
@@ -4726,7 +4784,7 @@ By default, newly configured unification rules apply to your data on the followi
 
 To manually process unification rules:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Choose one of the following options: See image. [Image: Process all rule sets or just one rule set]
   - **Process All**: Click to process all entities.
@@ -4736,7 +4794,7 @@ Manually processing an entity without processing its related entities can cause 
 
 To view entity management runs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Click the **See Logs** icon. See image. The **Entity Management Runs** page appears.
 4. On the **Entity Management Runs** page, [view details of entity management runs](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields#view-entity-management-runs).
@@ -4747,7 +4805,7 @@ You can copy all rules of a rule set and paste them into a new rule set.
 
 To copy and paste a rule set:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Hover over the rule set you want to copy, and click the**Edit** icon.
 4. Click the **Column Menu** icon, and select **Copy All Rules**.
@@ -4762,7 +4820,7 @@ You can edit an existing rule set to modify the rules it contains.
 
 To edit a rule set:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Hover over the rule set you want to edit, and click the**Edit** icon. The**Rule Set**page appears. If prompted, click **Unlink & Override**.
 4. Make the necessary changes.
@@ -4774,7 +4832,7 @@ You can delete a rule set that is outdated or no longer relevant due to changes 
 
 To delete a rule set:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Hover over the rule set you want to delete, and click the**Delete** icon. The **Confirm Deletion** window appears. See image. [Image: Delete a ruleset]
 4. Click **Delete**. The field's logic reverts to its default logic.
@@ -4791,7 +4849,7 @@ Cloning a field unification rule is useful when you need to create multiple rule
 
 To clone a rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Click the rule set that you want to clone rules from.
 4. Hover over the rule in the rule set that you want to clone, and click the **Clone**icon. See image. [Image: Duplicate a rule] A copy of the rule is created with the same name as the original and `[clone]` appended to the end.
@@ -4800,7 +4858,7 @@ If you need to modify an existing rule, you can edit it to make the necessary ad
 
 To edit a rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Click the rule set that you want to modify.
 4. Hover over the rule you want to edit, and click the**Edit** icon. See image. [Image: Edit a rule]
@@ -4815,7 +4873,7 @@ Deleting a rule doesn't trigger a warning message and deletes the rule immediate
 
 To delete a rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, go to**Data Unification**> **Fields**.
 3. Click the rule set that you want to modify.
 4. Hover over the rule you want to delete, and click the**Delete** icon. See image. [Image: Delete a rule]
@@ -4826,13 +4884,13 @@ To delete a rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-outegrations","lastmod":"2026-10-19T13:31Z","nid":"1545250"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-outegrations","lastmod":"2026-10-27T12:11Z","nid":"1545250"} -->
 ## Managing Outegrations
 
 - Source: https://help.zscaler.com/unified/managing-outegrations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Managing Outegrations
-- Last modified: 2026-10-19T13:31Z
+- Last modified: 2026-10-27T12:11Z
 - Summary: How to manage configured outegrations, including editing the outegration mapping and settings, deleting, cloning, and deactivating outegrations, and viewing the outegration activity log.
 
 After [creating an outegration](https://help.zscaler.com/unified/creating-outegrations) in the Agentic Security Operations Platform (Agentic SecOps Platform), you can manage and monitor it from the Outegrations page. This page provides a centralized view of all configured outegrations in your account.
@@ -4932,13 +4990,13 @@ To view an outegration's activity log:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-playbooks","lastmod":"2026-10-14T14:21Z","nid":"1545365"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-playbooks","lastmod":"2026-10-30T01:49Z","nid":"1545365"} -->
 ## Managing Playbooks
 
 - Source: https://help.zscaler.com/unified/managing-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Managing Playbooks
-- Last modified: 2026-10-14T14:21Z
+- Last modified: 2026-10-30T01:49Z
 - Summary: How to manage playbooks in the Agentic Security Operations Platform.
 
 After [creating playbooks](https://help.zscaler.com/unified/creating-playbooks), you can manage playbooks to refine how actions are taken.
@@ -4949,7 +5007,7 @@ Edit a Playbook
 
 To edit a playbook:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to edit, and click the **Edit** icon. See image. [Image: Edit playbooks icon] The **Edit Playbook** page appears.
 4. Make the necessary changes.
@@ -4961,7 +5019,7 @@ Deleting a playbook doesn't trigger a warning message and deletes the playbook i
 
 To delete a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to delete, and click the **Delete** icon. See image. [Image: Delete playbooks icon]
 
@@ -4969,7 +5027,7 @@ View Playbook Runs
 
 To view playbook runs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to view runs for, and click the **See Runs** icon. See image. [Image: See Runs playbooks icon] The playbook's **Runs** page appears.
 4. View details of the playbook runs. You can sort each column. For each run, you can see: See image.
@@ -5007,7 +5065,7 @@ You can export playbooks to share them between your accounts.
 
 To export a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Export a playbook in one of the following ways: [Image: Export Playbook menu option on Edit Playbook page]
   - On the **Playbooks** page, hover over the playbook you want to export, and click the **Export** icon. See image. [Image: Export playbooks icon]
@@ -5026,7 +5084,7 @@ Duplicate a Playbook
 
 To duplicate a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to duplicate, and click the **Duplicate** icon. See image. A copy of the rule is created with the same name as the original and `Copy` appended to the end. [Image: Duplicate playbook icon]
 
@@ -5034,7 +5092,7 @@ View Playbook Audit Logs
 
 To view playbook audit logs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Click the playbook that you want to view logs for. The**Edit Playbook**page appears.
 4. On the**Edit Playbook**page, click **More** > **Audit Logs**. See image. [Image: Audit Logs menu option on Edit Playbook page] The playbook's **Audit Logs** page appears.
@@ -5360,22 +5418,22 @@ The Reporting API uses token-based authentication with client credentials. To au
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-source-mapping","lastmod":"2026-10-19T13:15Z","nid":"1545244"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-source-mapping","lastmod":"2026-10-28T07:06Z","nid":"1545244"} -->
 ## Managing Source Mapping
 
 - Source: https://help.zscaler.com/unified/managing-source-mapping
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Managing Source Mapping
-- Last modified: 2026-10-19T13:15Z
+- Last modified: 2026-10-28T07:06Z
 - Summary: How to manage a data source's mapping in the Agentic Security Operations Platform.
 
 Data source mapping defines how data from your external vendors is translated in the Agentic Security Operations Platform (Agentic SecOps Platform). You can manage data source mapping to ensure that your ingested data remains accurate and aligned with the Agentic SecOps Platform data model as your security environment or vendor schemas evolve. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources) and [Using Mapping Copilot](https://help.zscaler.com/unified/using-mapping-copilot).
 
 To help you track the state of your source mappings, a status label is displayed next to the source name on its mapping page:
 
-- Default Mapping: The source is using a preconfigured mapping provided by Zscaler based on industry best practices.
-- Custom Mapping: Appears automatically when you modify any part of a default mapping. This includes adding connections, editing logic, or pasting connections from another source.
-- System Managed Mapping: The source is using a read-only mapping maintained by Zscaler. These mappings cannot be modified or edited.
+- **Default Mapping**: The source is using a preconfigured mapping provided by Zscaler based on industry best practices.
+- **Custom Mapping**: Appears automatically when you modify any part of a default mapping. This includes adding connections, editing logic, or pasting connections from another source.
+- **System Managed Mapping**: The source is using a read-only mapping maintained by Zscaler. These mappings cannot be modified or edited.
 
 See image.
 
@@ -5404,36 +5462,39 @@ You can track changes made to a source's mapping configuration to monitor update
 
 To view mapping audit logs:
 
-1. Go to **Configure**> **Sources**.
-2. Open the mapping page using one of the following methods: The **Map <**Source**>** page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Open the mapping page using one of the following methods: The **Map <**Source**>** page appears.
   - Hover over a source, and click the **Map Data** icon.
   - Select the checkbox of a data source from the list, and click**Map Data** on the toolbar.
-3. Click the **More**icon, and select **Audit Logs**. This overwrites any custom logic you created for that source. See image. The **Audit Logs <**Source**> connector**page appears.
-4. Review the mapping change history.
+4. Click the **More**icon, and select **Audit Logs**. This overwrites any custom logic you created for that source. See image. The **Audit Logs <**Source**> connector**page appears.
+5. Review the mapping change history.
 
 You can copy an entire source mapping to use in another source. This copies the full mapping configuration (including all connections and any custom logic) and can be useful when you're onboarding similar sources.
 
 To copy and paste a source mapping:
 
-1. Go to **Configure**> **Sources**.
-2. Open the mapping page for the source you want to copy: The **Map <**Source**>** page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Open the mapping page for the source you want to copy: The **Map <**Source**>** page appears.
   - Hover over a source, and click the **Map Data** icon.
   - Select the checkbox for a data source from the list, and click**Map Data** on the toolbar.
-3. In the **Mapped Connections**section, click the **More**icon, and select **Copy All Connections**. See image.
-4. Click **Cancel** to return to the **Sources** page, and open the mapping page for the source you want to update.
-5. In the **Mapped Connections**section, click the **More**icon, and select **Paste Connections**. This replaces the current mapping of the source.
-6. Review the updated mapping, and click **Save**to apply your changes.
+4. In the **Mapped Connections**section, click the **More**icon, and select **Copy All Connections**. See image.
+5. Click **Cancel** to return to the **Sources** page, and open the mapping page for the source you want to update.
+6. In the **Mapped Connections**section, click the **More**icon, and select **Paste Connections**. This replaces the current mapping of the source.
+7. Review the updated mapping, and click **Save**to apply your changes.
 
 You can clear all existing field mappings for a source. This can be useful when you want to manually redefine the entire mapping configuration without reverting to a default setup.
 
 To unmap all fields:
 
-1. Go to **Configure**> **Sources**.
-2. Open the mapping page for the source: The **Map <**Source**>**page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Open the mapping page for the source: The **Map <**Source**>**page appears.
   - Hover over a source and click the **Map Data**icon.
   - Select a checkbox for a data source from the list, and click **Map Data**on the toolbar.
-3. In the **Mapped Connections**section, click the **More**icon, and select **Unmap All Fields**. This removes all currently mapped connections from the mapping section. See image.
-4. Click **Save**to apply your changes.
+4. In the **Mapped Connections**section, click the **More**icon, and select **Unmap All Fields**. This removes all currently mapped connections from the mapping section. See image.
+5. Click **Save**to apply your changes.
 
 [Image: Data Source Mapping More icon]
 
@@ -5446,13 +5507,13 @@ To unmap all fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-10-14T11:46Z","nid":"1545207"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-10-28T21:06Z","nid":"1545207"} -->
 ## Managing System & Custom Roles
 
 - Source: https://help.zscaler.com/unified/managing-system-and-custom-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Managing System & Custom Roles
-- Last modified: 2026-10-14T11:46Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to manage role permissions in the Agentic Security Operations Platform (Agentic SecOps Platform), including system roles and custom roles.
 
 You can manage and monitor roles from the Roles page in the Agentic Security Operations Platform (Agentic SecOps Platform), where you'll find a centralized view of all configured system roles and custom roles in your account. To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles). To assign roles to users, see [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
@@ -5529,13 +5590,13 @@ To delete a specific role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-table-columns","lastmod":"2026-10-13T12:33Z","nid":"1545252"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-table-columns","lastmod":"2026-10-27T21:06Z","nid":"1545252"} -->
 ## Managing Table Columns
 
 - Source: https://help.zscaler.com/unified/managing-table-columns
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Managing Table Columns
-- Last modified: 2026-10-13T12:33Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to adjust the displayed columns in tables across the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 You can customize the displayed columns and their sorting settings in tables throughout the Agentic Security Operations Platform (Agentic SecOps Platform). This article explains how to add and remove the displayed columns, which include measurements (quantitative fields) and dimensions (categorical fields).
@@ -5593,13 +5654,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-user-roles","lastmod":"2026-10-14T11:47Z","nid":"1545214"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-user-roles","lastmod":"2026-10-28T21:06Z","nid":"1545214"} -->
 ## Managing User Roles
 
 - Source: https://help.zscaler.com/unified/managing-user-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Managing User Roles
-- Last modified: 2026-10-14T11:47Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to assign and manage user roles in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 User roles control access to features and actions within the Agentic Security Operations Platform (Agentic SecOps Platform). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign roles to define their access and permissions within the system.
@@ -5691,13 +5752,13 @@ When removing a user's role without assigning them a new role, the user is autom
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-widgets","lastmod":"2026-10-14T06:54Z","nid":"1545225"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-widgets","lastmod":"2026-10-28T21:06Z","nid":"1545225"} -->
 ## Managing Widgets
 
 - Source: https://help.zscaler.com/unified/managing-widgets
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > Managing Widgets
-- Last modified: 2026-10-14T06:54Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to manage existing widgets, including editing, duplicating, and deleting widgets.
 
 A [custom dashboard](https://help.zscaler.com/unified/configuring-custom-dashboards) in the Agentic Security Operations Platform (Agentic SecOps Platform) includes dynamic widgets that can be configured to display relevant [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions).
@@ -5730,6 +5791,42 @@ To manage a widget:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/unified/managing-your-account-settings","lastmod":"2026-10-27T10:58Z","nid":"1546678"} -->
+## Managing Your Account Settings
+
+- Source: https://help.zscaler.com/unified/managing-your-account-settings
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Managing Your Account Settings
+- Last modified: 2026-10-27T10:58Z
+- Summary: How to manage your account settings in the Agentic Security Operations Platform.
+
+For each account in the Agentic Security Operations Platform (Agentic SecOps Platform), you can change your display image, authentication method, and audit logs export schedule, and manage AI capabilities.
+
+To view or change your account settings:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**iconin the top navigation bar, and click **Account Settings**. The account settings page appears.
+2. On the account settings page, view or enter information in the following sections: See image.
+  - In the **General Settings** section:
+    - **Name**: Displays the name of the tenant account that you logged in to.
+    - **Account Type**: Displays the account type.
+    - **Account Logo**: Upload a logo for the account. The supported file formats are JPG, GIF, and PNG.
+    - **Email Domain**: Enter your organization's email domain.
+    - **Allow Admins to view private dashboards and reports**: Select the checkbox to allow all admins in the account to view private [dashboards](https://help.zscaler.com/unified/about-dashboards).
+    - **Allow viewers to change dashboard level filters by default**: Select the checkbox to allow all viewers to modify dashboard filters on the [Edit Dashboards](https://help.zscaler.com/unified/managing-custom-dashboards) page. If selected, viewers can apply filters to analyze dashboard data, but they cannot save the filters.
+  - In the **Authenticate**section:
+    - **Email Domain**: Displays the domain you entered in the **General Settings**section.
+    - **Authentication Type**: Select the authentication method to authenticate users accessing this tenant.
+      - **SAML**: Users can authenticate through a SAML-based identity provider (IdP). To learn more, see [Generating SAML Details](https://help.zscaler.com/unified/generating-saml-details).
+      - **Username & Password**: Users can authenticate with their username and password.
+  - In the **Audit Logs Exports** section, you can schedule the automatic export of audit logs for an entity. To learn more, see [Viewing Audit Logs](https://help.zscaler.com/unified/viewing-audit-logs).
+  - In the **AI Capabilities** section, select **Enable AI Capabilities** to allow AI capabilities in the Agentic SecOps Platform. To learn more, see [Managing AI Capabilities in the Agentic Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform).
+3. Click **Save**.
+
+[Image: Accounts page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/unified/managing-zscaler-use-russia","lastmod":"2026-04-01T16:36Z","nid":"1545182"} -->
 ## Managing Zscaler Use in Russia
 
@@ -5754,13 +5851,13 @@ If you have any questions about the End User Statement, send an email to exportc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/manually-triggering-playbook","lastmod":"2026-10-19T12:06Z","nid":"1545364"} -->
+<!-- ZS-ARTICLE {"url":"/unified/manually-triggering-playbook","lastmod":"2026-10-30T02:24Z","nid":"1545364"} -->
 ## Manually Triggering a Playbook
 
 - Source: https://help.zscaler.com/unified/manually-triggering-playbook
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Manually Triggering a Playbook
-- Last modified: 2026-10-19T12:06Z
+- Last modified: 2026-10-30T02:24Z
 - Summary: How to manually trigger a playbook in the Agentic Security Operations Platform.
 
 You can manually trigger a playbook to run a series of actions outside of automated runs. In Agentic SOC, you can manually trigger playbooks on an incident or alert.
@@ -5769,7 +5866,7 @@ You can manually trigger a playbook to run a series of actions outside of automa
 
 To trigger a playbook on an incident:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**.
 2. In the left-side navigation, click **Incidents**. The **Incidents** page appears.
 3. Click the incident you want to trigger a playbook on. [Image: Incident Detail page] The **Incident Detail** page opens.
 4. On the **Incident Detail** page, click **Select** **Playbook** at the top of the page or in the **AI Response Actions** section. See image. The **Response Action** drawer opens.
@@ -5779,11 +5876,13 @@ To trigger a playbook on an incident:
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
 
+<h2> AI Response Actions </h2> <p> <span style="background-color:#F79962;">The AI Response Action agent will suggest specific actions to take to remediate incidents, and it will suggest playbooks that likely achieve your</span> </p> <ol> <li data-list-item-id="ef66128d2d397f96cd89d202ccd3b87af"> In the left-side navigation, go to <strong>Incidents</strong>.<br> The <strong>Incidents</strong> page appears. </li> <li data-list-item-id="e807a718ea9d8b8a4f1765c0707cab630"> Select the incident you want to review the AI response actions for. </li> <li data-list-item-id="e017f2fbdc25663e54e51a143a67183d1"> <p> On the suggested action in the <strong>AI Response Actions</strong> section, click <strong>Select playbook</strong>.<br> <a class="image-icon" href="#triggering-playbooks-select-playbook-from-recommendations">See image.</a><br> The <strong>Response Action</strong> window appears. </p> <div class="subc"> <a class="ck-anchor" id="triggering-playbooks-select-playbook-from-recommendations"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/triggering-playbooks-select-playbook-from-recommendations.png" data-entity-uuid="0" data-entity-type="image" alt="Select Playbook button on suggested AI Response Action" title="Select Playbook button on suggested AI Response Action"> </div> </li> <li data-list-item-id="ec59fe61b0eb82837aac7fe61476f0371"> <p> In the <strong>Playbooks</strong> tab of the <strong>Response Actions</strong> window, search for and select the playbook you want to execute, then click <strong>Continue</strong>.<br> <a class="image-icon" href="#response-action-select-playbook">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-action-select-playbook"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-action-select-playbook.png" data-entity-uuid="0" data-entity-type="image" alt="Playbook selected in Response Actions pop-up" title="Selected Playbook"> </div> </li> <li data-list-item-id="ee362b2392a20c1aa632d3463d8d29d8a"> <p> In the <strong>Actions</strong> tab, select one or multiple targets suggested by the AI, then click <strong>Trigger Playbook</strong>.<br> <a class="image-icon" href="#response-actions-actions-tab">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-actions-actions-tab"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-actions-actions-tab.png" data-entity-uuid="0" data-entity-type="image" alt="Target selected on Response Action pop-up" title="Selected target"> </div> </li> </ol>
+
 ## Triggering Playbooks on an Alert
 
 To trigger a playbook on an alert:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**.
 2. In the left-side navigation, click **Alerts**. The **Alerts** page appears.
 3. Click the alert you want to trigger a playbook on. The alert details drawer opens. See image. [Image: Trigger playbook drop-down menu]
 4. In the alert details drawer, click **Select Playbook**. See image. [Image: Alert details drawer] The **Response Action** drawer opens.
@@ -5793,7 +5892,41 @@ To trigger a playbook on an alert:
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
 
-<h2> AI Response Actions </h2> <p> <span style="background-color:#F79962;">The AI Response Action agent will suggest specific actions to take to remediate incidents, and it will suggest playbooks that likely achieve your</span> </p> <ol> <li data-list-item-id="ef66128d2d397f96cd89d202ccd3b87af"> In the left-side navigation, go to <strong>Incidents</strong>.<br> The <strong>Incidents</strong> page appears. </li> <li data-list-item-id="e807a718ea9d8b8a4f1765c0707cab630"> Select the incident you want to review the AI response actions for. </li> <li data-list-item-id="e017f2fbdc25663e54e51a143a67183d1"> <p> On the suggested action in the <strong>AI Response Actions</strong> section, click <strong>Select playbook</strong>.<br> <a class="image-icon" href="#triggering-playbooks-select-playbook-from-recommendations">See image.</a><br> The <strong>Response Action</strong> window appears. </p> <div class="subc"> <a class="ck-anchor" id="triggering-playbooks-select-playbook-from-recommendations"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/triggering-playbooks-select-playbook-from-recommendations.png" data-entity-uuid="0" data-entity-type="image" alt="Select Playbook button on suggested AI Response Action" title="Select Playbook button on suggested AI Response Action"> </div> </li> <li data-list-item-id="ec59fe61b0eb82837aac7fe61476f0371"> <p> In the <strong>Playbooks</strong> tab of the <strong>Response Actions</strong> window, search for and select the playbook you want to execute, then click <strong>Continue</strong>.<br> <a class="image-icon" href="#response-action-select-playbook">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-action-select-playbook"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-action-select-playbook.png" data-entity-uuid="0" data-entity-type="image" alt="Playbook selected in Response Actions pop-up" title="Selected Playbook"> </div> </li> <li data-list-item-id="ee362b2392a20c1aa632d3463d8d29d8a"> <p> In the <strong>Actions</strong> tab, select one or multiple targets suggested by the AI, then click <strong>Trigger Playbook</strong>.<br> <a class="image-icon" href="#response-actions-actions-tab">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-actions-actions-tab"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-actions-actions-tab.png" data-entity-uuid="0" data-entity-type="image" alt="Target selected on Response Action pop-up" title="Selected target"> </div> </li> </ol>
+## Triggering Playbooks on a User
+
+To trigger a playbook on a user:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Identities**.
+2. In the left-side navigation, click **Users**. The **Users** page appears.
+3. Click the user you want to trigger a playbook on. The user details drawer appears. See image. [Image: Alert details drawer]
+4. In the user details drawer, click **Select Playbook**. The **Response Action** drawer opens.
+5. In the **Response Action** drawer:
+  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the user entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  3. Click **Trigger Playbook**.
+6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
+
+## Triggering Playbooks on an Identity Finding
+
+To trigger a playbook on an identity finding:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Identities**.
+2. In the left-side navigation, click **Identity Findings**. The **Identity Findings** page appears.
+3. Click the identity finding you want to trigger a playbook on. The identity finding details drawer appears. See image. [Image: Identity Finding details drawer]
+4. In the identity finding details drawer, click **Select Playbook**. The **Response Action** drawer opens.
+5. In the **Response Action** drawer:
+  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the identity finding entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  3. Click **Trigger Playbook**.
+6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
+
+[Image: Response action drawer showing Select Playbook option]
+
+[Image: Response Action drawer showing actions and target entity selection]
+
+[Image: Response action drawer showing Select Playbook option]
+
+[Image: Response Action drawer showing actions and target entity selection]
 
 [Image: Response action drawer showing Select Playbook option]
 
@@ -5806,16 +5939,16 @@ To trigger a playbook on an alert:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-10-19T13:07Z","nid":"1545242"} -->
+<!-- ZS-ARTICLE {"url":"/unified/mapping-data-sources","lastmod":"2026-10-29T07:26Z","nid":"1545242"} -->
 ## Mapping Data Sources
 
 - Source: https://help.zscaler.com/unified/mapping-data-sources
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Mapping Data Sources
-- Last modified: 2026-10-19T13:07Z
+- Last modified: 2026-10-29T07:26Z
 - Summary: How to map a data source's third-party vendor fields to the Agentic Security Operations Platform.
 
-After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Agentic Security Operations Platform (Agentic SecOps Platform), and ingesting data at least once, you must map the ingested fields to the Agentic SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [Agentic SecOps Platform applications](https://help.zscaler.com/unified/what-security-operations-platform) (e.g., UVM, AEM).
+After [creating a data source](https://help.zscaler.com/unified/creating-data-sources) in the Agentic Security Operations Platform (Agentic SecOps Platform), and ingesting data at least once, you must map the ingested fields to the Agentic SecOps Platform data model fields. Mapping is configured per source. After all sources are configured and mapped, the platform can deduplicate and merge records across multiple sources through [data unification](https://help.zscaler.com/unified/what-data-unification), to be used and consumed by the different [Agentic SecOps Platform applications](https://help.zscaler.com/unified/what-agentic-security-operations-platform) (e.g., UVM, AEM).
 
 If you are mapping a data source for the first time, Zscaler recommends consulting with your Zscaler Account team.
 
@@ -5847,7 +5980,7 @@ There are three main workspace sections on the mapping page:
 
 See image.
 
-The main objective of mapping is to populate the Agentic SecOps Platform data model with complete, consistent, and identifiable values. Each mapping involves dragging a Agentic SecOps Platform field from the Entities column to the Create New Connection section, and then configuring the corresponding field value to its left with a data source field from the Ingested Data column or with a custom value (i.e., composite, value, or script).
+The main objective of mapping is to populate the Agentic SecOps Platform data model with complete, consistent, and identifiable values. Each mapping involves dragging an Agentic SecOps Platform field from the Entities column to the Create New Connection section, and then configuring the corresponding field value to its left with a data source field from the Ingested Data column or with a custom value (i.e., composite, value, or script).
 
 The fields under the Entities column are organized by entity (e.g., Asset, Component, Finding). The Agentic SecOps Platform uses a unified, entity-based data model to normalize and harmonize data from Zscaler and third-party sources into a single source of truth. When you map fields into the correct entity and populate its key attributes, the platform can deduplicate, correlate, enrich, and operationalize the data across sources for managing your security environment, reporting, and ticketing.
 
@@ -5869,7 +6002,7 @@ Building an effective mapping configuration requires a deep understanding of you
 
 To create a new mapping:
 
-1. Drag a Agentic SecOps Platform field from the **Entities** column to the **Create New Connection**section in the center. See image. You can copy and paste mapping connections from an existing mapped source or unmap all connections. To learn more, see [Managing Source Mapping](https://help.zscaler.com/unified/managing-source-mapping#copy-paste-mappings).
+1. Drag an Agentic SecOps Platform field from the **Entities** column to the **Create New Connection**section in the center. See image. You can copy and paste mapping connections from an existing mapped source or unmap all connections. To learn more, see [Managing Source Mapping](https://help.zscaler.com/unified/managing-source-mapping#copy-paste-mappings).
 2. For mapping use cases that require additional entities or fields beyond the existing Agentic SecOps Platform system defaults, you can extend the data model from this page: See image. While you can extend the data model with custom entities and fields, these additions typically require advanced downstream configuration (e.g., defining entity relationships and aliases) to deliver significant value. Apply customizations cautiously to ensure consistent normalization and reliable data correlation.
   - Click **Add Entity** to create a custom entity.
   - Click the **Add field to <**entity**>** icon on an existing entity to add a custom field to that entity.
@@ -5884,9 +6017,9 @@ To create a new mapping:
 5. (Optional) Explode a field containing an array to treat each array element as an individual record in the mapped output. This transforms a single ingested record that contains an array into multiple mapped records, with one record per array element (e.g., a list of hostnames, CVEs, or tags). You can explode a field containing an array in one of the following ways: The Agentic SecOps Platform supports the following use cases for exploding arrays: Only one field can be exploded per mapping. When you explode an array field, you must map the exploded value to a key field for that entity to ensure each resulting record is unique. This is typically achieved using a Composite mapping to combine the exploded value with a parent identifier (e.g., `asset_id` + `cve_id`). If the exploded value is not part of the key, every record generated from the array shares the same ID, causing each record to overwrite the previous one until only the final value remains.
   - Click the **Explode Field**icon that appears when hovering over the data source field. See image.
   - Select the **Explode Values**checkbox in the script editor when configuring the field. Use this option when your script generates a custom array that needs to be exploded into individual records. For example, if a source field provides a single comma-separated string containing valid service IDs mixed with invalid text (e.g., "`SNSVC1234, pending, BSN5678, n/a`"), you can use a Python script to split the string, filter out the invalid values, and output an array (e.g., ["`SNSVC1234`", "`BSN5678`"]). Selecting this checkbox can then explode that single array into distinct output records. See image.
-  - Standard array: Explode a field containing an array of strings to create a single record per string. For example, you can explode the array field vulnerabilities with the value `["CVE-2024-1234", "CVE-2024-5678"]` into two records, one for `CVE-2024-1234` and one for `CVE-2024-5678`.
-  - Array within a JSON object: Expand a field to reveal its nested fields, then explode a nested array field to create a single record per array element. For example, for the field `{"asset": {region: "east", "hostnames": ["web-srv-01", "prod-lb-02"]}}`, click the arrow to expand and reveal the nested fields `region` and `hostnames`. You can then explode the array field `hostnames` to create two individual records, one for `web-srv-01` and one for `prod-lb-02`.
-  - Array of objects: Explode a field containing an array of objects to create a single record per object. You can then either map the entire object or expand it to reveal and map the unique nested keys found across the array elements to specific Agentic SecOps Platform fields. For example, you can explode an array of tag objects `[{"tag_id": "t1", "name": "production"}, {"tag_id": "t2", "name": "staging"}]` into individual records for each tag. You can then expand the exploded field to map a specific nested key, such as `name`, to your target field.
+  - **Standard array**: Explode a field containing an array of strings to create a single record per string. For example, you can explode the array field vulnerabilities with the value `["CVE-2024-1234", "CVE-2024-5678"]` into two records, one for `CVE-2024-1234` and one for `CVE-2024-5678`.
+  - **Array within a JSON object**: Expand a field to reveal its nested fields, then explode a nested array field to create a single record per array element. For example, for the field `{"asset": {region: "east", "hostnames": ["web-srv-01", "prod-lb-02"]}}`, click the arrow to expand and reveal the nested fields `region` and `hostnames`. You can then explode the array field `hostnames` to create two individual records, one for `web-srv-01` and one for `prod-lb-02`.
+  - **Array of objects**: Explode a field containing an array of objects to create a single record per object. You can then either map the entire object or expand it to reveal and map the unique nested keys found across the array elements to specific Agentic SecOps Platform fields. For example, you can explode an array of tag objects `[{"tag_id": "t1", "name": "production"}, {"tag_id": "t2", "name": "staging"}]` into individual records for each tag. You can then expand the exploded field to map a specific nested key, such as `name`, to your target field.
 6. Click **Map**to add the mapping. Repeat the mapping process for all the fields you want to use in the platform. Only mapped fields are available for unification and consumption.
 7. Click the **Full Preview**icon to verify the mapped output. Make changes as necessary until it looks correct. See image.
 8. Click **Save**to save the configured data source mapping.
@@ -5923,10 +6056,10 @@ Source fields referenced within a script do not display visual connection lines 
 
 Common use cases for using scripts include:
 
-- Data Formatting: Clean up raw source data (e.g., lowercasing hostnames or stripping `.local` domain suffixes) or reformat delimiters in hardware identifiers (e.g., converting MAC addresses from `00-0C-29-4F-8B-3C` to `00:0C:29:4F:8B:3C`).
-- Conditional Filtering: Map values only if they meet specific criteria (e.g., using the `ipaddress` module to map only public IP addresses while ignoring internal ones).
-- Field Priority (Fallback Logic): Create a hierarchy for missing data (e.g., if `display_name` is null, check for hostname; if both are missing, return `asset_id`).
-- Custom String Logic: While the platform automatically handles common transformations (e.g., normalizing OS versions), you can use scripts for unique logic, such as using Regex to extract a specific ID from an unstructured description field or matching custom naming patterns.
+- **Data Formatting**: Clean up raw source data (e.g., lowercasing hostnames or stripping `.local` domain suffixes) or reformat delimiters in hardware identifiers (e.g., converting MAC addresses from `00-0C-29-4F-8B-3C` to `00:0C:29:4F:8B:3C`).
+- **Conditional Filtering**: Map values only if they meet specific criteria (e.g., using the `ipaddress` module to map only public IP addresses while ignoring internal ones).
+- **Field Priority (Fallback Logic)**: Create a hierarchy for missing data (e.g., if `display_name` is null, check for hostname; if both are missing, return `asset_id`).
+- **Custom String Logic**: While the platform automatically handles common transformations (e.g., normalizing OS versions), you can use scripts for unique logic, such as using Regex to extract a specific ID from an unstructured description field or matching custom naming patterns.
 
 ### Validating and Testing Your Logic
 
@@ -5998,7 +6131,7 @@ The following table details possible edge cases that the platform handles:
 | Invalid Numeric (number is too short for a valid date) | 12345 | None |
 | Pre-Epoch (dates before 1970-01-01) | Jan 1, 1960 | None |
 
-Use the Value method when you want to populate a Agentic SecOps Platform field with a fixed (constant) value that you provide. Every record ingested from that source receives the same value for that field.
+Use the Value method when you want to populate an Agentic SecOps Platform field with a fixed (constant) value that you provide. Every record ingested from that source receives the same value for that field.
 
 This is useful when the field should be constant for the entire source. For example:
 
@@ -6009,7 +6142,7 @@ For example, a Snyk source that retrieves repositories typically won't provide a
 
 Avoid using a fixed value for fields that should vary per record (especially identifiers, keys, and timestamps).
 
-Use the Field method to create a direct, one-to-one mapping between a source field and a Agentic SecOps Platform target field. This passes the source value through exactly as it is received, without transformations, formatting changes, or conditional logic. This is useful when types and formats of the source and the Agentic SecOps Platform field already match (e.g., mapping `serial_number` directly to the Agentic SecOps Platform Serial Number field).
+Use the Field method to create a direct, one-to-one mapping between a source field and an Agentic SecOps Platform target field. This passes the source value through exactly as it is received, without transformations, formatting changes, or conditional logic. This is useful when types and formats of the source and the Agentic SecOps Platform field already match (e.g., mapping `serial_number` directly to the Agentic SecOps Platform Serial Number field).
 
 ### Mapping Nested Fields
 
@@ -7425,27 +7558,6 @@ To search for pages and see recently accessed pages in the Zscaler Admin Console
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/security-operations-platform-public-ip-addresses","lastmod":"2026-10-13T12:27Z","nid":"1545257"} -->
-## Agentic Security Operations Platform Public IP Addresses
-
-- Source: https://help.zscaler.com/unified/security-operations-platform-public-ip-addresses
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Agentic Security Operations Platform Public IP Addresses
-- Last modified: 2026-10-13T12:27Z
-- Summary: A list of public IP addresses used by the Agentic Security Operations Platform and its applications for allowlisting when configuring integrations with the platform.
-
-To ensure seamless connectivity and uninterrupted access to essential resources, you can allowlist the public IP addresses used by outgoing traffic from the Agentic Security Operations Platform (Agentic SecOps Platform) and its applications (e.g., UVM, AEM, etc.). These IP addresses serve as the source for all egress traffic originating from the Zscaler tenant.
-
-Add the following IP addresses associated with your instance's region to your firewall's allowlist to ensure uninterrupted access to the required resources.
-
-| **Region** | **IP Addresses** |
-| --- | --- |
-| **US** | 3.137.47.190/32 3.15.110.62/32 3.129.232.141/32 |
-| **EU** | The recommended IP addresses listed in [Zscaler Hub IP Addresses](https://config.zscaler.com/zscalertwo.net/hubs) |
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/unified/setting-up-secure-access","lastmod":"2026-10-12T06:51Z","nid":"1543367"} -->
 ## Setting Up Secure Access
 
@@ -7800,13 +7912,13 @@ You cannot configure or edit any parameters when the Zscaler Admin Console is in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/source-file-parser-types","lastmod":"2026-10-19T13:16Z","nid":"1545245"} -->
+<!-- ZS-ARTICLE {"url":"/unified/source-file-parser-types","lastmod":"2026-10-27T12:06Z","nid":"1545245"} -->
 ## Source File Parser Types
 
 - Source: https://help.zscaler.com/unified/source-file-parser-types
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Source File Parser Types
-- Last modified: 2026-10-19T13:16Z
+- Last modified: 2026-10-27T12:06Z
 - Summary: Information about file parser types used for parsing data source files when ingesting data into the Agentic Security Operations Platform.
 
 A parser type controls how the Agentic Security Operations Platform (Agentic SecOps Platform) reads your source file and converts it into records that are available for field mapping. Selecting a parser type is most relevant when you ingest data using [AnySource](https://help.zscaler.com/uvm/connecting-anysource), but it can also be used when [mapping a system data source](https://help.zscaler.com/unified/mapping-data-sources) connector to determine how the source is parsed.
@@ -7875,13 +7987,13 @@ newline
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-10-13T12:26Z","nid":"1545263"} -->
+<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-10-27T21:06Z","nid":"1545263"} -->
 ## Supported Browsers for the Agentic Security Operations Platform Admin Portal
 
 - Source: https://help.zscaler.com/unified/supported-browsers-security-operations-platform-admin-portal
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Supported Browsers for the Agentic Security Operations Platform Admin Portal
-- Last modified: 2026-10-13T12:26Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: Information on which browsers are compatible with the Agentic SecOps Platform Admin Portal (Agentic SecOps Platform).
 
 Zscaler actively tests browser compatibility with the Agentic SecOps Platform Admin Portal.
@@ -7937,13 +8049,13 @@ Other browsers should be compatible, but are not actively tested.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/tracking-data-source-runs","lastmod":"2026-10-19T13:20Z","nid":"1545247"} -->
+<!-- ZS-ARTICLE {"url":"/unified/tracking-data-source-runs","lastmod":"2026-10-28T07:21Z","nid":"1545247"} -->
 ## Tracking Data Source Runs
 
 - Source: https://help.zscaler.com/unified/tracking-data-source-runs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Tracking Data Source Runs
-- Last modified: 2026-10-19T13:20Z
+- Last modified: 2026-10-28T07:21Z
 - Summary: How to track data source runs and view run details to assist in troubleshooting errors.
 
 When connecting a data source to ingest data into the Agentic Security Operations Platform (Agentic SecOps Platform), you can schedule automatic full runs and incremental runs, as well as process data manually. To monitor the source's run status, track execution, and troubleshoot errors, you can view the data source run history on the [See Runs page](https://help.zscaler.com/unified/managing-data-sources#runs).
@@ -7960,7 +8072,7 @@ To view a data source's runs:
 
 The **Runs**page appears.
 
-## Viewing Run Details
+### Viewing Run Details
 
 Each entry in the source's run history corresponds to a single run and includes its details.
 
@@ -7991,7 +8103,7 @@ The **Runs**page includes the following information:
 - **Duration**: The total amount of time the run took from start to finish.
 - **Start Time**and **End Time**: The timestamps when the run started and ended. This information can reveal potential issues with data ingestion and assist during troubleshooting.
 
-## Validating Completed Runs
+### Validating Completed Runs
 
 When a run is successful, the Status column displays Completed. To further validate the run, expand the row to view the run's activity details.
 
@@ -8016,7 +8128,7 @@ Additional details that can indicate the health of the run include:
 
 [Image: CrowdStrike Assets Completed Run]
 
-## Troubleshooting Failed Runs
+### Troubleshooting Failed Runs
 
 When a run fails, the Status column displays Failed. To investigate the issue, expand the row to view the error details and activity history for the run. From the error details section, you can click the Copy icon to copy the error information for troubleshooting or to share with Zscaler Support.
 
@@ -8035,12 +8147,12 @@ The expanded run also includes an Activities section that shows which processing
 
 Common errors you might encounter when troubleshooting failed runs include:
 
-- Authentication errors: The run failed because the configured authentication credentials are invalid, missing, or expired.
-- Permission errors: The run failed because the authenticated account or user does not have the required access to retrieve or process the data.
-- Configuration errors: The run failed because of an invalid source, mapping, or processing configuration.
-- Connectivity errors: The run failed because the Agentic SecOps Platform could not connect to the external source or service.
-- Vendor service errors: The run failed because the external source or service was unavailable or rate limited, or returned an unexpected response.
-- Processing errors: The run failed during a later stage, such as mapping, merge, or data manipulation.
+- **Authentication errors**: The run failed because the configured authentication credentials are invalid, missing, or expired.
+- **Permission errors**: The run failed because the authenticated account or user does not have the required access to retrieve or process the data.
+- **Configuration errors**: The run failed because of an invalid source, mapping, or processing configuration.
+- **Connectivity errors**: The run failed because the Agentic SecOps Platform could not connect to the external source or service.
+- **Vendor service errors**: The run failed because the external source or service was unavailable or rate limited, or returned an unexpected response.
+- **Processing errors**: The run failed during a later stage, such as mapping, merge, or data manipulation.
 
 Review the error details and resolution steps shown for the failed run to identify the cause and the recommended next steps. If the error persists, contact Zscaler Support for assistance.
 
@@ -8087,13 +8199,13 @@ For any assistance or queries, contact your Zscaler Account team.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-analytics","lastmod":"2026-10-14T06:46Z","nid":"1546669"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-analytics","lastmod":"2026-10-27T11:54Z","nid":"1546669"} -->
 ## Understanding Analytics
 
 - Source: https://help.zscaler.com/unified/understanding-analytics
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Understanding Analytics
-- Last modified: 2026-10-14T06:46Z
+- Last modified: 2026-10-27T11:54Z
 - Summary: Information about the Analytics options available in the Zscaler Admin Console.
 
 Analytics within the Zscaler Admin Console provides a comprehensive set of dashboards and reports that allow you to monitor end-user digital experience, cyber risk, deployment health, etc. Teams across your organization (e.g., security, IT, procurement, etc.) can use the various dashboards and reports to manage security posture, deliver fast digital experiences, and maximize cost savings.
@@ -8107,7 +8219,7 @@ The following table lists the various dashboards and reports available in the Zs
 | [Business Insights](https://help.zscaler.com/business-insights/what-zscaler-business-insights) | Provides 360-degree visibility into your organization's SaaS application usage and spending insights, along with workplace metrics to help you save money and manage your workplace efficiently. Dashboards and reports: [Application Insights](https://help.zscaler.com/business-insights/about-application-insights): Provides a holistic overview of the applications that are currently being used across your organization.; [All Applications](https://help.zscaler.com/business-insights/about-all-applications): Shows the list of apps whose usage is discovered within your organization.; [Application Settings](https://help.zscaler.com/business-insights/onboarding-saas-apps-business-insights): Lets you configure an application connector or customer application signature for which you want to view insights.; [Workplace Insights](https://help.zscaler.com/business-insights/analyzing-workplace-insights): Provides metrics related to workplaces and their workforces across the globe for an organization.; [Offices and Locations](https://help.zscaler.com/business-insights/viewing-offices-and-locations-chart): Provides data for Internet & SaaS (ZIA) locations and inferred IP addresses.; [Workplace Settings](https://help.zscaler.com/business-insights/configuring-organization-level-occupancy-attendance-goals): Provides information about the offices that you configured for your organization.; [Data Explorer](https://help.zscaler.com/business-insights/configuring-data-explorer-views): Provides attendance and operations metrics about the offices that you configured for your organization. |
 | [Cybersecurity](https://help.zscaler.com/unified/viewing-cybersecurity-dashboard) | Provides information about malicious activity that affects your organization. On the [Cybersecurity dashboard](https://help.zscaler.com/unified/viewing-cybersecurity-dashboard), you can filter by time range and use the following widgets to track malicious activity across your organization: Your Cybersecurity Transactions from Last ___ Days; Advanced Threat Categories; Top Threat Locations; Sandbox Threats; Your SSL/TLS Inspection Review |
 | [Data Security](https://help.zscaler.com/unified/viewing-data-security-dashboard) | Provides information about incidents, users, channels, and data at rest in your organization that might indicate areas at risk of data loss or leakage. Dashboards and reports: [Inline CASB](https://help.zscaler.com/unified/viewing-inline-data-security-dashboard): Provides detailed information about data loss incidents from web applications in your organization.; [Inline DLP](https://help.zscaler.com/unified/viewing-inline-data-security-dashboard): Provides detailed information about data loss incidents from inline (web) sources in your organization.; [SaaS Security](https://help.zscaler.com/unified/viewing-saas-data-security-dashboard): Provides detailed information about data loss incidents from SaaS applications in your organization.; [Endpoint](https://help.zscaler.com/unified/viewing-endpoint-data-security-dashboard): Provides detailed information about data loss incidents from endpoints (e.g., printers, network shares, removable storage) in your organization.; [Email](https://help.zscaler.com/unified/viewing-email-data-security-dashboard): Provides detailed information about data loss incidents from email that affect your organization.; [Incidents](https://help.zscaler.com/unified/about-incident-analytics-dashboard): Provides high-level visibility and insight into your organization's Data Loss Prevention (DLP) incidents. |
-| [Digital Experience](https://help.zscaler.com/unified/viewing-digital-experience-dashboard) | Provides a multi-tenant, cloud-based monitoring platform to probe, benchmark, and measure the digital experiences for every single user within your organization. Dashboards and reports: [Users Overview](https://help.zscaler.com/zdx/monitoring-users-overview): Provides an overview of the user, device, and application activity in your organization.; [Incidents](https://help.zscaler.com/zdx/monitoring-incidents-dashboard): Provides an overview of incidents affecting your organization.; [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview): Provides an overview of application performance in your organization.; [Devices Overview](https://help.zscaler.com/zdx/monitoring-devices-overview): Provides a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices.; [Network Intelligence](https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard): Provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. |
+| [Digital Experience](https://help.zscaler.com/zdx/viewing-digital-experience-dashboard) | Provides a multi-tenant, cloud-based monitoring platform to probe, benchmark, and measure the digital experiences for every single user within your organization. Dashboards and reports: [Incidents](https://help.zscaler.com/zdx/monitoring-incidents-dashboard): Provides an overview of incidents affecting your organization.; [Network Intelligence](https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard): Provides end-to-end multi-path network visibility from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications.; [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview): Provides an overview of application performance in your organization.; [Devices Overview](https://help.zscaler.com/zdx/monitoring-devices-overview): Provides a comprehensive device health scoreboard that monitors the performance of devices. |
 | Infrastructure | Provides a series of dashboards and reports for Zscaler Client Connector, Cloud & Branch Connector, and Zero Trust Branch. Dashboards and reports: **Client Connector**: A lightweight, tamper-resistant software agent installed on end-user devices that automatically forwards all user and device traffic through the ZTE for security inspection, policy enforcement, and secure access to both internet and internal resources, regardless of user location.  The following Zscaler Client Connector dashboards and reports are available:[Platform Details](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard#platform-details): Provides OS platform details such as device model and device state.; [Device Overview](https://help.zscaler.com/unified/viewing-devices-dashboard): Provides an overview of the devices in use in your organization.; [Device Posture](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard#device-posture-failure): Provides an overview of criteria evaluated on devices in your organization.; [Device Events](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard#device-events): Provides an overview of Private Access (ZPA) and Internet & SaaS (ZIA) service status for your organization.; [Connector Activity](https://help.zscaler.com/unified/viewing-connector-activity-dashboard): Provides an overview of Cloud Connector and Branch Connector activity in your organization.; [Zero Trust Branch](https://help.zscaler.com/zero-trust-branch/viewing-managing-security-insights): Provides customizable widgets that display important information about the assets, VLANs, gateways, and devices in your organization to give you a real-time overview of your organization's security operations. |
 | [Custom Dashboards](https://help.zscaler.com/unified/about-custom-dashboards) | In addition to a robust set of preconfigured dashboards that allow you to monitor your organization's security profile at a glance using a variety of graphs and charts, you can also create customized dashboards so you can focus on the metrics most important to you. Custom dashboards allow you to view real-time data, and collaborate and share those dashboards with others in your organization in similar or related job functions. |
 | Reports | Provides a series of dashboards and reports that highlight security data for key entities across your organization. Dashboards and reports: [Industry Peer Comparison](https://help.zscaler.com/zia/viewing-industry-peer-comparison-report): Compares your organization's performance and effectiveness for the preceding month to that of both peer organizations and all companies using the cloud service.; [System Audit Report](https://help.zscaler.com/zia/about-system-audit-report): Highlights the status of GRE tunnels, PAC files, authentication frequency, PAC file sizes, Microsoft 365 One Click, and IP visibility.; [Security Policy Audit Report](https://help.zscaler.com/zia/security-policy-audit-report): Allows you to view your Security Policy settings and improve them by following best practices guidelines.; [Sandbox Activity Report](https://help.zscaler.com/zia/about-sandbox-activity-report): Highlights the Sandbox policy action taken for known and unknown files in your organization.; [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report): Provides a breakdown of applications by their status — sanctioned, unsanctioned, unclassified, or under review and their number of users. It also shows the application categories, the risk index, and the certifications for each application.; [Configuration Risk Report](https://help.zscaler.com/zia/about-configuration-risk-report): Provides an evaluation of your organization's policy configuration, traffic patterns, and feature capabilities against Zscaler's best practices.; [IOT Discovery Report](https://help.zscaler.com/zia/about-iot-report): Provides a device inventory and insights discovered from unauthenticated web traffic in your organization.; [Risk360 Reports](https://help.zscaler.com/unified/downloading-risk-reports): Provides links to download various risk-related reports from the Reports page.; [ZPA QBR Reports](https://help.zscaler.com/zpa/viewing-quarterly-business-review-reports): Provide extensive insight into emerging traffic trends based on private application usage and the types of threats Zscaler blocks to protect your network.; [ZDX QBR Reports](https://help.zscaler.com/zdx/viewing-quarterly-business-review-reports): Provides extensive insight into how Zscaler is helping protect your network, quarter to quarter.; [Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports): Provides a wide range of standard reports, based on your organization's subscriptions, and provides the ability to create up to 500 custom reports, as well. |
@@ -8115,28 +8227,28 @@ The following table lists the various dashboards and reports available in the Zs
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-automations","lastmod":"2026-10-14T14:20Z","nid":"1545372"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-automations","lastmod":"2026-10-30T00:16Z","nid":"1545372"} -->
 ## Understanding Automations
 
 - Source: https://help.zscaler.com/unified/understanding-automations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Understanding Automations
-- Last modified: 2026-10-14T14:20Z
+- Last modified: 2026-10-30T00:16Z
 - Summary: Information about how automations use actions, playbooks, and automation rules to automate security response workflows.
 
-Automation is a Security Orchestration, Automation, and Response (SOAR) capability that enables you to automate response actions and workflows for security incidents. Instead of manually investigating and responding to each security incident, you can define repeatable workflows that trigger a response action, ensuring faster and consistent responses. Automation uses [playbooks](https://help.zscaler.com/unified/about-playbooks) and [automation rules](https://help.zscaler.com/unified/about-automation-rules) to create these workflows for supported entity types such as [alerts](https://help.zscaler.com/agentic-soc/about-alerts) or [incidents](https://help.zscaler.com/agentic-soc/about-incidents). For example, you can create an automation rule to respond to an incident when its severity is critical. When this condition is met, the automation rule triggers a playbook that performs the configured response action (e.g., blocking an IP address).
+Automation is a Security Orchestration, Automation, and Response (SOAR) capability that enables you to automate and orchestrate security investigation and response workflows. Instead of manually investigating and responding to each security incident, you can define repeatable workflows that trigger an action, ensuring faster and consistent responses. Automation uses [playbooks](https://help.zscaler.com/unified/about-playbooks) and [automation rules](https://help.zscaler.com/unified/about-automation-rules) to create these workflows for supported entity types such as [alerts](https://help.zscaler.com/agentic-soc/about-alerts), [incidents](https://help.zscaler.com/agentic-soc/about-incidents), [users](https://help.zscaler.com/authentication-service/about-users), or [identity findings](https://help.zscaler.com/identity-protection/about-identity-findings). For example, you can create an automation rule to respond to an incident when its severity is critical. When this condition is met, the automation rule triggers a playbook that performs the configured response actions (e.g., blocking an IP address).
 
 Automation uses the following components:
 
-- **Playbooks**: A collection of response actions that run together as a single workflow. A playbook can perform multiple actions, such as sending a message via a communication platform, resetting a password, and isolating a host.
+- **Playbooks**: A collection of actions that run together as a single workflow. A playbook can perform multiple actions, such as sending a message via a communication platform, resetting a password, isolating a host, or suspending a user.
 - **Automation Rules**: Rules trigger one or more playbooks when configured conditions are met.
 
-Automation uses predefined rules, triggers, and actions to facilitate an automated response without manual intervention. A typical automation workflow includes the following steps:
+Automation uses predefined rules, triggers, and actions to facilitate an automated response with or without manual intervention. A typical automation workflow includes the following steps:
 
-1. **Security Event**: A security event or incident occurs, and an alert is triggered.
-2. **Evaluation**: The automation rule evaluates the event against the configured conditions and filters.
+1. **Security Alert**: A security event or incident occurs, and an alert is triggered.
+2. **Evaluation**: The automation rule evaluates the alerts or incidents against the configured conditions and filters.
 3. **Run Playbook**: If the configured conditions are met, the automation rule triggers the associated playbook.
-4. **Actions**: The playbook performs the configured actions and responds to the event.
+4. **Actions**: The playbook performs the configured actions and responds to the alert.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8320,13 +8432,13 @@ The following table summarizes dimension and measurement specifications per widg
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-data-model-agentic-security-operations-platform","lastmod":"2026-10-19T13:33Z","nid":"1545209"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-data-model-agentic-security-operations-platform","lastmod":"2026-10-27T12:11Z","nid":"1545209"} -->
 ## Understanding the Data Model in the Agentic Security Operations Platform
 
 - Source: https://help.zscaler.com/unified/understanding-data-model-agentic-security-operations-platform
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Understanding the Data Model in the Agentic Security Operations Platform
-- Last modified: 2026-10-19T13:33Z
+- Last modified: 2026-10-27T12:11Z
 - Summary: Information on using the data model in the Agentic Security Operations Platform, including details on supported operations and configurations.
 
 The data model is an entity-based relational database within the Agentic Security Operations Platform (Agentic SecOps Platform). It provides the canonical schema for entities and fields across your data sources, and it defines names, types, relationships, defaults, fallback logic, and how conflicting values from multiple sources are resolved. To learn more, see [About Data Model Management](https://help.zscaler.com/unified/about-data-model-management).
@@ -8380,13 +8492,13 @@ Review the following best practices before configuring the data model:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-entity-types","lastmod":"2026-10-19T13:36Z","nid":"1545193"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-entity-types","lastmod":"2026-10-27T12:13Z","nid":"1545193"} -->
 ## Understanding Entity Types
 
 - Source: https://help.zscaler.com/unified/understanding-entity-types
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Understanding Entity Types
-- Last modified: 2026-10-19T13:36Z
+- Last modified: 2026-10-27T12:13Z
 - Summary: Information about the entity types in the Agentic Security Operations Platform.
 
 An entity is a distinct object or resource with defined attributes used to organize information. In security operations, entities like vulnerabilities, assets, alerts, and findings structure the data essential for identifying risks and managing exposures. These entities create relationships that drive effective prioritization and streamlined remediation, empowering teams to efficiently organizational risk. While there are many entities in the Agentic Security Operations Platform, the following sections describe the core entities for Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), Agentic SOC, and Identity Protection.
@@ -8460,16 +8572,16 @@ An [identity finding](https://help.zscaler.com/identity-protection/about-identit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-field-unification-data-model-and-application-settings","lastmod":"2026-10-21T21:06Z","nid":"1545195"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-field-unification-data-model-and-application-settings","lastmod":"2026-10-28T07:33Z","nid":"1545195"} -->
 ## Understanding Field Unification, Data Model, and Application Settings
 
 - Source: https://help.zscaler.com/unified/understanding-field-unification-data-model-and-application-settings
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Understanding Field Unification, Data Model, and Application Settings
-- Last modified: 2026-10-21T21:06Z
+- Last modified: 2026-10-28T07:33Z
 - Summary: Understanding the interaction between field unification and other functionalities that affect field values.
 
-Field unification is the process of resolving conflicts and transforming data attributes in records merged during entity unification. Field unification is a two-step process. First, attribute reconciliation addresses conflicts in merged entity attribute values, resolving them via system defaults or source-prioritized logic. Second, attribute transformation applies business rules to classify and enrich data. To learn more, see [Understanding the Data Model in the Agentic Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-security-operations-platform) and [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
+Field unification is the process of resolving conflicts and transforming data attributes in records merged during entity unification. Field unification is a two-step process. First, attribute reconciliation addresses conflicts in merged entity attribute values, resolving them via system defaults or source-prioritized logic. Second, attribute transformation applies business rules to classify and enrich data. To learn more, see [Understanding the Data Model in the Agentic Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-agentic-security-operations-platform) and [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification)
 
 In addition to field unification, the data model and grouping rules affect field values. Grouping rules update the corresponding field unification rules, and field unification rules update the corresponding rules in the data model unidirectionally.
 
@@ -8846,13 +8958,13 @@ To learn more, see [Configuring Custom Dashboards](https://help.zscaler.com/unif
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-original-source-and-merged-entity-values","lastmod":"2026-10-19T13:38Z","nid":"1545194"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-original-source-and-merged-entity-values","lastmod":"2026-10-27T12:13Z","nid":"1545194"} -->
 ## Understanding Original Source and Merged Entity Values
 
 - Source: https://help.zscaler.com/unified/understanding-original-source-and-merged-entity-values
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Understanding Original Source and Merged Entity Values
-- Last modified: 2026-10-19T13:38Z
+- Last modified: 2026-10-27T12:13Z
 - Summary: Information on the original source value compared to the merged entity value when configuring rules in the Agentic Security Operations Platform.
 
 Some rule setups in the Agentic Security Operations Platform (Agentic SecOps Platform) support referencing both the original attribute values from your data sources and the unified values created through [unification](https://help.zscaler.com/unified/what-data-unification). For example, when [creating asset compliance policies](https://help.zscaler.com/aem/configuring-asset-compliance-policies) in Asset Exposure Management (AEM) to maintain an accurate asset inventory, you can check whether critical asset field values are accurate in your Configuration Management Database (CMDB) (e.g., in the ServiceNow CMDB original source).
@@ -8873,13 +8985,13 @@ The following diagram demonstrates how raw data from multiple sources (original 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-system-roles","lastmod":"2026-10-14T11:26Z","nid":"1545205"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-system-roles","lastmod":"2026-10-28T21:06Z","nid":"1545205"} -->
 ## Understanding System Roles
 
 - Source: https://help.zscaler.com/unified/understanding-system-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Understanding System Roles
-- Last modified: 2026-10-14T11:26Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: Information about the different system roles in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 System roles are predefined, built-in roles that grant users specific permissions through established access levels. These roles simplify user management by providing a consistent way to assign the necessary privileges for users to perform their tasks while maintaining the security and operational integrity of the Agentic Security Operations Platform (Agentic SecOps Platform).
@@ -8929,13 +9041,13 @@ The following table details the different system roles for Agentic SOC and the a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-data-source","lastmod":"2026-10-19T13:20Z","nid":"1545248"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-threatlabz-data-source","lastmod":"2026-10-27T12:11Z","nid":"1545248"} -->
 ## Understanding the ThreatLabz Data Source
 
 - Source: https://help.zscaler.com/unified/understanding-threatlabz-data-source
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Understanding the ThreatLabz Data Source
-- Last modified: 2026-10-19T13:20Z
+- Last modified: 2026-10-27T12:11Z
 - Summary: Information on the ThreatLabz data source in the Agentic Security Operations Platform.
 
 ThreatLabz is a research organization within Zscaler that focuses on identifying and analyzing emerging threats, vulnerabilities, and attack techniques. As part of their effort, the ThreatLabz team maintains a database of CVEs with information onhow they're mitigated by different Zscaler services. The ThreatLabz data source retrieves this data, which is then correlated with your deduplicated asset records and Zscaler service coverage. This information is used to calculate contextualized risk scores based on the level of protection provided by your Zscaler services.
@@ -9244,13 +9356,13 @@ Access to the current standalone portals (i.e., Admin Portals) will continue to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-dashboard-templates","lastmod":"2026-10-14T06:51Z","nid":"1545223"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-dashboard-templates","lastmod":"2026-10-28T21:06Z","nid":"1545223"} -->
 ## Using Dashboard Templates
 
 - Source: https://help.zscaler.com/unified/using-dashboard-templates
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > Using Dashboard Templates
-- Last modified: 2026-10-14T06:51Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to create a dashboard using a template in the Agentic Security Operations Platform.
 
 You can [create custom dashboards](https://help.zscaler.com/unified/configuring-custom-dashboards) by using preconfigured dashboard templates from the Template Gallery page. These templates include preconfigured widgets designed to address common use cases that you can customize as necessary. You can also clone an existing template to create a new dashboard.
@@ -9296,13 +9408,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-entity-explorer","lastmod":"2026-10-15T00:00Z","nid":"1545216"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-entity-explorer","lastmod":"2026-10-29T21:06Z","nid":"1545216"} -->
 ## Using the Entity Explorer
 
 - Source: https://help.zscaler.com/unified/using-entity-explorer
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Data Exploration > Using the Entity Explorer
-- Last modified: 2026-10-15T00:00Z
+- Last modified: 2026-10-29T21:06Z
 - Summary: How to use Entity Explorer to view and investigate data in the Agentic Security Operations Platform.
 
 Entity Explorer in the Agentic Security Operations Platform (Agentic SecOps Platform) allows you to display all relevant data by entity, where you can explore and inspect it. Unlike an entity-specific view (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets), [Findings](https://help.zscaler.com/uvm/about-findings), [Assets](https://help.zscaler.com/uvm/about-assets-uvm)) which displays active components, Entity Explorer displays all relevant information, both active and inactive.
@@ -9333,13 +9445,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-filters","lastmod":"2026-10-13T12:31Z","nid":"1545251"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-filters","lastmod":"2026-10-27T21:06Z","nid":"1545251"} -->
 ## Using Filters
 
 - Source: https://help.zscaler.com/unified/using-filters
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Using Filters
-- Last modified: 2026-10-13T12:31Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to use filters to adjust the displayed data by the relevant scope.
 
 You can use filters to adjust and refine the data displayed across the Agentic Security Operations Platform (Agentic SecOps Platform), from dashboards and reports to entity pages (e.g., [Tickets](https://help.zscaler.com/uvm/about-tickets), [Assets](https://help.zscaler.com/aem/about-assets-aem)). By applying filters, you can focus on specific information relevant to your current task, such as reviewing vulnerabilities on a particular asset, addressing critical policy violations, or identifying high-priority tickets discovered in the last week. This helps security teams efficiently prioritize their workload and focus on the most critical risks in their environment.
@@ -9469,13 +9581,13 @@ Examples:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-10-19T13:13Z","nid":"1545243"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-mapping-copilot","lastmod":"2026-10-28T07:18Z","nid":"1545243"} -->
 ## Using Mapping Copilot
 
 - Source: https://help.zscaler.com/unified/using-mapping-copilot
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Using Mapping Copilot
-- Last modified: 2026-10-19T13:13Z
+- Last modified: 2026-10-28T07:18Z
 - Summary: How to use Mapping Copilot in the Agentic Security Operations Platform to assist in mapping data sources to the data model.
 
 Mapping Copilot is an AI-powered assistant within the Agentic Security Operations Platform (Agentic SecOps Platform). It supports admins by accelerating the data mapping process for data source integrations. This is especially useful when the source schema is unfamiliar, which is common with organization-specific proprietary sources (i.e., [AnySource](https://help.zscaler.com/uvm/connecting-anysource)) and integrations that do not include default mappings. By analyzing file statistics and system guidelines, Mapping Copilot provides intelligent, context-aware recommendations for mapping third-party source data to the SecOps data model, transforming complex data investigations into simple, guided conversations.
@@ -9484,9 +9596,9 @@ Using natural language prompts, you can instruct Mapping Copilot to automate sch
 
 Mapping Copilot analyzes the source data to identify and suggest mapping logic for the Agentic SecOps Platform's core data model entities:
 
-- Assets: Identifies cloud resources, host machines, and device metadata to recommend mappings. It automatically distinguishes between primary identifiers (e.g., UUIDs and MAC addresses) and descriptive attributes, supporting accurate asset inventory and deduplication.
-- Findings: Suggests mappings for security vulnerabilities, misconfigurations, and compliance gaps, and aligns third-party finding data (e.g., severity, status, and descriptions) with the Agentic SecOps Platform's schema for use in Unified Vulnerability Management (UVM).
-- Other standard entities: Simplifies the mapping of Components, Org Entities, and Global Vulnerabilities. Early-stage support is available for Alerts, IoC, and MITRE. These suggestions should be reviewed with extra scrutiny. Mapping to custom entities is not currently supported.
+- **Assets**: Identifies cloud resources, host machines, and device metadata to recommend mappings. It automatically distinguishes between primary identifiers (e.g., UUIDs and MAC addresses) and descriptive attributes, supporting accurate asset inventory and deduplication.
+- **Findings**: Suggests mappings for security vulnerabilities, misconfigurations, and compliance gaps, and aligns third-party finding data (e.g., severity, status, and descriptions) with the Agentic SecOps Platform's schema for use in Unified Vulnerability Management (UVM).
+- **Other standard entities**: Simplifies the mapping of Components, Org Entities, and Global Vulnerabilities. Early-stage support is available for Alerts, IoC, and MITRE. These suggestions should be reviewed with extra scrutiny. Mapping to custom entities is not currently supported.
 
 ## Prerequisites
 
@@ -9495,7 +9607,7 @@ Before using Mapping Copilot, ensure the following:
 - You have set up a data source and completed at least one successful run within the last 90 days. Mapping Copilot requires the data from a successful run to analyze the data context. To learn more, see [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources) and [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
 - Your assigned role must include the Read and Edit permissions under the Platform - Data Source Mapping resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). See image.
 
-Account admins can remove access to Mapping Copilot by turning off AI capabilities in Account Settings. To learn more, see [Managing AI Capabilities in the Agentic Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform).
+Account admins can remove access to Mapping Copilot by turning off AI capabilities in Account Settings. To learn more, see [Managing AI Capabilities in the Agentic Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-agentic-secops-platform).
 
 ## Using Mapping Copilot to Map Sources
 
@@ -9510,10 +9622,10 @@ To use Mapping Copilot:
   - Select the checkbox of a data source from the list, and click **Map Data**on the toolbar.
 4. On the **Map <**Source**>** page, click the **Mapping Copilot**icon in the top-right corner. The **Mapping Copilot**chat appears. See image. The system performs an initial analysis of the source file to extract context, data types, and statistics. This can take a few minutes depending on the file size. You cannot send prompts until this analysis is finished.
 5. Enter a prompt describing your mapping guidance request, or select a default prompt. Build mappings in small, testable increments. For example, start with the Asset entity. When asset mappings are stable, you can expand to Findings, instead of trying to map everything the first time. Common use cases for mapping guidance include: Mapping Copilot does not currently support configuring explode for array fields. If your mapping requires exploding an array, configure it manually in the mapping editor. To learn more, see [Mapping Data Sources](https://help.zscaler.com/unified/mapping-data-sources).
-  - Data exploration: Identify which SecOps entities your source data represents (e.g., Assets, Findings), or inspect a field's format, type, and sample values. Try asking: "Which entity does this source map to?", "What do the `severity` and `created_at` fields look like?", "What is the most common value for <field>?", "How many distinct values does <field> have?", or "What is the null rate for <field>?"
-  - Targeted mapping: Generate suggested mappings for a specific entity, or align source values to SecOps values or scales. Try asking: "Map to Asset" or "Map to Asset using `device_id`, `hostname`, and `ip_address`" or "Normalize `severity` and `status` values to match the SecOps schema"
-  - Mapping justification: Understand the reasoning behind a specific suggestion, mapping, or generated script. Try asking: "Why did you map `device_id` as the primary identifier instead of `hostname`?" or "Explain the logic in the script used to map `asset_type`"
-  - Transformation logic and scripting: Create transformation logic for parsing or reformatting data. Try asking: "Generate a Python script to parse/transform <field>" or "Generate a Python script to convert `event_time` from epoch milliseconds to Zscaler's required date format"
+  - **Data exploration**: Identify which SecOps entities your source data represents (e.g., Assets, Findings), or inspect a field's format, type, and sample values. Try asking: "Which entity does this source map to?", "What do the `severity` and `created_at` fields look like?", "What is the most common value for <field>?", "How many distinct values does <field> have?", or "What is the null rate for <field>?"
+  - **Targeted mapping**: Generate suggested mappings for a specific entity, or align source values to SecOps values or scales. Try asking: "Map to Asset" or "Map to Asset using `device_id`, `hostname`, and `ip_address`" or "Normalize `severity` and `status` values to match the SecOps schema"
+  - **Mapping justification**: Understand the reasoning behind a specific suggestion, mapping, or generated script. Try asking: "Why did you map `device_id` as the primary identifier instead of `hostname`?" or "Explain the logic in the script used to map `asset_type`"
+  - **Transformation logic and scripting**: Create transformation logic for parsing or reformatting data. Try asking: "Generate a Python script to parse/transform <field>" or "Generate a Python script to convert `event_time` from epoch milliseconds to Zscaler's required date format"
 6. Review the suggestions provided by Mapping Copilot in the chat, and choose how to insert editable draft mappings into your workspace:
   - **Apply**: Overwrite your current mapping configuration with Mapping Copilot's suggestions.
   - **Append**: Add the new mappings to your workspace without altering existing configurations.
@@ -9532,7 +9644,7 @@ When you complete the mapping of all data sources for your account, configure da
 
 Mapping Copilot operates within Zscaler services, and data shared with it is not transmitted to external third parties. Some source data and mapping content might include sensitive information, so users should review content before submitting it. By using the assistant, users consent to sharing the information they enter for generating mapping guidance and remain responsible for the data they choose to provide. To learn more about Zscaler's privacy practices and AI data handling, see the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy).
 
-Use of AI-powered features in the Agentic SecOps Platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the Agentic Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-secops-platform).
+Use of AI-powered features in the Agentic SecOps Platform is optional. Availability is controlled via admin opt-in in your account. To learn more, see [Managing AI Capabilities in the Agentic Security Operations Platform](https://help.zscaler.com/unified/managing-ai-capabilities-agentic-secops-platform).
 
 [Image: Mapping Copilot icon on the Map Qualys Assets connector page]
 
@@ -9543,13 +9655,13 @@ Use of AI-powered features in the Agentic SecOps Platform is optional. Availabil
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/using-queries-library","lastmod":"2026-10-14T23:58Z","nid":"1545217"} -->
+<!-- ZS-ARTICLE {"url":"/unified/using-queries-library","lastmod":"2026-10-29T21:06Z","nid":"1545217"} -->
 ## Using the Queries Library
 
 - Source: https://help.zscaler.com/unified/using-queries-library
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Data Exploration > Using the Queries Library
-- Last modified: 2026-10-14T23:58Z
+- Last modified: 2026-10-29T21:06Z
 - Summary: How to use and manage queries in the Queries Library.
 
 The Queries Library allows you to save and later access multiple queries when viewing and analyzing your [logs](https://help.zscaler.com/unified/building-queries-and-searching-logs) in the Agentic Security Operations Platform (Agentic SecOps Platform).
@@ -9764,74 +9876,21 @@ To sort a column, click the arrow in the table column header.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-activity-dashboard","lastmod":"2026-09-07T05:01Z","nid":"1544526"} -->
-## Viewing the Activity Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-activity-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Digital Experience > Viewing the Activity Dashboard
-- Last modified: 2026-09-07T05:01Z
-- Summary: Information on the Activity dashboard and widgets accessible within the Admin Portal.
-
-The Activity dashboard provides an overview of the user, device, and application activity in your organization.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options. Click **Apply**to update the dashboard with your selections. To remove all filter selections, click **Reset**.
-  - **Departments**: Your departments. To learn more, see [About Departments](https://help.zscaler.com/unified/about-departments).
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/unified/about-locations).
-  - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic areas where your users are located.
-
-## Dashboard Widgets
-
-- Active Users/Active Devices
-- User Distribution by Activity Score
-- Top 5 Applications with Lowest Experience Score
-- Regions by Average Application Activity Score
-- Wi-Fi Performance
-
-This widget shows the number of users and devices currently active in your organization.
-
-See image.
-
-This widget shows the users in your organization classified by Digital Experience category: Poor, Okay, and Good. To learn more about the Digital Experience score (also called the ZDX Score), see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-See image.
-
-This line graph shows the five applications in your organization that have the lowest Digital Experience score over the selected time period. To learn more about the Digital Experience score (also called the ZDX Score), see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-See image.
-
-This widget shows a map indicating the Digital Experience in various regions around the world. Hover over a circle on the map to view the average latency at that location and the number of users in that region classified by Digital Experience category. To learn more about the Digital Experience score (also called the ZDX Score), see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-See image.
-
-This bar graph shows the devices in your organization that are using Wi-Fi, broken down by Wi-Fi connection speed.
-
-See image.
-
-[Image: Widget showing User Distribution by Experience Score on the Activity dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-advanced-threats-dashboard","lastmod":"2026-02-11T06:09Z","nid":"1544535"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-advanced-threats-dashboard","lastmod":"2026-10-26T09:13Z","nid":"1544535"} -->
 ## Viewing the Advanced Threats Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-advanced-threats-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Cybersecurity > Viewing the Advanced Threats Dashboard
-- Last modified: 2026-02-11T06:09Z
-- Summary: Information on the Advanced Threats dashboard and widgets accessible within the Admin Portal.
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Cybersecurity > Viewing the Advanced Threats Dashboard
+- Last modified: 2026-10-26T09:13Z
+- Summary: Information on the Advanced Threats dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Advanced Threats dashboard provides an overview of cybersecurity threats in your organization.
+The Advanced Threats dashboard (Cyberthreat Protection > Insights > Advanced Threats) provides an overview of cybersecurity threats in your organization.
 
 ## Filtering
 
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between **1 Day** and **90 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **14 Days**.
-- **Threat Category**: Select the categories of threat you want to include or exclude:
+- **Time Range**: Use this filter in the upper right to choose a specific time range between **1 Day** and **90 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **14 Days**.
+- **Advanced Threat Category**: Select the threat categories you want to include or exclude in the line graph: See image.
   - Threat Categories
 
 ## Dashboard Widgets
@@ -9843,12 +9902,12 @@ This line graph shows the number of incidents recorded for the selected time per
 
 See image.
 
-This table provides a detailed list of threat incidents for the specified time range and type.
+This table provides a detailed list of threat incidents for the specified time range and type:
 
 - **Name**: The name of the threat incident.
 - **Category**: The threat category (e.g. **Spyware**, **Phishing**, etc.)
 - **Impacted Systems**: The number of systems affected by the incident.
-- **Status**: The action taken on the threat, e.g. **Allowed**or **Blocked**.
+- **Status**: The action taken on the threat (e.g., **Allowed**or **Blocked**).
 - **Last Known Date**: The date and time of the last known attempt by the threat.
 - **First Known Date**: The date and time of the first known attempt by the threat.
 
@@ -9870,11 +9929,14 @@ Click any row in the table to see additional detail on that advanced threat inci
   - **File Size**: The file size involved in the incident.
   - **MD5**: The MD5 hash for the file that triggered the rule.
   - **SHA-2 (256-bit)**: The hash of identical files.
+  - **Total Bytes**: The total bytes of data for all the transactions related to the threat.
   - **Destination IP**: The destination IP.
   - **Hostname**: The hostname involved in the incident.
   - **Application Category**: The application category related to the incident, if applicable.
   - **Application**: The name of the application involved in the incident, if applicable.
   - **URL Category**: The [URL category](https://help.zscaler.com/zia/about-url-categories) of the incident.
+  - **SHA-2 (256-bit)**: The hash of identical files.
+  - **Total Bytes**: The total bytes of data for all the transactions related to the threat.
 
 See image.
 
@@ -9882,8 +9944,8 @@ See image.
   - **User Name**: The name of the user.
   - **Client IP**: The IP address from which the transaction originated. This is the IP address of the client device.
   - **Client External IP**: The internet gateway location IP address of the client.
-  - **Last Known Attempt**: The date and time of the last known attempt by the threat for the user.
   - **First Known Attempt**: The date and time of the first known attempt by the threat for the user.
+  - **Last Known Attempt**: The date and time of the last known attempt by the threat for the user.
 
 See image.
 
@@ -9911,116 +9973,27 @@ See image.
 - Webspam
 - Cross-site Scripting
 - Unknown (this represents all the incidents that the Zscaler service was unable to classify under a threat category or were not classifiable under any of the preceding categories)
+
+[Image: Incoming Real Times Threats line graph animated GIF]
+
+[Image: Incoming Real Times Threats line graph on the Advanced Threats dashboard]
+
+[Image: Advanced Threat Incidents table on the Advanced Threats dashboard]
+
+[Image: Details on an advanced threat incident on the Advanced Threats dashboard]
+
+[Image: Impacted Systems for an advanced threat incident on the Advanced Threats dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-applications-dashboard-0","lastmod":"2026-02-11T06:13Z","nid":"1544530"} -->
-## Viewing the Applications Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-applications-dashboard-0
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Digital Experience > Viewing the Applications Dashboard
-- Last modified: 2026-02-11T06:13Z
-- Summary: Information on the Applications dashboard and widgets accessible within the Admin Portal.
-
-The Applications dashboard provides an overview of application performance in your organization.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options. Click **Apply** to update the dashboard with your selections. To remove all filter selections, click **Reset**.
-  - **Applications**: Applications used in your organization.
-  - **Departments**: Your departments. To learn more, see [About Departments](https://help.zscaler.com/zia/about-departments).
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
-  - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic areas where your users are located.
-  - **Location Groups**: The names of groups based on location in your organization.
-  - **Last Mile ISPs**: The Internet Service Providers (ISPs) to which your users are connecting.
-  - **Operating System**: The operating system versions installed on user devices in your organization.
-
-## Dashboard Widgets
-
-- Application Experience Trend
-- Applications
-
-This widget shows the trend of the digital experience score for all applications in your organization. Initially, the score represents applications across your organization for the default time range of 2 hours. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly. The score represents all users in your organization, across all applications, all locations, and all cities. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly.
-
-The score falls into one of three categories:
-
-- **Good**: The score is above an acceptable threshold and ranges from 66-100. The color for this range is green.
-- **Okay**: The score is acceptable and ranges from 34-65. The color for this range is amber.
-- **Poor**: The score is below an acceptable threshold and ranges from 0-33. The color for this range is red.
-
-Click **View Activity** to view more detail about the users, devices, and applications that contribute to the score on the Activity dashboard.
-
-To learn more about the Digital Experience score, see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-See image.
-
-This table provides a detailed list of the applications being used in your organization for the selected filters.
-
-- **Application Name**: The name of the application.
-- **Type**: The type of application, either Internet or Private.
-- **Score**: The ZDX score of the application.
-- **Departments**: The number of departments where the application is used.
-- **Regions**: The number of regions where the application is used.
-- **Locations**: The number of locations where the application is used.
-
-Click any application row in the table to see additional detail about that application:
-
-- ZDX Score
-- Page Fetch Time
-- Regions by ZDX Score
-- Impacted Departments
-- Impacted Regions
-- Impacted Zscaler Locations
-- Probe Status
-
-See image.
-
-The **ZDX Score Trend** column shows the application's ZDX Score from 1–100, with 1 being the lowest and 100 being the highest. To learn more, see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-The **Page Fetch Time** graph tracks how long it takes the selected application to transfer the fetched page to the user during the selected time period. The time is tracked in milliseconds.
-
-A line runs across the graph that indicates the 95th percentile, as identified by **P95**. It indicates that 95 percent of the fetch time is below this amount.
-
-You can select a point on the graph to see the exact date and time, the application's fetch time at that point, and the 95th percentile fetch time for comparison. If there is a Web probe error at that time, it is also displayed in the tooltip. To learn more about Web probe errors, see [Web Probe Errors](https://help.zscaler.com/zdx/web-probe-errors).
-
-The **Regions by ZDX Score** map takes the geographic locations of all users accessing the selected application and organizes the data for the score down to the city level for major cities around the world. This information is displayed in a map. You can zoom in and out of the map to better view regions of interest.
-
-For each marked location on the map, you can see the name of the city, the ZDX Score, and the number of users while hovering the mouse over the marked spot. Click the **Details**icon ([Image: Details icon within tooltip]) to view user information in the Users Overview specific to the location.
-
-The **Impacted Departments** table shows the departments with the lowest ZDX Score for this application.
-
-The departments are listed by score with the lowest score on top. This allows you to compare how different departments are scoring in relation to each other with use of the application.
-
-The **Impacted Regions**widget shows the regions with the lowest ZDX Score for this application.
-
-The regions are listed in a chart by score with the lowest score at the top. This allows you to compare how different regions are scoring in relation to each other with use of the application.
-
-The **Impacted Locations** widget shows the Zscaler locations with the lowest ZDX Score for this application.
-
-The Zscaler locations are listed in a chart by score with the lowest score at the top. This allows you to compare how different Zscalerlocations are scoring in relation to each other with use of the application. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
-
-For each application, you can see the metrics that previously configured probes are tracking. Each probe has the parameters it uses to evaluate the application with the relevant data. Minimum, average, and maximum values are provided for all the users in a given timeframe. To learn more, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe).
-
-The Probe Status shows metrics for either a Web probes or a Cloud Path probe.
-
-[Image: Bar graph showing Application Experience Trend on the Applications dashboard]
-
-[Image: Table showing Applications on the Applications dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-audit-logs","lastmod":"2026-10-14T08:28Z","nid":"1545228"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-audit-logs","lastmod":"2026-10-28T21:06Z","nid":"1545228"} -->
 ## Viewing Audit Logs
 
 - Source: https://help.zscaler.com/unified/viewing-audit-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Viewing Audit Logs
-- Last modified: 2026-10-14T08:28Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to view and export audit logs in the Agentic Security Operations Platform.
 
 Audit logs track user-initiated actions within the Agentic Security Operations Platform (Agentic SecOps Platform). This enables you to monitor configuration changes, such as updates to reports, data source instances, and outegrations. You can download specific audit logs for immediate review, and schedule automated exports to an external destination such as an Amazon S3 bucket.
@@ -10141,7 +10114,7 @@ On the Best Practices page (Analytics > Health360 > Best Practices), you can:
 
 - Source: https://help.zscaler.com/unified/viewing-connector-activity-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Networking > Viewing the Connector Activity Dashboard
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Networking > Viewing the Connector Activity Dashboard
 - Last modified: 2026-02-11T06:04Z
 - Summary: Information on the Connector Activity dashboard and widgets accessible within the Admin Portal.
 
@@ -10226,7 +10199,7 @@ See image.
 
 - Source: https://help.zscaler.com/unified/viewing-connectors-tunnels-zscaler-client-connector-health
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Connectors, Tunnels, & Zscaler Client Connector Health
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Connectors, Tunnels, & Zscaler Client Connector Health
 - Last modified: 2026-08-29T21:06Z
 - Summary: Information about Connectors, Tunnels, & Zscaler Client Connector health.
 
@@ -10307,193 +10280,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-data-channels-dashboard","lastmod":"2026-02-11T06:23Z","nid":"1545125"} -->
-## Viewing the Data Channels Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-data-channels-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Data Channels Dashboard
-- Last modified: 2026-02-11T06:23Z
-- Summary: Information on the Data Channels dashboard and widgets accessible within the Admin Portal.
-
-The Data Channels dashboard provides detailed information about data protection-related incidents in your organization.
-
-The top of the page shows the total number of incidents for each data channel type:
-
-- **Inline**: Data loss incidents from inline (web) sources.
-- **SaaS Security**: Data loss incidents from SaaS applications.
-- **Endpoint**: Data loss incidents from endpoints (printers, network shares, etc.).
-- **Email**: Data loss incidents from email. See image.
-
-## Filtering
-
-You can filter the data by time range and, for inline and endpoint data only, by incident status:
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
-- **Status**: For Inline and Endpoint data channels only, you can filter data to show only incidents that were **Allowed**or **Blocked**.
-
-## Inline Dashboard Widgets
-
-Click the **Inline** box at the top of the page to view the following widgets related to inline data protection:
-
-- Top Sensitive Data Types
-- Sensitive GenAI Applications
-- Top High Risk Applications to Eliminate
-- Top High Risk Applications to Secure
-- Sensitive Files in Top 10 ML Categories
-
-## SaaS Security Dashboard Widgets
-
-Click the **SaaS Security** box at the top of the page to view the following widgets related to SaaS security data protection:
-
-- SaaS Incidents
-- Top Users with SaaS Incidents
-- SaaS Applications with Data Exposure
-
-## Endpoint Dashboard Widgets
-
-Click the **Endpoint** box at the top of the page to view the following widgets related to endpoint data protection:
-
-- Total Endpoint Incidents
-- Top Users with Endpoint Incidents
-- Top Endpoints with Sensitive Data Being Exfiltrated
-
-## Email Dashboard Widgets
-
-Click the **Email**box at the top of the page to view the following widgets related to email data protection:
-
-- Top Domains Sensitive Data is Being Sent To
-- Top Users with Email Incidents
-
-This bar chart shows the types of sensitive inline data in your organization.
-
-See image.
-
-This ring chart shows information about generative AI applications in your organization. Click **Transactions**to view the number of generative AI transactions, or **Volume**to view the volume of data. Hover over the segments in the chart to view information for each application.
-
-Click **View All Gen AI Activity** to open the [Gen AI Security Report](https://help.zscaler.com/zia/about-generative-ai-security-report).
-
-See image.
-
-This table shows the list of inline applications that have the biggest risk of data loss and the lowest usage by your users. These are applications you should consider eliminating from your organization.
-
-- **Application Name**: The name of the high-risk application.
-- **Risk**: The application's color-coded risk score, from riskiest (risk index 4, red) to least risky (risk index 1, green)
-- **Users**: The number of users who used this application within the current time range.
-- **Action**: The recommended action for this application.
-
-See image.
-
-This table shows the list of inline applications that have the biggest risk of data loss and the highest usage by your users. These are applications you should consider securing within your organization.
-
-- **Application Name**: The name of the high-risk application.
-- **Risk**: The application's color-coded risk score, from riskiest (risk index 4, red) to least risky (risk index 1, green)
-- **Users**: The number of users who used this application within the current time range.
-- **Action**: The recommended action for this application.
-
-See image.
-
-This widget shows information about files within various machine learning categories within your organization. Hover over a line in the chart to see the percentage that the files in the category represents as it relates to the total number of files.
-
-Click **View All Data Discovery** to open the [Data Discovery Report](https://help.zscaler.com/zia/about-data-discovery-report), filtered for machine learning categories.
-
-See image.
-
-This bar chart shows the data loss incidents from SaaS applications in your organization. Hover over the chart to see more detail about the incidents:
-
-- **Private**: Incidents that compromise personal information.
-- **Internal**: Incidents that represent a security breach within your organization.
-- **External**: Incidents that originated outside your organization.
-
-See image.
-
-This bar chart shows the users who experienced the most data loss incidents from SaaS applications. Hover over the chart to see more detail about the incidents for each user:
-
-- **Private**: Incidents that compromise personal information.
-- **Internal**: Incidents that represent a security breach within your organization.
-- **External**: Incidents that originated outside your organization.
-
-See image.
-
-This table shows detail about the SaaS applications with the most data exposure in your organization.
-
-- **Application Tenant Name**: The application responsible for a data loss incident.
-- **Total Incidents**: The total number of data loss incidents from this application.
-- **Private**: Incidents from this application that compromise personal information.
-- **Internal**: Incidents from this application that represent a security breach within your organization.
-- **External**: Incidents from this application that originated outside your organization.
-
-See image.
-
-This ring chart shows the data loss incidents from endpoints in your organization. Segments of the chart show the types of endpoints most commonly responsible for the incidents. Hover over the chart to see more detail about the incidents.
-
-See image.
-
-This bar chart shows the users who experienced the most data loss incidents from endpoints. Hover over the chart to see more detail about the endpoints responsible for the incidents for each user.
-
-See image.
-
-This bar chart shows the endpoints most responsible for sensitive data exposure in your organization. Click **DLP Engines** to categories based on DLP engines, or **ML Categories** to view based on machine learning categories.
-
-Click the **Chart**icon to view data in a chart, or the **Graph**icon to view the data in a graph.
-
-Click **View Endpoint Activity**to open the [Endpoin](https://help.zscaler.com/zia/about-endpoint-dlp-report)[t D](https://help.zscaler.com/zia/about-endpoint-dlp-report)[LP](https://help.zscaler.com/zia/about-endpoint-dlp-report)[Report](https://help.zscaler.com/zia/about-endpoint-dlp-report) to explore in more detail.
-
-See image.
-
-This bar chart shows the top email domains to which data has been exposed. Hover over the chart to see more detail about the type of sensitive data exposed.
-
-Click the **Chart**icon to view data in a chart, or the **Graph**icon to view the data in a graph.
-
-Click **View Email Security Activity**to open the [Email S](https://help.zscaler.com/zia/about-email-security-report)[ecurity](https://help.zscaler.com/zia/about-email-security-report)[Report](https://help.zscaler.com/zia/about-email-security-report) to explore in more detail.
-
-See image.
-
-This bar chart shows the users who experienced the most data loss incidents via email and the number of incidents.
-
-See image.
-
-[Image: Data Channels tabs on the Data Channels dashboard.]
-
-[Image: Top Sensitive Data Types graph on the Data Channels dashboard.]
-
-[Image: Sensitive GenAI Applications chart on the Data Channels dashboard.]
-
-[Image: Top High Risk Applications to Eliminate chart on the Data Channels dashboard.]
-
-[Image: Top High Risk Applications to Secure chart on the Data Channels dashboard.]
-
-[Image: Sensitive Files in Top 10 ML Categories chart on the Data Channels dashboard.]
-
-[Image: SaaS Incidents graph on the Data Channels dashboard.]
-
-[Image: Top Users with SaaS Incidents graph on the Data Channels dashboard.]
-
-[Image: SaaS Applications wtih Data Exposure on the Data Channels dashboard.]
-
-[Image: Total Endpoint Incidents chart on the Data Channels dashboard.]
-
-[Image: Top Users with Endpoint Incidents graph on the Data Channels dashboard.]
-
-[Image: Top Endpoints with Sensitive Data Being Exfiltrated graph on the Data Channels dashboard.]
-
-[Image: Top Domains Sensitive Data is Being Sent To chart on the Data Channels dashboard.]
-
-[Image: Top Users with Email Incidents table on the Data Channels dashboard.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-data-security-dashboard","lastmod":"2026-08-29T07:06Z","nid":"1545070"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-data-security-dashboard","lastmod":"2026-10-26T09:15Z","nid":"1545070"} -->
 ## Viewing the Data Security Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-data-security-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Data Security > Viewing the Data Security Dashboard
-- Last modified: 2026-08-29T07:06Z
-- Summary: Information on the Data Security dashboard and widgets accessible within the Admin Portal.
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Data Security Dashboard
+- Last modified: 2026-10-26T09:15Z
+- Summary: Information on the Data Security dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Data Security dashboard provides information about incidents, users, channels, and data-at-rest in your organization that might indicate areas at risk of data loss or leakage.
+The Data Security dashboard provides information about incidents, users, channels, and data at rest in your organization that might indicate areas at risk of data loss or leakage.
 
 ## Filtering
 
@@ -10510,8 +10306,8 @@ The following widgets are available:
 
 This donut chart shows the total number of data loss incidents that occurred in your organization. You can hover over segments of the chart to view data for each type of incident:
 
-- **Inline**: Data loss incidents from inline (web) sources.
-- **SaaS Security**: Data loss incidents from SaaS applications.
+- **Inline DLP**: Data loss incidents from inline (web) sources.
+- **SaaS**: Data loss incidents from SaaS applications.
 - **Endpoint**: Data loss incidents from endpoints (printers, network shares, etc.).
 - **Email**: Data loss incidents from email.
 
@@ -10519,8 +10315,8 @@ See image.
 
 This bar chart shows the users with the most data loss incidents. You can hover over segments of the chart to view data for each type of incident:
 
-- **Inline**: Data loss incidents from inline (web) sources
-- **SaaS Security**: Data loss incidents from SaaS applications
+- **Inline DLP**: Data loss incidents from inline (web) sources
+- **SaaS**: Data loss incidents from SaaS applications
 - **Endpoint**: Data loss incidents from endpoints (printers, network shares, etc.)
 - **Email**: Data loss incidents from email.
 
@@ -10532,11 +10328,15 @@ See image.
 
 This widget shows the total amount of sensitive data at rest in your organization, along with each category of data such as social security information, HIPAA data, personal card information (PCI) data, and more. If more than 6 categories of data are available, you can click the arrows at the bottom to scroll through more categories. Click each bubble to view the total number of files containing sensitive data across public clouds, on-premises, or SaaS. Click the number to view additional file details on the [Data Inventory](https://help.zscaler.com/dspm/viewing-data-inventory) page.
 
+See image.
+
 - **Channels**: Click this filter to narrow the view to only data at rest in either **Public Clouds**,**On-Premises**, or**SaaS**.
 - **AI Classification**: View only sensitive data that is exposed to AI models and services, such as financial or medical documents. This sensitive data is classified using DLP engines. Select the **Exact AI Type** checkbox to display the **Gen AI Category** filter to narrow the view to different specific types of generated AI data at rest. See image.
 - **DLP Engines:**View data at rest detected by DLP engines, such as social security data, HIPAA data, personal card information (PCI) data, and more.
 
 See image.
+
+[Image: Clicking a bubble in the Top Sensitive Data At Rest widget]
 
 [Image: Top Sensitive Data At Rest widget with Exact AI type checkbox selected and list of GenAI categories available]
 
@@ -10551,101 +10351,32 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-digital-experience-dashboard","lastmod":"2026-09-07T05:01Z","nid":"1544511"} -->
-## Viewing the Digital Experience Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-digital-experience-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Digital Experience > Viewing the Digital Experience Dashboard
-- Last modified: 2026-09-07T05:01Z
-- Summary: Information on the Digital Experience dashboard and widgets accessible within the Admin Portal.
-
-The Digital Experience dashboard provides an overview of your organization's digital experience in terms of user, devices, applications, and unified communication experience, as well as overall network activity and latency.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options. Click **Apply** to update the dashboard with your selections. To remove all filter selections, click **Reset**.
-  - **Departments**: Your departments. To learn more, see [About Departments](https://help.zscaler.com/unified/about-departments).
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/unified/about-locations).
-  - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic areas where your users are located.
-
-## Dashboard Widgets
-
-- How is My Overall Digital Experience?
-- Network Latency Geoview
-- Application Experience
-- Unified Communication Experience
-- What is Impacting My User Experience?
-- End Point Self Service
-
-This bar graph indicates how many of the applications in your organization are in each of the Digital Experience score categories. Initially, the score represents all users in your organization, across all applications, all locations, and all cities. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly.
-
-The digital experience score categories are:
-
-- **Good**: The score is above an acceptable threshold and ranges from 66-100. The color for this range is green.
-- **Okay**: The score is acceptable and ranges from 34-65. The color for this range is amber.
-- **Poor**: The score is below an acceptable threshold and ranges from 0-33. The color for this range is red.
-
-Click **View Activity** to view more detail about the users, devices, and applications that contribute to the score on the [Activity Dashboard](https://help.zscaler.com/unified/viewing-activity-dashboard).
-
-To learn more about the Digital Experience score (also called the ZDX Score), see [About the Digital Experience Score](https://help.zscaler.com/zdx/about-zdx-score).
-
-See image.
-
-This widget shows the average network latency from user locations to one of three locations on the network. You can toggle among:
-
-- **Zscaler**: Latency to Zscaler data center
-- **DNS Resolution**: Latency to the DNS server
-- **Last Mile ISP**: Latency to the closest ISP node
-
-Click a dot on the map to filter latency to that location. The dot colors correspond to the digital experience scores of good (green), okay (amber), and poor (red).
-
-See image.
-
-This table shows the performance of applications in your organization. The most commonly used applications are shown in the list. Click **View All Applications** to see a list of all applications on the [Applications Dashboard](https://help.zscaler.com/unified/viewing-applications-dashboard-0).
-
-See image.
-
-This widget shows the performance of meeting applications in your organization. The circle graph shows the overall Digital Experience score for all meetings. The most recent meetings are shown in the list. Click **View All Meetings** to see a list of all meetings on the [Meetings Dashboard](https://help.zscaler.com/unified/viewing-meetings-dashboard).
-
-See image.
-
-This widget shows the impact of incidents that have affected digital experience, including the total number of incidents, the number of users affected, and the devices, networks, and applications affected. The most recent incidents are shown in the list. Click the link in the Networking box to expand to show all areas in your network (Wi-Fi, DNS, ISP, etc.) Click **View All Incidents**to see a list of all incidents on the [Incidents Dashboard](https://help.zscaler.com/unified/viewing-incidents-dashboard).
-
-See image.
-
-This widget shows the total number of notifications sent, the number of unique users notified, and the types of notificaations sent to your users about issues requiring attention. Click **View Self Service** to see more information about user notifications on the [Self Service Dashboard](https://help.zscaler.com/unified/viewing-self-service-dashboard).
-
-See image.
-
-[Image: Bar graph showing How is My Digital Experience on the Digital Experience dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-email-data-security-dashboard","lastmod":"2026-02-11T06:15Z","nid":"1545170"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-email-data-security-dashboard","lastmod":"2026-10-28T11:16Z","nid":"1545170"} -->
 ## Viewing the Email Data Security Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-email-data-security-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Email Data Security Dashboard
-- Last modified: 2026-02-11T06:15Z
-- Summary: Information on the Email data security dashboard and widgets accessible within the Admin Portal.
+- Last modified: 2026-10-28T11:16Z
+- Summary: Information on the Email data security dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Email data security dashboard provides detailed information about data loss incidents from email that affect your organization.
+The Email Data Security dashboard provides detailed information about data loss incidents from email that affect your organization.
 
 ## Filtering
 
-Use the Time Range filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
+Use the **Time Range** filter in the upper right to choose a specific time range between **1 Day** and **7 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
 
 ## Dashboard Widgets
 
 The following widgets are available:
 
+- Incidents
 - Top Domains Sensitive Data is Being Sent To
 - Top Users with Email Incidents
+
+This widget shows the total number of incidents involving Outbound Email DLP policy violations across your organization.
+
+See image.
 
 This bar chart shows the top email domains to which data has been exposed. Hover over the chart to see more detail about the type of sensitive data exposed.
 
@@ -10659,6 +10390,8 @@ This bar chart shows the users who experienced the most data loss incidents via 
 
 See image.
 
+[Image: Total number of incidents on the Email Data Security dashboard]
+
 [Image: Top Domains Sensitive Data is Being Sent To chart on the Email data security dashboard.]
 
 [Image: Top Users with Email Incidents table on the Email data security dashboard.]
@@ -10666,23 +10399,23 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-endpoint-data-security-dashboard","lastmod":"2026-02-11T06:19Z","nid":"1545169"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-endpoint-data-security-dashboard","lastmod":"2026-10-26T09:09Z","nid":"1545169"} -->
 ## Viewing the Endpoint Data Security Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-endpoint-data-security-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Endpoint Data Security Dashboard
-- Last modified: 2026-02-11T06:19Z
-- Summary: Information on the Endpoint data security dashboard and widgets accessible within the Admin Portal.
+- Last modified: 2026-10-26T09:09Z
+- Summary: Information on the Endpoint data security dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Endpoint data security dashboard provides detailed information about data loss incidents from endpoints (e.g., printers, network shares, etc.) in your organization.
+The Endpoint data security dashboard provides detailed information about data loss incidents from endpoints (e.g., printers, network shares) in your organization.
 
 ## Filtering
 
 You can filter the data by time range and incident status:
 
-- **Time Range**: Use the**Time Range** filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
-- **Status**: Use the **Status**filter to show only incidents that were **Allowed**or **Blocked**.
+- **Time Range**: Use this filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
+- **Status**: Use thisfilter to show only incidents that were **Allowed**or **Blocked**.
 
 ## Dashboard Widgets
 
@@ -10692,11 +10425,11 @@ The following widgets are available:
 - Top Users with Endpoint Incidents
 - Top Endpoints with Sensitive Data Being Exfiltrated
 
-This ring chart shows the data loss incidents from endpoints in your organization. Segments of the chart show the types of endpoints most commonly responsible for the incidents. Hover over the chart to see more detail about the incidents.
+This donut chart shows the data loss incidents from endpoints in your organization. Chart segments show the types of endpoints most commonly responsible for the incidents. Hover over the chart to see more details about the incidents.
 
 See image.
 
-This bar chart shows the users who experienced the most data loss incidents from endpoints. Hover over the chart to see more detail about the endpoints responsible for the incidents for each user.
+This bar chart shows the users who experienced the most data loss incidents from endpoints. Hover over the chart to see more details about the endpoints responsible for the incidents for each user.
 
 See image.
 
@@ -10722,7 +10455,7 @@ See image.
 
 - Source: https://help.zscaler.com/unified/viewing-executive-insights-zscaler-services
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Executive Insights for Zscaler Services
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Executive Insights for Zscaler Services
 - Last modified: 2026-08-17T22:15Z
 - Summary: Information about executive insights in Health360 providing an overview of your applications, network, cloud, and incidents in your organization.
 
@@ -10911,201 +10644,35 @@ On the Health360 dashboard page (Analytics > Health360), you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-incidents-dashboard","lastmod":"2026-02-11T06:09Z","nid":"1544533"} -->
-## Viewing the Incidents Dashboard
+<!-- ZS-ARTICLE {"url":"/unified/viewing-inline-casb-data-security-dashboard","lastmod":"2026-10-28T08:10Z","nid":"1547016"} -->
+## Viewing the Inline CASB Data Security Dashboard
 
-- Source: https://help.zscaler.com/unified/viewing-incidents-dashboard
+- Source: https://help.zscaler.com/unified/viewing-inline-casb-data-security-dashboard
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Digital Experience > Viewing the Incidents Dashboard
-- Last modified: 2026-02-11T06:09Z
-- Summary: Information on the Incidents dashboard and widgets accessible within the Admin Portal.
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the Inline CASB Data Security Dashboard
+- Last modified: 2026-10-28T08:10Z
+- Summary: Information on the Inline CASB data security dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Incidents dashboard provides an overview of incidents affecting your organization.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Type**: Filter incidents by type. Available types are **Device**, **Wi-Fi**, **DNS**, **Last Mile ISP**, **Intermediate ISP**, **Zscaler**, and **Application**.
-
-## Dashboard Widgets
-
-- Total Incidents/Incidents Across Key Areas
-- Incidents Over Time/Impacted Users Over Time
-- Incidents by Epicenters
-- Incidents
-
-You can view the total incidents and the total counts across the key metrics and impacted users.
-
-- **Total Incidents**: The total number of incidents detected within a time range.
-- **Impacted Users**: The number of impacted users from the total incidents within a time range.
-- **Incidents Across Key Areas**: The distribution of incidents in critical parts of the infrastructure. Click the number, icon, or text under each key area to filter specifically for the selected incident type.
-
-See image.
-
-This widget contains bar charts showing the number of incidents for the specified time range and type and the number of impacted users from the incidents for the specified time range and type. If there are no impacted users, no data is shown.
-
-See image.
-
-This map displays the incidents that have occurred for the specified time range and type. Incidents are displayed using icons to represent the types of incident. After an incident is positioned on the map in an area, an epicenter is defined at the center of the incident. Click an icon to view more information.
-
-See image.
-
-This table provides a detailed list of incidents for the specified time range and type.
-
-- **Incident Type**: The type of incident.
-- **Epicenter**: Represents the center of the incident depending on the type.
-- **Users Impacted**: The number of users impacted by the incident.
-- **Start Time**: The date and time the incident started.
-- **End Time**: The date and time the incident ended.
-- **Duration**: The duration of the incident.
-
-See image.
-
-Click any incident row in the table to see additional detail about that incident:
-
-- Incident Details/Impact
-- Impacted Users by Geolocations
-- Top Impacted Users
-- Key Metrics
-
-Provides an overview of the selected incident with the following details:
-
-- **Type**: The type of incident.
-- **Severity**: The level of severity of the incident.
-- **Epicenter**: Represents the center of the incident depending on the type.
-- **Started On**: The date and time the incident started.
-- **Ended On**: The date and time the incident ended.
-- **Duration**: The duration of the incident.
-
-The Impact section shows the number of users, geolocations, and applications impacted.
-
-See image.
-
-A map showing the geolocations of impacted users. You can zoom in and out of the map to better view regions of interest.
-
-See image.
-
-A list of the Top Impacted Users. Click **View All Impacted Users** to view and verify more impacted users.
-
-The Top Impacted Users list displays up to 11 impacted users.
-
-See image.
-
-Displays key metrics based on the Incident type.
-
-- Wi-Fi
-- Last Mile ISP
-- Internet & SaaS Public Service Edge
-- Private Applications Public Service Edge
-- Application
-
-See image.
-
-Application Key Metrics provide an overview of an application and its impacted users.
-
-- **ZDX Score**: The Digital Experience score (also called the ZDX Score) of the application.
-- **HTTP Errors**: The number of HTTP errors the application has encountered over time.
-- **TTFB-PFT Ratio**: The ratio between the server response time (time to first byte) and the time to load the page (page fetch time).
-- **Last Server Leg Latency**: The latency from the Public Service Edge to the application.
-- **Number of Redirects**: The number of redirections going through the application over time.
-
-Depending on if it's a Blackout or Brownout, you get different key metrics.
-
-- Blackout
-- Brownout
-
-Wi-Fi key metrics provide an overview of the signal strength and latency of Wi-Fi access points.
-
-- **ZDX Score Drop**: The Digital Experience score variation through the Wi-Fi access point.
-- **Maximum Wi-Fi Access Point Latency**: The maximum Wi-Fi Access Point Latency.
-- **Average Wi-Fi Access Point Latency**: The average Wi-Fi Access Point Latency.
-- **Packet Loss at Wi-Fi Access Point (Hop 1)**: The packet loss at the first Wi-Fi Access Point.
-- **Packet Loss after Wi-Fi Access Point (Hop 2)**: The packet loss after the 1st Wi-Fi Access Point.
-- **Packet Loss after Wi-Fi Access Point (Hop 3)**: The packet loss after the 2nd Wi-Fi Access Point.
-- **Packet Loss after Wi-Fi Access Point (Hop 4)**: The packet loss after the 3rd Wi-Fi Access Point.
-- **Wi-Fi Signal Strength**: The average signal strength of users going through the Wi-Fi Access Point.
-
-Internet and SaaS Public Service Edge key metrics provide an overview on ZIA transactions, connectivity, and latency for impacted users.
-
-- **ZDX Score for Impacted Users**: The Digital Experience score for Impacted Users is calculated across each impacted user and their aggregated score from all their configured applications.
-- **First Hop Latency around PSE**: The time calculated, from the Public Service Edge (PSE) perspective, across all the users going through the affected Zscaler Data Center.
-- **Second Hop Latency around PSE**: The average Second Hop Latency, from the PSE perspective, across all the users going through the affected Zscaler Data Center.
-- **ZIA Transactions**: Displays the number of Zscaler Internet Access (ZIA) transactions going through the affected Zscaler Data Center.
-- **ZIA Connectivity Errors**: Displays the number of errors connecting to the affected Zscaler Data Center.
-- **Cloud Path Probe Errors**: The number of Cloud Path probe errors at the Zscaler Data Center.
-- **Web Probe Errors**: The number of Web probe errors at the Zscaler Data Center.
-
-Private Applications Public Service Edge key metrics provide an overview on ZPA traffic, connectivity, and latency for impacted users.
-
-- **ZDX Score**: The Digital Experience score (also called the ZDX Score) is calculated across each impacted user and their aggregated score from all their configured applications.
-- **First Hop Latency around ZPA**: The average First Hop Latency, from the Public Service Edge perspective, across all the users going through Private Applications.
-- **Second Hop Latency around ZPA**: The average Second Hop Latency, from the Public Service Edge perspective, across all the users going through Private Applications.
-- **Private Applications Public Service Edge Cloud Path Probe Errors**: The number of Public Service Edge errors at the Zscaler Data Center.
-- **Private Applications Traffic for Current Week**: The number of Private Applications transactions that create Private Applications traffic for the current week.
-- **Private Applications Traffic for Previous Week**: The number of Private Applications transactions that create Private Applications traffic for the previous week.
-- **Private Applications Traffic for 2 Weeks Ago**: The number of Private Applications transactions that create Private Applications traffic for 2 weeks before the current week, excluding the current week.
-- **Private Applications Traffic for 3 Weeks Ago**: The number of Private Applications transactions that create Private Applications traffic for 3 weeks before the current week, excluding the current week.
-- **Private Applications Traffic for 4 Weeks Ago**: The number of Private Applications transactions that create Private Applications traffic for 4 weeks before the current week, excluding the current week.
-- **Private Applications Public Service Edge Web Probe Errors**: The number of Private Applications Public Service Edge Web probe errors at the Zscaler Data Center.
-
-Blackouts Key Metrics provides an overview of connectivity issues with an ISP.
-
-- **Application Score**: The Digital Experience score of the application.
-- **All Probe Errors**: The total number of probe errors.
-- **DNS Resolution Time**: The amount of time it takes for a DNS to resolve DNS entries.
-- **Cloud Path Probe Errors**: The number of Cloud Path probe errors.
-
-Brownouts Key Metrics provides an overview of performance degradation with an ISP.
-
-- **ZDX Score Drop**: The shaded region indicates the Digital Experience score drop for the Last Mile ISP incident.
-- **DNS Latency**: The amount of time DNS takes to resolve for impacted users from the Last Mile ISP incident.
-- **Leg Latency**: The latency for impacted legs from the Last Mile ISP incident.
-- **Packet Loss**: The number of packets lost from the Last Mile ISP incident.
-
-The following is an example of a selected Wi-Fi Incident. Depending on the type of incident you have, different key metrics will be shown.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-inline-data-security-dashboard","lastmod":"2026-02-11T06:18Z","nid":"1545167"} -->
-## Viewing the Inline Data Security Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-inline-data-security-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Data Security > Viewing the Inline Data Security Dashboard
-- Last modified: 2026-02-11T06:18Z
-- Summary: Information on the Inline data security dashboard and widgets accessible within the Admin Portal.
-
-The Inline data security dashboard provides detailed information about data loss incidents from inline (web) sources in your organization.
-
-## Filtering
-
-You can filter the data by time range and incident status:
-
-- **Time Range**: Use the **Time Range** filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
-- **Status**: Use the **Status**filter to show only incidents that were **Allowed**or **Blocked**.
+The Inline CASB Data Security dashboard (Analytics > Data Security > Inline CASB) provides detailed information about data loss incidents from SaaS Security API sources in your organization.
 
 ## Dashboard Widgets
 
 The following widgets are available:
 
-- Top Sensitive Data Types
-- Sensitive GenAI Applications
+- GenAI Applications by Volume
+- GenAI Applications by Transaction
 - Top High Risk Applications to Eliminate
 - Top High Risk Applications to Secure
-- Sensitive Files in Top 10 ML Categories
 
-This bar chart shows the types of sensitive inline data in your organization.
-
-See image.
-
-This ring chart shows information about generative AI applications in your organization. Click **Transactions**to view the number of generative AI transactions, or **Volume**to view the volume of data. Hover over the segments in the chart to view information for each application.
-
-Click **View All Gen AI Activity** to open the [Gen AI Security Report](https://help.zscaler.com/zia/about-generative-ai-security-report).
+This donut chart shows the data used by GenAI applications across your organization.
 
 See image.
 
-This table shows the list of inline applications that have the biggest risk of data loss and the lowest usage by your users. These are applications you should consider eliminating from your organization.
+This donut chart shows the number of transactions created by GenAI applications across your organization.
+
+See image.
+
+This table shows the list of applications that have the biggest risk of data loss and the lowest usage by your users. These are applications you should consider eliminating from your organization.
 
 - **Application Name**: The name of the high-risk application.
 - **Risk**: The application's color-coded risk score, from riskiest (risk index 4, red) to least risky (risk index 1, green)
@@ -11114,7 +10681,7 @@ This table shows the list of inline applications that have the biggest risk of d
 
 See image.
 
-This table shows the list of inline applications that have the biggest risk of data loss and the highest usage by your users. These are applications you should consider securing within your organization.
+This table shows the list of applications that have the biggest risk of data loss and the highest usage by your users. These are applications you should consider securing within your organization.
 
 - **Application Name**: The name of the high-risk application.
 - **Risk**: The application's color-coded risk score, from riskiest (risk index 4, red) to least risky (risk index 1, green)
@@ -11123,21 +10690,13 @@ This table shows the list of inline applications that have the biggest risk of d
 
 See image.
 
-This widget shows information about files within various machine learning categories within your organization. Hover over a line in the chart to see the percentage that the files in the category represents as it relates to the total number of files.
+[Image: GenAI Applications by Volume chart on the Inline CASB Data Security dashboard]
 
-Click **View All Data Discovery** to open the [Data Discovery Report](https://help.zscaler.com/zia/about-data-discovery-report), filtered for machine learning categories.
+[Image: GenAI Applications by Transaction chart on the Inline CASB Data Security dashboard]
 
-See image.
+[Image: Top High Risk Applications to Eliminate chart on the Inline CASB Data Security dashboard]
 
-[Image: Top Sensitive Data Types graph on the Inline data security dashboard.]
-
-[Image: Sensitive GenAI Applications chart on the Inline data security dashboard.]
-
-[Image: Top High Risk Applications to Eliminate chart on the Inline data security dashboard.]
-
-[Image: Top High Risk Applications to Secure chart on the Inline data security dashboard.]
-
-[Image: Sensitive Files in Top 10 ML Categories chart on the Inline data security dashboard.]
+[Image: Top High Risk Applications to Secure chart on the Inline CASB Data Security dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11170,56 +10729,6 @@ To view items in a widget segment:
 [Image: Clicking widget segment]
 
 [Image: Viewing items in a segment]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-meetings-dashboard","lastmod":"2026-02-11T06:11Z","nid":"1544531"} -->
-## Viewing the Meetings Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-meetings-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Digital Experience > Viewing the Meetings Dashboard
-- Last modified: 2026-02-11T06:11Z
-- Summary: Information on the Meetings dashboard and widgets accessible within the Admin Portal.
-
-The Meetings dashboard provides an overview of the performance of meetings and videoconferencing applications in your organization.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options. Click **Apply**to update the dashboard with your selections. To remove all filter selections, click **Reset**.
-  - **Applications**: The meeting applications in your organization.
-  - **Departments**: Your departments. To learn more, see [About Departments](https://help.zscaler.com/zia/about-departments).
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/zia/about-locations).
-  - **User Groups**: The names of user groups in your organization.
-  - **Geolocations**: The geographic areas where your users are located.
-  - **Location Groups**: The names of groups based on location in your organization.
-  - **Last Mile ISPs**: The Internet Service Providers (ISPs) to which your users are connecting.
-  - **Operating System**: The operating systems used in your organization,
-
-## Meetings
-
-This table shows all the meetings that occurred in your organization for the selected time range and filters:
-
-- **Meeting ID**: The unique identifier of the meeting.
-- **Application Name**: The name of the meeting application used for this meeting.
-- **MOS Score**: The Mean Opinion Score of the meeting, on a scale of 1 (worst) to 5 (best). MOS is calculated based on metrics such as latency, jitter, and packet loss.
-- **Host**: The user who hosted the meeting.
-- **Start Time**: The beginning time of the meeting.
-- **Active Participants**: The number of participants as reflected in the session data. Participants who join a call from multiple devices or who leave and rejoin a call are counted per session.
-
-See image.
-
-Click any meeting row to see additional details about that meeting:
-
-- **Meeting Details**: Includes the unique identifier of the meeting, the host, number of participants, start and end times, and the ZDX Score, which is derived from the MOS Score.
-  - If the MOS is 0 to 3.6 the ZDX Score is **Poor**.
-  - If the MOS is greater than 3.6 but less than 4.34, the ZDX Score is **Okay**.
-  - If the MOS is 4.34 or greater, the ZDX Score is **Good**.
-- **Participants**: The list of users, the Session ID (this is the internal meeting session ID), the user's start and end times, their device OS, IP Address, Geolocation, and individual MOS and ZDX scores. Some information may not be available for all participants (such as if the user does not have Digital Experience enabled).
-
-See image.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11314,20 +10823,20 @@ To view the overrides:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-saas-data-security-dashboard","lastmod":"2026-02-11T05:59Z","nid":"1545168"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-saas-data-security-dashboard","lastmod":"2026-10-28T11:13Z","nid":"1545168"} -->
 ## Viewing the SaaS Data Security Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-saas-data-security-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > Viewing the SaaS Data Security Dashboard
-- Last modified: 2026-02-11T05:59Z
-- Summary: Information on the SaaS data security dashboard and widgets accessible within the Admin Portal.
+- Last modified: 2026-10-28T11:13Z
+- Summary: Information on the SaaS data security dashboard and widgets accessible within the Zscaler Admin Console.
 
-The SaaS data security dashboard provides detailed information about data loss incidents from SaaS applications in your organization.
+The SaaS Data Security dashboard (Analytics > Data Security > SaaS Security) provides detailed information about data loss incidents from SaaS applications in your organization.
 
 ## Filtering
 
-Use the Time Range filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
+Use the **Time Range** filter in the upper right to choose a specific time range between **1 Day** and **30 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **7 Days**.
 
 ## Dashboard Widgets
 
@@ -11363,11 +10872,11 @@ This table shows detail about the SaaS applications with the most data exposure 
 
 See image.
 
-[Image: SaaS Incidents graph on the SaaS data security dashboard.]
+[Image: SaaS Incidents chart on the SaaS Data Security dashboard]
 
-[Image: Top Users with SaaS Incidents graph on the SaaS data security dashboard.]
+[Image: Top Users with SaaS Incidents chart on the SaaS Data Security dashboard]
 
-[Image: SaaS Applications wtih Data Exposure on the SaaS data security dashboard.]
+[Image: SaaS Applications with Data Exposure table on the SaaS Data Security dashboard]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11453,67 +10962,6 @@ See image.
 [Image: Bar chart showing Top Users Generating Sandbox Threats on the Sandbox Threats dashboard]
 
 [Image: Table showing Sandbox Incidents on the Sandbox Threats dashboard]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-self-service-dashboard","lastmod":"2026-09-07T05:01Z","nid":"1544532"} -->
-## Viewing the Self Service Dashboard
-
-- Source: https://help.zscaler.com/unified/viewing-self-service-dashboard
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Digital Experience > Viewing the Self Service Dashboard
-- Last modified: 2026-09-07T05:01Z
-- Summary: Information on the Self Service dashboard and widgets accessible within the Admin Portal.
-
-The Self Service dashboard provides an overview of user notification activity in your organization.
-
-## Filtering
-
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments. The selected period applies to all data within the dashboard. The default time range is **2 Hours**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options.
-  - **Departments**: Your departments. To learn more, see [About Departments](https://help.zscaler.com/unified/about-departments).
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/unified/about-locations).
-  - **Geolocations**: The geographic areas where your users are located.
-  - **Notification Types**: Identified as Wi-Fi, CPU, Low Memory, or Other.
-
-Click **Apply**to update the dashboard with your selections. To remove all filter selections, click **Reset**.
-
-## Dashboard Widgets
-
-- Total Notifications Sent/Notifications by Type
-- Total Users Notified/Users Found Notifications Helpful
-- Active Users with Self Service/Users Who Disabled Notifications
-- Notifications Sent Over Time
-- Notifications
-
-This widget shows the number of notifications sent, including the percentage increase or decrease. The **Notifications by Type** bar graph shows the number of notifications broken out by type: **Wi-Fi**, **CPU**, **Low Memory**, or **Other**.
-
-See image.
-
-This widget shows the number of users who received notifications, including the percentage increase or decrease, and the number of users who provided feedback that their notifications were helpful, including the percentage increase or decrease.
-
-See image.
-
-This widget shows the number of active users who have Self Service enabled, including the percentage increase or decrease, and the number of users who disabled their notifications, including the percentage increase or decrease.
-
-See image.
-
-This graph shows the number of user notifications that were generated for the selected time period.
-
-See image.
-
-This table provides a detailed list of user notifications for the specified time period and type.
-
-- **User**: The user who received the notification.
-- **Device**: The user's device that launched the notification.
-- **Notification Type**: Indicates whether the notification was related to CPU, Wi-Fi, or another issue.
-- **Found It Helpful?**: Indicates **Yes**or **No** if feedback was provided by the user. **Not available** indicates feedback was not provided.
-- **Timestamp**: The date and time of the notification.
-
-Click any notification row in the table to see additional detail about that notification.
-
-See image.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11614,63 +11062,33 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-subscriptions","lastmod":"2026-09-07T04:59Z","nid":"1543381"} -->
-## Viewing Subscriptions
-
-- Source: https://help.zscaler.com/unified/viewing-subscriptions
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Account Management > Viewing Subscriptions
-- Last modified: 2026-09-07T04:59Z
-- Summary: How to view your organization's subscriptions in the Zscaler Admin Console.
-
-Subscriptions define the various features and levels of functionality that are available to your organization. In the Zscaler Admin Console, you can view the features subscribed to your account. The Subscriptions page lists the information that is applicable to your admin accounts.
-
-Contact your Zscaler Account team to update your subscriptions. To learn more, see [Zscaler Pricing and Plans](https://www.zscaler.com/pricing-and-plans) and [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
-
-To view your subscriptions:
-
-1. Go to **Administration** > **Account Management**.
-2. On the Company Profile page, under **Subscriptions**, you can view the following:
-  - The subscription number.
-  - **Name**: The name of the subscription.
-  - **SKU**: The SKU of the subscription.
-  - **Status**: The status of the subscription (e.g., **Subscribed**or **Trial**).
-  - **Number of Licenses**: The number of licenses for the subscription.
-  - **Service Start Date (PST)**: The date (in the Pacific Standard Time Zone) when the subscription was enabled.
-  - **Service End Date (PST)**: The date (in the Pacific Standard Time Zone) when the subscription expires.
-
-See image.
-
-You can modify the table and its columns by clicking the Column Menu icon. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
-
-[Image: Subcriptions page in the [[variable:Zscaler Admin Console]]]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/viewing-threat-locations-dashboard","lastmod":"2026-09-07T04:59Z","nid":"1544537"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-threat-locations-dashboard","lastmod":"2026-10-26T09:14Z","nid":"1544537"} -->
 ## Viewing the Threat Locations Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-threat-locations-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Cybersecurity > Viewing the Threat Locations Dashboard
-- Last modified: 2026-09-07T04:59Z
-- Summary: Information on the Threat Locations dashboard and widgets accessible within the Admin Portal.
+- Last modified: 2026-10-26T09:14Z
+- Summary: Information on the Threat Locations dashboard and widgets accessible within the Zscaler Admin Console.
 
-The Threat Locations dashboard provides an overview of the threats in your organization and the users and applications responsible for them.
+The Threat Locations dashboard (Cyberthreat Protection > Insights > Threat Locations) provides an overview of the threats in your organization and the users and applications responsible for them.
 
 ## Filtering
 
-- **Time Range**: Use the Time Range filter in the upper right to choose a specific time range between **1 Day** and **90 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **14 Days**.
-- **Filter data**: Click the filters in the top left to limit the data shown. Each filter allows you to include or exclude individual options.
-  - **Zscaler Locations**: Your locations. To learn more, see [About Locations](https://help.zscaler.com/unified/about-locations).
+- **Time Range**: Use this filter in the upper right to choose a specific time range between **1 Day** and **90 Days** in which to view data. The selected period applies to all data within the dashboard. The default time range is **14 Days**.
+- **Geolocation**: Use this drop-down menu to include or exclude location data from the dashboard. See image.
 
 ## Dashboard Widgets
 
+- Total Threats
 - Total Threat Trends
 - Top Threat Categories
 - Top Users Generating Threats
 - Top Applications Generating Threats
+
+This choropleth map shows the number of threats to your organization by location in the specified time range.
+
+See image.
 
 This line graph shows the number of threats to your organization in the specified time range.
 
@@ -11687,6 +11105,12 @@ See image.
 This bar chart shows the applications that generated the most threats in your organization and the number of threats generated.
 
 See image.
+
+[Image: Adjusting the Geolocation value on the Total Threats map on the Threat Locations dashboard]
+
+[Image: Total Threats map on the Threat Locations dashboard]
+
+[Image: Total Threats Trend line graph on the Threat Locations dashboard]
 
 [Image: Graph showing Top Threat Categories on the Threat Locations dashboard]
 
@@ -11775,13 +11199,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-user-details","lastmod":"2026-10-15T21:03Z","nid":"1545321"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-user-details","lastmod":"2026-10-29T21:06Z","nid":"1545321"} -->
 ## Viewing User Details
 
 - Source: https://help.zscaler.com/unified/viewing-user-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Users > Viewing User Details
-- Last modified: 2026-10-15T21:03Z
+- Last modified: 2026-10-29T21:06Z
 - Summary: How to view a user's detailed information in the Agentic Security Operations Platform.
 
 You can view detailed information about users and identity findings, and review the severity level to understand potential security risks and remediate the issues.
@@ -11883,13 +11307,13 @@ On the **Tenants**tab, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-security-operations-platform-status-board","lastmod":"2026-10-13T12:29Z","nid":"1545258"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-security-operations-platform-status-board","lastmod":"2026-10-27T21:06Z","nid":"1545258"} -->
 ## Viewing the Agentic Security Operations Platform Status Board
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-security-operations-platform-status-board
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Viewing the Agentic Security Operations Platform Status Board
-- Last modified: 2026-10-13T12:29Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to view information in the Agentic Security Operations Platform (Agentic SecOps Platform) status board.
 
 To view the Agentic Security Operations Platform (Agentic SecOps Platform) status board, refer to the [status page](https://avalorstatus.statuspage.io/). The status board presents historic and current incidents.
@@ -11955,7 +11379,7 @@ To view uptime history, click the **View historical uptime** link on the status 
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption
 - Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > Viewing Zscaler Service Adoption
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Zscaler Service Adoption
 - Last modified: 2026-09-07T05:01Z
 - Summary: Information about the Adoption page in Health360.
 
@@ -12008,96 +11432,13 @@ On the adoption details page (Analytics > Health360 > Adoption > [click a produc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/what-data-unification","lastmod":"2026-10-19T13:45Z","nid":"1545196"} -->
-## What Is Data Unification?
-
-- Source: https://help.zscaler.com/unified/what-data-unification
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > What Is Data Unification?
-- Last modified: 2026-10-19T13:45Z
-- Summary: Information about the data unification process, including entity unification and field unification.
-
-Data unification is a fundamental process of transforming disparate data into actionable business insights. It involves correlating data from multiple sources, merging duplicate records, and establishing data consistency by applying standardized rules and conditions to yield a reliable and accurate unified record.
-
-[Image: Diagram illustrating the three steps of data unifiecation]
-
-## Key Features and Benefits
-
-Data unification provides the following features and benefits:
-
-- Data integrity: Unifying data from multiple sources creates a single, accurate view of key business objects like assets, components, and findings. This consolidated view helps reduce operational inefficiencies caused by fragmented or duplicated data, fills information gaps, and supports more reliable decision making.
-- Deduplication: Entity unification ensures that redundant or conflicting records are automatically resolved through configurable logic. This results in a single source of truth while preserving raw data for lineage tracking and audit purposes.
-- Attribute-level conflict resolution: Field unification incorporates robust attribute reconciliation processes that address inconsistencies between merged records. This ensures data integrity at the attribute level, enhancing the quality and trustworthiness of the unified dataset.
-- Flexible business rule application: Attribute transformation enables the application of organization-specific business rules to enrich and standardize data. This flexibility supports diverse use cases across analytics, compliance, and operational workflows.
-- Data lineage and transparency: Maintaining access to raw, source-level data alongside unified records provides visibility into the data's origin and transformation steps, which are essential for traceability, compliance, and troubleshooting.
-
-## How Data Unification Works
-
-Unification involves standardizing data from multiple sources by identifying duplicate entities, resolving attribute conflicts, and applying business logic. The process consists of two main components: entity unification and field unification.
-
-### Entity Unification
-
-Ingesting data from multiple sources often results in duplicate records for the same entity. Entity unification is the data normalization process that merges (i.e., deduplicates) these duplicate records, creating a single trusted source of truth for your organization's data, while still maintaining raw data for lineage and visibility. To learn more, see [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification) and [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
-
-### Field Unification
-
-Field unification includes two steps:
-
-- Attribute reconciliation: During entity unification, conflicts can arise between the values of the merged entities' attributes (e.g., discrepancies in the asset's type format, or a finding's severity score). These conflicts are typically reconciled (i.e., resolved) using system defaults, or through applying Priority By Source logic. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Attribute Reconciliation Default Functions](https://help.zscaler.com/unified/attribute-reconciliation-default-functions).
-- Attribute transformation: After your data is properly deduplicated and reconciled, the next step is applying business logic rules to classify and enrich the data through field unification rules. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
-
-## When Unification Rules Run
-
-Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. Unification rules are most commonly triggered in the following scenarios:
-
-- Data ingestion: Unification rules are triggered automatically when new data related to an entity is ingested. For example, the Asset entity unification rules run when asset data is ingested.
-- Entity processing: Unification rules run when an entity is directly processed, or indirectly impacted by changes to a related entity. For example, running the Asset Is Crown Jewel field's unification rule can trigger the Ticket Severity unification rule tied to that asset.
-- Manual processing: Unification rules run when you trigger manual processing when splitting or merging tickets, or when you click Process or Process All on the Data Unification pages. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/2.0/managing-entity-unification) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-28T21:06Z","nid":"1545186"} -->
-## What Is Health360?
-
-- Source: https://help.zscaler.com/unified/what-health360
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Unified Dashboards > Health360 > What Is Health360?
-- Last modified: 2026-08-28T21:06Z
-- Summary: Information about Health360.
-
-Zscaler Health360 delivers centralized visibility into the deployment, health, and performance of your Zscaler environment. By providing real-time insights directly within the Zscaler Admin Console, it eliminates the manual analysis often required across multiple product consoles, interfaces, and custom reports. This service helps you easily monitor your active subscriptions, deployment status, configuration quality, and the overall value being delivered.
-
-Health360 serves as an analytical capability within the Zscaler Admin Console, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
-
-- **Services**: This category encompasses all aspects of the third-party ecosystem used to access applications. This includes ISP networks, Zero Trust Exchange (ZTE) infrastructure, and applications. The ISP networks and applications health data is powered by Digital Experience (ZDX), your digital experience monitoring product.
-- **Connectors**: This category focuses on the various devices used to connect to the Zero Trust Exchange (ZTE). Health360 provides actionable insights into these devices, including versions, performance, capacity, and health signals.
-- **Best Practices**: This category displays the best practices distilled from Zscaler's extensive experience in deploying and managing numerous ecosystems. This helps in identifying configuration gaps and improving your overall deployment posture.
-- **Adoption**: This category displays Zscaler platform adoption maturity by detailing deployment, entitlement, and utilization levels on a per-product basis.
-
-The service is designed to support multiple needs where admins can proactively monitor service health, detect potential issues, and troubleshoot efficiently using a unified dashboard with actionable operational insights. Executives gain a high-level overview of platform adoption maturity, quantified health scoring, performance trends, and incidents that could impact deployment status.
-
-## Key Features and Benefits
-
-The following are the key features and benefits of Health360:
-
-- **Accelerated Time-to-Value**: Identify and resolve deployment gaps early in the implementation cycle.
-- **Optimized Configuration Posture**: Improve security and operational settings through best-practice scoring and remediation guidance.
-- **Demonstrable ROI Visibility**: Track business value and performance improvements with clear value-realization metrics.
-- **Proactive License Management**: Monitor entitlement and utilization details to optimize platform investments.
-- **Enhanced Operational Awareness**: Minimize the time needed to identify, troubleshoot, and resolve system issues.
-- **Comprehensive Platform Insights**: Access a single, consolidated view of overall platform health and performance trends.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/what-security-operations-platform","lastmod":"2026-10-13T12:26Z","nid":"1545255"} -->
+<!-- ZS-ARTICLE {"url":"/unified/what-agentic-security-operations-platform","lastmod":"2026-10-28T06:51Z","nid":"1545255"} -->
 ## What Is the Agentic Security Operations Platform?
 
-- Source: https://help.zscaler.com/unified/what-security-operations-platform
+- Source: https://help.zscaler.com/unified/what-agentic-security-operations-platform
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > What Is the Agentic Security Operations Platform?
-- Last modified: 2026-10-13T12:26Z
+- Last modified: 2026-10-28T06:51Z
 - Summary: Information on the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) is a unified approach to security that integrates proactive and reactive measures to enhance an organization's overall security posture. It focuses on bridging the gap between traditional exposure management and threat management, creating a cohesive strategy for identifying, prioritizing, and responding to cyber risks. This comprehensive platform helps accelerate incident response, improve operational efficiency, and simplify compliance efforts.
@@ -12122,6 +11463,89 @@ The Agentic SecOps Platform natively integrates External Attack Surface Manageme
 ## How the Agentic SecOps Platform Works
 
 The Agentic SecOps Platform operates on a robust data fabric for security that centralizes and transforms disparate security data. Supported by machine learning and AI, the fabric harmonizes, deduplicates, correlates, and enriches information from various sources, including Zscaler telemetry and third-party tools. The clean, contextualized data leads to more accurate and informative security outcomes. These insights power exposure management solutions, such as UVM and AEM, enabling organizations to understand and address asset risk, prioritize vulnerabilities, and effectively quantify overall cyber risk.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/what-data-unification","lastmod":"2026-10-28T07:36Z","nid":"1545196"} -->
+## What Is Data Unification?
+
+- Source: https://help.zscaler.com/unified/what-data-unification
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > What Is Data Unification?
+- Last modified: 2026-10-28T07:36Z
+- Summary: Information about the data unification process, including entity unification and field unification.
+
+Data unification is a fundamental process of transforming disparate data into actionable business insights. It involves correlating data from multiple sources, merging duplicate records, and establishing data consistency by applying standardized rules and conditions to yield a reliable and accurate unified record.
+
+[Image: Diagram illustrating the three steps of data unifiecation]
+
+## Key Features and Benefits
+
+Data unification provides the following features and benefits:
+
+- **Data integrity**: Unifying data from multiple sources creates a single, accurate view of key business objects like assets, components, and findings. This consolidated view helps reduce operational inefficiencies caused by fragmented or duplicated data, fills information gaps, and supports more reliable decision making.
+- **Deduplication**: Entity unification ensures that redundant or conflicting records are automatically resolved through configurable logic. This results in a single source of truth while preserving raw data for lineage tracking and audit purposes.
+- **Attribute-level conflict resolution**: Field unification incorporates robust attribute reconciliation processes that address inconsistencies between merged records. This ensures data integrity at the attribute level, enhancing the quality and trustworthiness of the unified dataset.
+- **Flexible business rule application**: Attribute transformation enables the application of organization-specific business rules to enrich and standardize data. This flexibility supports diverse use cases across analytics, compliance, and operational workflows.
+- **Data lineage and transparency**: Maintaining access to raw, source-level data alongside unified records provides visibility into the data's origin and transformation steps, which are essential for traceability, compliance, and troubleshooting.
+
+## How Data Unification Works
+
+Unification involves standardizing data from multiple sources by identifying duplicate entities, resolving attribute conflicts, and applying business logic. The process consists of two main components: entity unification and field unification.
+
+### Entity Unification
+
+Ingesting data from multiple sources often results in duplicate records for the same entity. Entity unification is the data normalization process that merges (i.e., deduplicates) these duplicate records, creating a single trusted source of truth for your organization's data, while still maintaining raw data for lineage and visibility. To learn more, see [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification) and [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification).
+
+### Field Unification
+
+Field unification includes two steps:
+
+- **Attribute reconciliation**: During entity unification, conflicts can arise between the values of the merged entities' attributes (e.g., discrepancies in the asset's type format, or a finding's severity score). These conflicts are typically reconciled (i.e., resolved) using system defaults, or through applying Priority By Source logic. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Attribute Reconciliation Default Functions](https://help.zscaler.com/unified/attribute-reconciliation-default-functions).
+- **Attribute transformation**: After your data is properly deduplicated and reconciled, the next step is applying business logic rules to classify and enrich the data through field unification rules. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
+
+## When Unification Rules Run
+
+Unification rules run when data related to the entity is ingested, directly processed, or indirectly impacted by a different processed entity. Unification rules are most commonly triggered in the following scenarios:
+
+- **Data ingestion**: Unification rules are triggered automatically when new data related to an entity is ingested. For example, the Asset entity unification rules run when asset data is ingested.
+- **Entity processing**: Unification rules run when an entity is directly processed, or indirectly impacted by changes to a related entity. For example, running the Asset Is Crown Jewel field's unification rule can trigger the Ticket Severity unification rule tied to that asset.
+- **Manual processing**: Unification rules run when you trigger manual processing when splitting or merging tickets, or when you click Process or Process All on the Data Unification pages. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-28T21:06Z","nid":"1545186"} -->
+## What Is Health360?
+
+- Source: https://help.zscaler.com/unified/what-health360
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > What Is Health360?
+- Last modified: 2026-08-28T21:06Z
+- Summary: Information about Health360.
+
+Zscaler Health360 delivers centralized visibility into the deployment, health, and performance of your Zscaler environment. By providing real-time insights directly within the Zscaler Admin Console, it eliminates the manual analysis often required across multiple product consoles, interfaces, and custom reports. This service helps you easily monitor your active subscriptions, deployment status, configuration quality, and the overall value being delivered.
+
+Health360 serves as an analytical capability within the Zscaler Admin Console, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
+
+- **Services**: This category encompasses all aspects of the third-party ecosystem used to access applications. This includes ISP networks, Zero Trust Exchange (ZTE) infrastructure, and applications. The ISP networks and applications health data is powered by Digital Experience (ZDX), your digital experience monitoring product.
+- **Connectors**: This category focuses on the various devices used to connect to the Zero Trust Exchange (ZTE). Health360 provides actionable insights into these devices, including versions, performance, capacity, and health signals.
+- **Best Practices**: This category displays the best practices distilled from Zscaler's extensive experience in deploying and managing numerous ecosystems. This helps in identifying configuration gaps and improving your overall deployment posture.
+- **Adoption**: This category displays Zscaler platform adoption maturity by detailing deployment, entitlement, and utilization levels on a per-product basis.
+
+The service is designed to support multiple needs where admins can proactively monitor service health, detect potential issues, and troubleshoot efficiently using a unified dashboard with actionable operational insights. Executives gain a high-level overview of platform adoption maturity, quantified health scoring, performance trends, and incidents that could impact deployment status.
+
+## Key Features and Benefits
+
+The following are the key features and benefits of Health360:
+
+- **Accelerated Time-to-Value**: Identify and resolve deployment gaps early in the implementation cycle.
+- **Optimized Configuration Posture**: Improve security and operational settings through best-practice scoring and remediation guidance.
+- **Demonstrable ROI Visibility**: Track business value and performance improvements with clear value-realization metrics.
+- **Proactive License Management**: Monitor entitlement and utilization details to optimize platform investments.
+- **Enhanced Operational Awareness**: Minimize the time needed to identify, troubleshoot, and resolve system issues.
+- **Comprehensive Platform Insights**: Access a single, consolidated view of overall platform health and performance trends.
 <!-- /ZS-ARTICLE -->
 
 ---

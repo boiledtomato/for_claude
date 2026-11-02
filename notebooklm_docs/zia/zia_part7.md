@@ -1,1600 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 92
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-assets-report-assets-with-incidents","lastmod":"2026-09-29T06:02Z","nid":"1401971"} -->
-## Understanding the Assets Report: Assets with Incidents
-
-- Source: https://help.zscaler.com/zia/understanding-assets-report-assets-with-incidents
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > Understanding the Assets Report: Assets with Incidents
-- Last modified: 2026-09-29T06:02Z
-- Summary: Information about the Assets with Incidents page, which is part of the Assets Report. It provides a comprehensive view for each selected application and tenant in the main report page.
-
-When you click to further analyze an application or tenant in the main [Assets Report](https://help.zscaler.com/zia/saas-assets-report) page, you are redirected to the Assets with Incidents page, which provides a comprehensive view of each selected application and tenant. The filters are preset to the application or tenant, and time frame you choose to further analyze, but you can click **Reset** at any time. You can also go back to the main Assets Report page by clicking the **Back** icon next to the page's title.
-
-To view your assets with incidents:
-
-1. Select the individual **Application** you’d like to analyze.
-2. Select which **Tenant** you’d like to analyze. You can choose **All Tenants** or specific ones. You can also search for tenants.
-3. Select to view a **Current Scan**, a **Previous Scan**, or **All Scans**.
-4. Select to view the scans for a particular time frame. You can choose to view scans for the current day, the current week, the last 24 hours, the last 7 days, or choose a custom time frame.
-5. Once you select your **Application**, **Tenant**, **Scan**, and scan time, click **Apply** to update the page with your selections. You can click **Reset** at any time.
-6. You can export the data.
-
-[Image: The Export button in the Assets with Incidents page, which is part of the SaaS Assets Report]
-
-## Collaboration Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Messages
-- Senders
-- Show Advanced Filters
-
-## CRM Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Objects
-- Owners
-- Collaborators
-- Show Advanced Filters
-
-## Email Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Email Messages
-- Senders
-- Recipients
-- Show Advanced Filters
-
-## File Sharing Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Files
-- Owners
-- Collaborators
-- Show Advanced Filters
-
-## Gen AI Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Messages
-- Senders
-- Show Advanced Filters
-
-## ITSM Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Objects
-- Owners
-- Collaborators
-- Show Advanced Filters
-
-## Source Code Repository Applications and Tenants
-
-The following tabs and advanced filters appear on your generated page:
-
-- Objects
-- Owners
-- Collaborators
-- Show Advanced Filters
-
-## Public Cloud Storage Applications and Tenants
-
-To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
-
-The following tabs and advanced filters appear on your generated page:
-
-- Objects
-- Owners
-- Collaborators
-- Show Advanced Filters
-
-You can select to view one of the following tiles:
-
-- Messages with Incidents Matching a Rule
-- Messages with DLP Violation
-- Messages with Malware
-- Messages with External Collaborators
-- Externally Sent Messages with DLP Violation
-- Quarantined Messages
-
-See image.
-
-Each tile has the following columns:
-
-- **File Name**: The name of the file.
-- **Message ID**: The message ID of the file.
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Workspace Name**: The workspace name for the collaboration application.
-- **Internal Recipients**: The recipients within your organization.
-- **External Recipients**: Therecipients outside your organization.
-- **Run ID**: The ID of the run. A run is when a scan is stopped and started. Every run is identified and tracked with a run ID.
-- **Collaboration Scope**: The collaboration scope and permissions for the SaaS application tenant files (e.g., External Collaborators - Edit). This column is currently only available for MS Teams.
-- **Remediation Action**: You can take the following remediation actions when you click on the ellipsis:
-  - **View Scan History**: You can view the scan history. You'll be redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-  - **Quarantine**: You can quarantine a message or file that is malware-reported, with incidents, or DLP violations.
-  - **Remove**: You can permanently remove a message or file that is quarantined, malware-reported, with incidents, or DLP violations. When you select **Quarantine** or **Remove** as a remediation action, it appears as a separate incident entry. The new entry has the most current Last Scan Time value, and the Action category is updated to reflect the remediation action you selected.
-  - **Restore**: You can restore a quarantined message or file that is malware-reported, with incidents, or DLP violations (for Slack only).
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Shared Channel Hostname**: The hostname of the Slack, Webex Teams, Microsoft Teams, or Zoom shared channel.
-- **Channel Name**: The name of the Slack, Webex Teams, Microsoft Teams, or Zoom channel.
-- **SHA**: The secure hash algorithm (SHA).
-- **Sender**: The sender of the file.
-- **Scan ID**: The ID of a scan. Every scan that is defined in the Historic Scan Configuration has a unique identifier associated with it.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS (ZIA) services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **Owner**: The owner of the file.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Messages tab in the Collaboration app category in the Assets with Incidents page]
-
-For each email message, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-
-[Image: The Messages tab in the Collaboration app category]
-
-You can select to view one of the following tiles:
-
-- Senders Affected with Incidents Matching a Rule
-- Senders of Messages with DLP Violations
-- Senders of Messages with Malware
-
-See image.
-
-Each tile has the following columns:
-
-- **Sender**: The sender of the message.
-- **Number of Messages with Incidents**: The number of messages that contain incidents.
-
-You can click on a number, and the **Messages with Incidents - Senders** window appears for that particular owner. In the **Messages with Incidents - Owners window**, the columns shown are the same ones in the **Senders** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Recipients**: The number of recipients outside your organization.
-- **Number of Internal Recipients**: The number of recipients within your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Senders tab in the Collaboration app category in the Assets with Incidents page]
-
-[Image: The Senders tab in the Collaboration app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **Number of Internal Recipients**: The recipients within your organization.
-- **Number of External Recipients**: The number of recipients outside your organization.
-- **Internal Recipients**: The recipients within your organization.
-- **File Name**: The name of the file.
-- **External Recipients**: The recipients outside your organization.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Channel Name**: The name of the Slack, Webex Teams, Microsoft Teams, or Zoom channel.
-- **Collaboration Message**: The message that was collaborated on.
-- **Shared Channel Hostname**: The hostname of the Slack, Webex Teams, Microsoft Teams, or Zoom shared channel.
-- **SHA**: The secure hash algorithm (SHA).
-- **Sender Name**: The sender of the file.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Messages with Incidents Matching a Rule
-- Messages with DLP Violation
-- Messages with Malware
-
-See image.
-
-Each tile has the following columns:
-
-- **Bot Name**: The name of the bot that triggered a DLP response.
-- **Component**: The name of the component (i.e., file or message).
-- **File Name**: The name of the file.
-- **Message ID**: The message ID of the file.
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Sender Type**: The type of sender (i.e., bot, system, or user).
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Run ID**: The ID of the run. A run is when a scan is stopped and started. Every run is identified and tracked with a run ID.
-- **Remediation Action**: You can take the following remediation action when you click on the ellipsis:
-  - **View Scan History**: You can view the scan history. You'll be redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-- **Scan ID**: The ID of a scan. Every scan that is defined in the Historic Scan Configuration has a unique identifier associated with it.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **Owner**: The owner of the file.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for column names.
-
-[Image: This image shows the Gen AI Messages Tab Column menu]
-
-[Image: This image shows the Gen AI Messages tab.filters]
-
-You can select to view one of the following tiles:
-
-- Senders Affected with Incidents Matching a Rule
-- Senders of Messages with DLP Violations
-- Senders of Messages with Malware
-
-See image.
-
-Each tile has the following columns:
-
-- **Sender**: The sender of the message.
-- **Number of Messages with Incidents**: The number of messages that contain incidents.
-
-You can click on a number, and the **Messages with Incidents - Senders** window appears for that particular sender.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can search for columns.
-
-[Image: This image shows the Gen AI Senders tab.]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Bot Name**: The name of the bot that triggered the DLP response.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **File Name**: The name of the file.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Message ID**: The message ID of the file.
-- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Sender Type**: The name of the sender (i.e., bot, system, or user).
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Tenant**: The name of the SaaS application tenant.
-- **Threat Name**: The name of the threat.
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-
-[Image: This image shows the advanced filters]
-
-You can select to view one of the following tiles:
-
-- Objects with Incidents Matching a Rule
-- Objects with DLP Violation
-- Objects with Malware
-- Objects with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Object ID**: The ID of the object.
-- **Object Name**: The name of the object.
-- **Object Type**: The type of object (e.g., report, campaign, dashboard).
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Owner**: The owner of the file.
-- **External Collaborators**: The collaborators outside your organization.
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Threat Name**: The name of the threat.
-- **Public URL**: The public URL used to access a shared file.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
-- **Internal Collaborators**: The internal collaborators within your organization.
-- **File Size**: The size of the file.
-- **File Path**: The path of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Remediation Action**: You can take the following remediation actions when you click the **Remediation Action** icon:
-  - **Restore:** You can restore a quarantined malware file to its original location provided the file was initially quarantined using the Quarantine Malware action in the DLP Malware policy. This option is currently available only for Salesforce.
-  - **Go to File**: You're redirected to the file in question. This feature is currently available only for Salesforce.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Objects tab in the CRM app category in the Assets with Incidents page]
-
-[Image: The Objects tab in the CRM app category]
-
-You can select to view one of the following tiles:
-
-- Owners of Files with Incidents Matching a Rule
-- Owners of Files with DLP Violation
-- Owners of Files with Malware
-- Owners of Files with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Owner**: The owner of the file.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the CRM app category in the Assets with Incidents page]
-
-[Image: The Owners tab in the CRM app category]
-
-You can view the External Collaborators of Files with Incidents Matching a Rule tile.
-
-See image.
-
-The tile has the following columns:
-
-- **External Collaborator**: The collaborator outside your organization.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Owners**: The owners of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Collaborators tab in the CRM app category in the Assets with Incidents page]
-
-[Image: The Collaborators tab in the CRM app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **External Collaborators**: The collaborators outside your organization.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Internal Collaborators**: The internal collaborators within your organization.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
-- **Object Name**: The name of the object.
-- **Object ID**: The ID of the object.
-- **Object Type**: The type of object (e.g., report, campaign, dashboard).
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Email Messages with Incidents Matching a Rule
-- Email Messages with DLP Violation
-- Email Messages with Malware
-- Externally Sent Email Messages with DLP Violation
-
-See image.
-
-Each tile has the following columns:
-
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Message ID**: The email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
-- **Thread Name**: The name of the email thread.
-- **Attachments**: The attachments within the email message.
-
-You can click on the attachment, click **View Details**, and the **Attachments for Message**window appears.
-
-In the **Attachments for Message** window, you can view the following columns:
-
-- **File Name**: The name of the email attachment.
-- **File Size**: The size of the email attachment.
-- **File MD5**: The MD5 hash of the email attachment.
-- **File Type**: The type of email attachment (e.g., CSV, TXT, etc.).
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns.
-
-- **Mail Sent Time**: The time and date the email was sent.
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **Sender**: The email sender.
-- **Internal Recipients**: The email recipients within your organization.
-- **External Recipients**: The email recipients outside your organization.
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Message Size**: The size of the email message.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **Advanced Threat Category**: The detected viruses or spyware.
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Non-Provisioned Owner**: The mailbox owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Threat Name**: The name of the threat.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: Screenshot of the Column Menu for the Email Messages tab in the Email app category in the Assets with Incidents page]
-
-For each email message, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-
-[Image: The Email Messages tab in the Email app category]
-
-You can select to view one of the following tiles:
-
-- Senders Affected with Incidents Matching a Rule
-- Senders of Messages with DLP Violations
-- Senders of Messages with Malware
-
-See image.
-
-Each tile has the following columns:
-
-- **Sender**: The email sender.
-- **Number of Email Messages with Incidents**: The number of email messages that contain incidents.
-
-You can click on a number, and the **Email Messages with Incidents - Senders**window appears for that particular sender. In the **Email Messages with Incidents - Senders** window, the columns shown are the same ones in the **Email Messages** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by selecting and deselecting the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Recipients**: The number of email recipients outside your organization.
-- **Number of Internal Recipients**: The number of email recipients within your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Senders tab in the Email app category in the Assets with Incidents page]
-
-[Image: The Senders tab in the Email app category]
-
-You can select to view one of the following tiles: External Recipients on Messages with DLP Violations or Users Who Received Messages with Malware.
-
-See image.
-
-Each tile has the following columns:
-
-- **External Recipients**: The email recipients outside your organization.
-- **Number of Email Messages with Incidents**: The number of email messages that contain incidents.
-
-You can click on a number, and the **Email Messages with Incidents - Recipients**window appears for that particular external recipient. In the **Email Messages with Incidents - Recipients** window, the columns shown are the same ones in the **Email Messages** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns. You can export the list.
-
-- **Senders**: The email senders that sent the email messages with incidents.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Recipients tab in the Email app category in the Assets with Incidents page]
-
-[Image: The Recipients tab in the Email app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **Thread Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **Threat Name**: The name of the threat.
-- **Attachment File Name**: The name of the attached file in the email message.
-- **Attachment File MD5**: The MD5 hash of the attached file.
-- **Message ID**: The email message identifier. Every email message has a unique ID. An Exchange or Gmail administrator can log in to their admin portals and search and pull a specific message with this ID if needed.
-- **Thread Name**: The name of the email thread.
-- **Number of Internal Recipients**: The email recipients within your organization.
-- **Number of External Recipients**: The number of email recipients outside your organization.
-- **Attachment File Size**: The size of the email attachment.
-- **Sender Name**: The email sender.
-- **Internal Recipients**: The email recipients within your organization.
-- **External Recipients**: The email recipients outside of your organization.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses or spyware.
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Files with Incidents Matching a Rule
-- Files with DLP Violation
-- Files with Malware
-- Files with External Collaborators
-- Publicly Shared Files with DLP Violations
-- Quarantined Files
-
-See image.
-
-Each tile has the following columns:
-
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **File ID**: The ID of the file. For example, if a file is scanned multiple times, an admin can use the file ID to view the scan trail.
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **Last Modified User**: The email address of the user who last modified the file. For Smartsheet, only the user who performed the first activity, from the time of the file scan, is displayed even though the file might have had multiple activities thereafter.
-- **Last Shared User**: The email address of the user who last shared the file. This column does not populate user details for the following applications as it is not supported: For Dropbox, only the user who last modified a shared file is displayed, even if another user shared it and modified it immediately.
-  - Google Drive
-  - Box
-  - ShareFile
-  - Confluence
-  - Smartsheet
-- **Last Shared On**: The date and time when the file was shared. This column does not populate timeline details for the following applications as it is not supported:
-  - Google Drive
-  - ShareFile
-  - Confluence
-  - Smartsheet
-- **File Path**: The path of the file.
-- **Severity of Last Incident**: The severity level of the file's last incidents detected by the Data at Rest Scanning DLP policy.
-- **Owner**: The owner of the file.
-- **External Collaborators**: The collaborators outside your organization.
-- **External Collaborator Group**: The group of collaborators outside your organization with whom the user shares assets. A group can have both internal and external members. Individual members of a group are logged under either Internal Collaborator or External Collaborators, depending upon the type of domain they belong to. A group is classified as an external collaborator group if even one member is an external collaborator, regardless of how many internal members it contains (e.g., 1 external member in a group of 100, where 99 are internal).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Remediation Action**: You can take the following remediation actions when you click on the ellipsis: Remediation actions are currently not supported for the Smartsheet application.
-  - **View Scan History**: You can view the scan history. You're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-  - **Go to File**: You're redirected to the file in question.
-  - **Remove Public Link**: You can remove the file's public link. This option will be grayed out after selecting it.
-  - **Remove Collaborators**: You can remove the file's collaborators. When you select this option, the **Remove Collaborators** window appears, where you can choose from the following options: See image.
-    - **Remove All Collaborators**: Removes all external and internal collaborators of the file.
-    - **Remove All External Collaborators**: Removes all external collaborators of the file.
-    - **Remove Specific External Collaborators**: Remove specific external collaborators from the file. From the **Collaborators** field, select the collaborators you want to remove and click **Done**, then **Remove**.
-  - **Remove Public Link and External Collaborators**: You can remove both the file's public link and the external collaborators.
-  - **Remove**: You can permanently remove a quarantined malware file or a malware reported file.
-  - **Remove Watermark**: You can remove a watermark that was applied to a file via a [watermark profile](https://help.zscaler.com/zia/adding-editing-watermark-profiles). This option is not available for image files.
-  - **Restore**: You can restore a quarantined file to its original location. The subsequent policy scans bypass the restored file until the file is modified. This action is available only for quarantined files.
-  - **Quarantine to User Root Folder**: You can quarantine an incident-reported file to the user's root folder by selecting a Tombstone Template that is used to create a tombstone file that replaces the quarantined file in its original location.
-  - **Restore Most Recent Redacted Version**: You can restore the most recent file to which redaction characters were applied via a redaction profile. Zscaler stores both the original file version and the redacted file version for possible recovery by administrators in the event of any inadvertent file deletions. To learn more, see [About Redaction](https://help.zscaler.com/zia/about-redaction) and [Adding and Editing Redaction Profiles](https://help.zscaler.com/zia/adding-editing-redaction-profiles).
-  - **Admin Quarantine**: An admin can quarantine sensitive files to a specific file location. Users must refer to the Tombstone template for admin contact details to request access to the file. This option is currently available only for Google Drive, Microsoft OneDrive, and Microsoft SharePoint.
-  - **Restore Admin Quarantine**: You can restore a file that was previously quarantined to the admin-specified location.
-  - **Apply MIP Label**: You can apply a Microsoft Information Protection (MIP) label to Excel, Word, PPT, and PDF files within MIP onboarded OneDrive and SharePoint tenants. This action is not applicable to files that have had quarantine, redaction, or watermark actions applied previously.
-  - **Remove Internal Sharing Links After Expiry**: You can set a manual expiration period to remove access to a file’s internal shareable links after expiration. This option is currently available only for Google Drive.
-  - **Remove External Sharing Links After Expiry**: You can set a manual expiration period to remove access to a file’s external shareable links after expiration. This option is currently available only for Google Drive.
-  - **Remove Collaborators After Expiry**: You can set a manual expiration period to remove a file’s collaborators after expiration, including collaborator groups after expiration. This option is currently available only for Google Drive.
-  - **Remove Sharing After Expiry**: You can set a manual expiration period to remove access to any shareable links after expiration. This option is currently available only for Google Drive. Manual file expiration dates must meet or exceed the original expiration period. For instance, if a link was initially set to expire in 30 days, the system restricts you from selecting any manual expiration date that falls before that 30-day threshold.
-- **Advanced Threat Category**: The detected viruses or spyware.
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **File MD5**: The MD5 hash of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
-- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Public URL**: The public URL used to access a shared file.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Internal Collaborators**: The internal collaborators within your organization.
-- **Internal Collaborator Group**: The group of collaborators within your organization with whom the user shares assets. A group can have both internal and external members. Individual members of a group are logged under either Internal Collaborator or External Collaborators, depending upon the type of domain they belong to.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **File Size**: The size of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Threat Name**: The name of the threat.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Files tab in the File Sharing app category in the Assets with Incidents page]
-
-[Image: The Files tab in the File Sharing app category]
-
-You can select to view one of the following tiles:
-
-- Owners of Files with Incidents Matching a Rule
-- Owners of Files with DLP Violation
-- Owners of Files with Malware
-- Owners of Files with External Collaborators
-- Owners of Publicly Shared Files
-
-See image.
-
-Each tile has the following columns:
-
-- **Owner**: The owner of the file.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Files with Incidents - Owners**window appears for that particular owner. In the **Files with Incidents - Owners** window, the columns shown are the same ones in the **Files** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the File app category in the Assets with Incidents page]
-
-[Image: The Owners tab in the File Sharing app category]
-
-You can view the External Collaborators of Files with Incidents Matching a Ruletile.
-
-See image.
-
-The tile has the following columns:
-
-- **External Collaborator**: The collaborator outside your organization.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Files with Incidents - Collaborators** window appears for that particular external collaborator. In the **Files with Incidents - Collaborators** window, the columns shown are the same ones in the **Files** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Owners**: The owners of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Collaborators tab in the File Sharing app category in the Assets with Incidents page]
-
-[Image: The Collaborators tab in the File Sharing app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific file name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
-- **File Path**: The path of the file.
-- **File MD5**: The MD5 hash of the file.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **File Size**: The size of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
-- **Internal Collaborators**: The interna collaborators within your organization.
-- **External Collaborators**: The collaborators outside your organization.
-- **External Collaborator Group**: The group of collaborators outside your organization with whom the user shares assets.
-- **Internal Collaborator Group**: The group of collaborators within your organization with whom the user shares assets.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses or spyware.
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Last Modified User**: Use this filter to view the records pertaining to the user who last modified the file that triggered the DLP violation. The default option for this filter is **None**.
-- **Last Shared User**: Use this filter to view the records pertaining to the user who last shared the file that triggered the DLP violation. The default option for this filter is **None**.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**:The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **Label**: The Microsoft Information Protection (MIP) label applied to the asset.
-- **Accessibility Flag**: A multivalue flag that provides the accessibility information of the asset.
-  - **Accessible by MS Copilot**: Indicates if the asset is accessible by Microsoft Copilot.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Objects with Incidents Matching a Rule
-- Objects with DLP Violation
-- Objects with Malware
-- Objects with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Object ID**: The ID of the object.
-- **Object Name**: The name of the object.
-- **Object Type**: The type of object (e.g., report, campaign, dashboard).
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Owner**: The owner of the file.
-- **External Collaborators**: The collaborators outside your organization.
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Threat Name**: The name of the threat.
-- **Public URL**: The public URL used to access a shared file.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
-- **Internal Collaborators**: The internal collaborators within your organization.
-- **File Size**: The size of the file.
-- **File Path**: The path of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **Download Time**: The download time, in milliseconds, of the file.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Objects tab in the ITSM app category in the Assets with Incidents page]
-
-[Image: The Objects tab in the ITSM app category]
-
-You can select to view one of the following tiles:
-
-- Owners of Files with Incidents Matching a Rule
-- Owners of Files with DLP Violation
-- Owners of Files with Malware
-- Owners of Files with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Owner**: The owner of the file.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the ITSM app category in the Assets with Incidents page]
-
-[Image: The Owners tab in the ITSM app category]
-
-You can view the External Collaborators of Files with Incidents Matching a Rule tile.
-
-See image.
-
-The tile has the following columns:
-
-- **External Collaborator**: The collaborator outside your organization.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Owners**: The owners of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Collaborators tab in the ITSM app category in the Assets with Incidents page]
-
-[Image: The Collaborators tab in the ITSM app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **External Collaborators**: The collaborators outside your organization.
-- **Number of Internal Collaborators**: The number of collaborators within your organization.
-- **Internal Collaborators**: The internal collaborators within your organization.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
-- **Object Name**: The name of the object.
-- **Object ID**: The ID of the object.
-- **Object Type**: The type of object (e.g., report, campaign, dashboard).
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Objects with Incidents Matching a Rule
-- Objects with DLP Violation
-- Objects with Malware
-- Objects with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Repository**: The name of the repository.
-- **Project**: The name of the project.
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Owner**: The owner of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **File MD5**: The MD5 hash of the file.
-- **File Path**: The path of the file.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **Threat Name**: The name of the threat.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **File Size**: The size of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-- **External Collaborators**: The collaborators outside your organization.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
-- **Download Time**: The download time, in milliseconds, of the file.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Objects tab in the Source Code Repository app category in the Assets with Incidents page]
-
-For each file, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-
-[Image: The Objects tab in the Source Code Repository app category]
-
-You can select to view one of the following tiles:
-
-- Owners of Files with Incidents Matching a Rule
-- Owners of Files with DLP Violation
-- Owners of Files with Malware
-- Owners of Files with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Owner**: The owner of the file.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Owners** window appears for that particular owner. In the **Objects with Incidents - Owners** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the Source Code Repository app category in the Assets with Incidents page]
-
-[Image: The Owners tab in the Source Code Repository app category]
-
-You can view the External Collaborators of Files with Incidents Matching a Rule tile.
-
-See image.
-
-The tile has the following columns:
-
-- **External Collaborator**: The collaborator outside your organization.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Owners**: The owners of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Collaborators tab in the Source Code Repository app category in the Assets with Incidents page]
-
-[Image: The Collaborators tab in the Source Code Repository app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **Number of External Collaborators**: The number of collaborators outside your organization.
-- **External Collaborators**: The collaborators outside your organization.
-- **File MD5**: The MD5 hash of the file.
-- **File Size**: The size of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., External Collaborators - Edit).
-- **File Path**: The path of the file.
-- **Project Name**: The name of the project.
-- **Repository Name**: The name of the repository.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the mailbox where the questionable email is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Identifier**: The ID number used to search for records. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-You can select to view one of the following tiles:
-
-- Objects with Incidents Matching a Rule
-- Objects with DLP Violation
-- Objects with Malware
-
-Each tile has the following columns:
-
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
-- **File Name**: The name of the suspicious file detected by the Data at Rest Scanning policy.
-- **File Path**: The path of the file.
-- **Last Scan Time**: The last time, by time and date, a file was scanned. You can sort this column.
-- **Severity of Last Incident**: The severity level of the file's last incidents detected by the Data at Rest Scanning DLP policy.
-- **Bucket Owner**: The name of the owner of the bucket.
-- **Bucket Name**: The name of the bucket.
-- **Owner**: The owner of the files.
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **File Modification Time**: The last time, by time and date, a file was modified. You can sort this column.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **File MD5**: The MD5 hash of the file.
-- **Collaboration Scope**: The collaboration scope and permissions for SaaS application tenant files (e.g., Edit).
-- **Public URL**: The public URL used to access a shared file.
-- **File Size**: The size of the file.
-- **File Type**: The type of file (e.g., CSV, TXT, etc.).
-- **SHA**: The secure hash algorithm (SHA).
-- **Number of Collaborators**: The number of file collaborators.
-- **Collaborators**: All the file collaborators.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **Rule Name**: The name of the rule that triggered the session or aggregated sessions.
-- **Advanced Threat Category**: The detected viruses or spyware.
-- **Policy Type**: The type of policy that took action (e.g., DLP).
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-
-See image.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the Public Cloud Storage app category in the Assets with Incidents page]
-
-For each file, you can click **See Scan History**; you're redirected to the [SaaS Security Insights Logs](https://help.zscaler.com/zia/saas-security-insights-logs) page.
-
-[Image: The Objects tab in the Public Cloud Storage app category]
-
-You can select to view one of the following tiles:
-
-- Owners of Files with Incidents Matching a Rule
-- Owners of Files with DLP Violation
-- Owners of Files with Malware
-- Owners of Files with External Collaborators
-
-See image.
-
-Each tile has the following columns:
-
-- **Owner**: The owner of the files.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents** window appears for that particular external collaborator. In the **Objects with Incidents** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Collaborators**: The collaborators of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Owners tab in the Public Cloud Storage app category in the Assets with Incidents page]
-
-[Image: The Owners tab in the Public Cloud Storage app category]
-
-You can view the External Collaborators of Files with Incidents Matching a Rule tile.
-
-See image.
-
-The tile has the following columns:
-
-- **Collaborator**: The collaborator of the files.
-- **Number of Files with Incidents**: The number of files that contain incidents.
-
-You can click on a number, and the **Objects with Incidents - Collaborators** window appears for that particular external collaborator. In the **Objects with Incidents - Collaborators** window, the columns shown are the same ones in the **Objects** tab.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns by checking and unchecking the ones you want to view or hide on the page and arranging them in the order you want to view them. You can also search for columns. You can export the list.
-
-- **Owners**: The owners of the files.
-
-Hover over the **Column Menu** icon on the top right of the table to customize these columns. You can select and deselect the ones you want to view or hide on the page. You can also arrange them in the order you want to view them. You can search for columns.
-
-[Image: The Column Menu for the Collaborators tab in the Public Cloud Storage app category in the Assets with Incidents page]
-
-[Image: The Collaborators tab in the Public Cloud Storage app category]
-
-You can add advanced filters to tailor certain fields with your specific searches. For example, you might want to filter your page to include a specific thread name; in that case, you can add the advanced filter **File Name** and include the operator **Equals**. You can also select or add other operators to your fields:
-
-- Equals
-- Ends with
-- Starts with
-- Contains
-- Does not equal
-- Does not start with
-- Does not end with
-- Does not contain
-
-You can add or remove multiple advanced filters, and you can select, add, or remove operators to best tailor your filtering. Click **Apply** to update the page to reflect your filters or **Reset** to start over.
-
-See image.
-
-The following are the advanced filters you can use:
-
-- **File Name**: The name of the file.
-- **File ID**: The ID of the file. For example, if a file was scanned multiple times, an admin can use the file ID to view the scan trail.
-- **File Path**: The path of the file.
-- **SHA**: The secure hash algorithm (SHA).
-- **Bucket Name**: The name of the bucket.
-- **Non-Provisioned Owner**: The file owners (inside or outside your organization) that are not provisioned to the Internet & SaaS services.
-
-When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, the service begins to log the file owner under the **User**column.
-
-- **File MD5**: The MD5 hash of the file.
-- Number of Collaborators
-- **File Size**: The size of the file.
-- **Action**: The Data at Rest Scanning DLP policy rule action.
-- **Severity**: The severity level of the incidents detected by the Data at Rest Scanning DLP policy.
-- **Advanced Threat Category**: The detected viruses and spyware for a specific advanced threat category (e.g., Trojan).
-- **Threat Super Category**: The detected viruses and spyware for a specific super threat category (i.e., Malware, Sandbox, Spyware, and Virus).
-- **Scan Time**: The amount of time, in milliseconds, the Data at Rest Scanning policy took to scan content within the tenant.
-- **Document Type**: The type of document uploaded or downloaded during the transaction.
-- **Download Time**: The download time, in milliseconds, of the file.
-- **Threat Name**: The name of the threat.
-- **Owner Name**: The owner of the account where the questionable message is located. It can be a sender (DLP) or a recipient (Malware).
-- **DLP Engine**: The [DLP engine](https://help.zscaler.com/zia/about-dlp-engines) that was detected.
-- **DLP Dictionary**: The [DLP dictionary](https://help.zscaler.com/zia/about-dlp-dictionaries) that was triggered.
-
-[Image: The Advanced Filters section in the Assets with Incidents page]
-
-[Image: Remove Collaborators window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-basic-authentication","lastmod":"2026-07-30T09:42Z","nid":"1498526"} -->
-## Understanding Basic Authentication
-
-- Source: https://help.zscaler.com/zia/understanding-basic-authentication
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Basic Authentication > Understanding Basic Authentication
-- Last modified: 2026-07-30T09:42Z
-- Summary: Information on using Basic authentication for Internet & SaaS, and how it works with user enrollment and traffic authentication.
-
-Zscaler supports Basic authentication, a simple authentication scheme built into the HTML protocol. Basic authentication prompts users for a username and password, which are sent as a Base64 encoded string in the HTTP request header.
-
-Basic authentication is not enabled by default. To access this feature, submit a support ticket from the Zscaler Admin Console.
-
-## How Basic Authentication Works with Zscaler
-
-The following diagram provides an overview of the Basic authentication flow with Zscaler:
-
-[Image: Basic Authentication traffic flow]
-
-1. The client sends a request along with the authentication credentials of its corresponding user enrolled with Zscaler.
-2. A Public Service Edge for Internet & SaaS (ZIA) calculates the HA1 value for the given credentials and authenticates the user upon successful validation.
-3. The traffic proceeds to its destination and a 200 OK verification code is sent back to the Zscaler service and client.
-
-## Basic Authentication Overview
-
-Basic authentication can be integrated with the following Zscaler workflows:
-
-- User Enrollment
-- Authenticating Traffic
-
-Basic authentication works with an HA1 value that must be initialized. Therefore, users need to be enrolled to the Zscaler Admin Console via API. This is necessary because Basic authentication is often used for workloads, which may not be able to interactively perform user enrollment on a browser.
-
-For more information about user enrollment, see [Deploying Basic Authentication](https://help.zscaler.com/zia/deploying-basic-authentication).
-
-After users are enrolled, they can browse the internet through an Internet & SaaS proxy and one of several forwarding proxy methods such as Static IP, DPCC, Virtual Service Edge for Internet & SaaS, or with transparent proxy such as GRE and VPN. User traffic from [locations](https://help.zscaler.com/zia/about-locations) can be configured for Basic authentication and the desired forwarding method.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-business-continuity-cloud-components","lastmod":"2026-07-01T12:02Z","nid":"1529488"} -->
-## Understanding the Business Continuity Cloud Components
-
-- Source: https://help.zscaler.com/zia/understanding-business-continuity-cloud-components
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Business Continuity > Understanding the Business Continuity Cloud Components
-- Last modified: 2026-07-01T12:02Z
-- Summary: Information on Business Continuity Cloud components: Private Policy Cache and Private PAC Servers, and their benefits and functionalities.
-
-The Zscaler-managed Business Continuity Cloud service includes two components, Private Policy Cache and Private PAC Servers, working with the Private Service Edges for Internet & SaaS (ZIA). These components apply the last known good policy configurations to the outgoing traffic and redirect traffic to the dedicated private cloud infrastructure during business continuity mode. Both Private Policy Cache and Private PAC Servers are deployed in redundant pairs in each Business Continuity Cloud site. They are managed by Zscaler and are subject to ongoing updates and enhancements at any time.
-
-The Internet & SaaS Business Continuity Cloud only supports Z-Tunnel 1.0, PAC files, and GRE tunnel connectivity.
-
-To learn more, see [Understanding Zscaler-Managed Business Continuity Cloud](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud).
-
-## Private Policy Cache
-
-This component is integrated into the Private Service Edge infrastructure and acts as a local repository for policy configurations, ensuring business continuity when Zscaler cloud is unreachable.
-
-During public cloud software upgrades, the Business Continuity Cloud upgrade is delayed on purpose to prevent upgrade-related issues. This also delays the update of any new policies or configurations to support fault isolation.
-
-### Key Benefits
-
-Private Policy Cache provides the following benefits:
-
-- Ensures the last known good policies are available when the Zscaler cloud is inaccessible.
-- Continuously fetches and syncs tenant-specific configurations (location, users, groups, etc.) during normal operations.
-- Automatically integrates version upgrades to ensure consistency in functionality.
-- Supports a seamless switch between public and private clouds in business continuity mode.
-
-### Functionality
-
-Private Policy Cache supports the following functionalities:
-
-- During normal operations:
-  - Fetches and stores tenant-specific configurations from the cloud and syncs them regularly to be readily available in business continuity mode.
-  - Serves as the primary control path for local Service Edge instances, ensuring up-to-date policy availability for business continuity.
-- During business continuity:
-  - Facilitates access to applications with full cyber and data protection.
-  - Operates independently of public clouds to maintain security policies.
-
-## Private PAC Servers
-
-This component hosts the client's PAC files and reroutes traffic to the business continuity private cloud during critical failures.
-
-### Functionality
-
-Private PAC Servers support the following functionalities:
-
-- During normal operations:
-  - Receives and locally stores PAC files from the public cloud for each Business Continuity Cloud site.
-  - Ensures stored PAC files are geographically and health-aware for seamless failover.
-- During business continuity:
-  - Hosts disaster recovery PAC files to redirect client requests to the appropriate Business Continuity Cloud.
-  - Provides geo-awareness, allowing Zscaler Client Connector to connect to the nearest Business Continuity Cloud based on its IP address or location.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-cipa-compliance","lastmod":"2026-10-08T00:09Z","nid":"1401271"} -->
-## Understanding CIPA Compliance
-
-- Source: https://help.zscaler.com/zia/understanding-cipa-compliance
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Understanding CIPA Compliance
-- Last modified: 2026-10-08T00:09Z
-- Summary: Information about the CIPA Compliance rule.
-
-The Children's Internet Protection Act (CIPA) is aimed to prevent children from accessing obscene or harmful content over the internet. To learn more, see [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/sites/default/files/childrens_internet_protection_act_cipa.pdf). Schools or libraries are required to be CIPA compliant to receive discounts on internet access or internal connections through the E-rate program.
-
-To aid schools and organizations to be compliant with the CIPA requirements, Zscaler provides a predefined URL filtering rule ([CIPA Compliance Rule](https://help.zscaler.com/zia/about-cipa-compliance#view-CIPA-comp-rule)) and a control ([Enable CIPA Compliance](https://help.zscaler.com/zia/about-cipa-compliance#Enable-CIPA-Compliance)) to enable the predefined rule. It also provides a [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report) which gives insights into the traffic and users that are blocked from accessing the prohibited content based on the CIPA Compliance Rule.
-
-- Enabling CIPA Compliance
-- Viewing CIPA Compliance Rule
-
-To activate the **CIPA Compliance Rule**, enable the **Enable CIPA Compliance** option from the **Data Security**> **Inline CASB** > **Advanced Policy Settings**. To learn more, see [Configuring Advanced URL Policy Settings](https://help.zscaler.com/zia/configuring-advanced-url-policy-settings).
-
-- Effects of Enabling CIPA Compliance
-- Effects of Disabling CIPA Compliance
-
-You cannot enable the **Enable CIPA Compliance** option when:
-
-- The number of URL filtering policy rules exceeds the [limit](https://help.zscaler.com/zia/ranges-limitations#Rules).
-- A rule with rule order 1 exists with a higher admin rank.
-
-- The **CIPA Compliance Rule** is activated under **Internet Access**> **Policy** > **URL Filtering**.
-- The following **Advanced URL Filtering** **Options** under **Data Security**> **Inline CASB** > **Advanced Policy Settings** are enabled. You cannot disable the following options:
-  - Enable Suspicious New Domains Lookup
-  - Enable AI/ML based Content Categorization
-  - Enable Embedded Sites Categorization
-  - Enforce SafeSearch
-
-To learn more, see [Configuring Advanced URL Policy Settings](https://help.zscaler.com/zia/configuring-advanced-url-policy-settings).
-
-- The **CIPA Compliance Report** option is enabled under the following locations:
-  - Liability Exposure
-  - Scheduled Reports
-
-See image.
-
-To learn more, see [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report).
-
-- When you disable the **Enable CIPA Compliance**, a warning message appears and we can add an image. You can get the image in beta, just disable the toggle in **Advanced Settings** and the warning appears.
-- The **CIPA Compliance Rule** gets disabled under the **Internet Access**> **Policy** > **URL Filtering**. However, you can view the disabled rule.
-- The **Advanced URL Filtering** **Options** under the **Data Security**> **Inline CASB** > **Advanced Policy Settings** are set to the recommended policy settings. To learn more, see [Recommended URL & Cloud App Control Policy](https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy#adv-url-policy-settings).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Analytics**> **Reports**> **Interactive Reports**.
-2. On the **Standard Reports** tab, go to the Liability Exposure section to view the report.
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**> **Interactive Reports**.
-2. On the Scheduled Reports tab, click **Add**. The **Add Scheduled Reports**window appears.
-3. In the **Add Scheduled Reports**window, for **Report**, select **CIPA Compliance Report**, and configure the rest of the window.
-4. Save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can view the **CIPA Compliance Rule** under the **Internet Access**> **Policy** > **URL Filtering** if you select **Enable CIPA Compliance** option at least once. To learn more, see Enabling CIPA Compliance.
-
-You can delete the CIPA Compliance Ruleonlywhen you disable the **Enable CIPA Compliance**toggle.
-
-The attributes defined for the rule are as follows:
-
-| Attributes | Value | Description |
-| --- | --- | --- |
-| Rule Order | 1 | (Editable) Order of precedence of the rule. When the CIPA Compliance Rule is activated for the first time, it takes the highest precedence (rule order 1) by default. The rule order is automatically incremented by 1 for the other rules. You can edit the rule order based on your preference. |
-| Admin Rank | 0 to 7 | (Editable) Admin rank of the logged-in user. If the logged-in user does not have an admin rank, then the rule is created with an admin rank 7. |
-| Rule Name | CIPA Compliance Rule | (Non-editable) Name of the rule. You cannot create any custom URL filtering rule with the name CIPA Compliance Rule. |
-| Rule Status | Disabled/Enabled | (Non-editable) Status of the rule. |
-| URL Categories | Adult Sex Education, Adult Themes, Alcohol/Tobacco, Anonymizer, Computer Hacking, Copyright Infringement, Drugs, Gambling, K-12 Sex Education, Lingerie/Bikini, Mature Humor, Militancy/Hate and Extremism, Newly Registered and Observed Domains, Nudity, Other Adult Material, Other Illegal or Questionable, Pornography, Profanity, Questionable, Body Art, Social Networking Adult, Tasteless, Violence, Weapons/Bombs | (Non-editable) List of all the predefined categories under the URL super category, **Legal Liabilities** with predefined URLs and keywords. The custom categories under **Legal Liabilities**are excluded. You cannot add or delete URL categories from the predefined list. However, you can add or delete custom URLs and keywords (CIPA related) from any predefined category under **Legal Liabilities**. |
-| HTTP Requests | OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, OTHER, ALL | (Non-editable) List of predefined HTTP requests. |
-| Users | --- | (Non-editable) Applicable to all the users in the organization. |
-| Groups | --- | (Non-editable) Applicable to all the groups in the organization. |
-| Departments | --- | (Non-editable) Applicable to all the departments in the organization. |
-| Locations | --- | (Non-editable) Applicable to all the locations of the organization. |
-| Location Groups | --- | (Non-editable) Applicable to all the location groups of the organization. |
-| Time | --- | (Non-editable) Applicable at any time. |
-| Protocols | Any | (Non-editable) Applicable to all protocols. |
-| Web Traffic | Block | (Non-editable) Access is denied to all the sites that fall under the specified URL categories. |
-| Allow Override | Disabled | (Non-editable) No exception is allowed for the blocked sites. |
-| Redirect URL | --- | (Non-editable) No redirect URL is configured. |
-| Description | --- | (Editable) Additional notes or information about the rule. |
-
-[Image: CIPA Compliance Report]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-cloud-app-categories","lastmod":"2026-10-09T00:12Z","nid":"1399341"} -->
-## Understanding Cloud App Categories
-
-- Source: https://help.zscaler.com/zia/understanding-cloud-app-categories
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Understanding Cloud App Categories
-- Last modified: 2026-10-09T00:12Z
-- Summary: Information on the Cloud App categories available with Internet & SaaS (ZIA) and which cloud apps are included in the categories.
-
-Cloud app categories are a key part of [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control). The service organizes cloud applications into 19 categories. For 11 of the categories, you can [create rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) to allow or block applications per category. For the other 8 categories, in addition to creating rules to allow or block applications per category, you can also apply granular controls (i.e., the specific actions a user can take within the application) as per your organizational requirements.
-
-## Cloud App Categories with Allow or Block Options
-
-Following are the cloud application categories with the allow or block options. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
-
-- **Consumer**
-- **Custom Applications**
-- **DNS Over HTTPS Services**
-- **Finance**
-- **Health Care**
-- **Hosting Providers**
-- **Human Resources**
-- **IT Services**
-- **Legal**
-- **Productivity & CRM Tools**
-- **Sales & Marketing**
-
-## Cloud App Categories with Granular Controls
-
-Following are the cloud application categories with granular controls. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
-
-- **AI & ML Applications**: Granular controls appear when ChatGPT or Microsoft Copilot are chosen with Application Access set to Allow.
-- **Collaboration & Online Meetings**: Granular controls appear when Microsoft Teams, SharePoint Online, Slack, or Webex Meetings are chosen with Application Access set to Allow.
-- **File Sharing**: Granular controls appear for all the applications and additional granular controls appear when Box, Dropbox, OneDrive, OneDrive for Business, or Google Drive are chosen with Viewing set to Allow.
-- **Instant Messaging**: Granular controls appear for all the applications with Chatting set to Allow.
-- **Social Networking**: Granular controls appear for all the applications and additional granular controls appear when LinkedIn is chosen with Viewing set to Allow.
-- **Streaming Media**: Granular controls appear for all the applications with Viewing/Listening set to Allow.
-- **System & Development**: Granular controls appear for all the applications and additional granular controls appear when GitHub is chosen with Viewing set to Allow.
-- **Webmail**: Granular controls appear for all the applications with Viewing Mail set to Allow.
-
-If more than one cloud application with granular controls is selected for a category, then only the actions that are common among the selected applications are displayed.
-
-## Viewing Supported Cloud Applications
-
-To view the supported cloud applications for a cloud app category from the Zscaler Admin Console:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB**> **SaaS/Cloud App Policy**.
-2. In the left-side menu, select a cloud app category, then click **Add Rule**.
-3. In the **Add Rule** window, click and open the **Cloud Applications**drop-down menu. The drop-down menu lists the supported cloud applications for the selected cloud app category. You can look up a cloud application for a URL using the [URL Lookup](https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console) tool or the [urlLookup](https://help.zscaler.com/zia/url-categories#/urlLookup-post) API.
-
-[Image: Add Cloud App Control Rule Window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-data-rest-scanning-policy","lastmod":"2026-04-28T07:49Z","nid":"1401626"} -->
-## Understanding the Data at Rest Scanning Policy
-
-- Source: https://help.zscaler.com/zia/understanding-data-rest-scanning-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Understanding the Data at Rest Scanning Policy
-- Last modified: 2026-04-28T07:49Z
-- Summary: How to configure Zscaler SaaS Security Data at Rest Scanning policy, which includes the Data Loss Prevention (DLP) and Malware Detection policies.
-
-To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
-
-The Data at Rest Scanning policy consists of the [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-saas-security-api-dlp) and [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection) policies. You can configure these policies for the following SaaS application types:
-
-- Collaboration
-- CRM
-- Email
-- File sharing
-- Gen AI
-- ITSM
-- Public cloud storage
-- Source code repository
-
-## Policy Execution
-
-The Data at Rest Scanning rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
-
-DLP Engines (`AND`) SaaS Application Tenants (`AND`) [Owners (`OR`) Groups (`OR`) Departments] (`AND`) Collaboration Scope (`AND`) File Type (`AND`) [Trusted Domains (`OR`) Trusted Users].
-
-## Configuring the Data at Rest Scanning Policy
-
-To configure the Data at Rest Scanning policy:
-
-1. Configure the resources that the policies reference:
-  - [SaaS application tenants](https://help.zscaler.com/zia/adding-saas-application-tenants) for both your DLP and Malware Detection policies.
-  - [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), and [DLP engines](https://help.zscaler.com/zia/about-dlp-engines) for your Data at Rest Scanning DLP policies.
-2. Define the rules for each policy:
-  - [SaaS Security DLP](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy)
-  - [SaaS Security Malware Detection](https://help.zscaler.com/zia/configuring-saas-security-api-malware-detection-policy)
-3. [Configure SaaS Security Scan Schedules](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules) for the DLP and Malware Detection policies to inspect content in sanctioned SaaS applications.
-
-When you define a DLP or Malware Detection rule for public cloud storage applications, you can specify buckets or blob containers for inspection. To specify buckets or blob containers for the Zscaler service to inspect:
-
-- When you first define a policy rule for a public cloud storage application, the following fields can’t be changed: Buckets, Bucket Owner, Blob Containers, and Blob Container Owner. You must create and save the rule without configuring these fields.
-- After saving the policy rule, create a scan schedule for the tenant. In the table, select the bucket or blob container names to create a list of available buckets or blob containers for the DLP and Malware Detection policies.
-- After you create the list and save the scan schedule, you can edit the rule and configure the Buckets, Bucket Owner, Blob Containers, or Blob Container Owner fields.
-
-1. Start scheduled scans from the [SaaS Security Scan Configuration page](https://help.zscaler.com/zia/about-saas-security-api-scan-configuration).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-dlp-engines","lastmod":"2026-09-24T11:09Z","nid":"1401611"} -->
-## Understanding DLP Engines
-
-- Source: https://help.zscaler.com/zia/understanding-dlp-engines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding DLP Engines
-- Last modified: 2026-09-24T11:09Z
-- Summary: Information on Data Loss Prevention (DLP) engines, including how to build expressions and how to configure the match count for DLP dictionaries in an engine.
-
-A [Data Loss Prevention (DLP) engine](https://help.zscaler.com/zia/about-dlp-engines) is a collection of one or more DLP dictionaries. The Zscaler service provides predefined DLP engines and supports custom DLP engines:
-
-- Predefined DLP Engines: The Zscaler service provides 5 predefined engines (HIPAA, GLBA, PCI, Offensive Language, and Self-Harm & Cyberbullying). These engines contain default DLP dictionaries. For example, the PCI engine contains the Credit Cards and Social Security Number dictionaries. You can also edit predefined engines. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines).
-
-The Self-Harm & Cyberbullying engine is intended for use by K-12 educators. If you’re an educator, contact your Zscaler Account team to enable this feature.
-
-- Custom DLP Engines: You can create custom DLP engines to detect content that is relevant to your organization on the DLP Engines page or through the Cloud Service API. You can create a maximum of 512 custom DLP engines. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine) and [Understanding Cloud Service and Sandbox Submission APIs.](https://help.zscaler.com/zia/about-api)
-- If you use a parent dictionary to configure the engine, you have the option to select a sub-dictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for sub-dictionaries), then you must select a sub-dictionary from the drop-down menu.
-
-See image.
-
-When you use parent and sub-dictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and sub-dictionaries can match independently of one another). To learn more about configuring parent and sub-dictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
-
-## Building Expressions for DLP Engines
-
-When configuring a predefined or custom DLP engine, you can combine DLP dictionaries with operators to create a logical expression. The operators include All (AND), Any (OR), Exclude (AND NOT), and Sum. The Sum operator allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
-
-See image.
-
-To build a DLP engine expression, create subexpressions with operators and dictionaries. Subexpressions determine the logic for how the engine’s dictionaries must trigger in order for the engine to trigger. You can use the Sum operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the Sum operator.
-
-See image.
-
-For example, the following expressions use the same dictionaries. However, because the subexpressions are applied differently, the logic for each expression is different.
-
-- `((ABA Bank Routing Numbers > 0) AND (Credit Cards > 0)) OR (Financial Statements > 0)`
-- `(ABA Bank Routing Numbers > 0) AND ((Credit Cards > 0) OR (Financial Statements > 0))`
-
-The following expression uses sub-dictionaries, which appear in brackets within the expression:
-
-`((Parent Container (Canada) [Canadian Driver License] > 0) AND ((Parent Container (Canada) [Canadian Passport Pattern] > 0)))`
-
-## Configuring the Match Count
-
-Depending on the operator and the dictionary you select, you must also configure the match count value for a dictionary or group of dictionaries when adding them to a DLP engine. The match count is the threshold that triggers a dictionary or group of dictionaries.
-
-See image.
-
-The dictionary or dictionaries trigger only if they find more matches than the number specified. For example:
-
-- If you use the Sum operator in your expression with 3 dictionaries, and you enter a match count of 6, then the policy triggers only if there are 7 or more matches across the 3 dictionaries.
-- Similarly, if you use any of the other operators (All, Any, or Exclude) with a dictionary that requires a match count, and you enter a match count of 6, the dictionary triggers only upon finding 7 or more matches in that dictionary. If you select multiple dictionaries with individual match counts, the dictionary is triggered only when the threshold is reached for an individual dictionary.
-
-You can add a dictionary to multiple engines and specify a different match count value each time you add a dictionary to an engine. For example, consider that you want to create a DLP policy rule to block all file uploads containing 5 or more instances of personally identifiable information (PII), and another policy rule to send an email notification whenever a file upload contains at least one instance of PII. In this scenario, you can:
-
-- For your block policy rule, create one DLP engine with PII dictionaries that each have a match count value of 4. You must also ensure that this rule’s order number is before the notification policy rule.
-- For your notification policy rule, create a second DLP engine with PII dictionaries that each have a match count value of 0.
-
-To modify the Confidence Score Threshold of a predefined dictionary, you must configure this setting in the dictionary itself. To learn more, see [Configuring the Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
-
-[Image: The DLP Engine Expression Builder Using a Parent and Sub-Dictionary]
-
-[Image: The DLP Engine Expression Builder Using a Logical Operator]
-
-[Image: The DLP Engine Expression Builder Using a Sum Operator]
-
-[Image: Subexpressions for the DLP Engine Expression]
-
-[Image: The Match Count for the DLP Dictionary in the Engine]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 91
 
 ---
 
@@ -3506,16 +1914,14 @@ This feature rollout follows the monthly infrastructure upgrade schedule as per 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-10-22T09:58Z","nid":"1399061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-nanolog-streaming-service","lastmod":"2026-10-27T09:42Z","nid":"1399061"} -->
 ## Understanding Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/zia/understanding-nanolog-streaming-service
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Understanding Nanolog Streaming Service (NSS)
-- Last modified: 2026-10-22T09:58Z
+- Last modified: 2026-10-27T09:42Z
 - Summary: Information on Nanolog Streaming Service (NSS).
-
-[Watch a video about Nanolog Streaming Service (NSS)](https://fast.wistia.net/embed/iframe/p3of1u4s69) (shows legacy UI).
 
 Zscaler's Nanolog Streaming Service (NSS) is a family of products that enable Zscaler cloud communication with third-party security solution devices for exchanging event logs.
 
@@ -3743,13 +2149,13 @@ The Executive Director of Finance (Megan Williams) sends an email that contains 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-pac-file","lastmod":"2026-09-02T06:10Z","nid":"1399376"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-pac-file","lastmod":"2026-10-28T11:37Z","nid":"1399376"} -->
 ## Understanding PAC Files
 
 - Source: https://help.zscaler.com/zia/understanding-pac-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Understanding PAC Files
-- Last modified: 2026-09-02T06:10Z
+- Last modified: 2026-10-28T11:37Z
 - Summary: Information on proxy auto-configuration (PAC) files and how it forwards internet traffic to the Zscaler service.
 
 A proxy auto-configuration (PAC) file is a text file that instructs a browser to forward traffic to a proxy server instead of directly to the destination server. It contains JavaScript that specifies the proxy server and, optionally, additional parameters that specify when and under what circumstances a browser forwards traffic to the proxy server. For example, a PAC file can specify on what days of the week or what hours of the day traffic is sent to a proxy, or for which domains and URLs traffic is not sent to a proxy.
@@ -3765,7 +2171,7 @@ In the following diagram, the URL of the Zscaler default PAC file is configured 
 
 [Image: Network diagram of the Zscaler PAC file process]
 
-Because it is the browser itself that is configured to retrieve the PAC file and forward traffic accordingly, traffic is forwarded to the Zscaler service, regardless of the user’s network.
+Because it is the browser itself that is configured to retrieve the PAC file and forward traffic accordingly, traffic is forwarded to the Zscaler service, regardless of the user's network.
 
 Zscaler recommends that organizations use a combination of tunneling, PAC files, [Surrogate IP](https://help.zscaler.com/zia/understanding-surrogate-ip), and [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector) to forward traffic to the Zscaler service. If your organization has a static public IP address on its egress port and uses an internal router, switch, or firewall that supports GRE, Zscaler recommends configuring a [GRE tunnel](https://help.zscaler.com/zia/configuring-gre-tunnels) to forward all outbound traffic from your location to the Zscaler service. If your gateway device does not support GRE or uses a dynamic IP address, you can deploy an [IPSec VPN tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel) instead.
 
@@ -3776,13 +2182,13 @@ To learn more about how to use PAC files to forward traffic to the Zscaler servi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-partner-integrations","lastmod":"2026-10-16T16:35Z","nid":"1400581"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-partner-integrations","lastmod":"2026-10-30T21:06Z","nid":"1400581"} -->
 ## Understanding Partner Integrations
 
 - Source: https://help.zscaler.com/zia/understanding-partner-integrations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Understanding Partner Integrations
-- Last modified: 2026-10-16T16:35Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: Information on the available partner integrations with the Zscaler service.
 
 You can integrate the Zscaler service with the following partners and services from the Zscaler Admin Console:
@@ -4078,13 +2484,13 @@ By default, if a user requests a cloud app that you explicitly allow with Cloud 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-post-quantum-cryptography-visibility-report","lastmod":"2026-10-11T23:12Z","nid":"1532146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-post-quantum-cryptography-visibility-report","lastmod":"2026-10-26T21:06Z","nid":"1532146"} -->
 ## Understanding the Post-Quantum Cryptography Visibility Report
 
 - Source: https://help.zscaler.com/zia/understanding-post-quantum-cryptography-visibility-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Understanding the Post-Quantum Cryptography Visibility Report
-- Last modified: 2026-10-11T23:12Z
+- Last modified: 2026-10-26T21:06Z
 - Summary: Information on Post-Quantum Cryptography and key features and benefits of PQC logging in the Zscaler Admin Console.
 
 Quantum computers pose a significant future threat to current cryptographic systems used in TLS, SSH, and IPSec, enabling adversaries to store encrypted data today and decrypt it later. This is driving a global push for Post-Quantum Cryptography (PQC). PQC is a new class of cryptographic algorithms designed to protect data and communications against potential attacks from advanced, large-scale quantum computers. Organizations require visibility into traffic flows to determine PQC compliance and readiness.
@@ -4128,13 +2534,13 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-10-25T07:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-11-01T06:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
@@ -7220,16 +5626,14 @@ To learn more about how the Zscaler service can protect your organization from t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-ssltls-inspection","lastmod":"2026-04-15T22:49Z","nid":"1399966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-ssltls-inspection","lastmod":"2026-10-27T10:37Z","nid":"1399966"} -->
 ## Understanding SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/understanding-ssltls-inspection
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Understanding SSL/TLS Inspection
-- Last modified: 2026-04-15T22:49Z
+- Last modified: 2026-10-27T10:37Z
 - Summary: Information on protecting SSL/TLS traffic using Zscaler service and deployment scenarios for SSL/TLS Inspection.
-
-[Watch a video about SSL/TLS Inspection](https://fast.wistia.net/embed/iframe/asxajs13w9) (shows legacy UI).
 
 HTTPS is an aggregate of HTTP and the Secure Sockets Layer (SSL)/Transport Layer Security (TLS) protocol, wherein the authentication and encryption capabilities of SSL/TLS protect HTTP communications. This is vital because the information that you send on the internet is passed along from one device to another before it reaches the destination server. Therefore, sensitive information, such as credit card numbers, usernames, and passwords might be seen by intermediate devices if the information is sent in clear text over HTTP. When the information is encrypted and protected by the SSL/TLS protocol, only the intended recipient can read the information. To learn more about SSL/TLS, see [Understanding SSL/TLS](https://help.zscaler.com/zia/understanding-secure-sockets-layer-ssl-transport-layer-security-tls).
 
@@ -8497,13 +6901,13 @@ Zscaler offers the following solutions for organizations to use dedicated source
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-default-pac-files-forward-traffic-internet-saas","lastmod":"2026-09-29T04:09Z","nid":"1399461"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-default-pac-files-forward-traffic-internet-saas","lastmod":"2026-10-28T11:56Z","nid":"1399461"} -->
 ## Using Default PAC Files to Forward Traffic to Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Using Default PAC Files to Forward Traffic to Internet & SaaS
-- Last modified: 2026-09-29T04:09Z
+- Last modified: 2026-10-28T11:56Z
 - Summary: How to use default PAC files to forward traffic to Internet & SaaS (ZIA).
 
 The Zscaler service hosts 4 non-editable default PAC files, recommended.pac, proxy.pac, mobile_proxy.pac, and kerberos.pac, which are all configured to automatically forward all browser traffic to the nearest Public Service Edge for Internet & SaaS (ZIA).
@@ -8514,7 +6918,7 @@ The service recommends that you deploy the **recommended.pac** file to your orga
 
 To use the default PAC file that is hosted by the Zscaler service:
 
-1. Go to **Infrastructure**>**Internet & SaaS**> **Hosted PAC Files**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Internet & SaaS** > **Hosted PAC Files**.
 2. Copy the **Hosted URL** of the default PAC file. See image.
 3. [Distribute the PAC file URL to your users.](https://help.zscaler.com/zia/distributing-pac-file-url-my-users)
 
@@ -8523,22 +6927,22 @@ To use the default PAC file that is hosted by the Zscaler service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-default-zscaler-kerberos-pac-file","lastmod":"2026-10-07T04:49Z","nid":"1399586"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-default-zscaler-kerberos-pac-file","lastmod":"2026-10-30T08:36Z","nid":"1399586"} -->
 ## Using the Default Zscaler Kerberos PAC File
 
 - Source: https://help.zscaler.com/zia/using-default-zscaler-kerberos-pac-file
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Using the Default Zscaler Kerberos PAC File
-- Last modified: 2026-10-07T04:49Z
+- Last modified: 2026-10-30T08:36Z
 - Summary: How to use the default Kerberos PAC file to forward user traffic to the Zscaler service when using Kerberos authentication.
 
 All users who leverage Kerberos for authentication must configure their browsers to use PAC files to forward their traffic to the Zscaler service, even if their location has established an IPSec or VPN tunnel to forward traffic to the service.
 
 Zscaler provides a default Kerberos PAC file. The following is information and tips about using the Keberos PAC file:
 
-- Kerberos requires that the Public Service Edges for Internet & SaaS (ZIA) be addressed as Fully Qualified Domain Names (FQDNs). To accommodate this requirement, the Kerberos PAC file contains the variables ${GATEWAY_HOST} and ${SECONDARY_GATEWAY_HOST}, which the service substitutes with the domain names of the primary and secondary Public Service Edges.
-- It forwards web traffic to port 8800 of the Public Service Edge. The Public Service Edges challenge all traffic that they receive on port 8800 for a Negotiate Authentication (Kerberos) ticket for the Zscaler service.
-- If your organization has a KDC proxy (with Microsoft DirectAccess) deployed for road warrior access, the KDC proxy traffic is also sent to the Public Service Edge, resulting in authentication failure. Therefore, you must create a new PAC file that includes a line to bypass the KDC proxy:
+- Kerberos requires that the Public Service Edges for Internet & SaaS (ZIA) be addressed as FQDNs. To accommodate this requirement, the Kerberos PAC file contains the variables ${GATEWAY_HOST} and ${SECONDARY_GATEWAY_HOST}, which the service substitutes with the domain names of the primary and secondary Public Service Edges.
+- The Keberos PAC file forwards web traffic to port 8800 of the Public Service Edge. The Public Service Edges challenge all traffic that they receive on port 8800 for a Negotiate Authentication (Kerberos) ticket for the Zscaler service.
+- If your organization has a KDC proxy (with Microsoft DirectAccess) deployed for remote user access, the KDC proxy traffic is also sent to the Public Service Edge, resulting in authentication failure. Therefore, you must create a new PAC file that includes a line to bypass the KDC proxy:
 
 ```
 if shExpMatch(host,"kdcproxy.domain.com") return "DIRECT";
@@ -8555,11 +6959,11 @@ Before deploying Kerbero authentication, see [Kerberos Authentication Deployment
 
 To use the default Kerberos PAC file hosted by the Zscaler service:
 
-1. Go to **Infrastructure**> **Internet & SaaS** >**Hosted PAC Files**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Internet & SaaS** >**Hosted PAC Files**.
 2. Copy the **Hosted URL** of the default Kerberos PAC file. See image.
-3. [Distribute the Keberos PAC file URL to your users.](https://help.zscaler.com/zia/how-do-i-distribute-pac-file-url-my-users)
+3. [Distribute the Keberos PAC file URL to your users](https://help.zscaler.com/zia/how-do-i-distribute-pac-file-url-my-users)
 
-[Image: Default Kerberos PAC file on Hosted PAC Files]
+[Image: The default Kerberos PAC File on the Hosted PAC Files page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8672,13 +7076,13 @@ To learn more, see [Writing a PAC File](https://help.zscaler.com/zia/writing-pac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/using-sandbox-scanning-portal","lastmod":"2026-04-28T09:15Z","nid":"1399831"} -->
+<!-- ZS-ARTICLE {"url":"/zia/using-sandbox-scanning-portal","lastmod":"2026-10-29T23:25Z","nid":"1399831"} -->
 ## Using the Sandbox Scanning Portal
 
 - Source: https://help.zscaler.com/zia/using-sandbox-scanning-portal
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Using the Sandbox Scanning Portal
-- Last modified: 2026-04-28T09:15Z
+- Last modified: 2026-10-29T23:25Z
 - Summary: Information on the Zscaler Sandbox Scanning Portal and how to view the status of files uploaded to the portal.
 
 With Advanced Sandbox, you can manually submit suspicious files for behavioral analysis by uploading them to the [Sandbox Scanning Portal](https://filecheck.zscaler.com).
@@ -8721,8 +7125,8 @@ See image.
 
 To check whether the file was clean or sent for analysis:
 
-1. Go to **Logs**> **Web Insights**.
-2. Click the**Logs** tab.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Internet & SaaS** > **Web Insights**.
+2. Select the**Logs** tab.
 3. Under **Timeframe**, choose the appropriate time frame. For example, if you sent your files to the Sandbox Scanning Portal within the last day, you can select **Current Day**.
 4. Under **Select Filters**, you can choose to verify the status for a single file or for multiple files at once:
   - Check the Status for One File
@@ -8742,11 +7146,11 @@ To check the status of a single file, do one of the following actions:
 1. Under**Select Filters**, choose **Sandbox MD5**.
 2. Enter the MD5 value for the file you uploaded to the Sandbox Scanning Portal. If you're pasting the MD5 value, ensure that you haven’t copied any extra spacing before the value, or the search won’t work.
 3. Choose **Exact Match** from the drop-down menu.
-4. Click **Apply Filters**.
+4. Click **Run Query**.
 5. If a log isn’t generated, then the file is clean. If a log is generated, then the file is unknown and sent for analysis.
 6. In the **MD5** column, click MD5 to view the Sandbox Detail Report for additional data from the analysis.
 
-If you don't see the **MD5** column, click the **Menu** icon at the top right-hand corner, and select **MD5** to add the column.
+If you don't see the **MD5** column, click the **Column** **Menu** icon in the top-right corner of the table, and select **MD5** to add the column.
 
 1. Under **Select Filters**, choose **URL Search**.
 2. Ensure the **URL** tab is selected.
@@ -8755,32 +7159,32 @@ If you don't see the **MD5** column, click the **Menu** icon at the top right-ha
 Replace <Uploaded URL> with the Uploaded URL that the Sandbox Scanning Portal provided for the file you uploaded. For example, if the Uploaded URL for a file is app/upload?timestamp_load=1477429427028&timestamp_upload=1477436826011, enter `https://filecheck.zscaler.com/app/``upload?timestamp_load=1477429427028&timestamp_upload=1477436826011`.
 
 1. Choose **Contains** or **Starts With** from the drop-down menu.
-2. Click **Apply Filters**.
+2. Click **Run Query**.
 3. The **Threat Category**column lists the status of the file. If it displays **None**, the file is clean. If it displays **Sent for Analysis**, the Sandbox engine is analyzing the file.
 
-If you don't see the **Threat Category** column, click the **Menu** icon at the top right-hand corner, and select **Threat Category** to add the column.
+If you don't see the **Threat Category** column, click the **Column** **Menu** icon in the top-right corner of the table, and select **Threat Category** to add the column.
 
 1. In the **MD5** column, click MD5 to view the Sandbox Detail Report for additional data from the analysis. If the file is clean, you won’t see a link.
 
-If you don't see the **MD5** column, click the **Menu** icon at the top right-hand corner, and select **MD5** to add the column.
+If you don't see the **MD5** column, click the **Column** **Menu** icon in the top-right corner of the table, and select **MD5** to add the column.
 
 To check the status of multiple files that were uploaded simultaneously:
 
-1. Under **3. Select Filters**, choose **URL Search**.
-2. Ensure the **URL** tab is selected.
+1. Under **Select Filters**, choose **URL Search**.
+2. Ensure **URL** is selected.
 3. Enter `https://filecheck.zscaler.com/``<Uploaded URL>`.
 
 Replace <Uploaded URL component> with the first segment of the Uploaded URL. For example, if the Uploaded URL for a file is app/upload?timestamp_load=1477429427028&timestamp_upload=1477436826011, enter `https://filecheck.zscaler.com/``app/upload?timestamp_load=1477429427028`. The first segment of the Uploaded URL is the same for files you upload simultaneously to the Sandbox Scanning Portal.
 
 1. Choose **Contains** or **Starts With** from the drop-down menu.
-2. Click **Apply Filters**.
+2. Click **Run Query**.
 3. The **Threat Category**column lists the status of the file. If it displays **None**, the file is clean. If it displays **Sent for Analysis**, the Sandbox engine is analyzing the file.
 
-If you don't see the **Threat Category** column, click the **Menu** icon at the top right-hand corner, and select **Threat Category** to add the column.
+If you don't see the **Threat Category** column, click the **Column** **Menu** icon in the top-right corner of the table, and select **Threat Category** to add the column.
 
 1. In the **MD5** column, click MD5 to view the Sandbox Detail Report for additional data from the analysis. If the file is clean, you won’t see a link.
 
-If you don't see the **MD5** column, click the **Menu** icon at the top right-hand corner, and select **MD5** to add the column.
+If you don't see the **MD5** column, click the **Column** **Menu** icon in the top-right corner of the table, and select **MD5** to add the column.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9113,45 +7517,39 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-drill-down-all-assets","lastmod":"2026-06-08T07:42Z","nid":"1535300"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-drill-down-all-assets","lastmod":"2026-10-28T08:08Z","nid":"1535300"} -->
 ## Viewing Drilldown of All Assets
 
 - Source: https://help.zscaler.com/zia/viewing-drill-down-all-assets
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing Drilldown of All Assets
-- Last modified: 2026-06-08T07:42Z
-- Summary: Information about how to view a drill down of data for assets discovered per application and owner in the MS Copilot Readiness Assessment in the Zscaler Admin Console.
+- Last modified: 2026-10-28T08:08Z
+- Summary: Information about how to view a drilldown of data for assets discovered per application and owner in the MS Copilot Readiness Assessment in the Zscaler Admin Console.
 
-You can drill down data from applications to sensitive assets discovered by clicking the View All tab in the Exposure section of the MS Copilot Readiness Assessment page. To learn more, see [About MS Copilot Readiness Assessment](https://help.zscaler.com/zia/viewing-microsoft-copilot-readiness-assessment-report).
-
-The detailed view is divided into three columns: Applications, Owners, and Assets.
+You can drill down data from applications to sensitive assets discovered by clicking**View All** for any widget of the MS Copilot Readiness Assessment page. To learn more, see [About MS Copilot Readiness Assessment](https://help.zscaler.com/zia/viewing-microsoft-copilot-readiness-assessment-report).
 
 To drill down for specific assets:
 
-1. Select the time period for which you want to see the data. You can select data for **Current Day**, **Current Week**, **Last 24 Hours**, **Last 7 Days**, **Last 15 Days**, or **Custom**.
-2. Filter the data for any **Application**(**OneDrive**, **Sharepoint**, **MS** **Teams**, or **Any**) and **Exposure**(**Org-Wide**, **External Link**, **<10 Users**, **10–99 Users**, **100–999 Users**, **1000–9999 Users**, and **>=1000 Users**). The **Applications** column populates the data determined by your selections. Each card shows the number of owners with sensitive assets.
-3. Select the application for which you want to view the data. The **Owners**column is updated for the selected application. Each card shows the number of sensitive assets owned.
-4. Select the owner for whom you want to further drill down the data. Alternatively, you can also select any other owner from the drop-down menu. The **Assets**column is updated for the selected owner. Each asset card shows the asset name and the number of collaborators. You can hover over the information icon to view details about the assets (e.g., the type of collaborators, DLP engine, DLP classification). Click **View Details**to view the list of the collaborators with their type. See image.
-5. Selecting any asset card enables the **Actions** drop-down menu to apply remediation actions. You can select one or more assets to apply a remediation action.
-6. Click the **Actions** drop-down menu to apply one of the following remediation actions: LimitationsThe following limitations apply for remediation actions: See image.
-  - **Apply MIP Label**: You can apply a Microsoft Purview Information Protection (formerly Microsoft Information Protection (MIP)) label to Excel, Word, PowerPoint, and PDF files within MIP onboarded tenants. To apply labels, you must first onboard your MIP labels using certificate-based authentication. To learn more, see [About Microsoft Information Protection Labels](https://help.zscaler.com/zia/about-microsoft-information-protection-labels).
-  - **Quarantine to User Root Folder**: You can quarantine an incident-reported file to the user's root folder by selecting a Tombstone template used to create a Tombstone file that replaces the quarantined file in its original location.
-  - **Remove External Collaborators and Shareable Link**: You can revoke the file's public link and remove the external collaborators.
-  - **Remove Internal Collaborators and Shareable Link**: You can revoke the file's internal link and remove the internal collaborators.
-  - **Remove Sharing**: You can revoke the sharing permission from a collaborator.
-  - **Report Incident**: You can report an incident for an asset that triggers an incident.
-  - The maximum batch size for bulk actions is 1,000 assets.
-  - A maximum of 10 bulk remediation jobs can be in progress at any given time.
-  - After you have initiated an action on an asset, you must wait for its completion before applying another action to the same asset.
-  - Bulk remediation action is not supported for assets that were previously quarantined.
-  - Only Report Incident is supported for Microsoft Teams, although other actions remain visible in the menu.
-  - Remediation actions are not supported for Microsoft Teams channels that contain special characters in their names.
+- **TIme Range**: Select the time period for which you want to see the data. You can select data for **Current Day**, **Current Week**, **Last 24 Hours**, **Last 7 Days**, **Last 15 Days**, or **Custom**.
+- **Applications**: Filter the data for any application (**OneDrive**, **Sharepoint**, or **MS Teams**).
+- **Exposure**: Select the exposure level(**Org-Wide**, **External Link**, **<10 Users**, **10–99 Users**, **100–999 Users**, **1000–9999 Users**, and **>=10000 Users**).
+
+The page displays the **Sensitive Assets**table. For each asset, you can view:
+
+- **Asset Name**: The name of the asset.
+- **DLP Engine**:The DLP engine matched for the asset.
+- **Tenant**: The name of the application tenant.
+- **Exposure**: The exposure level.
+- **Risk**: The risk posed by the asset.
+- **DLP Classification**: The DLP classification for the asset.
+- **Internal Collaborators**: The number of internal collaborators.
+- **External Collaborators**: The number of external collaborators.
+
+You can [modify the columns](https://help.zscaler.com/unified/using-tables) or search for a specific asset by its name.
+
+See image.
 
 [Image: View All Assets page provides a drilldown to the assets from the perspective of an application and owner for the type of exposure.]
-
-[Image: Detailed information about the asset is available in this drawer]
-
-[Image: View All Assets page provides a drill down to the assets from the perspective of an application and owner for the type of exposure that is selected..]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9181,16 +7579,14 @@ Ensure that you configure firewall policies to prevent traffic from bypassing th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-industry-peer-comparison-report","lastmod":"2026-09-18T00:01Z","nid":"1400376"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-industry-peer-comparison-report","lastmod":"2026-10-28T16:43Z","nid":"1400376"} -->
 ## Viewing the Industry Peer Comparison Report
 
 - Source: https://help.zscaler.com/zia/viewing-industry-peer-comparison-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Industry Peer Comparison Report
-- Last modified: 2026-09-18T00:01Z
+- Last modified: 2026-10-28T16:43Z
 - Summary: Information about the Industry Peer Comparison Report. It compares your organization's performance and effectiveness for the preceding month to that of both peer organizations and all companies using Zscaler.
-
-[Watch a video about Industry Peer Comparison](https://fast.wistia.net/embed/iframe/1drkydfajm) (shows legacy UI).
 
 The Industry Peer Comparison Report compares your organization's performance and effectiveness for the preceding month to that of both peer organizations and all companies using the cloud service. By accessing Industry Peer Comparison features, you provide Zscaler the right to compare your organization's performance and effectiveness of using Zscaler products for the preceding month to other peer organizations and all companies using our cloud service. Peers are chosen based on business vertical, geographic region, and business size.
 
@@ -9287,13 +7683,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-10-11T23:13Z","nid":"1532188"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-post-quantum-cryptography-visibility-report","lastmod":"2026-10-26T21:06Z","nid":"1532188"} -->
 ## Viewing the Post-Quantum Cryptography Visibility Report
 
 - Source: https://help.zscaler.com/zia/viewing-post-quantum-cryptography-visibility-report
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Viewing the Post-Quantum Cryptography Visibility Report
-- Last modified: 2026-10-11T23:13Z
+- Last modified: 2026-10-26T21:06Z
 - Summary: Information on the Post-Quantum Cryptography Visibility report on the Interactive Reports page in the Zscaler Admin Console.
 
 To view the Post-Quantum Cryptography Visibility Report, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**>**Reports**> **Interactive Reports**> **Standard Reports**> **Web** **Activity**> **Post-Quantum Cryptography Visibility**.
@@ -9488,16 +7884,14 @@ For the applications that support two levels of instance discovery, select the c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-restoring-policies-configurations-from-restore-point","lastmod":"2026-09-30T07:59Z","nid":"1398996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-restoring-policies-configurations-from-restore-point","lastmod":"2026-10-28T09:48Z","nid":"1398996"} -->
 ## Viewing or Restoring Policies and Configurations from a Restore Point
 
 - Source: https://help.zscaler.com/zia/viewing-restoring-policies-configurations-from-restore-point
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Viewing or Restoring Policies and Configurations from a Restore Point
-- Last modified: 2026-09-30T07:59Z
+- Last modified: 2026-10-28T09:48Z
 - Summary: How to view or restore policies and configurations from a restore point in the Zscaler Admin Console.
-
-[Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
 When you restore policies and configuration settings from a [restore point](https://help.zscaler.com/zia/about-backup-and-restore), it overwrites all your current policies and configuration settings, including all the rules and their components, such as URL categories and time intervals. If your current configuration has a component that is not in the restore point, such as a URL category, that component is removed when the restore point is restored. Therefore, you might want to review the policies in the restore point before restoring them.
 
@@ -9548,13 +7942,13 @@ This action verifies certain conditions (e.g., ensuring that all provisioned sta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-sandbox-reports-data","lastmod":"2026-04-28T21:10Z","nid":"1399821"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-sandbox-reports-data","lastmod":"2026-10-29T09:19Z","nid":"1399821"} -->
 ## Viewing Sandbox Reports and Data
 
 - Source: https://help.zscaler.com/zia/viewing-sandbox-reports-data
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Viewing Sandbox Reports and Data
-- Last modified: 2026-04-28T21:10Z
+- Last modified: 2026-10-29T09:19Z
 - Summary: How to view reports, logs, and data for the Zscaler Sandbox.
 
 You can view a variety of [Sandbox](https://help.zscaler.com/zia/about-sandbox) data and reports under Dashboard and Analytics:
@@ -9567,7 +7961,7 @@ You can view a variety of [Sandbox](https://help.zscaler.com/zia/about-sandbox) 
 - [CrowdStrike Endpoint Hits Report](https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report)
 - [Microsoft Defender Endpoint Hits Report](https://help.zscaler.com/zia/viewing-microsoft-defender-endpoint-hits-report)
 
-You can monitor malware detected by the Sandbox on the [Security dashboard](https://help.zscaler.com/zia/about-dashboards#security) (Analytics > Dashboard > Security). You can edit the dashboard and add widgets that display transaction information for the Sandbox, Sandbox Action, and Top Users/Locations for Sandbox.
+You can monitor malware detected by the Sandbox on the [Security dashboard](https://help.zscaler.com/zia/about-dashboards#security). You can edit the dashboard and add widgets that display transaction information for the Sandbox, Sandbox Action, and Top Users/Locations for Sandbox.
 
 See image.
 
@@ -9579,13 +7973,13 @@ See image.
 
 [Image: Sandbox Patient 0 Events widget.]
 
-In [Web Insights Logs](https://help.zscaler.com/zia/about-insights-logs) (Logs > Insights > Web Insights > Logs), the Sandbox logs provide additional information about malicious transactions.
+In [Web Insights Logs](https://help.zscaler.com/zia/about-insights-logs), the Sandbox logs provide additional information about malicious transactions.
 
 See image.
 
 The following are some popular columns used for troubleshooting Sandbox transactions:
 
-- **Threat Name**: Indicates the exact malware name (e.g., Trojan.Zbot, Backdoor.Caphaw) or the malware category, based on the behavior recognized by the Zscaler service. You can click the threat to view more information about it in the Zscaler Threat Library. If you have Standard Sandbox and a malicious file is allowed because it doesn't match criteria of the default Sandbox rule, the service displays Not Subscribed in the Threat Name column.
+- **Threat Name**: Indicates the exact malware name (e.g., Trojan.Zbot, Backdoor.Caphaw) or the malware category, based on the behavior recognized by the Zscaler service. You can click the threat to view more information about it in the Zscaler Threat Library. If you have Standard Sandbox and a malicious file is allowed because it doesn't match criteria of the default Sandbox rule, the service displays Not Subscribed in the **Threat Name** column.
 
 See image.
 
@@ -9613,7 +8007,7 @@ See image.
 
 If your organization has Advanced Sandbox, you can click the MD5 hash of the file in the logs and view the Sandbox Detail Report. It provides different types of information about a file and its behavior, including forensic details such as which registry keys were changed, which network connections were initiated, and which files were read.
 
-For each category, you can view additional details by clicking the **Expand** icon at the top right-hand corner of each widget.
+For each category, you can view additional details by clicking the **Expand** icon in the top-right corner of each widget.
 
 See image.
 
@@ -9690,13 +8084,13 @@ The service lists users who are using vulnerable browsers, plugins, and applicat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-10-16T01:29Z","nid":"1531209"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-sublocations","lastmod":"2026-10-30T21:06Z","nid":"1531209"} -->
 ## Viewing Sublocations
 
 - Source: https://help.zscaler.com/zia/viewing-sublocations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Viewing Sublocations
-- Last modified: 2026-10-16T01:29Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: Information on viewing the Sublocations table on the Locations page in the Zscaler Admin Console
 
 You can add sublocations to an existing parent location using your organization's internal IP address range. Organizations can leverage sublocations to implement various policies based on IP addresses, enforce authentication for selective networks, and enforce bandwidth control to ensure unused bandwidth is available for the parent location. To learn more, see [Understanding Sublocations](https://help.zscaler.com/zia/understanding-sublocations).
@@ -9730,22 +8124,22 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/viewing-user-reports-web-insights","lastmod":"2026-09-30T08:46Z","nid":"1401081"} -->
+<!-- ZS-ARTICLE {"url":"/zia/viewing-user-reports-web-insights","lastmod":"2026-11-01T23:59Z","nid":"1401081"} -->
 ## Viewing User Reports in Web Insights
 
 - Source: https://help.zscaler.com/zia/viewing-user-reports-web-insights
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Viewing User Reports in Web Insights
-- Last modified: 2026-09-30T08:46Z
+- Last modified: 2026-11-01T23:59Z
 - Summary: Information on how to view top user reports in Web Insights in the Zscaler Admin Console.
 
-To get the most out of viewing user traffic in Web Insights, you can view the top users and can also see how much time users spend on the internet.
+To get the most out of viewing user traffic in [Web Insights](https://help.zscaler.com/zia/about-insights), you can view the top users and can also see how much time users spend on the internet.
 
 ## Top Users Reports
 
 To view and export a list of top users:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Internet & SaaS > Web Insights**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Data Explorer > Internet & SaaS > Web Insights.
 2. Select **User** as the data type to list the top users. You can also click **Export All Active Users** to export the list of active users to a CSV file.
 
 See image.
@@ -9760,7 +8154,7 @@ This report provides data for the last seven days only.
 
 To create a time-based report:
 
-1. Go to **Data Explorer**>**Internet & SaaS > Web Insights.**
+1. Go to Data Explorer > Internet & SaaS > Web Insights.
 2. Select **User** as the data type.
 3. Expand **Add Filter** and choose **Received Bytes**.
 
@@ -10270,13 +8664,13 @@ To restart the Virtual Service Edge:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-09-25T03:38Z","nid":"1399471"} -->
+<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-10-30T02:08Z","nid":"1399471"} -->
 ## Web Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/web-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Web Data Types and Filters
-- Last modified: 2026-09-25T03:38Z
+- Last modified: 2026-10-30T02:08Z
 - Summary: Information on web data types and filters to define web traffic information in a dashboard, report widget, or when analyzing charts in Web Insights.
 
 There are two ways you work with web data types and filters to define the web traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/about-widgets), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -10289,9 +8683,9 @@ On the [Web Insights page](https://help.zscaler.com/zia/about-insights), select 
 
 See image.
 
-[Image: The Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: The Data Type and Filters menus for Zscaler Web Insights]
+[Image: Web Insights Data Type and Filters Menus]
 
 The **User**, **Department**, and **Location**filters list 200 results at a time. They provide search fields where you can enter a few characters and the results narrow down to match your input until you find what you want.
 
@@ -12926,4 +11320,1281 @@ When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the 
 [Image: The Threat Severity column displaying the severity of the threat that is detected in the transaction in the Insights Logs Page.]
 
 [Image: The JA4 fingerprint contains three fragments, each with a different meaning, separated by underscores]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-filters","lastmod":"2026-10-09T07:06Z","nid":"1401016"} -->
+## Web Insights Logs: Filters
+
+- Source: https://help.zscaler.com/zia/web-insights-logs-filters
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Filters
+- Last modified: 2026-10-09T07:06Z
+- Summary: Information on the different filters in the Web Insights Logs page in the Zscaler Admin Console.
+
+Filters define the traffic information that you view in your Web Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+Certain filters, like**Users**, **Departments**, **Locations**, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values. Also, certain filters support additional operators (i.e., Does Not Contain, Does Not Start With, Does Not End With, Is Null, Is Not Null) for filters that perform string match, like **Advanced** **Threat Category** and others.
+
+- There are certain filter combinations that appear together in Insights Logs when applied, but don't appear together in Insights. For example, the **Department** and **Location** filters appear together in Insights Logs when applied, but don't appear together in Insights.
+- There are certain filter values where control is handed over to the firewall. For example, when the filter values are set to Tunnel or Tunnel SSL/TLS, control is handed to the firewall. The firewall completes the remaining inspection and applies a policy according to the rules. While these filter values indicate that control is handed over to the firewall, it is recommended that you always check the firewall logs to confirm the same.
+
+Following are the web log filters you can select:
+
+- Adaptive Access Profile
+- Advanced Threat Category
+- AI/ML Detection Source
+- ALPN Protocol
+- Allowed File Type Rule
+- App Instance Level 1
+- App Instance Level 2
+- App Instance Level 3
+- Application Activity
+- Application Segment
+- Application Status
+- Bandwidth Class
+- Bandwidth Rule
+- Blocked Policy Type and Rule Name
+- Bypassed Transaction
+- Bypassed Transaction Event Time
+- Certificate Chain Validity
+- Certificate Expiry
+- Client Connection Ciphers
+- Client Connection TLS Version
+- Client External IP
+- Client IP
+- Capture
+- Client Digital Signature Proposal
+- Client Key Exchange Proposal
+- Client-Side Key Exchange Algorithm
+- Client-Side Digital Signature Algorithm
+- Client Source Port
+- Client SSL/TLS Handshake Failure Aggregate Count
+- Client SSL/TLS Handshake Failure Reason
+- Cloud Application
+- Cloud Application Class
+- Cloud Application Policy Type and Name
+- Configuration
+- Data Center
+- Department
+- Destination IP Countries
+- Device Hostname
+- Device Model
+- Device Name
+- Device OS Type
+- Device OS Version
+- Device Owner
+- DLP Confirmation Message
+- DLP Dictionary
+- DLP Engine
+- DLP Identifier
+- DLP MD5
+- DLP Policy Action
+- DLP Severity
+- Document Type
+- Domain Fronted Host Header
+- Domain Fronted SNI
+- Download File Name
+- Download File Type
+- Download File Type Super Category
+- Download User-Defined File Type
+- Enrolled Device appversion
+- Exempted DLP Identifier
+- External Device ID
+- Extranet Resource
+- File Share Activity
+- Flow Type
+- Forwarding Method
+- Forwarding Rule
+- Gateway IP
+- Gateway Name
+- HTTP Header Insertion Profile
+- HTTP Header Profile
+- IM Activity
+- Intermediate CA Protection Type
+- Is Destination IP Country Risky?
+- Is Source IP Country Risky?
+- JA4 Fingerprint
+- JA4 Fingerprint A
+- JA4 Fingerprint B
+- JA4 Fingerprint C
+- Location
+- Location Group
+- Location Type
+- OCSP Result
+- Other DLP Rules
+- Prompt
+- Prompt Classification
+- Protocol
+- Received Bytes
+- Referrer Search
+- Request Latency Due to Bandwidth Control (ms)
+- Response Latency Due to Bandwidth Control (ms)
+- Request Method
+- Request Version
+- Response HTTP Version
+- Sandbox
+- Sandbox Action
+- Sandbox API Key
+- Sandbox MD5
+- Sent Bytes
+- Server Certificate Self Signed
+- Server Certificate Validation Type
+- Server Certificate Validity Period
+- Server Connection Ciphers
+- Server Connection TLS Version
+- Server Destination Port
+- Server IP
+- Server-Side Key Exchange Algorithm
+- Server-Side Digital Signature Algorithm
+- SHA-256
+- Show Delayed Logs
+- Social Networking Activity
+- Source IP Countries
+- SSL/TLS Inspected
+- SSL/TLS Policy Name
+- SSL/TLS Policy Reason
+- Streaming Activity
+- Subdocument Type
+- Suspicious Content
+- Threat Category
+- Threat Class
+- Threat Name
+- Threat Severity
+- Threat Super Category
+- Throttled request bytes
+- Throttled response bytes
+- Total Bytes
+- Total Latency Due to Bandwidth Control (ms)
+- Traffic Forwarding
+- Unscannable Type
+- Upload File Name
+- Upload File Type
+- Upload File Type Super Category
+- Upload User-Defined File Type
+- URL Category
+- URL Class
+- URL Filtering Policy Name
+- URL Search
+- URL Super Category
+- User
+- User Group
+- User Agent
+- Policy Action
+- Webmail Activity
+- Zscaler Client Connector Tunnel Version
+
+Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **None**. You can search for specific user groups.
+
+Use this filter to view transactions associated with an Adaptive Access profile. The default filter for this is **Any**. You can also choose to include or exclude the selected values.
+
+Use this filter to view transactions in which advanced threats were detected. These advanced threats are detected by **Advanced Threat Protection**. The default option for this filter is **Any**. You can search for specific categories. You can also use the toggle to turn on **Threat Name Search** to enter all or part of the threat name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. The following categories appear under this filter:
+
+- **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL/IP reputation. The URLs/IPs added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
+- **Any**
+- **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only on a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected preinfection. The IPS signature-based detections generally match on the botnet communication pattern/protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
+- **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
+- **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
+- **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content are not blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
+- **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
+- **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
+- **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
+- **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have Firewall for the Zscaler service to detect and block these applications.
+- **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
+- **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high fidelity IPS signatures that match content patterns in web traffic.
+- **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
+- **Suspicious Destination**: This category refers to any detections of internet activity destined to specific countries where the website IP address geographically is located and hosted from. This detection is based on the countries you decide to block access to in your policies.
+- **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
+- **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high fidelity IPS signatures that match content patterns in web traffic.
+
+Use this filter to view transactions associated with a specific ALPN protocol. The default option for this filter is **Any**. You can search for specific ALPN protocols.
+
+Use this filter to view transactions associated with an allowed File Type Control Rule policy. The default option for this filter is **None**.
+
+Use this filter to view transactions associated with a specific AI/ML detection source. The default option for this filter is **Any**. You can choose to include or exclude certain detection sources and search for specific sources. The following detection sources appear for the filter:
+
+- AI/ML - ATP - Domain Generation Algorithm
+- AI/ML - ATP - Known Command & Control
+- AI/ML - ATP - Page Risk
+- AI/ML - ATP - Phishing
+- AI/ML - ATP - Unknown Command & Control
+- AI/ML - Sandbox - AI Instant Verdict
+- AI/ML - URL Filtering - Content Categorization
+- Unknown
+
+Use this filter to view discovered instances associated with an organization, domain, or tenant. Enter all or part of the instance level ID in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view discovered instances associated with a project, workspace, or site. Enter all or part of the instance ID in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view discovered instances associated with a resource type. Enter all or part of the resource name in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to limit the data to traffic associated with a specific country, as determined by the destination IP address. The default option for this filter is **None**. You can search for a specific country.
+
+Use this filter to limit the data to check if the country associated with the destination IP address is risky or not.
+
+Use this filter to limit data to check if the country associated with the source IP address is risky or not.
+
+Use this filter to limit the data to traffic associated with a specific country, as determined by the source IP address. The default option for this filter is **None**. You can search for a specific country.
+
+Use this filter to view transactions associated with an application’s activity. The default option for this filter is **Any**. You can search for a specific action on an application, such as:
+
+- Comment
+- Create
+- Delete
+- Download
+- Edit
+- Embedded AI (For Atlassian applications only)
+- File Share
+- Invite
+- MCP
+- Post
+- Reaction
+- Rename
+- Send Mail
+- Share
+- Upload
+- Upload/Attachments
+- View
+
+Use this filter to view transactions associated with a specific [application segment](https://help.zscaler.com/zpa/about-applications). The default option for this filter is **None**. You can search for specific application segments.
+
+Use this filter to view if the cloud application is sanctioned or unsanctioned. The status is displayed as N/A if the URL is unknown and no cloud application is tagged in the transaction.
+
+Use this filter to view transactions associated with a specific bandwidth class. The default option for this filter is **All**. You can search for specific classes.
+
+Use this filter to view transactions associated with a specific bandwidth rule. The default option for this filter is **All**. You can search for specific rules.
+
+Use this filter to see if the server certificate is signed by a Zscaler-trusted certificate authority or not. This filter applies to SSL/TLS inspected traffic. The default option for this filter is **None**. You can search for specific validations. The following validations appear under this filter:
+
+- Fail
+- Pass
+
+Use this filter to see if the certificate presented by the server is valid or expired. This filter applies to SSL/TLS inspected traffic. The default option for this filter is **None**. You can search for specific answers. The following answers appear under this filter:
+
+- No
+- None
+- Yes
+
+Use this filter to view the cipher suite agreed upon during the SSL/TLS handshake between the client and the Public Service Edge for Internet & SaaS (ZIA). This filter applies to SSL/TLS inspected traffic. The default option for this filter is **None**. You can search for specific cipher suites.
+
+The cipher suite names are listed in OpenSSL/TLS format. To view them in RFC format, use this [link](https://testssl.sh/openssl-iana.mapping.html) to map between the two notations.
+
+Use this filter to see the version of TLS used for communication between the client and the Public Service Edge. This filter applies to SSL/TLS inspected traffic. The default option for this filter is **None**. You can search for specific TLS versions.
+
+Use this filter to view transactions associated with the internet gateway location IP address. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+
+Use this filter to view transactions associated with a source IP address. Enter either the internet gateway location IP address or the IP address of the client device. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+
+Use this filter to view transactions associated with the source port number from where the traffic originated. When you select this filter, enter the **From**and **To**fields to view the logs within that range. This filter is disabled by default. To enable it, contact Zscaler Support.
+
+Use this filter to view the number of times the client's SSL/TLS handshake attempts have failed. You can view transactions for a certain range of aggregate counts by entering a minimum and maximum value.
+
+Use this filter to view the digital signature proposed by the client in signature_algorithms extension of ClientHello message during the SSL/TLS handshake process in a transaction. The default option for this filter is **None**. The following categories appear under this filter:
+
+- **Classical**: Use this filter to view the classical key exchange algorithm proposed by the client during the SSL/TLS handshake process.
+- **Hybrid**: Use this filter to view the hybrid key exchange algorithm proposed by the client during the SSL/TLS handshake process in a transaction.
+- **PQC**: Use this filter to view the pure post-quantum cryptography (PQC) key exchange algorithm proposed by the client during the SSL/TLS handshake process in a transaction.
+- **None**: Use this filter to view all non-TLS related transactions.
+- **Unknown**: Use this filter to view the TLS-related transaction whose value could not be determined.
+
+Use this filter to view key exchange algorithms proposed by the client in supported_groups extension of ClientHello message during the SSL/TLS handshake process in a transaction. The default option for this filter is **None**. The following categories appear under this filter:
+
+- **Classical**: Use this filter to view transactions where a client proposed a classical key exchange algorithm during the SSL/TLS handshake process.
+- **Hybrid**: Use this filter to view transactions where a client proposed a hybrid key exchange algorithm during the SSL/TLS handshake process in a transaction.
+- **None**: Use this filter to view all non-TLS related transactions.
+- **PQC**: Use this filter to view transactions where a client proposed a pure post-quantum cryptography (PQC) key exchange algorithm during the SSL/TLS handshake process.
+- **Unknown**: Use this filter to view transactions with a non-standard key exchange algorithm proposed by a client during the SSL/TLS handshake process.
+
+Use this filter to view either the key exchange algorithm agreed upon during the SSL/TLS handshake between the client and the Service Edge in the case of SSL/TLS inspected traffic, or the key exchange algorithm agreed upon during the TLS handshake between the client and the server in the case of bypassed traffic. The default option for this filter is **None**.
+
+Use this filter to view either the digital signature algorithm agreed upon during the SSL/TLS handshake between the client and the Service Edge in the case of SSL/TLS inspected traffic, or the digital signature algorithm agreed upon during the SSL/TLS handshake between the client and the server in the case of bypassed traffic. The default option for this filter is **None**.
+
+Use this filter to view either the key exchange algorithm agreed upon during the SSL/TLS handshake between the server and the Service Edge in the case of SSL/TLS inspected traffic, or the key exchange algorithm agreed upon during the SSL/TLS handshake between the server and the client in the case of bypassed traffic. The default option for this filter is **None**.
+
+Use this filter to view either the digital signature algorithm agreed upon during the SSL/TLS handshake between the Service Edge and the client in the case of SSL/TLS inspected traffic, or the digital signature algorithm agreed upon during the SSL/TLS handshake between the server and the client in the case of bypassed traffic. The default option for this filter is **None**.
+
+Use this filter to view client SSL/TLS handshake failure transactions. The default option for this filter is **None**. The following SSL/TLS failure reasons appear under this filter:
+
+- Access Denied
+- Bad Cert Status Resp or Hash Value
+- Bad or Unsupported Certificate
+- Bad Record Mac
+- Certificate Revoked or Expired
+- Certificate Unknown
+- Certificate Unobtainable
+- Close Notify or Client TCP Reset
+- Decode Error
+- Decrypt Error
+- Handshake Failure
+- Illegal Parameter
+- Insufficient Security
+- Internal Error
+- N/A
+- No Application Protocol
+- No Renegotiation
+- Other Handshake Error
+- Protocol Version
+- Record Overflow
+- Unexpected Message
+- Unknown CA
+- Unknown PSK Identity
+- Unrecognized Name
+- Unsupported Extension
+- User Canceled
+
+To learn more, refer to [RFC 2246 The TLS Protocol](https://www.ietf.org/rfc/rfc2246.html#section-7.2.2).
+
+Use this filter to view transactions associated with a specific cloud app. The default option for this filter is **All**. You can search for specific apps.
+
+- To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
+
+The Miscellaneous <Cloud Application Category> Apps (e.g., Miscellaneous Finance Apps) option represents all the newly added lesser-known predefined applications for the category (e.g., Finance). The log displays results for each application grouped inside this option individually.
+
+Use this filter to view transactions associated with a specific cloud app class. The default option for this filter is **All**. You can choose to include or exclude certain locations. You can search for specific apps. The following categories appear under this filter:
+
+- Administration
+- Collaboration and Online Meetings
+- Consumer
+- DNS Over HTTPS Services
+- File Sharing
+- General Browsing
+- Hosting Providers
+- Human Resources
+- Instant Messaging
+- IT Services
+- Peer-to-Peer
+- Productivity and CRM Tools
+- Sales & Marketing
+- Social Networking
+- Streaming Media
+- System & Development
+- Web Mail
+- Web Search
+
+Use this filter to view the cloud application policy type and name that took action during the transaction. Following are the policy types that appear in this field:
+
+- **Collaboration & Online Meetings App Control**: This refers to the [Collaboration & Online Meetings rule](https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Consumer**: This refers to the [Consumer rule](https://help.zscaler.com/zia/adding-consumer-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **DNS Over HTTPS Services**: This refers to the [DNS Over HTTPS Services Rule](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control) for the [Could App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **File Sharing**: This refers to the [File Sharing rule](https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Finance**
+- **Health Care**
+- **Hosting Providers**: This refers to the [Hosting Providers rule](https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Human Resources**: This refers to the [Human Resources rule](https://help.zscaler.com/zia/adding-human-resources-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Instant Messaging**: This refers to the [Instant Messaging rule](https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **IT Services**: This refers to the [IT Services rule](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Legal**
+- **Productivity and CRM Tools**: This refers to the [Productivity & CRM tools rule](https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Sales & Marketing**: This refers to the [Sales & Marketing rule](https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Social Networking**: This refers to the [Social Networking & Blogging rule](https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **System & Development**: This refers to the [System & Development rule](https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Video Streaming**
+- **Webmail**: This refers to the [Webmail rule](https://help.zscaler.com/zia/adding-webmail-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+
+Use this filter to limit the data to traffic associated with a specific data center.
+
+Use this filter to view transactions associated with a specific department. The default option for this filter is **All**. Select **Hide Deleted**if you want to remove deleted departments from the list. Click **Select All** to select all the configured departments. You can search for specific departments.
+
+Use this filter to view transactions associated with a specific hostname from support devices. Enter all or part of the device model in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+
+Use this filter to view transactions associated with a specific device model. Enter all or part of the device model in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific device name. Enter all or part of the device name in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+
+Use this filter to view transactions associated with a specific device OS type. Enter all or part of the device OS type in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific device OS version. Enter all or part of the device OS version in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific device owner. Enter all or part of the device owner in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. This filter is not available for admins with [device information obfuscation](https://help.zscaler.com/zia/obfuscating-device-information-admins) enabled.
+
+Use this filter to view the message entered by a user to justify a transaction that triggers a DLP rule with the **Confirm**action. Enter all or part of the confirmation message and choose **Contains**, **Starts With**, **Ends With**, **Exact** **Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to see which transactions contain this dictionary as a trigger. If a dictionary was triggered, the name of the dictionary is displayed along with a match count indicating the search score or match count for this dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
+
+Use this filter to view transactions in which data leakage was detected. The default option for this filter is **Any**. You can search for specific DLP engines.
+
+Use this filter to identify transactions where a DLP rule triggered Auditor or Incident Receiver notifications as a part of the policy action. The default option for this filter is **Any**.
+
+Use this filter to search for the transactions using this DLP identifier. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors. Use it as a filter to locate the exact transaction. You can search for specific DLP identifiers.
+
+Use this filter to view transactions associated with a specific enrolled device app version. Enter all or part of the enrolled device app version in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with an extranet resource. You can also choose to include or exclude the selected values. The default option for this filter is **Any**.
+
+Use this filter to search for the unique DLP identifier of transactions exempted from policy enforcement because the DLP scan timed out. Use it as a filter to locate the exact transaction. You can search for specific DLP identifiers.
+
+Use this filter to view transactions associated with a specific external device ID. Enter all or part of the device model in the text field and choose an operator such as: **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to see the MD5 hash for the file that triggered the DLP rule. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing the MD5 hash of the file is sent to your auditors. Use it as a filter to locate the exact transaction. You can search for specific DLP MD5 hashes.
+
+Use this filter to view transactions associated with a specific triggered DLP rule's severity. You can choose to include or exclude certain severities. The following severities appear under this filter:
+
+- Information
+- Low
+- Medium
+- High
+
+Use this filter to see the HTTP/S transactions that indicate domain fronting due to an FQDN mismatch: between the request URL and the request's host header, or between the SNI (Server Name Indication) and the inner request's host header.
+
+Use this filter for the SSL/TLS/TLS connection's Server Name Indication (SNI) in cases that the HTTPS request host header doesn't match the SNI. SSL/TLS Inspection must be enabled for this field to be populated.
+
+Use this filter to limit the data to traffic associated with a specific upload or download document type. The following types appear under this filter:
+
+- Corporate Finance
+- Corporate Legal
+- Court Form
+- DMV
+- Immigration
+- Insurance
+- Invoice
+- Legal
+- Medical Information
+- None
+- Real Estate
+- Resume
+- Tax
+- Technical
+- Unknown
+
+Use this filter to limit the data to traffic associated with a specific downloaded file name. Enter all or part of the URL in the text field and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to limit the data to traffic associated with a specific downloaded file type.
+
+Use this filter to limit the data to traffic associated with a specific user-defined downloaded file type. The default option for this filter is **None**.
+
+Use this filter to view transactions in which a specific file type was downloaded. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
+
+- Any
+- Archive
+- Audio
+- Database
+- Executable
+- Image
+- Microsoft Office
+- Mobile
+- Online Gaming
+- Open Office Files
+- Other
+- Other Documents
+- Other Microsoft
+- Source Code
+- Streaming Media
+- Video
+- Web Content
+
+Use this filter to view transactions associated with file sharing activities. When you select this filter, the dialog automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
+
+- All
+- Upload
+- View
+
+Use this filter to view transactions by their flow type. Choose one from the following:
+
+- Direct
+- Intranet
+- Loopback
+- Unclassified
+- VPN
+- VPN Tunnel
+- ZIA
+- ZPA
+
+Use this filter to view transactions for a specific forwarding method. You can select from the ones listed under this filter.
+
+Use this filter to view transactions for a specific forwarding rule. You can select from the ones listed under this filter.
+
+Use this filter to view transactions for a specific gateway IP. You can search for specific gateway IPs.
+
+Use this filter to view transactions for a specific gateway name. You can select from the ones listed under this filter.
+
+Use this filter to view transactions associated with a HTTP header insertion profile. The default option for this filter is **None**.
+
+Use this filter to view transactions associated with a HTTP header profile. The default option for this filter is **Any**.
+
+Use this filter to view transactions associated with instant messaging applications. When you select this filter, the dialog automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
+
+- All
+- Receive File
+- Receive Message
+- Send File
+- Send Message
+
+Use this filter to view the transactions associated with intermediate CA certificates. The default option for this filter is **None**. The following intermediate CA protection types appear under this filter:
+
+- HSM Protection
+- N/A
+- Software Protection
+
+Use this filter to view the JA4 fingerprint calculated for TLS-based transactions for SaaS applications. JA4 fingerprint is a TLS client fingerprint generated during the TLS handshake. It analyzes the TLS Client Hello packet to create a unique, easily shareable identifier for clients in encrypted communications. A JA4 fingerprint is a sequence of three fragments (i.e., JA4A, JA4B, JA4C).
+
+For example, for the Chrome application, the JA4 fingerprint is JA4=t13d1516h2_8daaf6152771_e5627efa2ab1 comprising:
+
+- **JA4 A**: t13d1516h2
+- **JA4 B**: 8daaf6152771
+- **JA4 C**: e5627efa2ab1
+
+See image.
+
+Enter all or part of the JA4 fingerprint information in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**, **Not Null**, or **Is** **Null**.
+
+[Image: The JA4 fingerprint contains three fragments, each with a different meaning, separated by underscores]
+
+Use this filter to view the JA4 fingerprint A, which consists of the protocol type, TLS version requested by the client, Sever Name Indication (SNI)or no SNI, the number of supported cipher suites, number of extensions, and the first ALPN value. Enter all or part of the JA4 fingerprint A info in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**, **Not** **Null**, or **Is** **Null**.
+
+Use this filter to view the truncated SHA256 hash of sorted cipher suites. Enter all or part of the JA4 fingerprint B information in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not** **Contain**, **Does Not End With**, **Does Not Start With**, **Not Null**, or **Is Null**.
+
+Use this filter to view the truncated SHA256 hash of sorted extensions and signature algorithms. Enter all or part of the JA4 fingerprint C information in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not** **Contain**, **Does Not End With**, **Does Not Start With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific location. The default option for this filter is **All**. Select **Hide Deleted**if you want to remove deleted locations from the list. Click **Select All** to select all the configured locations. You can search for specific locations. You can choose to include or exclude certain locations.
+
+Use this filter to view transactions associated with a specific location group. The default option for this filter is **None**. You can search for specific location groups.
+
+Use this filter to view transactions associated with a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
+
+- Corporate User Traffic Group
+- Guest Wifi Group
+- IoT Traffic Group
+- Server Traffic Group
+- Unassigned Locations
+- Workload Traffic Group
+
+Use this filter to see if the certificate status verification using OCSP failed or passed. This filter applies to SSL/TLS inspected traffic. The default option for this filter is **None**. You can search for specific results. The following results appear under this filter:
+
+- Good
+- None
+- Revoked
+- Unknown
+
+Use this filter to view the blocked policy and rule that took action during the transaction. Following are the policy types that appear in this field:
+
+- **Advanced Threat Protection**: This refers to the [Advanced Threat Protection policy](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy).
+- **Collaboration & Online Meetings App Control**: This refers to the [Collaboration & Online Meetings rule](https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Consumer**: This refers to the [Consumer rule](https://help.zscaler.com/zia/adding-consumer-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Data Loss Prevention**: This refers to the [Data Loss Prevention policy](https://help.zscaler.com/zia/about-data-loss-prevention).
+- **DNS**: This refers to the [DNS Control policy](https://help.zscaler.com/zia/about-dns-control).
+- **DNS Over HTTPS Services**: This refers to the [DNS Over HTTPS Services Rule](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control) for the [Could App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **File Sharing**: This refers to the [File Sharing rule](https://help.zscaler.com/zia/adding-file-sharing-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **File Type Control**: This refers to the [File Type Control policy](https://help.zscaler.com/zia/about-file-type-control).
+- **Firewall Filtering**: This refers to the [Firewall Control policy](https://help.zscaler.com/zia/about-firewall-control).
+- **Hosting Providers**: This refers to the [Hosting Providers rule](https://help.zscaler.com/zia/adding-hosting-providers-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Human Resources**: This refers to the [Human Resources rule](https://help.zscaler.com/zia/adding-human-resources-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Instant Messaging**: This refers to the [Instant Messaging rule](https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Intrusion Prevention**
+- **IT Services**: This refers to the [IT Services rule](https://help.zscaler.com/zia/adding-it-services-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Malware Protection**: This refers to the [Malware Protection policy](https://help.zscaler.com/zia/configuring-malware-protection-policy).
+- **Mobile App Store Control**: This refers to the [Mobile App Store Control policy](https://help.zscaler.com/zia/about-mobile-app-store-control).
+- **NAT Control**: This refers to the [NAT Control policy](https://help.zscaler.com/zia/about-nat-control).
+- **Productivity and CRM Tools**: This refers to the [Productivity & CRM tools rule](https://help.zscaler.com/zia/adding-productivity-crm-tools-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Sales & Marketing**: This refers to the [Sales & Marketing rule](https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **Sandbox**: This refers to the [Sandbox policy](https://help.zscaler.com/zia/about-sandbox).
+- **Social Networking**: This refers to the [Social Networking & Blogging rule](https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **System & Development**: This refers to the [System & Development rule](https://help.zscaler.com/zia/adding-system-development-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+- **URL Filtering**: This refers to the [URL filtering policy](https://help.zscaler.com/zia/about-url-filtering).
+- **Video Streaming**
+- **Webmail**: This refers to the [Webmail rule](https://help.zscaler.com/zia/adding-webmail-rule-cloud-app-control) for the [Cloud App Control policy](https://help.zscaler.com/zia/about-cloud-app-control).
+
+Use this filter to view transactions that bypassed the Zscaler Client Connector.
+
+Use this filter to view transactions that bypassed the Zscaler Client Connector within the specified time period.
+
+Capture:Use this filter to limit the data to view transactions that were captured into a PCAP file.
+
+Improve the visibility of protocols that traverse within Zscaler’s cloud. The following information is shown:
+
+- **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
+- **FTP**: Transactions from native FTP servers.
+- **FTP over HTTP**: Transactions from FTP over HTTP websites.
+- **HTTP**: Transactions from HTTP websites.
+- **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge IP address.
+- **HTTPS**: HTTPS transactions that have been inspected.
+- **SSL/TLS**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL/TLS inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
+- **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
+- **Tunnel SSL/TLS**: Undecodable protocol within an SSL/TLS connection.
+- **WebSocket**: Transactions from WebSocket websites.
+- **WebSocket SSL/TLS**: Transactions from WebSocket websites encrypted by SSL/TLS.
+
+Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+
+Use this filter to view transactions based on the number of bytes a destination web server returned for an HTTP request. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
+
+- All Sizes
+- 0–1KB
+- 1KB–100KB
+- 100KB–1MB
+- 1MB–5MB
+- 5MB–10MB
+- 10MB–50MB
+- 50MB–100MB
+- Above 100MB
+- Custom
+
+Use this filter to find transactions associated with a referrer URL, which is the URL from which an HTTP request originated. Enter all or part of the URL in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with the web traffic of an HTTP request method. Choose **GET** to see transactions only for HTTP requests to retrieve data, or choose **POST** to see transactions only for HTTP requests to submit data to be processed. Post requests include email that was sent through webmail or posting on a social networking site or blog.
+
+- Baselinecontrol
+- Bcopy
+- Bdelete
+- Bmove
+- Bpropfind
+- Bproppatch
+- Checkin
+- Checkout
+- Connect
+- Copy
+- Delete
+- Get
+- Head
+- Invalid
+- Label
+- Lock
+- Mailpost
+- Merge
+- Mkactivity
+- Mkcol
+- Mkworkspace
+- Move
+- Notify
+- Options
+- Poll
+- Post
+- Propfind
+- Proppatch
+- Put
+- Report
+- Reqmod
+- Respmod
+- Search
+- Subscribe
+- Trace
+- Uncheckout
+- Unlock
+- Unsubscribe
+- Update
+- Versioncontrol
+
+Use this filter to see the request version of HTTP used for communication between the client and the server. The default option for this filter is **None**. You can search for specific versions. The following versions appear under this filter:
+
+- 1.0
+- 1.1
+- 2.0
+- None
+
+Use this filter to see the response version of HTTP used for communication between the client and the server. The default option for this filter is **None**. You can search for specific versions. The following versions appear under this filter:
+
+- 1.0
+- 1.1
+- 2.0
+- None
+
+Use this filter to view transactions based on the latency (in milliseconds) experienced by HTTP requests due to bandwidth control. The minimum value is 0 and maximum value is 3,600,000 milliseconds.
+
+Use this filter to view transactions based on the latency (in milliseconds) experienced by HTTP response due to bandwidth control. The minimum value is 0 and maximum value is 3,600,000 milliseconds.
+
+Use this filter to view transactions based on the total latency (in milliseconds) due to bandwidth control, i.e., sum of latencies experienced by HTTP request and response due to bandwidth control. The minimum value is 0 and maximum value is 3,600,000 milliseconds.
+
+Use this filter to view file downloads based on the Sandbox result. The default option for this filter is **Any**. You can search for specific results The following results appear under this filter:
+
+- **Sandbox Adware**:View known malicious results. This category refers to any malicious file sample installing persistent components to push advertising content to the user’s device. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
+- **Sandbox Anonymizer**:View known malicious results. This category refers to any malicious file sample exhibiting behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
+- **Sandbox Benign**:View known non-malicious results. This is a catchall category for any non-malicious file sample with a Sandbox Threat Score equal to or less than 70. The Zscaler service refers to file samples that have a score between 40 and 70 as “suspicious” because they might need additional review.
+- **Sandbox Malware**:View known malicious results. This is a catchall category for any malicious file sample that doesn't fall under the other Sandbox categories. Most Sandbox-classified file samples aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
+- **Sandbox Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
+- **Sent for Analysis**: View unknown results that have been sent to the Sandbox for behavioral analysis.
+
+Use this filter to view file downloads based on the Sandbox action. The default option for this filter is **Blocked**. You can search for specific results The following results appear under this filter:
+
+- Blocked
+- Quarantined
+- Sent for Analysis
+
+Use this filter to view sandbox API file submissions based on the specified Sandbox API Token. The default option for this filter is **Any**. You can filter by any combination of created token names.
+
+Use this filter to view file download transactions based on the file hash value (MD5). Enter all or part of the MD5 in the text field and **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions based on the size, in bytes, of the HTTP request that was sent to the destination web server. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
+
+- All Sizes
+- 0–1KB
+- 1KB–100KB
+- 100KB–1MB
+- 1MB–5MB
+- 5MB–10MB
+- 10MB–50MB
+- 50MB–100MB
+- Above 100MB
+- Custom
+
+Use this filter to see if the certificate presented by the Origin Content Server (web server) to the Public Service Edge was self-signed. The default option for this filter is **None**. The following options appear under this filter:
+
+- No
+- None
+- Yes
+
+Use this filter to view the validation type for the certificate presented by the server to the Public Service Edge. The default option for this filter is **None**. The following options appear under this filter:
+
+- Domain Validation
+- Extended Validation
+- None
+- Organization Validation
+
+Use this filter to view the validity duration of the certificate presented by the server to the Public Service Edge (i.e. How long is the certificate valid for?). The default option for this filter is **None**. The following options appear under this filter:
+
+- 0–3 months
+- 3–12 months
+- More than 12 months
+- None
+
+Use this filter to view the cipher suite agreed upon during the SSL/TLS handshake between the Public Service Edge and the server. The default option for this filter is **None**. You can search for specific cipher suites.
+
+The cipher suite names are listed in OpenSSL format. To view them in RFC format, use this [link](https://testssl.sh/openssl-iana.mapping.html) to map between the two notations.
+
+Use this filter to see the version of TLS used for communication between the Public Service Edge and the server. The default option for this filter is **None**. You can search for specific versions. The following versions appear under this filter:
+
+- TLS 2.0
+- TLS 3.0
+- TLS 1.0
+- TLS 1.1
+- TLS 1.2
+- TLS 1.3
+
+Use this filter to view transactions associated with a destination server. Choose **Match**and enter an IP address, a range of IP addresses, or an IP address and netmask, as shown in the examples below the text box.
+
+Use this filter to view any delayed logs.
+
+Use this filter to display the hash of identical files.
+
+Use this filter to view transactions associated with social networking sites. When you select this filter, the dialog automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
+
+- All
+- Publish
+- View
+
+Use this filter to view SSL/TLS inspected transactions. Select to view decrypted SSL/TLS transactions. Deselect to view SSL/TLS transactions that weren't decrypted.
+
+Use this filter to view the [SSL/TLS Inspection Policy](https://help.zscaler.com/zia/about-ssltls-inspection-policy) rule that was applied to the transaction. The default option for this filter is **Any**.
+
+Use this filter to view SSL/TLS policy reason transactions. The default option for this filter is **None**. The following SSL/TLS Inspection policy actions appear under this filter:
+
+- Blocked
+- Inspected
+- N/A
+- Not inspected because of failed client SSL/TLS handshake
+- Not inspected because of HSM error
+- Not inspected because of mutual TLS authentication
+- Not inspected because of O365 bypass
+- Not inspected because of SSL/TLS policy
+- Not inspected because of UCaaS bypass
+- Not inspected because of undecryptable traffic
+- Not inspected because of Zscaler best practices
+- Not inspected because of Zscaler service domains
+
+Use this filter to view transactions associated with streaming media. When you select this filter, the dialog automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
+
+- All
+- Listen
+- Upload
+
+Use this filter to limit the data to traffic associated with a specific upload or download subdocument type. The default option for this filter is **Any**.
+
+Use this filter to view transactions based on the “raw” Page Risk Index score of a URL; it filters based on the Suspicious Content [column](https://help.zscaler.com/zia/web-insights-logs-columns). You can view transactions for a certain range of Page Risk Index scores by entering a minimum and maximum value. The value ranges are from 0 to 100. To learn more about the Suspicious Content Protection (Page RiskTM), see [About Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy).
+
+Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. You can also use the toggle to turn on **Threat Name Search** to enter all or part of the threat name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. The following categories appear under this filter:
+
+- **Any**
+- **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
+- **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
+- **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allow the attackers to gain remote network access to devices for future exploitation.
+- **Benign**: This category refers to any clean file.
+- **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
+- **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
+- **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
+- **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
+- **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
+- **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
+- **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
+- **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
+- **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
+- **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
+- **Password Stealer**: This category refers to any detections of password stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
+- **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
+- **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
+- **Ransomware (Virus)**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
+- **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
+- **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
+- **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
+- **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cyber security professionals.
+- **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
+- **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
+- **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
+- **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
+- **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
+- **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
+- **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
+
+Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. You can also use the toggle to turn on **Threat Name Search** to enter all or part of the threat name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**. The following classes appear under this filter:
+
+- Advanced Threats
+- Sandbox
+- Viruses & Spyware
+
+Use this filter to enter all or part of the threat name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific threat severity. The default option for this filter is **None**. The following severities appear under this filter:
+
+- Critical
+- High
+- Medium
+- Low
+
+Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
+
+- Malware
+- Sandbox
+- Spyware
+- Virus
+
+Use this filter to view transactions based on the total size of the throttled requests. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
+
+- All Sizes
+- 0–1KB
+- 1KB–100KB
+- 100KB–1MB
+- 1MB–5MB
+- 5MB–10MB
+- 10MB– 50MB
+- 50MB–100MB
+- Above 100MB
+- Custom
+
+Use this filter to view transactions based on the total size of the throttled response. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
+
+- All Sizes
+- 0–1KB
+- 1KB–100KB
+- 100KB–1MB
+- 1MB–5MB
+- 5MB–10MB
+- 10MB–50MB
+- 50MB–100MB
+- Above 100MB
+- Custom
+
+Use this filter to view transactions based on the total size of the HTTP request and response. The default option for this filter is **All Sizes**. You can search for specific sizes. The following sizes appear under this filter:
+
+- All Sizes
+- 0–1KB
+- 1KB–100KB
+- 100KB–1MB
+- 1MB–5MB
+- 5MB–10MB
+- 10MB–50MB
+- 50MB–100MB
+- Above 100MB
+- Custom
+
+Use this filter to limit the data to traffic associated with a specific traffic forwarding mechanism. The following appear under this filter:
+
+- GRE
+- IPSec Tunnel
+- NAT Control
+- PAC File
+- PAC File over GRE Tunnel
+- PAC File over IPSec Tunnel
+- Policy Based Forwarding
+- Zscaler Client Connector
+- Zscaler Client Connector over GRE Tunnel
+- Zscaler Client Connector over IPSEC Tunnel
+- ZPA Microtunnels (M-Tunnels)
+
+Use this filter to limit data to traffic associated with a specific unscannable file type. The following appear under this filter:
+
+- **Encrypted File**: Encrypted or password-protected (e.g., GZIP, PDF)
+- **Undetectable File**: Unable to determine the file type, based on multiple methods.
+- **Unscannable File**: Unscannable (e.g., corrupt archive)
+
+Use this filter to limit the data to traffic associated with a specific uploaded file name. Enter all or part of the URL in the text field and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to limit the data to traffic associated with a specific uploaded file type.
+
+Use this filter to limit the data to traffic associated with a specific user-defined uploaded file type. The default option for this filter is **None**.
+
+Use this filter to view transactions in which a specific file type was uploaded. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
+
+- Any
+- Archive
+- Audio
+- Database
+- Executable
+- Image
+- Microsoft Office
+- Mobile
+- Online Gaming
+- Open Office Files
+- Other
+- Other Documents
+- Other Microsoft
+- Source Code
+- Streaming Media
+- Video
+- Web Content
+
+Use this filter to view transactions associated with a specific URL category. The default option for this filter is **Any**. You can search for specific categories. You can choose to include or exclude certain categories.
+
+Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
+
+- All
+- Bandwidth Loss
+- Business Use
+- General Surfing
+- Legal Liability
+- Privacy Risk
+- Productivity Loss
+
+Use this filter to view transactions for specific URL filtering policy names. You can select from the ones listed under this filter.
+
+Use this filter to find transactions associated with specific URLs.
+
+To use this filter:
+
+1. Do one of the following:
+  - Click **URL** and enter all or part of the URL (e.g., `http://www.zscaler.com/products-user-security.php`).
+  - Click **Path** and enter all or part of the path information (e.g., `products-user-security.php`).
+  - Click **Host** and enter all or part of the host name (e.g., `www.zscaler.com`).
+  - Click **Domain** and enter all or part of the domain name (e.g., `zscaler).`
+2. Choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+3. Click **Download (.csv)**or **Display**.
+4. Click **Apply Filter**. For optimized and accelerated results, the Zscaler Admin Console might show recommendations to switch between **URL**, **Path**, **Host**, and **Domain**based on your seach inputs. You can choose to **Apply Recommentation**, **Ignore**it,or **Cancel**the search. For example, if you select **URL** and enter `www.zscaler.com` in the Search field, the Internet & SaaS service shows a recommendation pop-up window to search it as **Host** to minimize the processing time in generating the logs. See image. The search results are displayed in the portal or downloaded as a CSV file.
+
+Use this filter to view transactions associated with a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
+
+- All
+- Adult Material
+- Business and Economy
+- Custom
+- Drugs
+- Education
+- Entertainment/Recreation
+- Gambling
+- Games
+- Government and Politics
+- Health
+- Illegal or Questionable
+- Information Technology
+- Internet Communication
+- Job/Employment Search
+- Militancy/Hate and Extremism
+- Miscellaneous
+- News and Media
+- Religion
+- Security
+- Shopping and Auctions
+- Social and Family Issues
+- Society and Lifestyle
+- Special Interests/Social Organizations
+- Sports
+- Tasteless
+- Travel
+- User-Defined
+- Vehicles
+- Violence
+- Weapons/Bombs
+
+Use this filter to view the transactions of a specific user. The default option for this filter is **All**. Select **Hide Deleted**if you want to remove deleted users from the list. Click **Select All** to select all the configured users. You can search for specific users. You can choose to include or exclude certain users. By default, user-related traffic data includes locations and users.
+
+Use this filter to find transactions associated with the user-agent string that the browser included in its GET request. The user-agent string contains browser and system information that the destination server can use to provide appropriate content.
+
+- The service lists the commonly-used user agents in the **Known** category. To find a user-agent string, click the **Known**tab and scroll or use the Search function to find the user-agent string in this category.
+- If the user-agent string is not found, click **Unknown** and enter all or part of the user-agent string in the text field and choose**Contains**, **Exact**, **Ends With**, or **Starts With**. (Example: **Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:18.0) Gecko/20100101 Firefox/18.0**)
+
+Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
+
+- **All**: View all transactions. This is the default option.
+- **Allow**: View allowed transactions.
+- **Allowed - No Active Content**: View download transactions of unknown PDF or Microsoft Office files that are allowed because they are classified as benign in [Sandbox static analysis](https://help.zscaler.com/zia/configuring-sandbox-policy#first-time-action).
+- **Allowed and No Scan**: View download transactions of unknown files that were allowed but not scanned due to your [configured Sandbox policy](https://help.zscaler.com/zia/configuring-sandbox-policy#first-time-action).
+- **Allowed with caution**: View allowed transactions where the service displayed a caution notification.
+- **Block**: View blocked transactions.
+- **Blocked - Tenant Restricted**: View blocked transactions because of your configured [Tenant Restriction](https://help.zscaler.com/zia/about-tenant-profiles)policies.
+- **Blocked with caution**: View blocked transactions where the service displayed a caution notification.
+- **Isolate**: View transactions sent for isolation by [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation).
+
+Use this filter to view transactions associated with webmail applications. When you select this filter, the dialog automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail** **Activity**filter:
+
+- All
+- Send
+- Send Attachment
+- View
+
+Use this filter to view transactions associated with a specific Zscaler Client Connector tunnel version, listed under this filter.
+
+Use this filter to limit the data to traffic associated with a specific server destination port. You can specify individual ports and a range of ports, from 0 to 65535.
+
+This filter is disabled by default. To enable the filter, contact Zscaler SupportZscaler Support.
+
+Use this filter to view the data to activities associated with DLP rules that are evaluated, but no action was taken based on the rule. To populate this field, you must enable the **Evaluate All Rules** mode for inline DLP rule evaluation in the [DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings#RuleEvaluation) page (Administration > DLP Advanced Settings). To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled#EvaluateAllRules).
+
+Use this filter to view prompts entered by users across the various generative AI applications. You can also use the toggle to turn on prompt search to enter all or part of the prompt in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Not Null**, or **Is Null**.
+
+Use this filter to view transactions associated with a specific category of prompts entered by users across the various Gen AI applications. You can choose to include or exclude the selected values. The default option for this filter is **Any**. The following categories appear under this filter:
+
+- Art and Culture
+- Blogs and Social Media
+- Code Generation
+- Corporate Finance
+- Corporate Legal
+- Customer Service Success
+- Education
+- Government and Politics
+- Jobs Employment HR
+- Marketing
+- News and Media
+- PII
+- Religion
+- Sales/Support Apps
+- Shopping and Retail
+- Source Code
+- Tax
+- Technology
+- Threat
+- Travel and Vehicles
+- Unknown
+
+This filter allows you to view transactions based on whether policies were applied using full tenant configurations during normal operating conditions or using only a partial configuration. A partial configuration is an extremely rare occurrence caused by transient network disruptions, which can result in a Service Edge operating with incomplete or cached tenant, user, or location configurations.
+
+When this toggle is enabled, transactions that used partial configurations for policy application are shown. When this toggle is disabled, transactions that used full configurations for evaluation are shown.
+
+This distinction applies only when the **Best Effort Policies** option is used for the **Behavior When Partial Configuration Available** setting in [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings#partial-configuration-policy-handling).
+
+[Image: Recommendation window for URL Search Filter]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/what-3rd-party-app-governance","lastmod":"2026-09-30T03:24Z","nid":"1540013"} -->
+## What Is 3rd-Party App Governance?
+
+- Source: https://help.zscaler.com/zia/what-3rd-party-app-governance
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > What Is 3rd-Party App Governance?
+- Last modified: 2026-09-30T03:24Z
+- Summary: Information on third-party app security using Zscaler 3rd-Party App Governance.
+
+Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications.
+
+With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment.
+
+You can effectively govern your environment by classifying apps as sanctioned or unsanctioned; monitoring and receiving alerts on drift in app usage or security posture; and receiving notifications when apps are introduced in violation of corporate policy or compliance.
+
+You can manually or automatically streamline remediation actions such as banning or revoking an app token, and involve end users in the review process. 3rd-Party App Governance lets you reduce your vetting or pre-vetting procedures from hours to minutes with a centralized console and extensive app catalog that unifies key attributes and automates the majority of the process.
+
+To learn more about navigating the 3rd-Party App Governance Admin Portal, see[Accessing and Navigating the 3rd-Party App Governance Admin Portal](https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal).
+
+To learn more about configuring 3rd-Party App Governance, see the [Step-by-Step Configuration Guide for 3rd-Party App Governance](https://help.zscaler.com/zia/step-step-configuration-guide-3rd-party-app-governance).
+
+## Key Benefits
+
+3rd-Party App Governance provides the following benefits and enables you to:
+
+- Quickly vet third-party apps before connecting them to your environment.
+- Gain full visibility over first-, second-, and third-party API integrations across your business so you can uncover dangerous SaaS platform connections.
+- Reduce your integrations and third-party attack surface and stop data exfiltration and breaches.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/what-advanced-posture-management","lastmod":"2026-10-07T04:58Z","nid":"1508606"} -->
+## What Is Advanced Posture Management?
+
+- Source: https://help.zscaler.com/zia/what-advanced-posture-management
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > What Is Advanced Posture Management?
+- Last modified: 2026-10-07T04:58Z
+- Summary: Information on SaaS security using Zscaler Advanced SSPM.
+
+Zscaler Advanced SaaS Security Posture Management (SSPM) is a comprehensive and unified solution that delivers complete security across Software as a Service (SaaS) apps and platforms, from data visibility to posture and governance. It helps you to quickly identify and mitigate risky misconfigurations, control SaaS sprawl and reduce third-party access, and identify users at risk.
+
+With Advanced SSPM, you can continuously monitor and correct SaaS security posture to ensure regulatory compliance is maintained across the organization. Advanced SSPM lets you reduce your attack surface by vetting third-party integrations and revoking risky connections. You can also ensure least-privileged SaaS access and revoke over privileged identities and permissions.
+
+If you subscribe to the Advanced SSPM service, you can access Advanced SSPM from the Zscaler Admin Console using single sign-on (SSO). To access Advanced SSPM, go to **Analytics**> **Reports** > **SaaS Security Report** >**Posture Management.**
+
+See image.
+
+The Posture page displays a list of all the managed posture controls. To learn more, see [About Posture](https://help.zscaler.com/zia/about-posture).
+
+Advanced SSPM supports the following API-based platforms. These platforms are onboarded from the Zscaler Admin Console or the 3rd-Party App Governance Admin Portal. To learn more, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants) and [Connecting Your Platforms to Advanced SSPM](https://help.zscaler.com/zia/connecting-your-platforms-advanced-sspm).
+
+- Airtable
+- Bitbucket
+- Bitwarden
+- Box
+- Confluence
+- Databricks
+- Docusign
+- Dropbox
+- GitHub
+- GitLab
+- Google Workspace
+- Jira
+- JumpCloud
+- Lucid
+- Microsoft 365
+- Microsoft Copilot
+- Okta
+- OneLogin
+- OpenAI
+- Oracle Financials Cloud
+- Salesforce
+- Sentry
+- ServiceNow
+- ShareFile
+- Slack
+- Smartsheet
+- Snowflake
+- Trello
+- Twilio
+- Webex Teams
+- Workday
+- Zendesk
+- Zoom
+
+## Key Benefits
+
+Advanced SSPM provides the following benefits and enables you to:
+
+- Continuously monitor SaaS platforms for dangerous misconfigurations, and fix risky configuration drift.
+- Leverage in-depth SaaS shadow IT and first-, second-, and third-party API integrations across your business to gain in-depth visibility, and identify, govern, and audit risks.
+- Quickly and effectively vet sanctioned and unsanctioned third-party apps before connecting them to your environment.
+- Continuously monitor compliance, ensuring that SaaS applications adhere to relevant regulations and standards such as GDPR, HIPAA, and SOC 2.
+- Enforce granular policies to prevent exfiltration from your SaaS platform to unknown locations and apps.
+- Leverage a Zero Trust approach to revoke excessive privileges and restrict risky user profiles from accessing SaaS apps and data.
+
+[Image: SaaS Security Report showing Posture Management Tab]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/what-are-alternatives-caching-web-traffic","lastmod":"2026-05-21T21:06Z","nid":"1400226"} -->
+## Alternative Options to Caching Web Traffic
+
+- Source: https://help.zscaler.com/zia/what-are-alternatives-caching-web-traffic
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Alternative Options to Caching Web Traffic
+- Last modified: 2026-05-21T21:06Z
+- Summary: Information on alternate methods to caching web traffic for optimizing the bandwidth usage.
+
+Proxies have been employing caching techniques to minimize bandwidth usage and improve latency on web browsing traffic in companies for over a decade. In the Web 1.0 days, caching was a useful technique because most web pages were relatively static. Today’s websites have evolved to provide much more dynamic content, session-based connections, streaming media, and the utilization of HTTPS to encrypt a large segment of traffic. In addition, there are now alternative techniques you can use to realize some of the same goals as caching, but in a more effective manner.
+
+To learn more about some of the changing trends that affect web proxy, see:
+
+- Dynamic Content
+- HTTPS
+- Browser Caching
+- File Size Limits
+- Streaming Media
+
+## Alternatives to Caching
+
+The primary goal of caching is to reduce bandwidth usage and improve user experience. Below are some alternative solutions that will effectively reduce bandwidth usage, leaving more bandwidth for business applications and improving user experience. The number one category responsible for bandwidth usage is Streaming Media.
+
+- Prioritize Traffic. Set a policy in place that will prioritize business-related traffic over Streaming Media, Large File downloads, or other high-bandwidth/less-critical sites. Having a product that can do traffic shaping can effectively limit any impact on high-bandwidth sites/users.
+- Enforce network quotas on Streaming Media sites per user. For example, each user gets 50 MB of Streaming Media per day. This allows the average user to access streaming media sites, while putting a cap on the high-bandwidth usage.
+- Use the [URL Filtering policy](https://help.zscaler.com/zia/about-url-filtering) to block access to Streaming Media or specific popular non-business streaming media sites like YouTube or Vimeo.
+- Direct to Net. By using local Internet connections and not backhauling traffic over a WAN, latency is considerably reduced, and user experience is improved. This helps the user experience from both a performance perspective and a localized content perspective.
+
+Most web traffic today includes dynamic content. From news to searches and web applications, content is created on the fly and delivered to specific users. Caching provides no benefit for such content. The HTTP header, Cache-Control, was introduced to allow web developers to determine if and for how long a page should be cached. You will see many sites that use *Cache-Control: no cache* or *Cache-Control: no-store*, indicating that these resources should not be cached.
+
+If you are not decrypting HTTPS connections, you are not caching content from HTTPS connections because proxies cannot cache encrypted data.
+
+If you are decrypting HTTPS on your proxy, then it is possible in some products to cache that data. But from a security standpoint, this can open up a potential risk that you are now storing sensitive data on a multiuser machine (with virtually no control or visibility to who receives that potentially sensitive data).
+
+All modern browsers provide caching at the client level, both in memory and on disk. A caching proxy server would only provide a secondary level of caching.
+
+Due to limited memory and disk space, proxies are configured to only cache files up to a certain size. If the max file size is too small (for example, 1 MB), the gains from caching will be minimal since most files will not be cached. If the max file size is too large, then the cache will be limited to the number of files it can cache, which will reduce the cache hits. Even with all the time and expertise at your disposal to tune the max file size, the optimal setting could change from day to day, or even hour to hour, based on browsing patterns.
+
+With the prevalence of Streaming Media and Content Delivery Networks (CDNs), many sites store the same content at multiple URLs or hosts. This makes caching less effective because a single video can be cached multiple times, filling your cache and reducing cache hits. Additionally, changing resolution (which often happens dynamically) can cause a video to be cached at multiple resolutions, which will also fill your cache and reduce cache hits.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/what-internet-saas","lastmod":"2026-04-07T16:57Z","nid":"1538661"} -->
+## What is Zscaler Internet & SaaS?
+
+- Source: https://help.zscaler.com/zia/what-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > What is Zscaler Internet & SaaS?
+- Last modified: 2026-04-07T16:57Z
+- Summary: Introductory information about Zscaler Internet & SaaS.
+
+[Zscaler Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture) (ZIA) is a cloud-native Security Service Edge (SSE) platform that gives users secure, fast, and reliable access to the internet and SaaS applications. Part of the Zscaler Zero Trust Exchange (ZTE), Internet & SaaS is designed to replace legacy, hardware-centric security point solutions with a scalable, AI-powered security architecture. Rather than route traffic to a centralized data center, Internet & SaaS delivers security directly at the edge, enforcing policy-based security protocols to ensure a consistent user experience regardless of location, whether in a branch office, at home, or traveling.
+
+## How Internet & SaaS Works
+
+Internet & SaaS acts as an inline, secure gateway between users, workloads, and the internet. When a user or workload requests access to an external resource, the traffic is routed to the nearest [Public Service Edge](https://help.zscaler.com/zia/about-public-service-edges) for Internet & SaaS.
+
+The platform then performs the following actions:
+
+- **Full**[SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection): Internet & SaaS decrypts and inspects encrypted web and related (e.g., FTP) traffic at scale, ensuring that threats hidden within encrypted streams are detected without degrading performance.
+- **Policy Enforcement**: Every request is checked against your organization’s granular security and data protection policies.
+- **Identity-Based Access**: Access is granted based on the identity of the user, the health of the device, and the context of the request, rather than the user's network location.
+- **Cyberthreat Protection**: Traffic is analyzed in real time by multiple security engines, including AI-powered sandboxing, antivirus, and advanced threat protection (ATP). After the traffic is verified as "clean" and compliant with policy, it is forwarded directly to its destination.
+
+## Key Benefits
+
+Internet & SaaS offers several advantages over traditional security appliances and VPN-based architectures:
+
+- **Superior User Experience**: By eliminating the need for routing traffic to a central location, Internet & SaaS reduces latency and provides faster access to company-critical cloud applications, like Microsoft 365 and Salesforce.
+- **Reduced Attack Surface**: Internet & SaaS makes your network invisible to the internet, preventing discovery and stopping lateral movement within it.
+- **Simplified Management**: As a 100% cloud-delivered service, Internet & SaaS eliminates the need to buy, deploy, and manage hardware appliances, like firewalls and web gateways.
+- **Global Scalability**: The Zscaler ZTE is the world’s largest security cloud, with over 150 data centers globally, providing high availability and localized peering.
+- **Unified Data Protection**: Internet & SaaS provides consistent [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-data-loss-prevention) and SaaS Security capabilities across all users and locations.
+
+## Core Features
+
+Internet & SaaS provides a comprehensive suite of security and compliance tools:
+
+- **Cloud Secure Web Gateway (SWG)**: Provides URL filtering, reputation-based blocking, and advanced web security.
+- **Firewall**: A full-featured, user- and application-aware firewall with DNS security and Intrusion Prevention Systems (IPS) that protects all ports and protocols.
+- **SaaS Security**: Secures data at rest and in transit within SaaS applications, preventing unauthorized data sharing.
+- **DLP**: Identifies and protects sensitive data (e.g., PII, PCI, intellectual property) across all internet and SaaS traffic.
+- **AI-Powered Sandboxing**: Instantly detects and blocks patient 0 attacks by analyzing suspicious files in a virtual environment.
+- [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser): Executes active web content in a remote, isolated container to prevent malware from reaching the user's device.
+
+## Deployment Options
+
+Organizations can easily connect their traffic to Internet & SaaS using several methods:
+
+- [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/what-is-zscaler-client-connector): A lightweight app installed on user devices that automatically tunnels traffic to the nearest Zscaler node.
+- **Cloud Tunnels**: Secure GRE or IPSec tunnels from branch office routers or SD-WAN gateways.
+- **Proxy Auto-Configuration (PAC) Files**: Lightweight files that instruct browsers to route traffic to the Zscaler service.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492656"} -->
+## What Is Zscaler Outbound Email DLP?
+
+- Source: https://help.zscaler.com/zia/what-zscaler-outbound-email-dlp
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
+- Last modified: 2026-09-22T07:06Z
+- Summary: A high-level overview of what Zscaler Outbound Email Data Loss Prevention (DLP) is and how it uses outbound email policy to prevent the exfiltration of sensitive data in email content.
+
+Zscaler Outbound Email Data Loss Prevention (DLP) stops the exfiltration of sensitive data by enforcing policy rules on outbound email content sent to external domains, including content in subject lines, body text, and attachments. Using connectors and rules, your email server sends email to, and receives email from, the Zscaler smart host. The Zscaler smart host receives the email and sends it to the Zscaler DLP service for inspection. The Zscaler DLP service then inspects the email content for sensitive data, adding headers that define DLP actions to emails that trigger outbound email policy. When your email server receives inspected email from the Zscaler smart host, it uses those headers to determine enforcement actions.
+
+As a part of your larger DLP strategy, Zscaler Outbound Email DLP lets you use the same DLP policy tools that you already use across other channels (i.e., Inline Web DLP, Endpoint DLP, and SaaS Security API DLP), eliminating the need for different DLP point solutions and the operational overhead involved in maintaining those solutions. Additionally, Zscaler Outbound Email DLP lets you enforce your DLP policy at a granular level, so that a single email containing sensitive information can be blocked for one recipient and allowed for another.
+
+To learn more about how the Zscaler service enforces outbound email policy rules, see [Understanding Outbound Email Policy Enforcement](https://help.zscaler.com/zia/understanding-outbound-email-policy-enforcement).
+
+The following diagram shows a high-level overview of how Zscaler Outbound Email DLP enforces outbound email policy:
+
+1. A user sends an email containing sensitive information to an external domain.
+2. The rules configured on your email server instruct Gmail, Microsoft Exchange, or your secure email gateway (SEG) to send the email to the Zscaler smart host via Simple Mail Transfer Protocol (SMTP) for DLP inspection.
+3. The Zscaler DLP service performs DLP inspection and inserts email headers based on the verdict of the policy evaluation.
+4. Inspected email is sent back to your email server.
+5. Your email server enforces the DLP action based on the mail flow/transport rules and inserted headers in the email.
+6. If the email is allowed to be sent, it is delivered to the next hop MTA or to the intended recipient.
+
+To learn more about configuring Zscaler Outbound Email DLP, see [Step-by-Step Configuration Guide for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp).
 <!-- /ZS-ARTICLE -->

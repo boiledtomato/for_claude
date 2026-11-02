@@ -1,8 +1,116 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 62
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 65
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows","lastmod":"2026-10-26T14:04Z","nid":"1532587"} -->
+## Supported Parameters for Zscaler Client Connector for Windows
+
+- Source: https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Downloading & Deployment > Zscaler Configuration Parameters for Deployment Guides > Supported Parameters for Zscaler Client Connector for Windows
+- Last modified: 2026-10-26T14:04Z
+- Summary: Configurable Zscaler parameters list for Mobile Device Management (MDM) systems when deploying Zscaler Client Connector for Windows.
+
+This table lists the available parameters for devices running Zscaler Client Connector for Windows. You can preconfigure these parameters when manually installing Zscaler Client Connector on a Windows device or deploying Zscaler Client Connector using GPO, SCCM, or other device management methods. The parameter names are different based on whether you are using an MSI file or an EXE file.
+
+To learn more, see [Customizing Zscaler Client Connector with Install Options for MSI](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-msi) and [Customizing Zscaler Client Connector with Install Options for EXE](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-exe).
+
+| Parameter | Description | Value | Notes |
+| --- | --- | --- | --- |
+| MSI: `USERDOMAIN` EXE: `userDomain` | Your organization's domain name. If your instance has multiple domains associated with it, enter the primary domain for your instance. The primary domain is only valid if you are using a single IdP with multiple domains. The primary domain won’t work if you have multiple domains across multiple IdPs. | Example: `safemarch.com` Specify the exact domain that is present in the SAML NameID field. For example, if your user’s NameID is john.doe@corp.company.com, then enter `corp.company.com`. | This install option allows users to skip the app enrollment page. If single sign-on (SSO) is enabled for your organization, users are taken directly to your organization's SSO login page. If you've integrated SSO with the app (i.e., using a mechanism like Integrated Windows Authentication [IWA]), users can also skip the SSO login page and are automatically enrolled with Zscaler service and logged in. To use this install option when deploying Zscaler Client Connector with non-persistent Citrix VDIs, you must use IWA. An alternative to using this install option is to change the name of the installer file. To learn more, see [Allow Users to Log into Zscaler Client Connector Without Entering Domains](https://help.zscaler.com/zscaler-client-connector/customizing-zscaler-client-connector-install-options-exe#ZAppLoginNoDomain). |
+| MSI: `CLOUDNAME` EXE: `cloudName` | The name of the cloud on which your organization is provisioned. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). If your organization is provisioned on more than one cloud, your users are asked to select the cloud where their traffic is sent during the enrollment process. With this install option, you can specify the cloud where the app sends user traffic, so your users don't have to make the selection during enrollment. | If your cloud name is zscalertwo.net, enter `zscalertwo` or `zscalertwo.net` | Do not use this option if your organization is provisioned on one cloud. The app automatically sends traffic to the proper cloud and your users don't need to make a selection during enrollment. This option is required if you use the `STRICTENFORCEMENT` or `strictEnforcement` option. |
+| MSI: `DEVICETOKEN` EXE: `deviceToken` | The appropriate device token from the Zscaler Admin Console if you want to use the [Zscaler Admin Console as an IdP](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-portal-identity-provider). The Zscaler service silently provisions and authenticates users even if you don't have an authentication mechanism in place. | Example: `123456677754` | This option applies only to Internet & SaaS. It is not supported by Private Access unless you also use Authentication Service. Before adding this option, you must generate a device token in the Zscaler Admin Console and complete the full configuration in [Using Zscaler Admin Console as an IdP](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-portal-identity-provider). |
+| MSI: `UNAME` EXE: `userName` | The username of the user. You can also use a Mobile Device Management (MDM) macro to auto-populate this value. Refer to your MDM's documentation. | A maximum of 255 alphanumeric and special characters. For example, if the username is j.doe@zscaler.com, enter `j.doe` | If you use this option, the `USERDOMAIN` or `userDomain` option must not be empty. |
+| MSI: `ENABLEFIPS` EXE: `enableFips` | Indicates whether Zscaler Client Connector uses FIPS-compliant libraries for communication with the Zscaler infrastructure. | `1` = Enable `0`= Disable (default) | Enable this option only if you require FIPS-level security within your organization. |
+| MSI: `EXTERNALDEVICEID` EXE: `externalDeviceId` | The identifier that associates devices in an MDM solution with devices in the Zscaler Admin Console. You can use an MDM macro to auto-populate this value. Refer to your MDM's documentation. | `0` = Disable (default) Enter a custom value to identify the device (e.g., `123456677754`). | Not supported on Zscaler Client Connector version 4.0 and earlier for Windows. |
+| MSI: `HIDEAPPUIONLAUNCH` EXE: `hideAppUIOnLaunch` | Forces the app window to stay hidden before users enroll. Users can always open the window by clicking the app icon in the system tray. | `1` = Enable `0`= Disable (default) | If Zscaler Client Connector is installed with the `cloudName` and `userDomain` options, Zscaler Client Connector attempts to automatically perform SSO. |
+| MSI: `POLICYTOKEN` EXE: `policyToken` | Allows you to specify which app profile policy you want to enforce for the app before the user enrolls. All relevant settings associated with the policy apply, including the bypass of the IdP login page. After the user enrolls, this policy is replaced with an app profile policy that matches the user based on group affiliation. | Example: `123456677754` | Applies only, and is required, in the following situations: You use the `STRICTENFORCEMENT` or `strictEnforcement` option.; You configure the machine tunnel and want the users to access Private Access applications before logging in to the device.In the Zscaler Admin Console, you must configure the app profile policy that you want to enforce and ensure that the custom PAC file associated with that policy includes a bypass for your IdP login page. This allows the user to access the IdP page to log in as necessary before enrolling with the app. |
+| MSI: `REINSTALLDRIVER` EXE: `reinstallDriver` | Forces a reinstallation of the driver, even if you already have a driver installed. Use this option if you're having issues with your current driver. | `1` = Enable `0`= Disable (default) |  |
+| MSI: `STRICTENFORCEMENT` EXE: `strictEnforcement` | Allows you to require users to enroll with the app before accessing the internet and blocks traffic in the following situations: The user has not yet logged in after a new install.; A user logs in and logs out.; An administrator removes a device. | `1` = Enable `0`= Disable (default) | If you enable this option, the following options are required: `CLOUDNAME` or `cloudName`; `POLICYTOKEN` or `policyToken`To use this install option when deploying Zscaler Client Connector with non-persistent Citrix VDIs, you must set the `HIDEAPPUIONLAUNCH` or `hideAppUIOnLaunch` option to `0` (disabled) to allow Zscaler Client Connector to remind users to enroll before accessing the internet. This option only works when the forwarding profile action for Zscaler Client Connector is Tunnel or Tunnel with Local Proxy. This option does not affect users who remain logged in and disable the Internet & SaaS service. |
+| MSI: Not supported EXE: `mode` | Allows you to install the app in silent mode. | `unattended` = Enable `win32`= Disable (default) |  |
+| MSI: Not supported EXE: `unattendedmodeui` | Allows you to control what's displayed to users if you are performing an unattended installation of the app. | `none` = Nothing is displayed to the user and no interaction is required. (default) `minimal`= A small progress bar showing installation progress is displayed to the user and no interaction is required. `minimalWithDialogs` = More information is displayed to the user with some dialogs that require user interaction. | If you enable this option, `mode=unattended` is required. |
+| MSI: `UNINSTALLPASSWORDCMDLINE` EXE: `uninstallPasswordCmdLine` | Allows you to silently uninstall the app from users' devices using device management methods like GPO. | The password you add for this option must match the [Uninstall Password configured for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode). | This option is only available when using MSI or EXE (not the MST file). Using the password, you can uninstall the app from your users' devices by removing the MST file from the GPO. Prerequisites: Your users must be enrolled in the app. If users have the app installed on their devices but have not enrolled, you cannot uninstall the app using this method.; You must have an[Uninstall Password enabled and an unexpired uninstall password generated](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode).This option is available only in Zscaler Client Connector version 4.2.1 and later for Windows. If you use an earlier version or you prefer to use the [password configured in the app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#otp), you can use `UNINSTALLPASSWORD` or `uninstallPassword`. |
+| MSI: `ENABLEANTITAMPERING` EXE: `enableAntiTampering` | Prevents end users from [stopping, modifying, and deleting Zscaler products and services](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector). | `1` = Enable `0`= Disable (default) | This option can be overridden by the [Override Anti Tampering Install Parameter](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#adv) option in app profiles. |
+| MSI: `ENABLEIMPRIVATAINTEGRATION` EXE: `enableImprivataIntegration` | Enables [integration with Imprivata OneSign](https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-and-imprivata-integration). If enabled, Zscaler Client Connector silently logs in an Imprivata OneSign user to Zscaler Client Connector, applies security policies, and logs the end user activity in Zscaler Client Connector. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 4.4 and later for Windows. |
+| MSI: `BCPCONFIGFILEPATH` EXE: `bcpConfigFilePath` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a predownloaded configuration file with Business Continuity settings from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | `<path to downloaded bcp config file>` | If you pass this install option, you must also pass the `BCPMAPUBKEYHASH` or `bcpMAPublicKeyHash` option. This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
+| MSI: `BCPMAPUBKEYHASH` EXE: `bcpMAPublicKeyHash` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a public key provided by Private Access and copied from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | `<bcp thumbprint>` Example: sYxSOjkj9DP1Ksw3LQ/FrPsBPfcsURrM5vNuH7Kmf1A= | If you pass this install option, you must also pass the `BCPCONFIGFILEPATH` or `bcpConfigFilePath` option. This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
+| MSI: `IMPORTSEFAILCLOSECONFIG` EXE: `importSEFailCloseConfig` | Allows you to pass a [predownloaded configuration file with fail-close settings](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#zcc-fail-close-settings) to use when Zscaler Client Connector is in strict enforcement mode. | `<path to downloaded fail close config file>` | If you pass this install option, you must also pass these options: `STRICTENFORCEMENT` or `strictEnforcement`; `SEFAILCLOSECONFIGTHUMBPRINT` or `failCloseConfigThumbprint`This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
+| MSI: `SEFAILCLOSECONFIGTHUMBPRINT` EXE: `failCloseConfigThumbprint` | Allows you to pass [the public key for a predownloaded configuration file with fail-close settings](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#zcc-fail-close-settings) to use when Zscaler Client Connector is in strict enforcement mode. | `<fail close thumbprint>` Example: `GjqjzPQ3Vk35+o3Yo2EsPOSV3rOJaeYTpcBmotISts=` | If you pass this install option, you must also pass these options: `STRICTENFORCEMENT` or `strictEnforcement`; `IMPORTSEFAILCLOSECONFIG` or `importSEFailCloseConfig`This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
+| MSI: Not supported EXE: `revertzcc` | Allows you to silently revert Zscaler Client Connector to the previous version. | `1` = Enable `0`= Disable (default) | If you pass this install option, you must use the installer path of the version before the upgrade. To learn more, see [Reverting Zscaler Client Connector to the Previous Version](https://help.zscaler.com/zscaler-client-connector/reverting-zscaler-client-connector#windows-revert). |
+| MSI: `REVERTPASSWORDCMDLINE` EXE: `revertPasswordCmdLine` | Allows you to silently revert Zscaler Client Connector to the previous version. | The password you add for this option must match the [Revert Password configured for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode). | This option is available only in Zscaler Client Connector version 4.2.1 and later for Windows. |
+| MSI: Not supported EXE: `installer-language` | Sets the language used by the installer. | `en` = English (default) `fr` = French | This option does not change the language used in the Zscaler Client Connector app. This option is available only in Zscaler Client Connector version 4.5 and later for Windows. |
+| MSI: `INSTALLWEBVIEW2` EXE: `installWebView2` | Enables installation of the WebView2 framework | `1` = Enable `0`= Disable (default) | This option is used for testing WebView2-based functionality on a single device and should be used for testing only. To use this option: Enable the WebView2 option for all users. To learn more, see [Using WebView2 Authentication](https://help.zscaler.com/zscaler-client-connector/using-webview2-authentication).; You must pass the `ENABLESSO` or `enableSSO` option if you want to test SSO with WebView2. |
+| MSI: `ENABLESSO` EXE: `enableSSO` | Enables SSO using the Windows Primary account in an Azure Active Directory environment. | `2` = Based on policy (default) `1` = Enable `0`= Disable | To use this option, you must pass the `INSTALLWEBVIEW2` or `installWebView2` option if you want to test SSO with WebView2. |
+| MSI: `LWFBOOTSTART` EXE: `LWFBootStart` | Sets the Zscaler Lightweight Filter (LWF) Driver start type to `Boot`. | `1` = Enable `0`= Disable (default) |  |
+| MSI: `USELWFDRIVER` EXE: `useLWFDriver` | Enables the packet filter-based filter driver. | `1` = Enable `0`= Disable (default) | This install option overrides the [Tunnel Driver Type](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector#windows-driver-selection) selection in forwarding profiles. |
+| MSI: `INSTALLLWFDRIVER` EXE: `installLWFDriver` | Installs a high-performance Network Driver Interface Specification (NDIS) 6-based LWF driver. | `1` = Enable `0`= Disable (default) |  |
+| MSI: `VDI` EXE: `vdi` | Indicates that Zscaler Client Connector is being installed on a virtual desktop infrastructure (VDI). | `1` = Enable `0`= Disable (default) |  |
+| MSI: `EXTERNALREDIRECT` EXE: `externalRedirect` | Enables [browser-based authentication](https://help.zscaler.com/zscaler-client-connector/enabling-browser-based-authentication) for Zscaler Client Connector. | `1` = Enable `0`= Disable (default) |  |
+| MSI: `CONFIGTIMEOUT` EXE: `configTimeout` | Sets the number of seconds Zscaler Client Connector waits for the configuration file (if not already present). | `0`= 0 seconds (default) |  |
+| MSI: `MTAUTHREQUIRED` EXE: `mtAuthRequired` | Requires users to authenticate against your IdP before the machine tunnel starts if you use the [machine tunnel feature](https://help.zscaler.com/zscaler-client-connector/about-machine-tunnels) in Private Access. | `1` = Enable `0`= Disable (default) |  |
+| MSI: `UPGRADEPASSWORDCMDLINE` EXE: `upgradePasswordCmdLine` | Allows you to silently [upgrade Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/upgrading-zscaler-client-connector). | The password you add for this option must match the [Upgrade Password configured for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode). |  |
+| MSI: `ENABLECUSTOMPROXYDETECTION` EXE: `enableCustomProxyDetection` | Indicates how Zscaler Client Connector identifies the system proxy before the initial policy download. | `1` = Enable `0`= Disable (default) | If enabled, Zscaler Client Connector downloads the PAC and parses the proxy instead of using the default Microsoft APIs. After the initial policy download, Zscaler Client Connector uses the Detect External Proxy Using Custom Method from the[app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#pac-proxy) and returns to this setting after a user logs out. |
+| MSI: `LAUNCHTRAY` EXE: `launchTray` | By default, Zscaler Client Connector starts its services and user interface after installation. To change this, you can disable this install option to prevent Zscaler Client Connector from automatically starting after installation. If you disable the option, users must open Zscaler Client Connector manually to start the app, or Zscaler Client Connector automatically runs after the next reboot. | `1` = Enable (default) `0`= Disable |  |
+| MSI: `KIOSKMODE` EXE: `kioskMode` | By default, Zscaler Client Connector waits for a full-screen app (e.g., Windows Autopilot) to complete and for the Windows desktop to be visible before enrolling a new user. To change this, you can enable this option to allow Zscaler Client Connector to launch without waiting for the Windows desktop to display. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 4.10.0.463 and later. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supporting-m1-processors","lastmod":"2021-01-17T06:00Z","nid":"1374111"} -->
+## Supporting M1 Processors
+
+- Source: https://help.zscaler.com/zscaler-client-connector/supporting-m1-processors
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Troubleshooting > Supporting M1 Processors
+- Last modified: 2021-01-17T06:00Z
+- Summary: Information about Zscaler Client Connector support for M1 processors on Mac devices.
+
+Zscaler Client Connector [version 2.2.4](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2020?applicable_category=macOS&applicable_version=2.2.4) is compatible with M1 processors in Mac devices by using the [Rosetta translation process](https://developer.apple.com/documentation/apple_silicon/about_the_rosetta_translation_environment?language=objc). New installations on M1 systems are fully supported through the Mac device's user interface.
+
+Currently, for version 2.2.4, new installations are not fully supported using the command line. However, you can install version 2.2.4 from the command line by using one of the following workaround options:
+
+```
+sudo Zscaler-osx-2.2.4.0-installer.app/Contents/MacOS/osx-x86_64
+<Pass Additional Installation Arguments as Needed>
+```
+
+```
+arch -x86_64 /bin/sh
+Zscaler-osx-2.2.4.0-installer.app/Contents/MacOS/installbuilder.sh
+<Pass Additional Installation Arguments as Needed>
+```
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector","lastmod":"2026-10-06T21:06Z","nid":"1285446"} -->
+## Syncing Directory Groups between Internet & SaaS and Zscaler Client Connector
+
+- Source: https://help.zscaler.com/zscaler-client-connector/syncing-directory-groups-between-internet-saas-and-zscaler-client-connector
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Syncing Directory Groups between Internet & SaaS and Zscaler Client Connector
+- Last modified: 2026-10-06T21:06Z
+- Summary: How to check when the next sync between directory groups in Internet & SaaS and Zscaler Client Connector will occur, or manually sync between Internet & SaaS and Zscaler Client Connector.
+
+The directory [groups](https://help.zscaler.com/zia/about-groups) you configured in Internet & SaaS are automatically available for selection within the Zscaler Client Connector when you [configure an App Profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-app-profiles). This allows you to create different profiles for the various directory groups in your organization.
+
+[Image: Selecting a group for a Zscaler Client Connector profile policy]
+
+The Zscaler Client Connector groups sync with the Internet & SaaS groups every three hours. In the Zscaler Admin Console, you can check when the next sync will occur. You can also manually sync groups between the portals.
+
+## Checking Next Sync Time and Performing Manual Sync
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Advanced Settings** > **Custom Root Cert**.
+2. Under **Directory Sync & Custom Root Cert**, you can:
+  - View the date and timestamp under **Next Directory Group Sync Time**.
+  - Manually sync directory groups between the Internet & SaaS and Zscaler Client Connector, by clicking **Sync Groups**.
+
+[Image: Check the next group sync time and perform a manual group sync]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -210,13 +318,13 @@ If the return statement does not include an alternative domain, Zscaler Client C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-10-06T21:06Z","nid":"1285451"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-10-26T15:58Z","nid":"1285451"} -->
 ## Understanding Zscaler Client Connector App Downloads
 
 - Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Understanding Zscaler Client Connector App Downloads
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-26T15:58Z
 - Summary: How to navigate to the Zscaler Admin Console and manually download Zscaler Client Connector from the Zscaler Client Connector App Store page.
 
 IT Admins can download installation files to use when deploying Zscaler Client Connector to end users.
@@ -244,13 +352,13 @@ After downloading the file, you can use it to deploy Zscaler Client Connector to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-10-13T14:38Z","nid":"1296751"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-10-26T10:59Z","nid":"1296751"} -->
 ## Understanding the Zscaler Client Connector Dashboard
 
 - Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Understanding the Zscaler Client Connector Dashboard
-- Last modified: 2026-10-13T14:38Z
+- Last modified: 2026-10-26T10:59Z
 - Summary: Information on the Zscaler Client Connector Portal Dashboard and its widgets, which display information about enrolled devices.
 
 The Zscaler Client Connector Dashboard provides information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
@@ -666,13 +774,13 @@ If you are using Zscaler Client Connector for Zscaler Private Access (ZPA), be a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-zscaler-client-connector","lastmod":"2026-05-07T16:11Z","nid":"1472721"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/upgrading-zscaler-client-connector","lastmod":"2026-10-29T12:18Z","nid":"1472721"} -->
 ## Upgrading Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/upgrading-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Upgrading Zscaler Client Connector
-- Last modified: 2026-05-07T16:11Z
+- Last modified: 2026-10-29T12:18Z
 - Summary: How to upgrade Zscaler Client Connector using a command line
 
 This feature applies only to Zscaler Client Connector version 4.2.1 for Windows or later.
@@ -681,7 +789,7 @@ You can require an upgrade password if you update Zscaler Client Connector in un
 
 You can [configure update settings](https://help.zscaler.com/zscaler-client-connector/configuring-update-settings-zscaler-client-connector) to update Zscaler Client Connector automatically to the latest version or to a version you specify. If you disable the auto-update option, you can use this password to provide additional security.
 
-Before you can upgrade using the password, you need to configure it. To learn more, see [Configuring Passwords for Access in Unattended Mode.](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode)
+Before you can upgrade using the password, you must configure it. To learn more, see [Configuring Passwords for Access in Unattended Mode.](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode)
 
 You can upgrade the app on your users' devices using one of the following options:
 
@@ -754,13 +862,13 @@ If you choose to keep running older versions of Zscaler Client Connector on devi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector","lastmod":"2026-10-15T21:06Z","nid":"1317671"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector","lastmod":"2026-10-29T13:31Z","nid":"1317671"} -->
 ## Uploading a Custom SSL Certificate for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Advanced Configuration > Uploading a Custom SSL Certificate for Zscaler Client Connector
-- Last modified: 2026-10-15T21:06Z
+- Last modified: 2026-10-29T13:31Z
 - Summary: How to upload the custom SSL certificate in the Zscaler Admin Console.
 
 Uploading your organization's custom SSL certificate is an optional step you can complete when [configuring SSL inspection for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-app).
@@ -771,7 +879,7 @@ The **Install Zscaler SSL Certificate** feature is not supported on devices runn
 
 To upload the custom certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Advanced Settings > Custom Root Cert**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Advanced Settings**>**Custom Root Cert**.
 2. On the **Advanced Configuration** tab, under **Custom Certificate**, click **Upload**. [Image: Upload the custom certificate]
 <!-- /ZS-ARTICLE -->
 
@@ -1498,13 +1606,13 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-10-13T14:39Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-10-27T21:06Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-10-13T14:39Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -1679,13 +1787,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-10-13T14:39Z","nid":"1420311"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-partner-device","lastmod":"2026-10-27T21:06Z","nid":"1420311"} -->
 ## Viewing Device Fingerprint Information for a Partner Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-partner-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint Information for a Partner Device
-- Last modified: 2026-10-13T14:39Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: How to view device fingerprint information for partner devices in the Zscaler Admin Console.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [partner devices](https://help.zscaler.com/zscaler-client-connector/about-partner-devices).
@@ -2351,20 +2459,22 @@ This section displays the following traffic statistics:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:22Z","nid":"1546638"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui","lastmod":"2026-10-30T14:32Z","nid":"1546638"} -->
 ## Viewing Information About Private Access on Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-private-access-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Private Access on Zscaler Client Connector in the Modern UI
-- Last modified: 2026-10-07T10:22Z
+- Last modified: 2026-10-30T14:32Z
 - Summary: Information on the Private Access window on Zscaler Client Connector.
 
-This article provides an overview of the Private Access(ZPA) window of Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access).
+This article provides an overview of the Private Access(ZPA) window of Zscaler Client Connector for different OSs. This screen features connectivity information and traffic statistics for [Private Access](https://help.zscaler.com/zpa/what-zscaler-private-access).
 
 - Windows
+- Android
+- Android on ChromeOS
 
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
 
 This window includes the following features on Windows devices.
 
@@ -2391,6 +2501,58 @@ This section displays the following traffic statistics:
 - **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
 
 [Image: View Statistics details in the Private Access window]
+
+This screen includes the following features on Android devices.
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. A password might be required if configured by your IT admin. The Private Access service is disabled until you tap **Turn On**.
+- **Authentication Status**: Displays the current authentication state (i.e., whether you are currently authenticated or not).
+- **Authenticate Early**: Tap **Authenticate Early** to reauthenticate Private Access before your authentication expires.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **Protocol:** Displays the type of tunnel and the associated protocol.
+- **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN-Trusted Network, or Off-Trusted Network).
+- **Client:**Displays the local IP address of your device.
+- **Server:** Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity information on the Android Private Access screen]
+
+## Statistics
+
+This section displays the following traffic statistics:
+
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the Z-Tunnel.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
+
+[Image: View statistics information on the Private Access screen]
+
+This screen includes the following features on Android on ChromeOS devices.
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Click or tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Private Access service while remaining logged in to the app. A password might be required if configured by your IT admin. The Private Access service is disabled until you click or tap**Turn On**.
+- **Authentication Status**: Displays the current authentication state (i.e., whether you are currently authenticated or not).
+- **Authenticate Early**: Click or tap **Authenticate Early** to reauthenticate Private Access before your authentication expires.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **Protocol:** Displays the type of tunnel and the associated protocol.
+- **Network Type:** Displays the type of network you are connected to (Trusted Network, VPN-Trusted Network, Split VPN-Trusted Network, or Off-Trusted Network).
+- **Client:**Displays the local IP address of your device.
+- **Server:** Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity information on the Android Private Access screen]
+
+## Statistics
+
+This section displays the following traffic statistics:
+
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the Z-Tunnel.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the Z-Tunnel.
+
+[Image: View statistics information on the Private Access screen]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3473,13 +3635,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-10-25T07:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-01T06:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -3513,6 +3675,7 @@ These files reside in the `%ProgramFiles(x86)` folder even if you are running th
 
 - `%ProgramFiles(x86)%\Zscaler\ZSAHelper\ZSAHelper.exe`
 - `%ProgramFiles(x86)%\Zscaler\ZSATray\ZSATray.exe`
+- `%ProgramFiles(x86)%\Zscaler\ZSATray\ZSAMTAuthApp.exe`
 - `%ProgramFiles(x86)%\Zscaler\ZSATrayManager\ZSATrayManager.exe`
 - `%ProgramFiles(x86)%\Zscaler\ZSATunnel\ZSATunnel.exe`
 - `%ProgramFiles(x86)%\Zscaler\ZSAService\ZSAService.exe`
@@ -3521,6 +3684,7 @@ These files reside in the `%ProgramFiles(x86)` folder even if you are running th
 - `%ProgramFiles(x86)%\Zscaler\ZSAUpm\ZSAUpm.exe`
 - `%ProgramFiles(x86)%\Zscaler\Updater\zscalerappupdater.exe`
 - `%ProgramFiles(x86)%\Zscaler\Updater\zscalerchecksumverifier.exe`
+- `%ProgramFiles(x86)%\Zscaler\ThirdParty`
 - `%ProgramFiles(x86)%\Zscaler\ThirdParty\TAPDriver\x86\Zscaler-Network-Adapter-1.0.1.0.exe`
 - `%ProgramFiles(x86)%\Zscaler\ThirdParty\TAPDriver\x86\Zscaler-Network-Adapter-1.0.2.0.exe`
 - `%ProgramFiles(x86)%\Zscaler\ThirdParty\TAPDriver\x86\Zscaler-Network-Adapter-Win10-1.0.2.0.exe`
@@ -3541,6 +3705,7 @@ Allowlist the entire path of the following files:
 
 - `%ProgramFiles%\Zscaler\ZSAHelper\ZSAHelper.exe`
 - `%ProgramFiles%\Zscaler\ZSATray\ZSATray.exe`
+- `%ProgramFiles%\Zscaler\ZSATray\ZSAMTAuthApp.exe`
 - `%ProgramFiles%\Zscaler\ZSATrayManager\ZSATrayManager.exe`
 - `%ProgramFiles%\Zscaler\ZSATunnel\ZSATunnel.exe`
 - `%ProgramFiles%\Zscaler\ZSAService\ZSAService.exe`
@@ -3548,6 +3713,7 @@ Allowlist the entire path of the following files:
 - `%ProgramFiles%\Zscaler\ZSAUpm\ZSAUpm.exe`
 - `%ProgramFiles%\Zscaler\Updater\zscalerappupdater.exe`
 - `%ProgramFiles%\Zscaler\Updater\zscalerchecksumverifier.exe`
+- `%ProgramData%\Zscaler\ThirdParty`
 - `%ProgramFiles%\Zscaler\ThirdParty\TAPDriver\x64\Zscaler-Network-Adapter-1.0.1.0.exe`
 - `%ProgramFiles%\Zscaler\ThirdParty\TAPDriver\x64\Zscaler-Network-Adapter-1.0.2.0.exe`
 - `%ProgramFiles%\Zscaler\ThirdParty\TAPDriver\x64\Zscaler-Network-Adapter-Win10-1.0.2.0.exe`
@@ -3670,25 +3836,37 @@ Although optional, performing step 1 ensures the following steps work properly.
 
 ## Processes Usage
 
-The following list describes what each process is used for:
+This section lists the Zscaler Client Connector processes and describes their purposes.
+
+- Windows
+- macOS
 
 - **ZSAHelper**: An internal process used by other Zscaler Client Connector processes.
-- **ZSATray**: The UI of the application.
+- **ZSATray**: The UI of the Zscaler Client Connector application.
 - **ZSATrayManager**: Manages the tray process and checks signatures for communication between tray and system services.
 - **ZSATunnel**: Handles traffic tunneling.
 - **ZSAService**: The main service and the watchdog that looks after all other services.
-- **ZSAUpdater**:The process that looks after automatic updates for the app.
+- **ZSAUpdater**: Monitors automatic updates for the Zscaler Client Connector application.
 - **ZSAUpm**: The Digital Experience (ZDX) service.
 - **zscalerappupdater**: The executable that initiates updates if found by the updater service.
 - **zscalerchecksumverifier**: Ensures the update being launched is legitimate.
 - **zsffutil**: Replaces certutil and file checksum used to validate crypto functions.
-- **NetworkAdapter**: Various versions of the network adapter, used by Zscaler Client Connector when in Tunnel (Route-Based).
+- **NetworkAdapter**: Various versions of the network adapter that Zscaler Client Connector uses when in Tunnel (Route-Based).
 - **ProgramData\Zscaler**: Directory storing logs, PCAPs, and configuration for Zscaler Client Connector.
 - **LogonUI**: Used for pre-Windows login in Private Access.
-- **ZDPService.exe**: The data protection process that evaluates Data Loss Prevention (DLP) policy rules and determines the protection action to perform.
-- **ZDPClassifier.exe**: The text extraction and classification process that identifies the true file type of a file and extracts the text from supported file types and then performs content classification.
-- **ZDPApp.exe**: This process interacts with the end user to get user confirmation for specific activities.
+- **ZDPService.exe**: Evaluates Data Loss Prevention (DLP) policy rules and determines the protection action to perform.
+- **ZDPClassifier.exe**: Identifies the true file type of file and extracts the text from supported file types and then performs content classification.
+- **ZDPApp.exe**: Interacts with the end user to get user confirmation for specific activities.
 - **ZEPInstaller.exe**: Prevents end users from stopping, modifying, and deleting Zscaler products and services.
+- **ZSAMTAuthApp.exe**: Supports authentication for the Machine Tunnel feature in Zscaler Client Connector.
+
+- **Zscaler**: Provides the Zscaler Client Connector application interface.
+- **ZscalerService**: Manages background service operations and communication between Zscaler Client Connector components.
+- **ZscalerTunnel**: Handles network traffic tunneling.
+- **ZscalerUpdater**: Manages Zscaler Client Connector software updates.
+- **UPMServiceController**: Supports Digital Experience (ZDX) functionality.
+- **zdpd**: Supports endpoint data protection functionality.
+- **com.zscaler.zscaler.TRPTunnel**: Handles transparent proxy-based traffic interception.
 <!-- /ZS-ARTICLE -->
 
 ---

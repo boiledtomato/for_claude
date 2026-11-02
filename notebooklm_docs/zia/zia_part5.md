@@ -1,1292 +1,18 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 156
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 154
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/deploying-managing-zscaler-client-connector-zia","lastmod":"2026-10-09T14:13Z","nid":"1401761"} -->
-## Deploying and Managing Zscaler Client Connector for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/deploying-managing-zscaler-client-connector-zia
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Zscaler Client Connector Deployment > Deploying and Managing Zscaler Client Connector for Internet & SaaS
-- Last modified: 2026-10-09T14:13Z
-- Summary: Information on how to properly deploy and manage Zscaler Client Connector for the Internet & SaaS service.
-
-To properly deploy and manage Zscaler Client Connector for the Internet & SaaS (ZIA) service, you must complete the following tasks in the Zscaler Admin Console:
-
-- Step 1: Manage Admin Access to Zscaler Client Connector
-- Step 2: Provision and Authenticate Users
-
-Optionally, you can complete the following tasks when deploying or managing Zscaler Client Connector for Internet & SaaS:
-
-- Configure SSL/TLS Inspection
-- Create Groups
-- Create and Host PAC Files
-
-Manage admin access to Zscaler Client Connector using role-based administration. To learn more, see [Adding Internet & SaaS Admin Roles](https://help.zscaler.com/zia/adding-internet-saas-admin-roles).
-
-To use the Zscaler service, you must have an authentication mechanism configured and users provisioned on the Internet & SaaS service. To learn more, see [Understanding User Provisioning and Authentication](https://help.zscaler.com/zia/understanding-provisioning-authenticating-users).
-
-If you do not have an authentication mechanism installed, you must use the Zscaler Admin Console as your [identity provider (IdP)](https://help.zscaler.com/zia/about-identity-providers) to provision and authenticate users. To learn more, see [Using the Zscaler Admin Console as an Identity Provider](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider).
-
-In order to enable [SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection) for Zscaler Client Connector, you must first enable the feature in the Zscaler Admin Console for each relevant platform. To learn more, see [Configuring SSL Inspection for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-client-connector).
-
-For Zscaler Client Connector, you can apply certain policies or settings to specific user groups. To learn more, see [About User Groups](https://help.zscaler.com/authentication-service/about-user-groups).
-
-You can use PAC files in the [Zscaler Client Connector profiles](https://help.zscaler.com/zscaler-client-connector/about-zscaler-client-connector-app-profiles) and [forwarding profiles](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles) to determine how to direct your organization’s traffic.
-
-To create custom PAC files for these profiles, Zscaler highly recommends that you use the Zscaler Admin Console default PAC file and customize it as necessary. After you create a custom PAC file, you can [host it in the Zscaler Admin Console](https://help.zscaler.com/zia/about-hosted-pac-files).
-
-To learn more, see [Best Practices for Using PAC Files with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/best-practices-using-pac-files-zscaler-client-connector) and [Writing a PAC File](https://help.zscaler.com/zia/writing-pac-file).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deploying-nss-virtual-appliances","lastmod":"2026-04-20T11:41Z","nid":"1400031"} -->
-## Deploying NSS Virtual Appliances
-
-- Source: https://help.zscaler.com/zia/deploying-nss-virtual-appliances
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > Deploying NSS Virtual Appliances
-- Last modified: 2026-04-20T11:41Z
-- Summary: How to deploy NSS virtual appliances in the Zscaler Admin Console.
-
-New or clean deployment of Nanolog Streaming Service (NSS) requires VM image running on ZscalerOS version 42.
-
-Depending on your platform, the Zscaler service needs to compute the appropriate resources for your NSS virtual appliance.
-
-The NSS buffers the logs for at least one hour. If a security information and event management (SIEM) system goes offline for maintenance or if the connection between the NSS and the SIEM is disrupted, the NSS buffers the logs and sends them when the connection is re-established. The amount of memory required to buffer the logs is incorporated into the VM spec computation. The buffer size increases proportionally to the amount of RAM allocated to the NSS.
-
-To deploy your NSS virtual appliance, see the deployment guide for your platform:
-
-- [NSS Deployment Guide for Amazon Web Services](https://help.zscaler.com/zia/nss-deployment-guide-aws)
-- [NSS Deployment Guide for Google Cloud Platform](https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform)
-- [NSS Deployment Guide for Hyper-V](https://help.zscaler.com/zia/nss-deployment-guide-hyper-v)
-- [NSS Deployment Guide for Microsoft Azure](https://help.zscaler.com/zia/nss-deployment-guide-azure)
-- [NSS Deployment Guide for Nutanix](https://help.zscaler.com/zia/nss-deployment-guide-nutanix)
-- [NSS Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-deployment-guide-vsphere)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deploying-private-service-edge-internet-saas","lastmod":"2026-09-30T21:06Z","nid":"1401241"} -->
-## Deploying Private Service Edge for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/deploying-private-service-edge-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Deploying Private Service Edge for Internet & SaaS
-- Last modified: 2026-09-30T21:06Z
-- Summary: Requirements and configuration information for properly deploying Private Service Edge for Internet & SaaS in the Zscaler cloud.
-
-A Private Service Edge for Internet & SaaS (ZIA) is part of the Zscaler cloud. It communicates with other nodes in the cloud, such as the Zscaler Central Authority (CA), for user authentication and policy updates, and the cloud routers and Nanolog clusters for logging and reporting. To learn more, see [Understanding Private Service Edge for Internet & SaaS](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas).
-
-To deploy a Private Service Edge:
-
-1. Review the following deployment methods and determine the best one for your environment: For all design review questions and architecture considerations, contact your Zscaler Sales representative, who assists in choosing the appropriate Private Service Edge deployment option depending on your environment and requirements.
-  - Deploy inside the DMZ
-  - Deploy outside the Corporate Firewall
-  - Deploy behind the Network Firewall
-2. Ensure that you provide Zscaler with the necessary [network and IP address requirements](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas#network-ip-address).
-3. After you receive the Private Service Edges from Zscaler, [install them](https://help.zscaler.com/zia/installing-private-service-edge-internet-saas).
-4. Configure the network as follows: Contact your network equipment provider for best practices and network configuration if required.
-  - If the Private Service Edges are deployed in the DMZ of your organization, inside your internal network or behind any network device that might filter or otherwise interfere with communication to and from the Zscaler service, configure all relevant network devices to allow the necessary traffic per the firewall rules posted on config.zscaler.com/<zscaler cloud name>/fcr.
-  - For Direct Server Return (DSR) load balancing to function correctly, enable Gratuitous ARP (GARP) on the network switches directly connected to the Private Service Edges.
-  - Set the switch ports connecting to the Private Service Edges or load balancers (LBs) to Access mode so that traffic between the Private Service Edges and LB NIC ports is not VLAN tagged. The Private Service Edges and LBs do not support VLAN tagging.
-  - Disable Link Level Discovery Protocol (LLDP) on the network switch ports connected to the Private Service Edges.
-  - Most switches offer a Layer 2 flow control option or feature. Disable this feature on all switch ports serving the Internet & SaaS Private Infrastructure VLANs. Internet & SaaS has its own Layer 4 flow control feature embedded in the TCP stack.
-5. Zscaler Operations provisions the Private Service Edges and inform your organization after the Private Service Edges are operational. Zscaler Operations are responsible for the ongoing maintenance of the Private Service Edges. To learn more, see [Hardware Usage Terms](https://help.zscaler.com/product-usage-terms/hardware-usage-terms-policy).
-6. Test the deployment:
-  - If authentication is enabled for your location, browse to an external site and verify that the Zscaler service requests your credentials before it allows access to the internet.
-  - Ensure that your policies are enforced. Verify that the service blocks access to a site due to policy.
-  - View and check the logs using the [dashboard](https://help.zscaler.com/zia/about-dashboards) in the Zscaler Admin Console.
-  - If you have a Digital Experience (ZDX) subscription, check whether you can see your ZIA Private Service Edges' health information on the [ZIA PSE Health Dashboard](https://help.zscaler.com/zdx/monitoring-zia-private-service-edge-dashboard) page.
-7. (Optional) If your organization uses PAC files to forward traffic to the Zscaler service, edit the PAC files and ensure that the variables that point to the Private Service Edges specify the subcloud that Zscaler configured for your organization. To learn more, see [Using PAC Files: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/using-pac-files-private-service-edge-internet-saas-deployments). Also, if applicable, ensure that your [firewall allows the devices from your internal network to reach the Zscaler PAC servers](https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments).
-8. (Optional) If your organization uses GRE tunnels to forward traffic to the Zscaler service, follow the standard procedure for [Self-Provisioning of GRE Tunnels](https://help.zscaler.com/zia/self-provisioning-gre-tunnels). Private Service Edge VIP addresses are available for selection on the GRE Tunnels page in the Zscaler Admin Console. Self-provisioning of GRE tunnels towards Private Service Edge clusters is only supported for clusters deployed on public IP space (i.e., a non-NAT environment). If you need to build a GRE tunnel toward a Private Service Edge cluster deployed within a NAT environment, submit a support ticket from your Zscaler Admin Console.
-
-This deployment method requires configuration changes to your firewall to allow Zscaler cloud communications. These changes can impact firewall performance because internet traffic is sent through the firewall to the Private Service Edge in the DMZ, and then through the firewall again to the internet. This might lead to port or session table exhaustion.
-
-[Image: Diagram of Service Edges for Internet & SaaS in the DMZ.]
-
-The following requirements must be met for this deployment method:
-
-- Configure the firewall to allow the Private Service Edges to communicate with the other nodes in the Zscaler cloud and allow Zscaler Operations to maintain and monitor the Private Service Edges. This deployment also requires ongoing maintenance as the Zscaler cloud expands. To learn more, see [Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments).
-- For redundancy, configure a backup tunnel to Private Service Edges at another data center or to a Public Service Edges for Internet & SaaS.
-- Assign multiple public IP addresses per Private Service Edge. To learn more, see [Network and IP Address Requirements](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas#network-ip-address).
-
-Zscaler highly recommends that you send your HTTP/HTTPS traffic through a GRE or IPSec tunnel from your firewall to the Private Service Edges. The primary incentive is to group all outbound internet traffic inside a tunnel to remediate and avoid potential port or session table exhaustion on the firewall. This arrangement does not require configuration changes to your firewall to accommodate the communication requirements of the Private Service Edge.
-
-If you use PAC files to forward your traffic to the Private Service Edges, see [Using PAC Files: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/using-pac-files-private-service-edge-internet-saas-deployments).
-
-[Image: Diagram of Service Edges for Internet & SaaS outside the Firewall]
-
-The following requirements must be met for this deployment method:
-
-- Configure GRE or IPSec VPN tunnels to the Private Service Edges. To learn more, see [Understanding Generic Routing Encapsulation (GRE)](https://help.zscaler.com/zia/understanding-generic-routing-encapsulation-gre) and [Understanding IPSec VPNs](https://help.zscaler.com/zia/understanding-ipsec-vpns).
-  - Send only HTTP/HTTPS traffic to the Private Service Edges. Send all other traffic directly to the internet.
-  - Send un-NATed traffic through the tunnels for visibility into user traffic.
-- For redundancy, configure backup tunnels to Private Service Edges at another data center or to a Public Service Edges.
-- Assign multiple public IP addresses per Private Service Edge. To learn more, see [Network and IP Address Requirements](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas#network-ip-address).
-
-You might decide to install the Private Service Edges behind the corporate firewall. This deployment option also requires configuration changes to the firewall.
-
-[Image: Diagram of Service Edge behind firewall]
-
-The following requirements must be met for this deployment method:
-
-- Configure the firewall to allow the Private Service Edges to communicate with the other nodes in the Zscaler cloud and allow Zscaler Operations to maintain and monitor the Private Service Edges. This deployment also requires ongoing maintenance as the Zscaler cloud expands. To learn more, see [Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments](https://help.zscaler.com/zia/firewall-configuration-requirements-for-private-service-edge-deployments).
-- For redundancy, configure a backup tunnel to Private Service Edges at another data center or to a Public Service Edge.
-- Assign multiple public IP addresses and multiple RFC 1918 IP addresses per Private Service Edge, along with 1:1 static NAT on your organization's NAT devices. To learn more, see [Network and IP Address Requirements](https://help.zscaler.com/zia/understanding-private-service-edge-internet-saas#network-ip-address).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deploying-ssltls-inspection","lastmod":"2026-02-12T22:59Z","nid":"1398696"} -->
-## Deploying SSL/TLS Inspection
-
-- Source: https://help.zscaler.com/zia/deploying-ssltls-inspection
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Deploying SSL/TLS Inspection
-- Last modified: 2026-02-12T22:59Z
-- Summary: Information on how to deploy SSL/TLS Inspection for your organization.
-
-To deploy SSL/TLS Inspection:
-
-- 1. Review Best Practices for SSL/TLS Inspection
-- [2. Choose the CA and Configure the Appropriate Root Certificate](https://help.zscaler.com/zia/choosing-ca-certificate-ssltls-inspection)
-- [3. Install the Certificate to an Application-Specific Trusted Store](https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trusted-store)
-- [4. Configure the SSL/TLS Inspection Policy](https://help.zscaler.com/zia/configuring-ssltls-inspection-policy)
-
-Before deploying SSL/TLS Inspection for your organization, consider the following best practices:
-
-- Enable SSL/TLS Inspection on a small location or test lab before enabling it on all locations in your organization to understand how this feature works.
-- If you are using the Zscaler intermediate certificate, ensure that the Zscaler root certificate is distributed to all users and that it is installed in their browsers before enabling SSL/TLS in a location.
-- You might also update your end user [notification](https://help.zscaler.com/zia/about-acceptable-use-policy-and-end-user-notifications) to inform users of your organization's SSL/TLS Inspection policy.
-- When you define SSL/TLS Inspection policy, you can create a list of URLs/[URL categories](https://help.zscaler.com/zia/about-url-categories) and cloud apps/[cloud app categories](https://help.zscaler.com/zia/cloud-app-categories) for which SSL/TLS transactions are not to be decrypted.
-- Start by enabling SSL/TLS Inspection for risky URL categories only, such as Privacy Risk and Legal Liability categories. Include all other categories in the list of URL categories for which SSL/TLS transactions are not to be decrypted. Then, when your organization is ready, enable SSL/TLS Inspection for all URL categories except Finance and Health, to allay privacy concerns within the organization.
-- The list of URL categories and cloud apps for which SSL/TLS transactions are not decrypted does not apply to remote users who configure their browsers or[PAC files](https://help.zscaler.com/zia/what-pac-file)to send traffic to port 9443. To use this feature, your organization must subscribe to a dedicated proxy port.
-- Ensure to update the global bypass list to bypass TLS sessions using Client Certificate Authentication. Zscaler does not support the decryption of mutually authenticated TLS sessions.
-
-Mutual TLS authentication, or two-way TLS, is a digital security protocol where both the client and the server verify each other's identities before initiating communication. This protocol enhances security by ensuring that the data is shared only between authenticated and trusted entities. This reduces the risk of impersonation or man-in-the-middle attacks.
-
-In this authentication process, the client and server exchange digital certificates, essentially digital IDs issued by trusted authorities known as Certificate Authorities (CAs). The certificates contain public keys and other identifying information that helps verify the identity of the entities involved in the communication.
-
-In general, client certificate authentication is part of the mutual TLS authentication process. It is a step where the server asks the client to present its digital certificate for validation. The server allows the client to access its resources when the certificate is valid and trusted. It provides an additional layer of security compared to standard TLS, where only the server is authenticated.
-
-- Firefox browsers do not accept SSL/TLS certificates installed in Internet Explorer browsers. You must [install SSL/TLS certificates on Firefox browsers](https://help.zscaler.com/zia/deploying-zscaler-certificate-mozilla-firefox-browsers) separately if your organization allows Firefox browsers. Google Chrome, however, uses the same certificate store as Microsoft Edge.
-- Certain client applications, like Dropbox, use a technique called [certificate pinning](https://help.zscaler.com/zia/public-key-pinning-and-zscaler), where the client application is hard coded to accept only one specific client certificate. Apps that use certificate pinning might not work with SSL/TLS Inspection. They should be included in the list of URL categories for which SSL/TLS transactions will not be decrypted.
-- Enable user authentication as well, to allow the service to apply user policies.
-- To learn how SSL/TLS Inspection impacts what policies are enforced by the service, see [About Policy Enforcement](https://help.zscaler.com/zia/about-policy-enforcement).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-authentication-bridge","lastmod":"2026-10-14T21:06Z","nid":"1399636"} -->
-## Deploying a Zscaler Authentication Bridge
-
-- Source: https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Deploying a Zscaler Authentication Bridge
-- Last modified: 2026-10-14T21:06Z
-- Summary: How to deploy a Zscaler Authentication Bridge (ZAB).
-
-The Zscaler Authentication Bridge (ZAB) is a virtual machine (VM) that you can use to [provision and authenticate users](https://help.zscaler.com/zia/about-provisioning-authenticating-users). To learn more, see [About the Zscaler Authentication Bridge](https://help.zscaler.com/zia/about-zscaler-authentication-bridge).
-
-If you're subscribed to multiple ZABs, only one ZAB can synchronize your users. For example, you can deploy two ZABs, and the Zscaler service automatically uses the healthy one to sync users. If you also want to use the ZAB for authentication, ensure the configured ZAB URL can address both ZABs. During deployment, you can create a DNS entry for the ZAB. The user is redirected to the URL during the password authentication phase. You can implement a round-robin DNS or put the ZABs behind a load balancer to achieve an active deployment.
-
-New or clean deployment of ZAB requires VM image running on Zscaler OS version 24.
-
-## Requirements
-
-Ensure you have the following to deploy the ZAB:
-
-- Hypervisor VMware ESX/ESXi version 6.0 and later.
-- A VM with:
-  - 2 GB of RAM minimum. This increases with the number of users.
-  - 64-bit Xeon CPU. Two cores assigned to the VM.
-  - 1 network interface with a static IP address. This IP address is used for control and data connections to the Zscaler cloud and to connect to the directory server. Your administrator can also use it to make an SSH connection to the VM.
-- A ZAB subscription.
-- [Super admin](https://help.zscaler.com/zia/adding-super-admin-role) access for the Zscaler Admin Console.
-- Log in information for your directory server.
-
-## Prerequisites
-
-Ensure your outbound firewall is configured to allow the necessary connections. The ZAB requires outbound connections to the Zscaler service. To view the firewall requirements, go to:
-
-```
-https://config.zscaler.com/
-<Zscaler Cloud Name>
-/zab
-```
-
-The <Zscaler Cloud> depends on the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscalerbeta.net, then go to https://config.zscaler.com/zscalerbeta.net/zab. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/zia/what-my-cloud-name-zia).
-
-## Deploying a ZAB
-
-Only [super admins](https://help.zscaler.com/zia/adding-super-admin-role) can deploy a ZAB.
-
-To deploy a ZAB:
-
-- 1. Verify the ZAB subscription.
-- [2. Add the ZAB using the Zscaler Admin Console.](https://help.zscaler.com/zia/adding-zscaler-authentication-bridge)
-- [3. Download the ZAB virtual machine (VM).](https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm)
-- 4. Download the ZAB SSL certificate.
-- 5. Configure the ZAB network settings.
-- 6. Install the ZAB client SSL certificate.
-- 7. Install the server SSL certificate.
-- 8. Install and start the ZAB software.
-- 9. (Optional) Configure nested groups on the ZAB.
-- 10. Configure the user synchronization settings.
-- 11. (Optional) Configure the local NTP server to synchronize time with the ZAB.
-
-## Troubleshooting
-
-You can use the following commands to troubleshoot your ZAB configuration:
-
-- Enter the following command to view a ​​list of the ZAB commands:
-
-```
-zab -h
-```
-
-- Enter the following command to run a script to test access to the outbound firewall:
-
-```
-zab test-firewall
-```
-
-- Enter the following command to collect all the relevant ZAB log files and configuration files. You can then compress the files into a ZIP file and send it to Zscaler Support for troubleshooting.
-
-```
-zab collect-diagnostics
-```
-
-- Enter the following command to allow Zscaler Support remote access to examine and diagnose configuration errors. This feature is disabled by default.
-
-```
-zab enable-remote-debugging
-```
-
-- Enter the following command to allow Zscaler Support remote access to log in to your ZAB via SSH. An interactive shell is useful when additional troubleshooting assistance is required. This feature is disabled by default.
-
-```
-zab support-access-start
-```
-
-To verify your organization's ZAB subscription:
-
-1. Go to **Administration**>**Subscription**> **Internet & SaaS**.
-2. Verify that your organization is subscribed to **Zscaler Auth Bridge**. See image.
-
-[Image: Screenshot of the ZAB subscription on the Subscriptions page]
-
-The ZAB uses an SSL certificate to authenticate itself to the Zscaler service.
-
-To download the ZAB SSL certificate:
-
-1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**> **Authentication Bridges**.
-2. In the **SSL Certificate** column of the ZAB, click **Download**. See image.
-
-[Image: Screenshot of the Download button for the authentication bridge]
-
-To configure the network settings of the ZAB:
-
-1. On the ZAB, log in with the following default credentials:
-  - **Username**: zsroot
-  - **Password**: zsroot See image.
-2. Switch to a superuser, by entering the following command:
-
-```
-sudo su -
-```
-
-1. Enter the password. In this example, it's `zsroot`. See image.
-2. Enter the following command to configure the ZAB network settings:
-
-```
-zab configure
-```
-
-1. Enter the the following information for the network settings:
-
-- Name server IP address
-- ZAB IP address and netmask See image.
-
-1. Enter the following command to verify your configuration:
-
-```
-zab dump-config
-```
-
-See image.
-
-Zscaler strongly recommends that you change the default password by entering the following command
-
-```
-passwd
-<Username>
-```
-
-For example, if you're using the default username, enter `passwd zsroot`.
-See image.
-
-[Image: Screenshot logging in to the ZAB VM console]
-
-[Image: Screenshot changing the password in the ZAB VM console]
-
-[Image: Screenshot switching to a superuser in the ZAB VM console]
-
-[Image: Screenshot of the ZAB configuration in the ZAB VM console]
-
-[Image: Screenshot of the zab dump-config command in the ZAB VM console]
-
-Install the ZAB SSL certificate you downloaded from the Zscaler Admin Console in [4. Download the ZAB SSL Certificate](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge#downloadzabssl). The certificate authenticates the ZAB to the Zscaler service.
-
-To install the ZAB SSL certificate:
-
-1. Copy the client certificate securely to the ZAB VM. Zscaler recommends that you use SCP or SFTP instead of FTP.
-2. On the ZAB, enter the following command to install the ZAB:
-
-```
-zab install-client-cert ZabCert.zip
-```
-
-See image.
-
-1. Enter the following command to verify that the ZAB is associated with the Zscaler cloud and your organization:
-
-```
-zab dump-config
-```
-
-See image.
-
-[Image: Screenshot of the zab install-client-cert ZabCert.zip command in the ZAB VM console]
-
-[Image: Screenshot of the zab dump-config command in the ZAB VM console]
-
-In order for the ZAB to authenticate a user against the AD, it needs to present the user with an authentication form, where the user enters their credentials to be validated against the AD. To be able to serve the form over a webpage, the ZAB has an HTTPS server component running on it.
-
-You can either install your own certificate signed by a trusted Certificate Authority or install a self-signed certificate. A server certificate from an issuing authority must be used if you're using the ZAB for user authentication. This prevents the user from seeing a server certificate warning in the browser. However, if you're using ZAB only to provision users but not to authenticate them, you can allow the system to generate a self-signed certificate.
-
-Configure one of the following options:
-
-- Install A Certificate Signed by a Trusted Certificate Authority
-- Install a Self-Signed Certificate
-
-To install a certificate signed by a trusted Certificate Authority:
-
-1. Copy the server certificate and the private key on to the ZAB.
-2. Copy the full path of the certificate and the private key.
-3. Enter the following command:
-
-```
-zab install-server-cert
-```
-
-1. Enter the full path of the server certificate in PEM format.
-2. Enter the full path of the server private key.
-3. (Optional) Enter a passphrase to decrypt the private key. There are no restrictions for the passphrase.
-4. Enter `y` when it asks if you have a separate host CA certificate file.
-5. Enter the full path of the host CA certificate in PEM format.
-
-```
-root@ZAB:/usr/home/zsroot/servercerts # zab install-server-cert
-Please enter full path of the server certificate in PEM format (Empty to generate self-signed cert): /var/test_servercert.pem
-Please enter full path of the server key in PEM format: /usr/home/zsroot/servercerts/zscaler.encrypted.key
-Please enter passphrase for decrypting the server key:
-REPEAT: Please enter passphrase for decrypting the server key:
-Validating pass_phrase with /usr/home/zsroot/servercerts/zscaler.encrypted.key...
-Pass phrase works!
-Do you have a separate host CA certificate file? <y/n> : [y]: y
-Please enter complete path of the host CA certificate file:/usr/home/zsroot/servercerts/chain.pem
-Copying files to /sc/conf...
-Finished server certificate installation.
-```
-
-To install a self-signed certificate:
-
-1. Enter the command:
-
-```
-zab install-server-cert
-```
-
-See image.
-
-1. Click **Enter** on your keyboard.
-2. Under **Self signed certificate generation**, enter your domain name.
-3. Enter a passphrase for generating the certificate. There are no restrictions for the passphrase. See image.
-
-[Image: Screenshot of the command to generate server certificate]
-
-[Image: Screenshot of the commands issued to generate a self signed certificate]
-
-To install and start the ZAB software:
-
-1. Enter the following command to install and update the ZAB software:
-
-```
-zab update-now
-```
-
-See image.
-
-1. Enter the following command to start the ZAB:
-
-```
-zab start
-```
-
-See image.
-
-1. Enter the following command to enable ZAB automatic startup:
-
-```
-zab enable-autostart
-```
-
-See image.
-
-1. Enter the following command to display the process running:
-
-```
-zab status
-```
-
-See image.
-
-1. Enter the following command to verify the ZAB is making outbound connections:
-
-```
-sockstat -4
-```
-
-See image.
-
-[Image: Screenshot of the zab update-now command in the ZAB VM console]
-
-[Image: Screenshot of the zab start command in the ZAB VM console]
-
-[Image: Screenshot of the zab enable-autostart command in the ZAB VM console]
-
-[Image: Screenshot of the zab status command in the ZAB VM console]
-
-[Image: Screenshot of the sockstat -4 command in the ZAB VM console]
-
-Nesting groups is adding a group as a member of another group in order to consolidate member accounts and reduce replicated traffic. Enabling nested groups on the ZAB allows the Zscaler service to flatten and sync user group membership for nested groups.
-
-To enable nested groups on the ZAB:
-
-1. Enter the following command to enable nested groups:
-
-```
-zab enable-nested-groups
-```
-
-See image.
-
-1. Restart the ZAB
-
-To disable nested groups on the ZAB:
-
-1. Enter the following command to disable nested groups:
-
-```
-zab disable-nested-groups
-```
-
-See image.
-
-1. Restarts the ZAB
-
-[Image: Screenshot of the ZAB CLI commands for enabling nested groups.]
-
-[Image: Screenshot of the ZAB CLI commands for disabling nested groups.]
-
-After you configure the ZAB, you must use the Zscaler Authentication Wizard to synchronize users with the ZAB. You optionally can configure the service to use the ZAB for authentication as well. To learn more about the steps in the Authentication Wizard, see [Synchronizing User Data with an Active Directory or OpenLDAP](https://help.zscaler.com/zia/synchronizing-user-data-active-directory-openldap#setupwizard).
-
-To configure the Zscaler to synchronize users with the ZAB:
-
-1. In the Zscaler Admin Console, go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**>**Default Settings**.
-2. In the **Authentication Profile** tab, under **Directory Type**, choose **Active Directory**.
-
-See image.
-
-1. Click **Authentication Wizard**.
-
-See image.
-
-1. In **Directory Server**:
-  1. **Authentication Agent Hosting**: Choose **Enterprise**.
-  2. **Directory Server IP Address**: Enter the IP address of the directory server that the ZAB connects to.
-  3. **Authentication Agent Address**: Enter the ZAB URL if your organization is using the ZAB for user authentication. If your organization is using another authentication mechanism (e.g., SAML or OpenLDAP), then you can enter any IP address.
-  4. Click **Next**.
-
-See image.
-
-1. In **Authentication**:
-  1. **Use Anonymous Authentication**: Enable if the directory server allows anonymous access. Ensure that this option is also enabled on your directory server.
-  2. **Bind DN**: Enter the DN of any user account to query the directory server. The user doesn't have to be an administrator.
-  3. **Bind Password**: Enter the password of the entered user account.
-  4. Click **Next**.
-
-See image.
-
-1. In **Detected Settings**:
-  1. **Base DN**: The Zscaler service connects to the directory server and automatically populates this field.
-  2. **Pagination**: Choose **Auto (Recommended)**.
-  3. Click **Next**.
-
-See image.
-
-1. In **Lookup & Attributes**:
-  1. **Lookup Parameters**: Choose **Auto**.
-  2. **Lookup User Entry**: Enter an email address, login name, DN, or LDAP attribute., and click **Look Up User**. The Zscaler service queries the directory server for the user entry and attributes.
-  3. **Lookup Results**: Displays the user's attributes that were retrieved from the directory server. The Zscaler service uses this information to populate the **Attributes Field** section below.
-  4. Click **Next**.
-
-See image.
-
-1. In **Synchronization**, click **Start Synchronization** to start synchronizing the Zscaler service with the directory server. The wizard displays the synchronization status and results. Click **Next**.
-
-See image.
-
-1. In **Authentication Parameters**:
-  1. **Test User Login**: Enter a test user's login ID.
-  2. **Test User Password**: Enter a test user's password.
-  3. **Check Authentication**: Click to verify the user's credentials, and ensure the information was synchronized correctly.
-  4. Click **Next**.
-
-See image.
-
-1. In **Review**, click **Finish**.
-
-[Image: Screenshot highlighting the Active Directory option under the Directory Type.]
-
-[Image: Screenshot highlighting the Authentication Wizard option for Active Directory.]
-
-[Image: Screenshot of the configured Directory Server step in the Authentication Wizard.]
-
-[Image: Screenshot of the configured Authentication step in the Authentication Wizard.]
-
-[Image: Screenshot of the configured Detected Settings step in the Authentication Wizard.]
-
-[Image: Screenshot of the configured Lookup & Attributes step in the Authentication Wizard.]
-
-[Image: Screenshot of the configured Synchronization step in the Authentication Wizard.]
-
-[Image: Screenshot of the configured Authentication Parameters step in the Authentication Wizard.]
-
-Optionally, if you have a local NTP server, you can configure the ZAB to synchronize time with the server.
-
-To configure the ZAB to synchronize time with the NTP server:
-
-1. On the ZAB, enter the following command:
-
-```
-crontab -e
-```
-
-1. Add the following line with your local NTP server name:
-
-```
-*/10 * * * * ntpdate
-<NTP Server Name>
-```
-
-1. Save and exit.
-
-The time synchronization command runs every 10 minutes.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deploying-zscaler-internet-access-china","lastmod":"2023-10-31T09:47Z","nid":"1414841"} -->
-## Deploying Zscaler Internet Access in China
-
-- Source: https://help.zscaler.com/zia/deploying-zscaler-internet-access-china
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Reference Architecture > Deploying Zscaler Internet Access in China
-- Last modified: 2023-10-31T09:47Z
-- Summary: The Deploying Zscaler Internet Access (ZIA) in China reference architecture guide that steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
-
-The Zscaler Reference Architecture series delivers best practices based on real-world deployments. The recommendations in this series were developed by Zscaler's transformation experts from across the company. This guide will steer you through the architecture process and provide technical deep dives into specific platform functionality and integrations. The Zscaler Reference Architecture series is designed to be modular, so this guide will show you how to configure a different aspect of the platform in order to allow you meet your specific policy goals.
-
-Accessing the internet from China is a well-known issue for many organizations. Where in most of the world you can expect consistent and unregulated access, China is unique in its complexity as both the technical and regulatory environments change rapidly. To successfully operate within this environment requires a new approach to network operations. To help you navigate this difficult environment, Zscaler has developed solutions with service providers inside of China. Zscaler's partnership includes deploying ZIA Public Service Edge data centers within China, and ZIA Private Service Edge devices within the service providers themselves.
-
-[Deploying Zscaler Internet Access in China](https://help.zscaler.com/downloads/zia/reference-architecture/deploying-zscaler-internet-access-china/Deploying-Zscaler-Internet-Access-in-China-Reference-Architecture.pdf) [Download PDF](https://help.zscaler.com/downloads/zia/reference-architecture/deploying-zscaler-internet-access-china/Deploying-Zscaler-Internet-Access-in-China-Reference-Architecture.pdf)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-25T04:55Z","nid":"1401941"} -->
-## Deployment Scenarios for SSL/TLS Inspection
-
-- Source: https://help.zscaler.com/zia/deployment-scenarios-ssltls-inspection
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Deployment Scenarios for SSL/TLS Inspection
-- Last modified: 2026-09-25T04:55Z
-- Summary: Information on various deployment scenarios for SSL/TLS Inspection using the Zscaler Admin Console.
-
-Zscaler's SSL/TLS Inspection can be deployed in different scenarios. The following scenarios show how the service applies SSL/TLS Inspection based on traffic source and whether authentication or other features are enabled.
-
-- HTTPS Traffic from Known Locations
-- HTTPS Traffic from Remote Users
-
-Be aware of whether you protect HTTPS traffic by deploying SSL/TLS Inspection or by blocking specific HTTPS traffic. The Zscaler Admin Console must first identify the host in an HTTPS request through an explicit or transparent [proxy mode](https://help.zscaler.com/zia/what-proxy-mode).
-
-The Zscaler service supports TLS 1.0, 1.1, and 1.2. When SSL/TLS Inspection is enabled, the service inspects all SSL/TLS sessions, regardless of version.
-
-When an organization’s traffic is forwarded from a known location (an internet gateway configured in the Zscaler Admin Console), the Zscaler service applies [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control) policies as described in the following list, depending on whether user authentication is enabled.
-
-- **Authentication Enabled**: Zscaler recommends this configuration because it enables the service to enforce granular URL and Cloud App Control policies at the user level.
-- **Authentication Disabled**: The service applies location-based URL and Cloud App Control policies. It cannot apply any user or group policies because authentication is disabled. Ensure that the appropriate location is specified in the Location setting of the URL and Cloud App Control policies.
-
-There are some extra steps needed when dealing with remote users, or users from an unknown location. The following are some options:
-
-## Zscaler Client Connector
-
-The recommended option is to install and use Zscaler Client Connector on the client machines of your remote users.
-
-## Dedicated Proxy Port
-
-If your organization has subscribed to a dedicated port and has gateway locations created using the dedicated port, your organization’s users might forward traffic to Zscaler on said port.
-
-Whether SSL/TLS traffic should be inspected or not is something that can be defined by the location configuration. As the port is unique to the organization, it would be used as an identifier to apply your organization's SSL/TLS and authentication bypasses.
-
-However, if the first transaction from a user is from an unregistered IP and is an HTTPS request, the identity of the user is unknown and to accept the traffic the transaction needs to be authenticated. This is to ensure Zscaler is not used as an open proxy by unauthorized users.
-
-If the organization has Show Notifications enabled under Internet Access > Policy > SSL/TLS Inspection in the Zscaler Admin Console, then the transaction is intercepted and checked for a valid authentication cookie. If the cookie is not present, the user is redirected for authentication. After authentication, the traffic is accepted by Zscaler and appropriate policies applied.
-
-The user would need to have appropriate root certificates installed on the user’s browsers to avoid certificate warnings.
-
-If the organization has Show Notifications disabled, then the transaction is dropped. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
-
-## TCP Port 9443
-
-Users can connect to Public Service Edges for Internet & SaaS (ZIA) on port 9443 and all HTTPS connections are subject to SSL/TLS Inspection. The drawback of this method is that the capability to bypass certain traffic based on URLs and URL categories from SSL/TLS scanning and authentication is lost.
-
-Users should also have the appropriate SSL/TLS certificate installed. If it is not installed and a user forwards traffic to port 9443, the browser displays certificate warnings.
-
-## TCP Port 80/443/9400/9480
-
-Remote users might forward traffic to Zscaler on ports 80/443/9400 and 9480. However, there are a few issues to be aware of:
-
-- SSL/TLS traffic is not intercepted and policies are not implemented on SSL/TLS traffic.
-- If the first transaction from an unregistered IP address and is on HTTPS, the transaction is blocked. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
-- SSL/TLS and authentication bypass are not applied.
-
-## TCP Port 8800
-
-Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Internet Access > Policy > SSL/TLS Inspection.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/detecting-and-controlling-dns-tunnels","lastmod":"2026-05-25T21:06Z","nid":"1400861"} -->
-## Detecting and Controlling DNS Tunnels
-
-- Source: https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Detecting and Controlling DNS Tunnels
-- Last modified: 2026-05-25T21:06Z
-- Summary: Information on the Zscaler service's tunneling detection techniques.
-
-The Zscaler service can detect DNS tunneling occurring in your network by using sophisticated machine learning techniques. You can [create granular rules](https://help.zscaler.com/zia/configuring-dns-control-policy) to control DNS tunnels as part of your [DNS Control](https://help.zscaler.com/zia/about-dns-control) policy. You can also analyze and visualize your DNS tunnels and network applications. The service logs all detected DNS tunnels and network apps in [DNS Insights](https://help.zscaler.com/zia/about-insights). You can also view the most commonly encountered tunnels and apps in the DNS Overview [dashboard](https://help.zscaler.com/zia/about-dashboards).
-
-## DNS Tunnels
-
-DNS tunneling is commonly used to circumvent security. Tunneling can be used for benign reasons. For example, an antivirus update done by endpoint software. However, it is also used for more malicious purposes, such as evading captive portals.
-
-To create a DNS tunnel, a user sets up a tunnel client that sends out a request on port 53 to a DNS tunnel server. The DNS tunnel server can use this newly created tunnel to compromise the TXT field of the DNS response message. These payloads can introduce a variety of security hazards which are often not detected due to the trusted character of DNS traffic. If malicious DNS tunneling goes unobserved it creates significant risk, with companies leaving themselves open to data exfiltration, command and control activity, as well as other hazards.
-
-[Image: Diagram showing basic tunneling process]
-
-## How Zscaler DNS Tunneling Detection Works
-
-The Zscaler service enables you to detect and control DNS tunneling occurring in your networks. The service provides a DNS proxy. You can use this proxy as a firewall to DNS traffic. All traffic that goes through this proxy is logged by the service. The Zscaler analytics system then fetches these logs, processes them, and sends them to the DNS tunneling detection engine. The detection engine uses advanced machine learning techniques to compute a risk score to classify domains. When the engine detects a tunnel hostname, the information is propagated to all [Public Service Edges for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas). The proxy server then acts according to your policy configuration.
-
-[Image: Diagram demonstrating how Zscaler's tunneling detection works]
-
-The service places any tunnels it detects into one of three categories:
-
-- **Commonly Allowed DNS Tunnels**: This contains tunnels that use DNS tunneling for productive reasons. It is mostly composed of traffic from security services.
-- **Commonly Blocked DNS Tunnels**: This contains tunnels that are malicious, can cause a loss of productivity, or can cause a loss of data.
-- **Unknown DNS Tunnels**: This contains tunnels that are not yet classified.
-
-### DNS Applications
-
-There are 4 additional categories that you can control alongside the DNS tunnels:
-
-- **Network Service**: This contains different network protocols, such as TCP and UDP.
-- **Social Networking**: This contains popular websites with social networking components, such as Facebook and LinkedIn.
-- **Web**: This contains widely used websites, such as Amazon and CNN.
-- **Web Search**: This contains popular search engines, such as Google and Bing.
-
-These categories give administrators the flexibility to control any of these items at the DNS level.
-
-From these categories, users can either select the whole category or individual items to make up a DNS Application Group. To learn more, see [About DNS Application Groups](https://help.zscaler.com/zia/about-dns-application-groups).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels","lastmod":"2026-07-08T09:13Z","nid":"1400336"} -->
-## Determining Optimal MTU for GRE or IPSec Tunnels
-
-- Source: https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Determining Optimal MTU for GRE or IPSec Tunnels
-- Last modified: 2026-07-08T09:13Z
-- Summary: Information on how to determine the optimal MTU for your organization's tunnels.
-
-A suboptimal maximum transmission unit (MTU) for your organization's GRE or IPSec tunnel results in severe performance degradation. This article teaches you how to determine the optimal MTU for your organization's tunnels.
-
-## Overview
-
-When a user from your organization requests a website, the user's traffic first travels from your organization's edge network appliance (for example, a router or firewall) to a Public Service Edge for Internet & SaaS (ZIA) via a primary or secondary GRE or IPSec tunnel. From there, the Public Service Edge sends the traffic out to the requested destination web server if it complies with your organization's security and compliance policies.
-
-**[Image: Flow of user traffic through the Public Service Edge and GRE Tunnel to the user’s appliance]**
-
-When you configure a GRE or IPSec tunnel to the Public Service Edge, you must set an MTU for the tunnel. The MTU determines the maximum packet size that can be sent over that tunnel, and setting an optimal MTU here is crucial. A suboptimal MTU for the tunnel results in significantly poorer performance for your users.
-
-An optimal tunnel MTU is equal to or lower than the following key values:
-
-- The Network Appliance MTU: The maximum total data per packet allowed by the edge network appliance from which the tunnel is built
-- The Path MTU: The maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
-
-If your tunnel MTU is larger than either value, the network or path appliance divides each packet into fragments. The appliance then places each fragment into its own packet, with its own header. (The appliance thus must ensure that the maximum size of each fragment is its own MTU minus the header size.) The appliance also records in the header the following information so that the receiving appliance can properly identify the fragments and reassemble them into the original packet that was sent:
-
-- **Total Length:** The size of the fragment.
-- **Identification:** The value that identifies the original packet the fragment belongs to.
-- **More Fragments (MF):** A flag set to a 1 for all fragments except the last one, which is set to 0. A flag set to a 1 indicates to the receiving appliance that more fragments of this packet are coming, while a flag set to a 0 indicates that the appliance has received the last fragment of the packet.
-- **Fragment Offset:** A value that helps the receiving appliance reassemble the packet fragments into the right sequence.
-
-When this fragmentation process occurs for each packet sent through your tunnel, your users experience significant performance issues.
-
-To help avoid this scenario and ensure efficient packet transport, Zscaler recommends you complete the following tasks to determine and set the optimal MTU for your tunnels.
-
-## Configuration Instructions
-
-- 1. Determine the Network Appliance MTU: the maximum total data per packet allowed by your network appliance
-- 2. Determine the Maximum Segment Size (MSS): the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
-- 3. Calculate the path MTU value: the maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
-- 4. Compare your Network Appliance MTU and path MTU and set the lesser value as the MTU for your tunnel
-
-After you complete these tasks, the packets transported through your tunnel do not exceed the network appliance MTU or the path MTU. This helps ensure the most efficient transport for your packets and vastly improves performance.
-
-Refer to your network appliance documentation to learn how to determine the appliance MTU. For example, if you have a Cisco appliance, you can find instructions [here](http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/25sg/configuration/guide/conf/sw_int.html#wp1049274).
-
-You must determine the network appliance MTU before proceeding to the next step.
-
-Before you begin, make sure you have the following information ready:
-
-- Your network appliance MTU (referenced above)
-- The IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic. Click to learn how to locate this information for your organization.
-
-You can determine the MSS for your appliance using the following procedures based on the OS of the appliance:
-
-- For macOS
-- For Windows
-- For Linux
-
-The `-g` component of the ping command applies only to appliances running macOS.
-
-1. Execute the following ping command to the Public Service Edge or VPN hostname using the appliance from which you're building the GRE or IPSec tunnels:
-
-```
-ping -g [network appliance MTU value minus 50] -G 1600 -h 10 -D [destination]
-```
-
-- This command allows you to discover a range for the MSS⁠—that is, a range for the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge. It directs your appliance to send to the destination ping sweeps—a sequence of packets that incrementally increase in size (by 10 bytes, in this case)⁠—until the packets reach a specified size, or until the packets reach a point at which adding another 10 bytes makes the packets exceed the MSS.
-- Following is a more detailed explanation of the command components and the values to use.
-  - `-g`: Packet size to start with when sending the ping sweep. The value to plug in for g must equal the network appliance MTU minus 50. For example, if your network appliance MTU is 1450, the value is 1400.
-  - `-G`: Packet segment size to end with when sending the ping sweep. For this command, use the value 1600.
-  - `-h`: Increment (in number of bytes) by which to increase the size of packets when sending the ping sweep. For this command, use the value 10.
-  - `-D`: Prevents the tunnel from fragmenting packets. This is critical to ultimately discovering the MSS. Even if the appliance doesn't reach the G value (the size with which to end the ping sweep), because of this component, the appliance stops sending packets once it finds it has to fragment packets to keep them from exceeding the MSS. Without this limitation, the appliance simply continues to send packets by fragmenting them. For example, if the MSS is 1470, and your packet size was 1478, it fragments that packet into two packets so that the first is 1400 bytes, and the second packet 8 bytes.
-  - `[destination]`: This is the packet destination**.** These are the IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic.
-- For example, if your organization's network appliance MTU is 1450, and your destination IP address is 10.10.10.13, your ping command is:
-
-```
-ping -g [1400] -G 1600 -h 10 -D 10.10.10.13
-```
-
-1. When the appliance ends the ping sweeps, identify the packet size at which your pings stopped. You now know that the MSS is somewhere between this value and this value plus 10.
-2. Execute the same ping command, but change the values entered for -g and -h.
-  - For `-g`, enter the packet size at which your appliance stopped sending packets, as identified in step 2.
-  - For `-h`, use 1 so that the appliance increases the packet size by increments of 1.
-
-```
-ping -g [packet size at which appliance stopped sending packets, identified in step 2] -G 1600 -h 1 -D [destination]
-```
-
-- For example, if the value you identified in step 2 was 1450, your ping command is:
-
-```
-ping -g [1450] -G 1600 -h 1 -D 10.10.10.13
-```
-
-1. Again, identify the packet size at which your pings stopped. That value is your MSS.
-
-- See an example.
-
-For appliances running Windows, execute the following bash loop command to perform a ping sweep:
-
-```
-for /l %i in(
-<Sweep Min Size, Sweep Count Increase By, Sweep Max Size>
-)do @ping -n 1 -w 100
-<Ping Destination IP>
--l %i -f.
-```
-
-- See an example.
-
-The command:
-
-```
-for /l %i in (1400,1,1404) do @ping -n 1 -w 100 8.8.8.8 -l %i -f
-```
-
-The expected output of the command:
-
-```
-C:\Windows\system32>for /l %i in (1400,1,1404) do @ping -n 1 -w 8.8.8.8 -l %i -f
-
-Pinging 8.8.8.8. with 1400 bytes of data:
-Reply from 8.8.8.8: bytes=1400 time=6ms TTL=64
-
-Ping statistics for 8.8.8.8:
-Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds:
-Minimum = 6ms, Maximum = 6ms, Average = 6ms
-
-Pinging 8.8.8.8 with 1401 bytes of data:
-Reply from 8.8.8.8: bytes=1401 time<1ms TTL=64
-
-Ping statistics for 8.8.8.8:
-Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds:
-Minimum = 0ms, Maximum = 0ms, Average = 0ms
-
-Pinging 8.8.8.8 with 1402 bytes of data:
-Reply from 8.8.8.8: bytes=1402 time<1ms TTL=64
-
-Ping statistics for 8.8.8.8:
-Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds:
-Minimum = 0ms, Maximum = 0ms, Average = 0ms
-
-Pinging 8.8.8.8 with 1403 bytes of data:
-Reply from 8.8.8.8: bytes=1403 time<1ms TTL=64
-
-Ping statistics for 8.8.8.8:
-Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
-Approximate round trip times in milli-seconds:
-Minimum = 0ms, Maximum = 0ms, Average = 0ms
-```
-
-For appliances running Linux, enter the following bash loop command to perform a ping sweep:
-
-```
-for size in {
-<Sweep Min Size>
-..
-<Sweep Max Size>
-..
-<Sweep Count Increase By>
-}; do ping -s $size -c 1 -M do
-<Ping Destination IP>
-; done
-```
-
-- See an example.
-
-The command:
-
-```
-for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
-```
-
-The expected output of the command:
-
-```
-root@user1-ubuntu:~# for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
-PING 8.8.8.8 (8.8.8.8) 900(928) bytes of data.
-76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
-
-— 8.8.8.8 ping statistics —
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 22.078/22.078/22.078/0.000 ms
-PING 8.8.8.8 (8.8.8.8) 901(929) bytes of data.
-76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
-
-— 8.8.8.8 ping statistics —
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 17.283/17.283/17.283/0.000 ms
-PING 8.8.8.8 (8.8.8.8) 902(930) bytes of data.
-76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
-
-— 8.8.8.8 ping statistics —
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 22.515/22.515/22.515/0.000 ms
-PING 8.8.8.8 (8.8.8.8) 903(931) bytes of data.
-76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
-
-— 8.8.8.8 ping statistics —
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 16.494/16.494/16.494/0.000 ms
-PING 8.8.8.8 (8.8.8.8) 904(932) bytes of data.
-76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
-
-— 8.8.8.8 ping statistics —
-1 packets transmitted, 1 received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev = 8.494/8.494/8.494/0.000 ms
-```
-
-- GRE Tunnels: If you're building GRE tunnels, Zscaler Customer Support can provide you with the IP addresses of the primary and secondary Public Service Edges to which your organization must forward traffic. See [Configuring GRE Tunnels](https://help.zscaler.com/zia/configuring-gre-tunnels) for more information.
-- IPSec Tunnels: If you're building IPSec tunnels, see [Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS](https://help.zscaler.com/zia/locating-hostnames-and-ip-addresses-zia-public-service-edges).
-
-In this example:
-
-- The network appliance MTU is 1330.
-- The destination Public Service Edge IP address is 192.152.0.19.
-
-In this case, execute the following ping command:
-
-```
-ping -g 1330 -G 1600 -h 10 -D 192.152.0.19
-```
-
-The appliance sent to the IP address 192.152.0.19 pings starts at a packet segment size of 1330 bytes, increasing the size by increments of 10.
-
-The appliance stopped sending packets once they reached 1468 bytes (even before they reached the G value of 1600 bytes). Since the command specified that packets cannot be fragmented, the appliance stopped sending packets when adding another 10 bytes to 1468 makes the packet size exceed the MSS—in other words, the point at which the appliance begins fragmenting packets in order to transport them.
-
-From this, you can deduce that the MSS is somewhere between 1468 and 1478.
-
-```
-PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
-1338 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
-1348 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
-1358 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1368 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1378 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1388 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1398 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1408 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1418 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1428 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1438 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1448 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1458 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1468 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-ping: sendto: Message too long
-ping: sendto: Message too long
-ping: sendto: Message too long
-```
-
-With the information from the first ping command, execute the following second ping command:
-
-```
-ping -g 1468 -G 1478 -h 1 -D 192.152.0.19
-```
-
-From this result, you can conclude that your MSS is 1472 bytes.
-
-```
-PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
-1468 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
-1469 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
-1470 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1471 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-1472 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
-ping: sendto: Message too long
-ping: sendto: Message too long
-ping: sendto: Message too long
-```
-
-With your MSS, you can now calculate the path MTU⁠—the maximum packet size allowed by appliances that stand in the path between your network appliance and the Public Service Edge. The path MTU is the MSS value plus the values for the IP header (20 bytes) and the ICMP header (8 bytes). Use the following calculation.
-
-```
-Path MTU = MSS + 20 Bytes (IP Header) + 8 bytes (ICMP Header)
-```
-
-For example, if your MSS is 1472, your path MTU is 1500 (that is, 1472 + 20 + 8).
-
-Compare your network appliance MTU and your path MTU. Subtract the tunnel header length from the lower of these two MTU values to set your tunnel MTU.
-
-For example, if your network appliance MTU is 1500, and your path MTU is 1300, the value you set as the tunnel MTU is:
-
-```
-Tunnel MTU = Path MTU - Tunnel Header Length in bytes
-```
-
-For GRE tunnel, the header length = 24 bytes.
-For IPSec tunnel, the header length is variable and can be up to 64 bytes.
-
-This ensures that packets traveling through your GRE or IPSec tunnel do not exceed the packet size limitations of your network appliance or other appliances in the path between your network appliance and the Public Service Edge.
-
-If you experience issues performing the tasks above, Zscaler recommends that you use a tunnel MTU of 1400.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/distributing-pac-file-url-my-users","lastmod":"2026-09-02T07:40Z","nid":"1399431"} -->
-## Distributing a PAC File URL to Users
-
-- Source: https://help.zscaler.com/zia/distributing-pac-file-url-my-users
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Distributing a PAC File URL to Users
-- Last modified: 2026-09-02T07:40Z
-- Summary: How to distribute PAC file URL to users and to enforce the PAC file settings.
-
-If your organization uses Active Directory along with Microsoft Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, or Opera, you can use Group Policy Objects (GPOs) to distribute a PAC file URL to all Windows (Professional, Enterprise, Education, and Ultimate Editions only) and Windows Server devices in your organization. When you configure Internet Explorer to use a PAC file, browsers such as Microsoft Edge, Google Chrome, and Opera follow the same configuration. However, Mozilla Firefox requires a separate method of configuration. To distribute a PAC file URL to Firefox browsers using GPOs, download the ADMX templates for Firefox at [https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows](https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows).
-
-## Distributing a PAC File URL to Mozilla Firefox
-
-To distribute a PAC file URL to Mozilla Firefox:
-
-- 1. Download and install GPO templates for Mozilla Firefox.
-- 2. Create a new GPO.
-- 3. Deploy and enforce PAC file setting for Mozilla Firefox using GPO.
-
-## Distributing a PAC File URL to Other Browsers
-
-To distribute a PAC file URL using browsers other than Mozilla Firefox, such as Microsoft Internet Explorer, Microsoft Edge, Google Chrome, or Opera:
-
-- 1. Create a new GPO.
-- 2. Distribute the PAC file URL.
-- 3. Enforce the PAC file setting.
-
-Mozilla Firefox does not follow the system proxy configuration like the other browsers do. You must download and install separate Group Policy templates for Firefox to use GPOs to deploy and enforce the PAC file setting.
-
-- Download and install Mozilla Firefox GPO templates for Windows Server Core.
-- Download and install Mozilla Firefox GPO templates for Windows Server with Desktop Experience.
-
-1. Log in to a domain-joined Windows 10 client as a user with administrative permissions on the domain.
-2. Open a remote PowerShell session into your domain controller.
-3. Execute the following PowerShell commands:
-
-```
-Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
-Expand-Archive -Path .\master.zip -DestinationPath .\master
-Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
-Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
-```
-
-If you are using a Group Policy Central Store, replace the file path in the `Destination` parameter with that of your Central Store.
-
-1. Log in to your domain controller with administrative permissions on the domain.
-2. Open the **Start Menu >** **Windows PowerShell** folder. Right-click on **Windows PowerShell** and select **Run as administrator**.
-3. Execute the following PowerShell commands:
-
-```
-Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
-Expand-Archive -Path .\master.zip -DestinationPath .\master
-Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
-Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
-```
-
-If you are using a Group Policy Central Store, replace the file path in the Destination parameter with that of your Central Store.
-
-You can use the Group Policy Management Console (GPMC) to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access the GPMC on a Windows Server Core, you need a Windows client machine (Professional, Enterprise, Education, and Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
-
-Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
-On a Windows Server with Desktop Experience, the GPMC is already installed.
-
-To create a new GPO:
-
-1. Open the GPMC.
-2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
-3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**.
-
-The **New GPO** window appears.
-
-1. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
-2. Click **OK**.
-
-A new GPO is created under your domain or organizational unit.
-
-1. Right-click on the newly created GPO and then select **Link Enabled**.
-
-See image.
-
-1. Select your forest, domain, or organizational unit and then move the new GPO to **Link Order 1** under the **Linked Group Policy Objects** tab.
-
-See image.
-
-It might take up to 20 minutes for the GPO to be replicated to your Windows client machine.
-
-To deploy and enforce the PAC file setting for Mozilla Firefox:
-
-1. Open the GPMC.
-2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
-3. Right-click on the newly created GPO and select **Edit**.
-4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
-
-See image.
-
-1. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
-
-See image.
-
-1. From the **Firefox** folder, double-click **Proxy Settings**.
-
-The **Proxy Settings** window appears.
-
-1. Under **Proxy Settings**, select **Enabled**.
-2. Under **Options**, configure the following fields:
-
-See image.
-
-- **Don’t allow proxy settings to be changed:** Select this option to enforce the PAC file settings.
-- **Connection Type:** Select **Manual proxy configuration** to configure your custom proxy settings. To use the proxy configured in your system, choose **Use system proxy settings**.
-- **SOCKS Version:** Select **SOCKS v5**.
-- **Automatic proxy configuration URL:** Enter the PAC file URL in this field if you selected **Manual proxy configuration** in the **Connection Type** field.
-
-1. Click **OK**.
-
-Users can no longer modify the proxy settings in Mozilla Firefox.
-
-[Image: Computer configuration for Firefox in GPMC]
-
-[Image: User configuration for Firefox in GPMC]
-
-[Image: Proxy setting for Firefox browser to distribute a PAC file URL]
-
-You can use the GPMC to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access GPMC from a Windows server core, you need a Windows client machine (Professional, Enterprise, Education, or Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
-
-Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
-On a Windows server with Desktop Experience, the GPMC is already installed.
-
-To create a new GPO:
-
-1. Open the GPMC.
-2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
-3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**. The **New GPO** window appears.
-4. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
-5. Click **OK**.
-
-To distribute the PAC file URL using the GPO:
-
-1. Open the GPMC.
-2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
-3. Right-click on the newly created GPO and select **Edit**.
-4. Navigate to **User Configuration > Preferences > Control Panel Settings**.
-5. Right-click on **Internet Settings** and select **New > Internet Explorer 10**.
-
-See image.
-
-1. From the **Connections** tab, click **LAN settings**.
-
-See image.
-
-1. Enter the PAC file URL in the **Address** field.
-
-If you see a red dotted underline in the **Address** field, ensure to place your cursor in the text box and press the **F6** function key. This enables the field and is indicated by a solid green underline.
-
-See image.
-
-1. Click **OK**.
-2. (Optional) If you want to apply the GPO to the entire computer irrespective of the signed in user:
-  1. Navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer** in the GPMC.
-  2. From the **Internet Explorer** folder, double-click **Make proxy settings per-machine (rather than per-user)**. The **Make proxy settings per-machine (rather than per-user)** window appears.
-  3. Under **Make proxy settings per-machine (rather than per-user)**, select **Enabled** and click **OK**.
-
-See image.
-
-You can use the Group Policy Results wizard to verify the policy settings of the users or computers in the domain.
-
-[Image: Screenshot of Link Enabled option selected for the new GPO]
-
-[Image: Screenshot of the new GPO's Link Order in the organizational unit page]
-
-[Image: Internet settings for IE in GPMC]
-
-[Image: Internet Explorer Properties in GPMC]
-
-[Image: Internet Explorer PAC URL Settings in GPMC]
-
-[Image: Internet Explorer Optional configuration in GPMC]
-
-You can enforce the PAC file setting so that the users in your organization cannot modify it even when logged in as an administrator.
-
-To enforce the PAC file setting:
-
-1. Open the GPMC.
-2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
-3. Right-click on the newly created GPO and select **Edit**.
-4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
-5. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
-6. From the **Internet Explorer** folder, double-click **Disable changing Automatic Configuration settings**.
-
-The **Disable changing Automatic Configuration settings** window appears.
-
-1. Under **Disable changing Automatic Configuration settings**, select **Enabled** and click **OK**.
-
-See image.
-
-1. Double-click **Prevent changing proxy settings**. The **Prevent changing proxy settings** window appears.
-2. Under **Prevent changing proxy settings**, select **Enabled** and click **OK**.
-
-See image.
-
-Users can no longer change the proxy settings.
-
-Based on your authentication configuration, your users must log in to the service at least once for the service to start protecting their web traffic. If the users log in to a captive portal, such as those present on public Wi-Fi networks (e.g., Starbucks and McDonalds), they must close the browser and open it again to reload the PAC file. The browser tries to fetch the PAC file only when there is a PAC URL timeout.
-
-[Image: Internet Explorer Disable Changing Auto Config Settings]
-
-[Image: Internet Explorer Prevent Changing Proxy Settings]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/dlp-policy-configuration-example-match-only","lastmod":"2026-10-22T08:26Z","nid":"1401736"} -->
-## DLP Policy Configuration Example: Match Only
-
-- Source: https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Policy Configuration Example: Match Only
-- Last modified: 2026-10-22T08:26Z
-- Summary: Information on how using Data Loss Prevention (DLP) policy Allow rules with the Match Only option affects how DLP policy evaluates its rules.
-
-Using rules with the Match Only option selected or unselected affects how the Data Loss Prevention (DLP) policy evaluates its rules when inspecting transactions. A rule with Match Only selected exclusively triggers when transactions match the rule’s specified DLP engines and no other engines from different rules. This allows you to prevent users from leaking sensitive data when sending out non-sensitive data.
-
-The following example illustrates how the Match Only option affects how the DLP policy evaluates its rules.
-
-In this scenario, your organization’s DLP policy includes the following rules:
-
-[Image: DLP Match Only policy example]
-
-- Rule 1 allows your organization’s finance team to send out credit card numbers.
-- Rule 2 allows your organization’s human resources team to send out social security numbers.
-- Rule 3 blocks the rest of your organization from sending out credit card numbers and social security numbers.
-
-A member of the finance team sends out a document that includes both credit card numbers and social security numbers. Your DLP policy's action for this transaction depends on whether your Allow rules (i.e., Rule 1 and Rule 2) have the Match Only option selected or unselected.
-
-For example, you have selected Match Only for Rule 1 and Rule 2.
-
-- The document does not match Rule 1, despite belonging to a finance team member. This is because Rule 1 only triggers if a document only contains credit card numbers and no additional content that triggers other engines from different rules.
-- The document does not match Rule 2, because the document’s owner is not a human resources team member.
-- The document matches Rule 3, because the document contains both credit card numbers and social security numbers. This results in the DLP policy blocking the transaction, and the finance team member is unsuccessful in sending out the social security numbers.
-
-If you did not select Match Only for both rules, the DLP policy will take a different action instead.
-
-For example, you have not selected Match Only for Rule 1 and Rule 2. The document matches Rule 1, despite containing social security numbers. This is because Rule 1 triggers if a document contains credit card numbers and any additional content. This results in the DLP policy allowing the transaction, and the finance team member succeeds in sending out the social security numbers.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/dns-data-types-and-filters","lastmod":"2026-04-21T09:37Z","nid":"1399516"} -->
+<!-- ZS-ARTICLE {"url":"/zia/dns-data-types-and-filters","lastmod":"2026-10-30T02:35Z","nid":"1399516"} -->
 ## DNS Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/dns-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > DNS Data Types and Filters
-- Last modified: 2026-04-21T09:37Z
+- Last modified: 2026-10-30T02:35Z
 - Summary: Information on DNS data types and filters to define DNS traffic information in a dashboard, report widget, or when analyzing charts in DNS Insights.
 
 There are two ways you work with DNS data types and filters to define the web traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -1590,9 +316,9 @@ Displays data associated with the DNS tunneling categories and network services.
   - Workload Traffic Group
 - **User**: Use this filter to limit the data to the traffic of specific users. You can search for a specific user. You can choose to include or exclude certain users.
 
-[Image: Screenshot of Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: Screenshot of DNS Insights showing the Data Types and Filters options highlighted]
+[Image: DNS Insights Data Types and Filters options]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2033,6 +759,28 @@ If the client browser is using secure DNS or DoH, add a firewall filtering rule 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/dns-test-domains","lastmod":"2026-10-27T20:03Z","nid":"1546971"} -->
+## DNS Test Domains
+
+- Source: https://help.zscaler.com/zia/dns-test-domains
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Test Domains
+- Last modified: 2026-10-27T20:03Z
+- Summary: Information on test FQDNs that the Zscaler service provides to validate DNS Control policies.
+
+Zscaler organizes DNS requests and responses into a hierarchy of categories for granular filtering and policy creation. There are predefined super categories that are divided into specific categories.
+
+Zscaler provides a set of immutable test FQDNs for DNS request categories and DNS tunnels and network apps that you can use to validate your [DNS Control policies](https://help.zscaler.com/zia/configuring-dns-control-policy).
+
+These test domains resolve to [Google](https://www.google.com/). You might encounter errors when accessing these FQDNs through a browser.
+
+[Download List of DNS Request Categories](https://help.zscaler.com/downloads/zia/policies/firewall/dns-control/about-dns-test-domains/Zscaler-DNS-Test-FQDNs-Request-Categories-10-26-2026.csv)
+
+[Download List of DNS Tunnels & Network Apps](https://help.zscaler.com/downloads/zia/policies/firewall/dns-control/about-dns-test-domains/Zscaler-DNS-Test-FQDNs-Tunnel-NetworkApp-10-26-2026.csv)
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-10-20T21:06Z","nid":"1398761"} -->
 ## Downloading and Printing Policies
 
@@ -2287,13 +1035,13 @@ To edit the default Firewall Filtering rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-deleting-duplicating-items","lastmod":"2026-08-28T00:44Z","nid":"1398786"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-deleting-duplicating-items","lastmod":"2026-10-30T16:39Z","nid":"1398786"} -->
 ## Editing, Deleting, or Duplicating Items
 
 - Source: https://help.zscaler.com/zia/editing-deleting-duplicating-items
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Editing, Deleting, or Duplicating Items
-- Last modified: 2026-08-28T00:44Z
+- Last modified: 2026-10-30T16:39Z
 - Summary: How to edit, delete, or duplicate items in the Zscaler Admin Console for Internet & SaaS (ZIA).
 
 In the Zscaler Admin Console, you can often edit, delete, or duplicate items you configure. For example, you can do so with policy rules and other administrative items you configure in the Zscaler Admin Console (e.g., users and locations).
@@ -2328,7 +1076,7 @@ Some items can be deleted by clicking an icon. To delete items with the Delete i
 
 [Image: Image of the Delete icon]
 
-1. Read the warning message that appears. The following is an example. If you are sure you want to delete the item, click **OK**.
+1. Type CONFIRM in the confirmation window that appears and then click **Delete**.
 
 [Image: Delete confirmation window]
 
@@ -2875,13 +1623,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-10-15T00:32Z","nid":"1535315"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-10-29T21:06Z","nid":"1535315"} -->
 ## Editing Locations
 
 - Source: https://help.zscaler.com/zia/editing-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
-- Last modified: 2026-10-15T00:32Z
+- Last modified: 2026-10-29T21:06Z
 - Summary: Information on editing locations in the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
@@ -3343,13 +2091,13 @@ After you edit the data center list for a subcloud, the Zscaler Client Connector
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-data-types-and-filters","lastmod":"2026-04-22T01:59Z","nid":"1479946"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-data-types-and-filters","lastmod":"2026-10-30T02:45Z","nid":"1479946"} -->
 ## Email DLP Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/email-dlp-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Email DLP Data Types and Filters
-- Last modified: 2026-04-22T01:59Z
+- Last modified: 2026-10-30T02:45Z
 - Summary: Information on Email DLP data types and filters to define traffic information in a dashboard, report widget, or when analyzing charts in Email DLP Insights.
 
 There are two ways you can use Email Data Loss Prevention (DLP) data types and filters to define the Email DLP activities information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -3362,9 +2110,9 @@ On the[Email DLP Insights page](https://help.zscaler.com/zia/about-insights), se
 
 See image.
 
-[Image: Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: Data Type and Filters menu for Email DLP Insightssights]
+[Image: Data Type and Filters menu for Email DLP Insights]
 
 The **User**and **Department**filters list 200 results at a time. They provide search fields in which you can enter a few characters and the results narrow to match your input until you find what you want.
 
@@ -3716,13 +2464,13 @@ Following are the Email DLP Insights Logs filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-10-01T00:19Z","nid":"1399931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-firewall-locations","lastmod":"2026-10-27T02:28Z","nid":"1399931"} -->
 ## Enabling the Firewall for Locations
 
 - Source: https://help.zscaler.com/zia/enabling-firewall-locations
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Enabling the Firewall for Locations
-- Last modified: 2026-10-01T00:19Z
+- Last modified: 2026-10-27T02:28Z
 - Summary: How to enforce firewall controls on specific locations for the Zscaler service.
 
 The firewall can be enabled on a per-location basis.
@@ -3749,7 +2497,7 @@ Before enabling the firewall, ensure the following prerequisites are met:
 
 To enable the firewall for a location:
 
-1. Go to **Infrastructure**>**Location Management**>**Legacy Locations**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**>**Location Management**>**Legacy Locations**.
 2. In the **Locations** tab on the **Location Management** page, click the **Edit** icon next to the location you want to enable.
 
 [Image: The Zscaler firewall location section highlighting edit icon]
@@ -3938,13 +2686,13 @@ You must define your DLP servers in the Zscaler Admin Console by providing the p
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/endpoint-dlp-data-types-and-filters","lastmod":"2026-04-22T01:55Z","nid":"1452626"} -->
+<!-- ZS-ARTICLE {"url":"/zia/endpoint-dlp-data-types-and-filters","lastmod":"2026-10-30T02:41Z","nid":"1452626"} -->
 ## Endpoint DLP Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/endpoint-dlp-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Endpoint DLP Data Types and Filters
-- Last modified: 2026-04-22T01:55Z
+- Last modified: 2026-10-30T02:41Z
 - Summary: Information on Endpoint Data Loss Prevention (DLP) data types and filters to define traffic information in a dashboard, report widget, or when analyzing charts in Endpoint DLP Insights.
 
 There are two ways you can use Zscaler Endpoint Data Loss Prevention (DLP) data types and filters to define the Endpoint DLP activities information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -3957,9 +2705,9 @@ On the[Endpoint DLP Insights page](https://help.zscaler.com/zia/about-insights),
 
 See image.
 
-[Image: Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: Data Type and Filters menu for EDLP Insights]
+[Image: Data Type and Filters menu for Endpoint Insights]
 
 The **User**and **Department**filters list 200 results at a time. They provide search fields in which you can enter a few characters and the results narrow to match your input until you find what you want.
 
@@ -4456,20 +3204,20 @@ Following are the Endpoint DLP Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enforcing-user-based-url-policies-https-traffic","lastmod":"2026-04-17T03:35Z","nid":"1400801"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enforcing-user-based-url-policies-https-traffic","lastmod":"2026-10-30T00:16Z","nid":"1400801"} -->
 ## Enforcing User-Based URL Policies on HTTPS Traffic
 
 - Source: https://help.zscaler.com/zia/enforcing-user-based-url-policies-https-traffic
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Enforcing User-Based URL Policies on HTTPS Traffic
-- Last modified: 2026-04-17T03:35Z
+- Last modified: 2026-10-30T00:16Z
 - Summary: Information on the different ways that the Zscaler service can enforce user-based URL policies on HTTPS traffic
 
 The Zscaler service can enforce user-based URL policies on HTTPS traffic in different ways.
 
 ## Enable SSL/TLS Inspection
 
-When SSL/TLS Inspection is enabled, the Zscaler service decrypts SSL/TLS transactions and has full visibility of the HTTP traffic in the SSL/TLS tunnel (with URI and the Zscaler cookie representing the user), so it can enforce user policies. To learn more, see [About SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection).
+When SSL/TLS Inspection is enabled, the Zscaler service decrypts SSL/TLS transactions and has full visibility of the HTTP traffic in the SSL/TLS tunnel (with URI and the Zscaler cookie representing the user), so it can enforce user policies. To learn more, see [Understanding SSL/TLS Inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection).
 
 If you use this option:
 
@@ -4478,17 +3226,17 @@ If you use this option:
 
 ## Enable IP Surrogate
 
-If enabling SSL/TLS interception is not a feasible option for your organization, you can use the [IP surrogate](https://help.zscaler.com/zia/what-surrogate-ip) feature, which enables the Zscaler service to map a user to a device IP address so it can apply the user's policies.
+If enabling SSL/TLS interception is not a feasible option for your organization, you can use the [IP surrogate](https://help.zscaler.com/zia/understanding-surrogate-ip) feature, which enables the Zscaler service to map a user to a device IP address so it can apply the user's policies.
 
 ## Kerberos Authentication
 
-Zscaler supports authentication using Kerberos, an industry standard security protocol. Unlike the other supported authentication mechanisms, Kerberos does not use cookies for authentication. It is a ticket-based authentication protocol that is widely used to authenticate users to network services. The service can enforce granular user, group and department policies on proxied HTTPS transactions, without having to decrypt the HTTPS transactions. To learn more, see [About Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication).
+Zscaler supports authentication using Kerberos, an industry standard security protocol. Unlike the other supported authentication mechanisms, Kerberos does not use cookies for authentication. It is a ticket-based authentication protocol that is widely used to authenticate users to network services. The service can enforce granular user, group and department policies on proxied HTTPS transactions, without having to decrypt the HTTPS transactions. To learn more, see [Understanding Kerberos Authentication](https://help.zscaler.com/zia/understanding-kerberos-authentication).
 
 Be aware of the following guidelines:
 
 - The location must have authentication and Kerberos enabled.
 - Use a PAC file to forward traffic to the Zscaler service. The service supports Kerberos authentication only for traffic forwarded in explicit mode. It does not support Kerberos for traffic forwarded in transparent mode; that is, traffic forwarded through a GRE or IPSec tunnel and the browser is not configured to use a PAC file to forward traffic. To learn more, see [Using the Default Zscaler Kerberos PAC File](https://help.zscaler.com/zia/using-default-zscaler-kerberos-pac-file).
-- [Provision](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods) users on the Zscaler service. Kerberos is an authentication mechanism. It is not a provisioning method, like SAML or LDAP synchronization. Users must be provisioned on the Zscaler service before they can use Kerberos for authentication.
+- [Provision](https://help.zscaler.com/zia/choosing-provisioning-authentication-methods) users on the Zscaler service. Kerberos is an authentication mechanism. It is not a provisioning method, like SAML or LDAP synchronization. Users must be provisioned on the Zscaler service before they can use Kerberos for authentication.
 - Ensure the configured DNS server can resolve the Zscaler service hostnames (Zscaler PAC servers, Central Authority (which hosts the Zscaler Key Distribution Center (KDC)), and Public Service Edges for Internet & SaaS (ZIA)). If this is not possible from the location, then your organization must conditionally forward Zscaler cloud domain resolution to the Zscaler DNS servers.
 <!-- /ZS-ARTICLE -->
 
@@ -4691,14 +3439,14 @@ The report contains the following widgets:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-10-14T21:06Z","nid":"1399536"} -->
+<!-- ZS-ARTICLE {"url":"/zia/exempting-urls-cloud-apps-authentication","lastmod":"2026-10-26T16:17Z","nid":"1399536"} -->
 ## Exempting URLs and Cloud Apps from Authentication
 
 - Source: https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Exempting URLs and Cloud Apps from Authentication
-- Last modified: 2026-10-14T21:06Z
-- Summary: How to exclude URLs and cloud apps from authentication.
+- Last modified: 2026-10-26T16:17Z
+- Summary: How to exclude URLs and cloud apps from authentication in the Zscaler Admin Console.
 
 Some client applications and websites don't support [cookie-based authentication](https://help.zscaler.com/zia/about-zscaler-cookies) or don't respond when the Zscaler service sends an HTTP 307 code that redirects the browser to authenticate to the Zscaler service. For example, the AIM client application and some Microsoft 365 applications don't respond to the HTTP 307 redirect sent by the service. To enable users to access these applications and websites, you can add these URLs to an Authentication Exemptions list in the Zscaler Admin Console or add the URLs to your [PAC file](https://help.zscaler.com/zia/understanding-pac-file). Use tools like Fiddler or Wireshark to find the URL that the application or website is trying to access.
 
@@ -4708,12 +3456,13 @@ This URL exemption configuration only applies to traffic originating from known 
 
 To exempt URLs and cloud apps from authentication:
 
-1. Go to **[[Variable:Internet-access]]**>**Setting**>**Advanced Settings**.
-2. In the **Authentication Exemptions**section:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**>**Setting**>**Advanced Settings**.
+2. Click **Edit**. The **Edit**page appears.
+3. On the**Edit**page in the **Authentication Exemptions**section: See image.
   - **Exempted** **URL Categories**: Select the [URL categories](https://help.zscaler.com/zia/about-url-categories) that you want to exempt from cookie authentication.
   - **Exempted URLs**: Enter the URLs that you want to exempt from cookie authentication. To learn more, see [URL Format Guidelines](https://help.zscaler.com/zia/url-format-guidelines).
-  - **Exempted Applications**: Select the cloud applications or [cloud application categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) that you want to exempt from cookie authentication. By default, this field displays the first 100 cloud applications. The subsequent 100 cloud applications are displayed when you click the **Click to see more**link at the bottom of the list. You can repeat this process to view the remaining cloud applications. See image.
-3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+  - **Exempted Applications**: Select the cloud applications or [cloud application categories](https://help.zscaler.com/zia/understanding-cloud-app-categories) that you want to exempt from cookie authentication.
+4. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 ## Bypassing Authentication in a PAC File
 
@@ -4725,7 +3474,7 @@ if (dnsDomainIs (host, ".zscaler.com") || dnsDomainIs (host, ".aol.com)) return 
 
 The exception is applicable only for the traffic generated from a known location.
 
-[Image: Screenshot of Advanced Settings with Click to See More in the Cloud Applications Field]
+[Image: Authentication Exemptions section on the Advanced Settings page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4941,13 +3690,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/extranet-data-types-and-filters","lastmod":"2026-04-22T02:31Z","nid":"1506916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/extranet-data-types-and-filters","lastmod":"2026-10-30T02:49Z","nid":"1506916"} -->
 ## Extranet Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/extranet-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Extranet Data Types and Filters
-- Last modified: 2026-04-22T02:31Z
+- Last modified: 2026-10-30T02:49Z
 - Summary: Information on extranet data types and filters to define extranet traffic information in a dashboard, report widget, or when analyzing charts in Extranet Insights.
 
 There are two ways you work with Extranet data types and filters to define extranet traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -5051,9 +3800,9 @@ Displays data about the web traffic of each location in your organization. You c
   - Workload Traffic Group
 - **User:** Use this filter to limit the data to the traffic of specific users. You can search for a specific user. You can choose to include or exclude certain users.
 
-[Image: This image shows the Extranet Insights Data Types and Filters]
+[Image: Extranet Insights Data Types and Filters]
 
-[Image: This image shows the Extranet Insights Data Types and Filters]
+[Image: Extranet Insights Data Types and Filters]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5211,13 +3960,13 @@ To review your firewall configuration requirements, as well as cloud enforcement
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/firewall-data-types-and-filters","lastmod":"2026-04-22T01:42Z","nid":"1399501"} -->
+<!-- ZS-ARTICLE {"url":"/zia/firewall-data-types-and-filters","lastmod":"2026-10-30T02:30Z","nid":"1399501"} -->
 ## Firewall Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/firewall-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Firewall Data Types and Filters
-- Last modified: 2026-04-22T01:42Z
+- Last modified: 2026-10-30T02:30Z
 - Summary: Information on Firewall data types and filters to define Firewall traffic information in a dashboard, report widget, or charts in Firewall Insights.
 
 There are two ways you work with Firewall data types and filters to define the Firewall traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -5817,9 +4566,9 @@ Displays data about traffic associated with a specific user. You can apply the f
 - **ZIA Source IP**: Use this filter to limit the data to traffic associated with the source IP
 - **ZIA Source Port**: Use this filter to limit the data to traffic associated with the source port.
 
-[Image: Screenshot of Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: Screenshot of Data Type and Filters menus for Zscaler Firewall Insights]
+[Image: Firewall Insights Data Type and Filters]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6081,13 +4830,13 @@ Following are the Firewall Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/forward-traffic-based-on-users-location","lastmod":"2026-08-27T08:10Z","nid":"1398651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/forward-traffic-based-on-users-location","lastmod":"2026-10-28T11:59Z","nid":"1398651"} -->
 ## Forwarding Traffic Based on User's Location Using PAC Files
 
 - Source: https://help.zscaler.com/zia/forward-traffic-based-on-users-location
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Forwarding Traffic Based on User's Location Using PAC Files
-- Last modified: 2026-08-27T08:10Z
+- Last modified: 2026-10-28T11:59Z
 - Summary: This page explains how to write a PAC file so the browser forwards traffic based on the user's location.
 
 You can [use PAC files to forward your traffic to the Zscaler service](https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas). When the Zscaler service receives traffic, it checks whether the traffic is from a known location (a location that is configured in the Zscaler Admin Console), or from an unknown location (remote user traffic). Typically, traffic from a known location is sent to port 80, where the service performs SSL inspection according to the location's policies, and remote user traffic is forwarded to port 9443, where the service always performs SSL inspection.
@@ -8372,13 +7121,13 @@ For a list of SIEMs that integrate with the VM-based NSS, see [Integrating VM-Ba
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-crowdstrike","lastmod":"2026-10-16T16:17Z","nid":"1401291"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-crowdstrike","lastmod":"2026-10-30T21:06Z","nid":"1401291"} -->
 ## Integrating with CrowdStrike
 
 - Source: https://help.zscaler.com/zia/integrating-crowdstrike
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with CrowdStrike
-- Last modified: 2026-10-16T16:17Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: How to integrate the Zscaler service with CrowdStrike for endpoint detection and response visibility.
 
 Zscaler's integration leverages CrowdStrike APIs to provide endpoint detection and response (EDR) visibility for [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware. After the integration is configured, the Zscaler service calls the CrowdStrike Falcon API and requests information for endpoints that have been exposed to the malicious file. CrowdStrike uses the new file signature to detect compromised points throughout your organization's network.
@@ -8673,13 +7422,13 @@ Your Lucid organization is now connected. After integration is completed, a succ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-10-16T15:50Z","nid":"1400936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-azure-virtual-wan","lastmod":"2026-10-30T21:06Z","nid":"1400936"} -->
 ## Integrating with Microsoft Azure Virtual WAN
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-azure-virtual-wan
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Azure Virtual WAN
-- Last modified: 2026-10-16T15:50Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: How to integrate the Zscaler service with Microsoft Azure Virtual WAN (VWAN) to discover and configure Azure hubs.
 
 Zscaler's integration leverages Microsoft's Azure Virtual WAN (VWAN) APIs to discover and configure Azure hubs, including querying and configuring Azure VWAN. When the integration is configured, the Zscaler service can sync hub information from Azure. After hub information is synced to Zscaler, outbound IPSec tunnels from any of the hubs to the nearest Zscaler data center can be created using a one-click configuration process. The one-click process automatically configures the Azure hubs, and provisions [Locations](https://help.zscaler.com/zia/about-locations) and [VPN Credentials](https://help.zscaler.com/zia/about-vpn-credentials) for these hubs, within the Zscaler Admin Console.
@@ -8858,13 +7607,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-10-14T13:29Z","nid":"1398656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-cloud-app-security","lastmod":"2026-10-28T21:06Z","nid":"1398656"} -->
 ## Integrating with Microsoft Cloud App Security
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Cloud App Security
-- Last modified: 2026-10-14T13:29Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to integrate Zscaler service with Microsoft Cloud App Security (MCAS) to discover and sync cloud apps.
 
 This article provides configuration steps and examples for integrating Zscaler and Microsoft Cloud App Security (MCAS) (i.e., Microsoft Defender for Cloud Apps).
@@ -9023,13 +7772,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-10-16T16:48Z","nid":"1402156"} -->
+<!-- ZS-ARTICLE {"url":"/zia/integrating-microsoft-defender-endpoint","lastmod":"2026-10-30T21:06Z","nid":"1402156"} -->
 ## Integrating with Microsoft Defender for Endpoint
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Defender for Endpoint
-- Last modified: 2026-10-16T16:48Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: How to integrate the Zscaler service with Microsoft Defender for Endpoint for endpoint detection and response visibility.
 
 Zscaler's integration leverages Microsoft Defender for Endpoint APIs to provide endpoint detection and response (EDR) visibility for [Sandbox](https://help.zscaler.com/zia/about-sandbox)-detected malware. When the integration is configured, the Zscaler service calls the Microsoft Defender for Endpoint API and requests information for endpoints that have been exposed to the malicious file. Microsoft Defender for Endpoint uses the new file signature to detect compromised points throughout your organization's network.
@@ -13957,29 +12706,29 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-09-03T21:06Z","nid":"1399561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-10-30T04:57Z","nid":"1399561"} -->
 ## Kerberos Authentication Deployment Guidelines
 
 - Source: https://help.zscaler.com/zia/kerberos-authentication-deployment-guidelines
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
-- Last modified: 2026-09-03T21:06Z
+- Last modified: 2026-10-30T04:57Z
 - Summary: Guidelines and deployment options for deploying Kerberos authentication.
 
 Before you [deploy Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos), review the following guidelines:
 
 - To enforce Kerberos authentication, your organization must send its traffic to port 80, 443, or 8800.
-- For known locations, the Zscaler service enforces Kerberos on all explicitly forwarded traffic it receives on port 8800, unless the location does not have authentication enabled. The SSL inspection settings and other settings are inherited from the location. If Kerberos isn't enabled for a location, but you need some users from that location to use Kerberos, you can send their traffic to port 8800. Ensure that remote users send their traffic to port 8800. The service doesn't perform SSL inspection on this traffic.
+- For known locations, the Zscaler service enforces Kerberos on all explicitly forwarded traffic it receives on port 8800, unless the location does not have authentication enabled. The SSL/TLS inspection settings and other settings are inherited from the location. If Kerberos isn't enabled for a location, but you need some users from that location to use Kerberos, you can send their traffic to port 8800. Ensure that remote users send their traffic to port 8800. The service doesn't perform SSL/TLS inspection on this traffic.
 - Enabling Kerberos on a location enforces Kerberos authentication on all traffic that is explicitly forwarded to the service from that location and its dedicated proxy ports. Therefore, when Kerberos is enabled on a location, you can forward traffic to port 80 or 443, and the service still enforces Kerberos authentication.
 - Authentication must be enabled on a location that deploys Kerberos authentication for some or all its users.
 
-To learn more, see the [Kerberos requirements](https://help.zscaler.com/zia/about-kerberos-authentication#kerberos-requirements) for tasks you are required to complete before deploying Kerberos.
+To complete the required tasks before deploying Kerberos, see the [Kerberos requirements](https://help.zscaler.com/zia/about-kerberos-authentication#kerberos-requirements).
 
 The service only supports Kerberos authentication for traffic that is forwarded to the service in explicit mode. It does not support Kerberos authentication for traffic forwarded to the service in transparent mode (i.e., traffic forwarded through a GRE or IPSec tunnel, and the browser isn't configured to use a PAC file to forward traffic), regardless of the location settings or destination port.
 
 ## Kerberos Deployment Options
 
-Kerberos can be used by itself or combined with other authentication mechanisms, depending on your business requirements. Following are some typical deployment scenarios and guidelines:
+Kerberos can be used by itself or combined with other authentication mechanisms, depending on your business requirements. The following are some typical deployment scenarios and guidelines:
 
 ### Using Kerberos for All Users in a Location
 
@@ -13991,7 +12740,7 @@ You can enable Kerberos for a location, requiring all its users to authenticate 
 
 ### Using Kerberos for Some Users in a Location
 
-If you want some users in a location to authenticate via Kerberos because the location already has a primary authentication mechanism (e.g., LDAP or SAML), you can distribute the default Kerberos PAC file URL to those users. To deploy Kerberos authentication for specific users, do the following:
+If you want some users in a location to authenticate via Kerberos because the location already has a primary authentication mechanism (e.g., LDAP or SAML), you can distribute the default Kerberos PAC file URL to those users. To deploy Kerberos authentication for specific users in a location:
 
 - Provision the users who use Kerberos for authentication on the Zscaler service.
 - Configure Kerberos, but don't enable it for the location. To learn more, see [Deploying Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
@@ -13999,73 +12748,71 @@ If you want some users in a location to authenticate via Kerberos because the lo
 
 ### Using Kerberos for Remote Users
 
-To use Kerberos authentication for remote users, ensure the remote users have the following requirements:
+To use Kerberos authentication for remote users, ensure the remote users meet the following requirements:
 
-- Remote users must use DirectAccess to connect to the KDC Proxy. DirectAccess is only supported on Windows 7 Enterprise, Windows 7 Ultimate, and Windows 8 Enterprise editions. Windows 7 Professional and Windows 8 Professional don't support DirectAccess. There are no native clients for OS X and Linux. Remote user access without DirectAccess might work for other VPN solutions.
-- Edit the default Kerberos PAC file and distribute its URL to the remote users. Copy the default Kerberos PAC file and add a bypass for the KDC Proxy hostname. Retain the default destination port, port 8800, to ensure that remote user traffic is sent to that port on the ZIA Public Service Edge. If you want to send remote user traffic to a dedicated proxy port to enable the service to apply customized SSL settings:
+- Remote users must use DirectAccess to connect to the KDC Proxy. DirectAccess is only supported on Windows 11. Older versions of Windows don't support DirectAccess. There are no native clients for MacOS and Linux. Remote user access without DirectAccess might work for other VPN solutions.
+- Edit the default Kerberos PAC file and distribute its URL to the remote users. Copy the default Kerberos PAC file and add a bypass for the KDC Proxy hostname. Retain the default destination port, port 8800, to ensure that remote user traffic is sent to that port on the Public Service Edge. If you want to send remote user traffic to a dedicated proxy port to enable the service to apply customized SSL/TLS settings:
   - Specify the dedicated proxy port as the destination port, in the PAC file.
   - Ensure that Kerberos is enabled at the location associated with the dedicated proxy port.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-linux-server","lastmod":"2026-10-07T04:29Z","nid":"1399581"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-linux-server","lastmod":"2026-10-30T08:30Z","nid":"1399581"} -->
 ## Kerberos Trust Relationship Configuration for Linux Server
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-linux-server
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Linux Server
-- Last modified: 2026-10-07T04:29Z
+- Last modified: 2026-10-30T08:30Z
 - Summary: How to build a trust relationship between a Linux server and the Zscaler service.
 
-Kerberos support in Linux is provided by either the MIT Kerberos package or the Heimdal package. Use the appropriate version available with your distribution. The Kerberos configuration file is in /etc/krb5.conf. A sample configuration file is provided below. Only the text in blue is the Zscaler-specific configuration. It is assumed that Kerberos authentication has been configured and is operational.
+Kerberos support in Linux is provided by either the MIT Kerberos package or the Heimdal package. Use the appropriate version available with your distribution. The Kerberos configuration file is in `/etc/krb5.conf`. The following image is a sample configuration file. Only the text in blue is the Zscaler-specific configuration. It is assumed that Kerberos authentication has been configured and is operational.
 
 [Image: Screenshot of the Kerberos configuration on the Linux server]
 
-Ensure that you are already logged in by running the klist command:
-
-[Image: Screenshot of the klist command on the Linux server]
-
-If no tickets are found, run the kinit command:
-
-[Image: Screenshot of the kinit command on the Linux server]
-
-## Validate the Configuration
-
-[Image: Screenshot verifying the Kerberos configuration on the Linux server]
+- Ensure that you are already logged in by running the klist command: See image.
+- If no tickets are found, run the kinit command: See image.
+- Validate the configuration: See image.
 
 ## Configure Firefox
 
 To configure Firefox, do the following:
 
-1. In the address bar of Firefox, enter**about:config** to display the advanced configuration options.
-2. In the Filter field, type negotiate to narrow down the list.
-3. Set the following field to the respective values: **network.negotiate-auth.trusted-uris**: gateway.zscalerbeta.net, .gateway.zscalerbeta.net If authentication fails, open a terminal and execute the following commands: `user@linux~$ export MOZ_LOG=negotiateauth:5 user@linux~$ export MOZ_LOG_FILE=/tmp/firefox-debug.log user@linux~$ firefox`The file /tmp/firefox-debug.log contains the trace of events that might be useful when investigating issues.
+1. In the address bar of Firefox, enter`about:config` to display the advanced configuration options.
+2. In the **Filter** field, enter `negotiate` to narrow down the list.
+3. Set the following field to the respective values: **network.negotiate-auth.trusted-uris**: gateway.zscalerbeta.net, .gateway.zscalerbeta.net If authentication fails, open a terminal and execute the following commands: `user@linux~$ export MOZ_LOG=negotiateauth:5 user@linux~$ export MOZ_LOG_FILE=/tmp/firefox-debug.log user@linux~$ firefox`The file `/tmp/firefox-debug.log` contains the trace of events that might be useful when investigating issues.
 
 ## Troubleshooting
 
 To troubleshoot your Kerberos configuration, see [Troubleshooting Kerberos Authentication](https://help.zscaler.com/zia/troubleshooting-kerberos) and [Internet & SaaS Error Codes for Kerberos Authentication](https://help.zscaler.com/zia/zia-error-codes-kerberos-authentication).
+
+[Image: The klist command on the Linux server]
+
+[Image: The kinit command to find tickets on the Linux server]
+
+[Image: Verifying the Kerberos configuration on the Linux server]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push","lastmod":"2026-10-07T04:19Z","nid":"1399571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push","lastmod":"2026-10-30T08:18Z","nid":"1399571"} -->
 ## Kerberos Trust Relationship Configuration for Windows Server & GPO Push
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Windows Server & GPO Push
-- Last modified: 2026-10-07T04:19Z
+- Last modified: 2026-10-30T08:18Z
 - Summary: How to establish a one-way cross-realm trust from a Windows Server to the Zscaler service.
 
-This article provides you the information on how to establish a one-way cross-realm trust from your organization's server to the Zscaler service. This one-way trust enables Zscaler to trust the authenticated users of the domain and *not*the reverse. Administrator access to the domain controller is required to establish a cross-realm trust and to use GPO to push configuration settings. To learn more about Kerberos, see [Understanding Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication). To learn more about deploying Kerberos, see [Deploying Kerberos Authentication](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
+his article provides you the information on how to establish a one-way cross-realm trust from your organization's server to the Zscaler service. This one-way trust enables Zscaler to trust the authenticated users of the domain and *not*the reverse. Administrator access to the domain controller is required to establish a cross-realm trust and to use GPO to push configuration settings. To learn more about Kerberos, see [Understanding Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication). To learn more about deploying Kerberos, see [Deploying Kerberos Authentication](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
 
 In this article:
 
 - The KDC in the organization's realm is Windows Server configured as a Domain Controller
 - The Windows client is running Windows 10 or 11 and is joined to the domain
 - The domain user, Jane Doe, can log in to the Windows client using domain credentials
-- The Zscaler domain is the Zscaler cloud name. In this example, it is ZSCALERBETA.NET. To learn how you can find your cloud name, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+- The Zscaler domain is the Zscaler cloud name. In this example, it is zscalerbeta.net. To learn how you can find your cloud name, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 
 [Image: Kerberos Trust Relationship Configuration Guide Diagram]
 
@@ -14075,12 +12822,12 @@ This section describes how to configure the KDC and the Active Directory GPO fea
 
 To configure the cross-realm trust on Windows Server:
 
-- 1. Create the New Trust
-- 2. Configure the Trust Properties
-- 3. Validate the Settings
-- 4. Configure GPO to Push the Configuration to Users
-- 5. Validate the GPO Configuration
-- 6. Configure the Windows Workstation
+- 1. Create the new trust.
+- 2. Configure the Trust Properties.
+- 3. Validate the Settings.
+- 4. Configure GPO to Push the Configuration to Users.
+- 5. Validate the GPO Configuration.
+- 6. Configure the Windows Workstation.
 
 ## Troubleshooting
 
@@ -14094,10 +12841,10 @@ The following are some helpful Microsoft documents:
 Log in to the Windows server as administrator. Open the Server Manager and do the following:
 
 1. Go to **DNS** and from the Tools menu, choose **Active Directory Domains and Trusts**. See image.
-2. In the Active Directory Domains and Trusts window, hover over your domain, right-click and select **Properties**. See image.
+2. In the **Active Directory Domains and Trusts** window, hover over your domain, right-click and select **Properties**. See image.
 3. In the Properties window, go to the **Trusts** tab and click **New Trust**. See image.
 4. When the New Trust wizard appears, click **Next**.
-5. For **Trust Name**, enter the [Zscaler cloud name](https://help.zscaler.com/zia/what-my-cloud-name) in uppercase letters and click **Next**. You can find your cloud name by looking at the URL you use to log in to the ZIA Admin Portal. For example, if you log in to [https://admin.zscalerbeta.net/](https://admin.zscalerbeta.net/), your cloud name is ZSCALERBETA.NET as shown in the following image. See image.
+5. For **Trust Name**, enter the [Zscaler cloud name](https://help.zscaler.com/unified/understanding-zscaler-cloud-names) in uppercase letters and click **Next**. You can find your cloud name by looking at the URL you use to log in to the Zscaler Admin Console. For example, if you log in to [https://admin.zscalerbeta.net/](https://admin.zscalerbeta.net/), your cloud name is ZSCALERBETA.NET as shown in the following image. See image.
 6. For **Trust Type**, select **Realm trust** and click **Next**. See image.
 7. For **Transitivity of Trust**, select **Nontransitive** and click **Next**. See image.
 8. For **Direction of Trust**, select **One-way: incoming** and click **Next**. See image.
@@ -14107,9 +12854,9 @@ Log in to the Windows server as administrator. Open the Server Manager and do th
 Configure the properties of the newly configured trust.
 
 1. Open the **Properties**window of your domain. See image.
-2. In the **Properties**window, select the following and click **OK**:
+2. In the **Properties**window, select the following and click **OK**: See image.
   - **The other domain supports Kerberos AES Encryption**.
-  - **Non-transitive: only users from the directly trusted domain may authenticate in the trusting domain.** See image.
+  - **Non-transitive: only users from the directly trusted domain may authenticate in the trusting domain.**
 
 Ensure that your configuration is correct before you proceed to the next step.
 
@@ -14121,15 +12868,15 @@ Zscaler Cloud
 "} -Properties *
 ```
 
-1. Ensure that the following values are displayed:
-  - **CN**: Zscaler cloud name (In this example, it is ZSCALERBETA.NET).
+1. Ensure that the following values are displayed: See image.
+  - **CN**: Zscaler cloud name. In this example, it is ZSCALERBETA.NET.
   - **msDS-SupportedEncryptionTypes**:24
-  - **Name**: Zscaler cloud name (In this example, it is ZSCALERBETA.NET).
+  - **Name**: Zscaler cloud name. In this example, it is ZSCALERBETA.NET.
   - **objectClass**:trustedDomain
   - **trustAttributes**:1
   - **trustDirection**:1
-  - **trustPartner**: Zscaler cloud name (In this example, it is ZSCALERBETA.NET).
-  - **trustType**: 3 See image.
+  - **trustPartner**: Zscaler cloud name. In this example, it is ZSCALERBETA.NET.
+  - **trustType**: 3
 
 On the Windows server, open the Server Manager and do the following:
 
@@ -14137,20 +12884,15 @@ On the Windows server, open the Server Manager and do the following:
 2. Go to **Group Policy Management** > **Forest** > **Domains** > Domain Name > **Default Domain Policy**, right-click and select **Edit**. See image.
 3. On the **Group Policy Management Editor**, go to **Computer Configuration**>**Policies**>**Administrative Templates**>**System**>**Kerberos** and from the Settings panel, select **Define Interoperable Kerberos V5 realm settings**. See image.
 4. In the **Define interoperable Kerberos V5 realm settings** window, select **Enabled** and click **Show...**. See image.
-5. In the **Show Contents** window:
-  - **Value name**: Enter the Zscaler cloud name (In this example, it is ZSCALERBETA.NET).
-  - **Value**: Enter `<k>kerberos.``Zscaler Cloud``</k>`. In this example, the value is `<k>kerberos.zscalerbeta.net</k>`.
-
-See image.
-
-1. Click **OK**, and then click **OK** in the **Define interoperable Kerberos V5 realm settings** window.
-2. Select **Define host name-to-Kerberos realm mappings**. See image.
-3. In the **Define host name-to-Kerberos realm mappings** window, select **Enabled** and click **Show...**. See image.
-4. In the **Show Contents** window:
+5. In the **Show Contents** window: See image.
   - **Value name**: Enter the Zscaler cloud name. In this example, it is ZSCALERBETA.NET.
-  - **Value**: Enter the Zscaler domain names. In this example, it is .zscalerbeta.net; .gateway.zscalerbeta.net.
-
-See image.
+  - **Value**: Enter `<k>kerberos.``Zscaler Cloud``</k>`. In this example, the value is `<k>kerberos.zscalerbeta.net</k>`.
+6. Click **OK**, and then click **OK** in the **Define interoperable Kerberos V5 realm settings** window.
+7. Select **Define host name-to-Kerberos realm mappings**. See image.
+8. In the **Define host name-to-Kerberos realm mappings** window, select **Enabled** and click **Show...**. See image.
+9. In the **Show Contents** window: See image.
+  - **Value name**: Enter the Zscaler cloud name. In this example, it is ZSCALERBETA.NET.
+  - **Value**: Enter the Zscaler domain names. In this example, it is `.zscalerbeta.net; .gateway.zscalerbeta.net`.
 
 Both the domain names must have leading dots to match all subdomains.
 
@@ -14167,114 +12909,101 @@ To validate the GPO configuration:
 get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\MitRealms" -name "Default Domain Policy"
 ```
 
-1. Verify the following values:
-  - **ValueName**: ZSCALERBETA.NET
-  - **Value**: kerberos.zscalerbeta.net See image.
+1. Verify the following values: See image.
+  - **Value**: `kerberos.zscalerbeta.net`
+  - **ValueName**: `ZSCALERBETA.NET`
 2. Enter the following command to list the GPO registry value for the Zscaler domain:
 
 ```
 get-gpregistryvalue -key "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\domain_realm" -name "Default Domain Policy"
 ```
 
-1. Verify the following values:
-  - **ValueName**: ZSCALERBETA.NET
-  - **Value**: .zscalerbeta.net; .gateway.zscalerbeta.net See image.
+1. Verify the following values: See image.
+  - **Value**: `.zscalerbeta.net; .gateway.zscalerbeta.net`
+  - **ValueName**: `ZSCALERBETA.NET`
 
 Log in to the Windows workstation, open the command prompt, and run the following commands:
 
-klist ensures that you are logged in to the domain and can contact the domain controller. It displays the Kerberos tickets that were used by the workstation to log in to the domain. If, when you run klist, the Kerberos tickets are not displayed, then there is an inherent domain or workstation configuration issue that must be resolved before you proceed.
-
-[Image: Screenshot of the the klist command and response in Command Prompt]
+klist ensures that you are logged in to the domain and can contact the domain controller. It displays the Kerberos tickets that were used by the workstation to log in to the domain. If, when you run klist, the Kerberos tickets are not displayed, then there is an inherent domain or workstation configuration issue that must be resolved before you proceed. Run the following command to override and refresh the process:
 
 ```
 gpupdate /force
 ```
 
-[Image: Screenshot of the gpupdate /force command and response in Command Prompt]
-
-You can verify that the Zscaler Kerberos settings have been synchronized to the client and that the registry was updated by doing one of the following:
+You can verify that the Zscaler Kerberos settings are synchronized to the client and that the registry is updated by doing one of the following:
 
 - Run the following queries in the Windows command prompt or Windows Powershell:
 
 ```
 reg query 
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\domain_realm
+                HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\domain_realm
 ```
-
-[Image: Screenshot running the domain_realm query in Command Prompt]
 
 ```
 reg query
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\MitRealms
 ```
 
-[Image: Screenshot running a query in Command Prompt]
-
-OR
-
-- Open the Registry editor and verify the **domain_realm** entries, as shown next.
-
-[Image: Screenshot of the domain_realm entries in the Registry Editor window]
-
-Verify the **MitRealms**entries as shown next.
-
-[Image: Screenshot of the MitRealms entries in the Registry Editor window]
+- Open the Registry editor and verify the **domain_realm** entries as shown in the following image. See image.
+- Verify the **MitRealms**entries as shown in the following image. See image.
 
 Ensure that the browser is configured with the Kerberos PAC file URL.
 
-[Image: Screenshot of the Local Area Network (LAN) Settings window]
+See image.
 
 Open the browser and browse to a site to ensure that you are not challenged for authentication or that the browser displays an “Internet Access Denied” error page.
 
-[Image: Screenshot of the Active Directory Domains and Trusts option in the Tools menu]
+[Image: Active Directory Domains and Trusts option in the Tools menu]
 
-[Image: Screenshot of the Properties option for your Active Directory domain]
+[Image: Properties option for your Active Directory domain and Trust]
 
-[Image: Screenshot of the New Trust... button in the Trusts tab]
+[Image: The New Trust... button in the Trusts tab]
 
-[Image: Screenshot of the Name field under Trust Name]
+[Image: The Name field under Trust Name in the New Trust Wizard window]
 
-[Image: Screenshot choosing Realm trust for the Trust Type]
+[Image: Choosing the Realm trust for the Trust Type]
 
-[Image: Screenshot choosing Nontransitive for the Transitivity of Trust]
+[Image: Choosing the Nontransitive for the Transitivity of Trust]
 
-[Image: Screenshot choosing One-way: incoming for the Direction of Trust]
+[Image: Choosing the One-way: incoming for the Direction of Trust]
 
-[Image: admin password in zscaler admin portal]
+[Image: Admin password for Zscaler Admin Console]
 
-[Image: Screenshot of the Trust Selections Complete section in the New Trust Wizard]
+[Image: The Trust Selections Complete section in the New Trust Wizard]
 
-[Image: Screenshot of the Properties... button in the Trusts tab]
+[Image: The Properties... button in the Trusts tab of the Properties window]
 
-[Image: Zscaler domain properties]
+[Image: General information for Zscaler domain properties]
 
-[Image: Screenshot of the following values in Windows PowerShell: CN, msDS-SupportedEncryptionTypes, Name, objectClass, trustAttributes, trustDirection, trustPartner, trustType]
+[Image: The following values in Windows PowerShell for zscalerbeta.net]
 
-[Image: Screenshot of the Group Policy Management option in the Tools menu]
+[Image: The Group Policy Management option in the Tools menu]
 
-[Image: Screenshot of the Edit... option for Default Domain Policy]
-
-[Image: Screenshot of Define Interoperable Kerberos V5 realm settings in the Group Policy Management Editor window]
+[Image: The Edit... option for Default Domain Policy]
 
 [Image: Define interoperable Kerberos VS realm settings]
 
-[Image: seeimage#17 kerberos realm settings]
+[Image: Kerberos realm settings for zscalerbeta.net]
 
-[Image: Screenshot of the Define host name-to-Kerberos realm mappings setting in the Group Policy Management Editor window]
+[Image: Define host name-to-Kerberos realm mappings window]
 
-[Image: Define host name-to-Kerberos realm mappings]
+[Image: The Value name and Value fields in the Show Contents window]
 
-[Image: Screenshot of the Value name and Value fields in the Show Contents window]
+[Image: The Settings tab for Default Domain Policy]
 
-[Image: Screenshot of the Settings tab for Default Domain Policy]
+[Image: The ValueName and Value fields for MitRealms]
 
-[Image: Screenshot of the Define host name-to-Kerberos realm mappings setting in the Group Policy Management Editor window]
+[Image: The ValueName and Value fields for domain_realm]
 
-[Image: Screenshot of the Define interoperable Kerberos V5 realm settings policy under System/Kerberos]
+[Image: Defining host name-to-Kerberos realm mappings]
 
-[Image: Screenshot of the ValueName and Value fields for MitRealms]
+[Image: The domain_realm entries]
 
-[Image: Screenshot of the ValueName and Value fields for domain_realm]
+[Image: The details for the MitRealms entries]
+
+[Image: Group Policy Management Editor to define interoperable Kerberos V5 realm settings]
+
+[Image: The browser configuration details with the Kerberos PAC file URL]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14447,13 +13176,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/logging-out-zscaler-while-using-saml","lastmod":"2026-07-13T21:06Z","nid":"1402241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/logging-out-zscaler-while-using-saml","lastmod":"2026-10-30T16:43Z","nid":"1402241"} -->
 ## Logging Out from Zscaler While Using SAML
 
 - Source: https://help.zscaler.com/zia/logging-out-zscaler-while-using-saml
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Logging Out from Zscaler While Using SAML
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T16:43Z
 - Summary: How to log out from Zscaler and trigger reauthentication for users who are using SAML with auto-provisioning or Hosted DB authentication.
 
 You can choose from a variety of methods to log out of Zscaler to trigger reauthentication for users who are using SAML with auto-provisioning or Hosted DB authentication. You should also choose one of the following methods if SCIM is not supported for the identity provider (IdP) server being used.
@@ -14475,7 +13204,7 @@ To learn more about Zscaler's cookies, see [About Zscaler Cookies](https://help.
 
 Complete the following steps:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **User Management**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Internet & SaaS Authentication** > **Internet & SaaS Users**.
 2. On the **Users** tab, select the user that you want to delete by clicking the **Edit** icon for the selected user.
 
 See image.
@@ -14495,13 +13224,13 @@ To learn more about CSV Import, see [Importing User Details from a CSV File](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/looking-up-urls-site-review","lastmod":"2026-06-02T05:53Z","nid":"1400241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/looking-up-urls-site-review","lastmod":"2026-10-28T03:10Z","nid":"1400241"} -->
 ## Looking Up URLs in Site Review
 
 - Source: https://help.zscaler.com/zia/looking-up-urls-site-review
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Looking Up URLs in Site Review
-- Last modified: 2026-06-02T05:53Z
+- Last modified: 2026-10-28T03:10Z
 - Summary: How to use Site Review, a tool that enables you to see how a site is categorized in the Zscaler URL database.
 
 Site Review is a URL categorization lookup tool that can be accessed by users going through the Zscaler service. By searching for a URL or IP address, you can find out how the site is categorized in Zscaler's URL filtering database. Results might vary from those seen in your environment due to custom [categories](https://help.zscaler.com/zia/about-url-categories) that your admin has configured.
@@ -14533,7 +13262,7 @@ To use Site Review:
   4. In the **Email** field, add your email address to receive updates on your request.
   5. Click **Submit Request**.
 
-You can also look up URLs directly from the Zscaler Admin Console. To learn more, see [Looking up URLs in the Zscaler Admin Console](https://help.zscaler.com/zia/lookup-urls-admin-portal).
+You can also look up URLs directly from the Zscaler Admin Console. To learn more, see [Looking Up URLs in the Zscaler Admin Console](https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console).
 
 <div class="subc"> <p> <a id="site-review-lang" name="site-review-lang" target="_blank"></a> <span style="color:#f79962;">&lt;Screenshot will be added after BUG-148257 is deployed.&gt;</span> </p> </div>
 
@@ -14544,18 +13273,18 @@ You can also look up URLs directly from the Zscaler Admin Console. To learn more
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/looking-up-urls-zscaler-admin-console","lastmod":"2026-10-07T00:43Z","nid":"1399321"} -->
+<!-- ZS-ARTICLE {"url":"/zia/looking-up-urls-zscaler-admin-console","lastmod":"2026-10-28T03:07Z","nid":"1399321"} -->
 ## Looking Up URLs in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Looking Up URLs in the Zscaler Admin Console
-- Last modified: 2026-10-07T00:43Z
+- Last modified: 2026-10-28T03:07Z
 - Summary: How to look up URL categories by using the Zscaler Admin Console.
 
 In the Zscaler Admin Console, you have the ability to see how Zscaler categorizes a site according to its URL or IP address. Since a single IP address is capable of running multiple hosts or applications, Zscaler does not typically place IP addresses into the predefined URL categories. However, if a SaaS or cloud provider dedicates an IP address or IP range to an application, the Zscaler service categorizes it. For example, 13.107.6.152/31 is used for Microsoft 365 and is categorized as Professional Services and Microsoft 365. To learn more about URL categories, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories).
 
-You can also look up URLs from [Zscaler's Site Review](https://sitereview.zscaler.com) website. To learn more, see [Using Site Review to Lookup URLs](https://help.zscaler.com/zia/using-site-review-lookup-urls).
+You can also look up URLs from [Zscaler's Site Review](https://sitereview.zscaler.com) website. To learn more, see [Looking Up URLs in Site Review](https://help.zscaler.com/zia/looking-up-urls-site-review).
 
 To look up URLs:
 
@@ -14567,7 +13296,7 @@ The service displays the following information:
 - **URL**: The URL you are looking up.
 - **URL Classifications**: The predefined [category or super category](https://help.zscaler.com/zia/about-url-categories) of the URL.
 - **Security Alert**: The security alert associated with the URL.
-- **Cloud Application**: The [cloud application category and cloud application](https://help.zscaler.com/zia/about-cloud-app-categories) with which the URL is associated.
+- **Cloud Application**: The [cloud application category and cloud application](https://help.zscaler.com/zia/understanding-cloud-app-categories) with which the URL is associated.
 
 See image.
 
@@ -14793,13 +13522,13 @@ You can edit the default portable device rule, but you cannot delete it.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-10-06T22:29Z","nid":"1400506"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-cloud-service-api-key","lastmod":"2026-10-30T08:41Z","nid":"1400506"} -->
 ## Managing Cloud Service API Key
 
 - Source: https://help.zscaler.com/zia/managing-cloud-service-api-key
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing Cloud Service API Key
-- Last modified: 2026-10-06T22:29Z
+- Last modified: 2026-10-30T08:41Z
 - Summary: How to manage your organization's cloud service API key within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed within the [Cloud Service API Key](https://help.zscaler.com/zia/about-cloud-service-api-key) page along with the base URL. An organization can only have one API key for the cloud service API. To learn more, see [Getting Started](https://help.zscaler.com/zia/api-getting-started).
@@ -14817,7 +13546,7 @@ Your cloud service API key can be disabled by Zscaler or your service provider. 
 
 See image.
 
-If your [API subscription](https://help.zscaler.com/unified/viewing-subscriptions) expires, you still have access to the Cloud Service API Key page, but you cannot make any modifications (i.e., you lose access to the POST and PUT actions [within the API](https://help.zscaler.com/zia/about-api)). Also, your existing API key is still valid but disabled. If this occurs, contact Zscaler Support. The API key is re-enabled after your subscription is renewed.
+If your [API subscription](https://help.zscaler.com/unified/about-subscriptions) expires, you still have access to the Cloud Service API Key page, but you cannot make any modifications (i.e., you lose access to the POST and PUT actions [within the API](https://help.zscaler.com/zia/about-api)). Also, your existing API key is still valid but disabled. If this occurs, contact Zscaler Support. The API key is re-enabled after your subscription is renewed.
 
 Your organization can only have one API key. You must delete the existing key before adding a new one.
 
@@ -15010,13 +13739,13 @@ You can delete any exception rule by selecting the rule under the intent rule in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-internet-saas-use-china","lastmod":"2026-10-06T05:50Z","nid":"1402331"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-internet-saas-use-china","lastmod":"2026-10-27T00:14Z","nid":"1402331"} -->
 ## Managing Internet & SaaS Use in China
 
 - Source: https://help.zscaler.com/zia/managing-internet-saas-use-china
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > China Premium Access > Managing Internet & SaaS Use in China
-- Last modified: 2026-10-06T05:50Z
+- Last modified: 2026-10-27T00:14Z
 - Summary: Information about the China Premium Internet Access feature for the users residing in mainland China.
 
 Zscaler's China Premium Internet Access feature provides fast and secure internet access for users residing in mainland China. The feature enables users to access international sites or applications such as Salesforce, Microsoft 365, etc. If you are looking for China Premium Service for Private Access (ZPA), see [Managing Private Access Use in China](https://help.zscaler.com/zpa/managing-zpa-use-china).
@@ -15027,6 +13756,8 @@ The following premium services are available for organizations whose users work 
 
 - China Premium
 - China Premium Plus
+
+You can view the bandwidth utilization for premium services on Health360. To learn more, see [Viewing Service Health for China Connectivity](https://help.zscaler.com/unified/viewing-service-health-china-connectivity).
 
 To learn more about SLAs for China Premium Services, see [Supplemental Premium China Services Availability Agreement](https://www.zscaler.com/china-premium-access-productsheet).
 
@@ -16045,13 +14776,13 @@ The following section outlines the best practices for migrating [source IP-ancho
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/migrating-new-saml-idp","lastmod":"2026-07-13T21:06Z","nid":"1402196"} -->
+<!-- ZS-ARTICLE {"url":"/zia/migrating-new-saml-idp","lastmod":"2026-10-30T16:35Z","nid":"1402196"} -->
 ## Migrating to a New SAML IdP
 
 - Source: https://help.zscaler.com/zia/migrating-new-saml-idp
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Migrating to a New SAML IdP
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T16:35Z
 - Summary: How to migrate to another SAML identity provider in the Zscaler Admin Console.
 
 This guide contains information on how to migrate from one [identity provider](https://help.zscaler.com/zia/about-identity-providers) (IdP) to another in the Zscaler Admin Console. Zscaler recommends editing the existing IdP to migrate to a new IdP. Adding a new IdP for migration can duplicate groups and departments, and your existing policies might no longer apply.
@@ -16069,7 +14800,7 @@ Make sure the following prerequisites are met:
 
 To migrate to a new IdP:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Internet & SaaS Authentication** >**Internet Authentication Settings**>**Identity Providers**.
 2. Click **Add IdP**. The **What do you want to do?** window appears.
 3. In the **What do you want to do?** window: See image. The **Add IdP** window appears.
   1. Choose **Migrate to a new SAML IdP**.
@@ -16106,13 +14837,13 @@ To revert to a previously configured IdP:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/mobile-data-types-and-filters","lastmod":"2026-08-27T00:28Z","nid":"1399491"} -->
+<!-- ZS-ARTICLE {"url":"/zia/mobile-data-types-and-filters","lastmod":"2026-10-30T02:20Z","nid":"1399491"} -->
 ## Mobile Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/mobile-data-types-and-filters
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Mobile Data Types and Filters
-- Last modified: 2026-08-27T00:28Z
+- Last modified: 2026-10-30T02:20Z
 - Summary: Information on mobile data types and filters to define traffic information in a dashboard, report widget, or when analyzing charts in Mobile Insights.
 
 There are two ways you work with mobile data types and filters to define the mobile traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/what-widget), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
@@ -16125,9 +14856,9 @@ On the [Mobile Insights page](https://help.zscaler.com/zia/about-insights), sele
 
 See image.
 
-[Image: Data Type and Filters menus for Zscaler New Widget window]
+[Image: New Widget Window Data Type and Filters Menus]
 
-[Image: Data Type and Filters menu for Zscaler Mobile Insights]
+[Image: Mobile Insights Data Type and Filters Menus]
 
 The **User**, **Department**, and **Location**filters list 200 results at a time. They provide search fields where you can enter a few characters and the results narrow down to match your input until you find what you want.
 
@@ -17753,4 +16484,805 @@ To edit or delete an Index Tool configuration:
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Editing an Index Tool Configuration]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-29T03:07Z","nid":"1399921"} -->
+## Modifying the Predefined DNS Control Rules
+
+- Source: https://help.zscaler.com/zia/modifying-predefined-dns-control-rules
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Modifying the Predefined DNS Control Rules
+- Last modified: 2026-09-29T03:07Z
+- Summary: How to modify the default DNS Control rules in the Zscaler Admin Console.
+
+The DNS Control policy has predefined rules based on best practice recommendations to manage specific types of traffic. These rules can be used readily by an organization to protect its traffic against specific threats. Depending on the rule functionality and the severity of threats against which they offer protection, some rules are highly restrictive and do not support customization for rule conditions and actions, whereas others allow for greater flexibility, including rule deletion. Similarly, certain rules contain system-defined Rule Order (i.e., default Rule Order), which cannot be modified by admins. These rules with default Rule Order always maintain the lowest precedence.
+
+- Predefined DNS rules can be enabled or disabled based on your organization's requirements. However, these rules cannot be deleted unless specified otherwise.
+- In the event of false positives triggered by predefined DNS rules, you can either create custom rules using higher ranks or disable the rule that's causing the false positives.
+
+## Predefined DNS Control Rules
+
+The Zscaler service provides a set of predefined rules for managing your DNS traffic.
+
+List of Predefined DNS Control Rules
+
+## Modifying a Predefined DNS Control Rule
+
+To modify a predefined DNS rule:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Policy** > **DNS Control**.
+2. Click the **Edit** icon for the rule you want to modify. The **Edit Rule** page appears.
+3. On the**Edit Rule** page, you can modify the rule attributes, criteria, and actions that are available to edit for the selected predefined rule:
+  - Unknown DNS Traffic
+  - Default Firewall DNS Rule
+  - Fallback ZPA Resolver for Locations
+  - Fallback ZPA Resolver for Road Warrior
+  - Critical Risk DNS Categories
+  - Critical Risk DNS Tunnels
+  - High-Risk DNS Categories
+  - High-Risk DNS Tunnels
+  - Risky DNS Categories
+  - Risky DNS Tunnels
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+The following table provides the list of predefined DNS rules along with their description.
+
+| Rule Name | Description |
+| --- | --- |
+| Unknown DNS Traffic | The Unknown DNS Traffic rule is predefined to take action on suspected malformed traffic, non-standard DNS traffic, or even non-DNS traffic attempting to conceal itself as DNS traffic (not otherwise identified as another application). Zscaler recommends blocking the traffic matching this rule. |
+| Default Firewall DNS Rule | The Default Firewall DNS Rule is predefined to manage all the DNS traffic that is not specifically defined and actioned in the higher-ranked, user-defined rules. Zscaler recommends blocking the traffic matching the rule, but only if the permitted DNS traffic is defined in a higher-ranked rule. If a higher-ranked allow rule is not defined, then many applications fail as DNS is essential for their operation. |
+| Fallback ZPA Resolver for Locations | The Fallback ZPA Resolver for Locations rule is predefined to redirect source IP anchored traffic from location users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
+| Fallback ZPA Resolver for Road Warrior | The Fallback ZPA Resolver for Road Warrior rule is predefined to redirect source IP anchored traffic of remote users to the preconfigured IP pools during control plane maintenance. You can edit the IP address range configured for the IP pools on the [IP Pool](https://help.zscaler.com/zia/about-ip-pool) page. This rule is disabled by default and cannot be deleted. It is only enabled during control plane maintenance to ensure the resiliency of the Source IP Anchoring feature. |
+| Critical Risk DNS Categories | The Critical Risk DNS Categories rule is predefined to block DNS traffic with the highest security risks in DNS request and response categories that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. It blocks traffic that matches known or suspected critical security threats in DNS requests and responses, such as malicious IP addresses and FQDNs, Domain Generation Algorithm (DGA) domains, and other advanced security threats. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| Critical Risk DNS Tunnels | The Critical Risk DNS Tunnels rule is predefined to block DNS tunnels with the highest security risks (e.g., commonly blocked DNS tunnels) that are encountered by every organization. This block rule is implemented by all organizations, unless they are exceptional and very permissive circumstances. This rule is enabled by default and is created with a higher rule order. The Critical Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| High-Risk DNS Categories | The High-Risk DNS Categories rule is predefined to block DNS traffic with high security risks to an organization's network. It blocks DNS traffic that matches newly registered and observed domains, newly revived domains, and other similar security threats in DNS requests and responses. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Categories rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| High-Risk DNS Tunnels | The High-Risk DNS Tunnels rule is predefined to block DNS tunnels with high security risks (e.g., unknown DNS tunnels) to an organization's network. This rule warrants careful consideration by an organization, and it is strongly recommended by Zscaler to implement this block rule. This rule is enabled by default and is created with a higher rule order. The High-Risk DNS Tunnels rule contains predefined values for specific rule attributes, conditions, and action. While the rule attributes, such as Rule Order and Rule Label, are modifiable by admins to suit their organization's requirements, the rule conditions and action, are read-only fields and can only use default values. |
+| Risky DNS Categories | The Risky DNS Categories rule is recommended and predefined to block common DNS security threats to an organization's network. It blocks traffic that matches risky categories in DNS requests and responses, including content representing abuse or exploitative behavior, adult material, militancy/hate and extremism, violence, malicious content, etc. Blocking these categories is recommended, but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Categories rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
+| Risky DNS Tunnels | The Risky DNS Tunnels rule is recommended and predefined to block DNS tunnels that are common security threats to an organization's network. Blocking these tunnels is recommended but the rule implementation might vary depending on your organization's requirements and corporate policies. The Risky DNS Tunnels rule is not enabled by default. Admins of sufficient rank can enable, fully customize, or delete this rule. |
+
+The **Notification** option appears only when you select **Block** for **Network Traffic**.
+
+1. Select a **Rule Label** for the rule.
+2. Select an action for the **Network Traffic**field:
+  - **Allow**: Allows the DNS requests and responses.
+  - **Block**: Silently blocks all DNS requests and responses.
+3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
+
+The **Notification** option appears only when you select **Block** for **Network Traffic**.
+
+1. Select a **Rule Label** for the rule.
+2. Select an action for the **Network Traffic**field:
+  - **Allow**: Allows the DNS requests and responses.
+  - **Block**: Silently blocks all DNS requests and responses.
+3. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization.
+
+Choose the **Rule Label** for the rule.
+
+Choose the **Rule Label** for the rule.
+
+1. Configure the rule attributes listed as follows:
+  - Modify the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Modify the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria (read-only) information in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
+  - **Request Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
+  - **Response Categories**: Botnet Callback, Domain Generation Algorithm (DGA) Domains, Malicious Content, Phishing, and Spyware/Adware are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
+
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list: The rule is configured only with specific criteria in the **DNS Application** category.
+  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Commonly Blocked DNS Tunnels** category by Zscaler are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
+
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
+  - **Request Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
+  - **Response Categories**: Newly Registered and Observed Domains, Newly Revived Domains, and Other Security are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
+
+1. Configure the rule attributes listed as follows:
+  - Change the **Rule Order** as per your requirements. If [Admin Rank](https://help.zscaler.com/zia/about-admin-rank) is enabled, your assigned admin rank determines the Rule Order values you can select.
+  - Change the **Rule Status** to enable or disable the rule.
+  - Configure the **Rule Label**.
+2. View the rule criteria information (read-only) in the following bulleted list. The rule is configured only with specific criteria in the DNS Application category.
+  - **DNS Tunnels & Network Apps**: All DNS tunnels that are classified under the **Unknown DNS Tunnels** category by Zscaler are selected.
+3. View the rule action details and configure the Traffic Capture option as follows:
+  - **Network Traffic**: (Non-modifiable) **Block** is selected.
+  - **Logging**: (Non-modifiable) **Full Logging** is configured.
+  - **Capture**: (Modifiable) If [Traffic Capture is enabled](https://help.zscaler.com/zia/configuring-traffic-capture), the Capture option appears. By enabling this option, you can capture blocked traffic and store it in PCAP files for later analysis. To learn more, see [About Traffic Capture Settings](https://help.zscaler.com/zia/about-traffic-capture).
+4. Configure an end user notification (EUN) using one of the following options: Both Client Connector EUN and Web EUN cannot function simultaneously. When both options are enabled, the Web EUN takes precedence and only this notification is displayed to users. To learn more, see [DNS End User Notifications](https://help.zscaler.com/zia/dns-end-user-notifications) and [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+  - **Client Connector EUN**: (Requires Advanced DNS provided by Advanced Firewall) Enabling this option shows pop-up notifications to users via Zscaler Client Connector for DNS transactions that match the configured policy action. This EUN is supported for **Block**, **Block with Response Code**, and **Redirect Response** actions. When this option is enabled, an additional Notification Message drop-down menu appears. You can select from default and [custom notification messages](https://help.zscaler.com/zia/configuring-euns-dns-control) to display for users.
+  - **Web EUN**: Enable to show a web notification to end users when they access domains that are blocked by this rule. This EUN is a standard web EUN page provided by Zscaler with support for customization. This EUN is supported for the **Block**action.
+
+You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+
+The rule cannot have different sets of URL categories selected under **Request Categories** and **Response Categories**. However, you can have only one of the two conditions configured for the rule by clearing the selection for the other condition.
+
+You can customize all attributes of the rule, rule conditions, action, and end user notifications. To learn how to configure DNS Control rules, see [Configuring the DNS Control Policy](https://help.zscaler.com/zia/configuring-dns-control-policy).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-network-services","lastmod":"2026-10-05T21:06Z","nid":"1399961"} -->
+## Modifying Predefined Network Services
+
+- Source: https://help.zscaler.com/zia/modifying-predefined-network-services
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Modifying Predefined Network Services
+- Last modified: 2026-10-05T21:06Z
+- Summary: How to modify the ports of a predefined network service in the Zscaler Admin Console.
+
+Zscaler provides more than 50 predefined [network services](https://help.zscaler.com/zia/about-network-services), including the typical TCP and UDP source and destination ports on which these services operate. You can customize the ports assigned to these predefined services by adding new ports, as well as modifying or deleting existing ones.
+
+The following predefined network services are view-only and cannot be modified: ESP, GRE, ICMP, TCP, UDP, and Zscaler Proxy Network Services (includes all Zscaler-specific web proxy ports including customer-specific Dedicated Proxy Ports).
+
+To modify the ports of a predefined network service:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access**> **Resources** >**Network Services**.
+2. Locate the predefined network service you want to modify and click the **Edit** icon displayed for the service. The **Edit Network Service** drawer appears.
+3. In the **Edit Network Service** drawer, you can modify: See image.
+  - **Description**: Additional notes or information about the network service.
+  - **TCP Ports**: TCP source and destination ports used by the network service.
+  - **UDP Ports**: UDP source and destination ports used by the network service.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+Similarly, you can edit custom network services and modify their port assignments.
+
+[Image: Edit a network service by modifying the description and the ports]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-10-21T13:20Z","nid":"1401731"} -->
+## Modifying a Zscaler Incident Receiver
+
+- Source: https://help.zscaler.com/zia/modifying-zscaler-incident-receiver
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
+- Last modified: 2026-10-21T13:20Z
+- Summary: How to edit a Zscaler Incident Receiver, including how to delete the incident receiver and download or regenerate the certificate.
+
+To edit or delete a Zscaler Incident Receiver:
+
+1. Go to **Data Security**> **Common Resources**> **DLP Incident Receiver**
+2. Select the **Zscaler Incident Receiver** tab.
+3. Locate the Zscaler Incident Receiver in the table and click **Edit**.
+
+The **Edit Zscaler Incident Receiver** window appears.
+
+1. In the **Edit Zscaler Incident Receiver** window:
+  - **Name**: Change the Incident Receiver Name.
+  - **Status**: Change the status to **Enabled** or **Disabled**.
+  - **Server URI**: Change the Incident Receiver URI. If you change the URI, make sure you update the Incident Receiver virtual machine (VM). To learn more, see [Configuring the Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
+  - **Certificate**: Download or regenerate the certificate. If you regenerate the certificate, make sure you update the Incident Receiver VM with the new file. To learn more, see [Configuring the Zscaler Incident Receiver](https://help.zscaler.com/zia/configuring-zscaler-incident-receiver).
+
+If you want to remove the Incident Receiver, click **Delete**.
+
+See image.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: The Edit Zscaler Incident Receiver window]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-or-blocking-outbound-content-data-size","lastmod":"2026-10-31T12:37Z","nid":"1400001"} -->
+## Monitoring or Blocking Outbound Content by Data Size
+
+- Source: https://help.zscaler.com/zia/monitoring-or-blocking-outbound-content-data-size
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Monitoring or Blocking Outbound Content by Data Size
+- Last modified: 2026-10-31T12:37Z
+- Summary: How to create a Data Loss Prevention (DLP) policy to monitor or block outbound content by file size using the Zscaler service.
+
+You might want to leverage Zscaler's Data Loss Prevention (DLP) policy to monitor or block specific types of outbound content by file size, without scanning for specific files within the content. For example, you could block outbound image files (such as GIF or JPEG). In Internet Access > Policy > File Type Control, you can set the policy to block image files. You can set the policy to block images on the [File Type Control page](https://help.zscaler.com/zia/about-file-type-control-policy).
+
+For this scenario, you can leverage the Rule Without Content Inspection policy option. When configuring the policy, you can specify the criteria Zscaler uses for monitoring or blocking content, but refrain from specifying an ICAP server. Zscaler monitors or blocks outbound content based on the criteria you specify, but does not send content to any external DLP engines. The following illustration details the process that takes place when you configure DLP policies for this scenario:
+
+[Image: Diagram showing the process that takes place when you configure DLP policies for the External DLP Engine policy option]
+
+To configure rules for this scenario:
+
+1. [Configure your DLP notification templates](https://help.zscaler.com/zia/configuring-dlp-notification-templates). When configured, email notifications are sent to your organization's auditor when DLP rules are applied to users' content.
+2. [Define your DLP policy rule without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection#Add).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-04T23:21Z","nid":"1398876"} -->
+## Monitoring Virtual Service Edge Clusters for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
+- Last modified: 2026-10-04T23:21Z
+- Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
+
+If you configure a GRE tunnel or Layer 2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the Management Information Base (MIB) files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
+
+You can use a management system that supports SNMPv3 to monitor a Virtual Service Edge cluster. Virtual Service Edge clusters include an SNMP agent that collects data and stores them as objects in MIBs. To learn more about accessing Zscaler SNMP MIBs, see [Accessing the Zscaler SNMP MIBs](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs). You can query the objects in the MIBs to retrieve information about the Virtual Service Edge. The SNMP agent can also send traps (or notifications) to alert you when certain events occur on the network or in the Virtual Service Edge.
+
+## Enabling SNMP for Virtual Service Edge
+
+To enable SNMP for Virtual Service Edge:
+
+1. Edit the `rc.conf` file: vi /etc/rc.conf
+2. Set the following setting to `YES`: snmpd_enable="YES"By default, this entry is set to `NO`.
+3. Ensure that the path of the `snmp.conf` file is as follows: snmpd_conffile="/usr/local/etc/snmpd.conf"
+4. Save the `rc.conf` file.
+5. Start the SNMP agent daemon (snmpd) service: service snmpd start
+6. Restart the Virtual Service Edge: sudo vzen restart
+
+## Zscaler-Recommended MIBs for Monitoring Virtual Service Edges
+
+The following are the Zscaler-recommended MIB objects for monitoring Virtual Service Edges:
+
+| VSE-MIB ( .1.3.6.1.4.1.46262) |  |
+| --- | --- |
+| Object | Description |
+| VSE-MIB::vseName ( .1.3.6.1.4.1.46262.9.2) | The name of the Virtual Service Edge. |
+| VSE-MIB::ca_connectivity (.1.3.6.1.4.1.46262.9.2.1.5) | The Virtual Service Edge connection to Zscaler Central Authority (CA). It's set to 3 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler Central Authority (CA) if one of the following values is returned: 0: Virtual Service Edge is not authenticated; 1: Virtual Service Edge authentication is bypassed; 2: Virtual Service Edge authentication is bypassed with probe; 4: Virtual Service Edge is down |
+| VSE-MIB::smsm_connectivity (.1.3.6.1.4.1.46262.9.2.1.6) | The Virtual Service Edge connection to Zscaler log and reporting infrastructure. It's set to 4 or 5 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler log and reporting infrastructure if one of the following values is returned: 2: Initiated logging server connection; 3: Waiting for the logging server to connect to Virtual Service Edge; 6: Closing logging server connection; 7: Closed logging server connection |
+| VSE-MIB::cpu_percentage (.1.3.6.1.4.1.46262.4.2.1.12.1) | The CPU usage percentage. It's in integer values (e.g., 5,000); divide the integer value by 100 to get a percentage value (e.g., 5,000/100 = 50%). A CPU usage percentage less than 90% is acceptable. If the CPU usage percentage is more than 90%, an alert must be triggered. |
+| VSE-MIB::swapinfo (.1.3.6.1.4.1.46262.6.2.1.11) | The swap memory usage percentage. It's in integer values (e.g., 3,500); divide the integer value by 100 to get a percentage value (e.g., 3,500/100 = 35%). A swap memory usage percentage of less than 50% is acceptable. If the swap memory usage percentage is more than 50%, an alert must be triggered. |
+
+The following Object Identifiers (OIDs) generate SNMP alert traps by default:
+
+- Process Monitoring – UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2)
+- Disk Monitoring – UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9)
+- System Load – UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10)
+- Interface Events – IF-MIB::linkDown (.1.3.6.1.6.3.1.1.5.3) and IF-MIB::linkUp (.1.3.6.1.6.3.1.1.5.4)
+
+## SNMP MIB Objects
+
+The following are the MIB objects that can be queried to retrieve information about the Virtual Service Edge cluster. To learn more about the objects, refer to the [NET-SNMP documentation](http://www.net-snmp.org/docs/mibs/ucdavis.html).
+
+| UCD-SNMP-MIB (.1.3.6.1.4.1.2021) |  |
+| --- | --- |
+| Object | Description |
+| UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2) | A table containing information on running programs/daemons configured for monitoring in the snmpd.conf file of the agent. Processes violating the number of running processes required by the agent's configuration file are flagged with numerical and textual errors. |
+| UCD-SNMP-MIB::prNames | The process name you're counting or checking on. |
+| UCD-SNMP-MIB::prCount | The number of current processes running with the name in question. |
+| UCD-SNMP-MIB::prErrorFlag | An error flag to indicate trouble with a process. It goes to 1 if there is an error, 0 if there is no error. |
+| UCD-SNMP-MIB::prErrMessage | An error message describing the problem (if one exists). |
+| UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9) | Disk-watching information. Partitions to be watched are configured by the snmpd.conf file of the agent. |
+| UCD-SNMP-MIB::dskPath | Path where the disk is mounted. |
+| UCD-SNMP-MIB::dskDevice | Path of the device for the partition. |
+| UCD-SNMP-MIB::dskMinPercent | Percentage of minimum space required on the disk before the errors are triggered. |
+| UCD-SNMP-MIB::dskTotal | Total size of the disk or partition (kBytes). For large disks (>2Tb), this value latches at INT32_MAX (2147483647). |
+| UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
+| UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10) | Load average information. |
+| UCD-SNMP-MIB::laLoad | The 1-, 5-, and 15-minute load averages (one per row). |
+| UCD-SNMP-MIB::laErrorFlag | An error flag to indicate that the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 if not. |
+| UCD-SNMP-MIB::laErrMessage | An error message describing the load average and its surpassed watch-point value. |
+| UCD-SNMP-MIB::systemStats (.1.3.6.1.4.1.2021.11) | System statistics. |
+| UCD-SNMP-MIB::memory (.1.3.6.1.4.1.2021.4) | Memory-related information. |
+
+| IF-MIB (.1.3.6.1) |  |
+| --- | --- |
+| Object | Description |
+| IF-MIB::interfaces (.1.3.6.1.2.1.2) | Information about the interfaces. |
+| IF-MIB::ifNumber (.1.3.6.1.2.1.2.1) | The number of network interfaces (regardless of their current state) present on this system. |
+| IF-MIB::ifTable - (.1.3.6.1.2.1.2.2) | A list of interface entries. The number of entries is given by the value of ifNumber. |
+| IF-MIB::ifDescr | A textual string containing information about the interface. This string should include the name of the manufacturer, the product name, and the version of the interface hardware or software. |
+| IF-MIB::ifType | The type of interface. Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention. |
+| IF-MIB::ifMtu | The size of the largest packet that can be sent or received on the interface, specified in octets. |
+| IF-MIB::ifPhysAddress | The interface's address at its protocol sublayer. For example, for an 802.x interface, this object normally contains a MAC address. The interface's media-specific MIB must define the bit and byte ordering and the format of the value of this object. |
+| IF-MIB::ifAdminStatus | The desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per-configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state). |
+| IF-MIB::ifOperStatus | The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If ifAdminStatus is down(2), then ifOperStatus should be down(2). If ifAdminStatus is changed to up(1), then ifOperStatus changes to up(1) if the interface is ready to transmit and receive network traffic. It changes to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection). It remains in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state. It remains in the notPresent(6) state if the interface has missing (typically, hardware) components. |
+| IF-MIB::ifInOctets | The total number of octets received on the interface, including framing characters. |
+| IF-MIB::ifInUcastPkts | The number of packets, delivered by this sublayer to a higher sublayer, which were not addressed to a multicast or broadcast address at this sublayer. |
+| IF-MIB::ifOutOctets | The total number of octets transmitted out of the interface, including framing characters. |
+| IF-MIB::ifOutUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
+| IF-MIB::ifOutNUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
+| IF-MIB::ifPromiscuousMode | This object has a value of false(2) if this interface only accepts packets/frames that are addressed to this station. This object has a value of true(1) if the station accepts all packets or frames transmitted on the media. |
+| IF-MIB::linkDown  (.1.3.6.1.6.3.1.1.5.3) | The interface link is down. |
+| IF-MIB::linkUp  (.1.3.6.1.6.3.1.1.5.4) | The interface link is up. |
+
+| HOST-RESOURCES-MIB (.1.3.6.1.2.1.25) |  |
+| --- | --- |
+| Object | Description |
+| HOST-RESOURCES-MIB::hrSystem (.1.3.6.1.2.1.25.1) | Information about the host. |
+| HOST-RESOURCES-MIB::hrSystemUptime | The amount of time since this host was last initialized. |
+| HOST-RESOURCES-MIB::hrSystemDate | The host's notion of the local date and time of day. |
+| HOST-RESOURCES-MIB::hrSystemProcesses | The number of process contexts currently loaded or running on this system. |
+| HOST-RESOURCES-MIB::hrSystemMaxProcesses | The number of processes that the system can support. The maximum number of process contexts this system can support. If there is no fixed maximum, the value should be zero. On systems that have a fixed maximum, this object can help diagnose failures that occur when this maximum is reached. |
+| HOST-RESOURCES-MIB::hrStorage (.1.3.6.1.2.1.25.2) | Information about the storage areas of the host. |
+| HOST-RESOURCES-MIB::hrStorageType | The type of storage represented by this entry. |
+| HOST-RESOURCES-MIB::hrStorageDescr | A description of the type and instance of the storage described by this entry. |
+| HOST-RESOURCES-MIB::hrStorageSize | The size of the storage represented by this entry, in units of hrStorageAllocationUnits. |
+| HOST-RESOURCES-MIB::hrStorageUsed | The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits. |
+| HOST-RESOURCES-MIB::hrStorageAllocationUnits | The size, in bytes, of the data objects allocated from this pool. If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number is commonly greater than one. Otherwise, this number is typically one. |
+
+| SNMPv2-MIB::system (.1.3.6.1.2.1.1) |  |
+| --- | --- |
+| Object | Description |
+| SNMPv2-MIB::sysContact | The textual identification of the contact person for this managed node, together with information on how to contact this person. If no contact information is known, the value is the zero-length string. |
+| SNMPv2-MIB::sysName | An administratively assigned name for this managed node. By convention, this is the node's FQDN. If the name is unknown, the value is the zero-length string. |
+| SNMPv2-MIB::sysLocation | The physical location of this node (e.g., "telephone closet, 3rd floor"). If the location is unknown, the value is the zero-length string. |
+| SNMPv2-MIB::sysServices | A value that indicates the set of services that this entity may potentially offer. The value is a sum. This sum initially takes the value 0. Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node that performs only routing functions has a value of 4 (2^(3-1)). In contrast, a node that is a host offering application services has a value of 72 (2^(4-1) + 2^(7-1)). In the context of the internet suite of protocols, values should be calculated accordingly: **Layer** **Functionality** 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., supports IP) 4 end-to-end (e.g., supports TCP) 7 applications (e.g., supports SMTP) For systems including OSI protocols, Layers 5 and 6 can also be counted. |
+| SNMPv2-MIB::snmpEnableAuthenTraps | Indicates whether the SNMP entity is permitted to generate authenticationFailure traps. The value of this object overrides any configuration information; as such, it provides a means whereby you can disable all authenticationFailure traps. |
+| SNMPv2-MIB::snmpInPkts | The total number of messages delivered to the SNMP entity from the transport service. |
+| SNMPv2-MIB::snmpOutPkts | The total number of SNMP messages that were passed from the SNMP protocol entity to the transport service. |
+| SNMPv2-MIB::snmpInGetRequests | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has accepted and processed. |
+| SNMPv2-MIB::snmpOutGetResponses | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has generated. |
+| SNMPv2-MIB::snmpOutTraps | The total number of SNMP Trap PDUs that the SNMP protocol entity has generated. |
+
+| TCP-MIB (.1.3.6.1.2.1.6) |  |
+| --- | --- |
+| Object | Description |
+| TCP-MIB::tcpActiveOpens | The number of times that TCP connections have made a direct transition to the SYN-SENT state from the CLOSED state. |
+| TCP-MIB::tcpPassiveOpens | The number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state. |
+| TCP-MIB::tcpCurrEstab | The number of TCP connections for which the current state is either ESTABLISHED or CLOSE-WAIT. |
+| TCP-MIB::tcpConnectionTable | A table containing information about existing TCP connections. |
+| TCP-MIB::tcpListenerTable | A table containing information about TCP listeners. A listening application can be represented in three possible ways: An application that is willing to accept both IPv4 and IPv6 datagrams is represented by a tcpListenerLocalAddressType of unknown (0) and a tcpListenerLocalAddress of ''h (a zero-length octet-string).; An application that is willing to accept only IPv4 or IPv6 datagrams is represented by a tcpListenerLocalAddressType of the appropriate address type and a tcpListenerLocalAddress of '0.0.0.0' or '::' respectively.; An application that is listening for data destined only to a specific IP address, but from any remote system, is represented by a tcpListenerLocalAddressType of an appropriate address type, with tcpListenerLocalAddress as the specific local address.The address type in this table represents the address type used for the communication, irrespective of the higher-layer abstraction. For example, an application using IPv6 sockets to communicate via IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use InetAddressType ipv4(1))." |
+
+## Virtual Service Edge Traps
+
+The Virtual Service Edge SNMP agent generates traps when the following events occur:
+
+### Process Monitoring
+
+- The snmpd restarts
+- The SME goes down and the link to the Zscaler cloud becomes inactive
+- The number of mountd processes is more than 1
+- The number of ntalkd processes goes out of range (0–4)
+- The number of sendmail processes goes out of range (1–10)
+
+### Disk Monitoring
+
+- The root partition has less than 10 MBs of space
+- Any of the other partitions have less than 10% space
+
+### System Load
+
+- The load average crosses the threshold: 3 for 1 minute, 2 for 5 minutes, 1 for 15 minutes
+- CPU usage goes beyond 90%
+
+### Interface events
+
+The link goes down or comes up
+
+## Virtual Service Edge Health Monitoring
+
+The Zscaler service performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Virtual Service Edge in order to monitor the health of the instance and ensure that traffic is distributed appropriately. If you want to perform this monitoring yourself, you can enable an HTTP server on a Virtual Service Edge by implementing the following commands:
+
+1. Go to the /sc/sme/conf folder: cd /sc/sme/conf
+2. Create a custom configuration file (e.g., vzen_custom.conf): touch vzen_custom.conf
+3. Edit the vzen_custom.conf file: vi vzen_custom.conf
+4. Enter the following port in the vzen_custom.conf file and save: [SME] serv_port=3128 [-end-of-SME-]
+5. Ensure that the entries are saved in the vzen_custom.conf file: cat vzen_custom.conf
+6. Restart the SME instance: /sc/update/vzen stop sme /sc/update/vzen start sme
+7. Ensure that the SME is running: vzen statusYou can check whether the Virtual Service Edge is listening to port 3128 using the following command: ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet="netstat" | grep LISTEN | grep 3128
+8. Enter the following command prompt: curl -v http://<Virtual Service Edge IP>:3128/index.html?=100The number 100 represents the size of the response sent back to the client making the cURL request. Therefore, if the monitoring tool makes a request to the URL http://<Virtual Service Edge IP>:3128/index.html?=100, the Virtual Service Edge responds with a 200 OK and a payload size of 100 bytes.
+
+After the commands have been applied, you can use the LB to fetch the page and investigate the availability of a particular Virtual Service Edge. This does not include ICMP monitoring.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-for-euns","lastmod":"2026-09-16T03:53Z","nid":"1399646"} -->
+## Multiple Language Support for EUNs
+
+- Source: https://help.zscaler.com/zia/multiple-language-support-for-euns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Global Configuration > Multiple Language Support for EUNs
+- Last modified: 2026-09-16T03:53Z
+- Summary: Information about the languages that are supported in the end-user notifications and how users can change the language.
+
+The Zscaler service supports the following languages for [end user notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) (EUNs):
+
+- English
+- Simplified Chinese
+- Traditional Chinese
+- Dutch
+- French
+- German
+- Japanese
+- Brazilian Portuguese
+- European Portuguese
+- Russian
+- Spanish
+- Spanish (Latin America)
+- Italian
+- Indonesian
+- Korean
+- Turkish
+- Thai
+- Vietnamese
+
+To have users view EUNs in one of these languages, ensure that the language setting in your users' browser is set to that language. TheZscaler service automatically detects the browser language setting and displays EUNs in that language. See the browser documentation for instructions on changing the language setting of that browser. If you configure your browser to display a language the service doesn't support, the service displays the EUNs in English.
+
+If you redirect users to an external site that hosts EUNs, keep in mind that those pages are global for the entire organization. Therefore, to enable your non-English speaking users to view EUNs in a specific language, ensure that your external site has browser language detection enabled.
+
+The Zscaler service only displays the Authentication dialog box in English. When configuring the [Acceptable Use Policy](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) notification, you can create a message containing multiple languages, because it's a free-form text field. However, a browser language check won't take place.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-zscaler-client-connector-based-euns","lastmod":"2026-08-25T09:11Z","nid":"1505071"} -->
+## Multiple Language Support for Zscaler Client Connector-Based EUNs
+
+- Source: https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Multiple Language Support for Zscaler Client Connector-Based EUNs
+- Last modified: 2026-08-25T09:11Z
+- Summary: Information about the languages that are supported in the Zscaler Client Connector-based end user notifications.
+
+Zscaler Client Connector supports the following languages for [end user notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications) (EUNs):
+
+- English
+- Chinese (Traditional)
+- French
+- German
+- Japanese
+- Spanish
+
+The EUN language is based on the OS language setting in your system. The Zscaler Client Connector automatically detects your system's OS language and displays EUNs in that language. If your system's OS language is different from the EUN supported languages, Zscaler Client Connector displays EUNs in English, by default.
+
+Only the default messages are translated to all the languages that the Zscaler Client Connector supports. You can modify the default messages per language. Modifying the message in a specific language does not impact the respective message in other languages. Zscaler Client Connector does not automatically translate customized messages.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-10-29T11:17Z","nid":"1463366"} -->
+## NSS Collector Deployment Guide for VMware vSphere
+
+- Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
+- Last modified: 2026-10-29T11:17Z
+- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
+
+The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report). To enable this feature for your organization, contact Zscaler Support.
+
+This guide describes the tasks required to deploy [Nanolog Streaming Service (NSS) Collector](https://help.zscaler.com/zia/about-nss-collector-servers) to collect logs in real time from third-party security devices inside your network perimeter and stream them to the Zscaler cloud. Each step in the guide links you to the appropriate article for that configuration task on vSphere.
+
+## Prerequisites
+
+Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to NSS Collector and review the following specifications and requirements:
+
+- VM Specs
+- Host Specs
+- Network Specs
+- Firewall Requirements
+- User Provisioning
+
+## Deploying NSS Collector
+
+To deploy NSS Collector:
+
+- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate
+- Step 2: Use the ESX/ESXi Server to Configure and Start the NSS Collector on the VM Instance
+- Step 3: Configure Third-Party syslog Feed for NSS Collector
+
+- 2 CPU cores: NSS Collector uses one core for the control plane and another core for the data plane.
+- Instance memory:
+  - 8 GB for up to 15K users
+  - 16 GB for up to 40K users
+  - 32 GB for up to 100K users
+- Data disk size: 500 GB
+
+- Hypervisor: VMware ESX/ESXi v5.0 and later
+- Host CPU: 64-bit Xeon or equivalent
+- Host CPU Speed: Greater than or equal to 2.40GHz
+- VMware vSphere Client or vCenter
+
+- Network Adapter: E1000
+- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs.
+- Bandwidth for Log Streaming: 11 Mbps for 10K users is an example average value.
+- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
+  | Virtual Interface | IP Address | Description |
+  | --- | --- | --- |
+  | em0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS Collector VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS Collector VM. |
+  | em1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud. |
+
+The firewall requirements are as follows:
+
+- You must deploy the NSS Collector instance behind a VM network security group. The NSS Collector instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
+- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
+- Communication from the NSS Collector to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS Collector can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
+
+To leverage complete SaaS Security Report functionality, users whose traffic traversed through third-party vendor devices need to be provisioned through one of the mechanisms supported by Zscaler. To learn about user provisioning, see [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-authentication-methods).
+
+You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-nss-collector-servers) in the Zscaler Admin Console to obtain the packaged software (VM image) that must be installed in your organization’s network perimeter. To learn more about NSS Collectors and their use in third-party log integration with Zscaler, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
+
+An organization can have up to 4 NSS Collector servers.
+
+To add an NSS Collector server:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming** - **Nanolog Streaming Service**.
+2. On the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
+3. In the **Add NSS Collector Server** window:
+  - **Name**: Enter a name for the NSS Collector server.
+  - **Vendor**: Select the vendor of the third-party firewall or web proxy service used by your organization for which the logs must be integrated with Zscaler.
+  - **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions.
+4. Click **Save**.
+
+See image.
+
+When the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates the packaged software for installation and issues an SSL certificate to the server.
+
+To download the packaged software and the SSL certificate for the server:
+
+1. Click the **Edit** icon displayed against the NSS Collector server.
+2. In the **Edit NSS Server** window:
+  - Under the **SSL Certificate** field, you can download the SSL Certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
+  - Under the **Software Package**field, you can download the packaged software generated for the server for installation.
+
+See image.
+
+You can also download the SSL certificate directly from the **NSS Collector Servers** table by clicking the **Download** button against the required NSS Collector server under the **SSL Certificate** column.
+
+See image.
+
+Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file and SSL certificate from the Zscaler Admin Console.
+
+To configure the NSS Collector virtual appliance on the VM, log in to the vSphere client and perform the following actions:
+
+- a. Import the NSS Collector OVA file.
+- b. Configure the network.
+- c. Configure the NSS Collector.
+- d. Install the SSL certificate.
+- e. Download the NSS Collector binaries.
+- f. Start the NSS Collector.
+
+Go to **File** > **Deploy OVF Template** and use the Deploy OVF Template wizard to deploy the NSS Collector VM.
+
+1. Select the NSS Collector VM and either click the **Power On** button or power on the virtual machine.
+2. On the **Console** tab, log in to the ZscalerOS command prompt with the following credentials:
+  - Username: `zsroot`
+  - Password: `zsroot`
+
+By default, root login is not permitted. Administrators must use the utility `sudo` to run a command with higher privileges.
+
+Zscaler strongly recommends that you change this default password by running the command `passwd`. For more details about running this command, click here.
+
+1. Enter the command `sudo nss configure` and complete the following:
+  1. Enter the DNS server IP address (e.g., `192.168.1.1`).
+  2. Enter the management interface IP with CIDR netmask. Use the management IP address for SSH or FTP (e.g., `192.168.3.1/16`).
+  3. Enter the default gateway for the management IP address (e.g., `192.168.1.1`).
+  4. Enter the service IP address with CIDR netmask (e.g., `192.168.3.2/16`). NSS Collector uses the service IP address to communicate with the Zscaler cloud and with your security information and event management (SIEM).
+  5. Enter the default gateway for the service IP address (e.g., `192.168.1.1`).
+
+The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
+
+See image.
+
+1. Check the applied network configuration by running the following command:
+
+```
+sudo nss dump-config
+```
+
+1. To change the password, enter `passwd` and your username. For example, if you are using the default username, the command is:
+
+```
+passwd zsroot
+```
+
+1. When prompted, specify the following:
+  - Your current password
+  - Your new password
+
+[Image: FreeBSD Command Prompt Password]
+
+Enter the command `sudo nss collector-configure` and then enter the third-party log vendor name (`PANFW`, `FORTIFW`, or `BLUECOAT`).
+
+The NSS Collector uses this certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active NSS Collector VM at a time. Having multiple NSS Collector VMs that use the same certificate causes cloud connection flapping, which would disrupt the streaming of logs to the Zscaler cloud.
+
+1. Navigate to the SSL certificate that you previously downloaded from the Zscaler Admin Console.
+2. Use FTP, SCP, or SFTP to upload it to the management IP address of the NSS Collector.
+3. On the vSphere client, click the **Console** tab, and log in with the following credentials:
+  - Username: `zsroot`
+  - Password: `zsroot`
+4. Go to the **Console** tab or use SSH to connect to the management IP address.
+5. Run the following command:
+
+```
+sudo nss install-cert
+```
+
+Specify the path to the uploaded certificate bundle.
+
+1. Check the configuration by running the following command:
+
+```
+sudo nss dump-config
+```
+
+Before starting the NSS Collector:
+
+1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
+2. Run the following command to download and install the NSS Collector binaries:
+
+```
+sudo nss update-now
+```
+
+After the first NSS Collector software deployment, the software is automatically updated with new versions.
+
+1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
+2. Run the following command:
+
+```
+sudo nss start
+```
+
+Ensure that the command shows that the NSS Collector started successfully. It can take a few minutes for the NSS Collector to start collecting logs and sending them to the Zscaler cloud.
+
+After starting the NSS Collector for the first time, you can run the following command to check that the latest NSS Collector software version is installed:
+
+```
+sudo nss checkversion
+```
+
+To enable the NSS Collector to start automatically after a restart, run the following command:
+
+```
+sudo nss enable-autostart
+```
+
+You can also explore other options by running the following command:
+
+```
+sudo nss help
+```
+
+The following configuration steps pertain to Palo Alto Networks and they provide information on how to configure a syslog feed for the NSS Collector to collect traffic logs of clients behind the Palo Alto Networks firewall.
+
+The configuration steps cover the minimum information required in each step and use examples where necessary. For details on all of the configuration fields, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
+
+- a. Configure Syslog Server Profile
+- b. Configure Log Forwarding Profile
+- c. Configure a Security Policy to Allow User Traffic and Enable Logging
+- d. Configure User Authentication by Enabling Captive Portal
+
+1. Log in to the Palo Alto Networks firewall via the web interface.
+2. Go to the **Devices** tab, click the **Server Profiles** drop-down menu in the left-side navigation, and select **Syslog**.
+3. Click **Add** and provide the following information in the window that appears:
+  1. **Name**: Enter a name for the syslog server profile.
+  2. On the **Servers** tab, click **Add**, and fill out the following information: See image.
+    - **Name**: Enter a name for the syslog server.
+    - **Syslog Server**: Enter the IP address of the syslog server (i.e., NSS Collector server) deployed for your organization on the Zscaler cloud. This information can be obtained from the SSL certificate generated and downloaded for the NSS Collector server that is configured in the Zscaler Admin Console.
+    - **Transport**: Select **TCP** as the transport protocol for your syslog messages.
+    - **Port**: Specify the port number of the syslog server. Default and custom ports are supported.
+    - **Format**: Select **IETF** as the syslog format.
+    - **Facility**: Select **LOG_USER** from the drop-down menu to log user-based traffic.
+  3. On the **Custom Log Format** tab, click **Log Type** to specify a custom log format. In the window that appears, click the **Traffic** field and enter the following string, and click **OK** to save the value: `CEF:0|Palo Alto Networks|PAN-OS|$sender_sw_version|$subtype|$type|1|rt=$cef-formatted-receive_time deviceExternalId=$serial src=$src dst=$dst suser=$srcuser app=$app spt=$sport proto=$proto act=$action in=$bytes_sent out=$bytes_received start=$cef-formatted-time_generated reason=$session_end_reason`See image.
+4. Click **OK** to save the settings.
+
+1. Go to the **Objects** tab, click **Log Forwarding** in the left-side navigation, and click **Add** to create a log forwarding profile.
+2. In the window that appears, enter a name and description for the profile.
+3. Click **Add** to add a match list profile and fill out the following details: See image.
+  - **Name**: Enter a name for the match list profile.
+  - **Log Type**: Select **traffic** from the drop-down menu.
+  - **Filter**: Select **All Logs** from the drop-down menu.
+  - **Forward Method**: Click **Add** and select the syslog server profile configured in the previous step from the list displayed.
+4. Click **OK** to save the log forwarding profile.
+
+1. Go to the **Policies** tab, click **Security** on the left-side navigation, and click **Add**. Alternatively, you can modify an existing security policy to include the traffic log forwarding configurations.
+2. On the **General** tab, enter a name for the rule.
+3. Configure the rule criteria under the respective tabs as necessary. The rule must be configured to allow traffic coming from the trust zone (LAN) under the **Source** tab to reach the untrust zone (WAN) under the **Destination** tab. See image.
+4. On the **Actions** tab: See image.
+  - Under **Action Setting**, select **Allow** for **Action**.
+  - Under **Log Setting**:
+    - Enable **Log at Session Start** and **Log at Session End** options.
+    - From the **Log Forwarding** drop-down menu, select the log forwarding profile configured in the previous step.
+5. Click **OK** to save the security policy.
+
+The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet Access (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet Access users and then forwards the logs pertaining to Internet Access users to Zscaler for processing.
+
+The following sections provide step-by-step instructions for this configuration:
+
+This configuration uses a captive portal as the authentication mechanism. However, you can use other Palo Alto Networks firewall-supported authentication mechanisms per your deployment. To learn more, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
+
+- i. Create an Interface Management Profile
+- ii. Map the Interface Management Profile with the Client-Side LAN Interface
+- iii. Add Users for the Captive Portal and Map Them to an Authentication Profile
+- iv. Enable Captive Portal
+
+1. Go to the **Network** tab, click the **Network Profiles** drop-down menu in the left-side navigation, and select **Interface Mgmt**.
+2. Click **Add** to create an Interface Management profile.
+3. Enter a name for the profile.
+4. Under **Permitted Services**, select **Response Pages** and **User-ID** and any other necessary permitted services. These services are required for enabling captive portal authentication on the trust interface. See image.
+5. Click **OK** to save the Interface Management profile.
+
+1. Go to the **Network** tab, click **Interfaces**, and then click **Ethernet**.
+2. Locate the client-side LAN interface that is typically configured for your environment in the Palo Alto Networks firewall. Click the ethernet interface to modify its settings and map the Interface Management profile configured in the previous step.
+3. In the window that appears, go to the **Advanced** tab, and select the Interface Management profile configured in the previous step using the **Management Profile** drop-down menu. See image.
+4. Click **OK** to save the configuration. The following image shows an example configuration of the client-side LAN interface. See image.
+
+1. Go to the **Device** tab, click the **Local User Database** drop-down menu in the left-side navigation, and then select **Users**.
+2. Click **Add** displayed at the bottom-left corner of the page and fill out the user information in the window that appears: The username and password information in the Palo Alto Networks firewall must match the user details configured in the Zscaler Admin Console. See image.
+  - **Name**: Enter the username.
+  - **Mode**: Select **Password** as the mode.
+  - **Password**: Enter the user's login password.
+  - **Confirm Password**: Re-enter the user's login password.
+  - Select **Enable**.
+3. Click **OK** to save the configuration.
+4. On the **Device** tab, click **Authentication Profile** in the left-side navigation, and click **Add**.
+5. Fill out the following information in the authentication profile: The following image shows an example authentication profile configuration: See image.
+  1. **Name**: Enter a name for the profile.
+  2. On the **Authentication** tab:
+    - Select **Type** as **Local Database** using the drop-down menu. **Local Database** authentication type corresponds to the captive portal authentication mechanism used in this example configuration. You can select the authentication type depending on the authentication mechanism used in your firewall deployment.
+    - Optionally, you can select the **Username Modifier** using the drop-down menu to restrict the format in which users must enter their username in the authentication portal served by the Palo Alto Networks firewall. See image.
+  3. On the **Advanced** tab, click **Add**, and select the list of users configured earlier. See image.
+  4. Click **OK** to save the configuration.
+
+1. On the **Device** tab, click **User Identification** in the left-side navigation, and go to the **Captive Portal Settings** tab.
+2. Click the **Settings** icon on the top-right to make modifications. See image.
+3. In the window that appears, select **Enable Captive Portal** and enter the necessary information, such as: See image.
+  - **Authentication Profile**: Select the authentication profile configured in the previous step using the drop-down menu.
+  - **Mode**: Select the **Redirect** checkbox to allow the firewall to intercept web requests that match the authentication profile and redirect them to the specified redirect host.
+  - **Redirect Host**: Enter the IP address of the Palo Alto Networks firewall trust interface to which the client must be redirected for authentication.
+4. Click **OK** to save the configuration.
+
+[Image: The Add NSS Collector Server window]
+
+[Image: The Edit NSS Collector Server window]
+
+[Image: vSphere NSS Configure Command Prompt]
+
+[Image: The SSL certificate download option for NSS Collector server]
+
+[Image: Palo Alto Networks Firewall Syslog Server Profile Configuration]
+
+[Image: Custom log format for PAN syslog server profile]
+
+[Image: Palo Alto Networks Firewall Log Forwarding Profile Configuration]
+
+[Image: Palo Alto Networks Firewall Syslog Security Policy Action]
+
+[Image: Palo Alto Networks Firewall Security Policy Conditions]
+
+[Image: Palo Alto Networks Firewall Interface Management Profile]
+
+[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
+
+[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
+
+[Image: Palo Alto Networks Firewall Local User Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile User Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile]
+
+[Image: Palo Alto Networks Firewall Captive Portal Settings Icon]
+
+[Image: Palo Alto Networks Firewall Captive Portal Settings]
 <!-- /ZS-ARTICLE -->

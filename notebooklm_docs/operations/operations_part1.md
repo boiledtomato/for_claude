@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 94
 
 ---
@@ -1225,13 +1225,13 @@ This does not apply to Zero Trust Branch appliances.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/zscaler-client-connector-long-term-support","lastmod":"2025-12-10T15:52Z","nid":"1528461"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/zscaler-client-connector-long-term-support","lastmod":"2026-10-27T16:29Z","nid":"1528461"} -->
 ## Zscaler Client Connector Long-Term Support
 
 - Source: https://help.zscaler.com/product-usage-terms/zscaler-client-connector-long-term-support
 - Product: Product Usage Terms & Policies
-- Path: Product Usage Terms & Policies > Software Policy & Support > Zscaler Client Connector Long-Term Support
-- Last modified: 2025-12-10T15:52Z
+- Path: Product Usage Terms & Policies > Product Policy & Support > Zscaler Client Connector Long-Term Support
+- Last modified: 2026-10-27T16:29Z
 - Summary: Long-Term Support for Zscaler Client Connector
 
 This policy is effective as of January 31, 2025.
@@ -1258,7 +1258,7 @@ In general, no. LTS is intended to give Zscaler customers a stable version to ru
 
 ## How will changes to future LTS versions happen?
 
-Two months prior to the next LTS version, the projected next version is announced, giving time for customers to migrate to the latest LTS version.
+At least 6 months prior to the next LTS version, the projected next version is announced, giving time for customers to migrate to the latest LTS version.
 
 As LTS is chosen from existing versions, the next LTS is a version already available for tenants.
 <!-- /ZS-ARTICLE -->
@@ -13224,13 +13224,13 @@ To restart a download:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-09-23T21:06Z","nid":"1418216"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-and-digest-template-mappings","lastmod":"2026-10-28T06:54Z","nid":"1418216"} -->
 ## Managing Incident and Digest Template Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Managing Incident and Digest Template Mappings
-- Last modified: 2026-09-23T21:06Z
+- Last modified: 2026-10-28T06:54Z
 - Summary: How to manage incident and digest template mappings in Workflow Automation.
 
 Mapping incident and digest templates in Workflow Automation is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation must configure the template mappings. Incident template mappings determine which notification and survey templates Workflow Automation uses when it generates the notifications for the different notification types (end user notification and escalation). The digest template mapping determines which templates Workflow Automation uses when it generates the digest notifications for your organization.
@@ -13314,6 +13314,12 @@ See image.
 - **Quarantine To User Root Folder**
 
 - **Default**
+- **Quarantine**
+- **Allow**
+- **Block**
+- **Custom Header Insertion**
+- **Justify**
+- **Caution**
 
 To edit an incident template mapping:
 
@@ -13378,13 +13384,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-10-25T07:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-01T06:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

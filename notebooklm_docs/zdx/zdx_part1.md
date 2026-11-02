@@ -1,51 +1,8 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 129
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/about-admin-groups","lastmod":"2026-10-16T16:26Z","nid":"1507736"} -->
-## About Admin Groups
-
-- Source: https://help.zscaler.com/zdx/about-admin-groups
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > About Admin Groups
-- Last modified: 2026-10-16T16:26Z
-- Summary: Overview information about how ZDX Admins can organize admins into Admin Groups to organize admin scopes and roles.
-
-Admin groups are created when you enable SCIM Auto Provisioning on the Administrator Management page. When enabled, they are auto-provisioned based on the user's SCIM group. You can then associate the admin group with admin scopes and roles. With Zscaler role-based administration, you can create Admin Groups to meet the needs of your organization. You can create, edit, or delete an admin group to better manage your use of admin groups.
-
-Admin Groups provide the following benefits and enable you to:
-
-- Configure admin groups in the ZDX Admin Portal for specific admin roles (specified by role).
-- Configure admin groups for different administrators for the entire organization, location, or department (specified by scope).
-
-## Prerequisites
-
-In order to view the Admin Groups page, make sure the following prerequisites are met:
-
-- Have Full or View access to Administrator Management to access the Admin Groups page. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-- Enable SCIM Auto Provisioning on the Administrator Management page. To learn more, see [Configuring Administrator Management Settings](https://help.zscaler.com/zdx/configuring-administrator-management-settings).
-
-## About the Admin Groups Page
-
-You can view the different admin groups that have been set up, including their details, on the Admin Group page.
-
-On the Admin Groups page (Administrator > Administrator Management > Administrator > Admin Groups tab), you can do the following:
-
-1. [Add an admin group.](https://help.zscaler.com/zdx/managing-admin-groups)
-2. Search for an admin group.
-3. View a list of admin groups with the following information:
-  - **Group Name**: The SCIM group name.
-  - **Scope**: The type of admin scope. To learn more, see [Understanding the Admin Scope](https://help.zscaler.com/zdx/understanding-admin-scope).
-  - **Role**: The type of admin role. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-  - **Comments**: Any comments to describe the admin group.
-  - **Actions**: The actions you can use to manage the admin group.
-4. [View, edit, or delete an admin group.](https://help.zscaler.com/zdx/managing-admin-groups) Based on the Admin Group and your ZDX admin's scope and role, you can have different actions. For example, if you have a scope based on an HR department, then you can view admin groups outside the HR department. You cannot add, edit, or delete them. You can view them.
-5. Go to the [Administrator Management](https://help.zscaler.com/zdx/configuring-saml-zdx-admins) page or [Admins](https://help.zscaler.com/zdx/about-administrators) tab.
-<!-- /ZS-ARTICLE -->
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 122
 
 ---
 
@@ -95,13 +52,13 @@ On the Administrators page (Administration > Admin Management > Role Based Acces
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-10-19T12:32Z","nid":"1364426"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-alerts","lastmod":"2026-10-29T15:59Z","nid":"1364426"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/zdx/about-alerts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Alerts
-- Last modified: 2026-10-19T12:32Z
+- Last modified: 2026-10-29T15:59Z
 - Summary: Information on alerts for Digital Experience (ZDX).
 
 Digital Experience (ZDX) Alerts provide a primary and timely source of information to monitor device, application, network performance, and ZDX Score on the Alerts Overview page so that you can analyze and remediate issues.
@@ -161,14 +118,14 @@ On the Alerts Overview page (Digital Experience > Alerts > Alerts Overview), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-api-key-management","lastmod":"2026-10-16T17:23Z","nid":"1397201"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-api-key-management","lastmod":"2026-10-26T18:55Z","nid":"1397201"} -->
 ## About API Key Management
 
 - Source: https://help.zscaler.com/zdx/about-api-key-management
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > API Key Management > About API Key Management
-- Last modified: 2026-10-16T17:23Z
-- Summary: To provide overview information on how to use the API Key Management.
+- Last modified: 2026-10-26T18:55Z
+- Summary: To provide overview information on how to use the Digital Experience (ZDX) API Key Management.
 
 API Key Management is a repository for an organization to store created API keys for admin roles. An API key consists of an API Key ID and Secret. These two items are required for access to Digital Experience (ZDX) APIs.
 
@@ -182,32 +139,35 @@ If you must obtain API keys or secrets to access [Zscaler OneAPI](https://help.z
 
 ## About the API Key Management Page
 
-On the API Key Management page (Administration > API > Legacy API > Digital Experience API), you can do the following:
+On the API Key Management page (Administration > API > Legacy API > Digital Experience API Keys), you can do the following:
 
-1. [Create a new API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#CreateAPIKey)
-2. View a list of created API keys. For each API key, you can view:
+1. Search for an API key.
+2. [Create a new API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#CreateAPIKey)
+3. Configure fields to display.
+4. View a list of created API keys. For each API key, you can view:
   - **Name**: The name of the API key.
   - **Key ID**: The ID of the API key.
   - **Role**: The role the API key is assigned to.
   - **Created By**: The username that created the API key.
   - **Last Updated On**: The timestamp of when the API key was last updated.
   - **Actions**: The View, Edit, and Delete actions that can be performed on the API key.
-3. [View an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#ViewAPIKey)
-4. [Edit an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#EditAPIKey)
-5. [Delete an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#DeleteAPIKey)
+5. [View an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#ViewAPIKey)
+6. [Edit an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#EditAPIKey)
+7. [Delete an API key.](https://help.zscaler.com/zdx/managing-zdx-api-keys/#DeleteAPIKey)
+8. Configure the number of API keys to display per page or navigate the API keys pages.
 
 [Image: The Digital Experience API page displaying the different aspects on the page.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-audit-logs","lastmod":"2026-04-20T15:51Z","nid":"1416976"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-audit-logs","lastmod":"2026-10-30T10:42Z","nid":"1416976"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/zdx/about-audit-logs
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > About Audit Logs
-- Last modified: 2026-04-20T15:51Z
+- Last modified: 2026-10-30T10:42Z
 - Summary: To an overview of information about the ZDX Audit Logs and its use.
 
 Zscaler records the session information for each admin that signs in to Digital Experience features. The audit log displays information related to sign-in or sign-out attempts (e.g., timestamps, actions, IP addresses, etc.) and any configuration changes that were completed during their session such as updates or deletes.
@@ -224,7 +184,7 @@ Audit logs are stored for a period of 6 months.
 
 ## About the Audits Log Page
 
-On the Audit Logs page (Administration > Admin Management > Audit Logs > Digital Experience), you can do the following:
+On the Audit Logs page (Data Explorer > Audit Logs > Digital Experience), you can do the following:
 
 1. Filter by Time Range, Action, Category, Sub-Category, Interface, or Result. You can also search for selected items on each filter. The default Time Range is Current Day while the defaults of the other filters are set to All.
   - List of potential Time Ranges
@@ -330,13 +290,13 @@ On the Audit Logs page (Administration > Admin Management > Audit Logs > Digital
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-configuration","lastmod":"2026-10-21T08:40Z","nid":"1535088"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-configuration","lastmod":"2026-10-30T15:35Z","nid":"1535088"} -->
 ## About Configuration
 
 - Source: https://help.zscaler.com/zdx/about-configuration
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > About Configuration
-- Last modified: 2026-10-21T08:40Z
+- Last modified: 2026-10-30T15:35Z
 - Summary: Information on configuring collections, applications, and probes.
 
 Configuration for Digital Experience in the Zscaler Admin Console allows you to configure collections for configured applications with Web and Cloud Path probes. After an application is configured successfully with a probe, you can monitor the digital experience of impacted users, groups, locations, and departments. The End User collection starts with three types of collections called Unified Communication Collection, Predefined Apps Collection, and Custom Apps Collection. The Managed collection starts with the Default Managed Collection. You can also view and configure top private applications.
@@ -353,7 +313,7 @@ You can rank [collections](https://help.zscaler.com/zdx/understanding-collection
 
 ## About the Configuration Page
 
-On the Configuration page (**Digital Experience** > **Settings & Configurations** > **Probes**), you can do the following:
+On the Configuration page (Digital Experience > Settings & Configurations > Probes), you can do the following:
 
 1. Switch between the views. The default view is **End User**. Depending on your [ZDX role](https://help.zscaler.com/zdx/adding-zdx-roles) and [subscription level](https://help.zscaler.com/zdx/ranges-limitations), you might not see some of the views.
   - **End User**: View all the collections of [configured applications](https://help.zscaler.com/zdx/about-applications) and their [configured probes](https://help.zscaler.com/zdx/configuring-probe). The total number of probes are displayed. You can drag and drop customized collections to alternate their ranking. Default collections cannot alternate their rankings (e.g., Unified Communication Collection).
@@ -382,11 +342,11 @@ The End User and Managed views have similar collection configurations and probe 
 - For filters:
   - **Departments**
   - **Status**
+  - **OS**
   - **Zscaler Locations**
   - **Devices**
   - **Users**
   - **User Groups**
-  - **Location Groups**
 - For the list:
   - **Rank**: The ranking of the collection.
   - **Collection**: The collection name.
@@ -451,13 +411,13 @@ On the Data Collection page (**Digital Experience** > **Settings & Configuration
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-diagnostics","lastmod":"2026-10-19T12:43Z","nid":"1370081"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-diagnostics","lastmod":"2026-10-27T11:47Z","nid":"1370081"} -->
 ## About Diagnostics
 
 - Source: https://help.zscaler.com/zdx/about-diagnostics
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > About Diagnostics
-- Last modified: 2026-10-19T12:43Z
+- Last modified: 2026-10-27T11:47Z
 - Summary: Overview information about Diagnostics in the Zscaler Admin Console.
 
 Diagnostics for Digital Experience (ZDX) can provide deeper granularity into process-level information for a user. During a session, information is collected every minute for the Web probe and Cloud Path probe, as well as device statistics.
@@ -541,16 +501,14 @@ On the Labels page (Administration > Alerts > Digital Experience > Labels), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-10-07T17:01Z","nid":"1364451"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-rules","lastmod":"2026-10-29T16:00Z","nid":"1364451"} -->
 ## About Rules
 
 - Source: https://help.zscaler.com/zdx/about-rules
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > About Rules
-- Last modified: 2026-10-07T17:01Z
+- Last modified: 2026-10-29T16:00Z
 - Summary: Provides an overview about alert rules for Digital Experience (ZDX).
-
-[Watch a video about alerts and alert rules in ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
 
 The Rules page for Digital Experience (ZDX) provides an overview of details of all the configured rules, including each rule's status and alert delivery method. Rules allow you to configure metrics for alert throttling when a predetermined threshold is met.
 
@@ -595,13 +553,13 @@ After a rule is configured and if the rule's criteria [trigger an alert](https:/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-10-06T21:06Z","nid":"1531183"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-scripts","lastmod":"2026-10-27T16:28Z","nid":"1531183"} -->
 ## About Scripts
 
 - Source: https://help.zscaler.com/zdx/about-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > About Scripts
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-27T16:28Z
 - Summary: Overview information on the Scripts page where you can manage the number of scripts.
 
 You can run PowerShell scripts remotely to schedule system updates, gather information on the issue, or fix the issue on impacted devices. You can configure for two types of scripts: customized scripts or predefined scripts. If you create a customized script or import a predefined script and configure it specific to your needs, then you can store the scripts for on-demand or later use. You can then monitor the progress of any script jobs on the Remediation Jobs page.
@@ -618,7 +576,7 @@ Prior to running a custom script, all custom scripts must be [signed with a cert
 
 To access the Scripts page, you must have the following:
 
-- The appropriate ZDX subscription level to support scripts. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+- The appropriate Digital Experience (ZDX) subscription level to support scripts. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 - The appropriate permission level to configure scripts. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
   - Script Management
   - Script Templates
@@ -626,7 +584,7 @@ To access the Scripts page, you must have the following:
 
 ## About the Scripts Page
 
-On the Scripts page (Digital Experience > Scripts), you can do the following:
+On the Scripts page (Digital Experience > Devices > Scripts), you can do the following:
 
 1. Filter for a script type (Custom or Predefined). Click **Reset** to reset the view.
 2. [Add a script.](https://help.zscaler.com/zdx/managing-scripts#add)
@@ -636,23 +594,23 @@ On the Scripts page (Digital Experience > Scripts), you can do the following:
   - **Name**: The name of the script. Click the **name** or the **View** icon to view the script details where you can run, download, or copy the script. You can view the parameters and preview the end user confirmation message if they are [defined](https://help.zscaler.com/zdx/managing-scripts#add) in the script. See image. This is the same action as viewing the script.
   - **Description**: The description of the script.
   - **Type**: The type of script (**Custom** or **Predefined**).
-  - **Operating System**: The operating system the script can run on.
+  - **Operating System**: The OS the script can run on.
   - **Status**: The status of the script (**Enabled**, **Disabled**, or **Revoked**).
-    - **Enabled**: The remote script is enabled for remediation job use.
-    - **Disabled**: The remote script is disabled from remediation job use.
-    - **Revoked**: The remote script is outdated and cannot run as there is a newer version of the predefined script from the [Scripts Templates](https://help.zscaler.com/zdx/managing-scripts) page. Remove the outdated script and import the latest predefined script. See image.
+    - **Enabled**: The script is enabled for remediation job use.
+    - **Disabled**: The script is disabled from remediation job use.
+    - **Revoked**: The script is outdated and cannot run as there is a newer version of the predefined script from the [Scripts > Templates](https://help.zscaler.com/zdx/managing-scripts) page. Remove the outdated script and import the latest predefined script. See image.
   - **Created By**: The user that created the script.
   - **Created On**: The timestamp of when the script was created.
   - **Last Modified**: The timestamp of when the script was last modified.
   - **Last Run**: The timestamp of when the script last ran.
 6. View the script. This is the same action as clicking the script name.
-7. [Run the script.](https://help.zscaler.com/zdx/managing-scripts#run) If the script is disabled, then you cannot run the script. [Enable it](https://help.zscaler.com/zdx/managing-scripts#edit) to run the script.
-8. [Edit the script.](https://help.zscaler.com/zdx/managing-scripts#edit)
-9. [Delete the script.](https://help.zscaler.com/zdx/managing-scripts#delete)
+7. [Edit the script.](https://help.zscaler.com/zdx/managing-scripts#edit)
+8. [Delete the script.](https://help.zscaler.com/zdx/managing-scripts#delete)
+9. [Run the script.](https://help.zscaler.com/zdx/managing-scripts#run) If the script is disabled, then you cannot run the script. [Enable it](https://help.zscaler.com/zdx/managing-scripts#edit) to run the script.
 10. Configure the number of scripts to display per page or navigate through the pages.
-11. Go to the [Remediation Jobs](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) page to manage and view your script runs or go to the [Script Templates](https://help.zscaler.com/zdx/managing-scripts#predefined) to see predefined scripts.
+11. Go to the [Remediation Jobs](https://help.zscaler.com/zdx/viewing-and-managing-device-remediation) page to manage and view your script runs or go to the [Scripts > Templates](https://help.zscaler.com/zdx/managing-scripts#predefined) page to see predefined scripts.
 
-[Image: View the Remote Scripts page]
+[Image: View the Scripts page]
 
 [Image: Run, download, or copy remote script details]
 
@@ -703,16 +661,14 @@ On the Templates page (Administration > Alerts > Digital Experience > Templates)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-10-07T16:27Z","nid":"1534194"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-webhooks","lastmod":"2026-10-30T10:27Z","nid":"1534194"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zdx/about-webhooks
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > About Webhooks
-- Last modified: 2026-10-07T16:27Z
+- Last modified: 2026-10-30T10:27Z
 - Summary: Information about webhooks for Digital Experience (ZDX).
-
-[Watch a video about Configuring Webhooks](https://fast.wistia.net/embed/iframe/sizniej3b3) (shows legacy UI).
 
 Webhooks are a great way to send alerts about events (i.e., incidents, network performance) on your application. When an event occurs, the webhook sends real-time data to a specific URL or API endpoint as an HTTP callback.
 
@@ -744,13 +700,13 @@ On the Webhooks page (Digital Experience > Settings & Configurations > Webhooks)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-10-19T14:32Z","nid":"1358781"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/about-zdx-role-based-administration","lastmod":"2026-10-26T18:21Z","nid":"1358781"} -->
 ## About ZDX Role-Based Administration
 
 - Source: https://help.zscaler.com/zdx/about-zdx-role-based-administration
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > About ZDX Role-Based Administration
-- Last modified: 2026-10-19T14:32Z
+- Last modified: 2026-10-26T18:21Z
 - Summary: Introduces information about role-based administration for Digital Experience (ZDX) admins.
 
 With role-based administration, organizations can easily add admins and assign them multiple or specific roles with different levels of access. It is possible to add admins in Digital Experience (ZDX) who are also admins in Internet & SaaS.
@@ -778,36 +734,38 @@ For each admin, you can choose from one of the following predefined roles:
 
 If you are an admin with ZDX Super Admin level privileges, you can also create a custom ZDX Role for your organization. Zscaler recommends that you add roles before adding admins, because you must select a role for each admin that you create.
 
-## About the Role Management Page
+## About the Digital Experience Role Management Page
 
-On the Role Management page, certain options are not available if you are subscribed to Authentication Service due to read-only permissions. Instead, you can manage and configure the options in Authentication Service.
+On the Digital Experience Role Management page, certain options are not available if you are subscribed to Authentication Service due to read-only permissions. Instead, you can manage and configure the options in Authentication Service.
 
-On the Role Management page (Administration > Role Management > Digital Experience), you can do the following:
+On the Digital Experience Role Management page (Administration > Role Management > Digital Experience), you can do the following:
 
-1. [Add a new role](https://help.zscaler.com/zdx/adding-zdx-roles).
-2. Export a CSV file of ZDX roles.
-3. Search for a role.
-4. View a list of all admin roles that are configured for your organization. For each role, you can see:
+1. Search for a role.
+2. [Add a new role](https://help.zscaler.com/zdx/adding-zdx-roles).
+3. Export a CSV file of ZDX roles.
+4. Configure which fields to display.
+5. View a list of all admin roles that are configured for your organization. For each role, you can see:
   - **Name**: The name of the role.
   - **Full Access**: Which Full Access the role has.
   - **View-Only Access**: Which View-Only Access the role has.
   - **Visible**: Which information the role can view.
   - **Obfuscated**: Which information the role cannot view.
   - **Actions**: Displays which actions you can take for the role. ZDX roles to which you have Full access are indicated by the **Edit** and **Delete** icon. If you have View-Only access, then the ZDX Role shows a **View** icon and you cannot edit or delete them.
-5. [Edit, delete, or view the ZDX Role details](https://help.zscaler.com/zdx/managing-zdx-roles).
+6. [Edit, delete, or view the ZDX Role details](https://help.zscaler.com/zdx/managing-zdx-roles).
+7. Navigate between pages of ZDX roles.
 
 [Image: Role Management - Add ZDX Role]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-10-19T12:41Z","nid":"1358811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-10-26T18:45Z","nid":"1358811"} -->
 ## Adding ZDX Roles
 
 - Source: https://help.zscaler.com/zdx/adding-zdx-roles
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Adding ZDX Roles
-- Last modified: 2026-10-19T12:41Z
+- Last modified: 2026-10-26T18:45Z
 - Summary: Information on how to create administration roles for Digital Experience (ZDX) in the Zscaler Admin Console.
 
 Digital Experience (ZDX) roles are used by admins to create levels of permissions for other admin users within an organization. To learn more, see [About ZDX Role-Based Administration](https://help.zscaler.com/zdx/about-zdx-role-based-administration).
@@ -827,23 +785,23 @@ To add a ZDX role:
     - Device And User Information
     - UCaaS Monitoring
     - Analytics
-    - Configuration Access
-    - Diagnostics
-    - Administrator Management
-    - Alerts
-    - Locations
-    - Webhooks
-    - User Management
-    - Zscaler Client Connector Portal
-    - Remote Assistance Management
     - Remediation
+    - Configuration Access
+    - Administrator Management
+    - Locations
+    - User Management
+    - Remote Assistance Management
     - Self Service
     - Wi-Fi Dashboard
     - Device Health Scoring
     - Inventory Management
-    - Copilot
-    - Time Duration
+    - ZAgent
+    - Diagnostics
+    - Alerts
+    - Webhooks
+    - Zscaler Client Connector
     - VIP
+    - Time Duration
 4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Add ZDX Role Window]
@@ -1247,853 +1205,6 @@ To learn more, see [Tagging Users as VIP Users](https://help.zscaler.com/zdx/tag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/admin-saml-configuration-guide-ad-fs-3.0","lastmod":"2026-10-16T17:22Z","nid":"1420001"} -->
-## Admin SAML Configuration Guide for AD FS 3.0
-
-- Source: https://help.zscaler.com/zdx/admin-saml-configuration-guide-ad-fs-3.0
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Admin SAML Configuration Guides > Admin SAML Configuration Guide for AD FS 3.0
-- Last modified: 2026-10-16T17:22Z
-- Summary: How to configure AD FS as the identity provider for Digital Experience (ZDX) and use SAML single sign-on for your organization's admins.
-
-This guide illustrates how to configure a Windows Server 2012 R2 running Active Directory Federation Services (AD FS) 3.0 as the identity provider (IdP) for Digital Experience (ZDX) and use [SAML single sign-on (SSO) for your organization's admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins/). Refer to the [Microsoft AD FS documentation](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) for the Windows Server 2012 R2 steps.
-
-## Prerequisites
-
-Ensure you have the following before configuring AD FS:
-
-- [AD FS account with admin privileges](https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements#permissions-requirements)
-- [ZDX Admin accounts](https://help.zscaler.com/zdx/adding-zdx-admins) created for your organization's admins
-- Zscaler Admin XML Metadata
-
-## Configuring Admin SAML SSO in AD FS
-
-To configure AD FS as the IdP for the Zscaler service and use SAML SSO for admins:
-
-1. Add a Relying Party Trust and Claim Rule.
-2. Export the IdP SAML SSL Certificate.
-3. [Configure SAML Admin SSO in the Zscaler Admin Console.](https://help.zscaler.com/zdx/configuring-saml-zdx-admins#configuring-saml-admins)
-4. Add the Relay State URL as required.
-
-## **Verifying ZDX Access via SSO**
-
-To verify the ZDX access via SSO:
-
-1. On a Windows device, browse to the following URL:
-
-```
-https://
-<AD FS Server>
-/adfs/ls/idpinitiatedSignOn.aspx
-```
-
-The <AD FS Server> depends on your AD FS server name. For example, if your AD FS server name is adfs.safemarch.com, browse and select https://adfs.safemarch.com/adfs/ls/idpinitiatedSignOn.aspx.
-
-1. Verify that you are directed to the AD FS login screen.
-2. Log in using your SAML admin login credentials to authenticate.
-
-In AD FS, a relying party is a Federation Service or application that requests and processes claims from a claims provider in a particular transaction. Configure the Zscaler service as a relying party trust. After, add a claim rule, which is a statement that provides information about a user. It is used by the Zscaler service to determine if the user is allowed access.
-
-To add Zscaler as a relying party trust and to add a claim rule:
-
-1. On the **Server Manager**, go to **Tools** >**AD FS Management**.
-2. In the left navigation panel of the **AD FS** window, go to **AD FS** >**Trust Relationships** > **Relying Party Trusts**.
-
-See image.
-
-1. In the **Actions** panel on the right, under **Relying Party Trusts**, click **Add Relying Party Trust…**.
-
-See image.
-
-1. When the **Add Relying Party Trust** **Wizard** appears, click **Start**. The wizard sections are listed on the left pane.
-
-See image.
-
-1. In **Select Data Source**:
-  1. Select **Import data about the relying party from a file**.
-  2. Under **Federation metadata file location**, click **Browse**.
-  3. **Open** your downloaded Admin SP XML metadata file from the prerequisites.
-
-When the location of the Admin SP XML metadata file displays, click **Next**.
-
-See image.
-
-1. In **Specify Display Name** , enter a display name for ZDX, such as Zscaler Admin SAML.
-
-Click **Next**.
-
-See image.
-
-1. In **Configure Multi-factor Authentication Now?** ,select **I do not want to configure multi-factor authentication settings for this relying party trust at this time**.
-
-Click **Next**.
-
-See image.
-
-1. In **Choose Issuance Authorization Rules** , select **Permit all users to access this relying party**.
-
-Click **Next**.
-
-See image.
-
-1. In **Ready to Add Trust** , review your settings.
-
-Click **Next**.
-
-See image.
-
-1. In **Finish** , select **Open the** **Edit Claim Rules dialog for this relying party trust when the wizard closes**.
-
-Click **Finish** to add the relying party trust to the database.
-
-See image.
-
-1. When the **Edit Claim Rules** window appears, click **Add Rule**.
-
-See image.
-
-1. In **Choose Rule Type** of the **Add Transform Claim Rule** **Wizard**, choose **Send LDAP Attributes as Claims** from the drop-down menu.
-
-Click **Next**.
-
-See image.
-
-1. In **Configure Claim Rule**:
-  1. Enter a name for the claim rule, such as `ZDX claims`.
-  2. Choose **Active Directory** from the **Attribute Store** drop-down menu.
-  3. Map the LDAP attributes that represent the admin's login name, full name, department, group to fields in the outgoing claim type.
-    - Map the LDAP attribute for login name to an outgoing claim type.
-      - In the **LDAP Attribute** column, choose **User-Principal-Name**.
-      - In the **Outgoing Claim Type** column, choose **Name ID**. The email address is sent as the Name ID.
-    - Map the LDAP attribute for full name to an outgoing claim type.
-      - In the **LDAP Attribute**column, choose **Display-Name**.
-      - In the **Outgoing Claim Type**column, enter **displayName**.
-
-Click **Finish** to add the claim rule.
-
-See image.
-
-1. When the **Edit Claim Rules** window displays the newly added claim rule in the list, click **Apply**.
-
-Click **OK**.
-
-See image.
-
-[Image: Find Relying Trust Folder]
-
-[Image: Select Add Relying Party Trust]
-
-[Image: Start Add Relying Party Trust Wizard]
-
-[Image: Import Admin SAML Metadata]
-
-[Image: Enter your display name]
-
-[Image: Select I do not want to configure Multi-factor Authentication settings.]
-
-[Image: ​​​​Select Issuance Authorization Rules]
-
-[Image: Ready to Add Trust]
-
-[Image: Select Edit Claim Rules]
-
-[Image: Issuance Transform Rules - Add Rule]
-
-[Image: Configure Claim Rules - LDAP]
-
-[Image: Fill out the Claim Rule Name]
-
-[Image: Apply ZDX Claims]
-
-To export the AD FS token-signing certificate that you will upload to the Zscaler service:
-
-1. In the left navigation panel of the **AD FS** window, go to **Service** > **Certificates**.
-
-See image.
-
-1. In the **Certificates** panel, right-click the certificate under **Token-signing**, and click **View Certificate...**.
-
-See image.
-
-1. In the **Certificate** window, select the **Details** tab, and click **Copy to File…**.
-
-See image.
-
-1. When the**Certificate Export** **Wizard** appears, click **Next**.
-
-See image.
-
-1. In **Export File Format**, select **Base-64 encoded X.509 (.CER)**.
-
-Click **Next**.
-
-See image.
-
-1. In **File to Export**, click **Browse** to navigate to the location where you want to export the certificate, enter a certificate name. In this example, the certificate is called `adfsadmin`.
-
-Click **Next**.
-
-See image.
-
-1. When the export is complete, click **Finish**.
-
-See image.
-
-1. Click **OK** to close the **Certificate** window.
-2. Go to the exported certificate, and ensure the following:
-  - The certificate file name has a .pem extension. (For example, rename `adfsadmin.cer` to `adfsadmin.pem`.) The Zscaler service accepts certificates with the `.pem` extension only.
-  - The file name contains one dot (".") only.
-
-By default, Windows hides extensions for known file types.
-
-- Change the Windows Folder Properties to View and Edit Extensions
-
-Upload this IdP SAML SSL certificate to the Zscaler Admin Console.
-
-1. Start Windows **Control Panel**.
-2. Go to **Appearance** > **Folder Options** > **View**.
-3. When the **Folder Option** window appears, deselect **Hide extensions for known file types** to view extensions.
-4. Rename the extension of the exported certificate.
-
-[Image: Select Certificates]
-
-[Image: View Certificate]
-
-[Image: Certificate - Details - Copy to File]
-
-[Image: Certificate Export Wizard]
-
-[Image: Select Certificate Format]
-
-[Image: Browse Folder to export]
-
-[Image: Complete Certificate Export Wizard]
-
-The relay state is required if you have a domain defined on multiple Internet & SaaS clouds, enter the Internet & SaaS cloud name that is associated with ZDX in the Relay State field (for example, `zscalertwo.net`) for each application. To learn more, see [Microsoft's AD FS 2.0 RelayState](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/ad-fs-2-0-relaystate/ba-p/400145).
-
-To download the XML Metadata from ZDX:
-
-1. Sign in to ZDX as an administrator.
-2. Go to **Administration** > **Legacy Administrator Management** > **Digital Experience**.
-3. Click **Download**.
-
-See image.
-
-[Image: Download XML Metadata.]
-
-To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/admin-saml-configuration-guide-azure-active-directory","lastmod":"2026-10-16T17:22Z","nid":"1415166"} -->
-## Admin SAML Configuration Guide for Azure Active Directory
-
-- Source: https://help.zscaler.com/zdx/admin-saml-configuration-guide-azure-active-directory
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Admin SAML Configuration Guides > Admin SAML Configuration Guide for Azure Active Directory
-- Last modified: 2026-10-16T17:22Z
-- Summary: Configuration guide for Azure Active Directory (Azure AD) as the identity provider (IdP ) for Digital Experience (ZDX) and use SAML single sign-on (SSO) for the organization's admins.
-
-Digital Experience (ZDX) provides information on the configuration of Microsoft Azure Active Directory (Azure AD) as an identity provider (IdP) service for the use of [SAML single sign-on (SSO) for your organization's admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins). To learn more about the steps in the Azure portal, see the [Microsoft Azure AD documentation](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial).
-
-## Prerequisites
-
-Ensure that you have the following before you start configuring Azure AD as the IdP:
-
-- [Existing Azure AD account](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial#prerequisites)
-- [ZDX Admin accounts](https://help.zscaler.com/zdx/adding-zdx-admins) created for your organization's admins
-- ZDX cloud URL
-
-## Configuring SAML Admin SSO with Azure
-
-To configure Azure AD as the IdP for ZDX and use SAML SSO for admins:
-
-1. Add the Zscaler Digital Experience Administrator Application.
-2. Configure SAML Admin SSO in Azure.
-3. Assign Admins to ZDX Admin Application.
-4. (Optional) Enable IdP-Initiated SSO.
-5. [Configure SAML Admin SSO in the Zscaler Admin Console.](https://help.zscaler.com/zdx/configuring-saml-zdx-admins)
-
-## Testing the SAML Configuration
-
-To test the SAML admin SSO, users can initiate the SAML connection from the ZDX SAML SSO application. There are two ways to do this:
-
-- Go to Microsoft My Apps Portal
-- Browse to the User Access URL
-
-Ensure you enable the new experience preview for Enterprise applications and the Azure AD gallery.
-
-To add the ZDX Administrator application in Azure:
-
-1. Sign in to the [Azure portal](http://portal.azure.com/).
-2. Go to **Azure Active Directory**.
-
-See image.
-
-1. On the left navigation pane, click **Enterprise applications**.
-
-See image.
-
-1. Click **New application**.
-
-See image.
-
-The **Browse Azure AD Gallery (Preview)** page appears.
-
-1. On the **Browse Azure AD Gallery (Preview)** page, enter `zscaler` in the search bar, and click the **Zscaler Internet Access Administrator** application.
-
-See image.
-
-1. Rename the application to a preferred name. Then click **Create**.
-
-For example purposes, the application is named ZDX SAML SSO.
-
-See image.
-
-The Azure AD service displays a notification that the ZDX SAML SSO application was added.
-
-****[Image: Screenshot highlighting the Azure Active Directory menu in the Azure portal]****
-
-****[Image: Screenshot highlighting the Enterprise applications menu for Azure AD]****
-
-[Image: New application link on the Enterprise applications | All applications (Preview) page]
-
-[Image: Screenshot highlighting the search bar and the Zscaler Internet Access Administrator application on the Browse Azure AD Gallery (Preview) page]
-
-****[Image: Screenshot highlighting the Create button for the Zscaler Internet Access Administrator application]****
-
-To configure SAML admin SSO in Azure:
-
-1. On the left navigation pane of the Azure Active Directory, go to **Enterprise Applications** > **ZDX SAML SSO**.
-
-See image.
-
-1. On the left navigation pane for the ZDX SAML SSO application, click **Single sign-on**.
-
-See image.
-
-1. Choose **SAML**.
-
-See image.
-
-1. In **Basic SAML Configuration**, click the **Edit** icon.
-
-See image.
-
-1. In the **Basic SAML Configuration** window:
-
-- **Identifier (Entity ID)**: Enter the following identifier.
-
-```
-admin.
-<ZDX Cloud>
-.net
-```
-
-The identifier depends on the URL you use to log in to the Zscaler service. For example, if you log in to https://admin.zdxbeta.net, then the identifier is admin.zdxbeta.net. To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins#CloudURLs).
-
-- **Reply URL (Assertion Consumer Service URL)**: Click **Add reply URL**to select one of the following Zscaler admin SSO URLs with your Zscaler cloud name.
-  - **https://admin.zdxcloud.net/zdx/idp-auth**
-  - **https://admin.zdxpreview.net/zdx/idp-auth**
-  - **https://admin.zdxbeta.net/zdx/idp-auth**
-
-The Zscaler cloud name depends on the URL you use to log in to the Zscaler service. For example, if you log in to https://admin.zdxbeta.net, then select **https://admin.zdxbeta.net/zdx/idp-auth**. To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins#CloudURLs).
-
-See image.
-
-- **Sign on URL**: Leave this field blank.
-- **Relay State (As Required)**: If tenants are defined on multiple Internet & SaaS clouds and have a common domain, you need to configure authentication with a specific Internet & SaaS cloud by entering and selecting the Internet & SaaS cloud domain name (e.g., zscalertwo.net).
-- **Logout URL**: Leave this field blank.
-
-See image.
-
-1. Click **Save** and exit the window.
-2. In **SAML Signing Certificate**, download **Certificate (Base64)**. You need it for [Configure SAML Admin SSO in the Zscaler Admin Console](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-
-See image.
-
-****[Image: Screenshot highlighting the Single sign-on menu for the added Zscaler cloud application]****
-
-****[Image: Screenshot highlighting SAML for the single sign-on method]****
-
-[Image: Screenshot of the Edit icon for the the Basic SAML Configuration section.]
-
-[Image: Screenshot of the admin SAML configuration in the Basic SAML Configuration window.]
-
-****[Image: Screenshot highlighting the Download button for the Base64 Azure signing certificate in the SAML Signing Certificate section.]****
-
-In order for Azure AD admins to authenticate through the Zscaler service, you must assign Azure AD admins to the ZDX SAML SSO application.
-
-To assign admins to the Zscaler cloud application in Azure:
-
-1. On the left navigation pane of the ZDX SAML SSO application, click **Users and groups**.
-
-See image.
-
-1. Click **Add user/group**.
-
-See image.
-
-1. In the **Add Assignment** window, click **Users and groups**.
-
-See image.
-
-1. In the **Users and groups** window, select the admins you want to assign to the ZDX SAML SSO application, and click **Select**.
-
-See image.
-
-1. In the **Add Assignment** window, click **Assign**.
-
-See image.
-
-[Image: Screenshot highlighting the Users and groups menu for the added Zscaler cloud application.]
-
-[Image: Screenshot highlighting the Add user button on the Users and groups page.]
-
-[Image: Screenshot highlighting the Users and groups button in the Add Assignment window.]
-
-[Image: Screenshot of the selected admins in the Users and groups window.]
-
-[Image: Screenshot highlighting the Assign button in the Add Assignment window.]
-
-By default, the ZDX SAML SSO application is visible to admins in their My Apps portal.
-
-To enable or disable application visibility:
-
-1. On the left navigation pane for the ZDX SAML SSO application, click **Properties**.​​​​​
-
-See image.
-
-1. For **Visible to users?**, choose **Yes** or **No**.​​​
-
-See image.
-
-[Image: Screenshot highlighting the Properties menu for the ZDX Admin application.]
-
-[Image: Screenshot highlighting the Visible to users? field on the Properties page.]
-
-You use this method if you've enabled application visibility in Step b of 4. (Optional) Enable IdP-Initiated SSO.
-
-To go to the Microsoft My Apps portal:
-
-1. Sign in to the [Microsoft My Apps portal](https://myapps.microsoft.com) to get access to all your assigned visible applications.
-2. Click the **Zscaler Digital Experience**.
-
-You are automatically signed in to the Zscaler Admin Console.
-
-If you've disabled application visibility in Step b of 4. (Optional) Enable IdP-Initiated SSO, you use this method to directly access the ZDX SAML SSO application from the browser.
-
-To browse to the user access URL:
-
-1. On the left navigation pane for the ZDX SAML SSO application, click **Properties**.
-
-See image.
-
-1. Copy the **User access URL**.
-
-See image.
-
-1. Browse to the user access URL.
-
-See image.
-
-You are automatically signed in to the ZDX SAML SSO Portal.
-
-[Image: Screenshot highlighting the Copy icon for the User access URL.]
-
-[Image: Screenshot of the Sign In page for the ZDX Admin application.]
-
-[Image: Select Enterprise Applications to access ZDX SAML SSO Configuration.]
-
-[Image: Select ZDX SAML SSO Configuration from Enterprise Applications.]
-
-[Image: SAML Single-Sign on configuration for Reply URL.]
-
-[Image: Screenshot highlighting the Properties menu for the ZDX Admin application.]
-
-When configuring IdPs, the following information might be required for ZDX.
-
-- ACS URL:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net/zdx/idp-auth
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net/zdx/idp-auth
-```
-
-- Download the SAML SSL certificate from the IdP. It must be in Base64-encoded PEM format.
-- Entity ID:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net
-```
-
-If you have a domain defined on multiple ZIA clouds, enter the ZIA cloud name that is associated with ZDX in the **Relay State** field (for example, `zscalertwo.net`) for each application.
-
-You must also create admin accounts for your organization's admins. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins).
-
-To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/admin-saml-configuration-guide-okta","lastmod":"2026-10-16T17:22Z","nid":"1413011"} -->
-## Admin SAML Configuration Guide for Okta
-
-- Source: https://help.zscaler.com/zdx/admin-saml-configuration-guide-okta
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Admin SAML Configuration Guides > Admin SAML Configuration Guide for Okta
-- Last modified: 2026-10-16T17:22Z
-- Summary: How to configure Okta as the identity provider for Digital Experience (ZDX) as a Zscaler service and use SAML single sign-on for administrators.
-
-This guide illustrates how to configure Okta as the identity provider for the Digital Experience (ZDX) as a Zscaler service and use [SAML single sign-on (SSO) for admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins). Refer to the [Okta documentation](https://developer.okta.com/docs/guides/build-sso-integration/saml2/main/#create-your-integration) for additional information about the steps in the guide.
-
-## Prerequisites
-
-Ensure you have the following before configuring Okta:
-
-- [Okta account with admin privileges](https://developer.okta.com/docs/guides/build-sso-integration/saml2/main/)
-- [ZDX Admin accounts](https://help.zscaler.com/zdx/adding-zdx-admins) created for your organization's admins
-- ZDX cloud URL
-
-## Configuring Admin SAML SSO in Okta
-
-To configure Okta as the IdP for the Zscaler service and use SAML SSO for admins:
-
-1. Go **Applications** > **Create App Integration**.
-2. Enter `ZDX` in the **Search** field to select **ZDX SAML**.
-3. Select **SAML 2.0** as the sign-in method and click **Next**. See image.
-4. In the **Create SAML Integration** wizard, for **General Settings**, enter the **App Name** for the Zscaler service's display name and then click **Next.** See image.
-5. For **Configure SAML**, enter your Access (ACS) URL to **Single sign on URL**, **Recipient URL**, **Destination URL**, and **Audience URI (SP Entity ID)**. Click **Next**. See image.
-
-If **Use this for Recipient URL and Destination URL** is selected, then your **Single sign on URL** is copied into the **Single sign on URL** and **Audience URI (SP Entity ID)** fields.
-
-If you have a domain defined on multiple Internet & SaaS clouds, then enter the Internet & SaaS name that is associated with ZDX in the **Default RelayState** field (e.g., zscaler.net).
-
-See image.
-
-1. For **Feedback**, choose **I'm a software vendor. I'd like to integrate my app with Okta** and then click **Finish** to complete the SAML integration. See image.
-2. In the **Assign ZDX SAML SSO to People**, enter the admin's name or email address (Username) to search, and click **Assign**. See image.
-3. Confirm the selected admin by their user name and click **Save and go back**. See image.
-4. Review the assigned admin in the SAML Service Provider and exit from the window. See image.
-
-The admin can now access ZDX through Okta by clicking the configured Zscaler application for Admin SAML.
-
-See image.
-
-[Image: General Settings Tab for Add SAML Service Provider.]
-
-[Image: Feedback selection]
-
-[Image: Select Admin to assign SAML provider.]
-
-[Image: Save and go back to confirm assignment to admin.]
-
-[Image: Exit upon confirmation of assignment]
-
-[Image: Screenshot of the Okta app with the admin SAML app now available]
-
-[Image: Choose SAML 2.0.]
-
-[Image: Configure SAML with Access URLs]
-
-[Image: Add Relay State URL]
-
-When configuring IdPs, the following information might be required for ZDX.
-
-- ACS URL:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net/zdx/idp-auth
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net/zdx/idp-auth
-```
-
-- Download the SAML SSL certificate from the IdP. It must be in Base64-encoded PEM format.
-- Entity ID:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net
-```
-
-If you have a domain defined on multiple ZIA clouds, enter the ZIA cloud name that is associated with ZDX in the **Relay State** field (for example, `zscalertwo.net`) for each application.
-
-You must also create admin accounts for your organization's admins. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins).
-
-To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/admin-saml-sso-configuration-guide-pingfederate","lastmod":"2026-10-16T17:23Z","nid":"1452751"} -->
-## Admin SAML SSO Configuration Guide for PingFederate
-
-- Source: https://help.zscaler.com/zdx/admin-saml-sso-configuration-guide-pingfederate
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Admin SAML Configuration Guides > Admin SAML SSO Configuration Guide for PingFederate
-- Last modified: 2026-10-16T17:23Z
-- Summary: How to configure Ping Identity's PingFederate server as the identity provider for Digital Experience (ZDX).
-
-This guide illustrates how to configure Ping Identity's PingFederate server as the identity provider (IdP) for Digital Experience (ZDX).
-
-## Prerequisites
-
-Ensure that you have the following before you start configuring PingFederate as your IdP:
-
-- [PingFederate admin account](http://docs.pingidentity.com/r/en-us/pingfederate-112/help_administrativeaccountstasklet_administrativeaccountsstate)
-- PingFederate server with the Zscaler Internet Access Connector add-on
-- Export PingFederate Signing Certificate for Zscaler Services
-- Zscaler cloud name
-- ZDX XML metadata
-
-To download the Zscaler Internet Access Connector:
-
-1. Go to the [PingFederate Server Add-Ons](https://www.pingidentity.com/en/resources/downloads/pingfederate.html) page.
-2. Under **SaaS Connectors**, download **Zscaler Internet Access Connector 1.1**. See image.
-3. Unzip the connector folder to extract the **pf-zscaler-zia-quickconnection-1.1.jar** file.
-4. Add the **pf-zscaler-zia-quickconnection-1.1.jar** file to **PingFederate** > **Server** > **default** > **deploy**folder.
-
-When configuring IdPs, the following information might be required for ZDX.
-
-- ACS URL:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net/zdx/idp-auth
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net/zdx/idp-auth
-```
-
-- Download the SAML SSL certificate from the IdP. It must be in Base64-encoded PEM format.
-- Entity ID:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net
-```
-
-If you have a domain defined on multiple ZIA clouds, enter the ZIA cloud name that is associated with ZDX in the **Relay State** field (for example, `zscalertwo.net`) for each application.
-
-You must also create admin accounts for your organization's admins. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins).
-
-To download the XML Metadata from ZDX:
-
-1. Sign in to ZDX as an administrator.
-2. Go to **Administration** > **Legacy Administrator Management** > **Digital Experience**.
-3. Click **Download**.
-
-See image.
-
-[Image: Download XML Metadata.]
-
-Remember where you saved the metadata as you will upload it for creating a service provider (SP) connection.
-
-To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-
-To export your PingFederate signing certificate on the PingFederate admin console:
-
-1. Log in to your PingFederate administrative console.
-2. Go to **Security** > **Signing & Decryption Keys & Certificates**. See image.
-3. Click **Select Action** on the certificate you want to use.
-4. Click **Export**. See image.
-5. On the **Export Certificate** tab, click **Next**. See image.
-6. On the **Export & Summary** tab, click **Export**. See image.
-7. Rename the downloaded certificate's extension to `.pem`.
-8. Save this certificate for when you are ready to add PingFederate as an IdP in ZDX.
-
-## Configuring SAML SSO for ZDX
-
-You need to register PingFederate as an IdP for ZDX for SAML Single Sign-On (SSO).
-
-To add PingFederate as an IdP in ZDX:
-
-1. If you haven't renamed your certificate from the prerequisites step, rename your certificate's extension to `.pem`.
-2. Upload your IdP signing certificate as described in [Configuring SAML SSO for ZDX Admin.](https://help.zscaler.com/zdx/configuring-saml-zdx-admins#configuring-saml-admins)
-3. Click **Save**.
-4. Save your configuration changes by [activating the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Configuring a Service Provider Connection on PingFederate
-
-To configure a Service Provider (SP) Connection on the PingFederate administrative console:
-
-1. Verify SAML 2.0 entity ID:
-  1. Go to **System** > **Server** > **Protocol Settings** > **Federation Info**.
-  2. In the **SAML 2.0 Entity ID** field: Enter a name for PingFederate to use when SAML applications need to identify it.
-  3. Click **Save**.
-2. Create a service provider connection:
-  1. Use the **SP Connections** shortcut or go to **Applications**>**Integration** > **SP Connections**.
-  2. Click **Create Connection**. See image.
-  3. In the Create Connection wizard, configure:
-    - Connection Template
-    - Connection Type
-    - Connection Options
-    - General Info
-    - Browser SSO
-    - Credentials
-
-## Initiate SSO
-
-ZDX and PingFederate support Identity Provider- and Service Provider-initiated single sign-on. PingFederate's documentation provides information for invoking IdP initiated SSO. Refer to the [PingFederate documentation](https://docs.pingidentity.com/r/en-us/pingfederate-112/idp_endpoints).
-
-When using IdP-initiated SSO, ZDX requires the cloud name (e.g., `zscalerthree.net`) passed through the SAML Relay State if you have a domain defined on multiple Internet & SaaS clouds. Zscaler recommends using the SAML Relay State in a single Internet & SaaS cloud deployment to avoid any disruption if a second Internet & SaaS cloud is added in the future. PingFederate supports this by passing the necessary Relay State value by using the TargetResource query parameter in the `/idp/startSSO.ping` application endpoint.
-
-For example (the green text shows where to insert the Internet & SaaS Cloud Name associated with ZDX):
-
-```
-https://{PingFederate hostname}/idp/startSSO.ping?PartnerSpId={ZDX Connection ID}&TargetResource=
-zscalerthree.net
-```
-
-[Image: Start the Create SP Connection Wizard]
-
-1. Select **Use a template for this connection**.
-2. For **Connection Template**, select **Zscaler ZIA Connector**.
-3. For **Metadata File**, upload your metadata file into the **Metadata File** field.
-
-Click **Next**.
-
-[Image: SP Connection Connection Template]
-
-Ensure the **Browser SSO Profiles** checkbox is selected, then click **Next**.
-
-[Image: SP Connection Connection Type]
-
-Ensure the **Browser SSO** checkbox is selected, then click **Next**.
-
-[Image: Connection Options]
-
-On the **General Info** tab:
-
-- **Partner's Entity ID (Connection ID)**: Verify the Partner's Entity ID.
-- **Connection Name**: Enter a connection name. This might be pre-populated and can be revised to your preference.
-- **Base URL**: Verify the Base URL. You must append `:443` to the end of your base URL.
-
-For example, if your base URL is `https://login.zscaler.net`, then your new base URL is:
-
-```
-https://login.zscaler.net:443
-```
-
-Click **Next**.
-
-[Image: Configure General Info]
-
-1. On the **Browser SSO** page, click **Configure Browser SSO.**
-2. On the **Assertion Creation**page, click **Configure Assertion Creation**.
-3. On the **Authentication Source Mapping** page, click **Map New Authentication Policy**.
-4. On the **Authentication Policy Contract** tab, select **subject** for the **Authentication Policy Contract** field. This allows the authentication to be connected to policies. If required, you can configure the contract attribute that is applicable to you. Click **Next**. See image.
-5. On the **Mapping Method**page, select **Retrieve Additional Attributes from a data store -- includes options to use alternate data stores and/or a failsafe mapping**. Click **Next**. See image.
-6. On the **Attribute Sources & User Lookup** tab, click **Add Attribute Source**.
-7. On the **Data Store** page: Click **Next**. See image.
-  - **Attribute Source Description**: Enter a description for the Attribute Source.
-  - **Active Data Store**: Select **PingDirectory**.
-8. On the **LDAP Directory Search** page: Click **Next**. See image.
-  - **Base DN**: Enter `ou=Zscaler Users,dc=example,dc=com`.
-  - **Search Scope**: Select **Subtree** from the drop-down menu.
-  - Attributes to select from the search:
-    - **Root Object Class**: Select **<Show All Attributes>**.
-    - **Attribute**: Select **mail**.
-    - After **mail** is added, click **Add Attribute** next to it.
-9. On the **LDAP Filter** page, for the **Filter** field, enter `uid=${subject}`. Click **Next**. See image.
-10. On the **Attribute Contract Fulfillment** page: Click **Next**. See image.
-  - **SAML_Subject**: Select **LDAP (pd)**.
-  - **Value**: Select **mail**.
-11. On the **Summary** page, click **Done**after you verify your attribute source configuration.
-12. On the **Attribute Sources & User Lookup** page, click **Next** after you verify your data store to supply user information in the SAML assertion to the SP. See image.
-13. On the**Failsafe Attribute Source** page, select **Abort the SSO Transaction**. Click **Next**. See image.
-14. Click **Done** after reviewing your **Authentication Source Mapping** configuration. See image.
-15. Click **Done** after reviewing your **Summary**.
-16. On the **Assertion Creation** page, click **Next**. See image.
-17. On the **Protocol Settings** page, click **Next**. See image.
-18. On the **Summary** page, click **Done** to save your configuration. See image.
-
-1. On the **Credentials** page, click**Configure Credentials**. See image.
-2. Select your Signing Certificate. Click **Done**. See image.
-
-[Image: Select ZIA Connector]
-
-[Image: Select Signing & Description Keys & Certificates]
-
-[Image: Select a certificate to export.]
-
-[Image: Click Next to confirm Certificate Options]
-
-[Image: Export your Export Certificate]
-
-[Image: Select Authentication Policy Contract]
-
-[Image: Mapping Method]
-
-[Image: Mapping Method - Data Store]
-
-[Image: Search for mail attribute]
-
-[Image: Added mail attribute]
-
-[Image: Enter the LDAP Filter]
-
-[Image: Attribute Contract Fulfillment - Select your SAML_Subject]
-
-[Image: Attribute Sources & User Lookup]
-
-[Image: Failsafe Attribute Source]
-
-[Image: Authentication Source Mapping]
-
-[Image: Assertion Creation]
-
-[Image: Protocol Settings]
-
-[Image: Summary of Browser SSO]
-
-[Image: Select Configure Credentials]
-
-[Image: Select your credentials]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zdx/administrator-management-settings","lastmod":"2026-08-21T21:06Z","nid":"1456556"} -->
 ## Administrator Management Settings
 
@@ -2233,56 +1344,6 @@ ZDX can report error codes for the following Private Access errors. These errors
 [Image: Cloud Path Errors on the User Page]
 
 [Image: Cloud Path Errors on Command Line View]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-administrator-management-settings","lastmod":"2026-10-16T17:09Z","nid":"1507761"} -->
-## Configuring Administrator Management Settings
-
-- Source: https://help.zscaler.com/zdx/configuring-administrator-management-settings
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Configuring Administrator Management Settings
-- Last modified: 2026-10-16T17:09Z
-- Summary: Configuration information about the Administrator Management page for Digital Experience (ZDX).
-
-On the Administrator Management page (Administration > Legacy Administrator Management > Digital Experience), you can configure password management, SAML authentication, advanced configuration, and SCIM auto provisioning for Digital Experience (ZDX) admins.
-
-The Administrator Management page allows you to configure the following:
-
-See image.
-
-- ZDX Portal Session Timeout
-- [Password Management](https://help.zscaler.com/zdx/configuring-password-expiration)
-- [SAML Authentication for Administrators](https://help.zscaler.com/zdx/configuring-saml-zdx-admins)
-- SCIM Auto Provisioning
-
-Admins can configure the Session Timeout Duration to determine when a user's session in the Zscaler Admin Console times out due to inactivity.
-
-To configure the duration for a user's session:
-
-1. Go to the **ZDX Portal Session Timeout** section.
-2. Choose a **Session Timeout Duration** (**10 minutes**, **20 minutes**, **30 minutes**, **1 hour**, **2 hours**, **3 hours**, **4 hours**). The default is **30 minutes**.
-3. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-SCIM Auto Provisioning allows Zscaler to automatically create admin groups in the Zscaler Admin Console based on a SCIM user's group information. By enabling this setting, you can manage limitations and access to the Zscaler Admin Console for ZDX admins with admin groups.
-
-To enable SCIM Auto Provisioning for admins:
-
-1. Go to the **SCIM Auto Provisioning** section.
-2. Select to **Enable SCIM Auto Provisioning**.
-3. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-Admins can choose the action to be taken against an admin account if the linked admin user account is deleted using the System for Cross-Domain Identity Management (SCIM) protocol. Admins can allow SCIM to delete the admin user and its linked user account, or they can prevent SCIM from deleting the admin user and its linked user account.
-
-To configure SCIM protocol for admins:
-
-1. Choose one of the following options for the **Admin Account Action When SCIM Deletes Linked User Account** drop-down menu:
-  - Select **Delete** if you want to allow SCIM to delete the admin user and its linked user account.
-  - Select **Do Nothing** if you do not want to allow SCIM to delete the admin user and its linked user account. SCIM will return error `409` (Admin user cannot be deleted). Do Nothing is the default.
-2. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Administrator Management Page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2435,13 +1496,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-10-21T08:48Z","nid":"1487146"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-10-30T15:54Z","nid":"1487146"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/configuring-data-explorer-views
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Configuring Data Explorer Views
-- Last modified: 2026-10-21T08:48Z
+- Last modified: 2026-10-30T15:54Z
 - Summary: How to configure Data Explorer views in the Zscaler Admin Console.
 
 Data Explorer provides the flexibility to build and organize your own customized views of applications and metrics to analyze data. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
@@ -2493,7 +1554,7 @@ To create a view for Managed Monitoring:
 
 1. On the **Untitled View** page, select **Managed Monitoring** from the **Data Source** drop-down menu.
 2. Use the time range filter to narrow the results of your view. The default time range is 24 Hours. Your time range also determines the granularity of the data displayed in your views.
-3. Use the **Zscaler Managed Locations** filter to select the Zscaler data centers to run your probes. You can select the following:
+3. Under **Filters**, select the **Zscaler Managed Locations** filter to select the Zscaler data centers to run your probes. You can select the following:
   - List of Zscaler Managed Locations
 4. Structure your view:
   - a. Probes
@@ -2521,7 +1582,7 @@ To edit a Data Explorer view:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Reports** > **Data Explorer**.
 2. Search for the view you want to edit in the Data Explorer table.
-3. Under **Actions**, click the **View**icon.
+3. Click the desired name and click the **Edit** icon.
 4. Make your edits.
 5. Click **Run Query** to display your view.
 6. Click **Update**.
@@ -2566,7 +1627,7 @@ Click **Add**to specify the probes for your view. You can add up to 10 probes fo
 
 Click **Add**to specify the metrics for your view. The number of metrics you can add depends on your ZDX subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 
-After selecting your metrics, you can apply Metric-Based filters to refine the dataset being displayed in your view. These filters allow you to specify conditions or thresholds based on the metrics you've chosen.
+After selecting your metrics, you can apply Metrics-Based filters to refine the dataset being displayed in your view. These filters allow you to specify conditions or thresholds based on the metrics you've chosen.
 
 [Image: Adding Metrics to your view]
 
@@ -2583,7 +1644,7 @@ Click **Add**to specify the metrics for your view. You can add up to 10 metrics 
 
 If a Web probe is configured with a Cloud Path probe as a companion probe, **Page Fetch Time** and **End-to-End Latency** metrics are automatically selected by default.
 
-After selecting your metrics, you can apply Metric-Based filters to refine the dataset being displayed in your view. These filters allow you to specify conditions or thresholds based on the metrics you've chosen.
+After selecting your metrics, you can apply Metrics-based filters to refine the dataset being displayed in your view. These filters allow you to specify conditions or thresholds based on the metrics you've chosen.
 
 [Image: Adding Metrics to Managed Monitoring]
 
@@ -2849,49 +1910,14 @@ To learn more about managing your collections, see [Managing Collections](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-password-expiration","lastmod":"2025-10-30T12:07Z","nid":"1374821"} -->
-## Configuring Password Expiration
-
-- Source: https://help.zscaler.com/zdx/configuring-password-expiration
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Configuring Password Expiration
-- Last modified: 2025-10-30T12:07Z
-- Summary: How to configure password expiration in the ZDX Admin Portal.
-
-[Watch a video about Configuring Password Expiration in ZDX.](https://fast.wistia.net/embed/iframe/5llwj5nox8)
-
-To provide additional security, admins have the option to enable password expiration for all admins logging in to the ZIA and ZDX Admin Portals. The latest password expiration settings configured in either the ZDX Admin Portal or the ZIA Admin Portal apply to both.
-
-If you do not enable this feature, passwords will never expire.
-
-## Configuring Password Expiration
-
-If this feature is enabled, a column showing if an admin's password has expired can be seen on the Administrators tab in Administration > Administration Management. To learn more about the Administrators page, see [About Administrators](https://help.zscaler.com/zdx/about-administrators).
-
-To enable this feature:
-
-1. Go to Administration > Administrator Management.
-2. Click the **Administrator Management** tab.
-3. In the **Password Management** section:
-  - **Password Expiration**: Enable passwords to expire for all admins in the ZIA and ZDX Admin Portals. If enabled, you can see a column showing if an admin's password has expired on the Administrators page (Administration > Administration Management). To learn more, see [About Administrators](https://help.zscaler.com/zia/about-administrators) (ZIA) and [About Administrators](https://help.zscaler.com/zdx/about-administrators) (ZDX). The following field appears: See image.
-    - **Password Expires After**: Enter the number of days you want passwords to be valid for ZIA and ZDX admins. The default is 180 days. The days can range from 15 to 365. When there are 15 days left, the Zscaler service reminds admins to change their password and shows how many days it will remain valid for when they log in. If admins change their password before it expires, their new password will be valid for the specified time. However, if their password expires, admins must register a new password to access any features in the ZIA and ZDX Admin Portals. The new password can't be the same as the previous one. Also, the password used must be at least 8 characters in length and include at least one uppercase letter, one number, and one special character.
-4. Click Save and [activate the change](https://help.zscaler.com/zdx/saving-and-activating-changes-admin-portal).
-
-[Image: Setting Password Expiration in ZDX]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-predefined-application","lastmod":"2026-10-21T08:55Z","nid":"1355646"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-predefined-application","lastmod":"2026-10-30T10:16Z","nid":"1355646"} -->
 ## Configuring a Predefined Application
 
 - Source: https://help.zscaler.com/zdx/configuring-predefined-application
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Applications > Configuring a Predefined Application
-- Last modified: 2026-10-21T08:55Z
+- Last modified: 2026-10-30T10:16Z
 - Summary: Information about how to configure a predefined application for ZDX.
-
-[Watch a video about Predefined Applications for ZDX.](https://fast.wistia.net/embed/iframe/nomenzv7yc)
 
 Predefined applications are made with readily available data for ZDX to allow fast and seamless configuration. To learn more, see [About Applications](https://help.zscaler.com/zdx/about-applications).
 
@@ -2911,16 +1937,14 @@ To configure a predefined application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-10-21T09:13Z","nid":"1350846"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-probe","lastmod":"2026-10-30T10:09Z","nid":"1350846"} -->
 ## Configuring a Probe
 
 - Source: https://help.zscaler.com/zdx/configuring-probe
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Configuring a Probe
-- Last modified: 2026-10-21T09:13Z
+- Last modified: 2026-10-30T10:09Z
 - Summary: How to add a probe for an application for ZDX.
-
-[Watch a video about probes in ZDX](https://fast.wistia.net/embed/iframe/ni88xj64fh) (shows legacy UI).
 
 You can configure a probe by doing the following:
 
@@ -3199,95 +2223,14 @@ If Remediation is enabled and the jobs have started to run scripts, you can revi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-saml-zdx-admins","lastmod":"2026-10-16T16:38Z","nid":"1382401"} -->
-## Configuring SAML for ZDX Admins
-
-- Source: https://help.zscaler.com/zdx/configuring-saml-zdx-admins
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Configuring SAML for ZDX Admins
-- Last modified: 2026-10-16T16:38Z
-- Summary: How to configure SAML authentication for Digital Experience (ZDX) administrators in the Zscaler Admin Console.
-
-The Zscaler service supports identity provider (IdP)-initiated SAML to authenticate administrators. The admin can log in to the Zscaler Admin Console directly from a Single Sign-On (SSO) provider's portal. This feature also enables you to integrate admin authentication with your existing two-factor authentication solution.
-
-Admins are not added through auto-provisioning. Rather, an admin must be [added](https://help.zscaler.com/zdx/adding-zdx-admins) in the Zscaler Admin Console, and then the admin can use SAML authentication to log in. The Zscaler service provides a password authentication option for admins, but the Zscaler service recommends that admins use SAML authentication to log in to the Zscaler Admin Console. However, the service also recommends that you have at least one super admin with password authentication enabled to ensure an admin can still access the Zscaler Admin Console if SAML servers external to the Zscaler service become unreachable. The Zscaler service supports SAML 2.0 and later.
-
-## Prerequisites
-
-Before you configure SAML SSO for ZDX admins, you must configure an IdP, such as AD FS, Okta, or Azure Active Directory.
-
-The following are guides for configuring admin SAML SSO with specific IdPs:
-
-- [Admin SAML Configuration Guide for AD FS 3.0](https://help.zscaler.com/zdx/admin-saml-configuration-guide-ad-fs-3.0)
-- [Admin SAML Configuration Guide for Azure Active Directory](https://help.zscaler.com/zdx/admin-saml-configuration-guide-azure-active-directory)
-- [Admin SAML Configuration Guide for Okta](https://help.zscaler.com/zdx/admin-saml-configuration-guide-okta)
-- [Admin SAML Configuration Guide for PingFederate](https://help.zscaler.com/zdx/admin-saml-sso-configuration-guide-pingfederate)
-
-When configuring IdPs, the following information might be required for ZDX.
-
-- ACS URL:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net/zdx/idp-auth
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net/zdx/idp-auth
-```
-
-- Download the SAML SSL certificate from the IdP. It must be in Base64-encoded PEM format.
-- Entity ID:
-
-For ZDX Cloud:
-
-```
-https://admin.zdxcloud.net
-```
-
-For ZDX Beta Cloud:
-
-```
-https://admin.zdxbeta.net
-```
-
-If you have a domain defined on multiple ZIA clouds, enter the ZIA cloud name that is associated with ZDX in the **Relay State** field (for example, `zscalertwo.net`) for each application.
-
-You must also create admin accounts for your organization's admins. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins).
-
-## Configuring SAML SSO for ZDX Admins
-
-To configure SAML SSO for admins in the Zscaler Admin Console:
-
-1. Go to**Administration**>**Legacy Administrator Management** > **Digital Experience**.
-2. Click the **Administrator Management** tab.
-3. In the **SAML Authentication for Administrators** section, do the following:
-  - **Enable** **SAML Authentication**: Enable this setting to allow admins to log in to the Zscaler Admin Console directly from your SSO provider portal. An IdP (such as AD FS or Okta) must already be configured for your organization, and you must add the admin account in the Zscaler Admin Console, rather than through auto-provisioning.
-  - **IdP SAML Certificate**:Upload the SAML public certificate that is used to verify the digital signature of the IdP. This is the Base64-encoded PEM format that you downloaded from the IdP. The file extension must be .pem or .cer and have only alphanumeric characters in the file name. If the file name contains non-alphanumeric characters (e.g., period, hyphen), rename the file name to consist of only alphanumeric characters. See image.
-  - **Download XML Metadata**:Download the XML metadata of the Zscaler service. The metadata details Zscaler SAML capabilities and is used for auto-configuration. Some IdPs require the metadata to configure service providers.
-  - **Issuer**: (Optional) Enter the IdP issuer associated with the Zscaler service, and click **Add Items**. You can enter multiple entries. Press `Enter` after each entry. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. See image.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Screenshot of Upload button for the IdP SAML certificate]
-
-[Image: Screenshot of the SAML Authentication for Administrators section on the Administrator Management page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-self-service-settings","lastmod":"2026-04-20T15:53Z","nid":"1459021"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-self-service-settings","lastmod":"2026-10-29T16:10Z","nid":"1459021"} -->
 ## Configuring Self Service Settings
 
 - Source: https://help.zscaler.com/zdx/configuring-self-service-settings
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Configuring Self Service Settings
-- Last modified: 2026-04-20T15:53Z
+- Last modified: 2026-10-29T16:10Z
 - Summary: Provides steps on the configuration settings for Self Service settings.
-
-[Watch a video about Self Service](https://fast.wistia.net/embed/iframe/3lcjrdtwo6) (shows legacy UI).
 
 Self Service can help users identify the root cause of issues related to CPU usage and Wi-Fi access, allowing users to investigate potential solutions without the need to contact customer support. When enabled for your users, Self Service provides notifications when issues are detected and need attention. Each notification contains a brief diagnosis and recommendation that might resolve the CPU or Wi-Fi issue.
 
@@ -3854,13 +2797,13 @@ To edit an application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/editing-probe","lastmod":"2026-10-21T09:15Z","nid":"1355656"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/editing-probe","lastmod":"2026-10-30T16:12Z","nid":"1355656"} -->
 ## Editing a Probe
 
 - Source: https://help.zscaler.com/zdx/editing-probe
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Editing a Probe
-- Last modified: 2026-10-21T09:15Z
+- Last modified: 2026-10-30T16:12Z
 - Summary: Information about how to edit a probe for ZDX.
 
 After adding an application and configuring its probes, you can edit any probe details that are not preconfigured.
@@ -3870,7 +2813,7 @@ You cannot reconfigure preset probe configurations. To learn more about configur
 To edit a probe:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configurations**> **Probes**> **<collection name>**> **<application name>**.
-2. Under **Actions**, click **Edit**. See image.
+2. Under the **Actions**column, click the **Kebab**icon (3 vertical dots), and then click **Edit**. See image.
 3. In the **Edit Probe** window, configure the fields as needed. To learn more about the fields, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe). See image. Some fields cannot be edited due to the nature of the previously selected probe configuration. Click **Next**.
 4. **Submit** your settings on the **Review** tab.
 5. [Activate your changes.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
@@ -4222,13 +3165,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-diagnostics-session-information","lastmod":"2026-10-12T17:39Z","nid":"1443581"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-diagnostics-session-information","lastmod":"2026-10-28T14:24Z","nid":"1443581"} -->
 ## Evaluating Diagnostics Session Information
 
 - Source: https://help.zscaler.com/zdx/evaluating-diagnostics-session-information
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Evaluating Diagnostics Session Information
-- Last modified: 2026-10-12T17:39Z
+- Last modified: 2026-10-28T14:24Z
 - Summary: Provides in-depth information about Diagnostics sessions for a user's evaluation.
 
 Diagnostics sessions for your organization are displayed in the **In Progress** and the **History** tables. Sessions in both tables display the following information:
@@ -4246,7 +3189,7 @@ Diagnostics sessions for your organization are displayed in the **In Progress** 
 
 The following information is seen only in their respective tables:
 
-- **Duration (minutes)**: How long the Diagnostics Session is, in minutes, in the **In Progress** table.
+- **Duration (minutes)**: How long the Diagnostics session is, in minutes, in the **In Progress** table.
 - **End Time**: The time the session ended in the **History** table.
 
 By default, the lists are sorted by the Start Time, displaying the session with the latest Start Time first. You can also sort the sessions by using the Sort arrows next to the column names.
@@ -4673,13 +3616,13 @@ To learn more, see [Viewing Device Events Reports](https://help.zscaler.com/zdx/
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/first-time-provisioning-zdx-admins","lastmod":"2026-10-16T16:21Z","nid":"1358786"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/first-time-provisioning-zdx-admins","lastmod":"2026-10-26T11:23Z","nid":"1358786"} -->
 ## First Time Provisioning for ZDX Admins
 
 - Source: https://help.zscaler.com/zdx/first-time-provisioning-zdx-admins
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > First Time Provisioning for ZDX Admins
-- Last modified: 2026-10-16T16:21Z
+- Last modified: 2026-10-26T11:23Z
 - Summary: How to configure initial provisioning for your organization to use Digital Experience (ZDX).
 
 To onboard Digital Experience (ZDX) for your organization, first reach out to Zscaler Support. Support will set up a default admin role and send an email requesting the password be reset for that role. After you have reset that password, you can act as the first default admin to log in and begin creating other admins and roles for ZDX.
@@ -4689,7 +3632,7 @@ You will be able to see all functions of ZDX due to the default admin role. This
 To complete first time provisioning and establish your own admin user details:
 
 1. Go to **Administration** > **Legacy Admin Management**> **Digital Experience** to configure other admins and admin roles. To learn more, see [About ZDX Role-Based Administration](https://help.zscaler.com/zdx/about-zdx-role-based-administration).
-2. Click **Add New ZDX Role**. This role is to pair with the default admin created initially. Even though the default admin settings cannot be changed, a role type is still needed to allow the creation of other admins and role types. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
+2. Click **Add ZDX Role**. This role is to pair with the default admin created initially. Even though the default admin settings cannot be changed, a role type is still needed to allow the creation of other admins and role types. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 3. Edit the new role to have the highest level of permissions:
   - **Dashboard**: View Only
   - **Configuration**: Full
@@ -4698,7 +3641,7 @@ To complete first time provisioning and establish your own admin user details:
   - **Locations**: View Only
   - **User Management**: View Only
 4. **Save** your changes.
-5. Click **Add New ZDX Admin**. This will be the admin user you will use as your own to manage the admin settings for your organization. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins). See image.
+5. Click **Add New ZDX Admin**. This is the admin user you use as your own to manage the admin settings for your organization. To learn more, see [Adding ZDX Admins](https://help.zscaler.com/zdx/adding-zdx-admins). See image.
 6. Edit your admin user settings and set your role to the one you just created that has the highest levels of permissions.
 7. **Save** and [activate your changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -4709,82 +3652,13 @@ Now that you've created your personal admin user, use these credentials to manag
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-admin-groups","lastmod":"2026-10-16T16:27Z","nid":"1507751"} -->
-## Managing Admin Groups
-
-- Source: https://help.zscaler.com/zdx/managing-admin-groups
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Managing Admin Groups
-- Last modified: 2026-10-16T16:27Z
-- Summary: Configuration steps on how to manage admin groups in the Zscaler Admin Console.
-
-If you have the Full permission level for Administrator Management and you have SCIM Auto Provisioning enabled on the Administrator Management page, you can manage (add, edit, or delete) Admin Groups. If there is an admin group outside your scope or role, you can view an admin group. You can assign an admin scope or role to an admin group to organize your admins into groups and provide limitations and access to certain features of the ZDX Admin Portal.
-
-An admin group consists of the following:
-
-- Group Selection: A SCIM group based on what you have uploaded to the Administrator Management page. To learn more, see [Configuring SAML for ZDX Admins](https://help.zscaler.com/zdx/configuring-saml-zdx-admins).
-- Role: A ZDX role is associated with the admin group to provide limitations and access to the ZDX Admin Portal. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
-- Scope: An admin scope is associated with the admin group to provide limitations and access to granular details of your organization's users. To learn more, see [Understanding the Admin Scope](https://help.zscaler.com/zdx/understanding-admin-scope).
-
-On the Admin Groups page (Administration > Administration Controls > Administrator Management > Admin Groups), you can perform the following actions:
-
-- Add an Admin Group
-- Edit an Admin Group
-- Delete an Admin Group
-- View an Admin Group
-
-Depending on your scope and role, you might be unable to configure an admin group and instead only view an admin group.
-
-To add an admin group:
-
-1. Click **Add Admin Group**. The **Add Admin Group**window appears. See image.
-2. In the **Add Admin Group** window:
-  - **Group Selection**: Select a SCIM group to associate a role and scope to.
-  - **Role**: Select a [ZDX role](https://help.zscaler.com/zdx/adding-zdx-roles) that you have created.
-  - **Scope**: Select Organization, Department, Application, or Location. Organization is selected by default.
-3. Click **Save**.
-
-To edit an admin group:
-
-1. Click the **Edit** icon of an admin group. The **Edit Admin Group**window appears. See image.
-2. In the **Edit Admin Group** window:
-  - **Group Selection**: Select an SCIM group to associate a role and scope with.
-  - **Role**: Select a [ZDX role](https://help.zscaler.com/zdx/adding-zdx-roles) that you have created.
-  - **Scope**: Select Organization, Department, Application, or Location.
-3. Click **Save**.
-
-To delete an admin group:
-
-1. Click the **Delete** icon of an admin group. The **Warning**window appears. See image.
-2. In the **Warning** window, click **Delete** to confirm the deletion of the selected admin group.
-
-To view an admin group:
-
-1. Click the **View** icon of an admin group. The **View Admin Group**window appears. See image.
-2. In the **View Admin Group** window, you can view:
-  - **Group Selection**: The name of the SCIM group.
-  - **Role**: The ZDX role associated with the admin group.
-  - **Scope**: The scope associated with the admin group.
-3. Click **Save**.
-
-[Image: Add Admin Group Window]
-
-[Image: Edit Admin Group Window]
-
-[Image: Delete Confirmation Window]
-
-[Image: View Admin Group Window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-10-21T08:45Z","nid":"1535219"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-collections","lastmod":"2026-10-30T15:47Z","nid":"1535219"} -->
 ## Managing Collections
 
 - Source: https://help.zscaler.com/zdx/managing-collections
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Managing Collections
-- Last modified: 2026-10-21T08:45Z
+- Last modified: 2026-10-30T15:47Z
 - Summary: Information on managing collections in the Zscaler Admin Console.
 
 ZDX allows you to manage your collections to easily organize your applications and probes.
@@ -4830,8 +3704,8 @@ On the End User Monitoring page:
   1. Under **End User Collection Settings**: Click **Next**.
     - **Name**: Enter the name of the collection.
     - **Status**: Click to enable or disable the collection.
-    - **Tags**: Select or create tags for the collection to easily identify your collection.
-    - **Description**: Enter a description of the collection.
+    - **Tags**: (Optional) Select or create tags for the collection to easily identify your collection.
+    - **Description**: (Optional) Enter a description of the collection.
   2. Under **Exclusion Criteria** and **Probing Criteria**, you can configure policies for the following criteria: See image. To learn more, see [Understanding Probing Criteria Logic](https://help.zscaler.com/zdx/understanding-probing-criteria-logic). Any application under the collection follows the collection's probing criteria instead of its own probing criteria.
     - User Groups
     - Users
@@ -4849,8 +3723,8 @@ On the Managed Monitoring page:
 2. Configure the following:
   - **Name**: Enter the name of the collection.
   - **Status**: Toggle to enable or disable the collection.
-  - **Tags**: Select or create tags for the collection to easily identify your collection.
-  - **Description**: Enter a description of the collection.
+  - **Tags**: (Optional) Select or create tags for the collection to easily identify your collection.
+  - **Description**: (Optional) Enter a description of the collection.
 3. Click **Add**.
 
 You can edit a collection using the following steps:
@@ -5016,13 +3890,13 @@ On the Labels page (Administration > Alerts > Digital Experience > Labels):
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-10-07T21:06Z","nid":"1526076"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-scripts","lastmod":"2026-10-27T16:16Z","nid":"1526076"} -->
 ## Managing Scripts
 
 - Source: https://help.zscaler.com/zdx/managing-scripts
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Managing Scripts
-- Last modified: 2026-10-07T21:06Z
+- Last modified: 2026-10-27T16:16Z
 - Summary: Configuration steps on remote scripts for remediation.
 
 Scripts are a great way to automate PowerShell scripts for specific device tasks. Zscaler provides predefined scripts to help you get started.
@@ -5038,7 +3912,7 @@ To manage the Scripts page, you must have the following:
   - The supporting OS
 - If you are uploading a customized script, the script must have a signed certificate. To learn more, see [Preparing Custom Script Signing](https://help.zscaler.com/zdx/preparing-custom-script-signing).
 
-On the **Scripts** page (Digital Experience > Scripts), you can:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Digital Experience > Devices > Scripts. On the **Scripts** page, you can:
 
 - Add a script.
 - Run a script.
@@ -5049,11 +3923,11 @@ On the **Scripts** page (Digital Experience > Scripts), you can:
 
 Predefined scripts are useful because they are certified and ready for use script templates. Zscaler recommends testing the script prior to deploying production to devices.
 
-Predefined scripts are found on the Scripts Templates page (Digital Experience > Scripts > View Script Templates). For each predefined script, you see:
+Predefined scripts are found on the Scripts > Templates page (Digital Experience > Devices > Scripts > View Script Templates). For each predefined script, you see:
 
 - **Name**: The name of the predefined script.
 - **Description**: The description of the predefined script.
-- **Operating System**: The supported operating system.
+- **Operating System**: The supported OS.
 - **Scripts In Use**: Displays the number of scripts currently using the predefined script.
 - **Last Updated**: The timestamp of when the predefined script was released.
 
@@ -5078,13 +3952,13 @@ Consider the following when configuring scripts:
     2. **Script Details**: If you configured [script parameters or an end user notification](https://help.zscaler.com/zdx/managing-remote-scripts#fields), then you can modify the script parameters and preview the end user notification.
     3. **Script Run Settings**: Enter the number of seconds the script can run for.
   2. Under **Select Devices**, click **Add** to open the **Select Devices** drawer. If you cannot select a device, check its version compatibility or OS. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility). See image.
-    1. **Criteria**: Select **Devices**, **Users**, **User Groups**, **Location**, **Location Groups**, or **Departments**.
+    1. **Criteria**: Select **Devices**, **Users**, **User Groups**, **Locations**, **Location Groups**, or **Departments**.
     2. **Search**: You can search for the name of the selected criteria. Click the **Remove** icon to reset your search.
-    3. Click **Done** to save your selection.
+    3. Enable **Display selected only** to filter for your selected criteria.
+    4. Click **Done** to save your selection.
   3. Under **Job Details**:
-    1. **Name**: Enter the name of the Remediation job.
-    2. **Wait for devices to be online for a maximum of**: Enter the number of minutes or days a script must wait to run on a device.
-    3. **Schedule Job for later**: Enable to select a date for when you want to run the script.
+    1. **Wait for devices to be online for a maximum of**: Enter the number of minutes or days a script must wait to run on a device.
+    2. **Schedule Job for later**: Enable to select a date for when you want to run the script.
 3. Click **Start**.
 
 View the job's progress on the [Jobs](https://help.zscaler.com/zdx/viewing-and-managing-jobs) page.
@@ -5093,7 +3967,7 @@ View the job's progress on the [Jobs](https://help.zscaler.com/zdx/viewing-and-m
 2. In the **Add Script** window: See image.
   - **Script Name**: Enter a name for the script.
   - **Description**: Enter a description of the script.
-  - **Operating System**: Select which operating system this impacts (**Windows**).
+  - **Operating System**: Select which OS this impacts (**Windows**).
   - **Upload Script File**: Upload a PS1 file to run the script. The maximum script file size when uploading is 512 KB.
   - **Run Script with Elevated Permissions (System Account)**: Select if you want to run the script on a system account.
   - **Script Parameters (Optional)**: Add parameters to determine when to run the script. See image.
@@ -5133,16 +4007,14 @@ View the job's progress on the [Jobs](https://help.zscaler.com/zdx/viewing-and-m
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-10-20T21:06Z","nid":"1499921"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-templates","lastmod":"2026-10-29T16:32Z","nid":"1499921"} -->
 ## Managing Templates
 
 - Source: https://help.zscaler.com/zdx/managing-templates
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Managing Templates
-- Last modified: 2026-10-20T21:06Z
+- Last modified: 2026-10-29T16:32Z
 - Summary: To provide steps for managing or configuring templates.
-
-[Watch a video about Templates for ZDX](https://fast.wistia.net/embed/iframe/t4mafl179c) (shows legacy UI).
 
 On the Templates page, you can manage and configure Digital Experience (ZDX) templates by adding, editing, copying, or deleting a [Zscaler Managed probe](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes). You can use the template to create an alert rule with prefilled criteria.
 
@@ -5414,13 +4286,13 @@ Review your **Cloud Path probe** configuration or edit any field as required.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-admins","lastmod":"2026-10-16T16:10Z","nid":"1479156"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-admins","lastmod":"2026-10-26T11:11Z","nid":"1479156"} -->
 ## Managing ZDX Admins
 
 - Source: https://help.zscaler.com/zdx/managing-zdx-admins
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Managing ZDX Admins
-- Last modified: 2026-10-16T16:10Z
+- Last modified: 2026-10-26T11:11Z
 - Summary: Provides steps on how to manage and configure a Digital Experience (ZDX) Admin.
 
 After you have the Full permission level for Administrator Management, you can manage and configure a Digital Experience (ZDX) Admin by adding, editing, or deleting a ZDX Admin. You can assign a scope to a ZDX Admin to provide limitations and access to certain areas within an organization. To learn more, see [Understanding the Admin Scope](https://help.zscaler.com/zdx/understanding-admin-scope).
@@ -5509,16 +4381,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-api-keys","lastmod":"2026-10-16T17:24Z","nid":"1403316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-api-keys","lastmod":"2026-10-26T18:56Z","nid":"1403316"} -->
 ## Managing ZDX API Keys
 
 - Source: https://help.zscaler.com/zdx/managing-zdx-api-keys
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > API Key Management > Managing ZDX API Keys
-- Last modified: 2026-10-16T17:24Z
-- Summary: Information about how to manage the Digital Experience (ZDX) API Key Management.
+- Last modified: 2026-10-26T18:56Z
+- Summary: Information about how to manage the Digital Experience (ZDX) API keys .
 
-After your API subscription is enabled, the Digital Experience API Key Management page is accessible to a ZDX admin. From there, the admin can provision and display available API keys.
+After your API subscription is enabled, the Digital Experience API Keys page is accessible to a ZDX admin. From there, the admin can provision and display available API keys.
 
 If you must obtain API keys or secrets to access [Zscaler OneAPI](https://help.zscaler.com/oneapi) endpoints, see [About API Clients](https://help.zscaler.com/authentication-service/about-api-clients).
 
@@ -5558,14 +4430,14 @@ To learn more, see [About API Key Management](https://help.zscaler.com/zdx/about
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-roles","lastmod":"2026-10-16T16:36Z","nid":"1487681"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-zdx-roles","lastmod":"2026-10-26T18:37Z","nid":"1487681"} -->
 ## Managing ZDX Roles
 
 - Source: https://help.zscaler.com/zdx/managing-zdx-roles
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Managing ZDX Roles
-- Last modified: 2026-10-16T16:36Z
-- Summary: How to manage ZDX Roles in the Zscaler Admin Console.
+- Last modified: 2026-10-26T18:37Z
+- Summary: How to manage Digital Experience (ZDX) Roles in the Zscaler Admin Console.
 
 You can add, edit, delete, or view a Digital Experience (ZDX) Role in the Zscaler Admin Console depending on what permission levels you have. ZDX Roles to which you have Full access are indicated by the **Edit** and **Delete**icon. If you have View Only access, then the ZDX Role shows a **View** icon and you cannot edit or delete them.
 
@@ -5611,13 +4483,13 @@ To delete a specific ZDX Role:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/managing-zscaler-managed-probes","lastmod":"2026-10-21T09:23Z","nid":"1506026"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/managing-zscaler-managed-probes","lastmod":"2026-10-30T16:06Z","nid":"1506026"} -->
 ## Managing Zscaler Managed Probes
 
 - Source: https://help.zscaler.com/zdx/managing-zscaler-managed-probes
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Probes > Managing Zscaler Managed Probes
-- Last modified: 2026-10-21T09:23Z
+- Last modified: 2026-10-30T16:06Z
 - Summary: How to manage Zscaler Managed probes within an application.
 
 Managed Monitoring operates from within the Zscaler cloud infrastructure as a multi-tenant service. The service allows you to logically group Web and Cloud Path probes into independent collections to create your own tests to monitor performance. To learn about configuring Zscaler Managed probes and the required prerequisites for monitoring, see [Configuring Zscaler Managed Probes](https://help.zscaler.com/zdx/configuring-zscaler-managed-probes).
@@ -5645,7 +4517,7 @@ The page provides the following details and actions for the selected application
   - **Alert Rules**: The number of alert templates associated with the probe.
   - **Frequency**: The time interval for how often the probe is run.
   - **Actions**: The option to edit or delete the probe, or to configure alert rules.
-9. **Actions**: Edit or delete the probes.
+9. **Actions**: Edit or delete the probe.
 10. **Add Probe**: Add a probe to the selected collection.
 11. Edit the columns displayed on the table.
 
@@ -5660,7 +4532,7 @@ You can manage the number of active probes with the following actions:
 
 You can enable a collection for active use or disable a collection if you want to use it later and to manage the amount of active Zscaler Managed probes.
 
-1. Go to **Configuration**> **Managed**. Select the collection you want to configure.
+1. Go to **Digital Experience**> **Settings & Configurations**> **Probes** > **Managed** and select the collection you want to configure.
 2. Toggle the blue toggle of the collection to **Enabled** or **Disabled**. [Image: Disable the Enabled toggle] A confirmation window appears briefly to confirm that the collection was enabled or disabled and its configuration was saved.
 
 When disabling a collection, you disable all probes within the collection.
@@ -5669,7 +4541,7 @@ You can [create a collection](https://help.zscaler.com/zdx/configuring-zscaler-m
 
 To delete a collection:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configuration**> **Probes**> **Managed** > **<collection name>** > **<application name>**. Select the collection you want to delete.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configurations**> **Probes**> **Managed** > **<collection name>** > **<application name>**. Select the collection you want to delete.
 2. Click the **Actions**icon and click **Delete** to begin collection deletion. The **Delete Collection** window appears.
 3. Confirm the deletion of the collection by clicking **Delete**. [Image: Confirm the deletion of the collection]
 
@@ -5691,7 +4563,7 @@ You can [add a probe](https://help.zscaler.com/zdx/configuring-zscaler-managed-p
 
 You can delete a probe and its companion probe if they are no longer of use to you.
 
-To delete a probe, click on the **Delete** icon, then you can confirm its deletion in the **Delete Probe** window.
+To delete a probe, click the **Delete** icon, then you can confirm its deletion in the **Delete Probe** window.
 
 [Image: Confirm probe deletion]
 
@@ -7470,13 +6342,13 @@ export function transform(PD) {
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/predefined-applications-zdx","lastmod":"2026-10-21T08:53Z","nid":"1355886"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/predefined-applications-zdx","lastmod":"2026-10-30T10:19Z","nid":"1355886"} -->
 ## Predefined Applications for ZDX
 
 - Source: https://help.zscaler.com/zdx/predefined-applications-zdx
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Configuration > Applications > Predefined Applications for ZDX
-- Last modified: 2026-10-21T08:53Z
+- Last modified: 2026-10-30T10:19Z
 - Summary: Information about predefined applications and how to configure them for ZDX.
 
 Predefined applications are available for ZDX when you log in. The predefined applications provide quick and seamless application onboarding for admins.
@@ -7565,13 +6437,13 @@ To learn more about ZDX features unique to each ZDX subscription, see [Ranges & 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/preparing-custom-script-signing","lastmod":"2026-09-22T17:55Z","nid":"1531247"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/preparing-custom-script-signing","lastmod":"2026-10-27T13:57Z","nid":"1531247"} -->
 ## Preparing Custom Script Signing
 
 - Source: https://help.zscaler.com/zdx/preparing-custom-script-signing
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Preparing Custom Script Signing
-- Last modified: 2026-09-22T17:55Z
+- Last modified: 2026-10-27T13:57Z
 - Summary: These are the device preparation and configuration steps that are required to sign a script certificate prior to uploading it to the Zscaler Admin Console.
 
 Each customized and uploaded script must have a signed certificate to allow any scripts to run on a device. This ensures each script meets the minimum security requirements and is validated by an admin for use.
@@ -7980,13 +6852,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/remediation-errors","lastmod":"2026-03-01T06:06Z","nid":"1532069"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/remediation-errors","lastmod":"2026-10-28T14:28Z","nid":"1532069"} -->
 ## Remediation Errors
 
 - Source: https://help.zscaler.com/zdx/remediation-errors
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Remediation Errors
-- Last modified: 2026-03-01T06:06Z
+- Last modified: 2026-10-28T14:28Z
 - Summary: Information on error messages when you use Remediation.
 
 The following table provides a list of error messages you might encounter when running a script for a Remediation job:
@@ -8019,11 +6891,11 @@ The following table provides a list of error messages you might encounter when r
 | Unsupported script type. | ZUPM_WORKFLOW_ECODE_SCRIPT_TYPE_NOT_SUPPORTED | The Remediation job has an unsupported type. | No action required. |
 | Script execution failed due to unknown result. | ZUPM_WORKFLOW_ECODE_SCRIPT_UNKNOWN_RESULT | The script failed to run due to an unknown JSON response. | No action required. |
 | Script execution error or exception occurred. | ZUPM_WORKFLOW_ECODE_SCRIPT_EXECUTION_ERR | The script failed to run due to runtime errors within the script. | Check and resolve the runtime errors in the script. |
-| Script execution failed due to timeout. | ZUPM_WORKFLOW_ECODE_SCRIPT_EXECUTION_TIMEDOUT | The script failed to run due to the defined timeout. | Extend the runtime of the Remediation job. To learn more, see [Viewing and Managing Remediation jobs](https://help.zscaler.com/zdx/viewing-and-managing-remote-script-runs). |
+| Script execution failed due to timeout. | ZUPM_WORKFLOW_ECODE_SCRIPT_EXECUTION_TIMEDOUT | The script failed to run due to the defined timeout. | Extend the runtime of the Remediation job. To learn more, see [Viewing and Managing Jobs](https://help.zscaler.com/zdx/viewing-and-managing-jobs). |
 | Script execution aborted. | ZUPM_WORKFLOW_ECODE_SCRIPT_EXECUTION_ABORTED | The Remediation job was aborted by an admin. | No action required. |
 | Script execution is deferred by user action. | ZUPM_WORKFLOW_ECODE_SCRIPT_RUN_USER_DEFERRED | The user postponed the Remediation job. | No action required. |
 | Script execution is declined by user action. | ZUPM_WORKFLOW_ECODE_SCRIPT_RUN_USER_DECLINED | The user declined the Remediation job. | No action required. |
-| Script execution failed due to hitting maximum defer count limit. | ZUPM_WORKFLOW_ECODE_LOG_FETCH_MAX_DEFER_REACHED | The Remediation job did not run because you have exceeded the maximum number of Remediation jobs. | Wait to complete the other Remediation jobs and then re-run the job. To learn more, see [Ranges & Limitations](https://help.zscaler.com/zdx/ranges-limitations). |
+| Script execution failed due to hitting maximum defer count limit. | ZUPM_WORKFLOW_ECODE_LOG_FETCH_MAX_DEFER_REACHED | The Remediation job did not run because you have exceeded the maximum number of Remediation jobs. | Wait to complete the other Remediation jobs and then re-run the job. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience). |
 | Script execution failed due to handler init failure. | ZUPM_WORKFLOW_ECODE_SCRIPT_HANDLER_INIT_FAILED | The Remediation job failed to initialize. | Contact Zscaler Support |
 | Script job ID not found in ZCC SE Platform. | ZUPM_WORKFLOW_ECODE_SCRIPT_JOB_ID_NOT_FOUND | The Remediation job has an invalid ID in the Zscaler Client Connector Script Execution (SE) Platform. | No action required. |
 | Script execution failed due to Script Orchestrator Service is not started or unavailable. | ZUPM_WORKFLOW_ECODE_SCRIPT_ORCHESTRATOR_RPC_FAILURE | The Remediation job cannot run because of the unavailable Script Orchestrator Service. | No action required. |
@@ -9042,13 +7914,13 @@ Create a token to receive data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/starting-new-diagnostics-session","lastmod":"2026-10-12T17:33Z","nid":"1370101"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/starting-new-diagnostics-session","lastmod":"2026-10-27T17:37Z","nid":"1370101"} -->
 ## Starting a New Diagnostics Session
 
 - Source: https://help.zscaler.com/zdx/starting-new-diagnostics-session
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Starting a New Diagnostics Session
-- Last modified: 2026-10-12T17:33Z
+- Last modified: 2026-10-27T17:37Z
 - Summary: Information about configuration steps for starting a new diagnostics session in the Zscaler Admin Console.
 
 To start a new Diagnostics session for Digital Experience (ZDX) monitoring:
@@ -9073,8 +7945,8 @@ To start a new Diagnostics session for Digital Experience (ZDX) monitoring:
 
 After you click **Save**, you see the session in the In Progress table on the Diagnostics page. As the session progresses, its status is updated and it eventually moves to the History table. You can view session results by clicking the **View** icon. To learn more, see [Viewing Diagnostics Session Results](https://help.zscaler.com/zdx/viewing-diagnostics-session-results).
 
-- Go to **Digital Experience** > **Users** > **Users Overview**. Select a user. On the **User Overview** page, click the **Start Diagnostics Session** button in the user's row. This opens a new **Start New Diagnostics Session** window with the user name prefilled.
-- Go to **Digital Experience** > **Users**> **Users Overview** or **User Search**. Search to select a user. On the **User Details** page, click the **Start Diagnostics Session**button. This opens a new **Start New Diagnostics Session** window with the user name and device details prefilled.
+- Go to **Digital Experience** > **Users** > **Users Overview**. Select a user. On the **User Overview** page, click the **Start Diagnostics**button in the user's row. This opens a new **Start New Diagnostics Session** window with the user name prefilled.
+- Go to **Digital Experience** > **Users**> **Users Overview** or **User Search**. Search to select a user. On the **User Details** page, click the **Start Diagnostics**button. This opens a new **Start New Diagnostics Session** window with the user name and device details prefilled.
 - On the **Diagnostics** page, copy an existing session using the **Copy** icon. This opens a new **Start New Diagnostics Session** window with all details of an existing session copied. All fields are editable. If the device has a session in progress or is no longer associated with the user, it is not copied.
 
 You can start a Deep Tracing session to analyze issues that a user, device, or application is facing when connecting to the network.
@@ -9475,13 +8347,13 @@ If a user is tagged as VIP, they are tagged with a star icon in user details.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/troubleshooting-remediation","lastmod":"2026-06-29T07:06Z","nid":"1538986"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/troubleshooting-remediation","lastmod":"2026-10-27T17:24Z","nid":"1538986"} -->
 ## Troubleshooting Remediation
 
 - Source: https://help.zscaler.com/zdx/troubleshooting-remediation
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Troubleshooting Remediation
-- Last modified: 2026-06-29T07:06Z
+- Last modified: 2026-10-27T17:24Z
 - Summary: Detailed information on how to troubleshoot issues with Remediation.
 
 This article provides troubleshooting information and guidelines for [Remediation](https://help.zscaler.com/zdx/understanding-remediation).
@@ -9504,8 +8376,8 @@ If the Remediation job did not complete because the remote script did not run on
   - The device is not connected to Wi-Fi.
 - Selected device is running Zscaler Client Connector version that is older than 4.8.0.151 or ZDX Module is older than 4.6.0. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
 - An admin aborted the Remediation job mid-way and the remote script only ran on selected devices before the abortion.
-- Internet & SaaS policy blocks remote scripts from running on device. If this occurs, check to see if: If any of these are the issue, configure them accordingly to allow `ps1` files to run on devices and allow your specified remediation URL into a URL category.
-  - `ps1` files are blocked. To learn more, see [About File Type Control](https://help.zscaler.com/zia/about-file-type-control).
+- Internet & SaaS (ZIA) policy blocks remote scripts from running on device. If this occurs, check to see if: If any of these are the issue, configure them accordingly to allow `ps1` files to run on devices and allow your specified remediation URL into a URL category.
+  - `ps1` files are blocked. To learn more, see [About File Type Control Policy](https://help.zscaler.com/zia/about-file-type-control-policy).
   - The URL policy is blocking unknown URLs. To learn more, see [About URL Categories](https://help.zscaler.com/zia/about-url-categories).
 
 You cannot run a remote script that is signed with an invalid certificate due to certificate expiration or invalid credentials.
@@ -9647,16 +8519,14 @@ An alert status can be:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-alert-triggers","lastmod":"2026-10-02T15:12Z","nid":"1389151"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-alert-triggers","lastmod":"2026-10-29T16:06Z","nid":"1389151"} -->
 ## Understanding Alert Triggers
 
 - Source: https://help.zscaler.com/zdx/understanding-alert-triggers
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Alerts > Understanding Alert Triggers
-- Last modified: 2026-10-02T15:12Z
+- Last modified: 2026-10-29T16:06Z
 - Summary: Detailed information about how alerts are triggered for Digital Experience (ZDX).
-
-[Watch a video about configuring alerts in ZDX.](https://fast.wistia.net/embed/iframe/5ozc9luba9)
 
 Each Digital Experience (ZDX) alert rule can be triggered differently based on the type of alert rule. Each alert rule type (Application, Device, Incident, Network, or Call Quality) has different criteria for an alert rule to trigger based on their metrics. If the criteria are met, then the alert triggers and provides notification through an [alert email](https://help.zscaler.com/zdx/understanding-alerts-email).
 
@@ -9952,13 +8822,13 @@ If the application is in multiple collections, then the ranking is:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-diagnostics-session-status","lastmod":"2026-09-22T17:51Z","nid":"1443586"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-diagnostics-session-status","lastmod":"2026-10-27T13:57Z","nid":"1443586"} -->
 ## Understanding the Diagnostics Session Status
 
 - Source: https://help.zscaler.com/zdx/understanding-diagnostics-session-status
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Understanding the Diagnostics Session Status
-- Last modified: 2026-09-22T17:51Z
+- Last modified: 2026-10-27T13:57Z
 - Summary: To describe each existing Diagnostics status in the table.
 
 The Diagnostics Session Status indicates the current status of a Diagnostics Session. The Diagnostics Session status can be seen in both the In Progress and History tables as an overview or in the Individual Diagnostics Session Information window as part of the in-depth information of the Diagnostics Session.
@@ -10557,13 +9427,13 @@ Depending on your ZDX role, you might not see some of these overviews, details, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-remediation","lastmod":"2026-09-23T18:26Z","nid":"1526086"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-remediation","lastmod":"2026-10-27T13:57Z","nid":"1526086"} -->
 ## Understanding Remediation
 
 - Source: https://help.zscaler.com/zdx/understanding-remediation
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Understanding Remediation
-- Last modified: 2026-09-23T18:26Z
+- Last modified: 2026-10-27T13:57Z
 - Summary: Information for Remediation for Digital Experience (ZDX) where you can remotely configure specific PowerShell scripts or use a predefined script to remediate device issues.
 
 Remediation for Digital Experience (ZDX) allows IT admins to anticipate potential issues and proactively resolve them by deploying remote scripts before end users can report a problem. With fewer support tickets reported, IT admins have improved focus and productivity on resolving device issues directly that enhance the overall digital experience.
@@ -10970,13 +9840,13 @@ An aggregated user experience performance score is tracked over time at the user
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-10-19T14:58Z","nid":"1355816"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-score","lastmod":"2026-10-30T10:18Z","nid":"1355816"} -->
 ## Understanding the ZDX Score
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-score
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Dashboard & Analytics > Understanding the ZDX Score
-- Last modified: 2026-10-19T14:58Z
+- Last modified: 2026-10-30T10:18Z
 - Summary: Information on Digital Experience (ZDX) scores for an organization, applications, locations, departments, and users.
 
 A ZDX Score represents all users in your organization, across all applications, all locations, and all cities. You can see the score on the Zscaler Admin Console dashboards that capture Digital Experience (ZDX) metrics. Depending on the time period and filters selected within the dashboards, the score adjusts accordingly.
@@ -11044,13 +9914,13 @@ For a user's ZDX Score, a comparison of the values across each application they 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-service-desk-role","lastmod":"2026-10-16T16:37Z","nid":"1398521"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-zdx-service-desk-role","lastmod":"2026-10-30T21:06Z","nid":"1398521"} -->
 ## Understanding the ZDX Service Desk Role
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-service-desk-role
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Administration > Admin Configuration > Understanding the ZDX Service Desk Role
-- Last modified: 2026-10-16T16:37Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: To provide information on the ZDX Service Desk Role and its tiers.
 
 The Digital Experience (ZDX) Service Desk Role is a predefined role and can support the following goals:
@@ -11261,13 +10131,13 @@ The protocol used is visible in the Cloud Path section on the user details page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-10-07T21:06Z","nid":"1528756"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-10-28T14:27Z","nid":"1528756"} -->
 ## Viewing and Managing Jobs
 
 - Source: https://help.zscaler.com/zdx/viewing-and-managing-jobs
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Remediation > Viewing and Managing Jobs
-- Last modified: 2026-10-07T21:06Z
+- Last modified: 2026-10-28T14:27Z
 - Summary: Information about viewing and managing Remediation jobs.
 
 Remediation Jobs runs a script on selected devices as a job, and you can schedule the job as needed. Scripts are useful for remediating software issues by running PowerShell scripts on the selected devices. The Jobs page gathers parameter support and script output to categorize each job into the In Progress, Completed, or Scheduled tables for easy visibility and management. If a script fails, you can re-run the job or edit the script as required to run the job again.
@@ -11284,7 +10154,7 @@ Prior to running scripts on a device, you must have:
 
 ## Jobs Management
 
-To manage the number of jobs on the Device Remediation page (Digital Experience > Jobs), you can:
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to Digital Experience > Devices > Jobs. To manage the number of jobs on the Jobs page, you can:
 
 - Start a new job.
 - Edit a job.
@@ -11292,12 +10162,12 @@ To manage the number of jobs on the Device Remediation page (Digital Experience 
 
 ## Jobs Tables
 
-There are 3 Jobs tables based on the status of the job: In Progress, Completed, or Scheduled. These tables help you focus on which jobs need attention by providing granular details of the success rate or progress of each job.
+There are three Jobs tables based on the status of the job: In Progress, Completed, and Scheduled. These tables help you focus on which jobs need attention by providing granular details of the success rate or progress of each job.
 
-For each table on the Jobs page (Digital Experience > Jobs), you can:
+For each table on the Jobs page (Digital Experience > Devices > Jobs), you can:
 
 - View the In Progress, Completed, or Scheduled tables based on the job's progress.
-- Click **View Scripts** to view a collection of configured or predefined scripts on the [Scripts page](https://help.zscaler.com/zdx/about-scripts).
+- Click **View Scripts** to view a collection of configured or predefined scripts on the [Scripts](https://help.zscaler.com/zdx/about-scripts) page.
 - Start a new job.
 - Search for jobs in the respective table.
 - Modify the columns displayed in the table.
@@ -11323,6 +10193,7 @@ The In Progress table provides the following:
   - **Name**: The name of the job. Click the **Name** to view job details.
   - **Progress**: A progression bar to display the percentage of job completion.
   - **Script**: The name of the script.
+  - **Operating System**: The OS the script is for.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Started On**: The timestamp of when the job started.
@@ -11340,6 +10211,7 @@ The Completed table provides the following:
   - **Name**: The name of the job. The status of the job is displayed if the script run has **Expired**or **Aborted**. Click the **Name** to view job details.
   - **Success Rate**: A percentage display bar to indicate how many of the jobs were completed over the number of selected devices.
   - **Script**: The name of the script.
+  - **Operating System**: The OS the script is for.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Started On**: The timestamp of when the job started.
@@ -11358,6 +10230,7 @@ The Scheduled table provides the following:
 1. A list of jobs that are completed to view the following information:
   - **Name**: The name of the job. Click the **Name** to view job details.
   - **Script**: The name of the script.
+  - **Operating System**: The OS the script is for.
   - **Devices**: The number of devices selected for the job.
   - **Created By**: The user that started the job.
   - **Scheduled for**: The timestamp of when the job is scheduled to start.
@@ -11374,15 +10247,15 @@ You can view a job's granular details by clicking a row on any of the tables. Ea
 - Under **Job Details**:
   - **Success Rate**: The percentage bar to indicate how many times the job was completed.
   - **Success**: The number of devices that have completed the job.
-  - **Failed**: The number of devices that have failed to run the script. If the job is aborted, then ZDX tries its best effort to stop the script.
+  - **Failed**: The number of devices that have failed to run the script. If the job is aborted, then Digital Experience (ZDX) tries its best effort to stop the script.
   - **Script**: The name of the script.
-  - **Operating System**: The operating system the script is for.
+  - **Operating System**: The OS the script is for.
   - **Devices**: The number of selected devices.
   - **Created By**: The user that started the job.
   - **Started On**: The timestamp of when the job started.
   - **Ended On**: The timestamp of when the job ended.
   - **Targeted**: The number of devices, users, user groups, locations, location groups, or departments that are targeted for the job. The targeted number is based on the job's selection.
-- Under the **Devices** table, you can view which group of devices based on their job status (**All**, **Success**, or **Failed**). **All** is the default view of both **Success** and **Failed** jobs on selected devices. Each row has:
+- Under the **Devices** table, you can view each group of devices based on their job status (**All**, **Success**, or **Failed**). **All** is the default view of both **Success** and **Failed** jobs on selected devices. Each row has:
   - **Device**: The name of the device.
   - **User**: The name of the user.
   - **Execution Status**: The status of the job.
@@ -11414,16 +10287,16 @@ Consider the following when configuring scripts:
   2. **Display selected only**: Enable to display only the selected items.
   3. **Search**: You can search for the name of the selected criteria. Click the **Remove** icon to reset your search.
   4. Click **Done** to save your selection.
-5. Under **Job Details**: See image.
+5. Under **Job Details**:
   1. **Wait for devices to be online for a maximum of**: Enter the number of minutes, hours, or days a script must wait to run on a device.
   2. **Schedule Job for later**: Enable to select a date on which to run the script.
-6. Click **Start**.
+6. Click **Save**. If you enable **Schedule Job for later**, click **Schedule**.
 
 You can edit a job on the page if it's **Scheduled**.
 
 1. Click the **Edit** icon on the job that you want to modify.
-2. In the **Edit Job** window, modify the fields as needed. See image.
-3. Click **Save**.
+2. In the **Edit Remediation Job** window, modify the fields as needed. See image.
+3. Click **Schedule**.
 
 [Image: Modify the fields for the remote script run]
 
@@ -11599,13 +10472,13 @@ In this scenario, there are two users and one device.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2026-10-06T21:06Z","nid":"1370176"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-diagnostics-session-results","lastmod":"2026-10-29T12:34Z","nid":"1370176"} -->
 ## Viewing Diagnostics Session Results
 
 - Source: https://help.zscaler.com/zdx/viewing-diagnostics-session-results
 - Product: Digital Experience Monitoring (ZDX)
 - Path: Digital Experience Monitoring (ZDX) Help > Troubleshoot > Diagnostics > Viewing Diagnostics Session Results
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-10-29T12:34Z
 - Summary: How to view and store Diagnostics session results in the Zscaler Admin Console.
 
 Diagnostics sessions for Digital Experience (ZDX) can provide much more granular information to analyze any issues that your users might be facing. After a session is run, you can see the results by clicking the View icon in the session row.
@@ -11623,8 +10496,6 @@ To view a Diagnostics session results:
 
 You can then click the **Export PDF** button to export and save a PDF file of the session information.
 
-See image.
-
 ### Deep Tracing
 
 Deep tracing provides an overview of a user, device, or application connecting to a network with the following:
@@ -11637,20 +10508,22 @@ The Diagnostics session results display information based on options chosen duri
 
 See image.
 
-- **Name of the User**: The name and email address of the user.
-- **Session Type**: The type of session selected during configuration.
-- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
-- **Application**: The application the session was run on. If you did not choose an application, this field is empty.
+- **Session ID**: The ID of the session and session name.
 - **Device**: The selected device. If you disabled **Device Probing**, nothing is listed. To learn more, see [Starting a New Diagnostics Session](https://help.zscaler.com/zdx/starting-new-diagnostics-session).
-- **End time**: This shows the date and time the session ended.
+- **Session Initiated On**: The date and timestamp when the session started.
+- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Session Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
+- **User**: The name and email address of the user.
+- **End Time**: The date and timestamp when the session started.
+- **Applications**: The application the session ran on. If you did not choose an application, this field is empty.
+- **Duration**: The time duration when the session ended.
 
-- **Web Probe Metrics**: This section shows data for the Page Fetch Time, Server Response Time, DNS Resolve Time, and Availability. The name of the probe is also listed in parentheses. If you had not selected a Web probe while configuring a session, this section is not displayed. The start and end times of the graphs align with the times for the Diagnostics session.
+- **Web Probe Metrics**: This section shows data for the Page Fetch Time, Zscaler TIme to First Byte, DNS Resolve Time, and Availability. The name of the probe is also listed in parentheses. If you had not selected a Web probe while configuring a session, this section is not displayed. The start and end times of the graphs align with the times for the Diagnostics session.
 - **Cloud Path**: This section displays a graph where you can choose to view either Latency or Packet Loss from the drop-down menu. It shows the Hop View and the Command Line View of the path taken by the probe. You can click the **Zoom** icon to view details of the Cloud Path till the probe reached its destination. If you did not select a Cloud Path probe while configuring a session, this section is not displayed. The Cloud Path also displays details such as tunnel information and differential latency. To learn more, see [Evaluating the Cloud Path](https://help.zscaler.com/zdx/evaluating-cloud-path). If you select a point on a graph, a tooltip with the appropriate metric, the date and time are displayed in all the charts. If there is no data for two consecutive time points, a gap in the charts is displayed. An error message in the chart indicates the issue.
 
 Network applications do not have a web front end, and therefore, Web Probe Metrics are not available. ZDX Scores are calculated using latency with only a single Cloud Path probe. To learn more, see [About Applications](https://help.zscaler.com/zdx/about-applications) and [Monitoring the Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview).
 
-- **Device Health**: Displays graphs for CPU Usage, Wi-Fi Signal, Memory, Battery Level, Disk information, and Network information are displayed. Not all Device Health metrics are preselected; in the drop-down menu, you can select the elements you want to review. If you chose to disable the Device Probing while configuring the session, this section is not listed.
-- **Top Processes**: Lists the top processes that are consuming resources by Memory Usage, CPU Usage, Disk Usage, and Network Usage, with the Process ID in parentheses. If the Device Probing option is not selected during configuration, this section is not listed.
+- **Device Health**: Displays graphs for CPU Utilization, Memory, Battery Level, Disk information, and Network information are displayed. Not all Device Health metrics are preselected; in the drop-down menu, you can select the elements you want to review. If you chose to disable the Device Probing while configuring the session, this section is not listed.
+- **Top Processes**: Lists the top processes that are consuming resources by CPU Usage, Disk Inbound/Outbound (I/O), Memory Usage, and Network I/O, with the Process ID in parentheses. If the Device Probing option is not selected during configuration, this section is not listed.
 - **User Device Events**: Shows the events for a device for the selected period of time. If the Device Probing option is disabled during configuration, this section is not listed.
 
 ### Hi-Fi Cloud Path
@@ -11665,17 +10538,19 @@ Each Hi-Fi Cloud Path shows the following:
 
 See image.
 
-- **Name of the User**: The name and email address of the user.
-- **Session Type**: The type of session selected during configuration.
-- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
-- **Device**: The selected device name.
+- **Session ID**: The ID of the session and session name.
+- **Device**: The selected device. If you disabled **Device Probing**, nothing is listed. To learn more, see [Starting a New Diagnostics Session](https://help.zscaler.com/zdx/starting-new-diagnostics-session).
+- **Session Initiated On**: The date and timestamp when the session started.
+- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Session Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
+- **User**: The name and email address of the user.
+- **End Time**: The date and timestamp when the session started.
 
 - Under **Data Center Details**:
   - **Data Center Name**: The name of the Zscaler data center.
   - **Location**: The location of the data center.
   - **Proxy Hostname**: The proxy hostname of the Zscaler data center.
   - **IP**: The IP address of the Zscaler data center.
-  - **Cloud Name**: The ZDX cloud name. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+  - **Cloud Name**: The ZDX cloud name. To learn more, see [Understanding the Diagnostics Session Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
 - Under **User Details**:
   - **User Name**: The name of the user.
   - **Location**: The location of the user device.
@@ -11710,10 +10585,12 @@ A packet capture probing (PCAP) session provides information on the file path, p
 
 See image.
 
-- **Name of the User**: The name and email address of the user.
-- **Session Type**: The type of session selected during configuration.
-- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
-- **Device**: The selected device name.
+- **Session ID**: The ID of the session and session name.
+- **Device**: The selected device. If you disabled **Device Probing**, nothing is listed. To learn more, see [Starting a New Diagnostics Session](https://help.zscaler.com/zdx/starting-new-diagnostics-session).
+- **Session Initiated On**: The date and timestamp when the session started.
+- **Status**: This lists the status of the session. To learn more, see [Understanding the Diagnostics Session Status](https://help.zscaler.com/zdx/understanding-diagnostics-session-status).
+- **User**: The name and email address of the user.
+- **End Time**: The date and timestamp when the session started.
 
 - Under **Data Center Details**:
   - **Data Center Name**: The name of the Zscaler data center.
@@ -11758,6 +10635,84 @@ If you have View Only permission for Diagnostics details, you cannot use the Exp
 [Image: Viewing Deep Tracing session results]
 
 [Image: Packet Capture Probing (PCAP) Results]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-digital-experience-dashboard","lastmod":"2026-10-27T08:58Z","nid":"1546997"} -->
+## Viewing the Digital Experience Dashboard
+
+- Source: https://help.zscaler.com/zdx/viewing-digital-experience-dashboard
+- Product: Digital Experience Monitoring (ZDX)
+- Path: Digital Experience Monitoring (ZDX) Help > Dashboard & Analytics > Viewing the Digital Experience Dashboard
+- Last modified: 2026-10-27T08:58Z
+- Summary: Information on the Digital Experience dashboard and widgets accessible within the Zscaler Admin Console.
+
+The Digital Experience dashboard provides an overview of your organization's Digital Experience in terms of user, devices, applications, and unified communication experience, as well as overall network activity and latency.
+
+From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), access the Digital Experience dashboard in one of the following ways:
+
+- Analytics > Digital Experience
+- Digital Experience > Overview
+
+## Filtering
+
+Use the **Time Range** filter in the upper right to choose a specific time range between 2 hours and 48 hours in which to view data. Select **Custom** to select a specific time range. The start date must be within the last 14 days, and the minimum time range is 15 minutes. You can set any time range greater than 15 minutes in 5-minute increments.
+
+The selected period applies to all data within the dashboard. The default time range is **48 Hours**.
+
+## Dashboard Widgets
+
+- Top Issues Affecting User Experience
+- Network Anomalies and Top 3 High-Latency ASNs
+- Application Experience Trend and Applications Requiring Attention
+- Organization Device Health and Hardware Usage Analysis
+
+Depending on your [role](https://help.zscaler.com/zdx/adding-zdx-roles) and [limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience), you might not see all of these widgets.
+
+This overview displays the total incidents, impacted users, and total active users based on device performance. If incidents have occurred, they are captured in the Incidents Overview based on the Incident type (e.g., Device, Wi-Fi). Click [Incidents Dashboard](https://help.zscaler.com/zdx/monitoring-incidents-dashboard) to go to a more detailed view of incidents in your organization.
+
+[Image: View information on incidents, impacted users, and total active users]
+
+These widgets provide network anomalies from Last Mile Internet Service Providers (ISPs) to Zero Trust Exchange (ZTE) to applications. Click [Network Intelligence Dashboard](https://help.zscaler.com/zdx/monitoring-network-intelligence-dashboard) to go to a more detailed overview of network latency and network performance.
+
+If you hover over a time range or an Autonomous Synchronous Number (ASN) and click **View Details**, you can go see specific Network Intelligence details.
+
+[Image: View network anomalies about ISPs]
+
+These widgets show the performance of applications in your organization. Each application is categorized based on its [Digital Experience (ZDX) Score](https://help.zscaler.com/zdx/understanding-zdx-score):
+
+- Poor (0-33, Red)
+- Okay (34-65, Orange)
+- Good (66-100, Green)
+
+On these widgets, you can:
+
+- **Application Experience Trend**: View the applications and their performance.
+  - Click **All Applications** to filter for specific applications. See image.
+  - Hover over a time range and click **View Details**, you can see a list of filtered devices based on the date in the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview).
+  - Click **View All Applications** to see a list of all applications in the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview).
+- **Applications Requiring Attention**:
+  - Click the application name to access the specific [application's details page](https://help.zscaler.com/zdx/evaluating-application-details).
+  - Click **View All Applications** to see a list of all applications in the [Applications Overview](https://help.zscaler.com/zdx/monitoring-applications-overview).
+
+[Image: View application performance]
+
+These widgets provide information on device health and its hardware usage in your organization.
+
+- **Organization Device Health**: View the health status of all impacted devices.
+  - If you hover over a bar under **Organization Device Health** and click **View Details**, you can see the **Device List** from the Devices Overview.
+  - Switch between **Trend** and **Contributors** views. The default view is **Trend**. See image.
+  - Click **Device Health Dashboard** to view [Devices Overview](https://help.zscaler.com/zdx/monitoring-devices-overview) for in-depth device health information (e.g., usage and impacted devices).
+- **Hardware Usage Analysis**: View impacted devices and their hardware usage from the previous 14 days. Usage Profiles are categorized accordingly to their hardware profile and usage profile.
+  - If you click a profile (e.g., Low and Light), you can view **Hardware Analysis** from **Devices Overview** and information is filtered based on the selected usage profile.
+  - Click **Hardware Analysis Dashboard** to go directly to **Hardware Analysis** from **Devices Overview**.
+
+[Image: View device health and hardware usage]
+
+[Image: Applications Filter]
+
+[Image: View the contributors to device health]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11864,6 +10819,43 @@ To view IPv6 configurations, see:
 - [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe)
 - [Configuring Zscaler Hosted Probes](https://help.zscaler.com/zdx/configuring-zscaler-hosted-probes)
 - [Managing Top Private Applications](https://help.zscaler.com/zdx/managing-top-private-applications)
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-meetings-dashboard","lastmod":"2026-10-29T10:17Z","nid":"1547007"} -->
+## Viewing the Meetings Dashboard
+
+- Source: https://help.zscaler.com/zdx/viewing-meetings-dashboard
+- Product: Digital Experience Monitoring (ZDX)
+- Path: Digital Experience Monitoring (ZDX) Help > Dashboard & Analytics > Applications > Viewing the Meetings Dashboard
+- Last modified: 2026-10-29T10:17Z
+- Summary: Information on the Meetings dashboard and widgets is accessible within the Zscaler Admin Console.
+
+The Meetings dashboard provides an overview of the performance of meetings and video conferencing applications in your organization.
+
+## Meetings
+
+This table shows all the meetings that occurred in your organization for the selected time range and filters:
+
+- **Meeting ID**: The unique identifier of the meeting.
+- **Application Name**: The name of the meeting application used for this meeting.
+- **MOS Score**: The Mean Opinion Score of the meeting, on a scale of 1 (worst) to 5 (best). MOS is calculated based on metrics such as latency, jitter, and packet loss.
+- **Host**: The user who hosted the meeting.
+- **Start Time**: The beginning time of the meeting.
+- **Active Participants**: The number of participants as reflected in the session data. Participants who join a call from multiple devices or who leave and rejoin a call are counted per session.
+
+See image.
+
+Click any meeting row to see additional details about that meeting:
+
+- **Meeting Details**: Includes the unique identifier of the meeting, the host, number of participants, start and end times, and the ZDX Score, which is derived from the MOS Score.
+  - If the MOS is 0 to 3.6 the ZDX Score is **Poor**.
+  - If the MOS is greater than 3.6 but less than 4.34, the ZDX Score is **Okay**.
+  - If the MOS is 4.34 or greater, the ZDX Score is **Good**.
+- **Participants**: The list of users, the Session ID (this is the internal meeting session ID), the user's start and end times, their device OS, IP Address, Geolocation, and individual MOS and ZDX scores. Some information may not be available for all participants (such as if the user does not have Digital Experience enabled).
+
+See image.
 <!-- /ZS-ARTICLE -->
 
 ---

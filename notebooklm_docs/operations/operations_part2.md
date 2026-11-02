@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-10-25T07:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-01T06:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -57,6 +57,7 @@ On the Incidents page (Data Security > Workflow Automation > Incidents), you can
 11. View a list of incidents that have occurred in your organization. For each incident, you can view:
   - **Transaction ID**: The transaction ID for the incident. If duplicate incidents exist for an incident, this column also displays the total count of the duplicate incidents next to the transaction ID. To learn more, see [Understanding Duplicate Incidents in Workflow Automation](https://help.zscaler.com/workflow-automation/understanding-duplicate-incidents-workflow-automation).
   - **System Creation Date**: The date and time when the incident was created in the system. Workflow Automation searches the incidents based on the System Creation Date, and by default it sorts the incidents based on the Incident Date.
+  - **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time are displayed in the local time zone of the end user.
   - **Last Change Date**: The date and time when the incident was last modified. The date and time are displayed in the local time zone of the admin.
   - **Priority**: The priority of the incident. Priorities are **Critical**, **High**, **Medium**, and **Low**.
   - **Severity**: The severity of the incident. Severities are **High**, **Medium**, and **Low**.
@@ -71,13 +72,14 @@ On the Incidents page (Data Security > Workflow Automation > Incidents), you can
     - **Justification Response Received**
     - **Escalated**
     - **Resolved**
-  - **Engine(s)**: The DLP engines associated with the incident.
-  - **Dictionary Match Count(s)**: The DLP dictionaries associated with the incident. The number of times the incident matched a specific dictionary is displayed in brackets (e.g., Financial Statements [10]).
-  - **Rule(s)**: The DLP rules associated with the incident.
+  - **Engines**: The DLP engines associated with the incident.
+  - **Matched Dictionaries**: The DLP dictionaries associated with the incident. The number of times the incident matched a specific dictionary is displayed in brackets (e.g., Financial Statements [10]).
+  - **Rules**: The DLP rules associated with the incident.
+  - **Triggered Dictionary Matches**: The aggregate match count for all triggered DLP dictionaries for the incident.
+  - **Total Dictionary Matches**: The aggregate match count for all triggered and non-triggered dictionary matches for the incident.
   - **Action**: The action associated with the incident.
   - **Destination**: The destination of the incident.
-  - **Last Change**: The latest state of the incident. It indicates the most recent change to the incident.
-  - **Incident Date**: The date and time when the incident was generated due to a policy violation. The date and time are displayed in the local time zone of the end user.
+  - **Last Change**: The latest state of the incident. It indicates the most recent change to the incident..
   - **Incident Groups:**The incident groups associated with the incident.
   - **Justification Reason**: The reason for the incident submitted by the end user, the end user's manager, or another approver.
   - **Justification Note**: The justification type of the incident.
@@ -107,8 +109,8 @@ On the Incidents page (Data Security > Workflow Automation > Incidents), you can
   - **Triggered Recipients**: The recipients who took actions that triggered rules on which some action was taken, such as allow and block. This field appears only for incidents of Source DLP type Email. If you choose the Recipient Email attribute for obfuscation, multiple asterisks appear for each recipient email in this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **Internal Recipients**: The recipients within your organization who received the email that caused the incident. This field appears only for incidents of Source DLP type SaaS Security. If you choose the Recipient Email attribute for obfuscation, multiple asterisks appear for each recipient email in this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
   - **External Recipients**: The recipients outside your organization who received the email that caused the incident. This field appears only for incidents of Source DLP type SaaS Security. If you choose the Recipient Email attribute for obfuscation, multiple asterisks appear for each recipient email in this field. To learn more about user data obfuscation, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Protocol**: The protocol (e.g., FTP, HTTP, or HTTPS) used for the incident. This field appears only for incidents of Source DLP type Inline.
   - **User Groups**: The groups that the end user belongs to in your organization.
+  - **Protocol**: The protocol (e.g., FTP, HTTP, or HTTPS) used for the incident. This field appears only for incidents of Source DLP type Inline.
   - **Destination Type**: The destination type (e.g., Removable Storage Device) for the incident.
   - **Component**: The specific subresource within a SaaS tenant where the violation occurred. This field appears only for incidents of Source DLP type SaaS Security.
   - **Content Location**: The category of the collaboration channel for the event. This field appears only for incidents of Source DLP type SaaS Security.
@@ -2793,13 +2795,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-10-19T16:10Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-10-28T07:00Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:10Z
+- Last modified: 2026-10-28T07:00Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2873,13 +2875,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-10-25T07:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-01T06:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4027,16 +4029,16 @@ After you configure a predefined or custom workflow, you must specify the incide
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-08-05T06:41Z","nid":"1468511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-10-28T06:26Z","nid":"1468511"} -->
 ## Using Incident Filters in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Using Incident Filters in Workflow Automation
-- Last modified: 2026-08-05T06:41Z
+- Last modified: 2026-10-28T06:26Z
 - Summary: How to use and manage incident filters in Workflow Automation.
 
-In the Zscaler Admin Console, the incidents that occur in your organization are displayed on the Incidents page. You can use filters to modify the incidents that are displayed on the page. Some of the filters have predefined values that you select, and some of the filters require you to enter a text string value. The following filters have predefined values:
+In the Zscaler Admin Console, the incidents that occur in your organization are displayed on the Incidents page. You can use filters to modify the incidents that are displayed on the page. Some of the filters have predefined values that you select, some of the filters require you to enter a text string value, and a couple of the filters require you to select an operator (>, ≥, <, ≤, or =) and the number of matches. The following filters have predefined values:
 
 - **Action**
 - **Attachments**
@@ -4096,6 +4098,13 @@ The text string values are not case sensitive. In addition, you can:
 - Enter multiple values for these filters by entering a comma between the text string values.
 - Enter multiple strings within a single text string value. If you enter multiple strings within a text string value, each string is treated with an AND operation. For example, if you select the **Application Name** filter and enter `Microsoft Office` as the text string value, all incidents with an application name containing Microsoft and Office are returned with this filter, such as Microsoft Office, Microsoft Office 365, and Office 365 Microsoft. This filter does not return incidents with an application name containing only Microsoft or Office.
 - For the Referrer URL filter and the URL filter, enter a complete URL (e.g., https://www.jumpshare.com/https-post) or enter a complete host name (e.g., www.jumpshare.com) for the URL.
+
+You must enter an operator and the number of matches for the following filters:
+
+- **Triggered Dictionary Matches**
+- **Total Dictionary Matches**
+
+To use these filters, select to include or exclude a range of matches by selecting an operator (>, ≥, <, ≤, or =) and the number of matches (e.g., > 20, ≥ 20, < 100, ≤ 100, or = 25).
 
 You can:
 
@@ -4191,14 +4200,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-10-25T07:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-01T06:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-10-25T07:06Z
-- Summary: Information about the Incidents Details page and how to manage incidents in the Zscaler Admin Console.
+- Last modified: 2026-11-01T06:06Z
+- Summary: Information about the Incidents Details drawer and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
 

@@ -1,8 +1,166 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 189
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 194
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-finding-details","lastmod":"2025-12-16T03:22Z","nid":"1503596"} -->
+## Understanding Finding Details
+
+- Source: https://help.zscaler.com/easm/understanding-finding-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Findings > Understanding Finding Details
+- Last modified: 2025-12-16T03:22Z
+- Summary: Information on understanding and analyzing finding details in Zscaler External Attack Surface Management (EASM), including risk assessment, impacted assets, and remediation insights.
+
+EASM investigates the security risks (or findings) that are uncovered in your organization's digital attack surface and catalogs them on the [Findings page](https://help.zscaler.com/easm/about-findings) (Insights > Findings). This page features a highly customizable, tabulated list of findings, allowing you to click each record to access detailed information about the finding and perform specific actions on a per-finding basis. The details provided for each finding are crucial for assessing the severity of risks, prioritizing them, and planning mitigation strategies. Additionally, each finding is also mapped to the assets affected by the finding in a many-to-many relationship (i.e., one finding can impact multiple assets and vice-versa).
+
+The finding details are presented in two distinct views, offering users the flexibility to drill down on the finding details as required. When you click a row in the findings table, a quick view of essential information about the finding opens in a right-side drawer (referred to as "Finding Details drawer" henceforth). This drawer features a tabbed interface for finding details, impacted assets, status change history, and Jira tickets. To view more detailed finding information, from the Finding Details drawer, you can access a full-page view of comprehensive details about the finding (referred to as "Finding Details page" henceforth). To do this, you need to click the View More Details button on the Finding Details tab of the Finding Details drawer.
+
+See image.
+
+The Finding Details page provides extensive information about the finding and also mirrors the tabbed interface for finding details, impacted assets, and tickets as seen in the Finding Details drawer. The Finding Details drawer is essentially a limited version of the Finding Details page and allows you to easily switch between different findings to view their details from the list view. On the other hand, the Finding Details page is more useful when analyzing a specific finding, and you need to access the complete data available for the finding. When you are on the Finding Details page, you can go back to the findings list view to access details of other findings.
+
+See image.
+
+The next sections cover all the finding details that are available, following the presentation layout and the comprehensive information tracked on the Finding Details page. On the Finding Details page (Insights > [Finding] > Finding Details > View More Details), the finding name is displayed at the top along with the finding's overview, details, and impacted assets.
+
+Some of the following documented fields are only available on the Finding Details page and are not present in the Finding Details drawer. Additionally, the organization of the content differs between the two views.
+
+## Finding Overview
+
+This section contains high-level information about the finding to help users get a baseline of the finding at a glance. This section includes:
+
+- **Category/Type**: The classification of the finding as **Exposure**, **Vulnerability**, or **Misconfiguration**, which provides context about the finding instantly. Each category of findings is uniquely processed and has slightly varying information presented for the findings within that category based on relevance. For example, the NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are all most relevant to vulnerability findings rather than exposures or misconfigurations.
+- **Risk Level**: The risk level quantifies the amount of risk associated with a finding, and it is derived from the risk score computed for the finding. The risk level ranges from **Low**, **Medium**, **High**, and **Critical**. Risk levels help you with instant information about prioritizing business-critical findings. For example, a critical or high risk level indicates that the finding poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk. A medium risk level might indicate that the issue needs to be resolved to improve your security defenses but might have a lower priority compared to serious risks.
+- **Impacted Asset**: The asset impacted by the risk finding. Assets and findings can have many-to-many relationships (i.e., one finding can impact multiple assets and an asset can have multiple findings), and the complete list of assets impacted by the finding is listed under the **Other Impacted Assets** tab along with the count of assets displayed in the tab name.
+- **First Seen**: The timestamp of when the finding was first detected during scanning, adding more context to understanding the interaction with the finding.
+- **Last Seen**: The timestamp when the finding was last detected during scanning, adding more context to understanding the interaction with the finding.
+- **Finding Age**: The number of days elapsed since the first encounter with the finding until it was last seen, indicating how long the finding has been present in your asset infrastructure.
+- **Status**: Indicates the current stage in which the finding is present from discovery to closure. You can modify the status of the finding using the drop-down menu. List of Available Statuses
+
+See image.
+
+## Finding Details
+
+On the Details tab, you can find crucial information about the finding that provides more context about the finding to help you understand and analyze the finding more in depth. This section includes:
+
+- **Finding Risk Score**: A risk score computed for the finding based on multiple vectors such as threat severity, likelihood, and impact using a combination of open source intelligence (OSINT) on vulnerability risk computation and Zscaler's proprietary risk computation techniques. The risk score is a numerical value ranging from 1 to 100. The risk score is shown in a half donut chart with the risk score and risk level presented at the center and an indicator used to point towards the color-coded risk score meter in the donut chart.
+- **Scan Type**: The scanning service that was used to uncover the risk. The available scan types are **Web**, **Network**, **Certificate**, and **DNS** scans. For example, domain expiration is likely to be detected in a DNS scan, SSL/TLS outdated version might be detected in a web scan, and a CVE vulnerability might be detected in a web, DNS, or network scan.
+- **NVD CVSS Severity**: The Common Vulnerability Scoring System (CVSS) score that indicates the qualitative measure of severity of a vulnerability using a numerical value ranging from 1 to 10, if applicable.
+- **CISA KEV Likelihood**: Indicates whether a vulnerability is listed in the [Known Exploited Vulnerabilities (KEV) catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) using a Boolean value, if applicable.
+- **EPSS Likelihood**: The Exploit Prediction Scoring System (EPSS) likelihood indicates the probability that a vulnerability can be exploited in the wild, if applicable. The value is represented in a percentage.
+- **Description**: A detailed description of the finding gathered from an open-source intelligence, such as [National Vulnerability Database (NVD)](https://nvd.nist.gov/), and Zscaler's research team.
+- **[Scan Output]**: This section contains the complete output of the scan that was used to identify the finding. This section is labeled differently for assets depending on their type and the corresponding scan performed (e.g., HTTP Response, Nmap Response, and Certificate Response).
+- **Matched Evidence**: This section contains specific portions of the scan results that attest to the finding. This information provides attestation of detected findings and enables organizations to self-validate their findings using the investigative trail provided.
+
+See image.
+
+Specific finding details, such as NVD CVSS Severity, CISA KEV Likelihood, and EPSS Likelihood are only applicable to vulnerability findings which group Common Vulnerabilities and Exposures (CVE). CVE is a list of publicly disclosed vulnerabilities maintained by MITRE.
+
+## Impacted Assets
+
+On the **Other Impacted Assets** tab, you can access the list of all assets that are impacted by the risk, excluding the asset that's already displayed in the Overview section. This section provides visibility into how widely the risk is spread within your asset infrastructure by aggregating the risk impact. The assets are tabulated, and the following information is available for each asset.
+
+Available Fields
+
+The number of assets that are impacted by the risk is included in the tab name. You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
+
+See image.
+
+## Tickets
+
+This tab is available if [Jira integration is enabled](https://help.zscaler.com/easm/configuring-jira-integration) for the organization with the finding is associated. On this tab, you can create and view Jira tickets for this finding. When creating the tickets, you can fill out a set of predefined Jira fields, such as Project, Issue Type, Component, Priority, and Assignee.
+
+Jira ticket creation in EASM and ticket synchronization between Jira and EASM requires an active connection established between your Jira instance and EASM organization through a valid personal access token retrieved from Jira.
+
+To add a new ticket, click **Create**, provide the required information, and submit the details. To learn more, see [Creating Jira Tickets for Findings](https://help.zscaler.com/easm/creating-jira-tickets-findings). After the ticket is created, the record is added to Jira along with data fetched from EASM such as the finding details and any attachment files. The Jira ticket ID and status are reflected in EASM immediately along with other information submitted. The ticket record details automatically synchronize between Jira and EASM.
+
+See image.
+
+- **Not Verified**: All the risk findings identified by EASM in your organization's attack surface are tagged with the label, Not Verified.
+- **Verified**: Risk findings are investigated manually and are verified to be present (e.g., verifying an open port flagged on a host).
+- **Risk Accepted**: Represents risk findings that are deemed acceptable. For example, a jump server with port 22 open and exposed to the internet might be for intended use.
+- **Resolved**: Risk findings for which remediation steps are taken or are planned can be marked as resolved. With the previous example, if the server is planned to be moved behind Zscaler Private Access (ZPA) as a resolution, then it could be marked as resolved. However, if the finding is discovered again in a subsequent scan, then it is marked as Not Verified.
+- **Disputed**: If the manual verification of the finding turns out different from the risk finding, the finding can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+The Insights Overview dashboard presents data on findings that are in Not Verified and Verified statuses to highlight risks that need to be addressed to eliminate threats and penetration by bad actors into your network. Findings that are in Risk Accepted, Resolved, or Disputed statuses are not presented in the dashboard, as these risks are considered as not requiring any further actions from your security team. However, risks in these statuses can be moved to Not Verified or Verified if they require further examination. To learn more, see [Modifying Finding Status](https://help.zscaler.com/easm/modifying-finding-status).
+
+- **Name**: The name of the asset.
+- **Risk Level**: The risk level assigned to the asset.
+- **Scan Type**: The type of scan through which the asset was discovered, such as Web, DNS, or Network type scans.
+- **Status**: The [status](https://help.zscaler.com/easm/changing-asset-status) of the asset from Approved, Candidate, or Archived.
+- **First Seen**: The timestamp when the finding was first detected in the asset.
+- **Last Seen**: The timestamp when the finding was last observed in the asset.
+
+You can access detailed information about each asset from the Assets page. To learn more, see [Understanding Asset Details](https://help.zscaler.com/easm/understanding-asset-details).
+
+[Image: Accessing finding details page from list view in EASM]
+
+[Image: Navigating to findings list view from details page in the EASM Admin Portal]
+
+[Image: Finding overview section in EASM showing basic information about the finding]
+
+[Image: Finding status drop-down menu in the finding details page in EASM Admin Portal]
+
+[Image: Finding details tab in EASM Admin Portal showing key information about the finding]
+
+[Image: List of assets impacted by a finding shown in the EASM Admin Portal]
+
+[Image: Creating and linking Jira ticket with EASM finding from the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-lookalike-domain-details","lastmod":"2024-11-29T06:06Z","nid":"1508146"} -->
+## Understanding Lookalike Domain Details
+
+- Source: https://help.zscaler.com/easm/understanding-lookalike-domain-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Insights > Lookalike Domains > Understanding Lookalike Domain Details
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on lookalike or phishing domains along with their details populated in EASM which can be analyzed for enforcing threat mitigation controls.
+
+The lookalike domains that are detected for your seed domains are investigated and cataloged on the [Lookalike Domains page](https://help.zscaler.com/easm/about-lookalike-domains) (Insights > Lookalike Domains). This page provides a customizable, tabulated list where you can click each domain entry to access more detailed information and take specific actions. The lookalike domain details consist of contextual information, helping you understand key aspects, such as the original domain forged by the lookalike domain, domain registration details, risk category and risk score, deception tactics used in the domain name, domain detection timeline, and status.
+
+To view comprehensive information about a lookalike domain, click on an entry in the table. A right-side drawer referred to as the Lookalike Domain Details drawer opens. In this drawer, you can access the following information about the lookalike domain:
+
+- **Original Domain**: The legitimate domain mimicked by the lookalike domain.
+- **Lookalike Domain Annotation**: A label for the lookalike domain.
+- **Risk Category**: The risk categorization of the lookalike domain. Available Risk Categories
+- **Risk Score**: A risk score assigned for the lookalike domain.
+- **Deception Method**: The deception tactic used in the lookalike domain name to impersonate a legitimate domain. Examples of deception techniques include the use of homograph (i.e., by exploiting similar-looking characters or homoglyphs), substituting letters with numbers, hyphenation, intentional typos, adding, removing, or transposing letters, etc.
+- **Lookalike Domain Registrar**: The internet company that was used to register the domain, if available. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
+- **Lookalike Domain Registered**: Indicates whether the domain is registered with a registrar or not.
+- **Lookalike Registrant Organization**: An individual or entity that owns the registered domain, if available.
+- **Lookalike Registration Expiration**: The domain registration expiration date, if available.
+- **First Seen**: The timestamp when the lookalike domain was first identified in a scan.
+- **Last Seen**: The timestamp when the lookalike domain was last observed in a scan.
+- **Status**: The status assigned to the lookalike domain entry from Not Verified, Verified, Risk Accepted, Resolved, and Disputed. You can modify the status using the drop-down menu as needed. Available Statuses
+- **Description**: A description of the lookalike domain, why it is suspicious, and the deception tactics used.
+
+See image.
+
+- **Verified Phishing**: Indicates that the domain is verified to be a phishing site by Zscaler's web risk analyzer service.
+- **Registered Lookalike**: Indicates that the domain is registered through an internet company that provides domain registration services (i.e., registrar).
+- **Preventative Lookalike**: Indicates that the domain is not registered with a registrar.
+
+- **Not Verified**: All lookalike domains initially detected by EASM for your legitimate seed domains are automatically tagged with the label "Not Verified".
+- **Verified**: Lookalike domains are manually investigated and verified for risks. An example could be a high-risk domain that is verified to be a phishing site.
+- **Risk Accepted**: Represents that the risk is deemed acceptable. An example could be a domain that is not registered yet and can be put on the watch list.
+- **Resolved**: Lookalike domains for which remediation steps are taken or are planned can be marked as resolved. For example, if a fake domain is taken offline or suspended by the registrar after reporting and the threat is eliminated, it can be marked as resolved. However, if the lookalike domain is discovered again in a subsequent scan, then it is marked as "Not Verified".
+- **Disputed**: If the manual verification of a lookalike domain turns out differently from the original detection, the lookalike domain can be moved to the Disputed status, indicating that it might be a false positive.
+
+See image.
+
+[Image: Lookalike domain details page showing key information in the EASM Admin Portal]
+
+[Image: Lookalike domain status change in the EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -338,13 +496,13 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1539537"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-11-01T21:19Z","nid":"1539537"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
 - Product: Identity Protection
 - Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:50Z
+- Last modified: 2026-11-01T21:19Z
 - Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Identity Protection.
@@ -608,6 +766,123 @@ See image.
 [Image: Related Incidents tab]
 
 [Image: Top panel on alert detail's page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-overview-dashboard","lastmod":"2026-10-30T04:37Z","nid":"1546095"} -->
+## Viewing the Findings Overview Dashboard
+
+- Source: https://help.zscaler.com/identity-protection/viewing-overview-dashboard
+- Product: Identity Protection
+- Path: Identity Protection Help > Analytics > Viewing the Findings Overview Dashboard
+- Last modified: 2026-10-30T04:37Z
+- Summary: How to view and interpret the Findings Overview dashboard in Identity Protection.
+
+The Findings Overview dashboard provides a comprehensive view of identity findings in your organization. You can analyze findings by severity, finding type, tenant, identity, asset, and user type, and view their exploitability and remediation ease.
+
+The dashboard data is based on the selected view and filters. You can use the [filters](https://help.zscaler.com/unified/using-filters) to customize the view, and also [save the view](https://help.zscaler.com/unified/creating-managing-saved-views) for later. You can click the Export icon at the top of the dashboard to export the data as a PDF file.
+
+See image.
+
+To view the Findings Overview dashboard:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Identities**.
+2. In the left-side navigation, click **Overview**. The **Findings Overview**page appears.
+3. On the **Findings Overview**page, you can view the following widgets:
+  - Top Panel Tiles
+  - Identity Findings By Severity
+  - Identity Findings By Tenant By Severity
+  - Identity Findings By Provider
+  - Finding By Remediation Ease
+  - Exploitability
+  - Findings By Assets
+  - Identity Findings By Severity By Exploit Ease
+  - Assets By Number Of Findings
+  - Findings by Identities
+  - Findings By User Type
+  - Admin Related Identity Findings By Severity By Exploit Ease
+  - Users By Number Of Findings
+
+The tiles provide an overview of identity findings categorized by easy exploit and severity level.Each tile shows the current number of findings in your account. Click the number to go to the [Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) page and analyze the issue.
+
+See image.
+
+View identity findings by severity.
+
+See image.
+
+View the distribution of identity findings across tenants by severity.
+
+See image.
+
+View the distribution of identity findings by identity provider, the total identity findings detected by each identity provider, and the overall findings count.
+
+See image.
+
+View the distribution of identity findings based on their complexity level to remediate. For example, you can prioritize a finding that is high risk and can be easily remediated.
+
+See image.
+
+View identity findings based on their exploitability and severity.
+
+See image.
+
+View the number of identity findings associated with assets. This allows you to quickly review findings for assets based on total findings, critical findings, and high findings. Click the number to go to the [Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) page and analyze the issue.
+
+See image.
+
+View identity findings by finding type, exploit ease, and severity, along with the total number of findings for each type.
+
+See image.
+
+View the assets list and the number of identity findings associated with them grouped by severity.
+
+See image.
+
+View the total users and the number of identity findings associated with them.
+
+See image.
+
+View the distribution of identity findings across different user types and severities.
+
+See image.
+
+View identity findings for admins by finding type, exploit ease, and severity.
+
+See image.
+
+View the number of identity findings associated with each user, grouped by severity.
+
+See image.
+
+[Image: Findings Overview page Top Panel]
+
+[Image: Top panel tiles]
+
+[Image: Identity Findings By Severity Widget]
+
+[Image: Identity Findings By Tenant By Severity Widget]
+
+[Image: Identity Findings By Provider Widget]
+
+[Image: Finding By Remediation Ease Widget]
+
+[Image: Exploitability Tiles]
+
+[Image: Findings By Assets Tiles]
+
+[Image: Identity Findings By Severity By Exploit Case Table]
+
+[Image: Assets By Number Of Findings Table]
+
+[Image: Findings By Identities Tiles]
+
+[Image: Finding By User Type Graph]
+
+[Image: Admin Related Identity Findings By Severity By Exploit Case Table]
+
+[Image: Users By Number of Findings Table]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1113,13 +1388,13 @@ Suspicious behavior indicators are similar to pre-infection indicators, with les
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-10-20T12:54Z","nid":"1463846"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-audit-logs","lastmod":"2026-10-27T07:07Z","nid":"1463846"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/risk360/about-audit-logs
 - Product: Risk360
 - Path: Risk360 Help > Logs > About Audit Logs
-- Last modified: 2026-10-20T12:54Z
+- Last modified: 2026-10-27T07:07Z
 - Summary: Information regarding audit logs within the Risk360 service.
 
 Zscaler records the login name and IP address of every user who changes configuration settings. Audit logs display the user's login and logout record (timestamps, actions, client IP, etc.), and the configuration changes they perform.
@@ -1131,7 +1406,7 @@ Audit Logs provide the following benefits and enable you to:
 
 ## About the Risk360 Audit Logs Page
 
-On the Audit Logs page (Data Explorer > Risk360 > Audit Logs), you can do the following:
+On the Audit Logs page (Data Explorer > Audit Logs > Risk360), you can do the following:
 
 1. Search for the logs by Resource, Admin ID, or Client IP.
 2. Download a CSV file. The times mentioned in the CSV file are in PDT.
@@ -1140,8 +1415,8 @@ On the Audit Logs page (Data Explorer > Risk360 > Audit Logs), you can do the fo
 5. Filter logs by Time Range, Action, Category, Sub-Category, Interface, or Result.
 6. View a list of user logins. For each user login, you can see:
   - **Timestamp**: The date and time of the user's action.
-  - **Action**:The action performed by the user in the Risk360 Admin Portal.
-  - **Category**: A location within the Risk360 Admin Portal where the action is performed.
+  - **Action**:The action performed by the user in the Zscaler Admin Console.
+  - **Category**: A location within the Zscaler Admin Console where the action is performed.
   - **Sub-Category**: The subject under the selected category.
   - **Resource**: The item within the selected sub-category.
   - **Admin ID**: The user's login ID.
@@ -1149,7 +1424,7 @@ On the Audit Logs page (Data Explorer > Risk360 > Audit Logs), you can do the fo
   - **Interface**: How the user performed their actions. The interface is either UI or API based.
   - **Result**: The outcome of an action (Success, Failure, or Partially Failed).
 
-[Image: Audit Logs Page in the Risk360 Admin Portal]
+[Image: Audit Logs Page in Risk360]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1413,13 +1688,13 @@ On the Insights page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-10-20T12:52Z","nid":"1456991"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-role-management-risk360","lastmod":"2026-10-27T22:32Z","nid":"1456991"} -->
 ## About Role Management
 
 - Source: https://help.zscaler.com/risk360/about-role-management-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > About Role Management
-- Last modified: 2026-10-20T12:52Z
+- Last modified: 2026-10-27T22:32Z
 - Summary: Information on managing roles in the Zscaler Admin Console.
 
 The roles that are assigned to admins dictate the level of access they have to the Risk360 features in the Experience Center. Zscaler provides a default super admin role that has full access to the Risk360. This role is assigned to the default admin, but you can assign this role to other admins as necessary.
@@ -1438,13 +1713,9 @@ On the Role Management page (Administration > Role Management > Risk360), you ca
 2. Search for a configured admin role.
 3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View a list of all admin roles configured for your organization. For each role, you can view the following information:
-  - **Name**: The name of the role.
   - **Full Access**: The areas of Risk360 where admins with this role have full access.
   - **View-Only Access**: The areas of Risk360 where admins with this role have view-only access.
-  - **Risk360 User Device Name Access**: This shows whether the user names are visible or obfuscated within the Zscaler service.
-  - **Device Information**: This shows whether the device information is visible or obfuscated within Risk360 features.
-  - **Functional Scope**: The features of Risk360 that admins with this role can access.
-  - **Type**: The type of role. Currently, there is only one role type.
+  - **Name**: The name of the role.
 5. View a configured admin role.
 6. Edit a configured admin role with lesser scope.
 
@@ -1453,16 +1724,16 @@ On the Role Management page (Administration > Role Management > Risk360), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-10-20T12:59Z","nid":"1504376"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/about-seeds-management","lastmod":"2026-10-27T22:36Z","nid":"1504376"} -->
 ## About Seeds Management
 
 - Source: https://help.zscaler.com/risk360/about-seeds-management
 - Product: Risk360
 - Path: Risk360 Help > Seed Management > About Seeds Management
-- Last modified: 2026-10-20T12:59Z
+- Last modified: 2026-10-27T22:36Z
 - Summary: Information on managing domains for external surface attack analysis in the Zscaler Admin Console].
 
-Seeds Management helps you manage domains that you want to analyze for external surface attacks. After you add the domains (manually or by uploading a CSV file), the Risk360 service performs weekly scans to identify publicly exposed assets within the domains for potential cyberattacks and helps you secure those exposed assets. The Risk360 service also quantifies the risk determined on various parameters for the exposed assets and visualizes them as factors on the [Factors](https://help.zscaler.com/unified/viewing-risk-factors) page. You can add up to 10 domains for scanning. After adding the domains, the Risk360 service takes up to 24–48 hours to scan and analyze the domains.
+Seeds Management helps you manage domains that you want to analyze for external surface attacks. After you add the domains (manually or by uploading a CSV file), the Risk360 service performs weekly scans to identify publicly exposed assets within the domains for potential cyberattacks and helps you secure those exposed assets. The Risk360 service also quantifies the risk determined on various parameters for the exposed assets and visualizes them as factors on the [Factors](https://help.zscaler.com/risk360/viewing-risk-factors) page. You can add up to 10 domains for scanning. After adding the domains, the Risk360 service takes up to 24–48 hours to scan and analyze the domains.
 
 Seeds Management provides the following benefits and allows you to:
 
@@ -1485,16 +1756,14 @@ On the Seeds Management page (Administration > Legacy Admin Management > Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-10-16T01:21Z","nid":"1456996"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/adding-admin-roles-risk360","lastmod":"2026-10-29T15:49Z","nid":"1456996"} -->
 ## Adding Admin Roles
 
 - Source: https://help.zscaler.com/risk360/adding-admin-roles-risk360
 - Product: Risk360
 - Path: Risk360 Help > Role Management > Adding Admin Roles
-- Last modified: 2026-10-16T01:21Z
+- Last modified: 2026-10-29T15:49Z
 - Summary: How to add administrator roles in the Zscaler Admin Console.
-
-[Watch a video about Role Management in Risk360.](https://fast.wistia.net/embed/iframe/zg7mhxhigs)
 
 Configuring the Risk360 admin role is one of the tasks you must complete when configuring role-based administration.
 
@@ -1709,13 +1978,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/assessing-compliance","lastmod":"2026-10-15T22:23Z","nid":"1546771"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/assessing-compliance","lastmod":"2026-10-30T21:06Z","nid":"1546771"} -->
 ## Assessing Compliance
 
 - Source: https://help.zscaler.com/risk360/assessing-compliance
 - Product: Risk360
 - Path: Risk360 Help > Dashboard & Analytics > Assessing Compliance
-- Last modified: 2026-10-15T22:23Z
+- Last modified: 2026-10-30T21:06Z
 - Summary: Information about risk frameworks and how Risk360 helps you identify and analyze your security stance in accordance with these frameworks.
 
 The integration of various risk frameworks with Risk360 helps you identify, assess, mitigate, and monitor risk, ensuring informed decision-making and abiding by regulatory compliance mandated or recommended based on your organization's geography and industry.
@@ -1907,13 +2176,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-rule-risk360","lastmod":"2026-10-14T00:10Z","nid":"1546778"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-rule-risk360","lastmod":"2026-10-27T22:22Z","nid":"1546778"} -->
 ## Configuring an Alert Rule for Risk360
 
 - Source: https://help.zscaler.com/risk360/configuring-alert-rule-risk360
 - Product: Risk360
 - Path: Risk360 Help > Alerts > Configuring an Alert Rule for Risk360
-- Last modified: 2026-10-14T00:10Z
+- Last modified: 2026-10-27T22:22Z
 - Summary: How to configure alert rules in Risk360.
 
 You can configure alert rules for various criteria (i.e., financial loss or risk score changes at organization, category, factor group, or factor levels) that trigger an email or webhook notification to the recipients.
@@ -1937,7 +2206,7 @@ If you've selected a rule template, the service skips to the Configure Delivery 
   5. Enter the value for the operator.
   6. Click **Add** to add another criterion to the rule. For example, see the following GIF to understand how to set the criteria for an alert to be triggered when the risk score for the Data Loss category exceeds 55. See image.
 - **Expression Preview**: You can view a logical preview for the criteria set in the preceding fields. This field is uneditable.
-- **Minimum Alert Throttling Criteria**: Enter the number of days the criteria must persist before triggering the alert notification.
+- **Minimum Throttling Criteria**: Enter the number of days the criteria must persist before triggering the alert notification.
 - Click **Next**.
 
 See image.
@@ -1948,23 +2217,31 @@ In the **Configure Delivery Method**section:
 - **Severity**: Select the severity of the rule from **Critical**, **High**, **Medium**, or **Low**.
 - **Status**: Select **Enabled** or **Disabled** for the rule.
 - **Delivery Method**: Select the alert delivery methods from **Email**and**Webhook.**
-- **Webhooks**: Select from the existing configured webhooks or configure a new webhook by clicking **Configure Webhooks** to receive alerts via webhooks. To learn more, see [Configuring Alert Webhooks](https://help.zscaler.com/risk360/configuring-alert-webhooks-risk360).
-- **Email Recipient**: Enter the email address to which you want the alerts to be sent. To learn more about the information sent, see [Understanding the Alert Email](https://help.zscaler.com/risk360/understanding-alert-email-risk360).
+- **Webhooks**: Select from the existing configured webhooks or configure a new webhook by clicking **Configure Webhooks** to receive alerts via webhooks. To learn more, see [Configuring Alert Webhooks for Risk360](https://help.zscaler.com/risk360/configuring-alert-webhooks-risk360).
+- **Email Recipient**: Enter the email address to which you want the alerts to be sent. To learn more about the information sent, see [Understanding Alert Email for Risk360](https://help.zscaler.com/risk360/understanding-alert-email-risk360).
 - **Custom Message**: Enter a custom message that is displayed within the alert notification when this alert is triggered. This message is applicable for both email and webhooks.
 - Click **Add**.
 
 See image.
+
+[Image: Define Criteria & Throttling on the Add Alert Rule page for Risk360]
+
+[Image: Basic Information and alert delivery method configuration in Risk360]
+
+[Image: Adding Criteria GIF]
+
+[Image: Templates for Risk360 alert rules]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-webhooks-risk360","lastmod":"2026-10-14T00:11Z","nid":"1546779"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/configuring-alert-webhooks-risk360","lastmod":"2026-10-27T07:13Z","nid":"1546779"} -->
 ## Configuring Alert Webhooks for Risk360
 
 - Source: https://help.zscaler.com/risk360/configuring-alert-webhooks-risk360
 - Product: Risk360
 - Path: Risk360 Help > Alerts > Configuring Alert Webhooks for Risk360
-- Last modified: 2026-10-14T00:11Z
+- Last modified: 2026-10-27T07:13Z
 - Summary: Information on configuring webhooks to deliver alerts in Risk360.
 
 You can configure and use webhooks in an alert rule and assign multiple alert rules to the same webhook from your third-party provider for alert delivery.
@@ -1985,7 +2262,7 @@ Enter a **Username**and**Password**. Password information is hidden by default. 
 
 Enter the bearer token. A bearer token is a unique alphanumeric string used for authentication. You can obtain the bearer token from your webhook provider.
 
-[Image: Add Webhook Drawer]
+[Image: Add New Webhook]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2133,14 +2410,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/downloading-risk-reports","lastmod":"2026-10-14T00:47Z","nid":"1546770"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/downloading-risk-reports","lastmod":"2026-10-27T07:59Z","nid":"1546770"} -->
 ## Downloading Risk Reports
 
 - Source: https://help.zscaler.com/risk360/downloading-risk-reports
 - Product: Risk360
 - Path: Risk360 Help > Dashboard & Analytics > Downloading Risk Reports
-- Last modified: 2026-10-14T00:47Z
-- Summary: Information about how to download various risk reports in the Admin Portal.
+- Last modified: 2026-10-27T07:59Z
+- Summary: Information about how to download various risk reports in the Zscaler Admin Console.
 
 You can download various risk-related reports from the Reports page (Analytics > Reports > Risk360 Reports). The page contains the following reports and documents:
 
@@ -2155,7 +2432,7 @@ You can download various risk-related reports from the Reports page (Analytics >
 
 Click **View All** to view all the reports for a specific category.
 
-[Image: Reports page in the Risk360 Admin Portal.]
+[Image: Download various risk reports for Risk360]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2238,13 +2515,13 @@ Click the Investigate link available for each section and you're redirected to t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-10-14T09:03Z","nid":"1546620"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/integrating-3rd-party-connectors-risk-factors","lastmod":"2026-10-28T21:06Z","nid":"1546620"} -->
 ## Integrating 3rd-Party Connectors for Risk Factors
 
 - Source: https://help.zscaler.com/risk360/integrating-3rd-party-connectors-risk-factors
 - Product: Risk360
 - Path: Risk360 Help > 3rd-Party Integration > Integrating 3rd-Party Connectors for Risk Factors
-- Last modified: 2026-10-14T09:03Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: Information about 3rd-party app integration for risk factors in the Risk360.
 
 The Risk360 service's integration with Zscaler Data Fabric helps in providing better security and a risk assessment that creates a holistic risk quantification environment observed for Zscaler and other third-party technologies. Data Fabric ingests Zscaler and third-party data sources and then harmonizes, deduplicates, correlates, and enriches the ingested data that is used in the Risk360 service for risk quantification. You can configure connectors in the Data Fabric to ingest third-party data sources.
@@ -2335,14 +2612,14 @@ The following screenshot illustrates an example section from a problem analyzed 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/managing-financial-risk-settings","lastmod":"2026-10-14T00:49Z","nid":"1546775"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/managing-financial-risk-settings","lastmod":"2026-10-27T07:53Z","nid":"1546775"} -->
 ## Managing Financial Risk Settings
 
 - Source: https://help.zscaler.com/risk360/managing-financial-risk-settings
 - Product: Risk360
 - Path: Risk360 Help > Financial Risk > Managing Financial Risk Settings
-- Last modified: 2026-10-14T00:49Z
-- Summary: Information on managing financial risk settings in the Admin Portal.
+- Last modified: 2026-10-27T07:53Z
+- Summary: Information on managing financial risk settings in the Zscaler Admin Console.
 
 You can customize the parameters of the financial model that determines the financial exposure of your organization.
 
@@ -2575,13 +2852,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-10-08T23:55Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-10-26T09:50Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-08T23:55Z
+- Last modified: 2026-10-26T09:50Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -3122,13 +3399,13 @@ The search provides auto-complete suggestions as you enter your search.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/servicenow-webhook-configuration-guide-risk360","lastmod":"2026-10-14T00:12Z","nid":"1546780"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/servicenow-webhook-configuration-guide-risk360","lastmod":"2026-10-27T07:15Z","nid":"1546780"} -->
 ## ServiceNow Webhook Configuration Guide for Risk360
 
 - Source: https://help.zscaler.com/risk360/servicenow-webhook-configuration-guide-risk360
 - Product: Risk360
 - Path: Risk360 Help > Alerts > ServiceNow Webhook Configuration Guide for Risk360
-- Last modified: 2026-10-14T00:12Z
+- Last modified: 2026-10-27T07:15Z
 - Summary: How to configure webhooks using ServiceNow with a ServiceNow Developer account.
 
 This guide provides information on configuring webhooks using ServiceNow for alerts in Risk360. This article provides a sample configuration that can be built on per user requirements. The following ServiceNow webhook sample configuration uses a ServiceNow developer configuration.
@@ -3146,7 +3423,7 @@ To configure webhook using ServiceNow:
 9. Based on the authentication type you want to configure the webhook, choose one of the following methods:
   - Basic Authentication
   - Token authentication
-10. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Risk360** > **Alerts** > **Webhooks** > **Add Webhooks**.
+10. In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics** > **Risk360** > **Alerts** > **Webhooks** > **Add Webhook**.
 11. Complete the following fields:
   1. **Name**: Enter the name of the webhook.
   2. **Status**: Select **Enabled** or **Disabled** for the webhook.
@@ -4331,16 +4608,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/what-risk360","lastmod":"2026-03-24T10:09Z","nid":"1452526"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/what-risk360","lastmod":"2026-10-29T15:47Z","nid":"1452526"} -->
 ## What Is Risk360?
 
 - Source: https://help.zscaler.com/risk360/what-risk360
 - Product: Risk360
 - Path: Risk360 Help > What Is Risk360?
-- Last modified: 2026-03-24T10:09Z
+- Last modified: 2026-10-29T15:47Z
 - Summary: Introductory information on Risk360.
-
-[Watch a video about Risk360](https://fast.wistia.net/embed/iframe/hf2l0lww5w).
 
 Zscaler requests you read through the Risk360 service disclaimer before using the service. To learn more, see [Product Output Disclaimer](https://help.zscaler.com/legal/product-output-disclaimer).
 
@@ -5233,6 +5508,161 @@ To list all accounts in the organization:
 2. To create a new stack, run the following command: `aws cloudformation create-stack \ --stack-name zscaler-list-account-stack \ --template-body file://zscaler-list-account-cf.json \ --capabilities CAPABILITY_NAMED_IAM \ --parameters ParameterKey=ExternalId,ParameterValue=<Generated UUID>`
 
 You can assume the roles in each account within the organization from your code.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-aws-s3-outegration","lastmod":"2026-10-30T09:27Z","nid":"1546712"} -->
+## Configuring the AWS S3 Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-aws-s3-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the AWS S3 Outegration
+- Last modified: 2026-10-30T09:27Z
+- Summary: How to configure the AWS S3 outegration.
+
+The AWS S3 outegration is used to send data from Agentic Security Operations Platform (Agentic SecOps Platform) applications (e.g., Unified Vulnerability Management (UVM)) to your AWS S3 bucket.
+
+This article is a step-by-step guide to setting up the AWS S3 outegration.
+
+Each AWS S3 bucket requires a separate outegration configuration.
+
+## Prerequisites
+
+To configure the AWS S3 outegration, you need to configure an appropriate AWS IAM role with the correct trust and permission policies. You also need the source authentication configuration. The following parameters are required:
+
+- Configure AWS Role Permissions
+- Configure AWS Role Trust Policy
+- Retrieve AWS Authentication Details
+
+To learn more, see [Zscaler and AWS Deployment Guide](https://help.zscaler.com/zscaler-technology-partners/zscaler-and-aws-deployment-guide).
+
+## Creating the AWS S3 Outegration
+
+To configure the AWS S3 outegration, complete the following steps:
+
+- Step 1: Authenticate the AWS S3 Connection (Connect)
+- Step 2: Configure the Outegration Visibility and Behavior (Settings)
+- Step 3: Configure Reports or Define Dispatch Criteria
+
+When the outegration setup is complete, the Agentic SecOps Platform exports scheduled reports or dispatches items to AWS S3 when certain criteria are met.
+
+Create an AWS role that includes the following permissions:
+
+- s3:PutObject
+- s3:AbortMultipartUpload
+- s3:ListMultipartUploadParts
+
+View an example permissions policy.
+
+To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListBucketForPrefix",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::<BUCKET_NAME>",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": [
+            "<PREFIX>*"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "WriteExports",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:AbortMultipartUpload",
+        "s3:ListMultipartUploadParts"
+      ],
+      "Resource": "arn:aws:s3:::<BUCKET_NAME>/<PREFIX>*"
+    }
+  ]
+}
+```
+
+Update the AWS role trust policy to allow Zscaler's service principal to assume your AWS role. Contact Zscaler Support to retrieve Zscaler's service principal ARN.
+
+View an example trust policy.
+
+To learn more, refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-trust-policy.html).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowZscalerAssumeRole",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "<ZS_VENDOR_PRINCIPAL>"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "<EXTERNAL_ID>"
+        }
+      }
+    }
+  ]
+}
+```
+
+To authenticate the outegration, retrieve the following details:
+
+- Account
+- Region
+- Bucket
+- Role ARN
+- External ID
+
+The first step in setting up your AWS S3 outegration is to authenticate using valid credentials to establish a secure connection with your AWS S3 instance. With the required parameters retrieved in the prerequisites, you can begin the AWS S3 outegration setup in the Agentic SecOps Platform.
+
+To create an outegration:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Outegrations**.
+3. Click **Create**. The **Connect a New Outegration** page appears.
+4. On the **Connect a New Outegration page**, select **AWS S3**. See image. The **Create AWS S3 Outegration** page appears.
+5. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for your outegration.
+  2. **Active**: Enable to activate the AWS S3 outegration.
+  3. **Account**: Enter the AWS account name.
+  4. **Region**: Select the region of the AWS service you are retrieving data from.
+  5. **Bucket**: Enter the AWS S3 bucket name.
+  6. **Role ARN**: Enter the role ARN.
+  7. **External ID**: Enter the external ID. The external ID is the optional unique identifier generated when creating a role ARN. It is used as an additional security measure when accessing your account.
+6. Click **Test** to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
+7. After the test passes, click **Next**to advance to the **Settings**step.
+
+[Image: AWS S3 outegration tile]
+
+[Image: Create AWS S3 Outegration page]
+
+In the Settings step of the outegration setup wizard, configure your AWS S3 outegration's visibility and behavior for the relevant Agentic SecOps Platform application (e.g., UVM). In this step, you'll select the Agentic SecOps Platform entity that triggers the dispatch to AWS S3.
+
+To configure the outegration's visibility and behavior:
+
+1. In the **Advanced Settings** section:
+  1. **Create item from**: Select the entity that triggers the dispatch to AWS S3 (e.g., **Asset**, **Ticket**, **Incident**).
+  2. **Path**: (Optional) Enter the path to the AWS S3 folder you want to upload the entity to.
+2. Click **Finish**.
+
+Perform one of the following actions:
+
+- Export scheduled reports to AWS S3. To learn more, see [Managing Reports](https://help.zscaler.com/unified/managing-reports).
+- Define the criteria that trigger an automatic item dispatch from the relevant Agentic SecOps Platform application:
+  - If you selected Ticket or Violation Ticket, see [Configuring Ticket Workflows](https://help.zscaler.com/uvm/configuring-ticket-workflows).
+  - If you selected Incident, see [Configuring Incident Workflows](https://help.zscaler.com/agentic-soc/configuring-incident-workflows).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12899,6 +13329,115 @@ To learn more, see [Zscaler UVM and Snyk Deployment Guide](https://help.zscaler.
 [Image: The Snyk SAST and Snyk tiles]
 
 [Image: The Snyk Authentication window displaying the Name, Token, and Org Id fields in the SecOps platform]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-splunk-outegration","lastmod":"2026-10-30T09:28Z","nid":"1546093"} -->
+## Configuring the Splunk Outegration
+
+- Source: https://help.zscaler.com/uvm/configuring-splunk-outegration
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Splunk Outegration
+- Last modified: 2026-10-30T09:28Z
+- Summary: How to configure the Splunk outegration.
+
+The Splunk outegration is used to send data from [Agentic SOC](https://help.zscaler.com/agentic-soc/what-zscaler-agentic-soc) to Splunk, creating a Splunk security incident that can be tracked, assigned, and enriched by your remediation teams working with Splunk.
+
+This article is a step-by-step guide to setting up the Splunk outegration. The process involves setting up authentication, outegration mapping, and defining incident criteria.
+
+## Prerequisites
+
+Retrieve the required authentication parameters and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
+
+- Base URL
+- HTTP Event Collector Token
+
+## Creating the Splunk Outegration
+
+To configure the Splunk outegration, complete the following steps:
+
+- Step 1: Authenticate the Splunk Connection (Connect)
+- Step 2: Review the Outegration Behavior (Settings)
+- Step 3: Create Mappings for Outegration Fields (Mapping)
+- Step 4: Define Incident Dispatch Criteria
+
+When the outegration setup is complete, Agentic SOC dispatches incidents to Splunk when certain criteria are met. You can view dispatch runs in the outegration's activity log. To learn more, see [Configuring Incident Workflows](https://help.zscaler.com/agentic-soc/configuring-incident-workflows) and [Managing Outegrations](https://help.zscaler.com/unified/managing-outegrations#outegration-activity-log).
+
+Locate the base URL of your Splunk instance. If you have configured the HTTP Event Collector to listen on a port, you must include the port number. To find the port number, refer to the [Splunk documentation](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/10.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web#enable-http-event-collector-on-splunk-enterprise-0).
+
+Create a new HTTP Event Collector token. To learn more, refer to the [Splunk documentation](https://help.splunk.com/en/splunk-enterprise/get-started/get-data-in/10.4/get-data-with-http-event-collector/set-up-and-use-http-event-collector-in-splunk-web#create-an-event-collector-token-on-splunk-enterprise-0).
+
+The first step in setting up your Splunk outegration is to authenticate using valid credentials to establish a secure connection with your Splunk instance. With the required parameters retrieved in the prerequisites, you can begin the Splunk outegration setup in the Agentic Security Operations Platform (Agentic SecOps Platform).
+
+To create an outegration:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Outegrations**.
+3. Click **Create**. The **Connect a New Outegration** page appears.
+4. On the **Connect a New Outegration page**, select **Splunk.** See image. The **Create Splunk Outegration** page appears.
+5. In the **Details** section: See image.
+  1. **Display Name**: Enter a name for your outegration.
+  2. **Active**: Enable the Splunk outegration.
+  3. **Base URL**: Enter the base URL for your Splunk instance.
+  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication, and enter the token value you retrieved earlier into the corresponding field. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
+6. Click **Test** to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
+7. After the test passes, click **Next**.
+
+[Image: Splunk outegration tile]
+
+[Image: Create Splunk Outegration page]
+
+In the Settings step of the outegration setup wizard, the Agentic SOC incident is already selected and cannot be changed. You can define the criteria that trigger an automatic incident dispatch in a later step.
+
+See image.
+
+In the Mapping step out the outegration setup wizard, review the default field mapping between your Agentic SOC incidents and Splunk incidents. This defines how data is exchanged and synchronized between the two systems upon initial dispatch. TheSplunk outegration mapping defaults cannot be modified or customized. All Splunk outegration schema fields are mapped to an Agentic SOC incident field based on common use cases and industry best practices.
+
+See image.
+
+To create a new mapping:
+
+1. Click **Mapping**.
+2. Under **Select which field to populate** (right), click the field to enter the name of the new field, then click **Add**. See image.
+3. Under **Define How to populate field** (left), click **Add value**. The **Field Editor** appears.
+4. In the **Field Editor**, select one of the following methods to configure the value of the field:
+  - Field (Dictionary)
+  - Expression
+5. Click **Save**, then repeatthe mapping process for any other fields you want to map.
+6. (Optional) You can set a field as mandatory to guarantee that critical fields (e.g., Assignee) are always populated before an incident is dispatched to Splunk. To set a field as mandatory, click the **Column Menu**icon, then select the **Set as Mandatory**checkbox. See image. Required fields are defined by your Splunk schema, whereas mandatory fields are mandatory for Agentic SecOps Platform incident dispatch. Attempts to dispatch an incident without a value in a mandatory field will trigger an error message.
+7. (Optional) Click **Preview** to review the Splunk mapping. You can select, filter, or search incidents and preview the mapping to their corresponding Splunk incident. You can also open the Agentic SecOps Platform incident in a new tab for a more in-depth review. See image.
+8. Click **Finish** to complete the outegration setup.
+
+Select a field on the left to populate the field on the right.
+
+### Dictionary
+
+The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and then a field to populate it with on the left.
+
+See image.
+
+Enter an expression to populate the field on the right.
+
+See image.
+
+You can create expressions using the list of supported functions that transform or translate the field value. The system validates your expression when you click **Save**.
+
+After you complete the outegration setup, you can define the criteria that trigger an automatic incident dispatch within Agentic SOC. To learn more, see [Configuring Incident Workflows](https://help.zscaler.com/agentic-soc/configuring-incident-workflows).
+
+[Image: Settings step in Splunk outegration setup wizard]
+
+[Image: Splunk outegration mapping]
+
+[Image: Add new Splunk field]
+
+[Image: Dictionary mapping]
+
+[Image: Expression toggle highlighted]
+
+[Image: Set as mandatory option]
+
+[Image: Mapping Preview window for Agentic SOC Splunk outegration]
 <!-- /ZS-ARTICLE -->
 
 ---

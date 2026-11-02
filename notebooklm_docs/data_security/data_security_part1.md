@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 176
 
 ---
@@ -10182,13 +10182,13 @@ The scan rule is enabled or disabled per its status.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-10-16T03:46Z","nid":"1486391"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/iam-roles-and-permissions-aws","lastmod":"2026-10-30T04:51Z","nid":"1486391"} -->
 ## IAM Roles and Permissions for AWS
 
 - Source: https://help.zscaler.com/dspm/iam-roles-and-permissions-aws
 - Product: Data Security Posture Management (DSPM)
 - Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > IAM Roles and Permissions for AWS
-- Last modified: 2026-10-16T03:46Z
+- Last modified: 2026-10-30T04:51Z
 - Summary: Information about the roles created and permissions while onboarding AWS accounts.
 
 As part of the [onboarding](https://help.zscaler.com/dspm/onboarding-aws-organization) process, you need to deploy the DSPM templates that create roles and permissions in the AWS organization. These templates create multiple IAM roles with the required permissions to establish a trust relationship between DSPM, the [orchestrator account](https://help.zscaler.com/dspm/understanding-orchestrator), and target accounts. Each role has permissions for various services and actions such as resource discovery, CloudTrail log collection, etc.
@@ -10226,12 +10226,6 @@ The resource discovery role is required for DSPM to discover resources within th
 | --- | --- | --- | --- |
 | `logs:ListLogDeliveries` | Allow | Monitored Accounts | To list the log delivery settings for a specific log group |
 | `wafv2:ListResourcesForWebACL` | Allow | Monitored Accounts | To list all the resources that are associated with a specific AWS WAFv2 web ACL |
-| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
-| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by DSPM (based on tags) | To update Zscaler DSPM’s Auto Scaling group |
-| `ec2:TerminateInstances` | Allow | Only resources created by DSPM (based on tags) | To terminate one or more Zscaler DSPM’s Amazon EC2 instances |
-| `kms:GenerateDataKey` | Allow | Only resources created by DSPM (based on tags) | To generate a data key for Zscaler DSPM’s key that can be used to encrypt data |
-| `kms:Decrypt` | Allow | Only resources created by DSPM (based on tags) | To decrypt ciphertext that was encrypted using Zscaler DSPM’s key in the AWS Key Management Service (KMS) |
-| `sqs:PurgeQueue` | Allow | Only resources created by DSPM (based on tags) | To purge the messages from DSPM-created queues |
 | `sts:AssumeRole` | Allow | Orchestrator Account | To assume a role in AWS |
 | `s3:GetObject` | Deny | Monitored Accounts |  |
 | `dynamodb:BatchGetItem` | Deny | Monitored Accounts |  |
@@ -10244,6 +10238,12 @@ The orchestrator instance profile role is used by the orchestrator instance pres
 | Permission | Effect | Scope | Purpose |
 | --- | --- | --- | --- |
 | `sqs:ReceiveMessage` | Allow | Orchestrator Account | To retrieve one or more messages from an SQS queue |
+| `ec2:CreateLaunchTemplateVersion` | Allow | Orchestrator Account | To create a new version of a launch template |
+| `autoscaling:UpdateAutoScalingGroup` | Allow | Only resources created by DSPM (based on tags) | To update Zscaler DSPM’s Auto Scaling group |
+| `ec2:TerminateInstances` | Allow | Only resources created by DSPM (based on tags) | To terminate one or more Zscaler DSPM’s Amazon EC2 instances |
+| `kms:GenerateDataKey` | Allow | Only resources created by DSPM (based on tags) | To generate a data key for Zscaler DSPM’s key that can be used to encrypt data |
+| `kms:Decrypt` | Allow | Only resources created by DSPM (based on tags) | To decrypt ciphertext that was encrypted using Zscaler DSPM’s key in the AWS Key Management Service (KMS) |
+| `sqs:PurgeQueue` | Allow | Only resources created by DSPM (based on tags) | To purge the messages from DSPM-created queues |
 | `sqs:Get*` | Allow | Orchestrator Account | To retrieve information about an SQS queue, including its attributes and permissions |
 | `sqs:List*` | Allow | Orchestrator Account | To list SQS queues and their attributes |
 | `rds:RestoreDBClusterFromSnapshot` | Allow | Orchestrator Account | To restore database cluster from a snapshot of an RDS database cluster |

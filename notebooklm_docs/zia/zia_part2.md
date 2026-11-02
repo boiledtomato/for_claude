@@ -1,149 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 111
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal","lastmod":"2026-10-06T02:06Z","nid":"1457606"} -->
-## Accessing and Navigating the 3rd-Party App Governance Admin Portal
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-3rd-party-app-governance-admin-portal
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Accessing and Navigating the 3rd-Party App Governance Admin Portal
-- Last modified: 2026-10-06T02:06Z
-- Summary: How to access and navigate the 3rd-Party App Governance Admin Portal.
-
-Zscaler 3rd-Party App Governance allows you to discover, manage, reduce, and control the attack surface introduced by third-party apps, extensions, and add-ons to corporate SaaS applications. With 3rd-Party App Governance, you can uncover and maintain an up-to-date app inventory, gaining full visibility into what is connected, the risks posed, and how each app is used in your environment. To learn more, see [What Is 3rd-Party App Governance?](https://help.zscaler.com/zia/what-3rd-party-app-governance)
-
-## Signing In to the 3rd-Party App Governance Admin Portal
-
-You can access 3rd-Party App Governance upon invitation. After you receive the invitation email, you can sign in to 3rd-Party App Governance.
-
-To access 3rd-Party App Governance:
-
-1. Click **Start Now**in the 3rd-Party App Governance invitation email, or go to [https://apptotal.zscaler.com/](https://apptotal.zscaler.com/:).
-
-The 3rd-Party App Governance sign-in page appears.
-
-See image.
-
-1. On the sign-in page, click **Sign in with Google** or **Sign in with Azure AD**.
-
-The 3rd-Party App Governance dashboard appears.
-
-Authentication is performed using Google, Azure AD federation, or Okta. Passwords are not supported. SAML federation with your own identity provider (IdP) (e.g., Okta) is supported on enterprise tiers.
-
-On the first sign-in, an empty dashboard appears, as 3rd-Party App Governance is not yet connected to any of your platforms. You must click**Connect** in the upper-right corner of the dashboard to connect 3rd-Party App Governance to your platform. To learn more, see [Connecting Your Platforms to 3rd-Party App Governance](https://help.zscaler.com/zia/connecting-your-platforms-3rd-party-app-governance). You can choose between self-onboarding or scheduling a concierge onboarding with Zscaler Support.
-
-A user with admin privileges is required to connect to your platforms. This can be done with any user, not necessarily the user you used to sign in to 3rd-Party App Governance (some clients use dedicated service accounts).
-
-[Image: Screenshot of Sign-in Page]
-
-## Accessing 3rd-Party App Governance from the Zscaler Admin Console
-
-You can access the 3rd-Party App Governance Admin Portal from the Zscaler Admin Console using SSO, if you have subscribed to the 3rd-Party App Governance service. You must also have access to the Data Loss Prevention (DLP) feature and a 3rd-Party App Governance Admin or a Super Admin role assigned to you. To check whether you are subscribed to the 3rd-Party App Governance service, you can view your company subscriptions to confirm if 3rd-Party App Governance license is present. To learn more, see [Viewing Subscriptions](https://help.zscaler.com/unified/viewing-subscriptions).
-
-To access the 3rd-Party App Governance Admin Portal from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics > Reports > SaaS Security Report > 3rd-Party App Governance.**
-
-See image.
-
-You can also access the 3rd-Party App Governance Admin Portal from multiple locations on the SaaS Security Report and SaaS Assets Report, if you have a subscription to 3rd-Party App Governance. To learn more, see [About the SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report) and [About the Assets Report](https://help.zscaler.com/zia/about-assets-report).
-
-[Image: SaaS Security Report showing 3rd-Party App Governance SSO Link]
-
-## Navigating within the 3rd-Party App Governance Admin Portal
-
-The 3rd-Party App Governance Admin Portal has the following items in the left-side navigation:
-
-- App Dashboard
-- Apps
-- Users
-- Policies
-- Reports
-- Audit Log
-- Settings
-- Log Out
-
-Click **App Dashboard** to get a high-level overview of your active and deactivated apps, as well as risky, potentially harmful, dormant, and overprivileged apps; see top apps, users, and findings; and leverage the remediation map to further assist in taking the right remediation actions. To learn more, see [About the 3rd-Party App Governance Dashboard](https://help.zscaler.com/zia/about-3rd-party-app-governance-dashboard)[.](https://help.zscaler.com/node/1462556/)
-
-Click **Apps** to view, manage, and govern your apps. You can also search 3rd-Party App Governance's app catalog to assist in pre-vetting use cases. To learn more, see [About the App Inventory](https://help.zscaler.com/zia/about-app-inventory) and [Searching for Apps](https://help.zscaler.com/zia/searching-apps).
-
-Click **Users** to view a list of current users and explore individual user access and activities. To learn more, see [About User Inventory](https://help.zscaler.com/zia/about-user-inventory).
-
-Click **Policies** to create and manage app policies. To learn more, see [3rd-Party App Governance Policies](https://help.zscaler.com/zia/3rd-party-app-governance-policies).
-
-Click **Reports**to view predefined, out-of-the-box reports or custom reports that you have created.
-
-Click the **Audit Log** icon to view details on changes made by users and admins in 3rd-Party App Governance.
-
-Click the **Settings**icon to view and manage the list of currently integrated tenants and to configure notifications. To learn more, see [About Settings in 3rd-Party App Governance](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance).
-
-Click the **Logout** icon to see the currently logged-in user. Select **Logout** to log out of 3rd-Party App Governance when you are done.
-
-[Image: 3rd-Party App Governance Admin Portal home screen showing left-side navigation]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/accessing-and-navigating-endpoint-data-scan-report","lastmod":"2026-05-27T03:01Z","nid":"1486096"} -->
-## Accessing and Navigating the Endpoint Data Scan Report
-
-- Source: https://help.zscaler.com/zia/accessing-and-navigating-endpoint-data-scan-report
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Accessing and Navigating the Endpoint Data Scan Report
-- Last modified: 2026-05-27T03:01Z
-- Summary: Information on the Endpoint Data Scan Report, including how to access and navigate it.
-
-This article covers the following topics:
-
-- Accessing the Endpoint Data Scan Report
-- Navigating within the Endpoint Data Scan Report
-
-Endpoint Data Scan Report is an analytics and metrics report where in-depth data scan results can be viewed for all the endpoints connected to your organization's user traffic. You can view everyday scan results performed on endpoints by recording and formulating metrics for activities, incidents, and sensitive files discovered for each user in the form of visually intuitive and highly interactive graphs and widgets.
-
-To access the Endpoint Data Scan Report, go to Analytics > Endpoint Data Scan; you're redirected to the Endpoint Data Scan Report pages in a new browser tab.
-
-See image.
-
-The report has the following items on the left-side navigation:
-
-- Endpoint Data Scan
-- User Investigation
-- Device Investigation
-- Device Control
-- Sensitive Information
-- Inventory
-- Activation
-- Configuration
-- Account
-- Logout
-
-[Image: This image shows the Endpoint Data Scan tabs]
-
-Click **User Investigation** to view scan results and data specific to endpoints connected to a user. You can view the user with the most activities, incidents, department information, risk profile, and other significant metrics. To learn more, see [About User Investigation](https://help.zscaler.com/zia/about-user-investigation) and [Analyzing Endpoint DLP Scan for a User](https://help.zscaler.com/zia/analyzing-endpoint-dlp-scan-user).
-
-Click **Device Investigation** for a comprehensive view of all the endpoint details, including real-time device health status. You can view the Shadow IT of all the detected applications on the endpoint. To learn more, see [About Device Investigation](https://help.zscaler.com/zia/about-device-investigation) and [Analyzing Device Investigation Details](https://help.zscaler.com/zia/analyzing-device-investigation-details).
-
-Click **Endpoint Data Scan** to view sensitive data stored locally within all the endpoints connected to your organization's traffic. You can view various metrics for each endpoint and the users connected to these endpoints. To learn more, see [About Endpoint Data Scan](https://help.zscaler.com/zia/about-endpoint-data-scan).
-
-Click **Device Control** to create and manage device control policy rules for removable storage devices (e.g., USB drives, external hard drives) and printers to align within specific use cases within your organization. Administrators can define and set up policy rules for the usage of devices based on rule criteria, such as user, department, endpoint, device, etc. To learn more, see [About Device Control](https://help.zscaler.com/zia/about-device-control).
-
-Click **Inventory**to view information about the devices connected by the end users in the organization and their associated incidents and activities. You can view metrics for each connected device and the users connected to the devices and their endpoints. To learn more, see [About Inventory](https://help.zscaler.com/zia/about-inventory).
-
-Click **Activation**to enable the device control policy rules that you created in the **Device Control**tab or **Inventory**tab, or any changes made in the **Configuration**tab. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
-
-Click **Configuration**to configure endpoint data scan and other endpoint settings, such as continuous classification and endpoint DLP exemption duration. To learn more, see [Configuring Endpoint Data Scan, Endpoint Settings, and Channels](https://help.zscaler.com/zia/configuring-endpoint-data-scan-endpoint-settings).
-
-Click **Sensitive Information** to view Indexed Document Match (IDM) information, which enables authorized users to fingerprint documents containing sensitive data on endpoints. To learn more, see [About Sensitive Information](https://help.zscaler.com/zia/about-sensitive-information) and [Configuring Sensitive Information Settings](https://help.zscaler.com/zia/configuring-sensitive-information-settings).
-
-Click **Account**to view your username, organization name, organization ID, and cloud name.
-
-Click **Logout** to log out when you're done analyzing the endpoint scan data.
-
-[Image: This image shows how to access the Endpoint Data Scan Page.]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 110
 
 ---
 
@@ -298,13 +157,13 @@ Endpoint Data Loss Prevention (DLP) pulls the policy every 15 minutes.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-provisioning-migration-guide","lastmod":"2026-07-13T21:06Z","nid":"1486446"} -->
+<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-ldap-provisioning-migration-guide","lastmod":"2026-10-30T17:06Z","nid":"1486446"} -->
 ## Active Directory with LDAP to SCIM Provisioning Migration Guide
 
-- Source: https://help.zscaler.com/zia/active-directory-scim-provisioning-migration-guide
+- Source: https://help.zscaler.com/zia/active-directory-scim-ldap-provisioning-migration-guide
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Active Directory with LDAP to SCIM Provisioning Migration Guide
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T17:06Z
 - Summary: This article contains information on migrating from Active Directory (AD) to SCIM Provisioning.
 
 This guide contains information on how to migrate from Active Directory (AD) with [LDAP user synchronization](https://help.zscaler.com/zia/about-ldap-user-synchronization) to SCIM provisioning in the Zscaler Admin Console.
@@ -323,10 +182,10 @@ When migrating from AD to SCIM, do not change the database type in the Zscaler A
 
 To migrate from AD to SCIM provisioning:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Internet & SaaS Authentication** >**Internet Authentication Settings** > **Default Settings**.
 2. Click **Sync Now**to perform a manual sync with the AD; this ensures that the Zscaler service has the latest database from the AD. See image.
 3. (Optional) Ensure that you have the latest user data from the AD in your IdP application by performing a manual sync in the IdP application.
-4. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings** and enable **Disable Directory Sync & Enable SCIM Provisioning**. See image.
+4. Enable **Disable Directory Sync & Enable SCIM Provisioning**. See image.
 5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 6. Go to the **Identity Providers**tab and click the **Edit**icon of the IdP you plan to use.
 7. In the **Provisioning Options**section, click **Enable SCIM Provisioning** and copy the **Base URL**and **Bearer Token**as you need them when configuring SCIM in your IdP application. See image Zscaler recommends that you disable **Enable SAML Auto-Provisioning**when using SCIM provisioning**.**
@@ -336,11 +195,11 @@ Make sure that you do not disable the **Disable Directory Sync & Enable SCIM Pro
 
 If you need to revert from SCIM to AD provisioning:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**, and click the **Edit**icon for the IdP you used.
+1. **Administration** > **Internet & SaaS Authentication** >**Internet Authentication Settings** > **Identity Providers**, and click the **Edit**icon for the IdP you used.
 2. Disable the **Enable SCIM Provisioning**option.
-3. On the **Default Settings**tab, disable the **Disable Directory Sync & Enable SCIM Provisioning**option.
+3. Go to the **Default Settings**tab and disable the **Disable Directory Sync & Enable SCIM Provisioning**option.
 4. In the IdP application that you previously configured SCIM for, disable the SCIM configuration.
-5. In the Zscaler Admin Console, go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Default Settings**, and click **Sync Now.**
+5. Go to **Administration** > **Internet & SaaS Authentication** >**Internet Authentication Settings** > **Default Settings**, and click **Sync Now.**
 
 [Image: Image of the Sync Now button]
 
@@ -1027,20 +886,20 @@ To configure a Cloud NSS feed for 3rd-Party App Governance logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-admin-audit-logs","lastmod":"2026-06-16T07:25Z","nid":"1402721"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-admin-audit-logs","lastmod":"2026-10-29T15:07Z","nid":"1402721"} -->
 ## Adding Cloud NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-admin-audit-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Admin Audit Logs
-- Last modified: 2026-06-16T07:25Z
+- Last modified: 2026-10-29T15:07Z
 - Summary: How to add Cloud NSS feeds for admin audit logs in the Zscaler Admin Console.
 
 The initial audit log Nanolog Streaming Service (NSS) feed can take up to 2 hours to stream to the Cloud NSS and your security information and event management (SIEM) system. If you have the Authentication Service, the initial feed can take up to 5 hours to stream to the Cloud NSS and your SIEM system. However, this delay does not occur if you have already configured and are streaming [SCIM Logs](https://help.zscaler.com/zia/adding-nss-feeds-zidentity-scim-logs).
 
 To configure a Cloud NSS feed for admin audit logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window: See image.
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1068,7 +927,7 @@ To configure a Cloud NSS feed for admin audit logs:
     - **Client Connector Portal Audit Log**: Allows real-time streaming of the Zscaler Client Connector audit logs to SIEM.
     - **Risk360 Admin Portal Audit Log**: Allows real-time streaming of the Risk360 audit logs to SIEM.
     - **ZDX Portal Audit Log**: Allows real-time streaming of the Digital Experience (ZDX) audit logs to SIEM.
-    - **ZIA Portal Audit Log**: Allows real-time streaming of the Internet & SaaS (ZIA) audit logs to SIEM.
+    - **ZIA Portal Audit Log**: Allows real-time streaming of the Internet Access (ZIA) audit logs to SIEM.
     - **ZIdentity Admin Audit Log**: Allows real-time streaming of the Authentication Service audit logs to SIEM.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -1188,18 +1047,18 @@ To configure a Cloud NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-09-20T07:06Z","nid":"1402056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-10-29T11:41Z","nid":"1402056"} -->
 ## Adding Cloud NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T11:41Z
 - Summary: How to add Cloud NSS feeds for DNS logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for DNS logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud** **NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between NSS and your SIEM.
@@ -1216,7 +1075,7 @@ To configure a Cloud NSS feed for DNS logs:
     - **Value 1**: Enter the token value for the HTTP header.
     - **Add HTTP Header**: Click to add more HTTP headers (keys and values).
   - **Log Domain**:
-    - If you want to configure Cloud NSS for Internet & SaaS (ZIA) DNS logs, choose **Firewall** and follow the successive steps.
+    - If you want to configure Cloud NSS for Internet Access (ZIA) DNS logs, choose **Firewall** and follow the successive steps.
     - %3Cmeta%20charset%3D%22utf-8%22%20%2F%3EIf you want to configure Cloud NSS for Cloud & Branch Connector logs, choose **Cloud & Branch Connector**%3Cmeta%20charset%3D%22utf-8%22%20%2F%3Eand see [Adding Cloud NSS Feeds](https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds) for applicable log types.
   - **Log Type**:Choose **DNS Logs.**
   - **Feed Output Type**:The output is **JSON** by default. You can choose **Name-Value Pairs** or **Tab-separated** if your SIEM accepts any of these formats. If you select **JSON** as the **Feed Output Type**, special characters such as `\` present in string fields might cause a parsing issue for your SIEM. To prevent the issue, enter a comma, backslash, and quotation marks (`,\"`) as the **Feed Escape Character** and use hex encoded fields (e.g., `%s{elogin}`instead of `%s{login}`) in the **Feed Output Format**.
@@ -1275,18 +1134,18 @@ To configure a Cloud NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1483221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-10-29T15:14Z","nid":"1483221"} -->
 ## Adding Cloud NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Email DLP Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T15:14Z
 - Summary: How to add Cloud NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1330,18 +1189,18 @@ To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1461941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-10-29T15:11Z","nid":"1461941"} -->
 ## Adding Cloud NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-endpoint-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T15:11Z
 - Summary: How to add Cloud NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1383,18 +1242,18 @@ To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-09-20T07:06Z","nid":"1401966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-10-29T11:39Z","nid":"1401966"} -->
 ## Adding Cloud NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-for-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T11:39Z
 - Summary: How to add Cloud NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Firewall logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between NSS and your SIEM.
@@ -1411,7 +1270,7 @@ To configure a Cloud NSS feed for Firewall logs:
     - **Value 1**: Enter the token value for the HTTP header.
     - **Add HTTP Header**: Click to add more HTTP headers (keys and values).
   - **Log Domain**:
-    - If you want to configure Cloud NSS for Internet & SaaS (ZIA) Firewall logs, choose **Firewall** and follow the successive steps.
+    - If you want to configure Cloud NSS for Internet Access (ZIA) Firewall logs, choose **Firewall** and follow the successive steps.
     - %3Cmeta%20charset%3D%22utf-8%22%20%2F%3EIf you want to configure Cloud NSS for Cloud & Branch Connector logs, choose **Cloud & Branch Connector**%3Cmeta%20charset%3D%22utf-8%22%20%2F%3Eand see [Adding Cloud NSS Feeds](https://help.zscaler.com/cloud-branch-connector/adding-cloud-nss-feeds) for applicable log types.
   - **Log Type**:Choose **Firewall Logs.**
   - Choose the **Firewall Log Type**:
@@ -1543,13 +1402,13 @@ To configure a Cloud NSS feed for Posture Management logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-activity-logs","lastmod":"2026-06-16T07:23Z","nid":"1402226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-activity-logs","lastmod":"2026-10-29T14:43Z","nid":"1402226"} -->
 ## Adding Cloud NSS Feeds for SaaS Security Activity Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-saas-security-activity-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Activity Logs
-- Last modified: 2026-06-16T07:23Z
+- Last modified: 2026-10-29T14:43Z
 - Summary: How to add Cloud NSS feeds for SaaS Security activity logs in the Zscaler Admin Console.
 
 Before you start configuring a feed for SaaS Security activity logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
@@ -1558,7 +1417,7 @@ By configuring a Cloud NSS feed for SaaS Security activity logs, you can track a
 
 To configure a Cloud NSS feed for SaaS Security activity logs:
 
-1. Go to **Logs**> **Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1590,18 +1449,18 @@ To configure a Cloud NSS feed for SaaS Security activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-09-20T07:06Z","nid":"1402066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-10-29T14:25Z","nid":"1402066"} -->
 ## Adding Cloud NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-saas-security-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T14:25Z
 - Summary: How to add Cloud NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for SaaS Security logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1673,7 +1532,7 @@ To configure a Cloud NSS feed for SaaS Security logs:
 - **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
 - **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
 - **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet & SaaS (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
+- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet Access (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
   - **Any**: Any type of event in the scan.
   - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
   - **Scan**: No violation was detected in the scan. The scan is considered normal.
@@ -1689,28 +1548,28 @@ To configure a Cloud NSS feed for SaaS Security logs:
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g.,10KB - 1MB, 200).
 - **File Source**: Filter logs based on their source location.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Object Type**: Choose **Any**to inspect all object types or choose an object type
 - **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
 
 - **Message Size**: Filter logs by the size of the email message.
-- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
 - **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., /All Files/10.65.1.220_2/compressed/test). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g.,10KB-1MB, 200).
 - **File Source**: Filter logs based on their source location.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Object Type**: Choose **Any**to inspect all object types or choose an object type
@@ -1719,13 +1578,13 @@ To configure a Cloud NSS feed for SaaS Security logs:
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., /All Files/10.65.1.220_2/compressed/test). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on their source location.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
 - **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
@@ -1744,18 +1603,18 @@ To configure a Cloud NSS feed for SaaS Security logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-sandbox-verdict-logs","lastmod":"2026-06-16T07:27Z","nid":"1520336"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-29T16:06Z","nid":"1520336"} -->
 ## Adding Cloud NSS Feeds for Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-sandbox-verdict-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-06-16T07:27Z
+- Last modified: 2026-10-29T16:06Z
 - Summary: How to add Cloud NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Sandbox verdict logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1844,18 +1703,18 @@ To configure a Cloud NSS feed for SCIM logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-09-20T07:06Z","nid":"1402061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-10-29T11:45Z","nid":"1402061"} -->
 ## Adding Cloud NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-tunnel-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T11:45Z
 - Summary: How to add Cloud NSS feeds for tunnel logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for tunnel logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
 2. On the **Cloud** **NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the **Add Cloud NSS Feed** window:
   - **Feed Name**: Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1905,18 +1764,18 @@ To configure a Cloud NSS feed for tunnel logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-09-20T07:06Z","nid":"1401861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-10-29T11:36Z","nid":"1401861"} -->
 ## Adding Cloud NSS Feeds for Web Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-web-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Web Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-29T11:36Z
 - Summary: How to add Cloud NSS feeds for web logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for web logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**- **Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**>**Log Streaming**>**Internet Log Streaming**- **Nanolog Streaming Service**.
 2. On the **Cloud NSS Feeds** tab, click **Add Cloud NSS Feed**. The **Add Cloud NSS Feed** window appears.
 3. In the**Add Cloud NSS Feed** window:
   - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -1972,7 +1831,7 @@ To configure a Cloud NSS feed for web logs:
 - **Custom User Agent Strings**: Use this filter to limit the logs to specific user-agent strings. A user-agent string contains browser and system information that the destination server can use to provide appropriate content.
 - **Protocol Types**: Use this filter to limit the logs to specific protocols. Supported protocols are HTTP, HTTPS, and FTP. Multiple selections are allowed.
 - **Request Methods**: Use this filter to limit the logs based on the HTTP request method obtained from the client request. Multiple selections are allowed.
-- **Response Codes**: Use this filter to limit the logs based on the HTTP response code obtained from the server or generated by the Public Service Edge for Internet & SaaS (ZIA). Multiple selections are allowed.
+- **Response Codes**: Use this filter to limit the logs based on the HTTP response code obtained from the server or generated by the Public Service Edge for Internet Access (ZIA). Multiple selections are allowed.
 - **Request Sizes**: Use this filter to limit the logs based on HTTP request size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g.,**10KB-1MB, 200)**. You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 - **Response Sizes**: Use this filter to limit the logs based on HTTP response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., **10KB-1MB, 200)**.You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 - **Transaction Sizes**: Use this filter to limit the logs based on transaction size, which is the header and body request or response size, or the request and response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g.,**10KB-1MB, 200**).You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
@@ -3344,13 +3203,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-10-25T07:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-11-01T06:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
@@ -3548,16 +3407,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-23T14:12Z","nid":"1398866"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-departments","lastmod":"2026-10-27T09:58Z","nid":"1398866"} -->
 ## Adding Departments
 
 - Source: https://help.zscaler.com/zia/adding-departments
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Adding Departments
-- Last modified: 2026-10-23T14:12Z
+- Last modified: 2026-10-27T09:58Z
 - Summary: How to add a department for your users in the Zscaler Admin Console.
-
-[Watch a video about User Management, including how to add a department](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
 
 The Zscaler service provides a number of ways to provision [users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), and departments as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add departments when you configure policies. This article describes how to add a department on the Departments page in the Zscaler Admin Console.
 
@@ -4419,13 +4276,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-10-25T07:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-11-01T06:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-10-25T07:06Z
+- Last modified: 2026-11-01T06:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4938,16 +4795,14 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-23T14:10Z","nid":"1398831"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-groups","lastmod":"2026-10-27T09:59Z","nid":"1398831"} -->
 ## Adding Groups
 
 - Source: https://help.zscaler.com/zia/adding-groups
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Adding Groups
-- Last modified: 2026-10-23T14:10Z
+- Last modified: 2026-10-27T09:59Z
 - Summary: How to add a group for your users in the ZIA Admin Portal.
-
-[Watch a video about User Management, including how to add a group](https://fast.wistia.net/embed/iframe/65aszz5npz) (shows legacy UI).
 
 The Zscaler service provides a number of ways to provision [users](https://help.zscaler.com/zia/about-users), groups, and [departments](https://help.zscaler.com/zia/about-departments) as described in [About Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-and-authentication-methods). You can also add groups when you configure policies. This article describes how to add groups on the Groups page in the Zscaler Admin Console.
 
@@ -6484,13 +6339,13 @@ If you want to use ICAP receivers for web traffic filtering, see [Adding an ICAP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-identity-providers","lastmod":"2026-07-13T21:06Z","nid":"1401371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-identity-providers","lastmod":"2026-10-30T16:30Z","nid":"1401371"} -->
 ## Adding Identity Providers
 
 - Source: https://help.zscaler.com/zia/adding-identity-providers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding Identity Providers
-- Last modified: 2026-07-13T21:06Z
+- Last modified: 2026-10-30T16:30Z
 - Summary: How to add identity providers in the Zscaler Admin Console and configure the Zscaler service as the service provider for SAML Single Sign-On (SSO).
 
 Adding an identity provider (IdP) in the Zscaler Admin Console is one of the tasks you must complete when configuring SAML Single Sign-On (SSO). To learn more, see [Configuring SAML](https://help.zscaler.com/zia/configuring-saml).
@@ -6499,7 +6354,7 @@ The Zscaler service can support up to 64 different SAML IdPs per organization. T
 
 To add an IdP and configure the Zscaler service as the service provider (SP) for SAML:
 
-1. Go to **Administration** > **Identity** > **Internet & SaaS** > **Internet Authentication Settings** > **Identity Providers**.
+1. Go to **Administration**>**Internet & SaaS Authentication** >**Internet Authentication Settings** >**Identity Providers**.
 2. Click **Add IdP**.
 
 If you have an existing IdP configuration, the **What do you want to do?** window appears. Click **Add another SAML IdP for a subset of users or locations** and then **Next**.
@@ -6540,8 +6395,7 @@ The **Add IdP** window appears.
   - **Enable SCIM Provisioning**: You can't enable this setting at this time. To enable SCIM-based provisioning for users, you must add this IdP to establish its unique ID or identifier. The ID or identifier is included in the SCIM base URL. To learn more, see [Configuring SCIM](https://help.zscaler.com/zia/configuring-scim).
   - **Device Trust Attribute**: Enter the SAML attribute that maps to the trust attribute defined on your IdP. This is used for identifying managed devices. This field is case-sensitive.
   - **Device Trust Attribute Value**: Enter the SAML attribute value that maps to the trust attribute value defined on your IdP for managed devices. This field is case-sensitive.
-2. Click **Save** to exit the window.
-3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: The Add another SAML IdP for a subset of users or locations in the What do you want to do? window]
 
@@ -7425,25 +7279,25 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-mcas-nss-feeds","lastmod":"2026-09-20T07:06Z","nid":"1400706"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-mcas-nss-feeds","lastmod":"2026-10-28T15:28Z","nid":"1400706"} -->
 ## Adding MCAS NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-mcas-nss-feeds
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding MCAS NSS Feeds > Adding MCAS NSS Feeds
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-28T15:28Z
 - Summary: How to add and configure an MCAS NSS feed through the Zscaler Admin Console.
 
 In order for your MCAS NSS feed to perform optimally, the virtual machine (VM) deployed for the NSS server requires a minimum of 8GB of RAM. To learn more, see [Deploying NSS Virtual Appliances](https://help.zscaler.com/zia/deploying-nss-virtual-appliances) and [Integrating with Microsoft Cloud App Security](https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security).
 
-If you deployed an NSS virtual appliance before the Internet & SaaS (ZIA) 5.6 release, ensure you have the latest version of Java installed into your VM.
+If you deployed an NSS virtual appliance before the Internet Access (ZIA) 5.6 release, ensure you have the latest version of Java installed into your VM.
 
 - Check your latest version of Java.
 - Get the latest version of Java, if you don't have it.
 
 To configure an MCAS NSS feed:
 
-1. Go to **Logs**> **Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service** > **NSS Feeds**.
 2. On the **NSS Feeds** tab, click **Add MCAS NSS Feed**. The **Add MCAS NSS Feed** window appears.
 3. In the **Add MCAS NSS Feed** window:
   - **Feed Name**: Enter or edit the name of the feed. Each feed is a connection between the NSS and MCAS.
@@ -7498,14 +7352,14 @@ java -version
   - An IP address (e.g., 198.51.100.100)
   - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
   - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Traffic Forwarding**: Use this filter to limit the logs based on the traffic forwarding method to the Public Service Edge for Internet & SaaS (ZIA).
+- **Traffic Forwarding**: Use this filter to limit the logs based on the traffic forwarding method to the Public Service Edge for Internet Access.
 
 - **Direction**: Use this filter to limit the logs to either inbound or outbound traffic.
 - **User Agents**: Use this filter to limit the logs to transactions associated with the user-agent string that the browser included in its GET request. Choose from the list of predefined user-agent strings or enter custom user-agent strings. Multiple selections are allowed.
 - **Custom User Agent Strings**: Use this filter to limit the logs to specific user-agent strings. A user-agent string contains browser and system information that the destination server can use to provide appropriate content.
 - **Protocol Types**: Use this filter to limit the logs to specific protocols. Supported protocols are HTTP, HTTPS and FTP. Multiple selections are allowed.
 - **Request Methods**: Use this filter to limit the logs based on the HTTP request method obtained from the client request. Multiple selections are allowed.
-- **Response Codes**: Use this filter to limit the logs based on the HTTP response code obtained from the server or generated by the Public Service Edge for Internet & SaaS (ZIA). Multiple selections are allowed.
+- **Response Codes**: Use this filter to limit the logs based on the HTTP response code obtained from the server or generated by the Public Service Edge for Internet Access. Multiple selections are allowed.
 - **Request Sizes**: Use this filter to limit the logs based on HTTP request size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g.,10KB-1MB, 200). You can enter multiple entries. Press `Enter`after each entry.
 - **Response Sizes**: Use this filter to limit the logs based on HTTP response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).You can enter multiple entries. Press `Enter` after each entry.
 - **Transaction Sizes**: Use this filter to limit the logs based on transaction size, which is the header and body request or response size, or the request and response size. Enter either a specific size or a range with a dash. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).You can enter multiple entries. Press `Enter` after each entry.
@@ -7598,13 +7452,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-notes-dashboard-interactive-reports","lastmod":"2026-04-20T07:33Z","nid":"1399421"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-notes-dashboard-interactive-reports","lastmod":"2026-10-30T04:12Z","nid":"1399421"} -->
 ## Adding Notes to Dashboards and Interactive Reports
 
 - Source: https://help.zscaler.com/zia/adding-notes-dashboard-interactive-reports
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Adding Notes to Dashboards and Interactive Reports
-- Last modified: 2026-04-20T07:33Z
+- Last modified: 2026-10-30T04:12Z
 - Summary: How to add notes to dashboards and interactive reports in the Zscaler Admin Console for a variety of annotation purposes.
 
 You can add notes to [dashboards](https://help.zscaler.com/zia/about-dashboards) and [interactive reports](https://help.zscaler.com/zia/about-interactive-reports) (both standard and [custom reports](https://help.zscaler.com/zia/creating-copying-report)) for a variety of annotation purposes.
@@ -7625,7 +7479,7 @@ The notes function in a similar way forinteractive reports. The notes you create
 
 To add notes:
 
-1. In a dashboard (click **Analytics,**enable the toggle **Switch to Existing Reports**, and then go to**Internet & SaaS > Analytics**>**Dashboard**), or in one of the interactive reports (click **Analytics,**enable the toggle **Switch to Existing Reports**, and then go to**Internet & SaaS > Analytics**>**Interactive Reports**), click the **Add Note**icon.
+1. In a dashboard (Internet & SaaS > Analytics > Dashboard), or in one of the interactive reports (Analytics > Reports > Interactive Reports), click the **Add Note**icon.
 
 [Image: The Add Note icon on the Zscaler Web Overview dashboard]
 
@@ -7640,11 +7494,11 @@ The**Add Note Description** text editor appears.
 
 To edit or delete notes, hover over a note so that the **Edit** and **Delete** icons appear.
 
-- To edit the note:
+1. To edit the note:
   1. Click the**Edit**icon. The**Add Note Description** text editor appears.
   2. In the **Add Note Description** text editor, modify the text as applicable.
   3. Click **Save**.
-- To delete the note, click the **Delete** icon.
+2. To delete the note, click the **Delete** icon.
 
 [Image: The Edit and Delete icons that appear when you hover your mouse over a note]
 
@@ -7661,13 +7515,13 @@ To show all notes again, click the **Show Notes**icon.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-10-13T17:17Z","nid":"1463361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-10-27T21:06Z","nid":"1463361"} -->
 ## Adding NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Collector Servers
-- Last modified: 2026-10-13T17:17Z
+- Last modified: 2026-10-27T21:06Z
 - Summary: Information on how to configure an NSS Collector server in the Zscaler Admin Console.
 
 The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
@@ -7715,13 +7569,13 @@ An organization can have up to 4 NSS Collector servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-10-14T12:37Z","nid":"1400036"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-10-28T21:06Z","nid":"1400036"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-10-14T12:37Z
+- Last modified: 2026-10-28T21:06Z
 - Summary: How to add an NSS server in the Zscaler Admin Console.
 
 Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
@@ -7756,20 +7610,20 @@ To download the SSL certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-object-types-servicenow-tenants","lastmod":"2026-09-22T09:08Z","nid":"1401981"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-object-types-servicenow-tenants","lastmod":"2026-10-30T05:22Z","nid":"1401981"} -->
 ## Adding Object Types for ServiceNow Tenants
 
 - Source: https://help.zscaler.com/zia/adding-object-types-servicenow-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding Object Types for ServiceNow Tenants
-- Last modified: 2026-09-22T09:08Z
+- Last modified: 2026-10-30T05:22Z
 - Summary: How to add object types for your ServiceNow tenants.
 
 ServiceNow has many object types available, so the Zscaler service provides a default list of the most commonly used object types. You can add additional object types if they're not on the list.
 
 To add object types for ServiceNow tenants:
 
-1. Go to **Data Security > DSPM > SaaS Application Tenants**.
+1. In the Zscaler Admin Console, from the[navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security > DSPM > SaaS Application Tenants.**
 2. Click the **Edit** icon for the ServiceNow tenant that you want to add object types for.
 
 The **Edit SaaS Application Tenant page**appears.
@@ -8225,22 +8079,20 @@ On the **Endpoint Application Tags** page (**Data Security**> **Endpoint DLP**> 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-09-30T00:26Z","nid":"1398976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-restore-points-manually","lastmod":"2026-10-29T01:58Z","nid":"1398976"} -->
 ## Adding Restore Points Manually
 
 - Source: https://help.zscaler.com/zia/adding-restore-points-manually
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Adding Restore Points Manually
-- Last modified: 2026-09-30T00:26Z
+- Last modified: 2026-10-29T01:58Z
 - Summary: Information on how to back up and restore a set of policies and configuration settings in the Zscaler Admin Console.
-
-[Watch a video about Backup & Restore including adding Restore Points manually.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
 
 You can back up and restore a set of policies and configuration settings, and save up to 12 restore points. If the number of restore points reaches a limit of 12, you cannot add a new restore point manually without deleting an existing one. To learn more, see [About Backup and Restore](https://help.zscaler.com/zia/about-backup-and-restore).
 
 To add a restore point:
 
-1. Go to **Administration**> **Backup & Restore**>**Internet & SaaS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Backup and Restore**>**Internet & SaaS**.
 2. Click **Add Restore Point**.
 
 The **Add Restore Point** window appears.
@@ -8254,7 +8106,9 @@ There can be only one golden restore point at any given point in time, and you c
 
 - **Description**:(Optional) Enter additional notes or information.
 
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console). See image.
+See image.
+
+1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 [Image: Adding a restore point]
 <!-- /ZS-ARTICLE -->
@@ -8324,16 +8178,14 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-10-05T10:38Z","nid":"1399881"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-rules-bandwidth-control-policy","lastmod":"2026-10-28T16:01Z","nid":"1399881"} -->
 ## Adding Rules to the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/adding-rules-bandwidth-control-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Adding Rules to the Bandwidth Control Policy
-- Last modified: 2026-10-05T10:38Z
+- Last modified: 2026-10-28T16:01Z
 - Summary: Information on how to add rules to the Bandwidth Control policy in the Zscaler Admin Console.
-
-[Watch a video about Bandwidth Control](https://fast.wistia.net/embed/iframe/z9h2f81rrs) (shows legacy UI).
 
 Adding rules to the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy is one of the tasks you must complete when configuring the Bandwidth Control policy. For a full list of tasks, see [Configuring the Bandwidth Control Policy](https://help.zscaler.com/zia/configuring-bandwidth-control-policy) and see [Bandwidth Control Policy Example](https://help.zscaler.com/zia/bandwidth-control-policy-example) for a sample policy. When adding a rule for the Bandwidth Control policy, you can add a rule from the beginning or copy an existing rule.
 
@@ -8509,16 +8361,14 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-21T03:10Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-10-27T09:47Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-10-21T03:10Z
+- Last modified: 2026-10-27T09:47Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
-
-[Watch a video about SaaS Application Tenants](https://fast.wistia.net/embed/iframe/net3zjd13m) (shows legacy UI).
 
 Zscaler Data at Rest Scanning provides visibility and security for [sanctioned SaaS applications](https://help.zscaler.com/zia/about-saas-application-tenants) used in your organization. You can authorize sanctioned SaaS applications with Zscaler by adding them as tenants. Most apps require configuration to provide Zscaler access and enable their full functionality.
 
@@ -11007,16 +10857,14 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-10-23T13:45Z","nid":"1400621"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-sd-wan-partner-api-roles","lastmod":"2026-10-28T16:45Z","nid":"1400621"} -->
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
-- Last modified: 2026-10-23T13:45Z
+- Last modified: 2026-10-28T16:45Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
-
-[Watch a video about SD-WAN Partner API Roles.](https://fast.wistia.net/embed/iframe/a5gc2g3evl) (shows legacy UI).
 
 A Software-Defined Wide Area Network (SD-WAN) partner API role is a specific role for API access to the Internet & SaaS (ZIA) cloud service APIs. SD-WAN partner APIs cannot be users; only admins can be assigned to an SD-WAN partner API role. SD-WAN partner APIs can:
 
@@ -11678,13 +11526,13 @@ To configure a TCP NSS feed for 3rd-Party App Governance logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-admin-audit-logs","lastmod":"2026-06-23T06:51Z","nid":"1402711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-admin-audit-logs","lastmod":"2026-10-28T18:37Z","nid":"1402711"} -->
 ## Adding TCP NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Admin Audit Logs
-- Last modified: 2026-06-23T06:51Z
+- Last modified: 2026-10-28T18:37Z
 - Summary: How to add TCP NSS feeds for admin audit logs in the Zscaler Admin Console.
 
 The initial audit log Nanolog Streaming Service (NSS) feed can take up to 2 hours to stream to the NSS and your security information and event management (SIEM) system. If you have Authentication Service, the initial feed can take up to 5 hours to stream to the NSS and your SIEM system. However, this delay does not occur if you have already configured and are streaming [SCIM Logs](https://help.zscaler.com/zia/adding-nss-feeds-zidentity-scim-logs).
@@ -11703,7 +11551,7 @@ To learn more, see [Configuring Custom URL Categories](https://help.zscaler.com/
 
 To configure a TCP NSS feed for admin audit logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window: See image.
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -11726,9 +11574,7 @@ To configure a TCP NSS feed for admin audit logs:
   - **Application**: Filter logs based on the specific application. You can specify multiple applications. See image.
     - **Branch Connector Portal Audit Log**: Allows real-time streaming of the Zscaler Cloud & Branch Connector audit logs to SIEM.
     - **Client Connector Portal Audit Log**: Allows real-time streaming of the Zscaler Client Connector audit logs to SIEM.
-    - **Risk360 Admin Portal Audit Log**: Allows real-time streaming of the Risk360 audit logs to SIEM.
-    - **ZDX Portal Audit Log**: Allows real-time streaming of the Digital Experience (ZDX) audit logs to SIEM.
-    - **ZIA Portal Audit Log**: Allows real-time streaming of the Internet & SaaS (ZIA) audit logs to SIEM.
+    - **ZIA Portal Audit Log**: Allows real-time streaming of the Internet Access (ZIA) audit logs to SIEM.
     - **ZIdentity Admin Audit Log**: Allows real-time streaming of the Authentication Service audit logs to SIEM.
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
@@ -11739,20 +11585,20 @@ To configure a TCP NSS feed for admin audit logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-alerts","lastmod":"2026-06-23T06:50Z","nid":"1399091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-alerts","lastmod":"2026-10-28T16:33Z","nid":"1399091"} -->
 ## Adding TCP NSS Feeds for Alerts
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-alerts
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Alerts
-- Last modified: 2026-06-23T06:50Z
+- Last modified: 2026-10-28T16:33Z
 - Summary: How to add TCP NSS feeds for alerts in the Zscaler Admin Console.
 
 You can configure a separate feed for alerts, so you can monitor the Nanolog Streaming Service (NSS). You can select the level at which alerts are sent: Critical, Warn, or both. You can select multiple alert levels.
 
 To configure a TCP NSS feed for alerts:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between the NSS and your security information and event management (SIEM) system.
@@ -11837,13 +11683,13 @@ To configure a TCP NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-09-20T07:06Z","nid":"1399086"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-10-28T15:53Z","nid":"1399086"} -->
 ## Adding TCP NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for DNS Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-28T15:53Z
 - Summary: How to add TCP NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -11852,7 +11698,7 @@ Before you start configuring a feed for DNS logs, consider the [guidelines for c
 
 To configure a TCP NSS feed for DNS logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -11866,7 +11712,7 @@ To configure a TCP NSS feed for DNS logs:
   - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
     - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
   - **Log Domain**:
-    - If you want to configure NSS for Internet & SaaS (ZIA) DNS logs, choose **Firewall** and follow the successive steps.
+    - If you want to configure NSS for Internet Access (ZIA) DNS logs, choose **Firewall** and follow the successive steps.
     - If you want to configure NSS for Cloud & Branch Connector logs, choose **Cloud & Branch Connector**and see [Adding NSS Feeds](https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds) for applicable log types.
   - **Log Type**: Choose **DNS Logs.**
   - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. You can choose **Name-Value Pairs** or **Tab-separated**, if your SIEM accepts any of these formats.
@@ -11925,13 +11771,13 @@ To configure a TCP NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1483216"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-10-28T18:54Z","nid":"1483216"} -->
 ## Adding TCP NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Email DLP Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-28T18:54Z
 - Summary: How to add TCP NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Email Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -11940,7 +11786,7 @@ A large number of filters or complex filters, such as string searches, can impac
 
 To configure a TCP NSS feed for Email DLP logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -11981,13 +11827,13 @@ To configure a TCP NSS feed for Email DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-09-20T07:06Z","nid":"1461931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-10-28T18:50Z","nid":"1461931"} -->
 ## Adding TCP NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-28T18:50Z
 - Summary: How to add TCP NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Endpoint Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -11996,7 +11842,7 @@ A large number of filters or complex filters, such as string searches, can impac
 
 To configure a TCP NSS feed for Endpoint DLP logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -12035,13 +11881,13 @@ To configure a TCP NSS feed for Endpoint DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-09-20T07:06Z","nid":"1399076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-10-28T15:49Z","nid":"1399076"} -->
 ## Adding TCP NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Firewall Logs
-- Last modified: 2026-09-20T07:06Z
+- Last modified: 2026-10-28T15:49Z
 - Summary: How to add TCP NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 You can configure up to TCP 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -12050,7 +11896,7 @@ Before you start configuring a feed for Firewall logs, consider the [guidelines 
 
 To configure a TCP NSS feed for Firewall logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between NSS and your SIEM.
@@ -12064,7 +11910,7 @@ To configure a TCP NSS feed for Firewall logs:
   - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
     - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
   - **Log Domain**:
-    - If you want to configure NSS for Internet & SaaS (ZIA) Firewall logs, choose **Firewall** and follow the successive steps.
+    - If you want to configure NSS for Internet Access (ZIA) Firewall logs, choose **Firewall** and follow the successive steps.
     - If you want to configure NSS for Cloud & Branch Connector logs, choose **Cloud & Branch Connector**and see [Adding NSS Feeds](https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds) for applicable log types.
   - **Log Type**:Choose **Firewall Logs**.
   - Choose the **Firewall Log Type**:
@@ -12198,13 +12044,13 @@ To configure a TCP NSS feed for Posture Management logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-activity-logs","lastmod":"2026-06-23T06:52Z","nid":"1402231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-activity-logs","lastmod":"2026-10-28T16:29Z","nid":"1402231"} -->
 ## Adding TCP NSS Feeds for SaaS Security Activity Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-activity-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Activity Logs
-- Last modified: 2026-06-23T06:52Z
+- Last modified: 2026-10-28T16:29Z
 - Summary: How to add TCP NSS feeds for SaaS Security activity logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP NSS feeds that define the SaaS Security activity logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and the Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -12215,7 +12061,7 @@ By configuring an TCP NSS feed for SaaS Security activity logs, you can track ac
 
 To configure a TCP NSS feed for SaaS Security activity logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -12244,13 +12090,13 @@ To configure a TCP NSS feed for SaaS Security activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-06-23T06:49Z","nid":"1401471"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-10-28T16:02Z","nid":"1401471"} -->
 ## Adding TCP NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
-- Last modified: 2026-06-23T06:49Z
+- Last modified: 2026-10-28T16:02Z
 - Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -12259,7 +12105,7 @@ Before you start configuring a feed for SaaS Security logs, consider the [guidel
 
 To configure a TCP NSS feed for SaaS Security logs:
 
-1. Go to **Logs**>**Log Streaming**>**Internet Log Streaming**-**Nanolog Streaming Service**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** >**Internet Log Streaming** - **Nanolog Streaming Service**.
 2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
 3. In the**Add TCP NSS Feed** window:
   - **Feed Name:**Enter or edit the name of the feed. Each feed is a connection between the NSS and your SIEM.
@@ -12331,7 +12177,7 @@ To configure a TCP NSS feed for SaaS Security logs:
 - **Policy Action**: Filter logs based on the specific policy action taken. You can specify multiple policy actions.
 - **Scan Time**: Filter logs based on the time the Data at Rest Scanning policy took to scan content within the tenant. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
 - **Download Time**: Filter logs based on the file download time. Enter either a specific value or a range with a dash. The default unit of measure is milliseconds, but you can specify this unit using either MS or SEC (e.g., 10MS-100MS).
-- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet & SaaS (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
+- **Event**: Select one of the following event types: A previous version of the **Event** filter, available for Internet Access (ZIA) 6.2 and earlier, does not include **Violation** as an option. Any NSS feed that you previously configured using the earlier version of the filter remains supported until you make any edits or changes to the feed. The **Event** filter is then replaced by the latest version, which includes the **Violation** option. All newly configured NSS feeds support the latest version of the filter by default.
   - **Any**: Any type of event in the scan.
   - **Incident**: A violation was detected in the scan and a configured DLP or malware rule was also triggered.
   - **Scan**: No violation was detected in the scan. The scan is considered normal.
@@ -12347,28 +12193,28 @@ To configure a TCP NSS feed for SaaS Security logs:
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB - 1MB, 200).
 - **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Object Type**: Choose **Any**to inspect all object types or choose an object type.
 - **Object Name**: Filter logs to specific object names. You can enter multiple object names separated by commas.
 
 - **Message Size**: Filter logs by the size of the email message.
-- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner Name**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **External Recipients**: Filter logs to specific recipients outside your organization. Multiple selections are allowed.
 - **Internal Recipients**: Filter logs to specific channel names. You can enter multiple channel names separated by commas.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Internal Collaborators**: Filter logs associated with specific collaborators within your organization. Multiple selections are allowed.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Object Type**: Choose **Any**to inspect all object types or choose an object type
@@ -12377,13 +12223,13 @@ To configure a TCP NSS feed for SaaS Security logs:
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on the file source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **Bucket Name**: Filter logs to specific bucket names. You can enter multiple bucket names separated by commas.
 
 - **File Name**: Filter logs to specific file names. You can enter multiple file names separated by commas.
 - **File Size**: Filter logs based on their file size. Enter either a specific size or a range with a dash. You can enter multiple values separated by commas. By default, the service uses bytes, but you can also specify KB, MB, GB, or TB (e.g., 10KB-1MB, 200).
 - **File Source**: Filter logs based on their source location. You can search for a specific file location (e.g., `/All Files/10.65.1.220_2/compressed/test`). Multiple entries are allowed.
-- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet & SaaS (ZIA) services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet & SaaS services, you can filter logs associated with that file owner under the **User** field.
+- **Non-Provisioned Owner**: Filter logs associated with file owners (inside or outside your organization) who are not provisioned to Internet Access services. Multiple selections are allowed. When a non-provisioned file owner within your organization is later provisioned to the Internet Access services, you can filter logs associated with that file owner under the **User** field.
 - **External Collaborators**: Filter logs associated with specific collaborators outside of your organization. Multiple selections are allowed.
 - **Project Name**: Filter logs to specific project names. You can enter multiple project names separated by commas.
 - **Repository Name**: Filter logs to specific repository names. You can enter multiple repository names separated by commas.
@@ -12398,4 +12244,57 @@ To configure a TCP NSS feed for SaaS Security logs:
 
 - **SaaS Application**: Filter logs based on the specific sanctioned SaaS application. You can specify multiple applications.
 - **SaaS Application Tenant**: Filter logs based on the specific SaaS application tenant. You can specify multiple tenants.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-28T18:57Z","nid":"1520331"} -->
+## Adding TCP NSS Feeds for Sandbox Verdict Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-10-28T18:57Z
+- Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Sandbox verdict logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Sandbox verdict logs:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type.Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Sandbox Verdict**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Sandbox Verdict Logs](https://help.zscaler.com/zia/nss-feed-output-format-sandbox-verdict-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Define the filters:
+  - Security
+  - File Type
+  - Sandbox Verdict
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+- **Threat Names**: Use this filter to limit the logs based on specific threats detected in the transaction. You can enter multiple threat names. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Download File Type**: Use this filter to limit the logs based on the type of file downloaded in the transaction. Multiple selections are allowed. This filter currently includes file types that are not eligible for Sandbox analysis. No log data is available for these file types, if selected. For a list of eligible file types, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox#SandboxFileTypes).
+- **MD5**: Use this filter to limit the logs based on the MD5 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+- **SHA**: Use this filter to limit the logs based on the SHA-256 hash of a file. You can enter multiple hashes. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+
+- **Sandbox Verdicts**: Use this filter to limit the logs based on the verdict of the Sandbox analysis. This filter includes verdicts related to [Sandbox](https://help.zscaler.com/zia/configuring-sandbox-policy) (e.g., Sandbox Adware), [Advanced Threat Protection](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy) (e.g., Suspicious Content), and [Malware Protection](https://help.zscaler.com/zia/configuring-malware-protection-policy) (e.g., Trojan) policies. Optionally, select **Benign** to limit the logs to non-malicious verdicts. Multiple selections are allowed.
+- **Tactic**: Use this filter to limit the logs based on the MITRE ATT&CK tactic (e.g., TAC028). You can enter multiple tactics. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify tactics in this filter, verdicts associated with any possible MITRE ATT&CK tactic are displayed.
+- **Technique**: Use this filter to limit the logs based on the MITRE ATT&CK technique (e.g., T1005). You can enter multiple techniques. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears. If you do not specify techniques in this filter, verdicts associated with any possible MITRE ATT&CK technique are displayed.
 <!-- /ZS-ARTICLE -->

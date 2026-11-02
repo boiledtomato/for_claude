@@ -1,8 +1,8 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
-Articles in this file: 54
+Generated: 2026-11-02 09:57 UTC
+Articles in this file: 55
 
 ---
 
@@ -215,13 +215,13 @@ To allow sandboxing files for isolation users, enable this feature through the i
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-10-20T09:49Z","nid":"1417561"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-10-29T15:39Z","nid":"1417561"} -->
 ## Accessing Multiple Sessions In Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-multiple-sessions-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Multiple Sessions In Isolation
-- Last modified: 2026-10-20T09:49Z
+- Last modified: 2026-10-29T15:39Z
 - Summary: Information about the capability for Zero Trust Browser users to enter multiple isolation sessions at once.
 
 Users can access multiple active isolation sessions at a time, using multiple internet browsers or incognito windows. For example, if a user begins an isolation session in a Chrome browser window, they can start an additional isolation session for a different web page in a Firefox browser window.
@@ -580,13 +580,13 @@ You can use this isolation profile to create a policy in Internet & SaaS to allo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-10-20T09:44Z","nid":"1447731"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/creating-isolation-profiles-for-private-access","lastmod":"2026-10-29T15:40Z","nid":"1447731"} -->
 ## Creating Isolation Profiles for Private Access
 
 - Source: https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Profiles > Private Access Profiles > Creating Isolation Profiles for Private Access
-- Last modified: 2026-10-20T09:44Z
+- Last modified: 2026-10-29T15:40Z
 - Summary: How to create an isolation profile for Private Access.
 
 Isolation profiles are an important part of using Zero Trust Browser with Private Access (ZPA). They are part of the steps needed when configuring an Isolation policy. To learn more, see [About Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-private-access) and [About Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy).
@@ -608,7 +608,7 @@ To create a Private Access isolation profile:
     - **Description**: (Optional) Enter a description of the profile.
   2. On the **Company Settings** tab: Click **Next**. See image.
     - **Deploy Custom Root Certificates**: Enable at least one certificate to deploy. The **Zscaler Root Certificate** is applied by default, and you cannot disable it. To learn more, see [About Root Certificates for Zero Trust Browser in Private Access](https://help.zscaler.com/zero-trust-browser/about-root-certificates-zero-trust-browser-private-access).
-    - **Enable** **Debug Mode**: Enable or disable this setting. If you enable it, you must set a password for the ZIP file that is created at the end of a debug troubleshoot. Make sure to share the password with the user associated with the isolation profile. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
+    - **Enable** **Debug Mode**: Enable or disable Debug Mode. If you enable it, you can set a password for the ZIP file that is created at the end of a debug troubleshoot. Make sure to share the password with the user associated with the isolation profile. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
     - **Forward Internet Traffic via Internet & SaaS**: Enable or disable this setting. To learn more, see [Forwarding Traffic from Private Access Profiles to Internet & SaaS in Isolation](https://help.zscaler.com/zero-trust-browser/forwarding-traffic-from-private-access-to-internet-and-saas-profiles-in-isolation). If you enable it, configure the following settings: For remote users using Z-Tunnel 1.0, select the **Enable Firewall for Z-Tunnel 1.0 and PAC Road Warriors** option in [Advanced Settings](https://help.zscaler.com/zia/about-advanced-settings#firewall-remote-users) to apply firewall rules to the traffic forwarded using dedicated IP addresses.
       - **Cloud Name (Cloud Name | Organization ID)**: Select the Zscaler cloud name and organization ID.
       - **PAC File URL**: Select to use either a recommended or custom PAC file. If you choose to use a custom PAC file, enter the **Automatic Proxy Configuration URL**.
@@ -626,11 +626,16 @@ To create a Private Access isolation profile:
     - **Enable Mic and Camera**: (Optional) Enable this setting for users to access their device's microphone and camera while in an isolated session. You must also enable Turbo Mode to enable this setting. This setting is not supported on mobile devices.
     - **Enable Application Deep Linking**: Enable or disable this setting to allow the user to open applications from their local machine via the rendered deep link data on an isolated web page. From there, the user can click the rendered link in the isolated browser, and open the application for use on their machine. If you enable this feature, add the specific links for the allowed applications to the list. If you disable this feature for the isolation profile, or an application is not on the list in the isolation profile, the user sees an error message explaining that the application isn't allowed by policy.
     - **Enable Extensions**: (Optional) Enabling this setting allows the user to use select browser extensions while in isolation. If you enable this setting, you are prompted to select browser extensions (e.g., Okta Browser Plugin) from the predefined list. A single isolation profile can support up to five extensions. To learn more, see [Using Browser Extensions in Isolation](https://help.zscaler.com/zero-trust-browser/using-browser-extensions-isolation).
-    - **Redact Sensitive Text Based on DLP Engines**. Enable or disable redaction. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable this setting:
-      - **DLP Engine**: Select DLP engines from the drop-down menu.
-      - For each DLP engine, select the DLP dictionaries you want redacted during an isolation session.
-  4. On the **Regions** tab, select at least two regions where the isolation profile should be available and click **Next**. See image.
-  5. On the **Isolation Experience** tab: Click **Next**. See image.
+  4. On the **Data Redaction** tab, optionally enable **Redact Sensitive Text Based on DLP Engines**. To learn more, see [Using Redactive Sensitive Text for Isolation](https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation). If you enable redaction, configure the following settings: Click **Next**. See image.
+    - **DLP Engines to Match**: Select the DLP engines containing sensitive text that you want redacted during an isolation session.
+    - **Dictionaries to Redact**: For each DLP engine, select the DLP dictionaries that you want redacted.
+    - **Web Pages**: Enable or disable redaction of web pages.
+    - **Redact Data Entry Fields**: (Optional) If you enable redaction of web pages, enable redaction of editable fields rendered within isolated web pages.
+    - **Clipboard Data**: Enable or disable redaction of clipboard data. You can configure this setting only if you enable **Allow Copy & Paste From** settings on the **Security** tab.
+    - **Redaction Message**: Enter a redaction message to display to users during an isolation session.
+    - **Display last 4 characters**: Enable this setting to display the last four characters of the sensitive text (i.e., partial redaction).
+  5. On the **Regions** tab, select at least two regions where the isolation profile should be available and click **Next**. See image.
+  6. On the **Isolation Experience** tab: Click **Next**. See image.
     - **Isolation Experience**: Select one of the following modes:
       - **Native browser experience**: Provides the user with a browsing experience similar to accessing the native web page with a typical browser. Admins can also customize this view. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
       - **Browser-in-browser experience**: Provides the user with the complete look and feel of an isolated session experience. To learn more, see [User Experience Modes in Isolation](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation).
@@ -639,7 +644,7 @@ To create a Private Access isolation profile:
     - **Isolation Banner**: Select a banner to view in the **Preview**. You can choose from existing banners or create custom banners to use for your isolation profiles. The **Default** isolation banner is automatically selected when adding a new profile or to preconfigured [default isolation profiles](https://help.zscaler.com/zero-trust-browser/default-isolation-profiles-zero-trust-browser). To learn more, see [Adding a Banner Theme for the Isolation End User Notification in Private Access](https://help.zscaler.com/zero-trust-browser/adding-banner-theme-isolation-end-user-notification-zpa).
     - **Enable Watermark**: (Optional) Enable this setting to display a watermark over the rendered web content while the user is in isolation. Select the checkboxes for **User ID**, **Date & Timestamp** (UTC), and **Message**to include those options.
     - **Enable Language Translation**: (Optional) Enable this setting to allow the user to translate any text from isolated web pages to the language of the user's choice. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience).
-  6. On the **Review** tab, review the information configured for the isolation profile and click **Save**. See image.
+  7. On the **Review** tab, review the information configured for the isolation profile and click **Save**. See image.
 
 When saved, your new profile appears in the list of Private Access isolation profiles. You can edit or delete a profile directly from the list. However, you cannot delete Private Access isolation profiles used in Private Access isolation policies. To learn more, see [Editing Your Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/editing-your-isolation-profile-private-access) and [Deleting an Isolation Profile for Private Access](https://help.zscaler.com/zero-trust-browser/deleting-isolation-profile-private-access).
 
@@ -653,9 +658,11 @@ You can use this isolation profile to create policies in Private Access to isola
 
 [Image: Enable or disable the options on the Security tab]
 
+[Image: Configure Data Redaction settings for Private Access]
+
 [Image: Enable at least two regions for the profile.]
 
-[Image: Enable or disable Persistence State to make data persist from isolation sessions for a user.]
+[Image: Enable or disable Persistent State to make data persist from isolation sessions for a user.]
 
 [Image: Select your options for the Isolation Experience tab]
 
@@ -1450,6 +1457,42 @@ To get Enterprise Browser, contact Zscaler Support. For deployment information, 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser-mobile","lastmod":"2026-10-30T06:53Z","nid":"1546247"} -->
+## Understanding Enterprise Browser for Mobile
+
+- Source: https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser-mobile
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Enterprise Browser > Understanding Enterprise Browser for Mobile
+- Last modified: 2026-10-30T06:53Z
+- Summary: Information about Enterprise Browser for Mobile.
+
+Enterprise Browser for Zero Trust Browser is available as a native mobile application for iOS, iPadOS, and Android.
+
+On a personal or corporate phone or tablet, the Enterprise Browser mobile app provides a governed workspace that enforces policy, prevents data loss, and protects users from everyday browser-based threats.
+
+See image.
+
+## Key Features and Capabilities
+
+The following table describes the key features and capabilities of the app:
+
+| Feature | Capabilities |
+| --- | --- |
+| Site Visit and Content | Applies URL, category, and content policy to every page a user opens, and inspects the page as it renders for browser-borne threats such as phishing and fake login pages or malicious QR codes. Unauthorized or unsafe pages are blocked or accompanied by a warning, the policy rule that was triggered is recorded, and users can raise a time-boxed exception request for administrator review. |
+| Clipboard (Copy and Paste) | Governs copy and paste at the browser boundary. Copying from a managed application, pasting into an unsanctioned site, and moving content into a personal application on the same device are each subject to policy, and clipboard activity is recorded for investigation. |
+| File Access (Uploads and Downloads) | Controls files moving in both directions. Uploads to unsanctioned storage services and uploads from the camera roll or device storage can be blocked or restricted to approved destinations, downloads can be restricted where the mobile platform allows it, and browser-based file transfers are recorded. |
+| User Input and Masking | Inspects what users type or submit into web forms and applies the policy outcome, which can allow, warn, block, or mask the content, so that sensitive values are not exposed to an untrusted page. |
+| Generative AI | Places guardrails around AI use inside the browser. Prompt content, file uploads to AI services, and clipboard transfers into AI tools are all subject to policy, so that users can keep using these tools without exposing sensitive data to them. |
+| Output Control (Print and Watermarking) | Restricts printing from sensitive applications and watermarks browser sessions for improved accountability and traceability. The watermark identifies the signed-in user, which deters photography and resharing. |
+| Device Trust and Screenshot Protection | Evaluates device posture before a protected application is opened, and restricts screen capture and screen recording inside the app so that on-screen content cannot be exfiltrated from the device. |
+
+To learn more about Enterprise Browser for Mobile, contact your Zscaler Account team.
+
+[Image: Enterprise Browser mobile app]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas","lastmod":"2026-09-04T07:41Z","nid":"1518406"} -->
 ## Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
 
@@ -1527,13 +1570,13 @@ In addition to translation, Zero Trust Browser supports language localization in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-turbo-mode-isolation","lastmod":"2026-09-22T21:06Z","nid":"1506406"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-turbo-mode-isolation","lastmod":"2026-10-27T08:36Z","nid":"1506406"} -->
 ## Understanding Turbo Mode for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-turbo-mode-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Understanding Turbo Mode for Isolation
-- Last modified: 2026-09-22T21:06Z
+- Last modified: 2026-10-27T08:36Z
 - Summary: Information about the Turbo Mode feature for isolation.
 
 Turbo Mode is an alternative to pixel streaming. It allows the transfer of rendered information from an isolated browser to a local browser as an instruction set. This method of rendering is much faster and much less bandwidth intensive than pixel streaming. It also promises a higher frame rate, ensuring a smooth isolated browsing experience. The capability provides a near-native experience.
@@ -1548,7 +1591,7 @@ When Turbo Mode is enabled, the user experiences the following benefits:
 - Caching of rendering instructions, which facilitates faster scrolling of a web page with the transfer of minimal to no additional data.
 - Seamless transitions between animations and screen movements without screen scraping or lag.
 
-Admins must enable this feature in the user's isolation profile. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). Turbo Mode is not supported for Internet Explorer 11.
+Admins must enable this feature in the user's isolation profile. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). Turbo Mode is not supported for Internet Explorer 11. For Safari, Turbo Mode requires version 18 or later.
 <!-- /ZS-ARTICLE -->
 
 ---

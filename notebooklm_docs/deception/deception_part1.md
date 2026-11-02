@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-10-26 08:09 UTC
+Generated: 2026-11-02 09:57 UTC
 Articles in this file: 296
 
 ---
@@ -4473,13 +4473,13 @@ To learn more about generative AI models in AWS, refer to the [AWS documentation
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-10-23T06:35Z","nid":"1542486"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-lures-using-azure-decoys","lastmod":"2026-10-29T02:58Z","nid":"1542486"} -->
 ## Configuring Lures Using Azure Decoys
 
 - Source: https://help.zscaler.com/deception/configuring-lures-using-azure-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Configuring Lures Using Azure Decoys
-- Last modified: 2026-10-23T06:35Z
+- Last modified: 2026-10-29T02:58Z
 - Summary: Information on how to configure different types of lures using different types of Azure decoys.
 
 After configuring the [integration between Microsoft Azure and Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-integration-azure-decoys) and [deploying the necessary decoys](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure#zd-azure-decoys-setup), you can use the decoys to set up lures for attackers. You can use different methods to set up lures depending on the type of decoys, as explained in the following sections:
@@ -8903,18 +8903,18 @@ After the selection criterion is specified, you can configure the required lure 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-10-23T06:38Z","nid":"1542465"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-10-28T08:57Z","nid":"1542465"} -->
 ## Creating a Managed Identity Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-managed-identity-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Managed Identity Decoy in Azure
-- Last modified: 2026-10-23T06:38Z
+- Last modified: 2026-10-28T08:57Z
 - Summary: How to configure a managed identity decoy in Microsoft Azure.
 
 Managed identities provide an automatically managed identity in Azure AD (Entra ID) for applications to use when connecting to resources that support Azure AD (Entra ID) authentication. You can create a managed identity decoy (user-defined) that has access to all other decoy resources in a decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). If an adversary uses the managed identity to access decoy resources, an alert is generated.
 
-To learn about the list of Azure services that can be attached to managed identities, refer to the [Microsoft Technical Documentation](https://www.google.com/url?q=https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/managed-identities-status%23services-supporting-managed-identities&sa=D&source=docs&ust=1690783640140469&usg=AOvVaw23RfBJmYz2ZT5ILux1DJoh).
+To learn about the list of Azure services that can be attached to managed identities, refer to the [Microsoft documentation](https://www.google.com/url?q=https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/managed-identities-status%23services-supporting-managed-identities&sa=D&source=docs&ust=1690783640140469&usg=AOvVaw23RfBJmYz2ZT5ILux1DJoh).
 
 Deception does not associate the managed identity with any production resources.
 
@@ -15889,13 +15889,13 @@ The illusionblack.com cloud represents all clouds, and updates to specific cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-10-08T22:55Z","nid":"1542588"} -->
+<!-- ZS-ARTICLE {"url":"/deception/release-upgrade-summary-2026","lastmod":"2026-10-26T10:55Z","nid":"1542588"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/deception/release-upgrade-summary-2026
 - Product: Deception
 - Path: Deception Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-08T22:55Z
+- Last modified: 2026-10-26T10:55Z
 - Summary: Zscaler Deception release summary for updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Deception.
