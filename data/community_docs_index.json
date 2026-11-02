@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-10-26T09:18:28Z",
+ "generated_at": "2026-11-02T11:37:03Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -5427,6 +5427,34 @@
    "title": "Planning Your Next Certification? Use This Pearson VUE Free Retake Promotion!",
    "type": "zenith_blog__c"
   },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000i130AA/zscaler-internet-access-updates-from-june-1st-2026": {
+   "category": "zia",
+   "hash": "d1774b6b9ed47d02",
+   "lastmod": "2026-10-26T10:52:51.000Z",
+   "title": "Zscaler Internet Access Updates from June 1st 2026",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000iHB0AY/shaping-the-new-agentic-secops-certification-curriculum-share-your-input": {
+   "category": "api",
+   "hash": "e700aa14e9140822",
+   "lastmod": "2026-10-27T16:27:43.000Z",
+   "title": "Shaping the New Agentic SecOps Certification & Curriculum: Share Your Input",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions": {
+   "category": "platform",
+   "hash": "434f6567c19f91ab",
+   "lastmod": "2026-10-28T15:28:20.000Z",
+   "title": "Get Zscaler Certified: CertJamZ + Exam On-Site India Sessions",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000iNd0AI/what-made-certification-worth-pursuing-for-you": {
+   "category": "platform",
+   "hash": "1e024cfd82163ce3",
+   "lastmod": "2026-10-29T17:07:13.000Z",
+   "title": "What made certification worth pursuing for you?",
+   "type": "zenith_blog__c"
+  },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
    "category": "branch",
    "hash": "9996a74faa971bcb",
@@ -8260,6 +8288,69 @@
    "hash": "1b8f58e489ccfe21",
    "lastmod": "2026-10-22T11:17:48.000Z",
    "title": "Prerequisites for Automated ZPA App Connector Updates",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006oYP0AY/configuring-ssl-inspection-and-local-certificates-using-developer-tool-scanner": {
+   "category": "zia",
+   "hash": "82aedf9d569076d6",
+   "lastmod": "2026-10-30T19:45:41.000Z",
+   "title": "Configuring SSL Inspection and Local Certificates using Developer Tool Scanner",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006oa10AA/how-to-blocklist-more-than-16k-ips-in-ztfw-policies-using-custom-url-category": {
+   "category": "zia",
+   "hash": "baf5dadb92c188a5",
+   "lastmod": "2026-10-30T14:56:09.000Z",
+   "title": "How To: Blocklist  more than 16K IPs in  ZTFW policies using Custom URL category",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006owb0AA/how-to-block-both-uploads-and-downloads-using-cloud-browser-isolation": {
+   "category": "zia",
+   "hash": "68e1908ac33b51ab",
+   "lastmod": "2026-10-28T11:12:53.000Z",
+   "title": "How to block both uploads and downloads using Cloud Browser Isolation.",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006oyD0AQ/how-to-block-netflix-using-zscaler-internet-saas-zia": {
+   "category": "zia",
+   "hash": "4b1537e42ec88606",
+   "lastmod": "2026-10-28T12:40:13.000Z",
+   "title": "How to block Netflix using Zscaler Internet & Saas (ZIA)",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006pfl0AA/internet-saas-zia-how-to-configure-a-tenant-profile-for-google-gmail": {
+   "category": "zia",
+   "hash": "26e1b11b0961cc7b",
+   "lastmod": "2026-10-30T07:09:59.000Z",
+   "title": "Internet & SaaS (ZIA): How to Configure a Tenant Profile for Google Gmail",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006pkb0AA/internet-saas-zia-how-dns-control-policy-test-fqdns-work": {
+   "category": "zia",
+   "hash": "4dad379c1da07cdf",
+   "lastmod": "2026-10-30T14:01:19.000Z",
+   "title": "Internet & SaaS (ZIA): How DNS Control Policy Test FQDNs Work?",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006pxV0AQ/adding-a-clickable-hyperlink-to-the-zia-browserbased-block-notification-page": {
+   "category": "zia",
+   "hash": "1a15662ef64ea04f",
+   "lastmod": "2026-10-30T19:34:25.000Z",
+   "title": "Adding a Clickable Hyperlink to the ZIA Browser-Based Block Notification Page",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa": {
+   "category": "zpa",
+   "hash": "5a13794d3dfdb93a",
+   "lastmod": "2026-10-30T19:34:21.000Z",
+   "title": "How to configure Azure Private Link domains for Private Access (ZPA)",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006q0j0AA/zscaler-experience-center-a-practical-guide-for-customer-administrators": {
+   "category": "platform",
+   "hash": "9bd8a1ad4949f718",
+   "lastmod": "2026-10-30T19:37:12.000Z",
+   "title": "Zscaler Experience Center: A Practical Guide for Customer Administrators",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -22045,11 +22136,25 @@
    "title": "How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)",
    "type": "question"
   },
+  "https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users": {
+   "category": "zia",
+   "hash": "7d2c98980f02fb6c",
+   "lastmod": "2026-10-26T14:13:00.000Z",
+   "title": "Zscaler, Inc. - Sign In",
+   "type": "question"
+  },
   "https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup": {
    "category": "zia",
    "hash": "4bc4fed66777a944",
    "lastmod": "2026-10-15T05:14:53.000Z",
    "title": "How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D54u0000AM63bOCQR/how-to-dns-filtering-to-block-domains-with-zccztunnel-20": {
+   "category": "zcc",
+   "hash": "6bd80fa049f0b2ae",
+   "lastmod": "2026-10-26T14:12:40.000Z",
+   "title": "How To: DNS Filtering to block domains with ZCC/Z-Tunnel 2.0",
    "type": "question"
   },
   "https://community.zscaler.com/s/question/0D54u0000AM6HteCQF/query-about-zscaler-for-users-essentials-lab": {
@@ -24217,8 +24322,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ00000RKAwd0AH/zscalers-one-click-for-microsoft-365": {
    "category": "zia",
-   "hash": "ae7c139d24776924",
-   "lastmod": "2025-06-27T00:31:47.000Z",
+   "hash": "1f58d3507acc1014",
+   "lastmod": "2026-10-30T19:58:43.000Z",
    "title": "Zscaler's One Click for Microsoft 365",
    "type": "question"
   },
@@ -27010,8 +27115,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta": {
    "category": "platform",
-   "hash": "a9eabbc559aea5f5",
-   "lastmod": "2026-10-14T21:23:58.000Z",
+   "hash": "90a75f9a7b6951cb",
+   "lastmod": "2026-10-27T03:06:39.000Z",
    "title": "What Are You Using to Prepare for ZDTA?",
    "type": "question"
   },
@@ -27087,8 +27192,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server": {
    "category": "api",
-   "hash": "cc7735afd11206e0",
-   "lastmod": "2026-10-20T16:36:39.000Z",
+   "hash": "c8a8eaa1e4faf54e",
+   "lastmod": "2026-10-28T05:01:09.000Z",
    "title": "OneAPI credentials for the Zscaler MCP Server",
    "type": "question"
   },
@@ -27104,6 +27209,27 @@
    "hash": "2e003692dde9a49d",
    "lastmod": "2026-10-21T16:42:13.000Z",
    "title": "ZIA shows “No scopes available” on my OneAPI API client in ZiDentity",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ0000155msD0AQ/zscaler-mcp-server-keeps-returning-error-executing-tool": {
+   "category": "zpa",
+   "hash": "f46f706e0a35cd12",
+   "lastmod": "2026-10-26T14:11:20.000Z",
+   "title": "Zscaler MCP Server keeps returning “Error executing tool”",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000015CD8d0AG/421124-deb-client-for-ubuntu-keeps-freezing-and-glitching": {
+   "category": "zpa",
+   "hash": "769d01d59bb034c9",
+   "lastmod": "2026-10-26T12:01:28.000Z",
+   "title": "4.2.1.124 DEB client for Ubuntu keeps Freezing and Glitching",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm": {
+   "category": "api",
+   "hash": "faaf2ff83fd91f8a",
+   "lastmod": "2026-10-28T12:53:24.000Z",
+   "title": "OneAPI and DSPM",
    "type": "question"
   }
  },

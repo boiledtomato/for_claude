@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-26 09:18 UTC
-Posts in this file: 320
+Generated: 2026-11-02 11:37 UTC
+Posts in this file: 323
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -8461,6 +8461,291 @@ Manager version
 This guide applies to customer deployments that use Fully Managed ZPA App Connectors. The information also applies to Private Service Edges (PSEs).
 
 Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa","lastmod":"2026-10-30T19:34:21.000Z","id":"aSoPJ0000006pz70AA"} -->
+## How to configure Azure Private Link domains for Private Access (ZPA)
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa
+- Type: Guide
+- Last activity: 2026-10-30T19:34:21.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+Edited 6h ago
+
+How to configure Azure Private Link domains for Private Access (ZPA)
+
+Note:
+
+Special thanks to
+
+Sejal Kumari
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
+
+_______________________________________________________________________________________
+
+Introduction
+
+This guide explains how to configure Azure Private Link domains for Zscaler Private Access (ZPA). Private link domains help ZPA identify and route traffic to private applications hosted behind private link services, such as Azure Private Link.
+
+When private link domains are enabled, ZPA evaluates the canonical name (CNAME) records returned during Domain Name System (DNS) resolution. If the CNAME matches a configured private link domain, ZPA routes the traffic by using the private link destination domain.
+
+Requirements
+
+Before you configure private link domains, make sure you have the following:
+
+Zscaler Client Connector (ZCC) version 4.9 or later
+
+A working ZPA deployment with App Connectors
+
+A DNS server that returns a CNAME for the application domain
+
+The user device and App Connector configured to use the same DNS server
+
+Administrator access to the ZPA Admin Portal
+
+Solution
+
+Installating BIND9
+
+Run the following commands on the DNS server:
+
+sudo apt update
+
+sudo apt install -y bind9 bind9-utils dnsutils
+
+Configuring Resolver Options
+
+Configure BIND9 to listen for DNS queries and forward unresolved queries to public DNS resolvers.
+
+sudo tee /etc/bind/named.conf.options >/dev/null <<'EOF'
+
+options {
+
+directory "/var/cache/bind";
+
+listen-on { any; };
+
+listen-on-v6 { any; };
+
+allow-query { any; };
+
+recursion yes;
+
+allow-recursion { any; };
+
+forwarders {
+
+1.1.1.1;
+
+8.8.8.8;
+
+};
+
+dnssec-validation yes;
+
+};
+
+EOF
+
+Creating the DNS Zone
+
+Create the zone file for test.local and add the CNAME record for abc.test.local.
+
+sudo mkdir -p /etc/bind/zones
+
+sudo tee /etc/bind/zones/db.test.local >/dev/null <<'EOF'
+
+$TTL 86400
+
+@   IN SOA ns1.test.local. admin.test.local. (
+
+20260904
+
+3600
+
+900
+
+604800
+
+86400
+
+IN NS  ns1.test.local.
+
+ns1 IN A   10.0.0.10
+
+abc IN CNAME
+
+www.crazy4.com
+
+EOF
+
+Declaring the DNS Zone
+
+Add the zone to the BIND9 local configuration.
+
+sudo tee -a /etc/bind/named.conf.local >/dev/null <<'EOF'
+
+zone "test.local" {
+
+type master;
+
+file "/etc/bind/zones/db.test.local";
+
+allow-update { none; };
+
+};
+
+EOF
+
+Validating and Starting BIND9
+
+Validate the zone and BIND9 configuration. Then, start or reload the BIND9 service.
+
+sudo named-checkzone test.local /etc/bind/zones/db.test.local
+
+sudo named-checkconf
+
+sudo systemctl enable --now bind9 || sudo systemctl reload bind9
+
+Testing CNAME Resolution
+
+Use dig to confirm that abc.test.local returns the expected CNAME.
+
+dig @127.0.0.1 abc.test.local CNAME +short
+
+dig @127.0.0.1 abc.test.local
+
+The response should show that abc.test.local resolves to the configured CNAME, such as
+
+www.crazy4.com
+
+Configuring the User Device and App Connector DNS
+
+Make sure the user device and the App Connector use the same DNS server. This is required so both components receive the same DNS response and CNAME chain.
+
+On a Linux host, run the following commands to point the active network interface to the local DNS server:
+
+IFACE=$(ip route | awk '/default/ {print $5; exit}')
+
+sudo resolvectl dns $IFACE 127.0.0.1
+
+sudo resolvectl flush-caches
+
+Note
+
+: In production, use the IP address of the DNS server that hosts the private zone instead of 127.0.0.1, unless the DNS service is running locally on the host.
+
+Configuring DNS for the Application Domain
+
+Create a DNS Server where the application would resolve to a CNAME.
+
+Ensure your machine and the App Connector are using the same DNS:
+
+Nslookup response for the domain:
+
+In this example:
+
+Application domain: abc.test.local
+
+CNAME:
+
+www.moon.com
+
+DNS zone: test.local
+
+DNS server IP address: 10.0.0.10
+
+Add the main domain under Private Link Domains.
+
+Path: Private Application > Application Segments > 3 dot on the right > Private Link Domains
+
+Next, create an application segment that has the CNAM of the application:
+
+Now, when the user accesses the application (abc.test.local) on the browser, the logs on the ZPA Portal shows as
+
+www.moon.com
+
+When Private Link Domains are configured, ZPA uses the CNAME chain returned by DNS to determine whether the requested application is backed by a private link endpoint. If there is a match, ZPA routes the traffic using the private link destination domain. This enables accurate policy enforcement and proper routing for applications hosted behind Azure Private Link.
+
+Please reach out to us in the comments if you have any questions
 
 Associated Tags
 
@@ -66180,4 +66465,426 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 “Access Denied” when opening Application Segments in the new Experience Center
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ0000155msD0AQ/zscaler-mcp-server-keeps-returning-error-executing-tool","lastmod":"2026-10-26T14:11:20.000Z","id":"0D5PJ0000155msD0AQ"} -->
+## Zscaler MCP Server keeps returning “Error executing tool”
+
+- Source: https://community.zscaler.com/s/question/0D5PJ0000155msD0AQ/zscaler-mcp-server-keeps-returning-error-executing-tool
+- Type: Q&A
+- Last activity: 2026-10-26T14:11:20.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+skywalker
+
+(Partner) asked a question
+
+Edited 17h ago
+
+Zscaler MCP Server keeps returning “Error executing tool”
+
+Hi all,
+
+When I set up the Zscaler MCP Server in my lab, every call came back with the same generic message, for example “Error executing tool zpa_list_application_segments”. Behind that one message there were actually three different problems. Here’s the order of checks that got me to the cause each time, in case it saves someone a few hours.
+
+Step 1: Is the server connected at all?
+
+In Claude Code, run
+
+/mcp
+
+, or from the shell:
+
+claude mcp list
+
+Connected:
+
+the client can start the server, so move on to step 2.
+
+Failed or missing:
+
+the problem is the launch command. Run that command by hand and read the error.
+
+Common causes here are a relative path to the .env file, an unpinned Python version, or the scope:
+
+claude mcp add
+
+defaults to project scope, so the server only exists when you start
+
+claude
+
+in that folder. Adding
+
+-s user
+
+makes it available everywhere.
+
+Step 2: Look at the real error
+
+In Claude Code, press
+
+Ctrl+O
+
+to expand the tool call. The expanded view sometimes shows the underlying message, such as a 401 or 403, which is far more useful than “Error executing tool”.
+
+Step 3: Test one product at a time
+
+This was the most useful step for me. Ask two simple read questions in different products:
+
+“List my ZIA rule labels”
+
+“List my ZPA application segments”
+
+Then:
+
+Both fail:
+
+the login itself is broken (client ID, secret or vanity domain). For me, it was a vanity domain that contained two values instead of just the short name.
+
+Only ZPA fails:
+
+usually the wrong ZSCALER_CUSTOMER_ID (it must be the ZPA tenant ID), or no ZPA role on the API client.
+
+Only ZIA fails:
+
+check the API client in ZIdentity. Mine showed “No scopes available” under ZIA, which meant I first had to create an API role in the ZIA portal.
+
+Only ZDX or another product fails:
+
+no role selected for that product on the API client.
+
+Step 4: Test the credentials outside the MCP server
+
+curl -s -X POST "https://<vanity>.zslogin.net/oauth2/v1/token" \
+
+-d grant_type=client_credentials -d client_id=<id> \
+
+-d client_secret=<secret> -d audience=https://api.zscaler.com
+
+A token comes back, but the server still fails: the values in your .env differ from what you typed. Look for quotes, extra spaces or two values on one line.
+
+invalid_client
+
+: wrong ID or secret.
+
+Nothing comes back: wrong vanity domain, or the machine can’t reach
+
+zslogin.net
+
+Step 5: Reload after every fix
+
+The server reads .env when it starts. After editing it, run
+
+/mcp
+
+and reconnect (or exit Claude Code and start it again). I lost time more than once thinking a correct fix hadn’t worked, simply because I hadn’t reloaded.
+
+One thing I liked:
+
+while troubleshooting, Claude tried to read my .env file to investigate, and Claude Code’s auto mode blocked it as credential exploration, even with the secrets masked. I checked the file myself instead with
+
+sed 's/=.*/=<hidden>/' .env
+
+, which shows only the variable names. I’d recommend keeping it that way rather than giving the AI access to your secrets.
+
+Quick summary
+
+/mcp
+
+: is it connected?
+
+Ctrl+O: what’s the real error?
+
+One product at a time: which layer is broken?
+
+curl token test: are the credentials valid?
+
+Reconnect after every change.
+
+My question:
+
+Is there a good way to get more detailed error output from the server when it runs over stdio inside Claude Code? “Error executing tool” hides a lot, and I mostly found the causes by elimination. Does anyone run it with debug logging enabled, and where do you read those logs?
+
+Thanks!
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+296
+
+296 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+587
+
+587 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler MCP Server keeps returning “Error executing tool”
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015CD8d0AG/421124-deb-client-for-ubuntu-keeps-freezing-and-glitching","lastmod":"2026-10-26T12:01:28.000Z","id":"0D5PJ000015CD8d0AG"} -->
+## 4.2.1.124 DEB client for Ubuntu keeps Freezing and Glitching
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000015CD8d0AG/421124-deb-client-for-ubuntu-keeps-freezing-and-glitching
+- Type: Q&A
+- Last activity: 2026-10-26T12:01:28.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Privileged Remote Access
+
+godevils89
+
+(Customer) asked a question
+
+19h ago
+
+4.2.1.124 DEB client for Ubuntu keeps Freezing and Glitching
+
+We are currently testing the Zscaler client on
+
+Ubuntu 22.04 and 24.04
+
+, and we are observing significant performance issues.
+
+Specifically, users experience frequent freezing and input glitching (lag/stuttering) while typing, moving the mouse, or performing general desktop activities. We recently tested with updated client versions, but the behavior persists. Everything is fine with ZScaler is exited. I wish I had more details...
+
+ZPA - Privileged Remote Access
+
+Associated Tags
+
+linux
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+6/6/2023
+
+at
+
+03:57 PM
+
+ZPA DNS TTL not honoured
+
+ZPA - Privileged Remote Access
+
+InfraBoy
+
+17
+
+17 Views
+
+3 Likes
+
+1 Comment
+
+9/20/2023
+
+at
+
+11:26 AM
+
+ZPA PSE Terraform Azure
+
+ZPA - Privileged Remote Access
+
+ozanogur
+
+463
+
+463 Views
+
+0 Likes
+
+3 Comments
+
+3/18/2025
+
+at
+
+02:39 AM
+
+Caution/Splash page for Users to accept when they are about to be recorded
+
+ZPA - Privileged Remote Access
+
+JM
+
+321
+
+321 Views
+
+0 Likes
+
+3 Comments
+
+8/18/2025
+
+at
+
+02:14 PM
+
+ZPA PRA question
+
+ZPA - Privileged Remote Access
+
+Diode
+
+533
+
+533 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+4.2.1.124 DEB client for Ubuntu keeps Freezing and Glitching
 <!-- /ZS-POST -->

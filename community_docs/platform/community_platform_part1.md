@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-26 09:18 UTC
-Posts in this file: 407
+Generated: 2026-11-02 11:37 UTC
+Posts in this file: 403
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -7897,6 +7897,238 @@ Blog Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions","lastmod":"2026-10-28T15:28:20.000Z","id":"aSnPJ0000000iKP0AY"} -->
+## Get Zscaler Certified: CertJamZ + Exam On-Site India Sessions
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions
+- Type: Blog
+- Last activity: 2026-10-28T15:28:20.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+1h ago
+
+Get Zscaler Certified: CertJamZ + Exam On-Site India Sessions
+
+Join us for our CertJamZ + Exam On-Site India Sessions—a comprehensive, dual-format event designed to accelerate your Zscaler certification journey.
+
+This program features an in-person morning prep session led by a Zscaler Cyber Academy instructor, covering key concepts, exam guidance, and practice questions. In the afternoon, you will sit for your official Zscaler certification exam (ZDTA or ZDTE) in a proctored, on-site setting. Attendees will be responsible for paying a discounted exam fee on-site
+
+Sessions & Locations
+
+There are 4 sessions planned, with 2 locations currently confirmed:
+
+Session 1: Nov. 2 in Delhi
+
+Session 2: Nov. 16 in Bengaluru
+
+More sessions will be available soon!
+
+Seats are limited for the on-site training and testing session—
+
+reserve your spot today
+
+Payment Details
+
+Preregistration is strictly required: You must complete your registration in advance to secure a seat for both the virtual prep and the on-site testing session.
+
+Payment Timing & Discount Codes: Payment is completed on-site directly with guidance by the instructor through the PVUE platform. Exclusive discount codes will be provided on-site prior to sitting for your exam.
+
+Payment Methods: Any Visa or MasterCard works for the payment.
+
+International Transactions: Please ensure international transactions are enabled on your card with a limit of at least INR 5,000.
+
+Discount Codes: Discount codes will be provided on-site, and payment will be completed directly with the instructor.
+
+Seats are limited for the on-site training and testing sessions. Reserve your spot today:
+
+https://info.zscaler.com/zscaler-cyber-academy
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000iNd0AI/what-made-certification-worth-pursuing-for-you","lastmod":"2026-10-29T17:07:13.000Z","id":"aSnPJ0000000iNd0AI"} -->
+## What made certification worth pursuing for you?
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000iNd0AI/what-made-certification-worth-pursuing-for-you
+- Type: Blog
+- Last activity: 2026-10-29T17:07:13.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+10h ago
+
+What made certification worth pursuing for you?
+
+Discover Certified Champion stories and share your certification journey.
+
+Have you read the recent
+
+Certified Champions Community Spotlight series
+
+? In every spotlight, we share the real-world certification journeys of our community members—highlighting what motivated them to get certified, how they prepared, and how validating their expertise impacted their careers.
+
+Certification journeys start for many reasons: validating hands-on skills, unlocking career advancement, preparing for new architectural projects, or building team credibility.
+
+💬 For Certified Members: What was the turning point that motivated you to earn your ZDTA, ZDTE, or ZDXA credential? What advice would you give to someone studying right now?
+
+❓ For Certification Candidates: What is the primary goal driving your preparation today?
+
+Read our latest Champion Spotlights on Zenith Community, join the conversation below, and connect with fellow Zero Trust experts!
+
+From "Aha!" Moments to Real Impact: Meet Certified Champion Laura Thaqi
+
+Chaotic, Caffeinated, and Community Powered: David Gillot Spotlight
+
+Certification Community Spotlight: John Buxbaum’s Zero Trust Journey
+
+Explore Zscaler Certifications & Resources
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal","lastmod":"2025-09-25T16:40:36.000Z","id":"aSoPJ0000005aCX0AY"} -->
 ## How to Access Your Cases in the Zscaler Customer Support Portal
 
@@ -14486,6 +14718,321 @@ Save the isolation profile.
 The custom message will now appear as part of the watermark displayed during isolated browsing sessions.
 
 Note: The Message field is intended for custom or company-specific text. It operates independently of the User ID and Date and Timestamp watermark elements, all of which can be enabled or disabled individually within the isolation profile.
+
+Please reach out to us in the comments if you have any questions.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006q0j0AA/zscaler-experience-center-a-practical-guide-for-customer-administrators","lastmod":"2026-10-30T19:37:12.000Z","id":"aSoPJ0000006q0j0AA"} -->
+## Zscaler Experience Center: A Practical Guide for Customer Administrators
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006q0j0AA/zscaler-experience-center-a-practical-guide-for-customer-administrators
+- Type: Guide
+- Last activity: 2026-10-30T19:37:12.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+6h ago
+
+Zscaler Experience Center: A Practical Guide for Customer Administrators
+
+Note:
+
+Special thanks to
+
+Prateek Arora
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
+
+_______________________________________________________________________________________
+
+1. What is Experience Center?
+
+Zscaler Experience Center—the Zscaler Admin Console—is the central interface for administering and monitoring Zscaler services. It brings service areas such as Internet & SaaS, Private Access, and Digital Experience into one console, with shared navigation, analytics, and onboarding experiences. Existing configurations, reports, and dashboards remain available through the new interface after migration.
+
+Think of the console as your starting point for administrative work across the services enabled for your organization. What appears in the console depends on the cloud or tenant you’re using and the access assigned to your administrator account.
+
+2. Before you begin
+
+Your organization must be provisioned, and your admin account must be set up for the applicable Zscaler authentication service. The upgrade guide says admins can sign in with their existing Authentication Service credentials after receiving the migration notification.
+
+If your organization uses multiple clouds or tenants, select the correct one during sign-in. You can change the default selection in Account Settings.
+
+An admin account may not have access to every service or setting. Role-based administration supports different levels of access, and integrated applications are shown in role configuration only when the organization has access to or a subscription for them. Ask your organization’s authorized administrator to verify your access when something is missing.
+
+3. Sign in and select the right environment
+
+Go to
+
+console.zscaler.com
+
+. Use
+
+beta.console.zscaler.com
+
+only if your organization is set up for the beta environment.
+
+Enter your Login ID and follow your organization’s sign-in prompts, including any required multi-factor authentication.
+
+If prompted, select the cloud or tenant you intend to manage. You can review or change the default in Account Settings.
+
+To sign out, open the Account menu and select Sign Out.
+
+If you’ve forgotten your password, use Having trouble signing in? on the sign-in page and follow the reset instructions. For help changing your MFA method, contact your organization’s Authentication Service administrator.
+
+4. Set up a useful home page
+
+The home page is a customizable workspace. Depending on the cards available to you, it can provide analytics snapshots, recently visited pages, product information, security news, and links to documentation and product tours.
+
+To tailor it:
+
+Select Customize.
+
+Use Add card to choose a card.
+
+Drag cards to rearrange them, resize them, or remove ones you don’t need.
+
+Select Save to keep the layout.
+
+Select Go to Full View on an analytics card to open its dashboard.
+
+Use the home page for quick visibility; open the full dashboard when you need to investigate a trend or inspect more detail.
+
+5. Navigate to services and settings
+
+The navigation menu groups console pages by administrative area. Depending on your access, you may see areas such as Analytics, Administration, Internet Access, Private Access, Digital Experience, Data Security, Infrastructure, and Data Explorer.
+
+Use the categories to explore related configuration and reporting pages. For example, Analytics contains dashboards and reports, while service areas contain their respective configuration and policy pages. The exact pages and actions available can vary by service and admin permissions.
+
+Use Search to find console pages
+
+The Admin Console Search is designed to help you locate pages in the console:
+
+Select Search in the top banner, or press Ctrl+K.
+
+Enter a page-related term and review the suggestions.
+
+Select a result to open that page.
+
+Search results cover Admin Console pages, with some exceptions. Search does not find Help-menu items, tabs, field names, toggle names, or tooltips. If you’re looking for a specific policy, user, or setting and Search doesn’t return it, navigate to the relevant service area and use that page’s own controls.
+
+6. Use dashboards to investigate service experience
+
+Analytics cards are a convenient starting point for dashboards. The home page documentation lists cards for Networking, Digital Experience, Cybersecurity, Devices, and Appliances; selecting Go to Full View opens the corresponding dashboard.
+
+For example, the Digital Experience dashboard provides an overview of user, device, application, unified communications, network activity, and latency information. Its time-range control lets you view a period between two and 48 hours, and filters let you narrow the data. Select Apply to update the view or Reset to remove the selected filters.
+
+When a chart looks empty or unexpected, first check the dashboard’s selected time range and filters. Confirm you’re looking at the intended cloud or tenant before drawing conclusions from the data.
+
+7. Understand what you can see and do
+
+A successful sign-in doesn’t necessarily mean every service, page, or action is available to that admin account. Access can vary by assigned role and by the services available to the organization. In multi-organization environments, access may also depend on the organization or tenant in use.
+
+If something is missing, check in this order:
+
+Environment: Are you in the expected cloud and tenant?
+
+Organization context: If your environment provides an organization selector, confirm the intended organization is active.
+
+Admin access: Ask your organization’s authorized administrator to confirm that your account has the intended access for that service.
+
+Service availability: Ask the administrator to confirm that the organization has access to the relevant service or application.
+
+The names and exact permissions for admin roles can vary by product. Use the relevant product documentation or your organization’s administrator for role-specific guidance.
+
+8. Common issues and customer-side checks
+
+What you notice
+
+Checks to try
+
+You can’t sign in
+
+Confirm the Login ID and console URL, complete the sign-in steps required by your organization, and use the sign-in page’s password recovery option if needed. For MFA changes, contact your Authentication Service administrator.
+
+You see the wrong tenant or cloud
+
+Select the intended tenant or cloud when prompted, or review the default in Account Settings.
+
+A service or setting is missing
+
+Check the selected cloud and tenant. Ask your organization’s admin to confirm your role and whether the organization has access to that service. If available, also confirm the active organization context.
+
+A page or dashboard is blank or incomplete
+
+Refresh the page and confirm you’re using a supported browser. Zscaler actively tests the two most recent versions of Chrome, Firefox, and Edge on Windows 10 or later; on macOS 10 or later, it actively tests the two most recent versions of Chrome and Firefox.
+
+A dashboard has no expected data
+
+Review the time range and filters, then apply or reset them. Confirm the selected cloud or tenant is correct.
+
+Search doesn’t find what you need
+
+Search for the name of a console page. Search does not cover tabs, field names, toggle names, tooltips, or Help-menu items. For product objects, go to the related product area.
+
+You’re signed out unexpectedly
+
+Sign in again. The session may end after a configurable period of inactivity; if sign-outs happen repeatedly during active work, ask your administrator for help.
+
+The console is temporarily read-only
+
+During scheduled maintenance or upgrades, the console may allow viewing but not editing. Try again after the maintenance period.
+
+9. When contacting Support
+
+Use the Support Portal link under Help → Tools & Resources. To help describe the issue, include:
+
+The service or page affected.
+
+The cloud or tenant selected.
+
+What you expected to happen and what happened instead.
+
+The approximate time and time zone.
+
+Your browser and operating system.
+
+Any visible error text and the steps you already tried.
+
+Share screenshots or diagnostic information only through an approved support channel, and remove sensitive customer information where appropriate. Never send passwords, MFA codes, cookies, or session tokens.
+
+NAV 2.0 menu guide
+
+Menu area
+
+What admins can look for
+
+Analytics
+
+Product overviews, reports, custom dashboards, and areas such as Health360 and Risk360.
+
+Internet Access
+
+Internet & SaaS dashboards, policies, resources, traffic capture, and tools.
+
+Private Access
+
+Private applications, policies and steering, infrastructure, dashboards, B2B exchange, and legacy VPN options.
+
+Digital Experience
+
+Application, user, and device views; alerts, reports, and configuration settings.
+
+Data Security
+
+DSPM, Email and Endpoint DLP, Inline CASB, and SaaS Security.
+
+Cybersecurity
+
+Security insights, threat views, and security policies.
+
+Infrastructure
+
+Client Connector, location management, connectors, and business-continuity settings.
+
+Zero Trust Cloud and Zero Trust Branch
+
+Cloud Connector, gateways, microsegmentation, branch deployments, and related security settings.
+
+Zero Trust Browser
+
+Browser isolation, web access, privileged remote access, and credential management.
+
+Data Explorer
+
+Service logs, insights, and audit logs.
+
+Administration
+
+Organization and subscription settings, role management, authentication, APIs, alerts, and notifications.
+
+10. Related resources
+
+Signing in to the Zscaler Admin Console
+
+Upgrading to Zscaler Experience Center
+
+Viewing the Experience Center Home Page
+
+Searching in the Zscaler Admin Console
+
+Supported Browsers
+
+This version adds practical admin workflows and access troubleshooting. It deliberately leaves out internal service architecture, token and session implementation details, engineering escalation steps, and support-team diagnostics.
 
 Please reach out to us in the comments if you have any questions.
 
@@ -71162,1093 +71709,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Certification
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARS9KzCQL/fundamentals-of-cybersecurity-edu102","lastmod":"2024-07-17T12:11:17.000Z","id":"0D54u0000ARS9KzCQL"} -->
-## Fundamentals of Cybersecurity (EDU-102)
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ARS9KzCQL/fundamentals-of-cybersecurity-edu102
-- Type: Q&A
-- Last activity: 2024-07-17T12:11:17.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-radhakishan
-
-(Customer) asked a question.
-
-April 29, 2024 at 6:42 AM
-
-Fundamentals of Cybersecurity (EDU-102)
-
-is this course free ?
-
-Training Portfolio
-
-2 answers
-
-457 views
-
-Omar
-
-(Customer)
-
-2 years ago
-
-The course is free but the Exam is 1 Credit or 300$.
-
-If you are a Zscaler Partner then most likely you have free credits to use them on the Exam.
-
-3 likes
-
-sanjaey2842
-
-(Customer)
-
-2 years ago
-
-how to be zscaler partnet?
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Fundamentals of Cybersecurity (EDU-102)
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPEZWCQ5/get-certified-with-one-of-the-industrys-most-comprehensive-zero-trust-certification","lastmod":"2024-06-12T23:08:59.000Z","id":"0D54u0000ASPEZWCQ5"} -->
-## Get certified with one of the industry's most comprehensive Zero Trust Certification!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ASPEZWCQ5/get-certified-with-one-of-the-industrys-most-comprehensive-zero-trust-certification
-- Type: Q&A
-- Last activity: 2024-06-12T23:08:59.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Certification
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-May 6, 2024 at 10:25 AM
-
-Get certified with one of the industry's most comprehensive Zero Trust Certification!
-
-Zscaler Zero Trust Certified Associate (ZTCA), one of the industry’s most comprehensive zero trust certifications, helps network and security professionals attest expertise in establishing a holistic, layered security approach based on zero trust principles.
-
-Start your journey now to earn the Zero Trust credential.
-
-Certification
-
-369 views
-
-victor.loredoMX
-
-and
-
-johnsonto
-
-like this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/12/2024
-
-at
-
-04:57 AM
-
-ZIA administrator certification
-
-Certification
-
-User16739629112679781823
-
-1,215
-
-1215 Views
-
-0 Likes
-
-2 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Get certified with one of the industry's most comprehensive Zero Trust Certification!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPEb0CQH/start-your-journey-with-the-zscaler-for-users-essentials-learning-path-and-get-certified-now","lastmod":"2024-05-16T08:18:49.000Z","id":"0D54u0000ASPEb0CQH"} -->
-## Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ASPEb0CQH/start-your-journey-with-the-zscaler-for-users-essentials-learning-path-and-get-certified-now
-- Type: Q&A
-- Last activity: 2024-05-16T08:18:49.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-May 6, 2024 at 10:26 AM
-
-Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
-
-It's time you validate your learning and grow your career by taking the flagship industry-standard Zscaler Digital Transformation Certification third-party proctored exam. Start your journey with the Zscaler for Users- Essentials learning path and
-
-get certified now
-
-Training Portfolio
-
-336 views
-
-Omar
-
-likes this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPWkKCQX/read-our-latest-blog-about-the-groundbreaking-zscaler-for-users-essentials-learning-path","lastmod":"2024-05-22T02:46:39.000Z","id":"0D54u0000ASPWkKCQX"} -->
-## Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ASPWkKCQX/read-our-latest-blog-about-the-groundbreaking-zscaler-for-users-essentials-learning-path
-- Type: Q&A
-- Last activity: 2024-05-22T02:46:39.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-May 6, 2024 at 4:33 PM
-
-Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
-
-Want to know why Zscaler came up with the groundbreaking Zscaler for Users- Essentials learning path? Not just that, but the step-by-step approach used to design the training for learners, the industry-leading certification and much more.
-
-Read our latest blog now!
-
-Training Portfolio
-
-271 views
-
-johnsonto
-
-John Buxbaum
-
-, and
-
-vcotton17
-
-like this.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ATG5TBCQ1/unmanaged-devices-limit-connection-to-every-restart","lastmod":"2024-05-28T11:10:10.000Z","id":"0D54u0000ATG5TBCQ1"} -->
-## unmanaged devices - limit connection to every restart
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ATG5TBCQ1/unmanaged-devices-limit-connection-to-every-restart
-- Type: Q&A
-- Last activity: 2024-05-28T11:10:10.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZPA - Authentication
-
-SharonCM
-
-(Partner) asked a question.
-
-May 20, 2024 at 10:32 PM
-
-unmanaged devices - limit connection to every restart
-
-When we install the agent on unmanaged device, it gets username and password authentication.
-
-How can we limit the connection to 1 time, and every restart or disconnect he will need to enter his credentials?
-
-Limitation of timeout – can we set it to every restart the agent will need to login?
-
-ZPA - Authentication
-
-3 answers
-
-351 views
-
-saquibrais09
-
-likes this.
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-Hi Sharon.
-
-Do you only want this daily timeout policy to apply to unmanaged devices?
-
-Are you using the additional
-
-SAML attributes
-
-of "is_device_compliant", "is_device_known" and "is_device_managed" ?
-
-We use EntraID as our idp with a predefined timeout of x hours.
-
-We've configured a ZPA 'AUTHENTICATION TIMEOUT' of x hours along with App Profile option of 'FORCE ZPA AUTHENTICATION TO EXPIRE' on 'SYSTEM RESTART'.
-
-This ensures our ZPA users always need to re-authenticate fully !
-
-BUT the App Profile option does create some additional issues, zero ZPA connectivity (cannot access any App seg when using this option) until the user authenticates for ZPA. This does breaks some our management tools ....so the general ZPA Timeout Policy offers more flexibility.
-
-SharonCM
-
-(Partner)
-
-2 years ago
-
-thank you for the detailed answer. very helpful
-
-1 like
-
-catherinejohn3
-
-(Customer)
-
-2 years ago
-
-Unmanaged devices limiting connection after each restart? This recurring issue might indicate a lack of device management protocols or network configuration settings.
-
-best bundle deals for tv internet and cell phone
-
-To address it, consider implementing access control lists (ACLs) or network segmentation to regulate device access. Additionally, deploying network monitoring tools can help identify unauthorized devices and prevent them from disrupting network functionality. Regular audits and updates to network policies can mitigate such connectivity issues in the future.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-5/27/2022
-
-at
-
-03:55 PM
-
-ZPA Authentication Timeout
-
-ZPA - Authentication
-
-katlyn.gallo
-
-8 Views
-
-0 Likes
-
-4 Comments
-
-12/18/2021
-
-at
-
-04:06 AM
-
-ZPA Authentication timers
-
-ZPA - Authentication
-
-xavi1
-
-3 Views
-
-0 Likes
-
-4 Comments
-
-10/1/2020
-
-at
-
-02:18 PM
-
-Accessing AWS Workspaces
-
-ZPA - Authentication
-
-Gordon Wright
-
-4,366
-
-4366 Views
-
-0 Likes
-
-5 Comments
-
-8/22/2024
-
-at
-
-08:03 PM
-
-ZPA device authentication
-
-ZPA - Authentication
-
-avshch
-
-683
-
-683 Views
-
-0 Likes
-
-3 Comments
-
-1/28/2025
-
-at
-
-07:02 AM
-
-PSE can't connect to APC
-
-ZPA - Authentication
-
-Vinod
-
-274
-
-274 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-unmanaged devices - limit connection to every restart
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ATH6zDCQT/nssweb","lastmod":"2025-11-17T23:06:31.000Z","id":"0D54u0000ATH6zDCQT"} -->
-## NSS-Web
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ATH6zDCQT/nssweb
-- Type: Q&A
-- Last activity: 2025-11-17T23:06:31.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Naushad
-
-(Partner) asked a question.
-
-May 22, 2024 at 11:12 AM
-
-NSS-Web
-
-Hi Team,
-
-I was trying to deployed NSS server on our premises but we are getting error missing SSL Client Certificate/Key
-
-and also i am trying to enable to SSH in server but i can't
-
-find the error snapshot below
-
-1 answer
-
-352 views
-
-saquibrais09
-
-likes this.
-
-rmiranda
-
-(Employee)
-
-8 months ago
-
-Hello @Naushad Shaikh​
-
-This error always shows when the SSL Certificate that you get from the AdminUI (Zscaler Administration Portal) has not been installed in the NSS server, or its installation failed.
-
-This is a link to that specific step from the configuration guide for NSS in VMWare
-
-https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#installssl
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-10/17/2024
-
-at
-
-06:58 AM
-
-Misspelled  "Zscaler" Footer in Communication Emails
-
-ozanogur
-
-236
-
-236 Views
-
-3 Likes
-
-1 Comment
-
-1/28/2025
-
-at
-
-09:23 AM
-
-Direct certain countries to different SE for a URL
-
-danbro185
-
-495
-
-495 Views
-
-1 Like
-
-5 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-NSS-Web
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AVMC2GCQX/single-zscaler-client-for-multiple-enterprise-vpn-connection-possible-or-not","lastmod":"2024-07-01T14:35:37.000Z","id":"0D54u0000AVMC2GCQX"} -->
-## Single  Zscaler client for multiple enterprise VPN connection possible or not?
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AVMC2GCQX/single-zscaler-client-for-multiple-enterprise-vpn-connection-possible-or-not
-- Type: Q&A
-- Last activity: 2024-07-01T14:35:37.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Authentication
-
-anurag.srivastava02
-
-(Customer) asked a question.
-
-June 13, 2024 at 1:00 PM
-
-Single  Zscaler client for multiple enterprise VPN connection possible or not?
-
-Hello All,
-
-I have a query regarding VPN authentication.
-
-Suppose i am employee in company A and working on a project for company B and company C
-
-All companies are using Zscaler for VPN authentication . Is it possible that i can switch my VPN connection from A to B and C to access the infra for company B and C ?
-
-Please advise if there is some solution available.
-
-Thanks
-
-ZIA - Authentication
-
-2 answers
-
-329 views
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-Hi Anurag,
-
-Apologies but I assume by VPN you mean Zscaler Private Access (ZPA) ?
-
-If so then
-
-Multi-tenant
-
-is possible but relatively 'new' as doesn't support device posture (yet).
-
-Hope this helps
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-You can leverage partner login options.
-
-Log In to Answer
-
-Associated Tags
-
-best-practice
-
-accesspolicy
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/15/2022
-
-at
-
-12:39 PM
-
-Onprem Active directory integrate with Zscaler cloud ZIA
-
-ZIA - Authentication
-
-aravindhan.m
-
-3 Views
-
-0 Likes
-
-3 Comments
-
-7/11/2022
-
-at
-
-07:26 AM
-
-Zscaler IDP authentication issue
-
-ZIA - Authentication
-
-aravindhan.m
-
-4 Views
-
-0 Likes
-
-2 Comments
-
-5/27/2022
-
-at
-
-01:49 PM
-
-Zscaler ZIA O365 Apps not authenticating
-
-ZIA - Authentication
-
-abmaclean
-
-4 Views
-
-0 Likes
-
-6 Comments
-
-10/4/2021
-
-at
-
-10:43 PM
-
-Automatic de-provisioning using SCIM with Azure AD
-
-ZIA - Authentication
-
-Paul_Wineberg
-
-4 Views
-
-0 Likes
-
-4 Comments
-
-6/27/2020
-
-at
-
-03:01 PM
-
-Zscaler public preview
-
-ZIA - Authentication
-
-Muhammad
-
-364
-
-364 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Single  Zscaler client for multiple enterprise VPN connection possible or not?
 <!-- /ZS-POST -->

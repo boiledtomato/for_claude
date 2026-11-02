@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-26 09:18 UTC
-Posts in this file: 74
+Generated: 2026-11-02 11:37 UTC
+Posts in this file: 76
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -1549,6 +1549,133 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Article Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000iHB0AY/shaping-the-new-agentic-secops-certification-curriculum-share-your-input","lastmod":"2026-10-27T16:27:43.000Z","id":"aSnPJ0000000iHB0AY"} -->
+## Shaping the New Agentic SecOps Certification & Curriculum: Share Your Input
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000iHB0AY/shaping-the-new-agentic-secops-certification-curriculum-share-your-input
+- Type: Blog
+- Last activity: 2026-10-27T16:27:43.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Certification
+
+Alejandro Knudsen
+
+(Employee) posted a Blog
+
+1h ago
+
+Shaping the New Agentic SecOps Certification & Curriculum: Share Your Input
+
+Hello Zenith Community,
+
+As modern threats compress attack lifecycles and adversaries exploit vectors like ClickFix, TDS, and OAuth device code phishing, SecOps teams face growing challenges with alert fatigue, machine-speed attacks, and fragmented tools.
+
+To address these challenges, Zscaler is developing an Agentic SecOps course and certification built around unified exposure management, 50+ specialized AI agents, inline threat detection across 750B+ daily transactions, and closed-loop dynamic remediation.
+
+To make sure this program delivers practical value for SOC analysts, security engineers, architects, and delivery partners, we are conducting a curriculum needs assessment.
+
+📋 Take the Needs Assessment Survey (8–10 Minutes)
+
+The survey is open through November 9, 2026:
+
+Take the Agentic SecOps Survey
+
+Key Areas Covered in the Survey:
+
+Target Persona & Prerequisites: What baseline technical background is required (from cybersecurity graduates to expert architects in multi-cloud detection)?
+
+Core Technical Topics: Prioritizing focus areas across the Zscaler Data Fabric for Security, SaaS and cloud persistence defense (Entra ID, AWS, Azure, GCP), deception tripwires, and specialized AI agents.
+
+Emerging Vectors: Feedback on integrating topics such as Enterprise AI model protection, Mythos scanning, RMM tool abuse, and SIEM/XDR co-existence.
+
+Hands-on Labs: Choosing practical tasks such as executing user quarantine and session revocation, configuring app connector policies, deploying decoys and landmines, and root cause analysis.
+
+Certification Exam Blueprint: Setting the weighting (from 5–10% up to 25–30%) across the five core exam domains.
+
+Join the Discussion:
+
+While completing the
+
+survey
+
+, feel free to drop your thoughts below:
+
+What is the primary SecOps challenge (e.g., alert fatigue, machine-speed threats, fragmented toolsets) you want this training to address?
+
+How critical is a proctored, hands-on practical exam component to validate real-world operational ability?
+
+Submissions close on November 9, 2026. We appreciate your insights as we develop the next generation of Zscaler certifications!
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
 <!-- /ZS-POST -->
 
 ---
@@ -12427,12 +12554,12 @@ Planning Ahead: Managing Ubuntu Laptops & Ansible Push Behind Zscaler
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server","lastmod":"2026-10-20T16:36:39.000Z","id":"0D5PJ000014nqXU0AY"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server","lastmod":"2026-10-28T05:01:09.000Z","id":"0D5PJ000014nqXU0AY"} -->
 ## OneAPI credentials for the Zscaler MCP Server
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000014nqXU0AY/oneapi-credentials-for-the-zscaler-mcp-server
 - Type: Q&A
-- Last activity: 2026-10-20T16:36:39.000Z
+- Last activity: 2026-10-28T05:01:09.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 skywalker
@@ -12658,4 +12785,133 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 OneAPI credentials for the Zscaler MCP Server
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm","lastmod":"2026-10-28T12:53:24.000Z","id":"0D5PJ000015L1Hm0AK"} -->
+## OneAPI and DSPM
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm
+- Type: Q&A
+- Last activity: 2026-10-28T12:53:24.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Danielo
+
+(Partner) asked a question
+
+3h ago
+
+OneAPI and DSPM
+
+Hi,
+
+Does someone know if it is possible to use OneAPI and DSPM?
+
+We would like to get information from the DSPM dashboards like Top Risk Data Stores, Incidents, Compliance, etc.
+
+Associated Tags
+
+data-protection
+
+api
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+301
+
+301 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+592
+
+592 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+OneAPI and DSPM
 <!-- /ZS-POST -->

@@ -1,10 +1,2706 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 3)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-26 09:18 UTC
-Posts in this file: 310
+Generated: 2026-11-02 11:37 UTC
+Posts in this file: 308
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2cCAA/how-zscaler-protect-against-domain-fronting","lastmod":"2025-08-22T07:27:12.000Z","id":"0D54u00009evn2cCAA"} -->
+## How Zscaler protect against Domain Fronting?
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2cCAA/how-zscaler-protect-against-domain-fronting
+- Type: Q&A
+- Last activity: 2025-08-22T07:27:12.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Sandbox
+
+Tommy_Lambert
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+April 5, 2019 at 6:52 PM
+
+How Zscaler protect against Domain Fronting?
+
+Hi everyone,
+
+I’m currently testing Zscaler to see if it is able to protect against Domain Fronting technique. What I do see in the log is that the first (legit) domain hit and the underlying (bad) domain as two separate line. But, I do not seems to be able to link those two events together. Currently, I’m working on a homemade apps that act as domain fronting, so I know the legit and the bad URL. In a real situation, I’m a bit on dark.
+
+Is there any link I can put between those two events? Can I set any alerts when I call an URL, but the answer is on another domain?
+
+Best regards,
+
+Tom
+
+ZIA - Cloud Sandbox
+
+Discourse-expand
+
+Far-image
+
+17 answers
+
+2.9K views
+
+Raj90909
+
+(Customer)
+
+4 years ago
+
+Has anyone experienced any issues with enabling the Block Domain Fronting option?
+
+User16171370768385158542
+
+(Customer)
+
+4 years ago
+
+Internal bug is being opened to look into this.
+
+User16171370768385158542
+
+(Customer)
+
+4 years ago
+
+We were looking for the testing data as well and neither the curl or PowerShell command gives us any result but none. The goal would be to prove the data before turning on the feature.
+
+Charles_Repain
+
+(Employee)
+
+5 years ago
+
+Hi
+
+@lpergament
+
+this is a great option, do you have any plan to get something more granular? For example if we have a “legit? domain fronting use.
+
+lpergament
+
+(Employee)
+
+5 years ago
+
+It is now possible to block domain fronted transactions using a new setting:
+
+https://help.zscaler.com/zia/release-upgrade-summary-2021?applicable_category=zscloud.net&deployment_date=2021-11-19&id=1386371
+
+The new control blocks transactions in which the SNI differs from the HTTPS request host header and transactions in which the host header differs from the URL FQDN.
+
+1 like
+
+hukel
+
+(Customer)
+
+Edited by sfdc July 6, 2023 at 12:09 PM
+
+image
+
+944×366 31.6 KB
+
+The image above is what I see when I capture the packets between my ZCC and the proxy.
+
+The log snippet below came from my ZCC logs showing that the host header does not match the SNI:
+
+2021-02-08 21:28:26.846921(-0500)[10216:13336] INF ID=454493746, Tunnel to SME for host=fronted.digi.ninja:443, SME IP=165.225.38.40:443
+
+2021-02-08 21:28:26.846921(-0500)[10216:13336] DBG ID=454493746, Cnonce is: 12192181f31949550e7f08998df596f5
+
+2021-02-08 21:28:26.846921(-0500)[10216:13336] DBG ID=454493746, SME request:
+
+CONNECT fronted.digi.ninja:443 HTTP/1.1
+
+Host: fronted.digi.ninja:443
+
+The proxy logs from the same request show the CONNECT to the “fronting? URI, just like the ZCC debug log. TZ in packet capture is UTC-5.
+
+image
+
+1583×92 10.2 KB
+
+Invoke-RestMethod -Uri "https://fronted.digi.ninja/" -Headers @{Host='d1sdh26o090vk5.cloudfront.net'} -Proxy http://127.0.0.1:9000 -DisableKeepAlive
+
+hukel
+
+(Customer)
+
+5 years ago
+
+Apologies for not being more clear. The df_hostname field is included in those logs (named “tlssni?). The field is not being filled in the protocol=HTTPS requestmethod=GET log entry with a value.
+
+My log format:
+
+tlssni=%s{df_hostname}
+
+Resulting log:
+
+tlssni=None
+
+lpergament
+
+(Employee)
+
+5 years ago
+
+Hi
+
+@hukel
+
+, the 2 logs reflect 2 separate HTTP transactions. The first is an HTTP CONNECT request from the proxy aware application (looks like you’re using system proxy settings). The CONNECT request is a transaction between the client application and the proxy - not an actual internet destination, used as a tunneling method. The second reflects a decrypted HTTPS transaction to that cloudfront hostname. To detect domain fronting you should compare the SNI of the SSL connection and the hostname header of the individual HTTP transactions. If you add the field described above to the feed format, you’ll be able to compare the HTTP host header and the SNI and alert on mismatches.
+
+hukel
+
+(Customer)
+
+5 years ago
+
+I am seeing this same behavior, two logs for one request. The times and event_ids don’t even match so there is really no way to correlate the two logs in the SIEM.
+
+You can reproduce using this Powershell one-liner.
+
+(Invoke-RestMethod -Uri "https://fronted.digi.ninja/" -Headers @{Host='d1sdh26o090vk5.cloudfront.net'} -Proxy http://165.225.38.37:9443).html.body
+
+Logs below.
+
+2021-02-06 13:47:23 GMT reason=Allowed event_id=6926146910014210049 protocol=HTTPS action=Allowed transactionsize=1236 responsesize=1062 requestsize=174 urlcategory=Internet Services serverip=13.33.86.63 clienttranstime=259 requestmethod=GET refererURL=None useragent=Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.18362.1171 product=NSS status=200 url=d1sdh26o090vk5.cloudfront.net/ vendor=Zscaler hostname=d1sdh26o090vk5.cloudfront.net threatcategory=None threatname=None filetype=None appname=General Browsing pagerisk=0 urlsupercategory=Internet Communication appclass=General Browsing dlpengine=None urlclass=Business Use threatclass=None dlpdictionaries=None fileclass=None bwthrottle=NO servertranstime=259 contenttype=text/html unscannabletype=None devicehostname=NA deviceowner=NA tlssni=None
+
+2021-02-06 13:47:22 GMT reason=Allowed event_id=6926146905719242753 protocol=HTTP_PROXY action=Allowed transactionsize=259 responsesize=65 requestsize=194 urlcategory=Science/Tech serverip=13.33.86.63 clienttranstime=0 requestmethod=CONNECT refererURL=None useragent=Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.18362.1171 product=NSS status=200 url=fronted.digi.ninja:443 vendor=Zscaler hostname=fronted.digi.ninja threatcategory=None threatname=None filetype=None appname=General Browsing pagerisk=0 urlsupercategory=Education appclass=General Browsing dlpengine=None urlclass=Business Use threatclass=None dlpdictionaries=None fileclass=None bwthrottle=NO servertranstime=0 contenttype=Other unscannabletype=None devicehostname=NA deviceowner=NA tlssni=None
+
+lpergament
+
+(Employee)
+
+6 years ago
+
+Hi
+
+@Mark_Beadles
+
+This field is populated only if there is a mismatch between the HTTP request host header and the SNI of the SSL connection encrypting the HTTP transactions. In most cases, there is no mismatch, so the field will get recorded as “Unknown Host?. We will change that soon to simply be an empty string “?.
+
+You can see the field get populated by running a command such as:
+
+curl
+
+https://google.com/
+
+-k -v --http1.1 -H “Host:
+
+www.yahoo.com
+
+on a machine that is forwarding traffic to Zscaler and has SSL inspection turned on.
+
+More answers
+
+10 of 17
+
+Log In to Answer
+
+Associated Tags
+
+ssl
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/21/2020
+
+at
+
+01:31 PM
+
+Does Zscaler Scan Email Traffic?
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,221
+
+1221 Views
+
+1 Like
+
+3 Comments
+
+1/2/2020
+
+at
+
+12:25 PM
+
+Prevent Malicious VPN Connection
+
+ZIA - Cloud Sandbox
+
+Omar
+
+1,194
+
+1194 Views
+
+0 Likes
+
+8 Comments
+
+10/2/2017
+
+at
+
+04:47 AM
+
+Alerting positive 'allow and scan'
+
+ZIA - Cloud Sandbox
+
+Lmay
+
+416
+
+416 Views
+
+1 Like
+
+2 Comments
+
+9/11/2017
+
+at
+
+09:37 PM
+
+How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
+
+ZIA - Cloud Sandbox
+
+awl
+
+525
+
+525 Views
+
+0 Likes
+
+1 Comment
+
+9/11/2017
+
+at
+
+09:35 PM
+
+What is the recommended “best practice? Cloud Sandbox rule policy?
+
+ZIA - Cloud Sandbox
+
+awl
+
+584
+
+584 Views
+
+0 Likes
+
+4 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+How Zscaler protect against Domain Fronting?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2eCAA/dlp-engine-issues-with-zscaler-zia","lastmod":"2023-05-31T08:52:56.000Z","id":"0D54u00009evn2eCAA"} -->
+## DLP engine issues with ZScaler ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2eCAA/dlp-engine-issues-with-zscaler-zia
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:56.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+avshch
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 31, 2019 at 4:23 PM
+
+DLP engine issues with ZScaler ZIA
+
+We have issues with DLP-engine once enabled it causes timeouts for Gmail even though Gmail is excluded from DLP dictionaries like HIPAA and profanity language. After disabling all DLP rules GMail time-out goes away. I’m wondering if other ZScaler ZIA customers have similar experience. Thanks,
+
+ZIA - Cloud Firewall
+
+2 answers
+
+496 views
+
+avshch
+
+(Customer)
+
+7 years ago
+
+Besides the issue filed in Bug-54380 with offensive language dictionary, there was an issue with
+
+taskassist-pa.client6.google.com
+
+is not defined at Zscaler as G-Suite application.
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Alex,
+
+It’s possible there’s some new hosts we need to add to the Gmail application, most likely we’ll need some browser traces to identify the problem connection. Have you opened a case on this? Our support team will be able to advise on how to capture the needed diagnostics and apply any needed fixes (ether in service or configuration guidance).
+
+Cheers,
+
+Scott-
+
+Log In to Answer
+
+Associated Tags
+
+data-protection
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,834
+
+1834 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+DLP engine issues with ZScaler ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2fCAA/ssl-inspection-exception-for-application-lyncskypeteams","lastmod":"2023-05-31T09:07:56.000Z","id":"0D54u00009evn2fCAA"} -->
+## SSL Inspection - Exception for Application Lync/Skype/Teams
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2fCAA/ssl-inspection-exception-for-application-lyncskypeteams
+- Type: Q&A
+- Last activity: 2023-05-31T09:07:56.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+patrickOS
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 26, 2019 at 8:49 AM
+
+SSL Inspection - Exception for Application Lync/Skype/Teams
+
+Hello,
+
+Recently we have enabled SSL Inspection in our organization and today I got a lot of complains about not working Skype for Business meetings with external companies not using Office 365. I have troubleshoot and it seems the Skype for Business client can’t correctly use the Zscaler Intermediate SSL certificate within the connection. I have added the addresses of the external companies Skype instances to the SSL Inspection exception list and now it works. I have seen the option to except certain applications from SSL Inspection and have activated the category Collaboration and Online Meetings and Commone Office 365 applications but both not matching connection from Skype for Business client. It is possible to add Skype as an application to the available application exception inside SSL Inspection (Policy => SSL Inspection => Do Not Inspect these Applications).
+
+Best Regards,
+
+Patrick
+
+ZIA - Cloud Firewall
+
+7 answers
+
+1.04K views
+
+mbTOI
+
+likes this.
+
+mbTOI
+
+(Customer)
+
+6 years ago
+
+Our solution is to launch the SfB meetings via webapp instead of the SfB client, when prompted before entering the meeting. We’re in the process of moving to Teams so SfB will be out of the picture.
+
+User16474378875753292399
+
+(Customer)
+
+6 years ago
+
+We are having the same issue in our environment, anyone here have already got a solution for this problem? I mean it is silly to add every addresses of the external company into the SSL inspection exception list.
+
+Any help is greatly appreciated.
+
+Regards,
+
+Matthews Loke
+
+mbTOI
+
+(Customer)
+
+7 years ago
+
+We have the exact same issue in our environment. Adding the address of the external companies Skype instance to the SSL inspection exception list allows the meeting to connect, but we can’t do this for every external company. There must be a better way.
+
+Matt
+
+patrickOS
+
+(Customer)
+
+7 years ago
+
+Hi Scott,
+
+Yes, we allow Skype in the Advanced section of URL Policies.
+
+The goal is to except all Skype communications from SSL Inspection to ensure we can communicate with on-perm instances of Skype with our partners without manual adding their domain names to the SSL Inspection exception list.
+
+Best Regards,
+
+Patrick
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Patrick,
+
+It’s true there’d be no impact for O365 one-click when running on-prem Skype, however, external 3rd parties could certainly be running that O365 hosted Skype, so one-click should definitely be enabled to ensure those SSL pinned flows are handled correctly.
+
+Do you also allow Skype in the Advanced section of URL Policies? This would capture Skype cloud. Also, I believe 3rd party Skype on-premise gateways shouldn’t be affected, as the certs can’t be pinned due to sass gateways not being O365 domains.
+
+In terms of your ask, “It is possible to add Skype as an application to the available application exception inside SSL Inspection?, are you thinking from a client or server application perspective?
+
+Cheers,
+
+Scott-
+
+patrickOS
+
+(Customer)
+
+7 years ago
+
+Hi Scott,
+
+Thanks for your reply. We don’t have any issues with Skype hosted on Office 365 but with on premises Skype installation from our partners. I don’t think the Office 365 One Click can help here and we already have it enabled, because we’re using Office 365 but not all of our partners.
+
+Best Regards,
+
+Patrick
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Patrick,
+
+The best practice of joint Zscaler / Skype customers is to enable the Office 365 One Click, details for this config, how to set it and how it works, can be located here —>
+
+https://help.zscaler.com/zia/about-microsoft-one-click-options
+
+Cheers,
+
+Scott-
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,832
+
+1832 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+SSL Inspection - Exception for Application Lync/Skype/Teams
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2gCAA/can-we-configure-ipsec-tunnel-between-meraki-router-and-a-zen-node","lastmod":"2023-05-31T08:52:59.000Z","id":"0D54u00009evn2gCAA"} -->
+## Can we configure IPSec tunnel between Meraki Router and a ZEN node?
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2gCAA/can-we-configure-ipsec-tunnel-between-meraki-router-and-a-zen-node
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:59.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+rajesh.bh
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 25, 2019 at 11:20 AM
+
+Can we configure IPSec tunnel between Meraki Router and a ZEN node?
+
+can we configure IPSec tunnel between Meraki Router and a ZEN node?
+
+ZIA - Cloud Firewall
+
+1 answer
+
+436 views
+
+ramesh.mani
+
+(Partner)
+
+7 years ago
+
+Hi Rajesh,
+
+Yes, possible.
+
+Regards
+
+Ramesh M
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,836
+
+1836 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Can we configure IPSec tunnel between Meraki Router and a ZEN node?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2iCAA/mobile-locations-option","lastmod":"2023-05-31T08:52:27.000Z","id":"0D54u00009evn2iCAA"} -->
+## Mobile locations option
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2iCAA/mobile-locations-option
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:27.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+avshch
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 20, 2019 at 8:08 PM
+
+Mobile locations option
+
+We have Zapp runing on regular laptops for traffic redirect and authentication with Okta and chrome devices which send the traffic via proxy config
+
+https://cl.ly/0daf368fc2a2
+
+but w/o user interaction for authentication.
+
+Is there an option to define a secondary mobile location?
+
+ZIA - Cloud Firewall
+
+1 answer
+
+262 views
+
+awl
+
+(Employee)
+
+7 years ago
+
+Hi
+
+@avshch
+
+can you give us a little more on what you’re trying to do here so I can get this answered for you?
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,832
+
+1832 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Mobile locations option
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2oCAA/ssl-inspection-for-cloudflare","lastmod":"2023-05-31T08:52:21.000Z","id":"0D54u00009evn2oCAA"} -->
+## SSL Inspection for Cloudflare
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2oCAA/ssl-inspection-for-cloudflare
+- Type: Q&A
+- Last activity: 2023-05-31T08:52:21.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+patrickOS
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 11, 2019 at 1:36 PM
+
+SSL Inspection for Cloudflare
+
+Hello,
+
+I have enabled SSL Inspection without any exception. Some sites using Cloudflare as there provider and the SSL Inspection isn’t working. I could imagine that Zscaler can’t probably handle the inspection of connection to Cloudflare, but I would like to see a list of the URL which are not inspected or have a feature in the reports to see the reason why SSL inspection wasn’t done like
+
+No SSL inspection
+
+=>
+
+In user exception list
+
+or
+
+technical issues
+
+. Is this possible?
+
+Best Regards,
+
+PAtrick
+
+ZIA - Cloud Firewall
+
+1 answer
+
+990 views
+
+upalekar
+
+(Employee)
+
+7 years ago
+
+This is likely due to unsupported ciphers. With the upcoming release (5.7) being rolled out, Zscaler will add support for additional ciphers as well as provide a new SSL report that shows client side and server side ciphers. Web insights logs will also be enhanced to display the cipher information for uninspected SSL traffic.
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,193
+
+1193 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,836
+
+1836 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+SSL Inspection for Cloudflare
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2pCAA/dedicated-proxy-ports","lastmod":"2023-05-31T09:29:16.000Z","id":"0D54u00009evn2pCAA"} -->
+## Dedicated Proxy ports
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2pCAA/dedicated-proxy-ports
+- Type: Q&A
+- Last activity: 2023-05-31T09:29:16.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+rajeev_srikant
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 11, 2019 at 7:08 AM
+
+Dedicated Proxy ports
+
+What are dedicated proxy ports ?
+
+What is the purpose they are used ?
+
+Is there any additional cost to use dedicated proxy ports ?
+
+To achieve O365 tenant restriction is it required to have dedicated proxy ports ?
+
+ZIA - Forwarding
+
+7 answers
+
+1.2K views
+
+Top Rated Answers
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+DPP (Dedicated Proxy Port) is discussed in detail in this article —>
+
+https://help.zscaler.com/zia/configuring-dedicated-proxy-ports
+
+In general, if you are rolling out Zscaler App (best-practice) you will not need a DPP. If you are in explicit-proxy only, then a DPP can improve the user-experience for off-network (road-warrior) Authentication and SSL/TLS handling. The above linked article discussed the benefits of DPP at length.
+
+Selected as Best
+
+1 like
+
+All Answers
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+That sounds like you do not need DPP. It’s only needed for road-warriors, and is only useful when you’re not rolling out Zscaler App.
+
+1 like
+
+rajeev_srikant
+
+(Customer)
+
+7 years ago
+
+Thanks.
+
+I am planning to have O365 tenant control via Zscaler.
+
+For some users to reach O365 It will go via DC to Zscaler.
+
+For some users in branch they will have local breakout from branch to Zscaler.to reach O365
+
+I want to have tenant control for 0365.
+
+My understanding is that for this DPP is not required.
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+DPP (Dedicated Proxy Port) is discussed in detail in this article —>
+
+https://help.zscaler.com/zia/configuring-dedicated-proxy-ports
+
+In general, if you are rolling out Zscaler App (best-practice) you will not need a DPP. If you are in explicit-proxy only, then a DPP can improve the user-experience for off-network (road-warrior) Authentication and SSL/TLS handling. The above linked article discussed the benefits of DPP at length.
+
+Selected as Best
+
+1 like
+
+gjayaraman
+
+(Employee)
+
+7 years ago
+
+Hi Rajeev,
+
+When the user is not inside the corporate network/known location and if you prefer to perform SSL inspection, then you may require Dedicated Proxy Port (DPP) or Zscaler App.
+
+ZEN will not inspect the HTTPS traffic on proxy port# 80 or 443 for road-warriors i.e. user connecting to the service from home or host-spot. To enforce SSL inspection for road-warriors, you can use DPP or Zscaler App (Z-App).
+
+Kind Regards,
+
+Giriraj
+
+1 like
+
+rajeev_srikant
+
+(Customer)
+
+7 years ago
+
+Thanks.
+
+Sorry I am still not clear.
+
+In which scenario Dedicated ports are required & needs to be used. ?
+
+RajeshKumar_Chemalli
+
+(Employee)
+
+7 years ago
+
+Hi Rajeev, Dedicated proxy ports (DPP) is additional yearly subscription which has to be procured separately.
+
+If you are using Zscaler App Dedicated proxy port is not required.
+
+O365 tenancy restriction can be achieved with ZAPP as well.
+
+-RaJesh
+
+thomasquinlan
+
+(Employee)
+
+7 years ago
+
+Hi Rajeev,
+
+Please see here:
+
+https://help.zscaler.com/zia/about-ssl-inspection
+
+, under “HTTPS Traffic from Remote Users?.
+
+Short answers:
+
+It identifies traffic from remote users as belonging to your organisation.
+
+See the link above.
+
+There may be, consult with your Sales account team.
+
+If there’s no other mechanisms in place for SSL traffic from remote users, yes.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+491
+
+491 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Dedicated Proxy ports
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2qCAA/google-cloudprint-via-zscaler-zia","lastmod":"2023-05-31T08:14:36.000Z","id":"0D54u00009evn2qCAA"} -->
+## Google CloudPrint via ZScaler ZIA
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2qCAA/google-cloudprint-via-zscaler-zia
+- Type: Q&A
+- Last activity: 2023-05-31T08:14:36.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Cloud Firewall
+
+avshch
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 8, 2019 at 9:14 PM
+
+Google CloudPrint via ZScaler ZIA
+
+Any zScaler customers using Google CloudPrint via ZIA?
+
+ZIA - Cloud Firewall
+
+263 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+11/29/2018
+
+at
+
+01:07 PM
+
+Ip address as criteria in url policy
+
+ZIA - Cloud Firewall
+
+ram75
+
+1,189
+
+1189 Views
+
+0 Likes
+
+1 Comment
+
+10/8/2020
+
+at
+
+08:41 AM
+
+Block All access & Allow certain user or group (ZIA)
+
+ZIA - Cloud Firewall
+
+Sec_def_Def_sec
+
+1,816
+
+1816 Views
+
+1 Like
+
+2 Comments
+
+12/19/2022
+
+at
+
+04:14 PM
+
+URL filtering policy vs Cloud App policy control
+
+ZIA - Cloud Firewall
+
+Ahmed
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+12/9/2022
+
+at
+
+09:40 PM
+
+Apple News RSS Feed
+
+ZIA - Cloud Firewall
+
+Trace Woodbury-RidgeIT
+
+2 Views
+
+0 Likes
+
+1 Comment
+
+9/20/2022
+
+at
+
+03:20 PM
+
+How does Zscaler Internet Access itself route the traffic to the internet, using what outgoing/next hop GW
+
+ZIA - Cloud Firewall
+
+tamerz
+
+6 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Google CloudPrint via ZScaler ZIA
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2sCAA/ipsec-tunnel-traffic-forwarding-from-azure-to-zscaler","lastmod":"2024-07-27T12:33:38.000Z","id":"0D54u00009evn2sCAA"} -->
+## IPSec tunnel traffic forwarding from Azure to ZScaler
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2sCAA/ipsec-tunnel-traffic-forwarding-from-azure-to-zscaler
+- Type: Q&A
+- Last activity: 2024-07-27T12:33:38.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Forwarding
+
+Paul_Wineberg
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+March 5, 2019 at 11:03 PM
+
+IPSec tunnel traffic forwarding from Azure to ZScaler
+
+Have seen another thread relating to IPSEC tunnel forwarding from AWS to Zscaler having problems but was wondering if anyone has had success creating an IPSEC tunnel from Azure to Zscaler?
+
+ZIA - Forwarding
+
+8 answers
+
+539 views
+
+Peddi
+
+(Customer)
+
+5 years ago
+
+Hi Sumanth,
+
+hope you are doing well,
+
+i have question related to same topic, As per our requirement, we want to create tunnel with Zscaler & Azure vWAN but as a normal site to site VPN connection. Not as Secure vWAN hub connection. So is it possible to achieve this?
+
+Constantin
+
+(Customer)
+
+6 years ago
+
+(post withdrawn by author, will be automatically deleted in 24 hours unless flagged)
+
+Sumanth_Kakaraparthi
+
+(Employee)
+
+6 years ago
+
+Can you please elaborate on the problem you are facing.
+
+Besides what Scott has mentioned about AzurevWAN, we are also bringing the capabilities of edge connector, where you can initiate a TLS connection from the Azure VNET directly.
+
+Let me know, if you are open for a brief call.
+
+1 like
+
+Constantin
+
+(Customer)
+
+6 years ago
+
+Hi all,
+
+we are currently also facing problems establishing an IPsec Tunnel from the Azure Virtual Network Gateway to Zscaler. Are there any new information regarding this? This post was created almost a year ago, so I hope something changed.
+
+Thank you.
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Paul,
+
+In all likelihood Zscaler Support wasn’t enabled on this new capability when you opened the ticket, hence the run around.
+
+In terms of dates, I’m not qualified to put a date on any new capability. The only reason I’ve mentioned it is I’ve seen it demonstrated. It’s also important to note that Azure VWAN (currently in Preview on Azure) incurs service charges, so please consider this in your decision making. Please DM your org/company so we can followup offline.
+
+Today, if you need to originate connections from Azure, you could consider a cloud router such a Maidenhead Bridge (a Zscaler partner) or some other form of virtual/cloud-router running inside Azure.
+
+Cheers,
+
+Scott-
+
+1 like
+
+Paul_Wineberg
+
+(Customer)
+
+7 years ago
+
+Hi Scott, thank you very much. You’ve clarified in 10 minutes what Zscaler support have not been able to in 3 weeks with multiple escalations! How can they not know this? In any case, this is our first IPSEC implementation with Zscaler, when you say “soon? for Zscalers Azure VWAN, can you elaborate just how soon or if not what is best practice in the mean time?
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Paul,
+
+There should be a way for Azure to initiate tunnels via Azure VWAN soon.
+
+Other than this, AWS and Azure do not initiate any tunnel(s) to any 3rd parties, be it Zscaler’s service, or some customer specific IPSEC implementation.
+
+Cheers,
+
+Scott-
+
+2 likes
+
+songo1357
+
+(Partner)
+
+2 years ago
+
+Hi,
+
+I encountered the same problem when trying to build IPSec VPN tunnel from Azure to ZIA. Did you guys find the solution?
+
+I followed this official step-by-step guide.
+
+https://help.zscaler.com/zscaler-technology-partners/zscaler-and-azure-traffic-forwarding-deployment-guide
+
+However, it is not working at all even multiple escalation engineer could not identified the issue. We have tried to modify the IKE parameter, e.g. DH Groups, Encryption and Hash Standard but cant fixed. They just keep asking me to find Azure Expert.
+
+I have tested to build IPSec VPN from azure to fortigate, Palo-alto, cisco asa, all working fine.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+2/15/2023
+
+at
+
+10:07 PM
+
+Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
+
+ZIA - Forwarding
+
+rajk5
+
+3 Views
+
+0 Likes
+
+6 Comments
+
+2/14/2023
+
+at
+
+04:13 PM
+
+Forwarding Port 8443 through GRE Tunnel
+
+ZIA - Forwarding
+
+Omar
+
+9 Views
+
+0 Likes
+
+2 Comments
+
+10/23/2022
+
+at
+
+02:29 PM
+
+PZEN localized content
+
+ZIA - Forwarding
+
+mohammad.rummaneh
+
+3 Views
+
+0 Likes
+
+2 Comments
+
+2/18/2022
+
+at
+
+08:24 AM
+
+Premium DC in China
+
+ZIA - Forwarding
+
+Ezzzzh
+
+6 Views
+
+0 Likes
+
+6 Comments
+
+2/15/2021
+
+at
+
+11:58 PM
+
+Disney Circle + Zscaler blocking internet access
+
+ZIA - Forwarding
+
+JamesK
+
+491
+
+491 Views
+
+0 Likes
+
+5 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+IPSec tunnel traffic forwarding from Azure to ZScaler
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u00009evn2tCAA/non-http-ports-communication-through-z-app","lastmod":"2023-05-31T08:53:13.000Z","id":"0D54u00009evn2tCAA"} -->
+## Non HTTP ports communication through Z app
+
+- Source: https://community.zscaler.com/s/question/0D54u00009evn2tCAA/non-http-ports-communication-through-z-app
+- Type: Q&A
+- Last activity: 2023-05-31T08:53:13.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Client Connector
+
+venkata.nagumotu
+
+(Customer) to
+
+sfdc
+
+(Employee): asked a question.
+
+February 28, 2019 at 10:59 PM
+
+Non HTTP ports communication through Z app
+
+I have a database application which use port 1433 for communication. And we have tunnel with local proxy as our forward method. we want to use an internal proxy server for this application traffic and we have created an exception in PAC file. But we only see that this application always goes direct to internet being this application is aware of proxy.
+
+Is any port 80 and 443 restriction is applied here ?
+
+Thanks
+
+Client Connector
+
+7 answers
+
+868 views
+
+jhage
+
+(Employee)
+
+7 years ago
+
+Note that you’re using the
+
+wildcard (in
+
+if (shExpMatch(host, “*.database.windows.net?))
+
+) and that some browsers have problems with “*? (for instance: IE9 doesn’t support them & I’m not sure about later versions).
+
+Try testing with
+
+dnsDomainIs(host, ".database.windows.net?)
+
+instead.
+
+venkata.nagumotu
+
+(Customer)
+
+7 years ago
+
+Hi David,
+
+I was already working with Zscaler support with a request and logs, but we only see that application is sending the traffic to direct internet but not to Zscaler proxy or any manual configured proxy. Unfortunately, we are still battling with issue as we can only see that application redirecting to internet and it is severely impact all remote users. We dont have a root cause for it or any evidence why that traffic is being ignored by Zscaler App. Any thoughts on it ?
+
+And also would like to know if any client is accessing Azure PaaS Cloud while on Zscaler and how ?
+
+dcreedy
+
+(Employee)
+
+7 years ago
+
+We might need to look at logs and see if this traffic is somehow being sent to Z App and being ignored. It could be that the management studio is connecting to the IP as opposed to the FQDN, which leads it to skip this PAC statement. I’d recommend raising a ticket and attaching logs so support and engineering can comment.
+
+To answer your other question about non standard ports, Z App will tunnel non 80/443 traffic in tunnel with local proxy mode, but these requests still need to be web requests (i.e. can be wrapped in a CONNECT request).
+
+venkata.nagumotu
+
+(Customer)
+
+7 years ago
+
+Microsoft SQL server management Studio
+
+And this application is proxy aware. How can I check if it is PAC capable or not ?
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+The Application does need to be proxy aware, given the app is going direct to Internet I’d suggest it either:
+
+A) is not proxy aware
+
+B) is not PAC aware/capable
+
+What is the name of the Application making the connection?
+
+venkata.nagumotu
+
+(Customer)
+
+7 years ago
+
+Hi Scott,
+
+Yes, I have included the exception on PAC file to match the application
+
+if( shExpMatch(host, “*.database.windows.net?))
+
+return “PROXY 129.230.X.X:80; PROXY 129.230.X.X:1433?;
+
+Proxy server IP - 129.230.X.X
+
+Port-1433
+
+Server name is “.database.windows.net?
+
+We are using management studio application to access the server. And what I observe is if I place the server name as URL on any browser it is redirecting proxy IP as per captures. If I use application it is just redirect to internet.
+
+Quick question, does any application with non standard port can reach the PAC file or it has any 80& 443 exception ?’
+
+Thanks
+
+skottieb
+
+(Employee)
+
+7 years ago
+
+Hi Venkat,
+
+Did you put the exemption in the PAC configured in the the TWLP (Tunnel /w local proxy) ProxyPAC, if so, when adding the exemption did you set DIRECT or so use the internal Proxy address/port? What condition did you use to match the application traffic?
+
+Cheers,
+
+Scott-
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/7/2020
+
+at
+
+04:05 AM
+
+Z-App -8 Network Error when users log in on Windows 10
+
+Client Connector
+
+cburge97
+
+2,895
+
+2895 Views
+
+0 Likes
+
+11
+
+11 Comments
+
+7/3/2020
+
+at
+
+11:55 AM
+
+ZAPP intune deployment
+
+Client Connector
+
+Mk001
+
+1,385
+
+1385 Views
+
+0 Likes
+
+4 Comments
+
+1/28/2021
+
+at
+
+03:42 PM
+
+Compare ezAgent and ZCC - when to use which?
+
+Client Connector
+
+hukel
+
+704
+
+704 Views
+
+0 Likes
+
+2 Comments
+
+8/18/2020
+
+at
+
+12:15 PM
+
+MacOS Zscaler App Log Location
+
+Client Connector
+
+brad
+
+3,578
+
+3578 Views
+
+0 Likes
+
+1 Comment
+
+3/7/2022
+
+at
+
+03:41 PM
+
+Can a User with multiple devices use them simultaneously whilst logged in using that same single account
+
+Client Connector
+
+michael.makombe
+
+4 Views
+
+0 Likes
+
+12
+
+12 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Non HTTP ports communication through Z app
+<!-- /ZS-POST -->
 
 ---
 
@@ -60550,6 +63246,43 @@ How To: Tunnel-less DNS Resolution using DNS Control/ZTR (Guest WiFi Users)
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users","lastmod":"2026-10-26T14:13:00.000Z","id":"0D54u0000AM61y5CQB"} -->
+## Zscaler, Inc. - Sign In
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AM61y5CQB/how-to-configure-dns-control-policies-for-tunnelless-dns-setup-guest-wifi-users
+- Type: Q&A
+- Last activity: 2026-10-26T14:13:00.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Connecting to
+
+Sign in with your account to access Zenith Community
+
+Sign In
+
+Username
+
+Password
+
+Forgot password?
+
+Unlock account?
+
+Help
+
+Powered by
+
+Okta
+
+Privacy Policy
+
+The page has timed out
+
+If this page does not reload automatically, please refresh your browser.
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AM63EtCQJ/how-to-differentiated-dns-control-policy-for-guest-wifi-users-tunnelless-dns-setup","lastmod":"2026-10-15T05:14:53.000Z","id":"0D54u0000AM63EtCQJ"} -->
 ## How To: Differentiated DNS Control Policy for Guest Wi-Fi Users (Tunnel-less DNS Setup)
 
@@ -73205,2853 +75938,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Troubleshooting
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AcYxNDCQ0/eta-for-zia-browser-isolation-for-zscaler-gov-clouds","lastmod":"2025-10-28T19:28:16.000Z","id":"0D54u0000AcYxNDCQ0"} -->
-## ETA for ZIA Browser isolation for Zscaler Gov clouds
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AcYxNDCQ0/eta-for-zia-browser-isolation-for-zscaler-gov-clouds
-- Type: Q&A
-- Last activity: 2025-10-28T19:28:16.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Browser Isolation
-
-avshch
-
-(Customer) asked a question.
-
-September 25, 2024 at 4:49 PM
-
-ETA for ZIA Browser isolation for Zscaler Gov clouds
-
-ETA for ZIA Browser isolation for Zscaler Gov clouds?
-
-ZIA - Browser Isolation
-
-1 answer
-
-264 views
-
-Armando
-
-(Employee)
-
-9 months ago
-
-Hi @Alex Shchukin​ this should be available now. In case you have something different please let us know to help you further. Thank you.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ETA for ZIA Browser isolation for Zscaler Gov clouds
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Acs5OFCQY/range-of-app-bypass-and-one-click-office-365-for-ms-teams","lastmod":"2024-10-10T07:20:28.000Z","id":"0D54u0000Acs5OFCQY"} -->
-## Range of App Bypass and One Click Office 365 for MS Teams
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Acs5OFCQY/range-of-app-bypass-and-one-click-office-365-for-ms-teams
-- Type: Q&A
-- Last activity: 2024-10-10T07:20:28.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - SSL Inspection
-
-Terutoshi Ono | 大野 照俊
-
-(Employee) asked a question.
-
-October 10, 2024 at 3:03 AM
-
-Range of App Bypass and One Click Office 365 for MS Teams
-
-My customer is asking about the range of Application Bypass for MS teams and FW rule (Office 365 One Click Rule) for MS teams traffic.
-
-According to the help page, the One Click Office 365 configuration enables us to forward O365 all Optimize and most Allow category endpoints without SSL inspection.
-
-On the other hand, Default category endpoints are inspected without any bypass.
-
-* Microsoft-Recommended One Click Office 365 Configuration | Firewall Control Policy
-
-https://help.zscaler.com/zia/about-microsoft-one-click-options#firewall-control
-
-When it comes to ZCC Application Bypass for MS teams and FW rule (Office 365 One Click Rule) for MS teams traffic, FW allow and bypass rules only include Optimize /Allow Required address (Red Frame in Screenshot) or include Default required (non-red frame in Screenshot) as well?
-
-* About Application Bypass
-
-https://help.zscaler.com/client-connector/about-application-bypass-info
-
-ZIA - SSL Inspection
-
-1 answer
-
-570 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-Application bypass is only for MS teams,
-
-MS one-clicks option enables recommended policies and bypassed for entire MS 365 apps.
-
-1 like
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2021
-
-at
-
-07:54 PM
-
-Youtube Restricted Mode Bypass Safe Search
-
-ZIA - SSL Inspection
-
-JonM
-
-8 Views
-
-1 Like
-
-5 Comments
-
-11/24/2021
-
-at
-
-06:09 AM
-
-Reflection time of SSL inspection exclusion settings
-
-ZIA - SSL Inspection
-
-Nyajima
-
-4 Views
-
-0 Likes
-
-1 Comment
-
-4/26/2024
-
-at
-
-02:39 PM
-
-End User Notifcation - Submit To Security Cloud option
-
-ZIA - SSL Inspection
-
-citrus3118
-
-311
-
-311 Views
-
-0 Likes
-
-1 Comment
-
-8/21/2024
-
-at
-
-08:06 PM
-
-StackHawk with Zscaler SSL Inspection
-
-ZIA - SSL Inspection
-
-User16182582818315999266
-
-568
-
-568 Views
-
-0 Likes
-
-4 Comments
-
-3/10/2025
-
-at
-
-12:22 AM
-
-Reputation Block policy
-
-ZIA - SSL Inspection
-
-JM
-
-417
-
-417 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Range of App Bypass and One Click Office 365 for MS Teams
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AcshvVCQQ/sandbox-quarantine","lastmod":"2024-10-11T10:46:45.000Z","id":"0D54u0000AcshvVCQQ"} -->
-## Sandbox Quarantine
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AcshvVCQQ/sandbox-quarantine
-- Type: Q&A
-- Last activity: 2024-10-11T10:46:45.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Sandbox
-
-qamar.ali.khan
-
-(Partner) asked a question.
-
-October 11, 2024 at 6:36 AM
-
-Sandbox Quarantine
-
-We recently applied Sandbox Policy to scan malicious traffic. Ideally, traffic shoud send to Sandbox Quarantine when someone download anything, it get scan and action (allow/block) must be applied after scan.
-
-But In our scenario, it is going to quarantine to scan but no further action happened. it took always to downlod a file and we niether see any block logs as well
-
-ZIA - Cloud Sandbox
-
-2 answers
-
-451 views
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Hello Qamar, please post your sandbox policy so we can try to assist. Anyway the default sandbox policy described here is a good starting point:
-
-https://help.zscaler.com/unified/configuring-default-sandbox-rule
-
-qamar.ali.khan
-
-(Partner)
-
-2 years ago
-
-Hey Manuel,
-
-Thanks for replying.
-
-I would n't be able to paste Policies here but we created it for all download types like zip etc, all URL categories,all Protocols.. Action is Allow and Scan first Time and Block subsequently. Zscaler TAC assure us to provide Feature enhancement but meanwhile as a workaround asked to configure Threat score. As currently threat score is not configured in Policy and consequently it is goig for Block
-
-Log In to Answer
-
-Associated Tags
-
-accesspolicy
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/21/2020
-
-at
-
-01:31 PM
-
-Does Zscaler Scan Email Traffic?
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,230
-
-1230 Views
-
-1 Like
-
-3 Comments
-
-1/2/2020
-
-at
-
-12:25 PM
-
-Prevent Malicious VPN Connection
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,197
-
-1197 Views
-
-0 Likes
-
-8 Comments
-
-10/2/2017
-
-at
-
-04:47 AM
-
-Alerting positive 'allow and scan'
-
-ZIA - Cloud Sandbox
-
-Lmay
-
-430
-
-430 Views
-
-1 Like
-
-2 Comments
-
-9/11/2017
-
-at
-
-09:37 PM
-
-How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
-
-ZIA - Cloud Sandbox
-
-awl
-
-528
-
-528 Views
-
-0 Likes
-
-1 Comment
-
-9/11/2017
-
-at
-
-09:35 PM
-
-What is the recommended “best practice? Cloud Sandbox rule policy?
-
-ZIA - Cloud Sandbox
-
-awl
-
-590
-
-590 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Sandbox Quarantine
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdAZQQCQ4/cloudflare-ech","lastmod":"2024-10-15T04:15:08.000Z","id":"0D54u0000AdAZQQCQ4"} -->
-## Cloudflare ECH
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdAZQQCQ4/cloudflare-ech
-- Type: Q&A
-- Last activity: 2024-10-15T04:15:08.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - SSL Inspection
-
-Gianluca.bastia
-
-(Partner) asked a question.
-
-October 14, 2024 at 8:03 PM
-
-Cloudflare ECH
-
-Does Zscaler have a proactive solution to websites that will be leveraging cloudflare ECH?
-
-Starting to see this come up more and more in the SSL handshake logs for my customer tenants. Will it automatically failover or will there be actual issues?
-
-ZIA - SSL Inspection
-
-1 answer
-
-427 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-I don't see any options to handle ECH in Zscaler.  Recommend you check with CSM/TAM.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-11/29/2021
-
-at
-
-07:54 PM
-
-Youtube Restricted Mode Bypass Safe Search
-
-ZIA - SSL Inspection
-
-JonM
-
-8 Views
-
-1 Like
-
-5 Comments
-
-11/24/2021
-
-at
-
-06:09 AM
-
-Reflection time of SSL inspection exclusion settings
-
-ZIA - SSL Inspection
-
-Nyajima
-
-4 Views
-
-0 Likes
-
-1 Comment
-
-4/26/2024
-
-at
-
-02:39 PM
-
-End User Notifcation - Submit To Security Cloud option
-
-ZIA - SSL Inspection
-
-citrus3118
-
-311
-
-311 Views
-
-0 Likes
-
-1 Comment
-
-8/21/2024
-
-at
-
-08:06 PM
-
-StackHawk with Zscaler SSL Inspection
-
-ZIA - SSL Inspection
-
-User16182582818315999266
-
-574
-
-574 Views
-
-0 Likes
-
-4 Comments
-
-3/10/2025
-
-at
-
-12:22 AM
-
-Reputation Block policy
-
-ZIA - SSL Inspection
-
-JM
-
-420
-
-420 Views
-
-0 Likes
-
-2 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Cloudflare ECH
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdDE0TCQW/pac-file-statements","lastmod":"2024-10-21T05:35:47.000Z","id":"0D54u0000AdDE0TCQW"} -->
-## PAC File Statements
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdDE0TCQW/pac-file-statements
-- Type: Q&A
-- Last activity: 2024-10-21T05:35:47.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-sharuk
-
-(Partner) asked a question.
-
-October 18, 2024 at 11:06 PM
-
-PAC File Statements
-
-How the expressions work in the pac when we give the staements.
-
-(localHostOrDomainIs(host, "example.com")) ||
-
-(shExpMatch(host, "example.com")) ||
-
-isInNet(host, "10.0.0.0", "255.0.0.0") ||
-
-IsinNet is user for IP address so that it will check fo the IP. In case of localhost or DoaminIs host and shExpMatch how does it work and how the statements works and how it will check
-
-ZIA - Forwarding
-
-1 answer
-
-472 views
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-localHostOrDomainIs
-
-Evaluates hostname and only returns true if exact hostname match is found.
-
-(localHostOrDomainIs(host, "
-
-example.com
-
-")) - This validated and return true if
-
-example.com
-
-matches as hostname
-
-shExpMatch
-
-Will attempt to match hostname or URL to a specified shell expression, and returns true if matched.
-
-(shExpMatch(host, "
-
-example.com
-
-"))  - Returns true if any requests request for hostname
-
-example.com
-
-or if its files or folder
-
-isInNet
-
-This function evaluates the IP address of a hostname, and if within a specified subnet returns true. If a hostname is passed the function will resolve the hostname to an IP address.
-
-isInNet(host, "10.0.0.0", "255.0.0.0") - Returns true if ip address of the hostname is in this range
-
-myIpAddress()  - This will resolve the Ip address of the host machine and can use as below,
-
-isInNet(myIpAddress(), "10.0.0.0", "255.0.0.0") -  Returns true if the user host machine IP address is this range mentioned.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-491
-
-491 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-PAC File Statements
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdE8c0CQC/does-it-require-public-ip-if-using-private-vzen-to-connect","lastmod":"2024-10-22T10:28:55.000Z","id":"0D54u0000AdE8c0CQC"} -->
-## Does it require Public IP if using Private VZEN to connect
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdE8c0CQC/does-it-require-public-ip-if-using-private-vzen-to-connect
-- Type: Q&A
-- Last activity: 2024-10-22T10:28:55.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-selva
-
-(Partner) asked a question.
-
-October 22, 2024 at 6:20 AM
-
-Does it require Public IP if using Private VZEN to connect
-
-As per the below link, if customer wants to setup private traffic forwarding using VZEN (hosted either in OnPrem or Cloud).
-
-https://help.zscaler.com/zia/about-virtual-service-edges
-
-Does it require
-
-Public IP
-
-to configure on the Virtual Service Edge servers to connect with the Zscaler cloud?
-
-ZIA - Forwarding
-
-2 answers
-
-230 views
-
-Top Rated Answers
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-If the Private VZEN / Virtual service edge is going to deploy for internal users connects from private network doesn't public IP. The traffic needs to forward to GRE / IPsec or PAC or L2 forwarding.
-
-If your external users wants to connect from public IPs or DCs through internet then Public Ips is needed. Not recommended to such deployment with VZEN. You may go with physical private service edges.
-
-Selected as Best
-
-1 like
-
-All Answers
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-If the Private VZEN / Virtual service edge is going to deploy for internal users connects from private network doesn't public IP. The traffic needs to forward to GRE / IPsec or PAC or L2 forwarding.
-
-If your external users wants to connect from public IPs or DCs through internet then Public Ips is needed. Not recommended to such deployment with VZEN. You may go with physical private service edges.
-
-Selected as Best
-
-1 like
-
-selva
-
-(Partner)
-
-2 years ago
-
-Understood. Thanks for your reply and this helps me understand more about my requirement. Appreciate your quick support.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-492
-
-492 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Does it require Public IP if using Private VZEN to connect
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdZRjPCQW/chat-gpt-blocked","lastmod":"2024-11-07T06:27:19.000Z","id":"0D54u0000AdZRjPCQW"} -->
-## Chat GPT Blocked
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdZRjPCQW/chat-gpt-blocked
-- Type: Q&A
-- Last activity: 2024-11-07T06:27:19.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - URL Filtering
-
-danosullivan
-
-(Customer) asked a question.
-
-Edited by Ben_Garrison October 22, 2024 at 6:39 PM
-
-Chat GPT Blocked
-
-Hey Guys
-
-Our users in Singapore are being blocked by chatgpt from accessing the site with the below message.. looks like chatgpt thinks zscaler is a VPN. If we disable zscaler we are able to access. I logged with support but they are saying its a cloudflare server that is causing the block!? Surely this should be on zscaler to resolve? has anyone had this happen to them?
-
-ZIA - URL Filtering
-
-6 answers
-
-3K views
-
-danosullivan
-
-(Customer)
-
-2 years ago
-
-This is the page we get
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-Have your seen any logs at zscaler end.? was its allowed or blocked? You may try to do SSL bypass as well.
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-Also If Cloudflare ECH is enabled, whenever a user visits a website, intermediaries will be able to see that you are visiting a website on Cloudflare, but they will not be able to determine which one. Check if this is enabled if you dont find any logs in Zscaler .
-
-1 like
-
-manuel
-
-(Customer)
-
-2 years ago
-
-In general ChatGPT works quite well with SSL-Inspection enabled (also as Zscaler is obviously preparing prompt-scanning, see yet to be enabled switches in "Advanced Policy Settings" in "URL & Cloud App Control").
-
-So I would recommend to investigate what Ramesh proposed above and/or try exempt particular openai-domain to narrow down the issue.
-
-josip.zrnic
-
-(Partner)
-
-2 years ago
-
-Definitely review the logs for that specific user and address. Have you tested reaching that site as well and do you have any issues reaching
-
-chatgpt.com
-
-zulfadli
-
-(Partner)
-
-2 years ago
-
-Previously we encounter similar when action set to CAUTION, fixed after change to Allow
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-12/2/2022
-
-at
-
-06:35 PM
-
-SafeSearch Forces YouTube into Restricted Mode
-
-ZIA - URL Filtering
-
-Chunter
-
-5 Views
-
-0 Likes
-
-3 Comments
-
-9/29/2022
-
-at
-
-08:51 PM
-
-What takes precedence - File type control or Cloud App Control
-
-ZIA - URL Filtering
-
-cnicholas
-
-5 Views
-
-0 Likes
-
-2 Comments
-
-11/24/2021
-
-at
-
-08:22 AM
-
-How to prioritize user-defined URLs over URLs defined in the super category
-
-ZIA - URL Filtering
-
-Nyajima
-
-4 Views
-
-0 Likes
-
-4 Comments
-
-2/23/2020
-
-at
-
-11:49 AM
-
-Cloud App Control - whatsapp web
-
-ZIA - URL Filtering
-
-eli.shauly
-
-5,923
-
-5923 Views
-
-2 Likes
-
-20
-
-20 Comments
-
-10/24/2019
-
-at
-
-03:36 PM
-
-Automated way of Cleaning Known Malicious Sites
-
-ZIA - URL Filtering
-
-chsmith
-
-893
-
-893 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Chat GPT Blocked
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdZtI7CQK/google-chrome-does-not-work-with-zscaler","lastmod":"2024-10-31T01:38:27.000Z","id":"0D54u0000AdZtI7CQK"} -->
-## Google Chrome does not work with ZScaler.
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdZtI7CQK/google-chrome-does-not-work-with-zscaler
-- Type: Q&A
-- Last activity: 2024-10-31T01:38:27.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Browser Isolation
-
-mdpaula
-
-(Customer) asked a question.
-
-October 23, 2024 at 1:39 PM
-
-Google Chrome does not work with ZScaler.
-
-Hello everyone! good morning/afternoon!
-
-I am not an expert in your solutions (so I don't if i classified correctly Category and Topic...), but I am bringing this difficulty in Google Chrome here to see if there is any "how to" tip that I can forward to my security team to solve this problem, since we have several questions about problems with Chrome here in Brazil. My understanding is that security software in the context that we have implemented here is causing a lot of difficulty in the user experience, that is, we should be thinking about a security solution to help users and we end up "forcing" them to use personal equipment many times because they cannot execute things in a corporate environment.
-
-I follow this steps but not possible to solve, when I unload ZScaler everything is good.
-
-It sounds frustrating to have Zscaler working on Edge but not on Chrome. Here are some steps you can try to resolve these issues:
-
-Update Chrome
-
-: Ensure that Chrome is updated to the latest version. Sometimes, compatibility issues can be fixed with an update.
-
-Clear Cache and Cookies
-
-: Go to Chrome’s settings and clear the cache and cookies. This can often resolve navigation and performance issues.
-
-Check Proxy Settings
-
-: Make sure the proxy settings in Chrome are correctly configured and match those in Edge. Zscaler might be using different settings for each browser.
-
-Disable Extensions
-
-: Some Chrome extensions might interfere with Zscaler. Try disabling all extensions and see if the problem persists. If it resolves the issue, enable them one by one to identify the culprit.
-
-Authentication Settings
-
-: Verify that the authentication settings in Zscaler are correctly configured for Chrome. Sometimes, different browsers handle authentication differently.
-
-Reinstall Zscaler Client Connector
-
-: If none of the above steps work, try reinstalling the Zscaler Client Connector. This can fix any corrupted installation issues.
-
-Thank you!
-
-ZIA - Browser Isolation
-
-4 answers
-
-3.68K views
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Hey mdpaula,
-
-what kind of traffic forwarding is in place in your company? Sound a little like PAC-File forwarding. Maybe your company only enforces PAC-files for Edge via GPOs and not for Chrome. As a starting point I would recommend to check here:
-
-https://help.zscaler.com/unified/choosing-traffic-forwarding-methods
-
-BR
-
-Manuel
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Public posting your companys PAC-file link here is not a good idea at all for security reasons. I already triggered mods to remove this in your own interest.
-
-mdpaula
-
-(Customer)
-
-2 years ago
-
-Hello @Manuel Bock​  thank you for the answer! Once we don't have access as usual in Chrome by "Open your computer's proxy settings" I open the settings by inetcpl.cpl as admin account and I can able see "Use automatic configuration script" and our correct pac file "XXX" but in the chrome we have persistent disconnects...
-
-Finally, my long journey of making security software work without compromising the user experience continues, this is terrible!If I were the company's CIO I would have already removed this a long time ago, this is a huge problem and there is no how to for anything, selling a lot of complexity without the return in value!
-
-postalspin
-
-(Customer)
-
-2 years ago
-
-Hi mdpaula
-
-We are using Zscaler globally and Chrome works just as well as edge or Firefox.
-
-When you say you have presistent disconnects when using chrome what error messages do you see in the browser?
-
-Does the same behavior occur for the user when they are in the office and when working from home?
-
-It sounds like an issue with the current deployment
-
-2 likes
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Google Chrome does not work with ZScaler.
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdrQn7CQE/zia-ms-edge-browser-issues","lastmod":"2024-11-05T21:16:08.000Z","id":"0D54u0000AdrQn7CQE"} -->
-## ZIA -  MS Edge browser issues
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdrQn7CQE/zia-ms-edge-browser-issues
-- Type: Q&A
-- Last activity: 2024-11-05T21:16:08.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - URL Filtering
-
-Cyber trooper
-
-(Customer) asked a question.
-
-November 5, 2024 at 2:39 AM
-
-ZIA -  MS Edge browser issues
-
-We're having an issue with ZIA and MS Edge browser. Users are noticing delayed page loading in Edge when connecting to various Microsoft sites via ZIA, such as security.microsoft.com. Chrome works fine, the page loads in roughly 2 seconds, while Edge takes 29 seconds. When we disable ZIA in the client connector, Edge works fine, the page loads in roughly 2 seconds. I am new to Zscaler, so any guidance would be appreciated.
-
-ZIA - URL Filtering
-
-2 answers
-
-541 views
-
-Top Rated Answers
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-Hi ,
-
-This sounds like a QUIC related issue especially if you are running Win11.
-
-Kindly see similar topic below
-
-https://community.zscaler.com/s/question/0D54u0000AXRTC5CQP/managine-quic-v2-webview2dll-embedded-browser-functionality-not-respecting-browser-contro
-
-If you have access to ZIA portal also look at the statement below
-
-"Block/reset would be recommended as it speeds up the failover from QUIC to older versions of HTTP"
-
-Selected as Best
-
-2 likes
-
-All Answers
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-Hi ,
-
-This sounds like a QUIC related issue especially if you are running Win11.
-
-Kindly see similar topic below
-
-https://community.zscaler.com/s/question/0D54u0000AXRTC5CQP/managine-quic-v2-webview2dll-embedded-browser-functionality-not-respecting-browser-contro
-
-If you have access to ZIA portal also look at the statement below
-
-"Block/reset would be recommended as it speeds up the failover from QUIC to older versions of HTTP"
-
-Selected as Best
-
-2 likes
-
-Cyber trooper
-
-(Customer)
-
-2 years ago
-
-Thanks G!!! that took care of it.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-12/2/2022
-
-at
-
-06:35 PM
-
-SafeSearch Forces YouTube into Restricted Mode
-
-ZIA - URL Filtering
-
-Chunter
-
-5 Views
-
-0 Likes
-
-3 Comments
-
-9/29/2022
-
-at
-
-08:51 PM
-
-What takes precedence - File type control or Cloud App Control
-
-ZIA - URL Filtering
-
-cnicholas
-
-5 Views
-
-0 Likes
-
-2 Comments
-
-11/24/2021
-
-at
-
-08:22 AM
-
-How to prioritize user-defined URLs over URLs defined in the super category
-
-ZIA - URL Filtering
-
-Nyajima
-
-4 Views
-
-0 Likes
-
-4 Comments
-
-2/23/2020
-
-at
-
-11:49 AM
-
-Cloud App Control - whatsapp web
-
-ZIA - URL Filtering
-
-eli.shauly
-
-5,916
-
-5916 Views
-
-2 Likes
-
-20
-
-20 Comments
-
-10/24/2019
-
-at
-
-03:36 PM
-
-Automated way of Cleaning Known Malicious Sites
-
-ZIA - URL Filtering
-
-chsmith
-
-888
-
-888 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-ZIA -  MS Edge browser issues
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AdrW2HCQU/avd-getting-disconnect","lastmod":"2025-02-28T19:53:57.000Z","id":"0D54u0000AdrW2HCQU"} -->
-## AVD getting disconnect.
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AdrW2HCQU/avd-getting-disconnect
-- Type: Q&A
-- Last activity: 2025-02-28T19:53:57.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-AshwinC1
-
-(Customer) asked a question.
-
-November 5, 2024 at 7:47 AM
-
-AVD getting disconnect.
-
-Hello Everyone,
-
-Our customer deployed the virtual desktop in Azure cloud and we are using T2.0 traffic forwarding method for it.
-
-We bypassed
-
-*.wvd.microsoft.com
-
-and their ip address in APP pac and forwarding pac file. The same access we directly allowed from firewall.
-
-When users turns on their AVD and enter their credentials after that they getting banner to accept it. Once banner is accepted the it shows the loading the desktop after some time(few sec) white screen is occurring and then getting error
-
-reconnecting 1 of 5". Error enclosed.
-
-We tried all the possible ways to bypass the AVD(WVD) urls in PAC file, VPN gateway, DNS exclusion, IPv4 Exclusion but still issue is there.
-
-ZIA - Forwarding
-
-13 answers
-
-1.84K views
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-Hi,
-
-Are you using Strict Enforcement and if so have you applied the same bypasses to your Policy Token App Profile ?
-
-http://help.zscaler.com/client-connector/configuring-zscaler-client-connector-microsoft-365-cloud-pcs
-
-We dont use the double PAC, only a single PAC on App Profile using the above guidance without any issues. One additional step we've added is to configure RDP to only use TCP.
-
-Hope this helps
-
-1 like
-
-AshwinC1
-
-(Customer)
-
-2 years ago
-
-Hi,
-
-Thanks for the response.
-
-Do we really need to bypass all WVD Relay ip address in APP policy? Also i tried with one pac file but some internet application won't work.
-
-Unknown file type
-
-ServiceTags_Public_20241021
-
-3.6
-
-MB
-
-G-Man8
-
-(Customer)
-
-2 years ago
-
-It depends which Azure regions you are using, but we've added all 270 subnets to our IPV4 bypasses for both User/Policy Token App Profile.
-
-You could slim is down by only adding
-
-"id": "WindowsVirtualDesktop.<YOUR Azure Regions>"
-
-I know someone that used new 'Custom IP -based bypass' to manage the IP's from one location. We currently still have the old 350 subnets entries which required a Zscaler ticket to increase our IPV4 bypass list.
-
-I've tried in the past using a 'Custom Process-based' with no success :(
-
-1 like
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Could not agree more with G-man8. We both struggled some time and finally solved it with this bypasses. Nowadays you can also try to create an IP-based application bypass in mobile portal, which makes things a lot easier.
-
-1 like
-
-AshwinC1
-
-(Customer)
-
-2 years ago
-
-Hello,
-
-I tried the application bypass but all the IP's are not taking. getting error message while saving. Cloud you please confirm how many ip we can add into application bypass?
-
-Thanks.
-
-manuel
-
-(Customer)
-
-2 years ago
-
-AFAIR there WAS a max char limitation for some environments. Please check with your TAM or Zscaler Support. In our env the max is 12288 chars.
-
-AshwinC1
-
-(Customer)
-
-2 years ago
-
-Hi @Manuel Bock​ , @Gerhard Van Staden​
-
-I created entries in application bypass and added into APP profile. Till date disconnection is not happened.
-
-This issue has been resolved in my customer zscaler environment.
-
-Thanks for your valuable inputs and support.
-
-Regards
-
-2 likes
-
-TheDeep
-
-(Customer)
-
-a year ago
-
-Hi Ashwin - Can you please share a screenshot of your Application Bypass Detail screen? I cannot get this working on my end.
-
-AshwinC1
-
-(Customer)
-
-a year ago
-
-Hi Deep,
-
-I have created custom entries in Application bypass for WVD(AVD) region wise ip address like below.
-
-TheDeep
-
-(Customer)
-
-a year ago
-
-Very helpful - Thank you for posting this. I think I am hitting the max character limitation like Manuel mentioned because I unable to paste all of the 270 IPs. I will report back.
-
-More answers
-
-10 of 13
-
-Log In to Answer
-
-Associated Tags
-
-azure-ad
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-492
-
-492 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-AVD getting disconnect.
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Ads9AWCQY/request-to-eliminate-forgigate-virtual-firewall-in-azure","lastmod":"2024-11-07T12:15:25.000Z","id":"0D54u0000Ads9AWCQY"} -->
-## Request to eliminate ForgiGate Virtual Firewall in Azure
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Ads9AWCQY/request-to-eliminate-forgigate-virtual-firewall-in-azure
-- Type: Q&A
-- Last activity: 2024-11-07T12:15:25.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZWS
-
-allenb090
-
-(Customer) asked a question.
-
-November 6, 2024 at 9:57 AM
-
-Request to eliminate ForgiGate Virtual Firewall in Azure
-
-We want to eliminate the existing deployed FortiGate Virtual Firewall in Azure and want to leverage Zscaler to take it's place and ensure all of our public websites on IIS servers are able to function correctly. Can someone guide me on how to make this possible as with some detailed info.
-
-FYI: We already have deployed ZPA which gives us VPN access to the resources.
-
-ZWS
-
-5 answers
-
-221 views
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Hello allenb090,
-
-that won't work. Zscaler does not provide this feature, at least not for websites which should be public available and easily accessible (see also Zscalers "Browser Access"-feature). To replace your FortiGate you will need to leverage Azure Services like AppGw with WAF or Azure Firewall.
-
-BR
-
-Manuel
-
-allenb090
-
-(Customer)
-
-2 years ago
-
-Hi Manuel,
-
-So there’s absolutely no way to protect the Azure Infra with Zscaler or by any of it’s products?
-
-manuel
-
-(Customer)
-
-2 years ago
-
-It depends how you see "protect Azure Infra". You CAN use Zscaler (e.g. ZPA) to leverage secure access to Azure Services without the need to make your Azure Services visible for the public internet for your internal company employees, assets and ressources. But if you want to protect e.g. your public accessible company website hosted on an Azure VM for lets say OWASP10 vulnerabilities there is no Zscaler product to archieve this - at least none I am aware of.
-
-allenb090
-
-(Customer)
-
-2 years ago
-
-How about the Zscaler Cloud Connector?
-
-manuel
-
-(Customer)
-
-2 years ago
-
-No. Please also check Zscalers help and kb:
-
-Cloud Connectors are virtual machines (VMs) that
-
-simplify traffic forwarding to Zscaler services
-
-. The Cloud Connector also secures s
-
-erver access to the internet
-
-and provides direct connectivity to the Zscaler cloud, providing apps with highly secure and simplified access
-
-to the internet
-
-https://help.zscaler.com/unified/about-cloud-connectors
-
-Log In to Answer
-
-Associated Tags
-
-azure
-
-best-practice
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Request to eliminate ForgiGate Virtual Firewall in Azure
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values","lastmod":"2025-08-22T07:27:58.000Z","id":"0D54u0000Adsyd0CQA"} -->
-## Cloud Sandbox - blocking MD5 hash values
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adsyd0CQA/cloud-sandbox-blocking-md5-hash-values
-- Type: Q&A
-- Last activity: 2025-08-22T07:27:58.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Cloud Sandbox
-
-Raj90909
-
-(Customer) asked a question.
-
-November 7, 2024 at 7:42 PM
-
-Cloud Sandbox - blocking MD5 hash values
-
-If you have the Cloud Sandbox license and looking to block files based on MD5 hash values, you will need to get the Advanced Policy Settings provisioned for your tenant. It was missing for us and does the job by blocking the file.
-
-https://help.zscaler.com/zia/add-custom-file-hashes
-
-ZIA - Cloud Sandbox
-
-5 answers
-
-567 views
-
-manuel
-
-likes this.
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Good finding! Are there any more options below? Or "only" MD5 Hash value settings?
-
-Raj90909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-1 like
-
-manuel
-
-(Customer)
-
-2 years ago
-
-Ah ok, thanks!
-
-Raj909
-
-(Customer)
-
-2 years ago
-
-That is the only option, as per the screenshot.
-
-Ramesh Mani
-
-(Partner)
-
-2 years ago
-
-This will directly block the file if the file hash matches.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/21/2020
-
-at
-
-01:31 PM
-
-Does Zscaler Scan Email Traffic?
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,221
-
-1221 Views
-
-1 Like
-
-3 Comments
-
-1/2/2020
-
-at
-
-12:25 PM
-
-Prevent Malicious VPN Connection
-
-ZIA - Cloud Sandbox
-
-Omar
-
-1,194
-
-1194 Views
-
-0 Likes
-
-8 Comments
-
-10/2/2017
-
-at
-
-04:47 AM
-
-Alerting positive 'allow and scan'
-
-ZIA - Cloud Sandbox
-
-Lmay
-
-416
-
-416 Views
-
-1 Like
-
-2 Comments
-
-9/11/2017
-
-at
-
-09:37 PM
-
-How do I determine which of the files that were submitted to Cloud Sandbox were found to be malicious?
-
-ZIA - Cloud Sandbox
-
-awl
-
-525
-
-525 Views
-
-0 Likes
-
-1 Comment
-
-9/11/2017
-
-at
-
-09:35 PM
-
-What is the recommended “best practice? Cloud Sandbox rule policy?
-
-ZIA - Cloud Sandbox
-
-awl
-
-584
-
-584 Views
-
-0 Likes
-
-4 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Cloud Sandbox - blocking MD5 hash values
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client","lastmod":"2024-11-08T08:53:28.000Z","id":"0D54u0000Adt0z2CQA"} -->
-## Enhancement request Block Quic with the Zscaler client
-
-- Source: https://community.zscaler.com/s/question/0D54u0000Adt0z2CQA/enhancement-request-block-quic-with-the-zscaler-client
-- Type: Q&A
-- Last activity: 2024-11-08T08:53:28.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZIA - Forwarding
-
-Chatter is not enabled
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-2/15/2023
-
-at
-
-10:07 PM
-
-Initial login to Azure VDI gets struck for few minutes with ZCC (Tunnel 2.0)
-
-ZIA - Forwarding
-
-rajk5
-
-3 Views
-
-0 Likes
-
-6 Comments
-
-2/14/2023
-
-at
-
-04:13 PM
-
-Forwarding Port 8443 through GRE Tunnel
-
-ZIA - Forwarding
-
-Omar
-
-9 Views
-
-0 Likes
-
-2 Comments
-
-10/23/2022
-
-at
-
-02:29 PM
-
-PZEN localized content
-
-ZIA - Forwarding
-
-mohammad.rummaneh
-
-3 Views
-
-0 Likes
-
-2 Comments
-
-2/18/2022
-
-at
-
-08:24 AM
-
-Premium DC in China
-
-ZIA - Forwarding
-
-Ezzzzh
-
-6 Views
-
-0 Likes
-
-6 Comments
-
-2/15/2021
-
-at
-
-11:58 PM
-
-Disney Circle + Zscaler blocking internet access
-
-ZIA - Forwarding
-
-JamesK
-
-492
-
-492 Views
-
-0 Likes
-
-5 Comments
-
-See More >>
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Enhancement request Block Quic with the Zscaler client
 <!-- /ZS-POST -->

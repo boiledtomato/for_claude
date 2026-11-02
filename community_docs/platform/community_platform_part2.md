@@ -1,10 +1,1099 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-10-26 09:18 UTC
-Posts in this file: 121
+Generated: 2026-11-02 11:37 UTC
+Posts in this file: 128
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARS9KzCQL/fundamentals-of-cybersecurity-edu102","lastmod":"2024-07-17T12:11:17.000Z","id":"0D54u0000ARS9KzCQL"} -->
+## Fundamentals of Cybersecurity (EDU-102)
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ARS9KzCQL/fundamentals-of-cybersecurity-edu102
+- Type: Q&A
+- Last activity: 2024-07-17T12:11:17.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+radhakishan
+
+(Customer) asked a question.
+
+April 29, 2024 at 6:42 AM
+
+Fundamentals of Cybersecurity (EDU-102)
+
+is this course free ?
+
+Training Portfolio
+
+2 answers
+
+457 views
+
+Omar
+
+(Customer)
+
+2 years ago
+
+The course is free but the Exam is 1 Credit or 300$.
+
+If you are a Zscaler Partner then most likely you have free credits to use them on the Exam.
+
+3 likes
+
+sanjaey2842
+
+(Customer)
+
+2 years ago
+
+how to be zscaler partnet?
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Fundamentals of Cybersecurity (EDU-102)
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPEZWCQ5/get-certified-with-one-of-the-industrys-most-comprehensive-zero-trust-certification","lastmod":"2024-06-12T23:08:59.000Z","id":"0D54u0000ASPEZWCQ5"} -->
+## Get certified with one of the industry's most comprehensive Zero Trust Certification!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ASPEZWCQ5/get-certified-with-one-of-the-industrys-most-comprehensive-zero-trust-certification
+- Type: Q&A
+- Last activity: 2024-06-12T23:08:59.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+May 6, 2024 at 10:25 AM
+
+Get certified with one of the industry's most comprehensive Zero Trust Certification!
+
+Zscaler Zero Trust Certified Associate (ZTCA), one of the industry’s most comprehensive zero trust certifications, helps network and security professionals attest expertise in establishing a holistic, layered security approach based on zero trust principles.
+
+Start your journey now to earn the Zero Trust credential.
+
+Certification
+
+369 views
+
+victor.loredoMX
+
+and
+
+johnsonto
+
+like this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,215
+
+1215 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Get certified with one of the industry's most comprehensive Zero Trust Certification!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPEb0CQH/start-your-journey-with-the-zscaler-for-users-essentials-learning-path-and-get-certified-now","lastmod":"2024-05-16T08:18:49.000Z","id":"0D54u0000ASPEb0CQH"} -->
+## Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ASPEb0CQH/start-your-journey-with-the-zscaler-for-users-essentials-learning-path-and-get-certified-now
+- Type: Q&A
+- Last activity: 2024-05-16T08:18:49.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+May 6, 2024 at 10:26 AM
+
+Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
+
+It's time you validate your learning and grow your career by taking the flagship industry-standard Zscaler Digital Transformation Certification third-party proctored exam. Start your journey with the Zscaler for Users- Essentials learning path and
+
+get certified now
+
+Training Portfolio
+
+336 views
+
+Omar
+
+likes this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Start your journey with the Zscaler for Users- Essentials learning path and get certified now.
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ASPWkKCQX/read-our-latest-blog-about-the-groundbreaking-zscaler-for-users-essentials-learning-path","lastmod":"2024-05-22T02:46:39.000Z","id":"0D54u0000ASPWkKCQX"} -->
+## Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ASPWkKCQX/read-our-latest-blog-about-the-groundbreaking-zscaler-for-users-essentials-learning-path
+- Type: Q&A
+- Last activity: 2024-05-22T02:46:39.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+May 6, 2024 at 4:33 PM
+
+Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
+
+Want to know why Zscaler came up with the groundbreaking Zscaler for Users- Essentials learning path? Not just that, but the step-by-step approach used to design the training for learners, the industry-leading certification and much more.
+
+Read our latest blog now!
+
+Training Portfolio
+
+271 views
+
+johnsonto
+
+John Buxbaum
+
+, and
+
+vcotton17
+
+like this.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Read our latest blog about the groundbreaking Zscaler for Users- Essentials learning path!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ATG5TBCQ1/unmanaged-devices-limit-connection-to-every-restart","lastmod":"2024-05-28T11:10:10.000Z","id":"0D54u0000ATG5TBCQ1"} -->
+## unmanaged devices - limit connection to every restart
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ATG5TBCQ1/unmanaged-devices-limit-connection-to-every-restart
+- Type: Q&A
+- Last activity: 2024-05-28T11:10:10.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Authentication
+
+SharonCM
+
+(Partner) asked a question.
+
+May 20, 2024 at 10:32 PM
+
+unmanaged devices - limit connection to every restart
+
+When we install the agent on unmanaged device, it gets username and password authentication.
+
+How can we limit the connection to 1 time, and every restart or disconnect he will need to enter his credentials?
+
+Limitation of timeout – can we set it to every restart the agent will need to login?
+
+ZPA - Authentication
+
+3 answers
+
+351 views
+
+saquibrais09
+
+likes this.
+
+G-Man8
+
+(Customer)
+
+2 years ago
+
+Hi Sharon.
+
+Do you only want this daily timeout policy to apply to unmanaged devices?
+
+Are you using the additional
+
+SAML attributes
+
+of "is_device_compliant", "is_device_known" and "is_device_managed" ?
+
+We use EntraID as our idp with a predefined timeout of x hours.
+
+We've configured a ZPA 'AUTHENTICATION TIMEOUT' of x hours along with App Profile option of 'FORCE ZPA AUTHENTICATION TO EXPIRE' on 'SYSTEM RESTART'.
+
+This ensures our ZPA users always need to re-authenticate fully !
+
+BUT the App Profile option does create some additional issues, zero ZPA connectivity (cannot access any App seg when using this option) until the user authenticates for ZPA. This does breaks some our management tools ....so the general ZPA Timeout Policy offers more flexibility.
+
+SharonCM
+
+(Partner)
+
+2 years ago
+
+thank you for the detailed answer. very helpful
+
+1 like
+
+catherinejohn3
+
+(Customer)
+
+2 years ago
+
+Unmanaged devices limiting connection after each restart? This recurring issue might indicate a lack of device management protocols or network configuration settings.
+
+best bundle deals for tv internet and cell phone
+
+To address it, consider implementing access control lists (ACLs) or network segmentation to regulate device access. Additionally, deploying network monitoring tools can help identify unauthorized devices and prevent them from disrupting network functionality. Regular audits and updates to network policies can mitigate such connectivity issues in the future.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+5/27/2022
+
+at
+
+03:55 PM
+
+ZPA Authentication Timeout
+
+ZPA - Authentication
+
+katlyn.gallo
+
+8 Views
+
+0 Likes
+
+4 Comments
+
+12/18/2021
+
+at
+
+04:06 AM
+
+ZPA Authentication timers
+
+ZPA - Authentication
+
+xavi1
+
+3 Views
+
+0 Likes
+
+4 Comments
+
+10/1/2020
+
+at
+
+02:18 PM
+
+Accessing AWS Workspaces
+
+ZPA - Authentication
+
+Gordon Wright
+
+4,366
+
+4366 Views
+
+0 Likes
+
+5 Comments
+
+8/22/2024
+
+at
+
+08:03 PM
+
+ZPA device authentication
+
+ZPA - Authentication
+
+avshch
+
+683
+
+683 Views
+
+0 Likes
+
+3 Comments
+
+1/28/2025
+
+at
+
+07:02 AM
+
+PSE can't connect to APC
+
+ZPA - Authentication
+
+Vinod
+
+274
+
+274 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+unmanaged devices - limit connection to every restart
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ATH6zDCQT/nssweb","lastmod":"2025-11-17T23:06:31.000Z","id":"0D54u0000ATH6zDCQT"} -->
+## NSS-Web
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ATH6zDCQT/nssweb
+- Type: Q&A
+- Last activity: 2025-11-17T23:06:31.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Naushad
+
+(Partner) asked a question.
+
+May 22, 2024 at 11:12 AM
+
+NSS-Web
+
+Hi Team,
+
+I was trying to deployed NSS server on our premises but we are getting error missing SSL Client Certificate/Key
+
+and also i am trying to enable to SSH in server but i can't
+
+find the error snapshot below
+
+1 answer
+
+352 views
+
+saquibrais09
+
+likes this.
+
+rmiranda
+
+(Employee)
+
+8 months ago
+
+Hello @Naushad Shaikh​
+
+This error always shows when the SSL Certificate that you get from the AdminUI (Zscaler Administration Portal) has not been installed in the NSS server, or its installation failed.
+
+This is a link to that specific step from the configuration guide for NSS in VMWare
+
+https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere#installssl
+
+1 like
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+10/17/2024
+
+at
+
+06:58 AM
+
+Misspelled  "Zscaler" Footer in Communication Emails
+
+ozanogur
+
+236
+
+236 Views
+
+3 Likes
+
+1 Comment
+
+1/28/2025
+
+at
+
+09:23 AM
+
+Direct certain countries to different SE for a URL
+
+danbro185
+
+495
+
+495 Views
+
+1 Like
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+NSS-Web
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AVMC2GCQX/single-zscaler-client-for-multiple-enterprise-vpn-connection-possible-or-not","lastmod":"2024-07-01T14:35:37.000Z","id":"0D54u0000AVMC2GCQX"} -->
+## Single  Zscaler client for multiple enterprise VPN connection possible or not?
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AVMC2GCQX/single-zscaler-client-for-multiple-enterprise-vpn-connection-possible-or-not
+- Type: Q&A
+- Last activity: 2024-07-01T14:35:37.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+anurag.srivastava02
+
+(Customer) asked a question.
+
+June 13, 2024 at 1:00 PM
+
+Single  Zscaler client for multiple enterprise VPN connection possible or not?
+
+Hello All,
+
+I have a query regarding VPN authentication.
+
+Suppose i am employee in company A and working on a project for company B and company C
+
+All companies are using Zscaler for VPN authentication . Is it possible that i can switch my VPN connection from A to B and C to access the infra for company B and C ?
+
+Please advise if there is some solution available.
+
+Thanks
+
+ZIA - Authentication
+
+2 answers
+
+329 views
+
+G-Man8
+
+(Customer)
+
+2 years ago
+
+Hi Anurag,
+
+Apologies but I assume by VPN you mean Zscaler Private Access (ZPA) ?
+
+If so then
+
+Multi-tenant
+
+is possible but relatively 'new' as doesn't support device posture (yet).
+
+Hope this helps
+
+Ramesh Mani
+
+(Partner)
+
+2 years ago
+
+You can leverage partner login options.
+
+Log In to Answer
+
+Associated Tags
+
+best-practice
+
+accesspolicy
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+364
+
+364 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Single  Zscaler client for multiple enterprise VPN connection possible or not?
+<!-- /ZS-POST -->
 
 ---
 
@@ -21454,12 +22543,12 @@ Windows Update for an unattended device without Zscaler user authentication
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-14T21:23:58.000Z","id":"0D5PJ000013cp7M0AQ"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta","lastmod":"2026-10-27T03:06:39.000Z","id":"0D5PJ000013cp7M0AQ"} -->
 ## What Are You Using to Prepare for ZDTA?
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000013cp7M0AQ/what-are-you-using-to-prepare-for-zdta
 - Type: Q&A
-- Last activity: 2026-10-14T21:23:58.000Z
+- Last activity: 2026-10-27T03:06:39.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Certification
@@ -21500,7 +22589,7 @@ JGramata
 
 (Partner)
 
-12 days ago
+28 days ago
 
 Hands-on practice + scenario-based questions, not just reading docs. The exam is heavy on "given this rule set/log, what happens" — so I drilled policy evaluation order (ZIA inspection flow, ZPA policy order) until I could redraw it from memory, and wrote my own practice scenarios based on the study guide's "exam tip" call outs.
 
@@ -21510,7 +22599,7 @@ Amitpal_Singh
 
 (Customer)
 
-11 days ago
+27 days ago
 
 Hands on exp + Zscaler academy training(EDU-200) + Practice test.. i followed this approach and was able to pass exam in ZenithLive Mumbai
 
@@ -21518,7 +22607,7 @@ mmckinley4810
 
 (Employee)
 
-1 day ago
+17 days ago
 
 Don't forget CertJamZ for ZTDA!
 
@@ -21552,9 +22641,9 @@ Certification
 
 User16739629112679781823
 
-1,308
+1,334
 
-1308 Views
+1334 Views
 
 0 Likes
 
