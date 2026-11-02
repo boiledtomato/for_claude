@@ -6724,10 +6724,10 @@ Microsoft Entra ID を使った自動ユーザー プロビジョニング用に
     - `ACCOUNTADMIN` ロールを使用します。
 
         [Image: SCIM アクセス トークンが強調表示された、Snowflake UI のワークシートのスクリーンショット。]
-    - カスタム ロール `AAD_PROVISIONER`を作成します。 Microsoft Entra IDによって作成された Snowflake のユーザーは、スコープダウンされた`AAD_PROVISIONER`ロールが所有者です。
+    - カスタム ロール `AAD_PROVISIONER`を作成します。 Microsoft Entra ID によって作成された Snowflake のユーザーは、スコープダウンされた `AAD_PROVISIONER` ロールが所有者です。
 
         [Image: カスタム ロールを示すスクリーンショット。]
-    - `ACCOUNTADMIN` ロールに、`AAD_PROVISIONER` カスタム ロールを使用するセキュリティ統合を作成させます。 値 `AAD_PROVISIONER` は大文字と小文字を区別し、常に大文字にする必要があります。
+    - `ACCOUNTADMIN` ロールに、`AAD_PROVISIONER` カスタム ロールを使用するセキュリティ統合を作成させます。 値 `AAD_PROVISIONER` では大文字と小文字が区別されるため、常に大文字で記述する必要があります。
 
         [Image: セキュリティ統合を示すスクリーンショット。]
 3. 認証トークンを作成してクリップボードにコピーし、後で使用できるように安全に保存します。 アクセス トークンは 6 か月後に期限切れになり、このステートメントで新しいアクセス トークンを生成できます。 詳細については、 [SYSTEM$GENERATE_SCIM_ACCESS_TOKEN](https://docs.snowflake.com/en/sql-reference/functions/system_generate_scim_access_token) を参照してください。
@@ -6784,7 +6784,7 @@ Microsoft Entra ID で Snowflake の自動ユーザー プロビジョニング�
     | --- | --- |
     | 活動中 | ブール値 |
     | displayName | 糸 |
-    | emails[type eq "仕事"].value | 糸 |
+    | emails[type eq "work"].value | 糸 |
     | ユーザー名 | 糸 |
     | name.givenName | 糸 |
     | name.familyName | 糸 |
@@ -6802,7 +6802,7 @@ Microsoft Entra ID で Snowflake の自動ユーザー プロビジョニング�
     - DEFAULT\_ROLE
     - DEFAULT\_WAREHOUSE
     - デフォルト\_セカンダリー\_ロール
-    - SNOWFLAKE の名前とLOGIN\_NAMEフィールドが異なる
+    - SNOWFLAKE NAME AND LOGIN\_NAME FIELDS TO BE DIFFERENT
 
 >
 > Microsoft Entra SCIM ユーザーのプロビジョニングで Snowflake カスタム拡張機能属性を設定する方法については[こちら](https://community.snowflake.com/s/article/HowTo-How-to-Set-up-Snowflake-Custom-Attributes-in-Azure-AD-SCIM-for-Default-Roles-and-Default-Warehouses)で説明されています。

@@ -666,7 +666,7 @@ Note
 
 ### 複数のリージョンにデプロイする
 
-複数リージョンのデプロイでは、Azure Front Doorを使用して、2 つ以上のリージョンの Function Apps をバックエンドとする 1 つのエンドポイントを公開します。 Microsoft Entra IDは Front Door エンドポイントを呼び出し、Front Door は各要求を正常なリージョンにルーティングします。 単一リージョンのデプロイを検証した後に手動で設定します。[API を使用して独自の通信プロバイダーで SMS と音声を設定](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)で SMS と音声を設定するセットアップ スクリプトでは、一度に 1 つのリージョンがデプロイされるためです。
+複数リージョンのデプロイでは、Azure Front Doorを使用して、2 つ以上のリージョンの Function Apps をバックエンドとする 1 つのエンドポイントを公開します。 Microsoft Entra IDは Front Door エンドポイントを呼び出し、Front Door は各要求を正常なリージョンにルーティングします。 単一リージョンの展開を検証した後に手動で設定します。これは、「Microsoft Entra 管理センターで[独自の通信プロバイダーを使用して SMS と音声をセットアップ](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-set-up)する」のセットアップ スクリプトが一度に 1 つのリージョンをデプロイするためです。
 
 複数リージョンのデプロイを計画する場合:
 
@@ -6886,7 +6886,7 @@ SMS または音声認証が必要な場合:
 
 - ソプラノ: [ユーザーごとのオファー](https://securitystore.microsoft.com/)または[トランザクションごとのオファー](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_user)（[Microsoft Security ストア](https://securitystore.microsoft.com/solutions/sopranodesignlimited1620113206416.soprano_entraid_per_transaction)内）。
 - Telesign: [Microsoft Entra の Telesign Verify](https://securitystore.microsoft.com/) を [Microsoft Security ストア](https://securitystore.microsoft.com/solutions/telesigncorporation1779799505747.telesign-verify-cyot-azure) で実行します。
-- Infobip。
+- Infobip: [Infobip オファー](https://securitystore.microsoft.com/) in [Microsoft Security ストア](https://securitystore.microsoft.com/solutions/infobipdoo.infobip_microsoft_entra)。
 
 Note
 
@@ -6912,7 +6912,7 @@ CYOT を使用すると、組織はサブスクリプションと通信プロバ
 4. **評価する。** ユーザーが影響を受けないように、Microsoftが引き続きメッセージを配信している間に統合を検証します。
 5. **ロールアウトします。** 各段階で検証して、トラフィックをプロバイダーに徐々に移動します。
 
-詳細な手順については、「[API を使用して独自の通信プロバイダーで SMS と音声を設定する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)」を参照してください。
+詳細な手順については、[Microsoft Entra 管理センター で独自の通信プロバイダーを使用して SMS と音声を設定する方法を参照してください](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-set-up)。
 
 ### デプロイを計画する
 

@@ -2039,7 +2039,7 @@ Important
 
 アプリケーション プロビジョニングのセキュリティ体制を向上させるために、Microsoftは、このアプリケーションの **OAuth 2.0 承認コード付与**を廃止します。
 
-プロビジョニングの中断を回避するために、影響を受けるプロビジョニング ジョブを **移行** して **2027 年 3 月 31 日までに OAuth 2.0 クライアント資格情報付与**にします。 この日付を過ぎると、承認コード付与を引き続き使用するプロビジョニング ジョブが動作を停止し、最終的にサービスから削除される可能性があります。
+ 影響を受けるプロビジョニング ジョブを **2027 年 3 月 31 日までに OAuth 2.0 クライアント資格情報**付与に**移行**して、プロビジョニングの中断を回避します。 この日付を過ぎると、承認コード付与を引き続き使用するプロビジョニング ジョブが動作を停止し、最終的にサービスから削除される可能性があります。
 
 **この変更は SSO には影響しません。** 既存のプロビジョニング済みユーザーは引き続きサインインできますが、新しいユーザーはプロビジョニングされず、プロビジョニングが機能していない間、既存のユーザーとグループに対する変更は同期されません。
 
@@ -2064,7 +2064,7 @@ OAuth 2.0 クライアント資格情報の付与に移行するには、この�
 ### 手順 1: プロビジョニングデプロイメントを計画する
 
 - [プロビジョニング サービスのしくみ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/user-provisioning)を確認します。
-- プロビジョニングの対象範囲にいるユーザーを決定します。
+- [プロビジョニングのスコープ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/define-conditional-rules-for-provisioning-user-accounts)に含めるユーザーを決定します。
 - [Microsoft Entra ID と Puzzel の間でマップ](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)するデータを決定します。
 
 ### 手順 2: Microsoft Entra アプリケーション ギャラリーから Puzzel を追加する
@@ -2099,14 +2099,14 @@ Microsoft Entra プロビジョニング サービスを使用すると、アプ
     [Image: [プロビジョニング] タブの [自動] のスクリーンショット。]
 6. Microsoft Entra ID でプロビジョニングを構成する前に、Puzzel ポータルで OIDC クライアントを作成し、クライアント資格情報を生成します。 Microsoft Entra IDは、[プロビジョニング] タブで接続を設定するときにこれらの資格情報を使用します。クライアント資格情報を取得するには:
 
-    1. `https://app.puzzel.com/settings` にサインインします。 **OIDC クライアント**を見つけて、**構成**を選択します。
+    1. `https://app.puzzel.com/settings` にサインインします。 **OIDC クライアント**を見つけて、**[構成]** を選択します。
 
         [Image: OIDCクライアントを表示したスクリーンショット。]
     2. **[OIDC クライアント構成]** ページで、右上隅にある **[+ 追加]** を選択します。
     3. 次のように新しいクライアントを構成します。
 
         1. **[クライアント名]** に、わかりやすい名前 (例: `Microsoft Entra provisioning`) を入力します。
-        2. 許可タイプとして、[**クライアント資格情報**] を選択し、[**保存**] を選択します。
+        2. grant\_type として **[クライアントの資格情報]** を選択し、**[実行]** をクリックします。
         3. [ **有効期間** ] タブを開き、[ **アクセス トークンの有効期間** ] と [ **更新トークンの有効期間** ] の両方を `3600`に設定します。 **保存**を選びます。
 
             [Image: [有効期間] タブを示すスクリーンショット。]
@@ -2115,7 +2115,7 @@ Microsoft Entra プロビジョニング サービスを使用すると、アプ
         1. [ **OIDC クライアント構成]** ページで、構成されているクライアント名を選択し、その行の最初のアイコン **(シークレット)** を選択します。
 
             [Image: OIDC クライアント構成ページを示すスクリーンショット。]
-        2. [ **共有シークレット &gt; 追加**] を選択します。
+        2. **[&gt;共有シークレットの追加]** を選択します。
 
             [Image: 共有シークレットを示すスクリーンショット。]
         3. **シークレットの生成** を選択し、生成されたシークレット値をコピーして、安全な場所に保存します。 **保存**を選びます。
@@ -2130,20 +2130,20 @@ Microsoft Entra プロビジョニング サービスを使用すると、アプ
 11. 左側のパネルで **[属性マッピング** ] を選択し、ユーザーを選択 **します**。
 12. [属性マッピング] セクションで、Microsoft Entra ID から Puzzel に同期されるユーザー **属性** を確認します。 **[照合**プロパティ] として選択されている属性は、更新操作で Puzzel のユーザー アカウントとの照合に使用されます。 [一致するターゲット属性](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/customize-application-attributes)を変更する場合は、Puzzel API がその属性に基づくユーザーのフィルター処理をサポートしていることを確認する必要があります。 **[保存]** ボタンをクリックして変更をコミットします。
 
-    | Attribute | タイプ | フィルター処理でサポートされます | Puzzel によって要求される |
+    | Attribute | タイプ | フィルター処理でサポートされます | Puzzel で必要 |
     | --- | --- | --- | --- |
     | userName | String | ✓ | ✓ |
     | active | ブール値 |  |  |
     | displayName | String |  |  |
     | title | String |  |  |
-    | emails[type eq "仕事"].value | String |  |  |
+    | emails[type eq "work"].value | String |  |  |
     | preferredLanguage | String |  |  |
     | name.givenName | String |  |  |
     | name.familyName | String |  |  |
     | name.formatted | String |  |  |
-    | phoneNumbers[タイプが "職場" の場合].値 | String |  |  |
-    | 電話番号[タイプ eq "携帯"].値 | String |  |  |
-    | phoneNumbers[type eq "ファックス"].value | String |  |  |
+    | phoneNumbers[type eq "work"].value | String |  |  |
+    | phoneNumbers[type eq "mobile"].value | String |  |  |
+    | phoneNumbers[type eq "fax"].value | String |  |  |
     | externalId | String |  |  |
     | name.honorificPrefix | String |  |  |
     | name.honorificSuffix | String |  |  |
@@ -2151,16 +2151,16 @@ Microsoft Entra プロビジョニング サービスを使用すると、アプ
     | userType | String |  |  |
     | ロケール | String |  |  |
     | timezone | String |  |  |
-    | メール[タイプ eq "自宅"].値 | String |  |  |
-    | emails[タイプ eq "その他"].値 | String |  |  |
-    | 電話番号[タイプ eq "home"].値 | String |  |  |
-    | phoneNumbers[種類 eq "その他"].value | String |  |  |
-    | 電話番号[タイプイコール "ポケベル"].値 | String |  |  |
+    | emails[type eq "home"].value | String |  |  |
+    | emails[type eq "other"].value | String |  |  |
+    | phoneNumbers[type eq "home"].value | String |  |  |
+    | phoneNumbers[type eq "other"].value | String |  |  |
+    | phoneNumbers[type eq "pager"].value | String |  |  |
     | roles | String |  |  |
 13. **[グループ]** を選びます。
 14. [属性マッピング] セクションで、Microsoft Entra ID から Puzzel に同期されるグループ **属性** を確認します。 **[照合**] プロパティとして選択されている属性は、Puzzel のグループを更新操作で照合するために使用されます。 **[保存]** ボタンをクリックして変更をコミットします。
 
-    | Attribute | タイプ | フィルター処理でサポートされます | Puzzel によって要求される |
+    | Attribute | タイプ | フィルター処理でサポートされます | Puzzel で必要 |
     | --- | --- | --- | --- |
     | displayName | String | ✓ | ✓ |
     | externalId | String |  |  |

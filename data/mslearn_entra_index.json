@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-11-01T11:23:55Z",
+ "checked_at": "2026-11-02T13:37:08Z",
  "docset": "entra",
  "locale": "ja-jp",
  "pages": {
@@ -4200,8 +4200,8 @@
   "entra/global-secure-access/how-to-configure-cloud-firewall-clients": {
    "category": "global_secure_access",
    "first_seen": "2026-11-01",
-   "hash": "8a7e6036c586f5e7",
-   "last_changed": "2026-11-01",
+   "hash": "6843a971d6b0ff65",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-27",
    "ms_date": "2026-10-27",
    "title": "Global Secure Access クライアントのクラウド ファイアウォールを構成する (プレビュー) - Global Secure Access"
@@ -4524,8 +4524,8 @@
   "entra/global-secure-access/how-to-manage-internet-access-profile": {
    "category": "global_secure_access",
    "first_seen": "2026-10-07",
-   "hash": "82fdef191c64c352",
-   "last_changed": "2026-11-01",
+   "hash": "22521d1f048fdb11",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-27",
    "ms_date": "2026-10-27",
    "title": "インターネット アクセス プロファイルを管理する方法 - Global Secure Access"
@@ -5685,8 +5685,8 @@
   "entra/id-governance/agent-lifecycle-policies": {
    "category": "id_governance",
    "first_seen": "2026-11-01",
-   "hash": "97740d921dffefc1",
-   "last_changed": "2026-11-01",
+   "hash": "ea5a66d2a3b6e5b7",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-09",
    "ms_date": "2026-10-06",
    "title": "Entra エージェント IDライフサイクル ポリシー - Microsoft Entra ID Governance"
@@ -12345,8 +12345,8 @@
   "entra/identity/authentication/choose-your-own-telephony-reliability": {
    "category": "authentication",
    "first_seen": "2026-11-01",
-   "hash": "6d58c6dd91344ce7",
-   "last_changed": "2026-11-01",
+   "hash": "598ee7bcac67a36f",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-30",
    "ms_date": "2026-10-30",
    "title": "回復性と高可用性を計画する - Microsoft Entra ID"
@@ -12723,8 +12723,8 @@
   "entra/identity/authentication/concept-phone-providers": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "b0604449a623d389",
-   "last_changed": "2026-11-01",
+   "hash": "504f7f1a15b44649",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-30",
    "ms_date": "2026-10-30",
    "title": "SMS および音声認証用のテレフォニー プロバイダーを選択する - Microsoft Entra ID"
@@ -12993,8 +12993,8 @@
   "entra/identity/authentication/how-to-enable-authenticator-passkey": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "1400e0440226b9b6",
-   "last_changed": "2026-11-01",
+   "hash": "d1c86f47b49b6790",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-28",
    "ms_date": "2026-10-02",
    "title": "Authenticator での Microsoft Entra ID のパスキーの有効化とサポート - Microsoft Entra ID"
@@ -13191,11 +13191,11 @@
   "entra/identity/authentication/how-to-set-up-sms-voice-api": {
    "category": "authentication",
    "first_seen": "2026-11-01",
-   "hash": "4514a669562764a6",
-   "last_changed": "2026-11-01",
+   "hash": "8424acae67f79cdf",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-30",
    "ms_date": "2026-10-30",
-   "title": "SMS と音声を設定する - Microsoft Entra ID"
+   "title": "Microsoft Entra 管理センターで独自の通信プロバイダーで SMS と音声を設定する - Microsoft Entra ID"
   },
   "entra/identity/authentication/how-to-sign-in-entra-passkey-windows": {
    "category": "authentication",
@@ -13632,8 +13632,8 @@
   "entra/identity/authentication/phone-providers-faq": {
    "category": "authentication",
    "first_seen": "2026-10-07",
-   "hash": "2530f5505b1c9434",
-   "last_changed": "2026-11-01",
+   "hash": "2c5760f08047f05f",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-30",
    "ms_date": "2026-10-30",
    "title": "Choose Your Own Telephony Provider に関するよくある質問 - Microsoft Entra ID"
@@ -32775,8 +32775,8 @@
   "entra/identity/saas-apps/puzzel-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "9f03f2ceb329362a",
-   "last_changed": "2026-11-01",
+   "hash": "bd916d75ac9a4c8f",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-28",
    "ms_date": "2026-10-22",
    "title": "Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Puzzel を構成する - Microsoft Entra ID"
@@ -34935,8 +34935,8 @@
   "entra/identity/saas-apps/snowflake-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "3838f7d50ef2d3ea",
-   "last_changed": "2026-11-01",
+   "hash": "13293261a91b6317",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-07-06",
    "ms_date": "2026-07-02",
    "title": "Microsoft Entra ID を使用した自動ユーザー プロビジョニング用に Snowflake を構成する - Microsoft Entra ID"
@@ -37257,8 +37257,8 @@
   "entra/identity/saas-apps/vonage-provisioning-tutorial": {
    "category": "saas_apps",
    "first_seen": "2026-10-07",
-   "hash": "21741e213a662ba1",
-   "last_changed": "2026-11-01",
+   "hash": "13a0cbe68a5caecd",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-10-28",
    "ms_date": "2026-10-22",
    "title": "Microsoft Entra IDを使用した自動ユーザー プロビジョニング用に Vonage を構成する - Microsoft Entra ID"

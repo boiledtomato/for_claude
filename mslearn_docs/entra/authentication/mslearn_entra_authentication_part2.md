@@ -1,7 +1,7 @@
 # Microsoft Learn — Microsoft Entra / 認証 (MFA・パスワードレス・SSPR) (part 2)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 49
+Pages in this file: 50
 
 ---
 
@@ -3824,7 +3824,7 @@ Android のパスキーは、保存されているプロファイルからのみ
 
 注
 
-どの回避策を使用する場合でも、ユーザーは **Register セキュリティ情報** を対象とする条件付きアクセス ポリシーも満たす必要があります。満たさないと、パスキーを登録できません。 **すべてのリソース** ポリシーで他の条件を設定している場合は、パスキーの登録時にこれらの条件を満たす必要があります。
+どの回避策を使用する場合でも、ユーザーは **[セキュリティ情報の登録]** を対象とする条件付きアクセス ポリシーも満たす必要があります。満たさないと、パスキーを登録できません。 **すべてのリソース** ポリシーで他の条件を設定している場合は、パスキーの登録時にこれらの条件を満たす必要があります。
 
 #### 「承認されたクライアント アプリが必要」または「アプリ保護ポリシーが必要」の条件付きアクセス許可制御により、パスキーを登録できないユーザー
 
@@ -8094,16 +8094,16 @@ FIDO2 セキュリティ キーは、物理認証システムに格納されて�
 ---
 
 <!-- MSL-PAGE {"url":"entra/identity/authentication/how-to-set-up-sms-voice-api"} -->
-## SMS と音声を設定する - Microsoft Entra ID
+## Microsoft Entra 管理センターで独自の通信プロバイダーで SMS と音声を設定する - Microsoft Entra ID
 
 - Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api
 - Service: entra-id / authentication
 - Article date: 2026-10-30
-- Summary: CYOT API を使用して通信統合をデプロイし、評価モードを検証し、SMS と音声配信を段階的にロールアウトします。
+- Summary: Microsoft Entra 管理センターを使用して通信統合を設定し、評価モードを検証し、SMS と音声配信を段階的にロールアウトします。
 
 組織のテレフォニー プロバイダーを介して SMS と音声認証を配信するには、Choose Your Own Telephony Provider (CYOT) を使用します。 CYOT では、[Microsoft Security ストア](https://securitystore.microsoft.com/)を通じてサポートされているプロバイダー オファーを購入し、Azure サブスクリプションに統合をデプロイし、プロバイダー経由で SMS または音声認証をルーティングするようにMicrosoft Entraを構成します。
 
-この記事では、プロバイダー オファーの購入、統合の展開、認証方法ポリシーの構成、運用環境に移行する前のエクスペリエンスのテストなど、エンド ツー エンドのセットアップについて説明します。
+この記事では、プロバイダー オファーの購入、統合の展開、認証方法ポリシーの構成、運用環境に移行する前のエクスペリエンスのテストなど、Microsoft Entra 管理センターでのエンド ツー エンドのセットアップについて説明します。
 
 ### 統合のしくみ
 
@@ -8111,7 +8111,7 @@ CYOT では、お客様の Azure サブスクリプション内の Azure Functio
 
 [Image: Azure サブスクリプションのAzure関数を使用してMicrosoft Entraをテレフォニー プロバイダーに接続する CYOT 統合の図。]
 
-### Prerequisites
+### 前提条件
 
 始める前に、以下の準備をしてください:
 
@@ -8126,11 +8126,10 @@ CYOT では、お客様の Azure サブスクリプション内の Azure Functio
 
 | Task | 必要なアクセス | 必要な理由 |
 | --- | --- | --- |
-| アプリケーションを作成する | 顧客テナントにアプリケーションを登録するアクセス許可 | 統合をMicrosoft Entraに安全に接続するアプリケーションをセットアップして作成しましょう。 |
-| Azure リソースを展開する | サブスクリプション所有者、または共同作成者 + ロールベースのアクセス制御管理者 (必要なスコープ) | サブスクリプションに統合をセットアップしてデプロイしましょう |
-| デプロイ時にディレクトリ アクセスを許可する | 特権ロール管理者 | Microsoft Entra に要求を統合にルーティングするために必要なディレクトリのアクセス許可を付与するよう設定しましょう。 |
-| 認証方法ポリシーの読み取り | 委任された `Policy.Read.AuthenticationMethod` アクセス許可とサポートされているロール (認証ポリシー管理者など) | セットアップで既存の SMS または音声認証方法の構成を読み取ることができます。 |
-| 認証方法ポリシーを更新する | 認証ポリシー管理者と委任された`Policy.ReadWrite.AuthenticationMethod`権限 | セットアップで、統合で使用する SMS または音声認証方式を構成できます。 |
+| デプロイ中にアプリケーションを作成する | 顧客テナントにアプリケーションを登録するためのアクセス許可。 | 統合をMicrosoft Entraに安全に接続するアプリケーションをセットアップして作成しましょう。 |
+| Azure リソースを展開する | 必要なスコープのサブスクリプション所有者、または共同作成者 + ロールベースのAccess Control管理者。 | サブスクリプションに統合をセットアップしてデプロイしましょう |
+| デプロイ時にディレクトリ アクセスを許可する | 特権ロール管理者。 | Microsoft Entra に要求を統合にルーティングするために必要なディレクトリのアクセス許可を付与するよう設定しましょう。 |
+| 認証方法プロファイルを構成する | 認証ポリシー管理者。 | 既存の SMS または音声設定を確認し、Microsoft Entra 管理センターで統合を構成できます。 |
 
 Important
 
@@ -8138,13 +8137,22 @@ Important
 
 ### 手順 1: 通信事業者の回線を購入してアクティブ化する
 
-1. [Microsoft Security ストア](https://securitystore.microsoft.com/)からご利用のプロバイダーのオファーを購入してください。 購入手順の詳細については、「 [Security Store から SaaS ソリューションを購入してデプロイする](https://learn.microsoft.com/ja-jp/security/store/customers/how-to-purchase-a-saas-solution-and-deploy-a-linked-solution)」を参照してください。
-2. **注文する**したら、**今すぐアカウントを設定** を選択し、プロバイダーの登録手順に従います。
-3. このページを開いたままにして、手順 2 に進みます。 デプロイの概要からアプリケーション ID を使用して、手順 3 で登録を完了します。
+1. 認証ポリシー管理者として[Microsoft Entra 管理センター](https://entra.microsoft.com)にサインインします。
+2. **Entra ID**&gt;**認証方法**&gt;**ポリシー**に移動し、[**テレコム プロファイルの追加]** を選択します。 **[SMS または音声プロバイダーのセットアップ]** ページでは、サブスクリプション、統合、プロファイルのセットアップについて説明します。
+
+    [Image: [SMS または音声プロバイダーのセットアップ] ページとその 3 つのセットアップ タスクの一部を黒塗りしたスクリーンショット。]
+3. [ **通信事業者に登録** ] を選択し、サポートされている通信プロバイダーを選択します。 **ソリューションの取得**を使用して[Microsoft Security Store](https://securitystore.microsoft.com/)でそのオファーを開くか、**詳細を選択**で既存のサブスクリプションを選択します。 [使用可能なテレフォニー プロバイダーを](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-phone-providers#available-telephony-providers)参照してください。
+
+    [Image: 通信プロバイダーの選択ウィンドウの編集済みスクリーンショット。デモの価格とオファーの詳細が隠されています。]
+4. プロバイダーの提供プランを購入する 購入手順の詳細については、「 [Security Store から SaaS ソリューションを購入してデプロイする](https://learn.microsoft.com/ja-jp/security/store/customers/how-to-purchase-a-saas-solution-and-deploy-a-linked-solution)」を参照してください。
+5. **注文する**したら、**今すぐアカウントを設定** を選択し、プロバイダーの登録手順に従います。
+6. 登録ページを使用できるようにして、Microsoft Entra セットアップ ページに戻ってください。 手順 2 に進みます。デプロイの概要からアプリケーション ID を使用して、手順 3 で登録を完了します。
 
 ### 手順 2: 統合をデプロイする
 
-PowerShell モードでAzure Cloud Shellを使用して、選択した通信プロバイダーのセットアップ スクリプトを実行します。
+[ **SMS または音声プロバイダーのセットアップ**] で、[ **プロバイダー統合の設定**] を選択します。 Azure ホスティング サブスクリプションを選択し、ペインに表示された通信プロバイダーの構成を確認します。
+
+[Image: サブスクリプションの選択、関数アプリのセットアップ、登録ガイダンス、検証を含むプロバイダー統合ペインの編集済みスクリーンショット。]
 
 #### セットアップ スクリプトの機能
 
@@ -8160,22 +8168,23 @@ Important
 
 #### 設定スクリプトを実行する
 
-1. Azure ポータルにサインインし、上部のツール バーの **Cloud Shell** アイコン (**&gt;\_**) を選択します。 また、https://shell.azure.com に直接移動することもできます。
-2. **PowerShell**を選択します。 Bash で Cloud Shell が開いた場合は、ツール バーの **[PowerShell に切り替える]** を選択します。
-3. 初めての場合は、[ **ストレージ アカウントは必要ありません**] を選択し、サブスクリプションを選択して、[ **適用**] を選択します。
-4. [セットアップ スクリプト](https://github.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/blob/main/setup/Setup-Epp.ps1)をダウンロードして確認してください:
+1. 統合ペインで**GitHub でセットアップ スクリプトを表示**を選択し、セットアップ手順を確認します。
+2. Azure ポータルにサインインし、上部のツール バーの **Cloud Shell** アイコン (**&gt;\_**) を選択します。 また、https://shell.azure.com に直接移動することもできます。
+3. **PowerShell**を選択します。 Bash で Cloud Shell が開いた場合は、ツール バーの **[PowerShell に切り替える]** を選択します。
+4. 初めての場合は、[ **ストレージ アカウントは必要ありません**] を選択し、サブスクリプションを選択して、[ **適用**] を選択します。
+5. セットアップ スクリプトをダウンロード:
 
     ```powershell
     Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Azure-Samples/ExternalPhoneProvider-AzureFunction-Sample/main/setup/Setup-Epp.ps1' `
         -OutFile '.\Setup-Epp.ps1'
     ```
-5. スクリプトを実行します。
+6. スクリプトを実行します。
 
     ```powershell
     .\Setup-Epp.ps1
     ```
-6. プロンプトに従って、顧客テナント、ホスティング サブスクリプション、Azure リージョン、通信プロバイダー、ランタイム、ホスティング プランを選択し、デプロイ計画を承認してください。
-7. テナント ID、エンドポイント URL、 **アプリケーション (クライアント)** ID など、デプロイの概要を保存します。 プロバイダーの登録を完了し、プロファイルを構成するには、これらの値が必要です。
+7. プロンプトに従って、顧客テナント、ホスティング サブスクリプション、Azure リージョン、通信プロバイダー、ランタイム、ホスティング プランを選択します。 統合ウィンドウに表示されている構成を使用して、デプロイ計画を承認します。
+8. テナント ID、エンドポイント URL、 **アプリケーション (クライアント)** ID など、デプロイの概要を保存します。 プロバイダーの登録を完了し、プロファイルを構成するには、これらの値が必要です。
 
 Important
 
@@ -8185,126 +8194,64 @@ Cloud Shell ウィンドウを離れる前に、これらの値をコピーし�
 
 デプロイが完了したら、通信プロバイダーの登録ページに戻り、プロバイダーのセットアップを完了してください。
 
-1. 通信プロバイダーから要求されたときに、Microsoft Entra アプリケーションから**アプリケーション (クライアント) ID**を提供します。
+1. 通信プロバイダーから求められた場合は、セットアップ スクリプトによって作成された**アプリケーション (クライアント) ID**を指定します。
 2. プロバイダーが要求する追加の登録手順を完了します。
 3. [Microsoft Security ストア](https://securitystore.microsoft.com/)で、**管理**&gt;**マイ ソリューション**に移動し、続行する前に**サブスクリプションの状態**が'**サブスクライブ済み**'であることを確認します。
-
-Important
-
-プロバイダー経由で認証トラフィックを送信するようにMicrosoft Entraを構成する前に、通信プロバイダーの登録を完了します。
+4. [Microsoft Entra 管理センターで**プロバイダー統合を設定**する] に戻り、[**確認**] を選択して通信プロバイダーのサブスクリプションを確認します。
 
 ### 手順 4: 認証方法ポリシーを更新する
 
-デプロイの概要から、エンドポイント URL とアプリケーション クライアント ID を使用して各チャネルを構成します。 評価モードで開始し、統合を検証してから、段階的に通信事業者に配信を移行します。
+目的のチャネルごとにプロファイルを作成します。 ウィザードは、現在のチャネルのターゲットを引き継ぎ、デプロイされた関数アプリを選択したときにエンドポイントとアプリケーション ID を設定します。 **評価** から開始し、統合を検証してから、通信プロバイダーに段階的に配信を移行します。
 
 Warning
 
-CYOT は既存の SMS または音声による認証方法のポリシーを更新するため、変更は現在の SMS および音声ユーザーにも適用されます。 ポリシーを更新する前に、現在のポリシーを読み取る の完全な JSON 応答を保存してください。 運用環境では、既存の `includeTargets` を変更せずに、評価モードと `migrationPercentage` を使用して段階的にロールアウトしてください。 テスト テナントでの変更のターゲット設定をテストします。
-
-#### 現在のポリシーを読む
-
-[Microsoft Graph エクスプローラー](https://developer.microsoft.com/graph/graph-explorer)を使用して、ポリシーの読み取りと更新を行います。 デプロイ概要の Tenant ID と一致する ID を持つテナントにサインインしていることを確認してください。
-
-対応するチャネル用に、次の要求 URL を使用します。
-
-| Channel | リクエストURL |
-| --- | --- |
-| SMS | `https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/Sms` |
-| Voice | `https://graph.microsoft.com/beta/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/Voice` |
-
-1. 要求メソッドを **GET** に設定し、対応するチャネルの要求 URL を入力します。
-2. **アクセス許可の変更** を開き、`Policy.Read.AuthenticationMethod`に同意します。
-3. [ **クエリの実行** ] を選択し、完全な JSON 応答を既存のポリシーのレコードとして保存します。
-4. SMS と音声の両方を構成している場合は、もう一方のチャネルに対して繰り返します。
-
-Important
-
-更新されたポリシーを準備するときは、保存された応答を使用して、既存の `includeTargets` およびその他の意図した認証方法の設定を保持します。
+**ターゲット ユーザー** は既存の SMS または音声ポリシーと共通です。そのため、ここでの変更は、現在SMSまたは音声でサインインしているユーザーにも影響します。 ロールアウト中は現在の選択を維持し、テスト テナントを使用して別のユーザーまたはグループを試してください。
 
 #### CYOT設定を行う
 
-次のプロパティを設定します。
+1. [**SMS または音声プロバイダーの設定**] に移動し、[**SMS または音声プロファイルの作成**] を選択します。
+2. **配信チャネル**で、[**SMS**] または [**音声通話**] を選択し、[**次へ**] を選択します。 各プロファイルは、1 つの配信チャネルを設定します。
 
-| プロパティ | Value |
-| --- | --- |
-| `telecomProviderSettings.url` | デプロイの概要からのエンドポイント URL。 |
-| `telecomProviderSettings.appId` | 統合アプリケーション クライアント ID。 |
-| `telecomProviderSettings.isEvaluationModeEnabled` | 評価モードでは`true`、通信プロバイダー配信を有効にするには`false`に設定します。 |
-| `telecomProviderSettings.migrationPercentage` | 評価中にサンプリングされた、または評価モードが無効になっているときに通信プロバイダーにルーティングされた、対象となる認証要求の割合。 |
-| `includeTargets` | 既存の本番構成を保持します。 これらのターゲットは、既存の SMS または音声認証方法ポリシーと共通です。 |
+    [Image: SMS と音声通話オプションを含む配信チャネル ステップの一部を伏せたスクリーンショット。]
+3. **ターゲット ユーザー**で、組み込みのチャネル構成から引き継がれたターゲットを確認します。 既存の運用環境の **含める** と **[除外]** の選択を保持し、**次へ** を選択します。
+
+    [Image: 持ち越し対象の通知と含まれるグループ値が隠されているターゲット ユーザーの墨消しされたスクリーンショット。]
 
 #### 評価モードで開始する
 
-評価モードで開始し、認証配信を通信事業者に移行する前に統合を検証します。
+1. **Profile plan** で、[**評価**] を選択します。 **評価サンプリング率**を確認し、[**次へ**] を選択します。
 
-`migrationPercentage`を使用して、評価サンプリング率を設定します。
+    [Image: 評価計画、Microsoft 管理の配信の説明、および評価サンプリング制御の一部を伏せたスクリーンショット。]
+2. **Function App で**、チャネルの統合用にデプロイされた関数アプリを選択します。 ウィザードでは、サブスクリプションとリソースの詳細と共に、**関数アプリの URL** と **アプリ ID** が入力されます。 エンドポイントとアプリケーション クライアント ID をデプロイの概要と比較し、[ **次へ**] を選択します。
 
-1. **リクエスト本文**で以下に示すテスト済みの SMS または音声 JSON の例を使用します。
-2. エンドポイント URL とアプリケーション クライアント ID を、ご利用のデプロイメント用の値に置き換えます。
-3. `isEvaluationModeEnabled` を `true` に設定します。
-4. 運用テナントの場合は、保存したポリシー構成から既存の `includeTargets` を保持してください。 CYOT テスト用に既存の本番向けターゲティングを置き換えないでください。
-5. **[アクセス許可の変更]** を開き、`Policy.ReadWrite.AuthenticationMethod`に同意し、対応するチャネルの URL に **PATCH** 要求を送信します。
-6. **GET** でポリシーをもう一度読み取り、エンドポイント URL、アプリケーション クライアント ID、評価モード設定、移行率、および既存のターゲットを確認します。
-7. 手順 5 で 評価モードのテスト を完了します。
+    [Image: Function App の選択と、自動的に設定されたエンドポイント、アプリケーション、サブスクリプション、およびリソースの詳細を示す一部を黒塗りしたスクリーンショット。]
+3. **確認および作成** で、配信チャネル、既存のターゲット、**評価**プラン、選択した Function App を確認し、**プロファイルの作成** を選択します。
 
-Important
+    Note
 
-次の JSON の例には、テスト済みの構成値が含まれています。 例を使用する前に、エンドポイント URL とアプリケーション クライアント ID をデプロイ環境に対応する値に置き換えます。
+    認証方法ポリシーの変更が有効になるまでに最大 1 時間かかる場合があります。 テストを開始する前に待ってください。
+4. 手順 5 で 評価モードのテスト を完了します。
 
-評価モードの場合は、 `isEvaluationModeEnabled` を `true` に設定します。 運用テナントでは、既存の SMS または音声ポリシーの設定の `includeTargets` を保持します。 異なるターゲット ユーザーまたはグループで CYOT を検証する場合は、テスト テナントを使用します。
-
-SMS の場合:
-
-```json
-{
-  "@odata.type": "#microsoft.graph.smsAuthenticationMethodConfiguration",
-  "state": "enabled",
-  "telecomProviderSettings": {
-    "url": "<YOUR-ENDPOINT-URL>",
-    "appId": "<YOUR-APPLICATION-CLIENT-ID>",
-    "isEvaluationModeEnabled": false,
-    "migrationPercentage": 100
-  }
-}
-```
-
-音声の場合:
-
-```json
-{
-  "@odata.type": "#microsoft.graph.voiceAuthenticationMethodConfiguration",
-  "state": "enabled",
-  "includeTargets": [
-    {
-      "verificationMode": "voiceOneTimePasscode"
-    }
-  ],
-  "telecomProviderSettings": {
-    "url": "<YOUR-ENDPOINT-URL>",
-    "appId": "<YOUR-APPLICATION-CLIENT-ID>",
-    "isEvaluationModeEnabled": false,
-    "migrationPercentage": 100
-  }
-}
-```
+保存すると、選択したプランとターゲットがチャネルに適用されます。 **Evaluation** では、統合が検証要求を処理している間、Microsoftマネージド テレフォニーは認証メッセージの配信を続行します。 サポートするチャネルごとにプロファイル構成を繰り返してください。
 
 #### 運用モードに移行する
 
 評価に成功した後:
 
-1. `telecomProviderSettings.isEvaluationModeEnabled` を `false` に設定します。
-2. 初期トラフィックの割合を`telecomProviderSettings.migrationPercentage`に設定します。
-3. 既存の本番環境`includeTargets`を変更しないでください。
-4. ポリシーの更新を送信します。
-5. 構成をもう一度読み取り、エンドポイント URL、アプリケーション クライアント ID、評価モード、移行率、ターゲットを確認します。
-6. トラフィックを増やす前に通信事業者による配信をテストします。
+1. **認証方法**&gt;**Policies** から保存した SMS または音声プロファイルを開き、**プロファイル プラン**の設定に戻ります。
+2. **本番環境** を選択し、**プロバイダー経由でルーティングされるトラフィックの割合**を初期トラフィックの割合に設定します。
+
+    [Image: 本番環境のプランと、プロバイダーの割合制御を介してルーティングされたトラフィックの編集済みスクリーンショット。]
+3. 既存のプロダクション ターゲットと選択した Function App を変更しないようにします。
+4. プロファイルの変更を確認して保存します。 保存されたプラン、割合、エンドポイント、アプリケーション ID、ターゲットを確認します。
+5. トラフィックを増やす前に通信事業者による配信をテストします。
 
 #### トラフィックを徐々に増やす
 
-1. `isEvaluationModeEnabled``false`に設定したままにしておきます。
-2. `migrationPercentage`に達するまで、`100`を段階的に増やします。
-3. 移行の割合を変更しながら、エンドポイントの URL、アプリケーション クライアント ID、既存の `includeTargets` は変更しないようにします。
-4. 変更後に認証と通信事業者による配信を検証します。
+1. プロファイルを**Production**のままにします。
+2. **プロバイダー経由でルーティングされるトラフィックの割合を**、`100`に達するまで増分で増やします。
+3. トラフィックの割合を更新しながら、エンドポイントの URL、アプリケーション クライアント ID、および既存の運用ターゲットは変更しないようにします。
+4. パーセンテージが変わるたびに認証と通信プロバイダーの配信を検証します。
 5. 各ステージの検証が成功するたびに、割合を増やしてください。 問題を調査するには、現在の割合のままにして、[「監視とトラブルシューティング」](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-troubleshoot#monitor-and-troubleshoot-your-own-telephony-provider)を参照してください。
 
 Important
@@ -8323,7 +8270,7 @@ SMS または音声用に登録された電話番号を持つテスト ユーザ
 
 #### テスト プロバイダーの提供
 
-評価が成功したら、 `isEvaluationModeEnabled` を `false` に設定し、初期 `migrationPercentage`を構成します。
+評価が成功したら、**運用** に切り替えて、初期トラフィックの割合を設定してください。
 
 1. 新しい InPrivate ブラウザー セッションで、テスト ユーザーとしてサインインします。 SMS または音声コードが届き、認証が完了することを確認します。
 2. Azure ポータルで、お使いの **Function App** の &gt;**Invocations** に移動し、最新のトランザクションを開きます。 **[呼び出しの詳細**] で、要求が HTTP `200` で完了したことを確認します。
@@ -10552,4 +10499,169 @@ Microsoft Entra Kerberos サーバー オブジェクトを表示し、正常な
 | クラウドドメインDNS名 | Microsoft Entra オブジェクトの *DomainDnsName*。 上記の *DomainDnsName* と一致している必要があります。 |
 | クラウドキーのバージョン | Microsoft Entra オブジェクトの *KeyVersion*。 上記の *KeyVersion* と一致している必要があります。 |
 | CloudKeyUpdatedOn | Microsoft Entra オブジェクトの *KeyUpdatedOn*。 上記の *KeyUpdatedOn* と一致している必要があります。 |
+<!-- /MSL-PAGE -->
+
+---
+
+<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-authentication-sms-signin"} -->
+## Microsoft Entra IDの SMS ベースのユーザー サインイン - Microsoft Entra ID
+
+- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-sms-signin
+- Service: entra-id / authentication
+- Article date: 2026-10-29
+- Summary: ユーザーが SMS を使用してMicrosoft Entra IDにサインインできるように構成し、有効にする方法について説明します
+
+Warning
+
+**Microsoft提供の SMS および音声認証は、2027 年 2 月 1 日に廃止されます。** この廃止には、SMS を第 1 要素とするサインインが含まれます。 サインインの中断を回避するために、ユーザーをパスキーに移行するか、顧客管理の通信プロバイダーを構成します。 詳細については、 [SMS と音声認証の廃止に](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement)関するページを参照してください。
+
+アプリケーションとサービスへのサインインを簡素化し、セキュリティで保護するために、Microsoft Entra ID は SMS ベースの認証を提供します。 この方法を使用すると、現場担当者などのユーザーは、登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。
+
+### フィッシングに強い最新の認証に移行する
+
+Important
+
+Microsoft では、セキュリティを強化するために、フィッシングに強い認証方法を推奨しています。 ユーザーを次のいずれかの方法に移行することを検討してください。
+
+- [パスキー (FIDO2)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)
+- [Windows Hello for Business](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-overview)
+- [証明書ベースの認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication)
+
+SMS ベースの認証Microsoft Entra、ユーザーは登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。 これは、MICROSOFT ENTRA SMS 多要素認証とは異なります。通常、MFA メソッドとしてユーザー名、パスワード、SMS が必要です。 この認証方法は、主に現場担当者のサインイン エクスペリエンスを簡素化するように設計されており、インフォメーション ワーカー (IW) には推奨されません。
+
+Microsoft Entraには、[QR コード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-qr-code)と呼ばれる現場担当者向けの代替アプローチもあります。これは、組織が現場共有デバイスのシナリオを検討する場合があります。
+
+この記事の残りの部分では、Microsoft Entra IDで選択したユーザーまたはグループの最初の要素として SMS ベースの認証を有効にする方法について説明します。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
+
+### 開始する前に
+
+開始する前に、いくつかの重要なポイントを次に示します。
+
+- SMS 認証は、現場担当者 *に対してのみ* 有効にする必要があります。
+- SMS 認証を有効にする場合は、現場担当者の職場または自宅へのアクセスにセキュリティ制御を使用するためのベスト プラクティスに従ってください。 詳細については、「 [現場担当者を保護するためのベスト プラクティス](https://learn.microsoft.com/ja-jp/entra/identity-platform/security-best-practices-for-frontline-workers)」を参照してください。
+- 現場担当者に対して SMS 認証を有効にする場合は、QR コード認証の使用に移行することをお勧めします。 詳細については、「Microsoft Entra IDの認証方法 - QR コード認証方法の認証方法」を参照してください。
+
+アプリケーションとサービスへのサインインを簡略化してセキュリティで保護するために、Microsoft Entra IDには複数の認証オプションが用意されています。 SMS ベースの認証を使用すると、現場担当者などのユーザーは、サインインの最初の要素として SMS コードを入力できます。 ユーザーは、ユーザー名とパスワードを指定したり、知ったりする必要はありません。
+
+ユーザーは、ID 管理者によってアカウントが作成された後、サインイン プロンプトで電話番号を入力できます。 ユーザーは、サインインを完了するために指定できる SMS 認証コードを受け取ります。 この認証方法を使用すると、特に第一線で働くユーザーにとっては、アプリケーションやサービスへのアクセスが簡単になります。
+
+### [前提条件]
+
+この記事を完了するには、以下のリソースと特権が必要です。
+
+- アクティブなAzure サブスクリプション。
+    - Azure サブスクリプションをお持ちでない場合は、[アカウントを作成します](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)。
+- サブスクリプションに関連付けられているMicrosoft Entra テナント。
+    - 必要に応じて、[Microsoft Entra テナント](https://learn.microsoft.com/ja-jp/entra/fundamentals/sign-up-organization)または[アカウントにAzureサブスクリプションを関連付けます](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-subscriptions-associated-directory)。
+- SMS ベースの認証を有効にするには、Microsoft Entra テナントに少なくとも [Authentication Policy Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) ロールが必要です。
+- SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 有効になっている各ユーザーには、Microsoft Entra ID、EMS、またはMicrosoft 365の次のいずれかのライセンスが必要です。
+    - [Microsoft 365 F1 または F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+    - [Microsoft Entra ID P1 または P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
+    - [Enterprise Mobility + Security (EMS) E3 または E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) または [Microsoft 365 E3 または E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
+    - [Office 365 F3](https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab)
+
+### 既知の問題
+
+既知の問題の一部をここに挙げます。
+
+- SMS ベースの認証は現在、Microsoft Entra多要素認証と互換性がありません。
+- Teams を除き、SMS ベース認証には、ネイティブな Office アプリケーションとの互換性はありません。
+- B2B アカウントの場合、SMS ベース認証はサポートされていません。
+- フェデレーション ユーザーは、ホーム テナントでは認証されません。 クラウドでのみ認証されます。
+- 既定のサインイン方法を電話番号に対するテキスト メッセージまたは音声通話にしている場合は、多要素認証時に、SMS コードか音声呼び出しを自動的に発信します。 2021 年 6 月の時点で、一部のアプリではユーザーに **テキスト** または **通話** を最初に選択するよう求められます。 このオプションにより、さまざまなアプリに対して必要以上に多くのセキュリティ コードを送信しなくて済みます。 既定のサインイン方法がMicrosoft Authenticator アプリ () の場合、アプリ通知は自動的に送信されます。
+- [テナント間同期](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/known-issues?pivots=cross-tenant-synchronization) では、SMS サインインが有効になっているユーザーはサポートされません。
+
+### SMS ベースの認証方法を有効にする
+
+組織で SMS ベース認証を有効にして使用するには、次の 3 つの主要な手順があります。
+
+- 認証方法ポリシーを有効にする。
+- SMS ベースの認証方法を使用できるユーザーまたはグループを選択する。
+- 各ユーザー アカウントに電話番号を割り当てる。
+    - この電話番号は、Microsoft Entra管理センター (この記事で示します) と、*My Staff* または *My Account* で割り当てることができます。
+
+注
+
+フィッシング詐欺や不正行為のリスクを軽減するために、Microsoftでは、過去 30 日間に SMS 第一要素サインイン トラフィックがないテナントの SMS 第一要素サインインが無効になります。 テナント管理者は、**[第 1 要素サインインを有効にする]** チェック ボックスをオンにすることで、いつでも SMS の第 1 要素サインインを再度有効にすることができます。
+
+まず、Microsoft Entra テナントに対して SMS ベースの認証を有効にしましょう。
+
+1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)としてサインインします。
+2. **Entra ID**&gt;**認証メソッド**&gt;**ポリシー** に移動します。
+3. 使用可能な認証方法の一覧から、[ **SMS**] を選択します。
+
+    [Image: SMS 認証方法を選択する方法を示すスクリーンショット。]
+4. **[有効にする]** を選択し、[**ターゲット ユーザー]** を選択します。 *すべてのユーザー*またはグループに対して SMS ベースの認証を有効にすることを選択できます。
+
+    注
+
+    第 1 要素用に SMS ベースの認証を構成するには (つまり、ユーザーがこの方法でサインインできるようにするには)、**[最初の要素のサインインを有効にする]** チェック ボックスをオンにします。 これをオフのままにすると、SMS ベースの認証は多要素認証とセルフサービス パスワード リセットのみに使用できるようになります。
+
+    [Image: [第1要素のサインインを有効にする] チェック ボックスがオンの SMS 設定のスクリーンショット。]
+
+### 認証方法をユーザーとグループに割り当てる
+
+Microsoft Entra テナントで SMS ベースの認証が有効になっているので、この認証方法の使用を許可する一部のユーザーまたはグループを選択します。
+
+1. [SMS 認証ポリシー] ウィンドウで、[ **ターゲット]** を *[ユーザーの選択*] に設定します。
+2. [ **すべてのユーザーまたはグループの追加]** を選択し、 *Contoso ユーザー* や *Contoso SMS ユーザー*などのテスト ユーザーまたはグループを選択します。
+3. ユーザーまたはグループを選択したら、[ **選択**] を選択し、更新された認証方法ポリシーを **保存します** 。
+
+SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 特に、大規模なユーザー グループに対して機能を有効にする場合は、認証方法ポリシーで有効にするユーザーに適切なライセンスがあることを確認してください。
+
+### ユーザー アカウントに電話番号を設定する
+
+ユーザーは SMS ベースの認証が有効になりましたが、サインインする前に、Microsoft Entra IDのユーザー プロファイルに電話番号を関連付ける必要があります。 ユーザーは [My Account](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) でこの電話番号を自分で設定することができるほか、*Microsoft Entra 管理センター* を使用して電話番号を割り当てることもできます。 電話番号は、少なくとも [認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator) ロールを持つユーザーが設定できます。
+
+SMS ベースのサインインに電話番号が設定されている場合は、[Microsoft Entra多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-azure-mfa)および[サービスパスワードリセット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-sspr)で使用することもできます。
+
+1. **Microsoft Entra ID** を検索して選択します。
+2. Microsoft Entra ウィンドウの左側にあるナビゲーション メニューから、**Users** を選択します。
+3. 前のセクションで SMS ベースの認証を有効にしたユーザー ( *Contoso ユーザー*など) を選択し、[ **認証方法**] を選択します。
+4. [ **+ 認証方法の追加]** を選択し、[ *方法の選択* ] ドロップダウン メニューで [ **電話番号**] を選択します。
+
+    *+1 xxxxxxxxx* など、国コードを含むユーザーの電話番号を入力します。 Microsoft Entra管理センターは、電話番号が正しい形式であることを検証します。
+
+    次に、[ *電話の種類* ] ドロップダウン メニューから、必要に応じて [ *モバイル*]、[ *代替モバイル*]、または *[その他* ] を選択します。
+
+    [Image: SMS ベースの認証で使用するMicrosoft Entra管理センターのユーザーの電話番号を設定します]
+
+    電話番号はテナント内で一意にする必要があります。 複数のユーザーに同じ電話番号を使用しようとすると、エラー メッセージが表示されます。
+5. ユーザーのアカウントに電話番号を適用するには、[追加] を選択 **します**。
+
+正常にプロビジョニングされると、 *SMS サインインが有効*になっているかどうかのチェック マークが表示されます。
+
+### SMS ベースのサインインをテストする
+
+SMS ベースのサインインが有効になったユーザー アカウントをテストするには、次の手順を実行します。
+
+1. https://www.office.com に新しい InPrivate または Incognito Web ブラウザー ウィンドウを開きます
+2. 右上隅にある [ **サインイン**] を選択します。
+3. サインイン プロンプトで、前のセクションでユーザーに関連付けられている電話番号を入力し、[ **次へ**] を選択します。
+
+    [Image: テスト ユーザーのサインイン プロンプトで電話番号を入力する]
+4. 指定された電話番号に、SMS メッセージが送信されます。 サインイン プロセスを完了するには、SMS メッセージに記載されている 6 桁のコードをサインイン プロンプトに入力します。
+
+    [Image: ユーザーの電話番号に送信された SMS 確認コードを入力します]
+5. これでユーザーは、ユーザー名やパスワードを入力しなくてもサインインできるようになりました。
+
+### SMS ベースのサインインをトラブルシューティングする
+
+SMS ベースのサインインの有効化と使用に問題がある場合は、次のシナリオとトラブルシューティング手順を使用できます。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
+
+#### ユーザー アカウントに既に電話番号が設定されている
+
+ユーザーが既に多要素認証またはセルフサービス パスワード リセット (SSPR) Microsoft Entra登録している場合は、アカウントに既に電話番号が関連付けられています。 SMS ベースのサインインに使用できるように、この電話番号が自動的に利用可能になるわけではありません。
+
+エンド ユーザー エクスペリエンスの詳細については、 [電話番号の SMS サインイン ユーザー エクスペリエンスに関する説明を](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42)参照してください。
+
+#### ユーザーのアカウントに電話番号を設定しようとするとエラーが発生する
+
+Microsoft Entra管理センターでユーザー アカウントの電話番号を設定しようとしたときにエラーが発生した場合は、次のトラブルシューティング手順を確認してください。
+
+1. SMS ベースのサインインに対してご自身が有効になっていることを確認します。
+2. **SMS** 認証方法ポリシーでユーザー アカウントが有効になっていることを確認します。
+3. Microsoft Entra管理センター (+1 4251234567) で検証されているように、適切な書式で電話番号を設定してください。
+4. 電話番号がテナント内の他の場所に使用されていないことを確認します。
+5. アカウントに音声番号が設定されていないことを確認します。 音声番号が設定されている場合は、削除してからもう一度電話番号の設定を試してください。
 <!-- /MSL-PAGE -->

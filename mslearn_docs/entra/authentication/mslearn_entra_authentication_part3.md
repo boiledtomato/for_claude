@@ -1,172 +1,7 @@
 # Microsoft Learn — Microsoft Entra / 認証 (MFA・パスワードレス・SSPR) (part 3)
 
 Source: https://learn.microsoft.com/ja-jp/entra/
-Pages in this file: 50
-
----
-
-<!-- MSL-PAGE {"url":"entra/identity/authentication/howto-authentication-sms-signin"} -->
-## Microsoft Entra IDの SMS ベースのユーザー サインイン - Microsoft Entra ID
-
-- Source: https://learn.microsoft.com/ja-jp/entra/identity/authentication/howto-authentication-sms-signin
-- Service: entra-id / authentication
-- Article date: 2026-10-29
-- Summary: ユーザーが SMS を使用してMicrosoft Entra IDにサインインできるように構成し、有効にする方法について説明します
-
-Warning
-
-**Microsoft提供の SMS および音声認証は、2027 年 2 月 1 日に廃止されます。** この廃止には、SMS を第 1 要素とするサインインが含まれます。 サインインの中断を回避するために、ユーザーをパスキーに移行するか、顧客管理の通信プロバイダーを構成します。 詳細については、 [SMS と音声認証の廃止に](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-sms-voice-retirement)関するページを参照してください。
-
-アプリケーションとサービスへのサインインを簡素化し、セキュリティで保護するために、Microsoft Entra ID は SMS ベースの認証を提供します。 この方法を使用すると、現場担当者などのユーザーは、登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。
-
-### フィッシングに強い最新の認証に移行する
-
-Important
-
-Microsoft では、セキュリティを強化するために、フィッシングに強い認証方法を推奨しています。 ユーザーを次のいずれかの方法に移行することを検討してください。
-
-- [パスキー (FIDO2)](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-passkeys-fido2)
-- [Windows Hello for Business](https://learn.microsoft.com/ja-jp/windows/security/identity-protection/hello-for-business/hello-overview)
-- [証明書ベースの認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-certificate-based-authentication)
-
-SMS ベースの認証Microsoft Entra、ユーザーは登録された電話番号と SMS 経由で送信されたワンタイム パスコード (OTP) のみを使用してサインインできます。ユーザー名やパスワードは必要ありません。 これは、MICROSOFT ENTRA SMS 多要素認証とは異なります。通常、MFA メソッドとしてユーザー名、パスワード、SMS が必要です。 この認証方法は、主に現場担当者のサインイン エクスペリエンスを簡素化するように設計されており、インフォメーション ワーカー (IW) には推奨されません。
-
-Microsoft Entraには、[QR コード認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/concept-authentication-qr-code)と呼ばれる現場担当者向けの代替アプローチもあります。これは、組織が現場共有デバイスのシナリオを検討する場合があります。
-
-この記事の残りの部分では、Microsoft Entra IDで選択したユーザーまたはグループの最初の要素として SMS ベースの認証を有効にする方法について説明します。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
-
-### 開始する前に
-
-開始する前に、いくつかの重要なポイントを次に示します。
-
-- SMS 認証は、現場担当者 *に対してのみ* 有効にする必要があります。
-- SMS 認証を有効にする場合は、現場担当者の職場または自宅へのアクセスにセキュリティ制御を使用するためのベスト プラクティスに従ってください。 詳細については、「 [現場担当者を保護するためのベスト プラクティス](https://learn.microsoft.com/ja-jp/entra/identity-platform/security-best-practices-for-frontline-workers)」を参照してください。
-- 現場担当者に対して SMS 認証を有効にする場合は、QR コード認証の使用に移行することをお勧めします。 詳細については、「Microsoft Entra IDの認証方法 - QR コード認証方法の認証方法」を参照してください。
-
-アプリケーションとサービスへのサインインを簡略化してセキュリティで保護するために、Microsoft Entra IDには複数の認証オプションが用意されています。 SMS ベースの認証を使用すると、現場担当者などのユーザーは、サインインの最初の要素として SMS コードを入力できます。 ユーザーは、ユーザー名とパスワードを指定したり、知ったりする必要はありません。
-
-ユーザーは、ID 管理者によってアカウントが作成された後、サインイン プロンプトで電話番号を入力できます。 ユーザーは、サインインを完了するために指定できる SMS 認証コードを受け取ります。 この認証方法を使用すると、特に第一線で働くユーザーにとっては、アプリケーションやサービスへのアクセスが簡単になります。
-
-### [前提条件]
-
-この記事を完了するには、以下のリソースと特権が必要です。
-
-- アクティブなAzure サブスクリプション。
-    - Azure サブスクリプションをお持ちでない場合は、[アカウントを作成します](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)。
-- サブスクリプションに関連付けられているMicrosoft Entra テナント。
-    - 必要に応じて、[Microsoft Entra テナント](https://learn.microsoft.com/ja-jp/entra/fundamentals/sign-up-organization)または[アカウントにAzureサブスクリプションを関連付けます](https://learn.microsoft.com/ja-jp/entra/fundamentals/how-subscriptions-associated-directory)。
-- SMS ベースの認証を有効にするには、Microsoft Entra テナントに少なくとも [Authentication Policy Administrator](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator) ロールが必要です。
-- SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 有効になっている各ユーザーには、Microsoft Entra ID、EMS、またはMicrosoft 365の次のいずれかのライセンスが必要です。
-    - [Microsoft 365 F1 または F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
-    - [Microsoft Entra ID P1 または P2](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
-    - [Enterprise Mobility + Security (EMS) E3 または E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) または [Microsoft 365 E3 または E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
-    - [Office 365 F3](https://www.microsoft.com/microsoft-365/business/office-365-f3?activetab=pivot%3aoverviewtab)
-
-### 既知の問題
-
-既知の問題の一部をここに挙げます。
-
-- SMS ベースの認証は現在、Microsoft Entra多要素認証と互換性がありません。
-- Teams を除き、SMS ベース認証には、ネイティブな Office アプリケーションとの互換性はありません。
-- B2B アカウントの場合、SMS ベース認証はサポートされていません。
-- フェデレーション ユーザーは、ホーム テナントでは認証されません。 クラウドでのみ認証されます。
-- 既定のサインイン方法を電話番号に対するテキスト メッセージまたは音声通話にしている場合は、多要素認証時に、SMS コードか音声呼び出しを自動的に発信します。 2021 年 6 月の時点で、一部のアプリではユーザーに **テキスト** または **通話** を最初に選択するよう求められます。 このオプションにより、さまざまなアプリに対して必要以上に多くのセキュリティ コードを送信しなくて済みます。 既定のサインイン方法がMicrosoft Authenticator アプリ () の場合、アプリ通知は自動的に送信されます。
-- [テナント間同期](https://learn.microsoft.com/ja-jp/entra/identity/app-provisioning/known-issues?pivots=cross-tenant-synchronization) では、SMS サインインが有効になっているユーザーはサポートされません。
-
-### SMS ベースの認証方法を有効にする
-
-組織で SMS ベース認証を有効にして使用するには、次の 3 つの主要な手順があります。
-
-- 認証方法ポリシーを有効にする。
-- SMS ベースの認証方法を使用できるユーザーまたはグループを選択する。
-- 各ユーザー アカウントに電話番号を割り当てる。
-    - この電話番号は、Microsoft Entra管理センター (この記事で示します) と、*My Staff* または *My Account* で割り当てることができます。
-
-注
-
-フィッシング詐欺や不正行為のリスクを軽減するために、Microsoftでは、過去 30 日間に SMS 第一要素サインイン トラフィックがないテナントの SMS 第一要素サインインが無効になります。 テナント管理者は、**[第 1 要素サインインを有効にする]** チェック ボックスをオンにすることで、いつでも SMS の第 1 要素サインインを再度有効にすることができます。
-
-まず、Microsoft Entra テナントに対して SMS ベースの認証を有効にしましょう。
-
-1. [Microsoft Entra管理センター](https://entra.microsoft.com)に少なくとも[認証ポリシー管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-policy-administrator)としてサインインします。
-2. **Entra ID**&gt;**認証メソッド**&gt;**ポリシー** に移動します。
-3. 使用可能な認証方法の一覧から、[ **SMS**] を選択します。
-
-    [Image: SMS 認証方法を選択する方法を示すスクリーンショット。]
-4. **[有効にする]** を選択し、[**ターゲット ユーザー]** を選択します。 *すべてのユーザー*またはグループに対して SMS ベースの認証を有効にすることを選択できます。
-
-    注
-
-    第 1 要素用に SMS ベースの認証を構成するには (つまり、ユーザーがこの方法でサインインできるようにするには)、**[最初の要素のサインインを有効にする]** チェック ボックスをオンにします。 これをオフのままにすると、SMS ベースの認証は多要素認証とセルフサービス パスワード リセットのみに使用できるようになります。
-
-    [Image: [第1要素のサインインを有効にする] チェック ボックスがオンの SMS 設定のスクリーンショット。]
-
-### 認証方法をユーザーとグループに割り当てる
-
-Microsoft Entra テナントで SMS ベースの認証が有効になっているので、この認証方法の使用を許可する一部のユーザーまたはグループを選択します。
-
-1. [SMS 認証ポリシー] ウィンドウで、[ **ターゲット]** を *[ユーザーの選択*] に設定します。
-2. [ **すべてのユーザーまたはグループの追加]** を選択し、 *Contoso ユーザー* や *Contoso SMS ユーザー*などのテスト ユーザーまたはグループを選択します。
-3. ユーザーまたはグループを選択したら、[ **選択**] を選択し、更新された認証方法ポリシーを **保存します** 。
-
-SMS 認証方法ポリシーで有効になっている各ユーザーは、その方法を使用しない場合でも、ライセンスを取得している必要があります。 特に、大規模なユーザー グループに対して機能を有効にする場合は、認証方法ポリシーで有効にするユーザーに適切なライセンスがあることを確認してください。
-
-### ユーザー アカウントに電話番号を設定する
-
-ユーザーは SMS ベースの認証が有効になりましたが、サインインする前に、Microsoft Entra IDのユーザー プロファイルに電話番号を関連付ける必要があります。 ユーザーは [My Account](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42) でこの電話番号を自分で設定することができるほか、*Microsoft Entra 管理センター* を使用して電話番号を割り当てることもできます。 電話番号は、少なくとも [認証管理者](https://learn.microsoft.com/ja-jp/entra/identity/role-based-access-control/permissions-reference#authentication-administrator) ロールを持つユーザーが設定できます。
-
-SMS ベースのサインインに電話番号が設定されている場合は、[Microsoft Entra多要素認証](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-azure-mfa)および[サービスパスワードリセット](https://learn.microsoft.com/ja-jp/entra/identity/authentication/tutorial-enable-sspr)で使用することもできます。
-
-1. **Microsoft Entra ID** を検索して選択します。
-2. Microsoft Entra ウィンドウの左側にあるナビゲーション メニューから、**Users** を選択します。
-3. 前のセクションで SMS ベースの認証を有効にしたユーザー ( *Contoso ユーザー*など) を選択し、[ **認証方法**] を選択します。
-4. [ **+ 認証方法の追加]** を選択し、[ *方法の選択* ] ドロップダウン メニューで [ **電話番号**] を選択します。
-
-    *+1 xxxxxxxxx* など、国コードを含むユーザーの電話番号を入力します。 Microsoft Entra管理センターは、電話番号が正しい形式であることを検証します。
-
-    次に、[ *電話の種類* ] ドロップダウン メニューから、必要に応じて [ *モバイル*]、[ *代替モバイル*]、または *[その他* ] を選択します。
-
-    [Image: SMS ベースの認証で使用するMicrosoft Entra管理センターのユーザーの電話番号を設定します]
-
-    電話番号はテナント内で一意にする必要があります。 複数のユーザーに同じ電話番号を使用しようとすると、エラー メッセージが表示されます。
-5. ユーザーのアカウントに電話番号を適用するには、[追加] を選択 **します**。
-
-正常にプロビジョニングされると、 *SMS サインインが有効*になっているかどうかのチェック マークが表示されます。
-
-### SMS ベースのサインインをテストする
-
-SMS ベースのサインインが有効になったユーザー アカウントをテストするには、次の手順を実行します。
-
-1. https://www.office.com に新しい InPrivate または Incognito Web ブラウザー ウィンドウを開きます
-2. 右上隅にある [ **サインイン**] を選択します。
-3. サインイン プロンプトで、前のセクションでユーザーに関連付けられている電話番号を入力し、[ **次へ**] を選択します。
-
-    [Image: テスト ユーザーのサインイン プロンプトで電話番号を入力する]
-4. 指定された電話番号に、SMS メッセージが送信されます。 サインイン プロセスを完了するには、SMS メッセージに記載されている 6 桁のコードをサインイン プロンプトに入力します。
-
-    [Image: ユーザーの電話番号に送信された SMS 確認コードを入力します]
-5. これでユーザーは、ユーザー名やパスワードを入力しなくてもサインインできるようになりました。
-
-### SMS ベースのサインインをトラブルシューティングする
-
-SMS ベースのサインインの有効化と使用に問題がある場合は、次のシナリオとトラブルシューティング手順を使用できます。 SMS ベースのサインインの使用をサポートするアプリの一覧については、「SMS ベースの [認証に対するアプリのサポート](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-authentication-sms-supported-apps)」を参照してください。
-
-#### ユーザー アカウントに既に電話番号が設定されている
-
-ユーザーが既に多要素認証またはセルフサービス パスワード リセット (SSPR) Microsoft Entra登録している場合は、アカウントに既に電話番号が関連付けられています。 SMS ベースのサインインに使用できるように、この電話番号が自動的に利用可能になるわけではありません。
-
-エンド ユーザー エクスペリエンスの詳細については、 [電話番号の SMS サインイン ユーザー エクスペリエンスに関する説明を](https://support.microsoft.com/account-billing/set-up-sms-sign-in-as-a-phone-verification-method-0aa5b3b3-a716-4ff2-b0d6-31d2bcfbac42)参照してください。
-
-#### ユーザーのアカウントに電話番号を設定しようとするとエラーが発生する
-
-Microsoft Entra管理センターでユーザー アカウントの電話番号を設定しようとしたときにエラーが発生した場合は、次のトラブルシューティング手順を確認してください。
-
-1. SMS ベースのサインインに対してご自身が有効になっていることを確認します。
-2. **SMS** 認証方法ポリシーでユーザー アカウントが有効になっていることを確認します。
-3. Microsoft Entra管理センター (+1 4251234567) で検証されているように、適切な書式で電話番号を設定してください。
-4. 電話番号がテナント内の他の場所に使用されていないことを確認します。
-5. アカウントに音声番号が設定されていないことを確認します。 音声番号が設定されている場合は、削除してからもう一度電話番号の設定を試してください。
-<!-- /MSL-PAGE -->
+Pages in this file: 49
 
 ---
 
@@ -7199,11 +7034,11 @@ Microsoftでは、[パスキー](https://learn.microsoft.com/ja-jp/entra/identit
 4. 統合を評価します。
 5. プロバイダーにトラフィックを段階的に送ります。
 
-詳細については、 [API を使用して独自の通信プロバイダーで SMS と音声を設定する](https://learn.microsoft.com/ja-jp/entra/identity/authentication/how-to-set-up-sms-voice-api)方法に関するページを参照してください。
+詳細については、[Microsoft Entra 管理センター で独自の通信プロバイダーを使用して SMS と音声を設定する方法](https://learn.microsoft.com/ja-jp/entra/identity/authentication/choose-your-own-telephony-set-up)を参照してください。
 
 #### トラフィックを移動する前に CYOT をテストできますか?
 
-Yes. **評価**モードでは、Microsoftがユーザーにコードを配信し続けている間に、要求が連携先に送信されます。 `migrationPercentage`を使用して、API を使用してポリシーを構成するときの評価サンプリング率を設定します。 プロバイダー経由の配信を確認するには、トラフィックの割合が低い **Production** に切り替えます。
+Yes. **評価**モードでは、Microsoftがユーザーにコードを配信し続けている間に、要求が連携先に送信されます。 プロファイルの **評価サンプリング率** を設定します。 プロバイダー経由の配信を確認するには、トラフィックの割合が低い **Production** に切り替えます。
 
 #### 通信トラフィックを段階的に移行できますか?
 

@@ -7,7 +7,7 @@ Markdown にまとめたものです。
 - 更新: `.github/workflows/mslearn-monthly.yml` (毎月 1 日。全ページを再確認し、結果をメールで通知)
 - NotebookLM ノートブック: `MSLearn_entra`
 - ページ数: **4,793** / ファイル数: **85**
-- 最終確認: 2026-11-01T11:23:55Z
+- 最終確認: 2026-11-02T13:37:08Z
 
 ## ファイル一覧
 
@@ -15,9 +15,9 @@ Markdown にまとめたものです。
 |---|---|---|---|
 | `mslearn_entra_conditional_access_part1.md` | 条件付きアクセス | 68 | 484,797 |
 | `mslearn_entra_conditional_access_part2.md` | 条件付きアクセス | 6 | 44,955 |
-| `mslearn_entra_authentication_part1.md` | 認証 (MFA・パスワードレス・SSPR) | 65 | 498,773 |
-| `mslearn_entra_authentication_part2.md` | 認証 (MFA・パスワードレス・SSPR) | 49 | 491,031 |
-| `mslearn_entra_authentication_part3.md` | 認証 (MFA・パスワードレス・SSPR) | 50 | 499,563 |
+| `mslearn_entra_authentication_part1.md` | 認証 (MFA・パスワードレス・SSPR) | 65 | 498,978 |
+| `mslearn_entra_authentication_part2.md` | 認証 (MFA・パスワードレス・SSPR) | 50 | 499,630 |
+| `mslearn_entra_authentication_part3.md` | 認証 (MFA・パスワードレス・SSPR) | 49 | 489,929 |
 | `mslearn_entra_hybrid_part1.md` | ハイブリッド ID (Connect / Cloud Sync) | 64 | 493,771 |
 | `mslearn_entra_hybrid_part2.md` | ハイブリッド ID (Connect / Cloud Sync) | 64 | 498,356 |
 | `mslearn_entra_hybrid_part3.md` | ハイブリッド ID (Connect / Cloud Sync) | 51 | 474,126 |
@@ -41,14 +41,14 @@ Markdown にまとめたものです。
 | `mslearn_entra_saas_apps_part16.md` | SaaS アプリ連携チュートリアル | 76 | 496,019 |
 | `mslearn_entra_saas_apps_part17.md` | SaaS アプリ連携チュートリアル | 72 | 500,016 |
 | `mslearn_entra_saas_apps_part18.md` | SaaS アプリ連携チュートリアル | 79 | 494,157 |
-| `mslearn_entra_saas_apps_part19.md` | SaaS アプリ連携チュートリアル | 75 | 491,539 |
+| `mslearn_entra_saas_apps_part19.md` | SaaS アプリ連携チュートリアル | 75 | 491,727 |
 | `mslearn_entra_saas_apps_part20.md` | SaaS アプリ連携チュートリアル | 55 | 490,030 |
 | `mslearn_entra_saas_apps_part21.md` | SaaS アプリ連携チュートリアル | 71 | 495,571 |
-| `mslearn_entra_saas_apps_part22.md` | SaaS アプリ連携チュートリアル | 76 | 496,129 |
+| `mslearn_entra_saas_apps_part22.md` | SaaS アプリ連携チュートリアル | 76 | 496,160 |
 | `mslearn_entra_saas_apps_part23.md` | SaaS アプリ連携チュートリアル | 74 | 493,293 |
 | `mslearn_entra_saas_apps_part24.md` | SaaS アプリ連携チュートリアル | 78 | 496,317 |
 | `mslearn_entra_saas_apps_part25.md` | SaaS アプリ連携チュートリアル | 79 | 496,906 |
-| `mslearn_entra_saas_apps_part26.md` | SaaS アプリ連携チュートリアル | 67 | 498,829 |
+| `mslearn_entra_saas_apps_part26.md` | SaaS アプリ連携チュートリアル | 67 | 498,949 |
 | `mslearn_entra_saas_apps_part27.md` | SaaS アプリ連携チュートリアル | 73 | 497,317 |
 | `mslearn_entra_saas_apps_part28.md` | SaaS アプリ連携チュートリアル | 1 | 6,228 |
 | `mslearn_entra_applications_part1.md` | エンタープライズアプリ・プロビジョニング・アプリプロキシ | 50 | 487,295 |
@@ -69,12 +69,12 @@ Markdown にまとめたものです。
 | `mslearn_entra_identity_core_part6.md` | ユーザー・デバイス・ロール・マネージド ID | 1 | 815,426 |
 | `mslearn_entra_identity_core_part7.md` | ユーザー・デバイス・ロール・マネージド ID | 21 | 240,606 |
 | `mslearn_entra_id_protection_part1.md` | ID 保護 (Identity Protection) | 28 | 178,558 |
-| `mslearn_entra_id_governance_part1.md` | ID ガバナンス (PIM・アクセスレビュー等) | 47 | 497,854 |
+| `mslearn_entra_id_governance_part1.md` | ID ガバナンス (PIM・アクセスレビュー等) | 47 | 497,867 |
 | `mslearn_entra_id_governance_part2.md` | ID ガバナンス (PIM・アクセスレビュー等) | 61 | 499,855 |
 | `mslearn_entra_id_governance_part3.md` | ID ガバナンス (PIM・アクセスレビュー等) | 74 | 487,291 |
 | `mslearn_entra_id_governance_part4.md` | ID ガバナンス (PIM・アクセスレビュー等) | 54 | 438,527 |
-| `mslearn_entra_global_secure_access_part1.md` | Global Secure Access (Internet / Private Access) | 74 | 494,211 |
-| `mslearn_entra_global_secure_access_part2.md` | Global Secure Access (Internet / Private Access) | 44 | 499,641 |
+| `mslearn_entra_global_secure_access_part1.md` | Global Secure Access (Internet / Private Access) | 74 | 494,245 |
+| `mslearn_entra_global_secure_access_part2.md` | Global Secure Access (Internet / Private Access) | 44 | 499,680 |
 | `mslearn_entra_global_secure_access_part3.md` | Global Secure Access (Internet / Private Access) | 79 | 471,359 |
 | `mslearn_entra_developer_part1.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 66 | 499,617 |
 | `mslearn_entra_developer_part2.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 59 | 499,951 |
