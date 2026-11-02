@@ -183,7 +183,13 @@
    "rel": "2026-10-23/Zscaler_release_20261017-20261023.md",
    "sha256": "d77aee31e4de1b26787c9a7f64fb2b72bd8cd82d418ac7ce9bf46d695ec5b3fe",
    "source_id": "e2b6ae31-bda8-4b36-909e-2dafc563a75b"
+  },
+  "Zscaler_release_20261024-20261030.md": {
+   "added_at": "2026-11-02T13:38:12Z",
+   "rel": "2026-10-30/Zscaler_release_20261024-20261030.md",
+   "sha256": "4e06dd9b8eefc17bf28a81f6cb4c82364f5acac3917e926d7a3b2e9f7116acc2",
+   "source_id": "b3d5f9a3-0beb-4746-a66c-14fdc1038e5b"
   }
  },
- "synced_at": "2026-10-23T00:21:35Z"
+ "synced_at": "2026-11-02T13:38:12Z"
 }
