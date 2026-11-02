@@ -7,7 +7,7 @@ Markdown にまとめたものです。
 - 更新: `.github/workflows/mslearn-monthly.yml` (毎月 1 日。全ページを再確認し、結果をメールで通知)
 - NotebookLM ノートブック: `MSLearn_entra`
 - ページ数: **4,793** / ファイル数: **85**
-- 最終確認: 2026-11-02T13:37:08Z
+- 最終確認: 2026-11-02T14:11:33Z
 
 ## ファイル一覧
 
@@ -78,14 +78,14 @@ Markdown にまとめたものです。
 | `mslearn_entra_global_secure_access_part3.md` | Global Secure Access (Internet / Private Access) | 79 | 471,359 |
 | `mslearn_entra_developer_part1.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 66 | 499,617 |
 | `mslearn_entra_developer_part2.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 59 | 499,951 |
-| `mslearn_entra_developer_part3.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 74 | 497,606 |
+| `mslearn_entra_developer_part3.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 74 | 497,986 |
 | `mslearn_entra_developer_part4.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 29 | 495,154 |
 | `mslearn_entra_developer_part5.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 45 | 499,439 |
 | `mslearn_entra_developer_part6.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 52 | 495,400 |
-| `mslearn_entra_developer_part7.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 41 | 491,689 |
-| `mslearn_entra_developer_part8.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 63 | 490,639 |
+| `mslearn_entra_developer_part7.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 41 | 492,069 |
+| `mslearn_entra_developer_part8.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 63 | 491,019 |
 | `mslearn_entra_developer_part9.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 110 | 496,942 |
-| `mslearn_entra_developer_part10.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 78 | 492,346 |
+| `mslearn_entra_developer_part10.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 78 | 492,726 |
 | `mslearn_entra_developer_part11.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 63 | 497,156 |
 | `mslearn_entra_developer_part12.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 32 | 485,156 |
 | `mslearn_entra_developer_part13.md` | 開発者向け (Identity Platform・MSAL・Microsoft.Identity.Web) | 25 | 299,536 |

@@ -6112,7 +6112,7 @@ Vite では、ビルド出力に別のエントリ ポイントとして `redire
 <head>
     <meta charset="UTF-8">
     <title>Redirect</title>
-</head>
+<script >bazadebezolkohpepadr="2061727998"</script><script type="text/javascript" src="https://learn.microsoft.com/akam/13/7ae378cc"  defer></script></head>
 <body>
     <p>Processing authentication...</p>
     <script type="module">
@@ -6122,7 +6122,7 @@ Vite では、ビルド出力に別のエントリ ポイントとして `redire
             console.error("Error broadcasting response:", error);
         });
     </script>
-</body>
+<noscript><img src="https://learn.microsoft.com/akam/13/pixel_7ae378cc?a=dD1hNWU4YzBmMDUwNzYxNDkwNDYwMzQwZWMyZDE3YWQ4MGU0MTY0YWIyJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
 </html>
 ```
 

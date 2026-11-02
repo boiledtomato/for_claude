@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-11-02T13:37:08Z",
+ "checked_at": "2026-11-02T14:11:33Z",
  "docset": "entra",
  "locale": "ja-jp",
  "pages": {
@@ -8961,8 +8961,8 @@
   "entra/identity-platform/msal-compare-msal-js-and-adal-js": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "cfa791c347ee42a4",
-   "last_changed": "2026-10-07",
+   "hash": "c9d0a5482a702647",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-03-11",
    "ms_date": "2021-07-06",
    "title": "JavaScript アプリケーションを ADAL.js から MSAL.js に移行する - Microsoft identity platform"
@@ -10608,8 +10608,8 @@
   "entra/identity-platform/tutorial-single-page-apps-angular-extract-user-data": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "a1a4720d8f3ea979",
-   "last_changed": "2026-10-07",
+   "hash": "795080a189daee45",
+   "last_changed": "2026-11-02",
    "lastmod": "2025-04-16",
    "ms_date": "2025-02-20",
    "title": "チュートリアル: Angular シングルページ アプリ (SPA) を使用してユーザー データを抽出する - Microsoft identity platform"
@@ -10752,8 +10752,8 @@
   "entra/identity-platform/tutorial-web-app-python-flask-call-microsoft-graph-api": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "bf880050d15490c9",
-   "last_changed": "2026-10-07",
+   "hash": "4905cad3f9f5cc92",
+   "last_changed": "2026-11-02",
    "lastmod": "2025-06-27",
    "ms_date": "2025-02-24",
    "title": "チュートリアル: Python Flask Web アプリから Microsoft Graph API を呼び出す - Microsoft identity platform"
@@ -40776,8 +40776,8 @@
   "entra/msal/javascript/browser/redirect-bridge": {
    "category": "developer",
    "first_seen": "2026-10-07",
-   "hash": "ad6733ad987b52b0",
-   "last_changed": "2026-10-07",
+   "hash": "de9c26f8b19a7c6b",
+   "last_changed": "2026-11-02",
    "lastmod": "2026-07-02",
    "ms_date": "2026-03-15",
    "title": "MSAL Browser でリダイレクト ブリッジ ページを設定する - Microsoft Authentication Library for JavaScript"

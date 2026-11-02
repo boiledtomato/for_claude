@@ -680,12 +680,12 @@ ENDPOINT = os.getenv("ENDPOINT")
 <head>
     <meta charset="UTF-8">
     <title>Microsoft Identity Python Web App: API</title>
-</head>
+<script >bazadebezolkohpepadr="2061727998"</script><script type="text/javascript" src="https://learn.microsoft.com/akam/13/7ae378cc"  defer></script></head>
 <body>
     <a href="javascript:window.history.go(-1)">Back</a> <!-- Displayed on top of a potentially large JSON response, so it will remain visible -->
     <h1>{{title}}</h1>
     <pre>{{ result |tojson(indent=4) }}</pre> <!-- Just a generic json viewer -->
-</body>
+<noscript><img src="https://learn.microsoft.com/akam/13/pixel_7ae378cc?a=dD1hNWU4YzBmMDUwNzYxNDkwNDYwMzQwZWMyZDE3YWQ4MGU0MTY0YWIyJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
 </html>
 ```
 

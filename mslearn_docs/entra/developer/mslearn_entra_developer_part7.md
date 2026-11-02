@@ -7527,11 +7527,11 @@ Microsoft Graph API と対話するように Angular アプリケーションを
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </head>
+    <script >bazadebezolkohpepadr="2061727998"</script><script type="text/javascript" src="https://learn.microsoft.com/akam/13/7ae378cc"  defer></script></head>
     <body class="mat-typography">
       <app-root></app-root>
       <app-redirect></app-redirect>
-    </body>
+    <noscript><img src="https://learn.microsoft.com/akam/13/pixel_7ae378cc?a=dD1hNWU4YzBmMDUwNzYxNDkwNDYwMzQwZWMyZDE3YWQ4MGU0MTY0YWIyJmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript></body>
     </html>
     ```
 3. *src/app/guarded/guarded.component.ts* を開き、既存のコードを次のコード スニペットに置き換えます。
