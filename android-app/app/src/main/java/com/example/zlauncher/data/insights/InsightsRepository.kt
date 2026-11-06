@@ -9,12 +9,11 @@ import com.example.zlauncher.data.prefs.LauncherPreferencesRepository
 import com.example.zlauncher.domain.model.AppCategory
 import com.example.zlauncher.domain.model.AppRollup
 import com.example.zlauncher.domain.model.CategoryRollup
+import com.example.zlauncher.domain.model.InsightBucket
+import com.example.zlauncher.domain.model.InsightCategories
 import com.example.zlauncher.domain.model.InsightLogEntry
 import com.example.zlauncher.domain.model.InsightRange
 import com.example.zlauncher.domain.model.InsightTransport
-import com.example.zlauncher.domain.model.NO_COLOR_INDEX
-import com.example.zlauncher.domain.model.UNCATEGORIZED_ID
-import com.example.zlauncher.domain.model.UNCATEGORIZED_NAME
 import com.example.zlauncher.domain.model.WebInsightsReport
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -27,8 +26,9 @@ import javax.inject.Singleton
  * 生の UID 別通信量を、ユーザーが作ったカテゴリーの軸に載せ替える。
  *
  * カテゴリーは「パッケージ名の集合」なので、UID → パッケージ → カテゴリーの順に引く。
- * どのカテゴリーにも属さないものは [UNCATEGORIZED_ID] にまとめる（捨てない。
- * 分類していないアプリが通信の大半を占めている、という事実こそ見たいものなので）。
+ * どのカテゴリーにも属さないものは [InsightCategories.fallback] の枠にまとめる
+ * （捨てない。分類していないアプリが通信の大半を占めている、という事実こそ見たいもの
+ * なので）。その枠は、`Miscellaneous / Unknown` を有効にしていればそれ自身になる。
  */
 @Singleton
 class InsightsRepository @Inject constructor(
@@ -51,18 +51,12 @@ class InsightsRepository @Inject constructor(
             .filterNot { it.isWorkProfile }
             .associate { it.packageName to it.label }
 
-        // パッケージ → 最初に一致したカテゴリー。1 アプリが複数カテゴリーに入っていても二重計上しない
-        val categoryOfPackage = HashMap<String, Triple<String, String, Int>>()
-        categories.forEach { category ->
-            category.packages.forEach { pkg ->
-                categoryOfPackage.getOrPut(pkg) {
-                    Triple(category.id, category.name, category.colorIndex)
-                }
-            }
-        }
+        // 明示的な所属と、こぼれたものの置き場。規則は InsightCategories 側に置いてある
+        val owners = InsightCategories.explicitOwners(categories)
+        val fallback = InsightCategories.fallback(categories)
 
         val raw = source.query(range, now)
-        val resolver = UidResolver(context, labels, categoryOfPackage)
+        val resolver = UidResolver(context, labels, owners, fallback)
 
         // 軸は実データではなく範囲から作る。無通信の時間帯も 0 の棒として残す
         val bucketStarts = range.bucketStarts(now)
@@ -75,9 +69,9 @@ class InsightsRepository @Inject constructor(
                 endMillis = usage.bucketEnd,
                 packageName = identity.packageName,
                 label = identity.label,
-                categoryId = identity.categoryId,
-                categoryName = identity.categoryName,
-                colorIndex = identity.colorIndex,
+                categoryId = identity.bucket.id,
+                categoryName = identity.bucket.name,
+                colorIndex = identity.bucket.colorIndex,
                 transport = usage.transport,
                 rxBytes = usage.rxBytes,
                 txBytes = usage.txBytes,
@@ -90,7 +84,7 @@ class InsightsRepository @Inject constructor(
             available = true,
             bucketStarts = bucketStarts,
             entries = entries,
-            categories = rollUpCategories(entries, categories, bucketIndex, bucketStarts.size),
+            categories = rollUpCategories(entries, categories, fallback, bucketIndex, bucketStarts.size),
             apps = rollUpApps(entries, bucketIndex, bucketStarts.size),
         )
     }
@@ -102,6 +96,7 @@ class InsightsRepository @Inject constructor(
     private fun rollUpCategories(
         entries: List<InsightLogEntry>,
         defined: List<AppCategory>,
+        fallback: InsightBucket,
         bucketIndex: Map<Long, Int>,
         bucketCount: Int,
     ): List<CategoryRollup> {
@@ -139,13 +134,7 @@ class InsightsRepository @Inject constructor(
                 )
             }
 
-        // 通信量の多い順。未分類は最後に固定して、作ったカテゴリーが上に来るようにする
-        val rank = defined.withIndex().associate { (index, category) -> category.id to index }
-        return (measured + silent).sortedWith(
-            compareBy<CategoryRollup> { it.id == UNCATEGORIZED_ID }
-                .thenByDescending { it.totalBytes }
-                .thenBy { rank[it.id] ?: Int.MAX_VALUE }
-        )
+        return InsightCategories.sort(measured + silent, defined, fallback.id)
     }
 
     /** キーはパッケージ名。名前しか分からない UID（Tethering など）はラベルで束ねる */
@@ -179,9 +168,7 @@ class InsightsRepository @Inject constructor(
 private data class UidIdentity(
     val packageName: String,
     val label: String,
-    val categoryId: String,
-    val categoryName: String,
-    val colorIndex: Int,
+    val bucket: InsightBucket,
 )
 
 /**
@@ -193,7 +180,8 @@ private data class UidIdentity(
 private class UidResolver(
     context: Context,
     private val labels: Map<String, String>,
-    private val categoryOfPackage: Map<String, Triple<String, String, Int>>,
+    private val owners: Map<String, InsightBucket>,
+    private val fallback: InsightBucket,
 ) {
     private val packageManager: PackageManager = context.packageManager
     private val cache = HashMap<Int, UidIdentity>()
@@ -201,30 +189,23 @@ private class UidResolver(
     fun resolve(uid: Int): UidIdentity = cache.getOrPut(uid) { compute(uid) }
 
     private fun compute(uid: Int): UidIdentity {
-        specialLabel(uid)?.let { return uncategorized(packageName = "", label = it) }
+        specialLabel(uid)?.let { return unclaimed(packageName = "", label = it) }
 
         val packages = runCatching { packageManager.getPackagesForUid(uid) }
             .getOrNull()
             ?.toList()
             .orEmpty()
 
-        val classified = packages.firstOrNull { categoryOfPackage.containsKey(it) }
+        val classified = packages.firstOrNull { owners.containsKey(it) }
         val packageName = classified ?: packages.firstOrNull()
         if (packageName == null) {
-            val fallback = runCatching { packageManager.getNameForUid(uid) }.getOrNull()
-            return uncategorized(packageName = fallback.orEmpty(), label = fallback ?: "UID $uid")
+            val fallbackName = runCatching { packageManager.getNameForUid(uid) }.getOrNull()
+            return unclaimed(packageName = fallbackName.orEmpty(), label = fallbackName ?: "UID $uid")
         }
 
         val label = labels[packageName] ?: loadLabel(packageName) ?: packageName
-        val category = categoryOfPackage[packageName]
-            ?: return uncategorized(packageName, label)
-        return UidIdentity(
-            packageName = packageName,
-            label = label,
-            categoryId = category.first,
-            categoryName = category.second,
-            colorIndex = category.third,
-        )
+        val bucket = owners[packageName] ?: return unclaimed(packageName, label)
+        return UidIdentity(packageName = packageName, label = label, bucket = bucket)
     }
 
     private fun loadLabel(packageName: String): String? = runCatching {
@@ -240,16 +221,13 @@ private class UidResolver(
         else -> null
     }
 
-    private fun uncategorized(packageName: String, label: String) = UidIdentity(
+    /**
+     * どのカテゴリーも抱えていない行。置き場に載せる ―
+     * `Miscellaneous / Unknown` が有効ならそれ自身、無効なら `Uncategorized`。
+     */
+    private fun unclaimed(packageName: String, label: String) = UidIdentity(
         packageName = packageName,
         label = label,
-        categoryId = UNCATEGORIZED_ID,
-        categoryName = UNCATEGORIZED_NAME,
-        colorIndex = UNCATEGORIZED_COLOR_INDEX,
+        bucket = fallback,
     )
-
-    private companion object {
-        /** ZColors.CategoryColors の範囲外を指して、無彩色で描かせる */
-        const val UNCATEGORIZED_COLOR_INDEX = NO_COLOR_INDEX
-    }
 }

@@ -48,7 +48,12 @@ enum class InsightTransport(val label: String) {
     MOBILE("Mobile"),
 }
 
-/** 未分類の行に使う擬似カテゴリー。実カテゴリーと同じ形で扱えるようにする */
+/**
+ * 未分類の行に使う擬似カテゴリー。実カテゴリーと同じ形で扱えるようにする。
+ *
+ * **使うのは `Miscellaneous / Unknown` を切っているときだけ。** あの枠が有効なら
+ * そちらが受け皿になり、この名前は画面に出ない（[InsightCategories.fallback]）。
+ */
 const val UNCATEGORIZED_ID = "__uncategorized__"
 const val UNCATEGORIZED_NAME = "Uncategorized"
 
