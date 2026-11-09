@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-02 11:37 UTC
+Generated: 2026-11-09 12:00 UTC
 Posts in this file: 403
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -7897,12 +7897,12 @@ Blog Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions","lastmod":"2026-10-28T15:28:20.000Z","id":"aSnPJ0000000iKP0AY"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions","lastmod":"2026-11-02T18:30:42.000Z","id":"aSnPJ0000000iKP0AY"} -->
 ## Get Zscaler Certified: CertJamZ + Exam On-Site India Sessions
 
 - Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions
 - Type: Blog
-- Last activity: 2026-10-28T15:28:20.000Z
+- Last activity: 2026-11-02T18:30:42.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Blog Details

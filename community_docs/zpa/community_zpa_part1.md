@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-02 11:37 UTC
+Generated: 2026-11-09 12:00 UTC
 Posts in this file: 323
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -8529,12 +8529,12 @@ Guide Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa","lastmod":"2026-10-30T19:34:21.000Z","id":"aSoPJ0000006pz70AA"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa","lastmod":"2026-11-02T07:01:56.000Z","id":"aSoPJ0000006pz70AA"} -->
 ## How to configure Azure Private Link domains for Private Access (ZPA)
 
 - Source: https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa
 - Type: Guide
-- Last activity: 2026-10-30T19:34:21.000Z
+- Last activity: 2026-11-02T07:01:56.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Guide Details

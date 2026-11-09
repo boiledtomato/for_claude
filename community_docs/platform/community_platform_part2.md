@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-02 11:37 UTC
-Posts in this file: 128
+Generated: 2026-11-09 12:00 UTC
+Posts in this file: 129
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -23066,4 +23066,193 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Installing the Zscaler MCP Server on Linux: two errors I hit
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication","lastmod":"2026-11-05T18:57:59.000Z","id":"0D5PJ000015xHQB0A2"} -->
+## ZAB for user provisioning and Hosted DB for authentication
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication
+- Type: Q&A
+- Last activity: 2026-11-05T18:57:59.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - Authentication
+
+samp
+
+(Partner) asked a question
+
+11h ago
+
+ZAB for user provisioning and Hosted DB for authentication
+
+Hi Everyone,
+
+I am deploying ZAB for user provisioning, as i have an on-prem AD. while deploying I see it still asks for authentication URL which is a bit confusing. Also it was suggested in the help articles even though we use ZAB for user provisioning we can leverage hosted zscaler database for authentication. how does that work. also if i use ZAB for both authentication and provisioning will I have to reauthenticate again and again once the user password is changed ?
+
+Appreciate any help or support if this is deployed by anyone
+
+ZIA - Authentication
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/15/2022
+
+at
+
+12:39 PM
+
+Onprem Active directory integrate with Zscaler cloud ZIA
+
+ZIA - Authentication
+
+aravindhan.m
+
+3 Views
+
+0 Likes
+
+3 Comments
+
+7/11/2022
+
+at
+
+07:26 AM
+
+Zscaler IDP authentication issue
+
+ZIA - Authentication
+
+aravindhan.m
+
+4 Views
+
+0 Likes
+
+2 Comments
+
+5/27/2022
+
+at
+
+01:49 PM
+
+Zscaler ZIA O365 Apps not authenticating
+
+ZIA - Authentication
+
+abmaclean
+
+4 Views
+
+0 Likes
+
+6 Comments
+
+10/4/2021
+
+at
+
+10:43 PM
+
+Automatic de-provisioning using SCIM with Azure AD
+
+ZIA - Authentication
+
+Paul_Wineberg
+
+4 Views
+
+0 Likes
+
+4 Comments
+
+6/27/2020
+
+at
+
+03:01 PM
+
+Zscaler public preview
+
+ZIA - Authentication
+
+Muhammad
+
+464
+
+464 Views
+
+0 Likes
+
+2 Comments
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+ZAB for user provisioning and Hosted DB for authentication
 <!-- /ZS-POST -->

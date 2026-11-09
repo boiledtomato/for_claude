@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — API / 自動化 (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-02 11:37 UTC
+Generated: 2026-11-09 12:00 UTC
 Posts in this file: 76
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -12789,12 +12789,12 @@ OneAPI credentials for the Zscaler MCP Server
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm","lastmod":"2026-10-28T12:53:24.000Z","id":"0D5PJ000015L1Hm0AK"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm","lastmod":"2026-11-05T15:50:41.000Z","id":"0D5PJ000015L1Hm0AK"} -->
 ## OneAPI and DSPM
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm
 - Type: Q&A
-- Last activity: 2026-10-28T12:53:24.000Z
+- Last activity: 2026-11-05T15:50:41.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Danielo

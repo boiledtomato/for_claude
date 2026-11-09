@@ -1,8 +1,8 @@
 # Zenith Community — NotebookLM ソース
 
-生成: 2026-11-02 13:45 UTC  
+生成: 2026-11-09 12:00 UTC  
 取得モード: `prerender`  
-収録: 3,890 件 / 17 ファイル / 約 1,778,022 語
+収録: 3,891 件 / 17 ファイル / 約 1,778,397 語
 
 出典: <https://community.zscaler.com>
 
@@ -18,7 +18,7 @@
 | `deception/community_deception_part1.md` | Deception / Threat | 7,241 |
 | `other/community_other_part1.md` | その他 | 93,308 |
 | `platform/community_platform_part1.md` | Platform / 認証 / 管理 / ログ | 167,031 |
-| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 54,662 |
+| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 55,037 |
 | `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 176,661 |
 | `zcc/community_zcc_part2.md` | ZCC — Zscaler Client Connector | 177,712 |
 | `zcc/community_zcc_part3.md` | ZCC — Zscaler Client Connector | 178,316 |

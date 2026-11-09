@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-11-02T13:45:59Z",
+ "generated_at": "2026-11-09T12:00:24Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -5443,8 +5443,8 @@
   },
   "https://community.zscaler.com/s/Blogs/aSnPJ0000000iKP0AY/get-zscaler-certified-certjamz-exam-onsite-india-sessions": {
    "category": "platform",
-   "hash": "434f6567c19f91ab",
-   "lastmod": "2026-10-28T15:28:20.000Z",
+   "hash": "84ba9c9e1178eaad",
+   "lastmod": "2026-11-02T18:30:42.000Z",
    "title": "Get Zscaler Certified: CertJamZ + Exam On-Site India Sessions",
    "type": "zenith_blog__c"
   },
@@ -8341,8 +8341,8 @@
   },
   "https://community.zscaler.com/s/Guides/aSoPJ0000006pz70AA/how-to-configure-azure-private-link-domains-for-private-access-zpa": {
    "category": "zpa",
-   "hash": "5a13794d3dfdb93a",
-   "lastmod": "2026-10-30T19:34:21.000Z",
+   "hash": "e7e3daa284189c15",
+   "lastmod": "2026-11-02T07:01:56.000Z",
    "title": "How to configure Azure Private Link domains for Private Access (ZPA)",
    "type": "zenith_guide__c"
   },
@@ -27227,9 +27227,16 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000015L1Hm0AK/oneapi-and-dspm": {
    "category": "api",
-   "hash": "faaf2ff83fd91f8a",
-   "lastmod": "2026-10-28T12:53:24.000Z",
+   "hash": "fc0319ee8a5b8eab",
+   "lastmod": "2026-11-05T15:50:41.000Z",
    "title": "OneAPI and DSPM",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication": {
+   "category": "platform",
+   "hash": "0398a8b92bad11d7",
+   "lastmod": "2026-11-05T18:57:59.000Z",
+   "title": "ZAB for user provisioning and Hosted DB for authentication",
    "type": "question"
   }
  },
