@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 194
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 195
 
 ---
 
@@ -199,13 +199,13 @@ The following use cases highlight how EASM empowers organizations in different s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-07-12T07:06Z","nid":"1538787"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-11-05T05:37Z","nid":"1538787"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/identity-protection/about-alerts
 - Product: Identity Protection
 - Path: Identity Protection Help > Alerts > About Alerts
-- Last modified: 2026-07-12T07:06Z
+- Last modified: 2026-11-05T05:37Z
 - Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
 
 Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
@@ -223,20 +223,25 @@ On the Alerts page (Identities > Alerts), you can do the following:
 2. Search for an alert.
 3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
 4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
-5. See the number of alerts triggered for each integrated product.
-6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issue.
-7. View the number of alerts detected, the number of incidents created by grouping the alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
-8. Select alerts from the list, and click **Update**to change the following settings:
+5. View the number of alerts triggered for each integrated product (e.g., Okta, Gmail)
+6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issues.
+7. View the number of alerts detected, the number of incidents created by grouping similar type of alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
+8. Select alerts from the list, and click **Update**to change the following settings: See image.
   - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Status**: Select the status for the alert (**Remediated**, **Acknowledged**, **Confirmed**, or **Discovered**).
-  - **Title**: Enter the title for the alert.
-  - **Verdict**: Select the verdict for the alert (**Accepted**, **Executed**, **Partial**, **Proposed**, **Scheduled**, **Success**, **Under Review**, or **Recommendation Status Unspecified**).
-9. Select alerts from the list, and click **Create Incident**to create an incident based on the selected alerts.
-10. Group the alerts by category (e.g., alert first seen, alert last seen, alert tags).
+  - **Status**: Select the status for the alert (**Discovered**, **Acknowledged**, **Remediated**or**Confirmed**).
+  - **Title**: Enter a title for the alert.
+  - **Verdict**: Select the inference for the alert (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
+9. Select similar alerts from the list, and click **Create Incident**to create a new incident to group the selected alerts. On the **Create Incident from Alerts** window: See image.
+  1. **Severity**: Select the severity level for an incident (**Critical**, **High**, **Low**, **Medium**, or **None**).
+  2. **Status**: Select the status for an incident (**New**, **Acknowledged**, **Remediated**, **Pending Remediation,** or **Closed**).
+  3. **Title**: Enter a title for the incident.
+  4. **Verdict**: Select the inference for the incident (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
+  5. Click **Create Incident**.
+10. Group the alerts by category (**Alert First Seen**, **Alert Last Seen**, **Alert Tags**,etc.).
 11. Refresh the alerts table to reflect the most current information.
 12. Export the list of alerts and their associated details as a CSV file.
-13. Modify the columns displayed in the table.
-14. Click an alert to view its details. For each alert, you can see:
+13. [Modify the table columns](https://help.zscaler.com/unified/managing-table-columns).
+14. View the list of alerts. For each alert, you can see: Click the alert row to [view its details](https://help.zscaler.com/identity-protection/viewing-managing-alerts).
   - **ID**: The unique identifier of the alert.
   - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
   - **Severity Score**: The severity score of the alert.
@@ -247,6 +252,10 @@ On the Alerts page (Identities > Alerts), you can do the following:
   - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
 
 [Image: The Alerts page in the Identities app]
+
+[Image: Update Alerts]
+
+[Image: Create Incident from Alerts window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -496,13 +505,13 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-11-01T21:19Z","nid":"1539537"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-11-02T08:18Z","nid":"1539537"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
 - Product: Identity Protection
 - Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-01T21:19Z
+- Last modified: 2026-11-02T08:18Z
 - Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Identity Protection.
@@ -510,13 +519,13 @@ This article provides a summary of all new features and enhancements for Identit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-09-24T23:24Z","nid":"1543189"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/step-step-configuration-guide-identity-protection","lastmod":"2026-11-05T03:35Z","nid":"1543189"} -->
 ## Step-by-Step Configuration Guide for Identity Protection
 
 - Source: https://help.zscaler.com/identity-protection/step-step-configuration-guide-identity-protection
 - Product: Identity Protection
 - Path: Identity Protection Help > Step-by-Step Configuration Guide for Identity Protection
-- Last modified: 2026-09-24T23:24Z
+- Last modified: 2026-11-05T03:35Z
 - Summary: How to configure Identity Protection, set up identity scans, and configure threat detection.
 
 This guide explains the configuration steps that you need to complete to begin using Identity Protection for your organization.
@@ -552,7 +561,7 @@ Use the following basic workflow to assess threat risks:
 - d. Assess identity‑related security risks.
 - e. Review the alerts associated with identity findings.
 
-TheFindings Overview dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately.
+The[Findings Overview](https://help.zscaler.com/identity-protection/viewing-overview-dashboard) dashboard provides a high-level view of the identity findings and their overall security posture in your organization. Findings are categorized by severity, type, affected tenants, identity providers, remediation ease, exploitability, and impacted assets. This helps security teams prioritize the most critical and easily exploitable findings and remediate them immediately.
 
 View a list of users, their identity types, and the total number of critical or high-severity findings to take the necessary action. To learn more, see [About Users in the Agentic Security Operations Platform](https://help.zscaler.com/unified/about-users-security-operations-platform).
 
@@ -679,13 +688,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-managing-alerts","lastmod":"2026-09-29T04:58Z","nid":"1540824"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-managing-alerts","lastmod":"2026-11-04T19:33Z","nid":"1540824"} -->
 ## Viewing & Managing Alerts
 
 - Source: https://help.zscaler.com/identity-protection/viewing-managing-alerts
 - Product: Identity Protection
 - Path: Identity Protection Help > Alerts > Viewing & Managing Alerts
-- Last modified: 2026-09-29T04:58Z
+- Last modified: 2026-11-04T19:33Z
 - Summary: How to view detailed alerts information in Identity Protection.
 
 You can analyze [alerts in Identity Protection](https://help.zscaler.com/identity-protection/about-alerts) by viewing the detailed information about each alert. This helps security teams understand the associated tactics and techniques, related incidents, and impacted users or assets, and take the necessary remediation.
@@ -699,7 +708,7 @@ To view the alert details:
   - Details
   - Entities
   - Related Incidents
-4. Click **Apply Changes** after making changes to the alert, or close the drawer.
+4. Click **Apply Changes**, or close the drawer.
 
 In the top panel of the alert drawer, you can view:
 
@@ -714,28 +723,28 @@ Additionally, you can perform the following actions:
 - **Copy**icon: Copy a shareable link to the alert.
 - **Expand**icon: Expand the alert's drawer to full screen.
 - **Close**icon: Close the alert drawer.
-- **Alert Status**: Mark the status of the alert (**Discovered**, **Acknowledged**, **Confirmed**, or **Remediated**).
+- **Alert Status**: Select the alert status (**Discovered**, **Acknowledged**, **Confirmed**, or **Remediated**).
 
 See image.
 
 On the **Details**tab, you can view:
 
-- **Source**: The source of the alert (e.g., Okta Alerts).
+- **Source**: The source of the alert (e.g., Okta).
 - **Frequency**: The count of alerts with the same name for the last month.
-- **Tactic**: The [MITRE ATT&CK tactic](https://attack.mitre.org/) associated with the alert.
-- **Technique**: The MITRE ATT&CK technique associated with the alert.
+- **Tactic**: The [MITRE ATT&CK tactic](https://attack.mitre.org/tactics/enterprise/) associated with the alert.
+- **Technique**: The[MITRE ATT&CK technique](https://attack.mitre.org/techniques/enterprise/) associated with the alert.
 - **Incidents**: The number of incidents associated with the alert.
 - **Created Time**: The date and time when the alert was triggered.
 - **Verdict**: The verdict of the alert which is used to calculate the alert risk score. Select one of the following verdicts:
-  - **No verdict**: No determination is made for the alert yet.
+  - **No verdict**: No inference has been made for the alert yet.
   - **Benign**: The alert does not indicate a security threat.
-  - **False Positive**: The alert is triggered, but the detected condition does not represent the threat the alert is intended to detect.
-  - **Inconclusive**: The available evidence is not enough to determine whether the alert indicates a legitimate or malicious condition.
-  - **Malicious**: The alert indicates a malicious condition that represents a security threat.
-  - **Suspicious**: The alert indicates a potential security threat, but the available evidence is not enough to confirm it as malicious.
-  - **True Positive**: The alert identifies the security condition or threat it is intended to detect.
+  - **False Positive**: The alert is triggered, but the detected threat is not what the alert is intended to detect.
+  - **Inconclusive**: The available evidence is not sufficient to determine whether the alert indicates a legitimate or malicious threat.
+  - **Malicious**: The alert is triggered for a malicious threat.
+  - **Suspicious**: The alert is triggered for a potential security threat, but the available evidence is not sufficient to confirm it as malicious.
+  - **True Positive**: The alert is triggered for the intended threat.
 - **Description**: The description of the alert.
-- **Score Calculation**: The alert's cumulative score that is calculated by summing the severity scores of the alert (i.e., **Critical**, **High**, **Medium**, **Low**) and the alert verdict, and rounding the result. This indicator can be used to prioritize alerts.
+- **Score Calculation**: The alert's cumulative score, which is calculated by summing the severity scores of the alert (i.e., **Critical**, **High**, **Medium**, **Low**) and the alert verdict, and rounding the result. This indicator can be used to prioritize alerts.
 
 See image.
 
@@ -770,13 +779,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-overview-dashboard","lastmod":"2026-10-30T04:37Z","nid":"1546095"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/viewing-overview-dashboard","lastmod":"2026-11-03T01:52Z","nid":"1546095"} -->
 ## Viewing the Findings Overview Dashboard
 
 - Source: https://help.zscaler.com/identity-protection/viewing-overview-dashboard
 - Product: Identity Protection
 - Path: Identity Protection Help > Analytics > Viewing the Findings Overview Dashboard
-- Last modified: 2026-10-30T04:37Z
+- Last modified: 2026-11-03T01:52Z
 - Summary: How to view and interpret the Findings Overview dashboard in Identity Protection.
 
 The Findings Overview dashboard provides a comprehensive view of identity findings in your organization. You can analyze findings by severity, finding type, tenant, identity, asset, and user type, and view their exploitability and remediation ease.
@@ -806,83 +815,57 @@ To view the Findings Overview dashboard:
 
 The tiles provide an overview of identity findings categorized by easy exploit and severity level.Each tile shows the current number of findings in your account. Click the number to go to the [Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) page and analyze the issue.
 
-See image.
+[Image: Top panel tiles]
 
 View identity findings by severity.
 
-See image.
+[Image: Identity Findings By Severity Widget]
 
 View the distribution of identity findings across tenants by severity.
 
-See image.
+[Image: Identity Findings By Tenant By Severity Widget]
 
 View the distribution of identity findings by identity provider, the total identity findings detected by each identity provider, and the overall findings count.
 
-See image.
+[Image: Identity Findings By Provider Widget]
 
 View the distribution of identity findings based on their complexity level to remediate. For example, you can prioritize a finding that is high risk and can be easily remediated.
 
-See image.
+[Image: Finding By Remediation Ease Widget]
 
 View identity findings based on their exploitability and severity.
 
-See image.
+[Image: Exploitability Tiles]
 
 View the number of identity findings associated with assets. This allows you to quickly review findings for assets based on total findings, critical findings, and high findings. Click the number to go to the [Identity Findings](https://help.zscaler.com/identity-protection/about-identity-findings) page and analyze the issue.
 
-See image.
+[Image: Findings By Assets Tiles]
 
 View identity findings by finding type, exploit ease, and severity, along with the total number of findings for each type.
 
-See image.
+[Image: Identity Findings By Severity By Exploit Case Table]
 
 View the assets list and the number of identity findings associated with them grouped by severity.
 
-See image.
+[Image: Assets By Number Of Findings Table]
 
 View the total users and the number of identity findings associated with them.
 
-See image.
+[Image: Findings By Identities Tiles]
 
 View the distribution of identity findings across different user types and severities.
 
-See image.
+[Image: Finding By User Type Graph]
 
 View identity findings for admins by finding type, exploit ease, and severity.
 
-See image.
+[Image: Admin Related Identity Findings By Severity By Exploit Case Table]
 
 View the number of identity findings associated with each user, grouped by severity.
 
-See image.
+[Image: Users By Number of Findings Table]
 
 [Image: Findings Overview page Top Panel]
-
-[Image: Top panel tiles]
-
-[Image: Identity Findings By Severity Widget]
-
-[Image: Identity Findings By Tenant By Severity Widget]
-
-[Image: Identity Findings By Provider Widget]
-
-[Image: Finding By Remediation Ease Widget]
-
-[Image: Exploitability Tiles]
-
-[Image: Findings By Assets Tiles]
-
-[Image: Identity Findings By Severity By Exploit Case Table]
-
-[Image: Assets By Number Of Findings Table]
-
-[Image: Findings By Identities Tiles]
-
-[Image: Finding By User Type Graph]
-
-[Image: Admin Related Identity Findings By Severity By Exploit Case Table]
-
-[Image: Users By Number of Findings Table]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11036,6 +11019,93 @@ Your Prisma Cloud CSPM admin console URL varies according to the cluster in whic
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-qualys-gav-connector","lastmod":"2026-11-05T12:12Z","nid":"1538451"} -->
+## Configuring the Qualys GAV Connector
+
+- Source: https://help.zscaler.com/uvm/configuring-qualys-gav-connector
+- Product: Unified Vulnerability Management (UVM)
+- Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Source Configuration Guides > Configuring the Qualys GAV Connector
+- Last modified: 2026-11-05T12:12Z
+- Summary: How to configure the Qualys GAV connector, including setting up authentication and data retrieval filters and specifications.
+
+Qualys Global AssetView (GAV) is a global assets manager. It provides a unified view of all assets across the organization.
+
+There are 3 available Qualys GAV streams. Select those that are based on your Qualys GAV feature plan and use cases:
+
+- Qualys Asset Management: Retrieves a comprehensive list of assets from the GAV product, which includes asset metadata.
+- Qualys Open Ports: Retrieves a detailed inventory of open network ports that are active on each host.
+- Qualys Software List: Retrieves a granular inventory of all installed applications, utilities, and components found in the system (e.g., virtual machine (VM), cloud instance, network container, etc.).
+
+The Qualys GAV connector is in limited availability. To learn more, contact Zscaler Support.
+
+For the Qualys VMDR & PC stream, see [Configuring the Qualys VMDR & PC Connector](https://help.zscaler.com/uvm/configuring-qualys-vmdr-pc-connector). For the Qualys WAS stream, see [Configuring the Qualys WAS Connector](https://help.zscaler.com/uvm/configuring-qualys-was-connector).
+
+## Prerequisites
+
+To configure the Qualys GAV connector, you need the source authentication configuration. The following parameters are required:
+
+- Username and Password
+- Region / Custom URL
+
+## Configuring the Connector
+
+To create the Qualys GAV data source:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Sources**.
+3. Click **Create**.
+4. On the **Connect New Data Source** page, search for and select the connector tile. See image.
+
+### Configuring Retrieval Filters and Specifications
+
+After you create the Qualys GAV data source, enter the following information in the source setup Retrieval section:
+
+- Authentication
+- Number of days to fetch
+- Exclude Fields
+
+For complete configuration instructions, see [Creating Data Sources](https://help.zscaler.com/uvm/creating-data-sources).
+
+## Troubleshooting and FAQs
+
+To learn more about error codes, refer to the [Qualys documentation](https://docs.qualys.com/en/vm/qweb-all-api/appendix/appendix_d.htm).
+
+Your Qualys user credentials grant access to your Qualys data. The user credentials you provide must have a set of permissions for the connection to be successful.
+
+To learn more about roles and permissions, refer to the [Qualys documentation](https://docs.qualys.com/en/gav/latest/get_started/roles_permissions.htm).
+
+Ensure that you grant the following access permissions to the user:
+
+- For Qualys Vulnerabilities and Qualys Assets, select the **Manage VM module** checkbox.
+- For Qualys Policy Compliance, select the **Manage PC module** checkbox.
+
+To learn more, refer to the [Qualys documentation](https://docs.qualys.com/en/vm/latest/user_accounts/admin_ui.htm).
+
+Zscaler recommends that you create a new user with the Scanner role for this purpose. Alternatively, you can use an existing user or create a custom role, as long as they have the proper permissions. To learn more about creating a user, refer to the [Qualys documentation](https://docs.qualys.com/en/cloudview/latest/users/create_user.htm).
+
+Your username includes your platform identifier. For example, in the username format `quays_ab1`, the underscore is the platform identifier for the US1 platform.
+
+For a list of identifiers and their matching platform URL, refer to the [Qualys documentation](https://www.qualys.com/platform-identification/).
+
+To configure authentication:
+
+1. In the **Authentication** section, click **Create New**. The **Qualys Authentication** window appears.
+2. In the **Qualys Authentication** window, enter the information from the Prerequisites section. See image.
+3. Click **Create**.
+
+To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications) and [Managing Authentications](https://help.zscaler.com/uvm/managing-authentications).
+
+Enter the number of days in the past to fetch assets that have been processed. The connector fetches assets modified or processed within this timeframe. It initially fetches 30 days of data by default to capture active assets. After the initial fetch, it uses the `lastModifiedDate` as a cursor for incremental updates to only fetch new or changed records.
+
+Enter a comma-separated list of tags to exclude from asset retrieval. If left empty, all assets are included regardless of tags.
+
+[Image: The Qualys GAV Asset Management, Open Ports, and Software List tiles accessed from the Connect New Data Source page in the Agentic SecOps platform]
+
+[Image: The Qualys GAV Authentication window in the SecOps platform]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/uvm/configuring-qualys-vmdr-pc-connector","lastmod":"2026-07-05T07:06Z","nid":"1530768"} -->
 ## Configuring the Qualys VMDR & PC Connector
 
@@ -15594,13 +15664,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-10-19T16:45Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-11-05T14:32Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:45Z
+- Last modified: 2026-11-05T14:32Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).

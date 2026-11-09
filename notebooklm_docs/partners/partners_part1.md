@@ -1,7 +1,7 @@
 # Zscaler Help — Technology Partners (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 146
 
 ---
@@ -10,8 +10,8 @@ Articles in this file: 146
 ## Zscaler and 1Password Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-1password-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and 1Password Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and 1Password Deployment Guide
 - Last modified: 2026-01-30T20:06Z
 - Summary: The Zscaler and 1Password Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with 1Password-Kolide.
 
@@ -268,8 +268,8 @@ Together, Aryaka and Zscaler deliver an SD-WAN and security platform for enterpr
 ## Zscaler and Atlassian Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-atlassian-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and Atlassian Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and Atlassian Deployment Guide
 - Last modified: 2026-07-29T15:18Z
 - Summary: The Zscaler and Atlassian Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Posture Control (ZPC) to work with the Atlassian platform.
 
@@ -340,8 +340,8 @@ For more information on AWS as a Zscaler partner, see the [AWS partner page](htt
 ## Zscaler and Azure DevOps Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-azure-devops-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and Azure DevOps Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and Azure DevOps Deployment Guide
 - Last modified: 2025-07-13T17:05Z
 - Summary: The Zscaler and Azure DevOps Deployment Guide provides instructions on how to configure Zscaler Posture Control (ZPC) to work with the Azure DevOps platform.
 
@@ -384,8 +384,8 @@ For more information on Microsoft as a Zscaler partner, see the [Microsoft partn
 ## Zscaler and Azure Traffic Forwarding Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-azure-traffic-forwarding-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and Azure Traffic Forwarding Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and Azure Traffic Forwarding Deployment Guide
 - Last modified: 2025-07-13T16:58Z
 - Summary: The Zscaler and Azure Traffic Forwarding Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with Microsoft Azure WVD.
 
@@ -406,8 +406,8 @@ For more information on Microsoft as a Zscaler partner, see the [Microsoft partn
 ## Zscaler and Beyond Identity Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-beyond-identity-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and Beyond Identity Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and Beyond Identity Deployment Guide
 - Last modified: 2025-07-13T17:08Z
 - Summary: The Zscaler and Beyond Identity Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) with the Beyond Identity platform.
 
@@ -426,8 +426,8 @@ You can integrate Zscaler with Beyond Identity either directly or via their exis
 ## Zscaler and Bitglass Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-bitglass-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler and Bitglass Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler and Bitglass Deployment Guide
 - Last modified: 2026-03-30T15:30Z
 - Summary: The Zscaler and Bitglass Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) features for the Bitglass platform.
 
@@ -464,13 +464,13 @@ ZIA provides SaaS security using Zscaler's SaaS Security API to scan the Box dat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-cimcor-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1506551"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-cimcor-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1506551"} -->
 ## Zscaler and Cimcor Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-cimcor-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and Cimcor Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and Cimcor Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and Cimcor Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with CimTrak.
 
 The Zscaler and Cimcor Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with CimTrak.
@@ -515,8 +515,8 @@ ZIA is a secure internet and web gateway delivered as a service from the cloud. 
 ## Zscaler and CloudGenix Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-cloudgenix-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and CloudGenix Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and CloudGenix Deployment Guide
 - Last modified: 2026-03-30T15:20Z
 - Summary: The Zscaler and CloudGenix Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the CloudGenix SD-WAN platform.
 
@@ -555,8 +555,8 @@ The integration of Cloud-Fi and Zscaler is particularly suited to help SD-WAN ar
 ## Zscaler and Cohesity Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-cohesity-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and Cohesity Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and Cohesity Deployment Guide
 - Last modified: 2026-03-30T15:24Z
 - Summary: The Zscaler and Cohesity Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the Cohesity Data Cloud.
 
@@ -573,8 +573,8 @@ The two major solution components of the Cohesity and Zscaler integration are Co
 ## Zscaler and Command Zero Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-command-zero-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and Command Zero Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and Command Zero Deployment Guide
 - Last modified: 2026-03-30T15:26Z
 - Summary: The Zscaler and Command Zero Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with Command Zero.
 
@@ -649,13 +649,13 @@ Cloud NSS is an optional service managed by Zscaler and uses HTTP and HTTPS to s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1389181"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1389181"} -->
 ## Zscaler and CrowdStrike Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-crowdstrike-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and CrowdStrike Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and CrowdStrike Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and CrowdStrike Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the CrowdStrike platform.
 
 The Zscaler and CrowdStrike Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the CrowdStrike platform.
@@ -805,8 +805,8 @@ The Zscaler and Darktrace integration ingests weblogs from a ZIA device to simul
 ## Zscaler and DataBee Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-databee-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > C – E > Zscaler and DataBee Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > C – E > Zscaler and DataBee Deployment Guide
 - Last modified: 2026-03-30T15:37Z
 - Summary: The Zscaler and DataBee Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the DataBee Hive platform.
 
@@ -1074,8 +1074,8 @@ Zscaler secures direct-to-internet connections and delivers a fast user experien
 ## Zscaler and Fidelis Security Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-fidelis-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > F – K > Zscaler and Fidelis Security Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > F – K > Zscaler and Fidelis Security Deployment Guide
 - Last modified: 2026-03-31T15:48Z
 - Summary: The Zscaler and Fidelis Security Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) features for Fidelis Network.
 
@@ -1106,13 +1106,13 @@ The FireMon SIP helps organizations gain visibility into and control over their 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides","lastmod":"2026-11-01T06:06Z","nid":"1508636"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides","lastmod":"2026-11-08T06:06Z","nid":"1508636"} -->
 ## Zscaler and Firewall Technology Partner Deployment Guides
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-firewall-technology-partner-deployment-guides
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Zscaler and Firewall Technology Partner Deployment Guides
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > Zscaler and Firewall Technology Partner Deployment Guides
+- Last modified: 2026-11-08T06:06Z
 - Summary: The list in this article contains the available Zscaler Firewall technology partner deployment guides.
 
 The following list shows Zscaler's available Firewall technology partner deployment guides:
@@ -1222,8 +1222,8 @@ This guide covers the following ZIA features for GitLab security:
 ## Zscaler and Google Chrome Enterprise Browser for Private Access Unmanaged Devices Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-google-chrome-enterprise-browser-private-access-unmanaged-devices-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > F – K > Zscaler and Google Chrome Enterprise Browser for Private Access Unmanaged Devices Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > F – K > Zscaler and Google Chrome Enterprise Browser for Private Access Unmanaged Devices Deployment Guide
 - Last modified: 2025-08-15T15:03Z
 - Summary: The Zscaler and Google Chrome Enterprise Browser for Private Access Unmanaged Devices Deployment Guide provides instructions on how to configure Zscaler Private Access (ZPA) to work with the Google Chrome Enterprise browser.
 
@@ -1363,8 +1363,8 @@ You must configure Zscaler to send logs via the Nanolog Streaming Service (NSS) 
 ## Zscaler and IBM QRadar Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-ibm-qradar-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > F – K > Zscaler and IBM QRadar Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > F – K > Zscaler and IBM QRadar Deployment Guide
 - Last modified: 2026-03-31T16:28Z
 - Summary: The Zscaler and IBM QRadar Deployment Guide provides instructions on configuring Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the IBM Security QRadar Suite.
 
@@ -1399,13 +1399,13 @@ Authentication is the process of verifying a user’s identity through the use o
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-igel-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1509981"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-igel-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1509981"} -->
 ## Zscaler and IGEL Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-igel-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > F – K > Zscaler and IGEL Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > F – K > Zscaler and IGEL Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and IGEL Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the IGEL OS.
 
 The Zscaler and IGEL Deployment Guide provides instructions on using clientless Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) features with the IGEL OS.
@@ -1592,8 +1592,8 @@ Zscaler Cloud Nanolog Streaming Service (NSS) allows you to stream logs from ZIA
 ## Zscaler and LogRhythm Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-logrhythm-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and LogRhythm Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and LogRhythm Deployment Guide
 - Last modified: 2026-04-01T12:15Z
 - Summary: The Zscaler and LogRhythm Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) features for the LogRhythm platform.
 
@@ -1715,8 +1715,8 @@ View Zscaler and Microsoft Defender integration demonstrations in:
 ## Zscaler and Microsoft Entra ID Passwordless Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-entra-ID-passwordless-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and Microsoft Entra ID Passwordless Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and Microsoft Entra ID Passwordless Deployment Guide
 - Last modified: 2026-04-01T12:22Z
 - Summary: The Zscaler and Microsoft AD Passwordless Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with Microsoft Entra ID Passwordless sign-on.
 
@@ -1827,8 +1827,8 @@ For more information on Microsoft as a Zscaler partner, see the [Microsoft partn
 ## Zscaler and Microsoft Windows Autopilot Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-microsoft-windows-autopilot-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and Microsoft Windows Autopilot Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and Microsoft Windows Autopilot Deployment Guide
 - Last modified: 2026-04-01T12:25Z
 - Summary: The Zscaler and Microsoft Windows Autopilot Deployment Guide provides instructions on configuring Zscaler Private Access (ZPA) to work with Microsoft Windows Autopilot.
 
@@ -1877,8 +1877,8 @@ View Zscaler and Mimecast integration demonstrations:
 ## Zscaler and NetWitness Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-netwitness-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and NetWitness Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and NetWitness Deployment Guide
 - Last modified: 2026-04-01T12:27Z
 - Summary: The Zscaler and NetWitness Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the NetWitness Platform XDR.
 
@@ -1891,13 +1891,13 @@ You can configure Zscaler to send logs via the Nanolog Streaming Service (NSS) t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-nile-secure-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1509971"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-nile-secure-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1509971"} -->
 ## Zscaler and Nile Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-nile-secure-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and Nile Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and Nile Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and Nile Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with Nile Copilot.
 
 The Zscaler and Nile Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) to work with Nile Copilot.
@@ -2020,13 +2020,13 @@ The steps in this guide outline how to start ingesting data from these sources, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-panther-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1510336"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-panther-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1510336"} -->
 ## Zscaler and Panther Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-panther-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and Panther Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and Panther Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and Panther Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the Panther OS.
 
 The Zscaler and Panther Deployment Guide provides instructions on using Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) features with the Panther OS.
@@ -2112,8 +2112,8 @@ View a Zscaler and Portal26 integration demonstration by watching [Zscaler and P
 ## Zscaler and Proofpoint Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-proofpoint-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > L – P > Zscaler and Proofpoint Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > L – P > Zscaler and Proofpoint Deployment Guide
 - Last modified: 2026-04-01T12:31Z
 - Summary: The Zscaler and Proofpoint Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the Proofpoint Cloud platform.
 
@@ -2246,8 +2246,8 @@ RedSeal Network brings complex hybrid on-premises and multi-cloud networks into 
 ## Zscaler and ReliaQuest Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-reliaquest-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and ReliaQuest Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and ReliaQuest Deployment Guide
 - Last modified: 2026-04-01T14:21Z
 - Summary: The Zscaler and ReliaQuest Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the ReliaQuest GreyMatter platform.
 
@@ -2297,13 +2297,13 @@ View a Zscaler and Rubrik integration demonstration by watching the following vi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-saas-application-tenant-technology-partner-deployment-guides","lastmod":"2026-11-01T06:06Z","nid":"1508691"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-saas-application-tenant-technology-partner-deployment-guides","lastmod":"2026-11-08T06:06Z","nid":"1508691"} -->
 ## Zscaler and SaaS Application Tenant Technology Partner Deployment Guides
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-saas-application-tenant-technology-partner-deployment-guides
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Zscaler and SaaS Application Tenant Technology Partner Deployment Guides
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > Zscaler and SaaS Application Tenant Technology Partner Deployment Guides
+- Last modified: 2026-11-08T06:06Z
 - Summary: The list in this article contains the available Zscaler SaaS application tenant technology partner deployment guides.
 
 The following list shows Zscaler's available SaaS application tenant technology partner deployment guides:
@@ -2323,8 +2323,8 @@ The following list shows Zscaler's available SaaS application tenant technology 
 ## Zscaler and Saasyan Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-saasyan-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Saasyan Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Saasyan Deployment Guide
 - Last modified: 2026-04-01T14:41Z
 - Summary: The Zscaler and Saasyan Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the Saasyan platform.
 
@@ -2357,8 +2357,8 @@ SailPoint provides security software products and services. The company offers i
 ## Zscaler and Salesforce Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-salesforce-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Salesforce Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Salesforce Deployment Guide
 - Last modified: 2026-04-01T15:00Z
 - Summary: The Zscaler and Salesforce Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Digital Experience (ZDX) to work with the Salesforce SaaS platform.
 
@@ -2377,16 +2377,16 @@ View a Zscaler and Salesforce integration demonstration by watching [Salesforce 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sap-deployment-guide","lastmod":"2026-05-21T16:32Z","nid":"1517551"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sap-deployment-guide","lastmod":"2026-11-02T17:18Z","nid":"1517551"} -->
 ## Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-sap-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide
-- Last modified: 2026-05-21T16:32Z
-- Summary: The Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide provides instructions on how to configure Zscaler Private Access (ZPA) to work with SAP S/4HANA Cloud Private Edition.
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide
+- Last modified: 2026-11-02T17:18Z
+- Summary: The Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide provides instructions on how to configure Private Access (ZPA) to work with SAP S/4HANA Cloud Private Edition.
 
-The Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide provides instructions on using Zscaler Private Access (ZPA) features with the SAP S/4HANA Cloud Private Edition.
+The Zscaler and SAP S/4HANA Cloud Private Edition Deployment Guide provides instructions on using Private Access (ZPA) features with the SAP S/4HANA Cloud Private Edition.
 
 Zscaler and SAP Enterprise Cloud Services (ECS) have created an ECS-managed service that deploys App Connectors inside a customer's ECS-managed service environment on the AWS, Azure, or GCP hyperscalers.
 
@@ -2421,13 +2421,13 @@ This deployment guide explains how to integrate the EIC and the collaboration pl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides","lastmod":"2026-11-01T06:06Z","nid":"1508631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides","lastmod":"2026-11-08T06:06Z","nid":"1508631"} -->
 ## Zscaler and SD-WAN Technology Partner Deployment Guides
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-sd-wan-technology-partner-deployment-guides
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Zscaler and SD-WAN Technology Partner Deployment Guides
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > Zscaler and SD-WAN Technology Partner Deployment Guides
+- Last modified: 2026-11-08T06:06Z
 - Summary: The list in this article contains the available Zscaler SD-WAN technology partner deployment guides.
 
 The following list shows Zscaler's available SD-WAN technology partner deployment guides:
@@ -2526,13 +2526,13 @@ This document describes how to integrate Sekoia Defend with Internet & SaaS and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1389191"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1389191"} -->
 ## Zscaler and SentinelOne Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-sentinelone-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and SentinelOne Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and SentinelOne Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and SentinelOne Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the SentinelOne Singularity XDR platform.
 
 The Zscaler and SentinelOne Deployment Guide provides instructions on how to configure integrations between the Zscaler Zero Trust Exchange (ZTE) and the SentinelOne Singularity Platform to deliver end-to-end visibility, threat detection, and automated response across endpoint, network, and cloud environments.
@@ -2602,8 +2602,8 @@ View Zscaler and ServiceNow integration demonstrations in the following videos:
 ## Zscaler and Siemplify Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-siemplify-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Siemplify Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Siemplify Deployment Guide
 - Last modified: 2026-04-01T15:12Z
 - Summary: The Zscaler and Siemplify Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) features for the Siemplify Security Operations Platform.
 
@@ -2658,8 +2658,8 @@ The Skybox SPM platform lets organizations visualize and analyze hybrid, multi-c
 ## Zscaler and Slack Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-slack-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Slack Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Slack Deployment Guide
 - Last modified: 2026-04-01T15:15Z
 - Summary: The Zscaler and Slack Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Digital Experience (ZDX) to work with the Slack platform.
 
@@ -2683,8 +2683,8 @@ ZIA provides Slack SaaS security by using access control, identity control, data
 ## Zscaler and Smartsheet Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-smartsheet-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Smartsheet Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Smartsheet Deployment Guide
 - Last modified: 2026-07-12T07:06Z
 - Summary: The Zscaler and Smartsheet Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the Smartsheet platform.
 
@@ -2726,8 +2726,8 @@ UVM offers the following preconfigured Snyk connectors:
 ## Zscaler and Splunk Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-splunk-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Splunk Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Splunk Deployment Guide
 - Last modified: 2026-10-22T21:06Z
 - Summary: The Zscaler and Splunk Deployment Guide provides instructions on how to configure Internet & SaaS (ZIA) and Private Access (ZPA) to work with Splunk.
 
@@ -2759,8 +2759,8 @@ View Zscaler and Splunk integration demonstrations in the following videos:
 ## Zscaler and Sumo Logic Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-sumo-logic-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler and Sumo Logic Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler and Sumo Logic Deployment Guide
 - Last modified: 2026-04-01T15:18Z
 - Summary: The Zscaler and Sumo Logic Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with Sumo Logic software.
 
@@ -2817,8 +2817,8 @@ Zscaler works with the Swimlane platform to help secure assets monitored by the 
 ## Zscaler and TEHTRIS Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-tehtris-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and TEHTRIS Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and TEHTRIS Deployment Guide
 - Last modified: 2026-03-31T16:50Z
 - Summary: The Zscaler and TEHTRIS Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the TEHTRIS security information and event management (SIEM) platform.
 
@@ -2859,8 +2859,8 @@ This guide explains how to start ingesting data from these sources, while also (
 ## Zscaler and ThreatConnect Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-threatconnect-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and ThreatConnect Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and ThreatConnect Deployment Guide
 - Last modified: 2026-03-31T16:52Z
 - Summary: The Zscaler and ThreatConnect Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the ThreatConnect platform.
 
@@ -2899,13 +2899,13 @@ This document describes how a ThreatQ admin can export FQDNs and URLs from a Thr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-tines-deployment-guide","lastmod":"2026-11-01T06:06Z","nid":"1509986"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-technology-partners/zscaler-and-tines-deployment-guide","lastmod":"2026-11-08T06:06Z","nid":"1509986"} -->
 ## Zscaler and Tines Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-tines-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and Tines Deployment Guide
-- Last modified: 2026-11-01T06:06Z
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and Tines Deployment Guide
+- Last modified: 2026-11-08T06:06Z
 - Summary: The Zscaler and Tines Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) to work with the Tines SOAR solutions.
 
 The Zscaler and Tines Deployment Guide provides instructions on integrating Zscaler Internet Access (ZIA) and Zscaler Private Access (ZPA) with the Tines SOAR solutions.
@@ -2951,8 +2951,8 @@ If you don’t see a step you need, you can create your own in various ways, suc
 ## Zscaler and Trend Micro Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-trend-micro-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and Trend Micro Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and Trend Micro Deployment Guide
 - Last modified: 2026-10-27T21:06Z
 - Summary: The Zscaler and Trend Micro Deployment Guide provides instructions on how to configure Internet & SaaS (ZIA) and Private Access (ZPA) to work with the Trend Micro Vision One Security Playbooks.
 
@@ -3068,8 +3068,8 @@ View Zscaler and VMware Carbon Black integration demonstrations in:
 ## Zscaler and Votiro Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-votiro-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and Votiro Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and Votiro Deployment Guide
 - Last modified: 2026-03-31T16:59Z
 - Summary: The Zscaler and Votiro Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the Votiro Cloud platform.
 
@@ -3116,8 +3116,8 @@ UVM offers the following preconfigured Wiz connectors:
 ## Zscaler and XM Cyber Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-and-xm-cyber-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > T – Z > Zscaler and XM Cyber Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > T – Z > Zscaler and XM Cyber Deployment Guide
 - Last modified: 2025-07-14T07:06Z
 - Summary: The Zscaler and XM Cyber Deployment Guide provides instructions on how to configure Zscaler Internet Access (ZIA) to work with the XM Cyber Security Controls Monitoring (SCM).
 
@@ -3186,8 +3186,8 @@ In this solution, Okta Identity Cloud centralizes identity management with a con
 ## Zscaler and HashiCorp Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-private-access-and-hashicorp-terraform-servicenow-approval-workflow-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > F – K > Zscaler and HashiCorp Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > F – K > Zscaler and HashiCorp Deployment Guide
 - Last modified: 2026-03-31T16:26Z
 - Summary: The Zscaler and HashiCorp Deployment Guide provides instructions on how to configure Zscaler Private Access (ZPA) to work with the HashiCorp Terraform platform.
 
@@ -3234,8 +3234,8 @@ UVM offers a preconfigured Apiiro connectors for Apiiro Secrets, which focuses o
 ## Zscaler UVM and Bitsight Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-uvm-and-bitsight-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > A – B > Zscaler UVM and Bitsight Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > A – B > Zscaler UVM and Bitsight Deployment Guide
 - Last modified: 2026-06-30T21:06Z
 - Summary: The Zscaler UVM and Bitsight Deployment Guide provides instructions on how to configure Unified Vulnerability Management (UVM) to work with the Bitsight Security Ratings product.
 
@@ -3281,8 +3281,8 @@ UVM offers the following preconfigured Horizon3 NodeZero connectors:
 ## Zscaler UVM and SecurityScorecard Deployment Guide
 
 - Source: https://help.zscaler.com/zscaler-technology-partners/zscaler-uvm-and-securityscorecard-deployment-guide
-- Product: Zscaler Technology Partners
-- Path: Zscaler Technology Partners > Q – S > Zscaler UVM and SecurityScorecard Deployment Guide
+- Product: Technology Partners
+- Path: Technology Partners > Q – S > Zscaler UVM and SecurityScorecard Deployment Guide
 - Last modified: 2026-06-29T21:06Z
 - Summary: The Zscaler UVM and SecurityScorecard Deployment Guide provides instructions on how to configure Unified Vulnerability Management (UVM) to work with the SecurityScorecard platform.
 

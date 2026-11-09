@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 252
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 251
 
 ---
 
@@ -88,21 +88,27 @@ On the Administrative Entitlements page (Administration > Role Management > Admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-10-14T09:24Z","nid":"1499386"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-client-access-policy","lastmod":"2026-11-06T22:34Z","nid":"1499386"} -->
 ## About the API Client Access Policy
 
 - Source: https://help.zscaler.com/authentication-service/about-api-client-access-policy
 - Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > About the API Client Access Policy
-- Last modified: 2026-10-14T09:24Z
+- Path: Authentication Service Help > OneAPI Authentication > About the API Client Access Policy
+- Last modified: 2026-11-06T22:34Z
 - Summary: Information about the API client access policies in the Zscaler Admin Console.
 
 The API client access policies determine the API client's access to specific [API resources](https://help.zscaler.com/zidentity/viewing-api-resources) within set time frames. Administrators can define the policy rules and assign them to the required [API clients](https://help.zscaler.com/zidentity/about-api-clients) to prevent unauthorized activity and control access to API resources.
 
-The API client access policy includes the following benefits:
+Administrators can also apply source IP address constraints as policy criteria while configuring the API client access policy rule to accept only those API requests that originate from approved source IP addresses or CIDR ranges. OneAPI enforces the policy when an assigned API client invokes a Zscaler API.
 
-- Ensures API usage is limited to approved resources.
-- Provides API resources availability within specific time frames.
+- To use this criteria, administrators must select only the pre-configured [trusted IP locations](https://help.zscaler.com/authentication-service/adding-ip-locations) and [trusted IP location groups](https://help.zscaler.com/authentication-service/adding-ip-location-groups). Individual IP addresses or CIDR ranges cannot be entered directly into the policy rule.
+- API client access policies currently support IPv4 addresses and IPv4 CIDR ranges only.
+
+The API client access policy includes the following benefits and enables you to:
+
+- Ensure API usage is limited to approved resources.
+- Provide access to Zscaler API resources within specific time frames.
+- Assign policy rules to API clients.
 
 ## About the API Client Access Policy Page
 
@@ -122,47 +128,6 @@ On the API Client Access Policy page (Administration > API > API Client Access P
 7. Delete an API client access policy rule. You cannot delete the policy rule if any API client is associated with it.
 
 [Image: View the API Client Access Policy page]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-api-clients","lastmod":"2026-10-14T06:31Z","nid":"1499371"} -->
-## About API Clients
-
-- Source: https://help.zscaler.com/authentication-service/about-api-clients
-- Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > About API Clients
-- Last modified: 2026-10-14T06:31Z
-- Summary: Information about the Zscaler OneAPI client authentication feature available in the Zscaler Admin Console.
-
-An API client refers to any application or service that wants to access the [Zscaler API resources](https://help.zscaler.com/zidentity/viewing-api-resources) and retrieve data. You can [configure and manage the API clients](https://help.zscaler.com/zidentity/adding-api-client) in the Zscaler Admin Console, along with their authentication information and necessary scope to access the API resources. Authentication Service is the authorization server that validates the API client's request and issues an [access token](https://help.zscaler.com/zidentity/about-access-tokens) that must be used to access the API resources via the [OneAPI server](https://help.zscaler.com/oneapi/understanding-oneapi).
-
-API clients include the following key features and benefits:
-
-- Consistent API experience across all Zscaler services.
-- Consistent authorization through Authentication Service.
-- Access resources across all Zscaler services with entitlements via role-based access control.
-
-If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-
-## About the API Clients Page
-
-On the API Clients page (Administration > API > API Clients), you can do the following:
-
-1. Search for an API client.
-2. Download the list of API clients as a CSV file.
-3. [Add an API client](https://help.zscaler.com/zidentity/adding-api-client).
-4. View the list of API clients you've configured. For each API client, you can see:
-  1. **Name**: The name of the API client.
-  2. **Status**: The status (Active or Inactive) of the API client.
-  3. **Client ID**: The unique identifier for the API client.
-5. Reset the page to the default view.
-6. Select the columns to display in the table and click **Apply**.
-7. [Edit an API client](https://help.zscaler.com/zidentity/editing-or-deleting-api-client).
-8. [Delete an API client](https://help.zscaler.com/zidentity/editing-or-deleting-api-client).
-9. Enable or disable an API client.
-
-[Image: API Clients and AI Agents page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -391,6 +356,50 @@ On the Dashboard page (Administration > Authentication > Overview), you can do t
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-authorization-grants","lastmod":"2026-11-05T20:20Z","nid":"1547215"} -->
+## About Authorization Grants
+
+- Source: https://help.zscaler.com/authentication-service/about-authorization-grants
+- Product: Authentication Service
+- Path: Authentication Service Help > OneAPI Authentication > About Authorization Grants
+- Last modified: 2026-11-05T20:20Z
+- Summary: Information about authorization grants in the Zscaler Admin Console.
+
+An authorization grant represents a user's authorization for an API client or AI agent to access [Zscaler API resources](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) on their behalf. Using the Authorization Code grant type, the client obtains an access token based on the user's authorization and selected administrative roles.
+
+You can view and manage authorization grants in the Zscaler Admin Console to monitor and control access to API resources.
+
+Authorization grants provide the following benefits and enable you to:
+
+- View and monitor authorization grants issued to API clients and AI agents across your organization.
+- Track the users, administrative roles, and expiration dates associated with authorization grants.
+- Administratively revoke authorization grants and stop access to Zscaler API resources.
+
+## About the Authorization Grants Page
+
+On the Authorization Grants page (Administration > API > Authorization Grants), you can do the following:
+
+1. Search for authorization grants by grant ID or user who authorized the grant.
+2. Refresh the table data.
+3. Add or remove columns from the table.
+4. View the list of authorization grants. For each grant, you can view:
+  - **API Client**: The API client or AI agent associated with the authorization grant.
+  - **Grant ID**: The unique identifier of the authorization grant.
+  - **Authorized By**: The user who authorized the API client or AI agent.
+  - **Scopes**: The administrative roles and permissions delegated to the API client or AI agent.
+  - **Authorized At**: The date and time when the authorization grant was created.
+  - **Expires At**: The date and time when the authorization grant expires.
+5. Revoke the authorization grant. To revoke the authorization grant, click **Revoke**, and in the **Revoke Grant**window, click **Revoke**. See image.
+6. Limit the number of records displayed per page. You can choose to display 10, 25, 50, or 100 entries per page.
+7. Go to a specific page or move to the next or previous page.
+
+[Image: The Authorization Grants page shows a list of authorization grants and the different actions you can take]
+
+[Image: Revoking grant]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/authentication-service/about-departments","lastmod":"2026-10-01T14:58Z","nid":"1499456"} -->
 ## About Departments
 
@@ -425,13 +434,13 @@ On the Departments page (Administration > Authentication > Departments), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-external-identity-providers","lastmod":"2026-10-29T18:33Z","nid":"1499361"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-external-identity-providers","lastmod":"2026-11-04T22:26Z","nid":"1499361"} -->
 ## About External Identity Providers
 
 - Source: https://help.zscaler.com/authentication-service/about-external-identity-providers
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > About External Identity Providers
-- Last modified: 2026-10-29T18:33Z
+- Last modified: 2026-11-04T22:26Z
 - Summary: Information about adding primary and secondary external identity providers in the Zscaler Admin Console.
 
 You can configure primary and secondary external identity providers (IdPs) in the Zscaler Admin Console based on your organization's requirements. Authentication Service redirects users to different IdPs based on the configured IdP criteria for authenticating users. Authentication Service supports both [OpenID Connect (OIDC)](https://help.zscaler.com/authentication-service/adding-openid-providers) and [Security Assertion Markup Language (SAML)](https://help.zscaler.com/authentication-service/adding-saml-identity-providers) configurations.
@@ -479,27 +488,28 @@ When an admin group from the external IdP is removed, Authentication Service han
 On the External Identities page (Administration > Authentication > External Identities), you can do the following:
 
 1. View the certificate expiration banner: If any of the SAML certificates (IdP certificate, SAML Request Signing and Decryption Certificate) are about to expire within 90 days or have already expired, then the Zscaler Admin Console displays a banner. Click the **Click here** link to manage your external IdP certificates.
-2. View the configured primary IdP. For the primary IdP, you can see:
+2. Configure an external IdP as default.
+3. View the configured primary IdP. For the primary IdP, you can see:
   - **Name**: The IdP's name.
-  - **Type**: The type of authentication method used by the IdP.
-  - **Zscaler Admin MFA**: Whether multi-factor authentication (MFA) in Authentication Service is enabled or disabled for admins.
+  - **Protocol**: The authentication protocol used by the IdP.
+  - **Enforce Zscaler Admin MFA**: Whether multi-factor authentication (MFA) in Authentication Service is enabled or disabled for admins.
   - **Status**: Displays the following information:
     - Whether the IdP is enabled or disabled.
     - Whether the enabled IdP certificates are about to expire or have already expired. The alert icons only appear for enabled SAML certificates.
       - **Caution**icon: Appears when the certificate is about to expire. This icon first appears when the certificate is about to expire within 90 days.
       - **Red Exclamation Mark**icon: Appears when the certificate is expired.
-3. Add a secondary IdP. You must configure a primary IdP before you configure secondary IdPs.
-4. View the configured secondary IdPs. For each secondary IdP, you can see:
+4. Add a secondary IdP. You must configure a primary IdP before you configure secondary IdPs.
+5. View the configured secondary IdPs. For each secondary IdP, you can see:
   - **Name**: The IdP's name.
-  - **Type**: The type of authentication method used by the IdP.
+  - **Protocol**: The authentication protocol used by the IdP.
   - **Domain**: The domains assigned to the IdP.
-  - **Zscaler Admin MFA**: Whether MFA in Authentication Service is enabled or disabled for admins.
+  - **Enforce Zscaler Admin MFA**: Whether MFA in Authentication Service is enabled or disabled for admins.
   - **Status**: Displays the following information:
     - Whether the IdP is enabled or disabled.
     - Whether the enabled IdP certificates are about to expire or have already expired. The alert icons only appear for enabled SAML certificates.
       - **Caution**icon: Appears when the certificate is about to expire. This icon first appears when the certificate is about to expire within 90 days.
       - **Red Exclamation Mark**icon: Appears when the certificate is expired.
-5. [Edit or delete an IdP](https://help.zscaler.com/authentication-service/editing-or-deleting-items).
+6. [Edit or delete an IdP](https://help.zscaler.com/authentication-service/editing-or-deleting-items).
 
 [Image: External Identities page with configured Primary and Secondary Identity Providers]
 <!-- /ZS-ARTICLE -->
@@ -877,62 +887,13 @@ On the Users page (Administration > Authentication > Users), you can do the foll
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client","lastmod":"2026-10-14T08:55Z","nid":"1503771"} -->
-## Adding an API Client
-
-- Source: https://help.zscaler.com/authentication-service/adding-api-client
-- Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > Adding an API Client
-- Last modified: 2026-10-14T08:55Z
-- Summary: How to add Zscaler OneAPI clients to Zscaler Admin Console.
-
-Any application or service that wants to access the [Zscaler API resources](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI) must have an [API client](https://help.zscaler.com/zidentity/about-api-clients) created and provisioned in the Zscaler Admin Console. When an API client sends an authentication request, Authentication Service verifies the client secret or assertion depending on the authentication mechanism and issues an access token. The API client uses this access token to request access to the required API resources. Authentication Service supports the [OAuth 2.0 Client Credentials Grant type](https://oauth.net/2/grant-types/) to authorize the API clients.
-
-Authentication Service administrators assigned with Full permission to access the API Clients and API Resources modules can configure API clients in the Zscaler Admin Console. To learn more, see [Admin Roles and Permissions](https://help.zscaler.com/zidentity/admin-roles-and-permissions). If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service and some Zscaler services are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-
-To add an API client:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration > API > API Clients**.
-2. Click **Add API Client**and select **New Client**. The **Add API Client** page appears.
-3. In the **Add API Client** page, the **Client**tab is selected by default. Enter the following details:
-  - **Client Information**:
-    - **Name**: Enter a name to identify the API client.
-    - **Description**: Enter a brief description that indicates the purpose of the API client (e.g., a software application or a script that is using this name to interact with OneAPI).
-    - **Status**: Enable the status. This allows the API client to authenticate and use the API resources. When the status is disabled, the API client cannot get the access tokens issued by Authentication Service.
-    - **Access Token Validity**: The validity of the access token that is used to access the API resource. Enter the time in minutes. The minimum and maximum validity periods are 1 minute and 24 hours, respectively.
-  - **Client Authentication**: Configure any of the following supported authentication methods: JSON Web Key (JWK) specification, certificates and public keys, or Secret. You also need to set up the same authentication method in your application. For example, if you configure JWK in the Zscaler Admin Console, your application should sign and verify the JSON Web Token (JWT) with the same key when sent for authentication. To learn more, see [Getting Started](https://automate.zscaler.com/docs/getting-started/getting-started). See image.
-    - **Client JWKs URL**: Enter the **Client JWK**URL where the key must be obtained for verification. JWT is a URL-safe token used to securely transmit data between applications. A JWK URL hosts a set of public keys in JSON format, which is used by the API server to verify the signatures of JWT issued by the API client. See image.
-    - **Certificates/Public Keys**: Upload a .pem file that contains the public key. Authentication Service reads the public key and verifies the authentication. See image.
-    - **Secret**: Click **Add**. A key is auto-generated and displayed along with the validity period. This key is generated once, and it cannot be updated. The minimum duration is 30 days and the maximum duration is 365 days. Ensure to copy the secret key and save it in your local folder as it is not going to be displayed again. You can add a maximum of two client secrets. If you add a third one, the new value replaces the most recent client secret. So, at any point in time, there are only two client secrets. See image.
-4. Click the **Resources** tab. You can see the APIs for Zscaler services that are linked to your tenant along with the role (scope). Scope refers to the permission that limits the access to specific API resources. See image. Before creating an API client, you must add an API role in the respective Zscaler service (e.g. Internet & SaaS, Private Access). These API roles are synced to Authentication Service and are displayed on the **Add API Client**page. If you do not configure the API roles, an error message is displayed when you try to assign the resources to the API client. To learn more, see [Understanding OneAPI](https://automate.zscaler.com/docs/api-reference-and-guides/guides/UnderstandingOneAPI).
-5. Select the required API resources that the API client can access. You can select only one API resource for each Zscaler service and depending on the scope that is assigned.
-6. Click **Save**. When you save the API client details, Authentication Service auto-generates a client ID and it is displayed on the **API Clients** page.
-7. Copy the Client ID and save it, as you need to provide the Client ID along with the token or secret to make the API call. You can also copy the client ID from the **Edit API Client** drawer.
-  - On the **API Clients** page, click the **Edit** icon for the newly configured API client.
-  - In the **Edit API Client** drawer, copy the client ID and save it in your local folder. See image.
-
-[Image: Configure the API client]
-
-[Image: Upload a certificate or public key]
-
-[Image: Add the client JWK URL]
-
-[Image: Adding a client secret]
-
-[Image: Scopes mapped to the roles in individual services]
-
-[Image: Edit the API client configuration]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-10-14T09:43Z","nid":"1531919"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-api-client-access-policy-rule","lastmod":"2026-11-06T22:26Z","nid":"1531919"} -->
 ## Adding API Client Access Policy Rule
 
 - Source: https://help.zscaler.com/authentication-service/adding-api-client-access-policy-rule
 - Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > Adding API Client Access Policy Rule
-- Last modified: 2026-10-14T09:43Z
+- Path: Authentication Service Help > OneAPI Authentication > Adding API Client Access Policy Rule
+- Last modified: 2026-11-06T22:26Z
 - Summary: How to add API client access policy rules in the Zscaler Admin Console.
 
 You can add an API client access policy rule by defining the API resources that API clients can access within a set time frame. An API client can be assigned to only one policy rule at a time.
@@ -955,6 +916,7 @@ To add an API client access policy rule:
     - **Resources**: Click the **Delete**icon to reset the expression, if required.
       - Select the API resources that determine the permissions (scope) the API client has to access the API resources of each Zscaler service. To learn more, see [Viewing API Resources](https://help.zscaler.com/zidentity/viewing-api-resources).
     - **Expression**: The expression appears as you build the query.
+    - **Source IP**: Select the operator (Is In or Is Not In) and then select the trusted IP locations and IP location groups from the drop-down menu, as required. The drop-down menu displays only the IP addresses, Classless Inter-Domain Routing (CIDR) ranges, and location groups that are already configured under [trusted IP locations](https://help.zscaler.com/authentication-service/adding-ip-locations) and [trusted IP location groups](https://help.zscaler.com/authentication-service/adding-ip-location-groups) in the Zscaler Admin Console. You cannot enter new IP addresses or CIDRs directly within the policy rule. Configure this criteria to accept requests that originate from approved IP addresses or CIDR ranges and restrict specific IP addresses. An IP address is considered a match when the source IP address in the API client request exactly matches a configured IP address or is within a configured CIDR range.
   - **Rule Action (then)**: Apply the required action (**Allow**or **Block**) to the policy rule you defined in the previous step.
 5. Click **Next**.
 6. In the **Assign API Clients** section, select the list of API clients to which this policy rule must be applied. See image.
@@ -2206,13 +2168,13 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-10-22T23:08Z","nid":"1507491"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-levels","lastmod":"2026-11-06T20:06Z","nid":"1507491"} -->
 ## Configuring Authentication Levels
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-levels
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring Authentication Levels
-- Last modified: 2026-10-22T23:08Z
+- Last modified: 2026-11-06T20:06Z
 - Summary: How to configure Authentication Levels in Zscaler Admin Console.
 
 An authentication level represents a specific strength of authentication with hierarchical levels where higher levels represent stronger authentication methods. When users are authenticated at a higher level, their authentication level satisfies policies that require a sub-level of authentication. These authentication levels are mapped with access policies in supported Zscaler services to enable step-up authentication for resources.
@@ -2635,13 +2597,13 @@ All admins authenticating using the SAML protocol for Authentication Service and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-10-29T20:26Z","nid":"1499421"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-microsoft-entra-id-external-idp","lastmod":"2026-11-05T01:18Z","nid":"1499421"} -->
 ## Configuring Microsoft Entra ID as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-microsoft-entra-id-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Microsoft Entra ID as an External IdP
-- Last modified: 2026-10-29T20:26Z
+- Last modified: 2026-11-05T01:18Z
 - Summary: How to configure Microsoft Entra ID as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Microsoft Entra ID as an external identity provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Entra ID as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -2690,7 +2652,6 @@ Ensure that you have:
 - A subscription to Entra ID.
 - An existing user directory in Entra ID.
 - An Authentication Service account with an admin role that allows you to add an IdP configuration. If your organization uses Unified Role-Based Access Control (RBAC), administrator roles for Authentication Service are managed on a different Role Management page. To learn more, see [About Role Management](https://help.zscaler.com/unified/about-role-management). Unified RBAC is a feature in limited availability. To access Unified RBAC, contact your Zscaler Account team.
-- A preferred choice of provisioning mode (JIT or SCIM) as this determines the number of apps you need to configure in Entra ID — one app for JIT and two apps for SCIM. Implementation Differences Between JIT and SCIM Provisioning Modes
 
 ## Configuring Microsoft Entra ID as OP for Authentication Service
 
@@ -2709,13 +2670,6 @@ To log in to Authentication Service from the Entra ID's My Apps portal:
 
 1. Log in to the Entra ID's [My Apps portal](https://myapps.microsoft.com/).
 2. Locate and click the Zscaler app. See image. The Authentication Service Portal URL is opened in a new tab or window, and you are logged in. See image.
-
-Entra ID only supports JIT provisioning for OIDC apps via the Microsoft Entra App Gallery. If you prefer SCIM provisioning with OIDC, you need to create a custom Entra ID app for SCIM, in addition to using the Gallery App for authentication. The following table summarizes the implementation differences for JIT and SCIM:
-
-| Provisioning Mode | Authentication via Gallery App | Provisioning Support | Additional Requirements |
-| --- | --- | --- | --- |
-| JIT Provisioning | Yes | Supported by default | None |
-| SCIM Provisioning | Yes | Not supported in the Gallery Application | Create a custom Entra ID app for SCIM provisioning in addition to using the Gallery App for authentication. |
 
 1. Log in to the [Entra Admin Center](https://entra.microsoft.com/).
 2. In the left-side navigation, go to **Identity**> **Applications**> **Enterprise applications**.
@@ -3472,13 +3426,13 @@ To verify:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-11-01T19:41Z","nid":"1499411"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-okta-external-idp","lastmod":"2026-11-04T05:59Z","nid":"1499411"} -->
 ## Configuring Okta as an External IdP
 
 - Source: https://help.zscaler.com/authentication-service/configuring-okta-external-idp
 - Product: Authentication Service
 - Path: Authentication Service Help > Integration > External IdP Configuration > Configuring Okta as an External IdP
-- Last modified: 2026-11-01T19:41Z
+- Last modified: 2026-11-04T05:59Z
 - Summary: How to configure Okta as an external IdP in the Zscaler Admin Console.
 
 This guide provides information on how to configure Okta as an external Identity Provider (IdP) for Authentication Service to facilitate single sign-on (SSO) to various Zscaler services for admin access management. You can configure Okta as an external IdP to enable SSO to Authentication Service using OpenID Connect (OIDC) or Security Assertion Markup Language (SAML) authentication protocols.
@@ -3793,7 +3747,7 @@ To set up Okta as an OP for Authentication Service:
     2. Disable the **Enable immediate access with Federation Broker Mode**option.
 6. Click **Save.**
 7. In the application page, on the **General**tab, copy the **Client ID** and **Client Secret**values. See image.
-8. (Optional) Configure custom authorization server. You can use either the default authorization server or configure a custom authorization server in the Okta Admin Console.
+8. (Optional) Configure a custom authorization server. You can use either the default authorization server or configure a custom authorization server in the Okta Admin Console.
   - Steps to create custom authorization server.
 
 1. In the Okta Admin Console, go to **Security**> **API**> **Authorization Server**.
@@ -4010,7 +3964,7 @@ The following table provides a sample list of claims mapped in the Okta authoriz
 | Manager | `user.managerId` |
 | PrimaryPhone | `user.primaryphone` |
 
-Authentication Service requires the `Manager` attribute to be in the email address format. In Okta, the `Manager` attribute represents the display name and the `ManagerId` attribute represents the username of the manager. When configuring users in Okta, ensure that the email address of the manager is mapped to the `ManagerId` profile attribute. To learn more, refer to the [Okta documentation](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-edit-user-attributes.htm).
+Authentication Service requires the `Manager` attribute to be in the email address format. In Okta, the `Manager` attribute represents the display name and the `ManagerId` attribute represents the username of the manager. When configuring users in Okta, ensure that the manager's email address is mapped to the `ManagerId` profile attribute. To learn more, refer to the [Okta documentation](https://help.okta.com/oie/en-us/content/topics/users-groups-profiles/usgp-edit-user-attributes.htm).
 
 You can configure step-up authentication to extend the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected.
 
@@ -6382,13 +6336,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-11-06T22:42Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:50Z
+- Last modified: 2026-11-06T22:42Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -6401,7 +6355,7 @@ This article provides a summary of all new features and enhancements for Authent
 
 - Source: https://help.zscaler.com/authentication-service/revoking-access-tokens
 - Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > Revoking Access Tokens
+- Path: Authentication Service Help > OneAPI Authentication > Revoking Access Tokens
 - Last modified: 2026-10-16T01:25Z
 - Summary: How to revoke the access tokens in the Zscaler Admin Console.
 
@@ -7229,7 +7183,7 @@ To test a token:
 
 - Source: https://help.zscaler.com/authentication-service/understanding-oneapi-authentication
 - Product: Authentication Service
-- Path: Authentication Service Help > Integration > OneAPI Authentication > Understanding OneAPI Authentication
+- Path: Authentication Service Help > OneAPI Authentication > Understanding OneAPI Authentication
 - Last modified: 2026-09-24T01:42Z
 - Summary: Information about the OneAPI authentication feature available in the Authentication Service Admin Portal.
 
@@ -7424,14 +7378,16 @@ The following table lists the SCIM operations supported by Zscaler SCIM servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-09-29T02:12Z","nid":"1507486"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/understanding-step-up-authentication","lastmod":"2026-11-02T08:19Z","nid":"1507486"} -->
 ## Understanding Step-Up Authentication
 
 - Source: https://help.zscaler.com/authentication-service/understanding-step-up-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Understanding Step-Up Authentication
-- Last modified: 2026-09-29T02:12Z
+- Last modified: 2026-11-02T08:19Z
 - Summary: Information about step-up authentication in Authentication Service.
+
+[Watch a video about Step-Up Authentication.](https://fast.wistia.net/embed/iframe/zal2ys4mb4)
 
 Step-up authentication allows dynamic requests for stronger authentication when users attempt to access sensitive resources or when risk signals indicate a potential threat. This feature enhances the existing authentication process by requiring multi-factor authentication (MFA) when needed, ensuring that access to high-risk or sensitive data is protected. Step-up authentication is a method that prompts users to reauthenticate with a higher assurance level (e.g., using MFA) when accessing specific resources. This process helps organizations verify user identity with greater certainty, ensuring that only authorized users can access sensitive applications or data. For example, if a user logs in with a username and password (a lower assurance level), they might still be asked to verify their identity via MFA (a higher assurance level) when accessing a sensitive resource, such as financial information or critical applications.
 
@@ -11604,13 +11560,13 @@ The usage of ZPA China Premium is expected to be in accordance with the [Accepta
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-10-30T14:44Z","nid":"1390801"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-licensing-and-fair-use","lastmod":"2026-11-05T07:55Z","nid":"1390801"} -->
 ## ZPA Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > ZPA Licensing and Fair Use
-- Last modified: 2026-10-30T14:44Z
+- Last modified: 2026-11-05T07:55Z
 - Summary: Information about Zscaler Private Access (ZPA) licensing and fair use.
 
 Zscaler Private Access (ZPA) is a Software as a Service (SaaS) product that is licensed in various ways. This article includes information on licensing types, the license renewal process, and Zscaler’s Fair Use Policy.
@@ -11624,7 +11580,7 @@ Zscaler offers the following types of licenses:
 - ZPA Monthly Traffic: The total amount of traffic that is uploaded and downloaded via ZPA in a calendar month, measured in GB.
 - System: Each system is equivalent to an RDP, SSH, VNC or RealVNC target that enables Privileged Remote Access (PRA).
 - Workload: For subscriptions licensed per workload (instead of per GB of monthly traffic), including but not limited to Zscaler Workload Communications, a *workload* is defined as a unique domain name, an IP address, or a set of IP addresses. A workload can be virtual machines (VMs), virtual desktop infrastructure (VDI), serverless functions, and container-based resources deployed in your public cloud and data center environments.
-- Asset: A subscription license for an individual asset used with Autonomous App Shield. An *asset* is defined as a host, application, or domain in ZPA. Each asset includes an allocation of Shield Tokens (tokens) and scans. Additional tokens may be purchased separately.
+- Asset: A subscription license for an individual asset used with Autonomous App Shield. An *asset* is defined as a host, application, or domain in ZPA. Each asset includes an allocation of Shield Tokens (i.e., tokens) and scans. Additional tokens may be purchased separately.
 
 Zero Trust Browser (i.e., Browser Isolation, formerly Isolation) and Source IP Anchoring (SIPA) are subscribed per seat with a maximum aggregate amount of ZPA Monthly Traffic across all seats. ZPA B2B Federation is subscribed per seat.
 
@@ -12298,13 +12254,13 @@ In order to provide the Zscaler Endpoint AI Security service, you grant Zscaler 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-07-30T13:11Z","nid":"1541815"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-11-06T08:57Z","nid":"1541815"} -->
 ## Zscaler Experience Center Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-experience-center-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Experience Center Logs
-- Last modified: 2026-07-30T13:11Z
+- Last modified: 2026-11-06T08:57Z
 - Summary: Information about Zscaler Experience Center Logs.
 
 By accessing Zscaler Experience Center, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Experience Center, *logs* are defined as follows:
@@ -12312,6 +12268,10 @@ By accessing Zscaler Experience Center, you provide Zscaler the right to process
 - **Definition:** Records of administrative access and usage within Experience Center.
 - **Retention:** Zscaler retains Logs information for a rolling period of 14 days. When the term ends or expires, the logs are deleted by Zscaler according to the applicable retention period.
 - **Storage:** Logs are stored in the European Union for EU customers or in the United States for other customers.
+
+## Feature-Specific Information
+
+- **Agentic Onboarding:** For the Agentic Onboarding feature, logs also include the onboarding inputs you upload or enter and conversations with the onboarding agent. Zscaler retains onboarding inputs and conversations for a rolling period of 90 days. Agentic Onboarding logs are stored in the United States.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14265,13 +14225,13 @@ There are two types of changes you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-10-28T11:19Z","nid":"1545184"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-incident-analytics-dashboard","lastmod":"2026-11-04T10:53Z","nid":"1545184"} -->
 ## About the Incident Analytics Dashboard
 
 - Source: https://help.zscaler.com/unified/about-incident-analytics-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Data Security > About the Incident Analytics Dashboard
-- Last modified: 2026-10-28T11:19Z
+- Last modified: 2026-11-04T10:53Z
 - Summary: Information about the DLP Incident Analytics dashboard within the Zscaler Admin Console.
 
 The Incident Analytics dashboard gives high-level visibility and insight into your organization's [Data Loss Prevention (DLP) incidents](https://help.zscaler.com/zia/about-incidents). It allows you to monitor and analyze incident data from a single location at an organizational level. This dashboard provides a variety of information about the incidents over a specified timeframe, such as the time taken to triage and resolve incidents, previous and current incident counts, and the cumulative number of new and resolved incidents, etc.
@@ -14312,7 +14272,7 @@ On the Incident Analytics dashboard (Analytics > Data Security > Incidents), you
     3. Click **OK**. The date and time you selected appear in the **Start date** field, and the **End date** field is selected.
     4. Select the end date in the calendar, and then in the columns to the right, select the end time (i.e., hour, minute, and second). See image.
     5. Click **OK**.
-3. Filter the incident data to show on the dashboard. If you choose the User Name attribute or Client IP attribute for obfuscation, you cannot filter the incident data on the dashboard using these obfuscated attributes. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+3. Filter the incident data to show on the dashboard. The filter options are the same as those on the **Incidents** page in Workflow Automation. To learn more, see [Using Incident Filters in Workflow Automation](https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation). If you choose the **User Name** attribute, the **Client IP** attribute, or the **Recipient Email** attribute for obfuscation, you cannot filter incidents using these obfuscated user attributes. Obfuscating the **Recipient Email** attribute disables the **External Recipients** filter, the **Internal Recipients**filter, and the **Triggered Recipients** filter. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
 4. Reset all the applied filters.
 5. View the following information about your incidents:
   - **All**: Displays the total number of incidents that have occurred in your organization.
@@ -14467,13 +14427,13 @@ On the Linked Services page (Administration > Account Management > Linked Servic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-playbooks","lastmod":"2026-10-30T00:39Z","nid":"1545359"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-playbooks","lastmod":"2026-11-05T09:33Z","nid":"1545359"} -->
 ## About Playbooks
 
 - Source: https://help.zscaler.com/unified/about-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > About Playbooks
-- Last modified: 2026-10-30T00:39Z
+- Last modified: 2026-11-05T09:33Z
 - Summary: Information on the Playbooks feature in the Agentic Security Operations Platform
 
 Security Orchestration, Automation, and Response (SOAR) is a solution that enables automated responses to threats and security events. This helps security teams to quickly analyze and respond to security events and prevent future incidents, thereby improving the organization's overall security posture.
@@ -14490,10 +14450,10 @@ Playbooks provide the following benefits and enable you to:
 
 On the Playbooks page (Agentic SOC orIdentities > Automations > Playbooks), you can do the following:
 
-1. [Duplicate a playbook.](https://help.zscaler.com/unified/managing-playbooks)
-2. [Edit a playbook.](https://help.zscaler.com/unified/managing-playbooks)
-3. [Delete a playbook.](https://help.zscaler.com/unified/managing-playbooks)
-4. [Create a new playbook.](https://help.zscaler.com/unified/creating-playbooks)
+1. [Duplicate a playbook](https://help.zscaler.com/unified/managing-playbooks).
+2. [Edit a playbook](https://help.zscaler.com/unified/managing-playbooks).
+3. [Delete a playbook](https://help.zscaler.com/unified/managing-playbooks).
+4. [Create a new playbook](https://help.zscaler.com/unified/creating-playbooks).
 5. View the list of playbooks. For each playbook, you can see:
   - **Name**: The name of the playbook.
   - **Description**: The description of the playbook.
@@ -14504,7 +14464,7 @@ On the Playbooks page (Agentic SOC orIdentities > Automations > Playbooks), you 
   - **Success/Failed**: The number of successful and failed playbook runs.
   - **Status**: Whether the playbook is active or inactive.
 6. View the run history for each playbook, including status and triggering details.
-7. [Export a playbook.](https://help.zscaler.com/unified/managing-playbooks)
+7. [Export a playbook](https://help.zscaler.com/unified/managing-playbooks).
 8. Go to the [Template Gallery](https://help.zscaler.com/unified/creating-playbooks) page to view preconfigured playbook templates.
 
 [Image: Playbooks page]
@@ -14938,13 +14898,13 @@ The newly created profile is displayed on the **Profiles**page. The Adaptive Acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-10-28T07:58Z","nid":"1545270"} -->
+<!-- ZS-ARTICLE {"url":"/unified/adding-and-managing-entities-and-fields","lastmod":"2026-11-04T12:08Z","nid":"1545270"} -->
 ## Adding and Managing Entities and Fields
 
 - Source: https://help.zscaler.com/unified/adding-and-managing-entities-and-fields
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Adding and Managing Entities and Fields
-- Last modified: 2026-10-28T07:58Z
+- Last modified: 2026-11-04T12:08Z
 - Summary: Information about how to add and manage fields and entities in the Agentic Security Operations Platform data model.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) data model comes with many default entity types that define and describe the data created and needed by the applications in the Agentic SecOps Platform. You can manage those entities, their attributes (fields), and their relationships to ensure that business objectives are met. To learn more, see [Understanding Entity Types](https://help.zscaler.com/unified/understanding-entity-types) and [Understanding the Data Model in the Agentic Security Operations Platform](https://help.zscaler.com/unified/understanding-data-model-agentic-security-operations-platform).
@@ -15136,7 +15096,7 @@ To allow manual updates:
     - **Always**: A reason is always required when a manual update occurs. This option is selected by default.
     - **Specific**:Select conditions under which a reason is required.
   3. **Content Validation**: Enable to apply validation logic when a manual update occurs, then select an option:
-    - **Manual**: Select and enter specific keywords to be checked against the manually added value. Configure [content permissions](https://help.zscaler.com/unified/creating-managing-content-permissions) to further restrict available values to certain users.
+    - **Manual**: Select and enter specific keywords to be checked against the manually added value. Configure [content permissions](https://help.zscaler.com/unified/creating-managing-content-permissions#restrict-manual-override) to further restrict available values to certain users.
     - **Query**: Select and click the **Field** drop-down menu to select a field.
 
 [Image: Allow Manual Updates toggle highlighted in Manual Updates tab of a field drawer]
@@ -15365,13 +15325,13 @@ The rules' order of appearance doesn't affect the order of their application. Ea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-10-28T21:06Z","nid":"1545213"} -->
+<!-- ZS-ARTICLE {"url":"/unified/assigning-content-permissions","lastmod":"2026-11-04T13:19Z","nid":"1545213"} -->
 ## Assigning Content Permissions
 
 - Source: https://help.zscaler.com/unified/assigning-content-permissions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Assigning Content Permissions
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:19Z
 - Summary: How to assign content permissions to users in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Content permissions control access to data within the Agentic Security Operations Platform (Agentic SecOps Platform). To create content permission sets, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign content permissions to define the data they can access.
@@ -15382,12 +15342,11 @@ Content permissions can only be assigned after a user is created and saved.
 
 To assign content permission sets to a single user:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
-5. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). See image.
-6. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management**. See image.
+3. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
+4. In the **Content Permissions** section, select the role permission sets you want to assign from the drop-down menu. To learn more, see [Creating & Managing Content Permissions](https://help.zscaler.com/unified/creating-managing-content-permissions). See image.
+5. Click **Save**. Assigned permission sets are applied on the user's next browser refresh.
 
 To assign content permissions to multiple users:
 
@@ -15402,12 +15361,11 @@ Removing content permission sets from users removes their access limit from the 
 
 To remove a single user's content permissions:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click**Edit**at the top of the page. The **Edit User** page appears.
-5. In the **Content Permissions** section, from the **Applied Permission Sets** drop-down menu, select the permission sets you want to remove.
-6. Click **Save**. Selected permission sets are removed on the user's next browser refresh.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management**. See image.
+3. Hover over the user and click the **Edit** icon, or select the checkbox next to the user and click**Edit**at the top of the page. The **Edit User** page appears.
+4. In the **Content Permissions** section, from the **Applied Permission Sets** drop-down menu, select the permission sets you want to remove.
+5. Click **Save**. Selected permission sets are removed on the user's next browser refresh.
 
 To remove multiple users' content permissions:
 

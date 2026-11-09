@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 196
 
 ---
@@ -712,7 +712,7 @@ To export a report:
 ## Managing Asset Compliance Policies
 
 - Source: https://help.zscaler.com/aem/managing-asset-compliance-policies
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Managing Asset Compliance Policies
 - Last modified: 2025-11-11T14:11Z
 - Summary: How to manage configured asset compliance policies in the AEM app of the SecOps platform.
@@ -1022,7 +1022,7 @@ To merge multiple violation tickets into one single ticket:
 ## Managing Violation Ticket Statuses in AEM
 
 - Source: https://help.zscaler.com/aem/managing-violation-ticket-statuses-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Managing Violation Ticket Statuses in AEM
 - Last modified: 2026-05-17T07:06Z
 - Summary: How to manage ticket statuses in AEM.
@@ -1140,7 +1140,7 @@ This article provides a summary of all new features and enhancements for Asset E
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
 - Last modified: 2026-10-19T16:50Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
@@ -1198,7 +1198,7 @@ To learn how to set up asset discovery for EASM, see [Configuring Discovery Sett
 ## Understanding Zscaler EASM Capabilities
 
 - Source: https://help.zscaler.com/aem/understanding-zscaler-easm-capabilities
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > External Attack Surface Management for AEM > Understanding Zscaler EASM Capabilities
 - Last modified: 2026-05-17T07:06Z
 - Summary: Information on Zscaler's External Attack Surface Management (EASM) capabilities—features, benefits, and use cases for securing internet-facing assets—built into the Zscaler SecOps platform within AEM and UVM apps.
@@ -1439,7 +1439,7 @@ For more complex policy scenarios not supported by the template, use the Advance
 ## Viewing & Managing Assets in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-managing-assets-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing & Managing Assets in AEM
 - Last modified: 2026-09-16T10:26Z
 - Summary: How to view and manage asset details in the Zscaler Asset Exposure Management (AEM) application in the SecOps platform.
@@ -1945,7 +1945,7 @@ On the **Assets**tab, you can view the list of assets affected by the policy vio
 ## Viewing the Violation Tickets Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-violation-tickets-dashboard
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Violation Tickets Dashboard
 - Last modified: 2026-08-07T05:17Z
 - Summary: How to view the Violation Tickets Dashboard in the Zscaler Security Operations (SecOps) platform.
@@ -10482,13 +10482,13 @@ To onboard a GitHub tenant, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-11-01T23:59Z","nid":"1541053"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant","lastmod":"2026-11-02T08:49Z","nid":"1541053"} -->
 ## Onboarding Microsoft Copilot Studio Tenant
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-microsoft-copilot-studio-tenant
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > SaaS Platforms Onboarding > Microsoft Copilot Studio > Onboarding Microsoft Copilot Studio Tenant
-- Last modified: 2026-11-01T23:59Z
+- Last modified: 2026-11-02T08:49Z
 - Summary: Information about adding Microsoft Copilot Studio tenant details in the AI Security Admin Portal.
 
 Microsoft Copilot Studio onboarding in AI Security lets you quickly connect your Microsoft tenant so AI Security can discover and inventory Copilot Studio–related AI assets and surface security relevant findings in a centralized view. Using Account Onboarding, you authorize access to your Copilot Studio environment, assign a friendly tenant alias for identification, and complete the integration so AI Security can begin discovering agents and associated resources for monitoring and investigation.
@@ -10599,7 +10599,8 @@ To create an instant cloud flow:
 5. Click **Create**. See image.
 6. Click the **manual** trigger node.
 7. In the **Parameters**tab, select **Specific user from my tenant**in the **Who can trigger the flow** field. See image.
-8. Go to your Enterprise App, click **Overview > Managed Applications**, andcopy the **Object ID** of the application, and paste it into the **Allowed users** field in the flow. See image.
+8. Go to your **Enterprise Application** in Microsoft Entra ID and search for your application name. See image.
+9. Copy the **Object ID** of the application and paste it into the **Allowed users** field in the flow. See image.
 
 The Power Automate flow must be created in the same environment where you are onboarding to ensure that the connection details are discovered correctly.
 
@@ -10611,7 +10612,7 @@ To add Get Connections as an Admin action:
 4. To configure the **Response**step, search and add **Response** from the **Request** section. See image.
 5. In the **Body** field, click the **Insert Dynamic Content** icon. See image.
 6. Search with body text and select the body response content under **Get Connections as admin** field. See image. The response gets inserted in the **Body** field. See image.
-7. Click **Save** to save the flow. A flow URL is generated.
+7. Click **Save** to save the flow. A flow URL is generated. See image.
 8. Get the **Flow URL**from the Manual node. See image.
 9. Click **Save**to save the flow.
 
@@ -11132,13 +11133,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-10-22T22:07Z","nid":"1539122"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/release-upgrade-summary-2026","lastmod":"2026-11-04T09:55Z","nid":"1539122"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/release-upgrade-summary-2026
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-22T22:07Z
+- Last modified: 2026-11-04T09:55Z
 - Summary: AI Asset Management Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for AI Asset Management.

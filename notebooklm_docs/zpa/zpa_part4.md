@@ -1,8 +1,611 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 43
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 50
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-app-segment-multimatch","lastmod":"2026-09-22T07:06Z","nid":"1485951"} -->
+## Using Application Segment Multimatch
+
+- Source: https://help.zscaler.com/zpa/using-app-segment-multimatch
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Multimatch
+- Last modified: 2026-09-22T07:06Z
+- Summary: Information about using Application Segment Multimatch in Private Access.
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Multimatch allows an application request to match multiple application segments. When a user tries to access a private application without Multimatch, a request is mapped to an application segment. After the application is mapped to an application segment, the [policy](https://help.zscaler.com/zpa/about-access-policy) search is performed, and the request is either allowed or blocked based on the policy configuration.
+
+Private Access (ZPA) evaluates Multimatch across all application segments that include the same applications. When an administrator enables or disables Multimatch for an application segment, Private Access checks all other application segments that contains any overlapping domains to determine whether the change is allowed. If a domain is found in multiple application segments with different Multimatch settings, there is a conflict and the application segment cannot be updated.
+
+To learn more, see [About Access Policy](https://help.zscaler.com/zpa/about-access-policy) and [Configuring Access Policies.](https://help.zscaler.com/zpa/configuring-access-policies)
+
+## Prerequisites
+
+To use application segment Multimatch, ensure the following:
+
+- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later.
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS versions: 4.5.2.98 or later
+  - iOS version 4.4.1 or later To use the Private Access Multimatch feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Using Multimatch
+
+By default, after a specific FQDN is configured in an application segment, the destination is removed from the wildcard application segment. The default behavior can cause unwanted access failure due to the destination matching a more specific application segment that does not have the UDP or TCP ports defined. Multimatch allows admins to create new application segments without the risk of unwanted access failure if a user attempts to access a FQDN with undefined ports. After Multimatch is enabled, the wildcard application segment catches all UDP or TCP ports that are not configured in the more specific application segment. When you have decided what application segments you want matched, you can enable Multimatch for that application segment. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+Multimatch must be disabled if the configuration contains applications using Double Encryption and Source IP Anchor. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+### Multimatch Validation for Application Segments
+
+When Multimatch is enabled, a Multimatch Validation window appears for you to review any impacted application segments and conflicting features. If there is a conflicting feature, a warning appears.
+
+See image.
+
+Depending on the application segments selected, you can resolve the issue by doing one of the following:
+
+- Edit an application segment and disable unsupported features.
+- Review conflicting features in a local Microtenant and select the checkboxes that appear.
+- Contact the default administrator when Multimatch includes the default application segment.
+- Cancel and disable Multimatch if an application segment belongs to another local tenant.
+
+## App Connector Selection
+
+If both wildcard and specific FQDN application segments have Multimatch enabled, the specific FQDN application segment's server group is used for App Connector selection, even if the traffic to the FQDN matches the wildcard or the specific FQDN rule.
+
+The following table shows example application segment configurations:
+
+| **Application Segment Name** | **FQDN** | **Protocol** | **Port** | **Server Group** |
+| --- | --- | --- | --- | --- |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Server Group - All |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Server Group - Server1 |
+
+When traffic is destined for a specific FQDN and port (e.g., server1.example.com on TCP/22), the App Connectors belonging to the more specific Server Group - Server1 will proxy the traffic, even if a less specific wildcard application segment (Wildcard_AS) also matches.
+
+The App Connectors associated with the specific FQDN's application segment are typically the most appropriate for handling that traffic.
+
+The selection of the App Connector that proxies traffic is determined by the application segment's Server Group configuration, with critical differences based on whether Multimatch is enabled.
+
+- If Multimatch is disabled, the App Connector selection is primarily based on the application segment's server group configuration. For example, traffic matching Wildcard_AS would be proxied by the App Connector in Server Group - All. This selection can be overridden in an access policy.
+- If Multimatch is enabled, the App Connector linked to the specific FQDN application segment must be capable of accessing all the ports defined for that FQDN. If multiple Multimatch application segments exist for the same FQDN but with different ports, they must all use the same server group. If different server groups are used, any of them can be randomly selected to proxy the traffic to that FQDN, leading to unpredictable behavior.
+
+## Exact Match vs. Multimatch
+
+There are two application match behaviors available in Private Access: Exact Match and Multimatch. Exact match is the default behavior.
+
+### About Exact Match
+
+The default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following example of two application segments with the overlapping domain name example.com:
+
+- Example: Exact Match
+
+If a user attempts to access server1.example.com on TCP port 3389, the destination address maps to the more specific application segment, which is Server1_AS. However, the Server1_AS application segment does not have TCP port 3389 configured, resulting in failed access.
+
+| Application Segment Name | Application | Protocol | Ports |
+| --- | --- | --- | --- |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 |
+| Server1_AS | server1.example.com | TCP | 443 |
+
+In this scenario, the attempt to access server1.example.com on TCP port 3389 is dropped at the client level, traffic is not sent to the Private Access cloud, and logs aren't visible in the diagnostics. After a specific FQDN (Fully Qualified Domain Name) has been configured in an application segment, it is removed from the wildcard application segment by default. Even though server1.example.com is part of the Wildcard_AS application segment for the *example.com application on the TCP port range of 54 to 65535, this access does not match the Wildcard_AS application segment. To fix this, TCP port 3389 must be configured for the Server1_AS application segment, or Multimatch can be enabled. Enabling Multimatch changes the behavior of the wildcard application segment, and catches access to ports that have not been defined in the more specific FQDN application segment.
+
+### About Multimatch
+
+The following examples illustrate how applications are mapped to application segments, as well as how policy execution works when Multimatch is enabled or not enabled on application segments.
+
+- Multiple application segment matches
+- Behavior after inserting a block rule
+
+The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Ports | Multimatch |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
+
+| Access Policy Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
+| 2 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
+
+| Application Match and Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy Number without Multimatch |
+| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server_AS for All (#1) | Allow Server1_AS for Admin (#1) |
+| user2 | IT_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Wildcard_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+
+Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+The following table shows how the policy search results change by inserting a block policy in the rule set.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Ports | Multimatch |
+| Wildcard_AS | *.example.com | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| Server1_AS | server1.example.com | TCP | 443, 3389 | Enabled |
+
+| Access Policy Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow Server1_AS for Admin | Server1_AS | Allow | Admin_Grp |
+| 2 | Block Server1_AS for All | Server1_AS | Block | All |
+| 3 | Allow Wildcard_AS for All | Wildcard_AS | Allow | All |
+
+| Application Match and Access Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | FQDN: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy Number with Multimatch | Matched Policy Number without Multimatch |
+| user1 | Admin_Grp | server1.example.com:TCP+3389 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
+| user1 | Admin_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Allow Server1_AS for Admin (#1) | Allow Server1_AS for Admin (#1) |
+| user1 | Admin_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user2 | IT_Grp | server1.example.com:TCP+22 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+80 | Wildcard_AS | N/A | Allow Wildcard_AS for All (#3) | Traffic is dropped at the client level |
+| user3 | IT_Grp | server1.example.com:TCP+443 | Wildcard_AS Server1_AS | Server1_AS | Block Server1_AS for All (#2) | Block1_AS for All (#2) |
+
+Traffic that is dropped at the client level means that traffic matches the hostname, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+### Matched vs. Not Matched
+
+Multiple matches apply to applications from most specific to least specific. As soon as an application is encountered that does not support Multimatch, the multimatching stops. The following examples show each possible outcome for matched and not matched results:
+
+- Example 1
+- Example 2
+- Example 3
+- Example 4
+
+| Application Match |  |  |  |
+| --- | --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |  |
+| server1.db.hr.company.com | server2.ui.hr.company.com |  |  |
+| *.db.hr.company.com | Enabled | Matched | Not matched |
+| *.ui.hr.company.com | Disabled | Not matched | Matched |
+| *.hr.company.com | Enabled | Matched | Not matched |
+| *.company.com | Disabled | Not matched | Not matched |
+
+| Application Match |  |  |
+| --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |
+| server1.db.hr.company.com |  |  |
+| server1.db.hr.company.com | Enabled | Matched |
+| *.db.hr.company.com | Enabled | Matched |
+| *.hr.company.com | Enabled | Matched |
+| *.company.com | Disabled | Not matched |
+| *.com | Enabled | Not matched |
+
+| Application Match |  |  |  |
+| --- | --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |  |
+| server1.db.hr.company.com | server2.db.hr.company.com |  |  |
+| server1.db.hr.company.com | Disabled | Matched | Not matched |
+| *.db.hr.company.com | Enabled | Not matched | Matched |
+| *.hr.company.com | Enabled | Not matched | Matched |
+| *.company.com | Disabled | Not matched | Not matched |
+
+| Application Match |  |  |
+| --- | --- | --- |
+| **Application** | **Multimatch** | **Requested Domain** |
+| server2.ui.hr.company.com |  |  |
+| server2.ui.hr.company.com | Enabled | Matched |
+| *.ui.hr.company.com | Disabled | Not matched |
+| *.hr.company.com | Enabled | Not matched |
+| *.company.com | Disabled | Not matched |
+
+### About IP Address- and IP Subnet-Based Multimatch
+
+Even with an IP address, the default behavior of Private Access is to perform an exact match of applications. If two or more application segments cover the same destination address, Zscaler Client Connector attempts to match traffic to the more granular application segment. Consider the following examples of two application segments with overlapping IP addresses:
+
+- Example: IP-Based Exact Match
+- Example: IP-Based Multimatch
+
+| Application | Applications | Protocol | Port |
+| --- | --- | --- | --- |
+| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 |
+| IPaddress_AS | 10.0.0.1/32 | TCP | 443 |
+
+| Rule Number | Access Policy Name | Application Segment | User Group | Action |
+| --- | --- | --- | --- | --- |
+| 1 | Allow User A to access IPaddress_AS | IPaddress_AS | User A | Allow |
+| 2 | Allow Everyone to access Subnet_AS | Subnet_AS | All | Allow |
+
+In this scenario, the host at IP address 10.0.0.1 is contained within the IPaddress_AS application segment. If user B tries to access 10.0.0.1 on TCP port 443, they match the implicit block rule. User B does not match with rule number 1 because it is restricted to only User A. User B also does not match with rule number 2 even though it is for everyone, because the moment the IP address is created, the 10.0.0.1/32 host is carved out of Subnet_AS 10.0.0.0/24.
+
+The primary use for Multimatch is when there are multiple possible application segment matches. The following tables show application segment configuration, the policy configuration, and how they match up.
+
+| Application Segment Configuration |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| Application Segment Name | Application | Protocol | Port | Multimatch |
+| Subnet_AS | 10.0.0.0/24 | TCP, UDP | 1 to 52, 54 to 65535 | Enabled |
+| IPAddress_AS | 10.0.0.1/32 | TCP | 443, 3389 | Enabled |
+
+| Application Match and Policy Search Results |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| # | Access Policy Name | Application Segment Name | Policy Action | User Group |
+| 1 | Allow IPAddress_AS for Admin | IPAddress_AS | Allow | Admin_Grp |
+| 2 | Allow Subnet_AS for All | Subnet_AS | Allow | All |
+
+| Application Match and Policy Search Results |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- |
+| User | Group | IP Address: Protocol & Port | Matched Application Segment with Multimatch | Matched Application Segment without Multimatch | Matched Policy with Multimatch | Matched Policy without Multimatch |
+| user1 | Admin_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow IPAddress_AS for Admin (#1) | Allow IPAddress_AS for Admin (#1) |
+| user2 | IT_Grp | 10.0.0.1:TCP+3389 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+| user1 | Admin_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user2 | IT_Grp | 10.0.0.1:TCP+22 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | 10.0.0.1:TCP+80 | Subnet_AS | N/A | Allow Subnet_AS for All (#2) | Traffic is dropped at the client level |
+| user3 | IT_Grp | 10.0.0.1:TCP+443 | Subnet_AS IPAddress_AS | IPAddress_AS | Allow Subnet_AS for All (#2) | No policy match. Blocked by implicit default block policy. |
+
+Traffic that is dropped at the client level means that traffic matches the IP address, but it does not match the protocol and port. In this condition, traffic is not sent to the cloud for further processing. This means that policy evaluation does not occur, and the user is not able to access the application segment. In this case, traffic is not visible in the Private Access diagnostics.
+
+[Image: Multimatch Validation page]
+
+[Image: Advanced settings in the iOS app profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-scaling","lastmod":"2026-11-07T06:06Z","nid":"1542240"} -->
+## Using Application Scaling
+
+- Source: https://help.zscaler.com/zpa/using-application-scaling
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Scaling
+- Last modified: 2026-11-07T06:06Z
+- Summary: Information on using application scaling for application segments for Private Access (ZPA).
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Application Scaling enables organizations with large private application environments to scale beyond the standard [application limits](https://help.zscaler.com/unified/ranges-limitations#application-management). With Application Scaling enabled, tenants can scale to approximately 100,000 applications. It optimizes how application definitions are delivered and evaluated between Private Access (ZPA) and Zscaler Client Connector, reducing the amount of application data delivered to endpoints.
+
+Instead of distributing the complete application inventory to every endpoint, Private Access delivers aggregated domain information, reducing the client-side configuration footprint and improving scalability.
+
+If you are using [Source IP Anchoring](https://help.zscaler.com/zpa/configuring-source-ip-anchoring-direct) or [Zero Trust Branch](https://help.zscaler.com/zero-trust-branch/what-zero-trust-branch), continue to use the standard Private Access [application access](https://help.zscaler.com/zpa/understanding-application-access) as it is designed for those deployment scenarios.
+
+## Prerequisites
+
+To use Application Scaling, ensure the following prerequisites are met:
+
+- App Connectors or Private Service Edges for Private Access are upgraded to version 24.298.1 or later. To learn more, see [About App Connectors](https://help.zscaler.com/zpa/about-connectors) and [About Private Service Edges](https://help.zscaler.com/zpa/about-private-service-edges).
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS versions: 4.5.2.98 or later
+  - iOS version 4.4.1 or later To use the App Scaling feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#iOS-advanced) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Enabling App Scaling
+
+Application Scaling is enabled at the tenant level. Contact Zscaler Support to request access.
+
+[Image: Traffic Steering Advanced settings in the Zscaler Client Connector iOS App Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-application-segment-import","lastmod":"2026-09-22T07:53Z","nid":"1540203"} -->
+## Using Application Segment Import
+
+- Source: https://help.zscaler.com/zpa/using-application-segment-import
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Application Segment Import
+- Last modified: 2026-09-22T07:53Z
+- Summary: How to use the Application Segment Import feature in the Zscaler Admin Console.
+
+Private Access (ZPA) allows you to bulk import application information to ease the process of application segment configuration. This speeds up the data entry process and eliminates the need to re-enter data if it changes over time. To learn more, see [About Application Segment Import](https://help.zscaler.com/zpa/about-application-segment-import).
+
+To bulk import application segment data:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Application Segment Import**.
+2. Click **Download Sample CSV**. The sample template downloads to your system. See image. If you already have a CSV file containing your data, you can import the file.
+3. Open the template file and add information for the following fields:
+  - Application Name
+  - Application FQDN/IP
+  - Server IP
+  - TCP Ports
+  - UDP Ports
+  - App Owner Contact
+  - Application Importance
+  - Hosting Location
+  - Environment
+4. Save the template.
+5. Click **Import CSV**. See image.
+6. Click **Browse File**to select your CSV file.
+7. Click **Import**. See image. The data can take some time to import. You can leave the page and return to it later. If you import a file with entries that were included in a previous import, the new entries are automatically added as additional information to the existing entries of the same name.
+
+After the data from the file is imported, the Application Segment Import page refreshes to show a table of all the application information categorized alphabetically by the Application Segment Name. A message appears confirming the number of successfully imported entries, as well as the number of failed downloads. You can click the link in the message to download a new file containing the failed entries and the reasons for their import failure.
+
+The limit of application segments that can be imported is 50,000. If you attempt to import a file with more than 50,000 entries of application segment data, the import fails. Depending on how many application segments you import, the import time can increase.
+
+After you import the data for the application segments, you can merge the application segments together. To learn more, see [Merging Imported Application Segments](https://help.zscaler.com/zpa/merging-imported-application-segments).
+
+[Image: Download Sample CSV action in the Application Segment Import page]
+
+[Image: The Import window with a CSV file selected.]
+
+[Image: Click Import CSV.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-pattern-matching-application-segments","lastmod":"2026-09-10T10:53Z","nid":"1485996"} -->
+## Using Pattern Matching for Application Segments
+
+- Source: https://help.zscaler.com/zpa/using-pattern-matching-application-segments
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Using Pattern Matching for Application Segments
+- Last modified: 2026-09-10T10:53Z
+- Summary: Information on using pattern matching for application segments for Private Access (ZPA).
+
+This feature is in limited availability. To learn more, contact Zscaler Support.
+
+Private Access (ZPA) supports patterns within FQDN-based application segments. Configuring applications with pattern definition helps to build optimal configurations. It also future proofs the configuration in the case where new servers are brought online and match the existing patterns for applications. This means no configuration changes are required in the application segment definition. To learn more, see [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-application-segments).
+
+## Prerequisites
+
+To configure pattern matching for application segments, ensure the following prerequisites are met:
+
+- Multimatch must be enabled on the tenant and the specific application segment. To learn more, see [Using Application Segment Multimatch.](https://help.zscaler.com/zpa/using-app-segment-multimatch)
+- App Connectors are upgraded to version 24.298.1 or later. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
+- Zscaler Client Connector is upgraded to the following versions per OS:
+  - Windows versions:
+    - 4.7.0.88 or later
+    - 4.6.0.282 or later
+  - macOS version: 4.5.2.98 or later
+  - iOS version: 4.4.1 or later To use the Private Access pattern matching feature for iOS applications, you must enable the [Use Tunnel SDK Version 4.3 or above setting](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles) in the Zscaler Admin Console. See image.
+  - Android version: 3.10 or later
+  - Linux version: 4.2 or later
+
+## Supported Patterns of Applications in Application Segments
+
+The asterisk (*) and question mark (?) symbols are the supported characters for pattern configuration in application segments.
+
+| **Pattern Type** | **Example** |
+| --- | --- |
+| Pattern matching in the initial part of the FQDN | *.acme.com *nonprod.acme.com |
+| Pattern matching in the middle part of the application | psl*.ms.acme.com www.jira*.acme.com *w*.acme.com |
+| Matching one character with “?” | w?w.jira.acme.com w??.jira.acme.com |
+
+The maximum number of patterns an admin can configure is 500. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+
+### App Connector Selection
+
+Pattern matching does not select the most specific application for App Connector selection. Therefore, ensure you have at least one App Connector group available for similar applications. To learn more, see [About App Connector Groups](https://help.zscaler.com/zpa/about-connector-groups).
+
+When application access matches multiple application segments for pattern matching, the App Connector selection is based on the most specific application segments that are pattern matching, regardless of the application segment that matches the access policy rule.
+
+The following table shows example application segment configurations:
+
+| Application Segment Name | Domain or Pattern Match | Protocol & Port | Multimatch | Match | Server Group Name |
+| --- | --- | --- | --- | --- | --- |
+| AS1 | important-server*.eu.example.com | TCP/22 | Yes | Yes | SG1 |
+| AS2 | important-server?.eu.example.com | TCP/22 | Yes | Yes | SG2 |
+| AS3 | important-*.eu.example.com | TCP/22 | Yes | Yes | SG3 |
+| AS4 | *.eu.example.com | All | Yes | Yes | SG4 |
+| AS5 | *.example.com | All | No | No | SG5 |
+
+When a user accesses important-server1.eu.example.com on the TCP protocol for port 22, it matches AS1, AS2, AS3, and AS4 because these are the most specific application segments with pattern matching. However, since AS4 is the wildcard application segment and AS5 does not have Multimatch enabled, the App Connector selection only applies to SG1, SG2, and SG3.
+
+[Image: Advanced settings in the iOS app profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-10-02T21:06Z","nid":"1484096"} -->
+## Using Wildcard Certificates for Browser Access Applications
+
+- Source: https://help.zscaler.com/zpa/using-wildcard-certificates-browser-access-applications
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Browser Access > Using Wildcard Certificates for Browser Access Applications
+- Last modified: 2026-10-02T21:06Z
+- Summary: Information about wildcard certificates and how they can be used when defining Browser Access-enabled web applications for Private Access.
+
+Private Access (ZPA) supports using wildcard certificates when defining Browser Access applications within an application segment. You can use a wildcard certificate for multiple fully qualified domain names (FQDNs) within a single application segment or within multiple application segments.
+
+For example, you can create two application segments:
+
+- App1 that contains app1.example.com
+- App2 that contains app2.example.com
+
+For both application segments, you use the same wildcard certificate: *.example.com.
+
+You can also use a wildcard certificate with a wildcard application. However, while the wildcard application includes subdomains, the wildcard certificate only matches against one level. For example:
+
+- A `*.example.com` wildcard application matches against `app1.example.com`, `app2.example.com`, and `app1.local.example.com`.
+- A `*.example.com` wildcard certificate matches against `app1.example.com` and `app2.example.com`, but will not match against `app1.local.example.com`. In this example, Private Access does not consider the wildcard certificate to be valid for `app1.local.example.com`.
+
+If you need to enable Browser Access for a particular subdomain, you must define a separate wildcard application (i.e., *.local.example.com) within an application segment that includes the equivalent wildcard certificate.
+
+To learn more, see [About (Web Server) Certificates](https://help.zscaler.com/zpa/about-web-server-certificates), [About Browser Access](https://help.zscaler.com/zpa/about-browser-access), and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/validating-client-hostname","lastmod":"2026-11-05T08:19Z","nid":"1485046"} -->
+## Validating a Client Hostname
+
+- Source: https://help.zscaler.com/zpa/validating-client-hostname
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Application Management > Application Segments > Validating a Client Hostname
+- Last modified: 2026-11-05T08:19Z
+- Summary: How to validate a client hostname in the Zscaler Admin Console.
+
+Validating a client hostname allows you to enroll endpoints for [peer-to-peer connectivity](https://help.zscaler.com/zpa/administration/peer-peer-connectivity) so that you can accept incoming connections through Private Access (ZPA) from other clients. To enroll the endpoints, a regular expression of allowed hostnames is configured per tenant. This regular expression controls the endpoints to which Zscaler Client Connector allows the peer-to-peer connectivity. Endpoints whose FQDNs match this regular expression are enrolled. To learn more, see [Understanding Client-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-client-client-connectivity) and [Understanding Server-to-Client Connectivity](https://help.zscaler.com/zpa/understanding-server-client-connectivity).
+
+If an application configured for Privileged Remote Access (PRA) matches a valid client hostname configured for peer-to-peer connectivity, and the user's device is also configured for peer-to-peer connectivity, then PRA is not supported.
+
+Prior to enabling peer-to-peer connectivity, the following prerequisites must be met:
+
+- Ensure that the remote user has installed Zscaler Client Connector version 3.9.0.169 or later on the destination machine that they want to establish connectivity to. Zscaler Client Connector on the destination machine must have a machine tunnel deployed. To learn more, see [Understanding Zscaler Client Connector App Downloads](https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads).
+- Ensure that endpoints or devices have valid, complete, and unique FQDNs.
+
+To validate a client hostname:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Private Access**>**Private Applications**>**Defined Application Segments**.
+2. Click the **Column** **Menu**icon ([Image: Column Menu icon]), and select **Client Hostname Validation**. See image. The **Edit Regular Expression**window appears.
+3. In the **Regular Expression**field, enter a valid regular expression. See image. Always use lowercase characters for regular expressions. Private Access policy evaluation is case sensitive and regular expressions must be lowercase to match endpoint hostnames. For example, enter the regular expression `.*.example.com` to establish a peer-to-peer connection for devices joined with domains matching this regular expression (e.g., `test.example.com`). If you have the same namespace for both your applications and workstations, Zscaler recommends creating different application segments for peer-to-peer connectivity and for application access. To successfully enable remote assistance, the application segment designated for peer-to-peer connectivity must match the regular expression entered.
+4. Click **Save**.
+
+[Image: Viewing the Column Menu in the Zscaler Admin Console]
+
+[Image: Configure a regex in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-active-directory-protection-dashboard","lastmod":"2026-10-09T21:06Z","nid":"1515526"} -->
+## Viewing the Active Directory Protection Dashboard
+
+- Source: https://help.zscaler.com/zpa/viewing-active-directory-protection-dashboard
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Dashboard & Diagnostics > AppProtection and Browser Protection Monitoring > Viewing the Active Directory Protection Dashboard
+- Last modified: 2026-10-09T21:06Z
+- Summary: Information on the Active Directory Protection dashboard and widgets accessible in the Zscaler Admin Console.
+
+The Active Directory Protection dashboard provides information about the Active Directory policy activity in your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access > Private App Protection > Active Directory Protection.
+
+## Dashboard Tools
+
+The Active Directory Protection dashboard displays the following information and functionality:
+
+- **Time Range Filter**: View Active Directory Protection data over a period between **1 Hour** to **14 Days**, or you can select **Custom Range**. If you use **Custom Range**, the start date must be within the last 14 days. The end date automatically sets to the system's current time. By default, the dashboard displays information for events that occurred in the last hour. This filter applies to all widgets on the dashboard.
+
+Log information in the dashboard is limited to 14 days. For longer access to the logs, use the [Log Streaming Service (LSS)](https://help.zscaler.com/zpa/about-log-streaming-service).
+
+- **Refresh Icon**: Refresh the dashboard to reflect the most current information.
+- **AppProtection Dashboard**: View the [AppProtection Dashboard](https://help.zscaler.com/zpa/viewing-appprotection-dashboard) for more information about AppProtection policy activity.
+- **Browser Protection Dashboard**: View the [Browser Protection Dashboard](https://help.zscaler.com/zpa/viewing-browser-protection-dashboard) for information about browser sessions in your organization.
+- **API Protection Dashboard**: View the [API Protection Dashboard](https://help.zscaler.com/zpa/viewing-api-protection-dashboard) for information about API traffic in API protection controls. This tab is only visible if the feature is enabled in your account.
+- **Chart Selection**: Select the charts you want to display or hide on the dashboard. A minimum of 4 charts and a maximum of 8 charts can be selected.
+
+## Widgets
+
+The Active Directory Protection dashboard provides the following widgets:
+
+- Top Users by KRB TGT Suspicious Activity
+- Top Users by KRB TGT Errors
+- Top Users by KRB TGS Errors
+- Top Users by KRB TGS Suspicious Activity
+- Top Users by LDAP Suspicious Queries
+- Top Users by SMB Suspicious Activity
+- Top Profile Violations
+- Top Control Violations
+- Top Users by Control Violations
+
+The widget displays the top 10 Kerberos TGT suspicious activity within the selected time frame and lists them by user.
+
+[Image: Kerberos TGT Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Click on a tab to switch between a chart of unique Active Directory logins and a chart of account harvesting indications.
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users - KRB TGT Suspicious Activity**: Depending on the chart you've selected:
+    - **Unique Active Directory Logins**: The number of unique Active Directory logins seen for the selected user. The percentage is the total unique Active Directory logins seen by that user within the top users for that category.
+    - **Account Harvesting Indications**: The number of Active Directory login failures seen for the selected user. The percentage is the Active Directory login failures seen by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGT errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
+
+- KDC_ERR_PREAUTH_REQUIRED (25)
+- KRB_AP_ERR_TKT_EXPIRED (32)
+- KRB_ERR_RESPONSE_TOO_BIG (52)
+- KDC_ERR_BADOPTION (13)
+- KDC_ERR_NEVER_VALID (11)
+- KRB_AP_ERR_SKEW (37)
+- KDC_ERR_ETYPE_NOSUPP (14)
+- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
+- KRB_AP_ERR_MODIFIED (41)
+
+[Image: Top Users by Kerberos TGT Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGT Error(s)**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGS errors within the selected time frame and lists them by user. The error counts displayed do not include these common errors:
+
+- KDC_ERR_PREAUTH_REQUIRED (25)
+- KRB_AP_ERR_TKT_EXPIRED (32)
+- KRB_ERR_RESPONSE_TOO_BIG (52)
+- KDC_ERR_BADOPTION (13)
+- KDC_ERR_NEVER_VALID (11)
+- KRB_AP_ERR_SKEW (37)
+- KDC_ERR_ETYPE_NOSUPP (14)
+- KDC_ERR_S_PRINCIPAL_UNKNOWN (7)
+- KRB_AP_ERR_MODIFIED (41)
+
+[Image: Top 10 Kerberos TGS Errors widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGS Errors**: The number of errors for the selected user. The percentage is the errors held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 Kerberos TGS suspicious activity within the selected time frame and lists them by user.
+
+[Image: Top 10 Kerberos TGS Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Click a tab to switch between a chart of Kerberoasting requests and a chart of Kerberos TGS activity.
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by KRB TGS Suspicious Activity**: Depending on the chart you've selected:
+    - **Kerberoasting Requests**: The number of instances the user requested a ticket with a weak encryption (e.g., RC4 and DES encryption). The percentage is the total Kerberoasting requests held by that user within the top users for that category.
+    - **KRB TGS Activity**: The number of instances where the user sends a TGS request for various services in Active Directory domain. The percentage is the total Kerberos TGS activity held by that user within the top users for that category.
+- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 LDAP suspicious queries within the selected time frame and lists them by user.
+
+[Image: Top 10 LDAP Suspicious Queries widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users** **by LDAP Suspicious Activity**: The number of suspicious queries for the selected user. The percentage is suspicious queries held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 SMB suspicious activity within the selected time frame and lists them by user. This activity data consists of session and user enumeration.
+
+[Image: Top Users by SMB Suspicious Activity widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users** **by SMB Suspicious Activity**: The number of suspicious activity for the selected user. The percentage is suspicious activity held by that user within the top users for that category.
+- Click a section of the chart and then click **View Logs** to be directed to log information matching the control category in Active Directory Protection Diagnostics.
+
+The widget displays the top 10 profile violations within the selected time frame and lists them by name.
+
+[Image: Top Profile Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a violation to view the following:
+  - **Name**: The profile violation name.
+  - **Number of Top Profile Violation(s)**: The number of profile violations for the selected violation. The percentage is violations held within the category.
+- Click a profile violation and then click **View Logs** to be directed to log information matching that violation in Active Directory Protection Diagnostics.
+
+This widget displays the top 10 control violations within the selected time frame and categorizes them by name. The top control violations are categorized by control number and name, in the ControlNumber:ControlName format.
+
+[Image: Top Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+Hover over a section of the chart to view the name of the control violation and the percentage of control violations held within the Top Control Violations category.
+
+The widget displays the top 10 users by control violations within the selected time frame and lists them by user.
+
+[Image: Top Users by Control Violations widget on the Active Directory Protection Dashboard in the Zscaler Admin Console]
+
+- Hover over a user to view the following:
+  - **Name**: The name of the user.
+  - **Number of Top Users by Control Violation(s)**: The top users with their number of control violations. The percentage is control violations held by that user within the top users for that category.
+- Click a user and then click **View Logs** to be directed to log information matching that user in Active Directory Protection Diagnostics.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -3106,13 +3709,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-10-26T11:25Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-11-06T12:49Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-10-26T11:25Z
+- Last modified: 2026-11-06T12:49Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -3128,8 +3731,8 @@ The following platforms support App Connector software packages. Where applicabl
 | [Amazon Web Services (AWS)](https://help.zscaler.com/zpa/connector-deployment-guide-amazon-web-services#deploy) | [Private Access - AWS Marketplace (STIG Image)](https://aws.amazon.com/marketplace/pp/prodview-cvvqe5hxw2bku?sr=0-1&ref_=beagle&applicationId=AWSMPContessa) |
 | [Google Cloud Platform (GCP)](https://help.zscaler.com/zpa/app-connector-deployment-guide-google-cloud-platform) | [Private Access - GCP Marketplace (STIG Image)](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-connector) |
 | [Microsoft Azure](https://help.zscaler.com/zpa/connector-deployment-guide-microsoft-azure#Deployment) | [Private Access - Azure Marketplace (STIG Image)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access?tab=overview) |
-| Microsoft Azure Local | The following RHEL 9 App Connector images are available for Microsoft Azure Local: [VHDX](https://dist.private.zscaler.com/vms/Azure/2026.09/zpa-connector-el9-2026.09.vhdx); [VHDX checksum](https://dist.private.zscaler.com/vms/Azure/2026.09/zpa-connector-el9-2026.09.vhdx.sha256sum) |
-| [Microsoft Hyper-V](https://help.zscaler.com/zpa/app-connector-deployment-guide-microsoft-hyper-v) | The following RHEL 9 App Connector images are available for Microsoft Hyper-V: [VHDX](https://dist.private.zscaler.com/vms/Azure/2026.08/zpa-connector-el9-2026.09.vhdx); [VHDX checksum](https://dist.private.zscaler.com/vms/Azure/2026.09/zpa-connector-el9-2026.09.vhdx.sha256sum) |
+| [Microsoft Azure Local](https://help.zscaler.com/zpa/app-connector-deployment-guide-microsoft-azure-local) | The following RHEL 9 App Connector images are available for Microsoft Azure Local: [VHDX](https://dist.private.zscaler.com/vms/Azure/2026.09/zpa-connector-el9-2026.09.vhdx); [VHDX checksum](https://dist.private.zscaler.com/vms/Azure/2026.09/zpa-connector-el9-2026.09.vhdx.sha256sum) |
+| [Microsoft Hyper-V](https://help.zscaler.com/zpa/app-connector-deployment-guide-microsoft-hyper-v) | The following RHEL 9 App Connector images are available for Microsoft Hyper-V: [VHDX](https://dist.private.zscaler.com/vms/Azure/2026.08/zpa-connector-el9-2026.08.vhdx); [VHDX checksum](https://dist.private.zscaler.com/vms/Azure/2026.08/zpa-connector-el9-2026.08.vhdx.sha256sum) |
 | Containers |  |
 | [Docker](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) | [Docker Hub](https://hub.docker.com/r/zscaler/zpa-connector/tags) |
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
@@ -3140,16 +3743,35 @@ The following platforms support App Connector software packages. Where applicabl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-10-08T12:32Z","nid":"1540962"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-physical-port-mapping","lastmod":"2026-11-05T10:26Z","nid":"1540962"} -->
 ## ZPA Appliance Physical Port Mapping
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Physical Port Mapping
-- Last modified: 2026-10-08T12:32Z
+- Last modified: 2026-11-05T10:26Z
 - Summary: A description of the physical ports on the ZPA appliance, and its interface, port types, and roles.
 
 This article depicts the physical ports on the ZPA appliance and identifies its interface names, port types, and roles. You can configure the ports using Linux commands from the command-line interface.
+
+- ZS-ZPA-800
+- ZS-ZPA-8010
+
+The following image and table describe the physical port mapping on the ZS-ZPA-APPL-800.
+
+[Image: ZS-ZPA-APPL-800 Appliance physical port diagram that identifies the console port and 18 interface ports]
+
+| Port | Interface | Port Type | Speed | Role |
+| --- | --- | --- | --- | --- |
+| C | Console | RJ45 | 1GbE | Serial console |
+| 1 | GE1/enp2s0f0 | 1G SFP | 1GbE | LAN |
+| 2 | GE2/enp2s0f1 | 1G SFP | 1GbE | LAN |
+| 3 | GE3/enp2s0f2 | 1GbE RJ45 | 1GbE | LAN |
+| 4 | GE4/enp2s0f3 | 1GbE RJ45 | 1GbE | LAN |
+| 5 | GE5/enp8s0f0 | 1GbE RJ45 | 1GbE | LAN |
+| 6 | GE6/enp8s0f1 | 1GbE RJ45 | 1GbE | LAN |
+| 7 | GE7/enp10s0f0 | 1GbE RJ45 | 1GbE | LAN (default traffic port) |
+| 8 | GE8/enp10s0f1 | 1GbE RJ45 | 1GbE | LAN |
 
 The following image and table describe the physical port mapping on the ZS-ZPA-APPL-8010 and ZS-ZPA-PSE-8010 appliances.
 
@@ -3180,13 +3802,13 @@ The following image and table describe the physical port mapping on the ZS-ZPA-A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-10-08T12:23Z","nid":"1540961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-11-05T14:08Z","nid":"1540961"} -->
 ## ZPA Appliance Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Wall and Rack Mount Instruction Manual
-- Last modified: 2026-10-08T12:23Z
+- Last modified: 2026-11-05T14:08Z
 - Summary: Instructions for rack mounting a ZPA appliance.
 
 This article includes instructions on mounting your ZPA appliance.
@@ -3195,16 +3817,111 @@ This article includes instructions on mounting your ZPA appliance.
 
 Mounting your ZPA appliance on a rack or wall optimizes your workspace and makes the appliance more accessible for installation and deployment. It also protects the appliance from any external damage and helps streamline the organization of cables and power adapters. Additionally, rack or wall mounting helps ensure proper airflow, preventing overheating and dust accumulation caused by restricted ventilation. Proper airflow also maintains a cleaner environment, prolonging the lifespan of the appliance.
 
-## ZPA appliance
+## ZPA Appliances
 
-The ZPA appliance ships in two form factors: one hosting the App Connector and another hosting the Private Service Edge for Private Access (ZPA).
+The ZPA appliance ships in the following form factors: hosting either the App Connector or the Private Service Edge for Private Access (ZPA).
 
+- ZS-ZPA-APPL-800-APPC - App Connector appliance
 - ZS-ZPA-APPL-8010-APPC - App Connector appliance
 - ZS-ZPA-APPL-8010-PSE - Private Service Edge appliance
 
-## Instruction Manual
+## Instruction Manuals
 
-The ZPA appliance is a 1U, 19-inch rack-mountable form factor. This article serves as a comprehensive hardware installation manual for the ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA appliance](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
+- Private Access ZS-ZPA-APPL-800 Instruction Manual
+- Private Access ZS-ZPA-APPL-8010 Instruction Manual
+
+## Troubleshooting Installation
+
+This section helps to identify and resolve common installation issues.
+
+- No Power
+- Loud Beep
+- No Link on Port
+
+The ZS-ZPA-APPL-800-APPC appliances are rack-mountable form factors. You can also use the wall mount kit, available by request. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
+
+- ZS-ZPA-APPL-800 Specifications
+- Package Contents
+- Wall Mount the Appliance
+- Rack Mount the Appliance
+
+The following table provides environmental and power specifications for ZS-ZPA-APPL-800:
+
+| ZS-ZPA-APPL-800 Specifications |  |
+| --- | --- |
+| **Environmental Specifications** |  |
+| Operating Temperature | 32 to 104°F (0 to 40°C) |
+| Non-Operating Temperature | -4 to 150°F (-20 to 65°C) |
+| Relative Humidity | 5 to 90% (operating); 5 to 95% (non-operating) |
+| Altitude | 5,000 feet (1,524 m) operating; 50,000 feet (15,240 m) non-operating |
+| **Power Specifications** |  |
+| Power Supply | DC: External AC adapter included |
+| Redundant Power Supply | NA |
+| Typical Power Consumption | Idle Mode: 24W Full Load Mode: 43W |
+| Maximum Power Consumption | 60W |
+| Power Cord Rating | C14 10A |
+| Input Range | AC 100–240V @ 50–60 Hz |
+| Input Current | 1.8A (max) |
+| Output Rating | 11.4 to 12.6V |
+| Cooling | Fan |
+
+Before beginning the installation, verify that all necessary components are present in the packaging. The package includes the following items:
+
+1. 1x ZS-ZPA-APPL-800-XX(APPC/PSE) unit
+2. 1x PSU
+3. 1x USB serial console cable
+4. 2x RJ45 cables
+5. 2x rack mounting brackets
+6. 6x A screws for attaching the brackets to the appliance See image.
+
+Wall mount kit:
+
+1. 2x wall mount brackets
+2. 4x A screws
+3. 4x mounting screws
+4. 4x white wall plugs See image. The wall mount kit is available only by request.
+
+To wall mount the ZS-ZPA-APPL-800:
+
+1. Turn the appliance over and attach the wall brackets onto the bottom side of the appliance. Secure with the 4x B screws provided for mounting. See image.
+2. On the wall, measure the exact place where you want to mount the appliance. Drill 4 holes that align with the 4 mounting holes on the brackets. See image.
+3. Insert the 4 white wall plugs into the holes you drilled into the wall. See image.
+4. Insert the long screws into the wall plugs. See image.
+5. Align the 4 screw holes on the appliance's wall brackets with the 4 long screws installed on the wall. See image.
+6. Secure the 4 screws in the bracket holes, and push the appliance downward to lock the screws into position. See image.
+7. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
+
+To rack mount the ZS-ZPA-APPL-800 appliance:
+
+1. Align one rack mounting bracket to the screw holes on the side panel of the appliance, and secure the bracket using three A screws. See image.
+2. Secure the other rack mounting bracket to the other side of the appliance.
+3. Ensure that the adapter's cable is connected and secured. See image.
+4. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
+5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
+
+[Image: Private Access (ZPA) hardware ZS-ZPA-800 appliance package contents]
+
+[Image: Private Access (ZPA) hardware ZS-ZPA-800 appliance wall mount kit package contents]
+
+[Image: Attaching wall brackets]
+
+[Image: Four holes drilled to align with mounting holes on brackets]
+
+[Image: Mounted wall plugs for securing the appliance]
+
+[Image: Long screws and wall plugs]
+
+[Image: Alignment of four screw holes with four long screws on the wall]
+
+[Image: Unlocked and locked bracket screws]
+
+[Image: Rack mounting bracket secured to the appliance]
+
+[Image: Securing the adapter cable in the appliance]
+
+[Image: Appliance on rack]
+
+The ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE appliances are 1U, 19-inch rack-mountable form factors. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn't cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA appliance](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
 
 - ZS-ZPA-APPL-8010 Specifications
 - Package Contents
@@ -3248,7 +3965,7 @@ To rack mount the appliance:
 2. Secure the other ear bracket to the other side of the appliance.
 3. Insert the appliance into the rack with the ear brackets fixed on the posts using the B screws. See image. The method and parts required for mounting depend on whether a shelf or rail kit is used.
 4. Connect the AC power cords to the appliance power supply unit. The appliance supports redundant power supply units (PSUs). Connect both cords to their respective power sources. A continuous beep indicates that the second power source is unplugged or faulty. To silence the beep, press the round button located near or between the power supplies, or connect the second power source.
-5. Connect the WAN cable to the designated port of the appliance. The appliance has several ports, including 10x 1GbE RJ45 ports and 8x 10G SFP+ ports. To learn more, see [ZPA Appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping). You can deploy two or more appliances in a network location and pair them into groups for load balancing. See image.
+5. Connect the WAN cable to the designated port of the appliance. The appliance has several ports, including 10x 1GbE RJ45 ports and 8x 10G SFP+ ports. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping). You can deploy two or more appliances in a network location and pair them into groups for load balancing. See image.
 
 [Image: Set of A screws for ZS-ZPA-APPL-8010]
 
@@ -3261,14 +3978,6 @@ To rack mount the appliance:
 [Image: ZS-ZPA-APPL-8010 mounted to a rack]
 
 [Image: Illustration of ports in ZS-ZPA-APPL-8010]
-
-## Troubleshooting Installation
-
-This section helps to identify and resolve common installation issues.
-
-- No Power
-- Loud Beep
-- No Link on Port
 
 If the ZPA appliance does not boot:
 
@@ -3410,13 +4119,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-10-28T11:25Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-11-05T07:25Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-10-28T11:25Z
+- Last modified: 2026-11-05T07:25Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

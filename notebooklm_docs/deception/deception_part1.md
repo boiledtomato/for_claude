@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 296
 
 ---
@@ -3466,13 +3466,13 @@ To delete a datalist:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-ftp-banners","lastmod":"2026-09-18T02:33Z","nid":"1542517"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-ftp-banners","lastmod":"2026-11-07T06:06Z","nid":"1542517"} -->
 ## Configuring and Managing FTP Banners
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-ftp-banners
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing FTP Banners
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to configure and manage FTP banners
 
 FTP banners are metadata about the service running on an FTP server. Typically, the FTP banner is used as a welcome string that is shown to clients connecting to FTP servers. You can associate the FTP banners with network decoys that have FTP service enabled. Zscaler Deception provides a list of reconfigured FTP banners that can lure attackers when used with network decoys. You can also create custom FTP banners that can lure attackers based on your business requirements. To learn how to use FTP banners in network decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-ftp-service).
@@ -3518,13 +3518,13 @@ To delete an FTP banner:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-smb-banners","lastmod":"2026-09-18T02:33Z","nid":"1543191"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-smb-banners","lastmod":"2026-11-07T06:06Z","nid":"1543191"} -->
 ## Configuring and Managing SMB Banners
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-smb-banners
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing SMB Banners
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: How to configure and manage SMB banners.
 
 Server Message Block (SMB) banners are used to advertise an SMB service running on a network decoy. You can associate SMB banners with network decoys that have the Shares service enabled. Zscaler Deception provides a list of preconfigured SMB banners that emulate SMB services running on different operating systems and devices. You can also create custom SMB banners based on your business requirements. To learn how to use SMB banners in network decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-shares-service).
@@ -3570,13 +3570,13 @@ To delete an SMB banner:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-tags","lastmod":"2026-09-18T02:33Z","nid":"1542519"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-tags","lastmod":"2026-11-07T06:06Z","nid":"1542519"} -->
 ## Configuring and Managing Tags
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-tags
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing Tags
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to configure and manage tags.
 
 Tags are used to group various resources across Zscaler Deception. You can associate tags with personalities and reference them using their tags in deception strategies. When a tag is used in a [deception strategy](https://help.zscaler.com/deception/about-deception-strategy), any personality that is associated with the tag is chosen at random during the deployment of decoys. Deception provides a preconfigured list of default tags. You can also create custom tags based on your business requirements.
@@ -3627,13 +3627,13 @@ To export all tags as a JSON file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-web-server-banners","lastmod":"2026-09-18T02:33Z","nid":"1542518"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-and-managing-web-server-banners","lastmod":"2026-11-07T06:06Z","nid":"1542518"} -->
 ## Configuring and Managing Web Server Banners
 
 - Source: https://help.zscaler.com/deception/configuring-and-managing-web-server-banners
 - Product: Deception
 - Path: Deception Help > Miragemaker > Miscellaneous > Configuring and Managing Web Server Banners
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to configure and manage web server banners.
 
 Web server banners contain metadata about the service running on a web server. Typically, the web server banner is used in the server response header when an attacker connects to the web server. You can associate the web server banners with network decoys that have web service enabled. Zscaler Deception provides a list of reconfigured web server banners that can lure attackers when used with network decoys. You can also create custom web server banners that can lure attackers based on your business requirements. To learn how to use web server banners in network decoys, see [Configuring Services on a Network Decoy](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-web-service).
@@ -5833,13 +5833,13 @@ After you configure a Service Connector, you can integrate the Deception with a 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-09-18T02:33Z","nid":"1542268"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-services-network-decoy","lastmod":"2026-11-07T06:06Z","nid":"1542268"} -->
 ## Configuring Services on a Network Decoy
 
 - Source: https://help.zscaler.com/deception/configuring-services-network-decoy
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Configuring Services on a Network Decoy
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: How to configure services on a network decoy in the Zscaler Deception Admin Portal.
 
 Services are interactive components that simulate the functionality of legitimate systems, such as web pages, Gen AI applications, etc. Configuring services on a network decoy makes it look like a genuine resource to attackers. It lures the attackers to interact with the decoy and enables threat detection. This article describes how to customize services such as Generative AI (Gen AI), Web, SSH, Telnet, SCADA/IoT, and FTP on a network decoy.
@@ -10919,13 +10919,13 @@ After the Decoy Connector management network is configured, you need to [add the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-vmware","lastmod":"2026-09-18T02:33Z","nid":"1542247"} -->
+<!-- ZS-ARTICLE {"url":"/deception/decoy-connector-deployment-guide-vmware","lastmod":"2026-11-05T07:39Z","nid":"1542247"} -->
 ## Decoy Connector Deployment Guide for VMware Platforms
 
 - Source: https://help.zscaler.com/deception/decoy-connector-deployment-guide-vmware
 - Product: Deception
 - Path: Deception Help > Settings > Topology > Decoy Connectors > Decoy Connector Deployment Guides for Supported Platforms > Decoy Connector Deployment Guide for VMware Platforms
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-05T07:39Z
 - Summary: How to deploy a Zscaler Deception Decoy Connector on VMware, including platform prerequisites, configuring the network interface, and connecting a Decoy Connector to the Zscaler Deception Admin Portal.
 
 This deployment guide provides information on prerequisites, how to deploy a Decoy Connector on a VMware platform with vSphere Hypervisor (ESXi) client, how to configure the management network, and how to connect the Decoy Connector to the Zscaler Deception Admin Portal.
@@ -10980,9 +10980,9 @@ To deploy a Decoy Connector on vSphere Hypervisor (ESXi):
     2. Enter a **VLAN ID**. If VLAN trunking is required, then enter `4095`.
     3. Select a standard switch from the **Virtual switch** drop-down menu.
     4. Under **Security**, select **Accept** for the following options:
-      - Promiscuous mode
-      - MAC address changes
-      - Forged transmits
+      - **Promiscuous mode**
+      - **MAC address changes**
+      - **Forged transmits**
   4. Click **Add**. See image.
 - To add a distributed port group, [create a new vSphere distributed switch](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-D21B3241-0AC9-437C-80B1-0C8043CC1D7D.html), or use an existing distributed switch.
   1. Log in to the vSphere Hypervisor(ESXi) with the vSphere client.
@@ -10992,16 +10992,19 @@ To deploy a Decoy Connector on vSphere Hypervisor (ESXi):
     1. Enter a name for the port group, and then click **Next**. See image.
     2. Configure the required distributed port group settings:
       1. For **VLAN**, select **None**. If VLAN trunking is required, then select **Trunk**.
-      2. For **Advanced**, select **Customize default policies configuration**, andthen click **Next**. See image.
-    3. Configure one of the required security settings: See image.
-      - For Promiscuous mode settings, select **Accept** for the following security options, and then click **Next**:
-        - Promiscuous mode
-        - MAC address changes
-        - Forged transmits
-      - For MAC Learning settings, select **Enabled**or **Allow**for the following security options, set the **MAC Limit**, and then click **Next**:
-        - Status
-        - Allow unicast flooding
-        - MAC limit policy
+      2. For **Advanced**, select the **Customize default policies configuration**checkbox, andthen click **Next**. See image.
+    3. Select one of the following security options: See image.
+      - To set promiscuous mode, from the **Promiscuous mode**drop-down menu, select **Accept**.
+        1. **MAC address changes:**Select **Accept**.
+        2. **Forged transmits:**Select **Accept**.
+      - To set MAC learning, from the **Promiscuous mode**drop-down menu, select **Reject**. Click **OK**.
+        1. **MAC address changes:**Select **Accept**.
+        2. **Forged transmits:**Select **Accept**.
+        3. For **MAC Learning** settings:
+          1. **Status**: Select **Enabled**.
+          2. **Allow unicast flooding**: Select **Enabled**.
+          3. **MAC limit**: Enter a value to allow a maximum MAC address per distributed switch.
+          4. **MAC limit policy**: Select **Allow**.
     4. Review the distributed port group settings, and click **Finish**. See image.
 
 1. Log in to the vSphere Hypervisor (ESXi) with the vSphere client.

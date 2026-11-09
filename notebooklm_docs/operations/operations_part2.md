@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-01T06:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-08T06:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -2795,13 +2795,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-10-28T07:00Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-11-05T07:10Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-28T07:00Z
+- Last modified: 2026-11-05T07:10Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2875,13 +2875,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-01T06:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-08T06:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4200,13 +4200,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-01T06:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-08T06:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about the Incidents Details drawer and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -5201,8 +5201,8 @@ For more Access Policy information and troubleshooting instructions, see the [Zs
 ## Advanced Sandbox Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/advanced-sandbox-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Advanced Sandbox Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Advanced Sandbox Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) Advanced Sandbox.
 
@@ -5285,8 +5285,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## App Connector Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/app-connector-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > App Connector Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZPA Deployments & Operations > App Connector Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable App Connectors in Zscaler Private Access (ZPA).
 
@@ -5577,8 +5577,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## Bandwidth Control Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/bandwidth-control-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Bandwidth Control Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Bandwidth Control Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) Bandwidth Control.
 
@@ -5802,8 +5802,8 @@ For more information and troubleshooting instructions regarding Browser Access, 
 ## Client Forwarding Policy Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/client-forwarding-policy-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > Client Forwarding Policy Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZPA Deployments & Operations > Client Forwarding Policy Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Private Access (ZPA) Client Forwarding Policy.
 
@@ -5884,8 +5884,8 @@ For more Client Forwarding Policy information and troubleshooting instructions, 
 ## Cloud App Control Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/cloud-app-control-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Cloud App Control Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Cloud App Control Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) Cloud App Control.
 
@@ -5993,8 +5993,8 @@ For more Cloud App Control information and troubleshooting instructions, see the
 ## Isolation Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/cloud-browser-isolation-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Isolation Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Isolation Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits and steps necessary to enable Zscaler Internet Access (ZIA)  Isolation.
 
@@ -6164,8 +6164,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## DLP Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/data-loss-prevention-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > DLP Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > DLP Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) Data Loss Prevention (DLP).
 
@@ -6244,8 +6244,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## DNS Control Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/dns-control-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > DNS Control Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > DNS Control Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable DNS Control in Zscaler Internet Access (ZIA).
 
@@ -7250,8 +7250,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## ZIA Policy Leading Practices Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zia-policy-leading-practices-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > ZIA Policy Leading Practices Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > ZIA Policy Leading Practices Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: The ZIA Policies Leading Practices Guide provides a set of best practices for configuring and deploying Zscaler Internet Access (ZIA) policies in an organization's environment.
 

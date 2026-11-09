@@ -1,86 +1,8 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 25
-
----
-
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-compliance-details","lastmod":"2026-09-23T21:26Z","nid":"1514771"} -->
-## Viewing Compliance Details
-
-- Source: https://help.zscaler.com/dspm/viewing-compliance-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Compliance > Viewing Compliance Details
-- Last modified: 2026-09-23T21:26Z
-- Summary: Viewing additional compliance details of compliance breaches in the Zscaler Admin Console.
-
-You can view additional details of the compliance breaches, such as the list of [policies](https://help.zscaler.com/dspm/about-data-posture-policies) that are noncompliant for a specific compliance framework, failed [resources](https://help.zscaler.com/dspm/viewing-resource-details), and policies mapped to compliance frameworks. This allows you to quickly investigate and remediate the issue.
-
-To view the compliance details:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **DSPM** > **Compliance**.
-2. On the **Compliance**page, click any tile to view the compliance details. See image.
-3. On the compliance framework page, you can see the following tabs: See image. The following fields are common across the tabs:
-  - Summary
-  - Policies
-  - Resources
-  - Findings
-  - Configuration
-  - **Cloud**: The name of the cloud service provider.
-  - **Cloud Account**: The account ID of the cloud account where the resource is stored.
-  - **Region**: The region where the resource is located.
-  - **Policy Name**: The name of the failed policy. Click to view the [policy details](https://help.zscaler.com/dspm/viewing-policy-details).
-  - **DLP Engines**: The DLP engines that match the data in the resource.
-  - **Resource ID**: The unique identifier for the resource.
-  - **Control Category**: The control category groups security controls addressing similar risks or compliance requirements.
-  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
-4. On each tab, you can: See image.
-  1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
-  2. [Customize and save a page setting](https://help.zscaler.com/dspm/customizing-page-settings).
-  3. Search for a specific policy (not applicable for the **Summary**tab).
-  4. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file (not applicable for the **Summary**tab).
-
-View a high-level overview of the total failed policies by severity and control category. You can see:
-
-1. The compliance framework details:
-  - **Description**: The name of the compliance framework.
-  - **DLP Engines**: The DLP engines mapped to the compliance framework.
-  - **Data Stores**: The total number of noncompliant data stores.
-2. The number of failed policies by severity (**Critical**, **High**, **Medium**, and **Low**). Hover over the donut chart to see the number of failed policies for each severity. Click to view the list of policies on the **Policies**tab with the severity filter preselected.
-3. The number of failed policies for each control category. Click to view the list of policies on the **Policies**tab with the control category filter preselected.
-4. The failed compliance trend for policies and resources. Hover over the chart to view the number of failed policies and resources for the control category. You can view the data for the last 7, 15, 30, 60, or 90 days.
-
-[Image: The summary tab with the list of policies and alerts for compliance issues]
-
-[Image: The Compliance dashboard with annotation around one of the compliance tiles]
-
-View the policies mapped to compliance frameworks. For each policy, you can see:
-
-- **Policy Name**: The name of the policy mapped to the compliance framework.
-- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
-
-[Image: The configuration tab displaying the mapping of DSPM policies to compliance frameworks]
-
-View the list of noncompliant [resources](https://help.zscaler.com/dspm/about-data-inventory). For each resource, you can see the name of the noncompliant resource along with its additional details.
-
-[Image: The resources tab displaying the list of failed resources]
-
-View the list of noncompliant policies. For each failed policy, you can see:
-
-- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
-- **Data Stores**: The number of data stores for which the policy failed. Click to view the noncompliant policies and resources on the Findingstab with the Policy ID preselected.
-
-[Image: The policies tab displaying the list of failed policies]
-
-View the list of noncompliant policies along with the corresponding resources for the selected compliance framework. For each policy, you can see the name of the noncompliant resource along with its additional details.
-
-[Image: The findings tab displaying the list of failed policies and resources]
-
-[Image: The Compliance page with annotation around the available tabs for the selected compliance framework]
-
-[Image: The Findings tab with annotation around the common options across the compliance framework tabs]
-<!-- /ZS-ARTICLE -->
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 24
 
 ---
 
@@ -808,8 +730,8 @@ View all the associated resources, including those that do not contain any sensi
 ## Viewing the Graph for GCP Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-gcp-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for GCP Data Stores
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Graph for GCP Data Stores
 - Last modified: 2026-09-25T10:31Z
 - Summary: Information on the Resource Inventory graph that depicts the GCP data stores containing sensitive data.
 
@@ -1029,8 +951,8 @@ In this article, the **Accounts**tab is shown as an example. On the **Accounts**
 ## Viewing Onboarding Issues
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarding-issues
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing Onboarding Issues
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing Onboarding Issues
 - Last modified: 2026-10-07T09:07Z
 - Summary: Information about how to resolve issues in the cloud account.
 
@@ -1312,8 +1234,8 @@ To view the remediation details:
 ## Viewing the Resource Details
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Resource Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Resource Inventory > Resource Details > Viewing the Resource Details
 - Last modified: 2026-09-29T21:41Z
 - Summary: Information about vulnerabilities and sensitive data detected in resources and displayed in the Zscaler Admin Console.
 
@@ -1782,8 +1704,8 @@ To view the vulnerability details:
 ## What is Data Security Posture Management?
 
 - Source: https://help.zscaler.com/dspm/what-data-security-posture-management
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > What is Data Security Posture Management?
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > What is Data Security Posture Management?
 - Last modified: 2026-04-01T01:22Z
 - Summary: Information about the DSPM product and its key benefits.
 

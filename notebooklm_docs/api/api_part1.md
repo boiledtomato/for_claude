@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 87
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 89
 
 ---
 
@@ -7666,6 +7666,107 @@ Get all configured Branch Connector groups.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/browser-access-group-management","lastmod":"2026-11-05T15:43Z","nid":"1545646"} -->
+## Browser Access Group Management
+
+- Source: https://help.zscaler.com/legacy-apis/browser-access-group-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Browser Access Group Management
+- Last modified: 2026-11-05T15:43Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/browserAccessGroups`
+
+**Gets the Browser Access group details for the specified ID.**
+
+- Operation ID: `getPrivateExporterGroups`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListPrivateExporterGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<PrivateExporterGroup> | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`PrivateExporterGroup`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `city` | string | no |
+| `cityCountry` | string | no |
+| `countryCode` | string | no |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `enabled` | boolean | no |
+| `geoLocationId` | integer(int64) | no |
+| `id` | integer(int64) | no |
+| `latitude` | string | no |
+| `location` | string | no |
+| `longitude` | string | no |
+| `modifiedBy` | integer(int64) | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `nameWithoutTrim` | string | no |
+| `overrideVersionProfile` | boolean | no |
+| `privateExporters` | array<PrivateExporter> | no |
+| `readOnly` | boolean | no |
+| `restrictionType` | string | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `enrollmentCertId` | integer(int64) | no |
+| `privateCloudId` | string | no |
+| `siteName` | string | no |
+| `upgradeDay` | string | no |
+| `upgradePriority` | string (enum: WEEK, DAY, FORCE_NOW, NOW) | no |
+| `upgradeTimeInSecs` | string | no |
+| `version` | ComponentLevelVersionDTO | no |
+| `versionProfileId` | integer(int64) | no |
+| `versionProfileName` | string | no |
+| `versionProfileVisibilityScope` | string (enum: ALL, NONE, CUSTOM) | no |
+| `zscalerManaged` | boolean | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/browser-control-policy","lastmod":"2026-07-17T07:06Z","nid":"1529818"} -->
 ## Secure Browsing
 
@@ -8011,6 +8112,279 @@ Updates the Browser Protection profile for the specified customer.
 | Property | Type | Required |
 | --- | --- | --- |
 | `fingerPrintCriteria` | FingerPrintCriteria | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/business-continuity-settings","lastmod":"2026-11-05T15:42Z","nid":"1545647"} -->
+## Business Continuity Settings
+
+- Source: https://help.zscaler.com/legacy-apis/business-continuity-settings
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Business Continuity Settings
+- Last modified: 2026-11-05T15:42Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings/certificate`
+
+**Downloads the service provider certificate of the Business Continuity domain for the specified customer ID.**
+
+- Operation ID: `downloadSPCertificate`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings/{id}`
+
+**Gets the Business Continuity setting for the specified ID.**
+
+- Operation ID: `getById`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `id` | path | yes | integer(int64) | The unique identifier of the Business Continuity setting. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings/{id}`
+
+**Updates the Business Continuity setting for the specified ID.**
+
+- Operation ID: `update_1`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `id` | path | yes | integer(int64) | The unique identifier of the Business Continuity setting. |
+
+**Request body:** `application/json` → DDILConfigDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings/{id}`
+
+**Deletes the Business Continuity setting for the specified ID.**
+
+- Operation ID: `delete`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `id` | path | yes | integer(int64) | The unique identifier of the Business Continuity setting. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings`
+
+**Gets the Business Continuity setting for the specified ID.**
+
+- Operation ID: `getAllDDILConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings`
+
+**Adds a Business Continuity setting for the specified ID.**
+
+- Operation ID: `createDDILConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Request body:** `application/json` → DDILConfigDto
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/businessContinuitySettings/metadata`
+
+**Downloads the metadata information of the Business Continuity settings for a specified ID.**
+
+- Operation ID: `downloadMetaData`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`DDILConfigDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `baAuthDomainCertId` | string | no |
+| `baAuthDomainCertName` | string | no |
+| `backupBasedir` | string | no |
+| `backupEnabled` | boolean | no |
+| `backupMaxAllowedNum` | integer(int32) | no |
+| `backupScheduleType` | string | no |
+| `backupScheduleValue` | string | no |
+| `creationTime` | integer(int32) | no |
+| `encryptSamlResponse` | boolean | no |
+| `id` | string | no |
+| `idpCert` | string | no |
+| `idpEntityId` | string | no |
+| `idpLoginUrl` | string | no |
+| `maxAllowedDownTime` | integer(int64) | no |
+| `maxAllowedDownTimeUnit` | string (enum: SECONDS, MINUTES, HOURS, DAYS) | no |
+| `maxAllowedSwitchTime` | integer(int64) | no |
+| `maxAllowedSwitchTimeUnit` | string (enum: SECONDS, MINUTES, HOURS, DAYS) | no |
+| `metaData` | ServiceProvider | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `newUserSupport` | boolean | no |
+| `offlineDomain` | string | no |
+| `readOnly` | boolean | no |
+| `restrictionType` | string | no |
+| `siteSPCertId` | string | no |
+| `siteSPCertName` | string | no |
+| `sitecPreferred` | boolean | no |
+| `sitespCACertificate` | string | no |
+| `sitespCAPrivateKey` | string | no |
+| `sitespCertificate` | string | no |
+| `sitespEncryptionCertificate` | string | no |
+| `sitespPrivateKey` | string | no |
+| `sitespSigningCertificate` | string | no |
+| `sitespSigningPrivateKey` | string | no |
+| `switchTimeEnabled` | boolean | no |
+| `useExistingIdp` | boolean | no |
+| `userIdpsMetaData` | array<ServiceProvider> | no |
+| `zscalerManaged` | boolean | no |
+
+**`ServiceProvider`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `spEntityId` | string | no |
+| `spPostUrl` | string | no |
+| `certificateUrl` | string | no |
+| `spMetadataUrl` | string | no |
+| `spBaseUrl` | string | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9702,13 +10076,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-01T06:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-08T06:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

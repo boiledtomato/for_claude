@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 28
 
 ---
@@ -1385,7 +1385,9 @@ See image.
 - Last modified: 2026-09-18T02:33Z
 - Summary: Introductory information about Zscaler  Deception and its cloud-based infrastructure.
 
-Zscaler Deception is a simple, faster, and more effective targeted threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats that consistently bypass traditional defenses, such as advanced persistent threats (APT), exploits, reconnaissance, lateral movement, active directory, supply chain, human-operated ransomware, supervisory control and data acquisition (SCADA), and industrial control system (ICS) attacks.
+Zscaler Deception is a simple, faster, and more effective threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats such as agentic attackers, advanced persistent threats (APTs), zero-day exploits, reconnaissance, lateral movement, and human-operated ransomware.
+
+By embedding these traps, the platform safeguards critical attack surfaces such as Active Directory, the software supply chain, and industrial control systems (SCADA/ ICS).
 
 As an integral part of the Zscaler Zero Trust Exchange, Deception integrates with Zero Trust, tracking the full attack sequence and initiating automated response actions across the Zscaler platform. To learn more, see [Zscaler Deception Overview](https://www.zscaler.com/products/deception-technology).
 

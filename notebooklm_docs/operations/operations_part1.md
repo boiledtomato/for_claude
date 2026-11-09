@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 94
 
 ---
@@ -647,13 +647,13 @@ Announcement date: August 30, 2026
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-cloud-connector-deployments","lastmod":"2026-09-08T08:18Z","nid":"1543209"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/end-support-zsos24-cloud-connector-deployments","lastmod":"2026-11-07T06:06Z","nid":"1543209"} -->
 ## End-of-Support for ZscalerOS 24 for Cloud Connector Deployments
 
 - Source: https://help.zscaler.com/product-usage-terms/end-support-zsos24-cloud-connector-deployments
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > EOS & EOL Announcements > End-of-Support for ZscalerOS 24 for Cloud Connector Deployments
-- Last modified: 2026-09-08T08:18Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: End-of-Support (EOS) for ZscalerOS 24 on Amazon Web Services, Microsoft Azure, and Google Cloud Platform Cloud Connector deployments.
 
 Zscaler deployments with ZscalerOS 24 and earlier are no longer supported on Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). If your organization is running a Cloud Connector deployment with ZscalerOS 24 or earlier, migrate to ZscalerOS 42 or higher by November 30, 2026 to ensure service continuity. No action is required for customers with Cloud Connectors running ZscalerOS 42.
@@ -1269,8 +1269,8 @@ As LTS is chosen from existing versions, the next LTS is a version already avail
 ## Access Denied Due to Bad Server Certificate
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/access-denied-due-bad-server-certificate
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Access Denied Due to Bad Server Certificate
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Access Denied Due to Bad Server Certificate
 - Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies deny a URL due to a bad server certificate.
 
@@ -1459,8 +1459,8 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 ## Block Policy Configured but Access Gets Allowed
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/block-policy-configured-access-gets-allowed
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Block Policy Configured but Access Gets Allowed
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Block Policy Configured but Access Gets Allowed
 - Last modified: 2026-10-13T07:06Z
 - Summary: This runbook articles describes how to determine and what steps to take when a block policy is configured but access is allowed anyway.
 
@@ -1552,8 +1552,8 @@ If none of these steps help, submit a case to [Zscaler Support](https://help.zsc
 ## Blocked Due to Bad SSL Record
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/blocked-due-bad-ssl-record
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Blocked Due to Bad SSL Record
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Blocked Due to Bad SSL Record
 - Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies deny a URL due to a bad SSL record.
 
@@ -1671,8 +1671,8 @@ The Zscaler Engineering team is working on providing a solution to control these
 ## Cloud App: Block Action Is Configured for One Activity but All Activities Get Allowed as Confirmed by the Web Logs
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/cloud-app-block-action-configured-one-activity-all-activities-get-allowed-confirmed-web-logs
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Cloud App: Block Action Is Configured for One Activity but All Activities Get Allowed as Confirmed by the Web Logs
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Cloud App: Block Action Is Configured for One Activity but All Activities Get Allowed as Confirmed by the Web Logs
 - Last modified: 2026-10-13T07:06Z
 - Summary: This help article describes how to determine if a Block action is configured for one activity, but all activities get allowed as Confirmed by the Web logs.
 
@@ -1961,8 +1961,8 @@ Sometimes, the correct category gets selected for policy enforcement, but a diff
 ## How to Test Whether a Website Works with the XFF Header
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-test-if-website-does-not-work-xff-header
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Test Whether a Website Works with the XFF Header
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Test Whether a Website Works with the XFF Header
 - Last modified: 2026-10-13T07:06Z
 - Summary: X-Forwarded-For is an HTTP header. This header indicates to the destination web server that the web request is forwarded by a proxy on behalf of another IP. If the website is accessible only when SSL inspection is disabled, verify whether the website works well with the XFF header.
 
@@ -2046,8 +2046,8 @@ Because XFF is a standard header, most web applications should fix their logic t
 ## How to Validate the SSL Configuration of a Web Server
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-validate-ssl-configuration-web-server
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Validate the SSL Configuration of a Web Server
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Validate the SSL Configuration of a Web Server
 - Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes how to validate the SSL configuration of a web server.
 
@@ -2260,8 +2260,8 @@ Alternatively, if remote assistance cannot be enabled, download the Web Insights
 ## Internet & SaaS DLP Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-dlp-policies-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS DLP Policies Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS DLP Policies Support Troubleshooting Runbook
 - Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS Data Loss Prevention (DLP) policies.
 
@@ -2578,8 +2578,8 @@ At this point, you can compile the issue summary with the data and open a suppor
 ## Internet & SaaS File Type Control Policy Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-filetype-control-policy-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS File Type Control Policy Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS File Type Control Policy Support Troubleshooting Runbook
 - Last modified: 2026-08-17T07:06Z
 - Summary: The Internet & SaaS File Type Control Policy Support Troubleshooting Runbook provides step-by-step troubleshooting instructions for resolving common File Type Control issues encountered in Internet & SaaS.
 
@@ -4594,8 +4594,8 @@ Provide the following data:
 ## Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-traffic-forwarding-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook
 - Last modified: 2026-10-08T11:25Z
 - Summary: The Internet & SaaS Traffic Forwarding Support Troubleshooting Runbook outlines troubleshooting steps for Internet & SaaS traffic forwarding performance issues.
 
@@ -5198,8 +5198,8 @@ Note that Zscaler supports up to 8 Security Protection Data per direction, and a
 ## Not Allowed to Browse this Category
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/not-allowed-browse-category
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Browse this Category
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Browse this Category
 - Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes what to do if you get a message saying that Zscaler blocked the site because its content falls into a category that your organization has restricted.
 
@@ -5286,8 +5286,8 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 ## Not Allowed to Use HTTP Tunnel
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/not-allowed-use-http-tunnel
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Use HTTP Tunnel
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Not Allowed to Use HTTP Tunnel
 - Last modified: 2026-10-13T07:06Z
 - Summary: This runbook describes how to deal with URLs when they they are rejected by a policy action due to a Not allowed to user HTTP tunnel response.
 
@@ -7653,8 +7653,8 @@ Compile all the relevant collected data and open a support case with [Zscaler Su
 ## Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/zscaler-client-connector-traffic-forwarding-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook
 - Last modified: 2026-08-05T21:06Z
 - Summary: The Zscaler Client Connector Traffic Forwarding Support Troubleshooting Runbook assists customers in identifying and resolving common Zscaler Client Connector issues and errors. It serves as a guide to troubleshoot problems, minimize downtime, and restore connectivity independently.
 
@@ -12351,13 +12351,13 @@ To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-09-16T06:37Z","nid":"1418066"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-admin-assignments","lastmod":"2026-11-08T06:06Z","nid":"1418066"} -->
 ## Managing Admin Assignments
 
 - Source: https://help.zscaler.com/workflow-automation/managing-admin-assignments
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Admin Assignments
-- Last modified: 2026-09-16T06:37Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: How to manage admin assignments in Workflow Automation.
 
 You provision admins in the Zscaler Admin Console with either full or restricted workflow access permission to Workflow Automation. An admin with full workflow access can access certain incident groups or all incident groups based on their assignment. An admin with restricted workflow access is restricted to certain incident groups in Workflow Automation. To learn more, see [Adding Admin Roles](https://help.zscaler.com/zia/adding-admin-roles) and [Adding ZIA Admins.](https://help.zscaler.com/zia/adding-zia-admins)
@@ -13384,13 +13384,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-01T06:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-08T06:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

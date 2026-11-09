@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 65
 
 ---
@@ -232,18 +232,20 @@ The **Troubleshoot** section includes the following features on Linux devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:25Z","nid":"1546663"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui","lastmod":"2026-11-05T07:37Z","nid":"1546663"} -->
 ## Troubleshooting Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Troubleshooting Zscaler Client Connector in the Modern UI
-- Last modified: 2026-10-07T10:25Z
+- Last modified: 2026-11-05T07:37Z
 - Summary: Information on the Troubleshooting window of Zscaler Client Connector.
 
-This article details the **Troubleshooting** page features of Zscaler Client Connector on different OSs:
+This article details the Troubleshooting page features of Zscaler Client Connector on different OSs:
 
 - Windows
+- Android
+- Android on ChromeOS
 
 The **Troubleshooting** page includes the following features on Windows devices:
 
@@ -274,6 +276,58 @@ This section displays the following log options:
   - **Debug:** Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
 
 [Image: Select options in the Logs section in the Troubleshooting window on Zscaler Client Connector]
+
+## Actions
+
+The Troubleshooting page includes the following features on Android devices:
+
+- **Restart Service**: Tap **Restart**to restart the app. Restarting does not impact security enforcement. However, you can tap **Restart Service** only once within a 30-second period.
+- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue.
+- **Packet Capture**: If your organization's admin enabled packet capture, tap **Start**to use this feature when reproducing an issue. To learn more, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
+- **Certificate Installation**: Tap **Install**to install the Zscaler root or custom root certificate.
+
+[Image: Actions you can perform on the Zscaler Client Connector Troubleshooting screen for Android devices]
+
+## Troubleshooting
+
+This section displays the following log options:
+
+- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Clear Logs**: Tap **Clear**to clear stored logs.
+- **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
+  - **Error**: Logs only when the app encounters an error and functionality is affected.
+  - **Warn**: Logs when the app is functioning but is encountering potential issues or when conditions for the Error log mode are met.
+  - **Info**: Logs general app activity or when conditions for the Warn log mode are met.
+  - **Debug**: Logs all app activity that could assist Zscaler Support in debugging issues or when conditions for the info log mode are met.
+  - **Verbose**: Logs when invoked by some external events (e.g., Firebase Push Notification or Mobile Manager flags).
+
+[Image: Managing Logs on the Zscaler Client Connector Troubleshooting screen for Android devices]
+
+The Troubleshooting page includes the following features on Android on ChromeOS devices:
+
+## Actions
+
+- **Restart Service**: Click or tap **Restart**to restart the app. Restarting does not impact security enforcement. However, you can click or tap **Restart Service** only once within a 30-second period.
+- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue.
+- **Packet Capture**: If your organization's admin enabled packet capture, click or tap **Start**to use this feature when reproducing an issue. To learn more, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
+- **Certificate Installation**: Click or tap **Install** to install the Zscaler root or custom root certificate.
+
+[Image: Actions you can perform on the Zscaler Client Connector Troubleshooting screen for ChromeOS devices]
+
+## Troubleshooting
+
+This section displays the following troubleshooting information:
+
+- **Export Logs**: Click or tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Clear Logs**: Click or tap **Clear**to clear stored logs.
+- **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
+  - **Error**: Logs only when the app encounters an error and functionality is affected.
+  - **Warn**: Logs when the app is functioning but is encountering potential issues or when conditions for the Error log mode are met.
+  - **Info**: Logs general app activity or when conditions for the Warn log mode are met.
+  - **Debug**: Logs all app activity that could assist Zscaler Support in debugging issues or when conditions for the info log mode are met.
+  - **Verbose**: Logs when invoked by some external events (e.g., Firebase Push Notification or Mobile Manager flags).
+
+[Image: Managing Logs on the Zscaler Client Connector Troubleshooting screen for ChromeOS devices]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1024,13 +1078,13 @@ Zscaler Client Connector for iOS 1.5.3 is available for download from the iTunes
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-10-23T13:30Z","nid":"1477906"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-webview2-authentication","lastmod":"2026-11-06T20:06Z","nid":"1477906"} -->
 ## Using WebView2 Authentication
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-webview2-authentication
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Platform and Authentication Management > Using WebView2 Authentication
-- Last modified: 2026-10-23T13:30Z
+- Last modified: 2026-11-06T20:06Z
 - Summary: Information about how to enable WebView2 in Zscaler Client Connector.
 
 If your organization uses advanced multi-factor authentication (MFA) for SAML or FIDO2 (Fast Identity Online 2), your users can authenticate using WebView2 in their embedded browser. Zscaler Client Connector still manages traffic for Internet & SaaS and provides access to applications through Private Access.
@@ -1477,13 +1531,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-10-23T16:51Z","nid":"1392841"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-11-06T16:32Z","nid":"1392841"} -->
 ## Using the Zscaler Notification Framework
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-notification-framework
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Notifications > Using the Zscaler Notification Framework
-- Last modified: 2026-10-23T16:51Z
+- Last modified: 2026-11-06T16:32Z
 - Summary: Information on the Zscaler Notifications Framework for Zscaler Client Connector.
 
 This article provides an overview of the Zscaler Notification Framework that, when enabled, overrides the Windows-based and macOS-based notification systems. Only administrators can enable and disable the Zscaler Notification Framework in the Zscaler Admin Console.
@@ -1503,14 +1557,14 @@ This feature is required for Data Loss Prevention (DLP) notifications. To learn 
 
 To enable the Zscaler Notification Framework on Windows devices:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **Windows**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **Windows**.
 2. On the **App Profiles** tab, click **Add Windows Policy**. The **Add Windows Policy** window appears.
 3. In the **Add Windows Policy** window, enable **Use Zscaler Notification Framework**. [Image: Use Zscaler Notification Framework option]
 4. Click **Save**.
 
 To enable the Zscaler Notification Framework on macOS devices:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **macOS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > **macOS**.
 2. On the **App Profiles** tab, click **Add macOS Policy**. The **Add macOS Policy** window appears.
 3. In the **Add macOS Policy** window, enable **Use Zscaler Notification Framework**. [Image: Use Zscaler Notification Framework option]
 4. Click **Save**.
@@ -1546,13 +1600,13 @@ To verify access to applications:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-10-23T17:05Z","nid":"1529195"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades","lastmod":"2026-11-06T20:06Z","nid":"1529195"} -->
 ## Viewing and Configuring ZDX Module Upgrades
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-and-configuring-zdx-module-upgrades
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Store Settings > Viewing and Configuring ZDX Module Upgrades
-- Last modified: 2026-10-23T17:05Z
+- Last modified: 2026-11-06T20:06Z
 - Summary: How to view and schedule ZDX Module upgrades
 
 If you use Digital Experience (ZDX), Zscaler regularly releases new versions of the base ZDX Module that are compatible with Zscaler Client Connector for Windows and Zscaler Client Connector for macOS. Zscaler Client Connector automatically rolls out the latest version. You can configure a delayed rollout to apply a version to selected user groups for testing purposes for up to 180 days.
@@ -2012,20 +2066,22 @@ This section displays the following troubleshooting information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui","lastmod":"2026-10-08T15:51Z","nid":"1546661"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui","lastmod":"2026-11-04T16:36Z","nid":"1546661"} -->
 ## Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
-- Last modified: 2026-10-08T15:51Z
+- Last modified: 2026-11-04T16:36Z
 - Summary: Information on the Digital Experience window on Zscaler Client Connector.
 
-This article provides an overview of the Digital Experience window of Zscaler Client Connector. This window features connectivity information and troubleshooting options for [Digital Experience](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience).
+This article provides an overview of the Digital Experience screen of Zscaler Client Connector. This screen features connectivity information and troubleshooting options for [Digital Experience](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience).
 
 - Windows
+- Android
+- Android on ChromeOS
 
-For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
+For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector).
 
 ## Connectivity
 
@@ -2047,17 +2103,58 @@ This section displays the following troubleshooting information:
 - **Restart ZDX Services**: Click **Restart** to restart the core services for Digital Experience monitoring.
 
 [Image: Perform Troubleshooting actions in the Digital Experience window]
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (ZDX) service while remaining logged in to the app. A password might be required if configured by your IT admin. The Digital Experience service is disabled until you tap **Turn On**.
+- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **ZDX Service Version**: Displays the Digital Experience version your organization is using.
+- **Server**: Displays the IP Address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Digital Experience screen on Android]
+
+## Troubleshooting
+
+This section displays the following troubleshooting information:
+
+- **Clear ZDX Data**: Tap **Clear** to remove historical data collected by Digital Experience.
+- **Restart ZDX Services**: Tap **Restart** to restart the core services for Digital Experience monitoring. You can tap **Restart** only once within a 30-second period. Applies to Zscaler Client Connector version 3.8 and later for Android.
+
+[Image: Troubleshooting details on the Digital Experience screen on Android]
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Click or tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (ZDX) service while remaining logged in to the app. The Digital Experience service is disabled until you click or tap **Turn On**.
+- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **ZDX Service Version**: Displays the ZDX version your organization is using. **Server**: Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Digital Experience screen on Android on ChromeOS]
+
+## Troubleshooting
+
+This section displays the following troubleshooting information:
+
+- **Clear ZDX Data**: Click or tap **Clear** to remove historical data collected by Digital Experience.
+- **Restart ZDX Services**: Click or tap to restart the ZDX service. You can tap **Restart**only once within a 30-second period. Applies to Zscaler Client Connector version 3.8 and later for Android on ChromeOS.
+
+[Image: Troubleshooting section on the Digital Experience screen on Android on ChromeOS]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui","lastmod":"2026-10-07T10:23Z","nid":"1546639"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui","lastmod":"2026-11-04T16:24Z","nid":"1546639"} -->
 ## Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
-- Last modified: 2026-10-07T10:23Z
+- Last modified: 2026-11-04T16:24Z
 - Summary: Information on the Internet & SaaS page of the Zscaler Client Connector in the Modern UI
 
 This article provides an overview of the **Internet & SaaS** (ZIA) window on Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
@@ -2615,13 +2712,13 @@ The following is a sample screenshot from the Windows platform. The screen might
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui","lastmod":"2026-10-22T13:09Z","nid":"1464141"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui","lastmod":"2026-11-05T20:06Z","nid":"1464141"} -->
 ## Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-zscaler-endpoint-dlp-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Viewing Information About Zscaler Endpoint DLP on Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-22T13:09Z
+- Last modified: 2026-11-05T20:06Z
 - Summary: Information on the Data Protection page on Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -3635,13 +3732,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-01T06:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-08T06:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -4001,13 +4098,13 @@ Authorized users can enter a One-Time Password (OTP) to disable the Endpoint DLP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios","lastmod":"2026-10-23T15:58Z","nid":"1533920"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios","lastmod":"2026-11-06T20:06Z","nid":"1533920"} -->
 ## Zscaler Services Inaccessible After Upgrading to Zscaler Client Connector versions 4.4 and 4.4.1 for iOS
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-services-inaccessible-after-upgrading-zscaler-client-connector-versions-4-4-and-4-4-1-ios
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Troubleshooting > Zscaler Services Inaccessible After Upgrading to Zscaler Client Connector versions 4.4 and 4.4.1 for iOS
-- Last modified: 2026-10-23T15:58Z
+- Last modified: 2026-11-06T20:06Z
 - Summary: Describes a known issue where access to Zscaler services was lost after upgrading to version 4.4 or 4.4.1 for iOS
 
 Zscaler Client Connector versions 4.4 and 4.4.1 for iOS have a known issue that might cause users to lose access to Zscaler services, e.g., Internet & SaaS, Private Access, and Digital Experience (ZDX).

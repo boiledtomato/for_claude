@@ -1,8 +1,8 @@
 # Zscaler Help — Data Security — DSPM (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 176
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 177
 
 ---
 
@@ -10,8 +10,8 @@ Articles in this file: 176
 ## About Access Roles
 
 - Source: https://help.zscaler.com/dspm/about-access-roles
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Role Management > About Access Roles
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Role Management > About Access Roles
 - Last modified: 2026-09-29T06:27Z
 - Summary: Information about access roles in the Zscaler Admin Console.
 
@@ -107,8 +107,8 @@ On the Action Rules page (Data Security > DSPM > Action Rules), you can do the f
 ## About Alert Notifications
 
 - Source: https://help.zscaler.com/dspm/about-alert-notifications
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Notification Rules > About Alert Notifications
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Alerts > Alert Notification Rules > About Alert Notifications
 - Last modified: 2026-10-07T09:17Z
 - Summary: Information on the DSPM alert notification rule in the Zscaler Admin Console.
 
@@ -158,8 +158,8 @@ On the Alert Notifications page (Data Security > DSPM > Alert Notifications), yo
 ## About Alerts
 
 - Source: https://help.zscaler.com/dspm/about-alerts
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Alerts > About Alerts
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Alerts > About Alerts
 - Last modified: 2026-10-07T08:50Z
 - Summary: Information about DSPM alerts.
 
@@ -239,8 +239,8 @@ On the All Alerts tab, you can do the following:
 ## About Business Units
 
 - Source: https://help.zscaler.com/dspm/about-business-units
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Role Management > About Business Units
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Role Management > About Business Units
 - Last modified: 2026-09-29T06:28Z
 - Summary: Information about business units in the Zscaler Admin Console.
 
@@ -336,13 +336,13 @@ On the Cloud Accounts page (Data Security > DSPM> Cloud Accounts), you can do th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-compliance","lastmod":"2026-09-23T21:25Z","nid":"1514301"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-compliance","lastmod":"2026-11-08T06:06Z","nid":"1514301"} -->
 ## About Compliance
 
 - Source: https://help.zscaler.com/dspm/about-compliance
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Compliance > About Compliance
-- Last modified: 2026-09-23T21:25Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Compliance > About Compliance
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about the Compliance dashboard displayed in the Zscaler Admin Console.
 
 Compliance refers to the security measures and guidelines that are implemented to comply with the industry-specific security frameworks and regulations such as GDPR, HIPAA, PCI, etc. DSPM detects policies and DLP engines that fail to comply with the frameworks. This information helps you to resolve the issues and ensure your data is compliant with regulatory standards.
@@ -568,13 +568,13 @@ On the Policy page (Data Security > DSPM > Data Posture Policies), you can do th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-dspm-integrations","lastmod":"2026-09-17T02:11Z","nid":"1474786"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-dspm-integrations","lastmod":"2026-11-08T06:06Z","nid":"1474786"} -->
 ## About DSPM Integrations
 
 - Source: https://help.zscaler.com/dspm/about-dspm-integrations
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > About DSPM Integrations
-- Last modified: 2026-09-17T02:11Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > DSPM Integrations > About DSPM Integrations
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about integrating DSPM with cloud storage services, ITSM, and ChatOps tools.
 
 Integrations allow DSPM to share findings (alerts) with other tools in your organization's ecosystem. Common integrations include cloud storage services used for external backup, audit storage, or intermediate storage for SIEM/SOAR tools. ITSM tools where DSPM findings are maintained as issues, incidents, or tickets for internal workflows, and ChatOps tools that enable faster communication of these issues across stakeholder teams.
@@ -721,8 +721,8 @@ For each evidence rule, you can view the following details:
 ## About Identity Inventory
 
 - Source: https://help.zscaler.com/dspm/about-identity-inventory
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About Identity Inventory
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Data & Identity Inventory > About Identity Inventory
 - Last modified: 2026-09-29T17:03Z
 - Summary: Information about the Identity Inventory, which lists all identities within the cloud environment, along with details about the type and number of data stores that a user has access to.
 
@@ -863,8 +863,8 @@ On the Investigation page (Data Security > DSPM > Investigation), you can do the
 ## About On-Premises Data Centers
 
 - Source: https://help.zscaler.com/dspm/about-on-premises-data-centers
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > About On-Premises Data Centers
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > About On-Premises Data Centers
 - Last modified: 2026-10-12T02:21Z
 - Summary: Information about on-premises data centers in the Zscaler Admin Console.
 
@@ -917,13 +917,13 @@ For each data center, you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/about-premises-scanner-integrations","lastmod":"2026-09-17T01:54Z","nid":"1532039"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/about-premises-scanner-integrations","lastmod":"2026-11-08T06:06Z","nid":"1532039"} -->
 ## About On-Premises Scanner Integrations
 
 - Source: https://help.zscaler.com/dspm/about-premises-scanner-integrations
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Scanners > About On-Premises Scanner Integrations
-- Last modified: 2026-09-17T01:54Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > On-Premises Data Centers and Scanners > On-Premises Scanners > About On-Premises Scanner Integrations
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about on-premises scanner integrations in the Zscaler Admin Console.
 
 DSPM provides support to integrate the on-premises scanners deployed in your organization's network and use them to scan the data stored in on-premises systems such as file servers and unmanaged resources. On-premises scanners provide direct access to internal data sources, enabling granular visibility into sensitive data and maintaining the data security posture across hybrid environments by extending scanning capabilities to internal systems.
@@ -1645,8 +1645,8 @@ For each database server, you can view:
 ## About the Data Inventory
 
 - Source: https://help.zscaler.com/dspm/about-the-data-inventory
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > About the Data Inventory
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Data & Identity Inventory > About the Data Inventory
 - Last modified: 2026-09-29T17:00Z
 - Summary: Information about Data Inventory in DSPM.
 
@@ -2205,8 +2205,8 @@ By default, the **All DLP Engines** option is selected.
 ## Adding and Managing Custom Roles
 
 - Source: https://help.zscaler.com/dspm/adding-and-managing-custom-roles
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Role Management > Adding and Managing Custom Roles
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Role Management > Adding and Managing Custom Roles
 - Last modified: 2026-09-29T06:27Z
 - Summary: Information about how to add a custom role in the Zscaler Admin Console.
 
@@ -2306,8 +2306,8 @@ To add Azure target subscriptions:
 ## Adding a Custom Compliance Framework
 
 - Source: https://help.zscaler.com/dspm/adding-custom-compliance-framework
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Compliance > Adding a Custom Compliance Framework
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Compliance > Adding a Custom Compliance Framework
 - Last modified: 2026-09-28T05:37Z
 - Summary: How to create a custom compliance framework in the Zscaler Admin Console.
 
@@ -2694,8 +2694,8 @@ On the **Apply Changes** tab:
 ## Adding GCP Target Projects
 
 - Source: https://help.zscaler.com/dspm/adding-gcp-target-projects
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Project > Adding GCP Target Projects
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > GCP Cloud Accounts > GCP Project > Adding GCP Target Projects
 - Last modified: 2026-10-07T09:05Z
 - Summary: Information on how to add GCP target projects.
 
@@ -2824,8 +2824,8 @@ By default, the **All DLP Engines** option is selected.
 ## Adding an LDAP Server
 
 - Source: https://help.zscaler.com/dspm/adding-ldap-server
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Service Registration > LDAP Servers > Adding an LDAP Server
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Service Registration > LDAP Servers > Adding an LDAP Server
 - Last modified: 2026-09-28T00:40Z
 - Summary: Information on how to add an LDAP servers in the Zscaler Admin Console.
 
@@ -3067,8 +3067,8 @@ To add custom tags:
 ## Adding Organization Details
 
 - Source: https://help.zscaler.com/dspm/adding-organization-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Adding Organization Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Adding Organization Details
 - Last modified: 2026-10-07T08:54Z
 - Summary: Information about adding AWS organization details in the Zscaler Admin Console.
 
@@ -3680,8 +3680,8 @@ DSPM alerts can have the following status:
 ## Changing AWS CloudTrail Details
 
 - Source: https://help.zscaler.com/dspm/changing-aws-cloudtrail-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > CloudTrail > Changing AWS CloudTrail Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > CloudTrail > Changing AWS CloudTrail Details
 - Last modified: 2026-10-07T08:58Z
 - Summary: Information about how to change CloudTrail details in the Zscaler Admin Console.
 
@@ -3946,8 +3946,8 @@ To copy the access keys:
 ## Changing an AWS Orchestrator Account
 
 - Source: https://help.zscaler.com/dspm/changing-aws-orchestrator-account
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Changing an AWS Orchestrator Account
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Changing an AWS Orchestrator Account
 - Last modified: 2026-10-07T08:55Z
 - Summary: Information on how to change an orchestrator account to a different one for AWS in the Zscaler Admin Console.
 
@@ -4276,8 +4276,8 @@ See image.
 ## Configuring the AWS Network
 
 - Source: https://help.zscaler.com/dspm/configuring-aws-network
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Custom Network Configuration > Configuring the AWS Network
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Custom Network Configuration > Configuring the AWS Network
 - Last modified: 2026-10-07T09:05Z
 - Summary: How to configure the AWS network and allow DSPM to scan data in the AWS resources.
 
@@ -5636,8 +5636,8 @@ Open the `kadmin.local` session and run the prompts in the Kerberos Admin Shell:
 ## Configuring Scan Rule for AWS Cloud Storage
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-cloud-storage
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Cloud Storage
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Cloud Storage
 - Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for AWS cloud storage resources in the Zscaler Admin Console.
 
@@ -6019,8 +6019,8 @@ If a full scan is already initiated or completed, the DynamoDB tables are exclud
 ## Configuring Scan Rule for AWS Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-aws-unmanaged-databases
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Unmanaged Databases
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for AWS > Configuring Scan Rule for AWS Unmanaged Databases
 - Last modified: 2026-09-30T21:49Z
 - Summary: How to configure the scan rule for AWS unmanaged databases in the Zscaler Admin Console.
 
@@ -6409,8 +6409,8 @@ To configure a scan rule for Databricks workspaces, complete the following steps
 ## Configuring Scan Rule for Azure File Shares
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-file-shares
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure File Shares
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure File Shares
 - Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure File Shares in the Zscaler Admin Console.
 
@@ -6615,8 +6615,8 @@ If a full scan is already initiated or completed, the databases are excluded in 
 ## Configuring Scan Rule for Azure NoSQL Data Stores
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-nosql-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure NoSQL Data Stores
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure NoSQL Data Stores
 - Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure NoSQL data stores (CosmosDB) in the Zscaler Admin Console.
 
@@ -6887,8 +6887,8 @@ To configure a scan rule for Azure unmanaged databases, complete the following s
 ## Configuring Scan Rule for Azure Virtual Machines
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-azure-virtual-machines
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Virtual Machines
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Azure Virtual Machines
 - Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Azure virtual machines in the Zscaler Admin Console.
 
@@ -7432,8 +7432,8 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 ## Configuring Scan Rule for Microsoft Foundry
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-microsoft-foundry
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Microsoft Foundry
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Scan Rules for Azure > Configuring Scan Rule for Microsoft Foundry
 - Last modified: 2026-09-30T21:56Z
 - Summary: How to configure the scan rule for Microsoft Foundry in the Zscaler Admin Console.
 
@@ -7608,8 +7608,8 @@ To configure a scan rule for on-premises file servers, complete the following st
 ## Configuring Scan Rule for On-Premises Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-scan-rule-premises-unmanaged-databases
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Configuring Scan Rule for On-Premises Unmanaged Databases
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Configuring Scan Rule for On-Premises Unmanaged Databases
 - Last modified: 2026-09-30T21:36Z
 - Summary: How to configure the scan rule for on-premises unmanaged databases in the Zscaler Admin Console.
 
@@ -7818,8 +7818,8 @@ After creating a scan scope, you can apply the scan scope while configuring a sc
 ## Configuring Server Role for Unmanaged Databases
 
 - Source: https://help.zscaler.com/dspm/configuring-sql-authentication-unmanaged-databases
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Service Registration > Unmanaged Databases > Configuring Server Role for Unmanaged Databases
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Service Registration > Unmanaged Databases > Configuring Server Role for Unmanaged Databases
 - Last modified: 2026-09-24T01:36Z
 - Summary: The process of creating a custom server reader role and granting access to users to read data from the unmanaged databases.
 
@@ -8019,13 +8019,13 @@ GO
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/configuring-workspace","lastmod":"2026-09-20T21:29Z","nid":"1542761"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/configuring-workspace","lastmod":"2026-11-07T06:06Z","nid":"1542761"} -->
 ## Configuring the Workspace
 
 - Source: https://help.zscaler.com/dspm/configuring-workspace
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Service Registration > Databricks > Configuring the Workspace
-- Last modified: 2026-09-20T21:29Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Service Registration > Databricks > Configuring the Workspace
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to configure the Databricks workspace in the Zscaler Admin Console.
 
 After [adding the Databricks workspace](https://help.zscaler.com/dspm/adding-databricks-workspace-or-account) in the Zscaler Admin Console, and obtaining the permission script, run the script to complete the integration:
@@ -8481,8 +8481,8 @@ The Has Data predicate can be used to check if the resource contains sensitive d
 ## Customizing Page Settings
 
 - Source: https://help.zscaler.com/dspm/customizing-page-settings
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Data & Identity Inventory > Customizing Page Settings
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Data & Identity Inventory > Customizing Page Settings
 - Last modified: 2026-09-29T17:13Z
 - Summary: How to customize the page views in DSPM.
 
@@ -9133,8 +9133,8 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 ## Deploying the Orchestrator Template
 
 - Source: https://help.zscaler.com/dspm/deploying-orchestrator-template
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Deploying the Orchestrator Template
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Deploying the Orchestrator Template
 - Last modified: 2026-10-07T08:57Z
 - Summary: Information about how to deploy the orchestrator template for a standalone AWS account.
 
@@ -9429,8 +9429,8 @@ Run the following commands:
 ## Disabling the Sensitivity Settings for DLP Engines
 
 - Source: https://help.zscaler.com/dspm/disabling-sensitivity-setting-dlp-engines
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Data Classification Settings > Disabling the Sensitivity Settings for DLP Engines
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Data Classification Settings > Disabling the Sensitivity Settings for DLP Engines
 - Last modified: 2026-09-25T11:23Z
 - Summary: How to disable the data sensitivity setting for DLP engines specific to DSPM.
 
@@ -9664,8 +9664,8 @@ To delete an integration:
 ## Editing or Deleting an Investigation
 
 - Source: https://help.zscaler.com/dspm/editing-or-deleting-investigation
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Investigation > Editing or Deleting an Investigation
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Investigation > Editing or Deleting an Investigation
 - Last modified: 2026-10-04T22:17Z
 - Summary: How to edit or delete and investigation in the Zscaler Admin Console.
 
@@ -11108,8 +11108,8 @@ You can integrate DSPM with the following cloud storage services:
 ## Integrating DSPM with ITSM Tools
 
 - Source: https://help.zscaler.com/dspm/integrating-dspm-itsm-tools
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > DSPM Integrations > ITSM Tools > Integrating DSPM with ITSM Tools
 - Last modified: 2026-09-17T02:15Z
 - Summary: Information on integrating DSPM with various ITSM tools.
 
@@ -11133,8 +11133,8 @@ DSPM supports connection with the following ITSM tools:
 ## Integrating with Jira
 
 - Source: https://help.zscaler.com/dspm/integrating-jira
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating with Jira
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > DSPM Integrations > ITSM Tools > Integrating with Jira
 - Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with Jira and send alert notifications.
 
@@ -11224,8 +11224,8 @@ The integration is added, and the details are displayed on the **Integrations** 
 ## Integrating with ServiceNow
 
 - Source: https://help.zscaler.com/dspm/integrating-servicenow
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > DSPM Integrations > ITSM Tools > Integrating with ServiceNow
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > DSPM Integrations > ITSM Tools > Integrating with ServiceNow
 - Last modified: 2026-09-17T02:11Z
 - Summary: How to integrate DSPM with ServiceNow and send alert notifications.
 
@@ -12688,8 +12688,8 @@ To change the policy severity:
 ## Managing an On-Premises Data Center
 
 - Source: https://help.zscaler.com/dspm/managing-premises-data-center
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > Managing an On-Premises Data Center
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > On-Premises Data Centers and Scanners > On-Premises Data Centers > Managing an On-Premises Data Center
 - Last modified: 2026-09-17T21:14Z
 - Summary: Information about how to manage an on-premises data center in the Zscaler Admin Console
 
@@ -12787,8 +12787,8 @@ The on-premises data center is deleted from the Zscaler Admin Console.
 ## Managing Regions
 
 - Source: https://help.zscaler.com/dspm/managing-regions
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Regions
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Regions
 - Last modified: 2026-10-07T09:10Z
 - Summary: Information about how to manage regions in the Zscaler Admin Console.
 
@@ -12920,8 +12920,8 @@ To delete a SaaS tenant:
 ## Managing Services
 
 - Source: https://help.zscaler.com/dspm/managing-services
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Services
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Managing Services
 - Last modified: 2026-10-07T09:09Z
 - Summary: Information about how to manage AWS, Azure, or GCP services that must be monitored and scanned in the Zscaler Admin Console.
 
@@ -14609,8 +14609,8 @@ To assign the Key Vault Administrator role:
 ## Onboarding a Standalone AWS Account
 
 - Source: https://help.zscaler.com/dspm/onboarding-standalone-aws-account
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Onboarding a Standalone AWS Account
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Account > Onboarding a Standalone AWS Account
 - Last modified: 2026-04-24T22:52Z
 - Summary: Information about how to onboard a standalone AWS account in the Zscaler Admin Console.
 
@@ -14658,8 +14658,8 @@ To onboard an AWS account:
 ## Predefined DSPM Roles and Permissions
 
 - Source: https://help.zscaler.com/dspm/predefined-roles-and-permissions
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Role Management > Predefined DSPM Roles and Permissions
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Role Management > Predefined DSPM Roles and Permissions
 - Last modified: 2026-10-09T07:06Z
 - Summary: Information about predefined roles and permissions in the Zscaler Admin Console.
 
@@ -14953,8 +14953,8 @@ This article provides a summary of all new features and enhancements for Posture
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/dspm/release-upgrade-summary-2025
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Release Notes > Release Upgrade Summary (2025)
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Release Notes > Release Upgrade Summary (2025)
 - Last modified: 2026-04-27T23:25Z
 - Summary: DSPM Release Upgrade Summary for service updates deployed in 2025.
 
@@ -15008,13 +15008,13 @@ The following error messages are displayed in the CLI app if there are issues wh
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-09-14T22:30Z","nid":"1504231"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/resolving-configuration-issues-microsoft-azure","lastmod":"2026-11-08T06:06Z","nid":"1504231"} -->
 ## Resolving Configuration Issues for Microsoft Azure
 
 - Source: https://help.zscaler.com/dspm/resolving-configuration-issues-microsoft-azure
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Resolving Configuration Issues for Microsoft Azure
-- Last modified: 2026-09-14T22:30Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Resolving Configuration Issues for Microsoft Azure
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information on the issues encountered while onboarding and troubleshooting for Microsoft Azure.
 
 You might encounter any of the following error messages while onboarding:
@@ -15212,8 +15212,8 @@ DSPM creates an S3 bucket in the orchestrator account to upload the classified d
 ## Selecting the Orchestrator and Monitoring Scope
 
 - Source: https://help.zscaler.com/dspm/selecting-orchestrator-and-monitoring-scope
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Selecting the Orchestrator and Monitoring Scope
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Microsoft Entra Tenant > Selecting the Orchestrator and Monitoring Scope
 - Last modified: 2026-10-07T09:00Z
 - Summary: Information on how to select the orchestrator and monitoring scope in the Zscaler Admin Console.
 
@@ -15351,8 +15351,8 @@ For Managed Identity, only predefined tags are added.
 ## Starting or Stopping a Scan
 
 - Source: https://help.zscaler.com/dspm/starting-stopping-scan
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Managing Scan Rules > Starting or Stopping a Scan
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Managing Scan Rules > Starting or Stopping a Scan
 - Last modified: 2026-09-30T22:43Z
 - Summary: How to start or stop the data scan in the Zscaler Admin Console.
 
@@ -15459,8 +15459,8 @@ DSPM offers incident management by integrating with IT Service Management (ITSM)
 ## Supported AWS IAM Condition Keys and Operators
 
 - Source: https://help.zscaler.com/dspm/supported-aws-iam-condition-keys-and-operators
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > AWS Cloud Accounts > Supported AWS IAM Condition Keys and Operators
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > AWS Cloud Accounts > Supported AWS IAM Condition Keys and Operators
 - Last modified: 2025-12-22T06:06Z
 - Summary: Information on the AWS IAM condition keys and operators that DSPM supports.
 
@@ -15579,8 +15579,8 @@ The following features are not supported:
 ## Supported Data Stores, File Types, and Regions
 
 - Source: https://help.zscaler.com/dspm/supported-data-stores-file-types-and-regions
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Supported Data Stores, File Types, and Regions
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Supported Data Stores, File Types, and Regions
 - Last modified: 2026-10-09T07:06Z
 - Summary: Information about the different data stores, file types, and regions that DSPM provides support for data scanning.
 
@@ -16288,8 +16288,8 @@ To learn more, see:
 ## Understanding Malware Scanning
 
 - Source: https://help.zscaler.com/dspm/understanding-malware-scanning
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Scan Rules > Understanding Malware Scanning
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Scan Rules > Understanding Malware Scanning
 - Last modified: 2025-06-06T07:06Z
 - Summary: Information on how DSPM scans resources for malware and provides insights.
 
@@ -16851,8 +16851,8 @@ The private key is updated for the selected service account.
 ## Validating Cloud Accounts
 
 - Source: https://help.zscaler.com/dspm/validating-cloud-accounts
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Validating Cloud Accounts
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Validating Cloud Accounts
 - Last modified: 2026-10-07T09:08Z
 - Summary: Information on how to validate target accounts in the Zscaler Admin Console.
 
@@ -17148,8 +17148,8 @@ This tab is visible only when alerts are generated for policies that detect malw
 ## Viewing the Alert Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-alert-graph
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Alerts > Alert Details > Viewing the Alert Graph
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Alerts > Alert Details > Viewing the Alert Graph
 - Last modified: 2026-10-07T09:16Z
 - Summary: Information about the alert graph in the Zscaler Admin Console.
 
@@ -17424,4 +17424,82 @@ To apply an MIP label to multiple files:
 [Image: The Details page for a selected file displays the Actions drop-down menu in the upper-right corner]
 
 [Image: The Data Inventory page lists files and includes an Actions column]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-compliance-details","lastmod":"2026-09-23T21:26Z","nid":"1514771"} -->
+## Viewing Compliance Details
+
+- Source: https://help.zscaler.com/dspm/viewing-compliance-details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Compliance > Viewing Compliance Details
+- Last modified: 2026-09-23T21:26Z
+- Summary: Viewing additional compliance details of compliance breaches in the Zscaler Admin Console.
+
+You can view additional details of the compliance breaches, such as the list of [policies](https://help.zscaler.com/dspm/about-data-posture-policies) that are noncompliant for a specific compliance framework, failed [resources](https://help.zscaler.com/dspm/viewing-resource-details), and policies mapped to compliance frameworks. This allows you to quickly investigate and remediate the issue.
+
+To view the compliance details:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **DSPM** > **Compliance**.
+2. On the **Compliance**page, click any tile to view the compliance details. See image.
+3. On the compliance framework page, you can see the following tabs: See image. The following fields are common across the tabs:
+  - Summary
+  - Policies
+  - Resources
+  - Findings
+  - Configuration
+  - **Cloud**: The name of the cloud service provider.
+  - **Cloud Account**: The account ID of the cloud account where the resource is stored.
+  - **Region**: The region where the resource is located.
+  - **Policy Name**: The name of the failed policy. Click to view the [policy details](https://help.zscaler.com/dspm/viewing-policy-details).
+  - **DLP Engines**: The DLP engines that match the data in the resource.
+  - **Resource ID**: The unique identifier for the resource.
+  - **Control Category**: The control category groups security controls addressing similar risks or compliance requirements.
+  - **Severity**: The severity (**Critical**, **High**, **Medium**, or **Low**) of policy failure.
+4. On each tab, you can: See image.
+  1. Apply [filters](https://help.zscaler.com/unified/using-tables) to view specific data.
+  2. [Customize and save a page setting](https://help.zscaler.com/dspm/customizing-page-settings).
+  3. Search for a specific policy (not applicable for the **Summary**tab).
+  4. Export the data and [download the report](https://help.zscaler.com/dspm/about-reports) as an Excel file (not applicable for the **Summary**tab).
+
+View a high-level overview of the total failed policies by severity and control category. You can see:
+
+1. The compliance framework details:
+  - **Description**: The name of the compliance framework.
+  - **DLP Engines**: The DLP engines mapped to the compliance framework.
+  - **Data Stores**: The total number of noncompliant data stores.
+2. The number of failed policies by severity (**Critical**, **High**, **Medium**, and **Low**). Hover over the donut chart to see the number of failed policies for each severity. Click to view the list of policies on the **Policies**tab with the severity filter preselected.
+3. The number of failed policies for each control category. Click to view the list of policies on the **Policies**tab with the control category filter preselected.
+4. The failed compliance trend for policies and resources. Hover over the chart to view the number of failed policies and resources for the control category. You can view the data for the last 7, 15, 30, 60, or 90 days.
+
+[Image: The summary tab with the list of policies and alerts for compliance issues]
+
+[Image: The Compliance dashboard with annotation around one of the compliance tiles]
+
+View the policies mapped to compliance frameworks. For each policy, you can see:
+
+- **Policy Name**: The name of the policy mapped to the compliance framework.
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+
+[Image: The configuration tab displaying the mapping of DSPM policies to compliance frameworks]
+
+View the list of noncompliant [resources](https://help.zscaler.com/dspm/about-data-inventory). For each resource, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The resources tab displaying the list of failed resources]
+
+View the list of noncompliant policies. For each failed policy, you can see:
+
+- **Control Number**: A unique identifier assigned to a specific policy within a compliance framework.
+- **Data Stores**: The number of data stores for which the policy failed. Click to view the noncompliant policies and resources on the Findingstab with the Policy ID preselected.
+
+[Image: The policies tab displaying the list of failed policies]
+
+View the list of noncompliant policies along with the corresponding resources for the selected compliance framework. For each policy, you can see the name of the noncompliant resource along with its additional details.
+
+[Image: The findings tab displaying the list of failed policies and resources]
+
+[Image: The Compliance page with annotation around the available tabs for the selected compliance framework]
+
+[Image: The Findings tab with annotation around the common options across the compliance framework tabs]
 <!-- /ZS-ARTICLE -->

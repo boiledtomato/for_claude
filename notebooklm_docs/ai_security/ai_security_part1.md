@@ -1,18 +1,18 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 90
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 92
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-09-08T12:30Z","nid":"1541822"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-dashboard","lastmod":"2026-11-06T08:49Z","nid":"1541822"} -->
 ## About AI Guard Dashboard
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-dashboard
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > About AI Guard Dashboard
-- Last modified: 2026-09-08T12:30Z
+- Last modified: 2026-11-06T08:49Z
 - Summary: Learn how to view information on the AI Guard dashboard.
 
 The AI Guard dashboard provides a high-level overview of all AI applications AI Guard manages. This includes information such as the number of apps, number of policy detections, and number of AI bot transactions.
@@ -51,7 +51,7 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
   - **LLM**: The LLM used for this transaction.
   - **Prompt Action**: Displays whether the AI Guard policy transaction resulted in the prompt being **Allowed** or **Blocked.**
   - **Response Action**: Displays whether the AI Guard policy transaction resulted in the response being **Allowed** or **Blocked.**
-  - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt Details**. See image.
+  - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt/File Details**. See image.
 
 [Image: AI Guard Dashboard Details window showing Overview, Detection Summary, Performance & Network Stats, Custom Request Headers, and Prompt Details.]
 
@@ -64,13 +64,13 @@ On the AI Guard **Dashboard** page (AI Guard > Dashboard), you can do the follow
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-detection-summary","lastmod":"2026-07-24T11:11Z","nid":"1542028"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/about-ai-guard-detection-summary","lastmod":"2026-11-06T08:51Z","nid":"1542028"} -->
 ## About AI Guard Detection Summary
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/about-ai-guard-detection-summary
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Monitoring > About AI Guard Detection Summary
-- Last modified: 2026-07-24T11:11Z
+- Last modified: 2026-11-06T08:51Z
 - Summary: Learn how to access and view information on the AI Guard detection summary.
 
 The AI Guard dashboard provides a high-level overview of all the AI applications AI Guard manages, but if you want to view additional details on specific transactions, you need to view the detection summary found in the transaction details window.
@@ -107,8 +107,10 @@ On the Transaction Details window, you can view the following information:
   7. **Region**: Region of the app's server.
   8. **Protocol**: Protocol used by the transaction.
 5. **Custom Request Headers**: This section will show any custom headers that were set up in the AI Guard tenant settings page.
-6. **Prompt and Response Details**: In this section you can read the specific prompt sent by the user and the response sent by the GenAI app.
-  1. **Add to Allowlist**: If you have the proper permissions, when you reveal a prompt or response that was blocked, you can click this option to add the prompt or response to your allowlist.
+6. **Prompt/File Details**:
+  1. For prompts and responses, this section presents the specific prompt sent by the user and the response sent by the GenAI app.
+    1. **Add to Allowlist**: If you have the proper permissions, when you reveal a prompt or response that was blocked, you can click this option to add the prompt or response to your allowlist.
+  2. For files, this section displays the exact text within an attachment responsible for the security detection.
 7. **Was this detection helpful?**: Leave feedback for Zscaler Support.
 
 [Image: AI Guard Detection Summary window]
@@ -2811,6 +2813,94 @@ To delete a policy control:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-inbound-integrations","lastmod":"2026-11-06T08:27Z","nid":"1547229"} -->
+## Managing Inbound Integrations
+
+- Source: https://help.zscaler.com/secure-ai-apps-infra/managing-inbound-integrations
+- Product: Secure AI Apps & Infrastructure
+- Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Configuration > General > Managing Inbound Integrations
+- Last modified: 2026-11-06T08:27Z
+- Summary: Learn how to make Inbound Integrations in AI Guard to let tenants connect to third-party AI platforms that call AI Guard for a policy decision on every prompt and response.
+
+With inbound integration functionality, AI Guard lets a tenant connect to third-party AI platforms that call AI Guard for a policy decision on every prompt and response. The two integrations currently available are:
+
+- **Anthropic**: Claude sends each prompt and response to AI Guard through inference hooks. Anthropic integration was available previously through the Tenant Settings page. Previous setups made there will keep working and will show up on the Inbound Integrations page. See the Existing Anthropic Integrations section for more information.
+- **Databricks**: The Databricks Unity AI Gateway checks every governed model against AI Guard as an external guardrail policy.
+
+To add or manage inbound integrations, refer to the following instructions:
+
+- Anthropic
+- Databricks
+
+## Existing Anthropic Integrations
+
+The Anthropic Webhook card on the **Tenant Settings** > **Integrations**page is deprecated. Integrations made there keep working, and will show up on **Inbound Integrations** page marked as **Set up on Tenant Settings**. To fully move the existing integration to the Inbound Integrations page, do the following:
+
+1. On the **Inbound Integrations** page, find the existing integrations tile and click **Save here**. See image.
+2. On the **Save Integration** page, you will see your signing secrets and other information are retained. Click **Save Integration**. Older Anthropic setups use the webhook URL `/v1/webhook/execute`. This still works, but new setups should use the URL shown on the Save Integrations page. See image.
+3. (Optional) Leave **Run detections on the whole conversation history (Beta)** off to check only the latest turn, or turn it on to check the whole conversation on every call.
+4. You will now manage your integration from the **Inbound Integrations** page instead of **Tenant Settings**.
+
+## Adding Anthropic Integrations
+
+AI Guard can integrate with Anthropic Claude's inference hooks to inspect and evaluate prompts against a tenant's detection policy in real time. AI Guard responds with an "allow" or "deny" verdict, which determines whether Claude proceeds to generate a response or the prompt is blocked.
+
+To set up an integration between AI Guard and Claude:
+
+1. In the **Claude UI**, go to **Organization Settings** > **Data and Privacy** > **Inference Hooks**.
+2. Under **Inference hooks**, enable **Allow for your organization**. See image.
+3. In the **Inference hooks** section, do the following: See image.
+  1. **Enforce verdicts**: Enable.
+  2. **Inference hooks endpoint**: Set to `https://api.zseclipse.net/v1/detection/anthropic`
+  3. **Prompt verdict timeout (ms)**: 1000ms
+  4. **Signing secret**: Copy this secret for use in AI Guard later. A signing secret is generated automatically on the first save and can be rotated at any time.
+  5. **(Optional) Custom blocked prompt message**: Enter a custom block message to show users when a prompt is blocked.
+4. Leave Claude and go to the **AI Guard** > **Inbound Integrations**.
+5. Click **Add Integration**, then select **Anthropic**.
+6. Enter the following:
+  1. **Integration Name**: Enter a name for the integration.
+  2. **Anthropic Organization ID**: Enter your Anthropic Organization ID.
+  3. **Signing Secret** (starts with `whsec_`) you saved earlier.
+7. (Optional) Leave **Run detections on the whole conversation history (Beta)** off to check only the latest turn, or turn it on to check the whole conversation on every call.
+8. Click **Save Integration**.
+
+With the integration completed, create a policy to the traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+To set up an integration between AI Guard and Databricks, do the following:
+
+1. Go to the **AI Guard** > **Inbound Integrations**. See image.
+2. Click **Add Integration**, then click **Databricks**. The **Databricks Integration** page appears.
+3. On the **Databricks Integration** page, copy down the **Host**, **API Path**, and **Token Endpoint** to use in configuring Databricks. See image.
+4. Leave **Run detections on the whole conversation history (beta)** off while initially setting up the integration.
+5. Under **Integration Name**, enter a name for the integration.
+6. Click **Add Integration**.
+7. A window will appear with your **Client ID** and **Client Secret**. Copy these to use in configuring Databricks and click **Done**. See image.
+8. Go to your **Databricks admin account** and create a **Unity Catalog HTTP connection** using the information you copied earlier: **Host**, **API Path**, **Token Endpoint**, **Client ID**, and **Client Secret**. Leave the **OAuth scope** empty.
+9. Attach a policy with guardrail type **External** to the **Model** and **Model Provider**.
+10. Pick the connection and the phase (**input**, **output**, or **both**), and leave **Policy configuration** empty.
+11. Start in **Log** mode and wait 60 to 90 seconds before testing. Databricks takes that long to apply a new policy.
+
+The Databricks integration appears on the **Inbound Integrations** page.
+
+With the integration completed, create a policy to the traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+[Image: Inbound Integration tile showing an existing integration]
+
+[Image: Anthropic Integration page populated with the information from the initial setup]
+
+[Image: Inbound Integrations page]
+
+[Image: Databricks Integration page]
+
+[Image: Inbound Integrations Databricks Client Credentials window]
+
+[Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: Anthropic Claude UI showing Inference hooks section][Image: Anthropic Claude UI showing Inference hooks section]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/managing-prompt-allowlist","lastmod":"2026-08-06T15:10Z","nid":"1541821"} -->
 ## Managing Prompt Allowlist
 
@@ -3756,13 +3846,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-10-26T10:35Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-11-06T08:28Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-26T10:35Z
+- Last modified: 2026-11-06T08:28Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -4939,13 +5029,13 @@ On the AI Guard**AI Applications Topology** Page (AI Security Admin Portal > AI 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/about-ai-guard-dashboard","lastmod":"2026-07-21T11:29Z","nid":"1540886"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/about-ai-guard-dashboard","lastmod":"2026-11-06T08:43Z","nid":"1540886"} -->
 ## About AI Guard Dashboard
 
 - Source: https://help.zscaler.com/secure-ai-users/about-ai-guard-dashboard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Monitoring > About AI Guard Dashboard
-- Last modified: 2026-07-21T11:29Z
+- Last modified: 2026-11-06T08:43Z
 - Summary: Learn how to view information on the AI Guard dashboard.
 
 The AI Guard dashboard provides a high-level overview of all the users and AI applications AI Guard manages. This includes information such as the number of users or apps, number of policy detections, and number of AI bot transactions.
@@ -4981,7 +5071,7 @@ On the AI Guard **Dashboard** page (AI Security Admin Portal > AI Guard > Dashbo
   - **LLM**: The LLM used for this transaction.
   - **Prompt Action**: Displays whether the AI Guard policy transaction resulted in the prompt being **Allowed** or **Blocked.**
   - **Response Action**: Displays whether the AI Guard policy transaction resulted in the response being **Allowed** or **Blocked.**
-  - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt Details**. See image.
+  - **Details**: Clicking the **Details** icon opens a window showing detailed information in the following sections: **Overview**, **Detection Summary**, **Performance & Network Stats**, **Custom Request Headers**, and **Prompt/File Details**. See image.
 
 [Image: AI Guard Dashboard Details window showing Overview, Detection Summary, Performance & Network Stats, Custom Request Headers, and Prompt Details.]
 
@@ -4990,13 +5080,13 @@ On the AI Guard **Dashboard** page (AI Security Admin Portal > AI Guard > Dashbo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/about-ai-guard-detection-summary","lastmod":"2026-07-21T17:19Z","nid":"1541851"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/about-ai-guard-detection-summary","lastmod":"2026-11-06T08:48Z","nid":"1541851"} -->
 ## About AI Guard Detection Summary
 
 - Source: https://help.zscaler.com/secure-ai-users/about-ai-guard-detection-summary
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Monitoring > About AI Guard Detection Summary
-- Last modified: 2026-07-21T17:19Z
+- Last modified: 2026-11-06T08:48Z
 - Summary: Learn how to access and view information on the AI Guard detection summary.
 
 The AI Guard dashboard provides a high-level overview of all the users AI Guard manages, but if you want to view additional details on specific transactions, you need to view the detection summary found in the transaction details window.
@@ -5006,7 +5096,7 @@ To access a transaction detection summary, go to AI Security Admin Portal > AI G
 On the Transaction Details window, you can view the following information:
 
 1. View or copy the Transaction ID.
-2. The Overview section contains the following information:
+2. **Overview**:
   1. **Date**: Date and time of the transaction.
   2. **User**: The user who submitted the prompt or who received the response.
   3. **Severity**: Strength of the prompt's triggering of the policy detector: Info > Low > Medium > High > Critical.
@@ -5014,7 +5104,7 @@ On the Transaction Details window, you can view the following information:
   5. **LLM**: Name of the LLM used for analyzing the prompt or sending the response.
   6. **LLM Model**: Specific LLM model used for this transaction (such as: claude-sonnet-4-6).
   7. **User Agent**: Information about the user's agent where the prompt was written or the response was sent to.
-3. The Detection Summary section contains the following information:
+3. **Detection Summary**:
   1. **Prompt Detections**: Shows which detectors were triggered by the prompt.
     1. **Details**: Clicking for more details will show additional information about the detectors that were triggered.
   2. **Prompt Action**: Shows whether the prompt was blocked, allowed, or just detected.
@@ -5023,7 +5113,7 @@ On the Transaction Details window, you can view the following information:
     1. **Details**: Clicking for more details will show additional information about the detectors that were triggered.
   5. **Response Action**:Shows whether the response was blocked, allowed, or just detected.
   6. **Response Tags**: Shows an tags associated with the response.
-4. The Performance & Network Stats section contains the following information:
+4. **Performance & Network Stats**:
   1. **Prompt Size**: File size of the prompt.
   2. **Response Size**: File size of the response.
   3. **Total Time Taken by LLM**: Length of time the LLM took to process the prompt and send a response
@@ -5033,8 +5123,10 @@ On the Transaction Details window, you can view the following information:
   7. **Region**: Region of the user's server.
   8. **Protocol**: Protocol used by the transaction.
 5. **Custom Request Headers**: This section will show any custom headers that were set up in the AI Guard tenant settings page.
-6. **Prompt and Response Details**: In this section you can read the specific prompt sent by the user and the response sent by the GenAI app.
-  1. Add to Allowlist: If you have the proper permissions, when you reveal a prompt or response that was blocked, you can click this option to add the prompt or response to your allowlist.
+6. **Prompt/File Details**:
+  1. For prompts and responses, this section presents the specific prompt sent by the user and the response sent by the GenAI app.
+    1. **Add to Allowlist**: If you have the proper permissions, when you reveal a prompt or response that was blocked, you can click this option to add the prompt or response to your allowlist.
+  2. For files, this section displays the exact text within an attachment responsible for the security detection.
 7. **Was this detection helpful?**: Leave feedback for Zscaler Support.
 
 [Image: AI Guard Detection Summary window]
@@ -6225,13 +6317,13 @@ To create a custom block message:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-10-27T11:04Z","nid":"1540870"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/integrating-zia-ai-guard","lastmod":"2026-11-04T11:02Z","nid":"1540870"} -->
 ## Integrating ZIA with AI Guard
 
 - Source: https://help.zscaler.com/secure-ai-users/integrating-zia-ai-guard
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > Integrating ZIA with AI Guard
-- Last modified: 2026-10-27T11:04Z
+- Last modified: 2026-11-04T11:02Z
 - Summary: Learn how to forward traffic from ZIA to AI Guard for processing AI traffic for AI users.
 
 Thanks to the integration of AI Guard with Internet & SaaS (ZIA), you can configure ZIA to invoke AI Guard for processing user's AI traffic.
@@ -6258,7 +6350,7 @@ Before you can integrate ZIA with AI Guard, ensure that you:
   | GitHub Copilot | Web Browsers | `api.individual.githubcopilot.com` |
   | GitHub Copilot Enterprise | Web Browsers; GitHub in Visual Studio (VS) Code | `api.business.githubcopilot.com` `api.enterprise.githubcopilot.com` `api.individual.githubcopilot.com` |
   | Glean | Web Browser Chat | `*.glean.com` |
-  | Google Gemini | Web Browsers | `*.gemini.google.com` |
+  | Google Gemini | Web Browsers | `*.gemini.google.com` `geminiweb-pa.clients6.google.com` |
   | Google Gemini Code | Web Browsers | `*.gemini.google.com` `cloudcode-pa.googleapis.com` |
   | Google Gemini Enterprise | Web Browsers | `*.biz-discoveryengine.googleapis.com` `*.content-us-discoveryengine.googleapis.com` `*.discoveryengine.clients6.google.com` `*.us-discoveryengine.clients6.google.com` `*.eu-discoveryengine.clients6.google.com` `*.global-discoveryengine.clients6.google.com` `*.us-discoveryengine.googleapis.com` `*.eu-discoveryengine.googleapis.com` |
   | Google Gemini Workspaces | Google Suite (Docs, Slides, Sheets): "Ask Gemini" and "Generate document" are supported.; "Help me write," "Refine," and "Refine the selected text" functionality is not supported. | `appsgenaiserver-pa.clients6.google.com` |
@@ -6556,6 +6648,94 @@ To delete a policy control:
 [Image: AI Guard Edit Policy Match window with Policy and Rule Name blurred out]
 
 [Image: The Action column on the AI Guard Main Page with Delete icon highlighted]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/managing-inbound-integrations","lastmod":"2026-11-06T08:27Z","nid":"1546920"} -->
+## Managing Inbound Integrations
+
+- Source: https://help.zscaler.com/secure-ai-users/managing-inbound-integrations
+- Product: Secure Access to AI Apps
+- Path: Secure Access to AI Apps Help > AI Guard for Users > Configuration > Managing Inbound Integrations
+- Last modified: 2026-11-06T08:27Z
+- Summary: Learn how to make Inbound Integrations in AI Guard to let tenants connect to third-party AI platforms that call AI Guard for a policy decision on every prompt and response.
+
+With inbound integration functionality, AI Guard lets a tenant connect to third-party AI platforms that call AI Guard for a policy decision on every prompt and response. The two integrations currently available are:
+
+- **Anthropic**: Claude sends each prompt and response to AI Guard through inference hooks. Anthropic integration was available previously through the Tenant Settings page. Previous setups made there will keep working and will show up on the Inbound Integrations page. See the Existing Anthropic Integrations section for more information.
+- **Databricks**: The Databricks Unity AI Gateway checks every governed model against AI Guard as an external guardrail policy.
+
+To add or manage inbound integrations, refer to the following instructions:
+
+- Anthropic
+- Databricks
+
+## Existing Anthropic Integrations
+
+The Anthropic Webhook card on the **Tenant Settings** > **Integrations**page is deprecated. Integrations made there keep working, and will show up on **Inbound Integrations** page marked as **Set up on Tenant Settings**. To fully move the existing integration to the Inbound Integrations page, do the following:
+
+1. On the **Inbound Integrations** page, find the existing integrations tile and click **Save here**. See image.
+2. On the **Save Integration** page, you will see your signing secrets and other information are retained. Click **Save Integration**. Older Anthropic setups use the webhook URL `/v1/webhook/execute`. This still works, but new setups should use the URL shown on the Save Integrations page. See image.
+3. (Optional) Leave **Run detections on the whole conversation history (Beta)** off to check only the latest turn, or turn it on to check the whole conversation on every call.
+4. You will now manage your integration from the **Inbound Integrations** page instead of **Tenant Settings**.
+
+## Adding Anthropic Integrations
+
+AI Guard can integrate with Anthropic Claude's inference hooks to inspect and evaluate prompts against a tenant's detection policy in real time. AI Guard responds with an "allow" or "deny" verdict, which determines whether Claude proceeds to generate a response or the prompt is blocked.
+
+To set up an integration between AI Guard and Claude:
+
+1. In the **Claude UI**, go to **Organization Settings** > **Data and Privacy** > **Inference Hooks**.
+2. Under **Inference hooks**, enable **Allow for your organization**. See image.
+3. In the **Inference hooks** section, do the following: See image.
+  1. **Enforce verdicts**: Enable.
+  2. **Inference hooks endpoint**: Set to `https://api.zseclipse.net/v1/detection/anthropic`
+  3. **Prompt verdict timeout (ms)**: 1000ms
+  4. **Signing secret**: Copy this secret for use in AI Guard later. A signing secret is generated automatically on the first save and can be rotated at any time.
+  5. **(Optional) Custom blocked prompt message**: Enter a custom block message to show users when a prompt is blocked.
+4. Leave Claude and go to the **AI Guard** > **Inbound Integrations**.
+5. Click **Add Integration**, then select **Anthropic**.
+6. Enter the following:
+  1. **Integration Name**: Enter a name for the integration.
+  2. **Anthropic Organization ID**: Enter your Anthropic Organization ID.
+  3. **Signing Secret** (starts with `whsec_`) you saved earlier.
+7. (Optional) Leave **Run detections on the whole conversation history (Beta)** off to check only the latest turn, or turn it on to check the whole conversation on every call.
+8. Click **Save Integration**.
+
+With the integration completed, create a policy to the traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+To set up an integration between AI Guard and Databricks, do the following:
+
+1. Go to the **AI Guard** > **Inbound Integrations**. See image.
+2. Click **Add Integration**, then click **Databricks**. The **Databricks Integration** page appears.
+3. On the **Databricks Integration** page, copy down the **Host**, **API Path**, and **Token Endpoint** to use in configuring Databricks. See image.
+4. Leave **Run detections on the whole conversation history (beta)** off while initially setting up the integration.
+5. Under **Integration Name**, enter a name for the integration.
+6. Click **Add Integration**.
+7. A window will appear with your **Client ID** and **Client Secret**. Copy these to use in configuring Databricks and click **Done**. See image.
+8. Go to your **Databricks admin account** and create a **Unity Catalog HTTP connection** using the information you copied earlier: **Host**, **API Path**, **Token Endpoint**, **Client ID**, and **Client Secret**. Leave the **OAuth scope** empty.
+9. Attach a policy with guardrail type **External** to the **Model** and **Model Provider**.
+10. Pick the connection and the phase (**input**, **output**, or **both**), and leave **Policy configuration** empty.
+11. Start in **Log** mode and wait 60 to 90 seconds before testing. Databricks takes that long to apply a new policy.
+
+The Databricks integration appears on the **Inbound Integrations** page.
+
+With the integration completed, create a policy to the traffic and create a policy control to set the match criteria so the policy applies to the traffic you intend. To learn more, see [Adding and Managing AI Guard Policy Configurations](https://help.zscaler.com/secure-ai-apps-infra/adding-and-managing-ai-guard-policy-configurations) and [Managing AI Guard Policy Control](https://help.zscaler.com/secure-ai-apps-infra/managing-ai-guard-policy-control).
+
+[Image: Inbound Integration tile showing an existing integration]
+
+[Image: Anthropic Integration page populated with the information from the initial setup]
+
+[Image: Inbound Integrations page]
+
+[Image: Databricks Integration page]
+
+[Image: Inbound Integrations Databricks Client Credentials window]
+
+[Image: Anthropic Claude UI showing Inference hooks section]
+
+[Image: Anthropic Claude UI showing Inference hooks section][Image: Anthropic Claude UI showing Inference hooks section]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7224,13 +7404,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-10-19T16:20Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-11-06T08:29Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:20Z
+- Last modified: 2026-11-06T08:29Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

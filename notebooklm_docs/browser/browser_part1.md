@@ -1,8 +1,8 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 55
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 56
 
 ---
 
@@ -195,13 +195,13 @@ On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Ap
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-09-11T11:58Z","nid":"1463131"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-11-06T09:48Z","nid":"1463131"} -->
 ## About Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > About Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-09-11T11:58Z
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > About Sandbox Integration with Zero Trust Browser
+- Last modified: 2026-11-06T09:48Z
 - Summary: Information about Zscaler's Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation)
 
 Sandboxing is a method of protecting your organization from file-based zero-day threats. Internet & SaaS (ZIA) provides admins with the ability to define advanced [sandbox policies](https://help.zscaler.com/zia/configuring-sandbox-policy). For example, a file with active content can be downloaded to the sandbox for analysis and only viewed or downloaded by the user if the defined policy approves it. While analyzing the file in the sandbox, based on the policy defined, Internet & SaaS can quarantine the file so the user sees a temporary quarantine page. The analysis of the file can take anywhere between 5 to 10 minutes. If the sandbox environment determines that the file is malicious, it blocks the file download. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
@@ -235,13 +235,13 @@ There is a limit of 10 active sessions per user at a time. To learn more, see [R
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-network-latency-isolation","lastmod":"2026-10-01T21:06Z","nid":"1373976"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-network-latency-isolation","lastmod":"2026-11-06T06:28Z","nid":"1373976"} -->
 ## Accessing Network Latency in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-network-latency-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Network Latency in Isolation
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-11-06T06:28Z
 - Summary: Information about how users can access Network Latency for isolation.
 
 If you experience latency issues during your isolation session, you can check the latency information for the isolated browser in the Network Latency window.
@@ -251,13 +251,13 @@ To view the Network Latency window for your active isolated session:
 1. Click the checkmark**Zero Trust Mode** icon. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience). See image.
 2. Click the **Troubleshoot** icon. See image.
 3. Click **View Network Latency**. See image. The **Network Latency** window appears. This window has live, real-time statistics of network latency for WebSocket and HTTP connectivity. The percentile statistics indicate the distribution of latency across pings. You can view the logs of each type of connectivity and review the following statistics: See image.
-  - **Last value**: The last ping latency
-  - **Number of pings**: The total pings sent
-  - **Max**: The worst value logged
-  - **99%**: When 99% of pings have latency less than the indicated Last Value
-  - **75%**: When 75% of pings have latency less than the indicated Last Value
-  - **50Mean**: When 50% of pings have latency less than the indicated Last Value
-  - **Std. deviation**: The variance across pings
+  - **Last value**: The latency of the last ping
+  - **Number of pings**: The total number of pings sent
+  - **Max**: The highest latency logged
+  - **99%**: 99% of pings have latency that is less than or equal to the indicated value (e.g., 133 ms).
+  - **75%**: 75% of pings have latency that is less than or equal to the indicated value (e.g., 96 ms).
+  - **50Mean**: 50% of pings have latency that is less than or equal to the indicated value (e.g., 94 ms).
+  - **Std. deviation**: The variance in latency across pings
 
 If you notice latency statistics that are unusually high or inconsistent, you can save the information captured in the **Network Latency** window to share as a report with Zscaler Support to further diagnose the issue.
 
@@ -268,13 +268,13 @@ To save the Network Latency information as a report:
 
 You can email Zscaler Support with the Network Latency report attached and note the latency issues you've experienced.
 
-[Image: The Isolation Menu icon is at the right side of the page]
+[Image: The Zero Trust Mode menu icon]
 
-[Image: The Isolation Menu icon shows more icons for different functional options]
+[Image: The Troubleshoot icon in the Zero Trust Mode menu]
 
-[Image: The Troubleshoot menu options]
+[Image: View Network Latency in the Troubleshoot option of the Zero Trust Mode menu]
 
-[Image: Network Latency window]
+[Image: The Network Latency window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -429,13 +429,13 @@ If a user shares the bookmarked isolation URL with another user, the other user 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser","lastmod":"2026-10-20T09:40Z","nid":"1447181"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser","lastmod":"2026-11-06T09:47Z","nid":"1447181"} -->
 ## Configuring Internet & SaaS for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Configuring Internet & SaaS for Zero Trust Browser
-- Last modified: 2026-10-20T09:40Z
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Configuring Internet & SaaS for Zero Trust Browser
+- Last modified: 2026-11-06T09:47Z
 - Summary: How to configure Zero Trust Browser (formerly Zscaler Isolation) for Internet & SaaS.
 
 Zscaler Zero Trust Browser (formerly Zscaler Isolation) provides organizations with the capability to isolate web pages and categories of web pages, as well as isolate files downloaded from these web pages in a contained, temporary browser on the Zscaler cloud. Zero Trust Browser offers complete integration with Internet & SaaS, allowing admins to granularly define what web traffic from a user should be isolated and which policies need to be applied on the isolated traffic. To learn more, see [What Is Zero Trust Browser?](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)
@@ -1363,18 +1363,26 @@ To print from your isolated browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-09-09T06:40Z","nid":"1535457"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-11-06T14:19Z","nid":"1535457"} -->
 ## Understanding Browser Extension
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-browser-extension
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Browser Extension > Understanding Browser Extension
-- Last modified: 2026-09-09T06:40Z
+- Last modified: 2026-11-06T14:19Z
 - Summary: Information about Browser Extension for Zero Trust Browser.
 
 Browser Extension for Zero Trust Browser is a lightweight solution providing seamless and secure enterprise access from any browser.
 
-The extension enhances existing browsers with browser detection and response (BDR) and data loss prevention (DLP) capabilities. Organizations can control browser threats and sensitive data interactions in real time, without relying solely on traditional endpoint or network-centric controls.
+The extension transforms existing browsers into a secure enterprise access point by adding browser detection and response (BDR), data loss prevention (DLP), and device trust capabilities. This enables organizations to monitor and control browser-based threats and sensitive data interactions in real time—without depending solely on traditional endpoint or network-centric security controls.
+
+The solution is built on three core components:
+
+- **Browser Extension**: Delivers secure web access and advanced data protection directly within the browser session, including support for certificate-pinned applications and websites.
+- **Optional Agent**: Enforces device posture and trust-based access controls to ensure that only compliant devices can access protected resources.
+- **Cloud Browser**: Provides isolated access to private applications, keeping user activity and sensitive data protected within a secure browsing environment.
+
+[Image: Zero Trust Browser Extension architecture]
 
 ## Key Features
 
@@ -1384,9 +1392,9 @@ Browser Extension supports the following features:
 - **Browser-Based Threat Protection**: Robust defense against malicious extensions, identity-based attacks, and emerging web threats.
 - **Data Exfiltration Prevention**: Advanced security controls, including screenshot protection and keystroke logger prevention.
 
-Device posture controls, screenshot protection, and keystroke logger protection require a lightweight agent to be installed along with the extension.
+Device posture controls, screenshot protection, and keystroke logger prevention require the lightweight agent to be installed along with the extension.
 
-To get Browser Extension, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/).
+To get Browser Extension, contact Zscaler Support. For deployment information, see [Zero Trust Browser Documentation](https://deployztbrowser.com/docs/).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1493,13 +1501,13 @@ To learn more about Enterprise Browser for Mobile, contact your Zscaler Account 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas","lastmod":"2026-09-04T07:41Z","nid":"1518406"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas","lastmod":"2026-11-06T09:49Z","nid":"1518406"} -->
 ## Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-isolation-miscellaneous-and-unknown-category-internet-and-saas
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
-- Last modified: 2026-09-04T07:41Z
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Understanding Isolation of Miscellaneous & Unknown Category in Internet & SaaS
+- Last modified: 2026-11-06T09:49Z
 - Summary: Information about using Zscaler Zero Trust Browser (formerly Zscaler Isolation) for the Miscellaneous and Unknown category in Internet & SaaS.
 
 Admins who have [Zscaler Zero Trust Browser (formerly Zscaler Isolation) integrated with Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser) have the ability to isolate [URL categories](https://help.zscaler.com/zia/about-url-categories) using [Internet & SaaS policies](https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy). Depending on your organization's level of [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser)access, you might only have the ability to isolate the category *Miscellaneous & Unknown*.
@@ -1542,13 +1550,13 @@ To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-10-02T06:35Z","nid":"1519151"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-11-06T06:30Z","nid":"1519151"} -->
 ## Understanding Language Translate for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-language-translate-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Understanding Language Translate for Isolation
-- Last modified: 2026-10-02T06:35Z
+- Last modified: 2026-11-06T06:30Z
 - Summary: Information about translation services provided by Google Translate for Zero Trust Browser.
 
 Zero Trust Browser is beneficial to admins who want to provide their users with a secure web page browsing experience. Isolation provides a near-native browsing experience for users by utilizing various browser capabilities, including translation services.
@@ -1557,7 +1565,7 @@ For organizations that have global users, the majority of internet web pages can
 
 If a user would like to change the language settings, Zero Trust Browser also provides the option to manually select the desired language. After the isolation container fully renders, the user can access the translation settings by going to the Zero Trust Mode menu or the default options in the right-click menu. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience) and [Using the Right-Click Menu in Isolation](https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation).
 
-The Language translate window gives users the option to translate the entire web page, or to copy and paste selected text from the web page into the translation text box. They can use the drop-down menu to translate text to any language. To learn more about the language translation service, refer to the [Google Translate website documentation](http://translate.google.com/).
+Users have the option to translate the entire web page or to copy and paste selected text from the web page into the translation text box. They can use the drop-down menu to translate text to any language. To learn more about the language translation service, refer to the [Google Translate website documentation](http://translate.google.com/).
 
 See image.
 
@@ -1565,7 +1573,7 @@ Admins can enable translation services for their users per isolation profile. To
 
 In addition to translation, Zero Trust Browser supports language localization in isolation. With localization, the Zscaler-generated, isolation browser-specific elements, such as notifications, warnings, and menu items are rendered based on the user's browser language settings. Language localization in isolation is supported even if the translation services are disabled for the isolation profile.
 
-[Image: The Language translate window appears. It has a drop-down menu to select the language you want to translate the web page in. It also has a text box to enter selected text and translate that only]
+[Image: Translate an entire web page or selected text]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1596,13 +1604,13 @@ Admins must enable this feature in the user's isolation profile. To learn more, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-votiro-integration-zero-trust-browser","lastmod":"2026-09-04T07:33Z","nid":"1486761"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-votiro-integration-zero-trust-browser","lastmod":"2026-11-06T09:48Z","nid":"1486761"} -->
 ## Understanding Votiro Integration for Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-votiro-integration-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Understanding Votiro Integration for Zero Trust Browser
-- Last modified: 2026-09-04T07:33Z
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Understanding Votiro Integration for Zero Trust Browser
+- Last modified: 2026-11-06T09:48Z
 - Summary: Information about using Votiro CDR with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
 
 When your organization is using Zscaler Zero Trust Browser (formerly Zscaler Isolation), any file downloaded or uploaded to the isolation container is inline scanned to ensure that the file does not contain malware. The integration of [Votiro](https://votiro.com/) and Internet & SaaS (ZIA) adds additional coverage for files accessed while in isolation by providing further inline scanning for malicious content. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
@@ -1662,16 +1670,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-browser-extensions-isolation","lastmod":"2026-10-02T08:13Z","nid":"1542899"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-browser-extensions-isolation","lastmod":"2026-11-06T07:20Z","nid":"1542899"} -->
 ## Using Browser Extensions in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-browser-extensions-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Browser Extensions in Isolation
-- Last modified: 2026-10-02T08:13Z
+- Last modified: 2026-11-06T07:20Z
 - Summary: Information about using browser extensions in an isolation session for Zero Trust Browser.
 
-Zero Trust Browser supports the use of select browser extensions during an isolation session. Browser extensions such as password managers (e.g., 1Password), Grammarly, and the Okta Browser Plugin play a critical role in key use cases like login assistance, customer support, and credential management. For example, browser extensions can securely pre-populate usernames and passwords for contractors accessing sensitive applications, ensuring secure access without exposing credentials. Similarly, tools like Grammarly support effective communication in scenarios such as call center operations.
+Zero Trust Browser supports the use of select browser extensions during an isolation session. Browser extensions such as password managers (e.g., 1Password), Grammarly, and the Okta Browser Plugin play a critical role in key use cases like login assistance, customer support, and credential management. For example, browser extensions can securely prepopulate usernames and passwords for contractors accessing sensitive applications, ensuring secure access without exposing credentials. Similarly, tools like Grammarly support effective communication in scenarios such as call center operations.
 
 Enabling the use of browser extensions in isolation ensures seamless integration of productivity and security tools, supporting critical business workflows and enhancing authentication processes. Administrators can enable browser extensions for users when configuring isolation profiles for Private Access (ZPA) in the Zscaler Admin Console. Admins can configure up to five browser extensions for a single isolation profile. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
 
@@ -1679,11 +1687,42 @@ See image.
 
 When browser extensions are enabled for isolation profiles, the following functionalities are available for users:
 
-- Users can access their configured browser extensions from the Zero Trust Mode menu while in an isolation session. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-isolation-menu-native-browser-experience).
+- Users can access their configured browser extensions from the Zero Trust Mode menu while in an isolation session. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience).
 - If the user authenticates to a browser extension, then the authenticated state of the extension is preserved if Persistent State is enabled. To learn more, see [Using Persistent State for Isolation](https://help.zscaler.com/zero-trust-browser/using-persistent-state-isolation).
 - The isolated browser expires and closes after 10 minutes of user inactivity. When the user is assigned a new isolated container after idle timeout, the configured browser extensions are restored.
 
 [Image: Enable browser extensions for users in their isolation profiles]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-clipboard-isolation","lastmod":"2026-11-06T06:26Z","nid":"1545419"} -->
+## Using Clipboard in Isolation
+
+- Source: https://help.zscaler.com/zero-trust-browser/using-clipboard-isolation
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Clipboard in Isolation
+- Last modified: 2026-11-06T06:26Z
+- Summary: Information on using Clipboard in isolation.
+
+Zero Trust Browser allows for clipboard use during an isolation session. Depending on your isolation profile settings set by your administrator, you can do one of the following:
+
+- Copy content from your local computer and paste to isolation.
+- Copy content from isolation and paste to your local computer.
+- Copy and paste content to and from your local computer and isolation.
+- Neither copy nor paste content to or from your local computer and isolation.
+
+To learn more about isolation profile settings, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
+
+During an isolation session, you can access the clipboard from the Zero Trust Mode menu. Click the Clipboard icon to use clipboard functions (e.g., copy and paste) and view notifications about restrictions configured for your isolation profile. You can also view, search, and delete content stored in the clipboard. Content stored in the clipboard is limited to the last 25 items copied.
+
+See image.
+
+To learn more about the Zero Trust Mode menu and its options, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience).
+
+To learn more about limitations related to clipboard data, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#Zero-Trust-Browser-ranges-and-limitations).
+
+[Image: Clipboard functions in the Zero Trust Mode menu]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1894,13 +1933,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser","lastmod":"2026-09-04T07:31Z","nid":"1517336"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser","lastmod":"2026-11-06T09:48Z","nid":"1517336"} -->
 ## Using Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Using Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-09-04T07:31Z
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Using Sandbox Integration with Zero Trust Browser
+- Last modified: 2026-11-06T09:48Z
 - Summary: How to use the Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation).
 
 For organizations using both Internet & SaaS (ZIA) Sandbox and Zero Trust Browser (formerly Isolation), an integration between these modules exists which provides additional benefits, maximizing both security and end-user productivity. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [About Sandbox Integration with Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser).
@@ -1931,13 +1970,13 @@ To use Sandbox with Zero Trust Browser:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience","lastmod":"2026-10-02T08:10Z","nid":"1386451"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience","lastmod":"2026-11-06T06:24Z","nid":"1386451"} -->
 ## Using the Zero Trust Mode Menu in Native Browser Experience
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using the Zero Trust Mode Menu in Native Browser Experience
-- Last modified: 2026-10-02T08:10Z
+- Last modified: 2026-11-06T06:24Z
 - Summary: Instructions for using the Zero Trust Mode menu in the native browser experience mode for Zero Trust Browser.
 
 In [Native Browser Experience Mode](https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation) for Zero Trust Browser, users can opt for a typical browser view while still benefiting from the protection of an isolated session.
@@ -1955,15 +1994,18 @@ To access the Zero Trust Mode menu:
   1. Click the icons of your pinned browser extensions to use them during the isolation session. To use supported browser extensions (e.g., Okta Browser Plugin, 1Password) in isolation, you must have this setting enabled in your isolation profile. To learn more, see [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
   2. Click the **Extensions** icon to view and use supported browser extensions enabled for your isolation profile. To learn more, see [Using Browser Extensions in Isolation](https://help.zscaler.com/zero-trust-browser/using-browser-extensions-isolation).
   3. Click the **Protected Storage** icon to view all file transfers for the isolation session. To learn more, see [Transferring and Viewing Files in Isolation](https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation).
-  4. Click the **Clipboard** icon to view notifications about clipboard functions and restrictions.
-  5. Click the **Print** icon to view options and information for printing settings. To learn more, see [Transferring and Viewing Files in Isolation](https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation).
-  6. Click the **Troubleshoot**icon to do the following:
+  4. Click the **Clipboard** icon to use clipboard functions (e.g., copy and paste) and view notifications about restrictions configured for your isolation profile. To learn more, see [Using Clipboard in Isolation](https://help.zscaler.com/zero-trust-browser/using-clipboard-isolation).
+  5. Click the **Translate** icon to translate the entire web page or selected text from the web page into your preferred language. To learn more, see [Understanding Language Translate for Isolation](https://help.zscaler.com/zero-trust-browser/understanding-language-translate-isolation). To translate text into your preferred language, you must have this setting enabled in your isolation profile. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access).
+  6. Click the **Print** icon to view options and information for printing settings. To learn more, see [Transferring and Viewing Files in Isolation](https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation).
+  7. Click the **More** icon to view additional menu options, if available for your isolation profile.
+  8. Click the **Find** icon to search and find information within the web page.
+  9. Click the **Troubleshoot**icon to do the following:
     - Log out.
-    - Start a debug session. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation)
+    - Start a debug session. To learn more, see [Using Debug Mode for Isolation](https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation).
     - View network latency and export isolation session logs. To learn more, see [Accessing Network Latency in Isolation](https://help.zscaler.com/zero-trust-browser/accessing-network-latency-isolation).
     - Access `ip.zscaler.com`.
-  7. Click the **Information** icon to view the settings configured by your admin for your isolation profile. This includes restrictions and disabled tools. To view a list of your specific restrictions and disabled tools, click **Restricted Actions**. To learn more about possible restrictions and disabled tools, see the Security controls in [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). See image.
-  8. Click the checkmark **Zero Trust Mode** icon to collapse the menu options.
+  10. Click the **Information** icon to view the settings configured by your admin for your isolation profile. This includes restrictions and disabled tools. To view a list of your specific restrictions and disabled tools, click **Restricted Actions**. To learn more about possible restrictions and disabled tools, see the Security controls in [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) and [Creating Isolation Profiles for Private Access](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). See image.
+  11. Click the checkmark **Zero Trust Mode** icon to collapse the menu options.
 
 [Image: The Zero Trust Mode menu options]
 
@@ -1974,13 +2016,13 @@ To access the Zero Trust Mode menu:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-09-09T06:36Z","nid":"1447296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-11-08T06:06Z","nid":"1447296"} -->
 ## What Is Zero Trust Browser?
 
 - Source: https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > What Is Zero Trust Browser?
-- Last modified: 2026-09-09T06:36Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation) and its three components: Cloud Browser, Browser Extension, and Enterprise Browser.
 
 Zero Trust Browser (formerly Zscaler Isolation) is a secure platform that protects organizations against web-based threats while enabling high-performance access to the internet, SaaS applications, and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.

@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 155
 
 ---
@@ -10,8 +10,8 @@ Articles in this file: 155
 ## DNS Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/dns-data-types-and-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > DNS Data Types and Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > DNS Data Types and Filters
 - Last modified: 2026-10-30T02:35Z
 - Summary: Information on DNS data types and filters to define DNS traffic information in a dashboard, report widget, or when analyzing charts in DNS Insights.
 
@@ -327,8 +327,8 @@ Displays data associated with the DNS tunneling categories and network services.
 ## DNS End User Notifications
 
 - Source: https://help.zscaler.com/zia/dns-end-user-notifications
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS End User Notifications
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > DNS Control > DNS End User Notifications
 - Last modified: 2026-10-19T17:54Z
 - Summary: Information on the different types of End User Notifications (EUNs) supported by the DNS Control policy.
 
@@ -589,8 +589,8 @@ Following are the DNS Insight Log columns you can select to view:
 ## DNS Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/dns-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Filters
 - Last modified: 2026-10-06T07:29Z
 - Summary: Information on the different filters in the DNS Insights Logs page in the Zscaler Admin Console.
 
@@ -673,8 +673,8 @@ These codes are not listed under the DNS Error Code filter. Zscaler uses these e
 ## DNS Static Web End User Notification
 
 - Source: https://help.zscaler.com/zia/dns-static-web-end-user-notification
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > DNS Control > DNS Static Web End User Notification
 - Last modified: 2026-09-29T03:22Z
 - Summary: Information about Zscaler-hosted end user notification web page for blocked domains.
 
@@ -763,8 +763,8 @@ If the client browser is using secure DNS or DoH, add a firewall filtering rule 
 ## DNS Test Domains
 
 - Source: https://help.zscaler.com/zia/dns-test-domains
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > DNS Test Domains
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > DNS Control > DNS Test Domains
 - Last modified: 2026-10-27T20:03Z
 - Summary: Information on test FQDNs that the Zscaler service provides to validate DNS Control policies.
 
@@ -781,13 +781,13 @@ These test domains resolve to [Google](https://www.google.com/). You might encou
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-10-20T21:06Z","nid":"1398761"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-and-printing-policies","lastmod":"2026-11-03T06:04Z","nid":"1398761"} -->
 ## Downloading and Printing Policies
 
 - Source: https://help.zscaler.com/zia/downloading-and-printing-policies
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Downloading and Printing Policies
-- Last modified: 2026-10-20T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Downloading and Printing Policies
+- Last modified: 2026-11-03T06:04Z
 - Summary: Information on how to download policies in PDF or JSON format or print policies and save them to a PDF file.
 
 You can download all of your organization's configured policies into a PDF or ZIP file. When you download policies in the ZIP format, a single ZIP file containing JSON representation of the policies is generated. One JSON file is created for each policy type within the ZIP file. In addition to downloading policies, you can print your policies.
@@ -798,11 +798,10 @@ To download or print all policies:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Internet Access** > **Setting** > **View All Policies**.
 2. You can do the following actions:
+  - To download policies, click the **Download** drop-down menu and select PDF or ZIP per your requirements. Selecting ZIP automatically downloads the policy contents into a ZIP file. If you select the **PDF** option, a window appears where you can change your preferred settings and then click **Save**. See sample files.
+  - To print policies, click **Print**. In the window that appears, you can change your preferred settings and then proceed to print the policies.
 
-- To download policies, click the **Download** drop-down menu and select PDF or ZIP per your requirements. Selecting ZIP automatically downloads the policy contents into a ZIP file. If you select the **PDF** option, a window appears where you can change your preferred settings and then click **Save**.
-- To print policies, click **Print**. In the window that appears, you can change your preferred settings and then proceed to print the policies. See image.
-
-See sample files.
+See image.
 
 [Image: Option to print or download Internet & SaaS policies in PDF or ZIP (JSON) formats]
 
@@ -815,8 +814,8 @@ See sample files.
 ## Downloading Department Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-department-information-csv-file
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Downloading Department Information to a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > Downloading Department Information to a CSV File
 - Last modified: 2026-10-23T14:13Z
 - Summary: How to obtain a list of departments configured in the Zscaler Admin Console.
 
@@ -940,27 +939,31 @@ To download a Virtual Service Edge VM for each Virtual Service Edge in a cluster
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-10-14T21:06Z","nid":"1401126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-zscaler-authentication-bridge-vm","lastmod":"2026-11-03T11:39Z","nid":"1401126"} -->
 ## Downloading the Zscaler Authentication Bridge VM
 
 - Source: https://help.zscaler.com/zia/downloading-zscaler-authentication-bridge-vm
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Downloading the Zscaler Authentication Bridge VM
-- Last modified: 2026-10-14T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Downloading the Zscaler Authentication Bridge VM
+- Last modified: 2026-11-03T11:39Z
 - Summary: How to download the Zscaler Authentication Bridge virtual machine in the Zscaler Admin Console.
 
 Downloading the Zscaler Authentication Bridge (ZAB) virtual machine (VM) is one of the tasks you must complete when deploying a ZAB. For a complete list of tasks, see [Deploying a Zscaler Authentication Bridge](https://help.zscaler.com/zia/how-do-i-deploy-zscaler-authentication-bridge).
 
 To download the ZAB VM:
 
-1. Go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**> **Authentication Bridges**.
-2. Click **Download ZAB VM**. The **Download ZAB VM**window appears.
-3. In the **Download ZAB VM**window, enter the **Number of Users** that the ZAB synchronizes, and optionally, authenticates.
-4. Click **Compute**to compute the appropriate resources for your ZAB. The recommended ZAB specifications appears. The ZAB can synchronize and authenticate hundreds of thousands of users. The ZAB specifications are determined by the number of users that the ZAB provisions. See image.
-5. For**ZAB Virtual Machine**, click **Download ZAB VM**to download the ZAB VM.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Internet & SaaS Authentication**>**Internet Authentication Settings**.
+2. Select the **Authentication Bridges** tab.
+3. On the **Authentication Bridges** tab, click **Download ZAB VM**. See image. The **Download ZAB VM**window appears.
+4. In the **Download ZAB VM**window, enter a **Number of Users,**which the Zscaler service uses to provide recommended specifications for the ZAB VM, and click **Compute**. See image. The **Recommended VM Specs**section appears.
+5. In the **Recommended VM Specs**section, review the VM specs and click **Download ZAB VM**to download the ZAB VM. See image.
 6. Click **Close**.
 
-[Image: Screenshot of the Compute button in the Download ZAB VM window]
+[Image: The Authentication Bridges page showing the option to download the ZAB VM]
+
+[Image: The Compute button in the Download ZAB VM window]
+
+[Image: The Download ZAB VM option in the Recommended VM Specs section of the Download ZAB VM window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1035,13 +1038,13 @@ To edit the default Firewall Filtering rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-deleting-duplicating-items","lastmod":"2026-10-30T16:39Z","nid":"1398786"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-deleting-duplicating-items","lastmod":"2026-11-05T12:48Z","nid":"1398786"} -->
 ## Editing, Deleting, or Duplicating Items
 
 - Source: https://help.zscaler.com/zia/editing-deleting-duplicating-items
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Editing, Deleting, or Duplicating Items
-- Last modified: 2026-10-30T16:39Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Editing, Deleting, or Duplicating Items
+- Last modified: 2026-11-05T12:48Z
 - Summary: How to edit, delete, or duplicate items in the Zscaler Admin Console for Internet & SaaS (ZIA).
 
 In the Zscaler Admin Console, you can often edit, delete, or duplicate items you configure. For example, you can do so with policy rules and other administrative items you configure in the Zscaler Admin Console (e.g., users and locations).
@@ -1076,7 +1079,7 @@ Some items can be deleted by clicking an icon. To delete items with the Delete i
 
 [Image: Image of the Delete icon]
 
-1. Type CONFIRM in the confirmation window that appears and then click **Delete**.
+1. Enter `CONFIRM` in the confirmation window that appears and then click **Delete**.
 
 [Image: Delete confirmation window]
 
@@ -1301,8 +1304,8 @@ See image.
 ## Editing DLP and Endpoint Resources
 
 - Source: https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources-context
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Editing DLP and Endpoint Resources
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Context > Editing DLP and Endpoint Resources
 - Last modified: 2026-07-02T13:20Z
 - Summary: Information on how to edit DLP and endpoint resources to prevent data loss on endpoints.
 
@@ -1457,22 +1460,22 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-10-07T21:06Z","nid":"1546094"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-11-02T15:26Z","nid":"1546094"} -->
 ## Editing Domain Profiles
 
 - Source: https://help.zscaler.com/zia/editing-domain-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
-- Last modified: 2026-10-07T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
+- Last modified: 2026-11-02T15:26Z
 - Summary: How to edit domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
-Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
 
 To edit domain profiles:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security**> **Email DLP**> **Email Domain Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Data Security**> **Email DLP**> **Email Domain Profiles**.
 2. Find a domain profile in the list, then click the **Edit** icon. The **Edit Domain Profile**drawer appears.
-3. In the **Edit Domain Profile** drawer:
+3. In the **Edit Domain Profile** drawer: See image.
   - **Profile Name**: Enter a name for the domain profile.
   - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
   - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Organization Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
@@ -1480,20 +1483,18 @@ To edit domain profiles:
   - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
 4. Click **Save**.
 
-See image.
-
 [Image: Edit the Domain Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-09-22T11:06Z","nid":"1492716"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-11-08T06:06Z","nid":"1492716"} -->
 ## Editing Email Tenants
 
 - Source: https://help.zscaler.com/zia/editing-email-tenants
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Email Tenants
-- Last modified: 2026-09-22T11:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Email Tenants
+- Last modified: 2026-11-08T06:06Z
 - Summary: How to edit email tenants for use in Zscaler Outbound Email Policy rules.
 
 Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you edit are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
@@ -1878,40 +1879,40 @@ The following engines detect Personal Information Protection and Electronic Docu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-recipient-profiles","lastmod":"2026-10-07T21:06Z","nid":"1546092"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-recipient-profiles","lastmod":"2026-11-02T15:31Z","nid":"1546092"} -->
 ## Editing Recipient Profiles
 
 - Source: https://help.zscaler.com/zia/editing-recipient-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Recipient Profiles
-- Last modified: 2026-10-07T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Recipient Profiles
+- Last modified: 2026-11-02T15:31Z
 - Summary: How to edit recipient profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
-Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles-standalone) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
 
 To edit recipient profiles:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Data Security**> **Email DLP**> **Recipient Profiles**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Data Security**> **Email DLP**> **Recipient Profiles**.
 2. Find a recipient profile in the list, then click the **Edit** icon. The **Edit Recipient Profile**drawer appears.
-3. In the **Edit Recipient Profile** drawer:
+3. In the **Edit Recipient Profile** drawer: See image.
   - **Profile Name**: Enter a name for the recipient profile.
   - **Recipients**: Enter one or more recipient email addresses separated by line breaks, then click **Add**.
   - **Recipient Emails**: Delete a recipient email address.
   - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
-4. Click **Save**. See image.
+4. Click **Save**.
 
 [Image: Edit the Recipient Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-resource-tag","lastmod":"2026-09-30T21:06Z","nid":"1541434"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-resource-tag","lastmod":"2026-11-07T06:06Z","nid":"1541434"} -->
 ## Editing a Resource Tag
 
 - Source: https://help.zscaler.com/zia/editing-resource-tag
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Editing a Resource Tag
-- Last modified: 2026-09-30T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Context > Editing a Resource Tag
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to edit DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
 You can edit a [resource tag](https://help.zscaler.com/zia/adding-resource-tags) to change basic information, or add and remove resources from the tag.
@@ -2336,8 +2337,8 @@ Displays Email DLP data associated with users. The trend chart does not support 
 ## Email DLP Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Columns
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Columns
 - Last modified: 2026-10-05T07:31Z
 - Summary: Information on the different columns in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
@@ -2468,8 +2469,8 @@ Following are the Email DLP Insights Logs filters that you can select:
 ## Enabling the Firewall for Locations
 
 - Source: https://help.zscaler.com/zia/enabling-firewall-locations
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Enabling the Firewall for Locations
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Enabling the Firewall for Locations
 - Last modified: 2026-10-27T02:28Z
 - Summary: How to enforce firewall controls on specific locations for the Zscaler service.
 
@@ -2690,8 +2691,8 @@ You must define your DLP servers in the Zscaler Admin Console by providing the p
 ## Endpoint DLP Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/endpoint-dlp-data-types-and-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Endpoint DLP Data Types and Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Endpoint DLP Data Types and Filters
 - Last modified: 2026-10-30T02:41Z
 - Summary: Information on Endpoint Data Loss Prevention (DLP) data types and filters to define traffic information in a dashboard, report widget, or when analyzing charts in Endpoint DLP Insights.
 
@@ -3079,8 +3080,8 @@ The following are the Endpoint DLP column fields:
 ## Endpoint DLP Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/endpoint-dlp-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Endpoint DLP Insights Logs: Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Endpoint DLP Insights Logs: Filters
 - Last modified: 2026-09-25T03:06Z
 - Summary: Information on the different filters in the Endpoint Data Loss Prevention (DLP) Insights Logs page in the Zscaler Admin Console.
 
@@ -3208,8 +3209,8 @@ Following are the Endpoint DLP Insights Log filters that you can select:
 ## Enforcing User-Based URL Policies on HTTPS Traffic
 
 - Source: https://help.zscaler.com/zia/enforcing-user-based-url-policies-https-traffic
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Enforcing User-Based URL Policies on HTTPS Traffic
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > Enforcing User-Based URL Policies on HTTPS Traffic
 - Last modified: 2026-10-30T00:16Z
 - Summary: Information on the different ways that the Zscaler service can enforce user-based URL policies on HTTPS traffic
 
@@ -3246,8 +3247,8 @@ Be aware of the following guidelines:
 ## Excluding a Data Center Based on Traffic Forwarding Method
 
 - Source: https://help.zscaler.com/zia/excluding-data-center-based-traffic-forwarding-method
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Excluding a Data Center Based on Traffic Forwarding Method
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Excluding a Data Center Based on Traffic Forwarding Method
 - Last modified: 2026-09-28T12:42Z
 - Summary: How to configure a data center exclusion on the Traffic Forwarding Method page in the Zscaler Admin Console.
 
@@ -3335,13 +3336,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/executive-insights-app-errors-and-troubleshooting","lastmod":"2026-08-31T00:53Z","nid":"1516996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/executive-insights-app-errors-and-troubleshooting","lastmod":"2026-11-02T02:06Z","nid":"1516996"} -->
 ## Executive Insights App Errors and Troubleshooting
 
 - Source: https://help.zscaler.com/zia/executive-insights-app-errors-and-troubleshooting
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Troubleshooting > Executive Insights App Errors and Troubleshooting
-- Last modified: 2026-08-31T00:53Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Troubleshooting > Executive Insights App Errors and Troubleshooting
+- Last modified: 2026-11-02T02:06Z
 - Summary: Information on common errors that might occur in the Executive Insights App and the respective troubleshooting steps.
 
 To learn how to install and use the Executive Insights App, see [Accessing and Using the Executive Insights App](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app).
@@ -3361,8 +3362,8 @@ The following tables provide lists of error messages users might see on the Exec
 | Invalid Email Entry | The user gets the following error message on the Login screen: You have entered an invalid email. Please try again. | The user must enter their correct email address. |
 | Missing Confirmation Code Email | The user is waiting on the Confirmation Code screen but has not received an email containing the confirmation code. | Check whether the countdown timer "Resend in XX seconds" has started on the Confirmation Code screen. If you see the countdown timer, it implies that the API call to send the confirmation code was successful and that the email had been sent from the back end to the user. To resolve this issue further: The user must check their spam folder for emails with the confirmation code.; If the user has not received the Confirmation Code email, the user must click the **Resend Code** button, wait until the countdown timer starts, and then check their email inbox for a new email with the code. |
 | Invalid Confirmation Code | The user has entered the confirmation code but the following error message displays: Validation failed. Please re-enter the correct confirmation code or have a new one sent. | To resolve this issue: The user must verify that the confirmation code entered is correct.; The user clicks **Resend Code** to generate a new confirmation code. It is recommended that users wait to receive the confirmation code instead of clicking the **Resend Code** button multiple times. Generating multiple codes within a short span might lead to using the wrong code. In such cases, the user must close and reopen the app to initiate the login process. |
-| Contact IT Admin for Access | Some users can log in to the app successfully but get the following error: Contact your IT admin to provide you access to a tenant. | This issue happens only in the case of Authentication Service-based authentication. If the user has been given an Authentication Service role with permission to access the Executive Insights App but has not been given access to the Internet & SaaS (ZIA) Administration Management for any tenant, ensure the following: In the Zscaler Admin Console, under Administration > Admin Management > Administrator Management > Internet Access Administrators: The user exists.; The user has a role with permission to access the Executive Insights App. |
-| Stuck on Select Tenant Screen | The user is able to log in to the app successfully but is unable to see their specific tenant organization on the Select Tenant screen. | In the Zscaler Admin Console of that specific tenant organization, under Administration > Admin Management > Administrator Management > Internet Access Administrators, ensure that the user exists and is assigned a role with permission to access the Executive Insights App. |
+| Contact IT Admin for Access | Some users can log in to the app successfully but get the following error: Contact your IT admin to provide you access to a tenant. | This issue happens only in the case of Authentication Service-based authentication. If the user has been given an Authentication Service role with permission to access the Executive Insights App but has not been given access to the Internet & SaaS (ZIA) Administration Management for any tenant, ensure the following: In the Zscaler Admin Console, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Legacy Admin Management** >**Internet & SaaS** and ensure the following: The user exists.; The user has a role with permission to access the Executive Insights App. |
+| Stuck on Select Tenant Screen | The user is able to log in to the app successfully but is unable to see their specific tenant organization on the Select Tenant screen. | In the Zscaler Admin Console of that specific tenant organization, under **Administration** **> Legacy Admin Management > Internet & SaaS** and ensure that the user exists and is assigned a role with permission to access the Executive Insights App. |
 
 | Error Type | Error Message or Issue Description | Resolution |
 | --- | --- | --- |
@@ -3391,7 +3392,7 @@ The following tables provide lists of error messages users might see on the Exec
 
 | Error Type | Error Message or Issue Description | Resolution |
 | --- | --- | --- |
-| Unclear Content on Screens | The data shown on the screen is not understandable. | Refer to the [documentation](https://help.zscaler.com/zia/accessing-and-using-executive-insights-app). |
+| Unclear Content on Screens | The data shown on the screen is not understandable. | See [Accessing and Using the Executive Insights App](https://help.zscaler.com/unified/accessing-and-using-executive-insights-app). |
 | Outdated News Content | Only a few news items display, and the latest news content is not shown for many days. | News items are published periodically across Zscaler's official communication channels, such as [News and Announcements](https://www.zscaler.com/company/news-press), [Blog](https://www.zscaler.com/blogs), and Zscaler Trust Portal. Whenever new content is made available, it shows up on the Executive Insights App. |
 | Call-to-Action Items Not Fully Covered | For the news items in the For You section, under Threats Detected, the status Partially Covered or Not Covered displays. | To ensure complete coverage and enhanced protection, we recommend reaching out to the Zscaler Account team. They can help assess your environment, identify any issues, and provide the necessary solutions to fully protect your organization against emerging threats. |
 <!-- /ZS-ARTICLE -->
@@ -3613,8 +3614,8 @@ In your Gmail inbox, you can find the apps that have accessed your inbox. Go to 
 ## Exporting Your Client IDs from Microsoft Azure
 
 - Source: https://help.zscaler.com/zia/exporting-your-client-ids-microsoft-azure
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Client IDs from Microsoft Azure
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Client IDs from Microsoft Azure
 - Last modified: 2024-03-05T05:18Z
 - Summary: How to export client IDs from Microsoft Azure.
 
@@ -3656,8 +3657,8 @@ After the CSV file is downloaded, the app names appear in the first column and t
 ## Exporting Your Google Chrome Extensions List
 
 - Source: https://help.zscaler.com/zia/exporting-your-google-chrome-extensions-list
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Google Chrome Extensions List
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Google Chrome Extensions List
 - Last modified: 2024-03-05T05:21Z
 - Summary: How to export your Google Chrome Extensions list
 
@@ -4990,8 +4991,8 @@ To configure Virtual Service Edge for home users:
 ## General Guidelines for NSS Feeds and Feed Formats
 
 - Source: https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > General Guidelines for NSS Feeds and Feed Formats
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > General Guidelines for NSS Feeds and Feed Formats
 - Last modified: 2026-06-18T11:13Z
 - Summary: Guidelines and information about the different NSS feeds and fields that you can include in the NSS output for logs.
 
@@ -6613,8 +6614,8 @@ To edit and import a CSV file :
 ## Importing VPN Credentials from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-vpn-credentials-csv-file
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Importing VPN Credentials from a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > IPSec > Importing VPN Credentials from a CSV File
 - Last modified: 2026-10-12T05:36Z
 - Summary: How to add or delete VPN credentials using a CSV file. VPN credentials must be added when configuring an IPSec VPN tunnel for the Zscaler service.
 
@@ -6674,8 +6675,8 @@ The following example adds an FQDN VPN credential and removes an IP VPN credenti
 ## Installing Advanced DLP Private Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-advanced-dlp-private-service-edge-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Advanced DLP Private Service Edge for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Advanced DLP Private Service Edge for Internet & SaaS
 - Last modified: 2026-08-25T19:38Z
 - Summary: Instructions for properly installing Advanced DLP Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
@@ -6984,6 +6985,56 @@ Your Databricks organization is now connected. After a connection is achieved, i
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/integrating-adobe-acrobat-sign","lastmod":"2026-11-05T23:50Z","nid":"1547031"} -->
+## Integrating with Adobe Acrobat Sign
+
+- Source: https://help.zscaler.com/zia/integrating-adobe-acrobat-sign
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Adobe Acrobat Sign
+- Last modified: 2026-11-05T23:50Z
+- Summary: How to connect Adobe Acrobat Sign to Advanced SSPM.
+
+You can connect your Adobe Acrobat Sign organization to Advanced SaaS Security Posture Management (SSPM) to continuously monitor and correct Software as a Service (SaaS) security posture and ensure regulatory compliance is maintained across the organization.
+
+## Prerequisite
+
+A user with Admin privileges is required to connect Advanced SSPM to your Adobe Acrobat Sign organization.
+
+## Connecting Adobe Acrobat Sign to Advanced SSPM
+
+To connect your Adobe Acrobat Sign organization to Advanced SSPM:
+
+1. Click **Connect** in the upper-right corner of the**SaaS Dashboard**. See image.
+2. From the drop-down menu, select**Adobe Acrobat Sign**. See image. The**Add Integration** window appears. See image.
+3. (Optional) In the **Add Integration** window, enter the **Tenant name.**
+4. Generate the**Integration Key**.
+  1. Log in to your [Adobe Acrobat Sign admin account](https://secure.adobesign.com/public/login).
+  2. On the **Admin** tab, under **Personal Preferences**, select **Access Tokens.**
+  3. Click the "+" sign on the top right to create a new integration key. The **Create Integration Key**windowappears.
+  4. In the **Create Integration Key**window, enter the **Integration Name**andselect the following permissions to be granted:
+    - account_read
+    - application_read:account
+    - user_read
+    - agreement_read
+    - widget_read
+    - library_read
+    - workflow_read
+    - webhook_read
+  5. Click **Save**.
+5. Enter the generated **Integration Key** in the**Add Integration** window.
+6. Click **Connect** to complete the integration.
+
+Your Adobe Acrobat Sign organization is now connected. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page.
+
+[Image: Connect Button allows you to add new integration]
+
+[Image: Add Adobe Acrobat Sign Integration]
+
+[Image: Connect Drop-Down Menu showing the Adobe Acrobat Sign integration option]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/integrating-airtable","lastmod":"2026-02-03T06:30Z","nid":"1535259"} -->
 ## Integrating with Airtable
 
@@ -7079,8 +7130,8 @@ Your Bitwarden organization is now connected. After integration is completed, a 
 ## Integrating Cloud NSS with Cloud-Based SIEMs
 
 - Source: https://help.zscaler.com/zia/integrating-cloud-nss-cloud-based-siems
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > SIEM Deployment Guides > Integrating Cloud NSS with Cloud-Based SIEMs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > SIEM Deployment Guides > Integrating Cloud NSS with Cloud-Based SIEMs
 - Last modified: 2026-03-30T13:04Z
 - Summary: Information on integrating Cloud NSS and security information and event management (SIEM) systems.
 
@@ -7353,6 +7404,57 @@ The following table lists the permissions and data collected after integration:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/integrating-kintone","lastmod":"2026-11-05T08:09Z","nid":"1546937"} -->
+## Integrating with Kintone
+
+- Source: https://help.zscaler.com/zia/integrating-kintone
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Kintone
+- Last modified: 2026-11-05T08:09Z
+- Summary: How to connect Kintone to Advanced SSPM.
+
+You can connect your Kintone organization to Advanced SaaS Security Posture Management (SSPM) to continuously monitor and correct Software as a Service (SaaS) security posture and ensure regulatory compliance is maintained across the organization.
+
+## Prerequisite
+
+A user with Admin privileges is required to connect Advanced SSPM to your Kintone organization.
+
+## Connecting Kintone to Advanced SSPM
+
+To connect your Kintone organization to Advanced SSPM:
+
+1. Click **Connect** in the upper-right corner of the**SaaS Dashboard**. See image.
+2. From the drop-down menu, select **Kintone**. See image. The**Add Integration** window appears. See image.
+3. (Optional) In the **Add Integration** window, enter the **Tenant name.**
+4. Enter the **Kintone** **subdomain** (e.g., if your Kintone URL is my-company.kintone.com, then enter `my-company`).
+5. Generate the OAuth client ID and client secret. See image. You must enable the**Configure users**optionon the**OAuth** page. See image. Additionally, ensure the **Administrator**option and your user account are selected while generating the OAuth client ID and client secret. See image.
+  1. Log in to your Kintone account.
+  2. Click **Settings** and select **Users & system administration**.
+  3. Go to **System administration** >**Integrations** > **OAuth**.
+  4. In the **Add OAuth client** window, enter the **Client name**, and upload the**Client logo.**
+  5. Enter the **Redirect endpoint**. The redirect URL is `https://sightd-integration.us.auth0.com/login/callback`.
+  6. Click **Save** and copy the**Client ID**and **Client secret**.
+6. Enter the **OAuth client ID** and**OAuth client secret**in the **Add Integration** window.
+7. Enter the**API token**. To learn how to generate the API token, refer to the [Kintone documentation](https://us.kintone.help/general/en/admin/list_externalservices/api_token).
+8. Click **Connect** to complete the integration.
+
+Your Kintone organization is now connected. After integration is completed, a success message appears, and the tenant details are updated on the [Settings](https://help.zscaler.com/zia/about-settings-3rd-party-app-governance) page.
+
+[Image: Connect Button allows you to add new integration]
+
+[Image: Add Kintone Integration]
+
+[Image: Connect Drop-Down Menu showing the Kintone integration option]
+
+[Image: Add OAuth client Window in Kintone]
+
+[Image: Administrator Option in Kintone]
+
+[Image: Configure users option in Kintone]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/integrating-lucid","lastmod":"2026-03-24T02:33Z","nid":"1538945"} -->
 ## Integrating with Lucid
 
@@ -7611,8 +7713,8 @@ See image.
 ## Integrating with Microsoft Cloud App Security
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-cloud-app-security
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Cloud App Security
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Partner Integrations > Integrating with Microsoft Cloud App Security
 - Last modified: 2026-10-28T21:06Z
 - Summary: How to integrate Zscaler service with Microsoft Cloud App Security (MCAS) to discover and sync cloud apps.
 
@@ -8239,8 +8341,8 @@ Your Smartsheet organization is now connected. After integration is completed, a
 ## Integrating VM-Based NSS with SIEMs
 
 - Source: https://help.zscaler.com/zia/integrating-vm-based-nss-siems
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > SIEM Deployment Guides > Integrating VM-Based NSS with SIEMs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > SIEM Deployment Guides > Integrating VM-Based NSS with SIEMs
 - Last modified: 2026-03-30T13:02Z
 - Summary: Information on integrating Zscaler's Nanolog Streaming Service (NSS) with security information and event management (SIEM) systems.
 
@@ -8671,8 +8773,8 @@ The "Read and modify applications" permission listed in the following table is a
 ## Integrating with Slack
 
 - Source: https://help.zscaler.com/zia/integrating-with-slack
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Slack
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Slack
 - Last modified: 2026-04-25T12:31Z
 - Summary: How to connect Slack to 3rd-Party App Governance.
 
@@ -12710,8 +12812,8 @@ See image.
 ## Kerberos Authentication Deployment Guidelines
 
 - Source: https://help.zscaler.com/zia/kerberos-authentication-deployment-guidelines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
 - Last modified: 2026-10-30T04:57Z
 - Summary: Guidelines and deployment options for deploying Kerberos authentication.
 
@@ -13180,8 +13282,8 @@ See image.
 ## Logging Out from Zscaler While Using SAML
 
 - Source: https://help.zscaler.com/zia/logging-out-zscaler-while-using-saml
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Logging Out from Zscaler While Using SAML
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Logging Out from Zscaler While Using SAML
 - Last modified: 2026-10-30T16:43Z
 - Summary: How to log out from Zscaler and trigger reauthentication for users who are using SAML with auto-provisioning or Hosted DB authentication.
 
@@ -13228,8 +13330,8 @@ To learn more about CSV Import, see [Importing User Details from a CSV File](htt
 ## Looking Up URLs in Site Review
 
 - Source: https://help.zscaler.com/zia/looking-up-urls-site-review
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Looking Up URLs in Site Review
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > Looking Up URLs in Site Review
 - Last modified: 2026-10-28T03:10Z
 - Summary: How to use Site Review, a tool that enables you to see how a site is categorized in the Zscaler URL database.
 
@@ -13311,8 +13413,8 @@ See image.
 ## Maintenance Support for Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/maintenance-support-virtual-service-edge-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Maintenance Support for Virtual Service Edge for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Maintenance Support for Virtual Service Edge for Internet & SaaS
 - Last modified: 2026-09-11T02:37Z
 - Summary: Support information for ongoing Virtual Service Edge for Internet & SaaS (ZIA) maintenance in the Zscaler cloud.
 
@@ -13348,13 +13450,13 @@ In the event of software failure, your organization can contact Zscaler Support.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/manage-saas-application-components","lastmod":"2026-09-23T05:11Z","nid":"1529449"} -->
+<!-- ZS-ARTICLE {"url":"/zia/manage-saas-application-components","lastmod":"2026-11-05T02:46Z","nid":"1529449"} -->
 ## Manage SaaS Application Components
 
 - Source: https://help.zscaler.com/zia/manage-saas-application-components
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Manage SaaS Application Components
-- Last modified: 2026-09-23T05:11Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > SaaS Application Tenants > Manage SaaS Application Components
+- Last modified: 2026-11-05T02:46Z
 - Summary: Information on managing SaaS application tenants and components in the Zscaler Admin Console.
 
 SaaS applications, such as SharePoint, might have dozens, hundreds, or even thousands of individual component sites. Instead of creating Data Loss Prevention (DLP) policies for each of them individually, you can create groups of sites that you want to share the same DLP policies.
@@ -13365,13 +13467,15 @@ To create groups:
 
 1. Go to**Data Security > DSPM > SaaS Application Tenants > Manage Groups.**
 2. At the top right of the page, select an available application. See image.
-3. Click **Add Group**. See image. The **Add Group** window appears.
-4. In the **Add Group** window, enter a name for your group, and under **SaaS Application Tenant** select one of your tenants. If you haven't added one yet, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants). See image.
-5. Under **Sites**, you can choose to manually add or import sites. A group can contain a maximum of 10,000 sites.
-  1. **Add Sites**: Click the drop-down menu, select your desired sites from the list, and click **Done**. See image.
-  2. **Import Sites**: Click **Choose File** and select a CSV file with your list of desired sites. A sample file is available to download by clicking **Sample Import CSV File**. See image.
-6. In the **Comment** field, you can enter optional information regarding the group you are creating.
-7. Click **Save**.
+3. Click **Add Group**. See image. The **Add Group** drawer appears.
+4. In the **Add Group** drawer, enter the following: See image.
+  - **Name**: The name of your group.
+  - **SaaS Application Tenant**: Select one of your tenants. If you haven't added one yet, see [Adding SaaS Application Tenants](https://help.zscaler.com/zia/adding-saas-application-tenants).
+  - **Sites**: Choose to manually add or import sites. A group can contain a maximum of 10,000 sites.
+    - **Add Sites**: Click the drop-down menu, select your desired sites from the list, and click **Done**. See image.
+    - **Import Sites**: Click **Choose File** and select a CSV file with your list of desired sites. A sample file is available to download by clicking **Sample Import CSV File**. See image.
+  - **Comments (optional)**: Enter additional information regarding the group you are creating.
+5. Click **Save**.
 
 To learn more about setting up the DLP policies for groups, see [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp) and [Configuring the Data at Rest Scanning DLP Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-dlp-policy).
 
@@ -13379,29 +13483,29 @@ To learn more about setting up the DLP policies for groups, see [About Data at R
 
 In addition to creating groups, you can manage your groups and download lists of them as well.
 
-From the **Groups** tab, you can click the **Edit** button to make any changes to an existing group. You can also download a list of your groups in a CSV file by clicking **Download**.
+On the **Manage Groups**tab, you can click the **Edit** or **Delete**icon to make any changes to an existing group. Click the **Download**icon to download a list of your sites in a CSV file.
 
 See image.
 
-From the **Components**tab, you can view a list of all your sites, tenants, and site type based on the group they are associated with. Click **Download**to download a list of your sites in a CSV file.
+On the **Manage Components**tab, you can view a list of all your sites, tenants, and site types based on the group they are associated with. Click the **Download**icon to download a list of your sites in a CSV file.
 
-The Site Type is available only for those sites that are linked to a group.
+The site type is available only for those sites that are linked to a group.
 
 See image.
 
-[Image: Manage SaaS Application Tenant page, group tab selected with annotation around the drop-down menu]
+[Image: Selecting a SaaS Application on the Manage Groups page]
 
-[Image: Manage SaaS Application Tenant page, group tab selected with annotation around Add Group button]
+[Image: The Add Group button on the Manage Groups tab]
 
-[Image: Manage SaaS Application Components Add Group window]
+[Image: The Add Group drawer in the Manage Groups]
 
-[Image: Add Group page, with the manual Add Sites option selected and the drop-down menu open]
+[Image: Add Group drawer, with the manual Add Sites option selected and the drop-down menu open]
 
-[Image: Add Groups page with Import Sites option selected]
+[Image: The Import Sites option on Add Groups drawer]
 
-[Image: Manage SaaS Application Tenant page, Group tab selected with annotation around the Edit button]
+[Image: Edit, Delete, and Download icons on the Manage Groups tab]
 
-[Image: Manage SaaS Application Tenant page, Component tab selected.]
+[Image: The Download icon on the Manage Components tab]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13410,8 +13514,8 @@ See image.
 ## Managing Alerts
 
 - Source: https://help.zscaler.com/zia/managing-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Managing Alerts
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Alerts > Managing Alerts
 - Last modified: 2026-10-20T12:41Z
 - Summary: How to add and disable alerts in the Zscaler Admin Console.
 
@@ -13459,13 +13563,13 @@ To disable alerts:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-cddvd-rule","lastmod":"2026-10-08T08:14Z","nid":"1541150"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-cddvd-rule","lastmod":"2026-11-04T07:50Z","nid":"1541150"} -->
 ## Managing a CD/DVD Rule
 
 - Source: https://help.zscaler.com/zia/managing-cddvd-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a CD/DVD Rule
-- Last modified: 2026-10-08T08:14Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a CD/DVD Rule
+- Last modified: 2026-11-04T07:50Z
 - Summary: Information on how to add and edit CD/DVD rules to prevent data loss on endpoints.
 
 You can define and set up policy rules for device usage based on criteria, severity, action, etc. Additionally, you can create a single rule to manage multiple CD/DVD devices, associating them with specific users. The administrator can perform the following operations:
@@ -13476,7 +13580,7 @@ You can define and set up policy rules for device usage based on criteria, sever
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **CD/DVD**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **CD/DVD**.
 2. Click **Add Rule**. The **New Exception** page appears.
 3. On the **New Exception** page, specify the following for the CD/DVD rule: See Image.
   1. **Details**: Configure the following details:
@@ -13504,7 +13608,7 @@ After the policy rules are set, they need to be activated for them to be enforce
       - **Critical**: User risk scores ranging from 80 to 100.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **CD/DVD**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **CD/DVD**.
 2. Locate the CD/DVD rule in the list, then click the **Edit**icon. The **Edit Exception** page appears.
 3. On the **Edit Exception** page, edit the settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -13597,13 +13701,13 @@ To delete the cloud service API key:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-floppy-disk-rule","lastmod":"2026-10-08T08:14Z","nid":"1541153"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-floppy-disk-rule","lastmod":"2026-11-04T07:51Z","nid":"1541153"} -->
 ## Managing a Floppy Disk Rule
 
 - Source: https://help.zscaler.com/zia/managing-floppy-disk-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Floppy Disk Rule
-- Last modified: 2026-10-08T08:14Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Floppy Disk Rule
+- Last modified: 2026-11-04T07:51Z
 - Summary: Information on how to add and edit floppy disk rules to prevent data loss on endpoints.
 
 You can define and set up policy rules for device usage based on criteria, severity, action, etc. Additionally, you can create a single rule to manage multiple floppy disks, associating them with specific users. Floppy disk rules are only supported for Windows devices. The admins can perform the following operations:
@@ -13614,7 +13718,7 @@ You can define and set up policy rules for device usage based on criteria, sever
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Floppy Disk**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Floppy Disk**.
 2. Click **Add Rule**. The **New Exception** page appears.
 3. On the**New Exception** page, specify the following for the floppy disk rule: See Image.
   1. **Details**: Configure the following details:
@@ -13642,7 +13746,7 @@ After the policy rules are set, they need to be activated for them to be enforce
       - **Critical**: User risk scores ranging from 80 to 100.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Floppy Disk**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Floppy Disk**.
 2. Locate the floppy disk rule in the list, then click the **Edit**icon. The **Edit Exception** window appears depending on the rule you selected.
 3. Edit the settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -13691,13 +13795,13 @@ This feature doesn't apply to users with Zscaler Client Connector.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-intent-rule","lastmod":"2026-10-08T09:44Z","nid":"1541936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-intent-rule","lastmod":"2026-11-04T08:18Z","nid":"1541936"} -->
 ## Managing an Intent Rule
 
 - Source: https://help.zscaler.com/zia/managing-intent-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > Managing an Intent Rule
-- Last modified: 2026-10-08T09:44Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > Managing an Intent Rule
+- Last modified: 2026-11-04T08:18Z
 - Summary: Information on how to edit an intent rule and add an exception to prevent data loss on endpoints.
 
 Admins can edit predefined intent rules for criteria, severity, and status. Additionally, admins can add exceptions to the predefined rules:
@@ -13708,7 +13812,7 @@ Admins can edit predefined intent rules for criteria, severity, and status. Addi
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes.](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes)
 
-1. Go to **Analytics > Endpoint Data Scan > Indicators of Intent**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** >**Indicators of Intent**.
 2. Locate the intent rule in the list, then click the **Add**icon. The **New Exception**page appears.
 3. On the **New Exception**page: See Image.
   1. **Details**: Configure the following details:
@@ -13723,7 +13827,7 @@ After the policy rules are set, they need to be activated for them to be enforce
     - **Departments**: Select one or more departments to apply the rule to those departments. You can also search for departments.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Indicators of Intent**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** >**Indicators of Intent**.
 2. Locate the intent or exception rule in the list, then click the **Edit**icon. The **Edit Rule** page appears.
 3. On the **Edit Rule** page, edit settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -13871,13 +13975,13 @@ When you configure and deploy the backup solution, you must:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-nearby-share-rule","lastmod":"2026-10-08T09:25Z","nid":"1525326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-nearby-share-rule","lastmod":"2026-11-04T07:49Z","nid":"1525326"} -->
 ## Managing a Nearby Sharing Rule
 
 - Source: https://help.zscaler.com/zia/managing-nearby-share-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Nearby Sharing Rule
-- Last modified: 2026-10-08T09:25Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Nearby Sharing Rule
+- Last modified: 2026-11-04T07:49Z
 - Summary: Information on how to add and edit a nearby sharing rule to prevent data loss on endpoints.
 
 Nearby Sharing allows users to transfer files such as photos, videos, documents, and links between endpoints and nearby devices that have the Nearby Sharing feature enabled. Administrators can set up policy rules for Nearby Sharing to fully block file transfers to nearby devices, based on criteria such as users, department, endpoint, user's risk profile, or device trust level. The supported nearby sharing methods include:
@@ -13895,7 +13999,7 @@ The administrator can perform the following operations:
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Nearby Sharing**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Nearby Sharing**.
 2. Click **Add Rule**. The **New Exception page** opens.
 3. On the **New Exception** page, specify the following for the nearby sharing rule: See Image.
   1. **Details**: Configure the following details:
@@ -13923,7 +14027,7 @@ After the policy rules are set, they need to be activated for them to be enforce
       - **Critical**: User risk scores ranging from 80 to 100.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Nearby Sharing**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Nearby Sharing**.
 2. Locate the nearby sharing rule in the list, then click the **Edit**icon. The **Edit Exception** page opens.
 3. In the **Edit Exception** page, edit the settings. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -13945,8 +14049,8 @@ You can edit the default nearby sharing device rule, but you cannot delete it.
 ## Managing OAuth 2.0 Authorization Servers
 
 - Source: https://help.zscaler.com/zia/managing-oauth-2.0-authorization-servers
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing OAuth 2.0 Authorization Servers
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > Managing OAuth 2.0 Authorization Servers
 - Last modified: 2026-10-07T23:26Z
 - Summary: Information on how to add and manage external OAuth 2.0 authorization servers on the Zscaler Admin Console.
 
@@ -14021,13 +14125,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-resource","lastmod":"2026-10-08T10:27Z","nid":"1542708"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-resource","lastmod":"2026-11-04T07:56Z","nid":"1542708"} -->
 ## Managing a Portable Device Resource
 
 - Source: https://help.zscaler.com/zia/managing-portable-device-resource
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Portable Device Resource
-- Last modified: 2026-10-08T10:27Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Portable Device Resource
+- Last modified: 2026-11-04T07:56Z
 - Summary: Information on how to add, edit, and delete a portable device resource to prevent data loss on endpoints.
 
 You can add resources for which you define and set up policy rules. The admins can perform the following operations:
@@ -14036,7 +14140,7 @@ You can add resources for which you define and set up policy rules. The admins c
 - Editing a Portable Device Resource
 - Deleting a Portable Device Resource
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Portable Devices**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Portable Devices**.
 2. Click **Add**. The **New Portable Device Resource** drawer appears.
 3. In the **New Portable Device Resource** drawer: See Image.
   - **Name**: Enter a name for the device.
@@ -14047,7 +14151,7 @@ You can add resources for which you define and set up policy rules. The admins c
     - **Serial Number**: Enter the portable device's serial number.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Portable Devices**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Portable Devices**.
 2. Locate the portable device resource in the list, then click the **Edit**icon. The **Edit Portable Device Resource**drawer appears.
 3. In the **Edit Portable Device Resource**drawer, edit the settings for the selected resource as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14063,13 +14167,13 @@ You can delete any resource by selecting the resource from the list and clicking
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-rule","lastmod":"2026-10-08T08:14Z","nid":"1541040"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-rule","lastmod":"2026-11-04T07:51Z","nid":"1541040"} -->
 ## Managing a Portable Device Rule
 
 - Source: https://help.zscaler.com/zia/managing-portable-device-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Portable Device Rule
-- Last modified: 2026-10-08T08:14Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Portable Device Rule
+- Last modified: 2026-11-04T07:51Z
 - Summary: Information on how to add and edit a portable device rule to prevent data loss on endpoints.
 
 You can define and set up policy rules for device usage based on criteria, severity, action, etc. Additionally, you can create a single rule to manage multiple portable devices, associating them with specific users. The admins can perform the following operations:
@@ -14080,7 +14184,7 @@ You can define and set up policy rules for device usage based on criteria, sever
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Portable Device**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Portable Device**.
 2. Click **Add Rule**. The **New Exception** page appears.
 3. On the **New Exception** page, specify the following for the portable device rule: See Image.
   1. **Details**: Configure the following details:
@@ -14109,7 +14213,7 @@ After the policy rules are set, they need to be activated for them to be enforce
       - **Critical**: User risk scores ranging from 80 to 100.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Portable Device**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Portable Device**.
 2. Locate the portable device rule in the list, then click the **Edit**icon. The **Edit Rule**page appears.
 3. On the **Edit Rule**page, edit the settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14127,13 +14231,13 @@ You can edit the default portable device rule, but you cannot delete it.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-printer-resource","lastmod":"2026-10-08T10:27Z","nid":"1542709"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-printer-resource","lastmod":"2026-11-04T07:57Z","nid":"1542709"} -->
 ## Managing a Printer Resource
 
 - Source: https://help.zscaler.com/zia/managing-printer-resource
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Printer Resource
-- Last modified: 2026-10-08T10:27Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Printer Resource
+- Last modified: 2026-11-04T07:57Z
 - Summary: Information on how to add, edit, and delete a printer resource to prevent data loss on endpoints.
 
 You can add resources for which you define and set up policy rules. The admins can perform the following operations:
@@ -14142,7 +14246,7 @@ You can add resources for which you define and set up policy rules. The admins c
 - Editing a Printer Resource
 - Deleting a Printer Resource
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Printers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Printers**.
 2. Click **Add**. The **New Printer Resource** drawer appears.
 3. In the **New Printer Resource** drawer: See Image.
   - **Name**: Enter a name for the device.
@@ -14152,7 +14256,7 @@ You can add resources for which you define and set up policy rules. The admins c
     - **UNC Path**: Enter the UNC path for the printer resource.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Printers**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Printers**.
 2. Locate the portable device resource in the list, then click the **Edit**icon. The **Edit Printer Resource**drawer appears.
 3. In the **Edit Printer Resource**drawer, edit the settings for the selected resource as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14168,13 +14272,13 @@ You can delete any resource by selecting the resource from the list and clicking
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-printer-rule","lastmod":"2026-10-08T09:09Z","nid":"1515411"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-printer-rule","lastmod":"2026-11-04T07:48Z","nid":"1515411"} -->
 ## Managing a Printer Rule
 
 - Source: https://help.zscaler.com/zia/managing-printer-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Printer Rule
-- Last modified: 2026-10-08T09:09Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Printer Rule
+- Last modified: 2026-11-04T07:48Z
 - Summary: Information on how to add, edit, and delete a printer rule to prevent data loss on endpoints.
 
 Administrators can define and set up policy rules for device usage based on the rule's criteria (i.e., Users, Departments, Endpoint Name, Printers, Device Trust Level, User Risk Profile, etc.) The administrator can perform the following operations:
@@ -14185,7 +14289,7 @@ Administrators can define and set up policy rules for device usage based on the 
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** >**Printer**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** >**Printer**.
 2. Click **Add Rule**. The **New Exception** page appears.
 3. On the **New Exception** page, specify the following for the printer device rule: See Image.
   1. **Details**: Configure the following details:
@@ -14214,7 +14318,7 @@ After the policy rules are set, they need to be activated for them to be enforce
       - **Critical**: User risk scores ranging from 80 to 100.
 4. Click **Save** and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Printer**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** >**Printer**.
 2. Locate the printer rule in the list, then click the **Edit**icon. The **Edit Exception** page opens.
 3. Edit the settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14236,8 +14340,8 @@ You can edit the default printer rule, but you cannot delete it.
 ## Managing the QUIC Protocol
 
 - Source: https://help.zscaler.com/zia/managing-quic-protocol
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Troubleshooting > Managing the QUIC Protocol
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Troubleshooting > Managing the QUIC Protocol
 - Last modified: 2026-08-28T02:27Z
 - Summary: Information on how to manage the QUIC protocol when using Internet & SaaS (ZIA).
 
@@ -14437,13 +14541,13 @@ To create a security policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-removable-storage-resource","lastmod":"2026-10-08T10:24Z","nid":"1542707"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-removable-storage-resource","lastmod":"2026-11-04T07:56Z","nid":"1542707"} -->
 ## Managing a Removable Storage Resource
 
 - Source: https://help.zscaler.com/zia/managing-removable-storage-resource
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Removable Storage Resource
-- Last modified: 2026-10-08T10:24Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Removable Storage Resource
+- Last modified: 2026-11-04T07:56Z
 - Summary: Information on how to add, edit, and delete a removable storage resource to prevent data loss on endpoints.
 
 You can add resources for which you define and set up policy rules. The admins can perform the following operations:
@@ -14452,7 +14556,7 @@ You can add resources for which you define and set up policy rules. The admins c
 - Editing a Removable Storage Resource
 - Deleting a Removable Storage Resource
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Removable Storage**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Removable Storage**.
 2. Click **Add**. The **New Removable Storage Resource** drawer appears.
 3. In the **New Removable Storage Resource** drawer: See Image.
   - **Name**: Enter a name for the device.
@@ -14463,7 +14567,7 @@ You can add resources for which you define and set up policy rules. The admins c
     - **Serial Number**: Enter the removable storage resource's serial number.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Resources** > **Removable Storage**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Endpoint DLP**> **Endpoint Data Scan** > **Resources** > **Removable Storage**.
 2. Locate the portable device resource in the list, then click the **Edit**icon. The **Edit Removable Storage Resource**drawerappears.
 3. In the **Edit Removable Storage Resource**drawer, edit the settings for the selected resource as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14479,13 +14583,13 @@ You can delete any resource by selecting the resource from the list and clicking
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-removable-storage-rule","lastmod":"2026-10-08T09:13Z","nid":"1515406"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-removable-storage-rule","lastmod":"2026-11-04T07:47Z","nid":"1515406"} -->
 ## Managing a Removable Storage Rule
 
 - Source: https://help.zscaler.com/zia/managing-removable-storage-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Removable Storage Rule
-- Last modified: 2026-10-08T09:13Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Removable Storage Rule
+- Last modified: 2026-11-04T07:47Z
 - Summary: Information on how to add and edit a removable storage rule to prevent data loss on endpoints.
 
 Administrators can define and set up policy rules for device usage based on criteria, severity, action, etc. Additionally, they can create a single rule to manage multiple removable storage devices, associating them with specific users or endpoints (Device Per User) by either manually adding devices or importing a CSV file which has device data. The administrator can perform the following operations:
@@ -14496,12 +14600,12 @@ Administrators can define and set up policy rules for device usage based on crit
 
 After the policy rules are set, they need to be activated for them to be enforced. To learn more, see [Activating Device Control Policy Rules, Configuration, and Indexed Documents Changes](https://help.zscaler.com/zia/activating-device-control-policy-rules-configuration-indexed-documents-changes).
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Removable Storage**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Removable Storage**.
 2. Click **Add Rule**and choose one of the following:
   - Removable Storage
   - Device Per User
 
-1. Go to **Analytics**> **Endpoint Data Scan** > **Device Control** > **Removable Storage**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Endpoint DLP** > **Endpoint Data Scan** > **Device Control** > **Removable Storage**.
 2. Locate the removable storage rule or the removable storage device per user rule (identified by the device user pairs in the **Criteria**column) in the list, then click the **Edit**icon. The **Edit Exception** page opens depending on the rule you selected.
 3. Edit the settings for the selected rule as required. See Image.
 4. Click **Save**and [activate the change](https://help.zscaler.com/zia/activating-device-control-policy-rules).
@@ -14578,8 +14682,8 @@ The **New Exception** page opens. Specify settings in the rule editor for the re
 ## Managing Sandbox API Token
 
 - Source: https://help.zscaler.com/zia/managing-sandbox-api-token
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Managing Sandbox API Token
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > Managing Sandbox API Token
 - Last modified: 2026-10-08T22:53Z
 - Summary: Information on how to add and manage Sandbox API tokens used for authenticating Sandbox Submission API.
 
@@ -14877,8 +14981,8 @@ The following section outlines the best practices for migrating [source IP-ancho
 ## Migrating to a New SAML IdP
 
 - Source: https://help.zscaler.com/zia/migrating-new-saml-idp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Migrating to a New SAML IdP
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Migrating to a New SAML IdP
 - Last modified: 2026-10-30T16:35Z
 - Summary: How to migrate to another SAML identity provider in the Zscaler Admin Console.
 
@@ -16560,31 +16664,6 @@ Use this filter to view transactions associated with webmail applications. When 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-index-tool-configuration","lastmod":"2026-10-08T21:06Z","nid":"1400666"} -->
-## Modifying an Index Tool Configuration
-
-- Source: https://help.zscaler.com/zia/modifying-index-tool-configuration
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Modifying an Index Tool Configuration
-- Last modified: 2026-10-08T21:06Z
-- Summary: How to edit and delete an Index Tool Configuration, which is used to configure the Zscaler Index Tool.
-
-To edit or delete an Index Tool configuration:
-
-1. Go to **Data Security**> **Common Resources**> **Index Tool**.
-2. Locate the Index Tool configuration in the table and click **Edit**. The **Edit Index Tool Configuration** window appears.
-3. In the **Edit Index Tool Configuration**window, you cannot modify the **VM Name**. However, you can do the following: See image.
-  - **Status**:Select **Enabled** or **Disabled**.
-  - **SSL Certificate**: **Download** the certificate or select **Regenerate SSL Certificate**to replace the old certificate. If you regenerate the certificate, make sure that you update the Index Tool virtual machine with the new file. To learn more, see [Configuring the Index Tool with VMWare](https://help.zscaler.com/zia/configuring-index-tool).
-  - **Enable Single Sign-On**:Select **Enabled**to configure single sign-on (SSO) for the Index Tool configuration. To learn more, see [Configuring Single Sign-On for the Index Tool](https://help.zscaler.com/zia/configuring-single-sign-index-tool).
-  - **Delete**: Removes the configuration.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Editing an Index Tool Configuration]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/modifying-predefined-dns-control-rules","lastmod":"2026-09-29T03:07Z","nid":"1399921"} -->
 ## Modifying the Predefined DNS Control Rules
 
@@ -16760,13 +16839,13 @@ Similarly, you can edit custom network services and modify their port assignment
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-10-21T13:20Z","nid":"1401731"} -->
+<!-- ZS-ARTICLE {"url":"/zia/modifying-zscaler-incident-receiver","lastmod":"2026-11-04T20:06Z","nid":"1401731"} -->
 ## Modifying a Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/zia/modifying-zscaler-incident-receiver
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
-- Last modified: 2026-10-21T13:20Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Incident Receiver > Modifying a Zscaler Incident Receiver
+- Last modified: 2026-11-04T20:06Z
 - Summary: How to edit a Zscaler Incident Receiver, including how to delete the incident receiver and download or regenerate the certificate.
 
 To edit or delete a Zscaler Incident Receiver:
@@ -17049,337 +17128,4 @@ Zscaler Client Connector supports the following languages for [end user notifica
 The EUN language is based on the OS language setting in your system. The Zscaler Client Connector automatically detects your system's OS language and displays EUNs in that language. If your system's OS language is different from the EUN supported languages, Zscaler Client Connector displays EUNs in English, by default.
 
 Only the default messages are translated to all the languages that the Zscaler Client Connector supports. You can modify the default messages per language. Modifying the message in a specific language does not impact the respective message in other languages. Zscaler Client Connector does not automatically translate customized messages.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-10-29T11:17Z","nid":"1463366"} -->
-## NSS Collector Deployment Guide for VMware vSphere
-
-- Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
-- Last modified: 2026-10-29T11:17Z
-- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
-
-The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report). To enable this feature for your organization, contact Zscaler Support.
-
-This guide describes the tasks required to deploy [Nanolog Streaming Service (NSS) Collector](https://help.zscaler.com/zia/about-nss-collector-servers) to collect logs in real time from third-party security devices inside your network perimeter and stream them to the Zscaler cloud. Each step in the guide links you to the appropriate article for that configuration task on vSphere.
-
-## Prerequisites
-
-Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to NSS Collector and review the following specifications and requirements:
-
-- VM Specs
-- Host Specs
-- Network Specs
-- Firewall Requirements
-- User Provisioning
-
-## Deploying NSS Collector
-
-To deploy NSS Collector:
-
-- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate
-- Step 2: Use the ESX/ESXi Server to Configure and Start the NSS Collector on the VM Instance
-- Step 3: Configure Third-Party syslog Feed for NSS Collector
-
-- 2 CPU cores: NSS Collector uses one core for the control plane and another core for the data plane.
-- Instance memory:
-  - 8 GB for up to 15K users
-  - 16 GB for up to 40K users
-  - 32 GB for up to 100K users
-- Data disk size: 500 GB
-
-- Hypervisor: VMware ESX/ESXi v5.0 and later
-- Host CPU: 64-bit Xeon or equivalent
-- Host CPU Speed: Greater than or equal to 2.40GHz
-- VMware vSphere Client or vCenter
-
-- Network Adapter: E1000
-- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs.
-- Bandwidth for Log Streaming: 11 Mbps for 10K users is an example average value.
-- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-  | Virtual Interface | IP Address | Description |
-  | --- | --- | --- |
-  | em0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS Collector VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS Collector VM. |
-  | em1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud. |
-
-The firewall requirements are as follows:
-
-- You must deploy the NSS Collector instance behind a VM network security group. The NSS Collector instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
-- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
-- Communication from the NSS Collector to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS Collector can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
-
-To leverage complete SaaS Security Report functionality, users whose traffic traversed through third-party vendor devices need to be provisioned through one of the mechanisms supported by Zscaler. To learn about user provisioning, see [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-authentication-methods).
-
-You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-nss-collector-servers) in the Zscaler Admin Console to obtain the packaged software (VM image) that must be installed in your organization’s network perimeter. To learn more about NSS Collectors and their use in third-party log integration with Zscaler, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
-
-An organization can have up to 4 NSS Collector servers.
-
-To add an NSS Collector server:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming** - **Nanolog Streaming Service**.
-2. On the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
-3. In the **Add NSS Collector Server** window:
-  - **Name**: Enter a name for the NSS Collector server.
-  - **Vendor**: Select the vendor of the third-party firewall or web proxy service used by your organization for which the logs must be integrated with Zscaler.
-  - **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions.
-4. Click **Save**.
-
-See image.
-
-When the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates the packaged software for installation and issues an SSL certificate to the server.
-
-To download the packaged software and the SSL certificate for the server:
-
-1. Click the **Edit** icon displayed against the NSS Collector server.
-2. In the **Edit NSS Server** window:
-  - Under the **SSL Certificate** field, you can download the SSL Certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
-  - Under the **Software Package**field, you can download the packaged software generated for the server for installation.
-
-See image.
-
-You can also download the SSL certificate directly from the **NSS Collector Servers** table by clicking the **Download** button against the required NSS Collector server under the **SSL Certificate** column.
-
-See image.
-
-Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file and SSL certificate from the Zscaler Admin Console.
-
-To configure the NSS Collector virtual appliance on the VM, log in to the vSphere client and perform the following actions:
-
-- a. Import the NSS Collector OVA file.
-- b. Configure the network.
-- c. Configure the NSS Collector.
-- d. Install the SSL certificate.
-- e. Download the NSS Collector binaries.
-- f. Start the NSS Collector.
-
-Go to **File** > **Deploy OVF Template** and use the Deploy OVF Template wizard to deploy the NSS Collector VM.
-
-1. Select the NSS Collector VM and either click the **Power On** button or power on the virtual machine.
-2. On the **Console** tab, log in to the ZscalerOS command prompt with the following credentials:
-  - Username: `zsroot`
-  - Password: `zsroot`
-
-By default, root login is not permitted. Administrators must use the utility `sudo` to run a command with higher privileges.
-
-Zscaler strongly recommends that you change this default password by running the command `passwd`. For more details about running this command, click here.
-
-1. Enter the command `sudo nss configure` and complete the following:
-  1. Enter the DNS server IP address (e.g., `192.168.1.1`).
-  2. Enter the management interface IP with CIDR netmask. Use the management IP address for SSH or FTP (e.g., `192.168.3.1/16`).
-  3. Enter the default gateway for the management IP address (e.g., `192.168.1.1`).
-  4. Enter the service IP address with CIDR netmask (e.g., `192.168.3.2/16`). NSS Collector uses the service IP address to communicate with the Zscaler cloud and with your security information and event management (SIEM).
-  5. Enter the default gateway for the service IP address (e.g., `192.168.1.1`).
-
-The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
-
-See image.
-
-1. Check the applied network configuration by running the following command:
-
-```
-sudo nss dump-config
-```
-
-1. To change the password, enter `passwd` and your username. For example, if you are using the default username, the command is:
-
-```
-passwd zsroot
-```
-
-1. When prompted, specify the following:
-  - Your current password
-  - Your new password
-
-[Image: FreeBSD Command Prompt Password]
-
-Enter the command `sudo nss collector-configure` and then enter the third-party log vendor name (`PANFW`, `FORTIFW`, or `BLUECOAT`).
-
-The NSS Collector uses this certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active NSS Collector VM at a time. Having multiple NSS Collector VMs that use the same certificate causes cloud connection flapping, which would disrupt the streaming of logs to the Zscaler cloud.
-
-1. Navigate to the SSL certificate that you previously downloaded from the Zscaler Admin Console.
-2. Use FTP, SCP, or SFTP to upload it to the management IP address of the NSS Collector.
-3. On the vSphere client, click the **Console** tab, and log in with the following credentials:
-  - Username: `zsroot`
-  - Password: `zsroot`
-4. Go to the **Console** tab or use SSH to connect to the management IP address.
-5. Run the following command:
-
-```
-sudo nss install-cert
-```
-
-Specify the path to the uploaded certificate bundle.
-
-1. Check the configuration by running the following command:
-
-```
-sudo nss dump-config
-```
-
-Before starting the NSS Collector:
-
-1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
-2. Run the following command to download and install the NSS Collector binaries:
-
-```
-sudo nss update-now
-```
-
-After the first NSS Collector software deployment, the software is automatically updated with new versions.
-
-1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
-2. Run the following command:
-
-```
-sudo nss start
-```
-
-Ensure that the command shows that the NSS Collector started successfully. It can take a few minutes for the NSS Collector to start collecting logs and sending them to the Zscaler cloud.
-
-After starting the NSS Collector for the first time, you can run the following command to check that the latest NSS Collector software version is installed:
-
-```
-sudo nss checkversion
-```
-
-To enable the NSS Collector to start automatically after a restart, run the following command:
-
-```
-sudo nss enable-autostart
-```
-
-You can also explore other options by running the following command:
-
-```
-sudo nss help
-```
-
-The following configuration steps pertain to Palo Alto Networks and they provide information on how to configure a syslog feed for the NSS Collector to collect traffic logs of clients behind the Palo Alto Networks firewall.
-
-The configuration steps cover the minimum information required in each step and use examples where necessary. For details on all of the configuration fields, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
-
-- a. Configure Syslog Server Profile
-- b. Configure Log Forwarding Profile
-- c. Configure a Security Policy to Allow User Traffic and Enable Logging
-- d. Configure User Authentication by Enabling Captive Portal
-
-1. Log in to the Palo Alto Networks firewall via the web interface.
-2. Go to the **Devices** tab, click the **Server Profiles** drop-down menu in the left-side navigation, and select **Syslog**.
-3. Click **Add** and provide the following information in the window that appears:
-  1. **Name**: Enter a name for the syslog server profile.
-  2. On the **Servers** tab, click **Add**, and fill out the following information: See image.
-    - **Name**: Enter a name for the syslog server.
-    - **Syslog Server**: Enter the IP address of the syslog server (i.e., NSS Collector server) deployed for your organization on the Zscaler cloud. This information can be obtained from the SSL certificate generated and downloaded for the NSS Collector server that is configured in the Zscaler Admin Console.
-    - **Transport**: Select **TCP** as the transport protocol for your syslog messages.
-    - **Port**: Specify the port number of the syslog server. Default and custom ports are supported.
-    - **Format**: Select **IETF** as the syslog format.
-    - **Facility**: Select **LOG_USER** from the drop-down menu to log user-based traffic.
-  3. On the **Custom Log Format** tab, click **Log Type** to specify a custom log format. In the window that appears, click the **Traffic** field and enter the following string, and click **OK** to save the value: `CEF:0|Palo Alto Networks|PAN-OS|$sender_sw_version|$subtype|$type|1|rt=$cef-formatted-receive_time deviceExternalId=$serial src=$src dst=$dst suser=$srcuser app=$app spt=$sport proto=$proto act=$action in=$bytes_sent out=$bytes_received start=$cef-formatted-time_generated reason=$session_end_reason`See image.
-4. Click **OK** to save the settings.
-
-1. Go to the **Objects** tab, click **Log Forwarding** in the left-side navigation, and click **Add** to create a log forwarding profile.
-2. In the window that appears, enter a name and description for the profile.
-3. Click **Add** to add a match list profile and fill out the following details: See image.
-  - **Name**: Enter a name for the match list profile.
-  - **Log Type**: Select **traffic** from the drop-down menu.
-  - **Filter**: Select **All Logs** from the drop-down menu.
-  - **Forward Method**: Click **Add** and select the syslog server profile configured in the previous step from the list displayed.
-4. Click **OK** to save the log forwarding profile.
-
-1. Go to the **Policies** tab, click **Security** on the left-side navigation, and click **Add**. Alternatively, you can modify an existing security policy to include the traffic log forwarding configurations.
-2. On the **General** tab, enter a name for the rule.
-3. Configure the rule criteria under the respective tabs as necessary. The rule must be configured to allow traffic coming from the trust zone (LAN) under the **Source** tab to reach the untrust zone (WAN) under the **Destination** tab. See image.
-4. On the **Actions** tab: See image.
-  - Under **Action Setting**, select **Allow** for **Action**.
-  - Under **Log Setting**:
-    - Enable **Log at Session Start** and **Log at Session End** options.
-    - From the **Log Forwarding** drop-down menu, select the log forwarding profile configured in the previous step.
-5. Click **OK** to save the security policy.
-
-The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet Access (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet Access users and then forwards the logs pertaining to Internet Access users to Zscaler for processing.
-
-The following sections provide step-by-step instructions for this configuration:
-
-This configuration uses a captive portal as the authentication mechanism. However, you can use other Palo Alto Networks firewall-supported authentication mechanisms per your deployment. To learn more, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
-
-- i. Create an Interface Management Profile
-- ii. Map the Interface Management Profile with the Client-Side LAN Interface
-- iii. Add Users for the Captive Portal and Map Them to an Authentication Profile
-- iv. Enable Captive Portal
-
-1. Go to the **Network** tab, click the **Network Profiles** drop-down menu in the left-side navigation, and select **Interface Mgmt**.
-2. Click **Add** to create an Interface Management profile.
-3. Enter a name for the profile.
-4. Under **Permitted Services**, select **Response Pages** and **User-ID** and any other necessary permitted services. These services are required for enabling captive portal authentication on the trust interface. See image.
-5. Click **OK** to save the Interface Management profile.
-
-1. Go to the **Network** tab, click **Interfaces**, and then click **Ethernet**.
-2. Locate the client-side LAN interface that is typically configured for your environment in the Palo Alto Networks firewall. Click the ethernet interface to modify its settings and map the Interface Management profile configured in the previous step.
-3. In the window that appears, go to the **Advanced** tab, and select the Interface Management profile configured in the previous step using the **Management Profile** drop-down menu. See image.
-4. Click **OK** to save the configuration. The following image shows an example configuration of the client-side LAN interface. See image.
-
-1. Go to the **Device** tab, click the **Local User Database** drop-down menu in the left-side navigation, and then select **Users**.
-2. Click **Add** displayed at the bottom-left corner of the page and fill out the user information in the window that appears: The username and password information in the Palo Alto Networks firewall must match the user details configured in the Zscaler Admin Console. See image.
-  - **Name**: Enter the username.
-  - **Mode**: Select **Password** as the mode.
-  - **Password**: Enter the user's login password.
-  - **Confirm Password**: Re-enter the user's login password.
-  - Select **Enable**.
-3. Click **OK** to save the configuration.
-4. On the **Device** tab, click **Authentication Profile** in the left-side navigation, and click **Add**.
-5. Fill out the following information in the authentication profile: The following image shows an example authentication profile configuration: See image.
-  1. **Name**: Enter a name for the profile.
-  2. On the **Authentication** tab:
-    - Select **Type** as **Local Database** using the drop-down menu. **Local Database** authentication type corresponds to the captive portal authentication mechanism used in this example configuration. You can select the authentication type depending on the authentication mechanism used in your firewall deployment.
-    - Optionally, you can select the **Username Modifier** using the drop-down menu to restrict the format in which users must enter their username in the authentication portal served by the Palo Alto Networks firewall. See image.
-  3. On the **Advanced** tab, click **Add**, and select the list of users configured earlier. See image.
-  4. Click **OK** to save the configuration.
-
-1. On the **Device** tab, click **User Identification** in the left-side navigation, and go to the **Captive Portal Settings** tab.
-2. Click the **Settings** icon on the top-right to make modifications. See image.
-3. In the window that appears, select **Enable Captive Portal** and enter the necessary information, such as: See image.
-  - **Authentication Profile**: Select the authentication profile configured in the previous step using the drop-down menu.
-  - **Mode**: Select the **Redirect** checkbox to allow the firewall to intercept web requests that match the authentication profile and redirect them to the specified redirect host.
-  - **Redirect Host**: Enter the IP address of the Palo Alto Networks firewall trust interface to which the client must be redirected for authentication.
-4. Click **OK** to save the configuration.
-
-[Image: The Add NSS Collector Server window]
-
-[Image: The Edit NSS Collector Server window]
-
-[Image: vSphere NSS Configure Command Prompt]
-
-[Image: The SSL certificate download option for NSS Collector server]
-
-[Image: Palo Alto Networks Firewall Syslog Server Profile Configuration]
-
-[Image: Custom log format for PAN syslog server profile]
-
-[Image: Palo Alto Networks Firewall Log Forwarding Profile Configuration]
-
-[Image: Palo Alto Networks Firewall Syslog Security Policy Action]
-
-[Image: Palo Alto Networks Firewall Security Policy Conditions]
-
-[Image: Palo Alto Networks Firewall Interface Management Profile]
-
-[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
-
-[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
-
-[Image: Palo Alto Networks Firewall Local User Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile User Configuration]
-
-[Image: Palo Alto Networks Firewall Authentication Profile]
-
-[Image: Palo Alto Networks Firewall Captive Portal Settings Icon]
-
-[Image: Palo Alto Networks Firewall Captive Portal Settings]
 <!-- /ZS-ARTICLE -->

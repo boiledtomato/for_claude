@@ -1,8 +1,341 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 110
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 107
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/nss-collector-deployment-guide-vmware-vsphere","lastmod":"2026-10-29T11:17Z","nid":"1463366"} -->
+## NSS Collector Deployment Guide for VMware vSphere
+
+- Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
+- Last modified: 2026-10-29T11:17Z
+- Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
+
+The NSS Collector functionality and the data collected using this functionality are exclusive to [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report). To enable this feature for your organization, contact Zscaler Support.
+
+This guide describes the tasks required to deploy [Nanolog Streaming Service (NSS) Collector](https://help.zscaler.com/zia/about-nss-collector-servers) to collect logs in real time from third-party security devices inside your network perimeter and stream them to the Zscaler cloud. Each step in the guide links you to the appropriate article for that configuration task on vSphere.
+
+## Prerequisites
+
+Ensure you have a [subscription](https://help.zscaler.com/unified/viewing-subscriptions) to NSS Collector and review the following specifications and requirements:
+
+- VM Specs
+- Host Specs
+- Network Specs
+- Firewall Requirements
+- User Provisioning
+
+## Deploying NSS Collector
+
+To deploy NSS Collector:
+
+- Step 1: In the Zscaler Admin Console, Add an NSS Collector Server and Download the SSL Certificate
+- Step 2: Use the ESX/ESXi Server to Configure and Start the NSS Collector on the VM Instance
+- Step 3: Configure Third-Party syslog Feed for NSS Collector
+
+- 2 CPU cores: NSS Collector uses one core for the control plane and another core for the data plane.
+- Instance memory:
+  - 8 GB for up to 15K users
+  - 16 GB for up to 40K users
+  - 32 GB for up to 100K users
+- Data disk size: 500 GB
+
+- Hypervisor: VMware ESX/ESXi v5.0 and later
+- Host CPU: 64-bit Xeon or equivalent
+- Host CPU Speed: Greater than or equal to 2.40GHz
+- VMware vSphere Client or vCenter
+
+- Network Adapter: E1000
+- VM Network: 2 Virtual NICs. Optionally, you might need two additional virtual NICs.
+- Bandwidth for Log Streaming: 11 Mbps for 10K users is an example average value.
+- IP Addresses: The following table lists the IP addresses and the interfaces on which they're configured. Internal IP addresses are allowed. The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
+  | Virtual Interface | IP Address | Description |
+  | --- | --- | --- |
+  | em0 (First network adapter) | Management IP Address | This is used for control connections to the Zscaler cloud and to make an SSH connection to the NSS Collector VM for configuration and management. You can customize the deployment and define a separate IP address for the SSH connection to the NSS Collector VM. |
+  | em1 (Second network adapter) | Service IP Address | This is used for data connections to the Zscaler cloud. |
+
+The firewall requirements are as follows:
+
+- You must deploy the NSS Collector instance behind a VM network security group. The NSS Collector instance requires only outbound connections to the Zscaler cloud. It doesn't require any inbound connections to your network from the Zscaler cloud.
+- To view the firewall requirements for your specific account, refer to the Zscaler Cloud Configuration Requirements for your Zscaler cloud: https://config.zscaler.com/<Zscaler Cloud Name>/nss. You can find the name of your Zscaler cloud in the URL you use to log in to the Zscaler service. For example, if you log in to admin.zscaler.net, then go to [https://config.zscaler.com/zscaler.net/nss](https://config.zscaler.com/zscaler.net/nss). To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+- The IP address ranges are necessary to ensure that the service isn't affected by future Zscaler cloud expansion.
+- Communication from the NSS Collector to the Zscaler cloud must be excluded from Secure Sockets Layer (SSL) inspection to ensure that the NSS Collector can authenticate to the Nanolog cluster using Mutual Transport Layer Security (mTLS).
+
+To leverage complete SaaS Security Report functionality, users whose traffic traversed through third-party vendor devices need to be provisioned through one of the mechanisms supported by Zscaler. To learn about user provisioning, see [Choosing Provisioning and Authentication Methods](https://help.zscaler.com/zia/choosing-provisioning-authentication-methods).
+
+You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-nss-collector-servers) in the Zscaler Admin Console to obtain the packaged software (VM image) that must be installed in your organization’s network perimeter. To learn more about NSS Collectors and their use in third-party log integration with Zscaler, see [Understanding Nanolog Streaming Service (NSS)](https://help.zscaler.com/zia/understanding-nanolog-streaming-service).
+
+An organization can have up to 4 NSS Collector servers.
+
+To add an NSS Collector server:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** >**Log Streaming**>**Internet Log Streaming** - **Nanolog Streaming Service**.
+2. On the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
+3. In the **Add NSS Collector Server** window:
+  - **Name**: Enter a name for the NSS Collector server.
+  - **Vendor**: Select the vendor of the third-party firewall or web proxy service used by your organization for which the logs must be integrated with Zscaler.
+  - **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions.
+4. Click **Save**.
+
+See image.
+
+When the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates the packaged software for installation and issues an SSL certificate to the server.
+
+To download the packaged software and the SSL certificate for the server:
+
+1. Click the **Edit** icon displayed against the NSS Collector server.
+2. In the **Edit NSS Server** window:
+  - Under the **SSL Certificate** field, you can download the SSL Certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
+  - Under the **Software Package**field, you can download the packaged software generated for the server for installation.
+
+See image.
+
+You can also download the SSL certificate directly from the **NSS Collector Servers** table by clicking the **Download** button against the required NSS Collector server under the **SSL Certificate** column.
+
+See image.
+
+Before you configure and start the NSS Collector on the vSphere client, ensure that you have downloaded the NSS Collector OVA file and SSL certificate from the Zscaler Admin Console.
+
+To configure the NSS Collector virtual appliance on the VM, log in to the vSphere client and perform the following actions:
+
+- a. Import the NSS Collector OVA file.
+- b. Configure the network.
+- c. Configure the NSS Collector.
+- d. Install the SSL certificate.
+- e. Download the NSS Collector binaries.
+- f. Start the NSS Collector.
+
+Go to **File** > **Deploy OVF Template** and use the Deploy OVF Template wizard to deploy the NSS Collector VM.
+
+1. Select the NSS Collector VM and either click the **Power On** button or power on the virtual machine.
+2. On the **Console** tab, log in to the ZscalerOS command prompt with the following credentials:
+  - Username: `zsroot`
+  - Password: `zsroot`
+
+By default, root login is not permitted. Administrators must use the utility `sudo` to run a command with higher privileges.
+
+Zscaler strongly recommends that you change this default password by running the command `passwd`. For more details about running this command, click here.
+
+1. Enter the command `sudo nss configure` and complete the following:
+  1. Enter the DNS server IP address (e.g., `192.168.1.1`).
+  2. Enter the management interface IP with CIDR netmask. Use the management IP address for SSH or FTP (e.g., `192.168.3.1/16`).
+  3. Enter the default gateway for the management IP address (e.g., `192.168.1.1`).
+  4. Enter the service IP address with CIDR netmask (e.g., `192.168.3.2/16`). NSS Collector uses the service IP address to communicate with the Zscaler cloud and with your security information and event management (SIEM).
+  5. Enter the default gateway for the service IP address (e.g., `192.168.1.1`).
+
+The management IP address and service IP address can be on different subnets, as long as the DNS server can be reached on both subnets.
+
+See image.
+
+1. Check the applied network configuration by running the following command:
+
+```
+sudo nss dump-config
+```
+
+1. To change the password, enter `passwd` and your username. For example, if you are using the default username, the command is:
+
+```
+passwd zsroot
+```
+
+1. When prompted, specify the following:
+  - Your current password
+  - Your new password
+
+[Image: FreeBSD Command Prompt Password]
+
+Enter the command `sudo nss collector-configure` and then enter the third-party log vendor name (`PANFW`, `FORTIFW`, or `BLUECOAT`).
+
+The NSS Collector uses this certificate to authenticate itself to the Zscaler service. Ensure that the SSL certificate is installed on only one active NSS Collector VM at a time. Having multiple NSS Collector VMs that use the same certificate causes cloud connection flapping, which would disrupt the streaming of logs to the Zscaler cloud.
+
+1. Navigate to the SSL certificate that you previously downloaded from the Zscaler Admin Console.
+2. Use FTP, SCP, or SFTP to upload it to the management IP address of the NSS Collector.
+3. On the vSphere client, click the **Console** tab, and log in with the following credentials:
+  - Username: `zsroot`
+  - Password: `zsroot`
+4. Go to the **Console** tab or use SSH to connect to the management IP address.
+5. Run the following command:
+
+```
+sudo nss install-cert
+```
+
+Specify the path to the uploaded certificate bundle.
+
+1. Check the configuration by running the following command:
+
+```
+sudo nss dump-config
+```
+
+Before starting the NSS Collector:
+
+1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
+2. Run the following command to download and install the NSS Collector binaries:
+
+```
+sudo nss update-now
+```
+
+After the first NSS Collector software deployment, the software is automatically updated with new versions.
+
+1. On the vSphere client, click the **Console** tab or use SSH to connect to the management IP address.
+2. Run the following command:
+
+```
+sudo nss start
+```
+
+Ensure that the command shows that the NSS Collector started successfully. It can take a few minutes for the NSS Collector to start collecting logs and sending them to the Zscaler cloud.
+
+After starting the NSS Collector for the first time, you can run the following command to check that the latest NSS Collector software version is installed:
+
+```
+sudo nss checkversion
+```
+
+To enable the NSS Collector to start automatically after a restart, run the following command:
+
+```
+sudo nss enable-autostart
+```
+
+You can also explore other options by running the following command:
+
+```
+sudo nss help
+```
+
+The following configuration steps pertain to Palo Alto Networks and they provide information on how to configure a syslog feed for the NSS Collector to collect traffic logs of clients behind the Palo Alto Networks firewall.
+
+The configuration steps cover the minimum information required in each step and use examples where necessary. For details on all of the configuration fields, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
+
+- a. Configure Syslog Server Profile
+- b. Configure Log Forwarding Profile
+- c. Configure a Security Policy to Allow User Traffic and Enable Logging
+- d. Configure User Authentication by Enabling Captive Portal
+
+1. Log in to the Palo Alto Networks firewall via the web interface.
+2. Go to the **Devices** tab, click the **Server Profiles** drop-down menu in the left-side navigation, and select **Syslog**.
+3. Click **Add** and provide the following information in the window that appears:
+  1. **Name**: Enter a name for the syslog server profile.
+  2. On the **Servers** tab, click **Add**, and fill out the following information: See image.
+    - **Name**: Enter a name for the syslog server.
+    - **Syslog Server**: Enter the IP address of the syslog server (i.e., NSS Collector server) deployed for your organization on the Zscaler cloud. This information can be obtained from the SSL certificate generated and downloaded for the NSS Collector server that is configured in the Zscaler Admin Console.
+    - **Transport**: Select **TCP** as the transport protocol for your syslog messages.
+    - **Port**: Specify the port number of the syslog server. Default and custom ports are supported.
+    - **Format**: Select **IETF** as the syslog format.
+    - **Facility**: Select **LOG_USER** from the drop-down menu to log user-based traffic.
+  3. On the **Custom Log Format** tab, click **Log Type** to specify a custom log format. In the window that appears, click the **Traffic** field and enter the following string, and click **OK** to save the value: `CEF:0|Palo Alto Networks|PAN-OS|$sender_sw_version|$subtype|$type|1|rt=$cef-formatted-receive_time deviceExternalId=$serial src=$src dst=$dst suser=$srcuser app=$app spt=$sport proto=$proto act=$action in=$bytes_sent out=$bytes_received start=$cef-formatted-time_generated reason=$session_end_reason`See image.
+4. Click **OK** to save the settings.
+
+1. Go to the **Objects** tab, click **Log Forwarding** in the left-side navigation, and click **Add** to create a log forwarding profile.
+2. In the window that appears, enter a name and description for the profile.
+3. Click **Add** to add a match list profile and fill out the following details: See image.
+  - **Name**: Enter a name for the match list profile.
+  - **Log Type**: Select **traffic** from the drop-down menu.
+  - **Filter**: Select **All Logs** from the drop-down menu.
+  - **Forward Method**: Click **Add** and select the syslog server profile configured in the previous step from the list displayed.
+4. Click **OK** to save the log forwarding profile.
+
+1. Go to the **Policies** tab, click **Security** on the left-side navigation, and click **Add**. Alternatively, you can modify an existing security policy to include the traffic log forwarding configurations.
+2. On the **General** tab, enter a name for the rule.
+3. Configure the rule criteria under the respective tabs as necessary. The rule must be configured to allow traffic coming from the trust zone (LAN) under the **Source** tab to reach the untrust zone (WAN) under the **Destination** tab. See image.
+4. On the **Actions** tab: See image.
+  - Under **Action Setting**, select **Allow** for **Action**.
+  - Under **Log Setting**:
+    - Enable **Log at Session Start** and **Log at Session End** options.
+    - From the **Log Forwarding** drop-down menu, select the log forwarding profile configured in the previous step.
+5. Click **OK** to save the security policy.
+
+The traffic log data forwarded by Palo Alto Networks firewall is processed by Zscaler and made available for analysis in the [SaaS Security Report](https://help.zscaler.com/zia/about-shadow-it-report) in the Zscaler Admin Console. The SaaS Security Report provides analytics for the entire organization, as well as on a per user basis. To facilitate report generation on a per user basis, the identity of users must be verified by Palo Alto Networks firewall and logs must be recorded for the user-based traffic. To do this, you need to add the Internet Access (ZIA) users to the Palo Alto Networks firewall and configure an authentication mechanism for the users. When the NSS Collector server receives the log data, it matches the user information with the Internet Access users and then forwards the logs pertaining to Internet Access users to Zscaler for processing.
+
+The following sections provide step-by-step instructions for this configuration:
+
+This configuration uses a captive portal as the authentication mechanism. However, you can use other Palo Alto Networks firewall-supported authentication mechanisms per your deployment. To learn more, refer to the [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/).
+
+- i. Create an Interface Management Profile
+- ii. Map the Interface Management Profile with the Client-Side LAN Interface
+- iii. Add Users for the Captive Portal and Map Them to an Authentication Profile
+- iv. Enable Captive Portal
+
+1. Go to the **Network** tab, click the **Network Profiles** drop-down menu in the left-side navigation, and select **Interface Mgmt**.
+2. Click **Add** to create an Interface Management profile.
+3. Enter a name for the profile.
+4. Under **Permitted Services**, select **Response Pages** and **User-ID** and any other necessary permitted services. These services are required for enabling captive portal authentication on the trust interface. See image.
+5. Click **OK** to save the Interface Management profile.
+
+1. Go to the **Network** tab, click **Interfaces**, and then click **Ethernet**.
+2. Locate the client-side LAN interface that is typically configured for your environment in the Palo Alto Networks firewall. Click the ethernet interface to modify its settings and map the Interface Management profile configured in the previous step.
+3. In the window that appears, go to the **Advanced** tab, and select the Interface Management profile configured in the previous step using the **Management Profile** drop-down menu. See image.
+4. Click **OK** to save the configuration. The following image shows an example configuration of the client-side LAN interface. See image.
+
+1. Go to the **Device** tab, click the **Local User Database** drop-down menu in the left-side navigation, and then select **Users**.
+2. Click **Add** displayed at the bottom-left corner of the page and fill out the user information in the window that appears: The username and password information in the Palo Alto Networks firewall must match the user details configured in the Zscaler Admin Console. See image.
+  - **Name**: Enter the username.
+  - **Mode**: Select **Password** as the mode.
+  - **Password**: Enter the user's login password.
+  - **Confirm Password**: Re-enter the user's login password.
+  - Select **Enable**.
+3. Click **OK** to save the configuration.
+4. On the **Device** tab, click **Authentication Profile** in the left-side navigation, and click **Add**.
+5. Fill out the following information in the authentication profile: The following image shows an example authentication profile configuration: See image.
+  1. **Name**: Enter a name for the profile.
+  2. On the **Authentication** tab:
+    - Select **Type** as **Local Database** using the drop-down menu. **Local Database** authentication type corresponds to the captive portal authentication mechanism used in this example configuration. You can select the authentication type depending on the authentication mechanism used in your firewall deployment.
+    - Optionally, you can select the **Username Modifier** using the drop-down menu to restrict the format in which users must enter their username in the authentication portal served by the Palo Alto Networks firewall. See image.
+  3. On the **Advanced** tab, click **Add**, and select the list of users configured earlier. See image.
+  4. Click **OK** to save the configuration.
+
+1. On the **Device** tab, click **User Identification** in the left-side navigation, and go to the **Captive Portal Settings** tab.
+2. Click the **Settings** icon on the top-right to make modifications. See image.
+3. In the window that appears, select **Enable Captive Portal** and enter the necessary information, such as: See image.
+  - **Authentication Profile**: Select the authentication profile configured in the previous step using the drop-down menu.
+  - **Mode**: Select the **Redirect** checkbox to allow the firewall to intercept web requests that match the authentication profile and redirect them to the specified redirect host.
+  - **Redirect Host**: Enter the IP address of the Palo Alto Networks firewall trust interface to which the client must be redirected for authentication.
+4. Click **OK** to save the configuration.
+
+[Image: The Add NSS Collector Server window]
+
+[Image: The Edit NSS Collector Server window]
+
+[Image: vSphere NSS Configure Command Prompt]
+
+[Image: The SSL certificate download option for NSS Collector server]
+
+[Image: Palo Alto Networks Firewall Syslog Server Profile Configuration]
+
+[Image: Custom log format for PAN syslog server profile]
+
+[Image: Palo Alto Networks Firewall Log Forwarding Profile Configuration]
+
+[Image: Palo Alto Networks Firewall Syslog Security Policy Action]
+
+[Image: Palo Alto Networks Firewall Security Policy Conditions]
+
+[Image: Palo Alto Networks Firewall Interface Management Profile]
+
+[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
+
+[Image: Palo Alto Networks Firewall Ethernet Interface Configuration]
+
+[Image: Palo Alto Networks Firewall Local User Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile User Configuration]
+
+[Image: Palo Alto Networks Firewall Authentication Profile]
+
+[Image: Palo Alto Networks Firewall Captive Portal Settings Icon]
+
+[Image: Palo Alto Networks Firewall Captive Portal Settings]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -844,8 +1177,8 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 ## NSS Deployment Guide for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-google-cloud-platform
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Google Cloud Platform
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Google Cloud Platform
 - Last modified: 2026-10-28T19:49Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Google Cloud Platform.
 
@@ -4581,8 +4914,8 @@ The following table displays information about the 3rd-Party App Governance log 
 ## NSS Feed Output Format: Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-admin-audit-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Admin Audit Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Admin Audit Logs
 - Last modified: 2026-10-30T15:46Z
 - Summary: Information on the admin audit log fields and their sample values.
 
@@ -4701,13 +5034,13 @@ Fields that support obfuscation are documented in the following tables with the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-10-30T13:16Z","nid":"1400571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-11-02T13:01Z","nid":"1400571"} -->
 ## NSS Feed Output Format: DNS Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-dns-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-10-30T13:16Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
+- Last modified: 2026-11-02T13:01Z
 - Summary: Information on the DNS log fields and their sample values.
 
 The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -4785,15 +5118,6 @@ The following are transaction information fields:
 | %s{dnsapp} | The type of DNS tunnel or network application | Google DNS | DNS Tunnels & Network Apps |
 | %s{protocol} | The protocol type | TCP; UDP; DoH (DNS over HTTP) | Protocol Type |
 
-## Tunnel & Network App Categories Information
-
-The following fields show the values for DNS Tunnel & Network App Categories that appear in Insights Logs in the Zscaler Admin Console.
-
-| Field | Insights Logs |
-| --- | --- |
-| dns_app: dnstun_good | Commonly Allowed DNS Tunnels |
-| dns_appcategory: network_service | Network Service |
-
 ## User Information
 
 The following are user information fields:
@@ -4866,8 +5190,8 @@ The following are hex-encoded fields:
 ## NSS Feed Output Format: Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-email-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Email DLP Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Email DLP Logs
 - Last modified: 2026-10-30T16:05Z
 - Summary: Information on Email Data Loss Prevention (DLP) log fields and their sample values.
 
@@ -4995,13 +5319,13 @@ The following are hex-encoded fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-endpoint-dlp-logs","lastmod":"2026-09-18T17:37Z","nid":"1461946"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-endpoint-dlp-logs","lastmod":"2026-11-08T06:06Z","nid":"1461946"} -->
 ## NSS Feed Output Format: Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-endpoint-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Endpoint DLP Logs
-- Last modified: 2026-09-18T17:37Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Endpoint DLP Logs
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information on Endpoint Data Loss Prevention (DLP) log fields and their sample values.
 
 The Zscaler Endpoint Data Loss Prevention (DLP) Nanolog Streaming Service (NSS) feed specifies the data from the Endpoint DLP logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -5407,8 +5731,8 @@ The following are hex-encoded fields:
 ## NSS Feed Output Format: Posture Management Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-posture-management-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Posture Management Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Posture Management Logs
 - Last modified: 2026-08-07T07:06Z
 - Summary: Information on Posture Management log fields and their sample values.
 
@@ -6258,8 +6582,8 @@ The following are hex-encoded fields:
 ## NSS Feed Output Format: SCIM Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-scim-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: SCIM Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: SCIM Logs
 - Last modified: 2026-05-20T07:06Z
 - Summary: Information on the SCIM log fields and their sample values.
 
@@ -6912,8 +7236,8 @@ The following are hex-encoded fields:
 ## OAuth 2.0 Configuration Guide for PingFederate
 
 - Source: https://help.zscaler.com/zia/oauth-2-0-configuration-guide-pingfederate
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > OAuth 2.0 Configuration Guide for PingFederate
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > OAuth 2.0 Configuration Guide for PingFederate
 - Last modified: 2026-09-29T22:37Z
 - Summary: How to configure OAuth 2.0 authentication for Internet & SaaS (ZIA) APIs in the PingFederate admin console and Zscaler Admin Console.
 
@@ -7082,8 +7406,8 @@ To learn more about the configuration steps, refer to the [PingFederate document
 ## OAuth 2.0 Configuration Guide for Microsoft Entra ID
 
 - Source: https://help.zscaler.com/zia/oauth-2.0-configuration-guide-microsoft-entra-id
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > OAuth 2.0 Configuration Guide for Microsoft Entra ID
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > OAuth 2.0 Configuration Guide for Microsoft Entra ID
 - Last modified: 2026-09-29T22:55Z
 - Summary: Information on how to configure OAuth 2.0 authentication for Internet & SaaS (ZIA) APIs with Microsoft Entra ID.
 
@@ -8079,8 +8403,8 @@ This article provides an explanation of the policy actions that are seen in Insi
 ## Pre-Vetting Apps
 
 - Source: https://help.zscaler.com/zia/pre-vetting-apps
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Pre-Vetting Apps
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Pre-Vetting Apps
 - Last modified: 2026-09-15T21:06Z
 - Summary: How to add apps from the 3rd-Party App Governance App Catalog to your inventory and submit apps for sandboxing.
 
@@ -8129,8 +8453,8 @@ The same summary appears when you [upload apps in bulk](https://help.zscaler.com
 ## Printing Reports
 
 - Source: https://help.zscaler.com/zia/printing-reports
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Printing Reports
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > Printing Reports
 - Last modified: 2026-09-28T09:16Z
 - Summary: Information on how to print reports in the Interactive Reports page in the Zscaler Admin Console.
 
@@ -8256,8 +8580,8 @@ To provide feedback:
 ## Recommended Advanced Threat Protection Policy
 
 - Source: https://help.zscaler.com/zia/recommended-advanced-threat-protection-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Recommended Advanced Threat Protection Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Advanced Threat Protection > Recommended Advanced Threat Protection Policy
 - Last modified: 2026-10-22T08:56Z
 - Summary: View the Zscaler recommended configuration for the Advanced Threat Protection policy.
 
@@ -8419,8 +8743,8 @@ The Zscaler service includes the recommended FTP Control policy on the [FTP Cont
 ## Recommended IPS Control Policy
 
 - Source: https://help.zscaler.com/zia/recommended-ips-control-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > Recommended IPS Control Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > IPS Control > Recommended IPS Control Policy
 - Last modified: 2026-09-22T10:57Z
 - Summary: Information on the recommended IPS Control policy that helps leverage Zscaler's Intrustion Prevention System (IPS).
 
@@ -8444,8 +8768,8 @@ To learn more about how to configure this rule, see [Configuring IPS Control Pol
 ## Recommended Malware Protection Policy
 
 - Source: https://help.zscaler.com/zia/recommended-malware-protection-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Malware Protection > Recommended Malware Protection Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Malware Protection > Recommended Malware Protection Policy
 - Last modified: 2026-08-17T14:32Z
 - Summary: View the Zscaler-recommended configuration for the Malware Protection policy.
 
@@ -8501,8 +8825,8 @@ Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring
 ## Recommended Mobile Malware Protection Policy
 
 - Source: https://help.zscaler.com/zia/recommended-mobile-malware-protection-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile Malware Protection > Recommended Mobile Malware Protection Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Mobile Security > Mobile Malware Protection > Recommended Mobile Malware Protection Policy
 - Last modified: 2026-06-24T00:50Z
 - Summary: View the Mobile Malware Protection policy configuration Zscaler recommends.
 
@@ -8528,8 +8852,8 @@ To learn more, see [Configuring the Mobile Malware Protection Policy](https://he
 ## Recommended Sandbox Policy
 
 - Source: https://help.zscaler.com/zia/recommended-sandbox-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > Recommended Sandbox Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Sandbox > Recommended Sandbox Policy
 - Last modified: 2026-04-28T09:27Z
 - Summary: View the Zscaler recommended configuration for the Sandbox policy.
 
@@ -8746,8 +9070,8 @@ See image.
 ## Recommended URL Filtering Policy
 
 - Source: https://help.zscaler.com/zia/recommended-url-filtering-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Recommended URL Filtering Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > Recommended URL Filtering Policy
 - Last modified: 2026-10-29T23:36Z
 - Summary: Information on Zscaler's recommended policy configurations for URL Filtering and Cloud App Control.
 
@@ -8773,13 +9097,13 @@ Zscaler recommends that you [configure](https://help.zscaler.com/zia/configuring
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2019","lastmod":"2026-02-03T22:12Z","nid":"1401411"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2019","lastmod":"2026-11-04T02:03Z","nid":"1401411"} -->
 ## Release Upgrade Summary (2019)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2019
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2019)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2019)
+- Last modified: 2026-11-04T02:03Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2019.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8787,13 +9111,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2020","lastmod":"2026-02-03T22:12Z","nid":"1401416"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2020","lastmod":"2026-11-04T02:03Z","nid":"1401416"} -->
 ## Release Upgrade Summary (2020)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2020
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2020)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2020)
+- Last modified: 2026-11-04T02:03Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2020.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8801,13 +9125,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2021","lastmod":"2026-02-03T22:12Z","nid":"1401841"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2021","lastmod":"2026-11-04T02:03Z","nid":"1401841"} -->
 ## Release Upgrade Summary (2021)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2021
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2021)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2021)
+- Last modified: 2026-11-04T02:03Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2021.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8815,13 +9139,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2022","lastmod":"2026-02-03T22:12Z","nid":"1402321"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2022","lastmod":"2026-11-04T02:03Z","nid":"1402321"} -->
 ## Release Upgrade Summary (2022)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2022
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2022)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2022)
+- Last modified: 2026-11-04T02:03Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2022.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8829,13 +9153,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2023","lastmod":"2026-02-03T22:12Z","nid":"1440561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2023","lastmod":"2026-11-04T02:03Z","nid":"1440561"} -->
 ## Release Upgrade Summary (2023)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2023
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2023)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2023)
+- Last modified: 2026-11-04T02:03Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2023.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8843,13 +9167,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2024","lastmod":"2026-02-03T22:12Z","nid":"1473531"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2024","lastmod":"2026-11-04T02:02Z","nid":"1473531"} -->
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2024
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2024)
-- Last modified: 2026-02-03T22:12Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2024)
+- Last modified: 2026-11-04T02:02Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2024.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8857,13 +9181,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2025","lastmod":"2026-06-17T02:45Z","nid":"1515996"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2025","lastmod":"2026-11-04T02:02Z","nid":"1515996"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2025
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-06-17T02:45Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2025)
+- Last modified: 2026-11-04T02:02Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8871,13 +9195,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-11-01T22:29Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-11-06T06:38Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-01T22:29Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
+- Last modified: 2026-11-06T06:38Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -8889,8 +9213,8 @@ This article provides a summary of all new features and enhancements per Zscaler
 ## Removing Disabled Users in the Active Directory from the Zscaler User Database
 
 - Source: https://help.zscaler.com/zia/removing-disabled-users-active-directory-zscaler-user-database
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Removing Disabled Users in the Active Directory from the Zscaler User Database
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Active Directory & LDAP > Removing Disabled Users in the Active Directory from the Zscaler User Database
 - Last modified: 2026-10-09T13:56Z
 - Summary: How to remove disabled users in the Active Directory from the Zscaler user database.
 
@@ -9414,8 +9738,8 @@ Following are the validation error codes when [adding SaaS applications](https:/
 ## Safeguarding SSL/TLS Keys & Data Collected During SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/safeguarding-ssltls-keys-and-data-collected-during-ssltls-inspection
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Safeguarding SSL/TLS Keys & Data Collected During SSL/TLS Inspection
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Safeguarding SSL/TLS Keys & Data Collected During SSL/TLS Inspection
 - Last modified: 2026-04-15T23:29Z
 - Summary: Information on how Zscaler software architecture is engineered to minimize exposure of the private keys and the SSL/TLS intercepted data collected during SSL/TLS Inspection.
 
@@ -10204,8 +10528,8 @@ return "DIRECT";
 ## SAML Configuration Guide for OneLogin
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-onelogin
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for OneLogin
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for OneLogin
 - Last modified: 2026-10-30T18:42Z
 - Summary: How to configure OneLogin as an identity provider for the Zscaler service.
 
@@ -11388,8 +11712,8 @@ This testing method only applies if you're forwarding traffic using PAC files, G
 ## SAML & SCIM Configuration Guide for PingOne
 
 - Source: https://help.zscaler.com/zia/saml-scim-configuration-guide-pingone
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for PingOne
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML & SCIM Configuration Guide for PingOne
 - Last modified: 2026-10-30T18:09Z
 - Summary: How to configure SAML and SCIM with PingOne as the identity provider for the Zscaler service.
 
@@ -11632,8 +11956,8 @@ To perform SP-initiated SSO:
 ## Sandbox Verdict Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/sandbox-verdict-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Sandbox Verdict Insights Logs: Columns
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Sandbox Verdict Insights Logs: Columns
 - Last modified: 2026-09-30T08:57Z
 - Summary: Information on the different columns in the Sandbox Insights Logs page in the Zscaler Admin Console.
 
@@ -11731,8 +12055,8 @@ Recipients can only view the report; they cannot edit it or navigate to any othe
 ## Scheduling the Sandbox Activity Report Weekly Email
 
 - Source: https://help.zscaler.com/zia/scheduling-sandbox-activity-report-weekly-email
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Scheduling the Sandbox Activity Report Weekly Email
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > Scheduling the Sandbox Activity Report Weekly Email
 - Last modified: 2026-09-16T07:54Z
 - Summary: How to schedule the delivery of a weekly email that contains a preview of the Sandbox Activity Report and a link to the full report.
 
@@ -11771,8 +12095,8 @@ You can edit or delete the scheduled email deliveries at any time. To learn more
 ## Scheduling the Sandbox Files Found Malicious Report Weekly Email
 
 - Source: https://help.zscaler.com/zia/scheduling-sandbox-files-found-malicious-report-weekly-email
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > Scheduling the Sandbox Files Found Malicious Report Weekly Email
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > Scheduling the Sandbox Files Found Malicious Report Weekly Email
 - Last modified: 2026-09-16T08:15Z
 - Summary: How to schedule the delivery of a weekly email that contains a preview of the Sandbox Files Found Malicious Report and a link to the full report.
 
@@ -12282,8 +12606,8 @@ See image.
 ## Securing Internet & SaaS APIs with OAuth 2.0
 
 - Source: https://help.zscaler.com/zia/securing-internet-saas-apis-oauth-2.0
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > Securing Internet & SaaS APIs with OAuth 2.0
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > Securing Internet & SaaS APIs with OAuth 2.0
 - Last modified: 2026-09-29T06:55Z
 - Summary: Information on Internet & SaaS (ZIA) API authentication using OAuth 2.0, including terminologies and concepts, OAuth workflow, OAuth setup, and more.
 
@@ -12544,8 +12868,8 @@ To configure the self-service static IP address from the Zscaler Admin Console:
 ## Signing a CSR Using the Active Directory Certificate Services
 
 - Source: https://help.zscaler.com/zia/signing-csr-using-active-directory-certificate-services
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Signing a CSR Using the Active Directory Certificate Services
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Signing a CSR Using the Active Directory Certificate Services
 - Last modified: 2026-04-20T20:02Z
 - Summary: How to sign the certificate signing request (CSR) using the Active Directory Certificate Services.
 
@@ -12730,8 +13054,8 @@ With ZIA, inspection at scale is not a concern. The Zscaler Zero Trust Exchange 
 ## Step-by-Step Configuration Guide for Zscaler Endpoint DLP
 
 - Source: https://help.zscaler.com/zia/step-by-step-endpoint-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Endpoint DLP
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Endpoint DLP
 - Last modified: 2026-10-08T10:36Z
 - Summary: A high-level overview of how to use Zscaler Endpoint Data Loss Prevention (DLP) to prevent data loss on endpoints.
 
@@ -13066,8 +13390,8 @@ To learn more, see [About Insights Logs](https://help.zscaler.com/zia/about-insi
 ## Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs
 - Last modified: 2026-09-11T04:31Z
 - Summary: Step-by-step guide for configuring Zscaler Client Connector-based end user notifications in the Zscaler Admin Console
 
@@ -13184,8 +13508,8 @@ To learn more, see:
 ## Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-outbound-email-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Step-by-Step Configuration Guide for Zscaler Outbound Email DLP
 - Last modified: 2026-10-29T06:07Z
 - Summary: A high-level overview of how to use Zscaler Outbound Email Data Loss Prevention (DLP) to prevent data loss in outbound email sent to external domains.
 
@@ -13251,8 +13575,8 @@ To learn more, see [About the Email Security Report](https://help.zscaler.com/zi
 ## Supported Cipher Suites in SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/supported-cipher-suites-ssltls-inspection
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Supported Cipher Suites in SSL/TLS Inspection
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Supported Cipher Suites in SSL/TLS Inspection
 - Last modified: 2026-10-30T05:09Z
 - Summary: Information on the cipher suites supported for the different TLS protocols and configuring the SSL/TLS Inspection policy to allow or block undecryptable traffic.
 
@@ -14273,8 +14597,8 @@ In the event of a connection loss between the NSS server and the cloud [Nanolog]
 ## Troubleshooting Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/troubleshooting-kerberos-authentication
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Troubleshooting Kerberos Authentication
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Troubleshooting Kerberos Authentication
 - Last modified: 2026-10-30T09:01Z
 - Summary: How to troubleshoot Kerberos authentication on your domain controller and user devices.
 
@@ -14680,8 +15004,8 @@ The following are the tunnel data types and their filters:
 ## Tunnel Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/tunnel-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Tunnel Insights Logs: Columns
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Tunnel Insights Logs: Columns
 - Last modified: 2026-04-27T02:33Z
 - Summary: Information on the different columns in the Tunnel Insights Logs page in the Zscaler Admin Console
 
@@ -16398,255 +16722,4 @@ Basic authentication works with an HA1 value that must be initialized. Therefore
 For more information about user enrollment, see [Deploying Basic Authentication](https://help.zscaler.com/zia/deploying-basic-authentication).
 
 After users are enrolled, they can browse the internet through an Internet & SaaS proxy and one of several forwarding proxy methods such as Static IP, DPCC, Virtual Service Edge for Internet & SaaS, or with transparent proxy such as GRE and VPN. User traffic from [locations](https://help.zscaler.com/zia/about-locations) can be configured for Basic authentication and the desired forwarding method.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-business-continuity-cloud-components","lastmod":"2026-07-01T12:02Z","nid":"1529488"} -->
-## Understanding the Business Continuity Cloud Components
-
-- Source: https://help.zscaler.com/zia/understanding-business-continuity-cloud-components
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Business Continuity > Understanding the Business Continuity Cloud Components
-- Last modified: 2026-07-01T12:02Z
-- Summary: Information on Business Continuity Cloud components: Private Policy Cache and Private PAC Servers, and their benefits and functionalities.
-
-The Zscaler-managed Business Continuity Cloud service includes two components, Private Policy Cache and Private PAC Servers, working with the Private Service Edges for Internet & SaaS (ZIA). These components apply the last known good policy configurations to the outgoing traffic and redirect traffic to the dedicated private cloud infrastructure during business continuity mode. Both Private Policy Cache and Private PAC Servers are deployed in redundant pairs in each Business Continuity Cloud site. They are managed by Zscaler and are subject to ongoing updates and enhancements at any time.
-
-The Internet & SaaS Business Continuity Cloud only supports Z-Tunnel 1.0, PAC files, and GRE tunnel connectivity.
-
-To learn more, see [Understanding Zscaler-Managed Business Continuity Cloud](https://help.zscaler.com/zia/understanding-zscaler-managed-business-continuity-cloud).
-
-## Private Policy Cache
-
-This component is integrated into the Private Service Edge infrastructure and acts as a local repository for policy configurations, ensuring business continuity when Zscaler cloud is unreachable.
-
-During public cloud software upgrades, the Business Continuity Cloud upgrade is delayed on purpose to prevent upgrade-related issues. This also delays the update of any new policies or configurations to support fault isolation.
-
-### Key Benefits
-
-Private Policy Cache provides the following benefits:
-
-- Ensures the last known good policies are available when the Zscaler cloud is inaccessible.
-- Continuously fetches and syncs tenant-specific configurations (location, users, groups, etc.) during normal operations.
-- Automatically integrates version upgrades to ensure consistency in functionality.
-- Supports a seamless switch between public and private clouds in business continuity mode.
-
-### Functionality
-
-Private Policy Cache supports the following functionalities:
-
-- During normal operations:
-  - Fetches and stores tenant-specific configurations from the cloud and syncs them regularly to be readily available in business continuity mode.
-  - Serves as the primary control path for local Service Edge instances, ensuring up-to-date policy availability for business continuity.
-- During business continuity:
-  - Facilitates access to applications with full cyber and data protection.
-  - Operates independently of public clouds to maintain security policies.
-
-## Private PAC Servers
-
-This component hosts the client's PAC files and reroutes traffic to the business continuity private cloud during critical failures.
-
-### Functionality
-
-Private PAC Servers support the following functionalities:
-
-- During normal operations:
-  - Receives and locally stores PAC files from the public cloud for each Business Continuity Cloud site.
-  - Ensures stored PAC files are geographically and health-aware for seamless failover.
-- During business continuity:
-  - Hosts disaster recovery PAC files to redirect client requests to the appropriate Business Continuity Cloud.
-  - Provides geo-awareness, allowing Zscaler Client Connector to connect to the nearest Business Continuity Cloud based on its IP address or location.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-cipa-compliance","lastmod":"2026-10-28T03:58Z","nid":"1401271"} -->
-## Understanding CIPA Compliance
-
-- Source: https://help.zscaler.com/zia/understanding-cipa-compliance
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Understanding CIPA Compliance
-- Last modified: 2026-10-28T03:58Z
-- Summary: Information about the CIPA Compliance rule.
-
-The Children's Internet Protection Act (CIPA) is aimed to prevent children from accessing obscene or harmful content over the internet. To learn more, refer to the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/sites/default/files/childrens_internet_protection_act_cipa.pdf). Schools or libraries are required to be CIPA compliant to receive discounts on internet access or internal connections through the E-rate program.
-
-To aid schools and organizations to be compliant with the CIPA requirements, Zscaler provides a predefined URL filtering rule ([CIPA Compliance Rule](https://help.zscaler.com/zia/about-cipa-compliance#view-CIPA-comp-rule)) and a control ([Enable CIPA Compliance](https://help.zscaler.com/zia/about-cipa-compliance#Enable-CIPA-Compliance)) to enable the predefined rule. It also provides a [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report) which gives insights into the traffic and users that are blocked from accessing the prohibited content based on the CIPA Compliance Rule.
-
-- Enabling CIPA Compliance
-- Viewing CIPA Compliance Rule
-
-To activate the **CIPA Compliance Rule**, enable the **Enable CIPA Compliance** option from the **Data Security**> **Inline CASB** > **Advanced Policy Settings**. To learn more, see [Configuring Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings).
-
-- Effects of Enabling CIPA Compliance
-- Effects of Disabling CIPA Compliance
-
-You cannot enable the **Enable CIPA Compliance** option when:
-
-- The number of URL filtering policy rules exceeds the [limit](https://help.zscaler.com/unified/ranges-limitations).
-- A rule with rule order 1 exists with a higher admin rank.
-
-- The **CIPA Compliance Rule** is activated under **Internet Access**> **Policy** > **URL Filtering**.
-- The following **Advanced URL Filtering** **Options** under **Data Security**> **Inline CASB** > **Advanced Policy Settings** are enabled. You cannot disable the following options:
-  - Enable Suspicious New Domains Lookup
-  - Enable AI/ML-based Content Categorization
-  - Enable Embedded Sites Categorization
-  - Enforce SafeSearch
-
-To learn more, see [Configuring Advanced Policy Settings](https://help.zscaler.com/zia/configuring-advanced-policy-settings).
-
-- The **CIPA Compliance Report** option is enabled under the following locations:
-  - Liability Exposure
-  - Scheduled Reports
-
-See image.
-
-To learn more, see [CIPA Compliance Report](https://help.zscaler.com/zia/cipa-compliance-report).
-
-- When you disable the **Enable CIPA Compliance**option, a warning message appears and we can add an image. You can get the image in beta; just disable the toggle in **Advanced Settings** and the warning appears.
-- The **CIPA Compliance Rule** gets disabled under **Internet Access**> **Policy** > **URL Filtering**. However, you can view the disabled rule.
-- The **Advanced URL Filtering** **Options** under the **Data Security**> **Inline CASB** > **Advanced Policy Settings** are set to the recommended policy settings. To learn more, see [Recommended URL & Cloud App Control Policy](https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy#adv-url-policy-settings).
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Analytics**> **Reports**> **Interactive Reports**.
-2. On the **Standard Reports** tab, go to the **Liability Exposure** section to view the report.
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**> **Interactive Reports**.
-2. On the **Scheduled Reports** tab, click **Add**. The **Add Scheduled Report**window appears.
-3. In the **Add Scheduled Report**window, for **Report**, select **CIPA Compliance Report**, and configure the rest of the window.
-4. Save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can view the **CIPA Compliance Rule** under **Internet Access**> **Policy** > **URL Filtering** if you select the **Enable CIPA Compliance** option at least once. To learn more, see Enabling CIPA Compliance.
-
-You can delete the CIPA Compliance Ruleonlywhen you disable the **Enable CIPA Compliance**toggle.
-
-The attributes defined for the rule are as follows:
-
-| Attributes | Value | Description |
-| --- | --- | --- |
-| Rule Order | 1 | (Editable) Order of precedence of the rule. When the CIPA Compliance Rule is activated for the first time, it takes the highest precedence (rule order 1) by default. The rule order is automatically incremented by 1 for the other rules. You can edit the rule order based on your preference. |
-| Admin Rank | 0 to 7 | (Editable) Admin rank of the logged-in user. If the logged-in user does not have an admin rank, then the rule is created with an admin rank 7. |
-| Rule Name | CIPA Compliance Rule | (Non-editable) Name of the rule. You cannot create any custom URL filtering rule with the name CIPA Compliance Rule. |
-| Rule Status | Disabled/Enabled | (Non-editable) Status of the rule. |
-| URL Categories | Adult Sex Education, Adult Themes, Alcohol/Tobacco, Anonymizer, Computer Hacking, Copyright Infringement, Drugs, Gambling, K-12 Sex Education, Lingerie/Bikini, Mature Humor, Militancy/Hate and Extremism, Newly Registered and Observed Domains, Nudity, Other Adult Material, Other Illegal or Questionable, Pornography, Profanity, Questionable, Body Art, Social Networking Adult, Tasteless, Violence, Weapons/Bombs | (Non-editable) List of all the predefined categories under the URL super category, **Legal Liabilities** with predefined URLs and keywords. The custom categories under **Legal Liabilities**are excluded. You cannot add or delete URL categories from the predefined list. However, you can add or delete custom URLs and keywords (CIPA related) from any predefined category under **Legal Liabilities**. |
-| HTTP Requests | OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, OTHER, ALL | (Non-editable) List of predefined HTTP requests. |
-| Users | --- | (Non-editable) Applicable to all the users in the organization. |
-| Groups | --- | (Non-editable) Applicable to all the groups in the organization. |
-| Departments | --- | (Non-editable) Applicable to all the departments in the organization. |
-| Locations | --- | (Non-editable) Applicable to all the locations of the organization. |
-| Location Groups | --- | (Non-editable) Applicable to all the location groups of the organization. |
-| Time | --- | (Non-editable) Applicable at any time. |
-| Protocols | Any | (Non-editable) Applicable to all protocols. |
-| Web Traffic | Block | (Non-editable) Access is denied to all the sites that fall under the specified URL categories. |
-| Allow Override | Disabled | (Non-editable) No exception is allowed for the blocked sites. |
-| Redirect URL | --- | (Non-editable) No redirect URL is configured. |
-| Description | --- | (Editable) Additional notes or information about the rule. |
-
-[Image: CIPA Compliance Report]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-cloud-app-categories","lastmod":"2026-10-09T00:12Z","nid":"1399341"} -->
-## Understanding Cloud App Categories
-
-- Source: https://help.zscaler.com/zia/understanding-cloud-app-categories
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Understanding Cloud App Categories
-- Last modified: 2026-10-09T00:12Z
-- Summary: Information on the Cloud App categories available with Internet & SaaS (ZIA) and which cloud apps are included in the categories.
-
-Cloud app categories are a key part of [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control). The service organizes cloud applications into 19 categories. For 11 of the categories, you can [create rules](https://help.zscaler.com/zia/adding-rules-cloud-app-control-policy) to allow or block applications per category. For the other 8 categories, in addition to creating rules to allow or block applications per category, you can also apply granular controls (i.e., the specific actions a user can take within the application) as per your organizational requirements.
-
-## Cloud App Categories with Allow or Block Options
-
-Following are the cloud application categories with the allow or block options. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
-
-- **Consumer**
-- **Custom Applications**
-- **DNS Over HTTPS Services**
-- **Finance**
-- **Health Care**
-- **Hosting Providers**
-- **Human Resources**
-- **IT Services**
-- **Legal**
-- **Productivity & CRM Tools**
-- **Sales & Marketing**
-
-## Cloud App Categories with Granular Controls
-
-Following are the cloud application categories with granular controls. To learn how to view the list of supported cloud applications for each category, see Viewing Supported Cloud Applications.
-
-- **AI & ML Applications**: Granular controls appear when ChatGPT or Microsoft Copilot are chosen with Application Access set to Allow.
-- **Collaboration & Online Meetings**: Granular controls appear when Microsoft Teams, SharePoint Online, Slack, or Webex Meetings are chosen with Application Access set to Allow.
-- **File Sharing**: Granular controls appear for all the applications and additional granular controls appear when Box, Dropbox, OneDrive, OneDrive for Business, or Google Drive are chosen with Viewing set to Allow.
-- **Instant Messaging**: Granular controls appear for all the applications with Chatting set to Allow.
-- **Social Networking**: Granular controls appear for all the applications and additional granular controls appear when LinkedIn is chosen with Viewing set to Allow.
-- **Streaming Media**: Granular controls appear for all the applications with Viewing/Listening set to Allow.
-- **System & Development**: Granular controls appear for all the applications and additional granular controls appear when GitHub is chosen with Viewing set to Allow.
-- **Webmail**: Granular controls appear for all the applications with Viewing Mail set to Allow.
-
-If more than one cloud application with granular controls is selected for a category, then only the actions that are common among the selected applications are displayed.
-
-## Viewing Supported Cloud Applications
-
-To view the supported cloud applications for a cloud app category from the Zscaler Admin Console:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Inline CASB**> **SaaS/Cloud App Policy**.
-2. In the left-side menu, select a cloud app category, then click **Add Rule**.
-3. In the **Add Rule** window, click and open the **Cloud Applications**drop-down menu. The drop-down menu lists the supported cloud applications for the selected cloud app category. You can look up a cloud application for a URL using the [URL Lookup](https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console) tool or the [urlLookup](https://help.zscaler.com/zia/url-categories#/urlLookup-post) API.
-
-[Image: Add Cloud App Control Rule Window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/understanding-data-rest-scanning-policy","lastmod":"2026-04-28T07:49Z","nid":"1401626"} -->
-## Understanding the Data at Rest Scanning Policy
-
-- Source: https://help.zscaler.com/zia/understanding-data-rest-scanning-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Understanding the Data at Rest Scanning Policy
-- Last modified: 2026-04-28T07:49Z
-- Summary: How to configure Zscaler SaaS Security Data at Rest Scanning policy, which includes the Data Loss Prevention (DLP) and Malware Detection policies.
-
-To enable Amazon S3, Google Cloud Platform, and Microsoft Azure for your organization, contact your Zscaler Account team.
-
-The Data at Rest Scanning policy consists of the [Data Loss Prevention (DLP)](https://help.zscaler.com/zia/about-saas-security-api-dlp) and [Malware Detection](https://help.zscaler.com/zia/about-saas-security-api-malware-detection) policies. You can configure these policies for the following SaaS application types:
-
-- Collaboration
-- CRM
-- Email
-- File sharing
-- Gen AI
-- ITSM
-- Public cloud storage
-- Source code repository
-
-## Policy Execution
-
-The Data at Rest Scanning rules consist of a series of logical operators between their criteria. The rules are triggered based on the result of the following logical operations between the criteria:
-
-DLP Engines (`AND`) SaaS Application Tenants (`AND`) [Owners (`OR`) Groups (`OR`) Departments] (`AND`) Collaboration Scope (`AND`) File Type (`AND`) [Trusted Domains (`OR`) Trusted Users].
-
-## Configuring the Data at Rest Scanning Policy
-
-To configure the Data at Rest Scanning policy:
-
-1. Configure the resources that the policies reference:
-  - [SaaS application tenants](https://help.zscaler.com/zia/adding-saas-application-tenants) for both your DLP and Malware Detection policies.
-  - [Users](https://help.zscaler.com/zia/about-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), and [DLP engines](https://help.zscaler.com/zia/about-dlp-engines) for your Data at Rest Scanning DLP policies.
-2. Define the rules for each policy:
-  - [SaaS Security DLP](https://help.zscaler.com/zia/configuring-saas-security-api-dlp-policy)
-  - [SaaS Security Malware Detection](https://help.zscaler.com/zia/configuring-saas-security-api-malware-detection-policy)
-3. [Configure SaaS Security Scan Schedules](https://help.zscaler.com/zia/configuring-saas-security-api-scan-schedules) for the DLP and Malware Detection policies to inspect content in sanctioned SaaS applications.
-
-When you define a DLP or Malware Detection rule for public cloud storage applications, you can specify buckets or blob containers for inspection. To specify buckets or blob containers for the Zscaler service to inspect:
-
-- When you first define a policy rule for a public cloud storage application, the following fields can’t be changed: Buckets, Bucket Owner, Blob Containers, and Blob Container Owner. You must create and save the rule without configuring these fields.
-- After saving the policy rule, create a scan schedule for the tenant. In the table, select the bucket or blob container names to create a list of available buckets or blob containers for the DLP and Malware Detection policies.
-- After you create the list and save the scan schedule, you can edit the rule and configure the Buckets, Bucket Owner, Blob Containers, or Blob Container Owner fields.
-
-1. Start scheduled scans from the [SaaS Security Scan Configuration page](https://help.zscaler.com/zia/about-saas-security-api-scan-configuration).
 <!-- /ZS-ARTICLE -->

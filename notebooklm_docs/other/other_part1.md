@@ -1,8 +1,8 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 209
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 211
 
 ---
 
@@ -817,13 +817,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-10-10T07:06Z","nid":"1534331"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-11-02T08:44Z","nid":"1534331"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/agentic-soc/release-upgrade-summary-2026
 - Product: Agentic SOC
 - Path: Agentic SOC Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-10T07:06Z
+- Last modified: 2026-11-02T08:44Z
 - Summary: Agentic SOC Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Agentic SOC.
@@ -3764,13 +3764,13 @@ On the Branch Configuration page for virtual devices (Infrastructure > Branch Co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-branch-connector-api-management","lastmod":"2026-11-01T23:53Z","nid":"1420801"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-branch-connector-api-management","lastmod":"2026-11-03T12:56Z","nid":"1420801"} -->
 ## About Cloud & Branch Connector API Management
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-cloud-branch-connector-api-management
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > API Key Management > About Cloud & Branch Connector API Management
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-03T12:56Z
 - Summary: Information on Cloud & Branch Connector API key management within the Zscaler Admin Console.
 
 Your organization's API key is initially provisioned by Zscaler, enabled, and displayed within the Cloud & Branch Connector API page along with the base URL. The base URL and key are required to authenticate via the API and create a session.
@@ -3785,7 +3785,7 @@ An organization can have only one API key. However, if you are managing multiple
 
 ## About the Cloud & Branch Connector API Page
 
-On the API Key Management page (Administration > Legacy API > Cloud & Branch Connector API), you can do the following:
+On the API Key Management page (Administration > API > Legacy API > Cloud & Branch Connector API), you can do the following:
 
 1. View the base URL for the API.
 2. [Add a new Cloud Service API Key](https://help.zscaler.com/cloud-branch-connector/managing-organization-api-keys#AddNewKey). You must delete the existing key before you can add a new one.
@@ -3801,27 +3801,27 @@ On the API Key Management page (Administration > Legacy API > Cloud & Branch Con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-connector-groups","lastmod":"2026-11-01T23:52Z","nid":"1420476"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-connector-groups","lastmod":"2026-11-06T10:59Z","nid":"1420476"} -->
 ## About Cloud Connector Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-cloud-connector-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Group Management > About Cloud Connector Groups
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-06T10:59Z
 - Summary: Information on Cloud Connector Groups in the Zscaler Admin Console.
 
 Cloud Connector groups are automatically created when you deploy a Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 
-Groups provide the following benefits and enable you to:
+Cloud Connector groups provide the following benefits and enable you to:
 
 - Apply policies to a group of deployed Cloud Connectors.
 - Upgrade Cloud Connectors belonging to a group to maintain redundancy while upgrades are being executed.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
 
-## About the Overview Page
+## About the Cloud Connector Groups Page
 
-On the Overview page (Zero Trust Cloud > Cloud Connector > Cloud Connector Groups > Overview), you can do the following:
+On the Overview tab of the Cloud Connector Groups page (Zero Trust Cloud > Cloud Connector > Cloud Connector Groups > Overview), you can do the following:
 
 1. Filter the list of groups by the following criteria:
   - **Cloud**: From the drop-down menu, select **AWS**, **Azure**, or **GCP**.
@@ -3988,6 +3988,53 @@ On the Destinations IP Groups page (Internet Access > Resources > IP & FQDN Grou
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-disaster-recovery-gateways","lastmod":"2026-11-05T08:06Z","nid":"1539655"} -->
+## About Disaster Recovery Gateways
+
+- Source: https://help.zscaler.com/zero-trust-cloud/about-disaster-recovery-gateways
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Administration > Forwarding Methods > About Disaster Recovery Gateways
+- Last modified: 2026-11-05T08:06Z
+- Summary: Information on Disaster Recovery Gateways in the Zscaler Admin Console.
+
+Disaster Recovery (DR) Gateways allow you to establish a redundant data center where a Private Service Edge for Internet & SaaS (ZIA) cluster, Virtual Service Edge for Internet & SaaS, or Business Continuity Cloud (BCC) subcloud is deployed. This feature provides a redundant data center to reroute traffic in the event of an Internet & SaaS failure in an existing Zscaler cloud. You can enable this capability in your Internet & SaaS Gateway settings. To learn more about selecting a DR Gateway for your Internet & SaaS Gateway, see [Configuring an Internet Access Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zia-gateway).
+
+If you have Zscaler BCC, Zscaler automatically sets up the DR Gateway and a Private PAC Server to help clients retrieve PAC files and reroute traffic to back up private cloud infrastructure during failures. If you don't have BCC, you need to manually create a Private Service Edge for Internet & SaaS cluster or Virtual Service Edge for Internet & SaaS.
+
+Either approach provides a redundant data center to reroute traffic in the event of an Internet & SaaS failure in an existing Zscaler cloud.
+
+DR Gateways relate to Global Profiles, which you must configure whether you have a BCC license or manually establish a redundant data center. To learn more, see [About Global Profiles](https://help.zscaler.com/cloud-branch-connector/about-global-profiles), [Adding a Global Profile](https://help.zscaler.com/cloud-branch-connector/adding-global-profile), and [Understanding Disaster Recovery](https://help.zscaler.com/cloud-branch-connector/understanding-disaster-recovery).
+
+To obtain a BCC license, contact Zscaler Support.
+
+DR Gateways provide the following benefits and enable you to:
+
+- Automatically fail over to DR settings if connections to both your primary and secondary Internet & SaaS Gateways fail, such as during a data plane outage.
+- Use traffic forwarding rules to allow flexible traffic selection based on Tags, IP Groups, App Services, and custom DR Gateways. This granular control can be particularly valuable for testing DR or BCC scenarios.
+- Ensure business continuity in the event of a cloud infrastructure disaster.
+
+## About the Disaster Recovery Gateway Page
+
+On the Disaster Recovery Gateway page (**Zero Trust Cloud** > **Gateways** > **Disaster Recovery**), you can do the following:
+
+1. Search for a gateway.
+2. [Add a gateway](https://help.zscaler.com/cloud-branch-connector/adding-disaster-recovery-gateway).
+3. Modify the table and its columns.
+4. View a list of all gateways. For each gateway, you can view:
+  - **No.:** The number of the gateway.
+  - **DR Gateway Name:**The name of the gateway.
+  - **Primary Proxy:** The primary DR Gateway in the event of Internet & SaaS gateway failure.
+  - **Secondary Proxy:** The secondary DR Gateway in the event of Internet & SaaS gateway failure.
+  - **Description:** The label you gave the gateway when you added it.
+  - **Fail Close:** The status (active or inactive) of the toggle allowing or disallowing direct internet access in the event that both the primary and secondary DR Gateways fail. **Fail Close** (default) drains the existing session and disallows access to the internet. If it displays as active, that means that the status is set to fail close. If it displays as inactive, that means that it is set to fail open**,** allowing access to the internet without adopting your Internet & SaaS security posture.
+5. Analyze a specific gateway and its details.
+6. Edit or delete a gateway.
+
+[Image: Disaster Recovery Gateway panel]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-dns-gateways","lastmod":"2026-11-01T23:53Z","nid":"1471251"} -->
 ## About DNS Gateways
 
@@ -4071,6 +4118,52 @@ On the DNS Policies page (Zero Trust Cloud > Policy > DNS Forwarding), you can d
 6. Delete a DNS filtering rule.
 7. Modify the table and its columns.
 8. Search for a DNS Filtering rule.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-global-profiles","lastmod":"2026-11-05T11:59Z","nid":"1539694"} -->
+## About Global Profiles
+
+- Source: https://help.zscaler.com/zero-trust-cloud/about-global-profiles
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Administration > Global Profiles > About Global Profiles
+- Last modified: 2026-11-05T11:59Z
+- Summary: Information on Global Profiles in the Zscaler Admin Console.
+
+A Global Profile is a centralized interface enabling you to manage configuration settings across Cloud Connector groups and Zero Trust Gateway instances , with Disaster Recovery (DR) settings as a service. The DR service allows you to determine how your Internet & SaaS (ZIA) instance fails over to a DR Gateway where you have deployed a Private Service Edge for Internet & SaaS cluster, Virtual Service Edge for Internet & SaaS, or Business Continuity Cloud (BCC) subcloud.
+
+If you have BCC, the Zscaler service automatically sets up the DR Gateway. If you don't have a Zscaler Business Continuity Cloud (BCC), you must manually create a Private Service Edge for Internet & SaaS cluster or Virtual Service Edge for Internet & SaaS for your DR Gateway.
+
+In either case, you need to create a Global Profile for the Disaster Recovery Service.
+
+To obtain a BCC license, contact Zscaler Support.
+
+To learn more, see [Understanding Disaster Recovery](https://help.zscaler.com/cloud-branch-connector/understanding-disaster-recovery).
+
+Global Profiles provide the following benefits and enable you to:
+
+- Create configurations with a disaster recovery service (Disaster Recovery Gateway).
+- Ensure business continuity in the event of a cloud infrastructure disaster, even if you lack a Zscaler BCC.
+
+## About the Global Profiles Page
+
+On the Global Profiles page (**Zero Trust Cloud** > **Common Resources** > **Global Profile**), you can do the following:
+
+1. Search for a profile.
+2. [Add a profile](https://help.zscaler.com/cloud-branch-connector/adding-global-profile).
+3. View a list of all profiles. For each profile, you can view:
+  - **Profile Name**:The name of the profile.
+  - **Last Modified By**: The name of the account that last modified the profile.
+  - **Last Modified On**: The date on which the last modification occurred.
+  - **Enabled Services:** The services you want to enable, such as a **Disaster Recovery**, in the event of Internet & SaaS gateway failure.
+  - **Disaster Recovery Settings**:
+    - **Disaster Recovery Activation Domain:** The domain your organization uses to trigger disaster recovery. The activation (TXT) domain is where the DNS TXT record is stored for triggering disaster recovery - for example, `dr.mydomain.com`.
+    - **Default BCP Subcloud**: The subcloud that acts as your organization's dedicated fallback destination. If the primary Zscaler public cloud (Internet & SaaS or Private Access) suffers a significant outage, client traffic is rerouted to this subcloud to maintain enforcement of security policies. This option is available only with the BCC SKU.
+4. Modify the table and its columns.
+5. Edit or delete a profile.
+
+[Image: Global Profile table]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4393,13 +4486,13 @@ On the Location Templates page (Infrastructure > Location Management > Location 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-locations","lastmod":"2026-11-01T23:52Z","nid":"1420551"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-locations","lastmod":"2026-11-06T14:20Z","nid":"1420551"} -->
 ## About Locations
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-locations
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Location Management > About Locations
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-06T14:20Z
 - Summary: Information about how locations identify the various networks from which an organization sends its cloud traffic to the Zscaler service.
 
 Locations identify the various networks from which your organization sends its cloud traffic. When you deploy Zscaler Cloud Connector or Zscaler Branch Connector, the Zscaler service automatically creates a location using a [location template](https://help.zscaler.com/cloud-branch-connector/about-location-templates) with defined attributes.
@@ -4413,7 +4506,7 @@ Locations provide the following benefits and enable you to:
 
 ## About the Locations Page
 
-On the Locations page (Infrastructure >Location Management > Locations > Cloud tab), you can do the following:
+On the Locations page (Infrastructure > Location Management > Locations > Cloud tab), you can do the following:
 
 1. Sync your locations and sublocations.
 2. Search for a location or sublocations.
@@ -5170,14 +5263,14 @@ On the VDI Templates page (Infrastructure > Client Connector > VDI Templates), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-virtual-branch-devices","lastmod":"2026-11-01T23:53Z","nid":"1467036"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-virtual-branch-devices","lastmod":"2026-11-06T14:16Z","nid":"1467036"} -->
 ## About Virtual Branch Devices
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-virtual-branch-devices
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > About Virtual Branch Devices
-- Last modified: 2026-11-01T23:53Z
-- Summary: Information on the Virtual Branch Devices page in the Zscaler Admin Console.
+- Last modified: 2026-11-06T14:16Z
+- Summary: Information on the VM Group page in the Zscaler Admin Console.
 
 Virtual Branch Devices enable Zero Trust connectivity everywhere for all unauthenticated users, devices, servers, and IoT/OT, regardless of location. Additionally, they eliminate the attack surface by connecting branches and data centers through the Zero Trust Exchange (ZTE) independent of the underlying WAN transport network.
 
@@ -5186,9 +5279,9 @@ Virtual Branch Devices provide the following benefits and enable you to:
 - Ease deployment on any server running VMware or Linux KVM.
 - Prevent lateral threat movement, allowing Zero Trust connectivity to build a foundation for secure connectivity that enables east-to-west segmentation.
 
-## About the Virtual Branch Devices Page
+## About the VM Group Page
 
-On the Virtual Branch Devices page (Infrastructure > Branch Connector > VM Group), you can do the following:
+On the VM Group page (Infrastructure > Branch Connector > VM Group), you can do the following:
 
 1. View a list of virtual branch devices. For each device, you can view:
 
@@ -5893,6 +5986,111 @@ You can enter multiple entries. Press `Enter` after each entry, then click **Add
 **Network Services**: Use this filter to limit the logs to specific [network services](https://help.zscaler.com/cloud-branch-connector/about-network-services) associated with the session or aggregated sessions.
 
 **Gateway**: Use this filter to limit the log to specific gateways.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-disaster-recovery-gateway","lastmod":"2026-11-05T08:06Z","nid":"1539657"} -->
+## Adding a Disaster Recovery Gateway
+
+- Source: https://help.zscaler.com/zero-trust-cloud/adding-disaster-recovery-gateway
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Administration > Forwarding Methods > Adding a Disaster Recovery Gateway
+- Last modified: 2026-11-05T08:06Z
+- Summary: Information on how to add a Disaster Recovery (DR) Gateway in the Zscaler Admin Console.
+
+This article provides information on adding a Disaster Recovery (DR) Gateway in the Zscaler Admin Console. To learn more, see [About Disaster Recovery Gateways](https://help.zscaler.com/cloud-branch-connector/about-disaster-recovery-gateways).
+
+## Adding a Disaster Recovery Gateway
+
+To add a gateway:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Gateways** > **Disaster Recovery**.
+2. Click **Add Gateway**. The **Add Gateway** drawer appears. See image.
+3. In the **Add Gateway** drawer:
+  1. Complete the following:
+    - **Name**: Enter a name for the gateway.
+    - **Primary**: Select **Manual** to provide an FQDN, or select **Override** to enter a specific Virtual Service Edge for Internet & SaaS (ZIA) or Private Service Edge for Internet & SaaS IP address. To learn more, see [Understanding Disaster Recovery](https://help.zscaler.com/cloud-branch-connector/understanding-disaster-recovery).
+    - **Secondary**: Select a secondary gateway. If you have a single disaster recovery gateway SKU, you can use the primary gateway for this entry as well.
+    - **Fail Close**: Enable to automatically drain existing sessions when both the primary and secondary DR Gateways fail. This is the default. If set to inactive, the setting becomes fail open, and traffic is instead sent directly to the internet.
+    - **Description:**Enter a description of the gateway.
+  2. Confirm that the information is correct and click **Save**.
+
+The DR Gateway is created. Create an Internet Access Gateway before setting up forwarding rules for your DR Gateway. To learn more, see [Configuring an Internet Access Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-internet-access-gateway).
+
+### Traffic Forwarding Rule Examples
+
+The following examples show how you might set up forwarding rules for your DR Gateway:
+
+| **Rule** | **Rule Label** | **Criteria** | **Internet & SaaS Gateway** |
+| --- | --- | --- | --- |
+| Traffic-Test-Us-West1-DR Rule (optional) | DR Rule | Source: Location/Tags Destination: IP Group  <div class="sub"> <p> <a class="image-icon" href="#uswestdrdestinationrule" target="_blank">See image.</a> </p> </div> | Hypothetical Internet & SaaS Gateway Fallback: US-West1-Virtual Service Edge/Private Service Edge Gateway  <div class="sub"> <p> <a class="image-icon" href="#gwvzennoverridenobcc" target="_blank">See image.</a> </p> </div> |
+| Us-West2-DR Rule | DR Rule | Location: US-West-2 <div class="sub"> <p> <a class="image-icon" href="#uswestdrlocationrule" target="_blank">See image.</a> </p> </div> | US-West-Default ZIA Gateway (Auto/Auto) Fallback: US-West1-Virtual Service Edge/Private Service Edge Gateway  <div class="sub"> <p> <a class="image-icon" href="#gwvzenautonobcc" target="_blank">See image.</a> </p> </div> |
+| Us-West2-DR Rule | FQDN DR Rule | Location: US-West-2 <div class="sub"> <p> <a class="image-icon" href="#fqdndrrulenobcc" target="_blank">See image.</a> </p> </div> | US-West-Default ZIA Gateway (Auto/Auto), FC, or FO Fallback: FO    <div class="sub"> <p> <a class="image-icon" href="#fallbackfonobcc" target="_blank">See image.</a> </p> </div> |
+| FQDN Based DR Access | FQDN DR Rule | Source: Location-us-west1 Destination: FQDN Group/App Services: Default ZS FQDN Group + your FQDN Group Auto/Auto ZIA Gateway: Fail Open Enabled.  <div class="sub"> <p> <a class="image-icon" href="#fqdndrrulenobcc2" target="_blank">See image.</a> </p> </div> | N/A |
+| Default Internet & SaaS Rule | Default Rule | Any <div class="sub"> <p> <a class="image-icon" href="#defaultanynobcc" target="_blank">See image.</a> </p> </div> | Default Internet & SaaS Gateway |
+
+[Image: Add Disaster Recovery Gateway]
+
+<div class="subc"> <p> <a class="ck-anchor" id="uswestdrdestinationrule"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/traffic-test-us-west-destination.png" data-entity-uuid="0" data-entity-type="image" alt="DR Rule with destination without BCC SKU" title="DR Rule" width="1277" height="1509"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="uswestdrlocationrule"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/us-west-location.png" data-entity-uuid="0" data-entity-type="image" alt="DR Rule with location without BCC SKU" title="DR Rule" width="1274" height="1594"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="gwvzenautonobcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/photoshop-gw-fallback-vzen-auto-no-bcc.png" data-entity-uuid="0" data-entity-type="image" alt="Virtual Service Edge Gateway Auto without BCC SKU" title="Virtual Service Edge Gateway" width="1433" height="935"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="gwvzennoverridenobcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/photoshop-gw-fallback-vzen-no-bcc.png" data-entity-uuid="0" data-entity-type="image" alt="Virtual Service Edge Gateway Override without BCC SKU" title="Virtual Service Edge Gateway" width="1433" height="935"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="defaultrulewithbcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/default-rule-any-criteria.png" data-entity-uuid="0" data-entity-type="image" alt="Default Internet & SaaS Rule with BCC SKU" title="Default Internet & SaaS Rule " width="1453" height="1808"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="defaultgwwithbcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/default-gw-dr-dialog.png" data-entity-uuid="0" data-entity-type="image" alt="Default Internet & SaaS Gateway with BCC SKU" title="Default Internet & SaaS Gateway" width="1452" height="1800"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="traffictestoptionalgw"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/default-gw-dr-highlight.png" data-entity-uuid="0" data-entity-type="image" alt="Traffic-Test DR Rule with BCC SKU" title="Traffic-Test DR Rule" width="2874" height="1161"><img src="" data-entity-uuid="0" data-entity-type="image"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="traffictestoptionalpolicy"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/traffic-test-dr-rule-optional.png" data-entity-uuid="0" data-entity-type="image" alt="Traffic Test DR Rule with BCC SKU" title="Traffic Test DR Rule" width="1445" height="1799"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="fallbackfonobcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/fqdn-dr-fallback-fo-no-bcc-crop.png" data-entity-uuid="0" data-entity-type="image" alt="FQDN DR Rule with Fail Open fallback" title="FQDN DR Rule fail open" width="1440" height="938"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="fqdndrrulenobcc2"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/fqdn%20dr%20rule%20no%20bcc.png" data-entity-uuid="0" data-entity-type="image" alt="FQDN Based DR Access without BCC SKU" title="FQDN Based DR Access" width="1448" height="1803"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="fqdndrrulenobcc"></a><img src="/downloads/cloud-branch-connector/administration/forwarding-methods/adding-disaster-recovery-gateway/fqdn-dr-rule-location-us-w-2.png" data-entity-uuid="0" data-entity-type="image" alt="FQDN Based DR Access without BCC SKU" title="FQDN Based DR Access" width="1272" height="1556"> </p> </div>
+
+<div class="subc"> <p> <a class="ck-anchor" id="defaultanynobcc"></a><img src="/downloads/cloud-branch-connector/administration/global-profiles/adding-global-profile/default%20rule%20last%20no%20bcc.png" data-entity-uuid="0" data-entity-type="image" alt="Default Internet & SaaS Rule without BCC SKU" title="Default Internet & SaaS Rule" width="1450" height="1808"> </p> </div>
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-global-profile","lastmod":"2026-11-05T11:56Z","nid":"1539696"} -->
+## Adding a Global Profile
+
+- Source: https://help.zscaler.com/zero-trust-cloud/adding-global-profile
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Administration > Global Profiles > Adding a Global Profile
+- Last modified: 2026-11-05T11:56Z
+- Summary: Information on how to add a Global Profile in the Zscaler Admin Console.
+
+This article provides information on adding a Global Profile in the Zscaler Admin Console. To learn more, see [About Global Profiles](https://help.zscaler.com/cloud-branch-connector/about-global-profiles), [About Disaster Recovery Gateways](https://help.zscaler.com/cloud-branch-connector/about-disaster-recovery-gateways), and [Understanding Disaster Recovery](https://help.zscaler.com/cloud-branch-connector/understanding-disaster-recovery).
+
+## Adding a Global Profile
+
+To add a profile:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Zero Trust Cloud** > **Common Resources** > **Global Profile**.
+2. Click **Add Global Profile**. The **Add Global Profile** drawer appears.
+3. In the **Add Global Profile** drawer:
+  1. On the **Configuration**tab, configure the following and click **Next**:
+    - **Profile Name**: Enter a name for the profile.
+    - **Services**: Select **Disaster Recovery** to allow the profile to reference a Disaster Recovery Gateway. See image.
+  2. On the **Configure Services**tab, fill in the applicable fields and click **Next**:
+    - **Disaster Recovery PAC Domain** (optional): Enter a DR PAC domain for the profile if desired. For example:`https://platform-pm.pac.zsbcs.net`. If you have Business Continutity Cloud (BCC) provisioned, Zscaler will share a PAC domain. This field is optional if you either do not have BCC provisioned, or you plan to use Private Access (ZPA) Private Service Edge or Private Access Virtual Service Edge.
+    - **Disaster Recovery Activation Domain**: Enter a TXT (activation) domain for the profile to trigger the disaster recovery. The following table lists the format, sample, and supported values for the unsigned DNS TXT records that the Zscaler service expects as a TXT response. Signed records are not supported.
+      | DNS TXT Record Format | Example DNS TXT Record | Supported Values |
+      | --- | --- | --- |
+      | `v=1;k=zia;b=on\|off\|test` | `v=1;k=zia;b=on` | The version (`v`) is `1`. The following values are supported for the activation types (`k`): `zia`: Internet & SaaSThe following values are supported for the body (`b`): `on`: Enable Disaster Recovery Mode; `off`: Disable Disaster Recovery Mode; `test`: Enable Disaster Recovery Test Mode |
+  3. In the **Review** section, confirm that the information is correct and click **Save**.
+
+The Global Profile is created. Be sure to add your Global Profile to your Cloud Connector or Zero Trust Gateway. To learn more, see [Editing Cloud Connectors](https://help.zscaler.com/cloud-branch-connector/editing-cloud-connectors).  and <a href="/cloud-branch-connector/editing-zero-trust-gateways" target="_blank">Editing Zero Trust Gateways</a>.
+
+[Image: Add Global Profile]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8518,13 +8716,13 @@ To configure a DNS Filtering rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-dns-gateway","lastmod":"2026-11-01T23:53Z","nid":"1471256"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-dns-gateway","lastmod":"2026-11-05T14:02Z","nid":"1471256"} -->
 ## Configuring a DNS Gateway
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-dns-gateway
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Forwarding Methods > Configuring a DNS Gateway
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-05T14:02Z
 - Summary: Information on how to configure DNS gateways in the Zscaler Admin Console.
 
 DNS gateways redirect the DNS request received by the Zscaler Cloud or Branch Connector to specific DNS servers. To learn more, see [About DNS Gateways](https://help.zscaler.com/cloud-branch-connector/about-dns-gateways).
@@ -11038,13 +11236,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-01T23:52Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-06T10:47Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-06T10:47Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
@@ -11077,15 +11275,12 @@ If your organization uses Unified Role-Based Access Control (RBAC), administrato
 To configure a new [admin role](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles):
 
 1. Log in to the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) as a super admin.
-2. Go to **Administration** >**Role Management**> **Branch and Cloud Connector**.
+2. Go to **Administration** >**Role Management** > **Branch and Cloud Connector**.
 3. Click**Add Admin Role**.
 4. In the **Add Admin Role** window:
   - **Name**: Enter a unique name for the admin role (e.g., CloudConnector-Deployment-Role).
   - **Permissions**: Ensure that the admin has full access to **Location Management**and**Cloud Connector Provisioning**. Set all other permissions to**None**.
-
-See image.
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
 - In Zscaler Cloud Connector
 - In Authentication Service
@@ -11097,8 +11292,8 @@ For a Cloud Connector tenant linked to Authentication Service, after configuring
 To retrieve the API key:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Administration**> **API** > **Cloud & Branch Connector API**.
-3. From the[API Key Management](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the AMI with Zscaler.
+2. Go to **Administration** > **API** > **Cloud & Branch Connector API**.
+3. From the[Cloud & Branch Connector API](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the AMI with Zscaler.
 
 See image.
 
@@ -11107,7 +11302,7 @@ If the API is not available, click **Add Cloud Service API Key** to add an API k
 You do not need to configure location templates because [locations](https://help.zscaler.com/cloud-branch-connector/about-locations) are created automatically when you deploy Cloud Connector to a cloud provider such as AWS. Optionally, you can configure your own location template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure**> **Location Management**> **Location Templates**.
+2. Go to **Infrastructure** > **Location Management** > **Location Templates**.
 3. Click **Add Location Template**. The **Add Location Template** window opens.
 4. In the **Name**field, enter a name for the location template.
 5. (Optional) In the **Template Prefix** field, enter a prefix for the location template. All locations created using this location template contain this prefix.
@@ -11153,7 +11348,7 @@ To deploy Zscaler Cloud Connector on AWS, ensure the following:
 - Your AMI is configured with the latest software version. To learn about identifying the Cloud Connector version in AWS, see [Identifying the Zscaler Cloud Connector Version](https://help.zscaler.com/cloud-branch-connector/identifying-zscaler-cloud-connector-version).
 - You have a valid AWS account with Administrator permissions.
 - Your VM meets the following specifications: AWS Marketplace restricts instances to those that Zscaler validated. Zscaler periodically reviews and updates this list. Zscaler cannot guarantee that VMs deployed on unsupported instances will function properly. For the best performance and security, always deploy the latest available AMI and the recommended m6i instance. Your Cloud Connector instance size selection of small, medium (deprecated), or large (deprecated) must match the selected VM size of the [configured cloud provisioning template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template). If the sizing demonstrated in the [cloud provisioning URL](https://help.zscaler.com/cloud-branch-connector/about-cloud-provisioning-templates) and the deployment template do not match, Cloud Connector deployment is unsuccessful. The Amazon EC2 M5 and C5 instance families are no longer available from the AWS Marketplace or Zscaler deployment templates. If you have any existing Cloud Connector deployments based on M5 or C5 instances (such as m5.large or c5.large), redeploy and migrate them to one of the supported instances listed above.
-  - Small VM: Requires one of the following Elastic Compute Cloud (EC2) instances: m5n.large, c5a.large, m6i.large (recommended), or c6i.large. These VMs deploy with two network interfaces.
+  - Small VM: Requires one of the following Elastic Compute Cloud (EC2) instances: m5n.large, c5a.large, m6i.large (recommended), c6i.large, m7i.large, or m7i-flex.large. These VMs deploy with two network interfaces.
   - Medium VM (deprecated): Requires one of the following EC2 instances: m5n.4xlarge, m6i.4xlarge (recommended), or c6i.4xlarge. These VMs deploy with 5 network interfaces.
   - Large VM (deprecated): Requires one of the following EC2 instances: m5n.4xlarge, m6i.4xlarge (recommended), or c6i.4xlarge. These VMs deploy with 6 network interfaces. For details about these instances, refer to the [AWS specifications](https://aws.amazon.com/ec2/instance-types/).
 
@@ -15442,13 +15637,13 @@ To download Zscaler Client Connector for VDI:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/editing-cloud-connectors","lastmod":"2026-11-01T23:53Z","nid":"1420856"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/editing-cloud-connectors","lastmod":"2026-11-05T09:51Z","nid":"1420856"} -->
 ## Editing Cloud Connectors
 
 - Source: https://help.zscaler.com/zero-trust-cloud/editing-cloud-connectors
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Group Management > Editing Cloud Connectors
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-05T09:51Z
 - Summary: How to edit Cloud Connectors from the Cloud Connector Groups page in the Zscaler Admin Console.
 
 Modifying Zscaler Cloud Connectors and Cloud Connector groups is one of the tasks you can complete after deployment.
@@ -15467,6 +15662,9 @@ To edit a Cloud Connector or Cloud Connector group:
     - In the **Auto Cleanup** section, configure the following: Auto Cleanup is in Limited Availability (LA). To enable this feature, contact Zscaler Support.
       - **Auto Cleanup Frequency**: Select the frequency at which Cloud Connector groups are automatically deleted (i.e., **Never**, **60 Days**, **90 Days**, or **120 Days**).
       - **Forced Delete**: Select the checkbox to allow the deletion of Cloud Connectors, even if they are used by Internet & SaaS or Private Access traffic forwarding policies. If the deleted connector was the only location, the policy is bypassed. If not, the policy continues to apply to the remaining locations or Cloud Connector groups.
+    - In the **Global Profile** section, configure the following:
+      - **Global Profile**: From the drop-down menu, select a global profile. To learn more, see [About Global Profiles](https://help.zscaler.com/cloud-branch-connector/about-global-profiles).
+      - **Disaster Recovery Testing Mode**: Select the checkbox to allow users to evaluate Disaster Recovery (DR) functionality without affecting production traffic.
     - In the **Tunnel Information** section, configure the following:
       - **ZIA Tunnel Mode**: Select **Unencrypted UDP**, **DTLS**, or **TLS** for the encryption type to be used when forwarding traffic to Internet & SaaS. By default, **Unencrypted UDP** is selected.
       - **Fallback to TLS**: You can only enable this feature if **Unencrypted UDP** or **DTLS** is selected as the **ZIA Tunnel Mode**. Select **Enable** to have the tunnel type automatically switch to **TLS** if the tunnel becomes unhealthy. Select **Disable** to deactivate this feature. This feature is enabled by default.
@@ -15494,8 +15692,7 @@ To edit a Cloud Connector or Cloud Connector group:
     - In the **Location Information** section, view the following:
       - **Name**: The name of the Cloud Connector.
       - **Location Name**: The [location](https://help.zscaler.com/cloud-branch-connector/about-locations) where your Cloud Connector was deployed from.
-      - **Configuration Template Name**: The name of the Cloud Connector provisioning template.
-      - **Connector VM Size**: The size of the Cloud Connector virtual machine (VM). See image.
+      - **Connector VM Size**: The size of the Cloud Connector virtual machine (VM). **Provisioning Template Name**: The name of the Cloud Connector provisioning template. See image.
     - In the **Connector Information** section, view the following:
       - **Management Outgoing Gateway IP Address**: The default gateway IP address.
       - **Management IP Address**: The IP address of the Cloud Connector.
@@ -15505,9 +15702,10 @@ To edit a Cloud Connector or Cloud Connector group:
       - **DNS Server 1**: The IP address of the primary DNS server. See image.
     - In the **Service Information** section, view the following:
       - **Service IP**: The service IP address.
-      - **Virtual IP Address**: The virtual IP address. See image.
+      - **Virtual IP Address**: The virtual IP address.
+      - **Load Balancer**: The load balancer. See image.
   - On the **Upgrade Status** tab:
-    - In the **Upgrade Schedule** section, designate a **Day** and **Time** for periodic software updates. To learn more, see [Managing Cloud & Branch Connector Upgrades](https://help.zscaler.com/cloud-branch-connector/managing-cloud-branch-connector-upgrades). See image.
+    - In the **Upgrade Schedule** section, designate a **Days** and **Time** for periodic software updates. To learn more, see [Managing Cloud & Branch Connector Upgrades](https://help.zscaler.com/cloud-branch-connector/managing-cloud-branch-connector-upgrades).
     - In the **Upgrade Information** section, view the following: See image.
       - **Last Upgrade On**: The last date and time the Cloud Connector was upgraded.
       - **Current Version**: The current version of the Cloud Connector.
@@ -15522,7 +15720,7 @@ To edit a Cloud Connector or Cloud Connector group:
 
 [Image: The Operational Status section in the Edit Cloud Connectors window of the Cloud Connector Groups page in the Zscaler Admin Console]
 
-[Image: The Upgrade Schedule section on the Upgrade Status tab of the Edit Connectors window on the Groups page of the Zscaler Admin Console]
+[Image: The Upgrade Schedule and Upgrade Information sections on the Upgrade Status tab of the Edit Connectors window on the Groups page of the Zscaler Admin Console]
 
 [Image: The Tunnel Information section in the Edit Cloud Connectors window of the Cloud Connector Groups page in the Zscaler Admin Console]
 
@@ -15533,8 +15731,6 @@ To edit a Cloud Connector or Cloud Connector group:
 [Image: The Forwarding Information section in the Edit Cloud Connectors window of the Cloud Connector Groups page in the Zscaler Admin Console]
 
 [Image: The Service Information section in the Edit Cloud Connectors window of the Cloud Connector Groups page in the Zscaler Admin Console]
-
-[Image: The Upgrade Information section on the Upgrade Status tab of the Edit Connectors window on the Groups page of the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15608,21 +15804,21 @@ To edit a physical branch device:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/editing-virtual-branch-devices","lastmod":"2026-11-01T23:53Z","nid":"1467041"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/editing-virtual-branch-devices","lastmod":"2026-11-06T14:18Z","nid":"1467041"} -->
 ## Editing Virtual Branch Devices
 
 - Source: https://help.zscaler.com/zero-trust-cloud/editing-virtual-branch-devices
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Editing Virtual Branch Devices
-- Last modified: 2026-11-01T23:53Z
-- Summary: How to edit virtual branch devices from the Virtual Branch Devices page in the Zscaler Admin Console.
+- Last modified: 2026-11-06T14:18Z
+- Summary: How to edit virtual branch devices from the VM Group page in the Zscaler Admin Console.
 
 After deployment, you can modify virtual branch devices.
 
 To edit a virtual branch device:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Branch Connector** > **VM Group**.
-2. From the [Virtual Branch Devices](https://help.zscaler.com/cloud-branch-connector/about-virtual-branch-devices) page, locate the group or the individual device you want to modify and click the **Edit** icon.
+2. From the [VM Group](https://help.zscaler.com/cloud-branch-connector/about-virtual-branch-devices) page, locate the group or the individual device you want to modify and click the **Edit** icon.
 
 - Group
 - Individual device
@@ -16213,13 +16409,13 @@ In the cloud provisioning template, you can select Stable, Latest, or Beta as yo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-organization-api-keys","lastmod":"2026-11-01T23:53Z","nid":"1420826"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-organization-api-keys","lastmod":"2026-11-03T12:44Z","nid":"1420826"} -->
 ## Managing Organization API Keys
 
 - Source: https://help.zscaler.com/zero-trust-cloud/managing-organization-api-keys
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > API Key Management > Managing Organization API Keys
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-03T12:44Z
 - Summary: How to replace, edit, regenerate, and delete your organization's API key within the Zscaler Admin Console.
 
 After your API subscription is enabled, your organization's cloud service API key is initially provisioned by Zscaler, enabled, and displayed on the API Key Management page along with the base URL.
@@ -16241,7 +16437,7 @@ Your organization can only have one API key. You must delete the existing key be
 
 To add a new API key:
 
-1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **API** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Delete the existing key. After the key is removed, the **Add Cloud Service API Key** option becomes available.
 3. Click **Add Cloud Service API Key**.
 
@@ -16251,7 +16447,7 @@ After an API key is edited, the action cannot be undone. You cannot edit the Clo
 
 To edit the Cloud Service API key:
 
-1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **API** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Edit** icon.
 
 The **Edit Cloud Service API Key** window appears.
@@ -16270,7 +16466,7 @@ After an API key is regenerated, the action cannot be undone.
 
 To regenerate the Cloud Service API key:
 
-1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **API** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Regenerate**icon.
 3. In the confirmation window that appears, click **OK**.
 
@@ -16280,7 +16476,7 @@ After an API key is deleted, the action cannot be undone.
 
 To delete the API key:
 
-1. Go to **Administration** > **Legacy API** > **Cloud & Branch Connector API**.
+1. Go to **Administration** > **API** > **Legacy API** > **Cloud & Branch Connector API**.
 2. Click the **Delete** icon.
 3. In the confirmation window that appears, click **OK**.
 
@@ -16414,403 +16610,4 @@ See image.
 [Image: Private Access Non Match (Internet & SaaS) flows for Cloud Connector]
 
 [Image: Cloud Connector DNS rules configured to allocate Private Access synthetic IP pools]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-dns-logs","lastmod":"2026-11-01T23:53Z","nid":"1420841"} -->
-## NSS Feed Output Format: DNS Logs
-
-- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-dns-logs
-- Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-11-01T23:53Z
-- Summary: Information about DNS log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
-
-The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
-
-The following tables display information about the DNS fields and possible values for those fields.
-
-## Date/Time
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{eventtime} | The time and date the transaction happened. This excludes the time zone. | Mon Oct 28 22:55:48 2024 |
-| %s{time} | The date and time the event was logged. | Mon Oct 28 22:55:53 2024 |
-| %s{tz} | The time zone. This is the same as the time zone you specified when you configured the NSS feed. | GMT |
-| %02d{ss} | Second of timestamp (0–59) | 48 |
-| %02d{mm} | Minute of timestamp (0–59) | 55 |
-| %02d{hh} | Hour of timestamp (0–23) | 22 |
-| %02d{dd} | Day of timestamp (1–31) | 28 |
-| %02d{mth} | Month of timestamp (1-12) | 10 |
-| %04d{yyyy} | Year of timestamp | 2024 |
-| %s{mon} | The name of the month | Oct |
-| %s{day} | The day of the week | Mon |
-
-## Transaction Action
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{req_rulename} | Name of the rule that was applied to the DNS request | Private Access Resolver |
-| %s{req_action} | Name of the action that was applied to the DNS request | REQ_ALLOW REQ_BLOCK |
-| %s{res_rulename} | Name of the rule that was applied to the DNS response | Default Connector DNS Rule |
-| %s{res_action} | Name of the action that was applied to the DNS response | Allow |
-
-## Transaction Information
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %d{inbytes} | Number of bytes sent from the server to the client. | 10,000 |
-| %d{outbytes} | Number of bytes sent from the client to the server. | 10,000 |
-| %s{clt_ip} | The IP address of the user. This can be the internal IP address if it is visible—for example, traffic sent through a GRE tunnel or an internal IP address indicated using XFF. Otherwise, it's the client internet (NAT Public) IP address. | 192.0.2.135 |
-| %ld{req_duration} | Duration of the DNS request in milliseconds | 65 |
-| %s{resolver} | Server IP address of the request | 203.0.113.200 |
-| %ld{recordid} | Unique record identifier for each log | sys_cloud_branch_id |
-| %s{location} | Gateway location or sublocation of the source | Headquarters |
-| %s{dom_str} | Fully Qualified Domain Name (FQDN) in the DNS request | mail.safemarch.com |
-| %s{odom_str} | Obfuscated FQDN in the DNS request |  |
-| %s{res_type} | Response type |  |
-| %s{resp_val_str} | Response value | 51.xx.192.49 blob.xxz21prdxxxx7a.store.core.windows.net |
-| %{oresp_val_str} | Obfuscated response value |  |
-| %s{req_type} | DNS record being requested | A record |
-| %d{srv_port} | Server port of the request | 80 |
-| %d{num_resp} | Number of DNS responses | 52 |
-| %s{dns_err} | DNS error, if any | DNS server not available; NXDOMAIN; SERVFAIL |
-| %s{protocol} | Protocol used | TCP; UDP; DOH |
-| %s{dnsgw_flags} | Flags indicating the DNS Gateway status | PRIMARY_SERVER_RESPONSE_PASS; FO_DEST_ERR |
-| %s{dnsgw_slot} | DNS Gateway rule |  |
-
-## Cloud Connector or Branch Connector Information
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{name} | Cloud Connector or Branch Connector name | CC_304 |
-| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vpc-xxxx |
-| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-west-2x |
-| %s{region_name} | Cloud Connector or Branch Connector region name | (US) West US 2 |
-| %s{platform_name} | Cloud Connector or Branch Connector platform name | Azure |
-| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name (availability zone) | San Jose, United States |
-| %s{account_id} | AWS account ID, or Azure subscription ID, or GCP project ID | 506xxx032xxx (AWS); f60abxxx-bb7d-43xx-84xx-4axxxx7xxxxx (Azure); gcs-xxx-cc-gcp-project (GCP) |
-
-## Base64 Fields
-
-A SIEM can have parsing issues whenever a string field has nonprintable or delimiter characters. For that reason, the Zscaler service has URL encoding for fields such as `dom_str`. Several other fields have the same parsing issue, but URL encoding is not suitable. Such fields are encoded using Base64.
-
-Turning on Base64 encoding for all supported fields may result in approximately a 20% drop in performance.
-
-The following fields have been added as Base64 fields:
-
-- b64dom_str
-- b64resp_val_str
-
-## Hex-Encoded Fields
-
-When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable ASCII characters that are in URLs. Any URL character that is less than or equal to 0x20, or greater than or equal to 0x7F, is encoded as `%HH`. This ensures that your SIEM parses the URLs that contain control characters. For example, a `\n` character in a URL is encoded as `0A`, and a space is encoded as `%20`.
-
-edom_str has been added as a hex-encoded field.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-event-logs","lastmod":"2026-11-01T23:53Z","nid":"1459131"} -->
-## NSS Feed Output Format: Event Logs
-
-- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-event-logs
-- Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Event Logs
-- Last modified: 2026-11-01T23:53Z
-- Summary: Information about Event log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
-
-The Event NSS feed specifies the data from the Event logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
-
-Zscaler Cloud Connector or Branch Connector generates the Event logs when a status change occurs for a Cloud Connector or Branch Connector health check, Zscaler data center reachability, a data plane health check, a software upgrade, a control plane health check, or a tunnel to Zscaler data centers.
-
-## Event Log Attributes
-
-Each Event log has date and time, metadata, and event-specific attributes in it. The event-specific attributes depend on the type and severity of the event. Therefore, the values of the attributes change depending on the event type and severity.
-
-There are 9 event-specific attributes in each Event log:
-
-- Attribute 1 Type: The data type for the first event attribute.
-- Attribute 1 Value: The value for the first event attribute.
-- Attribute 2 Type: The data type for the second event attribute.
-- Attribute 2 Value: The value for the second event attribute.
-- Attribute 3 Type: The data type for the third event attribute.
-- Attribute 3 Value: The value for the third event attribute.
-- Attribute 4 Type: The data type for the fourth event attribute.
-- Attribute 4 Value: The value for the fourth event attribute.
-- Error Code: The error code associated with an event if an error code is available.
-
-The following list shows all the possible Event Type/Severity combinations that can occur:
-
-- ZIA_TUNNEL/Info
-- ZIA_TUNNEL/Error
-- ZIA_GATEWAY/Warn
-- ZIA_GATEWAY/Warn
-- ZIA_GATEWAY/Error
-- ZIA_GATEWAY/Info
-- SVC_HEALTH_CHECK/Info
-- SVC_HEALTH_CHECK/Error
-- INST_HEALTH_CHECK/Warn
-- INST_HEALTH_CHECK/Info
-- CONTROL_PLANE/Info
-- CONTROL_PLANE/Error
-- DATA_PLANE/Info
-- DATA_PLANE/Error
-- UPGRADE_START/Info
-- UPGRADE_END/Info
-- UPGRADE_END/Error
-
-- Event Name: ZIA_TUNNEL
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Inactive
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: Tunnel Destination IP Address
-- Attribute 4 Value: <Tunnel Destination IP Address>
-- Error Code: N/A
-
-- Event Name: ZIA_TUNNEL
-- Severity: Error
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Inactive
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: Tunnel Destination IP Address
-- Attribute 4 Value: <Tunnel Destination IP Address>
-- Error Code: <error_code>
-
-- Event Name: ZIA_GATEWAY
-- Severity: Warn
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Secondary
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Primary
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: ZIA_GATEWAY
-- Severity: Warn
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Primary
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Secondary
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: ZIA_GATEWAY
-- Severity: Error
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Inactive
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: ZIA_GATEWAY
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Inactive
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: Gateway Name
-- Attribute 3 Value: <gw_name>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: SVC_HEALTH_CHECK
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Inactive
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: SVC_HEALTH_CHECK
-- Severity: Error
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Inactive
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: INST_HEALTH_CHECK
-- Severity: Warn
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Degraded
-- Attribute 3 Type: Number of active instances
-- Attribute 3 Value: <integer>
-- Attribute 4 Type: Total instances
-- Attribute 4 Value: <integer>
-- Error Code: N/A
-
-- Event Name: INST_HEALTH_CHECK
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Degraded
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: Number of active instances
-- Attribute 3 Value: <integer>
-- Attribute 4 Type: Total instances
-- Attribute 4 Value: <integer>
-- Error Code: N/A
-
-- Event Name: CONTROL_PLANE
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Inactive
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: <error_code>
-
-- Event Name: CONTROL_PLANE
-- Severity: Error
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Inactive
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: DATA_PLANE
-- Severity: Info
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Inactive
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Active
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: DATA_PLANE
-- Severity: Error
-- Attribute 1 Type: Previous State
-- Attribute 1 Value: Active
-- Attribute 2 Type: Current State
-- Attribute 2 Value: Inactive
-- Attribute 3 Type: N/A
-- Attribute 3 Value: N/A
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: UPGRADE_START
-- Severity: Info
-- Attribute 1 Type: Current Version
-- Attribute 1 Value: <version>
-- Attribute 2 Type: New Version
-- Attribute 2 Value: <version_1>
-- Attribute 3 Type: Package Name
-- Attribute 3 Value: <janus>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: UPGRADE_END
-- Severity: Info
-- Attribute 1 Type: Current Version
-- Attribute 1 Value: <version>
-- Attribute 2 Type: Upgrade Status
-- Attribute 2 Value: Success for Info, Fail for Error
-- Attribute 3 Type: Package Name
-- Attribute 3 Value: <janus/edgeconnector>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-- Event Name: UPGRADE_END
-- Severity: Error
-- Attribute 1 Type: Current Version
-- Attribute 1 Value: <version>
-- Attribute 2 Type: Upgrade Status
-- Attribute 2 Value: Success for Info, Fail for Error
-- Attribute 3 Type: Package Name
-- Attribute 3 Value: <janus/edgeconnector>
-- Attribute 4 Type: N/A
-- Attribute 4 Value: N/A
-- Error Code: N/A
-
-The following tables display information about the Event fields and possible values for those fields.
-
-## Date/Time
-
-| **Field** | **Description** | **Example** |
-| --- | --- | --- |
-| %d{inteventtime} | Event time in epoch format | 1687170925 |
-| %d{abstime} | Event time if logs are delayed | 0 |
-| %s{time} | Time at which events are generated | Mon Oct 14 03:35:25 2024 |
-| %s{tz} | Time zone specified when configuring the NSS feed | GMT |
-| %02d{ss} | Second of timestamp (0–59) | 25 |
-| %02d{mm} | Minute of timestamp (0–59) | 35 |
-| %02d{hh} | Hour of timestamp (0-23) | 03 |
-| %02d{dd} | Day of timestamp (1–31) | 14 |
-| %02d{mth} | Month of timestamp (1-12) | 10 |
-| %04d{yyyy} | Year of timestamp | 2024 |
-| %s{day} | Name of the day | Mon |
-| %s{mon} | Name of the month | Oct |
-| %s{rtime} | Log time at which NSS receives the logs | Mon Oct 14 03:35:28 PDT 2024 |
-| %s{rmon} | Name of the month | Oct |
-
-## Metadata
-
-| **Field** | **Description** | **Example** |
-| --- | --- | --- |
-| %s{company} | Company name | Test2 |
-| %s{location} | Location name | TempLoc |
-| %s{name} | Cloud Connector or Branch Connector name | Instance 5 |
-| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vps-xxxx |
-| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-east-2-x |
-| %s{platform_name} | Cloud Connector or Branch Connector platform name | AWS |
-| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name | Columbus, United States |
-| %s{region_name} | Region name | vk_location-us-east-2-x |
-| %s{connector_type} | The type of connector | CC |
-| %s{event_name} | Event type | VM_HEALTH; ZIA_TUNNEL; ZIA_GW; SVC_HEALTH_CHK; INST_HEALTH_CHK; CTL_PLANE; DATA_PLANE; UPGRADE_ST; UPGRADE_END |
-| %s{category} | Category | TRAFF_FWD; CONN_VM; CONN_INST |
-| %s{severity} | Severity | ERR; INFO; WARN |
-
-## Events
-
-| **Field** | **Description** | **Example** |
-| --- | --- | --- |
-| %s{attr1_name}, %s{attr1_val} | Attribute 1 name, Attribute 1 string value | prev_state, Inactive |
-| %s{attr2_name},%s{attr2_val} | Attribute 2 name, Attribute 2 string value | curr_state, Active |
-| %s{attr3_name}, %s{attr3_val} | Attribute 3 name, Attribute 3 string value | gid, 613x53 |
-| %s{attr4_name}, %s{attr4_val} | Attribute 4 name, Attribute 4 string value | gwip, 192.0.2.1 |
-| %s{error_code} | Error code (if any) | None |
-| %s{account_id} | Account ID (alphanumeric string) | subscription_id2 |
 <!-- /ZS-ARTICLE -->

@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 114
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 115
 
 ---
 
@@ -10901,6 +10901,237 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/legacy-apis/private-cloud-management","lastmod":"2026-11-05T15:44Z","nid":"1545648"} -->
+## Private Cloud Management
+
+- Source: https://help.zscaler.com/legacy-apis/private-cloud-management
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > ZPA API > API Developer & Reference Guide > Reference Guide > Private Cloud Management
+- Last modified: 2026-11-05T15:44Z
+
+To access detailed ZPA API documentation, including references and use cases, refer to the [Zscaler Help Portal](/zpa/about-zpa-api).
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/privateCloud`
+
+**Gets a list of configured Private Clouds for the specified customer.**
+
+- Operation ID: `getAllSites`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `search` | query | no | string | The search string used to support search by features and fields for the API. |
+| `page` | query | no | integer(int32) | Specifies the page number. |
+| `pagesize` | query | no | integer(int32) | Specifies the page size. If not provided, the default page size is 20. The max page size is 500. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `POST /mgmtconfig/v1/admin/customers/{customerId}/privateCloud`
+
+**Adds a new Private Cloud for the specified customer.**
+
+- Operation ID: `addZpnSite`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → ZpnSiteDTO
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 201 | Created |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `GET /mgmtconfig/v1/admin/customers/{customerId}/privateCloud/{privateCloudId}`
+
+**Gets the Private Cloud details for the specified ID.**
+
+- Operation ID: `getZpnSite`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `privateCloudId` | path | yes | integer(int64) | The unique identifier of the Private Cloud. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `PUT /mgmtconfig/v1/admin/customers/{customerId}/privateCloud/{privateCloudId}`
+
+**Updates the Private Cloud for the specified ID.**
+
+- Operation ID: `updateZpnSite`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `privateCloudId` | path | yes | integer(int64) | The unique identifier of the Private Cloud. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Request body:** `application/json` → ZpnSiteDTO
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### `DELETE /mgmtconfig/v1/admin/customers/{customerId}/privateCloud/{privateCloudId}`
+
+**Deletes the Private Cloud for the specified ID.**
+
+- Operation ID: `deleteZpnSite`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `customerId` | path | yes | integer(int64) | The unique identifier of the ZPA tenant. |
+| `privateCloudId` | path | yes | integer(int64) | The unique identifier of the Private Cloud. |
+| `microtenantId` | query | no | integer(int64) | The unique identifier of the Microtenant for the ZPA tenant. If you are within a Microtenant, you must pass the microtenantId field when making an API call to retrieve data from that Microtenant. The microtenantId can be obtained from the API Keys page, or can be obtained programmatically using the ZPA cloud service API. Access to certain operations is limited when you are within a Microtenant. If you are within the Default Microtenant, pass microtenantId as 0 when making requests to retrieve data from the Default Microtenant. If the microtenantId is not passed in the request when creating or updating a resource, then the resource is created or updated in the Default Microtenant. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 204 | No Content |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 405 | Method Not Allowed |
+| 409 | Conflict |
+| 415 | Unsupported Media Type |
+| 500 | Internal Server Error |
+| 503 | Service Unavailable |
+
+### Schemas
+
+**`PageListZpnSiteDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `currentCount` | integer(int64) | no |
+| `list` | array<ZpnSiteDTO> | no |
+| `message` | string | no |
+| `totalCount` | integer(int64) | no |
+| `totalPages` | integer(int32) | no |
+
+**`ZPathAPIError`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `reason` | string | no |
+| `id` | string | no |
+| `params` | array<object> | no |
+| `hostname` | string | no |
+
+**`ZpnSiteDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `assistantGroupsIds` | array<NameIdDto> | no |
+| `creationTime` | integer(int32) | no |
+| `description` | string | no |
+| `enabled` | boolean | no |
+| `fireDrillEnabled` | boolean | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `name` | string | yes |
+| `privateBrokerGroupIds` | array<NameIdDto> | no |
+| `privateExporterGroupIds` | array<NameIdDto> | no |
+| `reEnrollPeriod` | integer(int64) | no |
+| `readOnly` | boolean | no |
+| `remoteLss` | boolean | no |
+| `restrictionType` | string | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+| `siemIds` | array<NameIdDto> | no |
+| `siteControllerGroupIds` | array<NameIdDto> | no |
+| `sitecPreferred` | boolean | no |
+| `zpnFireDrillSite` | ZpnFiredrillSiteDTO | no |
+| `zscalerManaged` | boolean | no |
+
+**`NameIdDto`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+
+**`ZpnFiredrillSiteDTO`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `creationTime` | integer(int32) | no |
+| `fireDrillInterval` | integer(int64) | no |
+| `fireDrillIntervalTimeUnit` | string (enum: SECONDS, MINUTES, HOURS, DAYS) | no |
+| `id` | string | no |
+| `modifiedBy` | string | no |
+| `modifiedTime` | integer(int32) | no |
+| `microtenantId` | integer(int64) | no |
+| `microtenantName` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/legacy-apis/private-service-edge-group-management","lastmod":"2026-01-06T23:49Z","nid":"1485311"} -->
 ## Private Service Edge Group Management
 
@@ -17455,13 +17686,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-10-01T07:06Z","nid":"1403026"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/sandbox-policy-settings","lastmod":"2026-11-02T06:06Z","nid":"1403026"} -->
 ## Sandbox Policy & Settings
 
 - Source: https://help.zscaler.com/legacy-apis/sandbox-policy-settings
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Sandbox Policy & Settings
-- Last modified: 2026-10-01T07:06Z
+- Last modified: 2026-11-02T06:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -24675,13 +24906,13 @@ Application profile API resources allow you to configure application and forward
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zscaler-cloud-branch-connector-api","lastmod":"2026-09-08T22:45Z","nid":"1447251"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/understanding-zscaler-cloud-branch-connector-api","lastmod":"2026-11-08T06:06Z","nid":"1447251"} -->
 ## Understanding the Zscaler Cloud & Branch Connector API
 
 - Source: https://help.zscaler.com/legacy-apis/understanding-zscaler-cloud-branch-connector-api
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Cloud & Branch Connector API > Understanding the Zscaler Cloud & Branch Connector API
-- Last modified: 2026-09-08T22:45Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about the Zscaler Cloud & Branch Connector API
 
 The Zscaler Cloud & Branch Connector API gives you programmatic access to the following Zscaler Cloud & Branch Connector features:

@@ -1,7 +1,7 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
+Generated: 2026-11-09 10:16 UTC
 Articles in this file: 139
 
 ---
@@ -1451,13 +1451,13 @@ The expression works by:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-microsoft-entra-id-sso","lastmod":"2026-10-28T21:06Z","nid":"1545231"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-microsoft-entra-id-sso","lastmod":"2026-11-04T13:13Z","nid":"1545231"} -->
 ## Configuring Microsoft Entra ID SSO
 
 - Source: https://help.zscaler.com/unified/configuring-microsoft-entra-id-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Microsoft Entra ID SSO
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:13Z
 - Summary: How to configure Microsoft Entra ID SSO account authentication.
 
 You can configure Microsoft Entra ID (formerly Azure AD) single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through the Microsoft Entra ID SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Microsoft Entra ID. Each user must have an account with the same email address in both the Agentic SecOps Platform and Microsoft Entra ID. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1520,7 +1520,7 @@ To retrieve the XML metadata:
 
 To share metadata with Zscaler:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate**section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
 
 **[Image: The Edit icon on the SAML-based Sign-on page]**
@@ -1575,13 +1575,13 @@ To configure obfuscation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-okta-sso","lastmod":"2026-10-28T21:06Z","nid":"1545232"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-okta-sso","lastmod":"2026-11-04T13:14Z","nid":"1545232"} -->
 ## Configuring Okta SSO
 
 - Source: https://help.zscaler.com/unified/configuring-okta-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring Okta SSO
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:14Z
 - Summary: How to configure Okta SSO account authentication.
 
 You can configure Okta single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your Okta SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through Okta. Each user must have an account with the same email address in both the Agentic SecOps Platform and in Okta. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1653,7 +1653,7 @@ To retrieve the XML metadata:
 
 To share metadata with Zscaler:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile** menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
 
 **[Image: Adding a Bookmark App on the Add Application screen]**
@@ -1715,13 +1715,13 @@ To configure your organization profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-pingfederate-sso","lastmod":"2026-10-28T21:06Z","nid":"1545234"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingfederate-sso","lastmod":"2026-11-04T13:13Z","nid":"1545234"} -->
 ## Configuring PingFederate SSO
 
 - Source: https://help.zscaler.com/unified/configuring-pingfederate-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingFederate SSO
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:13Z
 - Summary: How to configure PingFederate SSO account authentication.
 
 You can configure PingFederate single sign-on (SSO) as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your PingFederate SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingFederate. Each user must have an account with the same email address in both the Agentic SecOps Platform and PingFederate. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1820,7 +1820,7 @@ To retrieve the XML metadata:
 
 To share metadata with Zscaler:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile** menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
 
 [Image: Selecting the Export Metadata action]
@@ -1830,13 +1830,13 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-pingone-sso","lastmod":"2026-10-28T21:06Z","nid":"1545233"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-pingone-sso","lastmod":"2026-11-04T13:14Z","nid":"1545233"} -->
 ## Configuring PingOne SSO
 
 - Source: https://help.zscaler.com/unified/configuring-pingone-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring PingOne SSO
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:14Z
 - Summary: How to configure PingOne SSO account authentication.
 
 You can configure PingOne SSO as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your PingOne SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through PingOne. Each user must have an account with the same email address in both the Agentic SecOps Platform and PingOne. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -1919,7 +1919,7 @@ After registering an app in the Ping Identity admin center, share XML metadata w
 
 To share metadata with Zscaler:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile** menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
 
 [Image: Configuration details of the application]
@@ -1983,13 +1983,13 @@ To create a role assignment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-secureauth-sso","lastmod":"2026-10-28T21:06Z","nid":"1545235"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-secureauth-sso","lastmod":"2026-11-04T13:12Z","nid":"1545235"} -->
 ## Configuring SecureAuth SSO
 
 - Source: https://help.zscaler.com/unified/configuring-secureauth-sso
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Configuring SecureAuth SSO
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:12Z
 - Summary: How to configure SecureAuth SSO account authentication.
 
 You can configure SecureAuth SSO as the authentication method for the Agentic Security Operations Platform (Agentic SecOps Platform), allowing users to sign in through your SecureAuth SSO provider, instead of using a username and password. To do this, you can specify a domain, and users with email addresses matching that domain are redirected to authenticate through SecureAuth. Each user must have an account with the same email address in both the Agentic SecOps Platform and SecureAuth. After SSO is enabled for a domain, it becomes the only authentication method for the Agentic SecOps Platform.
@@ -2062,7 +2062,7 @@ After registering an app in the SecureAuth Identity Platform, share XML metadata
 
 To share metadata with Zscaler:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile** menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate** section, paste the XML metadata into the **SAML XML MetaData**field. If the Authenticate section is not visible, share the XML metadata with your Zscaler Account team. See image. While a metadata URL is also supported, Zscaler recommends pasting the XML metadata directly.
 
 [Image: Add the SAML XML link in the SecOps platform]
@@ -2276,20 +2276,20 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-automation-rules","lastmod":"2026-10-30T02:37Z","nid":"1545375"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-automation-rules","lastmod":"2026-11-04T13:47Z","nid":"1545375"} -->
 ## Creating Automation Rules
 
 - Source: https://help.zscaler.com/unified/creating-automation-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Automation Rules > Creating Automation Rules
-- Last modified: 2026-10-30T02:37Z
+- Last modified: 2026-11-04T13:47Z
 - Summary: How to create an automation rule.
 
 You can create an automation rule to automatically trigger one or more [playbooks](https://help.zscaler.com/unified/about-playbooks) when specific conditions are met. When an alert is created, the automation rule evaluates the alert against the defined conditions. If the conditions are met, the automation rule triggers the associated playbook, which performs its configured actions.
 
 To create an automation rule:
 
-1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC** or **Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC** or **Identities**.
 2. In the left-side navigation, go to **Automations** > **Automation Rules**. The **Automation Rules** page appears.
 3. Click **New Rule**. See image. The **Create** **New Automation Rule** page appears.
 4. On the **Create** **New Automation Rule** page:
@@ -2373,13 +2373,13 @@ To create a custom dashboard:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-custom-roles","lastmod":"2026-10-28T21:06Z","nid":"1545206"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-custom-roles","lastmod":"2026-11-04T13:18Z","nid":"1545206"} -->
 ## Creating Custom Roles
 
 - Source: https://help.zscaler.com/unified/creating-custom-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating Custom Roles
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:18Z
 - Summary: How to create custom roles in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 User roles control access to features and actions within the Agentic Security Operations Platform (Agentic SecOps Platform). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can [assign roles](https://help.zscaler.com/unified/managing-user-roles) to define their access and permissions. You can choose from [predefined system roles](https://help.zscaler.com/unified/understanding-system-roles), or the account admin can create and assign custom roles. Custom roles are configured to reflect your internal policies or workflows.
@@ -2388,22 +2388,21 @@ When new Agentic SecOps Platform features are released, related permissions must
 
 To create a custom role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **Permissions** > **Roles.** See image.
-4. On the **Roles**page, you can create a custom role in the following ways:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Roles.** See image.
+3. On the **Roles**page, you can create a custom role in the following ways:
   - Click **Create**. See image.
   - Duplicate an existing role. Hover over the role in the table and click the **Duplicate Role** icon (), or select the role and click **Duplicate**at the top of the page. See image. The duplicated role is added to the list of roles. You can't duplicate the system Admin role.
-5. On the **New Role** page:
+4. On the **New Role** page:
   1. **Role Name**: Enter a name for the role.
   2. **Resource**: Select the relevant permissions (e.g., **Read**, **Create**, **Edit**, **Delete**, **Audit**) for each resource. To apply the same permission to all items in a category, select the checkbox at the top of the category. Selecting a higher-level permission (e.g., **Edit**) automatically enables required lower-level permissions (e.g., **Read**). See image.
-6. Click **Next**. The **Add Users** window appears.
-7. Select the users you want to assign to the role, and click **Add**. See image. The users assigned to the role are listed in the table. See image.
+5. Click **Next**. The **Add Users** window appears.
+6. Select the users you want to assign to the role, and click **Add**. See image. The users assigned to the role are listed in the table. See image.
   - To add more users, click **Add Users**.
   - To remove users:
     - Hover over a user, and click the **Remove From List** icon.
     - Select the checkboxes next to one or more users, and click **Remove From Role**.
-8. Click **Finish**. The selected users' roles are updated immediately.
+7. Click **Finish**. The selected users' roles are updated immediately.
 
 ## Resources
 
@@ -2570,13 +2569,13 @@ Zscaler recommends configuring suppression rules only after ingesting data from 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-formatting-rules","lastmod":"2026-10-27T21:06Z","nid":"1545264"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-formatting-rules","lastmod":"2026-11-04T13:05Z","nid":"1545264"} -->
 ## Creating Formatting Rules
 
 - Source: https://help.zscaler.com/unified/creating-formatting-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Creating Formatting Rules
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-04T13:05Z
 - Summary: How to create and apply formatting rules to visually distinguish measurements using color-coded thresholds within the Agentic SecOps Platform Admin Portal.
 
 Formatting rules in the Agentic Security Operations Platform (Agentic SecOps Platform) allows you to apply coloring rules to [measurements and dimensions](https://help.zscaler.com/unified/understanding-measurements-and-dimensions), making data interpretation clear and intuitive. These rules help emphasize key measurements, highlight data based on dimension values, and track trends across dashboards and compliance policies.
@@ -2585,9 +2584,10 @@ Formatting rules in the Agentic Security Operations Platform (Agentic SecOps Pla
 
 To create a formatting rule:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to **Configure**> **Formatting Rules**. The **Formatting Rules**page appears. See image.
-2. Click **New Rule**. The **Create Formatting Rule**drawer appears. See image.
-3. In the **Create Formatting Rule** drawer:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Formatting Rules**. The **Formatting Rules**page appears. See image.
+3. Click **New Rule**. The **Create Formatting Rule**drawer appears. See image.
+4. In the **Create Formatting Rule** drawer:
   1. **Name**: Enter a name (e.g., `Policy Compliance Threshold`).
   2. **Type**: Select the rule type:
     - Numeric Rules
@@ -2604,14 +2604,15 @@ You can apply formatting rules to compliance policies or custom dashboards. To l
 
 To apply a formatting rule to a widget:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to **Explore**> **Dashboards**. The **All Dashboards**page appears. See image.
-2. Click the dashboard you want to edit. The selected dashboard appears.
-3. Click the **Edit Dashboard**icon. See image.
-4. Hover over the desired widget, and click the **Edit**icon. See image.
-5. Click the **Style**tab. See image.
-6. Select a formatting rule from the **Formatting Rules**drop-down menu. See image. You can also click **New Rule** to create a new formatting rule.
-7. Click **Save**.
-8. Click **Save**on the dashboard to apply formatting rules to the widget.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Dashboards**. The **All Dashboards**page appears. See image.
+3. Click the dashboard you want to edit. The selected dashboard appears.
+4. Click the **Edit Dashboard**icon. See image.
+5. Hover over the desired widget, and click the **Edit**icon. See image.
+6. Click the **Style**tab. See image.
+7. Select a formatting rule from the **Formatting Rules**drop-down menu. See image. You can also click **New Rule** to create a new formatting rule.
+8. Click **Save**.
+9. Click **Save**on the dashboard to apply formatting rules to the widget.
 
 ## Applying Formatting Rules to a Policy
 
@@ -2679,13 +2680,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-content-permissions","lastmod":"2026-10-28T21:06Z","nid":"1545212"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-content-permissions","lastmod":"2026-11-04T13:18Z","nid":"1545212"} -->
 ## Creating & Managing Content Permissions
 
 - Source: https://help.zscaler.com/unified/creating-managing-content-permissions
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating & Managing Content Permissions
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:18Z
 - Summary: How to create and manage content permission sets in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Admins can configure content permission sets using specific data attributes that can be assigned to users to specify the data they can access. While role permissions dictate the actions the user can perform (e.g., create a dashboard, merge tickets), content permissions limit the scope of data the user can view and is authorized to perform those actions on. For example, a user might be assigned a role allowing them to create reports, but limited by content permissions, they'll only see data relating to their team (e.g., the team responsible for all Linux assets). To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles).
@@ -2696,11 +2697,10 @@ After content permissions are created, you can assign permission sets to users. 
 
 To create a content permission set:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click **Account Settings**. See image.
-3. In the left-side navigation, go to **Permissions** >**Content**. See image.
-4. On the **Content Permissions**page, click **Create**. See image.
-5. In the **Create new permission set** drawer:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** >**Content**. See image.
+3. On the **Content Permissions**page, click **Create**. See image.
+4. In the **Create new permission set** drawer:
   1. **Name**: Enter a name for the permission set.
   2. **Type**: Select a category for the permission set.
   3. Define filter conditions for the permission set. Conditions define the data included in the permission set (i.e., what data should be included in the user's access). See image.
@@ -2710,7 +2710,7 @@ To create a content permission set:
     4. (Optional) Use **AND**/**OR** logic to define compound rules.
       - **AND** applies the content permissions to users only if all conditions in the rule are met.
       - **OR** applies the content permissions to users if any of the conditions in the rule are met.
-6. Click **Save** to create the permission set.
+5. Click **Save** to create the permission set.
 
 After saving the permission set, you can assign it to users on the User Management page. The newly assigned permission set is applied on the user's next browser refresh. To learn more, see [Assigning Content Permissions](https://help.zscaler.com/unified/assigning-content-permissions).
 
@@ -2720,7 +2720,27 @@ Content permissions only apply to an account's mapped data, so they won't restri
 
 Additionally, content restrictions for scheduled reports and custom dashboard exports conform to the permission set of the user that created the report or the dashboard. The permission set of the receiver is not considered, so the delivered report can include data that the receiver can't access by their own permissions if they are also a user in the system.
 
-[Image: Create new permission set drawer]
+#### Restricting Manual Override Values with Content Permissions
+
+You can use content permissions with manual content validation to control which values users can select when they manually update a field.
+
+For example, you can allow users to manually update the Verdict field of an Agentic SOC incident. With manual content validation, you can define the approved values users can enter, such as Benign, False Positive, Inconclusive, Malicious, Suspicious, or True Positive. To learn more about manual content validation, see [Adding and Managing Entities and Fields](https://help.zscaler.com/unified/adding-and-managing-entities-and-fields#allow-manual-updates).
+
+See image.
+
+[Image: Content validation for manual overrides]
+
+You can then configure content permissions to restrict which users can select specific values. For example, you can create a content permission set that only allows security analysts to select Benign, False Positive, Inconclusive, or Suspicious.
+
+See image.
+
+[Image: Analyst content permission set]
+
+You can then create another content permission set that only allows senior security analysts or incident responders to select all values. This ensures that manual updates for high-impact values (e.g., Malicious and True Positive) are only available to certain users.
+
+See image.
+
+[Image: Incident responder content permission set]
 
 ### Setting a Dynamic Value
 
@@ -2740,8 +2760,6 @@ To create dynamic rule conditions:
       - **OR** applies the content permissions to users if any of the conditions in the rule are met.
 2. Click **Save** to create the permission set.
 
-[Image: Define filter conditions for a content permission set]
-
 ## Managing Content Permission Sets
 
 After creating content permission sets, you can perform the following actions:
@@ -2751,12 +2769,11 @@ After creating content permission sets, you can perform the following actions:
 
 To edit a permission set:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings**. See image.
-3. In the left-side navigation, go to **Permissions** > **Content**. See image.
-4. Hover over the permission set you want to edit and click the **Edit**icon, or select the checkbox next to the permission set and click **Edit**at the top of the page. See image.
-5. Adjust the permission set as needed.
-6. Click **Save** to apply the changes. Adjustments to permission sets apply on the user's next login or on browser refresh.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Content**. See image.
+3. Hover over the permission set you want to edit and click the **Edit**icon, or select the checkbox next to the permission set and click **Edit**at the top of the page. See image.
+4. Adjust the permission set as needed.
+5. Click **Save** to apply the changes. Adjustments to permission sets apply on the user's next login or on browser refresh.
 
 You can delete a permission set that is no longer necessary in your account. This removes the data access restrictions from users that were assigned the deleted set.
 
@@ -2764,29 +2781,32 @@ This action is irreversible and will delete the permission set immediately.
 
 To delete a permission set:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings**. See image.
-3. In the left-side navigation, go to **Permissions** > **Content**. See image.
-4. Select the checkboxes next to the permission sets you want to delete.
-5. Click **Delete**. See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Content**. See image.
+3. Select the checkboxes next to the permission sets you want to delete.
+4. Click **Delete**. See image.
 
-[Image: Deleting a permission set from the Content Permissions page]
+[Image: The Profile menu in the SecOps Platform Admin Portal]
 
 [Image: The Content Permissions page]
 
 [Image: Create a new permission set from the Content Permissions page]
 
+[Image: Create new permission set drawer]
+
+[Image: Define filter conditions for a content permission set]
+
+[Image: The Profile menu in the SecOps Platform Admin Portal]
+
+[Image: The Content Permissions page]
+
 [Image: Editing a permission set from the Content Permissions page]
 
 [Image: The Profile menu in the SecOps Platform Admin Portal]
 
-[Image: The Profile menu in the SecOps Platform Admin Portal]
-
 [Image: The Content Permissions page]
 
-[Image: The Profile menu in the SecOps Platform Admin Portal]
-
-[Image: The Content Permissions page]
+[Image: Deleting a permission set from the Content Permissions page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2961,13 +2981,13 @@ After the tickets are unlinked, updates between the third-party ticket and the A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-managing-users","lastmod":"2026-10-28T21:06Z","nid":"1545211"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-managing-users","lastmod":"2026-11-04T13:21Z","nid":"1545211"} -->
 ## Creating & Managing Users
 
 - Source: https://help.zscaler.com/unified/creating-managing-users
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Creating & Managing Users
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:21Z
 - Summary: How to create and manage users in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Admins can create and manage users in your organization's Agentic Security Operations Platform (Agentic SecOps Platform). Managing users includes defining their access and permissions by assigning Role-Based Access Control (RBAC), optionally assigning Attribute-Based Access Control (ABAC) permissions, and deactivating or deleting users.
@@ -2976,17 +2996,16 @@ Admins can create and manage users in your organization's Agentic Security Opera
 
 To create a user:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click **Account Settings.** See image.
-3. In the left-side navigation, go to **User Management.** See image.
-4. On the**User Management** page, click **Create**. See image. The **Create User** page appears.
-5. On the **Create User** page: See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management.** See image.
+3. On the**User Management** page, click **Create**. See image. The **Create User** page appears.
+4. On the **Create User** page: See image.
   1. **Email**: Enter the user's organization email.
   2. **First Name**: Enter the user's first name.
   3. **Last Name**: Enter the user's last name.
   4. **Main Account**: (Optional) If you have more than one account, set the user's default account.
   5. **Roles**: Expand the section and select a role for the user. If you don't, the user is assigned the default **No Access** role. To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles). See image.
-6. Click **Save**. The new user details are displayed on the User Management page.
+5. Click **Save**. The new user details are displayed on the User Management page.
 
 ## Managing Users
 
@@ -3016,12 +3035,11 @@ Deactivating users doesn't remove data associated with the user's account (e.g.,
 
 To deactivate a user:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click **Account Settings** See image.
-3. In the left-side navigation, go to **User Management.** See image.
-4. Hover over the user you want to deactivate and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
-5. On the **Edit User** page, in the **Personal Info** section, disable **Active**next to the user's email. See image.
-6. Click **Save**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management.** See image.
+3. Hover over the user you want to deactivate and click the **Edit** icon, or select the checkbox next to the user and click **Edit**at the top of the page. See image.
+4. On the **Edit User** page, in the **Personal Info** section, disable **Active**next to the user's email. See image.
+5. Click **Save**.
 
 You can delete users from your organization's account to fully remove their information from the system and revoke their access to the system.
 
@@ -3029,11 +3047,10 @@ Deleting users doesn't remove data associated with the user's account (e.g., rep
 
 To delete a single user:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click **Account Settings** See image.
-3. In the left-side navigation, go to **User Management.** See image.
-4. Hover over the user you want to delete and click the **Delete** icon, or select the checkbox next to the user and click **Delete**at the top of the page. See image. The **Confirm Deletion** window appears.
-5. Click **Delete**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management.** See image.
+3. Hover over the user you want to delete and click the **Delete** icon, or select the checkbox next to the user and click **Delete**at the top of the page. See image. The **Confirm Deletion** window appears.
+4. Click **Delete**.
 
 To delete multiple users:
 
@@ -3098,13 +3115,13 @@ The new outegration appears on the Outegrations page and becomes available in th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-10-30T01:25Z","nid":"1545366"} -->
+<!-- ZS-ARTICLE {"url":"/unified/creating-playbooks","lastmod":"2026-11-04T13:47Z","nid":"1545366"} -->
 ## Creating Playbooks
 
 - Source: https://help.zscaler.com/unified/creating-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Creating Playbooks
-- Last modified: 2026-10-30T01:25Z
+- Last modified: 2026-11-04T13:47Z
 - Summary: How to create a playbook that helps your team respond to and remediate threats in the Agentic Security Operations Platform.
 
 You can create a playbook to group one or more response actions for a supported entity. You can manually trigger a playbook or use an automation rule to run the playbook automatically.
@@ -3115,7 +3132,7 @@ The entity type selected for the playbook and automation rule must be the same (
 
 To create a playbook:
 
-1. In the [SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC** or **Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC** or **Identities**.
 2. In the left-side navigation, go to **Automations** > **Playbooks**. The **Playbooks** page appears.
 3. Click **New Playbook**. See image. The **Create New Playbook** page appears.
 4. On the **Create New Playbook** page:
@@ -3305,13 +3322,13 @@ To customize the logo and email:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-09-07T04:59Z","nid":"1544529"} -->
+<!-- ZS-ARTICLE {"url":"/unified/customizing-your-account-settings","lastmod":"2026-11-05T06:57Z","nid":"1544529"} -->
 ## Customizing Your Account Settings
 
 - Source: https://help.zscaler.com/unified/customizing-your-account-settings
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Customizing Your Account Settings
-- Last modified: 2026-09-07T04:59Z
+- Last modified: 2026-11-05T06:57Z
 - Summary: How to customize your account settings in the Zscaler Admin Console.
 
 Zscaler automatically creates a profile for each account in the Zscaler Admin Console where you can change your display language, time zone, password, and default Internet & SaaS (ZIA) cloud.
@@ -3328,7 +3345,6 @@ To view and change your account settings:
   - **Sign Out**: Click to sign out of the Zscaler Admin Console.
 2. When you click **Account Settings**, you can see your login ID, your organization's unique identifier, and the Zscaler cloud you are currently using.
 3. Under **Settings**, you can change the following options: See image.
-  - **New Navigation Experience**: A smarter way to navigate the Zscaler Admin Console was introduced for Experience Center. Zscaler recommends trying out the **New** experience. However, you can choose to revert to the **Original** experience at any time.
   - **Language**: In some locations, you can change the user interface to display one of the following languages:
     - English (US)
     - Chinese (Traditional)
@@ -3408,13 +3424,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-01T06:06Z","nid":"1545218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-08T06:06Z","nid":"1545218"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-11-01T06:06Z
+- Last modified: 2026-11-08T06:06Z
 - Summary: Information about deploying outegration configuration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move Agentic SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -3532,13 +3548,13 @@ To delete an Adaptive Access profile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-10-27T21:06Z","nid":"1545227"} -->
+<!-- ZS-ARTICLE {"url":"/unified/enabling-email-notifications-failures","lastmod":"2026-11-04T13:09Z","nid":"1545227"} -->
 ## Enabling Email Notifications for Failures
 
 - Source: https://help.zscaler.com/unified/enabling-email-notifications-failures
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Enabling Email Notifications for Failures
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-04T13:09Z
 - Summary: How to enable outegration failure email notifications.
 
 You can enable email notifications to receive alerts on errors for outegration workflows, source run failures, and issues with Extract, Transform, and Load (ETL) and data pipeline. This enables you to proactively resolve issues and minimize disruptions.
@@ -3547,7 +3563,7 @@ To enable email notifications, your assigned role must include the Edit permissi
 
 To enable an email notification:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Profile Settings**. See image. The **Settings**page appears.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Profile Settings**. See image. The **Settings**page appears.
 2. In the **Email Notifications**section: See image.
   1. Select **Enable failure alert notifications**.
   2. **Select alert type**: Select the options that you want to set the alert for:
@@ -3716,13 +3732,13 @@ After exploring the ingested source data, you can use your insights to map field
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-10-28T21:06Z","nid":"1545230"} -->
+<!-- ZS-ARTICLE {"url":"/unified/generating-saml-details","lastmod":"2026-11-04T13:08Z","nid":"1545230"} -->
 ## Generating SAML Details
 
 - Source: https://help.zscaler.com/unified/generating-saml-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Admin Configuration & Deployment > Generating SAML Details
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:08Z
 - Summary: How to generate SAML details for setting up single sign-on to the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 Setting up single sign-on (SSO) account authentication requires generating a SAML Entity ID and Reply URL in the Agentic Security Operations Platform (Agentic SecOps Platform).
@@ -3731,7 +3747,7 @@ If you don't have access to this feature, contact your Zscaler Account team or Z
 
 To generate SAML details:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Account Settings**.
 2. In the **Authenticate** section: See image.
   1. **Email Domain**: Your organization's email domain, from the **General Settings** section.
   2. **Authentication Type**: Select **SAML** from the drop-down menu. If the **Authentication Type**drop-down menu is disabled, enter your organization's email domain name in the **General Settings** section and save your changes to enable it.
@@ -4116,20 +4132,20 @@ To configure the Silverfort integration in Experience Center:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-ai-capabilities-agentic-secops-platform","lastmod":"2026-10-28T07:17Z","nid":"1545229"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-ai-capabilities-agentic-secops-platform","lastmod":"2026-11-04T13:08Z","nid":"1545229"} -->
 ## Managing AI Capabilities in the Agentic Security Operations Platform
 
 - Source: https://help.zscaler.com/unified/managing-ai-capabilities-agentic-secops-platform
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Managing AI Capabilities in the Agentic Security Operations Platform
-- Last modified: 2026-10-28T07:17Z
+- Last modified: 2026-11-04T13:08Z
 - Summary: How to manage the availability of AI capabilities in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 AI capabilities within the Agentic Security Operations Platform (Agentic SecOps Platform) offer users access to AI-powered tools (e.g., [Remediation Copilot](https://help.zscaler.com/uvm/what-remediation-copilot), [Mapping Copilot](https://help.zscaler.com/uvm/what-mapping-copilot)). Admins can manage the availability of AI capabilities within the platform to control whether these tools are available to users.
 
 To manage AI capabilities:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile**menu in the top navigation bar, and click **Account Settings**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click the **Profile**menu in the top navigation bar, and click **Account Settings**.
 2. In the**AI Capabilities**section, select or deselect **Enable AI Capabilities**to opt in or out of AI features. See image. [Image: Enable AI Features Settings]
 3. Click **Save**.
 
@@ -4213,13 +4229,13 @@ To delete an authentication:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-automation-rules","lastmod":"2026-10-30T02:41Z","nid":"1545360"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-automation-rules","lastmod":"2026-11-04T13:49Z","nid":"1545360"} -->
 ## Managing Automation Rules
 
 - Source: https://help.zscaler.com/unified/managing-automation-rules
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Automation Rules > Managing Automation Rules
-- Last modified: 2026-10-30T02:41Z
+- Last modified: 2026-11-04T13:49Z
 - Summary: How to manage automation rules in the Agentic Security Operations Platform.
 
 After [creating playbooks](https://help.zscaler.com/unified/creating-playbooks) and [automation rules](https://help.zscaler.com/unified/creating-automation-rules), you can manage automations to refine how and when actions are taken.
@@ -4230,7 +4246,7 @@ Edit an Automation Rule
 
 To edit an automation rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Hover over the automation rule you want to edit, and click the **Edit** icon. See image. The **Edit Automation Rule** page appears.
 4. Make the necessary changes.
@@ -4242,7 +4258,7 @@ Delete an Automation Rule
 
 To delete an automation rule:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Hover over the automation rule you want to delete, and click the **Delete** icon. See image. [Image: Delete icon] The **Delete Automation Rule** window opens.
 4. In the **Delete Automation Rule** window, click **Delete**. See image. [Image: Delete button to confirm automation rule deletion]
@@ -4251,7 +4267,7 @@ View Automation Rule Audit Logs
 
 To view automation rule audit logs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Automation Rules**. The **Automation Rules**page appears.
 3. Click the automation rule that you want to view logs for. The **Edit Automation Rule** page appears.
 4. On the **Edit Automation Rule** page, click **More**> **Audit Logs**. See image. [Image: Audit Logs option highlighted in Edit Automation Rule page] The automation rule's **Audit Logs** page appears.
@@ -4436,13 +4452,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-custom-dashboards","lastmod":"2026-10-15T11:07Z","nid":"1545224"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-custom-dashboards","lastmod":"2026-11-05T03:39Z","nid":"1545224"} -->
 ## Managing Custom Dashboards
 
 - Source: https://help.zscaler.com/unified/managing-custom-dashboards
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Dashboards > Managing Custom Dashboards
-- Last modified: 2026-10-15T11:07Z
+- Last modified: 2026-11-05T03:39Z
 - Summary: How to manage existing dashboards, including editing the dashboard, pinning it to an app, and accessing pinned dashboards.
 
 You can view and manage the dashboards that you have access to.
@@ -4452,11 +4468,21 @@ When managing dashboards, you can perform the following actions:
 - Edit a Dashboard Widget
 - Edit Dashboard Details
 - Pin a Dashboard to an App
+- Apply Global Filters
+
+To apply global filters to a dashboard widget:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Dashboards**.
+3. Choose one of the following options: Edit access depends on your permissions. The **Edit Dashboard** page appears.
+  - Hover over the dashboard you want to edit, and click the **Edit**icon.
+  - Select the checkbox next to the dashboard you want to edit, and click **Edit**at the top of the page.
+4. On the **Edit Dashboard** page, click**Add Filters**and apply the required filter conditions. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). See image. The filter only displays the entities used in the widget and the entities related to the widget. Only these entities can be used for filtering.; If the filter conditions do not apply to any widget on the dashboard, the dashboard displays a message indicating that filters cannot be applied.; If you delete a widget that has an entity used in a filter, that filter becomes inactive. You can remove the inactive filter or replace it with a filter for another widget.See image.
 
 To edit a dashboard widget:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
-2. In the left-side navigation, click**Dashboards**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Dashboards**.
 3. Choose one of the following options: Edit access depends on your permissions. See image. The **Edit Dashboard** page appears.
   - Hover over the dashboard you want to edit, and click the **Edit**icon.
   - Select the checkbox next to the dashboard you want to edit, and click **Edit**at the top of the page.
@@ -4466,8 +4492,8 @@ To edit a dashboard widget:
 
 To edit dashboard details:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
-2. In the left-side navigation, click**Dashboards**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Dashboards**.
 3. Choose one of the following options: Edit access depends on your permissions. The **Edit Dashboard Details**window opens. See image.
   - Hover over the dashboard you want to edit, and click the **Edit Details**icon.
   - Click the dashboard, click the **Edit Dashboard** icon, then click the name of the dashboard.
@@ -4478,8 +4504,8 @@ For quick and easy access to your dashboards, you can pin them to an app in the 
 
 To pin a dashboard to an app:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
-2. In the left-side navigation, click**Dashboards**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore**.
+2. In the left-side navigation, click **Dashboards**.
 3. Choose one of the following options: The **Edit Dashboard Details** window opens.
   - Hover over the dashboard you want to pin, and click the **Edit Details** icon.
   - Click the dashboard, click the **Edit Dashboard**icon, then click the name of the dashboard.
@@ -4490,6 +4516,10 @@ To access a pinned dashboard in the app:
 
 1. Go to the app where the dashboard is pinned (e.g., **Vulnerabilities**).
 2. In the left-side navigation, click **My Dashboards**. You can view the full list of the dashboards pinned to this app. See image.
+
+[Image: Add Filters]
+
+[Image: Applying filters to dashboard widget]
 
 [Image: Pinning a dashboard to an app on the Edit Dashboard Details window]
 
@@ -4990,13 +5020,13 @@ To view an outegration's activity log:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-playbooks","lastmod":"2026-10-30T01:49Z","nid":"1545365"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-playbooks","lastmod":"2026-11-04T13:51Z","nid":"1545365"} -->
 ## Managing Playbooks
 
 - Source: https://help.zscaler.com/unified/managing-playbooks
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Managing Playbooks
-- Last modified: 2026-10-30T01:49Z
+- Last modified: 2026-11-04T13:51Z
 - Summary: How to manage playbooks in the Agentic Security Operations Platform.
 
 After [creating playbooks](https://help.zscaler.com/unified/creating-playbooks), you can manage playbooks to refine how actions are taken.
@@ -5007,7 +5037,7 @@ Edit a Playbook
 
 To edit a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to edit, and click the **Edit** icon. See image. [Image: Edit playbooks icon] The **Edit Playbook** page appears.
 4. Make the necessary changes.
@@ -5019,7 +5049,7 @@ Deleting a playbook doesn't trigger a warning message and deletes the playbook i
 
 To delete a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to delete, and click the **Delete** icon. See image. [Image: Delete playbooks icon]
 
@@ -5027,7 +5057,7 @@ View Playbook Runs
 
 To view playbook runs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to view runs for, and click the **See Runs** icon. See image. [Image: See Runs playbooks icon] The playbook's **Runs** page appears.
 4. View details of the playbook runs. You can sort each column. For each run, you can see: See image.
@@ -5065,7 +5095,7 @@ You can export playbooks to share them between your accounts.
 
 To export a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Export a playbook in one of the following ways: [Image: Export Playbook menu option on Edit Playbook page]
   - On the **Playbooks** page, hover over the playbook you want to export, and click the **Export** icon. See image. [Image: Export playbooks icon]
@@ -5084,7 +5114,7 @@ Duplicate a Playbook
 
 To duplicate a playbook:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Hover over the playbook you want to duplicate, and click the **Duplicate** icon. See image. A copy of the rule is created with the same name as the original and `Copy` appended to the end. [Image: Duplicate playbook icon]
 
@@ -5092,7 +5122,7 @@ View Playbook Audit Logs
 
 To view playbook audit logs:
 
-1. In the[Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**or**Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**or**Identities**.
 2. In the left-side navigation, go to **Automations**>**Playbooks**. The **Playbooks** page appears.
 3. Click the playbook that you want to view logs for. The**Edit Playbook**page appears.
 4. On the**Edit Playbook**page, click **More** > **Audit Logs**. See image. [Image: Audit Logs menu option on Edit Playbook page] The playbook's **Audit Logs** page appears.
@@ -5507,13 +5537,13 @@ To unmap all fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-10-28T21:06Z","nid":"1545207"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-system-and-custom-roles","lastmod":"2026-11-04T13:19Z","nid":"1545207"} -->
 ## Managing System & Custom Roles
 
 - Source: https://help.zscaler.com/unified/managing-system-and-custom-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Managing System & Custom Roles
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:19Z
 - Summary: How to manage role permissions in the Agentic Security Operations Platform (Agentic SecOps Platform), including system roles and custom roles.
 
 You can manage and monitor roles from the Roles page in the Agentic Security Operations Platform (Agentic SecOps Platform), where you'll find a centralized view of all configured system roles and custom roles in your account. To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles). To assign roles to users, see [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
@@ -5533,11 +5563,10 @@ The system Admin role can't be duplicated.
 
 To duplicate a role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **Permissions** > **Roles.** See image.
-4. Hover over the role in the table and click the **Duplicate Role**icon, or select the checkbox next to the role and click **Duplicate**at the top of the page. See image. The role is duplicated and appears in the list of roles. It has the same name as the original role from which it was duplicated, followed by `copy`. See image.
-5. Edit the duplicated role as needed and save it.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Roles.** See image.
+3. Hover over the role in the table and click the **Duplicate Role**icon, or select the checkbox next to the role and click **Duplicate**at the top of the page. See image. The role is duplicated and appears in the list of roles. It has the same name as the original role from which it was duplicated, followed by `copy`. See image.
+4. Edit the duplicated role as needed and save it.
 
 You can edit a custom role to update its name or the resources it grants access to.
 
@@ -5545,12 +5574,11 @@ System roles can't be edited.
 
 To edit a role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **Permissions** > **Roles.** See image.
-4. Hover over the role in the table and click the **Edit** icon, or select the checkbox next to the role and click **Edit**at the top of the page. See image.
-5. On the **Edit Role** page, make the necessary changes to the role. See image.
-6. Click **Save**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Roles.** See image.
+3. Hover over the role in the table and click the **Edit** icon, or select the checkbox next to the role and click **Edit**at the top of the page. See image.
+4. On the **Edit Role** page, make the necessary changes to the role. See image.
+5. Click **Save**.
 
 You can delete a custom role that is no longer needed.
 
@@ -5558,10 +5586,9 @@ System roles can't be deleted.
 
 To delete a specific role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Click**Account Settings.** See image.
-3. In the left-side navigation, go to **Permissions** > **Roles.** See image.
-4. Choose one of the following options: See image. The role is deleted immediately.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions** > **Roles.** See image.
+3. Choose one of the following options: See image. The role is deleted immediately.
   - To delete a single role: Hover over the role in the table and click the **Delete** icon, or select the checkbox next to the role and click **Delete** at the top of the page.
   - To delete multiple roles: Select the checkboxes for the roles you want to delete, and click **Delete** at the top of the page.
 
@@ -5654,13 +5681,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/managing-user-roles","lastmod":"2026-10-28T21:06Z","nid":"1545214"} -->
+<!-- ZS-ARTICLE {"url":"/unified/managing-user-roles","lastmod":"2026-11-04T13:22Z","nid":"1545214"} -->
 ## Managing User Roles
 
 - Source: https://help.zscaler.com/unified/managing-user-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > User Management > Managing User Roles
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:22Z
 - Summary: How to assign and manage user roles in the Agentic Security Operations Platform (Agentic SecOps Platform).
 
 User roles control access to features and actions within the Agentic Security Operations Platform (Agentic SecOps Platform). After [creating users](https://help.zscaler.com/unified/creating-managing-users) in your account, you can assign roles to define their access and permissions within the system.
@@ -5680,24 +5707,22 @@ You can assign a role to users to grant them specific permissions and access wit
 
 To assign a role to users:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Select **Account Settings**. See image.
-3. In the left-side navigation, go to **Permissions**> **Roles**. See image.
-4. Hover over the role and click the **Edit Users** icon (), or select the checkboxes next to the role and click **Edit**at the top of the page. See image.
-5. On the **Edit Role** page, click **Add** **Users**. See image.
-6. In the **Add Users** window, select the checkbox next to the users, then click **Add**. See image.
-7. Click **Save**. See image. Assigned roles are applied on the user's next browser refresh.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **Permissions**> **Roles**. See image.
+3. Hover over the role and click the **Edit Users** icon (), or select the checkboxes next to the role and click **Edit**at the top of the page. See image.
+4. On the **Edit Role** page, click **Add** **Users**. See image.
+5. In the **Add Users** window, select the checkbox next to the users, then click **Add**. See image.
+6. Click **Save**. See image. Assigned roles are applied on the user's next browser refresh.
 
 You can edit a user's role to update their permissions and access, either individually or for multiple users at once.
 
 To edit a single user's role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Select **Account Settings**. See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the**Edit** icon, or select the checkbox next to the user and click **Edit** at the top of the page. See image. The **Edit User** page appears.
-5. In the **Roles** section, select the role you want to assign from the drop-down menu. See image.
-6. Click **Save**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management**. See image.
+3. Hover over the user and click the**Edit** icon, or select the checkbox next to the user and click **Edit** at the top of the page. See image. The **Edit User** page appears.
+4. In the **Roles** section, select the role you want to assign from the drop-down menu. See image.
+5. Click **Save**.
 
 To edit multiple users' roles:
 
@@ -5708,12 +5733,11 @@ You can remove a user from a role to revoke their associated permissions while m
 
 To remove a user from the role:
 
-1. In the Agentic SecOps Platform Admin Portal, click the **Profile** menu in the top navigation bar.
-2. Select **Account Settings**. See image.
-3. In the left-side navigation, go to **User Management**. See image.
-4. Hover over the user and click the**Edit** icon, or select the checkbox next to the user and click **Edit** at the top of the page. See image. The **Edit User** page appears.
-5. In the **Roles** section, select **No Access** from the account drop-down menu. See image.
-6. Click **Save**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform%20), click the **Profile** menu in the top navigation bar, and click **Account Settings**. See image.
+2. In the left-side navigation, go to **User Management**. See image.
+3. Hover over the user and click the**Edit** icon, or select the checkbox next to the user and click **Edit** at the top of the page. See image. The **Edit User** page appears.
+4. In the **Roles** section, select **No Access** from the account drop-down menu. See image.
+5. Click **Save**.
 
 When removing a user's role without assigning them a new role, the user is automatically assigned the default role. While the default role grants no permissions within the account, it preserves the user's access to the system, enabling the option to assign a new role in the future.
 
@@ -5851,13 +5875,13 @@ If you have any questions about the End User Statement, send an email to exportc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/manually-triggering-playbook","lastmod":"2026-10-30T02:24Z","nid":"1545364"} -->
+<!-- ZS-ARTICLE {"url":"/unified/manually-triggering-playbook","lastmod":"2026-11-04T13:52Z","nid":"1545364"} -->
 ## Manually Triggering a Playbook
 
 - Source: https://help.zscaler.com/unified/manually-triggering-playbook
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Automations > Playbooks > Manually Triggering a Playbook
-- Last modified: 2026-10-30T02:24Z
+- Last modified: 2026-11-04T13:52Z
 - Summary: How to manually trigger a playbook in the Agentic Security Operations Platform.
 
 You can manually trigger a playbook to run a series of actions outside of automated runs. In Agentic SOC, you can manually trigger playbooks on an incident or alert.
@@ -5866,29 +5890,29 @@ You can manually trigger a playbook to run a series of actions outside of automa
 
 To trigger a playbook on an incident:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
 2. In the left-side navigation, click **Incidents**. The **Incidents** page appears.
-3. Click the incident you want to trigger a playbook on. [Image: Incident Detail page] The **Incident Detail** page opens.
-4. On the **Incident Detail** page, click **Select** **Playbook** at the top of the page or in the **AI Response Actions** section. See image. The **Response Action** drawer opens.
+3. Click the incident you want to trigger a playbook on. The **Incident Detail** page opens.
+4. On the **Incident Detail** page, click **Select** **Playbook** at the top of the page or in the **AI Response Actions** section. See image. [Image: Incident Detail page] The **Response Action** drawer opens. The **Response Action** drawer only lists [playbooks applicable to the Incident entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**.
 5. In the **Response Action** drawer:
-  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the Incident entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
-  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  1. Select the playbook you want to run, review its summary, and click **Continue**. See image. [Image: Response action drawer showing Select Playbook option]
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image. [Image: Response Action drawer showing actions and target entity selection]
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
 
-<h2> AI Response Actions </h2> <p> <span style="background-color:#F79962;">The AI Response Action agent will suggest specific actions to take to remediate incidents, and it will suggest playbooks that likely achieve your</span> </p> <ol> <li data-list-item-id="ef66128d2d397f96cd89d202ccd3b87af"> In the left-side navigation, go to <strong>Incidents</strong>.<br> The <strong>Incidents</strong> page appears. </li> <li data-list-item-id="e807a718ea9d8b8a4f1765c0707cab630"> Select the incident you want to review the AI response actions for. </li> <li data-list-item-id="e017f2fbdc25663e54e51a143a67183d1"> <p> On the suggested action in the <strong>AI Response Actions</strong> section, click <strong>Select playbook</strong>.<br> <a class="image-icon" href="#triggering-playbooks-select-playbook-from-recommendations">See image.</a><br> The <strong>Response Action</strong> window appears. </p> <div class="subc"> <a class="ck-anchor" id="triggering-playbooks-select-playbook-from-recommendations"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/triggering-playbooks-select-playbook-from-recommendations.png" data-entity-uuid="0" data-entity-type="image" alt="Select Playbook button on suggested AI Response Action" title="Select Playbook button on suggested AI Response Action"> </div> </li> <li data-list-item-id="ec59fe61b0eb82837aac7fe61476f0371"> <p> In the <strong>Playbooks</strong> tab of the <strong>Response Actions</strong> window, search for and select the playbook you want to execute, then click <strong>Continue</strong>.<br> <a class="image-icon" href="#response-action-select-playbook">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-action-select-playbook"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-action-select-playbook.png" data-entity-uuid="0" data-entity-type="image" alt="Playbook selected in Response Actions pop-up" title="Selected Playbook"> </div> </li> <li data-list-item-id="ee362b2392a20c1aa632d3463d8d29d8a"> <p> In the <strong>Actions</strong> tab, select one or multiple targets suggested by the AI, then click <strong>Trigger Playbook</strong>.<br> <a class="image-icon" href="#response-actions-actions-tab">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-actions-actions-tab"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-actions-actions-tab.png" data-entity-uuid="0" data-entity-type="image" alt="Target selected on Response Action pop-up" title="Selected target"> </div> </li> </ol>
+<h2> AI Response Actions </h2> <p> <span style="background-color:#F79962;">The AI Response Action agent will suggest specific actions to take to remediate incidents, and it will suggest playbooks that likely achieve your</span> </p> <ol> <li data-list-item-id="ef66128d2d397f96cd89d202ccd3b87af"> In the left-side navigation, go to <strong>Incidents</strong>.<br> The <strong>Incidents</strong> page appears. </li> <li data-list-item-id="e807a718ea9d8b8a4f1765c0707cab630"> Select the incident you want to review the AI response actions for. </li> <li data-list-item-id="e017f2fbdc25663e54e51a143a67183d1"> <p> On the suggested action in the <strong>AI Response Actions</strong> section, click <strong>Select playbook</strong>.<br> <a class="image-icon" href="#triggering-playbooks-select-playbook-from-recommendations">See image.</a><br> The <strong>Response Action</strong> window appears. </p> <div class="subc"> <a class="ck-anchor" id="triggering-playbooks-select-playbook-from-recommendations"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/triggering-playbooks-select-playbook-from-recommendations.png" data-entity-uuid="0" data-entity-type="image" alt="Select Playbook button on suggested AI Response Action" title="Select Playbook button on suggested AI Response Action"> </div> </li> <li data-list-item-id="ec59fe61b0eb82837aac7fe61476f0371"> <p> In the <strong>Playbooks</strong> tab of the <strong>Response Actions</strong> window, search for and select the playbook you want to execute, then click <strong>Continue</strong>.<br> <a class="image-icon" href="#response-action-select-playbook">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-action-select-playbook"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-action-select-playbook.png" data-entity-uuid="0" data-entity-type="image" alt="Playbook selected in Response Actions drawer" title="Selected playbook"> </div> </li> <li data-list-item-id="ee362b2392a20c1aa632d3463d8d29d8a"> <p> In the <strong>Actions</strong> tab, select one or multiple targets suggested by the AI, then click <strong>Trigger Playbook</strong>.<br> <a class="image-icon" href="#response-actions-actions-tab">See image.</a> </p> <div class="subc"> <a class="ck-anchor" id="response-actions-actions-tab"></a> <img src="/downloads/unified/getting-started-security-operations-platform/security-operations-platform-administration/manually-triggering-playbook-0/response-actions-actions-tab.png" data-entity-uuid="0" data-entity-type="image" alt="Target selected on Response Action drawer" title="Selected target"> </div> </li> </ol>
 
 ## Triggering Playbooks on an Alert
 
 To trigger a playbook on an alert:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Agentic SOC**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Agentic SOC**.
 2. In the left-side navigation, click **Alerts**. The **Alerts** page appears.
 3. Click the alert you want to trigger a playbook on. The alert details drawer opens. See image. [Image: Trigger playbook drop-down menu]
-4. In the alert details drawer, click **Select Playbook**. See image. [Image: Alert details drawer] The **Response Action** drawer opens.
+4. In the alert details drawer, click **Select Playbook**. See image. [Image: Alert details drawer] The **Response Action** drawer opens. The **Response Action** drawer only lists [playbooks applicable to the alert entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**.
 5. In the **Response Action** drawer:
-  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the alert entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
-  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  1. Select the playbook you want to run, review its summary, and click **Continue**. See image. [Image: Playbook selected in Response Actions drawer]
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image. [Image: Response Action drawer showing actions and target entity selection]
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
 
@@ -5896,13 +5920,13 @@ To trigger a playbook on an alert:
 
 To trigger a playbook on a user:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Identities**.
 2. In the left-side navigation, click **Users**. The **Users** page appears.
 3. Click the user you want to trigger a playbook on. The user details drawer appears. See image. [Image: Alert details drawer]
-4. In the user details drawer, click **Select Playbook**. The **Response Action** drawer opens.
+4. In the user details drawer, click **Select Playbook**. The **Response Action** drawer opens. The **Response Action** drawer only lists [playbooks applicable to the user entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**.
 5. In the **Response Action** drawer:
-  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the user entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
-  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  1. Select the playbook you want to run, review its summary, and click **Continue**. See image. [Image: Playbook selected in Response Actions drawer]
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image. [Image: Response Action drawer showing actions and target entity selection]
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
 
@@ -5910,31 +5934,15 @@ To trigger a playbook on a user:
 
 To trigger a playbook on an identity finding:
 
-1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal), click **Identities**.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Identities**.
 2. In the left-side navigation, click **Identity Findings**. The **Identity Findings** page appears.
 3. Click the identity finding you want to trigger a playbook on. The identity finding details drawer appears. See image. [Image: Identity Finding details drawer]
-4. In the identity finding details drawer, click **Select Playbook**. The **Response Action** drawer opens.
+4. In the identity finding details drawer, click **Select Playbook**. The **Response Action** drawer opens. The **Response Action** drawer only lists [playbooks applicable to the identity finding entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**.
 5. In the **Response Action** drawer:
-  1. Select the playbook you want to run, and click **Continue**. The **Response Action** drawer only lists [playbooks applicable to the identity finding entity type](https://help.zscaler.com/unified/creating-playbooks). To create a new playbook, click **Create Playbook**. See image.
-  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image.
+  1. Select the playbook you want to run, review its summary, and click **Continue**. See image. [Image: Playbook selected in Response Actions drawer]
+  2. Select the actions you want to include in the playbook run. For actions that require a target, select the applicable target entity. See image. [Image: Response Action drawer showing actions and target entity selection]
   3. Click **Trigger Playbook**.
 6. [View the playbook's run](https://help.zscaler.com/unified/managing-playbooks) to verify that all actions were successful.
-
-[Image: Response action drawer showing Select Playbook option]
-
-[Image: Response Action drawer showing actions and target entity selection]
-
-[Image: Response action drawer showing Select Playbook option]
-
-[Image: Response Action drawer showing actions and target entity selection]
-
-[Image: Response action drawer showing Select Playbook option]
-
-[Image: Response Action drawer showing actions and target entity selection]
-
-[Image: Response action drawer showing Select Playbook option]
-
-[Image: Response Action drawer showing actions and target entity selection]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7987,13 +7995,13 @@ newline
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-security-operations-platform-admin-portal","lastmod":"2026-10-27T21:06Z","nid":"1545263"} -->
+<!-- ZS-ARTICLE {"url":"/unified/supported-browsers-agentic-security-operations-platform-admin-portal","lastmod":"2026-11-04T09:39Z","nid":"1545263"} -->
 ## Supported Browsers for the Agentic Security Operations Platform Admin Portal
 
-- Source: https://help.zscaler.com/unified/supported-browsers-security-operations-platform-admin-portal
+- Source: https://help.zscaler.com/unified/supported-browsers-agentic-security-operations-platform-admin-portal
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Admin Portal Access & Navigation > Supported Browsers for the Agentic Security Operations Platform Admin Portal
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-04T09:39Z
 - Summary: Information on which browsers are compatible with the Agentic SecOps Platform Admin Portal (Agentic SecOps Platform).
 
 Zscaler actively tests browser compatibility with the Agentic SecOps Platform Admin Portal.
@@ -9987,13 +9995,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-audit-logs","lastmod":"2026-10-28T21:06Z","nid":"1545228"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-audit-logs","lastmod":"2026-11-04T13:09Z","nid":"1545228"} -->
 ## Viewing Audit Logs
 
 - Source: https://help.zscaler.com/unified/viewing-audit-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Administration > Account Management > Viewing Audit Logs
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-04T13:09Z
 - Summary: How to view and export audit logs in the Agentic Security Operations Platform.
 
 Audit logs track user-initiated actions within the Agentic Security Operations Platform (Agentic SecOps Platform). This enables you to monitor configuration changes, such as updates to reports, data source instances, and outegrations. You can download specific audit logs for immediate review, and schedule automated exports to an external destination such as an Amazon S3 bucket.
@@ -10014,7 +10022,7 @@ Audit logs track key events including:
 
 To view the Audit Logs page:
 
-1. In the Agentic SecOps Platform Admin Portal, go to a configuration page: The configuration page for a user is provided here as an example. See image. [Image: Configuration Page of a User]
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), go to a configuration page: The configuration page for a user is provided here as an example. See image. [Image: Configuration Page of a User]
   - For a user: Click the **Profile** menu in the top navigation bar, then click **Profile Settings**.
   - For an account: Click the **Profile** menu in the top navigation bar, then click **Account Settings**.
   - For a source: Go to **Configure** > **Sources**, then click a source.
@@ -10046,13 +10054,13 @@ To configure automated audit log export for a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practice-details","lastmod":"2026-09-07T05:01Z","nid":"1545271"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practice-details","lastmod":"2026-11-07T06:06Z","nid":"1545271"} -->
 ## Viewing Best Practice Details
 
 - Source: https://help.zscaler.com/unified/viewing-best-practice-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Best Practice Details
-- Last modified: 2026-09-07T05:01Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about how to analyze practice details in Health360.
 
 When you click a best practice on the [Best Practices](https://help.zscaler.com/unified/viewing-best-practices-optimal-health) page, you are redirected to the Practice Details page, where you can view the following practice-specific data:
@@ -10072,13 +10080,13 @@ The following screenshot illustrates an example practice analyzed on the Practic
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practices-optimal-health","lastmod":"2026-09-07T04:59Z","nid":"1545189"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-best-practices-optimal-health","lastmod":"2026-11-07T06:06Z","nid":"1545189"} -->
 ## Viewing Best Practices for Optimal Health
 
 - Source: https://help.zscaler.com/unified/viewing-best-practices-optimal-health
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Best Practices for Optimal Health
-- Last modified: 2026-09-07T04:59Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about best practices in Health360 for maintaining optimal health.
 
 The Best Practices page evaluates your configuration posture against Zscaler's recommended guidelines for each deployed Zscaler service. By providing a detailed view of individual checks and recommended actions, these metrics enable you to identify and remediate configuration gaps, and help determine whether your deployed services are configured in line with Zscaler's recommended best practices.
@@ -10194,13 +10202,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-connectors-tunnels-zscaler-client-connector-health","lastmod":"2026-08-29T21:06Z","nid":"1545192"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-connectors-tunnels-zscaler-client-connector-health","lastmod":"2026-11-07T06:06Z","nid":"1545192"} -->
 ## Viewing Connectors, Tunnels, & Zscaler Client Connector Health
 
 - Source: https://help.zscaler.com/unified/viewing-connectors-tunnels-zscaler-client-connector-health
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Connectors, Tunnels, & Zscaler Client Connector Health
-- Last modified: 2026-08-29T21:06Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about Connectors, Tunnels, & Zscaler Client Connector health.
 
 The Connectors Health page evaluates the health of your devices, such as Zscaler connectors, Private Service Edges, Zscaler Client Connector, and tunnels. The main focus of this page is to deliver centralized visibility into the operational states of assets. It streamlines infrastructure management through the following key capabilities:
@@ -10450,13 +10458,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-executive-insights-zscaler-services","lastmod":"2026-08-17T22:15Z","nid":"1545201"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-executive-insights-zscaler-services","lastmod":"2026-11-07T06:06Z","nid":"1545201"} -->
 ## Viewing Executive Insights for Zscaler Services
 
 - Source: https://help.zscaler.com/unified/viewing-executive-insights-zscaler-services
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Executive Insights for Zscaler Services
-- Last modified: 2026-08-17T22:15Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about executive insights in Health360 providing an overview of your applications, network, cloud, and incidents in your organization.
 
 Executive Insights provides a high-level overview of the applications, network, cloud, and incidents in your organization. You can drill down on each metric to further analyze the data.
@@ -10600,13 +10608,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-health360-dashboard","lastmod":"2026-08-28T21:06Z","nid":"1545187"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-health360-dashboard","lastmod":"2026-11-07T06:06Z","nid":"1545187"} -->
 ## Viewing the Health360 Dashboard
 
 - Source: https://help.zscaler.com/unified/viewing-health360-dashboard
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing the Health360 Dashboard
-- Last modified: 2026-08-28T21:06Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about the Health360 dashboard in the Zscaler Admin Console.
 
 The Health360 dashboard serves as a comprehensive overview page, delivering an immediate snapshot of your deployment health across all major categories in your Zscaler ecosystem:
@@ -11416,13 +11424,13 @@ To view uptime history, click the **View historical uptime** link on the status 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption","lastmod":"2026-09-07T05:01Z","nid":"1545199"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption","lastmod":"2026-11-07T06:06Z","nid":"1545199"} -->
 ## Viewing Zscaler Service Adoption
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Zscaler Service Adoption
-- Last modified: 2026-09-07T05:01Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about the Adoption page in Health360.
 
 The Adoption dashboard provides a centralized overview of Zscaler platform adoption maturity. This dashboard functions across three distinct levels of granularity: high-level portfolio summaries engineered for executive leadership, operational matrices segmenting specific solution areas, and granular product drilldowns.
@@ -11444,13 +11452,13 @@ On the Adoption page (Analytics > Health360 > Adoption), you can:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption-details","lastmod":"2026-10-12T23:13Z","nid":"1545200"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-zscaler-service-adoption-details","lastmod":"2026-11-07T06:06Z","nid":"1545200"} -->
 ## Viewing Zscaler Service Adoption Details
 
 - Source: https://help.zscaler.com/unified/viewing-zscaler-service-adoption-details
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > Viewing Zscaler Service Adoption Details
-- Last modified: 2026-10-12T23:13Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about the Zscaler service adoption details in Health360.
 
 The adoption details page helps with granular Zscaler service drill-downs showing license utilization data and quantifiable value metrics.
@@ -11558,13 +11566,13 @@ Unification rules run when data related to the entity is ingested, directly proc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-08-28T21:06Z","nid":"1545186"} -->
+<!-- ZS-ARTICLE {"url":"/unified/what-health360","lastmod":"2026-11-07T06:06Z","nid":"1545186"} -->
 ## What Is Health360?
 
 - Source: https://help.zscaler.com/unified/what-health360
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Analytics > Health360 > What Is Health360?
-- Last modified: 2026-08-28T21:06Z
+- Last modified: 2026-11-07T06:06Z
 - Summary: Information about Health360.
 
 Zscaler Health360 delivers centralized visibility into the deployment, health, and performance of your Zscaler environment. By providing real-time insights directly within the Zscaler Admin Console, it eliminates the manual analysis often required across multiple product consoles, interfaces, and custom reports. This service helps you easily monitor your active subscriptions, deployment status, configuration quality, and the overall value being delivered.

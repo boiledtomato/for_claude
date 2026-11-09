@@ -1,8 +1,407 @@
 # Zscaler Help — Other (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-02 13:58 UTC
-Articles in this file: 50
+Generated: 2026-11-09 10:16 UTC
+Articles in this file: 53
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-dns-logs","lastmod":"2026-11-01T23:53Z","nid":"1420841"} -->
+## NSS Feed Output Format: DNS Logs
+
+- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-dns-logs
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
+- Last modified: 2026-11-01T23:53Z
+- Summary: Information about DNS log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
+
+The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
+
+The following tables display information about the DNS fields and possible values for those fields.
+
+## Date/Time
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{eventtime} | The time and date the transaction happened. This excludes the time zone. | Mon Oct 28 22:55:48 2024 |
+| %s{time} | The date and time the event was logged. | Mon Oct 28 22:55:53 2024 |
+| %s{tz} | The time zone. This is the same as the time zone you specified when you configured the NSS feed. | GMT |
+| %02d{ss} | Second of timestamp (0–59) | 48 |
+| %02d{mm} | Minute of timestamp (0–59) | 55 |
+| %02d{hh} | Hour of timestamp (0–23) | 22 |
+| %02d{dd} | Day of timestamp (1–31) | 28 |
+| %02d{mth} | Month of timestamp (1-12) | 10 |
+| %04d{yyyy} | Year of timestamp | 2024 |
+| %s{mon} | The name of the month | Oct |
+| %s{day} | The day of the week | Mon |
+
+## Transaction Action
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{req_rulename} | Name of the rule that was applied to the DNS request | Private Access Resolver |
+| %s{req_action} | Name of the action that was applied to the DNS request | REQ_ALLOW REQ_BLOCK |
+| %s{res_rulename} | Name of the rule that was applied to the DNS response | Default Connector DNS Rule |
+| %s{res_action} | Name of the action that was applied to the DNS response | Allow |
+
+## Transaction Information
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %d{inbytes} | Number of bytes sent from the server to the client. | 10,000 |
+| %d{outbytes} | Number of bytes sent from the client to the server. | 10,000 |
+| %s{clt_ip} | The IP address of the user. This can be the internal IP address if it is visible—for example, traffic sent through a GRE tunnel or an internal IP address indicated using XFF. Otherwise, it's the client internet (NAT Public) IP address. | 192.0.2.135 |
+| %ld{req_duration} | Duration of the DNS request in milliseconds | 65 |
+| %s{resolver} | Server IP address of the request | 203.0.113.200 |
+| %ld{recordid} | Unique record identifier for each log | sys_cloud_branch_id |
+| %s{location} | Gateway location or sublocation of the source | Headquarters |
+| %s{dom_str} | Fully Qualified Domain Name (FQDN) in the DNS request | mail.safemarch.com |
+| %s{odom_str} | Obfuscated FQDN in the DNS request |  |
+| %s{res_type} | Response type |  |
+| %s{resp_val_str} | Response value | 51.xx.192.49 blob.xxz21prdxxxx7a.store.core.windows.net |
+| %{oresp_val_str} | Obfuscated response value |  |
+| %s{req_type} | DNS record being requested | A record |
+| %d{srv_port} | Server port of the request | 80 |
+| %d{num_resp} | Number of DNS responses | 52 |
+| %s{dns_err} | DNS error, if any | DNS server not available; NXDOMAIN; SERVFAIL |
+| %s{protocol} | Protocol used | TCP; UDP; DOH |
+| %s{dnsgw_flags} | Flags indicating the DNS Gateway status | PRIMARY_SERVER_RESPONSE_PASS; FO_DEST_ERR |
+| %s{dnsgw_slot} | DNS Gateway rule |  |
+
+## Cloud Connector or Branch Connector Information
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{name} | Cloud Connector or Branch Connector name | CC_304 |
+| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vpc-xxxx |
+| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-west-2x |
+| %s{region_name} | Cloud Connector or Branch Connector region name | (US) West US 2 |
+| %s{platform_name} | Cloud Connector or Branch Connector platform name | Azure |
+| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name (availability zone) | San Jose, United States |
+| %s{account_id} | AWS account ID, or Azure subscription ID, or GCP project ID | 506xxx032xxx (AWS); f60abxxx-bb7d-43xx-84xx-4axxxx7xxxxx (Azure); gcs-xxx-cc-gcp-project (GCP) |
+
+## Base64 Fields
+
+A SIEM can have parsing issues whenever a string field has nonprintable or delimiter characters. For that reason, the Zscaler service has URL encoding for fields such as `dom_str`. Several other fields have the same parsing issue, but URL encoding is not suitable. Such fields are encoded using Base64.
+
+Turning on Base64 encoding for all supported fields may result in approximately a 20% drop in performance.
+
+The following fields have been added as Base64 fields:
+
+- b64dom_str
+- b64resp_val_str
+
+## Hex-Encoded Fields
+
+When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable ASCII characters that are in URLs. Any URL character that is less than or equal to 0x20, or greater than or equal to 0x7F, is encoded as `%HH`. This ensures that your SIEM parses the URLs that contain control characters. For example, a `\n` character in a URL is encoded as `0A`, and a space is encoded as `%20`.
+
+edom_str has been added as a hex-encoded field.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-event-logs","lastmod":"2026-11-01T23:53Z","nid":"1459131"} -->
+## NSS Feed Output Format: Event Logs
+
+- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-event-logs
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: Event Logs
+- Last modified: 2026-11-01T23:53Z
+- Summary: Information about Event log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
+
+The Event NSS feed specifies the data from the Event logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
+
+Zscaler Cloud Connector or Branch Connector generates the Event logs when a status change occurs for a Cloud Connector or Branch Connector health check, Zscaler data center reachability, a data plane health check, a software upgrade, a control plane health check, or a tunnel to Zscaler data centers.
+
+## Event Log Attributes
+
+Each Event log has date and time, metadata, and event-specific attributes in it. The event-specific attributes depend on the type and severity of the event. Therefore, the values of the attributes change depending on the event type and severity.
+
+There are 9 event-specific attributes in each Event log:
+
+- Attribute 1 Type: The data type for the first event attribute.
+- Attribute 1 Value: The value for the first event attribute.
+- Attribute 2 Type: The data type for the second event attribute.
+- Attribute 2 Value: The value for the second event attribute.
+- Attribute 3 Type: The data type for the third event attribute.
+- Attribute 3 Value: The value for the third event attribute.
+- Attribute 4 Type: The data type for the fourth event attribute.
+- Attribute 4 Value: The value for the fourth event attribute.
+- Error Code: The error code associated with an event if an error code is available.
+
+The following list shows all the possible Event Type/Severity combinations that can occur:
+
+- ZIA_TUNNEL/Info
+- ZIA_TUNNEL/Error
+- ZIA_GATEWAY/Warn
+- ZIA_GATEWAY/Warn
+- ZIA_GATEWAY/Error
+- ZIA_GATEWAY/Info
+- SVC_HEALTH_CHECK/Info
+- SVC_HEALTH_CHECK/Error
+- INST_HEALTH_CHECK/Warn
+- INST_HEALTH_CHECK/Info
+- CONTROL_PLANE/Info
+- CONTROL_PLANE/Error
+- DATA_PLANE/Info
+- DATA_PLANE/Error
+- UPGRADE_START/Info
+- UPGRADE_END/Info
+- UPGRADE_END/Error
+
+- Event Name: ZIA_TUNNEL
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Inactive
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: Tunnel Destination IP Address
+- Attribute 4 Value: <Tunnel Destination IP Address>
+- Error Code: N/A
+
+- Event Name: ZIA_TUNNEL
+- Severity: Error
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Inactive
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: Tunnel Destination IP Address
+- Attribute 4 Value: <Tunnel Destination IP Address>
+- Error Code: <error_code>
+
+- Event Name: ZIA_GATEWAY
+- Severity: Warn
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Secondary
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Primary
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: ZIA_GATEWAY
+- Severity: Warn
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Primary
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Secondary
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: ZIA_GATEWAY
+- Severity: Error
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Inactive
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: ZIA_GATEWAY
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Inactive
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: Gateway Name
+- Attribute 3 Value: <gw_name>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: SVC_HEALTH_CHECK
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Inactive
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: SVC_HEALTH_CHECK
+- Severity: Error
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Inactive
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: INST_HEALTH_CHECK
+- Severity: Warn
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Degraded
+- Attribute 3 Type: Number of active instances
+- Attribute 3 Value: <integer>
+- Attribute 4 Type: Total instances
+- Attribute 4 Value: <integer>
+- Error Code: N/A
+
+- Event Name: INST_HEALTH_CHECK
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Degraded
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: Number of active instances
+- Attribute 3 Value: <integer>
+- Attribute 4 Type: Total instances
+- Attribute 4 Value: <integer>
+- Error Code: N/A
+
+- Event Name: CONTROL_PLANE
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Inactive
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: <error_code>
+
+- Event Name: CONTROL_PLANE
+- Severity: Error
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Inactive
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: DATA_PLANE
+- Severity: Info
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Inactive
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Active
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: DATA_PLANE
+- Severity: Error
+- Attribute 1 Type: Previous State
+- Attribute 1 Value: Active
+- Attribute 2 Type: Current State
+- Attribute 2 Value: Inactive
+- Attribute 3 Type: N/A
+- Attribute 3 Value: N/A
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: UPGRADE_START
+- Severity: Info
+- Attribute 1 Type: Current Version
+- Attribute 1 Value: <version>
+- Attribute 2 Type: New Version
+- Attribute 2 Value: <version_1>
+- Attribute 3 Type: Package Name
+- Attribute 3 Value: <janus>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: UPGRADE_END
+- Severity: Info
+- Attribute 1 Type: Current Version
+- Attribute 1 Value: <version>
+- Attribute 2 Type: Upgrade Status
+- Attribute 2 Value: Success for Info, Fail for Error
+- Attribute 3 Type: Package Name
+- Attribute 3 Value: <janus/edgeconnector>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+- Event Name: UPGRADE_END
+- Severity: Error
+- Attribute 1 Type: Current Version
+- Attribute 1 Value: <version>
+- Attribute 2 Type: Upgrade Status
+- Attribute 2 Value: Success for Info, Fail for Error
+- Attribute 3 Type: Package Name
+- Attribute 3 Value: <janus/edgeconnector>
+- Attribute 4 Type: N/A
+- Attribute 4 Value: N/A
+- Error Code: N/A
+
+The following tables display information about the Event fields and possible values for those fields.
+
+## Date/Time
+
+| **Field** | **Description** | **Example** |
+| --- | --- | --- |
+| %d{inteventtime} | Event time in epoch format | 1687170925 |
+| %d{abstime} | Event time if logs are delayed | 0 |
+| %s{time} | Time at which events are generated | Mon Oct 14 03:35:25 2024 |
+| %s{tz} | Time zone specified when configuring the NSS feed | GMT |
+| %02d{ss} | Second of timestamp (0–59) | 25 |
+| %02d{mm} | Minute of timestamp (0–59) | 35 |
+| %02d{hh} | Hour of timestamp (0-23) | 03 |
+| %02d{dd} | Day of timestamp (1–31) | 14 |
+| %02d{mth} | Month of timestamp (1-12) | 10 |
+| %04d{yyyy} | Year of timestamp | 2024 |
+| %s{day} | Name of the day | Mon |
+| %s{mon} | Name of the month | Oct |
+| %s{rtime} | Log time at which NSS receives the logs | Mon Oct 14 03:35:28 PDT 2024 |
+| %s{rmon} | Name of the month | Oct |
+
+## Metadata
+
+| **Field** | **Description** | **Example** |
+| --- | --- | --- |
+| %s{company} | Company name | Test2 |
+| %s{location} | Location name | TempLoc |
+| %s{name} | Cloud Connector or Branch Connector name | Instance 5 |
+| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vps-xxxx |
+| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-east-2-x |
+| %s{platform_name} | Cloud Connector or Branch Connector platform name | AWS |
+| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name | Columbus, United States |
+| %s{region_name} | Region name | vk_location-us-east-2-x |
+| %s{connector_type} | The type of connector | CC |
+| %s{event_name} | Event type | VM_HEALTH; ZIA_TUNNEL; ZIA_GW; SVC_HEALTH_CHK; INST_HEALTH_CHK; CTL_PLANE; DATA_PLANE; UPGRADE_ST; UPGRADE_END |
+| %s{category} | Category | TRAFF_FWD; CONN_VM; CONN_INST |
+| %s{severity} | Severity | ERR; INFO; WARN |
+
+## Events
+
+| **Field** | **Description** | **Example** |
+| --- | --- | --- |
+| %s{attr1_name}, %s{attr1_val} | Attribute 1 name, Attribute 1 string value | prev_state, Inactive |
+| %s{attr2_name},%s{attr2_val} | Attribute 2 name, Attribute 2 string value | curr_state, Active |
+| %s{attr3_name}, %s{attr3_val} | Attribute 3 name, Attribute 3 string value | gid, 613x53 |
+| %s{attr4_name}, %s{attr4_val} | Attribute 4 name, Attribute 4 string value | gwip, 192.0.2.1 |
+| %s{error_code} | Error code (if any) | None |
+| %s{account_id} | Account ID (alphanumeric string) | subscription_id2 |
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -662,16 +1061,16 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-01T23:53Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-06T11:43Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/release-upgrade-summary-2026
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-01T23:53Z
-- Summary: Zscaler Cloud & Branch Connector Release Upgrade Summary for service updates deployed in 2026.
+- Last modified: 2026-11-06T11:43Z
+- Summary: Zero Trust Cloud (formerly Cloud & Branch Connector) Release Upgrade Summary for service updates deployed in 2026.
 
-This article provides a summary of all new features and enhancements for Zscaler Cloud & Branch Connector. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
+This article provides a summary of all new features and enhancements for Zero Trust Cloud (formerly Cloud & Branch Connector). To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3215,6 +3614,46 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-disaster-recovery","lastmod":"2026-11-05T11:54Z","nid":"1539697"} -->
+## Understanding Disaster Recovery
+
+- Source: https://help.zscaler.com/zero-trust-cloud/understanding-disaster-recovery
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Administration > Global Profiles > Understanding Disaster Recovery
+- Last modified: 2026-11-05T11:54Z
+- Summary: Overview information on Disaster Recovery (DR) Gateways with respect to BCC and Global Profiles in Zscaler Admin Console.
+
+The Disaster Recovery (DR) solution is built around two primary, independent operational pillars designed to address different disaster scenarios:
+
+## Automated Failover (Data Plane Outages)
+
+The following list describes the approach for automated failover.
+
+- **Operational focus:** This automated mechanism handles situations where Zscaler's data plane nodes (the Public Service Edges carrying and inspecting traffic) become unreachable, while the control plane remains operational.
+- **How it works:** The Cloud Connector constantly monitors the traffic path's health. If the primary path is declared dead, it transparently redirects the egress traffic to a preconfigured, isolated regional Business Continuity Plan (BCP) subcloud.
+
+The following diagrams illustrate three scenarios:
+
+- Traffic is behaving as normal. See image.
+- The data plane is unreachable, so traffic falls back to the BCP Subcloud (dedicated fallback destination, available with the BCC SKU). See image.
+- The BCP Subcloud is unreachable. See image.
+
+## DNS-Triggered Disaster Recovery (Control-Plane & Regional Outages)
+
+The following list describes the approach for recovering from control plane and regional outages.
+
+- **Operational focus:** This administrator-controlled mechanism addresses control plane outages or macro-level disaster scenarios where the Zscaler Admin Console is unavailable, making policy-level configuration changes impossible.
+- **How it works:** Rather than relying on Zscaler's cloud-side systems, the Cloud Connector continuously polls a customer-owned DNS zone. By publishing a standard DNS TXT record containing specialized key-value instructions (e.g., `v=1, k=zia, b=on`), administrators can force DR bypass or failover mode without needing access to the Zscaler Admin Console. For more information, see [About Global Profiles](https://help.zscaler.com/cloud-branch-connector/about-global-profiles).
+
+[Image: Normal traffic behavior diagram]
+
+[Image: BCP sublcoud fallback diagram]
+
+[Image: BCP subcloud unreachable diagram]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-high-availability-and-failover","lastmod":"2026-11-01T23:53Z","nid":"1455436"} -->
 ## Understanding High Availability and Failover
 
@@ -3646,13 +4085,13 @@ Zscaler Client Connector for VDI has multiple ways in which to establish tunnels
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-cloud-connector","lastmod":"2026-11-01T23:52Z","nid":"1420636"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-cloud-connector","lastmod":"2026-11-05T20:40Z","nid":"1420636"} -->
 ## What Is Zscaler Cloud Connector?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > What Is Zscaler Cloud Connector?
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-05T20:40Z
 - Summary: Introductory information about Zscaler Cloud Connector.
 
 Enabled by the Zero Trust Exchange (ZTE), Zscaler Cloud Connector is a virtual machine (VM) that simplifies traffic forwarding to Zscaler services. It extends the capabilities of Internet & SaaS (ZIA) and Private Access (ZPA) to cloud-native workloads, which allows enterprises to secure cloud workload communications over any network.
@@ -3677,24 +4116,28 @@ The following are some key Cloud Connector features and benefits:
 
 In the realm of networking, organizations ask how to secure traffic entering the cloud, but not traffic that is within, exiting, or transitioning between clouds. As users operate between multiple service providers, this attack surface grows. Cloud Connector enables the following use cases:
 
-- **Workloads to Internet Communication**: Applications might need to access an internet or SaaS destination (third-party APIs, software updates, etc.) with a scalable, reliable security solution that inspects all transactions, applying advanced threat prevention and DLP controls.
-- **Workload to Workload Communication**: Public clouds and corporate data centers for multi-cloud or hybrid cloud connectivity deliver better security and a simplified operational model compared to traditional solutions like proxies, virtual firewalls, Intrusion Detection System (IDS), and IPS.
+- **Workloads-to-Internet Communication**: Applications might need to access an internet or SaaS destination (third-party APIs, software updates, etc.) with a scalable, reliable security solution that inspects all transactions, applying advanced threat prevention and DLP controls.
+- **Workload-to-Workload Communication**: Public clouds and corporate data centers for multi-cloud or hybrid cloud connectivity deliver better security and a simplified operational model compared to traditional solutions like proxies, virtual firewalls, Intrusion Detection System (IDS), and IPS.
+
+The following image demonstrates how Cloud Connector functions with AWS, Azure, and GCP.
+
+[Image: The functionality of Cloud Connector with AWS, Azure, and GCP]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-zero-trust-sd-wan","lastmod":"2026-11-01T23:53Z","nid":"1478621"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-zero-trust-sd-wan","lastmod":"2026-11-03T15:52Z","nid":"1478621"} -->
 ## What Is Zscaler Zero Trust SD-WAN?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-zero-trust-sd-wan
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Physical Devices > What Is Zscaler Zero Trust SD-WAN?
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-03T15:52Z
 - Summary: Information about Zscaler Zero Trust SD-WAN
 
 Zscaler Zero Trust SD-WAN (software-defined wide area network) provides branches, on-premises data centers, and public clouds with fast and reliable access to the internet and private applications with a direct-to-cloud architecture that features strong security and operational simplicity. The solution eliminates lateral threat movement by connecting users and IoT/OT devices to applications through the Zscaler Zero Trust Exchange (ZTE).
 
-Cloud and branch traffic is securely forwarded directly to the ZTE, where you can apply Internet & SaaS (ZIA) or Private Access (ZPA) policies depending on traffic destination for full security inspection and access identity-based control of cloud, branch, and data center communications.
+Zscaler Zero Trust Cloud traffic is securely forwarded directly to the ZTE, where you can apply Internet & SaaS (ZIA) or Private Access (ZPA) policies depending on traffic destination for full security inspection and access identity-based control of cloud, branch, and data center communications.
 
 By combining lightweight virtual machines or plug-and-play devices with the ZTE, Zero Trust SD-WAN provides secure inbound and outbound zero trust networking for sites and clouds, without overlay routing, additional firewall appliances, or policy inconsistencies. Fully integrated with the ZTE, Zero Trust SD-WAN enables robust security and simplifies branch network management.
 
@@ -4034,13 +4477,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-01T23:53Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-04T10:15Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026
 - Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-11-01T23:53Z
+- Path: Zero Trust Cloud Help > Release Notes > Zscaler Client Connector for VDI Release Notes > Zscaler Client Connector for VDI Release Summary (2026)
+- Last modified: 2026-11-04T10:15Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.
