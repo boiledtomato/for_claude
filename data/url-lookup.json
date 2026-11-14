@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13T21:28:04.619963+00:00",
+  "last_updated": "2026-11-14T19:57:58.514143+00:00",
   "total": 150,
   "records": {
     "google.com": {
@@ -39,8 +39,8 @@
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:44:02.856118+00:00"
+      "rawCategory": "financial data and services",
+      "updated": "2026-11-14T19:50:13.375807+00:00"
     },
     "yahoo.co.jp": {
       "urlCat": "Miscellaneous",
@@ -90,7 +90,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "",
-      "updated": "2026-11-09T23:44:03.300949+00:00"
+      "updated": "2026-11-14T19:50:13.639409+00:00"
     },
     "drive.google.com": {
       "urlCat": "Miscellaneous",
@@ -140,7 +140,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "web collaboration",
-      "updated": "2026-11-09T23:44:03.560249+00:00"
+      "updated": "2026-11-14T19:50:13.961642+00:00"
     },
     "calendar.google.com": {
       "urlCat": "Business and Economy",
@@ -190,7 +190,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "collaboration - office",
-      "updated": "2026-11-09T23:44:03.823382+00:00"
+      "updated": "2026-11-14T19:50:14.260872+00:00"
     },
     "onedrive.live.com": {
       "urlCat": "Miscellaneous",
@@ -240,7 +240,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "web collaboration",
-      "updated": "2026-11-09T23:45:09.079100+00:00"
+      "updated": "2026-11-14T19:51:19.557798+00:00"
     },
     "zoom.us": {
       "urlCat": "Miscellaneous",
@@ -290,7 +290,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "instant messaging",
-      "updated": "2026-11-09T23:45:09.468466+00:00"
+      "updated": "2026-11-14T19:51:19.757504+00:00"
     },
     "telegram.org": {
       "urlCat": "Miscellaneous",
@@ -339,8 +339,8 @@
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:45:09.758180+00:00"
+      "rawCategory": "social web - facebook",
+      "updated": "2026-11-14T19:51:20.041217+00:00"
     },
     "instagram.com": {
       "urlCat": "Social Networking",
@@ -390,7 +390,7 @@
       "action": "caution",
       "source": "virustotal",
       "rawCategory": "social networking",
-      "updated": "2026-11-09T23:45:09.978304+00:00"
+      "updated": "2026-11-14T19:51:20.358313+00:00"
     },
     "snapchat.com": {
       "urlCat": "Miscellaneous",
@@ -440,7 +440,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "",
-      "updated": "2026-11-09T23:46:15.310100+00:00"
+      "updated": "2026-11-14T19:52:25.653466+00:00"
     },
     "ameblo.jp": {
       "urlCat": "Social Networking",
@@ -483,14 +483,14 @@
       "updated": "2026-11-13T21:22:31.939174+00:00"
     },
     "disneyplus.com": {
-      "urlCat": "Miscellaneous",
+      "urlCat": "Streaming Media",
       "cloudApp": "Disney+",
       "cloudAppCat": "Video Streaming",
-      "risk": "low",
-      "action": "allow",
+      "risk": "medium",
+      "action": "caution",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:46:15.644148+00:00"
+      "rawCategory": "streaming media",
+      "updated": "2026-11-14T19:52:26.295134+00:00"
     },
     "primevideo.com": {
       "urlCat": "Streaming Media",
@@ -533,14 +533,14 @@
       "updated": "2026-11-13T21:22:32.179806+00:00"
     },
     "dazn.com": {
-      "urlCat": "Miscellaneous",
+      "urlCat": "Streaming Media",
       "cloudApp": "DAZN",
       "cloudAppCat": "Video Streaming",
-      "risk": "low",
-      "action": "allow",
+      "risk": "medium",
+      "action": "caution",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:46:15.866040+00:00"
+      "rawCategory": "streaming media",
+      "updated": "2026-11-14T19:52:26.550055+00:00"
     },
     "abema.tv": {
       "urlCat": "Streaming Media",
@@ -589,8 +589,8 @@
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "personal network storage and backup",
-      "updated": "2026-11-09T23:46:16.178786+00:00"
+      "rawCategory": "",
+      "updated": "2026-11-14T19:52:26.831067+00:00"
     },
     "mega.nz": {
       "urlCat": "Miscellaneous",
@@ -640,7 +640,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:47:21.672303+00:00"
+      "updated": "2026-11-14T19:53:32.306584+00:00"
     },
     "rakuten.co.jp": {
       "urlCat": "Online Shopping",
@@ -690,7 +690,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "news and media",
-      "updated": "2026-11-09T23:47:22.252514+00:00"
+      "updated": "2026-11-14T19:53:32.534212+00:00"
     },
     "bbc.com": {
       "urlCat": "News and Media",
@@ -733,14 +733,14 @@
       "updated": "2026-11-13T21:23:38.911082+00:00"
     },
     "techcrunch.com": {
-      "urlCat": "Miscellaneous",
+      "urlCat": "Computer and Internet Info",
       "cloudApp": "TechCrunch",
       "cloudAppCat": "News",
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:47:22.665632+00:00"
+      "rawCategory": "information technology",
+      "updated": "2026-11-14T19:53:32.895660+00:00"
     },
     "wired.com": {
       "urlCat": "Miscellaneous",
@@ -783,14 +783,14 @@
       "updated": "2026-11-13T21:23:39.239246+00:00"
     },
     "mainichi.jp": {
-      "urlCat": "News and Media",
+      "urlCat": "Miscellaneous",
       "cloudApp": "毎日新聞",
       "cloudAppCat": "News",
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "news and media",
-      "updated": "2026-11-09T23:47:23.396329+00:00"
+      "rawCategory": "",
+      "updated": "2026-11-14T19:53:33.781367+00:00"
     },
     "nhk.or.jp": {
       "urlCat": "Miscellaneous",
@@ -840,7 +840,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "",
-      "updated": "2026-11-09T23:48:28.722535+00:00"
+      "updated": "2026-11-14T19:54:39.031713+00:00"
     },
     "stripe.com": {
       "urlCat": "Miscellaneous",
@@ -890,7 +890,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:48:29.006782+00:00"
+      "updated": "2026-11-14T19:54:39.449163+00:00"
     },
     "github.com": {
       "urlCat": "Computer and Internet Info",
@@ -940,7 +940,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:48:29.270012+00:00"
+      "updated": "2026-11-14T19:54:40.177522+00:00"
     },
     "cloud.google.com": {
       "urlCat": "Computer and Internet Info",
@@ -990,7 +990,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:48:29.555550+00:00"
+      "updated": "2026-11-14T19:54:40.453698+00:00"
     },
     "docker.com": {
       "urlCat": "Computer and Internet Info",
@@ -1040,7 +1040,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:49:34.869807+00:00"
+      "updated": "2026-11-14T19:55:45.717613+00:00"
     },
     "zendesk.com": {
       "urlCat": "Miscellaneous",
@@ -1090,7 +1090,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "information technology",
-      "updated": "2026-11-09T23:49:35.415767+00:00"
+      "updated": "2026-11-14T19:55:46.021130+00:00"
     },
     "atlassian.com": {
       "urlCat": "Business and Economy",
@@ -1140,7 +1140,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "hosted business applications",
-      "updated": "2026-11-09T23:49:35.770201+00:00"
+      "updated": "2026-11-14T19:55:46.379065+00:00"
     },
     "notion.so": {
       "urlCat": "Miscellaneous",
@@ -1189,8 +1189,8 @@
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "generative ai - text and code",
-      "updated": "2026-11-09T23:49:36.163695+00:00"
+      "rawCategory": "",
+      "updated": "2026-11-14T19:55:46.583352+00:00"
     },
     "huggingface.co": {
       "urlCat": "Miscellaneous",
@@ -1239,8 +1239,8 @@
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "business and economy",
-      "updated": "2026-11-09T23:50:41.385605+00:00"
+      "rawCategory": "Business/Economy, Information Technology (alphaMountain.ai)",
+      "updated": "2026-11-14T19:56:51.933274+00:00"
     },
     "paloaltonetworks.com": {
       "urlCat": "Computer and Internet Info",
@@ -1290,7 +1290,7 @@
       "action": "caution",
       "source": "virustotal",
       "rawCategory": "games",
-      "updated": "2026-11-09T23:50:41.693672+00:00"
+      "updated": "2026-11-14T19:56:52.270610+00:00"
     },
     "playstation.com": {
       "urlCat": "Games",
@@ -1333,14 +1333,14 @@
       "updated": "2026-11-13T21:26:58.012182+00:00"
     },
     "udemy.com": {
-      "urlCat": "Miscellaneous",
+      "urlCat": "Education",
       "cloudApp": "Udemy",
       "cloudAppCat": "Training",
       "risk": "low",
       "action": "allow",
       "source": "virustotal",
-      "rawCategory": "",
-      "updated": "2026-11-09T23:50:41.903761+00:00"
+      "rawCategory": "educational institutions",
+      "updated": "2026-11-14T19:56:52.587972+00:00"
     },
     "edx.org": {
       "urlCat": "Education",
@@ -1390,7 +1390,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "travel",
-      "updated": "2026-11-09T23:50:42.196161+00:00"
+      "updated": "2026-11-14T19:56:52.939775+00:00"
     },
     "expedia.com": {
       "urlCat": "Travel",
@@ -1440,7 +1440,7 @@
       "action": "allow",
       "source": "virustotal",
       "rawCategory": "travel",
-      "updated": "2026-11-09T23:51:47.640319+00:00"
+      "updated": "2026-11-14T19:57:58.196103+00:00"
     },
     "apple.com": {
       "urlCat": "Computer and Internet Info",
@@ -1483,14 +1483,14 @@
       "updated": "2026-11-13T21:28:04.619865+00:00"
     },
     "pixiv.net": {
-      "urlCat": "Social Networking",
+      "urlCat": "Miscellaneous",
       "cloudApp": "pixiv",
       "cloudAppCat": "Entertainment",
-      "risk": "medium",
-      "action": "caution",
+      "risk": "low",
+      "action": "allow",
       "source": "virustotal",
-      "rawCategory": "social networking",
-      "updated": "2026-11-09T23:51:47.994930+00:00"
+      "rawCategory": "",
+      "updated": "2026-11-14T19:57:58.514074+00:00"
     },
     "pastebin.com": {
       "urlCat": "Miscellaneous",
