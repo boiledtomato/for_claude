@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       docsets:
-        description: "対象ドキュメントセット (空白区切り。空欄なら既定の entra)"
+        description: "対象 (空白区切り。空欄なら既定の entra security_network)"
         type: string
         default: ""
       limit:
@@ -30,9 +30,11 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  # 定期実行の対象。ドキュメントセットを増やすときはここに足す
-  # (sitemap 名。https://learn.microsoft.com/_sitemaps/<名前>_ja-jp_1.xml)
-  DEFAULT_DOCSETS: "entra"
+  # 定期実行の対象。1 つが 1 ノートブック (MSLearn_<名前>) になる。
+  #   entra            … sitemap 名そのまま (https://learn.microsoft.com/_sitemaps/entra_ja-jp_1.xml)
+  #   security_network … 複数の sitemap から一部を集めたまとめ (build_mslearn_docs.py の DOCSETS)
+  # max-parallel: 1 で順に実行される
+  DEFAULT_DOCSETS: "entra security_network"
 
 jobs:
   plan:

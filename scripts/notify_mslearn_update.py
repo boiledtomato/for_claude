@@ -125,6 +125,8 @@ def build(docset: str, report: dict | None, sync: dict | None, build_outcome: st
         f"<tr><td>更新 (本文が変化)</td><td><b>{n_upd}</b></td></tr>"
         f"<tr><td>削除 (sitemap から消えた)</td><td><b>{n_del}</b></td></tr>"
         f"<tr><td>取得失敗 (前回の内容を保持)</td><td><b>{n_fail}</b></td></tr>"
+        f"<tr><td>本文なし (目次だけのページ。保存対象外)</td>"
+        f"<td>{len(report.get('empty', []))}</td></tr>"
         f"<tr><td>内容が変わった Markdown ファイル</td><td><b>{report.get('files_changed', 0)}</b>"
         f" / {report.get('total_files', 0)}</td></tr>"
         "</table>",

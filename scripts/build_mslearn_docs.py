@@ -78,6 +78,12 @@ OTHER = "other"
 # ドキュメントセットごとの設定。categories は (stem, 表示名, [パス接頭辞]) の並びで、
 # 上から順に最初に一致したものに入る。接頭辞は "<docset>/" 以降のパス。
 # ここに無いドキュメントセットは、パスの第 1 階層をそのままカテゴリにする。
+#
+# "sources" を持つものは、複数の sitemap から必要な部分だけを集めた**まとめ**
+# (1 ノートブック)。キーは sitemap 名ではなく任意の名前で、ファイル名と
+# ノートブック名 (MSLearn_<キー>) に使う。sources は (sitemap 名, [パス接頭辞])
+# の並びで、接頭辞が空なら その sitemap の全ページ。まとめでは categories の
+# 接頭辞も "<locale>/" 以降の**フルパス** ("windows/win32/fwp" など) で書く。
 DOCSETS: dict[str, dict] = {
     "entra": {
         "name": "Microsoft Entra",
@@ -102,6 +108,52 @@ DOCSETS: dict[str, dict] = {
             ("external_id", "External ID・Verified ID", ["external-id", "verified-id"]),
             ("fundamentals", "基礎・アーキテクチャ・標準・その他",
              ["fundamentals", "architecture", "standards", "backup", "security-copilot"]),
+        ],
+    },
+    # Defender 製品群と、Windows の通信制御 (WFP・ファイアウォール) を 1 冊にまとめる。
+    # 「Defender と Zscaler Client Connector が WFP 上でどう共存するか」のように両方に
+    # またがる質問があり、NotebookLM はノートブックをまたいで検索できないため。
+    "security_network": {
+        "name": "Microsoft Defender・Windows ネットワークセキュリティ",
+        "sources": [
+            ("defender", []),
+            ("defender-endpoint", []),
+            ("defender-xdr", []),
+            ("defender-cloud-apps", []),
+            ("defender-for-identity", []),
+            ("defender-office-365", []),
+            ("defender-vulnerability-management", []),
+            ("defender-business", []),
+            ("security-exposure-management", []),
+            # windows は 13 万ページあるので WFP とファイアウォールの部分だけ
+            ("windows", ["windows/win32/fwp", "windows/win32/api/_fwp",
+                         "windows/win32/api/fwpmtypes", "windows/win32/api/fwpmu",
+                         "windows/win32/api/fwpstypes", "windows/win32/api/fwpsu",
+                         "windows/win32/api/fwptypes", "windows/win32/api/iketypes",
+                         "windows/win32/api/ipsectypes",
+                         "windows/security/operating-system-security/network-security"]),
+            ("troubleshoot", ["troubleshoot/windows-server/networking",
+                              "troubleshoot/windows-server/active-directory"]),
+        ],
+        "categories": [
+            ("defender_endpoint", "Defender for Endpoint", ["defender-endpoint"]),
+            ("defender_xdr", "Defender XDR・Exposure Management",
+             ["defender", "defender-xdr", "security-exposure-management"]),
+            ("defender_cloud_apps", "Defender for Cloud Apps", ["defender-cloud-apps"]),
+            ("defender_identity", "Defender for Identity", ["defender-for-identity"]),
+            ("defender_office365", "Defender for Office 365", ["defender-office-365"]),
+            ("defender_vm_business", "Defender 脆弱性管理・Defender for Business",
+             ["defender-vulnerability-management", "defender-business"]),
+            ("wfp", "Windows Filtering Platform (概要・プログラミングガイド)",
+             ["windows/win32/fwp"]),
+            ("wfp_api", "Windows Filtering Platform API リファレンス (fwpmu / IPsec など)",
+             ["windows/win32/api"]),
+            ("windows_firewall", "Windows ファイアウォール・ネットワークセキュリティ",
+             ["windows/security/operating-system-security/network-security"]),
+            ("ws_networking_ts", "Windows Server ネットワークのトラブルシューティング",
+             ["troubleshoot/windows-server/networking"]),
+            ("ws_ad_ts", "Active Directory のトラブルシューティング",
+             ["troubleshoot/windows-server/active-directory"]),
         ],
     },
 }
@@ -147,10 +199,32 @@ def docset_name(docset: str) -> str:
     return DOCSETS.get(docset, {}).get("name") or docset
 
 
+def is_collection(docset: str) -> bool:
+    return bool(DOCSETS.get(docset, {}).get("sources"))
+
+
+def source_root(docset: str, locale: str) -> str:
+    # まとめは複数の分野にまたがるので Learn のトップを出典にする
+    if is_collection(docset):
+        return f"{BASE_URL}/{locale}/"
+    return f"{BASE_URL}/{locale}/{docset}/"
+
+
+def _under(path: str, prefix: str) -> bool:
+    p = prefix.rstrip("/")
+    return path == p or path.startswith(p + "/")
+
+
 def categorize(docset: str, path: str) -> str:
     """path は "entra/identity/conditional-access/overview" の形 (ロケールなし)。"""
-    rel = path.split("/", 1)[1] if "/" in path else ""
     cfg = DOCSETS.get(docset)
+    if cfg and cfg.get("sources"):
+        # まとめ: 接頭辞はフルパス
+        for stem, _name, prefixes in cfg["categories"]:
+            if any(_under(path, p) for p in prefixes):
+                return stem
+        return OTHER
+    rel = path.split("/", 1)[1] if "/" in path else ""
     if cfg and not rel and cfg.get("root"):
         return cfg["root"]  # ドキュメントセットのトップページ (ハブ)
     if cfg:
@@ -195,33 +269,46 @@ def _xml_root(text: str) -> ET.Element:
 
 
 def fetch_sitemap(docset: str, locale: str) -> dict[str, str]:
-    """{path: lastmod} を返す。path は "<docset>/..." (先頭の /<locale>/ を除いたもの)。"""
+    """{path: lastmod} を返す。path は先頭の /<locale>/ を除いたもの ("entra/..." など)。
+
+    まとめ (sources あり) は各 sitemap から接頭辞に合うページだけを集める。
+    どれか 1 つでも sitemap が取れなければ例外にする (欠けたまま進むと、その分野の
+    ページを全部「削除」と判定してしまうため)。
+    """
     print(f"[sitemap] {SITEMAP_INDEX_URL}")
     resp = _get(SITEMAP_INDEX_URL, timeout=90)
     resp.raise_for_status()
-    pat = re.compile(rf"/_sitemaps/{re.escape(docset)}_{re.escape(locale)}_\d+\.xml$")
-    maps = [el.text.strip() for el in _xml_root(resp.content.decode("utf-8-sig")).iter("loc")
-            if el.text and pat.search(el.text.strip())]
-    if not maps:
-        raise RuntimeError(f"sitemap が見つかりません: {docset}_{locale}_N.xml")
+    all_maps = [el.text.strip() for el in _xml_root(resp.content.decode("utf-8-sig")).iter("loc")
+                if el.text]
 
+    cfg = DOCSETS.get(docset) or {}
+    sources = cfg.get("sources") or [(docset, [])]
     prefix = f"{BASE_URL}/{locale}/"
     result: dict[str, str] = {}
-    for url in sorted(maps):
-        r = _get(url, timeout=120)
-        r.raise_for_status()
+    for name, path_prefixes in sources:
+        pat = re.compile(rf"/_sitemaps/{re.escape(name)}_{re.escape(locale)}_\d+\.xml$")
+        maps = sorted(u for u in all_maps if pat.search(u))
+        if not maps:
+            raise RuntimeError(f"sitemap が見つかりません: {name}_{locale}_N.xml")
         n = 0
-        for url_el in _xml_root(r.content.decode("utf-8-sig")).iter("url"):
-            loc = url_el.find("loc")
-            if loc is None or not loc.text or not loc.text.startswith(prefix):
-                continue
-            path = loc.text.strip()[len(prefix):].rstrip("/")
-            if not path:
-                continue
-            lm = url_el.find("lastmod")
-            result[path] = (lm.text or "").strip() if lm is not None else ""
-            n += 1
-        print(f"[sitemap] {url.rsplit('/', 1)[-1]}: {n} URL")
+        for url in maps:
+            r = _get(url, timeout=120)
+            r.raise_for_status()
+            for url_el in _xml_root(r.content.decode("utf-8-sig")).iter("url"):
+                loc = url_el.find("loc")
+                if loc is None or not loc.text or not loc.text.startswith(prefix):
+                    continue
+                path = loc.text.strip()[len(prefix):].rstrip("/")
+                if not path:
+                    continue
+                if path_prefixes and not any(_under(path, p) for p in path_prefixes):
+                    continue
+                lm = url_el.find("lastmod")
+                result[path] = (lm.text or "").strip() if lm is not None else ""
+                n += 1
+        if n == 0:
+            raise RuntimeError(f"{name}: 対象ページが 0 件です (接頭辞: {path_prefixes})")
+        print(f"[sitemap] {name} ({len(maps)} ファイル): {n} URL")
     print(f"[sitemap] 合計 {len(result)} ページ")
     return result
 
@@ -346,7 +433,10 @@ def fetch_page(locale: str, path: str, delay: float) -> dict:
     base = meta.get("canonicalUrl") or url
     md = convert_body(body, base)
     if not md.strip():
-        return {"ok": False, "error": "本文が空"}
+        # API 一覧の目次ページなど、Learn の Markdown 版が見出ししか返さないページ
+        # (windows/win32/fwp/filter-management など)。中身は個々の API ページにあるので
+        # 取得失敗とは分けて数え、毎月の警告にしない
+        return {"ok": False, "empty": True, "error": "本文なし"}
     return {
         "ok": True,
         "title": clean_title(meta.get("title", "")) or path,
@@ -449,7 +539,7 @@ def write_category(docset: str, locale: str, out_root: Path, stem: str,
             continue
         p = out_dir / part_name(docset, stem, i)
         head = (f"# Microsoft Learn — {docset_name(docset)} / {display} (part {i})\n\n"
-                f"Source: {BASE_URL}/{locale}/{docset}/\n"
+                f"Source: {source_root(docset, locale)}\n"
                 f"Pages in this file: {len(buf)}\n\n---\n\n")
         text = head + "\n\n---\n\n".join(buf) + "\n"
         if not p.exists() or p.read_text(encoding="utf-8") != text:
@@ -496,10 +586,20 @@ def write_readme(docset: str, locale: str, out_root: Path, stats: list[dict],
     for s in stats:
         for p in s["files"]:
             rows.append(f"| `{p['name']}` | {s['name']} | {p['pages']:,} | {p['chars']:,} |")
+    cfg = DOCSETS.get(docset) or {}
+    if cfg.get("sources"):
+        lines = []
+        for name, prefixes in cfg["sources"]:
+            scope = ", ".join(f"`{p}`" for p in prefixes) if prefixes else "全ページ"
+            lines.append(f"- `{name}`: {scope}")
+        scope_text = ("Microsoft Learn の次の範囲 (sitemap 掲載分) を、機能カテゴリごとの\n"
+                      "Markdown にまとめたものです。\n\n" + "\n".join(lines))
+    else:
+        scope_text = (f"`{BASE_URL}/{locale}/{docset}/` 配下の全ページ (sitemap 掲載分) を、"
+                      f"機能カテゴリごとの\nMarkdown にまとめたものです。")
     body = f"""# NotebookLM 用 Microsoft Learn — {docset_name(docset)}
 
-`{BASE_URL}/{locale}/{docset}/` 配下の全ページ (sitemap 掲載分) を、機能カテゴリごとの
-Markdown にまとめたものです。
+{scope_text}
 
 - 生成: `scripts/build_mslearn_docs.py --docset {docset}`
 - 更新: `.github/workflows/mslearn-monthly.yml` (毎月 1 日。全ページを再確認し、結果をメールで通知)
@@ -555,6 +655,7 @@ def write_report(report: dict, report_dir: Path) -> None:
     section("更新", report["updated"], lambda it: f" (+{it['plus']} / -{it['minus']} 行)")
     section("削除 (sitemap から消えたページ)", report["removed"])
     section("取得失敗 (前回の内容を保持)", report["failed"], lambda it: f" — {it['error']}")
+    section("本文なし (目次だけのページ。保存対象外)", report.get("empty", []))
     (report_dir / "changes.md").write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -573,7 +674,7 @@ def run(args) -> int:
     report: dict = {
         "docset": docset, "docset_name": docset_name(docset), "locale": locale,
         "checked_at": started, "initial": initial, "limit": args.limit,
-        "new": [], "updated": [], "removed": [], "failed": [],
+        "new": [], "updated": [], "removed": [], "failed": [], "empty": [],
         "categories": [], "total_pages": 0, "files_changed": 0, "fatal": "",
     }
 
@@ -617,6 +718,9 @@ def run(args) -> int:
                 blocks[path] = old_block
                 pages[path] = {**prev, "lastmod": sitemap[path],
                                "category": categorize(docset, path)}
+            continue
+        if not res["ok"] and res.get("empty"):
+            report["empty"].append(item(path, prev.get("title") or path))
             continue
         if not res["ok"]:
             report["failed"].append(item(path, prev.get("title") or block_title(old_block or ""),
