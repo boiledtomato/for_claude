@@ -461,8 +461,8 @@ digest to `ciderred1239@gmail.com` (override with the `NOTIFY_EMAIL_TO` secret).
 
 ### `scripts/build_mslearn_docs.py` / `.github/workflows/mslearn-monthly.yml`
 
-Builds NotebookLM-ready Markdown from a Microsoft Learn **docset** (default `entra`,
-Japanese `ja-jp`, ~4,800 pages) and refreshes it **monthly** (`cron: "30 4 1 * *"`,
+Builds NotebookLM-ready Markdown from Microsoft Learn — `DEFAULT_DOCSETS: "entra
+security_network"`, Japanese `ja-jp`; Entra alone is ~4,800 pages — and refreshes it **monthly** (`cron: "30 4 1 * *"`,
 1st of the month 13:30 JST). Same marker/part-file design as `build_help_docs.py`.
 
 - **Page list:** `/_sitemaps/sitemapindex.xml` → every `<docset>_<locale>_N.xml`.
@@ -481,6 +481,17 @@ Japanese `ja-jp`, ~4,800 pages) and refreshes it **monthly** (`cron: "30 4 1 * *
   取得失敗); pages are removed only when they leave the sitemap; if the sitemap has
   < 50 % of the recorded pages the run aborts without touching anything; > 20 % fetch
   failures fail the step.
+- **Collections (`"sources"`):** a `DOCSETS` entry with `sources` is not a sitemap
+  name but a hand-picked bundle from several sitemaps — `(sitemap, [path prefixes])`,
+  empty prefixes = the whole sitemap. Its category prefixes are **full paths**
+  (`windows/win32/fwp`), not docset-relative. `security_network` (notebook
+  `MSLearn_security_network`, ~3,000 pages) bundles every Defender docset with the WFP
+  guide + API reference, Windows Firewall and the Windows Server networking / AD
+  troubleshooting pages — one notebook because NotebookLM cannot search across
+  notebooks and questions like "Defender vs. Zscaler Client Connector on WFP" span both.
+  Every source sitemap must yield ≥ 1 page or the run aborts, so a vanished sitemap
+  cannot be read as "every page removed". Whole `windows` / `azure` docsets (130k /
+  84k pages) never fit one notebook (~5,000 pages ≈ 85 sources ≈ the 100-source cap).
 - **Categories:** `DOCSETS[<docset>]["categories"]` — `(stem, 表示名, [path prefixes])`,
   first match wins (so `identity/` catch-all sits after the specific `identity/*`
   entries). A docset not in `DOCSETS` is bucketed by its first path segment, so adding
