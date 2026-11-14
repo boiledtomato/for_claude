@@ -140,6 +140,12 @@ Entra は約 83 ソース（うち `saas_apps` が 27）になります。Notebo
 その場合は `saas_apps`（SaaS 連携チュートリアル約 2,000 ページ）など不要なカテゴリを
 `--only` で外して手動同期するか、Pro プランを使ってください。
 
+同じワークフローで **`MSLearn_security_network`**（Defender 製品群＋WFP・Windows
+ファイアウォール・Windows Server ネットワーク / AD のトラブルシューティング、約 3,000
+ページ・約 55 ソース）も毎月更新します。範囲は `build_mslearn_docs.py` の
+`DOCSETS["security_network"]["sources"]` で決まります。1 つずつ試すときは `docsets` に
+`security_network` だけを入れて実行してください。
+
 **初回の実行:** Actions → **Microsoft Learn Docs Monthly Update** → Run workflow。
 まず `limit` に `20`、`sync` に `dry-run` を入れて流れとメールを確認し、問題なければ
 `limit` を `0` に戻して実行すると全ページの初回登録になり、「初回登録」のメールが届きます。
