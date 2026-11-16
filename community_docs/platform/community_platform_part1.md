@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-09 12:00 UTC
-Posts in this file: 403
+Generated: 2026-11-16 11:57 UTC
+Posts in this file: 395
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -8129,6 +8129,577 @@ Blog Details
 
 ---
 
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Blogs/aSnPJ0000000j1x0AA/how-zscaler-perimeter-policies-cut-policy-bloat","lastmod":"2026-11-10T18:22:40.000Z","id":"aSnPJ0000000j1x0AA"} -->
+## How Zscaler Perimeter Policies Cut Policy Bloat
+
+- Source: https://community.zscaler.com/s/Blogs/aSnPJ0000000j1x0AA/how-zscaler-perimeter-policies-cut-policy-bloat
+- Type: Blog
+- Last activity: 2026-11-10T18:22:40.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Blog Details
+
+Zscaler Microsegmentation (ZMS)
+
+ssingla
+
+(Employee) posted a Blog
+
+Edited 14h ago
+
+How Zscaler Perimeter Policies Cut Policy Bloat
+
+Taming Microsegmentation Complexity:
+
+How Zscaler Perimeter Policies Cut Policy Bloat
+
+Decouple boundary protection from business access intent to build resilient, ring-fenced workload perimeters without operational paralysis.
+
+1. The Microsegmentation Paradox: Strategic Mandate Meets Operational Gridlock
+
+Microsegmentation is widely recognized as the definitive architectural strategy for neutralizing lateral threat movement and achieving Zero Trust across enterprise cloud and data center estates. By confining workloads to strictly isolated communication boundaries, security teams can prevent an initial compromise on a public-facing frontend server from escalating into an enterprise-wide catastrophic breach.
+
+Yet for network engineers and security architects tasked with deploying it, traditional microsegmentation frequently stalls. The fundamental bottleneck is operational friction. In legacy access control architectures, administrators must write and maintain dozens of discrete rules for every single workload: explicit allows for inter-tier application traffic, intra-tier clustering rules, administrative jump box exceptions, infrastructure service dependencies, and sprawling catch-all deny rules to block lateral traversal.
+
+As enterprise workloads multiply across hybrid and multi-cloud environments, central rule bases explode into an unmanageable web of conflicting priorities. Security teams become paralyzed by the very real fear that enforcing a perimeter block will inadvertently sever an undocumented production dependency. To break this operational gridlock, Zscaler Microsegmentation introduces Perimeter Policies —a streamlined policy abstraction that binds boundary containment directly to Resource Group, cutting explicit rule requirements significantly while guaranteeing safe, validated enforcement.
+
+Figure 1
+
+: Anatomy of a typical 3-tier web workload showing communication vectors across user, admin, infrastructure, and application tiers.
+
+2. Anatomy of the Challenge: 14 Rules for a Single 3-Tier Application
+
+To appreciate the operational complexity Perimeter Policies eliminate, consider securing a standard enterprise 3-tier web application deployed across a public cloud (AWS, Azure, GCP) or private virtualized datacenter. The application is internal (intranet-only) and comprises three distinct Resource Groups: Web RG (frontend Linux VMs), Middleware RG (business logic Linux VMs), and DB RG (clustered MySQL database servers).
+
+Let us catalog the legitimate operational access requirements for this application stack:
+
+Frontend User Access: Corporate users originating from unmanaged intranet networks must access the Web tier on TCP 8090.
+
+Inter-Tier Application Traffic: The Web tier must communicate with the Middleware tier on TCP 8091. The Middleware tier must query the MySQL Database tier on TCP 3306. Crucially, the Web tier must have zero direct access to the Database tier.
+
+Database Replication: MySQL database servers replicate state to ensure high availability, requiring unrestricted intra-tier database communication across TCP 3306.
+
+Infrastructure Core Services: All workloads (Web, Middleware, and DB) require outbound access to core infrastructure services: Active Directory, Kerberos authentication (TCP 88), DNS (UDP/TCP 53), LDAP (TCP 389/636), and NTP (UDP 123).
+
+Maintenance & Telemetry: Underlying Linux VMs and host-based Endpoint Detection and Response (EDR) agents require outbound HTTPS (TCP 443) to reach vendor update servers. Systems administrators require SSH (TCP 22) access originating strictly from a Bastion host Resource Group. Database administrators require direct access to MySQL on TCP 3306.
+
+Zero Trust Boundary Isolation: All other inbound and outbound traffic to and from the Web, Middleware, and Database Resource Groups must be explicitly blocked.
+
+When translated into traditional, Microsegmentation Resource Policy rules, satisfying these requirements demands an overwhelming 14 discrete policy rules for a single application stack:
+
+Rule Name
+
+Action
+
+Source
+
+Destination
+
+Ports / Service
+
+WEB-To-WEB
+
+ALLOW
+
+WEB
+
+TCP/UDP 1-65535
+
+MIDDLEWARE-To-MIDDLEWARE
+
+ALLOW
+
+Middleware
+
+TCP/UDP 1-65535
+
+DB-To-DB
+
+ALLOW
+
+DB
+
+TCP/UDP 1-65535
+
+USERS-To-WEB
+
+ALLOW
+
+URG-INTRANET-ACCESS
+
+WEB
+
+TCP 8090
+
+WEB-To-MIDDLEWARE
+
+ALLOW
+
+WEB
+
+Middleware
+
+TCP 8091
+
+MIDDLEWARE-To-DB
+
+ALLOW
+
+Middleware
+
+DB
+
+TCP 3306
+
+BASTION-To-APP
+
+ALLOW
+
+Bastion
+
+WEB, Middleware, DB
+
+TCP 22 (SSH)
+
+MYSQL-ADMIN-ACCESS-To-DB
+
+ALLOW
+
+URG-MYSQL-ADMIN
+
+DB
+
+TCP 3306
+
+APP-To-INFRA
+
+ALLOW
+
+WEB, Middleware, DB
+
+Infrastructure
+
+AD, Kerberos, DNS, NTP
+
+10
+
+APP-To-INTERNET
+
+ALLOW
+
+WEB, Middleware, DB
+
+URG-EXT-PUBLIC-IP
+
+TCP 443 (HTTPS)
+
+11
+
+BLOCK-OUTBOUND-To-INTERNET
+
+BLOCK
+
+WEB, Middleware, DB
+
+URG-EXT-PUBLIC-IP
+
+TCP/UDP 1-65535
+
+12
+
+BLOCK-OUTBOUND-To-RFC1918
+
+BLOCK
+
+WEB, Middleware, DB
+
+URG-INT-PRIVATE-IP
+
+TCP/UDP 1-65535
+
+13
+
+BLOCK-INBOUND-From-INTERNET
+
+BLOCK
+
+URG-EXT-PUBLIC-IP
+
+WEB, Middleware, DB
+
+TCP/UDP 1-65535
+
+14
+
+BLOCK-INBOUND-From-RFC1918
+
+BLOCK
+
+URG-INT-PRIVATE-IP
+
+WEB, Middleware, DB
+
+TCP/UDP 1-65535
+
+Writing 14 rules for a single application is tedious; managing it across hundreds of enterprise applications is untenable. Notice rules 11 through 14: these are coarse, blunt block rules targeting broad IP subnets (RFC 1918 and external ranges) designed solely to enforce a boundary. If an engineer incorrectly positions a single rule or misconfigures an exception, legitimate traffic drops, triggering urgent outage bridges. Consequently, many organizations leave boundary enforcement disabled, defeating the entire purpose of microsegmentation.
+
+3. The Architectural Solution: Introducing Zscaler Perimeter Policies
+
+To eliminate this architectural friction, Zscaler Microsegmentation introduces Perimeter Policies. A Perimeter Policy decouples affirmative business access intent from boundary containment by binding a cohesive, 3-dimensional perimeter directly to the Resource Group (RG) container object.
+
+Rather than cluttering the central Resource Policy table with dozens of repetitive intra-group allow rules and blunt RFC 1918 deny statements, every Resource Group can now govern its own boundary across three native traffic vectors:
+
+Internal Traffic Enforcement (Workload-to-Workload)
+
+: Controls whether workloads inside the same Resource Group can communicate with one another. Set to Allow by default, this natively accommodates database clustering, web node sync, and container peer traffic without requiring manual intra-tier allow rules. It can also be set to Disable to prevent lateral infection across identical tier nodes.
+
+Inbound Traffic Enforcement (Outside-to-Workload)
+
+: Defines what happens to traffic entering the Resource Group that is not explicitly permitted by a higher-priority Resource Policy. Configurable as Sim Block, Block, or Disable (default: Sim Block).
+
+Outbound Traffic Enforcement (Workload-to-Outside)
+
+: Defines what happens to traffic originating from within the Resource Group destined for external destinations that does not match an explicit allow rule. Configurable as Sim Block, Block, or Disable (default: Disable).
+
+Figure 2
+
+: With Perimeter Policies attached to each Resource Group, explicit policies define what is allowed; the perimeter stops everything else.
+
+4. The 50% Rule Reduction: From 14 Rules Down to 7
+
+When we re-architect our 3-tier application using a combination of explicit Resource Policies and native Perimeter Policies, the explicit ruleset shrinks from 14 rules down to 7—an immediate 50% reduction in policy volume and cognitive complexity.
+
+The 4 blunt, dangerous block rules (rules 11–14) and the 3 repetitive intra-group allow rules (rules 1–3) are completely removed from the central policy table. Instead, each tier Resource Group (Web, Middleware, DB) is assigned a Perimeter Policy where:
+
+Internal Traffic
+
+: Allow (enables native MySQL replication and intra-tier health checks).
+
+Inbound Traffic
+
+: Block (drops any incoming connection not explicitly matched by an allow rule).
+
+Outbound Traffic
+
+: Block (drops any outbound egress not explicitly authorized for infrastructure or updates).
+
+Figure 3
+
+: The streamlined ruleset: 7 affirmative Resource Policy rules governing business connectivity, backed by automated Perimeter Policies on each Resource Group.
+
+Rule Name
+
+Action
+
+Source
+
+Destination
+
+Ports / Service
+
+USERS-To-WEB
+
+ALLOW
+
+URG-INTRANET-ACCESS
+
+WEB
+
+TCP 8090
+
+WEB-To-MIDDLEWARE
+
+ALLOW
+
+WEB
+
+Middleware
+
+TCP 8091
+
+MIDDLEWARE-To-DB
+
+ALLOW
+
+Middleware
+
+DB
+
+TCP 3306
+
+BASTION-To-APP
+
+ALLOW
+
+Bastion
+
+WEB, Middleware, DB
+
+TCP 22 (SSH)
+
+MYSQL-ADMIN-ACCESS-To-DB
+
+ALLOW
+
+URG-MYSQL-ADMIN
+
+DB
+
+TCP 3306
+
+APP-To-INFRA
+
+ALLOW
+
+WEB, Middleware, DB
+
+Infrastructure
+
+AD, Kerberos, DNS, NTP
+
+APP-To-INTERNET
+
+ALLOW
+
+WEB, Middleware, DB
+
+URG-EXT-PUBLIC-IP
+
+TCP 443 (HTTPS)
+
+The Architectural Payoff: Security architects now write rules exclusively to define affirmative business intent . The central policy engine remains clean, auditable, and easily understood by cross-functional teams. Boundary isolation is inherently managed at the Resource Group layer, eliminating rule sprawl forever.
+
+5. Policy Hierarchy and Evaluation Order
+
+A frequent question from network engineers is:
+
+How do Perimeter Policies interact with explicit Resource Policy rules?
+
+Zscaler Microsegmentation enforces a strict, deterministic 4-stage evaluation hierarchy, evaluated top-down:
+
+Implicit / Infrastructure Policy (Highest Precedence)
+
+: These system-level policies are automatically provisioned and managed by Zscaler. They guarantee that the local Zscaler agent can always communicate with core network primitives (local DNS, DHCP, default gateways) and reach Zscaler Cloud control planes upon system boot. They cannot be accidentally overridden by user policies.
+
+Resource Policy (Explicit Rules)
+
+: These are custom, user-defined explicit allow or deny rules. If a connection matches an affirmative Resource Policy (e.g., Web-to-Middleware on TCP 8091), the packet is immediately permitted, bypassing downstream perimeter checks.
+
+Perimeter Policy
+
+: If a connection does not match an explicit Resource Policy rule, it is evaluated against the destination or source Resource Group's Perimeter Policy in the following order: Internal Traffic Enforcement first, Inbound Traffic Enforcement second, Outbound Traffic Enforcement third.
+
+Default Resource Policy Rule (Fallback)
+
+: If traffic matches neither an explicit Resource Policy nor a Perimeter Policy, it falls through to the tenant-wide Default Resource Policy Rule. Note: Zscaler is considering changing the default policy to Allow only. The architectural rationale is clear: setting tenant-wide default to Block can catastrophically sever unmodeled services, whereas Perimeter Policies localize blocking safely to specific Resource Groups.
+
+Figure 4:
+
+Zscaler Policy Hierarchy showing the deterministic evaluation path from Infrastructure Policies down to Perimeter Policies.
+
+6. Eliminating Deployment Fear: Phased Rollout with 'Sim Block'
+
+In enterprise networking, the greatest impediment to zero trust microsegmentation is the dread of the unintended outage—the fear that enforcing a strict block policy will inadvertently sever an undocumented, legacy business dependency. Zscaler Perimeter Policies directly solve this with Sim Block (Simulated Block).
+
+When Inbound or Outbound Enforcement is configured to Sim Block, Zscaler allows traffic to pass normally without interruption, while logging full telemetry indicating that the packet would have been blocked under active enforcement. This empowers teams to execute a proven, zero-risk 3-stage rollout framework:
+
+Stage 1 Discover & Group (Visibility):
+
+Deploy the lightweight Zscaler agent or cloud connectors. Group workloads into logical Resource Groups based on application roles and environment tags. Observe ambient communication patterns without enforcing any restrictions.
+
+Stage 2 Validate with Sim Block:
+
+Define explicit Resource Policies for known business paths. Attach Perimeter Policies to your Resource Groups with Inbound and Outbound set to Sim Block. Audit telemetry logs: if legitimate operational traffic triggers a simulated block, simply craft a granular allow rule to authorize it. Continue tuning until simulated violations drop to zero.
+
+Stage 3 Enforce with Confidence (Block):
+
+Transition the Perimeter Policy from Sim Block to active Block, one Resource Group at a time. Best practice is to enforce from the inside out: start with the most sensitive backend tier (DB RG), move outward to Middleware, and finalize on the frontend Web RG.
+
+7. Advanced Architecture: Multi-Layer Ring Fencing, AppZones & Overlapping Rules
+
+Multi-Environment Ring Fencing
+
+Perimeter Policies provide effortless environment isolation. By placing all production assets into a PROD Resource Group, staging assets into UAT RG, and development assets into DEV RG, security teams can enforce perimeter blocks at the environment boundary. Cross-environment lateral traversal between DEV, UAT, and PROD is stopped dead at the perimeter, even if internal workloads share physical subnets or VPC peering links.
+
+Two Layers of Ring Fencing
+
+Enterprise architectures often require layered containment. For example, a virtual machine may belong to both the broader PROD Resource Group (environment boundary) and the granular Web Resource Group (application tier boundary). The PROD RG provides coarse perimeter protection against external networks and staging environments, while the nested Web RG provides micro-level isolation against other production tiers.
+
+Rule Order for Perimeter Policies
+
+Like Resource Policies, Perimeter Policies support deterministic Rule Ordering. Perimeter Policies are evaluated sequentially from top to bottom, stopping at the first matching rule.
+
+Rule ordering becomes crucial when resources belong to overlapping Resource Groups. Consider a Linux VM tagged both with Environment: Prod and Role: Web. If the broader PROD Perimeter Policy is positioned above the Web Perimeter Policy, an incoming packet might hit the PROD perimeter's block rule before reaching granular Web tier exceptions. Network architects should place more granular tier-level Perimeter Policies higher in the evaluation list than broad environment-level perimeter policies, ensuring specific application permissions take precedence before general environment boundaries apply.
+
+Controlling Blast Radius with AppZones
+
+When Resource Groups are dynamically populated using cloud provider tags (e.g., AWS EC2 tags Role: Web), member instances may be distributed across multiple distinct cloud regions (e.g., us-east-1, eu-west-3) or separate VPCs. Applying a single unconstrained perimeter policy across all of them could inadvertently bridge or misalign disparate network zones.
+
+AppZones solve this by establishing geographic or administrative boundaries. By scoping a Perimeter Policy to specific AppZones, architects ensure that the perimeter enforcement applies exclusively to workloads residing within that defined administrative zone, preventing unintended cross-region or cross-cloud scope expansion.
+
+In cloud environments such as AWS, this discovery happens automatically based on VPC metadata. For environments like Microsoft Azure and Google Cloud Platform (GCP), customers specify the VPC/VNet and Subnet specifically when creating the Agent Group.
+
+8. Step-by-Step Configuration Workflows
+
+Configuring Perimeter Policies in the Zscaler Admin Console is designed to be frictionless. Administrators can define perimeters either during initial Resource Group provisioning or attach them to existing Resource Groups.
+
+Workflow 1: Enable Perimeter for a New Resource Group
+
+In the Zscaler Admin Console, navigate to: Zero Trust Cloud > Microsegmentation > Resource Groups.
+
+Click Add Resource Group to launch the creation wizard.
+
+In General Information, enter the Resource Group Name and optional Description.
+
+In the Criteria step, select Managed , and configure either Static Membership or Dynamic Membership (example: tag-based criteria).
+
+Notice that the Create Perimeter option is selected by default.
+
+In Review & Perimeter: configure AppZones, Inbound Traffic Enforcement (Sim Block / Block / Disable), Outbound Traffic Enforcement, and Internal Traffic Enforcement (Allow / Disable).
+
+Click Save to commit the Resource Group and its perimeter.
+
+Workflow 2: Enable Perimeter for an Existing Resource Group
+
+Navigate to: Zero Trust Cloud > Microsegmentation > Perimeter Policies.
+
+Click Add Perimeter Policy to open the configuration drawer.
+
+Select the target Resource Group from the dropdown list.
+
+Configure Order (defaults to last; adjust if prioritizing overlapping memberships).
+
+Select target AppZones.
+
+Define Inbound, Outbound, and Internal Traffic Enforcement modes.
+
+Click Create to activate the perimeter.
+
+FAQ
+
+The following 8 questions represent the most critical technical, operational, and evaluative inquiries security architects and network engineers will ask after reading this post:
+
+Customer Question
+
+Category
+
+Disposition & Action
+
+Are Perimeter Policies mandatory for all existing Resource Groups?
+
+Operational
+
+Addressed Inline (FAQ): No. Standard Resource Policies maintain higher evaluation priority. Workloads operate unchanged until an admin explicitly adds a Perimeter Policy.
+
+What happens if a packet matches an explicit Resource Policy Allow AND a Perimeter Policy Block?
+
+Technical
+
+Addressed Inline: Explicit Resource Policies evaluate before Perimeter Policies. The affirmative allow wins, and the perimeter block is bypassed.
+
+Why is Internal Traffic Enforcement set to 'Allow' by default?
+
+Architecture
+
+Addressed Inline: Most application tiers require intra-group communication for clustering, database replication, or cache sync. Default Allow prevents outage.
+
+Can I enforce intra-tier isolation (e.g., prevent web-01 from talking to web-02)?
+
+Technical
+
+Addressed Inline: Yes. Simply switch Internal Traffic Enforcement to Disable to block all peer-to-peer lateral traversal within the group. Use Resource Policy to allow required traffic between intra-tier.
+
+How does Perimeter Policy handle egress to SaaS or internet services?
+
+Network
+
+Addressed Inline: Explicit Resource Policies handle authorized egress (e.g. HTTPS 443). The Perimeter Outbound Block catches all unauthorized egress.
+
+Can we manage Perimeter Policies via API?
+
+Automation
+
+Addressed Inline / Follow-Up: Yes. Perimeter Policies are fully exposed via the Zscaler Microsegmentation GraphQL API.
+
+What happens if a workload matches two different Resource Groups with conflicting Perimeter Policies?
+
+Architecture
+
+Addressed Inline: Handled via top-down Rule Order. The Perimeter Policy positioned highest in the rule list evaluates first and terminates on match.
+
+Why should the tenant-wide Default Resource Policy Rule stay set to 'Allow'?
+
+Best Practice
+
+Addressed Inline: Setting a global fallback to Block creates severe outage risks for unmodeled services. Perimeter Policies localize blocking safely to specific groups. Note that Zscaler is considering changing the default policy to Allow only.
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Blog Details
+<!-- /ZS-POST -->
+
+---
+
 <!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000005aCX0AY/how-to-access-your-cases-in-the-zscaler-customer-support-portal","lastmod":"2025-09-25T16:40:36.000Z","id":"aSoPJ0000005aCX0AY"} -->
 ## How to Access Your Cases in the Zscaler Customer Support Portal
 
@@ -13814,12 +14385,12 @@ Guide Details
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ00000066U90AI/how-to-add-management-ip-for-nss-on-nutanix","lastmod":"2026-04-28T13:58:55.000Z","id":"aSoPJ00000066U90AI"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ00000066U90AI/how-to-add-management-ip-for-nss-on-nutanix","lastmod":"2026-11-09T17:30:04.000Z","id":"aSoPJ00000066U90AI"} -->
 ## How to add Management IP for NSS on Nutanix
 
 - Source: https://community.zscaler.com/s/Guides/aSoPJ00000066U90AI/how-to-add-management-ip-for-nss-on-nutanix
 - Type: Guide
-- Last activity: 2026-04-28T13:58:55.000Z
+- Last activity: 2026-11-09T17:30:04.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 Guide Details
@@ -70570,1143 +71141,4 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 Not sure about taking the ZDTA certification yet?
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQTl4ICQT/zscaler-academy-trainings-and-cpes","lastmod":"2024-04-17T11:52:53.000Z","id":"0D54u0000AQTl4ICQT"} -->
-## Zscaler Academy trainings and CPEs
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AQTl4ICQT/zscaler-academy-trainings-and-cpes
-- Type: Q&A
-- Last activity: 2024-04-17T11:52:53.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Certification
-
-lucaberta
-
-(Partner) asked a question.
-
-April 17, 2024 at 11:52 AM
-
-Zscaler Academy trainings and CPEs
-
-Hi all, and especially the Zscaler Academy training team,
-
-I have embarked in a number of training courses over the last couple of months, which allowed me to refresh my knowledge of ZIA and ZPA, by reaching the Zscaler Certified Delivery Specialist (ZCDS) status which I earned just now!
-
-I had to also go thru the new EDU-200 and EDU-202 plus the ZIA and ZPA Delivery labs and exams, and spent quite some time perfecting my skills, something which is very useful to me in my delivery specialist role.
-
-My question is on the CPEs, as I am not clear how to show the fact that I have effectively perform these activities to allow ISC2 to grant me the CPEs for my CISSP renewal.
-
-Here is what I mean. If I take a look at the ZPA Delivery Specialist Practical exam I have 8 CPEs and a certificate which proves the achievement:
-
-I presume that simply sending the certificate as a proof for my CPEs would be enough.
-
-For what concerns ZIA Delivery Specialist Practical exam, which is listed at 9 CPEs, I do not see that link to download a certificate:
-
-Is this an error on the Academy website?
-
-Moreover, for what concerns EDU-200 and EDU-202 labs and exams, from the Academy website I see that they should provide 30 CPEs, which is a very high number, so I am prone to believe that this is an error:
-
-Can anyone from the Zscaler Academy team clarify the matter?
-
-Hopefully this can also be useful to other Zscaler technicians who can benefit from the CPEs accrued during the Zscaler Academy trainings.
-
-Many thanks,
-
-Luca Bertagnolio
-
-Certification
-
-391 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/12/2024
-
-at
-
-04:57 AM
-
-ZIA administrator certification
-
-Certification
-
-User16739629112679781823
-
-1,211
-
-1211 Views
-
-0 Likes
-
-2 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Zscaler Academy trainings and CPEs
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQTqX3CQL/we-are-coming-to-boston-on-may-9-book-your-seat-now","lastmod":"2024-04-17T14:39:54.000Z","id":"0D54u0000AQTqX3CQL"} -->
-## We are coming to Boston on May 9. Book your seat now!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AQTqX3CQL/we-are-coming-to-boston-on-may-9-book-your-seat-now
-- Type: Q&A
-- Last activity: 2024-04-17T14:39:54.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-April 17, 2024 at 2:39 PM
-
-We are coming to Boston on May 9. Book your seat now!
-
-Are you ready Boston? Zscaler Academy Training Roadshows are coming to Boston on May 9 for a NO-COST in-person training session led by our expert instructors. We would love to see you there. We only have a few seats. Go ahead and
-
-book your seat now
-
-Training Events
-
-200 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-We are coming to Boston on May 9. Book your seat now!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQUNswCQH/browser-isolation-edu233-course-is-now-here-check-out-now","lastmod":"2024-04-18T13:43:24.000Z","id":"0D54u0000AQUNswCQH"} -->
-## Browser Isolation (EDU-233) course is now here! Check out now
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AQUNswCQH/browser-isolation-edu233-course-is-now-here-check-out-now
-- Type: Q&A
-- Last activity: 2024-04-18T13:43:24.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-April 18, 2024 at 1:43 PM
-
-Browser Isolation (EDU-233) course is now here! Check out now
-
-The all-new Browser Isolation (EDU-233) course that offers a comprehensive exploration of Browser Isolation technology is here. You can now delve into the ways in which Browser Isolation effectively safeguards against various threats and much more. Learn More:
-
-Customer:
-
-https://lnkd.in/gqY_9N9k
-
-Partner:
-
-https://lnkd.in/gmeuZ3zN
-
-Training Portfolio
-
-256 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Browser Isolation (EDU-233) course is now here! Check out now
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROXZ4CQP/havent-checked-out-our-new-browser-isolation-training-yet","lastmod":"2024-04-22T18:42:55.000Z","id":"0D54u0000AROXZ4CQP"} -->
-## Haven't checked out our new Browser Isolation training yet?
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AROXZ4CQP/havent-checked-out-our-new-browser-isolation-training-yet
-- Type: Q&A
-- Last activity: 2024-04-22T18:42:55.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Portfolio
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-April 22, 2024 at 6:42 PM
-
-Haven't checked out our new Browser Isolation training yet?
-
-If you haven't checked out our new Browser Isolation training yet, we bet you should. It will help you learn how Browser Isolation helps to enhance protection and boost user productivity. It also helps you identify the isolation browser experience for ZIA and ZPA users and much more. Enroll Now!
-
-Customer:
-
-https://lnkd.in/gqY_9N9k
-
-Partner:
-
-https://lnkd.in/gmeuZ3zN
-
-Training Portfolio
-
-277 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Haven't checked out our new Browser Isolation training yet?
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROYgYCQX/all-set-for-our-upcoming-zsync-with-experts-training-workshops","lastmod":"2024-04-22T18:40:09.000Z","id":"0D54u0000AROYgYCQX"} -->
-## All set for our upcoming Z-sync with Experts training workshops?
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AROYgYCQX/all-set-for-our-upcoming-zsync-with-experts-training-workshops
-- Type: Q&A
-- Last activity: 2024-04-22T18:40:09.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-April 22, 2024 at 6:40 PM
-
-All set for our upcoming Z-sync with Experts training workshops?
-
-After an overwhelming response on our recent virtual training sessions led by our expert instructors, we are back with more sessions and more seats this time. We also have dedicated sessions for our APJ learners on Data and Cyberthreat Protection. Check out the below links and register for your preferred workshop now.
-
-Customers:
-
-https://lnkd.in/gMKuqyfQ
-
-Partners:
-
-https://lnkd.in/gy6CdZmU
-
-Training Events
-
-213 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-All set for our upcoming Z-sync with Experts training workshops?
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROZKjCQP/no-cost-interactive-training-session-in-mumbai-on-may-6","lastmod":"2024-04-22T18:41:35.000Z","id":"0D54u0000AROZKjCQP"} -->
-## No cost, interactive training session in Mumbai on May 6!
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AROZKjCQP/no-cost-interactive-training-session-in-mumbai-on-may-6
-- Type: Q&A
-- Last activity: 2024-04-22T18:41:35.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Training Events
-
-Deepti Gupta
-
-(Employee) asked a question.
-
-April 22, 2024 at 6:41 PM
-
-No cost, interactive training session in Mumbai on May 6!
-
-Mumbai, here we come on May 6 for an exclusive in-person training roadshow led by our expert instructors. We would want you to jump to this no cost, interactive training session opportunity. Limited seats left. Book your seat now!
-
-Training Events
-
-226 views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-No posts to show.
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-No cost, interactive training session in Mumbai on May 6!
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROol0CQD/zscaler-certificate-error-in-android-emulator","lastmod":"2024-04-23T09:07:46.000Z","id":"0D54u0000AROol0CQD"} -->
-## Zscaler certificate error in Android Emulator
-
-- Source: https://community.zscaler.com/s/question/0D54u0000AROol0CQD/zscaler-certificate-error-in-android-emulator
-- Type: Q&A
-- Last activity: 2024-04-23T09:07:46.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ZUG - India
-
-sheetalM18
-
-(Customer) asked a question.
-
-Edited April 23, 2024 at 9:07 AM
-
-Zscaler certificate error in Android Emulator
-
-We are unable to download some plugins (maven , gradle etc) for android studio. Also We are unable to access internet inside android app in an emulator even after Zscaler is installed CA certificate. even local host urls also not working. Its throwing SSL error.
-
-android emulator issue -
-
-1. primary error: 3 certificate: Issued to: CN=www.google.com;Issued by: CN=Zscaler Intermediate Root CA (zscaler.net) (t)\ ,OU=Zscaler Inc.,O=Zscaler Inc.,ST=California,C=US;   on URL:
-
-https://www.google.com/
-
-2.
-
-ssl_client_socket_impl.cc(996) handshake failed
-
-Even zscaler is not allowing to download NPM modules.
-
-Do we need to bypass the zscaler ? if yes, can anybody help us?
-
-Or is there any alternate solution for the above issues.
-
-ZUG - India
-
-1.11K views
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-7/21/2025
-
-at
-
-07:29 AM
-
-Zscaler Learning Path for Zscaler Private Access
-
-ZUG - India
-
-TechExeprt
-
-220
-
-220 Views
-
-0 Likes
-
-2 Comments
-
-7/7/2026
-
-at
-
-07:26 AM
-
-Guided Tour asking Enter your username or email to sign in -Solution Demo Center
-
-ZUG - India
-
-neerajkumar.jagetia
-
-264
-
-264 Views
-
-2 Likes
-
-5 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Zscaler certificate error in Android Emulator
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARReyhCQD/new-community-achievements-and-leaderboards","lastmod":"2024-10-09T17:25:06.000Z","id":"0D54u0000ARReyhCQD"} -->
-## **NEW** Community Achievements and Leaderboards
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ARReyhCQD/new-community-achievements-and-leaderboards
-- Type: Q&A
-- Last activity: 2024-10-09T17:25:06.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-Community Highlights
-
-Ben_Garrison
-
-(Employee) asked a question.
-
-April 26, 2024 at 3:29 PM
-
-**NEW** Community Achievements and Leaderboards
-
-We are happy to announce our community achievements program. This is designed to recognize and celebrate your engagement and activity within the community. You will be able to earn badges, reputation, and achievements.
-
-We will begin deployment on Saturday, April 27th at 7:30PM PT
-
-Starting on Sunday, April 28th at 2:30AM PT, you will be able to enjoy:
-
-Leaderboards
-
-showcasing our top contributors.
-
-Missions
-
-which will help you earn new badges.
-
-Activity awards
-
-for liking, commenting on topics and posts.
-
-Reputation points
-
-to highlight your contributions as a reliable source.
-
-You will earn reputation by posting topics, commenting, receiving likes, and being an active member of the community. We have 13 ranks starting at Copper I and going all the way to Champion. We will add more information about the ranks soon.
-
-Missions will provide specific badges for completing actions, such as updating your profile or engaging with certain posts.
-
-Commenting, liking, or posting new topics, you will earn achievements to showcase your active participation.
-
-Badges will be earned through various activities, both in and outside of our community. Whether you attend Zenith Live or earn a new certification, there are badges to be earned.
-
-We have more to come after launch, including incorporating swag and redeemable items earned via badges and achievements. So be sure to keep checking back for those updates.
-
-We hope you enjoy this new feature and look forward to hearing your feedback and your engagement!
-
-Community Highlights
-
-6 answers
-
-736 views
-
-Manasi Saha
-
-Sumanta Saha
-
-, and
-
-7 others
-
-like this.
-
-Omar
-
-(Customer)
-
-2 years ago
-
-Amazing feature, can't wait :D
-
-Naman
-
-(Employee)
-
-2 years ago
-
-yay excited to see the new upcoming features.
-
-johnsonto
-
-(Customer)
-
-2 years ago
-
-This is cool!!
-
-1 like
-
-Omar
-
-(Customer)
-
-2 years ago
-
-Is there an indicator what is required to achieve each level and what are the available badges.
-
-Ben_Garrison
-
-(Employee)
-
-2 years ago
-
-We are working on a missions detail page that will display all available missions as well as a badge detail that will display this as well. This will be implemented shortly.
-
-Manasi Saha
-
-(Partner)
-
-2 years ago
-
-Nice to hear. Awaiting.
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-9/29/2023
-
-at
-
-02:27 AM
-
-Image Not Available?
-
-Community Highlights
-
-Shojiro Otani
-
-514
-
-514 Views
-
-0 Likes
-
-6 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-**NEW** Community Achievements and Leaderboards
-<!-- /ZS-POST -->
-
----
-
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARS0DBCQ1/certification","lastmod":"2024-04-29T14:49:59.000Z","id":"0D54u0000ARS0DBCQ1"} -->
-## Certification
-
-- Source: https://community.zscaler.com/s/question/0D54u0000ARS0DBCQ1/certification
-- Type: Q&A
-- Last activity: 2024-04-29T14:49:59.000Z
-- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
-
-ankitnkgpt
-
-(Customer) asked a question.
-
-April 28, 2024 at 9:35 AM
-
-Certification
-
-Any Free training and Certification Available for Zscalar Product
-
-Please Guide
-
-Certification
-
-1 answer
-
-346 views
-
-Ben_Garrison
-
-(Employee)
-
-2 years ago
-
-There are several resources available on the Zscaler Academy site. There are often promotions as well for our certifications to receive the certification at zero or at a discounted rate. Be sure to check back here, as well as the academy site for any promotions.
-
-Please check the academy site for more information.
-
-https://www.zscaler.com/zscaler-academy
-
-Log In to Answer
-
-Associated Tags
-
-No tags associated with this post!!
-
-Do you like what
-
-you read?
-
-Please show your appreciation if you like the content on this post.
-
-Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
-
-Solutions
-
-1/12/2024
-
-at
-
-04:57 AM
-
-ZIA administrator certification
-
-Certification
-
-User16739629112679781823
-
-1,205
-
-1205 Views
-
-0 Likes
-
-2 Comments
-
-Zenith Community
-
-An open, collaborative knowledge base for customers, users, and partners
-
-Community
-
-Tech Thoughts
-
-Support
-
-Support plans
-
-Best practices
-
-Service Level Agreement
-
-Zscaler
-
-Zscaler.com
-
-Zenith Live
-
-Zscaler Zero Trust
-
-CXO REvolutionaries
-
-CXO Home
-
-Insights
-
-CXO Knowledge Base
-
-Sign up for our Community Newsletter
-
-Click below to stay up to date on all things community activities
-
-Subscribe
-
-Top
-
-Privacy
-
-Terms of service
-
-About
-
-FAQ
-
-Copyright 2008-2026 Zscaler
-
-Certification
 <!-- /ZS-POST -->

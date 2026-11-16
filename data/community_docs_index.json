@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-11-09T12:00:24Z",
+ "generated_at": "2026-11-16T11:57:42Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -5455,6 +5455,20 @@
    "title": "What made certification worth pursuing for you?",
    "type": "zenith_blog__c"
   },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000j0L0AQ/deception-in-the-age-of-ai-deploying-decoys-to-outsmart-autonomous-threats": {
+   "category": "deception",
+   "hash": "8728d20ee9ae3927",
+   "lastmod": "2026-11-10T18:22:58.000Z",
+   "title": "Deception in the Age of AI: Deploying Decoys to Outsmart Autonomous Threats",
+   "type": "zenith_blog__c"
+  },
+  "https://community.zscaler.com/s/Blogs/aSnPJ0000000j1x0AA/how-zscaler-perimeter-policies-cut-policy-bloat": {
+   "category": "platform",
+   "hash": "eb675244248f182c",
+   "lastmod": "2026-11-10T18:22:40.000Z",
+   "title": "How Zscaler Perimeter Policies Cut Policy Bloat",
+   "type": "zenith_blog__c"
+  },
   "https://community.zscaler.com/s/Guides/aSoPJ0000000E6D0AU/welcome-to-zscaler-cellular": {
    "category": "branch",
    "hash": "9996a74faa971bcb",
@@ -7977,8 +7991,8 @@
   },
   "https://community.zscaler.com/s/Guides/aSoPJ00000066U90AI/how-to-add-management-ip-for-nss-on-nutanix": {
    "category": "platform",
-   "hash": "5837d18c3fc096a6",
-   "lastmod": "2026-04-28T13:58:55.000Z",
+   "hash": "e612a7a6239376c3",
+   "lastmod": "2026-11-09T17:30:04.000Z",
    "title": "How to add Management IP for NSS on Nutanix",
    "type": "zenith_guide__c"
   },
@@ -8351,6 +8365,13 @@
    "hash": "9bd8a1ad4949f718",
    "lastmod": "2026-10-30T19:37:12.000Z",
    "title": "Zscaler Experience Center: A Practical Guide for Customer Administrators",
+   "type": "zenith_guide__c"
+  },
+  "https://community.zscaler.com/s/Guides/aSoPJ0000006ufR0AQ/how-to-configure-fqdntoip-policy-evaluation-per-application-segment-in-zpa": {
+   "category": "zpa",
+   "hash": "7b136ac5ac7b388a",
+   "lastmod": "2026-11-13T06:22:23.000Z",
+   "title": "How to configure FQDN-to-IP Policy Evaluation per Application Segment in ZPA",
    "type": "zenith_guide__c"
   },
   "https://community.zscaler.com/s/question/0D54u00009eviNaCAI/unusual-ip-connections-from-zscalertunnel-process": {
@@ -27234,8 +27255,8 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication": {
    "category": "platform",
-   "hash": "0398a8b92bad11d7",
-   "lastmod": "2026-11-05T18:57:59.000Z",
+   "hash": "dfe6e1f4654a3530",
+   "lastmod": "2026-11-12T20:01:27.000Z",
    "title": "ZAB for user provisioning and Hosted DB for authentication",
    "type": "question"
   }

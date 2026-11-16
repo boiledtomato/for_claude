@@ -1,10 +1,1149 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-09 12:00 UTC
-Posts in this file: 129
+Generated: 2026-11-16 11:57 UTC
+Posts in this file: 138
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQTl4ICQT/zscaler-academy-trainings-and-cpes","lastmod":"2024-04-17T11:52:53.000Z","id":"0D54u0000AQTl4ICQT"} -->
+## Zscaler Academy trainings and CPEs
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AQTl4ICQT/zscaler-academy-trainings-and-cpes
+- Type: Q&A
+- Last activity: 2024-04-17T11:52:53.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Certification
+
+lucaberta
+
+(Partner) asked a question.
+
+April 17, 2024 at 11:52 AM
+
+Zscaler Academy trainings and CPEs
+
+Hi all, and especially the Zscaler Academy training team,
+
+I have embarked in a number of training courses over the last couple of months, which allowed me to refresh my knowledge of ZIA and ZPA, by reaching the Zscaler Certified Delivery Specialist (ZCDS) status which I earned just now!
+
+I had to also go thru the new EDU-200 and EDU-202 plus the ZIA and ZPA Delivery labs and exams, and spent quite some time perfecting my skills, something which is very useful to me in my delivery specialist role.
+
+My question is on the CPEs, as I am not clear how to show the fact that I have effectively perform these activities to allow ISC2 to grant me the CPEs for my CISSP renewal.
+
+Here is what I mean. If I take a look at the ZPA Delivery Specialist Practical exam I have 8 CPEs and a certificate which proves the achievement:
+
+I presume that simply sending the certificate as a proof for my CPEs would be enough.
+
+For what concerns ZIA Delivery Specialist Practical exam, which is listed at 9 CPEs, I do not see that link to download a certificate:
+
+Is this an error on the Academy website?
+
+Moreover, for what concerns EDU-200 and EDU-202 labs and exams, from the Academy website I see that they should provide 30 CPEs, which is a very high number, so I am prone to believe that this is an error:
+
+Can anyone from the Zscaler Academy team clarify the matter?
+
+Hopefully this can also be useful to other Zscaler technicians who can benefit from the CPEs accrued during the Zscaler Academy trainings.
+
+Many thanks,
+
+Luca Bertagnolio
+
+Certification
+
+391 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,211
+
+1211 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler Academy trainings and CPEs
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQTqX3CQL/we-are-coming-to-boston-on-may-9-book-your-seat-now","lastmod":"2024-04-17T14:39:54.000Z","id":"0D54u0000AQTqX3CQL"} -->
+## We are coming to Boston on May 9. Book your seat now!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AQTqX3CQL/we-are-coming-to-boston-on-may-9-book-your-seat-now
+- Type: Q&A
+- Last activity: 2024-04-17T14:39:54.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+April 17, 2024 at 2:39 PM
+
+We are coming to Boston on May 9. Book your seat now!
+
+Are you ready Boston? Zscaler Academy Training Roadshows are coming to Boston on May 9 for a NO-COST in-person training session led by our expert instructors. We would love to see you there. We only have a few seats. Go ahead and
+
+book your seat now
+
+Training Events
+
+200 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+We are coming to Boston on May 9. Book your seat now!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AQUNswCQH/browser-isolation-edu233-course-is-now-here-check-out-now","lastmod":"2024-04-18T13:43:24.000Z","id":"0D54u0000AQUNswCQH"} -->
+## Browser Isolation (EDU-233) course is now here! Check out now
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AQUNswCQH/browser-isolation-edu233-course-is-now-here-check-out-now
+- Type: Q&A
+- Last activity: 2024-04-18T13:43:24.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+April 18, 2024 at 1:43 PM
+
+Browser Isolation (EDU-233) course is now here! Check out now
+
+The all-new Browser Isolation (EDU-233) course that offers a comprehensive exploration of Browser Isolation technology is here. You can now delve into the ways in which Browser Isolation effectively safeguards against various threats and much more. Learn More:
+
+Customer:
+
+https://lnkd.in/gqY_9N9k
+
+Partner:
+
+https://lnkd.in/gmeuZ3zN
+
+Training Portfolio
+
+256 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Browser Isolation (EDU-233) course is now here! Check out now
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROXZ4CQP/havent-checked-out-our-new-browser-isolation-training-yet","lastmod":"2024-04-22T18:42:55.000Z","id":"0D54u0000AROXZ4CQP"} -->
+## Haven't checked out our new Browser Isolation training yet?
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AROXZ4CQP/havent-checked-out-our-new-browser-isolation-training-yet
+- Type: Q&A
+- Last activity: 2024-04-22T18:42:55.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Portfolio
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+April 22, 2024 at 6:42 PM
+
+Haven't checked out our new Browser Isolation training yet?
+
+If you haven't checked out our new Browser Isolation training yet, we bet you should. It will help you learn how Browser Isolation helps to enhance protection and boost user productivity. It also helps you identify the isolation browser experience for ZIA and ZPA users and much more. Enroll Now!
+
+Customer:
+
+https://lnkd.in/gqY_9N9k
+
+Partner:
+
+https://lnkd.in/gmeuZ3zN
+
+Training Portfolio
+
+277 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Haven't checked out our new Browser Isolation training yet?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROYgYCQX/all-set-for-our-upcoming-zsync-with-experts-training-workshops","lastmod":"2024-04-22T18:40:09.000Z","id":"0D54u0000AROYgYCQX"} -->
+## All set for our upcoming Z-sync with Experts training workshops?
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AROYgYCQX/all-set-for-our-upcoming-zsync-with-experts-training-workshops
+- Type: Q&A
+- Last activity: 2024-04-22T18:40:09.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+April 22, 2024 at 6:40 PM
+
+All set for our upcoming Z-sync with Experts training workshops?
+
+After an overwhelming response on our recent virtual training sessions led by our expert instructors, we are back with more sessions and more seats this time. We also have dedicated sessions for our APJ learners on Data and Cyberthreat Protection. Check out the below links and register for your preferred workshop now.
+
+Customers:
+
+https://lnkd.in/gMKuqyfQ
+
+Partners:
+
+https://lnkd.in/gy6CdZmU
+
+Training Events
+
+213 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+All set for our upcoming Z-sync with Experts training workshops?
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROZKjCQP/no-cost-interactive-training-session-in-mumbai-on-may-6","lastmod":"2024-04-22T18:41:35.000Z","id":"0D54u0000AROZKjCQP"} -->
+## No cost, interactive training session in Mumbai on May 6!
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AROZKjCQP/no-cost-interactive-training-session-in-mumbai-on-may-6
+- Type: Q&A
+- Last activity: 2024-04-22T18:41:35.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Training Events
+
+Deepti Gupta
+
+(Employee) asked a question.
+
+April 22, 2024 at 6:41 PM
+
+No cost, interactive training session in Mumbai on May 6!
+
+Mumbai, here we come on May 6 for an exclusive in-person training roadshow led by our expert instructors. We would want you to jump to this no cost, interactive training session opportunity. Limited seats left. Book your seat now!
+
+Training Events
+
+226 views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+No posts to show.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+No cost, interactive training session in Mumbai on May 6!
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000AROol0CQD/zscaler-certificate-error-in-android-emulator","lastmod":"2024-04-23T09:07:46.000Z","id":"0D54u0000AROol0CQD"} -->
+## Zscaler certificate error in Android Emulator
+
+- Source: https://community.zscaler.com/s/question/0D54u0000AROol0CQD/zscaler-certificate-error-in-android-emulator
+- Type: Q&A
+- Last activity: 2024-04-23T09:07:46.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZUG - India
+
+sheetalM18
+
+(Customer) asked a question.
+
+Edited April 23, 2024 at 9:07 AM
+
+Zscaler certificate error in Android Emulator
+
+We are unable to download some plugins (maven , gradle etc) for android studio. Also We are unable to access internet inside android app in an emulator even after Zscaler is installed CA certificate. even local host urls also not working. Its throwing SSL error.
+
+android emulator issue -
+
+1. primary error: 3 certificate: Issued to: CN=www.google.com;Issued by: CN=Zscaler Intermediate Root CA (zscaler.net) (t)\ ,OU=Zscaler Inc.,O=Zscaler Inc.,ST=California,C=US;   on URL:
+
+https://www.google.com/
+
+2.
+
+ssl_client_socket_impl.cc(996) handshake failed
+
+Even zscaler is not allowing to download NPM modules.
+
+Do we need to bypass the zscaler ? if yes, can anybody help us?
+
+Or is there any alternate solution for the above issues.
+
+ZUG - India
+
+1.11K views
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/21/2025
+
+at
+
+07:29 AM
+
+Zscaler Learning Path for Zscaler Private Access
+
+ZUG - India
+
+TechExeprt
+
+220
+
+220 Views
+
+0 Likes
+
+2 Comments
+
+7/7/2026
+
+at
+
+07:26 AM
+
+Guided Tour asking Enter your username or email to sign in -Solution Demo Center
+
+ZUG - India
+
+neerajkumar.jagetia
+
+264
+
+264 Views
+
+2 Likes
+
+5 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Zscaler certificate error in Android Emulator
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARReyhCQD/new-community-achievements-and-leaderboards","lastmod":"2024-10-09T17:25:06.000Z","id":"0D54u0000ARReyhCQD"} -->
+## **NEW** Community Achievements and Leaderboards
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ARReyhCQD/new-community-achievements-and-leaderboards
+- Type: Q&A
+- Last activity: 2024-10-09T17:25:06.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Community Highlights
+
+Ben_Garrison
+
+(Employee) asked a question.
+
+April 26, 2024 at 3:29 PM
+
+**NEW** Community Achievements and Leaderboards
+
+We are happy to announce our community achievements program. This is designed to recognize and celebrate your engagement and activity within the community. You will be able to earn badges, reputation, and achievements.
+
+We will begin deployment on Saturday, April 27th at 7:30PM PT
+
+Starting on Sunday, April 28th at 2:30AM PT, you will be able to enjoy:
+
+Leaderboards
+
+showcasing our top contributors.
+
+Missions
+
+which will help you earn new badges.
+
+Activity awards
+
+for liking, commenting on topics and posts.
+
+Reputation points
+
+to highlight your contributions as a reliable source.
+
+You will earn reputation by posting topics, commenting, receiving likes, and being an active member of the community. We have 13 ranks starting at Copper I and going all the way to Champion. We will add more information about the ranks soon.
+
+Missions will provide specific badges for completing actions, such as updating your profile or engaging with certain posts.
+
+Commenting, liking, or posting new topics, you will earn achievements to showcase your active participation.
+
+Badges will be earned through various activities, both in and outside of our community. Whether you attend Zenith Live or earn a new certification, there are badges to be earned.
+
+We have more to come after launch, including incorporating swag and redeemable items earned via badges and achievements. So be sure to keep checking back for those updates.
+
+We hope you enjoy this new feature and look forward to hearing your feedback and your engagement!
+
+Community Highlights
+
+6 answers
+
+736 views
+
+Manasi Saha
+
+Sumanta Saha
+
+, and
+
+7 others
+
+like this.
+
+Omar
+
+(Customer)
+
+2 years ago
+
+Amazing feature, can't wait :D
+
+Naman
+
+(Employee)
+
+2 years ago
+
+yay excited to see the new upcoming features.
+
+johnsonto
+
+(Customer)
+
+2 years ago
+
+This is cool!!
+
+1 like
+
+Omar
+
+(Customer)
+
+2 years ago
+
+Is there an indicator what is required to achieve each level and what are the available badges.
+
+Ben_Garrison
+
+(Employee)
+
+2 years ago
+
+We are working on a missions detail page that will display all available missions as well as a badge detail that will display this as well. This will be implemented shortly.
+
+Manasi Saha
+
+(Partner)
+
+2 years ago
+
+Nice to hear. Awaiting.
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+9/29/2023
+
+at
+
+02:27 AM
+
+Image Not Available?
+
+Community Highlights
+
+Shojiro Otani
+
+514
+
+514 Views
+
+0 Likes
+
+6 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+**NEW** Community Achievements and Leaderboards
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D54u0000ARS0DBCQ1/certification","lastmod":"2024-04-29T14:49:59.000Z","id":"0D54u0000ARS0DBCQ1"} -->
+## Certification
+
+- Source: https://community.zscaler.com/s/question/0D54u0000ARS0DBCQ1/certification
+- Type: Q&A
+- Last activity: 2024-04-29T14:49:59.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ankitnkgpt
+
+(Customer) asked a question.
+
+April 28, 2024 at 9:35 AM
+
+Certification
+
+Any Free training and Certification Available for Zscalar Product
+
+Please Guide
+
+Certification
+
+1 answer
+
+346 views
+
+Ben_Garrison
+
+(Employee)
+
+2 years ago
+
+There are several resources available on the Zscaler Academy site. There are often promotions as well for our certifications to receive the certification at zero or at a discounted rate. Be sure to check back here, as well as the academy site for any promotions.
+
+Please check the academy site for more information.
+
+https://www.zscaler.com/zscaler-academy
+
+Log In to Answer
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+1/12/2024
+
+at
+
+04:57 AM
+
+ZIA administrator certification
+
+Certification
+
+User16739629112679781823
+
+1,205
+
+1205 Views
+
+0 Likes
+
+2 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Certification
+<!-- /ZS-POST -->
 
 ---
 
@@ -23070,12 +24209,12 @@ Installing the Zscaler MCP Server on Linux: two errors I hit
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication","lastmod":"2026-11-05T18:57:59.000Z","id":"0D5PJ000015xHQB0A2"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication","lastmod":"2026-11-12T20:01:27.000Z","id":"0D5PJ000015xHQB0A2"} -->
 ## ZAB for user provisioning and Hosted DB for authentication
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication
 - Type: Q&A
-- Last activity: 2026-11-05T18:57:59.000Z
+- Last activity: 2026-11-12T20:01:27.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication

@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-09 12:00 UTC
-Posts in this file: 323
+Generated: 2026-11-16 11:57 UTC
+Posts in this file: 324
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -8746,6 +8746,155 @@ www.moon.com
 When Private Link Domains are configured, ZPA uses the CNAME chain returned by DNS to determine whether the requested application is backed by a private link endpoint. If there is a match, ZPA routes the traffic using the private link destination domain. This enables accurate policy enforcement and proper routing for applications hosted behind Azure Private Link.
 
 Please reach out to us in the comments if you have any questions
+
+Associated Tags
+
+No tags associated with this post!!
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Guide Details
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/Guides/aSoPJ0000006ufR0AQ/how-to-configure-fqdntoip-policy-evaluation-per-application-segment-in-zpa","lastmod":"2026-11-13T06:22:23.000Z","id":"aSoPJ0000006ufR0AQ"} -->
+## How to configure FQDN-to-IP Policy Evaluation per Application Segment in ZPA
+
+- Source: https://community.zscaler.com/s/Guides/aSoPJ0000006ufR0AQ/how-to-configure-fqdntoip-policy-evaluation-per-application-segment-in-zpa
+- Type: Guide
+- Last activity: 2026-11-13T06:22:23.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+Guide Details
+
+Technical Guides
+
+Yashraj Singha
+
+(Employee) posted a Guide
+
+November 13, 2026 at 6:22 AM
+
+How to configure FQDN-to-IP Policy Evaluation per Application Segment in ZPA
+
+Note:
+
+Special thanks to
+
+Ankit Jain
+
+for their contributions to this guide. If you require help with the implementation of your specific configuration, please contact our
+
+Zscaler Deployment Services team for assistance.
+
+_______________________________________________________________________________________
+
+Introduction
+
+This guide explains how to configure fully qualified domain name (FQDN)-to-IP Policy Evaluation for Private Access (ZPA) application segments. This capability lets administrators apply a second access-policy evaluation based on the server IP address resolved during a connection to an FQDN-based application.
+
+Use FQDN-to-IP Policy Evaluation when you need more specific access control for applications that users reach through a domain name, such as wildcard domains or applications reached through canonical name (CNAME) records.
+
+Requirements
+
+The capability must be available for tenant. If not contact your Zscaler representative or Support.
+
+You must have permission to edit application segments and access policies.
+
+Create an IP-based application segment for the server IP address or range, and configure the applicable access policy for it.
+
+Configuration
+
+In the ZPA Admin Portal, open the FQDN-based application segment you want to configure.
+
+Enable FQDN-to-IP Policy Evaluation for that application segment and save your changes.
+
+Create an IP-based application segment for the server IP address or IP range that the FQDN can resolve to.
+
+Configure an access policy for the IP-based application segment with the required action, such as allow or deny.
+
+How policy evaluation works
+
+When a user accesses the FQDN-based application:
+
+ZPA evaluates the access policy against the matching FQDN-based application segment. If access is denied at this stage, the connection is rejected.
+
+If the initial evaluation permits access and the per-segment setting is enabled, the server resolves the FQDN to an IP address during connection setup.
+
+ZPA performs a second access-policy evaluation using the resolved server IP address. If the IP address matches an IP-based application segment, the policy for that segment is evaluated.
+
+If no IP-based application segment matches the resolved address, the initial FQDN-based access decision is retained.
+
+Use cases
+
+Support VPN migration by allowing access to a wildcard domain while applying a more restrictive policy to specific server IP addresses.
+
+Restrict access to specific applications reached through CNAME records that otherwise match a wildcard domain.
+
+Important considerations
+
+Enable the setting only on application segments that require the additional IP-based policy evaluation.
+
+Ensure the IP-based application segment and its access policy cover the server IP addresses that may be returned by DNS. If DNS returns an address that does not match an IP-based segment, the initial FQDN-based decision is retained.
+
+Please reach out to us in the comments if you have any questions.
 
 Associated Tags
 
