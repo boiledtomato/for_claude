@@ -1,18 +1,18 @@
 # Zscaler Help — ZPA — Private Access (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 115
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-guide-linux","lastmod":"2026-10-08T14:29Z","nid":"1517176"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-deployment-guide-linux","lastmod":"2026-11-13T17:49Z","nid":"1517176"} -->
 ## Network Connector Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/network-connector-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Deployment Guide for Linux
-- Last modified: 2026-10-08T14:29Z
+- Last modified: 2026-11-13T17:49Z
 - Summary: How to deploy a Network Connector on Red Hat Enterprise Linux 9.x for Private Access (ZPA). It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -308,14 +308,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package np-connector.x86_64 0:26.57.3-1.el9 will be installed
+---> Package np-connector.x86_64 0:26.58.5-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package               Arch        Version               Repository      Size
 ================================================================================
 Installing:
-  np-connector         x86_64      26.57.3-1.el9         zscaler         1.1 M
+  np-connector         x86_64      26.58.5-1.el9         zscaler         1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -324,9 +324,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/np-connector-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for np-connector-26.57.3-1.el9.x86_64.rpm is not installed
-np-connector-26.57.3-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/np-connector-26.58.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for np-connector-26.58.5-1.el9.x86_64.rpm is not installed
+np-connector-26.58.5-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid
@@ -340,16 +340,16 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : np-connector-26.57.3-1.el9.x86_64                           1/1
-  Verifying  : np-connector-26.57.3-1.el9.x86_64                           1/1
+  Installing : np-connector-26.58.5-1.el9.x86_64                           1/1
+  Verifying  : np-connector-26.58.5-1.el9.x86_64                           1/1
 Installed:
-  np-connector.x86_64 0:26.57.3-1.el9
+  np-connector.x86_64 0:26.58.5-1.el9
 Complete!
 ```
 
 1. Apply the provisioning key.
   - See instructions.
-2. After the provisioning key is applied, be sure to verify that the deployed is [running and healthy](https://help.zscaler.com/zpa/viewing-network-connectors-dashboard%20).
+2. After the provisioning key is applied, be sure to verify that the deployed is [running and healthy](https://help.zscaler.com/zpa/viewing-network-connectors-dashboard).
 3. Zscaler highly recommends updating the system software before proceeding. To learn more, see [Configuring s](https://help.zscaler.com/zpa/configuring-network-connectors).
 
 To deploy a , download the RPM package on a server.
@@ -373,12 +373,12 @@ gpgkey=https://yum.private.zscaler.com/yum/el9/gpg
 ```
 
 1. Download the following Red Hat Enterprise Linux 9-based deployment files on a server with access:
-  - RPM package ([np-connector.rpm](https://yum.private.zscaler.com/yum/el9/np-connector-26.57.3-1.el9.x86_64.rpm))
+  - RPM package ([np-connector.rpm](https://yum.private.zscaler.com/yum/el9/np-connector-26.58.5-1.el9.x86_64.rpm))
   - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the `scp` command to copy the RPM package and GPG public key to the . For example:
 
 ```
-$ scp np-connector-26.57.3-1.el9.x86_64.rpm admin@
+$ scp np-connector-26.58.5-1.el9.x86_64.rpm admin@
 <Network Connector Hostname or IP Address>
 $ scp gpg admin@
 <<Network Connector Hostname or IP Address>
@@ -406,7 +406,7 @@ $ scp gpg admin@
 3. Add a firewall interface and reload it using the following commands: `sudo firewall-cmd --zone=public --permanent --add-interface=npwg0 sudo firewall-cmd --reload`
 4. Apply the provisioning key.
   - See instructions.
-5. After the provisioning key is applied, be sure to verify that the deployed is [running and healthy](https://help.zscaler.com/zpa/viewing-network-connectors-dashboard%20).
+5. After the provisioning key is applied, be sure to verify that the deployed is [running and healthy](https://help.zscaler.com/zpa/viewing-network-connectors-dashboard).
 6. Zscaler highly recommends updating the Network Connector system software before proceeding. To learn more, see [Configuring Network Connectors](https://help.zscaler.com/zpa/configuring-network-connectors).
 
 1. Complete the following steps if you need to enable SSH:
@@ -1160,13 +1160,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/network-connector-software-platform","lastmod":"2026-10-28T10:21Z","nid":"1531244"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/network-connector-software-platform","lastmod":"2026-11-13T17:51Z","nid":"1531244"} -->
 ## Network Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/network-connector-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Network Connector Deployment Guides for Supported Platforms > Network Connector Software by Platform
-- Last modified: 2026-10-28T10:21Z
+- Last modified: 2026-11-13T17:51Z
 - Summary: The current Network Connector software downloads by platform.
 
 Network Connectors are supported on Linux operating systems. To learn more, see [Network Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/vpn-legacy-apps/network-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -1182,7 +1182,7 @@ The following platforms support Network Connector software packages. Where appli
 | Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
 | Microsoft Azure | [Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access-network-connector?tab=Overview) |
 | Linux Operating Systems |  |
-| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.58.5-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1338,13 +1338,13 @@ $ sudo systemctl restart zpa-connector
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-10-02T21:06Z","nid":"1528948"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/prerequisites-browser-access-applications-managed-zscaler","lastmod":"2026-11-11T03:32Z","nid":"1528948"} -->
 ## Prerequisites for Browser Access Applications Managed by Zscaler
 
 - Source: https://help.zscaler.com/zpa/prerequisites-browser-access-applications-managed-zscaler
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Prerequisites for Browser Access Applications Managed by Zscaler
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-11-11T03:32Z
 - Summary: Prerequisites for Browser Access-enabled web applications that have Zscaler-managed certificates.
 
 This article provides the requirements to use a [Browser Access application](https://help.zscaler.com/zpa/configuring-defined-application-segments#BAsteps) with a Zscaler-managed certificate. If you are defining a Browser Access application with custom certificates and configuring an FQDN, see [Defining a Browser Access Application with Different External vs. Internal Domains](https://help.zscaler.com/zpa/defining-browser-access-application-different-external-vs-internal-domains).
@@ -2455,13 +2455,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-10-26T11:38Z","nid":"1507451"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-deployment-guide-linux","lastmod":"2026-11-13T17:56Z","nid":"1507451"} -->
 ## Private Cloud Controller Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Deployment Guide for Linux
-- Last modified: 2026-10-26T11:38Z
+- Last modified: 2026-11-13T17:56Z
 - Summary: How to deploy a Private Cloud Controller on Red Hat, including platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Cloud Controller on Red Hat Enterprise Linux 9.x, and post-deployment verification checks.
@@ -2738,14 +2738,14 @@ Determining fastest mirrors
 * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-pcc.x86_64 0:26.57.3-1.el9 will be installed
+---> Package zpa-pcc.x86_64 0:26.58.5-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
 Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-zpa-pcc     x86_64       26.57.3-1.el9       zscaler            1.1 M
+zpa-pcc     x86_64       26.58.5-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -2753,9 +2753,9 @@ Total download size: 1.1 M
 Installed size: 2.9 M
 Is this ok [y/d/N]: y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-pcc-26.57.3-1.el9.x86_64.rpm is not installed
-zpa-pcc-26.57.3-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-pcc-26.58.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-pcc-26.58.5-1.el9.x86_64.rpm is not installed
+zpa-pcc-26.58.5-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
 Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -2767,10 +2767,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-Installing : zpa-pcc-26.57.3-1.el9.x86_64                          1/1
-Verifying  : zpa-pcc-26.57.3-1.el9.x86_64                           1/1
+Installing : zpa-pcc-26.58.5-1.el9.x86_64                          1/1
+Verifying  : zpa-pcc-26.58.5-1.el9.x86_64                           1/1
 Installed:
-zpa-pcc.x86_64 0:26.57.3-1.el9
+zpa-pcc.x86_64 0:26.58.5-1.el9
 Complete!
 ```
 
@@ -2785,7 +2785,7 @@ After the Private Cloud Controller provisioning key is applied, and you have mad
 If the Private Cloud Controller can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access for Red Hat Enterprise Linux 9-based deployments:
-  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.57.3-1.el9.x86_64.rpm))
+  - RPM package ([zpa-pcc.rpm](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.58.5-1.el9.x86_64.rpm))
   - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Cloud Controller, for example:
 
@@ -3552,13 +3552,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-10-29T14:27Z","nid":"1519431"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-cloud-controller-software-platform","lastmod":"2026-11-13T18:13Z","nid":"1519431"} -->
 ## Private Cloud Controller Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-cloud-controller-software-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Business Continuity Management > Private Cloud Controller Deployment Guides for Supported Platforms > Private Cloud Controller Software by Platform
-- Last modified: 2026-10-29T14:27Z
+- Last modified: 2026-11-13T18:13Z
 - Summary: The current Private Cloud Controller software downloads by platform.
 
 Private Cloud Controllers are supported on Linux operating systems. To learn more, see [Private Cloud Controller Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/business-continuity-management/private-cloud-controller-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -3574,7 +3574,7 @@ The following platform supports Private Cloud Controller software packages. Wher
 | [Google Cloud Platform](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-google-cloud-platform) | [Zscaler Private Access - GCP Marketplace (STIG Image)](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-cloud-controller?organizationId=143569286330) |
 | Microsoft Azure | [Zscaler Private Access - Azure Marketplace (STIG Image)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-cloud-controller) |
 | Linux Operating Systems |  |
-| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Private Cloud Controller Deployment Guide for Linux](https://help.zscaler.com/zpa/private-cloud-controller-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Private Cloud Controller deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/zpa-pcc-26.58.5-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4736,13 +4736,13 @@ If necessary, egress traffic directions can be restricted to Private Access host
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-10-26T11:36Z","nid":"1484566"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-deployment-guide-linux","lastmod":"2026-11-13T18:16Z","nid":"1484566"} -->
 ## Private Service Edge Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Guide for Linux
-- Last modified: 2026-10-26T11:36Z
+- Last modified: 2026-11-13T18:16Z
 - Summary: How to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy a Private Service Edge for Private Access (ZPA) on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks.
@@ -4792,6 +4792,16 @@ For Microsoft Hyper-V deployment, ensure that you have the following:
 - Second Level Address Translation (SLAT) support
 - Minimum 16 GB RAM (recommended based on VM workload requirements)
 - Sufficient local storage for Host OS and VM VHDX files
+
+For Microsoft Azure Local deployment, ensure that you have the following:
+
+- An HCI cluster that includes:
+  - Windows Admin Center installed
+  - A designated static management network IP address
+- A node created in the HCI Cluster
+- Servers must be connected to the same network switch and subnet
+- The management server must be reachable and the DNS role configured before joining the domain. You must have an Active Directory (AD) Domain Services (DS) role for joining cluster nodes to the domain.
+- Remote Desktop (RDP) access enabled on each server via `sconfig`
 
 Private Service Edges are reachable over the internet for remote users in a disaster recovery scenario, or when the Private Service Edge is the closest Service Edge.
 
@@ -5072,14 +5082,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-service-edge.x86_64 0:26.57.3-1.el9 will be installed
+---> Package zpa-service-edge.x86_64 0:26.58.5-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package              Arch         Version             Repository         Size
 ================================================================================
 Installing:
-  zpa-service-edge     x86_64       26.57.3-1.el9       zscaler            1.1 M
+  zpa-service-edge     x86_64       26.58.5-1.el9       zscaler            1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -5088,9 +5098,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-service-edge-26.57.3-1.el9.x86_64.rpm is not installed
-zpa-service-edge-26.57.3-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-service-edge-26.58.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-service-edge-26.58.5-1.el9.x86_64.rpm is not installed
+zpa-service-edge-26.58.5-1.el9.x86_64.rpm                                                                                               | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid    : "Zscaler, Inc. (External Package Repository Signing Key) <ext-pkg-repo@zscaler.com>"
@@ -5102,10 +5112,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : zpa-service-edge-26.57.3-1.el9.x86_64                          1/1
-  Verifying  : zpa-service-edge-26.57.3-1.el9.x86_64                           1/1
+  Installing : zpa-service-edge-26.58.5-1.el9.x86_64                          1/1
+  Verifying  : zpa-service-edge-26.58.5-1.el9.x86_64                           1/1
 Installed:
-  zpa-service-edge.x86_64 0:26.57.3-1.el9
+  zpa-service-edge.x86_64 0:26.58.5-1.el9
 Complete!
 ```
 
@@ -5117,16 +5127,16 @@ After the Private Service Edge provisioning key is applied, and you have made an
 
 1. Zscaler highly recommends [updating the Private Service Edge system software](https://help.zscaler.com/zpa/understanding-software-updates-private-access) before proceeding.
 
-Console outputs reference 26.57.3-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
+Console outputs reference 26.58.5-1.el9 if you are using the Private Service Edge RPM for Red Hat Enterprise Linux 9-based deployments.
 
 If the Private Service Edge can't download the RPM package, you must download the package on a server:
 
 1. Download the following files on a server with access:
   - For Red Hat Enterprise Linux 8-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.57.3-1.el8.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.58.5-1.el8.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el8/gpg](https://yum.private.zscaler.com/yum/el8/gpg))
   - For Red Hat Enterprise Linux 9-based deployments:
-    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.57.3-1.el9.x86_64.rpm))
+    - RPM package ([zpa-service-edge.rpm](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.58.5-1.el9.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the scp command to copy the RPM package to the Private Service Edge, for example:
 
@@ -5682,6 +5692,16 @@ For Microsoft Hyper-V deployment, ensure that you have the following:
 - Second Level Address Translation (SLAT) support
 - Minimum 16 GB RAM (recommended based on VM workload requirements)
 - Sufficient local storage for Host OS and VM VHDX files
+
+For Microsoft Azure Local deployment, ensure that you have the following:
+
+- An HCI cluster that includes:
+  - Windows Admin Center installed
+  - A designated static management network IP address
+- A node created in the HCI Cluster
+- Servers must be connected to the same network switch and subnet
+- The management server must be reachable and the DNS role configured before joining the domain. You must have an Active Directory (AD) Domain Services (DS) role for joining cluster nodes to the domain.
+- Remote Desktop (RDP) access enabled on each server via `sconfig`
 
 Private Service Edges are reachable over the internet for remote users in a disaster recovery scenario, or when the Private Service Edge is the closest Service Edge.
 
@@ -7431,13 +7451,13 @@ Add a Network Connector and enter the OAuth enrollment token on the **Add Networ
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-11-06T14:31Z","nid":"1485961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/private-service-edge-software-by-platform","lastmod":"2026-11-13T18:17Z","nid":"1485961"} -->
 ## Private Service Edge Software by Platform
 
 - Source: https://help.zscaler.com/zpa/private-service-edge-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Software by Platform
-- Last modified: 2026-11-06T14:31Z
+- Last modified: 2026-11-13T18:17Z
 - Summary: The current Private Service Edge for Private Access (ZPA) platform downloads links.
 
 Private Service Edges for Private Access (ZPA) are supported on [many different platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms). Each supported platform has a Private Service Edge image you can use to deploy Private Service Edges on that platform. To learn more, see [Private Service Edge Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/private-service-edge-management/private-service-edge-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -7458,7 +7478,7 @@ The following platforms support Private Service Edge software packages. Where ap
 | Containers |  |
 | [Docker](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-docker) | [Docker Hub](https://hub.docker.com/r/zscaler/zpa-service-edge/tags?page=1&ordering=last_updated) |
 | Linux Operating Systems |  |
-| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.57.3-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.57.3-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [Red Hat Enterprise Linux](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-linux) | The following RPM packages are supported on RHEL Private Service Edge deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-service-edge-26.58.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-service-edge-26.58.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7573,13 +7593,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-10-06T19:00Z","nid":"1515686"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2025","lastmod":"2026-11-12T03:15Z","nid":"1515686"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2025
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-10-06T19:00Z
+- Last modified: 2026-11-12T03:15Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the ZPA Admin Portal. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -7589,13 +7609,13 @@ When Zscaler cloud and Admin Portal updates are deploying, some functionality wi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-11-06T06:38Z","nid":"1534305"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/release-upgrade-summary-2026","lastmod":"2026-11-14T22:40Z","nid":"1534305"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/release-upgrade-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-06T06:38Z
+- Last modified: 2026-11-14T22:40Z
 - Summary: Zscaler Private Access (ZPA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
@@ -7771,7 +7791,7 @@ The following platforms support Network Connector software packages. Where appli
 | Google Cloud Platform (GCP) | [Private Access - GCP Marketplace](https://console.cloud.google.com/marketplace/product/zpa-gcp-marketplace/zscaler-private-access-network-connector?q=search&referrer=search&organizationId=143569286330) |
 | Microsoft Azure | [Private Access - Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/zscaler.zscaler-private-access-network-connector?tab=Overview) |
 | Linux Operating Systems |  |
-| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.57.3-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
+| [Network Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/network-connector-deployment-guide-linux) | The following RPM package is supported for RHEL 9-based Network Connector deployments: [RPM Package](https://yum.private.zscaler.com/yum/el9/np-connector-26.58.5-1.el9.x86_64.rpm); [GPG Public Key](https://yum.private.zscaler.com/yum/el9/gpg) |
 
 - Step 1: Make Sure You Have Met All Prerequisites
 - Step 2: Migrate Your Existing Network Connectors to Use New Redundancy-Capable Network Connectors
@@ -9611,13 +9631,13 @@ Fill in the additional fields if necessary.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-10-19T11:29Z","nid":"1484511"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/service-edge-deployment-prerequisites","lastmod":"2026-11-11T12:00Z","nid":"1484511"} -->
 ## Private Service Edge Deployment Prerequisites
 
 - Source: https://help.zscaler.com/zpa/service-edge-deployment-prerequisites
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Deployment Guides for Supported Platforms > Private Service Edge Deployment Prerequisites
-- Last modified: 2026-10-19T11:29Z
+- Last modified: 2026-11-11T12:00Z
 - Summary: Detailed specifications and sizing information, platform prerequisites, and best practices for Private Service Edges for Private Access (ZPA), including information on various operating system (OS) security features, firewall requirements, and interoperability guidelines that must be addressed prior to Private Service Edge deployment.
 
 Before deploying a Private Service Edge for Private Access (ZPA) on any supported platform, Zscaler highly recommends reading the following information and making the necessary changes to your organization's environment, where applicable.
@@ -9657,6 +9677,16 @@ For Microsoft Hyper-V deployment, ensure that you have the following:
 - Second Level Address Translation (SLAT) support
 - Minimum 16 GB RAM (recommended based on VM workload requirements)
 - Sufficient local storage for Host OS and VM VHDX files
+
+For Microsoft Azure Local deployment, ensure that you have the following:
+
+- An HCI cluster that includes:
+  - Windows Admin Center installed
+  - A designated static management network IP address
+- A node created in the HCI Cluster
+- Servers must be connected to the same network switch and subnet
+- The management server must be reachable and the DNS role configured before joining the domain. You must have an Active Directory (AD) Domain Services (DS) role for joining cluster nodes to the domain.
+- Remote Desktop (RDP) access enabled on each server via `sconfig`
 
 Private Service Edges are reachable over the internet for remote users in a disaster recovery scenario, or when the Private Service Edge is the closest Service Edge.
 
@@ -12750,13 +12780,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-business-b2b-federation","lastmod":"2026-10-20T14:30Z","nid":"1540783"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-business-b2b-federation","lastmod":"2026-11-09T13:07Z","nid":"1540783"} -->
 ## Understanding Business-to-Business (B2B) Federation
 
 - Source: https://help.zscaler.com/zpa/understanding-business-business-b2b-federation
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > B2B Exchange > Understanding Business-to-Business (B2B) Federation
-- Last modified: 2026-10-20T14:30Z
+- Last modified: 2026-11-09T13:07Z
 - Summary: Overview of Business-to-Business Federation for application sharing between Private Access partners.
 
 This feature is in limited availability and requires a Private Access (ZPA) Federation license. To learn more, contact Zscaler Support.
@@ -12956,19 +12986,11 @@ The following table provides the quantifiable metrics and business benefits for 
 This section outlines compliance requirements for customers utilizing the B2B Federation feature in Private Access. Customers are solely responsible for ensuring the federation setup aligns with compliance requirements, applicable laws, and internal security policies. The following compliance requirements apply:
 
 - Federation Setup and Verification
-- Cross-Compliance Federation Awareness
 - Restrictions and Application Sharing
 
 Customers bear full responsibility for verifying and assessing the compliance status of their partners (external tenants) prior to configuring federation and sharing applications.
 
 Before federating applications, customers should evaluate whether their partner is compliant with the organization's requirements for a specific application. Zscaler does not validate or restrict federation access based on compliance status.
-
-A federation can exist between higher and lower compliance environments. For example:
-
-- A federation can exist between a FedRAMP High and FedRAMP Moderate environment. The host partner must validate their guest partner compliance profile and ensure only applications that meet FedRAMP Moderate requirements are federated. Higher-compliance applications (i.e., within FedRAMP High environments) must not be shared with a lower-compliance tenant.
-- A federation can exist between a federal and commercial environment. Federal tenants must not share regulated applications or higher-compliance applications with a lower-compliance commercial tenant.
-
-It is the responsibility of the higher compliance tenant (e.g., FedRAMP High) to ensure that applications shared with a lower compliance environment (e.g., FedRAMP Moderate) remain within applicable compliance boundaries. Zscaler does not impose restrictions on this federation configuration, but the responsibility lies with the host to avoid violations.
 
 Zscaler does not inherently restrict or block federation access between partners (Private Access tenants) based on compliance requirements. It is the responsibility of the customers to decide if sharing sensitive data is acceptable under their regulatory obligations. You must ensure that higher compliance tenants do not share sensitive or regulated applications with lower-compliance tenants if doing so risks non-compliance or regulatory violations.
 
@@ -13045,13 +13067,13 @@ The following limitations apply for Business Continuity:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity-event-log-fields","lastmod":"2026-10-15T11:57Z","nid":"1543031"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-business-continuity-event-log-fields","lastmod":"2026-11-11T10:11Z","nid":"1543031"} -->
 ## Understanding Business Continuity Event Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-business-continuity-event-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding Business Continuity Event Log Fields
-- Last modified: 2026-10-15T11:57Z
+- Last modified: 2026-11-11T10:11Z
 - Summary: Information on the various Business Continuity Event logs captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send Business Continuity Event log information to any third-party log analytics tool. By default, the Business Continuity Event log includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -14857,13 +14879,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-activity-log-fields","lastmod":"2026-07-17T16:22Z","nid":"1483961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-user-activity-log-fields","lastmod":"2026-11-12T15:33Z","nid":"1483961"} -->
 ## Understanding User Activity Log Fields
 
 - Source: https://help.zscaler.com/zpa/understanding-user-activity-log-fields
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > Understanding User Activity Log Fields
-- Last modified: 2026-07-17T16:22Z
+- Last modified: 2026-11-12T15:33Z
 - Summary: Information on the various Private Access User Activity log fields captured by Log Streaming Service (LSS) log receivers.
 
 The Log Streaming Service (LSS) can send User Activity log information to any third-party log analytics tool. By default, the User Activity log type includes the fields listed in the following table for each log template (i.e., CSV, JSON, TSV). While [configuring your log receiver](https://help.zscaler.com/zpa/configuring-log-receiver), you can edit the default log stream content to capture only specific fields, and create a custom log template.
@@ -14914,7 +14936,7 @@ The following table includes descriptions and supported field format specificati
 | PRAApprovalID | The privileged approval ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
 | PRAConsolesPolicyID | The consoles policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
 | PRAConnectionID | The Privileged Remote Access (PRA) connection ID | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
-| PRAConsoleType | The privileged console type. The expected values for this field are: RDP; SSH; VNC | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
+| PRAConsoleType | The privileged console type. The expected values for this field are: RDP; SSH; VNC; RealVNC | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
 | PRACredentialLoginType | The login type of the privileged credential. The expected values for this field are: Username/Password; SSH Key; Password | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
 | PRACredentialPolicyID | The privileged credential policy ID | %[OPT]d; %[OPT]x; %[OPT]f; %[OPT]o |
 | PRACredentialUserName | The name of the user that is logged in to the target privileged console | %[OPT]s; %[OPT]j; %[OPT]J; %[OPT]o |
@@ -15097,13 +15119,13 @@ The following table includes descriptions and supported field format specificati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-11-05T11:11Z","nid":"1540960"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/understanding-zpa-appliances","lastmod":"2026-11-13T15:45Z","nid":"1540960"} -->
 ## Understanding ZPA Appliances
 
 - Source: https://help.zscaler.com/zpa/understanding-zpa-appliances
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > Understanding ZPA Appliances
-- Last modified: 2026-11-05T11:11Z
+- Last modified: 2026-11-13T15:45Z
 - Summary: Information on ZPA appliances for App Connector and Private Service Edge.
 
 Private Access (ZPA) enables organizations to provide access to internal applications and services while ensuring the security of their networks. Private Access is an easier to deploy, more cost-effective, and more secure alternative to VPNs. Unlike VPNs, which require users to connect to your network to access your enterprise applications, Private Access allows you to give users policy-based secure access only to the internal apps they need. With Private Access, application access does not require network access.
@@ -15125,7 +15147,7 @@ ZPA appliances include a single, high-performance App Connector with scaling to 
 | Attributes | App Connector Appliance |
 | --- | --- |
 | Hardware Model | ZS-ZPA-APPL-800-APPC |
-| CPU / Memory / Storage | 8C / 32GB / 512TB |
+| CPU / Memory / Storage | 8C / 32GB / 512GB |
 | Ports | 4x GbE RJ45 + 2 x 1GE SFP (fiber) [+ 2x USB 2.0, 1 x RJ45 console] |
 | Form Factor | Desktop (1 x PSU) |
 | Throughput | 1 Gbps |
@@ -15421,24 +15443,24 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-downloading-file-transfer","lastmod":"2026-10-23T07:55Z","nid":"1485546"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-and-downloading-file-transfer","lastmod":"2026-11-13T08:15Z","nid":"1485546"} -->
 ## Uploading and Downloading with File Transfer
 
 - Source: https://help.zscaler.com/zpa/uploading-and-downloading-file-transfer
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Consoles > Uploading and Downloading with File Transfer
-- Last modified: 2026-10-23T07:55Z
+- Last modified: 2026-11-13T08:15Z
 - Summary: Information on how to use the File Transfer feature within a privileged console for Privileged Remote Access (PRA).
 
 All file transfers (both uploads and downloads) take place in a Zscaler-generated drive on your [privileged console](https://help.zscaler.com/zpa/about-privileged-consoles). When you click the **File Transfer** icon () within a privileged console, the File Transfer window appears. In this window, you can inspect, upload, and download files based on the [consoles policies](https://help.zscaler.com/zpa/configuring-privileged-capabilities-policies) that you have set. The Upload and Download options are disabled by default, but you can still open File Transfer and view the files. If the Upload and Download options are enabled, you can still upload and download files from the File Transfer window even if your screen is locked.
 
-If you have the [PRA File Transfer System](https://help.zscaler.com/zpa/about-pra-file-system), the steps to upload and transfer files are different. To learn more, see [Uploading and Transferring Files for the PRA File Transfer System](https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-system).
+If you have the [PRA File Transfer System](https://help.zscaler.com/zpa/about-privileged-remote-access-pra-file-transfer-system), the steps to upload and transfer files are different. To learn more, see [Uploading and Transferring Files for the PRA File Transfer System](https://help.zscaler.com/zpa/uploading-and-transferring-files-pra-file-system).
 
 If you are using a Windows-based privileged console with an RDP protocol, a remote drive is automatically mounted and all transferred files are handled here. Files can be copied in and out of that drive folder. If the target Windows system has Device and Resource redirection disabled in the local group policy editor, the File Transfer feature is not possible due to the drive not being mounted with Privileged Remote Access (PRA). You must have Windows version 7 or later to use the File Transfer feature.
 
-If you are using a privileged console with a VNC protocol, the SFTP service needs to be previously enabled on the VNC server, and the authentication for SFTP needs to match the VNC configuration.
+If you are using a privileged console with a VNC or RealVNC protocol, the SFTP service needs to be previously enabled on the VNC or RealVNC server, and the authentication for SFTP needs to match the VNC or RealVNC configuration.
 
-If SFTP is not configured on the VNC target, and a consoles policy with file transfer is configured for the associated privileged console, then end users cannot connect to that privileged console.
+If SFTP is not configured on the VNC or RealVNC target, and a consoles policy with file transfer is configured for the associated privileged console, then end users cannot connect to that privileged console.
 
 To learn more about PRA, see [Understanding Privileged Remote Access](https://help.zscaler.com/zpa/understanding-privileged-remote-access). To set up PRA, see [Step-by-Step Configuration Guide for Privileged Remote Access](https://help.zscaler.com/zpa/step-step-configuration-guide-privileged-remote-access).
 
@@ -15478,7 +15500,7 @@ To download files:
 
 The **File Transfer** window appears.
 
-1. In the **File Transfer**window, the files that have download capabilities have a **Download File** link.
+1. In the **File Transfer**window, a **Download File** link appears next to files with download capabilities.
 
 See image.
 
@@ -15555,13 +15577,13 @@ The file is transferred from the PRA File System to the privileged console.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-enrollment-ca-certificates-and-certificate-chain","lastmod":"2026-11-05T14:53Z","nid":"1484076"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-enrollment-ca-certificates-and-certificate-chain","lastmod":"2026-11-09T09:28Z","nid":"1484076"} -->
 ## Uploading Enrollment (CA) Certificates and the Certificate Chain
 
 - Source: https://help.zscaler.com/zpa/uploading-enrollment-ca-certificates-and-certificate-chain
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Certificate Management > Enrollment Certificates > Uploading Enrollment (CA) Certificates and the Certificate Chain
-- Last modified: 2026-11-05T14:53Z
+- Last modified: 2026-11-09T09:28Z
 - Summary: How to create and upload a CA certificate chain file and how to upload signed CA certificates that are used for App Connector and Zscaler Client Connector enrollment for Private Access.
 
 A CA certificate is required for enrolling Zscaler Client Connector and when [configuring an App Connector](https://help.zscaler.com/zpa/configuring-connectors) for enrollment. You can upload up to 1,000 enrollment (CA) certificates. For a complete list of ranges and limits per feature, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#private-applications).
@@ -15637,10 +15659,10 @@ Make sure that you have uploaded the certificate chain associated to your CA cer
 The **Upload Signed Certificate** drawer opens.
 
 1. In the **Upload Signed Certificate** drawer: [Image: Uploading a signed certificate from the Enrollment Certificates page]
-  - **Name**: Enter a name for the signed certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
-  - **Description**: (Optional) Enter a description.
-  - **Certificate Signing Request**: The CSR text is displayed here.
-  - **Certificate**: Click **Select File** and navigate to the signed CA certificate (i.e., the .pem file).
+  1. **Name**: Enter a name for the signed certificate. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+  2. **Description**: (Optional) Enter a description.
+  3. **Certificate Signing Request**: The CSR text is displayed here.
+  4. **Certificate**: Click **Select File** and navigate to the signed CA certificate (i.e., the .pem file).
 2. Click **Upload**.
 
 After uploading the signed CA certificate, click the **Edit**icon next to the certificate name again and make sure that the **Client Certificate Type**option is set correctly. This option specifies whether the signed CA certificate is used to enroll Zscaler Client Connector, App Connectors, Private Service Edges for Private Access, or Zero Trust Browser clients:
@@ -15655,13 +15677,13 @@ After uploading the signed CA certificate, click the **Edit**icon next to the ce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/uploading-web-server-certificates","lastmod":"2026-11-06T13:41Z","nid":"1484061"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/uploading-web-server-certificates","lastmod":"2026-11-11T11:00Z","nid":"1484061"} -->
 ## Uploading (Web Server) Certificates
 
 - Source: https://help.zscaler.com/zpa/uploading-web-server-certificates
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Certificate Management > Certificates > Uploading (Web Server) Certificates
-- Last modified: 2026-11-06T13:41Z
+- Last modified: 2026-11-11T11:00Z
 - Summary: How to upload a Browser Access (web server) certificate within the Zscaler Admin Console.
 
 After a certificate used for web servers is uploaded, it can then be selected when [defining an application](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1) within an application segment. For defined applications with Browser Access enabled, if the certificate is signed by a public certificate authority (CA), then HTTPS should be selected as the protocol. If the certificate is self-signed, or Zscaler is unable to verify the chain of trust to the public CA, select HTTP. Private Access (ZPA) supports HTTP and HTTPS protocols, and inserts a Via header in HTTP requests (e.g., `Via: 1.1 Zscaler-p.zpa-auth.net`). To learn more, see [Configuring Defiend Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1).
@@ -15725,14 +15747,12 @@ The **Upload Server Certificate** drawer opens.
 
 The **Upload Server Certificate** drawer opens.
 
-1. In the **Upload Server Certificate** drawer:
+1. In the **Upload Server Certificate** drawer: [Image: Uploading a server certificate from the Certificates page]
   1. **Name**: Make sure that the correct name was entered.
   2. **Description**: (Optional) Enter a description.
   3. **Certificate Signing Request**: The CSR text is displayed here.
-    1. Click **Download .CSR File**.
-    2. Sign the downloaded .csr file using your public key infrastructure (PKI) to create a valid signed web server certificate.
+    1. Click the **Copy** icon ([Image: Copy icon]) to copy the CSR file. You can also download the CSR file for the certificate on the [Certificates](https://help.zscaler.com/zpa/about-web-server-certificates) page.
+    2. Sign the copied CSR file using your public key infrastructure (PKI) to create a valid signed web server certificate.
     3. Save the certificate in Base64-encoded ASCII PEM format (.pem).
-  4. **Certificate**: Click **Select File** and navigate to the signed web server certificate you created (i.e., the .pem file).
-
-[Image: Uploading a server certificate from the Certificates page]
+  4. **Certificate**: Click the field and navigate to the signed web server certificate you created (i.e., the .pem file).
 <!-- /ZS-ARTICLE -->

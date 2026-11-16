@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 162
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 163
 
 ---
 
@@ -1568,13 +1568,13 @@ On the Branch Connectors page (Private Access > Private Infrastructure > Branch 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-10-29T14:11Z","nid":"1484046"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-browser-access","lastmod":"2026-11-11T03:28Z","nid":"1484046"} -->
 ## About Browser Access
 
 - Source: https://help.zscaler.com/zpa/about-browser-access
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > About Browser Access
-- Last modified: 2026-10-29T14:11Z
+- Last modified: 2026-11-11T03:28Z
 - Summary: Information on Browser Access and how to access and define applications that enable it for Private Access.
 
 Browser Access allows you to leverage a web browser for user authentication and application access over Private Access (ZPA), without requiring users to install Zscaler Client Connector on their devices. For certain use cases, it might not be feasible or desirable to install Zscaler Client Connector on all devices. For example, you might want to:
@@ -1733,13 +1733,13 @@ On the Browser Protection page (Private Access > Private App Protection > Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-chrome-posture-profiles","lastmod":"2026-10-02T21:06Z","nid":"1529370"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-chrome-posture-profiles","lastmod":"2026-11-11T03:33Z","nid":"1529370"} -->
 ## About Chrome Posture Profiles
 
 - Source: https://help.zscaler.com/zpa/about-chrome-posture-profiles
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > About Chrome Posture Profiles
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-11-11T03:33Z
 - Summary: Information about device posture profiles for Chrome Enterprise browser in the Zscaler Admin Console.
 
 A Chrome posture profile is a set of criteria that is evaluated on devices with Chrome Enterprise browser. Policies in Private Access (ZPA) can be configured based on the device posture profile's evaluation. For example, you can specify an operating system as a posture type where the user has browser access to applications.
@@ -3059,6 +3059,43 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/about-ip-address-object","lastmod":"2026-11-12T12:30Z","nid":"1533891"} -->
+## About IP Address Objects
+
+- Source: https://help.zscaler.com/zpa/about-ip-address-object
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About IP Address Objects
+- Last modified: 2026-11-12T12:30Z
+- Summary: Information on the address book that enables you to implement network-based access control in the VPN Access Policy page.
+
+IP address objects are reusable components that allow you to organize your network resources. These objects can contain IP addresses, Classless Inter-Domain Routings (CIDRs), and FQDNs. They allow you to use a single-named object as the source or destination criteria when [configuring VPN access policies](https://help.zscaler.com/zpa/configuring-vpn-access-policies).
+
+IP address objects provide the following benefits and enable you to:
+
+- Centralize the management of your network resources. If an IP address changes, you only need to update the object, and all policies that reference it are automatically updated.
+- Simplify auditing and make policy rules self-documenting. A rule using a named object is easier to understand than one with manually entered IP addresses.
+
+## About the IP Address Object Page
+
+On the IP Address Object page (Private Access > VPN (for Legacy Apps) > VPN Access Policy IP Address), you can do the following:
+
+1. Search for an IP address object by its name.
+2. [Add an IP address object](https://help.zscaler.com/zpa/configuring-address-book-objects).
+3. View a list of all configured IP address objects. For each object, you can see:
+  - **Name**: The name of the IP address object.
+  - **Networks**: The networks grouped in the IP address object.
+4. [Modify the columns displayed in the table.](https://help.zscaler.com/unified/using-tables)
+5. [Edit an IP address object](https://help.zscaler.com/zpa/editing-address-book-objects).
+6. Delete an IP address object.
+7. Display more rows or a different page of the table.
+8. Go to the [Access Policies](https://help.zscaler.com/zpa/about-vpn-access-policy) page to view VPN access policy rules.
+9. Go to the [IdP Attribute Object](https://help.zscaler.com/zpa/about-idp-attribute-objects) page to view IdP attribute objects.
+
+[Image: The IP Address Object Page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/about-ip-bindings","lastmod":"2026-09-23T11:12Z","nid":"1485596"} -->
 ## About IP Bindings
 
@@ -3204,13 +3241,13 @@ On the Log Connector Groups page (Data Explorer > Log Streaming > Private Log St
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-10-29T14:08Z","nid":"1483941"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-log-streaming-service","lastmod":"2026-11-11T10:10Z","nid":"1483941"} -->
 ## About the Log Streaming Service
 
 - Source: https://help.zscaler.com/zpa/about-log-streaming-service
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Log Streaming Service > About the Log Streaming Service
-- Last modified: 2026-10-29T14:08Z
+- Last modified: 2026-11-11T10:10Z
 - Summary: Information on how the Private Access Log Streaming Service (LSS) is deployed, including information on the log types captured by configured log receivers within the Zscaler Admin Console.
 
 The Log Streaming Service (LSS) provides a better understanding of the information coming from the Private Access (ZPA) service by allowing you to create log receivers that receive information about App Connectors and users.
@@ -3271,11 +3308,12 @@ On the Log Receivers page (Data Explorer > Log Streaming > Log Receivers), you c
 4. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
 5. View a list of all log receivers that are configured for your organization. For each receiver, you can see:
   - **Name**: The name of the receiver. Click the name toview details for each Log Receiver.
+  - **App Connector Groups**: Edit the App Connector group associated with the log receiver.
   - **Domain Name or IP Address**: The domain name or IP address for the receiver.
   - **TCP Port**: The TCP port number for the receiver.
   - **TLS Encryption**: Indicates that TLS encryption is enabled or disabled for the receiver.
   - **Log Type**: The log type the receiver is capturing (e.g., **User Activity**, **User Status**, **App Connector Status**, **Browser Access**).
-6. [Copy a log receiver's configuration](https://help.zscaler.com/zpa/configuring-log-receiver#CopyLRConfig) and use it to create a new configuration.
+6. [Copy a log receiver's configuration](https://help.zscaler.com/zpa/configuring-log-receiver#CopyLRConfig).
 7. [Edit a log receiver.](https://help.zscaler.com/zpa/configuring-log-receiver#EditLRConfig)
 8. Delete a log receiver. If a log receiver is configured using Zscaler Deception, then the copy, edit, and delete options are unavailable.
 9. Display more rows or a different page of the table.
@@ -3293,9 +3331,9 @@ On the Log Receivers page (Data Explorer > Log Streaming > Log Receivers), you c
 - Microsegmentation: Information related to Microsegmentation Flow activity. To learn more, see [Understanding Microsegmentation Flow Log Fields](https://help.zscaler.com/zpa/understanding-microsegmentation-flow-log-fields).
 - Private Cloud Controller Metrics: Information related to a Private Cloud Controller's metrics. To learn more, see [Understanding Private Cloud Controller Metrics Log Fields](https://help.zscaler.com/zpa/understanding-private-cloud-controller-metrics-log-fields).
 - Private Cloud Controller Status: Information related to a Private Cloud Controller's availability and connection to Private Access. To learn more, see [Understanding Private Cloud Controller Status Log Fields](https://help.zscaler.com/zpa/understanding-private-cloud-controller-status-log-fields).
-- User Status - VPN Service Edge (IP Address Reservation): Information related to a user status for VPN (ZPA Service Edge). To learn more, see [Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields).
-- User Status - [[variable:vpn-service-edge]**]**: Information related to a user status for VPN Service Edge. To learn more, see [Understanding User Status - VPN Service Edge Log Fields](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields).
 - Traffic Flow - VPN: Information related to VPN traffic flow metrics. To learn more, see [Understanding Traffic Flow for VPN (for Legacy Apps) Log Fields](https://help.zscaler.com/zpa/understanding-traffic-flow-vpn-legacy-apps-log-fields).
+- User Status - VPN Service Edge (IP Address Reservation): Information related to a user status for VPN (ZPA Service Edge). To learn more, see [Understanding User Status - VPN Service Edge (IP Address Reservation) Log Fields](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-ip-address-reservation-log-fields).
+- User Status - VPN Service Edge: Information related to a user status for VPN Service Edge. To learn more, see [Understanding User Status - VPN Service Edge Log Fields](https://help.zscaler.com/zpa/understanding-user-status-vpn-service-edge-log-fields).
 - Private Service Edge Metrics: Information related to a Private Service Edge's metrics. To learn more, see [Understanding Private Service Edge Metrics Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-metrics-log-fields).
 - Private Service Edge Status: Information related to a Private Service Edge's availability and connection to Private Access. To learn more, see [Understanding Private Service Edge Status Log Fields](https://help.zscaler.com/zpa/understanding-private-service-edge-status-log-fields).
 - SMB Inspection Logs: Information related to SMB inspection log activity in your organization. To learn more, see [Understanding SMB Inspection Log Fields](https://help.zscaler.com/tech-pubs-drafts/understanding-smblog-fields-doc-53660).
@@ -4302,13 +4340,13 @@ On the Private Clouds page (Infrastructure > Business Continuity > Private Cloud
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-10-20T13:43Z","nid":"1484471"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-private-service-edge-groups","lastmod":"2026-11-11T16:28Z","nid":"1484471"} -->
 ## About Private Service Edge Groups
 
 - Source: https://help.zscaler.com/zpa/about-private-service-edge-groups
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Private Service Edge Management > Private Service Edge Groups > About Private Service Edge Groups
-- Last modified: 2026-10-20T13:43Z
+- Last modified: 2026-11-11T16:28Z
 - Summary: Information on Private Service Edge for Private Access (ZPA) groups and the Private Service Edge Groups page in the Zscaler Admin Console.
 
 Zscaler recommends deploying Private Service Edges for Private Access (ZPA) in groups for high availability and horizontal scaling. You can create new Private Service Edge groups whenever you [add a new Private Service Edge](https://help.zscaler.com/zpa/configuring-service-edges) using a new provisioning key. Every Private Service Edge belongs to a specific Private Service Edge group.
@@ -5975,13 +6013,13 @@ On the User Risk Scores page (Administration > Authentication > User Risk Scores
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-11-04T09:15Z","nid":"1533872"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-vpn-access-policy","lastmod":"2026-11-12T12:10Z","nid":"1533872"} -->
 ## About VPN Access Policy
 
 - Source: https://help.zscaler.com/zpa/about-vpn-access-policy
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > VPN Access Policy > About VPN Access Policy
-- Last modified: 2026-11-04T09:15Z
+- Last modified: 2026-11-12T12:10Z
 - Summary: Information on VPN access policy rules that enable you to implement network-based access control within the Zscaler Admin Console.
 
 VPN access policy rules enable you to allow or block network traffic on VPN Service Edges. Before you configure an access policy rule, configure the components that define the traffic's source and destination:
@@ -5999,7 +6037,7 @@ VPN (for Legacy Apps) evaluates access policy rules using a top-down, specific-m
 
 ## About the Access Policies Page
 
-On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access Policy > Access Policy), you can do the following:
+On the Access Policies page (Private Access > VPN (for Legacy Apps) > VPN Access Policy > Access Policies), you can do the following:
 
 1. Hide or show filters for the page.
 2. Search for an access policy rule by its name.
@@ -6408,13 +6446,13 @@ On the VPN Diagnostics page (Private Access > VPN (for Legacy Apps) > VPN Diagno
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/about-web-server-certificates","lastmod":"2026-11-06T13:22Z","nid":"1484051"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/about-web-server-certificates","lastmod":"2026-11-09T09:05Z","nid":"1484051"} -->
 ## About (Web Server) Certificates
 
 - Source: https://help.zscaler.com/zpa/about-web-server-certificates
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Certificate Management > Certificates > About (Web Server) Certificates
-- Last modified: 2026-11-06T13:22Z
+- Last modified: 2026-11-09T09:05Z
 - Summary: Information on certificates for web servers within the Zscaler Admin Console.
 
 Private Access (ZPA) uses web server certificates to provide access to a web application, typically for Browser Access. A certificate is selected when [defining an application](https://help.zscaler.com/zpa/configuring-defined-application-segments#tab1) within an application segment.
@@ -6448,7 +6486,7 @@ On the Certificates page (Zero Trust Browser > Clientless Portal > Certificates)
     - If the certificate has less than 30 days before expiration, an orange **Info** icon () is displayed.
   - **Common Name**: The common name (CN) for the hostname associated with the certificate.
   - **SAN**: The subject alternative name of the certificate, if available.
-6. [Edit a certificate.](https://help.zscaler.com/zpa/editing-web-server-certificates)
+6. [Edit a certificate](https://help.zscaler.com/zpa/editing-web-server-certificates).
 7. Delete a certificate.
 8. Download the CSR file for the certificate.
 9. [Upload a certificate](https://help.zscaler.com/zpa/uploading-web-server-certificates#UploadNotPending).
@@ -8397,13 +8435,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-portal","lastmod":"2026-10-28T10:36Z","nid":"1485126"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/accessing-privileged-remote-access-portal","lastmod":"2026-11-12T16:21Z","nid":"1485126"} -->
 ## Accessing a Privileged Remote Access Portal
 
 - Source: https://help.zscaler.com/zpa/accessing-privileged-remote-access-portal
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Privileged Remote Access Management > Privileged Portals > Accessing a Privileged Remote Access Portal
-- Last modified: 2026-10-28T10:36Z
+- Last modified: 2026-11-12T16:21Z
 - Summary: Information on how to access and navigate a Privileged Remote Access (PRA) Portal.
 
 A Privileged Remote Access (PRA) Portal displays [Microtenants](https://help.zscaler.com/zpa/about-microtenants), shared privileged sessions, and privileged consoles that your end users are authorized to access. After an end user logs in, the PRA Portal home page appears. The privileged consoles an end user can see are based on access policies for the application segments that are assigned to the privileged consoles. The displayed privileged consoles can be launched directly from the portal by clicking on them. Any privileged consoles with the policy rule set to Deny are not visible to the end user.
@@ -8414,7 +8452,7 @@ To learn more about PRA, see [Understanding Privileged Remote Access](https://he
 
 ## PRA Portal Features
 
-The following image shows the home screen PRA Portal and its main features listed below.
+The following image shows the PRA Portal landing page and its main features listed below.
 
 [Image: PRA Portal home page]
 
@@ -8450,11 +8488,12 @@ If you are using the virtual keyboard with Windows 7 or 8 and you lock the scree
 
 ## Selecting a Privileged Console
 
-When you have selected a privileged console in the PRA Portal page, you need to fill out the information in the User Account window. The window will be for VNC, RDP, or SSH, depending on the protocol linked to the privileged console you've selected:
+When you select a privileged console on the PRA Portal page, you need to enter information in the User Account window. The window will be for VNC, RDP, SSH, or RealVNC depending on the protocol linked to the privileged console you've selected:
 
 - RDP-Enabled Privileged Console
 - SSH-Enabled Privileged Console
 - VNC-Enabled Privileged Console
+- RealVNC-Enabled Privileged Console
 
 ## Privileged Session Recording
 
@@ -8464,7 +8503,7 @@ See image.
 
 ## Live Privileged Sessions
 
-After you have logged into a privileged console, you can invite up to 10 additional participants into your live privileged session. As the user who started the session, you are the host by default.
+After you are logged in to a privileged console, you can invite up to 10 additional participants into your live privileged session. As the user who started the session, you are the host by default.
 
 To invite other users into your live privileged session:
 
@@ -8488,7 +8527,7 @@ See image.
 
 1. Click **Invite**.
 
-After you send the invitation, you receive a confirmation notification. An email invitation is sent to the user with a link to the PRA Portal and a direct link to the live privileged session. After the user is logged into the PRA Portal, they can click on the privileged console in the **Shared Sessions** section. If you go back to the PRA Portal, you can also see the shared session displayed. After the user joins, you receive a notification. You can click **Copy Invitation** after you clicked **Invite** to send the invited user a pasted link in addition to the automated email. 
+After you send the invitation, you receive a confirmation notification. An email invitation is sent to the user with a link to the PRA Portal and a direct link to the live privileged session. After the user is logged in to the PRA Portal, they can click on the privileged console in the **Shared Sessions** section. If you go back to the PRA Portal, you can also see the shared session displayed. After the user joins, you receive a notification. You can click **Copy Invitation** after you clicked **Invite** to send the invited user a pasted link in addition to the automated email. 
 
 If a participant disconnects from the session, you receive a notification that they disconnected. Disconnected participants show as **Inactive** in the**Participants** window. Participants who have left the shared session can rejoin. If a participant rejoins, you receive a notification.
 
@@ -8506,17 +8545,17 @@ Click **Eject**in the box of the participant you want to remove from the privile
 
 See image.
 
-If a user has access to a privileged console in a Microtenant, then the Microtenant is displayed in this section. If there aren't any privileged consoles that the end user can access either using privileged approvals or including PRA-enabled application segments, then the Microtenant doesn't appear in this section. You can search within the **Microtenant** list using the search bar to locate a specific Microtenant. The characters & and + cannot be used in the PRA Portal search field.
+If a user has access to a privileged console in a Microtenant, then the Microtenant is displayed in this section. If there aren't any privileged consoles that the end user can access either using privileged approvals or including PRA-enabled application segments, then the Microtenant doesn't appear in this section. You can search within the Microtenants list using the search bar to locate a specific Microtenant. The characters & and + cannot be used in the PRA Portal search field.
 
 See image.
 
 Shared privileged sessions are listed at the top of the PRA Portal. If the shared privileged session is for a privileged console within a Microtenant, then the Microtenant name is also displayed. If a folder is not displayed, the shared privileged session is from the Default tenant. The shared privileged sessions are privileged sessions that have been enabled for the end user. The end user can only view the privileged sessions that they have been given access to.
 
-You can search within the **Share Sessions** list using the search bar to locate a specific privileged session. The characters & and + cannot be used in the PRA Portal search field. Use the arrows to navigate the displayed shared privileged sessions. To learn more, see [Configuring Consoles Policies](https://help.zscaler.com/zpa/configuring-consoles-policies).
+You can search within the Shared Sessions list using the search bar to locate a specific privileged session. The characters & and + cannot be used in the PRA Portal search field. Use the arrows to navigate the displayed shared privileged sessions. To learn more, see [Configuring Consoles Policies](https://help.zscaler.com/zpa/configuring-consoles-policies).
 
 See image.
 
-The total list of active, expired, and future privileged consoles associated with the PRA Portal you are using are displayed. Consoles shared by shared application segments at the Microtenant level are also displayed. You can search within the **My Consoles** list using the search bar to locate a specific privileged console. The characters & and + cannot be used in the PRA Portal search field. The PRA Portal displays the following approval statuses, which are denoted by an icon:
+The total list of active, expired, and future privileged consoles associated with the PRA Portal you are using are displayed. Consoles shared by shared application segments at the Microtenant level are also displayed. You can search within the My Consoles list using the search bar to locate a specific privileged console. The characters & and + cannot be used in the PRA Portal search field. The PRA Portal displays the following approval statuses, which are denoted by an icon:
 
 - [Image: Privileged Remote Access Active icon] - Active privileged consoles are currently available for the user. The end date for an active privileged console is displayed in the privileged console.
 - [Image: Privileged Remote Access Future icon] - Future privileged consoles are available for the user at a set time in the future. The start date for a future privileged console is displayed in the privileged console.
@@ -8535,8 +8574,9 @@ The end user can click on a link to launch a privileged console. The PRA Portal 
 - [Image: Privileged Remote Access SSH icon]- Secure Shell Protocol (SSH) is used to remotely access Linux/Unix-based systems.
 - [Image: Privileged Remote Access RDP icon]- Remote Desktop Protocol (RDP) is used to remotely access Windows-based systems.
 - - Virtual Network Computing (VNC) is used to remotely access Windows-based systems and Mac-based systems (Mac Screen Sharing).
+- - RealVNC is used to remotely access Windows-based systems and Mac-based systems (Mac Screen Sharing).
 
-Zscaler supports VNC-enabled privileged consoles that are Remote Frame Buffer (RFB) Protocol compliant.
+Zscaler supports VNC-enabled and RealVNC-enabled privileged consoles that are Remote Frame Buffer (RFB) Protocol compliant.
 
 1. In the **User Account for RDP Access**window:
 
@@ -8583,6 +8623,11 @@ See image
 
 If the VNC display is not working correctly, the end user needs to change the display settings on the machine that the VNC is accessing.
 
+1. In the **User Account for RealVNC Access** window: See image.
+  - **Username**: Enter your username associated with that specific privileged console.
+  - **Password**: Enter the password you have set for that specific privileged console.
+2. Click **Login**. If the RealVNC display is not working correctly, the end user needs to change the display settings on the machine that the Real VNC is accessing.
+
 [Image: Example User Account for RDP Access window]
 
 [Image: Example User Account for SSH Access window]
@@ -8610,6 +8655,8 @@ If the VNC display is not working correctly, the end user needs to change the di
 [Image: The Eject button in the Participants window in a privileged session]
 
 [Image: Pop up window to add an emergency access user]
+
+[Image: Example User Account for RealVNC Access window]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11255,13 +11302,13 @@ The following table provides a list of Kubernetes App Connector Linux capabiliti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-10-26T11:31Z","nid":"1484561"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-deployment-guide-linux","lastmod":"2026-11-13T18:21Z","nid":"1484561"} -->
 ## App Connector Deployment Guide for Linux
 
 - Source: https://help.zscaler.com/zpa/app-connector-deployment-guide-linux
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Deployment Guide for Linux
-- Last modified: 2026-10-26T11:31Z
+- Last modified: 2026-11-13T18:21Z
 - Summary: How to deploy an App Connector on Red Hat Enterprise Linux. It includes platform prerequisites and recommendations as well as post-deployment verification checks.
 
 This deployment guide provides information on prerequisites, how to deploy an App Connector on Red Hat Enterprise Linux 9.x (and 8.x), and post-deployment verification checks. For general information regarding App Connector deployment for Private Access, see [About Deploying App Connectors](https://help.zscaler.com/zpa/about-deploying-connectors).
@@ -11324,11 +11371,21 @@ To learn more, refer to the [VMware documentation](https://docs.vmware.com/en/VM
 
 For Microsoft Hyper-V deployment, ensure that you have the following:
 
-- Physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
+- A physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
 - Intel VT-x or AMD-V hardware virtualization support
 - Second Level Address Translation (SLAT) support
 - Minimum 16 GB RAM (recommended based on VM workload requirements)
 - Sufficient local storage for Host OS and VM VHDX files
+
+For Microsoft Azure Local deployment, ensure that you have the following:
+
+- An HCI cluster that includes:
+  - Windows Admin Center installed
+  - A designated static management network IP address
+- A node created in the HCI cluster
+- Servers must be connected to the same network switch and subnet
+- The management server must be reachable and the DNS role configured before joining the domain. You must have an Active Directory (AD) Domain Services (DS) role for joining cluster nodes to the domain.
+- Remote Desktop (RDP) access enabled on each server via `sconfig`
 
 Using these specifications, each App Connector supports up to 500 Mbps of throughput. To learn more, see [Understanding App Connector Throughput](https://help.zscaler.com/zpa/connector-deployment-prerequisites#ConnectorThroughput) in this article. Based on Zscaler's recommendations, determine the App Connector sizing requirements for your deployment. If disk space fills up in the App Connector, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace_archive).
 
@@ -11510,14 +11567,14 @@ Determining fastest mirrors
   * updates: mirrors.cat.pdx.edu
 Resolving Dependencies
 --> Running transaction check
----> Package zpa-connector.x86_64 0:26.57.3-1.el9 will be installed
+---> Package zpa-connector.x86_64 0:26.58.5-1.el9 will be installed
 --> Finished Dependency Resolution
 Dependencies Resolved
 ================================================================================
   Package               Arch        Version               Repository      Size
 ================================================================================
 Installing:
-  zpa-connector         x86_64      26.57.3-1.el9         zscaler         1.1 M
+  zpa-connector         x86_64      26.58.5-1.el9         zscaler         1.1 M
 Transaction Summary
 ================================================================================
 Install 1 Package
@@ -11526,9 +11583,9 @@ Installed size: 2.9 M
 Is this ok [y/d/N]:
 y
 Downloading packages:
-warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-connector-26.57.3-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
-Public key for zpa-connector-26.57.3-1.el9.x86_64.rpm is not installed
-zpa-connector-26.57.3-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
+warning: /var/cache/yum/x86_64/7/zscaler/packages/zpa-connector-26.58.5-1.el9.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 8765e1dd: NOKEY kb 00:00:01 ETA
+Public key for zpa-connector-26.58.5-1.el9.x86_64.rpm is not installed
+zpa-connector-26.58.5-1.el9.x86_64.rpm                                                                                              | 1.1 MB      00:00:03
 Retrieving key from https://yum.private.zscaler.com/gpg
 Importing GPG key 0x8765E1DD:
  Userid
@@ -11542,10 +11599,10 @@ Running transaction check
 Running transaction test
 Transaction test succeeded
 Running transaction
-  Installing : zpa-connector-26.57.3-1.el9.x86_64                           1/1
-  Verifying  : zpa-connector-26.57.3-1.el9.x86_64                           1/1
+  Installing : zpa-connector-26.58.5-1.el9.x86_64                           1/1
+  Verifying  : zpa-connector-26.58.5-1.el9.x86_64                           1/1
 Installed:
-  zpa-connector.x86_64 0:26.57.3-1.el9
+  zpa-connector.x86_64 0:26.58.5-1.el9
 Complete!
 ```
 
@@ -11555,7 +11612,7 @@ After the App Connector provisioning key is applied, and you have made any neces
 
 1. Zscaler highly recommends [updating the App Connector system software](https://help.zscaler.com/zpa/understanding-software-updates-private-access) before proceeding.
 
-Console outputs reference 26.57.3-1.el8 if you are using the App Connector RPM package for Red Hat Enterprise Linux 8-based deployments.
+Console outputs reference 26.58.5-1.el8 if you are using the App Connector RPM package for Red Hat Enterprise Linux 8-based deployments.
 
 If the App Connector can't download the RPM package, you must download the package on a server.
 
@@ -11563,15 +11620,15 @@ To download the RPM on a server:
 
 1. Download the following files on a server with access:
   - For Red Hat Enterprise Linux 8-based deployments:
-    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.57.3-1.el8.x86_64.rpm))
+    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.58.5-1.el8.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el8/gpg](https://yum.private.zscaler.com/yum/el8/gpg))
   - For Red Hat Enterprise Linux 9-based deployments
-    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.57.3-1.el9.x86_64.rpm))
+    - RPM package ([zpa-connector.rpm](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.58.5-1.el9.x86_64.rpm))
     - GPG public key ([https://yum.private.zscaler.com/yum/el9/gpg](https://yum.private.zscaler.com/yum/el9/gpg))
 2. Use the `scp` command to copy the RPM package and GPG public key to the App Connector. For example:
 
 ```
-$ scp zpa-connector-26.57.3-1.el9.x86_64.rpm admin@
+$ scp zpa-connector-26.58.5-1.el9.x86_64.rpm admin@
 <App Connector Hostname or IP Address>
 $ scp gpg admin@
 <App Connector Hostname or IP Address>
@@ -12389,11 +12446,21 @@ To learn more, refer to the [VMware documentation](https://docs.vmware.com/en/VM
 
 For Microsoft Hyper-V deployment, ensure that you have the following:
 
-- Physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
+- A physical server with Windows Server 2025 Standard or Datacenter Edition OS virtualization support
 - Intel VT-x or AMD-V hardware virtualization support
 - Second Level Address Translation (SLAT) support
 - Minimum 16 GB RAM (recommended based on VM workload requirements)
 - Sufficient local storage for Host OS and VM VHDX files
+
+For Microsoft Azure Local deployment, ensure that you have the following:
+
+- An HCI cluster that includes:
+  - Windows Admin Center installed
+  - A designated static management network IP address
+- A node created in the HCI cluster
+- Servers must be connected to the same network switch and subnet
+- The management server must be reachable and the DNS role configured before joining the domain. You must have an Active Directory (AD) Domain Services (DS) role for joining cluster nodes to the domain.
+- Remote Desktop (RDP) access enabled on each server via `sconfig`
 
 Using these specifications, each App Connector supports up to 500 Mbps of throughput. To learn more, see [Understanding App Connector Throughput](https://help.zscaler.com/zpa/connector-deployment-prerequisites#ConnectorThroughput) in this article. Based on Zscaler's recommendations, determine the App Connector sizing requirements for your deployment. If disk space fills up in the App Connector, Zscaler recommends archiving files and creating more log space. To learn more, see [Monitoring App Connector Performance](https://help.zscaler.com/zpa/monitoring-connector-performance#diskspace_archive).
 
@@ -13954,13 +14021,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-11-05T14:18Z","nid":"1534306"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/app-connector-release-summary-2026","lastmod":"2026-11-10T10:35Z","nid":"1534306"} -->
 ## App Connector Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/app-connector-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA App Connector Release Notes > App Connector Release Summary (2026)
-- Last modified: 2026-11-05T14:18Z
+- Last modified: 2026-11-10T10:35Z
 - Summary: Zscaler Private Access (ZPA) App Connector release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) App Connector version.
@@ -15124,13 +15191,13 @@ Private Access requires an application to be defined as a wildcard with *any* po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-10-20T21:06Z","nid":"1483501"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/configuring-access-policies","lastmod":"2026-11-11T09:34Z","nid":"1483501"} -->
 ## Configuring Access Policies
 
 - Source: https://help.zscaler.com/zpa/configuring-access-policies
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Policies > Access Policy > Configuring Access Policies
-- Last modified: 2026-10-20T21:06Z
+- Last modified: 2026-11-11T09:34Z
 - Summary: How to configure an access policy rule within the Zscaler Admin Console.
 
 Access policy rules enable you to implement role-based access control. For a complete list of ranges and limitations for access policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
@@ -15266,6 +15333,8 @@ Location types include:
 - **BC** - Branch Connector
 - **CC**- Cloud Connector
 - **NONE**- Locations other than Branch Connector or Cloud Connector. NONE location types are also used in [Source IP Anchoring configurations](https://help.zscaler.com/zia/understanding-source-ip-anchoring), where traffic is routed from these locations to Private Access.
+
+If the location type is **BC** or **CC**, ensure that the rule action for the client forwarding policy is not set to **Only Forward Allowed Applications**. To learn more, see [Configuring Client Forwarding Policies](https://help.zscaler.com/zpa/configuring-client-forwarding-policies).
 
 Choose the countries to which this rule applies. You can search for a specific country, click **Select All** to apply the countries listed, click **Clear All** to remove all selections, or click the **Delete** icon to the right of a selected country to remove it from your list. There is no limit to the number you can select. Click **Cancel** to exit the Country Code menu.
 

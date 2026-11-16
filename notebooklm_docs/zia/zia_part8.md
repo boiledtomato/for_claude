@@ -1,8 +1,248 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 8)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 12
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 13
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/web-insights-logs-columns","lastmod":"2026-10-15T22:33Z","nid":"1401046"} -->
+## Web Insights Logs: Columns
+
+- Source: https://help.zscaler.com/zia/web-insights-logs-columns
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Columns
+- Last modified: 2026-10-15T22:33Z
+- Summary: Information on the different columns in the Web Insights Logs page in the Zscaler Admin Console.
+
+You can customize your web logs by using column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
+
+You can select the following web column fields:
+
+- **Adaptive Access Profile**: The Adaptive Access Profile name.
+- **Advanced Threat Category**: The name of the advanced threat category.
+- **AI/ML Detection Source**: The name of the AI/ML detection source for the transaction. None for transactions that don't match any AI/ML detection source.
+- **ALPN Protocol**: The ALPN protocol is only displayed for SSL/TLS transactions.
+- **Allowed File Type Rule**: The name of the allowed File Type Control Rule policy applied to the transaction.
+- **API Key Name**: The name of the Sandbox API Token associated with the triggered event.
+- **Application Activity**: The name of the action performed by the user on the application.
+- **Application Segment**: A group of applications that are organized together, based upon access type or user privileges. Zscaler can forward traffic to these application segments.
+- **Application Status**: The status of the cloud application. The statuses are sanctioned, unsanctioned, or N/A.
+- **App Instance Level 1**: The organization ID for Google Cloud Platform; domain name for Box, Google Drive, Gmail, OneDrive, Microsoft Outlook, Microsoft Teams, SharePoint, Microsoft Azure, and Slack; or tenant ID for Salesforce and ServiceNow of the discovered instances for the cloud application.
+- **App Instance Level 2**: The project ID for Google Cloud Platform; tenant ID for Microsoft Azure; workspace ID for Slack; site name for SharePoint of the discovered instances of the cloud application; or**N/A** for all other SaaS applications that do not support level 2 of instance discovery.
+- **App Instance Level 3**: The resource type name of the discovered cloud application instance. **N/A** for all other SaaS applications that do not support level 3 of instance discovery.
+  - Google Cloud Platform
+  - Microsoft Azure
+- **App Instance Level 1 Type**: **Organization**for Google Cloud Platform; **Domain**for Box, Google Drive, Gmail, OneDrive, Microsoft Outlook, Microsoft Teams, SharePoint, Microsoft Azure, and Slack; or **Tenant**for Salesforce and ServiceNow.
+- **App Instance Level 2 Type**: **Project**for Google Cloud Platform, WorkSpace for Slack; **Site**for SharePoint; **Tenant**for Microsoft Azure, or**N/A** for applications that do not support level 2 of instance discovery.
+- **App Instance Level 3 Type**: **Resource Name** for Google Cloud Platform and Microsoft Azure, or **N/A** for SaaS applications that do not support level 3 of instance discovery.
+- **Bandwidth Class**:The bandwidth class to which the URL belongs.
+- **Bandwidth Rule**:Specifies the Bandwidth Control policy rule that applies to this URL.
+- **Blocked Policy Name**:The name of the policy that took action during the transaction.
+- **Blocked Policy Type**:The type of policy that took action during the transaction.
+- **Bypassed Transaction**: Indicates whether the transaction bypassed Zscaler Client Connector.
+- **Bypassed Transaction Event Time**: The date and time when the transaction bypassed Zscaler Client Connector.
+- **Capture**: The name of the packet capture (PCAP) file that captured the transaction. You can download the file by clicking the **Download**icon next to the file name.
+- **Certificate Chain Validity**: If the server certificate is signed by a Zscaler-trusted certificate authority or not. This filter applies to SSL/TLS-inspected traffic.
+- **Client Connection Cipher**:The cipher suite agreed upon during the SSL/TLS handshake between the client and the Public Service Edge for Internet & SaaS (ZIA). This filter applies to SSL/TLS-inspected traffic.
+- **Client Connection TLS Version**:The version of TLS used for communication between the client and the Public Service Edge. This filter applies to SSL/TLS-inspected traffic.
+- **Client External IP**:This is the internet gateway location IP address.
+- **Client Digital Signature Proposal**: The digital signature proposed by the client during the TLS handshake process in a transaction (i.e., Classical, Hybrid, PQC, Unknown or None if signature_algorithms extension was not present).
+- **Client Key Exchange Proposal**: The key exchange algorithm proposed by the client during the TLS handshake process in a transaction (i.e., Classical, Hybrid, PQC, Unknown, or None if supported_groups extension was not present).
+- **Client-Side Key Exchange Algorithm**: The key exchange algorithm agreed upon during the TLS handshake between the client and the Service Edge in the case of TLS inspected traffic, or the key exchange algorithm agreed upon during the TLS handshake between the client and the server in the case of bypassed traffic.
+- **Client-Side Digital Signature Algorithm**: The digital signature algorithm agreed upon during the TLS handshake between the client and the Service Edge in the case of TLS inspected traffic, or the digital signature algorithm agreed upon during the TLS handshake between the client and the server in the case of bypassed traffic.
+- **Client IP**:The IP address from which the transaction originated. This is the IP address of the client device.
+- **Client Session Reused**: If an SSL/TLS connection between the client and Zscaler was reused for the web transaction.
+- **Client Source Port**: The source port number from which the traffic originated. This filter is disabled by default. To enable it, contact Zscaler Support.
+- **Client SSL/TLS Handshake Failure Aggregate Count**: The total number of client SSL/TLS handshake failures within the selected timeframe.
+- **Client SSL/TLS Handshake Failure Reason**: The reason for the client SSL/TLS handshake failure.
+- **Client Trans. Time (ms)**:The sum of the values in the **Proxy Latency** and**Server Trans. Time** columns and the time taken by the client to upload the entire request payload. This is the total time, in milliseconds, from when the browser sent the first request to the cloud infrastructure until it returned all the content to the browser.
+- **Cloud Application**:The specific web application that was accessed.
+- **Cloud Application Class**:The specific web application class that was accessed.
+- **Configuration**: Indicates whether policies were applied using full tenant configurations during normal operating conditions, or using only a partial configuration. A partial configuration is an extremely rare occurrence caused by transient network disruptions, which can result in a Service Edge operating with incomplete or cached tenant, user, or location configurations. Supported values are **Full** and **Partial**. This distinction applies only when the **Best Effort Policies** option is used for the **Behavior When Partial Configuration Available** setting in [Advanced Settings](https://help.zscaler.com/zia/configuring-advanced-settings#partial-configuration-policy-handling).
+- **Data Center**: The data center associated with the transaction.
+- **Department**:The department to which the user belongs. As with the user field, if authentication is not required and the traffic comes from a location specified in the service, this field displays the name of the gateway location. You can sort and search through this column.
+- **Destination IP Countries**: The name of the country associated with the destination IP address. For aggregated sessions, this is the destination IP address of the last session in the aggregate. You can sort and search through this column.
+- **Device Hostname**: The hostname information from support devices.
+- **Device Model**: The model of the device.
+- **Device Name**: The name of the device.
+- **Device Type**: The device type.
+- **Device Owner**: The owner of the device.
+- **DLP Confirmation Message**: The message entered by a user to justify a transaction that triggered a DLP rule with the **Confirm**action.
+- **DLP Dictionaries**:Indicates if data leakage was detected by a DLP dictionary.
+- **DLP Engine**:Indicates if data leakage was detected by a Data Loss Prevention (DLP) engine.
+- **DLP Identifier**: Used to search for the transactions using this DLP identifier. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors. Use it as a filter to locate the exact transaction.
+- **DLP MD5**: The MD5 hash for the file that triggered the DLP rule. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing the MD5 hash of the file is sent to your auditors. Use it as a filter to locate the exact transaction.
+- **DLP Policy Action**: The DLP policy action that was taken on the transaction. If Auditor or Incident Receiver notifications are not configured in the rule, this field displays **None**.
+- **DLP Severity**: The severity of the triggered DLP rule violation (i.e., High, Medium, Low, or Information). These severities are assigned to the DLP rules at the time of DLP rule configuration.
+- **Document Type**: The type of document uploaded or downloaded during the transaction.
+- **Domain Fronted Host Header**:The HTTP/S transactions that indicate domain fronting due to an FQDN mismatch: between the request URL and the request's host header, or between the SNI (Server Name Indication) and the inner request's host header.
+- **Domain Fronted SNI**:The SSL/TLS connection's Server Name Indication (SNI) in cases where the HTTPS request host header doesn't match the SNI. SSL/TLS Inspection must be enabled for this field to be populated.
+- **Download File Name**: The name of downloaded files during the transaction.
+- **Download File Type**: The type of file downloaded during the transaction.
+- **Download User-Defined File Type**: The user-defined file type downloaded during the transaction.
+- **Email Recipients**: The email addresses of the message recipients. This column applies to email applications and displays up to 16 addresses.
+- **Enrolled Device app version**: The app version of the enrolled device.
+- **Event Time**:The date and time of the transaction. You can sort this column.
+- **Exempted DLP Identifier**: The unique DLP identifier of the transaction. This field is populated in cases where the DLP scan times out, exempting the transaction from policy enforcement. This field is not populated if the DLP Identifier is populated.
+- **External Device ID**: The external device ID that associates a user’s device with the mobile device management (MDM) solution.
+- **Extranet Resource**: The extranet resource name.
+- **File Name**:Only applicable to downloaded and uploaded files.
+- **File Type**: The file type associated with the transaction.
+- **Flow Type**: The flow type of the transaction.
+- **Forwarding Method**: The type of forwarding method used.
+- **Forwarding Rule**: The forwarding rule applied to the transaction.
+- **Gateway IP**: The gateway IP used.
+- **Gateway Name**: The gateway name.
+- **HTTP Header Insertion Profile**: The HTTP header insertion profile name that triggered the policy.
+- **HTTP Header Profile**: The HTTP header profile name that triggered the policy.
+- **Intermediate CA Protection Type**: Indicates whether an HSM protection or a software protection intermediate CA certificate is used for the TLS interception. This filter applies to SSL/TLS-inspected traffic.
+- **Is Destination IP Country Risky?**: Indicates if the country associated with the destination IP address is risky or not. The options are **Yes**or **No**.
+- **Is Source IP Country Risky?**: Indicates if the country associated with the source IP address is risky or not. The options are **Yes**or **No**.
+- **JA4 Fingerprint**: The JA4 fingerprint value that is calculated for TLS-based transactions for SaaS applications. JA4 is a sequence of three fragments (i.e., JAa, JA4b, JA4c separated by underscores). For example, for the Chrome application, the JA4 fingerprint is JA4=t13d1516h2_8daaf6152771_e5627efa2ab1 comprising: See image.
+  - **JA4 A**: t13d1516h2
+  - **JA4 B**: 8daaf6152771
+  - **JA4 C**: e5627efa2ab1
+- **JA4 Fingerprint A**: The first fragment of the JA4 fingerprint, which is a count of supported cipher suites including information like protocol type, TLS version requested by the client, number of extensions, and the first ALPN value.
+- **JA4 Fingerprint B**: The second fragment of the JA4 fingerprint, which is a truncated SHA256 hash of sorted cipher suites.
+- **JA4 Fingerprint C**: The third fragment of the JA4 fingerprint which is the truncated SHA256 hash of extensions and signature algorithms.
+- **Location**:The internet gateway location from which the transaction originated. If the transaction did not originate from a location that was defined in the service, then it is recorded as coming from a remote user. You can sort and search through this column.
+- **Logged Time**:The date and time the transaction was logged.
+- **MD5**:Displays the hash of suspicious files. Click to view:
+  - [Sandbox Detail Report](https://help.zscaler.com/zia/viewing-sandbox-reports-data#about-sandbox-detail-report) (requires Advanced Sandbox)
+  - [CrowdStrike Endpoint Hits report](https://help.zscaler.com/zia/viewing-crowdstrike-endpoint-hits-report) (requires a [CrowdStrike integration](https://help.zscaler.com/zia/configuring-crowdstrike-integration))
+- **No.**:The item number.
+- **Other DLP Rules**: The names of DLP rules that were also triggered by the user activity, but no action was taken based on the rules. To populate this field, you must enable the **Evaluate All Rules Mode** for inline DLP rule evaluation in the [DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings#RuleEvaluation) page. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled#EvaluateAllRules).
+- **OS Type**: The OS type of the device.
+- **OS Version**: The OS version the device uses.
+- **Policy Action:**Indicates if the service allowed or blocked the transaction, or cautioned the user about the transaction. To learn about the reasons for policy actions, see [Policy Reasons](https://help.zscaler.com/zia/policy-reasons).
+- **Prompt**: The prompt entered by the user in the generative AI application.
+- **Prompt Classification**: Category of the prompt entered by the user in the Gen AI application.
+- **Protocol**:Improve the visibility of protocols that traverse within Zscaler's cloud. The following information is shown: Zscaler inspects bidirectional WebSocket traffic carrying supported text-based content across applications. Contact Zscaler Support to enable this feature.
+  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
+  - **FTP**: Transactions from native FTP servers.
+  - **FTP over HTTP**: Transactions from FTP over HTTP websites.
+  - **HTTP**: Transactions from HTTP websites.
+  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a ZIA Public Service Edge IP address.
+  - **HTTPS**: HTTPS transactions that have been inspected.
+  - **SSL/TLS**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL/TLS inspection](https://help.zscaler.com/zia/understanding-ssltls-inspection).
+  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
+  - **Tunnel SSL/TLS**: Undecodable protocol within an SSL/TLS connection.
+  - **WebSocket**: Transactions from WebSocket websites.
+  - **WebSocket SSL/TLS**: Transactions from WebSocket websites encrypted by SSL/TLS.
+- **Proxy Latency (ms)**:The time, in milliseconds, added to the transaction by the Public Service Edge.
+- **Received Bytes**:Specifies how many bytes the destination web server returned for each HTTP request.
+- **Referrer URL**:The URL from which the HTTP request originated.
+- **Request Latency Due to Bandwidth Control (ms)**: Displays the delay, in milliseconds, experienced by the HTTP request due to bandwidth control.
+- **Response Latency Due to Bandwidth Control (ms)**: Displays the delay, in milliseconds, experienced by the HTTP response due to bandwidth control.
+- **Request Method**:Indicates if the HTTP request was a **GET**, **POST**, or **CONNECT** request. A GET request is a request to retrieve data, a POST request is a request to submit data to be processed, and a CONNECT request converts the request to a transparent tunnel, usually to facilitate HTTPS.
+- **Request Version**: The request version of HTTP used for communication between the client and the server.
+- **Response HTTP Version**: The response version of HTTP used for communication between the client and the server.
+- **Response Code**:The destination server’s response. For example, 200 OK means the request succeeded and 404 Not Found means the requested URL was not found.
+- **Risk Index**: The computed or assigned risk index for the application, with 1 being the lowest risk and 5 being the highest.
+- **SaaS Authenticated Username**: The username that the user utilizes when attempting to authenticate to the SaaS application.
+- **Sent Bytes**:Specifies the size, in bytes, of the HTTP request that was sent to the destination web server.
+- **Server Certificate Self Signed**:If the certificate presented by the Origin Content Server (web server) to the Public Service Edge was self-signed.
+- **Server Certificate Validation Type**:The validation type for the certificate presented by the server to the Public Service Edge (Extended Validation, Organization Validation, or Domain Validation).
+- **Server Certificate Validity Period**: The validity duration of the certificate presented by the server to the Public Service Edge (i.e., how long is the certificate valid for?).
+- **Server Connection Cert Expiry**: If the certificate presented by the server to the Public Service Edge expired or not (Y/N).
+- **Server Connection Cipher**:The cipher suite agreed upon during the SSL/TLS handshake between the Public Service Edge and the server.
+- **Server Connection OCSP Result**: If the OCSP check done by the Public Service Edge passed or failed.
+- **Server Connection TLS Version**:The version of TLS used for communication between the Public Service Edge and the server.
+- **Server Destination Port**: The server-side destination port. This column is disabled by default. To enable it, contact Zscaler Support.
+- **Server IP**:The IP address of the destination server.
+
+When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the server IP address at the proxy layer because the client request is forwarded to Private Access (ZPA), and the proxy code is already completed. Therefore, the IP address 0.0.0.1 is logged to indicate the internal redirection within Zscaler.
+
+- **Server Session Reused**:Indicates if the SSL/TLS connection on the server side is reused or not.
+- **Server-Side Key Exchange Algorithm**: The key exchange algorithm agreed upon during the TLS handshake between the server and the Service Edge in the case of TLS inspected traffic, or the key exchange algorithm agreed upon during the TLS handshake between the server and the client in the case of bypassed traffic.
+- **Server-Side Digital Signature Algorithm**: The digital signature algorithm agreed upon during the TLS handshake between the Service Edge and the client in the case of TLS inspected traffic, or the digital signature algorithm agreed upon during the TLS handshake between the server and the client in the case of bypassed traffic.
+- **Server Trans. Time (ms)**:The time, in milliseconds, it took the destination server to accept the GET request and return all the content to the cloud infrastructure.
+- **Server Wildcard Certificate**: Indicates if the certificate presented by the server to the Public Service Edge is a wildcard certificate or not.
+- **SHA-256**:Displays the hash of identical files.
+- **Source IP Countries**: The name of the country associated with the source IP address. For aggregated sessions, this is the source IP address of the last session in the aggregate. You can sort and search through this column.
+- **SSL/TLS Inspected**:Displays **Yes** if the SSL/TLS transaction was decrypted. Otherwise, it displays **No**.
+- **SSL/TLS Policy Name**: The name of the SSL/TLS Inspection policy rule that was applied to the transaction.
+- **SSL/TLS Policy Reason**:Whether the transaction was SSL/TLS inspected, not inspected, or blocked after inspection. Displays the reason if not inspected.
+- **Subdocument Type**: The type of subdocument uploaded or downloaded during the transaction.
+- **Suspicious Content**:This field provides the “raw” Page Risk Index score of a URL. To learn more about Suspicious Content Protection (Page RiskTM), see [About Advanced Threat Protection](https://help.zscaler.com/zia/about-advanced-threat-protection).
+- **Threat Category**:If the service detected a threat in the transaction, it displays the virus or spyware type, if applicable.
+- **Threat Name**:If the service detected a threat in the transaction, it displays the name of the threat. Click to read more information about the threat in the [Zscaler Threat Library](https://threatlibrary.zscaler.com).
+- **Threat Severity**: The severity of the threat that is detected in the transaction, if any. The severity relates to the **Suspicious Content** field value (i.e., the [Page Risk Index score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk)). The following threat severities appear: See image.
+  - **Critical**: If the suspicious content value is 90–100.
+  - **High**: If the suspicious content value is 75–89.
+  - **Medium**: If the suspicious content value is 46–74.
+  - **Low**: If the suspicious content value is 1–45.
+  - **None**: If the suspicious content value is 0.
+- **Threat Super Category**:If the service detected a threat in the transaction, it displays the Virus and Spyware super category, if applicable.
+- **Throttled request bytes**:Specifies how many request bytes were throttled.
+- **Throttled response bytes**:Specifies how many response bytes were throttled.
+- **Total Bytes**:The sum of the values in the **Received Bytes** and **Sent Bytes** columns.
+- **Total Latency Due to Bandwidth Control (ms)**: Displays the total latency due to bandwidth control in milliseconds.
+- **Traffic Forwarding**:Type of traffic forwarding mechanism for this session. For aggregated sessions, this is the traffic forwarding type of the last session in the aggregate. To learn more about traffic forwarding, see [Best Practices for Traffic Forwarding](https://help.zscaler.com/zia/best-practices-traffic-forwarding).
+- **Unscannable Type**:Unscannable file type. The following unscannable types appear in this field:
+  - Encrypted File: Encrypted or password-protected (e.g., GZIP, PDF).
+  - Undetectable File: Unable to determine the file type, based on multiple methods.
+  - Unscannable File: Unscannable (e.g., corrupt archive).
+- **Upload File Name**: The name of uploaded files during the transaction.
+- **Upload File Type**: The type of file uploaded during the transaction.
+- **Upload User-Defined File Type**: The user-defined file type uploaded during the transaction.
+- **URL**:The entire URL of the transaction. Opening a single web page typically requires multiple GET requests in order to fetch all the objects of the page. Each GET request is logged as a transaction. You can sort and search through this column.
+- **URL Categorization Method**:Refers to the source of the URL's category. **Database A** refers to the proprietary URL database of the service; **Database B** refers to a third-party vendor’s URL database; **AI/ML-based content categorization** refers to the content classification of pages that are not present in any of the databases using AI/ML tools. **User-Defined** indicates that the category was defined by an administrator. **None** indicates that the category of the URL is unavailable in any of the databases.
+- **URL Category**:The specific URL category to which the URL belongs.
+- **URL Class**:The URL class to which the URL belongs.
+- **URL Super Category**:The URL super category to which the URL belongs.
+- **User**:The email address of the user who performed the transaction. If an internet gateway location was specified and authentication is not required, this field displays the name of the gateway location. You can sort and search through this column.
+- **User Agent**: The user-agent string that the browser included in its GET request. The user-agent string contains browser and system information that the destination server can use to provide appropriate content.
+- **User Location**: This field is applicable to the web traffic processed via [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation). The User Location field shows the actual traffic origination point, whereas the Location field displaysCBI Location. When the web traffic is not handled by Zero Trust Browser, the User Location field value is **None**.
+- **Zscaler Client Connector Tunnel Version**: The version of the Zscaler Client Connector Z-Tunnel.
+
+- VMs
+- Databases
+- Kubernetes
+
+- Azure Databricks
+- Azure Machine Learning
+- Azure AI Services
+- Azure AI Studio
+- Azure Data Lake Storage
+- Azure Data Share
+- Azure Synapse Analytics
+- Azure Spot Virtual Machines
+- Linux Virtual Machines
+- Virtual Machines
+- Azure Virtual Desktop
+- Windows Virtual Machines
+- Azure Kubernetes Service (AKS)
+- Azure Functions
+- Azure Container Apps
+- Azure Cache for Redis
+- Azure Cusmos DB
+- Azure SQL Database
+- Azure SQL Edge
+- Azure SQL Managed Instance
+- Azure DevOps
+- Azure Arc
+- Azure ExpressRoute
+- Azure Advisor
+- Backup vaults
+- Azure Migrate
+- Azure Automanage
+- Azure DDoS Protection
+- Azure Key Vault Managed HSMs
+- Azure Firewall
+- Web Application Firewall
+- Microsoft Copilot for Security
+- Azure Backup
+- Storage Accounts
+- Azure Container Storage
+- API Management
+- Azure AI Search
+
+[Image: The Threat Severity column displaying the severity of the threat that is detected in the transaction in the Insights Logs Page.]
+
+[Image: The JA4 fingerprint contains three fragments, each with a different meaning, separated by underscores]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -10,8 +250,8 @@ Articles in this file: 12
 ## Web Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/web-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Web Insights Logs: Filters
 - Last modified: 2026-10-09T07:06Z
 - Summary: Information on the different filters in the Web Insights Logs page in the Zscaler Admin Console.
 
@@ -1058,8 +1298,8 @@ This distinction applies only when the **Best Effort Policies** option is used f
 ## What Is 3rd-Party App Governance?
 
 - Source: https://help.zscaler.com/zia/what-3rd-party-app-governance
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > What Is 3rd-Party App Governance?
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > What Is 3rd-Party App Governance?
 - Last modified: 2026-09-30T03:24Z
 - Summary: Information on third-party app security using Zscaler 3rd-Party App Governance.
 
@@ -1254,13 +1494,13 @@ Organizations can easily connect their traffic to Internet & SaaS using several 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-09-22T07:06Z","nid":"1492656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/what-zscaler-outbound-email-dlp","lastmod":"2026-11-12T09:00Z","nid":"1492656"} -->
 ## What Is Zscaler Outbound Email DLP?
 
 - Source: https://help.zscaler.com/zia/what-zscaler-outbound-email-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
-- Last modified: 2026-09-22T07:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > What Is Zscaler Outbound Email DLP?
+- Last modified: 2026-11-12T09:00Z
 - Summary: A high-level overview of what Zscaler Outbound Email Data Loss Prevention (DLP) is and how it uses outbound email policy to prevent the exfiltration of sensitive data in email content.
 
 Zscaler Outbound Email Data Loss Prevention (DLP) stops the exfiltration of sensitive data by enforcing policy rules on outbound email content sent to external domains, including content in subject lines, body text, and attachments. Using connectors and rules, your email server sends email to, and receives email from, the Zscaler smart host. The Zscaler smart host receives the email and sends it to the Zscaler DLP service for inspection. The Zscaler DLP service then inspects the email content for sensitive data, adding headers that define DLP actions to emails that trigger outbound email policy. When your email server receives inspected email from the Zscaler smart host, it uses those headers to determine enforcement actions.
@@ -1271,7 +1511,7 @@ To learn more about how the Zscaler service enforces outbound email policy rules
 
 The following diagram shows a high-level overview of how Zscaler Outbound Email DLP enforces outbound email policy:
 
-1. A user sends an email containing sensitive information to an external domain.
+1. A user sends an email containing sensitive information to an external domain. If you use the Zscaler Data Security Add-in for Outlook, users receive real-time feedback on policy violations before sending messages to external domains. To learn more, see [Configuring the Zscaler Data Security Add-in for Outlook](https://help.zscaler.com/zia/configuring-zscaler-data-security-add-outlook).
 2. The rules configured on your email server instruct Gmail, Microsoft Exchange, or your secure email gateway (SEG) to send the email to the Zscaler smart host via Simple Mail Transfer Protocol (SMTP) for DLP inspection.
 3. The Zscaler DLP service performs DLP inspection and inserts email headers based on the verdict of the policy evaluation.
 4. Inspected email is sent back to your email server.
@@ -1908,13 +2148,13 @@ return "PROXY ${SECONDARY_GATEWAY_FX}:9400; PROXY ${GATEWAY_FX}:9400; DIRECT";
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/zia-error-codes-kerberos-authentication","lastmod":"2026-10-30T08:40Z","nid":"1399596"} -->
+<!-- ZS-ARTICLE {"url":"/zia/zia-error-codes-kerberos-authentication","lastmod":"2026-11-13T20:06Z","nid":"1399596"} -->
 ## Internet & SaaS Error Codes for Kerberos Authentication
 
 - Source: https://help.zscaler.com/zia/zia-error-codes-kerberos-authentication
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Internet & SaaS Error Codes for Kerberos Authentication
-- Last modified: 2026-10-30T08:40Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Internet & SaaS Error Codes for Kerberos Authentication
+- Last modified: 2026-11-13T20:06Z
 - Summary: Information on the cause and solutions to several Public Service Edge for Internet & SaaS error codes for Kerberos authentication.
 
 If Kerberos authentication fails, the Zscaler service displays a page with an error code. The following table lists the information on the Kerberos authentication error codes. To learn how to troubleshoot Kerberos, see [Troubleshooting Kerberos Authentication](https://help.zscaler.com/zia/troubleshooting-kerberos-authentication).
@@ -1941,8 +2181,8 @@ If Kerberos authentication fails, the Zscaler service displays a page with an er
 ## Zscaler Authentication Bridge Server Certificate Renewal Process
 
 - Source: https://help.zscaler.com/zia/zscaler-authentication-bridge-server-certificate-renewal-process
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Zscaler Authentication Bridge Server Certificate Renewal Process
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Zscaler Authentication Bridge Server Certificate Renewal Process
 - Last modified: 2026-05-07T21:06Z
 - Summary: Information on how to renew the Zscaler Authentication Bridge server certificate when it expires.
 
@@ -1994,8 +2234,8 @@ Zscaler DNS Security and Control services offer mechanisms to take control of yo
 ## Zscaler Endpoint DLP Release Summary (2026)
 
 - Source: https://help.zscaler.com/zia/zscaler-endpoint-dlp-release-summary-2026
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Release Notes > Zscaler Endpoint DLP Release Notes > Zscaler Endpoint DLP Release Summary (2026)
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Release Notes > Zscaler Endpoint DLP Release Notes > Zscaler Endpoint DLP Release Summary (2026)
 - Last modified: 2026-10-26T09:35Z
 - Summary: Zscaler Endpoint DLP release summary for updates deployed, per OS and version, in 2026.
 
@@ -2008,8 +2248,8 @@ This article provides a summary of all new features and enhancements released pe
 ## Zscaler Traffic Bypasses
 
 - Source: https://help.zscaler.com/zia/zscaler-traffic-bypasses
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Zscaler Traffic Bypasses
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Zscaler Traffic Bypasses
 - Last modified: 2026-06-02T23:36Z
 - Summary: Information on traffic bypasses that are available in the Zscaler cloud.
 

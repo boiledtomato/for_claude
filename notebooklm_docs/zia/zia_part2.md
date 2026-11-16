@@ -1,18 +1,56 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 113
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 114
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-10-29T12:04Z","nid":"1403111"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-watermarking","lastmod":"2026-09-29T11:19Z","nid":"1516481"} -->
+## About Watermarking
+
+- Source: https://help.zscaler.com/zia/about-watermarking
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > About Watermarking
+- Last modified: 2026-09-29T11:19Z
+- Summary: Information about the Watermarking page in the Zscaler Admin Console.
+
+The Watermarking page lets you add, view, and configure watermark profiles to enforce rights management for your organization. You can use watermarks as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to superimpose text diagonally across pages and images so that content you want to protect can be clearly and easily identified. In addition to watermark text, the Zscaler service lets you add headers and footers to protected files.
+
+When configuring SaaS Security Data at Rest Scanning DLP policy rules, you can use the watermark profiles you create to add watermark content to multiple file types. To learn more, see [Adding & Editing Watermark Profiles](https://help.zscaler.com/zia/adding-editing-watermark-profiles).
+
+The Watermarking page provides the following benefits and allows you to:
+
+- Add, view, and configure watermark profiles for your organization.
+- Make watermarks available to be used on multiple file types as part of your SaaS Security Data at Rest Scanning DLP policy.
+
+## About the Watermarking Page
+
+On the Watermarking page (Data Security > DSPM > Rights Management > Watermarking), you can do the following:
+
+1. Search for a watermark profile.
+2. [Add a watermark profile](https://help.zscaler.com/zia/adding-watermark-profiles).
+3. View a list of all watermark profiles configured for your organization. For watermark profiles, you can see:
+  - **Profile Name**: The name of the watermark profile. You can sort this column.
+  - **Watermark Text**: The text used in the watermark profile. You can sort this column.
+  - **Actions**: Actions to [edit](https://help.zscaler.com/zia/adding-editing-watermark-profiles#edit-watermark-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a watermark profile.
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. [Go to the Redaction page](https://help.zscaler.com/zia/about-redaction).
+
+[Image: About the Watermarking page]
+
+<p> <img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/about-watermarking/watermarking-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Rights Management page includes the Watermarking page." title="Watermarking Page" width="1606" height="916"> </p>
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-webhooks","lastmod":"2026-11-12T20:06Z","nid":"1403111"} -->
 ## About Webhooks
 
 - Source: https://help.zscaler.com/zia/about-webhooks
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Security & UEBA Alerts > About Webhooks
-- Last modified: 2026-10-29T12:04Z
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information about Webhook in the Zscaler Admin Console.
 
 Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk) for incident management.
@@ -170,8 +208,8 @@ On the Authentication Bridges page (Administration > Internet & SaaS Authenticat
 ## About Zscaler Client Connector-Based End User Notifications
 
 - Source: https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > About Zscaler Client Connector-Based End User Notifications
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > About Zscaler Client Connector-Based End User Notifications
 - Last modified: 2026-09-15T23:48Z
 - Summary: Information on Zscaler Client Connector-based EUNs displayed for end users when specific policies are triggered by Internet & SaaS (ZIA).
 
@@ -575,13 +613,13 @@ Endpoint Data Loss Prevention (DLP) pulls the policy every 15 minutes.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-ldap-provisioning-migration-guide","lastmod":"2026-10-30T17:06Z","nid":"1486446"} -->
+<!-- ZS-ARTICLE {"url":"/zia/active-directory-scim-ldap-provisioning-migration-guide","lastmod":"2026-11-13T20:06Z","nid":"1486446"} -->
 ## Active Directory with LDAP to SCIM Provisioning Migration Guide
 
 - Source: https://help.zscaler.com/zia/active-directory-scim-ldap-provisioning-migration-guide
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Active Directory with LDAP to SCIM Provisioning Migration Guide
-- Last modified: 2026-10-30T17:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Active Directory with LDAP to SCIM Provisioning Migration Guide
+- Last modified: 2026-11-13T20:06Z
 - Summary: This article contains information on migrating from Active Directory (AD) to SCIM Provisioning.
 
 This guide contains information on how to migrate from Active Directory (AD) with [LDAP user synchronization](https://help.zscaler.com/zia/about-ldap-user-synchronization) to SCIM provisioning in the Zscaler Admin Console.
@@ -812,8 +850,8 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 ## Adding Alert Subscriptions
 
 - Source: https://help.zscaler.com/zia/adding-alert-subscriptions
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Alerts > Adding Alert Subscriptions
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Alerts > Adding Alert Subscriptions
 - Last modified: 2026-10-20T12:39Z
 - Summary: How to add alert subscriptions in the Zscaler Admin Console.
 
@@ -837,8 +875,8 @@ To subscribe and receive the alerts through email:
 ## Adding API Roles
 
 - Source: https://help.zscaler.com/zia/adding-api-roles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding API Roles
 - Last modified: 2026-10-23T14:00Z
 - Summary: How to add Internet & SaaS API roles in the Zscaler Admin Console.
 
@@ -1086,8 +1124,8 @@ See image.
 ## Adding Auditors
 
 - Source: https://help.zscaler.com/zia/adding-auditors
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > Adding Auditors
 - Last modified: 2026-10-23T11:51Z
 - Summary: How to add auditors in the Zscaler Admin Console.
 
@@ -1236,8 +1274,8 @@ The cloud application tag is created in the Zscaler Admin Console. You can [edit
 ## Adding Cloud NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds
 - Last modified: 2026-06-18T11:11Z
 - Summary: How to add Cloud NSS feeds in the Zscaler Admin Console.
 
@@ -1304,13 +1342,13 @@ To configure a Cloud NSS feed for 3rd-Party App Governance logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-admin-audit-logs","lastmod":"2026-10-29T15:07Z","nid":"1402721"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-admin-audit-logs","lastmod":"2026-11-12T20:06Z","nid":"1402721"} -->
 ## Adding Cloud NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-admin-audit-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Admin Audit Logs
-- Last modified: 2026-10-29T15:07Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Admin Audit Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for admin audit logs in the Zscaler Admin Console.
 
 The initial audit log Nanolog Streaming Service (NSS) feed can take up to 2 hours to stream to the Cloud NSS and your security information and event management (SIEM) system. If you have the Authentication Service, the initial feed can take up to 5 hours to stream to the Cloud NSS and your SIEM system. However, this delay does not occur if you have already configured and are streaming [SCIM Logs](https://help.zscaler.com/zia/adding-nss-feeds-zidentity-scim-logs).
@@ -1360,8 +1398,8 @@ To configure a Cloud NSS feed for admin audit logs:
 ## Adding Cloud NSS Feeds for Alerts
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Alerts
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Alerts
 - Last modified: 2026-06-16T07:24Z
 - Summary: How to add Cloud NSS feeds for alerts in the Zscaler Admin Console.
 
@@ -1465,13 +1503,13 @@ To configure a Cloud NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-10-29T11:41Z","nid":"1402056"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-11-12T20:06Z","nid":"1402056"} -->
 ## Adding Cloud NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-dns-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
-- Last modified: 2026-10-29T11:41Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for DNS logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for DNS logs:
@@ -1552,13 +1590,13 @@ To configure a Cloud NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-10-29T15:14Z","nid":"1483221"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-email-dlp-logs","lastmod":"2026-11-12T20:06Z","nid":"1483221"} -->
 ## Adding Cloud NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-email-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Email DLP Logs
-- Last modified: 2026-10-29T15:14Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Email DLP Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
@@ -1607,13 +1645,13 @@ To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-10-29T15:11Z","nid":"1461941"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-endpoint-dlp-logs","lastmod":"2026-11-12T20:06Z","nid":"1461941"} -->
 ## Adding Cloud NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-endpoint-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-10-29T15:11Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
@@ -1660,13 +1698,13 @@ To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-10-29T11:39Z","nid":"1401966"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-for-firewall-logs","lastmod":"2026-11-12T20:06Z","nid":"1401966"} -->
 ## Adding Cloud NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-for-firewall-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
-- Last modified: 2026-10-29T11:39Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Firewall logs:
@@ -1784,8 +1822,8 @@ To configure a Cloud NSS feed for Firewall logs:
 ## Adding Cloud NSS Feeds for Posture Management Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-posture-management-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Posture Management Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Posture Management Logs
 - Last modified: 2026-08-07T07:06Z
 - Summary: How to add Cloud NSS feeds for Posture Management logs in the Zscaler Admin Console.
 
@@ -1820,13 +1858,13 @@ To configure a Cloud NSS feed for Posture Management logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-activity-logs","lastmod":"2026-10-29T14:43Z","nid":"1402226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-activity-logs","lastmod":"2026-11-12T20:06Z","nid":"1402226"} -->
 ## Adding Cloud NSS Feeds for SaaS Security Activity Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-saas-security-activity-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Activity Logs
-- Last modified: 2026-10-29T14:43Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Activity Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for SaaS Security activity logs in the Zscaler Admin Console.
 
 Before you start configuring a feed for SaaS Security activity logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
@@ -1867,13 +1905,13 @@ To configure a Cloud NSS feed for SaaS Security activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-10-29T14:25Z","nid":"1402066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-saas-security-logs","lastmod":"2026-11-12T20:06Z","nid":"1402066"} -->
 ## Adding Cloud NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-saas-security-logs
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for SaaS Security Logs
-- Last modified: 2026-10-29T14:25Z
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for SaaS Security logs:
@@ -2021,13 +2059,13 @@ To configure a Cloud NSS feed for SaaS Security logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-29T16:06Z","nid":"1520336"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-sandbox-verdict-logs","lastmod":"2026-11-12T20:06Z","nid":"1520336"} -->
 ## Adding Cloud NSS Feeds for Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-10-29T16:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for Sandbox verdict logs:
@@ -2121,13 +2159,13 @@ To configure a Cloud NSS feed for SCIM logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-10-29T11:45Z","nid":"1402061"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-tunnel-logs","lastmod":"2026-11-12T20:06Z","nid":"1402061"} -->
 ## Adding Cloud NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-tunnel-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
-- Last modified: 2026-10-29T11:45Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for tunnel logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for tunnel logs:
@@ -2182,13 +2220,13 @@ To configure a Cloud NSS feed for tunnel logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-10-29T11:36Z","nid":"1401861"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-cloud-nss-feeds-web-logs","lastmod":"2026-11-12T20:06Z","nid":"1401861"} -->
 ## Adding Cloud NSS Feeds for Web Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-web-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Web Logs
-- Last modified: 2026-10-29T11:36Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Web Logs
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for web logs in the Zscaler Admin Console.
 
 To configure a Cloud NSS feed for web logs:
@@ -2321,8 +2359,8 @@ To configure a Cloud NSS feed for web logs:
 ## Adding a Collaboration & Online Meetings Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-collaboration-online-meetings-rule-for-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Collaboration & Online Meetings Rule for Cloud App Control
 - Last modified: 2026-10-23T01:36Z
 - Summary: How to add a rule for Collaboration and Online Meeting cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -2829,8 +2867,8 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 ## Adding Custom Certificate to an Application-Specific Trust Store
 
 - Source: https://help.zscaler.com/zia/adding-custom-certificate-application-specific-trust-store
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Adding Custom Certificate to an Application-Specific Trust Store
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Adding Custom Certificate to an Application-Specific Trust Store
 - Last modified: 2026-09-17T00:23Z
 - Summary: Information on how to add a custom certificate to an application-specific trust store in the Zscaler Admin Console.
 
@@ -3621,16 +3659,16 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-11-08T06:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-11-15T06:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
-Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring Policies Using Zscaler DLP Engines](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
+Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
 
 You can add Exact Data Match (EDM) index templates, Indexed Document Match (IDM) index templates, Microsoft Information Protection (MIP) labels, or custom phrases and alphanumeric patterns as standalone custom dictionaries that the dictionary detects and protects.
 
@@ -3643,86 +3681,27 @@ To learn more about the ranges and limitations for custom DLP dictionaries, see 
 To add a custom DLP dictionary:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **Dictionaries & Engines**.
-2. Add one of the following dictionary types:
+2. Select the **DLP Dictionaries** tab.
+3. On the **DLP Dictionaries** tab, add one of the following dictionary types:
   - Add a Standalone DLP Dictionary
-  - Add a Parent DLP Dictionary or Sub-Dictionary
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+  - Add a Parent DLP Dictionary or Sub Dictionary
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
 
-You can also [edit](https://help.zscaler.com/zia/how-do-i-edit-predefined-dlp-dictionaries) or [clone](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries) the predefined dictionaries Zscaler provides. Any combination of cloned, predefined, and custom dictionaries can be added to a DLP engine, which is what you must reference when creating DLP policies. To learn more, see [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
+You can also [edit](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries) or [clone](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries) the predefined dictionaries Zscaler provides. Any combination of cloned, predefined, and custom dictionaries can be added to a DLP engine, which is what you must reference when creating DLP policies. To learn more, see [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
 
-1. Click **Add DLP Dictionary**.
-
-The **Add DLP Dictionary**window appears.
-
-1. In the **Add DLP Dictionary** window:
+1. Click **Add DLP Dictionary**. The **Add DLP Dictionary**page appears.
+2. On the **Add DLP Dictionary** page:
   - **Name**: Enter a name for the dictionary.
   - **Dictionary Type**: Select a type from the drop-down menu:
-    - **Exact Data Match**: If selected, the **Exact Data Match** section appears, where you can select existing EDM templates and add data fields from those templates. To learn more, see [Creating an Exact Data Match Template](https://help.zscaler.com/zia/creating-exact-data-match-template) and [Defining Exact Data Match Fields for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-exact-data-match-fields-custom-dlp-dictionaries).
-
-See image.
-
-- **Indexed Document Match**: If selected, the **Indexed Document Match** section appears, where you can select existing IDM templates and choose match accuracy levels for those templates. To learn more, see [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template) and [Defining IDM Match Accuracy for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-idm-match-accuracy-custom-dlp-dictionaries).
-
-See image.
-
-- **Microsoft Information Protection (MIP)**: If selected, the MIP labels appear in a table, where you can select the MIP labels. To learn more, see [Adding a MIP Account](https://help.zscaler.com/zia/adding-mip-account) and [Defining Microsoft Protection Labels for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-microsoft-information-protection-labels-custom-dlp-dictionaries).
-
-See image.
-
-- **Match On**: This is only applicable if you select **Microsoft Information Protection (MIP)** as the **Dictionary Type**. Enter a search term to find an MIP label to add to the custom dictionary.
-- **Patterns & Phrases**: If selected, the **Patterns**and **Phrases**sections appear, where you can add patterns, phrases, and apply actions to them. To enable Unicode phrases defined in the Phrases list to be matched if they are adjacent to other characters without any delimiter in between, select the **Non-delimited Unicode Phrase matching**checkbox. For example, the phrase “クレジットカード” matches “クレジットカードのコピーをください”. Matches happen even when no spaces are detected. To learn more, see [Defining Patterns for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-patterns-custom-dictionaries) and [Defining Phrases for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-phrases-custom-dictionaries).
-
-See image.
-
-- **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
-  - **Match Any**: This is the default setting. If selected, the dictionary triggers when a transaction matches any one of the dictionary’s patterns or phrases.
-  - **Match All**: If selected, the dictionary triggers when a transaction matches all of the dictionary’s patterns and phrases.
-  - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match.
-  - **Match Near or Not Near Phrases**: If selected, the dictionary triggers when phrases from two groups appear near or not near each other in a transaction.
-    - Near and Not Near Examples
-- **Description**: (Optional) Enter a description for the dictionary.
-- **Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** or **Match Near or Not Near Phrases** as the **Match Type**. Proximity define how close a phrase must be to an instance of a pattern to count as a match.
-  - **Near**: Ensures that sensitive information from two phrase groups is accurately identified by considering the context and proximity of related terms that should be inspected together (e.g., patient name and diagnosis). If you select **Near**proximity, the service assigns a value of 0 bytes by default, and you can specify a value of up to 10,000 bytes.
-  - **Not Near**: Ensures that phrases from two phrase groups are not inspected together within the proximity range set, helping to refine the accuracy of DLP policies and reduce false positives. If you select **Not Near** proximity, you must enter a value from 1–10,000 bytes.
-  - **Proximity Length**: Defines how close a phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern).
-
-| Phrases (Near) | Proximity Length | Uploaded Data | Result | Triggers |
-| --- | --- | --- | --- | --- |
-| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Match (Match Count = 2) | Apple, Mango |
-| Apple | Not a match | N/A |  |  |
-| Mango | Not a match | N/A |  |  |
-| Apple Mango Orange | Match (Match Count = 2) | Apple, Mango |  |  |
-| Apple Mango Orange | Match (Match Count = 3) | Apple, Mango, Orange |  |  |
-
-| Phrases (Not Near) | Proximity Length | Uploaded Data | Result | Triggers |
-| --- | --- | --- | --- | --- |
-| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Not a match | N/A |
-| Apple | Match | Apple |  |  |
-| Mango | Not a match | N/A |  |  |
-| Apple Mango Orange | Not a match | N/A |  |  |
-| Apple Mango Orange | Not a match | N/A |  |  |
-
-[Image: Selecting the Exact Data Match dictionary type]
-
-[Image: Selecting the Indexed Document Match dictionary type]
-
-[Image: Selecting the Microsoft Information Protection Dictionary Type]
-
-You can use Patterns and Phrases dictionaries to create custom parent dictionaries and sub-dictionaries as a means of easily grouping similar types of dictionaries (i.e., dictionaries for a particular locale). For parent dictionaries, you can define patterns or phrases, or you can leave them blank so that they act simply as a container for sub-dictionaries. The Zscaler service supports only one level of nesting for sub-dictionaries (i.e., sub-dictionaries cannot also be parent dictionaries), and each parent dictionary can contain up to 63 sub-dictionaries. Additionally, parent dictionaries and sub-dictionaries cannot be cloned.
-
-To add a parent dictionary or sub-dictionary:
-
-1. Do one of the following: The **Add DLP Dictionary**window appears. The **Add DLP Sub Dictionary**window appears.
-  - To add a parent dictionary, click **Add DLP Dictionary**.
-  - To add a sub-dictionary, locate an existing Patterns and Phrases dictionary in the list, then click **Add DLP Sub Dictionary**.
-2. In the **Add DLP Dictionary** or **Add DLP Sub Dictionary**window:
-  - **Name**: Enter a name for the dictionary.
-  - **Dictionary Type**: Select a type from the drop-down menu. See image. If you don't specify patterns or phrases for a parent dictionary, it acts simply as a container for sub-dictionaries. You must specify at least one pattern or phrase for each sub-dictionary.
-    - **Patterns & Phrases**: If selected, the **Patterns**and **Phrases**sections appear below, where you can add patterns, phrases, and apply actions to them. To enable Unicode phrases defined in the Phrases list to be matched if they are adjacent to other characters without any delimiter in between, select the **Non-delimited Unicode Phrase matching**checkbox. For example, the phrase “クレジットカード” matches “クレジットカードのコピーをください”. Matches happen even when no spaces are detected. To learn more, see [Defining Patterns for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-patterns-custom-dictionaries) and [Defining Phrases for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-phrases-custom-dictionaries).
-  - **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
+    - **Exact Data Match**: If selected, the **Exact Data Match** section appears, where you can select existing EDM templates and add data fields from those templates. To learn more, see [Creating an Exact Data Match Template](https://help.zscaler.com/zia/creating-exact-data-match-template) and [Defining Exact Data Match Fields for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-exact-data-match-fields-custom-dlp-dictionaries). See image.
+    - **Indexed Document Match**: If selected, the **Indexed Document Match** section appears, where you can select existing IDM templates and choose match accuracy levels for those templates. To learn more, see [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template) and [Defining IDM Match Accuracy for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-idm-match-accuracy-custom-dlp-dictionaries). See image.
+    - **Microsoft Information Protection (MIP)**: If selected, the MIP labels appear in a table, where you can select the MIP labels. To learn more, see [Adding an MIP Account](https://help.zscaler.com/zia/adding-mip-account) and [Defining Microsoft Protection Labels for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-microsoft-information-protection-labels-custom-dlp-dictionaries). See image.
+      - **Match On**: This is only applicable if you select **Microsoft Information Protection (MIP)** as the **Dictionary Type**. Enter a search term to find an MIP label to add to the custom dictionary.
+    - **Patterns & Phrases**: If selected, the **Patterns**and **Phrases**sections appear, where you can add patterns, phrases, and apply actions to them. Matches happen even when no spaces are detected. To learn more, see [Defining Patterns for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-patterns-custom-dictionaries) and [Defining Phrases for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-phrases-custom-dictionaries). See image.
+  - **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases.
     - **Match Any**: This is the default setting. If selected, the dictionary triggers when a transaction matches any one of the dictionary’s patterns or phrases.
     - **Match All**: If selected, the dictionary triggers when a transaction matches all of the dictionary’s patterns and phrases.
-    - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match.
+    - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
     - **Match Near or Not Near Phrases**: If selected, the dictionary triggers when phrases from two groups appear near or not near each other in a transaction.
       - Near and Not Near Examples
   - **Description**: (Optional) Enter a description for the dictionary.
@@ -3747,7 +3726,54 @@ To add a parent dictionary or sub-dictionary:
 | Apple Mango Orange | Not a match | N/A |  |  |
 | Apple Mango Orange | Not a match | N/A |  |  |
 
-[Image: Add Patterns & Phrases]
+[Image: The Add DLP Dictionary page showing configuration fields for the Exact Data Match dictionary type]
+
+[Image: The Add DLP Dictionary page showing configuration fields for the Indexed Document Match dictionary type]
+
+[Image: The Add DLP Dictionary page showing configuration fields for Microsoft Information Protection dictionary type]
+
+[Image: The Add DLP Dictionary page showing configuration fields for Patterns & Phrases dictionary type]
+
+You can use Patterns and Phrases dictionaries to create custom parent dictionaries and sub-dictionaries as a means of easily grouping similar types of dictionaries (i.e., dictionaries for a particular locale). For parent dictionaries, you can define patterns or phrases, or you can leave them blank so that they act simply as a container for sub-dictionaries. The Zscaler service supports only one level of nesting for sub-dictionaries (i.e., sub-dictionaries cannot also be parent dictionaries), and each parent dictionary can contain up to 63 sub-dictionaries. Additionally, parent dictionaries and sub-dictionaries cannot be cloned.
+
+To add a parent dictionary or sub-dictionary:
+
+1. Do one of the following:
+  - To add a parent dictionary, click **Add DLP Dictionary**. The **Add DLP Dictionary** page appears.
+  - To add a sub-dictionary, locate an existing Patterns and Phrases dictionary in the list, then click **Add DLP Sub Dictionary**. The **Add DLP Sub Dictionary** page appears.
+2. On the **Add DLP Dictionary** or **Add DLP Sub Dictionary**page: See image.
+  - **Name**: Enter a name for the dictionary.
+  - **Dictionary Type**: Select a type from the drop-down menu. If you don't specify patterns or phrases for a parent dictionary, it acts simply as a container for sub-dictionaries. You must specify at least one pattern or phrase for each sub-dictionary.
+    - **Patterns & Phrases**: If selected, the **Patterns**and **Phrases**sections appear below, where you can add patterns, phrases, and apply actions to them. Matches happen even when no spaces are detected. To learn more, see [Defining Patterns for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-patterns-custom-dictionaries) and [Defining Phrases for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-phrases-custom-dictionaries).
+  - **Match Type**: This is only applicable if you are configuring a Patterns & Phrases dictionary type. Select a **Match Type** from the drop-down menu to configure how the dictionary triggers when matching patterns and phrases.
+    - **Match Any**: This is the default setting. If selected, the dictionary triggers when a transaction matches any one of the dictionary’s patterns or phrases.
+    - **Match All**: If selected, the dictionary triggers when a transaction matches all of the dictionary’s patterns and phrases.
+    - **Match Any Patterns and Any Phrases**: If selected, the dictionary triggers when a transaction matches any one of the dictionary's patterns and any one of the dictionary's phrases. This option requires at least one phrase and one pattern to match. For custom dictionaries that use patterns with lookaround constructs (also known as zero-length assertions), you must: Select **Match Any Patterns and Any Phrases** as the **Match Type**.; Configure at least one phrase.
+    - **Match Near or Not Near Phrases**: If selected, the dictionary triggers when phrases from two groups appear near or not near each other in a transaction.
+      - Near and Not Near Examples
+  - **Description**: (Optional) Enter a description for the dictionary.
+  - **Proximity**: This is only applicable if you select **Match Any Patterns and Any Phrases** or **Match Near or Not Near Phrases** as the **Match Type**. Proximity define how close a phrase must be to an instance of a pattern to count as a match.
+    - **Near**: Ensures that sensitive information from two phrase groups is accurately identified by considering the context and proximity of related terms that should be inspected together (e.g., patient name and diagnosis). If you select **Near**proximity, the service assigns a value of 0 bytes by default, and you can specify a value of up to 10,000 bytes.
+    - **Not Near**: Ensures that phrases from two phrase groups are not inspected together within the proximity range set, helping to refine the accuracy of DLP policies and reduce false positives. If you select **Not Near** proximity, you must enter a value from 1–10,000 bytes.
+    - **Proximity Length**: Defines how close a phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern).
+
+| Phrases (Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Match (Match Count = 2) | Apple, Mango |
+| Apple | Not a match | N/A |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango Orange | Match (Match Count = 2) | Apple, Mango |  |  |
+| Apple Mango Orange | Match (Match Count = 3) | Apple, Mango, Orange |  |  |
+
+| Phrases (Not Near) | Proximity Length | Uploaded Data | Result | Triggers |
+| --- | --- | --- | --- | --- |
+| Group 1: Apple, Orange, Grape Group 2: Peach, Berry, Mango | 10 Bytes | Apple Mango | Not a match | N/A |
+| Apple | Match | Apple |  |  |
+| Mango | Not a match | N/A |  |  |
+| Apple Mango Orange | Not a match | N/A |  |  |
+| Apple Mango Orange | Not a match | N/A |  |  |
+
+[Image: The Add DLP Dictionary page showing configuration fields for Patterns & Phrases dictionary type]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4400,8 +4426,8 @@ The custom path is not applicable to TCP and UDP queries and cannot be specified
 ## Adding a DNS Over HTTPS Services Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a DNS Over HTTPS Services Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a DNS Over HTTPS Services Rule for Cloud App Control
 - Last modified: 2026-10-23T02:32Z
 - Summary: Information on how to add a rule for DNS Over HTTPS Services cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -4568,8 +4594,8 @@ To add domain profiles:
 ## Adding & Editing Redaction Profiles
 
 - Source: https://help.zscaler.com/zia/adding-editing-redaction-profiles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Redaction Profiles
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > Adding & Editing Redaction Profiles
 - Last modified: 2026-09-29T11:23Z
 - Summary: How to add and edit redaction profiles in the Zscaler Admin Console.
 
@@ -4694,13 +4720,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-11-08T06:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-11-15T06:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -4739,16 +4765,16 @@ The email label is created in the Zscaler Admin Console. You can [edit](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-11-08T06:06Z","nid":"1492711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-tenants","lastmod":"2026-11-12T11:22Z","nid":"1492711"} -->
 ## Adding Email Tenants
 
 - Source: https://help.zscaler.com/zia/adding-email-tenants
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Adding Email Tenants
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-12T11:22Z
 - Summary: How to add email tenants for use in Zscaler Outbound Email Policy rules.
 
-Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
+Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you create are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. You can also configure a tenant to use the Zscaler Data Security Add-in for Outlook to provide users with real-time feedback about possible policy violations. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp), and [Configuring the Zscaler Data Security Add-in for Outlook](https://help.zscaler.com/zia/configuring-zscaler-data-security-add-outlook).
 
 For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
 
@@ -4784,12 +4810,18 @@ Under **Email Tenant Security Options**, the **Workflow Automation** option is a
 [Image: Email Tenant Domain Configuration]
 
 1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
-2. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
-3. Click **Next**.
-4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
-5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
-6. Click **Next**.
-7. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+2. Under **Email Tenant Security Options**, select an **Email Security Mode**:
+  - Outbound Email Security
+  - Outlook Email Add-in
+
+Select this option to have the Exchange server route outbound emails sent to external domains to the Zscaler smart host via SMTP.
+
+1. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
+2. Click **Next**.
+3. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
+4. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
+5. Click **Next**.
+6. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
   - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
   - **Next Hop Address**: Enter the address of the relay host for the email domain of the tenant you're configuring.
     - Locate the relay host address for your Microsoft domain.
@@ -4800,7 +4832,7 @@ See image.
 1. Click **Next**.
 2. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
 3. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
-4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the Tenant ID should now be populated in the Zscaler Admin Console. See image.
+4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the **Tenant ID** should be populated in the Zscaler Admin Console. See image.
 5. Under **Assign Role**, click **Assign Role**. See image. The [Azure portal](https://portal.azure.com) opens. You must assign an Exchange admin role to be able to grant assignments and access.
 6. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
 7. Select the checkbox next to Exchange Administrator.
@@ -4850,6 +4882,22 @@ See image.
 [Image: Configure Connectors and Rules for Email Tenants]
 
 [Image: Email Tenant Domain Configuration]
+
+Select this option if you want users to receive real-time feedback on policy violations in Outlook before sending messages to external domains. To learn more, see [Configuring the Zscaler Data Security Add-in for Outlook](https://help.zscaler.com/zia/configuring-zscaler-data-security-add-outlook).
+
+1. Click **Next**.
+2. Under **Email Domain Configuration**, in the **Domain** drop-down menu, select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+3. Click **Next**. See image.
+4. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. The Microsoft Exchange Admin Portal opens.
+5. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens. See image.
+6. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the **Tenant ID** should be populated in the Zscaler Admin Console. See image.
+7. Click **Next**.
+
+[Image: Email Tenant Domain Configuration]
+
+[Image: Permissions requested window for the Microsoft Exchange Admin Portal]
+
+[Image: View your Tenant ID]
 
 If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
 
@@ -5248,8 +5296,8 @@ After creating the group, you can [add users](https://help.zscaler.com/zia/addin
 ## Adding a Health Care Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-health-care-rule-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Health Care Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Health Care Rule for Cloud App Control
 - Last modified: 2026-10-23T02:47Z
 - Summary: Information on how to add a rule for Health Care cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -5680,8 +5728,8 @@ Select this header to control access to browsers. The following fields appear wh
 ## Adding HTTP NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds
 - Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds in the Zscaler Admin Console.
 
@@ -5759,8 +5807,8 @@ It can take up to two hours for the audit logs to start streaming to HTTP NSS an
 ## Adding HTTP NSS Feeds for Alerts
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Alerts
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Alerts
 - Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for Alerts in the Zscaler Admin Console.
 
@@ -5882,8 +5930,8 @@ To configure an HTTP NSS feed for DNS logs:
 ## Adding HTTP NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-email-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Email DLP Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Email DLP Logs
 - Last modified: 2026-09-20T07:06Z
 - Summary: How to add HTTP NSS feeds for Email Data Loss Prevention (DLP) logs in theZscaler Admin Console.
 
@@ -6312,8 +6360,8 @@ To configure an HTTP NSS feed for SaaS Security logs:
 ## Adding HTTP NSS Feeds for Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/adding-http-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Sandbox Verdict Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding HTTP NSS Feeds > Adding HTTP NSS Feeds for Sandbox Verdict Logs
 - Last modified: 2026-08-07T07:06Z
 - Summary: How to add HTTP NSS feeds for Sandbox Verdict logs in the Zscaler Admin Console.
 
@@ -6711,8 +6759,8 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 ## Adding an ICAP Receiver
 
 - Source: https://help.zscaler.com/zia/adding-icap-receiver
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Adding an ICAP Receiver
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > ICAP Receivers > Adding an ICAP Receiver
 - Last modified: 2026-10-02T04:54Z
 - Summary: Information on adding an ICAP receiver for the URL filtering policy in the Zscaler Admin Console.
 
@@ -6743,8 +6791,8 @@ To add an ICAP receiver:
 ## Adding an ICAP Receiver for DLP
 
 - Source: https://help.zscaler.com/zia/adding-icap-receiver-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Adding an ICAP Receiver for DLP
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Incident Receiver > Adding an ICAP Receiver for DLP
 - Last modified: 2026-10-08T21:06Z
 - Summary: How to add an ICAP receiver for secure and unencrypted ICAP support within the Zscaler service.
 
@@ -6757,13 +6805,13 @@ If you want to use ICAP receivers for web traffic filtering, see [Adding an ICAP
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-identity-providers","lastmod":"2026-10-30T16:30Z","nid":"1401371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-identity-providers","lastmod":"2026-11-13T20:06Z","nid":"1401371"} -->
 ## Adding Identity Providers
 
 - Source: https://help.zscaler.com/zia/adding-identity-providers
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding Identity Providers
-- Last modified: 2026-10-30T16:30Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding Identity Providers
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to add identity providers in the Zscaler Admin Console and configure the Zscaler service as the service provider for SAML Single Sign-On (SSO).
 
 Adding an identity provider (IdP) in the Zscaler Admin Console is one of the tasks you must complete when configuring SAML Single Sign-On (SSO). To learn more, see [Configuring SAML](https://help.zscaler.com/zia/configuring-saml).
@@ -6828,8 +6876,8 @@ The **Add IdP** window appears.
 ## Adding an Instant Messaging Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-instant-messaging-rule-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an Instant Messaging Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding an Instant Messaging Rule for Cloud App Control
 - Last modified: 2026-10-23T02:51Z
 - Summary: Information on how to add a rule for Instant Messaging cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -7674,8 +7722,8 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 ## Adding MCAS NSS Feeds
 
 - Source: https://help.zscaler.com/zia/adding-mcas-nss-feeds
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding MCAS NSS Feeds > Adding MCAS NSS Feeds
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding MCAS NSS Feeds > Adding MCAS NSS Feeds
 - Last modified: 2026-10-28T15:28Z
 - Summary: How to add and configure an MCAS NSS feed through the Zscaler Admin Console.
 
@@ -7839,6 +7887,50 @@ See image.
 [Image: Required Microsoft Permissions Window]
 
 [Image: Custom option for adding an MIP account]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-modifying-index-tool-configuration","lastmod":"2026-11-09T09:21Z","nid":"1400661"} -->
+## Adding and Modifying an Index Tool Configuration
+
+- Source: https://help.zscaler.com/zia/adding-modifying-index-tool-configuration
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > Adding and Modifying an Index Tool Configuration
+- Last modified: 2026-11-09T09:21Z
+- Summary: How to add and modify an Index Tool Configuration, which is used to configure the Zscaler Index Tool.
+
+Adding an Index Tool configuration allows you to manage index templates that are used to create custom [Exact Data Match (EDM)](https://help.zscaler.com/zia/creating-exact-data-match-template) or [Indexed Document Match (IDM)](https://help.zscaler.com/zia/creating-indexed-document-match-template) dictionaries and engines for Data Loss Prevention (DLP).
+
+## Adding Index Tool configurations
+
+To add an [Index Tool](https://help.zscaler.com/zia/about-index-tool) configuration:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **Index Tool**.
+2. Click **Add Index Tool Configuration**. The **Add Index Tool Configuration** drawer appears.
+3. In the **Add Index Tool Configuration** drawer: See image.
+  - **VM Name**: Enter a unique name for the virtual machine (VM).
+  - **Status**: Make sure that the VM is **Enabled**.
+  - **Enable Single Sign-On**: Select **Enabled**or **Disabled**to configure single sign-on (SSO) for the Index Tool. When **Enabled**, the **SSO Configurations** section appears. To learn how to configure the **SSO Configurations** section, see [Configuring Single Sign-On for the Index Tool](https://help.zscaler.com/zia/configuring-single-sign-index-tool). The Index Tool supports a maximum of 16 fields per index template. If more than 16 are specified, the tool returns an error and indexing fails.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+After you save, you can download the SSL certificate for the configuration from the [Index Tool page](https://help.zscaler.com/zia/about-index-tool) or from the Edit Index Tool Configuration drawer.
+
+## Modifying Index Tool configurations
+
+To edit an Index Tool configuration:
+
+1. Go to **Data Security**> **Common Resources**> **Index Tool**.
+2. Locate the Index Tool configuration in the table and click **Edit**. The **Edit Index Tool Configuration** drawer appears.
+3. In the **Edit Index Tool Configuration** drawer, you can do the following: You cannot modify the **VM Name**. See image.
+  - **Status**:Select **Enabled** or **Disabled**.
+  - **Enable Single Sign-On**:Select **Enabled**to configure single sign-on (SSO). To learn how to configure the **SSO Configurations** section, see [Configuring Single Sign-On for the Index Tool](https://help.zscaler.com/zia/configuring-single-sign-index-tool).
+  - **SSL Certificate**: Click **Download** to download the certificate or click **Regenerate SSL Certificate**to replace the old certificate. If you regenerate the certificate, ensure that you update the Index Tool virtual machine with the new file. To learn more, see [Configuring the Index Tool with VMWare](https://help.zscaler.com/zia/configuring-index-tool).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: Editing an Index Tool Configuration]
+
+[Image: Adding an Index Tool configuration]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10907,8 +10999,8 @@ The following list includes details and limitations of the Zoom DLP and Malware 
 ## Adding a Sales & Marketing Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-sales-marketing-rule-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Sales & Marketing Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Sales & Marketing Rule for Cloud App Control
 - Last modified: 2026-10-23T03:37Z
 - Summary: Information on how to add a rule for Sales and Marketing cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -11068,8 +11160,8 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 ## Adding SD-WAN Partner API Clients
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-clients
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > Administrators > Adding SD-WAN Partner API Clients
 - Last modified: 2026-10-23T12:12Z
 - Summary: How to add and remove SD-WAN partner API clients for the Zscaler service.
 
@@ -11100,8 +11192,8 @@ You can [edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-it
 ## Adding SD-WAN Partner API Roles
 
 - Source: https://help.zscaler.com/zia/adding-sd-wan-partner-api-roles
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > Role Management > Adding SD-WAN Partner API Roles
 - Last modified: 2026-10-28T16:45Z
 - Summary: How to add and remove SD-WAN partner API roles for the Zscaler service.
 
@@ -11146,8 +11238,8 @@ To add an SD-WAN partner API role:
 ## Adding a Social Networking Rule for Cloud App Control
 
 - Source: https://help.zscaler.com/zia/adding-social-networking-rule-cloud-app-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Cloud Apps > Cloud App Control Policies > Adding a Social Networking Rule for Cloud App Control
 - Last modified: 2026-10-23T03:39Z
 - Summary: How to add a rule for Social Networking cloud apps as part of your Cloud App policy in the Zscaler Admin Console.
 
@@ -11765,13 +11857,13 @@ To configure a TCP NSS feed for 3rd-Party App Governance logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-admin-audit-logs","lastmod":"2026-10-28T18:37Z","nid":"1402711"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-admin-audit-logs","lastmod":"2026-11-11T20:06Z","nid":"1402711"} -->
 ## Adding TCP NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Admin Audit Logs
-- Last modified: 2026-10-28T18:37Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Admin Audit Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for admin audit logs in the Zscaler Admin Console.
 
 The initial audit log Nanolog Streaming Service (NSS) feed can take up to 2 hours to stream to the NSS and your security information and event management (SIEM) system. If you have Authentication Service, the initial feed can take up to 5 hours to stream to the NSS and your SIEM system. However, this delay does not occur if you have already configured and are streaming [SCIM Logs](https://help.zscaler.com/zia/adding-nss-feeds-zidentity-scim-logs).
@@ -11824,13 +11916,13 @@ To configure a TCP NSS feed for admin audit logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-alerts","lastmod":"2026-10-28T16:33Z","nid":"1399091"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-alerts","lastmod":"2026-11-11T20:06Z","nid":"1399091"} -->
 ## Adding TCP NSS Feeds for Alerts
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Alerts
-- Last modified: 2026-10-28T16:33Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Alerts
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for alerts in the Zscaler Admin Console.
 
 You can configure a separate feed for alerts, so you can monitor the Nanolog Streaming Service (NSS). You can select the level at which alerts are sent: Critical, Warn, or both. You can select multiple alert levels.
@@ -11881,8 +11973,8 @@ If the swap memory utilization is more than 30%, a warning alert is sent. If the
 ## Adding TCP NSS Feeds for Authentication Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-authentication-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Authentication Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Authentication Logs
 - Last modified: 2026-06-23T06:59Z
 - Summary: How to add TCP NSS feeds for Authentication logs in the Zscaler Admin Console.
 
@@ -11922,13 +12014,13 @@ To configure a TCP NSS feed for Authentication logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-10-28T15:53Z","nid":"1399086"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-dns-logs","lastmod":"2026-11-11T20:06Z","nid":"1399086"} -->
 ## Adding TCP NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-dns-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for DNS Logs
-- Last modified: 2026-10-28T15:53Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for DNS Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -12010,13 +12102,13 @@ To configure a TCP NSS feed for DNS logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-10-28T18:54Z","nid":"1483216"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-email-dlp-logs","lastmod":"2026-11-11T20:06Z","nid":"1483216"} -->
 ## Adding TCP NSS Feeds for Email DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-email-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Email DLP Logs
-- Last modified: 2026-10-28T18:54Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Email DLP Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for Email Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Email Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -12066,13 +12158,13 @@ To configure a TCP NSS feed for Email DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-10-28T18:50Z","nid":"1461931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-endpoint-dlp-logs","lastmod":"2026-11-11T20:06Z","nid":"1461931"} -->
 ## Adding TCP NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
-- Last modified: 2026-10-28T18:50Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Endpoint Data Loss Prevention (DLP) logs that the NSS sends to the security information and event management (SIEM) system.
@@ -12120,13 +12212,13 @@ To configure a TCP NSS feed for Endpoint DLP logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-10-28T15:49Z","nid":"1399076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-11-11T20:06Z","nid":"1399076"} -->
 ## Adding TCP NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Firewall Logs
-- Last modified: 2026-10-28T15:49Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Firewall Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for Firewall logs in the Zscaler Admin Console.
 
 You can configure up to TCP 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -12238,45 +12330,4 @@ To configure a TCP NSS feed for Firewall logs:
     - *string* -> Substring matching match threat names containing ‘string’
     - String -> Exact matching match threat names that are exactly ‘string’
 - **Advanced Threat Category**: Use this filter to limit the logs to specific threat categories. Choose the categories from the list.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-posture-management-logs","lastmod":"2026-07-19T07:06Z","nid":"1538595"} -->
-## Adding TCP NSS Feeds for Posture Management Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-posture-management-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Posture Management Logs
-- Last modified: 2026-07-19T07:06Z
-- Summary: How to add TCP NSS feeds for Posture Management logs in the Zscaler Admin Console.
-
-Access to Posture Management logs requires [Advanced SaaS Security Posture Management (SSPM)](https://help.zscaler.com/zia/what-advanced-posture-management). To get Advanced SSPM, contact your Zscaler Account team.
-
-You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Posture Management logs that the NSS sends to your security information and event management system, or SIEM.
-
-A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Posture Management logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for Posture Management logs:
-
-1. Go to **Logs**>**Log Streaming**> **Internet Log Streaming**-**Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
-  - **NSS Type**: **NSS for Web** is selected by default.
-  - **NSS Server**:Select an NSS server from the list.
-  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination.
-    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type. Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
-  - **Log Type**:Select **Posture**.
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
-  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Posture Management Logs](https://help.zscaler.com/zia/nss-feed-output-format-posture-management-logs).
-  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->

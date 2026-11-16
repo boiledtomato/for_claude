@@ -1,7 +1,7 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 50
 
 ---
@@ -401,13 +401,13 @@ When a user accesses important-server1.eu.example.com on the TCP protocol for po
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-10-02T21:06Z","nid":"1484096"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/using-wildcard-certificates-browser-access-applications","lastmod":"2026-11-11T03:31Z","nid":"1484096"} -->
 ## Using Wildcard Certificates for Browser Access Applications
 
 - Source: https://help.zscaler.com/zpa/using-wildcard-certificates-browser-access-applications
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Browser Access > Using Wildcard Certificates for Browser Access Applications
-- Last modified: 2026-10-02T21:06Z
+- Last modified: 2026-11-11T03:31Z
 - Summary: Information about wildcard certificates and how they can be used when defining Browser Access-enabled web applications for Private Access.
 
 Private Access (ZPA) supports using wildcard certificates when defining Browser Access applications within an application segment. You can use a wildcard certificate for multiple fully qualified domain names (FQDNs) within a single application segment or within multiple application segments.
@@ -3709,13 +3709,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-11-06T12:49Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-11-13T18:23Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-11-06T12:49Z
+- Last modified: 2026-11-13T18:23Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -3738,7 +3738,7 @@ The following platforms support App Connector software packages. Where applicabl
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
 | [OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#deploy) | A Helm Chart must be installed in order to deploy an App Connector on OpenShift. To learn more, see the [App Connector Deployment Guide for OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#get-helm-chart). |
 | Linux Operating Systems |  |
-| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.57.3-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.57.3-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.58.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.58.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3802,13 +3802,13 @@ The following image and table describe the physical port mapping on the ZS-ZPA-A
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-11-05T14:08Z","nid":"1540961"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual","lastmod":"2026-11-09T14:30Z","nid":"1540961"} -->
 ## ZPA Appliance Wall and Rack Mount Instruction Manual
 
 - Source: https://help.zscaler.com/zpa/zpa-appliance-wall-and-rack-mount-instruction-manual
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > ZPA Appliance > ZPA Appliance Wall and Rack Mount Instruction Manual
-- Last modified: 2026-11-05T14:08Z
+- Last modified: 2026-11-09T14:30Z
 - Summary: Instructions for rack mounting a ZPA appliance.
 
 This article includes instructions on mounting your ZPA appliance.
@@ -3838,7 +3838,7 @@ This section helps to identify and resolve common installation issues.
 - Loud Beep
 - No Link on Port
 
-The ZS-ZPA-APPL-800-APPC appliances are rack-mountable form factors. You can also use the wall mount kit, available by request. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
+The ZS-ZPA-APPL-800-APPC appliances are rack-mountable form factors. You can also use the wall mount kit, available by request. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn’t cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA Appliances](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
 
 - ZS-ZPA-APPL-800 Specifications
 - Package Contents
@@ -3889,7 +3889,7 @@ To wall mount the ZS-ZPA-APPL-800:
 4. Insert the long screws into the wall plugs. See image.
 5. Align the 4 screw holes on the appliance's wall brackets with the 4 long screws installed on the wall. See image.
 6. Secure the 4 screws in the bracket holes, and push the appliance downward to lock the screws into position. See image.
-7. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
+7. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA Appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
 
 To rack mount the ZS-ZPA-APPL-800 appliance:
 
@@ -3897,7 +3897,7 @@ To rack mount the ZS-ZPA-APPL-800 appliance:
 2. Secure the other rack mounting bracket to the other side of the appliance.
 3. Ensure that the adapter's cable is connected and secured. See image.
 4. Hold the appliance and lift carefully to insert the appliance into the rack. Zscaler recommends installing a shelf in the rack to support the appliance. Attach the brackets to the rail rack using rack mounting screws. See image.
-5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
+5. Connect the necessary cables to the designated ports of the appliance. To learn more, see [ZPA Appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping).
 
 [Image: Private Access (ZPA) hardware ZS-ZPA-800 appliance package contents]
 
@@ -3921,7 +3921,7 @@ To rack mount the ZS-ZPA-APPL-800 appliance:
 
 [Image: Appliance on rack]
 
-The ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE appliances are 1U, 19-inch rack-mountable form factors. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn't cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA appliance](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
+The ZS-ZPA-APPL-8010-APPC / ZS-ZPA-APPL-8010-PSE appliances are 1U, 19-inch rack-mountable form factors. These instructions are structured to assist IT personnel with the physical mounting, cabling, and initial power on of the appliance. This guide solely focuses on the hardware installation process and doesn't cover software configuration. For software configuration, see [Deploying App Connector and Private Service Edge ZPA Appliances](https://help.zscaler.com/zpa/deploying-app-connector-private-service-edge-zpa-appliances).
 
 - ZS-ZPA-APPL-8010 Specifications
 - Package Contents
@@ -3965,7 +3965,7 @@ To rack mount the appliance:
 2. Secure the other ear bracket to the other side of the appliance.
 3. Insert the appliance into the rack with the ear brackets fixed on the posts using the B screws. See image. The method and parts required for mounting depend on whether a shelf or rail kit is used.
 4. Connect the AC power cords to the appliance power supply unit. The appliance supports redundant power supply units (PSUs). Connect both cords to their respective power sources. A continuous beep indicates that the second power source is unplugged or faulty. To silence the beep, press the round button located near or between the power supplies, or connect the second power source.
-5. Connect the WAN cable to the designated port of the appliance. The appliance has several ports, including 10x 1GbE RJ45 ports and 8x 10G SFP+ ports. To learn more, see [ZPA appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping). You can deploy two or more appliances in a network location and pair them into groups for load balancing. See image.
+5. Connect the WAN cable to the designated port of the appliance. The appliance has several ports, including 10x 1GbE RJ45 ports and 8x 10G SFP+ ports. To learn more, see [ZPA Appliance Physical Port Mapping](https://help.zscaler.com/zpa/zpa-appliance-physical-port-mapping). You can deploy two or more appliances in a network location and pair them into groups for load balancing. See image.
 
 [Image: Set of A screws for ZS-ZPA-APPL-8010]
 
@@ -4119,13 +4119,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-11-05T07:25Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-11-10T10:35Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-11-05T07:25Z
+- Last modified: 2026-11-10T10:35Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

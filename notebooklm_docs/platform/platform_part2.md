@@ -1,8 +1,110 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 139
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 141
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-10-29T21:06Z","nid":"1545215"} -->
+## Building Queries and Searching Logs
+
+- Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
+- Last modified: 2026-10-29T21:06Z
+- Summary: How to build queries and search for logs in the Agentic Security Operations Platform.
+
+You can search logs to view data collected by the Agentic Security Operations Platform (Agentic SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
+
+## Building a Query
+
+To create a query using the basic query builder:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
+2. In the left-side navigation, click**Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
+3. Click the **+** icon to add a new query. A new query tab appears.
+4. Click the **Search Logs** box to open the query builder. [Image: Build a query]
+5. Select a field or enter a field name manually.
+6. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
+7. Enter or select the value you want to filter by.
+8. (Optional) Use **AND** or **OR** operators to add conditions to the query.
+9. (Optional) Click **Save**to save your query.
+10. Click **Search**. Log data appears.
+11. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+
+Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
+See image.
+
+[Image: Select a prebuilt query to search for the logs]
+
+[Image: Export logs as CSV]
+
+To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
+
+[Image: Build an advanced query]
+
+The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
+
+### Adding a Query to the Queries Library
+
+You can save queries and add them to the Queries Library for quick access.
+
+To add a query to the Queries Library:
+
+1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
+2. Enter a name for the query.
+3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
+
+Use the **Save As New** option to save a modified version of the current query to your library.
+[Image: Save a modified version of the query to the library]
+
+Click **Library** to access your saved queries.
+[Image: Click Library to access saved queries]
+
+## Searching Logs
+
+After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
+[Image: Search for the logs]
+
+Hover over a field in the drawer to display the following icons:
+
+- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
+- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
+- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
+- **Add/Remove Column**: Add or remove a column in the log table.
+- **Copy Value**: Copy the value of the field.
+
+## Analyzing the Data
+
+You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
+
+### Time Series Chart
+
+The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
+
+[Image: Number of logs that match the query conditions on the Time Series chart]
+
+You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
+
+[Image: Click and drag the time filter to view an updated view based on the desired time frame]
+
+The selected time filter is not saved as part of the query, and must be configured each time.
+
+### Pie Chart
+
+The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
+
+[Image: Logs filtered by the query displayed on the Pie Chart]
+
+Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
+
+[Image: Filter the pie chart by the selected value]
+
+To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
+
+[Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -3424,13 +3526,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-08T06:06Z","nid":"1545218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-15T06:06Z","nid":"1545218"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information about deploying outegration configuration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move Agentic SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -3509,13 +3611,13 @@ To edit user details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/editing-or-deleting-adaptive-access-profile","lastmod":"2026-02-11T06:47Z","nid":"1544709"} -->
+<!-- ZS-ARTICLE {"url":"/unified/editing-or-deleting-adaptive-access-profile","lastmod":"2026-11-12T19:49Z","nid":"1544709"} -->
 ## Editing or Deleting an Adaptive Access Profile
 
 - Source: https://help.zscaler.com/unified/editing-or-deleting-adaptive-access-profile
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Editing or Deleting an Adaptive Access Profile
-- Last modified: 2026-02-11T06:47Z
+- Last modified: 2026-11-12T19:49Z
 - Summary: How to edit or delete and Adaptive Access profile in Experience Center.
 
 You can review the Adaptive Access profiles over a period of time for their effectiveness, and modify or delete the profiles as required.
@@ -3809,13 +3911,13 @@ Your grouping preferences can be saved as a set view. To learn more, see [Creati
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/integrating-crowdstrike-adaptive-access-engine","lastmod":"2026-09-07T05:01Z","nid":"1544668"} -->
+<!-- ZS-ARTICLE {"url":"/unified/integrating-crowdstrike-adaptive-access-engine","lastmod":"2026-11-12T19:51Z","nid":"1544668"} -->
 ## Integrating CrowdStrike with Adaptive Access Engine
 
 - Source: https://help.zscaler.com/unified/integrating-crowdstrike-adaptive-access-engine
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Integrating CrowdStrike with Adaptive Access Engine
-- Last modified: 2026-09-07T05:01Z
+- Last modified: 2026-11-12T19:51Z
 - Summary: How to integrate CrowdStrike with the Adaptive Access Engine in the Experience Center.
 
 The Adaptive Access Engine receives user and device context signals from CrowdStrike, which are required to control user and device access to applications via Zscaler. You can integrate CrowdStrike with Adaptive Access Engine to establish a connection and automate the event response workflows using webhooks and API client configurations. CrowdStrike shares the following context signals with the Adaptive Access Engine: CrowdStrike Operating System (OS) Score, Zero Trust Assessment (ZTA) Score, ZTA Sensor Score, and Overall Score.
@@ -3926,13 +4028,13 @@ A workflow is an automated action that is initiated by a predefined trigger (sec
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/integrating-microsoft-defender-adaptive-access-engine","lastmod":"2026-02-11T19:51Z","nid":"1544962"} -->
+<!-- ZS-ARTICLE {"url":"/unified/integrating-microsoft-defender-adaptive-access-engine","lastmod":"2026-11-12T19:52Z","nid":"1544962"} -->
 ## Integrating Microsoft Defender with Adaptive Access Engine
 
 - Source: https://help.zscaler.com/unified/integrating-microsoft-defender-adaptive-access-engine
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Integrating Microsoft Defender with Adaptive Access Engine
-- Last modified: 2026-02-11T19:51Z
+- Last modified: 2026-11-12T19:52Z
 - Summary: How to integrate Microsoft Defender with Adaptive Access Engine in Experience Center.
 
 The Adaptive Access Engine receives device signals from Microsoft Defender, which might be used to control user access to applications via Zscaler. You can configure the Microsoft Defender settings in the Experience Center and establish the connection between Microsoft Defender and Adaptive Access Engine. This enables Microsoft Defender to share the user and device context signals with the Adaptive Access Engine.
@@ -4014,13 +4116,13 @@ You need to manage permissions in the following services, to allow Adaptive Acce
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/integrating-okta-adaptive-access-engine","lastmod":"2026-05-17T20:19Z","nid":"1544669"} -->
+<!-- ZS-ARTICLE {"url":"/unified/integrating-okta-adaptive-access-engine","lastmod":"2026-11-12T19:51Z","nid":"1544669"} -->
 ## Integrating Okta with Adaptive Access Engine
 
 - Source: https://help.zscaler.com/unified/integrating-okta-adaptive-access-engine
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Integrating Okta with Adaptive Access Engine
-- Last modified: 2026-05-17T20:19Z
+- Last modified: 2026-11-12T19:51Z
 - Summary: How to integrate Okta with Adaptive Access Engine in the Experience Center.
 
 The Adaptive Access Engine receives user-related context signals from Okta, which are required to control user access to applications via Zscaler. You can configure the Okta settings in the Experience Center and establish the connection between Okta and the Adaptive Access Engine. Okta shares the context signals (Credentials Change and Session Revoked) with the Adaptive Access Engine.
@@ -4087,13 +4189,13 @@ To configure the Okta SSF settings in Experience Center:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/integrating-silverfort-adaptive-access-engine","lastmod":"2026-02-11T06:48Z","nid":"1545059"} -->
+<!-- ZS-ARTICLE {"url":"/unified/integrating-silverfort-adaptive-access-engine","lastmod":"2026-11-12T19:52Z","nid":"1545059"} -->
 ## Integrating Silverfort with Adaptive Access Engine
 
 - Source: https://help.zscaler.com/unified/integrating-silverfort-adaptive-access-engine
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Integrating Silverfort with Adaptive Access Engine
-- Last modified: 2026-02-11T06:48Z
+- Last modified: 2026-11-12T19:52Z
 - Summary: How to integrate Silverfort with Adaptive Access Engine in Experience Center.
 
 The Adaptive Access Engine receives user risk signals from Silverfort, which might be used to control user access to applications via Zscaler. You can configure the Silverfort settings in Experience Center and establish the connection between Silverfort and Adaptive Access Engine. Silverfort shares the context signals (User Risk Level) with the Adaptive Access Engine.
@@ -7315,13 +7417,13 @@ The following table shows the ranges and limitations for isolation sessions:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/resetting-login-credentials-or-mfa","lastmod":"2026-02-12T15:49Z","nid":"1544647"} -->
+<!-- ZS-ARTICLE {"url":"/unified/resetting-login-credentials-or-mfa","lastmod":"2026-11-11T21:08Z","nid":"1544647"} -->
 ## Resetting the Login Credentials or MFA
 
 - Source: https://help.zscaler.com/unified/resetting-login-credentials-or-mfa
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Resetting the Login Credentials or MFA
-- Last modified: 2026-02-12T15:49Z
+- Last modified: 2026-11-11T21:08Z
 - Summary: How to reset the password, MFA, security key, or biometric authentication in the Admin Portal.
 
 You can reset the password or multi-factor authentication (MFA) when you've forgotten the credentials or when required.
@@ -7329,9 +7431,8 @@ You can reset the password or multi-factor authentication (MFA) when you've forg
 - Resetting the Password
 - Resetting the Second-Factor Authentication
 
-Resetting the Password by Using the Self Recovery Option
-
-Resetting the Password by Requesting an Administrator
+- Use the Self Recovery Option
+- Request an Administrator
 
 1. On the login page, enter your **Login ID**, then click **Next**. See image.
 2. On the next page, click **Having trouble logging in?** See image.
@@ -7341,20 +7442,32 @@ Resetting the Password by Requesting an Administrator
 6. On the **Reset Password**page: See image.
   1. **New Password**: Enter a password.
   2. **Confirm New Password**: Re-enter the password to confirm.
-7. Click **Next**. Your credentials are reset and the **Success**page appears.
-8. Click **Re-Login** to log in to Admin Portal. See image.
+7. Click **Next**. Your credentials are reset.
+8. Click **Re-Login** to log in to Zscaler Admin Console. See image.
 
 To reset the password by requesting another administrator, see [Configuring Security Settings for Users](https://help.zscaler.com/zidentity/configuring-security-settings-users).
 
-To reset the MFA option, contact your Authentication Service administrator. An administrator might delete the configured MFA option from the **Security Settings** tab for users. The user is then prompted to reconfigure MFA the next time they log in to the Admin Portal.
+If you cannot use a configured MFA method in certain scenarios (e.g., using a new device), inform another Authentication Service administrator to reset the MFA methods for your user account. An administrator might delete the configured MFA option from the Security Settings section for your user account. You are then prompted to reconfigure MFA the next time you log in to Zscaler Admin Console.
 
-Administrators can also delete the Email OTP option for users who have opted it as their MFA option.
+To reset a user's MFA as an administrator:
 
-See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Administration** > **Authentication** > **Users**.
+2. Click the **Edit** icon for the affected user. The **Edit User** page appears. See image.
+3. Select the **Security Settings** section.
+4. Delete all the MFA methods configured for the user, such as time-based one-time password (TOTP), Email OTP, or Fast Identity Online (FIDO), and click **Save**. See image.
+5. Inform the user to:
+  1. Sign in to Zscaler Admin Console and configure the MFA again.
+  2. Sign in again to Zscaler Admin Console with the newly configured MFA method and confirm that the login is successful.
 
-[Image: ZIdentity Admin Portal Welcome page with blurred Login ID.]
+If the user requests you to reset their password, see the Resetting Password section.
 
-[Image: ZIdentity Admin Portal Welcome page with blurred login ID and highlighted "Having Trouble Logging In" option.]
+Administrators can also delete the Email OTP option for users who have chosen it as an MFA method.
+
+[Image: Edit the user details]
+
+[Image: Welcome page to log in to Zscaler Admin Console]
+
+[Image: Enter the password]
 
 [Image: Having Trouble Logging In page with blurred Login ID.]
 
@@ -7364,7 +7477,7 @@ See image.
 
 [Image: Account Creation Success page with blurred login ID and option to Re-Login.]
 
-[Image: Security Settings tab displaying configured MFA Authenticators for users.]
+[Image: Delete the configured MFA method]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8169,13 +8282,13 @@ Review the error details and resolution steps shown for the failed run to identi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-adaptive-access-engine","lastmod":"2026-09-07T04:59Z","nid":"1544658"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-adaptive-access-engine","lastmod":"2026-11-12T19:47Z","nid":"1544658"} -->
 ## Understanding Adaptive Access Engine
 
 - Source: https://help.zscaler.com/unified/understanding-adaptive-access-engine
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Understanding Adaptive Access Engine
-- Last modified: 2026-09-07T04:59Z
+- Last modified: 2026-11-12T19:47Z
 - Summary: Information about the Zscaler Adaptive Access Engine used for monitoring user and device activities and managing access control to applications.
 
 Cyber threats are becoming increasingly sophisticated, and organizations must ensure that access to sensitive applications is dynamically managed based on real-time context and risk signals.
@@ -9101,13 +9214,13 @@ The Internet & SaaS service is displayed as ZIA in the Agentic SecOps Platform.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/understanding-zagent-use-cases","lastmod":"2026-10-08T07:06Z","nid":"1544588"} -->
+<!-- ZS-ARTICLE {"url":"/unified/understanding-zagent-use-cases","lastmod":"2026-11-12T18:03Z","nid":"1544588"} -->
 ## Understanding ZAgent with Use Cases
 
 - Source: https://help.zscaler.com/unified/understanding-zagent-use-cases
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > ZAgent > Understanding ZAgent with Use Cases
-- Last modified: 2026-10-08T07:06Z
+- Last modified: 2026-11-12T18:03Z
 - Summary: To provids use case examples when conversing with ZAgent.
 
 ZAgent engages with you as if it were a conversational partner. It can be your teacher, expert, or assistant to enhance your experience by creating in-depth and knowledge-based conversations powered by AI/ML. These insights empower you with the knowledge and expertise to navigate through Data Protection, Digital Experience (ZDX), and Risk360 to identify issues within your organization.
@@ -10844,13 +10957,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/viewing-overrides","lastmod":"2026-04-03T21:06Z","nid":"1544670"} -->
+<!-- ZS-ARTICLE {"url":"/unified/viewing-overrides","lastmod":"2026-11-12T19:50Z","nid":"1544670"} -->
 ## Viewing Overrides
 
 - Source: https://help.zscaler.com/unified/viewing-overrides
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Adaptive Access Engine > Viewing Overrides
-- Last modified: 2026-04-03T21:06Z
+- Last modified: 2026-11-12T19:50Z
 - Summary: Information on overrides related to the Adaptive Access Engine.
 
 Overrides are time-bound changes set by admins to a subject’s (user or device) context signal value that temporarily replace the signal value from the context source, such as Okta, CrowdStrike, etc., while retaining the original value for reference and auditing.
@@ -10869,6 +10982,335 @@ To view the overrides:
   - **Override Count**: The number of overrides.
 
 [Image: View the override details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/viewing-pipeline-monitoring-dashboards","lastmod":"2026-11-10T00:29Z","nid":"1547269"} -->
+## Viewing the Pipeline Monitoring Dashboards
+
+- Source: https://help.zscaler.com/unified/viewing-pipeline-monitoring-dashboards
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Source Configuration > Viewing the Pipeline Monitoring Dashboards
+- Last modified: 2026-11-10T00:29Z
+- Summary: How to view and interpret the Pipeline Monitoring dashboards, including the Status dashboard and the Trends dashboard.
+
+The Pipeline Monitoring dashboards in the Agentic Security Operations Platform (Agentic SecOps Platform) provide a centralized view of the health and performance of your data ingestion and aggregation processes. By correlating technical performance with critical outcomes like data freshness and data accuracy, these dashboards allow Agentic SecOps Platform admins to verify the reliability of their security data through granular, process-level visibility into the end-to-end data lifecycle. Use these dashboards to triage pipeline failures, identify performance bottlenecks, and monitor long-term volumetric trends to ensure your security environment remains current and complete.
+
+The Pipeline Monitoring dashboards are in limited availability. To learn more, contact your Zscaler Account team or Zscaler Support.
+
+To provide this level of visibility, the dashboards monitor the platform's underlying data pipeline cycle, which includes two primary stages:
+
+- Source ingestion runs: The platform retrieves data from your [configured data sources](https://help.zscaler.com/unified/creating-data-sources) (e.g., [ServiceNow](https://help.zscaler.com/uvm/configuring-servicenow-connector), [CrowdStrike](https://help.zscaler.com/uvm/configuring-crowdstrike-connector)) and normalizes it through initial mapping.
+- Aggregator run: The platform performs entity-based [data unification](https://help.zscaler.com/unified/what-data-unification) by deduplicating entities, reconciling attribute conflicts, and enriching data to create a single, trusted source of truth.
+
+To support both immediate troubleshooting and long-term optimization, Pipeline Monitoring is divided into two dashboards:
+
+- Pipeline Monitoring Status: A current diagnostic view of recent data processing cycles. The latest run represents the current health, accuracy, and freshness of ingested data, while previous runs provide historical context. Use this dashboard to identify why a specific run failed, assess data integrity, and access remediation steps.
+- Pipeline Monitoring Trends: A historical performance view that displays pipeline performance trends over time. Use this dashboard to detect gradual latency drift, volume anomalies, and recurring stability issues across different data sources.
+
+To view the Pipeline Monitoring dashboards, in the Agentic SecOps Platform Admin Portal go to Configure > Pipeline Monitoring.
+
+See image.
+
+To access the Pipeline Monitoring dashboards, your assigned role must include the Read, Create, Edit, and Delete permissions under the Platform - Model Management resource and the Read permission under the Platform - Data Source resource. To learn more, see [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles) and [Managing User Roles](https://help.zscaler.com/unified/managing-user-roles).
+See image.
+
+## Monitoring the Status Dashboard
+
+The Pipeline Monitoring Status dashboard serves as the real-time monitoring interface for the data pipeline health and reliability. Its primary function is to track the progress of the latest source and aggregator runs and verify that the data reflects the current state of your security environment. On this dashboard, you can identify ingestion anomalies, connector failures, or aggregation errors that might impact the integrity of the data in the platform.
+
+See image.
+
+To use the Status dashboard effectively for real-time troubleshooting and health checks, complete the following workflow:
+
+- Step 1: Check High-Level Indicators
+- Step 2: Gather Diagnostic Context
+- Step 3: Troubleshoot
+
+## Monitoring the Trends Dashboard
+
+The Pipeline Monitoring Trends dashboard provides a historical perspective on the health, performance, and stability of the data pipeline over time. While the Status dashboard focuses on real-time diagnostics for the latest run, the Trends dashboard allows you to identify long-term patterns, performance degradation, and recurring bottlenecks that might not be apparent in a single cycle. By analyzing data across a selected timeframe, you can distinguish between isolated incidents and systemic configuration drift.
+
+See image.
+
+You can adjust the data displayed in the dashboard by using the filters at the top of the page. These filters affect all relevant widgets; where a widget displays a top 10 calculation, the top 10 is recalculated by the filtered values. The Entity Volume Variance and Step Reliability History widgets are not affected by the source filters. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters).
+
+The Trends dashboard is divided into three primary areas of analysis: Top Indicators, Performance, and Stability.
+
+- Detecting Volatility with Top Indicators
+- Analyzing Performance and Volumetrics
+- Evaluating Data Stability
+
+Start by reviewing the high-level indicators at the top of the dashboard. These provide an immediate pulse check on the latest pipeline cycle. The state of the pipeline is determined by the outcome of the latest run (i.e., Complete, Partially Complete, or Failed) and is measured with three indicators: Severity, Freshness, and Accuracy. A successful run results in a healthy, fresh, and accurate state. When a run does not complete successfully, these indicators are affected according to the specific failure scenario. Additional issues can be detected by anomalous run durations or ingestion volumes.
+
+### Freshness and Accuracy
+
+The cycle's total outcome is determined by the level of freshness and accuracy of the data. Review the status in the top right of the latest run and its associated severity at the top left of the page.
+
+- Complete (Healthy): The pipeline is functioning normally.
+- Failed (Medium Severity): The system preserved old data because the latest update failed.
+- Partially Complete (High or Medium Severity): Some data was updated, but gaps exist.
+
+See image.
+
+#### Freshness
+
+Freshness tracks whether the latest data pipeline cycle (i.e., the scheduled data source runs and aggregation run) has completed successfully within its expected cadence, indicating that the platform is displaying the most up-to-date data. If the scheduled pipeline cycle fails to complete successfully, the data is no longer considered fresh.
+
+- Fresh: The data maintains integrity because no partial or unverified records have been introduced. This occurs when the last aggregation cycle successfully processed all entities, or when a failed run preserved the previously aggregated data instead of overwriting it with incomplete results. In the latter case, the data remains accurate but is no longer fresh.
+- Partially Fresh: The latest scheduled pipeline cycle completed successfully, but the data in the platform is not fully up-to-date because unresolved issues remain (e.g., failed entities from a previous cycle that have not yet been reprocessed by the aggregator, or a previously failed run has not run successfully since).
+- Non-fresh (Stale): The data in the platform is no longer up-to-date (e.g., the aggregator run failed, the aggregator didn't run within the expected interval, or all sources failed so no current data could be aggregated).
+
+#### Accuracy
+
+Accuracy tracks whether the latest data processing pipeline produced a complete aggregation of the scheduled source runs, and whether each source has a recent successful full ingestion to serve as the baseline for subsequent incremental updates.
+
+- Accurate: The data maintains integrity because the last successful aggregation cycle processed all entities, or because the pipeline failed to update the current state, preventing the introduction of partial or unverified data.
+- Potentially Not Accurate: An incremental update is successfully processed for a source that lacks a verified full ingestion baseline within the rolling 14-day history.
+- Not Accurate: A successful pipeline cycle fails to reprocess or include all entities from a previous failed aggregator run, resulting in a state of incomplete entity coverage.
+
+The combination of these indicators results in a total run status indicated in the right corner of the run. Each total outcome is assigned a severity level based on the impact on data reliability.
+
+| Total Outcome | Status | Freshness | Accuracy | What It Means |
+| --- | --- | --- | --- | --- |
+| Complete | Healthy | Fresh | Accurate | Successful source and aggregator runs. |
+| Partially Completed | Severity: High | Partially Fresh | Not Accurate | The aggregator run was partially complete or failed to reprocess entities from a previous failure. |
+| Partially Completed | Severity: Low | Fresh | Potentially Not Accurate | The latest incremental source run succeeded, but integrity is unverified due to a previous full run failure. |
+| Partially Completed | Severity: Low | Partially Fresh | Potentially Not Accurate | The latest full run failed and hasn't been reprocessed since. |
+| Failed | Severity: Medium | Not Fresh | Inherited from previous run | The aggregator failed. No new data was processed, so the data and accuracy from the previous pipeline cycle is preserved. |
+| Failed | Severity: Medium | Not Fresh | Inherited from previous run | The aggregator did not run, potentially because a source didn't trigger it. No new data was processed, so the data and accuracy from the previous pipeline cycle is preserved. |
+
+### Duration and Volume
+
+In addition to the source and aggregator run status, the Status dashboard monitors the performance health of the source ingestion and aggregation lifecycle. By comparing the latest run process duration and volume against a 7-day rolling average, the platform identifies anomalies in processing time and data throughput that might signal underlying connectivity issues or configuration drift. These indicators act as a diagnostic layer to catch silent failures, which are instances where a pipeline process completes successfully but produces results that are statistically outside of normal operational parameters.
+
+See image.
+
+#### Last Run Process Duration
+
+The Last Run Process Duration metric tracks the total run time of the latest pipeline cycle compared to its historical performance. The dashboard displays the duration of the latest run (e.g., 62min) alongside the AVG (the historical average over the last 7 days). A run is flagged as anomalous (indicated by an orange warning icon) if the duration varies from the 7-day average by more than 25%.
+
+- High duration: Significantly longer runs can indicate network latency, source API bottlenecks, or unusually high data payloads.
+- Low duration: A run that finishes unexpectedly fast can indicate a hollow ingestion, where the system successfully connected to the source but failed to retrieve the full scope of data.
+
+#### Last Run Record Ingestion Volume
+
+The Last Run Record Ingestion Volume metric provides visibility into the volume of data processed, comparing the count of new records versus updated records. The volume is compared against a rolling average to identify significant spikes or drops in data throughput. This helps detect unexpected data loss. For example, if a source consistently reports an average of 1,000 new records but the last run reports 40, the volume metric flags an anomaly even if the connection status is successful.
+
+- Volume drops: Sudden decreases can signal silent source failures, such as credential permission changes that limit the platform's access to specific data objects or modified filters on the source side.
+- Volume spikes: Massive surges can indicate configuration drift, such as the addition of a new high-volume log source or data duplication issues that can impact long-term system capacity.
+
+Dramatic shifts in either direction can also result from intentional configuration changes. For example, introducing a suppression rule can cause a drop, while broadening an ingestion filter can cause a spike.
+
+If the high-level indicators signal a failure or performance anomaly, use the run widget to pinpoint exactly where the issue occurred. This widget provides a matrix-style Gantt view of the end-to-end pipeline, allowing you to trace the root cause of an incomplete total run outcome to specific underlying processes (e.g., a specific data source run or the aggregation run).
+
+See image.
+
+The run widget is identified by its unique run ID (e.g., Run-2026-0001) and displays the total run's start time, end time, and total duration. A status on the far right indicates the total outcome: Complete, Partially Completed, or Failed. Each row within the expanded widget represents a stage in the pipeline, including specific source ingestions and the aggregation step.
+
+See image.
+
+The status and duration of each process is represented by colored bars plotted along a time axis indicating the duration of the run:
+
+- Green bar: The process completed successfully.
+- Orange or red bars: The process failed, was interrupted, or has an associated integrity warning.
+- Warning icons: The run succeeded, but there are underlying issues affecting the result.
+
+Following the latest run, you can view and expand previous runs. Investigating previous runs can help uncover the source of an issue in the latest cycle. For example, if the current aggregator run is successful but displays a warning icon, analyzing previous runs might reveal that a specific source ingestion failed in a prior cycle and the data has not yet been reprocessed.
+
+See image.
+
+### Investigating Failures and Warnings
+
+When an underlying process fails or triggers a warning, the widget provides the technical context required for troubleshooting. Use the interactive layers of the widget to gather diagnostic evidence:
+
+- Tooltips: Hover over warning icons or colored status bars to view tooltips that explain why a process is flagged. This provides a summary of the anomaly, such as minor integrity warnings or significant partial failures.
+- Information banners: Review colored banners for high-level obstacles, such as a run failing to initiate. These banners often include a Click to see more details link that opens a drawer with additional context. The details drawer provides the specific error title and technical information required for remediation:
+  - Failed sources: If a source ingestion failed, the drawer provides a direct link to the source's [See Runs page](https://help.zscaler.com/unified/tracking-data-source-runs) where you can investigate raw retrieval errors (e.g., authentication or authorization issues).
+  - Failed aggregator runs: If the aggregator is the point of failure, the drawer identifies the specific internal stage, such as Mapping or Merge, where the breakdown occurred. This helps you determine if the issue lies with the data format or the reconciliation logic.
+
+See image.
+
+After pinpointing the failing stage and gathering the technical diagnostic context, you can proceed with remediation. Troubleshooting typically branches into two paths depending on whether the failure occurred during data ingestion or during the final system aggregation.
+
+### Addressing Source Ingestion Issues
+
+If the failure or interruption occurred during the data source ingestion stage, the issue can be rooted somewhere in the chain between the external vendor and the platform's data mapping. The problem can originate with the vendor (e.g., an API outage), the connection between systems (e.g., authentication failures or network timeouts), or the final mapping configuration within the platform.
+
+To resolve these failures:
+
+- On the failed source row, click the Click to see more details linkto open a details drawer displaying the exact error that occurred and the steps to resolve it.
+- Go directly to the source's [See Runs page](https://help.zscaler.com/unified/managing-data-sources#runs) to view the error, resolution steps, and a history of attempts to fetch data from that specific source. To learn more, see [Tracking Data Source Runs](https://help.zscaler.com/unified/tracking-data-source-runs).
+
+To manage source authentication and configuration, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations), [Creating Data Sources](https://help.zscaler.com/unified/creating-data-sources), and the [Source Configuration Guides](https://help.zscaler.com/uvm/administration/connectors/sources/source-configuration-guides).
+
+### Addressing Aggregator Issues
+
+If the source ingestion was successful, but the aggregator failed or produced completed runs with warnings or anomalies, the issue is likely related to the platform's data processing (e.g., normalizing, mapping, or merging data).
+
+To resolve these issues, on the failed aggregator row, click the Click to see more details linkto open a drawer displaying the exact error that occurred and the steps to resolve it. For more context, including a full history of previous runs, you can click Open Runs Screen to go to the Entity Management Runspage.
+
+Review the following configuration areas:
+
+- Data mapping: Verify that source fields are correctly mapped and that any custom scripts are producing the expected values.
+- Unification logic: Review your settings for [entity merging](https://help.zscaler.com/unified/configuring-entity-unification) (how the platform deduplicates records) and [field reconciliation and enrichment](https://help.zscaler.com/unified/configuring-field-unification) (how the platform decides the value that wins when data conflicts or enriches values with your business context).
+- Source configuration: Check source-specific settings, including [suppression rules](https://help.zscaler.com/unified/configuring-suppression-rules) and [remediation detection settings](https://help.zscaler.com/unified/creating-data-sources#remediation-detection-settings), to ensure data is being filtered and aged correctly.
+- Asset and finding aging: Review the [aging](https://help.zscaler.com/unified/aging-assets) in your account to ensure it aligns with your source's scanning frequency, so active records are not aged prematurely.
+
+If more context is needed, you can view the Logs page to search and explore the raw data collected by the platform before any processing occurs. This can help identify if an issue is rooted in the source data itself or within your mapping and transformation logic. To learn more, see [Building Queries and Searching Logs](https://help.zscaler.com/unified/building-queries-and-searching-logs).
+
+If the error persists, or if you encounter an error that you cannot resolve, contact Zscaler Support. Provide the error title, the full technical message, and the specific Run ID.
+
+### Validating the Resolution
+
+After applying a fix (e.g., updating an API key, adjusting a firewall rule, or correcting a mapping script), reprocess the run and verify that the pipeline has returned to a healthy state:
+
+1. Reprocess failed runs:
+  - Source: Trigger a manual run of that failed or interrupted data source to refresh the data for the next aggregator run. To learn more, see [Managing Data Sources](https://help.zscaler.com/unified/managing-data-sources).
+  - Aggregator: Trigger a manual aggregator run after all source data runs are successful. To learn more, see [Managing Entity Unification](https://help.zscaler.com/unified/managing-entity-unification#process-ruleset) and [Managing Field Unification](https://help.zscaler.com/unified/managing-field-unification#process-entity-rulesets).
+2. Return to the Status dashboard to verify indicators and ensure that the data is healthy.
+
+The Top Indicators widgets are the primary entry point for identifying which sources or entities are experiencing the most significant fluctuations in behavior. These widgets offer visibility into volatile sources, such as those with the highest variance between their maximum and minimum values during the selected period.
+
+See image.
+
+### Log Ingestion Volume by Source
+
+The Log Ingestion Volume by Source widget tracks the volume of [log records](https://help.zscaler.com/unified/building-queries-and-searching-logs) ingested across the 10 sources with the highest volume variance during the selected time frame. Variance is calculated as the difference between the maximum and minimum daily record counts for each source.
+
+View the total log record counts (Y-axis) against a timeline (X-axis) to pinpoint specific dates where a source experienced unusual spikes or drops.
+
+- Sharp drops: Indicates potential data gaps or connectivity interruptions, such as a source-side failure, network outage, or expired authentication credentials that prevent the platform from fetching data.
+- Sharp spikes: Indicates abnormal data surges or increased logging activity, such as a configuration change or a significant security event generating a burst of logs.
+
+Dramatic shifts in either direction can also result from intentional configuration changes. For example, introducing a suppression rule can cause a drop, while broadening an ingestion filter can cause a spike.
+
+See image.
+
+### Pipeline Duration by Source
+
+The Pipeline Duration by Source widget tracks the time required for the ETL process across the 10 sources with the highest duration variance during the selected time frame. Variance is calculated as the difference between the maximum and minimum duration for each source.
+
+View the duration (Y-axis) against a timeline (X-axis) to identify when processing durations fluctuated. You can switch between two views:
+
+- Source Specific Steps: Isolates the duration of processes related only to the source runs (data fetching and initial mapping). If a source appears here with high variance, it can point to inconsistent vendor API response times or network-level latency.
+- Full Pipeline: Reflects the full pipeline duration, including source runs and the aggregator run (merging and reconciliation). If a source surfaces in this view but not in the source-specific view, it indicates that the volatility is being driven by internal platform processes, such as complex data deduplication or high-volume merging cycles.
+
+Because the top 10 list of sources is dynamically calculated based on the duration delta, different sources might be displayed for each of the views.
+
+See image.
+
+### Entity Volume Variance
+
+The Entity Volume Variance widget compares the total records processed for top entity types (e.g., Assets or Findings) in the selected time frame, against the previous identical time frame. The delta percentage helps identify significant shifts in data throughput between the current and previous cycles for top entities.
+
+View the current period alongside the previous period to identify significant shifts in throughput. A visible discrepancy between the two bars indicates a change in data volume for a specific entity type, which can suggest a shift in the source-side data schema or filtering logic compared to the previous cycle.
+
+See image.
+
+The Performance widgets focus on the performance of the data ingestion and the internal processing steps. They help determine if the pipeline is scaling effectively and identify specific stages where delays occur.
+
+See image.
+
+### Source Efficiency Correlation
+
+The Source Efficiency Correlation widget maps source runs based on log ingestion volume (X-axis) and total duration (Y-axis). In a healthy environment, most sources should follow a linear trajectory, so that as the volume of records increases, the duration required to process them should increase at a consistent, predictable rate.
+
+View correlations to distinguish between normal scaling and two specific types of performance anomalies:
+
+- Upper-left outliers (low volume/high duration): Represent sources with low log ingestion volume but high processing duration. This indicates a high cost-per-record, where the pipeline is consuming disproportionate resources for a minimal data return. This can suggest bottlenecks such as high-latency API responses from the vendor, aggressive rate limiting, or complex mapping logic that is struggling to parse even small datasets.
+- Bottom-right outliers (high volume/low duration): Represent sources with high log ingestion volume but unusually low processing duration. While this might look like high efficiency, it can signal that data is being passed through without undergoing the required processing depth. For example, if a typically slow source suddenly finishes in minutes while volume remains high, it might indicate that internal validation steps such as deep deduplication or enrichment are being bypassed or are failing silently.
+
+See image.
+
+### Ingestion Volume by Source
+
+The Ingestion Volume by Source widget tracks the daily volume of records processed for a specific entity across the 10 sources with the highest volume variance. Select an entity from the drop-down menu to populate the widget and view the top 10 sources exhibiting the highest volatility for that selected entity during the selected time frame.
+
+This widget can help uncover entity-specific data loss and identify transformation gaps. A transformation gap occurs when a source connection remains healthy and raw logs are flowing, but those logs are failing to generate valid mapped records. This can indicate that a vendor might have updated their data schema, or that the internal mapping logic is no longer compatible with the incoming log format. While the Log Ingestion Volume widget measures and represents the ingestion volume of raw logs per source, this widget measures post-mapping records per source.
+
+See image.
+
+### Ingestion Volume Trends
+
+The Ingestion Volume Trends widget displays the composition of processed records for a specific source and entity. It distinguishes between new records and total volume, allowing users to verify if a high volume of data actually contains new records or is primarily composed of existing records.
+
+This comparison indicates the ingestion efficiency of a specific connector and can highlight the gap between raw processing effort and actual data output. A widening gap, where total volume spikes but new records remain flat, is a clear indicator of a hollow ingestion. This can suggest a source-side configuration error where a connector is sending a full data dump or redundant records instead of incremental changes. Conversely, when both metrics trend upward, it confirms a legitimate surge in environmental data such as during an initial ingestion or a large-scale security event.
+
+See image.
+
+### Internal Step Breakdown (AVG per day)
+
+The Internal Step Breakdown (AVG per day) widget provides a daily average of the time spent in each stage of the pipeline during the selected time frame, including Retrieval, Mapping, Merge, and Data Manipulation. A sudden shift in the ratio of these steps can indicate that an issue occurred in the process. For example, a merge step that is significantly shorter than the historical average can indicate a failure during reconciliation.
+
+See image.
+
+The Stability widgets track the success and failure rates of the pipeline to identify which components are the least reliable over time.
+
+See image.
+
+### Process Outcome by Source
+
+The Process Outcome by Source widget displays the ratio of Success, Failure, and Partial Success outcomes for the top 10 sources with the lowest success rates. You can switch between the Source Specific Steps view to display the ratio for source steps only, or the Full Pipeline view to display the aggregator run result associated with each source.
+
+See image.
+
+### Step Reliability History
+
+The Step Reliability History widget provides a health check for each internal pipeline step (Retrieval, Mapping, Merge, and Data Manipulation). It displays the percentage of time each step failed versus succeeded, helping to isolate whether failures are occurring during the initial data fetch or during internal platform processing.
+
+See image.
+
+For added context on the scale of these rates, hover over a data point to view the absolute number of runs behind each percentage. This is useful for gauging the actual impact of a given rate and prioritizing your investigation accordingly. For example, a 100% failure rate can indicate a single failed run within a narrow time frame, or a systemic issue affecting many runs over a longer period.
+
+See image.
+
+[Image: Pipeline Monitoring Status and Trends dashboards]
+
+[Image: Required role permissions for the Pipeline Monitoring dashboards]
+
+[Image: Pipeline Monitoring Status dashboard]
+
+[Image: Pipeline Monitoring Status dashboard freshness, accuracy, and severity indicators]
+
+[Image: Pipeline Monitoring Status dashboard duration and volume indicators]
+
+[Image: Pipeline Monitoring Status dashboard Tenable source failure]
+
+[Image: Pipeline Monitoring Status dashboard header]
+
+[Image: Pipeline Monitoring Status dashboard Previous Runs]
+
+[Image: Investigating a partially complete run]
+
+[Image: Pipeline Monitoring Trends dashboard]
+
+[Image: Trends dashboard Top Indicators]
+
+[Image: Log Ingestion Volume by Source widget]
+
+[Image: Pipeline Duration by Source widget]
+
+[Image: Entity Volume Variance widget]
+
+[Image: Trends dashboard Performance]
+
+[Image: Source Efficiency Correlation widget]
+
+[Image: Ingestion Volume by Source widget]
+
+[Image: Ingestion Volume Trends widget]
+
+[Image: Internal Step Breakdown (AVG per day) widget]
+
+[Image: Trends dashboard Stability]
+
+[Image: Process Outcome by Source widget]
+
+[Image: Step Reliability History widget]
+
+[Image: Hovering over a step in the Step Reliability History widget]
 <!-- /ZS-ARTICLE -->
 
 ---

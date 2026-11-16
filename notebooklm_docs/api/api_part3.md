@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 115
 
 ---
@@ -13900,13 +13900,13 @@ Gets the provisioning key details for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/public-api-controller","lastmod":"2026-10-13T23:57Z","nid":"1417361"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/public-api-controller","lastmod":"2026-11-15T06:06Z","nid":"1417361"} -->
 ## Public API Controller
 
 - Source: https://help.zscaler.com/legacy-apis/public-api-controller
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Public API Controller
-- Last modified: 2026-10-13T23:57Z
+- Last modified: 2026-11-15T06:06Z
 
 Api Documentation
 
@@ -23049,13 +23049,13 @@ Stop the score analysis that is currently running.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/trusted-network-controller","lastmod":"2026-10-14T00:18Z","nid":"1546782"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/trusted-network-controller","lastmod":"2026-11-15T06:06Z","nid":"1546782"} -->
 ## Trusted Network Controller
 
 - Source: https://help.zscaler.com/legacy-apis/trusted-network-controller
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Trusted Network Controller
-- Last modified: 2026-10-14T00:18Z
+- Last modified: 2026-11-15T06:06Z
 
 Api Documentation
 

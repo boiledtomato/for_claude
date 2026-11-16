@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 174
 
 ---
@@ -10,8 +10,8 @@ Articles in this file: 174
 ## 3rd-Party App Governance Policies
 
 - Source: https://help.zscaler.com/zia/3rd-party-app-governance-policies
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > 3rd-Party App Governance Policies
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > 3rd-Party App Governance Policies
 - Last modified: 2026-06-19T02:09Z
 - Summary: How to create policies in 3rd-Party App Governance.
 
@@ -511,13 +511,13 @@ On the Advanced Threat Protection Policy page (Policies > Cybersecurity > Intern
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-10-29T12:04Z","nid":"1415171"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-history","lastmod":"2026-11-12T20:06Z","nid":"1415171"} -->
 ## About Alert History
 
 - Source: https://help.zscaler.com/zia/about-alert-history
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert History
-- Last modified: 2026-10-29T12:04Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Security & UEBA Alerts > About Alert History
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information about all the disabled or ended alerts under the Security Alerts page in the Zscaler Admin Console.
 
 The Alert History page displays the list of all the alerts with their evaluation status as ended. The page also displays alerts up to a period of 14 days from the time that the status was changed to Ended.
@@ -643,13 +643,13 @@ On the Details page (Administration > Alerts > Security & UEBA Alerts > Alerts >
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-alert-rules","lastmod":"2026-10-29T12:04Z","nid":"1415191"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-alert-rules","lastmod":"2026-11-12T20:06Z","nid":"1415191"} -->
 ## About Alert Rules
 
 - Source: https://help.zscaler.com/zia/about-alert-rules
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert Rules
-- Last modified: 2026-10-29T12:04Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Security & UEBA Alerts > About Alert Rules
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information about the overview of the alert rules page in the Zscaler Admin Console.
 
 The Alert Rules page provides a graphical representation of the top 5 security and UEBA alerts by the rule type and the number of rules that have been enabled or disabled.
@@ -1684,8 +1684,8 @@ See image.
 ## About the Attack Surface Report
 
 - Source: https://help.zscaler.com/zia/about-attack-surface-report
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Attack Surface Report
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > About the Attack Surface Report
 - Last modified: 2026-09-18T04:23Z
 - Summary: Information about the Attack Surface Report, which shows the apps and servers of your organization exposed to a public network.
 
@@ -2032,8 +2032,8 @@ There are two types of changes you can view:
 ## About Auditors
 
 - Source: https://help.zscaler.com/zia/about-auditors
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About Auditors
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > About Auditors
 - Last modified: 2026-10-23T11:44Z
 - Summary: Information on the Zscaler Auditors page and its features in the Zscaler Admin Console.
 
@@ -2148,13 +2148,13 @@ On the Authentication Profiles page (Administration > Internet & SaaS Authentica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-11-08T06:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-11-15T06:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information about backing up and restoring policies and configuration settings in the Zscaler Admin Console.
 
 [Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
@@ -2379,8 +2379,8 @@ The following are the best practices for setting up the bandwidth control policy
 ## About Browser EUN Template
 
 - Source: https://help.zscaler.com/zia/about-browser-eun-template
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Templates > About Browser EUN Template
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Templates > About Browser EUN Template
 - Last modified: 2026-09-15T23:45Z
 - Summary: Information on the Zscaler's browser end user notification template. These notification appear on the browser when a URL filtering or cloud app control policy block or caution rule is trigerred.
 
@@ -3307,8 +3307,8 @@ You must have user or admin permissions to add notes to the control. To learn mo
 ## About Custom IPS Signature Rules
 
 - Source: https://help.zscaler.com/zia/about-custom-ips-signature-rules
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > IPS Control > About Custom IPS Signature Rules
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > IPS Control > About Custom IPS Signature Rules
 - Last modified: 2026-09-24T00:49Z
 - Summary: Information on custom IPS signatures that can be created and deployed on Zscaler's Intrusion Prevention System (IPS) to protect your organization's traffic against malicious activities and threats.
 
@@ -4019,8 +4019,8 @@ To learn more, see [Hosting and Security Characteristics](https://help.zscaler.c
 ## About Data Center Exclusion Based on Traffic Forwarding Method
 
 - Source: https://help.zscaler.com/zia/about-data-center-exclusion-based-traffic-forwarding-method
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > About Data Center Exclusion Based on Traffic Forwarding Method
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > About Data Center Exclusion Based on Traffic Forwarding Method
 - Last modified: 2026-09-28T12:40Z
 - Summary: Information on data center exclusion and the Traffic Forwarding Method page in the Zscaler Admin Console.
 
@@ -4532,8 +4532,8 @@ On the Gateways page (Infrastructure > Internet & SaaS > Dedicated IP > Gateways
 ## About Departments
 
 - Source: https://help.zscaler.com/zia/about-departments
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > About Departments
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > User Management > Departments > About Departments
 - Last modified: 2026-10-27T10:00Z
 - Summary: Information on the Internet & SaaS Departments page and its features in the Zscaler Admin Console.
 
@@ -4704,8 +4704,8 @@ On the Device Control page (Data Security > Endpoint DLP > Endpoint Data Scan > 
 ## About Device Groups
 
 - Source: https://help.zscaler.com/zia/about-device-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Device Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Devices > About Device Groups
 - Last modified: 2026-10-12T10:22Z
 - Summary: Information on the Device Groups page in the Zscaler Admin Console.
 
@@ -4785,16 +4785,16 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-10-12T10:22Z","nid":"1402246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-11-13T01:06Z","nid":"1402246"} -->
 ## About Devices
 
 - Source: https://help.zscaler.com/zia/about-devices
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Devices
-- Last modified: 2026-10-12T10:22Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Devices > About Devices
+- Last modified: 2026-11-13T01:06Z
 - Summary: Information on the Device Management page in the Zscaler Admin Console.
 
-The Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
+The Internet & SaaS Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
 
 The Devices page provides you with the following benefits and enables you to:
 
@@ -4829,8 +4829,8 @@ On the Devices page (Administration > Internet & SaaS Authentication > Internet 
 ## About Discovered Devices
 
 - Source: https://help.zscaler.com/zia/about-discovered-devices
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About Discovered Devices
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > About Discovered Devices
 - Last modified: 2026-09-28T08:33Z
 - Summary: Information on the Discovered Devices page in the Zscaler Admin Console.
 
@@ -4906,13 +4906,13 @@ This section shows a chart which displays a detailed traffic flow for the device
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-dictionaries","lastmod":"2026-10-08T21:06Z","nid":"1400066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-dictionaries","lastmod":"2026-11-12T01:19Z","nid":"1400066"} -->
 ## About DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/about-dlp-dictionaries
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > About DLP Dictionaries
-- Last modified: 2026-10-08T21:06Z
+- Last modified: 2026-11-12T01:19Z
 - Summary: Information about predefined and custom (i.e., pattern and phrase or exact data match) Data Loss Prevention (DLP) and how to create them in the Zscaler Admin Console.
 
 A Data Loss Prevention (DLP) dictionary contains a set of patented algorithms that are designed to detect specific kinds of information in your users' traffic and activities. The Zscaler service provides predefined dictionaries that you can modify and, in some cases, clone. You can also create custom dictionaries for content not covered by predefined dictionaries. For example, you can create custom dictionaries that trigger based on specific patterns and phrases, or trigger based on exact data matching. To learn more, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries), [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary), and [Cloning Predefined DLP Dictionaries](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries).
@@ -4929,18 +4929,20 @@ Any combination of cloned, predefined, and custom dictionaries can be added to a
 
 On the DLP Dictionaries page (Data Security > Common Resources > Dictionaries & Engines), you can do the following:
 
-1. [Add a DLP dictionary](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
-2. Search for a DLP dictionary or sub-dictionary.
-3. View a list of all predefined and custom DLP dictionaries and sub-dictionaries that were configured for your organization. For DLP dictionaries, you can see the following:
+1. Search for a DLP dictionary or subdictionary.
+2. [Add a DLP dictionary](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all predefined and custom DLP dictionaries and sub-dictionaries configured for your organization. For DLP dictionaries, you can see the following:
   - **Name**: The name of the dictionary. You can sort this column.
   - **Type**: Displays whether the dictionary is predefined or custom.
   - **Confidence Score Threshold**: Displays the confidence score threshold, if applicable. The specified confidence score threshold helps determine what counts as a violation.
-  - **Description**: The description of the dictionary, if available. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries) or [clone](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries) a DLP dictionary, or [create a sub-dictionary](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
-6. [Go to the DLP Engines page](https://help.zscaler.com/zia/about-dlp-engines).
+  - **Description**: The description of the dictionary.
+5. [Add a DLP subdictionary](https://help.zscaler.com/zia/adding-custom-dlp-dictionary#Parent-Sub-Dictionary).
+6. Delete a DLP dictionary.
+7. [Edit](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries) or [clone](https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries) a DLP dictionary.
+8. [Go to the DLP Engines page](https://help.zscaler.com/zia/about-dlp-engines).
 
-[Image: Tasks on the DLP Dictionaries Page]
+[Image: The DLP Dictionaries tab on the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5731,18 +5733,18 @@ On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint D
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-dlp-engines","lastmod":"2026-10-08T21:06Z","nid":"1400081"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-dlp-engines","lastmod":"2026-11-12T01:39Z","nid":"1400081"} -->
 ## About DLP Engines
 
 - Source: https://help.zscaler.com/zia/about-dlp-engines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > About DLP Engines
-- Last modified: 2026-10-08T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > About DLP Engines
+- Last modified: 2026-11-12T01:39Z
 - Summary: Information on Data Loss Prevention (DLP) engines within the Zscaler service and how you can use them to create rules to detect content that includes more than one DLP dictionary.
 
 A Data Loss Prevention (DLP) engine is a collection of one or more [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). When you define your [DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) and [Endpoint DLP policy rules](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules), you must reference DLP engines, rather than DLP dictionaries. By using a DLP engine, you can create rules to detect content that encompasses more than one dictionary. For example, if your organization wants to protect social security and credit card numbers, create a rule using an engine that contains the Credit Cards and Social Security Numbers dictionaries.
 
-The Zscaler service provides predefined DLP engines and supports custom DLP engines. You can [edit predefined engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines), [create custom engines](https://help.zscaler.com/zia/adding-custom-dlp-engine), or [clone existing engines](https://help.zscaler.com/zia/cloning-dlp-engines) to detect content that is relevant to your organization. When configuring a predefined or custom engine, you can also combine dictionaries with Boolean operators to create logical expressions. To learn more, see [Understanding DLP Engines](https://help.zscaler.com/zia/understanding-dlp-engines).
+The Zscaler service provides predefined DLP engines and supports custom DLP engines. You can [edit engines](https://help.zscaler.com/zia/editing-dlp-engines), [create custom engines](https://help.zscaler.com/zia/adding-custom-dlp-engine), or [clone existing engines](https://help.zscaler.com/zia/cloning-dlp-engines) to detect content that is relevant to your organization. When configuring a predefined or custom engine, you can also combine dictionaries with Boolean operators to create logical expressions. To learn more, see [Understanding DLP Engines](https://help.zscaler.com/zia/understanding-dlp-engines).
 
 DLP engines provide the following benefits and allow you to:
 
@@ -5756,18 +5758,19 @@ Zscaler DLP engines can scan files with a maximum size of 400 MB. For an archive
 
 On the DLP Engines page (Data Security > Common Resources > Dictionaries & Engines > DLP Engines), you can do the following:
 
-1. [Add a custom DLP engine.](https://help.zscaler.com/zia/adding-custom-dlp-engine)
-2. View a list of all DLP engines that were configured for your organization. For DLP engines, you can see:
+1. Search for a DLP engine.
+2. [Add a custom DLP engine.](https://help.zscaler.com/zia/adding-custom-dlp-engine)
+3. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+4. View a list of all DLP engines that were configured for your organization. For DLP engines, you can see:
   - **Name**: The name of the DLP engine. You can sort this column.
-  - **Channels**: The specific channels (Network Share, Personal Cloud Storage, Printing, or Removable Storage) associated with the DLP engine. (Endpoint DLP, SaaS Security, DSPM, Inline Web, and Email DLP) associated with the DLP engine. You can select the checkboxes for each engine in the list to add channels directly from the DLP Engines page. To learn more, see [Editing Predefined DLP Engines](https://help.zscaler.com/zia/editing-predefined-dlp-engines).
+  - **Channels**: The specific channels (Endpoint DLP, SaaS Security, DSPM, Inline Web, and Email) associated with the DLP engine. You can select the checkboxes for each engine in the list to add channels directly from the DLP Engines page. To learn more, see [Editing DLP Engines](https://help.zscaler.com/zia/editing-dlp-engines).
   - **Dictionaries**: The DLP dictionaries included in the engine.
-  - **Description**: The description of the engine, if available. You can sort this column.
-3. Search for a DLP engine.
-4. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-5. [Edit](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal) or [clone](https://help.zscaler.com/zia/cloning-dlp-engines) a DLP engine.
-6. Go to the [DLP Dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries) page, to view, modify, or add DLP dictionaries.
+  - **Description**: The description of the engine.
+5. [Edit](https://help.zscaler.com/zia/editing-dlp-engines) or [clone](https://help.zscaler.com/zia/cloning-dlp-engines) a DLP engine.
+6. Delete a DLP engine.
+7. [Go to the DLP Dictionaries page](https://help.zscaler.com/zia/about-dlp-dictionaries).
 
-[Image: About DLP Dictionaries]
+[Image: The DLP Engines tab on the DLP Dictionaries & Engines page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5898,8 +5901,8 @@ On the DLP User Confirmation Templates page (Administration > End User Notificat
 ## About DNS Application Groups
 
 - Source: https://help.zscaler.com/zia/about-dns-application-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About DNS Application Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About DNS Application Groups
 - Last modified: 2026-10-05T21:06Z
 - Summary: Information about DNS application groups that allow grouping together DNS tunnel types and specific web applications for use in DNS policy rules.
 
@@ -6053,8 +6056,8 @@ For DNS requests that come from the internal DNS server, you can only apply poli
 ## About DNS Gateways
 
 - Source: https://help.zscaler.com/zia/about-dns-gateways
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About DNS Gateways
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About DNS Gateways
 - Last modified: 2026-09-21T07:24Z
 - Summary: Information on DNS Gateways and how they can be used in Internet & SaaS (ZIA) to set up DNS high availability and perform protocol translation for DNS lookup by external DNS services.
 
@@ -6267,13 +6270,13 @@ On the EDNS Client Subnet page (Internet Access > Resources > EDNS Client Subnet
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-11-08T06:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-11-15T06:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -7430,8 +7433,8 @@ On the Hosted PAC Files page (Infrastructure > Internet & SaaS > Hosted PAC File
 ## About HTTP Header Insertion Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-insertion-profile
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Insertion Profile
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > HTTP Header Control > About HTTP Header Insertion Profile
 - Last modified: 2026-10-15T05:44Z
 - Summary: Information about how to use the HTTP header insertion profile in the Zscaler Admin Console.
 
@@ -7467,8 +7470,8 @@ On the HTTP Header Insertion Profile page (Internet Access > Policy > HTTP Heade
 ## About HTTP Header Profile
 
 - Source: https://help.zscaler.com/zia/about-http-header-profile
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > HTTP Header Control > About HTTP Header Profile
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > HTTP Header Control > About HTTP Header Profile
 - Last modified: 2026-10-15T05:19Z
 - Summary: Information on how to use HTTP header profiles in the Zscaler Admin Console.
 
@@ -7545,8 +7548,8 @@ On the ICAP Settings page (Data Security > Common Resources > DLP Incident Recei
 ## About ICAP Receivers for URL Filtering
 
 - Source: https://help.zscaler.com/zia/about-icap-receivers-url-filtering
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > About ICAP Receivers for URL Filtering
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > ICAP Receivers > About ICAP Receivers for URL Filtering
 - Last modified: 2026-10-02T04:52Z
 - Summary: Information on Internet Content Adaptation Protocol (ICAP) receivers for the URL Filtering policies and how they can be configured in the Zscaler Admin Console.
 
@@ -7579,13 +7582,13 @@ On the ICAP Receiver page (Internet Access > Traffic Capture > ICAP Receiver), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-identity-providers","lastmod":"2026-10-30T16:27Z","nid":"1401376"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-identity-providers","lastmod":"2026-11-13T20:06Z","nid":"1401376"} -->
 ## About Identity Providers
 
 - Source: https://help.zscaler.com/zia/about-identity-providers
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > About Identity Providers
-- Last modified: 2026-10-30T16:27Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > About Identity Providers
+- Last modified: 2026-11-13T20:06Z
 - Summary: Information on the configured identity providers (IdPs) in the Zscaler Admin Console.
 
 When configuring [SAML single sign-on](https://help.zscaler.com/zia/configuring-saml) and [SCIM provisioning](https://help.zscaler.com/zia/configuring-scim) for users, you can configure multiple identity providers (IdPs) based on your organization's requirements. The Zscaler service redirects users to different SAML URLs based on configured IdP criteria. The service can support up to 64 different SAML IdPs per organization. To learn more about IdP criteria, see [Understanding Identity Provider Criteria](https://help.zscaler.com/zia/understanding-identity-provider-criteria). You can manage and view general information about your configured IdPs on the Identity Providers page.
@@ -7663,13 +7666,13 @@ On the Identity Proxy Settings page (Administration > Internet & SaaS Authentica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-11-08T06:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-11-15T06:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7682,7 +7685,7 @@ The Zscaler Index Tool provides the following benefits and enables you to:
 - See a dashboard view of your EDM and IDM index templates.
 - Host the Index Tool VM on an Amazon Web Services (AWS) EC2 instance, an Azure VM, or on-premises.
 
-To ensure you have access to the latest features, the Zscaler service automatically updates the Index Tool. You are notified in the Index Tool when an upgrade takes place and you can't change the upgrade time. However, the upgrade process waits for all system operations to complete before it begins. During the upgrade, which takes approximately one hour, the tool is not available for use.
+To ensure you have access to the latest features, the Zscaler service automatically updates the Index Tool. You are notified in the Index Tool when an upgrade takes place, and you can't change the upgrade time. However, the upgrade process waits for all system operations to complete before it begins. During the upgrade, which takes approximately one hour, the tool is not available for use.
 
 To learn more, see [About Exact Data Match](https://help.zscaler.com/zia/about-exact-data-match) and [About Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match).
 
@@ -7690,30 +7693,31 @@ To learn more, see [About Exact Data Match](https://help.zscaler.com/zia/about-e
 
 On the Index Tool page (Data Security > Common Resources > Index Tool), you can do the following:
 
-1. [Add an Index Tool configuration.](https://help.zscaler.com/zia/adding-index-tool-configuration)
-2. [Download the VM (.ova) for the Index Tool.](https://help.zscaler.com/zia/configuring-index-tool)
-3. Search for an Index Tool configuration.
-4. View a list of all Index Tool configurations for your organization. For each Index Tool, you can see the following:
+1. [Add an Index Tool configuration](https://help.zscaler.com/zia/adding-index-tool-configuration).
+2. Search for an Index Tool configuration.
+3. [Download the VM (.ova) for the Index Tool](https://help.zscaler.com/zia/configuring-index-tool-vmware).
+4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+5. View a list of all Index Tool configurations. For each Index Tool, you can see:
   - **VM Name**: The name of the VM.
   - **Status**: Displays whether the configuration is enabled or disabled.
-  - **SSL Certificate**: Displays a link that allows you to download the SSL client certificate that the VM uses.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+  - **SSL Certificate**: Displays a link to download the SSL certificate for the VM.
 6. Download the SSL certificate for the Index tool instance.
-7. Open the New Client Certificate window. You can upload provisioning blob data.
-8. [Edit or delete an Index Tool configuration.](https://help.zscaler.com/zia/modifying-index-tool-configuration)
+7. [Upload a new client certificate](https://help.zscaler.com/zia/uploading-new-client-certificate-index-tool-configuration).
+8. [Edit an Index Tool configuration](https://help.zscaler.com/zia/adding-modifying-index-tool-configuration).
+9. Delete an Index Tool configuration.
 
-[Image: Viewing and managing Zscaler Index Tool configurations]
+[Image: The Index Tool page shows a list of Index tool configurations and their details]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-10-21T10:31Z","nid":"1402021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-11-10T05:36Z","nid":"1402021"} -->
 ## About Indexed Document Match
 
 - Source: https://help.zscaler.com/zia/about-indexed-document-match
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Indexed Document Match > About Indexed Document Match
-- Last modified: 2026-10-21T10:31Z
+- Last modified: 2026-11-10T05:36Z
 - Summary: Information on Indexed Document Match (IDM) templates and how to apply them to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 [Indexed Document Match (IDM) templates](https://help.zscaler.com/zia/creating-indexed-document-match-template) allow you to fingerprint your organization’s critical documents that contain sensitive data. By fingerprinting and indexing your documents, you can create a document repository that the Zscaler service can use to identify completely or partially matching documents when evaluating outbound traffic with the Data Loss Prevention (DLP) policy.
@@ -7896,13 +7900,13 @@ On the Insights Logs pages(Data Explorer > Internet & SaaS > [choose the Insight
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-instance-discovery-report","lastmod":"2026-11-03T06:44Z","nid":"1506326"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-instance-discovery-report","lastmod":"2026-11-12T18:47Z","nid":"1506326"} -->
 ## About the Instance Discovery Report
 
 - Source: https://help.zscaler.com/zia/about-instance-discovery-report
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Dashboard & Analytics > Reports > About the Instance Discovery Report
-- Last modified: 2026-11-03T06:44Z
+- Last modified: 2026-11-12T18:47Z
 - Summary: Information about the Instance Discovery report, which enables organizations to monitor and review application instances accessed by users at the organization, project, and resource hierarchical levels.
 
 The Instance Discovery Report provides visibility into the instances accessed by the users at the various levels of hierarchy for the SaaS applications.
@@ -8939,8 +8943,8 @@ The following limitations apply for remediation actions:
 ## About Microsoft Information Protection Labels
 
 - Source: https://help.zscaler.com/zia/about-microsoft-information-protection-labels
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Microsoft Information Protection Labels
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Labels and Tags > About Microsoft Information Protection Labels
 - Last modified: 2026-09-09T00:39Z
 - Summary: Information about Microsoft Information Protection (MIP) Labels.
 
@@ -8982,8 +8986,8 @@ On the Microsoft Information Protection (MIP) Labels page (Data Security > Commo
 ## About Mobile App Store Control
 
 - Source: https://help.zscaler.com/zia/about-mobile-app-store-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Mobile Security > Mobile App Store Control > About Mobile App Store Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Mobile Security > Mobile App Store Control > About Mobile App Store Control
 - Last modified: 2026-09-15T14:13Z
 - Summary: Information on the Mobile App Store Control policy and how to restrict sites from which users can download mobile apps.
 
@@ -9152,8 +9156,8 @@ On the NAT64 Prefixes page (Infrastructure > Internet & SaaS > IPv6 Configuratio
 ## About Network Application Groups
 
 - Source: https://help.zscaler.com/zia/about-network-application-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Application Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About Network Application Groups
 - Last modified: 2026-09-10T04:30Z
 - Summary: Information on the network application groups that you can create and use in Internet & SaaS (ZIA) policies.
 
@@ -9189,8 +9193,8 @@ On the Network Application Group page (Internet Access > Resources > Network App
 ## About Network Applications
 
 - Source: https://help.zscaler.com/zia/about-network-applications
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Applications
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About Network Applications
 - Last modified: 2026-09-18T00:49Z
 - Summary: Information on the network applications available for use in Internet & SaaS (ZIA) Firewall policies.
 
@@ -9235,8 +9239,8 @@ On the Network Applications page (Internet Access> Resources > Network Applicati
 ## About Network Service Groups
 
 - Source: https://help.zscaler.com/zia/about-network-service-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Network Service Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About Network Service Groups
 - Last modified: 2026-09-15T06:35Z
 - Summary: Information on the network service groups that can be used in Firewall policies in the Zscaler Admin Console.
 
@@ -9434,8 +9438,8 @@ On the NSS Collector Servers page (Data Explorer > Log Streaming > Internet Log 
 ## About NSS Feeds
 
 - Source: https://help.zscaler.com/zia/about-nss-feeds
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > About NSS Feeds
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > About NSS Feeds
 - Last modified: 2026-10-19T15:01Z
 - Summary: Information on NSS feeds and the NSS Feeds page in the Zscaler Admin Console.
 
@@ -9517,8 +9521,8 @@ On the NSS Servers page (Data Explorer > Log Streaming > Internet Log Streaming 
 ## About OAuth 2.0 Authorization Servers
 
 - Source: https://help.zscaler.com/zia/about-oauth-2.0-authorization-servers
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > API Security > About OAuth 2.0 Authorization Servers
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > API Security > About OAuth 2.0 Authorization Servers
 - Last modified: 2026-10-16T00:13Z
 - Summary: Information about OAuth 2.0 authorization servers that can be added to the Zscaler Admin Console.
 
@@ -9559,13 +9563,13 @@ On the OAuth 2.0 Authorization Servers page (Administration > API > Internet & S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-10-29T12:04Z","nid":"1415176"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-ongoing-alerts","lastmod":"2026-11-12T20:06Z","nid":"1415176"} -->
 ## About Ongoing Alerts
 
 - Source: https://help.zscaler.com/zia/about-ongoing-alerts
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Security & UEBA Alerts > About Ongoing Alerts
-- Last modified: 2026-10-29T12:04Z
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information about a graphical and detailed view of all the configured alerts and event types.
 
 The Ongoing Alerts page displays the information about all the ongoing alerts in a graphical and detailed view. It provides high-level details of what is happening within your organization during a given time period to quickly take action and prioritize investigation. The page also helps you check the responses based on the type of detectable threats within the organization and the scope of impact.
@@ -9929,6 +9933,39 @@ On the Private Access GW page (Infrastructure > Internet & SaaS > Private Access
 6. View the predefined gateway.
 
 [Image: The Private Access GW page showing buttons and list used to manage the gateways]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-quarantine-tombstone-templates","lastmod":"2026-11-05T08:22Z","nid":"1452706"} -->
+## About Quarantine Tombstone Templates
+
+- Source: https://help.zscaler.com/zia/about-quarantine-tombstone-templates
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Notification Templates > About Quarantine Tombstone Templates
+- Last modified: 2026-11-05T08:22Z
+- Summary: About quarantine notification template options within the Zscaler Admin Console.
+
+When a file is quarantined, a tombstone file is created to give the user an idea of why this happened. You are able to customize tombstone file templates and can reference one of them when configuring the malware and DLP detection policy rules. To learn more, see [Configuring the Data at Rest Scanning Malware Detection Policy](https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy).
+
+The tombstone file templates provide the following benefits and enable you to:
+
+- Create a custom message that provides users with information about why their file was quarantined.
+- Associate the tombstone file templates with DLP or malware policy rules.
+
+## About the Tombstone Templates (Quarantine) Page
+
+On the Tombstone Templates (Quarantine) page (Administration > End User Notification > Tombstone Template), you can do the following:
+
+1. Search for a tombstone file template.
+2. [Add a tombstone file template](https://help.zscaler.com/zia/configuring-quarantine-tombstone-notification-templates).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all tombstone file templates that were configured for your organization. For tombstone file templates, you can see:
+  - **Name**: The name of the tombstone file template. You can sort this column.
+  - **Description**: The text that is included in the tombstone file.
+5. [Edit](https://help.zscaler.com/zia/editing-deleting-duplicating-items) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a tombstone file template.
+
+[Image: Tombstone Templates page with the tombstone file templets from End User Notifications]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12817,8 +12854,8 @@ On the SaaS Workflows page (Data Security > DSPM > Workflows), you can view the 
 ## About Sandbox
 
 - Source: https://help.zscaler.com/zia/about-sandbox
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Sandbox > About Sandbox
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Sandbox > About Sandbox
 - Last modified: 2026-10-29T08:51Z
 - Summary: Information on the Zscaler Sandbox and its features.
 
@@ -13183,8 +13220,8 @@ A super admin can view and edit all scheduled reports. Other administrators can 
 ## About SCIM Event Logs
 
 - Source: https://help.zscaler.com/zia/about-scim-event-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Administrator & Role Management > About SCIM Event Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > Administrator & Role Management > About SCIM Event Logs
 - Last modified: 2026-10-13T21:06Z
 - Summary: Information about the SCIM Events Logs page in the Zscaler Admin Console.
 
@@ -13222,13 +13259,13 @@ On the SCIM Event Logs page (Administration > Internet & SaaS Authentication > S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-10-29T12:04Z","nid":"1403106"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-security-ueba-alerts","lastmod":"2026-11-12T20:06Z","nid":"1403106"} -->
 ## About Security & UEBA Alerts
 
 - Source: https://help.zscaler.com/zia/about-security-ueba-alerts
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Security & UEBA Alerts
-- Last modified: 2026-10-29T12:04Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Security & UEBA Alerts > About Security & UEBA Alerts
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information on the Security & UEBA Alerts page in the Zscaler Admin Console.
 
 The Security & UEBA alerting framework provides a comprehensive solution to view, manage, create, and adjust alert rules. The security alerts constantly filter and evaluate all the logs generated from your organization's traffic to trigger new alerts. The User and Entity Behavior Analytics (UEBA) alert rules for the inline and API channels cover multiple events and alert types based on your organizational requirements. This article provides the details of security alerts and UEBA alerts.
@@ -13381,16 +13418,16 @@ On the**Notifications** tab, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-shadow-it-report","lastmod":"2026-10-30T00:34Z","nid":"1401911"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-shadow-it-report","lastmod":"2026-11-13T11:07Z","nid":"1401911"} -->
 ## About the Shadow IT Report
 
 - Source: https://help.zscaler.com/zia/about-shadow-it-report
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > SaaS Security > About the Shadow IT Report
-- Last modified: 2026-10-30T00:34Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > SaaS Security > About the Shadow IT Report
+- Last modified: 2026-11-13T11:07Z
 - Summary: Information about the Shadow IT Report, which shows the number of sanctioned and unsanctioned applications being used and their number of users.
 
-The Shadow IT gives a breakdown of applications by their status — sanctioned, unsanctioned, unclassified, or under review and their number of users. It also shows the application categories, the risk index, and the certifications for each application. Zscaler supports up to 50K cloud applications.
+The Shadow IT Report gives a breakdown of applications by their status — sanctioned, unsanctioned, unclassified, or under review and their number of users. It also shows the application categories, the risk index, and the certifications for each application. Zscaler supports up to 50K cloud applications.
 
 Shadow IT has drastically grown in recent years, especially with the adoption of multiple applications. These applications are installed by bypassing the IT department's approval for different reasons, like the ease of setting up applications with fewer approval stages and bottlenecks, the application being more efficient than the choices provided by the organization, etc.
 
@@ -13404,22 +13441,24 @@ The Shadow IT Report provides the following benefits and enables you to:
 - View the report from different perspectives, like users, location, risk level, data consumption, security certifications, etc. and build your organization's shadow IT traffic resilient to cyberattacks.
 - Increase the visibility of your SaaS applications by viewing security events generated by the Zscaler service and other third-party vendor devices, like Palo Alto Networks.
 
-## About the Shadow IT Report Page
+## About the Shadow IT Page
 
 On the Shadow IT page (Data Security > Inline CASB > Shadow IT), you can do the following:
 
 1. **Time Period:** You can view data from the last 1 day, 7 days, 15 days, month, or quarter. The default time period is the last 7 days.
 2. Filter the data of the entire Shadow IT with your selections. You can click **Clear** to remove filters at any time.
+  - Actions
+  - Admin Audit Logs
   - Application Category
-  - Risk Index
   - Application Status
-  - Total Bytes
-  - Tags
-  - Number of Employees
   - Certifications
-  - SSL Cert Key Size
-  - Signature Algorithm of SSL Certification
   - Hosting and Security Characteristics
+  - Number of Employees
+  - Risk Index
+  - Signature Algorithm of SSL Certification
+  - SSL Cert Key Size
+  - Tags
+  - Total Bytes
 3. **Overview**: The following sections give an overview of the applications. The information in these sections changes according to the filters that you select.
   - **Total** **Applications**: The total number of sanctioned, unsanctioned, unclassified, or under review applications that are in use.
   - **Total Bytes**: The total bytes consumed by all the applications, both upload and download.
@@ -13431,11 +13470,14 @@ On the Shadow IT page (Data Security > Inline CASB > Shadow IT), you can do the 
 7. **Applications by Risk Index**: This section shows the number of applications in each risk index (1–5, 1 being the lowest risk and 5 being the highest).
 8. Search for an application by name.
 9. Download the report as a CSV file.
-10. [Schedule a daily, weekly, or monthly Shadow IT Report](https://help.zscaler.com/zia/scheduling-reports#schedule-report). You can view and manage your scheduled Shadow IT Report on the [Scheduled Reports page](https://help.zscaler.com/zia/about-scheduled-reports) (Analytics > Reports > Interactive Reports > Scheduled Reports).
+10. [Schedule a daily, weekly, or monthly Shadow IT Report](https://help.zscaler.com/zia/scheduling-reports#schedule-report). You can view and manage your scheduled Shadow IT Report on the [Scheduled Reports page](https://help.zscaler.com/zia/about-scheduled-reports).
 11. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 12. **Cloud Applications**: View a list of all the applications. For each application, you can view:
   - **Application**: The application name. When you click on an application, you are redirected to the [Application Information](https://help.zscaler.com/zia/about-application-information) page.
   - **Application Category**: The application category of the application.
+  - **Hostnames**: The name of the host.
+  - **First Accessed**: The date and time the application was first accessed.
+  - **Last Accessed**: The date and time the application was last accessed.
   - **Total Bytes**: The sum of upload and download bytes of the application.
   - **Upload Bytes**: The total bytes uploaded by the application.
   - **Download Bytes**: The total bytes downloaded by the application.
@@ -13444,9 +13486,22 @@ On the Shadow IT page (Data Security > Inline CASB > Shadow IT), you can do the 
   - **Potential Integrations**: The number of potential integrations associated with the application in your organization. For example, if your organization uses Grammarly and the application shows at least one integration in this column, then Grammarly has potential access to your corporate SaaS platforms, such as Google Workspace. Data in this column is populated by [Zscaler 3rd-Party App Governance](https://help.zscaler.com/zia/what-3rd-party-app-governance).
   - **Application Risk Index**: The risk index number.
   - **Application Status**: Whether the application is sanctioned, unsanctioned, unclassified, or under review.
-  - **Tags**: The tags associated with the application. You can create tags on the [Cloud Application Tags](https://help.zscaler.com/zia/adding-cloud-application-tag) page and associate them to apps on the [Application Information](https://help.zscaler.com/zia/about-application-information) or [Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) page.
-  - **No. of Transactions**: The number of transactions per application. These transactions can be viewed based on their status (allowed or blocked) by applying the global filter **Actions**(**All**, **Allowed**, or **Blocked**).
+  - **Number of Transactions**: The number of transactions per application. These transactions can be viewed based on their status (allowed or blocked) by applying the global filter **Actions**(**All**, **Allowed**, or **Blocked**).
   - **Notes**: The notes that you added for the application on the [Application Information](https://help.zscaler.com/zia/about-application-information) page. The column stays blank if you haven't added any notes.
+  - **Tags**: The tags associated with the application. You can create tags on the [Cloud Application Tags](https://help.zscaler.com/zia/adding-cloud-application-tag) page and associate them to apps on the [Application Information](https://help.zscaler.com/zia/about-application-information) or [Cloud Applications](https://help.zscaler.com/zia/about-cloud-applications) page.
+
+Filter by the following actions:
+
+- All
+- Allowed
+- Blocked
+
+Filter by the following admin audit logs:
+
+- All
+- Yes
+- No
+- Unknown
 
 Filter by the following application categories:
 
@@ -13488,10 +13543,10 @@ Filter by the sum of upload and download bytes of the application:
 
 - All
 - <100 MB
-- >100 GB
+- 100 MB - 1 GB
 - 1 GB - 10 GB
 - 10 GB-100 GB
-- 100 MB - 1 GB
+- >100 GB
 
 Filter the report for applications associated with specific tags.
 
@@ -13517,10 +13572,12 @@ Filter by the types of certifications that the organization adheres to. You can 
 - FERPA
 - FIPS
 - FISMA
+- GAAP
 - GDPR
 - HIPAA
 - HITECH
 - ISAE 3000
+- ISMAP
 - ISO 10002
 - ISO 14001
 - ISO 20243
@@ -13530,6 +13587,7 @@ Filter by the types of certifications that the organization adheres to. You can 
 - ISO 27017
 - ISO 27018
 - JIS Q 15001
+- JIS Q 27001
 - NIST
 - None
 - PCI DSS
@@ -13539,6 +13597,7 @@ Filter by the types of certifications that the organization adheres to. You can 
 - SOC 1
 - SOC 2
 - SOC 3
+- SOX
 - SSAE 18
 - TRUSTe
 
@@ -13547,10 +13606,12 @@ Filter by the size of the SSL cert key that the organization uses. As per the cu
 - All
 - 256 Bits
 - 384 Bits
+- 768 Bits
 - 1024 Bits
 - 2048 Bits
 - 3072 Bits
 - 4096 Bits
+- 8193 Bits
 - Unknown
 
 Filters the list of SaaS applications based on the cryptographic signature algorithms used in their SSL/TLS certificates.
@@ -13575,29 +13636,32 @@ View the hosting and security characteristics of each application. You can modif
 - **No**: Does not have the characteristic
 - **Unknown**: Not determined
 - **All**: Considers all the preceding options
-  - **Poor Terms of Service**: Checks the legal terms and conditions that include questionable parameters (e.g., if the application uses shared customer data for other purposes or with other third-party applications).
-  - **Data Breaches in the Last 3 Years**: Checks if the application reported a known data breach.
-  - **Source IP Restrictions**: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Checks if the application provides options to allow or restrict access from specific IP addresses. If the application does not provide this option, the attack surface widens as anyone can access the application.
-  - **MFA Support**: Checks if the application supports multi-factor authentication.
-  - **Admin Audit Logs**: Checks if the application supports logging or provides a trail of all admin activities. This helps in identifying any malicious or anomalous activities.
-  - **SSL Pinned**: Checks if the application has SSL certification pinned. Pinned certificates make the traffic difficult to decrypt and validate its contents, which can have malicious files.
-  - **Data Encryption in Transit**: Checks the minimum TLS version that the application supports. The latest TLS version is the most secure. Applications still using any version earlier than TLS 1.1 are considered less secure.
-  - **Evasive**: Checks if the application supports accessing data anonymously without expecting the user to create an account and log in. If there is no login option, anyone can access the application anonymously without providing their identity. For example, some applications allow users to share files without authenticating them. This can lead malicious users to spread malware and makes identifying the user difficult.
-  - **HTTP Security Header Support**: Checks if all security headers (i.e., X-XSS-Protection, X-Frame-Options, Strict-Transport-Security, Content-Security-Policy, and X-Content-Type-Options) are securely implemented.
-  - **Valid SSL Certificate**: Checks if the application's SSL certificate is valid or not. In case, the validity is less than 6 months, displays that.
-  - **Published CVE Vulnerability**: Checks if the application has published CVE vulnerabilities.
-  - **DNS CAA Policy**: The DNS Certification Authority Authorization (CAA) is an internet security policy mechanism. Domain name holders indicate to certificate authorities whether they are authorized to issue digital certificates for a particular domain name. This attribute captures if domains mention particular CAA authorities for this application.
-  - **Weak Cipher Support**: Checks for weak ciphers. Ciphers are also known as encryption or decryption algorithms. This attribute indicates key sizes that are less than 128 bits. The keys are used for making SSL connections with the servers.
-  - **File Sharing**: Checks if the application supports file sharing, which can be risky as content can be shared outside the organization by users.
-  - **Vulnerable to Heartbleed**: Checks if the application is vulnerable to a Heartbleed attack. Shows the CVE ID of the vulnerability.
-  - **Vulnerable to POODLE**: Checks if the application is vulnerable to POODLE attack. Shows the CVE ID of the vulnerability.
-  - **Vulnerable to Logjam**: Checks if the application is vulnerable to Logjam attack. Shows the CVE ID of the vulnerability.
-  - **Support for WAF**: Checks if the application supports web application firewall (WAF). Shows the name of the firewall in use.
-  - **Remote Access Screen Sharing**: Checks if the application supports remote access screen sharing. This can be risky as it widens the attack surface. If a malicious user gets hold of a valid remote access session, it can lead to data exfiltration.
-  - **Vulnerability Disclosure Policy**: Checks if the application has a vulnerability disclosure policy. Applications should provide this option so that ethical users or hackers can report on any misconfigurations that could lead to attacks. Shows the URL to the vulnerability disclosure policy.
-  - **Sender Policy Framework**: Checks if the application supports sender policy framework (SPF) authentication. SPF authentication works by strictly specifying the number of allowed domain IP addresses that can send emails from your domain. When setting up SPF, the domain owner adds a file or record on the server which indicates to the receiving server what domains are allowed to send emails.
-  - **DomainKeys Identified Mail**: Checks if the application supports DomainKeys Identified Mail (DKIM). DKIM authentication is similar to SPF; this is added as a TXT record by adding it in your domain panel. It makes sure that none of the emails going from server to server are tampered with by anyone in the middle and that emails can be clearly identified from the other end.
-  - **Domain-Based Message Authentication**: Checks if the application supports Domain-Based Message Authentication, Reporting, and Conformance (DMARC). DMARC builds on SPF and DKIM to further validate emails by verifying SPF and DKIM records. This enables you to configure policies in case DMARC validation fails, and it also generates reports.
+
+The following is a list of filters for hosting and security characteristics:
+
+- **Poor Terms of Service**: Checks the legal terms and conditions that include questionable parameters (e.g., if the application uses shared customer data for other purposes or with other third-party applications).
+- **Data Breaches in the Last 3 Years**: Checks if the application reported a known data breach.
+- **Source IP Restrictions**: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #ccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;gt; Checks if the application provides options to allow or restrict access from specific IP addresses. If the application does not provide this option, the attack surface widens as anyone can access the application.
+- **MFA Support**: Checks if the application supports multi-factor authentication.
+- **Admin Audit Logs**: Checks if the application supports logging or provides a trail of all admin activities. This helps in identifying any malicious or anomalous activities.
+- **SSL Pinned**: Checks if the application has SSL certification pinned. Pinned certificates make the traffic difficult to decrypt and validate its contents, which can have malicious files.
+- **Data Encryption in Transit**: Checks the minimum TLS version that the application supports. The latest TLS version is the most secure. Applications still using any version earlier than TLS 1.1 are considered less secure.
+- **Evasive**: Checks if the application supports accessing data anonymously without expecting the user to create an account and log in. If there is no login option, anyone can access the application anonymously without providing their identity. For example, some applications allow users to share files without authenticating them. This can lead malicious users to spread malware and makes identifying the user difficult.
+- **HTTP Security Header Support**: Checks if all security headers (i.e., X-XSS-Protection, X-Frame-Options, Strict-Transport-Security, Content-Security-Policy, and X-Content-Type-Options) are securely implemented.
+- **Valid SSL Certificate**: Checks if the application's SSL certificate is valid or not. In case, the validity is less than 6 months, displays that.
+- **Published CVE Vulnerability**: Checks if the application has published CVE vulnerabilities.
+- **DNS CAA Policy**: The DNS Certification Authority Authorization (CAA) is an internet security policy mechanism. Domain name holders indicate to certificate authorities whether they are authorized to issue digital certificates for a particular domain name. This attribute captures if domains mention particular CAA authorities for this application.
+- **Weak Cipher Support**: Checks for weak ciphers. Ciphers are also known as encryption or decryption algorithms. This attribute indicates key sizes that are less than 128 bits. The keys are used for making SSL connections with the servers.
+- **File Sharing**: Checks if the application supports file sharing, which can be risky as content can be shared outside the organization by users.
+- **Vulnerable to Heartbleed**: Checks if the application is vulnerable to a Heartbleed attack. Shows the CVE ID of the vulnerability.
+- **Vulnerable to POODLE**: Checks if the application is vulnerable to POODLE attack. Shows the CVE ID of the vulnerability.
+- **Vulnerable to Logjam**: Checks if the application is vulnerable to Logjam attack. Shows the CVE ID of the vulnerability.
+- **Support for WAF**: Checks if the application supports web application firewall (WAF). Shows the name of the firewall in use.
+- **Remote Access Screen Sharing**: Checks if the application supports remote access screen sharing. This can be risky as it widens the attack surface. If a malicious user gets hold of a valid remote access session, it can lead to data exfiltration.
+- **Vulnerability Disclosure Policy**: Checks if the application has a vulnerability disclosure policy. Applications should provide this option so that ethical users or hackers can report on any misconfigurations that could lead to attacks. Shows the URL to the vulnerability disclosure policy.
+- **Sender Policy Framework**: Checks if the application supports sender policy framework (SPF) authentication. SPF authentication works by strictly specifying the number of allowed domain IP addresses that can send emails from your domain. When setting up SPF, the domain owner adds a file or record on the server which indicates to the receiving server what domains are allowed to send emails.
+- **DomainKeys Identified Mail**: Checks if the application supports DomainKeys Identified Mail (DKIM). DKIM authentication is similar to SPF; this is added as a TXT record by adding it in your domain panel. It makes sure that none of the emails going from server to server are tampered with by anyone in the middle and that emails can be clearly identified from the other end.
+- **Domain-Based Message Authentication**: Checks if the application supports Domain-Based Message Authentication, Reporting, and Conformance (DMARC). DMARC builds on SPF and DKIM to further validate emails by verifying SPF and DKIM records. This enables you to configure policies in case DMARC validation fails, and it also generates reports.
 
 [Image: The Shadow IT Report page]
 <!-- /ZS-ARTICLE -->
@@ -13608,8 +13672,8 @@ View the hosting and security characteristics of each application. You can modif
 ## About Source IP Groups
 
 - Source: https://help.zscaler.com/zia/about-source-ip-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > About Source IP Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > About Source IP Groups
 - Last modified: 2026-10-21T10:49Z
 - Summary: Information on source IP groups that can be used in various policy configurations in Internet & SaaS (ZIA).
 
@@ -13797,8 +13861,8 @@ On the Static IP page (Infrastructure > Locations > Static IPs & GRE Tunnel), yo
 ## About Subclouds
 
 - Source: https://help.zscaler.com/zia/about-subclouds
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > About Subclouds
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > About Subclouds
 - Last modified: 2026-09-24T00:01Z
 - Summary: Information on what a subcloud is.
 
@@ -14195,8 +14259,8 @@ On the Threat Categories page (Internet Access > Resources > Custom IPS Signatur
 ## About Threat Insights
 
 - Source: https://help.zscaler.com/zia/about-threat-insights
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > About Threat Insights
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > About Threat Insights
 - Last modified: 2026-09-30T08:53Z
 - Summary: Information on the Threat Insights page in the Zscaler Admin Console and how it displays organization-specific threats.
 
@@ -14444,13 +14508,13 @@ On the Traffic Capture page (Internet Access > Traffic Capture > Policy), you ca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-url-categories","lastmod":"2026-10-29T23:41Z","nid":"1399361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-url-categories","lastmod":"2026-11-13T20:06Z","nid":"1399361"} -->
 ## About URL Categories
 
 - Source: https://help.zscaler.com/zia/about-url-categories
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > About URL Categories
-- Last modified: 2026-10-29T23:41Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > About URL Categories
+- Last modified: 2026-11-13T20:06Z
 - Summary: Information on URL categories in the Zscaler service, including details about custom categories and examples of URL categorization.
 
 Zscaler organizes URLs into a hierarchy of categories for granular filtering and policy creation. There are 6 predefined classes, which are then each divided into predefined super categories, and then further divided into predefined categories.
@@ -15033,13 +15097,13 @@ On the **Details** tab, you can view general information about the user, such as
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-21T09:22Z","nid":"1401231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edge-clusters-internet-saas","lastmod":"2026-11-12T01:29Z","nid":"1401231"} -->
 ## About Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-10-21T09:22Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edge Clusters for Internet & SaaS
+- Last modified: 2026-11-12T01:29Z
 - Summary: Information on Virtual Service Edge clusters for Internet & SaaS (ZIA), which provide active-active redundancy and load balancing for the Zscaler service.
 
 For production environments, [Virtual Service Edge](https://help.zscaler.com/zia/about-virtual-service-edge) is deployed in a cluster. A cluster requires at least two Virtual Service Edges for active-active redundancy and load balancing. Each Virtual Service Edge cluster can contain a maximum of 16 Virtual Service Edge instances. Each Virtual Service Edge in a cluster requires a separate Virtual Service Edge subscription.
@@ -15058,30 +15122,30 @@ For evaluation purposes with test traffic, you can configure a Virtual Service E
 
 On the Virtual Service Edge Clusters page (Infrastructure > Internet & SaaS > Virtual Service Edges> Virtual Service EdgeClusters), you can:
 
-1. [Add a Virtual Service Edge Cluster](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters).
-2. Search for a Virtual Service Edge cluster.
-3. View a list of all Virtual Service Edge clusters that were configured for your organization. For each Virtual Service Edge cluster, you can see the following information:
+1. Search for a Virtual Service Edge cluster.
+2. [Add a Virtual Service Edge Cluster](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters).
+3. [Modify the column options to view the Virtual Service Edge clusters accordingly](https://help.zscaler.com/unified/using-tables).
+4. View a list of all Virtual Service Edge clusters that were configured for your organization. For each Virtual Service Edge cluster, you can see the following information:
   - **Name**: The name of the Virtual Service Edge cluster. You can sort this column.
   - **Status**: Displays whether the Virtual Service Edge cluster is enabled or disabled. You can sort this column.
   - **Virtual Service Edges**: The Virtual Service Edge instances that are included in the cluster. You can sort this column.
   - **Cluster IP**: The cluster IP address. You can sort this column.
   - **IPSec Local Termination**: The status of IPSec local termination for the Virtual Service Edge cluster. You can sort this column.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Edit a Virtual Service Edge Cluster.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-6. Go to the [Virtual Service Edges](https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas) page to manage and configure Virtual Service Edges.
+5. [Edit or delete a Virtual Service Edge Cluster.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
+6. [View the Virtual Service Edges page](https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas).
 
 [[Image: Different features on the Virtual Service Edge Clusters page.]](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/traffic-forwarding/zscaler-enforcement-nodes/virtual-service-edge/about-virtual-service-edge-clusters/ZIA-Virtual-Service-Edge-Clusters-Page.png)
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-10-21T09:23Z","nid":"1401226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-11-12T01:43Z","nid":"1401226"} -->
 ## About Virtual Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-10-21T09:23Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
+- Last modified: 2026-11-12T01:43Z
 - Summary: Information about Virtual Service Edge for Internet & SaaS (ZIA), which uses virtual machines (VMs) to function as a Public Service Edge for Internet & SaaS in the Zscaler cloud.
 
 New or clean deployment of Virtual Service Edge requires a virtual machine (VM) image running on Zscaler OS version 24 or later.
@@ -15125,7 +15189,7 @@ Following are the Virtual Service Edge specifications and sizing:
 | Number of Public Service Edge Instances per VM | 1 | 1 | 1 | 1 | 1 |
 | Number of Load Balancers per VM | 1 | 1 | 1 | 1 | - |
 | Maximum VMs per Cluster | 16 | - | - | 16 | - |
-| vMotion Support | VMware ESXi 7.0 and above | - | - | - | - |
+| vMotion Support | VMware ESXi 7.0 or later | - | - | - | - |
 | **Hypervisor Resource Requirements** |  |  |  |  |  |
 | Number of V-CPUs | 4 | 4 | 4 | 4 | 4 |
 | Minimum Required Memory Allocation for Standalone Deployments | 48 GB | 48 GB | 48 GB | 48 GB | 48 GB |
@@ -15158,14 +15222,15 @@ Authentication attempts as well as an audit log of the commands run on the appli
 
 On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Virtual Service Edges), you can do the following:
 
-1. [Add a Virtual Service Edge instance](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
-2. Download a VM image:
-  - [Download a Virtual Service Edge VM.](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm)
-  - [Download the SNMP MIB files.](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs)
-  - [Download the Hyper-V VM.](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v#download-hyper-v)
-  - [Download the Nutanix VM.](https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-nutanix)
-3. Search for a Virtual Service Edge.
-4. View a list of all Virtual Service Edges that were configured for your organization. For each Virtual Service Edge, you can see the following:
+1. Search for a Virtual Service Edge.
+2. Download VM images or SNMP MIB files:
+  - [Download a Virtual Service Edge VM](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm).
+  - [Download the SNMP MIB files](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs).
+  - [Download the Hyper-V VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v#download-hyper-v).
+  - [Download the Nutanix VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-nutanix).
+3. [Add a Virtual Service Edge instance](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
+4. [Modify the column options to view the Virtual Service Edge instances accordingly](https://help.zscaler.com/unified/using-tables).
+5. View a list of all Virtual Service Edges that were configured for your organization. For each Virtual Service Edge, you can see the following:
   - **Name**: The name of the Virtual Service Edge. You can sort this column.
   - **Status**: Displays whether the Virtual Service Edge is enabled or disabled. You can sort this column.
   - **Type**: The Virtual Service Edge subscription type.
@@ -15175,11 +15240,10 @@ On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Virtual Se
   - **Proxy IP Address**: The proxy IP address for the Virtual Service Edge. You can sort this column.
   - **Cluster Name**: The Virtual Service Edge cluster name. You can sort this column.
   - **IPSec Local Termination**: The status of IPSec local termination for the Virtual Service Edge.
-5. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
-6. [Download the Virtual Service Edge SSL certificate.](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas)
-7. Open the New Client Certificate window. You can upload provisioning blob data.
-8. [Edit or view a Virtual Service Edge configuration.](https://help.zscaler.com/zia/editing-deleting-duplicating-items)
-9. [View the Virtual Service Edge Clusters page.](https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas)
+6. [Download the Virtual Service Edge SSL certificate](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas).
+7. [Edit or delete a Virtual Service Edge instance](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. Open the New Client Certificate window. You can upload provisioning blob data or file.
+9. [View the Virtual Service Edge Clusters page](https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas).
 
 [Image: The Virtual Service Edges page with annotations of different features]
 <!-- /ZS-ARTICLE -->
@@ -15229,42 +15293,4 @@ On the VPN Credentials page (Infrastructure > Location Management > VPN Credenti
 8. [Edit or delete the VPN credential](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
 
 [Image: The VPN Credentials page where you can view and manage VPN credentials]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-watermarking","lastmod":"2026-09-29T11:19Z","nid":"1516481"} -->
-## About Watermarking
-
-- Source: https://help.zscaler.com/zia/about-watermarking
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Rights Management > About Watermarking
-- Last modified: 2026-09-29T11:19Z
-- Summary: Information about the Watermarking page in the Zscaler Admin Console.
-
-The Watermarking page lets you add, view, and configure watermark profiles to enforce rights management for your organization. You can use watermarks as part of your SaaS Security Data at Rest Scanning Data Loss Prevention (DLP) policy to superimpose text diagonally across pages and images so that content you want to protect can be clearly and easily identified. In addition to watermark text, the Zscaler service lets you add headers and footers to protected files.
-
-When configuring SaaS Security Data at Rest Scanning DLP policy rules, you can use the watermark profiles you create to add watermark content to multiple file types. To learn more, see [Adding & Editing Watermark Profiles](https://help.zscaler.com/zia/adding-editing-watermark-profiles).
-
-The Watermarking page provides the following benefits and allows you to:
-
-- Add, view, and configure watermark profiles for your organization.
-- Make watermarks available to be used on multiple file types as part of your SaaS Security Data at Rest Scanning DLP policy.
-
-## About the Watermarking Page
-
-On the Watermarking page (Data Security > DSPM > Rights Management > Watermarking), you can do the following:
-
-1. Search for a watermark profile.
-2. [Add a watermark profile](https://help.zscaler.com/zia/adding-watermark-profiles).
-3. View a list of all watermark profiles configured for your organization. For watermark profiles, you can see:
-  - **Profile Name**: The name of the watermark profile. You can sort this column.
-  - **Watermark Text**: The text used in the watermark profile. You can sort this column.
-  - **Actions**: Actions to [edit](https://help.zscaler.com/zia/adding-editing-watermark-profiles#edit-watermark-profile-section) or [delete](https://help.zscaler.com/zia/editing-deleting-duplicating-items) a watermark profile.
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. [Go to the Redaction page](https://help.zscaler.com/zia/about-redaction).
-
-[Image: About the Watermarking page]
-
-<p> <img src="/downloads/zia/policies/saas-security/data-rest-scanning-policies/rights-management/about-watermarking/watermarking-xc.png" data-entity-uuid="0" data-entity-type="image" alt="The Rights Management page includes the Watermarking page." title="Watermarking Page" width="1606" height="916"> </p>
 <!-- /ZS-ARTICLE -->

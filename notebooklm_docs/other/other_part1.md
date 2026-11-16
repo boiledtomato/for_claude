@@ -1,18 +1,18 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 211
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agentic-soc","lastmod":"2026-09-17T11:45Z","nid":"1540781"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agentic-soc","lastmod":"2026-11-11T09:13Z","nid":"1540781"} -->
 ## About Agentic SOC
 
 - Source: https://help.zscaler.com/agentic-soc/about-agentic-soc
 - Product: Agentic SOC
-- Path: Agentic SOC Help > About Agentic SOC
-- Last modified: 2026-09-17T11:45Z
+- Path: Agentic SOC Help > Analyze > About Agentic SOC
+- Last modified: 2026-11-11T09:13Z
 - Summary: Information on the Agentic SOC page in the Agentic SOC application of the Agentic Security Operations Platform.
 
 The Agentic SOC page is designed as a starting point in the Agentic SecOps Platform Admin Portal, providing a quick visual representation of your organization's overall security posture. You can instantly see which sources are responsible for alerts, the total number of alerts, the number of incidents created from alerts, and the triaged incidents.
@@ -43,13 +43,13 @@ On the Agentic SOC page, you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agents","lastmod":"2026-09-09T13:14Z","nid":"1545377"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-agents","lastmod":"2026-11-11T09:01Z","nid":"1545377"} -->
 ## About Agents
 
 - Source: https://help.zscaler.com/agentic-soc/about-agents
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Agents > About Agents
-- Last modified: 2026-09-09T13:14Z
+- Path: Agentic SOC Help > Analyze > About Agents
+- Last modified: 2026-11-11T09:01Z
 - Summary: Information on what the Agents page is in Zscaler Agentic SOC.
 
 The Agents page is a dashboard that tracks the activity and performance of your AI agents in Agentic SOC. It shows key operational metrics — including alerts investigated, time saved, and resolution rates — and provides a per-agent breakdown of investigation counts and trends over time.
@@ -94,13 +94,13 @@ On the Agents page (**Agentic SOC** > **Agents**), you can do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-alerts","lastmod":"2026-09-17T11:45Z","nid":"1534212"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-alerts","lastmod":"2026-11-11T08:56Z","nid":"1534212"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/agentic-soc/about-alerts
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > About Alerts
-- Last modified: 2026-09-17T11:45Z
+- Path: Agentic SOC Help > Incidents & Alerts > Alerts > About Alerts
+- Last modified: 2026-11-11T08:56Z
 - Summary: Information on how the Zscaler Agentic SOC Alerts page helps your team monitor alert activity across your organization.
 
 Zscaler Agentic SOC alerts are designed to aggregate data from many different sources to help your Security Operations Center (SOC) team see a larger context and not be pressured into acting quickly based on an accumulation of noise. Instead of using traditional detection techniques to focus on individual alerts, you can instead focus on proactively anticipating and cutting off your adversaries’ next moves. With Agentic SOC alerts, you can take pressure off of your SOC teams and your organization as a whole by taking a proactive (instead of reactive) approach to the alerts being generated across applications.
@@ -145,13 +145,13 @@ For each alert in the list, you can click to see a detailed view of data about t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-assets-agentic-soc","lastmod":"2026-09-02T11:46Z","nid":"1539869"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-assets-agentic-soc","lastmod":"2026-11-11T08:59Z","nid":"1539869"} -->
 ## About Assets in Agentic SOC
 
 - Source: https://help.zscaler.com/agentic-soc/about-assets-agentic-soc
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Assets > About Assets in Agentic SOC
-- Last modified: 2026-09-02T11:46Z
+- Path: Agentic SOC Help > Assets > About Assets in Agentic SOC
+- Last modified: 2026-11-11T08:59Z
 - Summary: Information on the Assets page in the Agentic SOC application of the Agentic Security Operations Platform.
 
 The Assets page provides a centralized view of the assets in Agentic SOC.Each asset represents a single entity in your environment, unified (i.e., merged) and enriched with information from multiple sources. On this page, you can explore asset details and statuses, view the sources and records from which it was merged, view the findings it contains, and view the tickets it's related to.
@@ -205,13 +205,13 @@ The **Assets** page includes system views with predefined filter selections, pro
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-10-08T13:28Z","nid":"1534211"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/about-incidents","lastmod":"2026-11-11T08:53Z","nid":"1534211"} -->
 ## About Incidents
 
 - Source: https://help.zscaler.com/agentic-soc/about-incidents
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > About Incidents
-- Last modified: 2026-10-08T13:28Z
+- Path: Agentic SOC Help > Incidents & Alerts > Incidents > About Incidents
+- Last modified: 2026-11-11T08:53Z
 - Summary: Information on how the Zscaler Agentic SOC Incidents page helps your team monitor incident activity across your organization.
 
 Agentic SOC incidents are designed to quickly provide complete context for all incidents and to let you pivot to specific asset information for deeper insights, enabling your Security Operations Center (SOC) team to make faster, more effective decisions. When you open the Incidents page, it provides high-level information at a glance about the incidents affecting your organization, and you can merge, sort, update, and add comments to the incidents listed in the table. To learn how to investigate and remediate an incident, see [Viewing Incident Details](https://help.zscaler.com/agentic-soc/viewing-incident-details).
@@ -293,13 +293,13 @@ On the SOC Workbench Dashboard page (Agentic SOC > Dashboard), you can do the fo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-alert-scores","lastmod":"2026-10-02T12:45Z","nid":"1534213"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-alert-scores","lastmod":"2026-11-11T08:56Z","nid":"1534213"} -->
 ## Configuring Alert Scores
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-alert-scores
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Alert Scores
-- Last modified: 2026-10-02T12:45Z
+- Path: Agentic SOC Help > Incidents & Alerts > Alerts > Configuring Alert Scores
+- Last modified: 2026-11-11T08:56Z
 - Summary: Information on how to configure Zscaler Agentic SOC alert scores to help your team monitor alert activity across your organization.
 
 As you use Agentic SOC, you can customize alert scoring by creating new factors or editing existing factors for alerts, MITRE ATT&CK classifications, users, and assets.
@@ -357,13 +357,13 @@ The detail panel for the alert factor closes.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-rules","lastmod":"2026-10-02T12:43Z","nid":"1534214"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-rules","lastmod":"2026-11-11T08:55Z","nid":"1534214"} -->
 ## Configuring Incident Rules
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-incident-rules
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Incident Rules
-- Last modified: 2026-10-02T12:43Z
+- Path: Agentic SOC Help > Incidents & Alerts > Incidents > Configuring Incident Rules
+- Last modified: 2026-11-11T08:55Z
 - Summary: Information on how to configure Zscaler Agentic SOC incident rules to help your team monitor incidents across your organization.
 
 Incident rules determine the data you see on the [Incidents page](https://help.zscaler.com/soc-workbench/about-incidents) and are a key element of Agentic SOC's focus on incidents over alerts. Incidents allow you to see connections and bring together multiple disparate alerts from different products into a single location. For example, suppose 50 people in your organization receive phishing emails. Without Agentic SOC, you'd receive numerous alerts from different products about the same phishing attempt. Agentic SOC, on the other hand, consolidates all alerts into a single incident, which significantly reduces the number of alerts. Moreover, Agentic SOC incidents help you differentiate between users who received but didn't open the phishing email vs. those who opened the email, leading to data exfiltration.
@@ -497,13 +497,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-workflows","lastmod":"2026-10-30T09:26Z","nid":"1546616"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/configuring-incident-workflows","lastmod":"2026-11-13T20:06Z","nid":"1546616"} -->
 ## Configuring Incident Workflows
 
 - Source: https://help.zscaler.com/agentic-soc/configuring-incident-workflows
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Configuring Incident Workflows
-- Last modified: 2026-10-30T09:26Z
+- Path: Agentic SOC Help > Incidents & Alerts > Configuring Incident Workflows
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to configure Agentic SOC incident workflows and dispatch incidents to third-party systems.
 
 Incident workflows in Agentic SOC allow you to automate and standardize the incident lifecycle according to your organization's operational requirements. By defining rule sets for dispatching incidents to external systems, you can reduce manual administrative effort and maintain data integrity throughout the remediation process.
@@ -643,13 +643,13 @@ To configure severity categories:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/creating-custom-incident","lastmod":"2026-10-02T12:51Z","nid":"1540861"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/creating-custom-incident","lastmod":"2026-11-11T08:56Z","nid":"1540861"} -->
 ## Creating a Custom Incident
 
 - Source: https://help.zscaler.com/agentic-soc/creating-custom-incident
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Creating a Custom Incident
-- Last modified: 2026-10-02T12:51Z
+- Path: Agentic SOC Help > Incidents & Alerts > Incidents > Creating a Custom Incident
+- Last modified: 2026-11-11T08:56Z
 - Summary: Information on how to create a custom incident in Zscaler Agentic SOC.
 
 Although one of Agentic SOC’s biggest benefits is its ability to use multiple AI agents to ingest vast amounts of alert data to create specific and actionable incidents, you might also want to create custom incidents based on your organization’s business needs. You can create a custom incident based on one or more alerts from the collated list available on the [Alerts page](https://help.zscaler.com/agentic-soc/about-alerts) in Agentic SOC.
@@ -674,13 +674,13 @@ To create a custom incident:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-alert-and-incident-detail-pages","lastmod":"2026-10-02T12:50Z","nid":"1534217"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-alert-and-incident-detail-pages","lastmod":"2026-11-11T08:51Z","nid":"1534217"} -->
 ## Customizing Alert and Incident Detail Pages
 
 - Source: https://help.zscaler.com/agentic-soc/customizing-alert-and-incident-detail-pages
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Customizing Alert and Incident Detail Pages
-- Last modified: 2026-10-02T12:50Z
+- Path: Agentic SOC Help > Incidents & Alerts > Customizing Alert and Incident Detail Pages
+- Last modified: 2026-11-11T08:51Z
 - Summary: How to customize the incident and alert detail pages in Zscaler Agentic SOC.
 
 To help make Agentic SOC incident and alert data easier to parse, you can customize the detail pages you see when you click an incident on the [Incidents page](https://help.zscaler.com/agentic-soc/about-incidents) or an alert on the [Alerts page](https://help.zscaler.com/agentic-soc/about-alerts).
@@ -770,13 +770,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-incident-and-alert-statuses","lastmod":"2026-10-02T12:49Z","nid":"1541098"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/customizing-incident-and-alert-statuses","lastmod":"2026-11-11T08:53Z","nid":"1541098"} -->
 ## Customizing Incident and Alert Statuses
 
 - Source: https://help.zscaler.com/agentic-soc/customizing-incident-and-alert-statuses
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Customizing Incident and Alert Statuses
-- Last modified: 2026-10-02T12:49Z
+- Path: Agentic SOC Help > Incidents & Alerts > Customizing Incident and Alert Statuses
+- Last modified: 2026-11-11T08:53Z
 - Summary: How to customize incident and alert statuses in Zscaler Agentic SOC
 
 To help support your Security Operations Center (SOC) team's internal workflows, Agentic SOC allows you to customize the statuses that are available for [incidents](https://help.zscaler.com/agentic-soc/about-incidents) and [alerts](https://help.zscaler.com/agentic-soc/about-alerts). Agentic SOC provides a default set of statuses for incidents and alerts, but you can configure existing statuses (e.g., reorder and rename) and create new statuses. Statuses appear in various incident and alert views in the Agentic SecOps Platform Admin Portal.
@@ -817,13 +817,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-11-02T08:44Z","nid":"1534331"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/release-upgrade-summary-2026","lastmod":"2026-11-10T10:30Z","nid":"1534331"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/agentic-soc/release-upgrade-summary-2026
 - Product: Agentic SOC
 - Path: Agentic SOC Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-02T08:44Z
+- Last modified: 2026-11-10T10:30Z
 - Summary: Agentic SOC Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Agentic SOC.
@@ -893,13 +893,13 @@ When viewing an incident or alert, you can run a [playbook](https://help.zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/taking-action-incidents","lastmod":"2026-10-30T10:05Z","nid":"1546684"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/taking-action-incidents","lastmod":"2026-11-11T08:55Z","nid":"1546684"} -->
 ## Taking Action on Incidents
 
 - Source: https://help.zscaler.com/agentic-soc/taking-action-incidents
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Taking Action on Incidents
-- Last modified: 2026-10-30T10:05Z
+- Path: Agentic SOC Help > Incidents & Alerts > Incidents > Taking Action on Incidents
+- Last modified: 2026-11-11T08:55Z
 - Summary: How to take action on Agentic SOC incidents.
 
 Within the MITRE ATT&CK framework, taking action on an incident is the key operational transition from investigation to resolution. After an agentic investigation or triage completes, security analysts and AI agents respond by setting investigation verdicts, updating the status, and configuring automated response actions.
@@ -1043,13 +1043,13 @@ With specific recommended actions from the Agentic SOC Response Agent, you can r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-10-08T12:08Z","nid":"1540782"} -->
+<!-- ZS-ARTICLE {"url":"/agentic-soc/viewing-incident-details","lastmod":"2026-11-11T08:55Z","nid":"1540782"} -->
 ## Viewing Incident Details
 
 - Source: https://help.zscaler.com/agentic-soc/viewing-incident-details
 - Product: Agentic SOC
-- Path: Agentic SOC Help > Administration > Incidents & Alerts > Viewing Incident Details
-- Last modified: 2026-10-08T12:08Z
+- Path: Agentic SOC Help > Incidents & Alerts > Incidents > Viewing Incident Details
+- Last modified: 2026-11-11T08:55Z
 - Summary: Information on how to view incident details in Zscaler Agentic SOC.
 
 The Incidents page is your starting point for investigating and remediating threats. From this page, you can review a list of all incidents and select one to see a detailed breakdown.
@@ -1794,13 +1794,13 @@ On the ML Tag Recommendations page (Zero Trust Cloud > Microsegmentation > Tag R
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/about-perimeter-policies","lastmod":"2026-11-01T23:34Z","nid":"1543027"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/about-perimeter-policies","lastmod":"2026-11-11T13:12Z","nid":"1543027"} -->
 ## About Perimeter Policies
 
 - Source: https://help.zscaler.com/microsegmentation/about-perimeter-policies
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Policy Management > Perimeter Policies > About Perimeter Policies
-- Last modified: 2026-11-01T23:34Z
+- Last modified: 2026-11-11T13:12Z
 - Summary: Information on the Perimeter Policies page for Microsegmentation in the Zscaler Admin Console.
 
 Perimeter policies allow you to easily define how Microsegmentation handles inbound, outbound, and internal traffic for managed resource groups. You can create perimeter policies on the Perimeter Policies page in the Zscaler Admin Console.
@@ -1984,13 +1984,13 @@ On the Resources page (Zero Trust Cloud > Microsegmentation > Resources VM), you
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/about-system-resource-groups","lastmod":"2026-11-01T23:33Z","nid":"1545488"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/about-system-resource-groups","lastmod":"2026-11-11T13:24Z","nid":"1545488"} -->
 ## About System Resource Groups
 
 - Source: https://help.zscaler.com/microsegmentation/about-system-resource-groups
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Resource Management > About System Resource Groups
-- Last modified: 2026-11-01T23:33Z
+- Last modified: 2026-11-11T13:24Z
 - Summary: Information on the System Resource Groups page for Microsegmentation in the Zscaler Admin Console.
 
 The System Resource Groups page lists unmanaged system-level resource groups. You can use these view-only resource groups to define policies. To learn more, see [Configuring Microsegmentation Policies](https://help.zscaler.com/zpa/configuring-microsegmentation-policies).
@@ -2016,7 +2016,7 @@ On the System Resource Groups page (Zero Trust Cloud > Microsegmentation > Resou
 6. Go to the [User-Defined Resource Groups](https://help.zscaler.com/zpa/about-resource-groups) page.
 7. Go to the [ML Recommendations for Resource Groups](https://help.zscaler.com/zpa/about-ml-recommendations-resource-groups) page.
 
-[Image: A view of the Resources page and its filters]
+[Image: The System Resource Groups page]
 
 [Image: The information details for an individual resource group]
 <!-- /ZS-ARTICLE -->
@@ -3949,20 +3949,20 @@ On the Provisioning Templates page (Zero Trust Cloud > Cloud Connector > Provisi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-destination-ip-groups","lastmod":"2026-11-01T23:52Z","nid":"1420381"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-destination-ip-groups","lastmod":"2026-11-09T13:48Z","nid":"1420381"} -->
 ## About Destination IP Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-destination-ip-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > About Destination IP Groups
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T13:48Z
 - Summary: Information on Destination IP Groups in the Zscaler Admin Console, which allow you to group together destinations you want to control in firewall rules.
 
 Destination IP Groups simplify policy creation by grouping multiple IP addresses into one destination, reducing the chance for error to occur. You can create groups of destination IP addresses, countries where servers are located, and URL categories, and apply firewall policies to them.
 
 Destination IP Groups provide the following benefits and enable you to:
 
-- Configure security and forwarding policies for a group of destinations based on IP addresses and fully qualified domain names (FQDNs).
+- Configure security and forwarding policies for a group of destinations based on IP addresses and FQDNs.
 - Add and remove destinations from the group and apply the same policies to the workloads.
 
 ## About the Destination IP Groups Page
@@ -4372,13 +4372,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-internet-access-gateways","lastmod":"2026-11-01T23:52Z","nid":"1420556"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-internet-access-gateways","lastmod":"2026-11-09T14:20Z","nid":"1420556"} -->
 ## About Internet Access Gateways
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-internet-access-gateways
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Forwarding Methods > About Internet Access Gateways
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:20Z
 - Summary: Information on Internet Access gateways in the Zscaler Admin Console.
 
 You can create gateway objects to configure the proxy gateway feature that enables you to forward traffic to Internet & SaaS. A default Internet & SaaS gateway with a predefined primary and secondary proxy is automatically created.
@@ -4390,7 +4390,7 @@ Internet Access gateways provide the following benefits and enable you to:
 
 ## About the Internet Access Gateway Page
 
-On the ZIA Gateway page (Zero Trust Cloud > Gateways > Internet Access Gateway), you can do the following:
+On the Internet Access Gateway page (Zero Trust Cloud > Gateways > Internet Access Gateway), you can do the following:
 
 1. Search for a gateway.
 2. Modify the table and its columns.
@@ -4647,13 +4647,13 @@ On the Azure page (Zero Trust Cloud > Common Resources > Azure), you can do the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-network-service-groups","lastmod":"2026-11-01T23:52Z","nid":"1420401"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-network-service-groups","lastmod":"2026-11-09T14:08Z","nid":"1420401"} -->
 ## About Network Service Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-network-service-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > About Network Service Groups
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:08Z
 - Summary: Information on Network Service Groups. These are a group of predefined or custom network services.
 
 You can group predefined and custom network services for use in policies.
@@ -4667,9 +4667,9 @@ Network Service Groups provide the following benefits and enable you to:
 - Group multiple network services into a group to use in a single policy.
 - Add, remove, or update network services and leverage a single policy for the entire group.
 
-## About the Network Service Group Page
+## About the Network Service Group Tab
 
-On the Network Service Group page (Internet Access > Resources > Network Services > Service Groups tab), you can do the following:
+On the Network Service Group tab (Internet Access > Resources > Network Services > Service Groups tab), you can do the following:
 
 1. [Add a network service group](https://help.zscaler.com/cloud-branch-connector/configuring-network-service-groups).
 2. View a list of all network service groups. For each group, you can view:
@@ -4836,13 +4836,13 @@ To learn more about adding NSS servers per platform, see the [NSS Deployment Gui
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-nss-servers","lastmod":"2026-11-01T23:52Z","nid":"1420736"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-nss-servers","lastmod":"2026-11-12T15:42Z","nid":"1420736"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-nss-servers
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-12T15:42Z
 - Summary: Information on the NSS servers page in the Zscaler Admin Console.
 
 The Nanolog Streaming Service (NSS) uses a virtual machine (VM) to stream traffic logs in real time from the Zscaler Nanolog to your security information and event management (SIEM) system, enabling real-time alerting, correlation with the logs of your other devices, and long-term local log archival. An NSS server is the representation of the NSS VM in the Zscaler Admin Console.
@@ -8062,13 +8062,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-advanced-settings-cloud-connector","lastmod":"2026-11-01T23:53Z","nid":"1420861"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-advanced-settings-cloud-connector","lastmod":"2026-11-11T09:24Z","nid":"1420861"} -->
 ## Configuring Advanced Settings for Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-advanced-settings-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Configuring Advanced Settings for Cloud Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T09:24Z
 - Summary: Information on how to configure advanced settings in the Zscaler Admin Console.
 
 On the Cloud Provider Account Import page, your imported ID is added to your [session logs](https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns)to correlate your workloads with your Amazon Web Services (AWS) account, Microsoft Azure subscription, and/or Google Cloud Platform (GCP) subscription.
@@ -8638,28 +8638,28 @@ To add a Cloud Connector Provisioning Template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-destination-ip-groups","lastmod":"2026-11-01T23:52Z","nid":"1420461"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-destination-ip-groups","lastmod":"2026-11-09T13:57Z","nid":"1420461"} -->
 ## Configuring Destination IP Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-destination-ip-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > Configuring Destination IP Groups
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T13:57Z
 - Summary: Information on how to group destination IPs to use in Zscaler Cloud & Branch Connector forwarding policies.
 
 You can group destinations by specifying IP addresses and countries where servers are located.
 
 To create a destination IP group:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > IP & FQDN Groups > Destination IPv4 Groups** tab.
-2. On the **Destination IPv4 Groups** tab, click **Add Destination IPv4 Group.** The **Add Destination IPv4 Group** window appears.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **IP & FQDN Groups** > **Destination IPv4 Groups** tab.
+2. Click **Add Destination IPv4 Group.** The **Add Destination IPv4 Group** window appears.
 3. In the **Add Destination IPv4 Group**window:
   - **Name**:Enter a name for the destination IP address group. You can only use alphanumeric characters, underscores, hyphens, and periods.
   - **Type**:Select **IP Address**, **FQDN**, **Wildcard Domain**, or **Other**. To enter multiple items, press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page, filter the list by searching for a word, phrase, or number contained in an item, and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
     - **IP Address**: You can add IP addresses in any of the following formats:
       - An individual IP address (for example, `192.0.2.1`)
       - A subnet (for example, `192.0.2.0/24`)
-      - An IP address range (for example, `192.0.2.1 - 192.0.2.5`)
+      - An IP address range (for example, `192.0.2.1–192.0.2.5`)
     - **FQDN**: For applications with multiple IP addresses or with IP addresses that frequently change, you can add fully qualified domain names (FQDNs). FQDNs are the full name of a system. The hostname is a shortened version of the full name of the system. For example, venera.isi.edu is an FQDN, and venera is a hostname.
     - **Wildcard Domain**: You can enter specific wildcard domains or enter * to denote all domains. A wildcard domain is a record, specified by an asterisk, within DNS that matches requests for nonexistent domain names. An example is `*.example.com`. Examples of invalid wildcard domains are `*abc.example.com` and `abs.*.example.com`. Zscaler cannot match invalid items.
     - **Other**: Countries are the only option on this tab, but you cannot configure countries.
@@ -8716,20 +8716,20 @@ To configure a DNS Filtering rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-dns-gateway","lastmod":"2026-11-05T14:02Z","nid":"1471256"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-dns-gateway","lastmod":"2026-11-09T14:18Z","nid":"1471256"} -->
 ## Configuring a DNS Gateway
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-dns-gateway
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Forwarding Methods > Configuring a DNS Gateway
-- Last modified: 2026-11-05T14:02Z
+- Last modified: 2026-11-09T14:18Z
 - Summary: Information on how to configure DNS gateways in the Zscaler Admin Console.
 
 DNS gateways redirect the DNS request received by the Zscaler Cloud or Branch Connector to specific DNS servers. To learn more, see [About DNS Gateways](https://help.zscaler.com/cloud-branch-connector/about-dns-gateways).
 
 To add a DNS gateway:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > DNS Gateway**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Gateways** > **DNS Gateway**.
 2. On the **DNS Gateway** page, click **Add DNS Gateway**. See image. The **Add DNS Gateway** window appears.
 3. In the **Add DNS Gateway** window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -8850,20 +8850,20 @@ In the Zscaler Admin Console, you can use the **Application (client) ID**, **Dir
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-internet-access-gateway","lastmod":"2026-11-01T23:52Z","nid":"1420561"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-internet-access-gateway","lastmod":"2026-11-09T14:20Z","nid":"1420561"} -->
 ## Configuring an Internet Access Gateway
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-internet-access-gateway
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Forwarding Methods > Configuring an Internet Access Gateway
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:20Z
 - Summary: Information on how to configure Internet Access gateways in the Zscaler Admin Console.
 
 You can create gateway objects to configure the proxy gateway which enables you to forward any traffic to specific destinations via Internet & SaaS. A proxy gateway allows you to define a primary proxy and a secondary proxy to which the traffic can be forwarded and define how traffic should be handled when both the proxies are unreachable.
 
 To add an Internet Access Gateway:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > Internet Access Gateway**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Gateways** > **Internet Access Gateway**.
 2. On the **Internet Access Gateway** page, click **Add Internet Access Gateway**. See image.
 3. Enter the following information in the window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -8888,20 +8888,20 @@ To add an Internet Access Gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-ip-pool","lastmod":"2026-11-01T23:52Z","nid":"1420471"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-ip-pool","lastmod":"2026-11-09T14:00Z","nid":"1420471"} -->
 ## Configuring IP Pool
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-ip-pool
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > Configuring IP Pool
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:00Z
 - Summary: How to add an IP Pool in the Zscaler Admin Console.
 
 You can use the default IP Pool which is automatically created, or configure a customized IP pool of IP addresses based on your requirements.
 
 To add an IP pool:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > IP & FQDN Groups > IP Pool** tab.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **IP & FQDN Groups** > **IP Pool** tab.
 2. On the **IP Pool** tab, select **Add IP Pool**. See image.
 3. In the **Add IP pool** window:
   - **Name**: Enter a name for the IP pool. Only alphanumeric characters, underscores, hyphens, and periods are allowed.
@@ -8919,13 +8919,13 @@ To add an IP pool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-location-template","lastmod":"2026-11-01T23:52Z","nid":"1420606"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-location-template","lastmod":"2026-11-09T13:46Z","nid":"1420606"} -->
 ## Configuring a Location Template
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-location-template
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Location Management > Configuring a Location Template
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T13:46Z
 - Summary: Information on how to add a location template in the Zscaler Admin Console.
 
 Within the Zscaler Admin Console, you can create location templates. The selected attributes in the template are applied to a [location](https://help.zscaler.com/cloud-branch-connector/about-locations). To learn more, see [About Location Templates](https://help.zscaler.com/cloud-branch-connector/about-location-templates).
@@ -8933,7 +8933,7 @@ Within the Zscaler Admin Console, you can create location templates. The selecte
 To configure a location template:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Location Templates**.
-2. Select **Add Location Template**. The **Add Location Template** window appears.
+2. Click **Add Location Template**. The **Add Location Template** window appears.
 3. In the **Add Location Template** window:
   - **Name**: Enter a name for the location template. This field is mandatory.
   - **Template Prefix**: Enter a prefix for the location template. All locations created using this location template contain this prefix. This field is optional.
@@ -8984,20 +8984,20 @@ A default log and control forwarding rule with a default gateway forwarding acti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-log-and-control-gateway","lastmod":"2026-11-01T23:52Z","nid":"1420571"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-log-and-control-gateway","lastmod":"2026-11-09T14:21Z","nid":"1420571"} -->
 ## Configuring a Log and Control Gateway
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-log-and-control-gateway
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Forwarding Methods > Configuring a Log and Control Gateway
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:21Z
 - Summary: Information on how to add a log and control gateway in the Zscaler Admin Console.
 
 You can configure a log and control gateway to control the traffic logs and the operational messages that are forwarded to the Zscaler cloud. This gateway allows you to define a primary proxy and a secondary proxy to which the traffic can be forwarded.
 
 To configure a log and control gateway:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud > Gateways > Log and Control Gateway**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Gateways** > **Log and Control Gateway**.
 2. On the **Log and Control Gateway** page, click **Add Log And Control Gateway**. See image.
 3. Enter the following information in the window:
   - **Name**: Enter a user-friendly name for the gateway.
@@ -9019,21 +9019,21 @@ To configure a log and control gateway:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-network-service-groups","lastmod":"2026-11-01T23:52Z","nid":"1420446"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-network-service-groups","lastmod":"2026-11-09T14:17Z","nid":"1420446"} -->
 ## Configuring Network Service Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-network-service-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > Configuring Network Service Groups
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:17Z
 - Summary: How to group network services in the Zscaler Admin Console.
 
 You can group network services into a service group for easy application of firewall policies.
 
 To create a network services group:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > Network Services > Service Groups** tab.
-2. On the **Service Groups** tab, click **Add Network Service Group**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Network Services** > **Service Groups**.
+2. On the **Service Groups** page, click **Add Network Service Group**. See image.
 3. In the **Add Network Service Group**window:
   - **Name**: Enter a name for the network services group.
   - **Service**: From the drop-down menu, select any number of custom and predefined services you want to include in the group
@@ -9047,21 +9047,21 @@ To create a network services group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-network-services","lastmod":"2026-11-01T23:52Z","nid":"1420441"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-network-services","lastmod":"2026-11-09T14:06Z","nid":"1420441"} -->
 ## Configuring Network Services
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-network-services
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Firewall Filtering > Configuring Network Services
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T14:06Z
 - Summary: How to add a network service in the Zscaler Admin Console.
 
 You can define custom network services to add to the [Firewall](https://help.zscaler.com/zia/about-firewall-control), [DNS](https://help.zscaler.com/zia/about-dns-control), and [NAT](https://help.zscaler.com/zia/about-nat-control) policies. Additionally, you can define custom services that include [custom ports](https://help.zscaler.com/zia/configuring-custom-ports) for HTTP, HTTPS, DNS, FTP, RTSP, or PPTP.
 
 To add a custom network service:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access > Resources > Network Services > Services**tab.
-2. On the **Services** tab, select **Add Network Service**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Internet Access** > **Resources** > **Network Services** > **Services**tab.
+2. Select **Add Network Service**. See image.
 3. In the **Add Network Service** window:
   - In the **Network Service** section:
     - **Name**: Enter a name for the application layer service that you want to control.
@@ -9082,24 +9082,24 @@ To add a custom network service:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-remote-access","lastmod":"2026-11-01T23:53Z","nid":"1420846"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-remote-access","lastmod":"2026-11-09T16:24Z","nid":"1420846"} -->
 ## Configuring Remote Access
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-remote-access
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Configuring Remote Access
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-09T16:24Z
 - Summary: Information for admins requesting remote access and allowing Zscaler Support to log in to their Cloud or Branch Connector instance.
 
-An admin can request remote access and allow Zscaler Support to log in to their Zscaler Cloud or Branch Connector virtual machine (VM) instance without opening a firewall connection for inbound traffic. This feature is disabled by default. You must explicitly enable it for the duration that you need remote support assistance. To view your firewall requirements, go to the following URL: https://config.zscaler.com/<Zscaler Cloud Name>/cloud-branch-connector.
+An admin can request remote access and allow Zscaler Support to log in to their Cloud Connector virtual machine (VM) instance without opening a firewall connection for inbound traffic. This feature is disabled by default. You must explicitly enable it for the duration that you need remote support assistance. To view your firewall requirements, go to the following URL: https://config.zscaler.com/<Zscaler Cloud Name>/cloud-branch-connector.
 
 You can find the <Zscaler Cloud Name> in the URL you use to log in to the Zscaler Admin Console. For example, if you log in to connector.zscaler.net, then go to https://config.zscaler.com/zscaler.net/cloud-branch-connector. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
 
 Ensure that you include `sudo` in every command that you run.
 
-- To enable Zscaler Support to access your Cloud or Branch Connector instance: sudo zssupport tunnel startThis command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding, which allows Zscaler Support to log in to your Cloud or Branch Connector instance. To run this command, allow outbound SSH traffic on port 12002 because the support servers monitor through this port.
-- To disable Zscaler Support access to your Cloud or Branch Connector instance: sudo zssupport tunnel stopThis command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-- To check the status of the Zscaler Support access to your Cloud or Branch Connector instance: sudo zssupport tunnel statusThis command checks the status of the long-lived SSH tunnel to the Zscaler cloud, which Zscaler Support uses to log in to your Cloud or Branch Connector instance.
+- To enable Zscaler Support to access your Cloud Connector instance: sudo zssupport tunnel startThis command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding, which allows Zscaler Support to log in to your Cloud Connector instance. To run this command, allow outbound SSH traffic on port 12002 because the support servers monitor through this port.
+- To disable Zscaler Support access to your Cloud Connector instance: sudo zssupport tunnel stopThis command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
+- To check the status of the Zscaler Support access to your Cloud Connector instance: sudo zssupport tunnel statusThis command checks the status of the long-lived SSH tunnel to the Zscaler cloud, which Zscaler Support uses to log in to your Cloud Connector instance.
 
 If you are using Amazon Web Service (AWS) Session Manager (SSM), export the path environment variable and then run the command:
 
@@ -10319,13 +10319,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-branch-connector-app-connector-linux-kvm","lastmod":"2026-11-01T23:53Z","nid":"1447021"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-branch-connector-app-connector-linux-kvm","lastmod":"2026-11-10T16:33Z","nid":"1447021"} -->
 ## Deploying Branch Connector & App Connector with Linux KVM
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-branch-connector-app-connector-linux-kvm
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Virtual Devices > Deploying Branch Connector & App Connector with Linux KVM
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T16:33Z
 - Summary: Information on deploying Branch Connector & App Connector with Linux KVM.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector & App Connector as a virtual machine (VM) on Linux KVM, and post-deployment configurations.
@@ -10455,13 +10455,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-branch-connector-app-connector-vmware-platforms","lastmod":"2026-11-01T23:53Z","nid":"1447016"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-branch-connector-app-connector-vmware-platforms","lastmod":"2026-11-10T16:34Z","nid":"1447016"} -->
 ## Deploying Branch Connector & App Connector on VMware Platforms
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-branch-connector-app-connector-vmware-platforms
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Virtual Devices > Deploying Branch Connector & App Connector on VMware Platforms
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T16:34Z
 - Summary: Information on deploying Branch Connector & App Connector on VMware platforms.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Branch Connector & App Connector as a virtual machine (VM) on VMware platforms, and post-deployment configurations.
@@ -11236,13 +11236,13 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-06T10:47Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-12T15:03Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-11-06T10:47Z
+- Last modified: 2026-11-12T15:03Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
@@ -11955,13 +11955,13 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-11-01T23:52Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-11-11T16:00Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-11T16:00Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
 
 When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
@@ -12351,13 +12351,13 @@ If you are deploying Cloud Connector in China, Zscaler recommends creating a cus
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-branch-connector-app-connector","lastmod":"2026-11-01T23:53Z","nid":"1444481"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-branch-connector-app-connector","lastmod":"2026-11-10T16:33Z","nid":"1444481"} -->
 ## Deployment Templates for Branch Connector & App Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deployment-templates-branch-connector-app-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Virtual Devices > Deployment Templates for Branch Connector & App Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T16:33Z
 - Summary: Information about the Zscaler Branch Connector Deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Branch Connector or Branch Connector & App Connector in VMware ESXi or Linux KVM. IaC deployment templates are not available for Branch Connector deployment on Hyper-V platforms.
@@ -12459,13 +12459,13 @@ Use the Starter Deployment Template with App Connector and High-Availability (bc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-zscaler-cloud-connector","lastmod":"2026-11-01T23:53Z","nid":"1443361"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-zscaler-cloud-connector","lastmod":"2026-11-11T09:17Z","nid":"1443361"} -->
 ## Deployment Templates for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deployment-templates-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Deployment Templates for Zscaler Cloud Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T09:17Z
 - Summary: Information about the Zscaler Cloud Connector deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). AWS deployment templates are available in CloudFormation and Terraform repositories. Azure and GCP deployment templates are available in Terraform repositories. Links to the repositories are included in this article and in the Zscaler Admin Console (**Zero Trust Cloud** > **Cloud Connector** > **Deployment Templates**).
@@ -15615,16 +15615,16 @@ To download the VM image:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/downloading-zscaler-client-connector-vdi","lastmod":"2026-11-01T23:53Z","nid":"1475381"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/downloading-zscaler-client-connector-vdi","lastmod":"2026-11-11T09:28Z","nid":"1475381"} -->
 ## Downloading Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/zero-trust-cloud/downloading-zscaler-client-connector-vdi
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Client Connector for VDI Management > Downloading Zscaler Client Connector for VDI
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T09:28Z
 - Summary: How to download Zscaler Client Connector for VDI from the Zscaler Admin Console.
 
-In the Zscaler Admin Console, on the VDI App Store page, you can download Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for Windows. You can download the latest version or one of the older versions still available for download. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-vdi-agent)
+In the Zscaler Admin Console, on the App Store for VDI page, you can download Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for Windows. You can download the latest version or one of the older versions still available for download. To learn more about Zscaler Client Connector for VDI, see [What Is Zscaler Client Connector for VDI?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-vdi-agent)
 
 To download Zscaler Client Connector for VDI:
 
@@ -15632,7 +15632,7 @@ To download Zscaler Client Connector for VDI:
 2. On the **General Availability** tab, view the latest released versions. On the **Limited Availability** tab, view versions that are not yet fully qualified.
 3. Click the **Download** icon for the version you want in the**MSI URL (64 bit)** column.
 
-[Image: VDI App Store in the Zscaler Admin Console]
+[Image: App Store for VDI in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15945,13 +15945,13 @@ In the **Edit Group** window, you can view the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/enabling-remote-assistance","lastmod":"2026-11-01T23:53Z","nid":"1420811"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/enabling-remote-assistance","lastmod":"2026-11-09T16:19Z","nid":"1420811"} -->
 ## Enabling Remote Assistance
 
 - Source: https://help.zscaler.com/zero-trust-cloud/enabling-remote-assistance
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Enabling Remote Assistance
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-09T16:19Z
 - Summary: Enabling Remote Assistance in the Zscaler Admin Console.
 
 At times, Zscaler Support might need access to your Zscaler Admin Console for a limited period to troubleshoot issues. Remote assistance allows Zscaler Support to securely and remotely log in to the portal. This can be done with either view-only or full [admin](https://help.zscaler.com/cloud-branch-connector/about-administrator) privileges.
@@ -16387,13 +16387,13 @@ To install the Zero Trust SD-WAN Device 800:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-cloud-branch-connector-upgrades","lastmod":"2026-11-01T23:53Z","nid":"1446991"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-cloud-branch-connector-upgrades","lastmod":"2026-11-10T16:32Z","nid":"1446991"} -->
 ## Managing Cloud & Branch Connector Upgrades
 
 - Source: https://help.zscaler.com/zero-trust-cloud/managing-cloud-branch-connector-upgrades
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Managing Cloud & Branch Connector Upgrades
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T16:32Z
 - Summary: Information on Zscaler Cloud & Branch Connector periodic software upgrades.
 
 When Cloud or Branch Connectors are deployed, the software is upgraded to the latest version. The upgrade patch can include OS upgrades and Zscaler software upgrades. OS upgrades do not happen in the same way other packages do. After the latest images are posted in the public cloud for Cloud Connector, you must create new deployments for the OS upgrade. The public cloud for Cloud Connector is hosted in the Zscaler Admin Console for download for Branch Connector virtual machines (VMs). The devices are reprovisioned with the latest images.
@@ -16511,13 +16511,13 @@ To modify the default DNS Control rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/networking-flows-cloud-connector","lastmod":"2026-11-01T23:53Z","nid":"1452806"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/networking-flows-cloud-connector","lastmod":"2026-11-11T09:47Z","nid":"1452806"} -->
 ## Networking Flows for Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/networking-flows-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Networking Flows for Cloud Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T09:47Z
 - Summary: Information on Zscaler Cloud Connector networking flows via traffic forwarding and DNS forwarding.
 
 Every Zscaler Cloud Connector has a minimum of two network interfaces that communicate with the Zscaler cloud for different purposes.

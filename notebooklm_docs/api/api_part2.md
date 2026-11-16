@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 95
 
 ---
@@ -18912,13 +18912,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/login-controller","lastmod":"2026-10-13T23:54Z","nid":"1417276"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/login-controller","lastmod":"2026-11-15T06:06Z","nid":"1417276"} -->
 ## Login Controller
 
 - Source: https://help.zscaler.com/legacy-apis/login-controller
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Login Controller
-- Last modified: 2026-10-13T23:54Z
+- Last modified: 2026-11-15T06:06Z
 
 Api Documentation
 

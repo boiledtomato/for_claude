@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 89
 
 ---
@@ -2288,13 +2288,13 @@ Ends an authenticated session.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-authentication-1","lastmod":"2026-01-06T23:49Z","nid":"1409626"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-authentication-1","lastmod":"2026-11-10T15:45Z","nid":"1409626"} -->
 ## API Authentication
 
 - Source: https://help.zscaler.com/legacy-apis/api-authentication-1
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZDX API > API Developer & Reference Guide > Reference Guide > API Authentication
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-11-10T15:45Z
 
 APIs for Zscaler Digital Experience (ZDX).
 
@@ -10076,13 +10076,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-08T06:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-15T06:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

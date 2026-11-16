@@ -1,7 +1,7 @@
 # Zscaler Help — Other (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 53
 
 ---
@@ -1061,13 +1061,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-06T11:43Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-12T03:30Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/release-upgrade-summary-2026
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-06T11:43Z
+- Last modified: 2026-11-12T03:30Z
 - Summary: Zero Trust Cloud (formerly Cloud & Branch Connector) Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Cloud (formerly Cloud & Branch Connector). To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -1075,13 +1075,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/rotating-zscaler-service-account-passwords","lastmod":"2026-11-01T23:53Z","nid":"1532225"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/rotating-zscaler-service-account-passwords","lastmod":"2026-11-10T15:58Z","nid":"1532225"} -->
 ## Rotating Zscaler Service Account Passwords
 
 - Source: https://help.zscaler.com/zero-trust-cloud/rotating-zscaler-service-account-passwords
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Rotating Zscaler Service Account Passwords
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T15:58Z
 - Summary: Information about rotating passwords on Cloud & Branch Connector.
 
 Zscaler Cloud & Branch Connector virtual devices contain a Zscaler Service Account called `zsroot`. This account is a privileged user that enables secure administrative access and management of the virtual device. In order to safeguard your organization, Zscaler strongly recommends implementing routine password rotation as a best practice.
@@ -1299,20 +1299,20 @@ For Cloud & Branch Connector, consider only the NSS for Firewall configurations 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-branch-connector","lastmod":"2026-11-01T23:53Z","nid":"1420916"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-branch-connector","lastmod":"2026-11-13T14:15Z","nid":"1420916"} -->
 ## Step-by-Step Configuration Guide for Zscaler Branch Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/step-step-configuration-guide-zscaler-branch-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Step-by-Step Configuration Guide for Zscaler Branch Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-13T14:15Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Zscaler Branch Connector.
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Branch Connector for your organization.
 
 Before you begin configuring Branch Connector, Zscaler recommends reading the following articles:
 
-- [What is Zscaler Branch Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector)
+- [What Is Zscaler Branch Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector)
 - [Zscaler Admin Console Access & Navigation](https://help.zscaler.com/unified/getting-started-experience-center/zscaler-admin-console-access-navigation)
 
 ## Configuring Branch Connector
@@ -1320,12 +1320,12 @@ Before you begin configuring Branch Connector, Zscaler recommends reading the fo
 To configure Branch Connector, complete the following steps:
 
 - Step 1: Update Administrator and Role Management Information
-- Step 2: Configure your Locations
-- Step 3: Configure your Provisioning Template
-- Step 4: Configure your Firewall Filtering
-- Step 5: Configure your Gateways
-- Step 6: Configure your Forwarding Methods
-- Step 7: Configure your Analytics
+- Step 2: Configure Your Locations
+- Step 3: Configure Your Provisioning Template
+- Step 4: Configure Your Firewall Filtering
+- Step 5: Configure Your Gateways
+- Step 6: Configure Your Forwarding Methods
+- Step 7: Configure Your Analytics
 
 To update and configure administrators and roles as applicable, see:
 
@@ -1361,7 +1361,7 @@ Firewall filtering policies are comprised of source IP groups, destination IP gr
 Gateway forwarding methods allow you to control and forward traffic. To learn more, see:
 
 - [About Zscaler Internet Access Gateways](https://help.zscaler.com/cloud-branch-connector/about-zia-gateways)
-- [Configuring a ZIA Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zia-gateway)
+- [Configuring an Internet Access Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zia-gateway)
 - [About Log and Control Gateways](https://help.zscaler.com/cloud-branch-connector/about-log-and-control-gateways)
 - [Configuring a Log and Control Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-gateway)
 
@@ -1370,26 +1370,26 @@ Forwarding allows you to set up traffic forwarding, log and control forwarding, 
 - [About Traffic Forwarding](https://help.zscaler.com/cloud-branch-connector/about-traffic-forwarding)
 - [Configuring Traffic Forwarding Rules](https://help.zscaler.com/cloud-branch-connector/configuring-traffic-forwarding-rule)
 - [About Log and Control Forwarding](https://help.zscaler.com/cloud-branch-connector/about-log-and-control-forwarding)
-- [Configuring Log and Control Forwarding Rule](https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-forwarding-rule)
+- [Configuring a Log and Control Forwarding Rule](https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-forwarding-rule)
 - [About DNS Policies](https://help.zscaler.com/cloud-branch-connector/about-dns-policies)
 - [Configuring the DNS Filtering Rule](https://help.zscaler.com/cloud-branch-connector/configuring-dns-filtering-rule)
 
-The Zscaler service provides real-time log consolidation across the globe, so you can view every transaction performed by your users regardless of where they are in the world. It also presents the deployment status, activity status, and geographical view of your deployed Branch Connector. To learn more, see:
+The Zscaler service provides real-time log consolidation across the globe, so you can view every transaction your users perform, regardless of where they are in the world. It also presents the deployment status, activity status, and geographical view of your deployed Branch Connector. To learn more, see:
 
-- [Accessing Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring)
+- [Accessing Cloud Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring)
 - [About Insights](https://help.zscaler.com/cloud-branch-connector/about-insights)
 - [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs)
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-11-01T23:53Z","nid":"1472246"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-client-connector-vdi","lastmod":"2026-11-11T09:49Z","nid":"1472246"} -->
 ## Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
 
 - Source: https://help.zscaler.com/zero-trust-cloud/step-step-configuration-guide-zscaler-client-connector-vdi
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Client Connector for VDI Management > Step-by-Step Configuration Guide for Zscaler Client Connector for VDI
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T09:49Z
 - Summary: Information on the configuration tasks an organization must complete to begin using Zscaler Client Connector for VDI.
 
 This guide takes you step-by-step through the configuration tasks you must complete to begin using Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) for your organization.
@@ -1530,13 +1530,13 @@ To learn more about bypasses, see [Configuring VDI Forwarding Profiles](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-11-01T23:52Z","nid":"1420756"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-11-09T15:13Z","nid":"1420756"} -->
 ## Step-by-Step Configuration Guide for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Step-by-Step Configuration Guide for Zscaler Cloud Connector
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T15:13Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Zscaler Cloud Connector.
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Cloud Connector for your organization.
@@ -1822,13 +1822,13 @@ If you are interested in support for a region that is currently unavailable, con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-amazon-web-services","lastmod":"2026-11-01T23:52Z","nid":"1420646"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-amazon-web-services","lastmod":"2026-11-09T17:08Z","nid":"1420646"} -->
 ## Troubleshooting Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/zero-trust-cloud/troubleshooting-cloud-connector-amazon-web-services
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Troubleshooting Cloud Connector with Amazon Web Services
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-09T17:08Z
 - Summary: Information on various issue that may occur in the Zscaler Cloud Connector and their solutions.
 
 This article provides troubleshooting information and guidelines for [Cloud Connector deployment in Amazon Web Services (AWS)](https://help.zscaler.com/cloud-branch-connector/deploying-cloud-connector-amazon-web-services). You can review issues and corresponding solutions for Zscaler Cloud Connector.
@@ -1839,6 +1839,7 @@ This article provides troubleshooting information and guidelines for [Cloud Conn
 - Workloads unable to access private applications
 - Traffic is not restored after a Cloud Connector failure
 - Cloud Connector experiencing connectivity disruptions
+- Cloud Connector experiencing elevated CPU utilization
 
 The deployed Cloud Connector might not be visible in the Zscaler Admin Console for various reasons. The following tables list provisioning and deployment issues and their corresponding troubleshooting actions.
 
@@ -1911,6 +1912,13 @@ To verify that the source/destination check setting is disabled:
 6. From the **Actions** drop-down menu, select **Networking** > **Change source/destination check**. The **Change Source / destination check** window appears. See image.
 7. In the **Change source/destination check** window, select the **Stop** checkbox. See image.
 8. Click **Save**.
+
+CPU metrics at the virtual machine (VM) level can appear artificially high due to hypervisor differences, CPU scheduling reporting, and guest/host metric calculations. AWS monitoring might show elevated CPU values even when the Cloud Connector is operating normally. Use the SMEDGE utilization metric as the authoritative indicator for health and capacity monitoring. AWS VM-level CPU metrics should only be used for supplementary infrastructure visibility, not as the definitive measure of CPU usage. Traffic throughput and latency are unaffected as long as the SMEDGE process is not spiking.
+
+If AWS reports high CPU usage, check the SMEDGE utilization metric to assess the processing load:
+
+- Normal SMEDGE utilization: Traffic is unaffected, and the VM is operating within expected limits. No action is required.
+- Spiking SMEDGE utilization: Data-plane load and capacity limits are being reached.
 
 Occasionally, you might need to access the Cloud Connector appliance’s CLI for troubleshooting or monitoring purposes. To access the CLI:
 
@@ -2036,13 +2044,13 @@ To access the appliance management interface remotely:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-google-cloud-platform","lastmod":"2026-11-01T23:53Z","nid":"1462141"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-google-cloud-platform","lastmod":"2026-11-10T08:32Z","nid":"1462141"} -->
 ## Troubleshooting Cloud Connector with Google Cloud Platform
 
 - Source: https://help.zscaler.com/zero-trust-cloud/troubleshooting-cloud-connector-google-cloud-platform
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Troubleshooting Cloud Connector with Google Cloud Platform
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T08:32Z
 - Summary: Troubleshooting information and guidelines for deploying Zscaler Cloud Connector with Google Cloud Platform.
 
 This article provides troubleshooting information and guidelines about [Cloud Connector deployment in Google Cloud Platform (GCP)](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). You can learn about different issues, potential causes, and corresponding solutions for the deployed Zscaler Cloud Connector.
@@ -2055,6 +2063,7 @@ This article provides troubleshooting information and guidelines about [Cloud Co
 - Unable to monitor Private Access traffic in the Zscaler Admin Console
 - Traffic not restored on Cloud Connector failure
 - Cloud Connector experiencing connectivity disruptions
+- Cloud Connector experiencing elevated CPU utilization
 
 The following tables list provisioning and deployment issues and their corresponding troubleshooting actions.
 
@@ -2090,7 +2099,7 @@ Check the following areas to isolate and identify what is preventing the traffic
 | The connectivity from the Cloud Connector to Internet & SaaS | Verify the following: In the Zscaler Admin Console, the [Internet Access Gateway](https://help.zscaler.com/cloud-branch-connector/about-internet-access-gateways) is populated; Session logs display the Cloud Connector self-traffic.; In the Zscaler Admin Console, your tunnel insights are displayed. |
 | The ingress routing to the Cloud Connector | Verify the following: The routing of the workloads. Depending on the architecture chosen, review network tags to ensure that workloads are using the correct default route.; The firewall rule on the workload. |
 | The egress path from the Cloud Connector | Verify the following: The gateway configuration.; The forwarding policy in the Zscaler Admin Console.; The firewall rules and other services on egress.; The routing of the Cloud Connector. Depending on the architecture chosen, review network tags to ensure that the Cloud Connectors are using the correct default route. |
-| The status of the Cloud Connector | Verify the following: The VM status of the Cloud Connector; The service status of the Cloud Connector |
+| The status of the Cloud Connector | Verify the following: The virtual machine (VM) status of the Cloud Connector; The service status of the Cloud Connector |
 | Connectivity issues between Cloud Connectors within a group or cluster | Verify the following: All Cloud Connectors communicate with each other within a given connector group or cluster via their service interface(s) to share information such as FQDN/wildcard FQDN synchronization.; No firewall or security groups are blocking network communications between Cloud Connectors within a given VPC/VNet and their availability zones. |
 
 If your workloads are unable to access private applications, verify the following:
@@ -2121,17 +2130,24 @@ If your traffic is not restored after Cloud Connector connection failure, verify
 To avoid connectivity disruptions and/or unreachable destinations, IP forwarding must be enabled on the Cloud Connector service interface. The IP Forwarding setting is enabled by default on the service NIC of the Cloud Connector with the Zscaler Terraform deployment script. You can verify the setting from the GCP console. If the setting has been disabled, refer to the [GCP documentation](https://cloud.google.com/compute/docs/instances/update-instance-properties#updatable-properties) to re-enable the setting.
 
 Configure SSH keys exclusively using Terraform during deployment.
+
+VM-level CPU metrics can appear artificially high due to hypervisor differences, CPU scheduling reporting, and guest/host metric calculations. GCP monitoring might show elevated CPU values even when the Cloud Connector is operating normally. Use the SMEDGE utilization metric as the authoritative indicator for health and capacity monitoring. GCP VM-level CPU metrics should only be used for supplementary infrastructure visibility, not as the definitive measure of CPU usage. Traffic throughput and latency are unaffected as long as the SMEDGE process is not spiking.
+
+If GCP reports high CPU usage, check the SMEDGE utilization metric to assess the processing load:
+
+- Normal SMEDGE utilization: Traffic is unaffected, and the VM is operating within expected limits. No action is required.
+- Spiking SMEDGE utilization: Data-plane load and capacity limits are being reached.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-hashicorp-vault-google-cloud-platform","lastmod":"2026-11-01T23:53Z","nid":"1515891"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-hashicorp-vault-google-cloud-platform","lastmod":"2026-11-10T08:54Z","nid":"1515891"} -->
 ## Troubleshooting Cloud Connector with HashiCorp Vault for Google Cloud Platform
 
 - Source: https://help.zscaler.com/zero-trust-cloud/troubleshooting-cloud-connector-hashicorp-vault-google-cloud-platform
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Troubleshooting Cloud Connector with HashiCorp Vault for Google Cloud Platform
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T08:54Z
 - Summary: Troubleshooting Cloud Connector with HashiCorp Vault for Google Cloud Platform.
 
 This article provides troubleshooting information and guidelines about Cloud Connector deployment in Google Cloud Platform (GCP) with HashiCorp Vault, described in [Storing Your Secret Credentials in HashiCorp Vault for Google Cloud Platform-Based Cloud Connectors](https://help.zscaler.com/cloud-branch-connector/storing-your-secret-credentials-hashicorp-vault) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). You can learn about different issues, potential causes, and corresponding solutions for the deployed Zscaler Cloud Connectors.
@@ -2227,13 +2243,13 @@ To test your network connectivity:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-microsoft-azure","lastmod":"2026-11-01T23:53Z","nid":"1420786"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/troubleshooting-cloud-connector-microsoft-azure","lastmod":"2026-11-10T08:26Z","nid":"1420786"} -->
 ## Troubleshooting Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/zero-trust-cloud/troubleshooting-cloud-connector-microsoft-azure
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Troubleshooting Cloud Connector with Microsoft Azure
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-10T08:26Z
 - Summary: Troubleshooting information and guidelines for deploying Cloud Connector with Microsoft Azure.
 
 This article provides troubleshooting information and guidelines about Cloud Connector deployment in Microsoft Azure. You can learn about different issues, potential causes, and corresponding solutions for the deployed Cloud Connector.
@@ -2246,6 +2262,7 @@ This article provides troubleshooting information and guidelines about Cloud Con
 - Unable to monitor the traffic in the Zscaler Admin Console
 - Traffic not restored after Cloud Connector failure
 - Cloud Connector experiencing connectivity disruptions
+- Cloud Connector experiencing elevated CPU utilization
 
 The following tables list provisioning and deployment issues and their corresponding troubleshooting actions.
 
@@ -2320,6 +2337,13 @@ To verify the IP forwarding setting:
 2. Click **Network interfaces**.
 3. Select the interface and then select **Settings** > **IP configurations**.
 4. In the **IP Settings** section, select **Enable IP forwarding**. See image.
+
+VM-level CPU metrics can appear artificially high due to hypervisor differences, CPU scheduling reporting, and guest/host metric calculations. Azure monitoring might show elevated CPU values even when the Cloud Connector is operating normally. Use the SMEDGE utilization metric as the authoritative indicator for health and capacity monitoring. Azure VM-level CPU metrics should only be used for supplementary infrastructure visibility, not as the definitive measure of CPU usage. Traffic throughput and latency are unaffected as long as the SMEDGE process is not spiking.
+
+If Azure reports high CPU usage, check the SMEDGE utilization metric to assess the processing load:
+
+- Normal SMEDGE utilization: Traffic is unaffected, and the VM is operating within expected limits. No action is required.
+- Spiking SMEDGE utilization: Data-plane load and capacity limits are being reached.
 
 Occasionally, you might need to access the Cloud Connector appliance's command line interface (CLI) for troubleshooting or monitoring purposes.
 
@@ -2736,13 +2760,13 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-11-01T23:53Z","nid":"1529197"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-11-11T14:26Z","nid":"1529197"} -->
 ## Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T14:26Z
 - Summary: Information about Autoscaling Groups with Zscaler Cloud Connector.
 
 An AWS Elastic Compute Cloud (EC2) Autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs), which are EC2 instances, to an Autoscaling group to meet the current load, and removes Cloud Connector VMs from the group when the load decreases. You define the desired capacity and the minimum and maximum number of VMs in the group.
@@ -3020,8 +3044,8 @@ The autoscaling group name and instance IDs in the Amazon EC2 Console map to the
 
 To view the status:
 
-1. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups.** The value of the **Auto Scaling** column is **true**if the Cloud Connector Group maps to an AWS autoscaling group.
-2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**and scroll to the **Geo View** section. Active VMs in the group are displayed in green. Inactive VMs in the group are displayed in orange. You can watch the status of the VMs change as they are added to or removed from an autoscaling group. Click a VM to see its details. See image. [Image: The Geo View section of the Monitoring page in the Admin Portal, where inactive VMs are red and active VMs are green. This gives a visual display of VMs in an Auto Scaling group as their status changes due to Auto Scaling events. A pop-up window shows details about a VM whose image is hovered over.]
+1. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups.** The value of the **Auto Scaling** field is **true**if the Cloud Connector Group maps to an AWS autoscaling group.
+2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**and scroll to the **Geo View** section. Active VMs in the group are displayed in green. Inactive VMs in the group are displayed in orange. You can watch the status of the VMs change as they are added to or removed from an autoscaling group. See image. [Image: The Geo View section of the Monitoring page in the Admin Portal, where inactive VMs are red and active VMs are green. This gives a visual display of VMs in an Auto Scaling group as their status changes due to Auto Scaling events. A pop-up window shows details about a VM whose image is hovered over.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3654,13 +3678,13 @@ The following list describes the approach for recovering from control plane and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-high-availability-and-failover","lastmod":"2026-11-01T23:53Z","nid":"1455436"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-high-availability-and-failover","lastmod":"2026-11-11T10:31Z","nid":"1455436"} -->
 ## Understanding High Availability and Failover
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-high-availability-and-failover
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Understanding High Availability and Failover
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T10:31Z
 - Summary: Information on High Availability and Failover for Zscaler Cloud Connector.
 
 High Availability (HA) is critical to ensure continued secure access to applications for workloads routing through Zscaler Cloud Connector. The various areas to consider when deploying are, but not limited to:
@@ -3990,13 +4014,13 @@ The Zero Trust Gateway service shares [Zscaler Cloud Connector features and bene
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-branch-connector","lastmod":"2026-11-01T23:53Z","nid":"1420881"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-branch-connector","lastmod":"2026-11-13T14:07Z","nid":"1420881"} -->
 ## What Is Zscaler Branch Connector?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-branch-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > What Is Zscaler Branch Connector?
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-13T14:07Z
 - Summary: Introductory information about Zscaler Branch Connector.
 
 Enabled by the Zscaler Zero Trust Exchange (ZTE), Zscaler Branch Connector is a virtual machine (VM) that simplifies traffic forwarding to Zscaler services. The Zero Trust Software-Defined Wide Area Network (SD-WAN) is deployed as a Branch Connector VM. This supplies branches and data centers with fast and reliable access to the internet and private applications with a direct-to-cloud architecture. Branch Connector works similarly to [Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/what-zscaler-cloud-connector).
@@ -4009,42 +4033,42 @@ All branch communications forward directly to the ZTE, where [Internet & SaaS](h
 
 The following are some key Branch Connector features and benefits:
 
-- Enables Zero Trust Everywhere: All users, devices, servers, Internet of Things (IoT), and Operational Technology (OT) have explicit access based on continuous identity and context validation.
-- Secure Connection: Every office, data center, multi-cloud, and SaaS is secured by building a foundation for connectivity that enables east-west segmentation, preventing lateral threat movement.
-- Eliminates Attack Surfaces: Branches and data centers connect directly to each other through the ZTE, independent of their underlying corporate network, VPN, or WAN.
-- Purpose-Built, Multi-tenant Proxy Architecture: Holds, inspects, and enforces policy.
-- Delivers High-Performance Inspection: Uses a single scan multi-action (SSMA) architecture for an optimal inspection.
-- Enforcement: Finely grained forwarding policies for internet and non-internet traffic using Internet & SaaS or Private Access.
-- Standardized Policy: Policy across branches, data centers, and multi-cloud locations is uniform. This includes policy management, traffic monitoring, and log tracking.
-- Device Classification: Allows deeper visibility into behavior for better access control policies.
-- Predefined Template: Allows zero touch provisioning and automated deployment.
-- Granular Forwarding Policy: Applies to internet and private application traffic to Internet & SaaS, Private Access, or Direct (bypassing Zscaler services).
-- Service Continuity: Ensures high availability automatic failover with N+1 redundancy.
-- Centralized Visibility and Granular Logging: Provides device health and traffic monitoring information.
-- Identity and Application-Based Communication: Users move from network-based VPN connectivity to zero trust security.
-- Elimination of Legacy Products: Eliminates legacy castle-and-moat architecture without compromising security, so there is no need for legacy products (i.e., Squid proxies, NAT gateways, IPSs, etc.).
-- Scalable Connectivity: Accessible where necessary with centralized, automated policy management to simplify branch and data center communications.
+- **Enables Zero Trust Everywhere**: All users, devices, servers, Internet of Things (IoT), and Operational Technology (OT) have explicit access based on continuous identity and context validation.
+- **Secure Connection**: Every office, data center, multi-cloud, and SaaS is secured by building a foundation for connectivity that enables east-west segmentation, preventing lateral threat movement.
+- **Eliminates Attack Surfaces**: Branches and data centers connect directly to each other through the ZTE, independent of their underlying corporate network, VPN, or WAN.
+- **Purpose-Built, Multi-tenant Proxy Architecture**: Holds, inspects, and enforces policy.
+- **Delivers High-Performance Inspection**: Uses a single scan multi-action (SSMA) architecture for an optimal inspection.
+- **Enforcement**: Finely grained forwarding policies for internet and non-internet traffic using Internet & SaaS or Private Access.
+- **Standardized Policy**: Policy across branches, data centers, and multi-cloud locations is uniform. This includes policy management, traffic monitoring, and log tracking.
+- **Device Classification**: Allows deeper visibility into behavior for better access control policies.
+- **Predefined Template**: Allows zero touch provisioning and automated deployment.
+- **Granular Forwarding Policy**: Applies to internet and private application traffic to Internet & SaaS, Private Access, or Direct (bypassing Zscaler services).
+- **Service Continuity**: Ensures high availability automatic failover with N+1 redundancy.
+- **Centralized Visibility and Granular Logging**: Provides device health and traffic monitoring information.
+- **Identity and Application-Based Communication**: Users move from network-based VPN connectivity to zero trust security.
+- **Elimination of Legacy Products**: Eliminates legacy castle-and-moat architecture without compromising security, so there is no need for legacy products (i.e., Squid proxies, NAT gateways, IPSs, etc.).
+- **Scalable Connectivity**: Accessible where necessary with centralized, automated policy management to simplify branch and data center communications.
 
 ## Zero Trust SD-WAN and Branch Connector Use Cases
 
 The Zero Trust SD-WAN and Branch Connector capabilities are as follows:
 
-- Direct Internet Access Enablement for Branches: As organizations migrate apps to the cloud, on-premises networking and security model effectiveness decreases. Zero Trust SD-WAN is a purpose-built solution for branch transformation, where branches communicate with any destination independent from their underlying network.
-- Site-to-Site VPN Replacement: Connect your branches directly to private applications without extending your WAN or relying on VPNs. Applications are hidden behind the branches and access is restricted via the ZTE to a set of named entities. Identity, context, and policy adherence are verified before access is allowed, eliminating the risk of lateral movement.
-- Shadow IoT and OT Visibility: Undiscoverable devices create blind spots when they connect to office networks, causing vulnerability and a broader attack surface. Zero Trust SD-WAN identifies and classifies devices to give IT teams visibility into behavior for better access control policies.
-- Zero Trust for Server, IoT, and OT Connectivity: To maximize production uptime and avoid disruptions, IoT and OT assets must be regularly accessed by employees and third-party vendors. Zero Trust SD-WAN for IoT provides remote desktop access to internal Remote Desktop Protocol (RDP) and Secure Shell (SSH) target systems without installing a client on a device.
-- Mergers and Acquisitions: With Zero Trust SD-WAN, networks can remain separate and branch locations can connect to private applications without disruption.
+- **Direct Internet Access Enablement for Branches**: As organizations migrate apps to the cloud, on-premises networking and security model effectiveness decreases. Zero Trust SD-WAN is a purpose-built solution for branch transformation, where branches communicate with any destination independent from their underlying network.
+- **Site-to-Site VPN Replacement**: Connect your branches directly to private applications without extending your WAN or relying on VPNs. Applications are hidden behind the branches and access is restricted via the ZTE to a set of named entities. Identity, context, and policy adherence are verified before access is allowed, eliminating the risk of lateral movement.
+- **Shadow IoT and OT Visibility**: Undiscoverable devices create blind spots when they connect to office networks, causing vulnerability and a broader attack surface. Zero Trust SD-WAN identifies and classifies devices to give IT teams visibility into behavior for better access control policies.
+- **Zero Trust for Server, IoT, and OT Connectivity**: To maximize production uptime and avoid disruptions, IoT and OT assets must be regularly accessed by employees and third-party vendors. Zero Trust SD-WAN for IoT provides remote desktop access to internal Remote Desktop Protocol (RDP) and Secure Shell (SSH) target systems without installing a client on a device.
+- **Mergers and Acquisitions**: With Zero Trust SD-WAN, networks can remain separate, and branch locations can connect to private applications without disruption.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-client-connector-vdi","lastmod":"2026-11-01T23:53Z","nid":"1472116"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-client-connector-vdi","lastmod":"2026-11-11T08:37Z","nid":"1472116"} -->
 ## What Is Zscaler Client Connector for VDI?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-client-connector-vdi
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Client Connector for VDI Management > What Is Zscaler Client Connector for VDI?
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-11T08:37Z
 - Summary: Information on Zscaler Client Connector for VDI, its key features, and how it works.
 
 Zscaler Client Connector for Virtual Desktop Infrastructure (VDI) is a lightweight Windows application that runs in the user space of the VDI session host to authenticate multiple concurrent users, forward traffic to Zscaler Cloud Connector or Zscaler Branch Connector, and exchange user context within the Cloud Connector or Branch Connector. Using Zscaler Client Connector for VDI, users can get all the benefits of the Zscaler service through granular, policy-based access to internet resources from a single point.
@@ -4085,13 +4109,13 @@ Zscaler Client Connector for VDI has multiple ways in which to establish tunnels
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-cloud-connector","lastmod":"2026-11-05T20:40Z","nid":"1420636"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-cloud-connector","lastmod":"2026-11-09T15:23Z","nid":"1420636"} -->
 ## What Is Zscaler Cloud Connector?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > What Is Zscaler Cloud Connector?
-- Last modified: 2026-11-05T20:40Z
+- Last modified: 2026-11-09T15:23Z
 - Summary: Introductory information about Zscaler Cloud Connector.
 
 Enabled by the Zero Trust Exchange (ZTE), Zscaler Cloud Connector is a virtual machine (VM) that simplifies traffic forwarding to Zscaler services. It extends the capabilities of Internet & SaaS (ZIA) and Private Access (ZPA) to cloud-native workloads, which allows enterprises to secure cloud workload communications over any network.
@@ -4126,22 +4150,22 @@ The following image demonstrates how Cloud Connector functions with AWS, Azure, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-zero-trust-sd-wan","lastmod":"2026-11-03T15:52Z","nid":"1478621"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/what-zscaler-zero-trust-sd-wan","lastmod":"2026-11-13T13:51Z","nid":"1478621"} -->
 ## What Is Zscaler Zero Trust SD-WAN?
 
 - Source: https://help.zscaler.com/zero-trust-cloud/what-zscaler-zero-trust-sd-wan
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Physical Devices > What Is Zscaler Zero Trust SD-WAN?
-- Last modified: 2026-11-03T15:52Z
+- Last modified: 2026-11-13T13:51Z
 - Summary: Information about Zscaler Zero Trust SD-WAN
 
 Zscaler Zero Trust SD-WAN (software-defined wide area network) provides branches, on-premises data centers, and public clouds with fast and reliable access to the internet and private applications with a direct-to-cloud architecture that features strong security and operational simplicity. The solution eliminates lateral threat movement by connecting users and IoT/OT devices to applications through the Zscaler Zero Trust Exchange (ZTE).
 
-Zscaler Zero Trust Cloud traffic is securely forwarded directly to the ZTE, where you can apply Internet & SaaS (ZIA) or Private Access (ZPA) policies depending on traffic destination for full security inspection and access identity-based control of cloud, branch, and data center communications.
+Zscaler Cloud and Branch Connector traffic is securely forwarded directly to the ZTE, where you can apply Internet & SaaS (ZIA) or Private Access (ZPA) policies depending on traffic destination for full security inspection and access identity-based control of cloud, branch, and data center communications.
 
 By combining lightweight virtual machines or plug-and-play devices with the ZTE, Zero Trust SD-WAN provides secure inbound and outbound zero trust networking for sites and clouds, without overlay routing, additional firewall appliances, or policy inconsistencies. Fully integrated with the ZTE, Zero Trust SD-WAN enables robust security and simplifies branch network management.
 
-To learn more, see [What Is Zscaler Branch Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector), [What Is Zscaler Cloud Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-cloud-connector), [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access), [Understanding the ZIA Cloud Architecture](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture), and [Understanding Zero Trust Branch Devices](https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-branch-devices).
+To learn more, see [What Is Zscaler Branch Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-branch-connector), [What Is Zscaler Cloud Connector?](https://help.zscaler.com/cloud-branch-connector/what-zscaler-cloud-connector), [What Is Zscaler Private Access?](https://help.zscaler.com/zpa/what-zscaler-private-access), [Understanding the Zscaler Cloud Architecture for Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture), and [Understanding Zero Trust Branch Devices](https://help.zscaler.com/cloud-branch-connector/understanding-zero-trust-branch-devices).
 
 ## Key Features and Benefits
 
@@ -4164,7 +4188,7 @@ The following are some key Zero Trust SD-WAN use cases:
 - Mergers and acquisitions: Merging multiple networks can be challenging and time-consuming. Problems range from overlapping IP addresses and routing issues to increased security risk from an enlarged network attack surface. With Zero Trust SD-WAN, networks can remain separate, and branch locations or clouds in one environment can quickly connect to private applications in another, without disruption.
 - Direct internet access enablement for branches: On-premises networking and security models become less effective as organizations migrate their apps to the public cloud and build cloud-native apps. Zero Trust SD-WAN is a purpose-built solution for branch transformation, ushering in a new model that enables branches to communicate with any destination securely and independently from the underlying network.
 - Zero Trust for server, IoT/OT connectivity: Employees and third-party vendors must regularly access IoT/OT assets to maximize production uptime and avoid disruptions from equipment and process failures. Zero Trust SD-WAN for IoT/OT and Privileged Remote Access (PRA) provide fully isolated, clientless remote desktop access to Remote Desktop Protocol (RDP) and Secure Shell (SSH) Protocol target systems—without having to install a client on devices using jump hosts and legacy VPNs.
-- Shadow IoT/OT discovery and visibility: IT teams face blind spots when unsanctioned, undiscoverable devices connect to branch office networks, increasing device vulnerability, and creating a broader attack surface. Zscaler identifies and classifies devices to give IT teams deeper visibility into behavior for better access control policies.
+- Shadow IoT/OT discovery and visibility: IT teams face blind spots when unsanctioned, undiscoverable devices connect to branch office networks, increasing device vulnerability, and creating a broader attack surface. The Zscaler service identifies and classifies devices to give IT teams deeper visibility into behavior for better access control policies.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4468,7 +4492,7 @@ This article provides a summary of all new features and enhancements released pe
 
 - Source: https://help.zscaler.com/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2025
 - Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2025)
+- Path: Zero Trust Cloud Help > Release Notes > Zscaler Client Connector for VDI Release Notes > Zscaler Client Connector for VDI Release Summary (2025)
 - Last modified: 2026-11-01T23:53Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2025 on Zscaler Cloud & Branch Connector.
 
@@ -4477,13 +4501,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-04T10:15Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-12T13:16Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Release Notes > Zscaler Client Connector for VDI Release Notes > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-11-04T10:15Z
+- Last modified: 2026-11-12T13:16Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.

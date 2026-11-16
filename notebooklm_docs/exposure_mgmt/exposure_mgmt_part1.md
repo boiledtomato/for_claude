@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 196
 
 ---
@@ -10,7 +10,7 @@ Articles in this file: 196
 ## About Assets in AEM
 
 - Source: https://help.zscaler.com/aem/about-assets-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > About Assets in AEM
 - Last modified: 2026-09-16T10:07Z
 - Summary: Information on the Assets page in the Zscaler Asset Exposure Management (AEM) application of the SecOps platform.
@@ -175,7 +175,7 @@ On the Violation Tickets page (Assets > Violation Tickets), you can do the follo
 ## Configuring Asset Compliance Policies
 
 - Source: https://help.zscaler.com/aem/configuring-asset-compliance-policies
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Configuring Asset Compliance Policies
 - Last modified: 2025-11-11T14:07Z
 - Summary: How to configure asset compliance policies in Zscaler Asset Exposure Management (AEM).
@@ -417,7 +417,7 @@ After scanning is completed, you can view the ingested assets on the [Assets](ht
 ## Configuring Grouping Rules in AEM
 
 - Source: https://help.zscaler.com/aem/configuring-grouping-rules-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Configuring Grouping Rules in AEM
 - Last modified: 2026-02-17T06:06Z
 - Summary: How to configure grouping rules in the Assets app.
@@ -785,7 +785,7 @@ To manually process a policy:
 ## Managing Discovery Profiles
 
 - Source: https://help.zscaler.com/aem/managing-discovery-profiles
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > External Attack Surface Management for AEM > Managing Discovery Profiles
 - Last modified: 2026-05-17T07:06Z
 - Summary: How to edit and delete discovery profiles created for Zscaler's External Attack Surface Management (EASM) capabilities.
@@ -962,7 +962,7 @@ To delete a rule:
 ## Managing Manual Ticket Grouping
 
 - Source: https://help.zscaler.com/aem/managing-manual-ticket-grouping
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Managing Manual Ticket Grouping
 - Last modified: 2026-10-30T12:05Z
 - Summary: How to manage ticket grouping in Asset Exposure Management (AEM).
@@ -1126,7 +1126,7 @@ See image.
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2025
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2025)
 - Last modified: 2026-07-22T10:45Z
 - Summary: Asset Exposure Management Release Upgrade Summary for service updates deployed in 2025.
@@ -1136,13 +1136,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-10-19T16:50Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-11-13T14:45Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-19T16:50Z
+- Last modified: 2026-11-13T14:45Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -1154,7 +1154,7 @@ This article provides a summary of all new features and enhancements for Asset E
 ## Understanding Asset Discovery with Zscaler EASM
 
 - Source: https://help.zscaler.com/aem/understanding-asset-discovery-zscaler-easm
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > External Attack Surface Management for AEM > Understanding Asset Discovery with Zscaler EASM
 - Last modified: 2026-05-17T07:06Z
 - Summary: Information on EASM asset discovery capabilities and benefits offered within AEM and UVM apps.
@@ -1329,7 +1329,7 @@ See image.
 ## Using the OS End of Life Policy
 
 - Source: https://help.zscaler.com/aem/using-os-end-life-policy
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Using the OS End of Life Policy
 - Last modified: 2026-02-24T06:06Z
 - Summary: How to use the OS End of Life asset compliance policy for the AEM app in the SecOps platform.
@@ -1737,7 +1737,7 @@ See image.
 ## Viewing Policy Violations in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-policy-violations-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing Policy Violations in AEM
 - Last modified: 2025-11-11T13:58Z
 - Summary: Information about the policy violation drawer details and actions in the Asset Exposure Management (AEM) application in the SecOps platform.
@@ -1800,7 +1800,7 @@ On the **Asset Info**tab, you can view:
 ## Viewing the Tool Coverage and Gap Dashboard
 
 - Source: https://help.zscaler.com/aem/viewing-tool-coverage-and-gap-dashboard
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Analyze for AEM > Viewing the Tool Coverage and Gap Dashboard
 - Last modified: 2026-10-09T07:06Z
 - Summary: How to view and interpret the Tool Coverage and Gap dashboard in Asset Exposure Management (AEM).
@@ -1873,22 +1873,22 @@ For each asset, you can see:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-aem","lastmod":"2026-02-17T06:06Z","nid":"1533685"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-violation-tickets-aem","lastmod":"2026-11-13T01:49Z","nid":"1533685"} -->
 ## Viewing Violation Tickets in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-violation-tickets-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing Violation Tickets in AEM
-- Last modified: 2026-02-17T06:06Z
+- Last modified: 2026-11-13T01:49Z
 - Summary: Information about the violation ticket drawer details and actions in the Asset Exposure Management (AEM) application in the SecOps platform.
 
-Zscaler Asset Exposure Management (AEM) violation tickets aggregate related policy violations into a single work item that can be fixed as one task. Selecting a violation ticket from the Violation Tickets page opens the violation ticket's drawer, where you can view detailed information and perform multiple actions for the violation ticket. To learn more, see [About Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem).
+Asset Exposure Management (AEM) violation tickets aggregate related policy violations into a single work item that can be fixed as one task. Selecting a violation ticket from the Violation Tickets page opens the violation ticket's drawer, where you can view detailed information and perform multiple actions for the violation ticket. To learn more, see [About Violation Tickets](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem).
 
 The actions you can perform in the violation ticket drawer depend on your user role in AEM. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
 
 To view the violation ticket drawer:
 
-1. Go to the AEM app.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Assets**in the top navigation bar.
 2. In the left-side navigation, click **Violation Tickets**. See image.
 3. Click the violation ticket you want to view. See image. A drawer appears with the following details:
   - Top Panel
@@ -1897,9 +1897,9 @@ To view the violation ticket drawer:
   - Assets
 4. Click **Apply Changes** after making updates to the violation ticket.
 
-[Image: Violation Tickets table in UVM]
+[Image: Violation Tickets table in AEM]
 
-[Image: violation ticket drawer]
+[Image: Violation Ticket Details page]
 
 In the top panel of the violation ticket drawer, you can view:
 
@@ -1917,26 +1917,27 @@ Additionally, you can perform the following actions:
 
 On the **Details**tab, you can view:
 
+- **AI Summary** **icon**: Click the **AI summary**icon to generate a summary of ticket violations and affected assets. To enable this icon in your tenant, you must enable [AI Capabilities](https://help.zscaler.com/unified/managing-ai-capabilities-agentic-secops-platform) from the Account Settings page.
 - **SLA:** The service-level agreement (SLA) date that the violation ticket must be remediated by.
 - **Assignee:** The user or team assigned to handle the violation ticket.
 - **Policy Violations Count:** The total number of policy violations aggregated into the violation ticket.
-- **Update CMDB**: Update asset records in your CMDB. This drop-down menu only appears if assets with incomplete, inaccurate, or inconsistent data are detected within your CMDB (ServiceNow CMDB).
-- **Grouping Details**: Specifies the grouping rule and the rule set that grouped the findings into the violation ticket. This is useful when investigating whether your account's grouping logic needs to be adjusted. To learn more, see Configuring Grouping Rules.
+- **Update CMDB**: Update asset records in your CMDB (e.g., ServiceNow CMDB). This drop-down menu only appears if assets with incomplete, inaccurate, or inconsistent data are detected within your CMDB.
+- **Grouping Details**: Specifies the grouping rule and the rule set that grouped the findings into the violation ticket. This is useful when investigating whether your account's grouping logic needs to be adjusted. To learn more, see [Configuring Grouping Rules](https://help.zscaler.com/aem/configuring-grouping-rules-aem).
 
 On the **Policy Violations**tab, you can view all the policy violations aggregated into the violation ticket. You can:
 
 - Apply filters to adjust the displayed policy violations by relevant attributes (e.g., **Severity**, **Policy Name**).
 - Drill down into individual policy violations to view additional details in the policy violation drawer.
 - Click the **Export as CSV**icon to export policy violations in the violation ticket to a CSV file.
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 
 On the **Assets**tab, you can view the list of assets affected by the policy violations contained in the violation ticket. You can perform the following actions:
 
 - Apply filters to adjust the displayed assets by relevant attributes (e.g., **Asset Type**, **Last Seen**).
 - Drill down into individual assets to view additional details in the asset drawer.
-- Select an asset and click **Update**to update the asset's details. The fields available to update include fields that have been enabled for manual override in Configure > Data Model.
+- Select an asset and click **Update**to update the asset's details. The fields available to update include fields that have been enabled for manual override on the [Data Model](https://help.zscaler.com/unified/about-data-model-management) page.
 - Click the **Export as CSV**icon to export assets in the violation ticket to a CSV file.
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9841,265 +9842,6 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-tenant-or-management-group","lastmod":"2026-10-14T06:36Z","nid":"1546645"} -->
-## Onboarding Azure Tenant or Management Group
-
-- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-tenant-or-management-group
-- Product: AI Asset Management
-- Path: AI Asset Management Help > Account Onboarding > Zscaler Hosted Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Onboarding Azure Tenant or Management Group
-- Last modified: 2026-10-14T06:36Z
-- Summary: Information on how to onboard an Azure tenant and management group.
-
-You can onboard an Azure tenant or management group and their associated subscriptions. AI Security monitors and scans the data stores (e.g., virtual machines, storage accounts) in the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.
-
-## Prerequisites
-
-Before onboarding an Azure tenant or management group, ensure you have completed the following:
-
-- Create the following in the Microsoft Entra ID:
-  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
-  2. Client secret: If you want to create an integration using client secret which is a confidential string that is used as a password for the application created. See instructions.
-  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
-- Ensure you have the following roles to deploy the templates and grant API permissions.
-- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
-- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
-  - Resource Group
-  - Storage Account
-  - Storage Account Container
-
-## Onboarding an Azure Tenant or Management Group
-
-To onboard an Azure tenant or management group:
-
-- 1. Select a Deployment Mode.
-- 2. Select an Onboarding Scope.
-- 3. Select a Configuration Creation Mode.
-- 4. Complete Tenant Discovery.
-- 5. Define Scope Selection.
-- 6. Configure Business Unit Mapping.
-- 7. Select Services.
-- 8. Provide Configuration Details.
-- 9. Review & Deploy.
-
-1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
-2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
-3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
-4. On the **Register an application** page, provide the following details and click **Register**.
-  - **Name**: Enter a unique name for the application.
-  - **Supported account types**: Select the subscription.
-
-The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
-
-See image.
-
-1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
-2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
-3. On the **App registrations** page, search for and select the applicationyou created.
-4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
-5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
-6. In the **Add a client secret** drawer:
-  - **Description**: Enter a description for the client secret.
-  - **Expires**: Select the expiration date from the drop-down menu.
-7. Click **Add**.
-8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
-
-1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
-2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
-3. On the **App registrations** page, search for and select the applicationyou created.
-4. In the left-side navigation, go to **Manage**> **API permissions**.
-5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
-6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
-  | API or Permissions Name | State | Type | Description |
-  | --- | --- | --- | --- |
-  | Application.Read.All | Mandatory | Application | Read all applications |
-  | User.Read | Mandatory | Delegated | Sign in and read user profile |
-  | AuditLog.Read.All | Optional | Application | Read all audit log data |
-  | Directory.Read.All | Optional | Application | Read directory data |
-  | Organization.Read.All | Optional | Application | Read organization information |
-  | Reports.Read.All | Optional | Application | Read all usage reports |
-  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
-  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
-  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
-7. On the **API permissions** page, click **Grant admin consent for <application name>**.
-8. In the **Grand admin consent confirmation** window, click **Yes**.
-
-Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
-
-To create a resource group:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
-2. Click **+Create**. See image. The **Create a resource group** drawer appears
-3. In the **Create a resource group** drawer, on the **Basics** tab:
-  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
-  2. **Resource group**: Enter a unique name for the resource group.
-  3. **Region**: Select a region where the resource group must be created.
-4. Click **Review + create**. See image.
-
-Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
-
-To create a storage account:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
-2. Click **+Create**. See image. The **Create a storage account** drawer appears.
-3. In the **Create a storage account** window, on the **Basics** tab:
-  1. **Subscription**: Select your Azure subscription.
-  2. **Resource group**: Select the resource group that you created.
-  3. **Storage account name**: Enter a unique name for the storage account.
-  4. **Region**: Select location where the storage account must be created.
-4. Click **Review + create**. See image.
-
-A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
-
-To create a storage account container:
-
-1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
-2. Locate the storage account you created and click the storage account.
-3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
-4. Click **+Container**. See image.
-5. In the **New container** drawer: See image.
-  1. **Name**: Enter a unique name for the container.
-  2. **Anonymous access level**: Select the access level for the container.
-6. Click **Create**.
-
-| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
-| --- | --- | --- | --- |
-| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
-| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
-| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
-| Windows - Command line | v1.7.5 | 2.67.0 | NA |
-| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
-
-| Scope | Role |
-| --- | --- |
-| Root Tenant Management Group Target Subscription | User Access Administrator (Based on your onboarding scope) |
-| Storage account | Storage Account Contributor (For Terraform State File) |
-| Microsoft Entra ID | Privileged Role Administrator (For granting the API permission) |
-
-To onboard an Azure tenant or management group, you must first select the deployment mode.
-
-1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
-2. Click **Add New**.
-3. In the **Select Cloud Provider** window, for **Select Cloud Type**, click the**Azure** tile. See image.
-4. Click **Next**.
-5. In the **Select Deployment Mode** window, choose Zscaler Hosted. See image.
-6. Click **Next**.
-
-In the **Select Onboarding Scope** section, select one of the following and click **Next**.
-
-- **Tenant:** To onboard the entire Azure AD tenant. A role assignment is created at the tenant root management group, enabling discovery of every subscription in the tenant.
-- **Management Group:** To onboard subscriptions under a specific management group and its descendants. This is the recommended approach when Zscaler coverage is needed for only part of the tenant.
-- **Subscription:**To onboard a single Azure subscription without requiring tenant enumeration. See image.
-
-In the **Configuration Creation Mode** section, select one of the following and click **Next**.
-
-- **Automated Role Creation:** To allow Zscaler to generate Terraform modules for the custom role and role assignment using the `azurerm` provider. See image.
-- **Manual Role Creation:** To create a custom role and assign roles using the existing workflow.
-
-In the **Tenant Discovery** section, provide the following Azure AD tenant details so Zscaler can enumerate management groups and subscriptions in scope and click **Next**.
-
-1. **Azure Tenant Details:**
-  - **Integration Alias:** Enter a user-friendly name for the subscription.
-  - **Tenant ID:** Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
-    1. Sign in to the **Azure portal**.
-    2. On the top right, select your account and then click **Switch directory**.
-    3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
-  - **Zscaler App (Client) ID:** Enter the application or client ID.
-  - **Management Group ID:** Enter the Management Group ID. This field appears if you have selected **Management Group** as an option in the **Select Onboarding Scope** section. You can find the management group ID under **Resource Manager > Organization > Management groups**in Azure Portal. See image.
-  - **Notification Emails (Optional):** Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
-2. **App Registration Credentials:** This is required for Zscaler to authenticate your Azure AD app registration before the tenant enumeration begins. Select from one of the following
-  - Client Secret
-  - Certificate
-3. **Grant Reader Role to Zscaler:** Copy the PowerShell one-liner and run it in the **Azure Portal** to assign the built-in **Reader** role to the Zscaler service principal at the tenant root scope. See image. Discovery in the next step fails if this step is not completed. Ensure the Az PowerShell module is installed, and you are signed in with Connect-AzAccount as a User Access Administrator or Owner on the target scope. The Zscaler app must also have admin consent granted in your Azure AD.
-4. **Discover Tenant Hierarchy:** Click **Discover** to enumerate the management groups and subscriptions that Zscaler has read access to. If discovery fails, click **Re-Discover.**
-
-In the **Scope selection** section, select the management groups and subscriptions to include in the scan. Enable autodetection on any management group where all current subscriptions are selected to automatically onboard future subscriptions.
-
-See image.
-
-Custom role definitions are created at the tenant root level and propagate to the selected subscriptions. You can add or remove subscriptions from the integration's Accounts tab with re-onboarding required.
-
-To use client secret as authentication for app registration, do the following:
-
-1. **Client Secret:** Enter the client secret generated as a pre-requisite in the Azure portal.
-2. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID. See image.
-
-Zscaler Generate the client certificate to use a certificate-based authentication for app registration. To generate a client certificate, do the following:
-
-1. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID.
-2. **Download and Validate the Certificate:** Download the client certificate generated by Zscaler for this integration. Upload it to your **Azure AD app registration** under **Certificates & secrets > Certificates**.
-
-See image.
-
-In the **Business Unit Mapping** section, you can do the following and click **Next**.
-
-1. Select a subscription to map a subscription to a business unit for filtering and reporting inside Zscaler.
-2. Click **+ New Business Unit** to add a new business unit.
-3. All subscriptions are assigned to a business unit. If no mapping is specified, then the **Default** option is applied. See image.
-
-In the **Service Selection** section, select the scanning services you want to enable for this integration. Each service you enable adds a specific, scoped set of Azure permissions to the Scanning custom role, ensuring that only the permissions required for the selected services are granted.
-
-See image.
-
-In the **Configuration**section, provide the following details and click **Next**.
-
-1. **Integration and Identity**:
-  - **Integration Alias:** User name set at the time of tenant discovery is autopopulated.
-  - **Application (Client ID):**The application or client ID set at the time of tenant discovery is autopopulated.
-2. **Custom Roles**
-  - **If you choose automated role creation:** The following role names are used for the Azure custom role by the Terraform modules: See image.
-    - Asset Discovery Role Name
-    - Scanning Role Name
-  - **If you choose manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope. Use the Application (Client) ID name as the `principalld`. Ensure your custom role is defined at the Management Group or Tenant scope depending on your onboarding scope. The role assignment is performed at the Subscription scope. See image.
-3. **Evidence Storage (Optional):** AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. See image.
-  - **Evidence Role Name:**The name of the evidence role.
-  - **Storage Account Resource ID:**The resource ID of the storage account.
-  - **Container Name:** The name of the container.
-  - **In case of manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope so it can write evidence collected during scans. Use the **Application (Client) ID** above as the principalId. Ensure your custom role is defined at the Storage account Subscription scope and the role assignment is performed at the evidence Storage accoun
-4. **Tags (Optional):** Configure custom tags to identify the resources created by AI Security.
-  - **Click Add Tag**, and enter key-value pairs to add more tags.
-
-In the **Review & Deploy**section, do the following:
-
-- If you have selected **Automated Role Creation**option**:**Download and deploy the Terraform modules in your Azure environment and then validate that Zscaler can access the scoped APIs before completing onboarding. See image. After deploying the Terraform module against the target scope, click **Save & Complete Onboarding**.
-- If you have selected the **Manual Role Creation** option: Zscaler authenticates using the Application (Client) ID and validates that each custom role assignment grants the required permissions. See image. After creating the custom roles and assigning them at the target scope, click **Save & Complete Onboarding**.
-
-[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
-
-[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
-
-[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
-
-[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
-
-[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
-
-[Image: A storage account page with the annotation around the Container option]
-
-[Image: New container drawer with fields filled out]
-
-[Image: The app registrations page with annotation around Application ID]
-
-[Image: The Certificate and Secrets page with annotations around New client secret]
-
-[Image: The Client secrets page with annotation around value]
-
-[Image: Select the Cloud Type]
-
-[Image: Select Zscaler Hosted in the Deployment Mode window]
-
-[Image: Select the Onboarding Scope as Tenant.]
-
-[Image: Select Automated Role Creation to allow Zscaler to generate the Terraform modules.]
-
-[Image: Add Azure Tenant Details in the Tenant Discovery section.]
-
-[Image: Select Certificate if you want to perform tenant discovery using client certificate.]
-
-[Image: The Request API permissions drawer with the list of Application permissions]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-30T09:34Z","nid":"1539955"} -->
 ## Onboarding a GCP Organization
 
@@ -10842,6 +10584,270 @@ To assign the Key Vault Administrator role:
 | Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
 | Windows - Command line | v1.7.5 | 2.67.0 | NA |
 | Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-single-gcp-project","lastmod":"2026-11-12T04:20Z","nid":"1543174"} -->
+## Onboarding a Single GCP Project
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-single-gcp-project
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Onboarding a Single GCP Project
+- Last modified: 2026-11-12T04:20Z
+- Summary: Information on how to onboard a GCP project.
+
+You can onboard a single Google Cloud Platform (GCP) project for AI Security to monitor and scan the data stores to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding the GCP project, ensure you have completed the following:
+
+- You must have the following roles:
+  | Role Name | Role ID | Scope | State | Description |
+  | --- | --- | --- | --- | --- |
+  | GCP Owner | roles/owner | Orchestrator project | Mandatory | To create, modify, and delete any resource or service within the assigned scope. |
+  | Project IAM Admin | roles/resourcemanager.projectIamAdmin | Target project | Mandatory | To access and administer project IAM policies. |
+  | Role Administrator | roles/iam.roleAdmin | Target project | Mandatory | To provide AI Security access to create, update, delete, and manage custom IAM roles at the project level. |
+  | Logs Configuration Writer | roles/logging.configWriter | Target project | Mandatory | To provide permissions to create and modify Cloud Logging configurations. |
+  | Service Usage Consumer | roles/serviceusage.serviceUsageConsumer | All projects (Target and state file) | Mandatory | To inspect service states and operations for quota and billing of a project. |
+  | Storage Object Admin | roles/storage.objectAdmin | Terraform state file GCP bucket project | Mandatory | To store the Terraform state files. |
+  | Organization Policy Administrator | roles/orgpolicy.policyAdmin | Orchestrator project | Optional | To override the service account key creation policy. |
+  | Super Admin | - | Admin portal | Optional | To create a custom role in the Google Admin Console to assign permissions to user, group, and domain resources. This is required for AI Security to gain read-only access to resource data. |
+- Override the service account key creation policy. See instructions.
+- Create a custom role in the Google Admin Console. See instructions.
+- Enable the required GCP APIs in the selected GCP project. Click to view the list of required APIs.
+- Identify a GCP project that has the required roles and which is linked to a billing account to deploy the orchestrator template.
+- Install the following tools:
+  - gcloud CLI to connect to the Google Cloud project and deploy the template using gcloud CLI. To learn more, refer to the [Google Cloud documentation](https://cloud.google.com/sdk/docs/install).
+  - Terraform CLI v1.7.5 or later to run Terraform on a Windows system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/developer/terraform/quickstart-configure).
+- Enable debug logging (optional but recommended for troubleshooting). See instructions.
+
+## Onboarding a Single GCP Project
+
+To onboard a GCP project:
+
+- 1. Select GCP project.
+- 2. Provide GCP project details.
+- 3. Add orchestrator details and select the network configuration.
+- 4. Select services to monitor.
+- 5. Select regions to monitor.
+- 6. Select the target projects to monitor.
+- 7. Configure evidence.
+- 8. Configure custom tags.
+- 9. Deploy orchestrator.
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Start Onboarding** window, select **Cloud Providers**.
+4. In the **Select Cloud Provider** window: See image.
+  1. For **Select Cloud Type**, click the**GCP**tile.
+  2. For **Select Onboarding Type**, click the **Project**tile.
+5. Click **Save &** **Next**.
+
+Provide the following details and click **Save &** **Next**.
+
+- **AI Security Alias**: Enter a user-friendly name for the project.
+- **Custom Role Name Prefix**: Enter a unique role name. This role name is added as a prefix to all the custom roles that are created during the onboarding process.
+- **Service Account Prefix:**Enter a unique name for the service account. This is added as a prefix to the service account created during the onboarding process.
+- **Notification Emails (Optional)**: Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded project. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+
+See image.
+
+In the **Orchestrator Configuration** section, provide the following GCP project details to deploy the AI Security orchestrator scanner and click **Apply**:
+
+- **Orchestrator Project ID**: Enter the project ID.
+- **Select the Orchestrator Region**: Select the region.
+- **Orchestrator Network Configuration**:
+  - **VPC Selflink**: Enter the selflink of the VPC network where you want to deploy the orchestrator. The VPC selflink is the unique identifier for your VPC network in the selected region. To find the VPC and subnet selflink, run the following command on Google Cloud Shell: `gcloud compute networks describe <vpc-network-name>`See image.
+  - **Subnet Selflink**: Enter the selflink of the subnet within the selected VPC where you want to deploy the orchestrator. The subnet selflink identifies the specific subnet network that is used for deployment.
+
+See image.
+
+In the **Configure Services** section, select the services that AI Security must monitor and click **Save &** **Next**. AI Security permissions are restricted to monitor and scan the data only in the selected services.
+
+See image.
+
+In the **Configure Regions**section, select the regions that AI Security must monitor. AI Security creates and deploys resources required for scanning only in the selected regions.
+
+See image.
+
+AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account or add a new one to store these evidence snippets. In the **Evidence**section, select one of the following and click **Save & Next**:
+
+- **Custom**: Enter the name of the storage account present in the orchestrator project.
+- **Automated**: AI Security creates a storage container in the orchestrator project to upload the snippet of evidence data.
+
+See image.
+
+In the **Add Target Projects**section, add the target projects that you want AI Security to monitor:
+
+1. In the **Add Target Projects**window, enter the following information:
+  - **Project ID**: Enter the project ID.
+  - **Project Name** **(Optional)**: Enter the project name.
+  - **Business Unit**: Select a business unit for the project.
+2. Click **+ Add Project**to add more projects to monitor. See image.
+3. Click **Save & Next**.
+
+In the **Resource Tags** section, configure custom tags to identify the resources created by AI Security.
+
+1. In the **Resource Tags** window, enter a key and value pair for the tag.
+2. Click **Add More**, and enter key-value pairs to add more tags. See image.
+3. Click **Next**.
+
+Download and deploy the GCP onboarding template:
+
+- a. Download and modify the GCP onboarding template.
+- b. Deploy the GCP onboarding template.
+- c. Initialize the GCP onboarding template.
+
+After the onboarding template is successfully deployed, copy the generated JSON file in the **Generated JSON** section and click **Validate & Finish**. The required resources are created in the GCP orchestrator project.
+
+See image.
+
+1. In the **Deploy Orchestrator** section, click **GCP Onboarding** to download the template as a ZIP file and extract it to a folder on your system.
+2. Locate the `backend.tf` file and open it in a text editor.
+3. Add the name of the storage bucket and a preferred prefix where you want to store the Terraform state files, then save and close the `backend.tf` file. See image.
+
+Use any of the following methods:
+
+- Google Cloud Shell (Recommended)
+- gcloud CLI
+
+By default, the `disable service account key` creation policy prevents you from creating a service account key. Override the `disable service account key`creation policy for the project where you want to create the service account:
+
+1. Sign in to the Google Cloud Console and go to [Organization policies](https://console.cloud.google.com/iam-admin/orgpolicies).
+2. Select the organization from the project picker. See image.
+3. Search for `Disable service account key creation` and click **Disable service account key creation**. See image.
+4. On the **Policy for Disable service account key creation** page, click **MANAGE POLICY**. See image.
+5. Under the **Policy source** section, select **Override parent's policy**.
+6. Under the **Rules** section, click **ADD A RULE**. See image.
+7. In the **New rule** window, under the **Enforcement** section, select **Off**.
+8. Click **Done**. See image.
+9. Click **SET POLICY** to apply the changes. See image.
+
+Ensure the status of `Disable service account key creation` policy is set to **Not enforced**.
+
+See image.
+
+Run the following commands to enable the debug logs:
+
+- PowerShell `$env:TF_LOG="TRACE" $env:TF_LOG_PATH="<filepath>filename.log"`
+- Bash `export TF_LOG="TRACE" $ export TF_LOG_PATH="<filepath>filename.log"`
+
+| API | Description | Project to Enable On |
+| --- | --- | --- |
+| admin.googleapis.com | Discover Google Workspace account resources | Orchestrator, Target |
+| cloudresourcemanager.googleapis.com | Discover Google Cloud Platform resource containers | Orchestrator, Target |
+| cloudasset.googleapis.com | Discover the history and inventory of Google Cloud resources | Orchestrator, Target |
+| monitoring.googleapis.com | Discover cloud monitoring data and configurations | Orchestrator, Target |
+| orgpolicy.googleapis.com | Discover governance rules on GCP resources | Orchestrator, Target |
+| apikeys.googleapis.com | Manage and use API keys for Google Cloud services and APIs | Orchestrator, Target |
+| bigquery.googleapis.com | Discover and classify sensitive data in BigQuery tables | Orchestrator, Target |
+| serviceusage.googleapis.com | Consume quota for a project | Orchestrator, Target |
+| iam.googleapis.com | Discover identity and access control for Google Cloud resources | Orchestrator, Target |
+| networkmanagement.googleapis.com | Check connections between the virtual private cloud (VPC) network and AI Security. It is required for BYON. | Orchestrator |
+| logging.googleapis.com | Discover logs resources and perform logging operations | Orchestrator |
+| secretmanager.googleapis.com | Discover secret manager resources and perform operations | Orchestrator |
+| servicenetworking.googleapis.com | Enable private connections between the virtual private cloud (VPC) network and AI Security | Orchestrator |
+| cloudkms.googleapis.com | Discover Key Management Service (KMS) resources and perform KMS-related operations | Orchestrator, Target |
+| storage.googleapis.com | Discover storage resources and read data from storage | Orchestrator, Target |
+| sqladmin.googleapis.com | Manage Cloud SQL instances | Orchestrator, Target |
+| compute.googleapis.com | Discover compute resources and perform compute-related operations This is required to enable notebooks.googleapis.com and compute resources on the target project. | Orchestrator, Target To enable this API, the project must be linked to billing. |
+| aiplatform.googleapis.com | Interact with Google's unified artificial intelligence and machine learning platform for AI Security to scan the AI models for vulnerabilities | Target |
+| notebooks.googleapis.com | Manage Vertex AI resources | Target compute.googleapis.com must be enabled on the target project to enable notebooks.googleapis.com. |
+
+Run the following commands in the gcloud CLI:
+
+- To set your project ID: `gcloud config set project <PROJECT_ID>`Replace <PROJECT_ID> with your project ID, which is required to authenticate your API requests and associate them with the correct project.
+- To enable the required API: `gcloud services enable <API_SERVICE_NAME>`Replace <API_SERVICE_NAME> with the API you want to enable. For example, if your project ID is `812345678902`, you can enable the `admin.googleapis.com` API by running: `gcloud config set project 812345678902``gcloud services enable admin.googleapis.com`
+
+1. Run the following command on Google Cloud Shell or gcloud CLI: `gcloud organizations describe <ORG_ID>`Replace `<ORG_ID>` with your organization ID, which is required to get the `directoryCustomerId`.
+2. Copy the `directoryCustomerId` value from the output. See image.
+3. Go to the [Google Admin SDK Directory](https://developers.google.com/admin-sdk/directory/reference/rest/v1/roles/insert).
+4. Click the **API** tag in the right panel and paste the copied `directoryCustomerId` into the **customer** string.
+5. Copy the following request provided and paste it into the **Request body** field. `{ "roleName": "role_name", "rolePrivileges": [ { "privilegeName": "DOMAIN_MANAGEMENT", "serviceId": "00haapch16h1ysv" }, { "privilegeName": "GROUPS_RETRIEVE", "serviceId": "00haapch16h1ysv" }, { "privilegeName": "USERS_RETRIEVE", "serviceId": "00haapch16h1ysv" } ] }`Replace `role_name` with a desired name for the new role.
+6. Click **Execute**. You are prompted to log in again. You can see the JSON output that includes the newly created role. `{ "kind": "admin#directory#role", "etag": "\"0A0Bc2deFgHi\"", "roleId": "4123456782", "roleName": "role_name", "roleDescription": "", "rolePrivileges": [ { "privilegeName": "DOMAIN_MANAGEMENT", "serviceId": "00abcdef16g1hij" } , { "privilegeName": "GROUPS_RETRIEVE", "serviceId": "00abcdef16g1hij" } , { "privilegeName": "USERS_RETRIEVE", "serviceId": "00abcdef16g1hij" } ], "isSystemRole": false, "isSuperAdminRole": false }`See image.
+7. Sign in to the [Google Admin Console](https://admin.google.com/ac/roles), search for the newly created role, then click **View privileges** to see the assigned permissions. See image. The following roles are created and permissions are assigned:
+  | Role | Permission | Description |
+  | --- | --- | --- |
+  | User | Read | To collect the user data |
+  | Group | Read | To collect the group and member data |
+  | Domain Management | Read | To collect domain resources |
+
+1. Sign in to the [Google Cloud Console](http://console.cloud.google.com/).
+2. On the **Project Selector**, select the Google Cloud project where you want to apply the Terraform configuration. See image.
+3. Click **Activate Cloud Shell** at the top. This launches a session in the bottom pane. It can take a few seconds for the session to initialize. See image.
+4. From the **More** menu, click **Upload**, then select the **Folder** option. Click **Choose Folder** to select the folder containing the modified Terraform file from your system, and click the **Upload** button. See image.
+5. Run the commands to initialize the template.
+
+1. Open the Command Prompt or any other CLI app on your local system.
+2. Change the current working directory to the folder containing the modified Terraform file from your system.
+3. Run the commands to initialize the template.
+
+Run the following commands to initialize the template. This is required to manage your infrastructure resources.
+
+1. To initialize the Terraform configuration: `terraform init`See image.
+2. To verify the changes in the Terraform configuration: `terraform plan`When you run the `terraform plan` or `terraform apply` command, Terraform verifies that all the required APIs are enabled. If any necessary API is missing, an error message is displayed to enable it to continue. To avoid this, ensure that the required APIs are enabled in your project. To enable the necessary APIs, see Enable APIs.
+3. For **Enter a value**, enter the regions where you want AI Security to monitor and scan data in the following format: `["region name1", "region name2", "region name3", and so on.]`AI Security creates resources required for data scanning only in these specified regions. See image.
+4. To run the Terraform script and deploy resources with network analysis enabled: `terraform apply -var=‘enable_test_connectivity=true’`To deploy resources with network analysis disabled: `terraform apply -var=‘enable_test_connectivity=false’`
+5. For **Enter a value**, enter the regions where you want to deploy the template in the following format: `["region name1", "region name2", "region name3", and so on.]`See image.
+6. For **Do you want to perform these actions?**, enter `yes` and then press `Enter`. See image.
+
+[Image: The Select Cloud Provider window with Google Cloud and Project selected for onboarding]
+
+[Image: The GCP Project Registration section with project details]
+
+[Image: The Orchestrator Configuration section with orchestrator project details and network configuration]
+
+[Image: The Configure Services section with the GCP services selected for monitoring]
+
+[Image: The Configure Regions section with the regions selected for monitoring]
+
+[Image: The Evidence section with the available storage configuration]
+
+[Image: The Add Target Projects window with the list of GCP target projects added]
+
+[Image: The Add Custom Tags window with the list of key value pairs added]
+
+[Image: The Deploy Orchestrator section with the GCP Onboarding template]
+
+[Image: Modify the backend.tf file]
+
+[Image: The Select a resource window with annotation around the required resource]
+
+[Image: Activate the cloud shell in the GCP console]
+
+[Image: Upload the terraform template folder to the GCP Cloud Shell]
+
+[Image: The command prompt with the output of terraform apply command]
+
+[Image: The command prompt window with the output of terraform plan command]
+
+[Image: The command prompt window with the output of terraform init command]
+
+[Image: The command prompt window with the output of terraform apply command]
+
+[Image: The Google Admin Console page with annotation around Admin API privileges]
+
+[Image: Google Admin SDK Directory API]
+
+[Image: The Google Cloud Shell Terminal with the welcome message]
+
+[Image: The Policy for Disable service account key creation window with annotation around Status]
+
+[Image: The Disable service account key creation window with annotation around set policy]
+
+[Image: New rule window to turn off the policy]
+
+[Image: The disable service account key creation window with annotation around override parent's policy]
+
+[Image: The Policy for disable service account key creation window with annotation around manage policy]
+
+[Image: The Organization policies page with annotation around disable service account key creation policy]
+
+[Image: The output of running selflink command in the Google Cloud Shell]
+
+[Image: The Organization policies page with annotation around the selected organization and policies applicable]
 <!-- /ZS-ARTICLE -->
 
 ---

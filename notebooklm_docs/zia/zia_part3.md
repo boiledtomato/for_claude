@@ -1,8 +1,49 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 107
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-posture-management-logs","lastmod":"2026-07-19T07:06Z","nid":"1538595"} -->
+## Adding TCP NSS Feeds for Posture Management Logs
+
+- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-posture-management-logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Posture Management Logs
+- Last modified: 2026-07-19T07:06Z
+- Summary: How to add TCP NSS feeds for Posture Management logs in the Zscaler Admin Console.
+
+Access to Posture Management logs requires [Advanced SaaS Security Posture Management (SSPM)](https://help.zscaler.com/zia/what-advanced-posture-management). To get Advanced SSPM, contact your Zscaler Account team.
+
+You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Posture Management logs that the NSS sends to your security information and event management system, or SIEM.
+
+A large number of filters or complex filters, such as string searches, can impact the NSS performance. Before you start configuring a feed for Posture Management logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
+
+To configure a TCP NSS feed for Posture Management logs:
+
+1. Go to **Logs**>**Log Streaming**> **Internet Log Streaming**-**Nanolog Streaming Service**.
+2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
+3. In the**Add TCP NSS Feed** window:
+  - **Feed Name:**Enter the name of the feed. Each feed is a connection between the NSS and your SIEM.
+  - **NSS Type**: **NSS for Web** is selected by default.
+  - **NSS Server**:Select an NSS server from the list.
+  - **Status:**The NSS feed is **Enabled** by default. Select **Disabled** if you want to activate it at a later time.
+  - **SIEM Destination Type**: Select the type of destination.
+    - **SIEM IP Address**:Appears when**IP Address**is selected as the destination type. Enter the IP address of the SIEM to which the logs are streamed.
+    - **SIEM FQDN**: Appears when**FQDN**is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
+  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
+  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to SIEM licensing or other constraints.
+    - **SIEM Rate Limit (Events per Second)**: Enter an appropriate rate limit for the events per second that you want to be streamed to your SIEM. A limit that is too low for the traffic volume causes log loss. This field is available only if you select **Limited** in the **SIEM Rate**field.
+  - **Log Type**:Select **Posture**.
+  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. Select **Tab-separated**to create a tab-separated list. Select **Custom**to use a different delimiter, such as a dash, and enter the delimiter when you specify the **Feed Output Format**.
+  - **Feed Escape Character**: The Zscaler service hex encodes all non-printable ASCII characters that are in URLs when it sends logs to the NSS. Any URL character that is less than 0x21, or above 0x7E, is encoded as `%HH`. This ensures that your SIEM is able to parse the URLs in case they contain non-printable characters. For example, a `\n` char in a URL is encoded as `%0A`, and a space is encoded as `%20`. In this field, you can specify additional characters that you want to encode. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. Note that the service encodes characters in URLs, hostnames, and referrer URLs only. If custom encoding is done for a record, the `%s{eedone}` field is `YES` for that record.
+  - **Feed Output Format**:These are the fields that display in the output. You can edit the default list and if you select **Custom**as the **Feed Output Type**, change the delimiter as well. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Posture Management Logs](https://help.zscaler.com/zia/nss-feed-output-format-posture-management-logs).
+  - **Time Zone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight saving in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
+  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -52,13 +93,13 @@ To configure a TCP NSS feed for SaaS Security activity logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-10-28T16:02Z","nid":"1401471"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-saas-security-logs","lastmod":"2026-11-11T20:06Z","nid":"1401471"} -->
 ## Adding TCP NSS Feeds for SaaS Security Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-saas-security-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
-- Last modified: 2026-10-28T16:02Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SaaS Security Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for SaaS Security logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds that define the SaaS Security logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -210,13 +251,13 @@ To configure a TCP NSS feed for SaaS Security logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-10-28T18:57Z","nid":"1520331"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-sandbox-verdict-logs","lastmod":"2026-11-11T20:06Z","nid":"1520331"} -->
 ## Adding TCP NSS Feeds for Sandbox Verdict Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-sandbox-verdict-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
-- Last modified: 2026-10-28T18:57Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Sandbox Verdict Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for Sandbox verdict logs in the Zscaler Admin Console.
 
 You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the Sandbox verdict logs that the NSS sends to the security information and event management (SIEM) system.
@@ -267,8 +308,8 @@ To configure a TCP NSS feed for Sandbox verdict logs:
 ## Adding TCP NSS Feeds for SCIM Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-scim-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for SCIM Logs
 - Last modified: 2026-06-23T07:00Z
 - Summary: How to add TCP NSS feeds for SCIM logs in the Zscaler Admin Console.
 
@@ -308,13 +349,13 @@ To configure a TCP NSS feed for SCIM logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-tunnel-logs","lastmod":"2026-10-28T15:57Z","nid":"1400956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-tunnel-logs","lastmod":"2026-11-11T20:06Z","nid":"1400956"} -->
 ## Adding TCP NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-tunnel-logs
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Tunnel Logs
-- Last modified: 2026-10-28T15:57Z
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add NSS feeds for tunnel logs in the Zscaler Admin Console.
 
 You can configure up to 16 TCP Nanolog Streaming Service (NSS) feeds to specify the data from the tunnel logs that the NSS sends to the security information and event management (SIEM) system.
@@ -372,13 +413,13 @@ To configure a TCP NSS feed for tunnel logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-web-logs","lastmod":"2026-10-28T14:52Z","nid":"1399066"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-web-logs","lastmod":"2026-11-11T20:06Z","nid":"1399066"} -->
 ## Adding TCP NSS Feeds for Web Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-web-logs
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Web Logs
-- Last modified: 2026-10-28T14:52Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Web Logs
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for web logs in the Zscaler Admin Console.
 
 You can configure up to 8 TCP Nanolog Streaming Service (NSS) feeds that define the web logs that the NSS sends to the security information and event management (SIEM) system. You can also configure multiple filter types. For example, if an admin selects the location *HQ* and the department *Finance*, the NSS selects logs that belong to both the HQ location and Finance department. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
@@ -838,8 +879,8 @@ To add a custom threat category,
 ## Adding URLs to the Allowlist
 
 - Source: https://help.zscaler.com/zia/adding-urls-allowlist
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Adding URLs to the Allowlist
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > Adding URLs to the Allowlist
 - Last modified: 2026-10-28T00:47Z
 - Summary: How to place URLs on the allowlist in Malware Protection, Advanced Threats Protection, and URL Filtering policies.
 
@@ -937,13 +978,13 @@ To add a user:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398936"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-clusters-internet-saas","lastmod":"2026-11-12T01:19Z","nid":"1398936"} -->
 ## Adding Virtual Service Edge Clusters for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/adding-virtual-service-edge-clusters-internet-saas
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Adding Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-10-20T21:06Z
+- Last modified: 2026-11-12T01:19Z
 - Summary: Information on how to add a Virtual Service Edge cluster for Internet & SaaS (ZIA) in the Zscaler Admin Console.
 
 Adding a Virtual Service Edge cluster for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters).
@@ -952,29 +993,47 @@ To add a Virtual Service Edge cluster:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Internet & SaaS** >**Virtual Service Edges**.
 2. Click the **Virtual Service Edge Clusters** tab.
-3. Click **Add Virtual Service Edge Cluster**. The **Add Virtual Service Edge Cluster** window appears.
-4. In the **Add Virtual Service Edge Cluster** window: See image. Ensure that the Virtual Service Edge cluster, proxy, load balancer, and gateway IP addresses are in the same subnet. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
-  - **Name**: Enter a name for the Virtual Service Edge cluster.
-  - **Status**: Choose to enable or disable the Virtual Service Edge cluster. The default status is **Enabled**.
-  - **Virtual Service Edges**: Select the Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
-  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster. By default, this option is disabled.
-  - **Cluster IP Address**: Enter the Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, it provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
-  - **Subnet Mask**: Enter the corresponding subnet mask.
-  - **Default Gateway**: Enter the IP address of the default gatewayto the internet.
+3. Click **Add Virtual Service Edge Cluster**. The **Add Virtual Service Edge Cluster** drawer appears.
+4. In the **Add Virtual Service Edge Cluster** drawer, you can configure the following sections:
+  - Basic Parameters
+  - Virtual Service Edges
+  - IP Addresses
 5. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Add Virtual Service Edge Cluster]
+In the **Basic Parameters** section, provide the general information about the Virtual Service Edge clusters.
+
+- **Name**: Enter a name for the Virtual Service Edge cluster.
+- **Status**: Choose to enable or disable the Virtual Service Edge cluster. The default status is **Enabled**.
+
+[Image: Add Virtual Service Edge Cluster drawer showing the Basic Parameters section]
+
+In the **Virtual Service Edges** section, link the Virtual Service Edge instances for the cluster.
+
+- **Virtual Service Edges**: Select the Virtual Service Edge instances you want to include in the cluster. A Virtual Service Edge cluster must contain at least two Virtual Service Edge instances.
+- **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at selected Virtual Service Edge instances for the Virtual Service Edge cluster. By default, this option is disabled.
+
+[Image: Add Virtual Service Edge Cluster drawer showing the Virtual Service Edges section]
+
+In the **IP addresses** section, provide the required IP addresses for the cluster.
+
+- **Cluster IP Address**: Enter the Virtual Service Edge cluster IP address. In a Virtual Service Edge cluster, it provides fault tolerance and is used to listen for user traffic. This interface doesn't explicitly get an IP address. The cluster IP address must be in the same VLAN as the proxy and load balancer IP addresses.
+- **Subnet Mask**: Enter the corresponding subnet mask.
+- **Default Gateway**: Enter the IP address of the default gatewayto the internet.
+
+Ensure that the Virtual Service Edge cluster, proxy, load balancer, and gateway IP addresses are in the same subnet. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
+
+[Image: Add Virtual Service Edge Cluster drawer showing the IP Addresses section]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398916"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-virtual-service-edge-instances-internet-saas","lastmod":"2026-11-12T00:59Z","nid":"1398916"} -->
 ## Adding Virtual Service Edge Instances for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Adding Virtual Service Edge Instances for Internet & SaaS
-- Last modified: 2026-10-20T21:06Z
+- Last modified: 2026-11-12T00:59Z
 - Summary: How to add a Virtual Service Edge instance for Internet & SaaS (ZIA) in the Zscaler Admin Console.
 
 Adding a Virtual Service Edge instance for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters. To learn more, see [Configuring Virtual Service Edge Clusters](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters).
@@ -982,27 +1041,40 @@ Adding a Virtual Service Edge instance for Internet & SaaS (ZIA) is one of the t
 To add a Virtual Service Edge instance:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Internet & SaaS** > **Virtual Service Edges**.
-2. Click **Add Virtual Service Edge**. The **Add Virtual Service Edge** window appears.
-3. In the **Add Virtual Service Edge** window:
-  - **Name**: Enter a name for the Virtual Service Edge.
-  - **Status**: Choose to enable or disable the Virtual Service Edge. The default status is **Enabled**.
-  - **Deployment Status**: Choose either **In Production** or **Trial**. The default deployment status is **In Production**. **In Production** represents Virtual Service Edge instances deployed for production purposes, and **Trial** represents Virtual Service Edge instances deployed for internal uses or testing purposes. The trial Virtual Service Edge instances are upgraded first during a maintenance window, followed by production Virtual Service Edge instances. This setting does not affect the behavior, functionality, or performance of the Virtual Service Edge instance, and it helps Zscaler prioritize production Virtual Service Edge instances over trial if an issue or a bug affects Virtual Service Edge instances.
-  - **Your Used Virtual Service Edges**: You can see the total number of Virtual Service Edges, as well as the available number of subscriptions. You can't modify this field.
-  - **Proxy IP Address**: Enter the IP address to which you’ll forward the traffic. All user and server workload traffic is forwarded to the proxy IP address of the Virtual Service Edge. If the Virtual Service Edge has to receive and service traffic from users or workloads over the internet, ensure that this IP address has access to the internet as well as users.
-  - **Subnet Mask**: Enter the corresponding subnet mask.
-  - **Default Gateway**: Enter the IP address of the default gateway to the internet.
-  - **Load Balancer IP Address**: Appears only when **Cluster** is selected as the deployment mode. Enter the IP address of the load balancer.
-  - **Deployment Mode**: Select either **Cluster**or **Standalone**if you have the VMware ESXi platform. Otherwise, select only **Standalone**. If clustering fault tolerance is required, ensure to have an external load balancer for **Standalone** deployment.
-  - **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you select the deployment mode as **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of the Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters). See image.
-  - **Zscaler Initiated On-Demand Support Tunnel**: Enable this option to allow Zscaler to establish a support tunnel whenever required. This option is disabled by default. If this option is enabled, you cannot establish a support tunnel from the Zscaler Admin Console. Also, the **Establish Support Tunnel** option is greyed out.
-  - **Establish Support Tunnel**: Enable this option to allow the service to establish a support tunnel for Zscaler Support to access the Virtual Service Edge. This option is disabled by default. This option is available only when the **Zscaler Initiated On-Demand Support Tunnel** is disabled.
-  - **Virtual Service Edge ID**: You can see the Virtual Service Edge ID used by Zscaler to identify and access the Virtual Service Edge using the established support tunnel. See image.
-4. Click **Save**.
-5. [Activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+2. Click **Add Virtual Service Edge**. The **Add Virtual Service Edge** drawer appears.
+3. In the **Add Virtual Service Edge** drawer, you can configure the following sections:
+  - Basic Information
+  - IP Addresses
+  - Support Information
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
 
-[Image: Add Virtual Service Edge window with IPSec Local Termination]
+In the **Basic Information** section, provide general information about the Virtual Service Edge instance:
 
-[Image: Add Virtual Service Edge window with Support Information]
+- **Name**: Enter a name for the Virtual Service Edge.
+- **Status**: Choose to enable or disable the Virtual Service Edge. The default status is **Enabled**.
+- **Deployment Status**: Choose either **In Production** or **Trial**. The default deployment status is **In Production**. **In Production** represents Virtual Service Edge instances deployed for production purposes, and **Trial** represents Virtual Service Edge instances deployed for internal uses or testing purposes. The trial Virtual Service Edge instances are upgraded first during a maintenance window, followed by production Virtual Service Edge instances. This setting does not affect the behavior, functionality, or performance of the Virtual Service Edge instance, and it helps the Zscaler service prioritize production Virtual Service Edge instances over trial ones if an issue or a bug affects Virtual Service Edge instances.
+- **Your Used Virtual Service Edges**: You can see the total number of Virtual Service Edges, as well as the available number of subscriptions. You can't modify this field.
+
+[Image: Add Virtual Service Edge drawer showing basic information]
+
+In the **IP Addresses** section, provide the required IP addresses for the Virtual Service Edge instance:
+
+- **Proxy IP Address**: Enter the IP address to which you'll forward the traffic. All user and server workload traffic is forwarded to the proxy IP address of the Virtual Service Edge. If the Virtual Service Edge has to receive and service traffic from users or workloads over the internet, ensure that this IP address has access to the internet as well as users.
+- **Subnet Mask**: Enter the corresponding subnet mask.
+- **Default Gateway**: Enter the IP address of the default gateway to the internet.
+- **Load Balancer IP Address**: Appears only when **Cluster** is selected as the deployment mode. Enter the IP address of the load balancer.
+- **Deployment Mode**: Select either **Cluster**or **Standalone**if you have the VMware ESXi platform. Otherwise, select only **Standalone**. If clustering fault tolerance is required, ensure to have an external load balancer for **Standalone** deployment.
+- **IPSec Local Termination**: Enable this option to terminate IPSec traffic from the client at the Virtual Service Edge node. By default, this option is disabled. If you set the deployment mode to **Cluster**, this option becomes read-only and displays the actual status of IPSec Local Termination of the Virtual Service Edge in the cluster. If you want to change the IPSec Local Termination status of a Virtual Service Edge in a cluster, you can do it from the **Infrastructure**>**Internet & SaaS**> **Virtual Service Edges** > **Virtual Service Edge** **Clusters** page. To learn more, see [Adding Virtual Service Edge Clusters](https://help.zscaler.com/zia/adding-virtual-service-edge-clusters).
+
+[Image: Add Virtual Service Edge drawer showing the IP addresses]
+
+In the **Support Information** section, configure the support tunnel for the Virtual Service Edge instance:
+
+- **Zscaler Initiated On-Demand Support Tunnel**: Enable this option to allow Zscaler to establish a support tunnel whenever required. This option is disabled by default. If this option is enabled, you cannot establish a support tunnel from the Zscaler Admin Console. Also, the **Establish Support Tunnel** option is grayed out.
+- **Establish Support Tunnel**: Enable this option to allow the service to establish a support tunnel for Zscaler Support to access the Virtual Service Edge. This option is disabled by default. This option is available only when the **Zscaler Initiated On-Demand Support Tunnel** is disabled.
+- **Virtual Service Edge ID**: You can see the Virtual Service Edge ID that the Zscaler service uses to identify and access the Virtual Service Edge using the established support tunnel.
+
+[Image: Add Virtual Service Edge drawer showing support information]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1011,8 +1083,8 @@ To add a Virtual Service Edge instance:
 ## Adding VPN Credentials
 
 - Source: https://help.zscaler.com/zia/adding-vpn-credentials
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Adding VPN Credentials
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > IPSec > Adding VPN Credentials
 - Last modified: 2026-10-12T05:58Z
 - Summary: How to add VPN credentials when configuring an IPSec VPN tunnel for the Zscaler service.
 
@@ -1062,13 +1134,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-10-29T11:57Z","nid":"1403116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-webhook","lastmod":"2026-11-12T20:06Z","nid":"1403116"} -->
 ## Adding a Webhook
 
 - Source: https://help.zscaler.com/zia/adding-webhook
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Security & UEBA Alerts > Adding a Webhook
-- Last modified: 2026-10-29T11:57Z
+- Last modified: 2026-11-12T20:06Z
 - Summary: Information on how to add a webhook in the Zscaler Admin Console.
 
 Webhook configuration in the Zscaler Admin Console allows you to deliver alerts for the configured events in the alert rule to third-party applications (e.g., ServiceNow, Splunk) for incident management. The feature comprises two parts:
@@ -1297,13 +1369,13 @@ To add a ZAB:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-client-connector-portal-idp","lastmod":"2026-10-30T16:37Z","nid":"1401391"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-zscaler-client-connector-portal-idp","lastmod":"2026-11-13T20:06Z","nid":"1401391"} -->
 ## Adding the Zscaler Client Connector Portal as an IdP
 
 - Source: https://help.zscaler.com/zia/adding-zscaler-client-connector-portal-idp
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding the Zscaler Client Connector Portal as an IdP
-- Last modified: 2026-10-30T16:37Z
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to add the Zscaler Client Connector Portal as an identity provider in the Zscaler Admin Console.
 
 If you configure the Zscaler Client Connector Portal as your identity provider (IdP), users automatically enroll with Zscaler Client Connector. Zscaler Client Connector uses a device token generated in the Zscaler Client Connector Portal to authenticate users and their devices for the Zscaler service.
@@ -1802,8 +1874,8 @@ The Activities & Incidents tab shows the activities and incidents associated wit
 ## Analyzing Traffic Using Insights
 
 - Source: https://help.zscaler.com/zia/analyzing-traffic-using-insights
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Analyzing Traffic Using Insights
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Analyzing Traffic Using Insights
 - Last modified: 2026-05-08T00:05Z
 - Summary: Information on how to analyze your traffic using Zscaler's Insights pages in the Zscaler Admin Console.
 
@@ -1901,8 +1973,8 @@ See image.
 ## Applying Policies for Authenticated Guest Users
 
 - Source: https://help.zscaler.com/zia/applying-policies-for-authenticated-guest-users
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Applying Policies for Authenticated Guest Users
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Applying Policies for Authenticated Guest Users
 - Last modified: 2026-09-15T21:06Z
 - Summary: Explains how Zscaler service policies (i.e., URL & Cloud App policies, Firewall policies, Data Loss Prevention policies, etc.) are applied to authenticated guest user traffic.
 
@@ -2419,13 +2491,13 @@ These instructions allow Zscaler to make API calls to the project resource by en
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-11-08T06:06Z","nid":"1483116"} -->
+<!-- ZS-ARTICLE {"url":"/zia/authorizing-custom-zscaler-connector-microsoft-applications","lastmod":"2026-11-15T06:06Z","nid":"1483116"} -->
 ## Authorizing a Custom Zscaler Connector for Microsoft Applications
 
 - Source: https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > SaaS Security > SaaS Application Tenants > Authorizing a Custom Zscaler Connector for Microsoft Applications
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on how to configure Microsoft applications to use a custom Zscaler connector.
 
 The Zscaler service supports custom, client-side connector onboarding for access to the following Microsoft applications: Exchange, Microsoft Information Protection (MIP) Labels, OneDrive, SharePoint, Microsoft Azure Blob Storage, Teams, Dynamics 365, Copilot, and Microsoft 365. With this functionality, instead of requiring full administrator credentials, the Zscaler service can use a minimum set of credentials to access your Microsoft applications.
@@ -4299,8 +4371,8 @@ The benefits and limitations of using PAC files to forward traffic to one or mor
 ## Best Practices for Writing PAC Files
 
 - Source: https://help.zscaler.com/zia/best-practices-writing-pac-files
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Best Practices for Writing PAC Files
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > PAC Files > Using PAC Files > Best Practices for Writing PAC Files
 - Last modified: 2026-09-29T04:07Z
 - Summary: Best practices for writing PAC files for Internet & SaaS (ZIA).
 
@@ -4697,8 +4769,8 @@ Although they both provide the full benefits of the Zscaler cloud, there are sti
 ## Choosing the CA Certificate for SSL/TLS Inspection
 
 - Source: https://help.zscaler.com/zia/choosing-ca-certificate-ssltls-inspection
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SSL/TLS Inspection > Choosing the CA Certificate for SSL/TLS Inspection
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Choosing the CA Certificate for SSL/TLS Inspection
 - Last modified: 2026-09-25T04:53Z
 - Summary: Information on the various CA certificate options that are available and how to choose a suitable CA certificate from the Zscaler Admin Console.
 
@@ -5104,61 +5176,59 @@ To classify an app:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-10-08T21:06Z","nid":"1450976"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-dlp-engines","lastmod":"2026-11-12T01:29Z","nid":"1450976"} -->
 ## Cloning DLP Engines
 
 - Source: https://help.zscaler.com/zia/cloning-dlp-engines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning DLP Engines
-- Last modified: 2026-10-08T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning DLP Engines
+- Last modified: 2026-11-12T01:29Z
 - Summary: How to add clone predefined and custom Data Loss Prevention (DLP) engines in the Zscaler Admin Console.
 
 You can duplicate a predefined or custom Data Loss Prevention (DLP) engine if you need to easily copy the functionality of an existing engine for a different use.
 
 To duplicate an existing DLP engine:
 
-1. Go to **Data Security**> **Common Resources**>**Dictionaries & Engines**and go to the **DLP Engines**tab.
-2. In the **DLP Engines**tab, click the **Clone**icon for the DLP engine. The **Clone DLP Engine** window appears.
-3. In the **Clone DLP Engine** window, specify a name for the new engine.
-4. For **Channels**, select the channels to which the engine applies. Excluding a channel can reduce the extra noise that comes from engines being used unnecessarily.
-5. For **Engine Builder**, add operators and DLP dictionaries to [build an expression](https://help.zscaler.com/zia/understanding-dlp-engines#building-expressions). You can see your expression in the **Expression Preview**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **Dictionaries & Engines**.
+2. Select the **DLP Engines** tab.
+3. On the **DLP Engines** tab, click the **Duplicate**icon for the predefined DLP engine. The **Clone DLP Engine** page appears:
+4. On the **Clone DLP Engine** page, you can configure the **DLP Engine** general details and the **Engine Builder** details:
+  - General Details
+  - Engine Builder Details
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-Under **Expression**:
+For the **Engine Builder**, under the **Expression**section, add operators and DLP dictionaries to [build an expression](https://help.zscaler.com/zia/understanding-dlp-engines#building-expressions). You can see your expression in the **Expression Preview**:
 
-1. Select an operator to build your expression. The operators include **All** (`AND`), **Any** (`OR`), **Exclude**(`AND NOT`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
+1. Select an operator to build your expression. The operators include **All** (`AND`), **Any** (`OR`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine. See image. For the root expression, only **All** (`AND`), **Any**(`OR`), and **Sum** operators are allowed.
+2. Select a dictionary from the drop-down menu, then specify a [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count) as needed. If you use a parent dictionary to configure the engine, you have the option to select a subdictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for subdictionaries), then you must select a subdictionary from the drop-down menu. See image. When you use parent and subdictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and subdictionaries can match independently of one another). To learn more about configuring parent and subdictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
+3. Click **Add** to add a **Dictionary** or a **Subexpression**. Click the **Delete** icon to delete dictionaries or subexpressions.
+  - If you use the **Sum** operator, select two or more predefined or custom DLP dictionaries. You must set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000.
+  - If you use **All**, **Any**, or **Exclude** operators, you must select a predefined or custom DLP dictionary. Certain dictionaries require you to set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000. See image.
+  - If you click **Subexpression**, you must select an operator. The operators include **All** (`AND`), **Any** (`OR`), **Exclude**(`AND NOT`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the subexpression. You can use the **Sum** operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the **Sum** operator. See image.
+4. Continue adding dictionaries and operators to the expression as needed. At each level, you can create up to 4 subexpressions, use up to 4 operators, and add up to 16 dictionaries per operator.
 
-For the root expression, only the **All** (`AND`), **Any**(`OR`), and **Sum** operators are allowed.
+1. **Name:**Enter a namefor the custom DLP engine.
+2. **Channels**: Select the channels to which the engine applies. Excluding a channel can reduce the extra noise that comes from engines being used unnecessarily. For creating a DLP engine, channel selection is mandatory.
+3. **Description**:Enter any additional notes or information. The description cannot exceed 255 characters.
 
-1. Click **Add** to add a **Dictionary** or a **Subexpression**. Click the **Remove** icon () to delete dictionaries or subexpressions.
+[Image: The DLP Engine Expression Builder Using a Parent dictionary and Sub dictionary]
 
-- If you use the **Sum** operator, select two or more predefined or custom DLP dictionaries. You must set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000.
-- If you use the **All**, **Any**, or **Exclude** operators, you must select a predefined or custom DLP dictionary. Certain dictionaries require you to set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000. See image.
-- If you click **Subexpression**, you must select an operator. The operators include **All** (`AND`), **Any** (`OR`), **Exclude**(`AND NOT`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the subexpression.
+[Image: Operators for DLP Engine Expression]
 
-You can use the **Sum** operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the **Sum** operator.
+[Image: The Match Count for DLP Dictionaries in the DLP Engine]
 
-See image.
-
-1. Continue adding dictionaries and operators to the expression as needed. At each level, you can create up to 4 subexpressions, use up to 4 operators, and add up to 16 dictionaries per operator.
-2. (Optional) For **Description**,enter any additional notes or information. The description cannot exceed 255 characters.
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-[Image: Clone a DLP Engine]
-
-[Image: The Match Count for DLP Dictionaries in the Engine]
-
-[Image: Operators for the DLP Engine Expression]
+[Image: Operators for the DLP Engine Subexpression]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-10-08T12:06Z","nid":"1450991"} -->
+<!-- ZS-ARTICLE {"url":"/zia/cloning-predefined-dlp-dictionaries","lastmod":"2026-11-12T01:24Z","nid":"1450991"} -->
 ## Cloning Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/cloning-predefined-dlp-dictionaries
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning Predefined DLP Dictionaries
-- Last modified: 2026-10-08T12:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Cloning Predefined DLP Dictionaries
+- Last modified: 2026-11-12T01:24Z
 - Summary: How to clone predefined Data Loss Prevention (DLP) in the Zscaler Admin Console.
 
 Cloning a predefined Data Loss Prevention (DLP) dictionary allows you to easily leverage existing dictionaries and sub-dictionaries for a different purpose when [configuring DLP policy rules](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection). You can use clones of the same dictionary with different Confidence Score Thresholds, as well as with different dictionary-specific parameters. For example, suppose you want to use one dictionary to look more aggressively for Bank Identification Numbers (BINs), and another dictionary to look less aggressively for other credit card data. In that scenario, you can clone the predefined Credit Card dictionary, and then add BINs to the clone, with a Confidence Score Threshold of Medium. In the existing predefined Credit Card dictionary, you can leave out BINs and set the Confidence Score Threshold to High.
@@ -5168,18 +5238,19 @@ The Zscaler service supports cloning identification-based predefined dictionarie
 To clone a predefined DLP dictionary:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
-2. On the **DLP Dictionaries** tab, locate the predefined dictionary and click the **Clone**icon. The **Clone DLP Dictionary** window appears. See image.
-3. In the **Clone DLP Dictionary** window:
+2. Select the **DLP Dictionaries** tab.
+3. On the **DLP Dictionaries** tab, locate the predefined dictionary and click the **Duplicate**icon. The **Clone DLP Dictionary** page appears. See image.
+4. On the **Clone DLP Dictionary** page:
   - **Name**: Enter a name for the cloned dictionary.
   - **Confidence Score Threshold**: Choose a value of **Low**, **Medium**, or **High**. To learn about configuring the Confidence Score Threshold for a specific dictionary, see [Understanding Predefined DLP Dictionaires](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
   - **Proximity Length**: This field appears only when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. The proximity length defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern). For example, you configure a proximity length of 50 bytes for the Credit Cards dictionary. With this dictionary, the DLP policy detects a document containing the phrase “Amex” within 30 bytes right of a credit card number and counts this transaction as a match.
   - **High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. This field displays all of Zscaler’s default high confidence phrases that the dictionary matches when scanning content.
   - **Custom High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. Enter up to 256 custom phrases you want the dictionary to match in addition to its default phrases when scanning content. You must enter phrases one at a time (i.e., one phrase per line).
     - General Guidelines for Phrases
-  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific BINs , then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
+  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific BINs, then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
   - **Social Security Numbers**: This field appears only for the predefined Social Security Numbers (US) dictionary or its clones. Specify whether to include or exclude specific Social Security numbers, then enter up to 512 values. You must enter numbers one at a time (i.e., one number per line). See image.
-  - (Optional) For **Description**, enter any additional notes or information. The description cannot exceed 255 characters.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
+  - **Description**: (Optional) Enter any additional notes or information. The description cannot exceed 255 characters.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-portal).
 
 Any combination of cloned, predefined, and custom dictionaries can be added to a DLP engine, which is what you must reference when creating DLP policies. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary) and [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
 
@@ -5187,7 +5258,7 @@ Any combination of cloned, predefined, and custom dictionaries can be added to a
 
 [Image: The Social Security Numbers section in the Clone DLP Dictionary window]
 
-[Image: Creating a clone of a predefined Data Loss Prevention (DLP) dictionary]
+[Image: Using the Duplicate icon to clone a predefined DLP dictionary on the DLP Dictionaries tab]
 
 - Each phrase can contain a minimum of 3 bytes and a maximum of 128 bytes.
 - Dictionary phrase-matching is not case-sensitive and ignores punctuation.
@@ -5817,13 +5888,13 @@ Zscaler's DLP inspection and prompt capture capabilities are currently limited t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-11-08T06:06Z","nid":"1399146"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-settings","lastmod":"2026-11-15T06:06Z","nid":"1399146"} -->
 ## Configuring Advanced Settings
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-settings
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Configuring Advanced Settings
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on how to configure the Advanced Settings page in the Zscaler Admin Console.
 
 On the Advanced Settings page in the Zscaler Admin Console, you can configure settings for a variety of Zscaler service features.
@@ -6064,13 +6135,13 @@ The transactions are, however, made distinct using the **Configuration** column 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-11-04T09:49Z","nid":"1398741"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-advanced-threat-protection-policy","lastmod":"2026-11-13T18:31Z","nid":"1398741"} -->
 ## Configuring the Advanced Threat Protection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Advanced Threat Protection > Configuring the Advanced Threat Protection Policy
-- Last modified: 2026-11-04T09:49Z
+- Last modified: 2026-11-13T18:31Z
 - Summary: How to configure the Advanced Threat Protection policy, which protects traffic from fraud, unauthorized communication, and malicious objects and scripts.
 
 Hackers routinely embed malicious scripts and applications not only on their own websites but on legitimate websites that they have hacked, as well. To ensure your organization's web security, the Zscaler service can identify a variety of these objects and scripts and prevent them from downloading to the end user's browser. Zscaler does this by using a combination of methods to detect various phishing techniques, including signature-based and AI/ML models, and offers protection against URL-based phishing techniques, such as typosquatting, punycode, character substitution, domain hijacking, and many more. Zscaler also offers the Advanced Threats Protection policy which protects your traffic from fraud, unauthorized communication, and other malicious objects and scripts.
@@ -6184,13 +6255,13 @@ Google Hangouts has been deprecated by Google and replaced by Google Chat. To lo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-10-29T11:54Z","nid":"1403286"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-alert-rule","lastmod":"2026-11-12T20:06Z","nid":"1403286"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zia/configuring-alert-rule
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > Configuring an Alert Rule
-- Last modified: 2026-10-29T11:54Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Security & UEBA Alerts > Configuring an Alert Rule
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to configure and edit an alert rule for different event types under Security & UEBA Alerts in the Zscaler Admin Console.
 
 You can configure alert rules to get high-level statistics of each event type and threat severity. You can view, manage, create, and adjust the alert rules based on your organization's traffic. To learn more, see [About Security Alerts](https://help.zscaler.com/zia/about-security-alerts).
@@ -6529,8 +6600,8 @@ To add a custom bandwidth class:
 ## Configuring the Bandwidth Control Policy
 
 - Source: https://help.zscaler.com/zia/configuring-bandwidth-control-policy
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Bandwidth Control & Classes > Configuring the Bandwidth Control Policy
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Bandwidth Control & Classes > Configuring the Bandwidth Control Policy
 - Last modified: 2026-10-08T07:07Z
 - Summary: How to configure the bandwidth control policy for a location in the Zscaler Admin Console.
 
@@ -7208,8 +7279,8 @@ alert [protocol] any any -> any any
 ## Configuring Custom Ports
 
 - Source: https://help.zscaler.com/zia/configuring-custom-ports
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Configuring Custom Ports
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Configuring Custom Ports
 - Last modified: 2026-10-01T01:36Z
 - Summary: How to configure Internet & SaaS (ZIA) to use custom ports for specific types of traffic.
 
@@ -8154,8 +8225,8 @@ The **Add Malware Detection Rule**drawer appears.
 ## Configuring the Data at Rest Scanning Malware Detection Policy Exceptions
 
 - Source: https://help.zscaler.com/zia/configuring-data-rest-scanning-malware-detection-policy-exceptions
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning Malware Detection Policy Exceptions
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Data at Rest Scanning Policies > Configuring the Data at Rest Scanning Malware Detection Policy Exceptions
 - Last modified: 2026-09-30T06:08Z
 - Summary: How to configure Zscaler SaaS Security API Malware Detection policy exceptions.
 
@@ -8307,8 +8378,8 @@ After you configure the proxy ports on the Zscaler Admin Console, edit the [PAC 
 ## Configuring the Default Authentication Profile
 
 - Source: https://help.zscaler.com/zia/configuring-default-authentication-profile
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Configuring the Default Authentication Profile
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Configuring the Default Authentication Profile
 - Last modified: 2026-10-26T12:35Z
 - Summary: Information about configuring the default authentication profile settings in the Zscaler Admin Console.
 
@@ -8527,8 +8598,8 @@ To learn more, see [URL Format Guidelines](https://help.zscaler.com/zia/url-form
 ## Configuring Disaster Recovery for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/configuring-disaster-recovery-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Configuring Disaster Recovery for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Configuring Disaster Recovery for Internet & SaaS
 - Last modified: 2026-05-20T09:46Z
 - Summary: Information on Disaster Recovery for Internet & SaaS (ZIA) and the process to enable it in the Zscaler Admin Console.
 
@@ -8733,18 +8804,18 @@ To inspect HTTP GET Query Parameters for sensitive data:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws","lastmod":"2026-09-30T11:46Z","nid":"1542619"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws","lastmod":"2026-11-13T11:30Z","nid":"1542619"} -->
 ## Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-aws
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS
-- Last modified: 2026-09-30T11:46Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for AWS
+- Last modified: 2026-11-13T11:30Z
 - Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding for Amazon Web Services.
 
 Zscaler Cloud-to-Cloud Incident Forwarding allows you to send evidence data and metadata from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
 
-Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Azure account to onboard both tenants. To use the same Azure account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
+Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same AWS account to onboard both tenants. To use the same AWS account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
 
 To configure Cloud-to-Cloud Incident Forwarding onboarding, you must first configure storage accounts on your cloud provider and onboard your public cloud account:
 
@@ -8868,18 +8939,18 @@ If you are configuring with Workflow Automation, two different buckets were crea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-0","lastmod":"2026-09-30T11:46Z","nid":"1546218"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-cloud-cloud-incident-forwarding-for-google-cloud","lastmod":"2026-11-13T12:42Z","nid":"1546218"} -->
 ## Configuring DLP Cloud-to-Cloud Incident Forwarding for Google Cloud
 
-- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-google-cloud-0
+- Source: https://help.zscaler.com/zia/configuring-dlp-cloud-cloud-incident-forwarding-for-google-cloud
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Incident Receiver > Cloud to Cloud Incident Forwarding > Configuring DLP Cloud-to-Cloud Incident Forwarding for Google Cloud
-- Last modified: 2026-09-30T11:46Z
+- Last modified: 2026-11-13T12:42Z
 - Summary: Information on how to configure cloud storage to set up for Cloud-to-Cloud Incident Forwarding for Google Cloud.
 
 Zscaler Cloud-to-Cloud Incident Forwarding allows you to send evidence data and metadata from Data Loss Prevention (DLP) violations directly to your public cloud storage without deploying appliances.
 
-Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Azure account to onboard both tenants. To use the same Azure account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
+Cloud-to-Cloud Incident Forwarding does not support using the same public cloud account to onboard multiple tenants that are hosted on the same Zscaler cloud. For example, suppose your pre-production and production tenants are hosted on the same Zscaler cloud. In that case, you cannot use the same Google account to onboard both tenants. To use the same Google account, you must ensure that each tenant is hosted on a separate Zscaler cloud.
 
 To configure Cloud-to-Cloud Incident Forwarding onboarding, you must first configure storage accounts on your cloud provider and onboard your public cloud account:
 
@@ -9781,13 +9852,13 @@ The attached content triggered an Endpoint DLP rule for your organization.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-11-08T06:06Z","nid":"1400121"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-content-inspection","lastmod":"2026-11-15T06:06Z","nid":"1400121"} -->
 ## Configuring DLP Policy Rules with Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Content Inspection
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Zscaler DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -9956,13 +10027,13 @@ If you enabled the policy for unauthenticated users under[Advanced Settings](htt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-11-08T06:06Z","nid":"1471836"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled","lastmod":"2026-11-15T06:06Z","nid":"1471836"} -->
 ## Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using Evaluate All Rules mode.
 
 This article applies only to organizations with Evaluate All Rules mode enabled. To access this feature, contact your Zscaler Account team.
@@ -10463,13 +10534,13 @@ Otherwise, the information that Zscaler sends to your solution regarding a parti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-11-08T06:06Z","nid":"1400126"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-dlp-policy-rules-without-content-inspection","lastmod":"2026-11-15T06:06Z","nid":"1400126"} -->
 ## Configuring DLP Policy Rules without Content Inspection
 
 - Source: https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Data Loss Prevention > Configuring DLP Policy Rules without Content Inspection
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to configure a Data Loss Prevention (DLP) policy for the Zscaler service using external DLP engines.
 
 This article does not apply to organizations with Evaluate All Rules mode enabled. To learn more, see [Configuring DLP Policy Rules with Evaluate All Rules Mode Enabled](https://help.zscaler.com/zia/configuring-dlp-policy-rules-evaluate-all-rules-mode-enabled).
@@ -10643,8 +10714,8 @@ If you've enabled the policy for unauthenticated users under[Advanced Settings](
 ## Configuring DNS Application Groups
 
 - Source: https://help.zscaler.com/zia/configuring-dns-application-groups
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Configuring DNS Application Groups
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > Configuring DNS Application Groups
 - Last modified: 2026-10-05T21:06Z
 - Summary: How to create DNS application groups that allow grouping together DNS tunnel types and specific web applications for use in DNS policy rules.
 
@@ -11029,8 +11100,8 @@ To edit or delete a dynamic location group:
 ## Configuring End User Review
 
 - Source: https://help.zscaler.com/zia/configuring-end-user-review
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Configuring End User Review
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Using 3rd-Party App Governance > Configuring End User Review
 - Last modified: 2024-09-20T05:35Z
 - Summary: How to configure End User Review in 3rd-Party App Governance.
 
@@ -11410,13 +11481,13 @@ You can exclude the specified applications and entities from being intercepted b
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-dlp-policy-rules","lastmod":"2026-11-04T11:39Z","nid":"1463231"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-endpoint-dlp-policy-rules","lastmod":"2026-11-09T09:59Z","nid":"1463231"} -->
 ## Configuring Endpoint DLP Policy Rules
 
 - Source: https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Configuring Endpoint DLP Policy Rules
-- Last modified: 2026-11-04T11:39Z
+- Last modified: 2026-11-09T09:59Z
 - Summary: How to configure an Endpoint Data Loss Prevention (DLP) policy using Endpoint Data Loss Prevention (DLP) to prevent data loss on endpoints.
 
 You can use Zscaler Endpoint Data Loss Prevention (DLP) to detect data, allow or block activities, require end users to confirm activities, protect files saved to removable storage devices, and notify your organization's auditor when a user's activity on an endpoint triggers an Endpoint DLP rule. If your organization uses a Zscaler Incident Receiver, the service can forward information about end user activities that trigger a DLP policy to your Incident Receiver via secure Internet Content Adaptation Protocol (ICAP). However, Zscaler does not take ICAP responses from your Incident Receiver; instead, the service only monitors or blocks content according to the policy you configure, then forwards information about activities so that your organization can take necessary remediation steps.
@@ -11586,7 +11657,7 @@ In the **What is being accessed**section:
 - **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
 - **DLP Engines**: Select a DLP Engine from the drop-down menu.
 - **File Type**: From the drop-down menu, choose the file types for the rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create Endpoint DLP policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also search for file types. The **File Type** option is supported only when using Microsoft Office applications or Adobe Reader on Windows endpoints.
-- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
+- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies, up to 500,000 KB. The default minimum data size, 0 KB, means there is no minimum data size requirement.
 
 [Image: Selecting values for fields with predefined values in an Endpoint DLP rule]
 
@@ -11750,7 +11821,7 @@ In the **What is being accessed**section:
 - **Content Matching**: Choose **Select DLP Engines** to select up to 4 engines. You can also search for DLP engines. If you select **None**, then the Zscaler service doesn't use DLP engines to scan the content; instead, the service functions as a filter, only flagging content based on the criteria you specify.
 - **DLP Engines**: Select a DLP Engine from the drop-down menu.
 - **File Type**: From the drop-down menu, choose the file types for the rule. The list of available file types changes based on whether you're using DLP engines for content inspection. You can create Endpoint DLP policy rules that apply only to content being sent via specific file types. Zscaler DLP engines can scan files of up to 100 MB. For an archived file, the size of individual files when decompressed can also be a maximum of 100 MB. You can also search for file types. The **File Type** option is supported only when using Microsoft Office applications or Adobe Reader on Windows endpoints.
-- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies. The default minimum data size, 0 KB, means there is no minimum data size requirement.
+- **Minimum Data Size (KB)**: Enter the minimum size requirement that data must meet before the DLP rule applies, up to 500,000 KB. The default minimum data size, 0 KB, means there is no minimum data size requirement.
 
 [Image: Selecting values for fields with predefined values in an Endpoint DLP rule]
 
@@ -11816,8 +11887,8 @@ After customizing the notification message, you must enable the EUN for a [Cloud
 ## Configuring EUNs for DNS Control
 
 - Source: https://help.zscaler.com/zia/configuring-euns-dns-control
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for DNS Control
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for DNS Control
 - Last modified: 2026-09-15T12:38Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the DNS Control policy in the Zscaler Admin Console.
 
@@ -11863,8 +11934,8 @@ After customizing the notification message, you must enable the EUN for a [DNS C
 ## Configuring EUNs for Endpoint DLP
 
 - Source: https://help.zscaler.com/zia/configuring-euns-endpoint-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
 - Last modified: 2026-09-21T21:39Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Endpoint DLP policy in the Zscaler Admin Console.
 
@@ -11971,8 +12042,8 @@ After customizing the notification message, you must enable the EUN for an [Endp
 ## Configuring EUNs for Firewall Filtering
 
 - Source: https://help.zscaler.com/zia/configuring-euns-firewall-filtering
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Firewall Filtering
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Firewall Filtering
 - Last modified: 2026-09-15T12:37Z
 - Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the Firewall Filtering policy in the Zscaler Admin Console.
 
@@ -12008,48 +12079,4 @@ You can edit custom notification messages, but the **Channel** field cannot be m
 After customizing the notification message, you must enable the EUN for a [Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
 
 [Image: Add custom message for Firewall channel of Zscaler Client Connector EUN]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-inline-web-dlp","lastmod":"2026-09-15T12:33Z","nid":"1486486"} -->
-## Configuring EUNs for Inline Web DLP
-
-- Source: https://help.zscaler.com/zia/configuring-euns-inline-web-dlp
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Inline Web DLP
-- Last modified: 2026-09-15T12:33Z
-- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by inline web DLP policy in the Zscaler Admin Console.
-
-You can customize the Zscaler Client Connector-based notifications that are displayed to end users when an [Inline Web DLP policy](https://help.zscaler.com/zia/about-data-loss-prevention) is triggered by their activity. For example, when Zscaler service blocks a user from posting personally identifiable information (PII) on third-party websites, you can display a notification explaining the policy violation. In another scenario, you might allow a user to upload a file containing sensitive corporate information to personal storage, but display a notification warning about the associated risks and indicating that the activity is monitored. The end user notification (EUN) is supported for DLP rules [with content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection) (i.e., use Zscaler DLP engines) and [without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection) (i.e., rely only on specific criteria to filter data).
-
-The EUNs are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on user' endpoints. The Zscaler service provides a default notification for the Inline Web DLP policy. You can also create custom messages and associate distinct notifications with individual DLP rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
-
-To create a custom notification message:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
-2. Select the **Client Connector** tab.
-3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
-4. In the **Add Custom Message** drawer: See image.
-  1. Under **General**:
-    - **Name**: Enter a unique name for the custom message.
-    - **Channel**: Select **Inline Web**.
-  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions.
-    - **Allow**: Customize the notification message that appears when an end user's activity triggers a DLP rule, but the service allows and logs the activity.
-    - **Block**: Customize the notification message that appears when an end user's activity triggers a DLP rule and the service blocks the activity.
-  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
-    - **File Name**: Include the name of the file that triggered the rule.
-    - **Destination**: Include the destination IP address or domain name that triggered the rule.
-    - **Rule Name**: Include the name of the triggered rule.
-    - **URL Category**: Include the URL category that triggered the rule.
-    - **URL**: Include the URL that triggered the rule.
-    - **DLP Engines**: Include the DLP engines that triggered the rule.
-  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can edit custom notification messages, but the **Channel** field cannot be modified.
-
-After customizing the notification message, you must enable the EUN for a DLP rule and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
-
-[[Image: Custom Zscaler Client Connector EUN message configuration for Inline Web DLP policy]](https://help.zscaler.com/downloads/zia/authentication-administration/end-user-notifications-euns/zscaler-client-connector-euns/configuring-euns-inline-web-dlp/inline-web-dlp-custom-eun_0.png)
 <!-- /ZS-ARTICLE -->

@@ -1,18 +1,96 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 65
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 67
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows","lastmod":"2026-10-26T14:04Z","nid":"1532587"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-ios","lastmod":"2026-11-13T17:33Z","nid":"1532151"} -->
+## Supported Parameters for Zscaler Client Connector for iOS
+
+- Source: https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-ios
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Downloading & Deployment > Zscaler Configuration Parameters for Deployment Guides > Supported Parameters for Zscaler Client Connector for iOS
+- Last modified: 2026-11-13T17:33Z
+- Summary: Configurable Zscaler parameters list for Mobile Device Management (MDM) systems when deploying Zscaler Client Connector for iOS.
+
+This table lists the available parameters for devices running Zscaler Client Connector for iOS. You can preconfigure these parameters when deploying Zscaler Client Connector from a mobile device management (MDM) system.
+
+To learn more, see:
+
+- [Deploying Zscaler Client Connector with Microsoft Intune for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-app-microsoft-intune-ios)
+- [Deploying Zscaler Client Connector with Jamf Pro for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-ios)
+- [Deploying Zscaler Client Connector with Workspace ONE UEM for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-app-workspace-one-uem-ios)
+- [Deploying Zscaler Client Connector with MobileIron for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-mobileiron-ios)
+- [Deploying Zscaler Client Connector with MaaS360 for iOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-app-maas360-ios)
+
+| Parameter | Description | Value | Notes |
+| --- | --- | --- | --- |
+| userDomain | Your organization's domain name. If your instance has multiple domains associated with it, enter the primary domain for your instance. The primary domain is only valid if you are using a single identity provider (IdP) with multiple domains. The primary domain won’t work if you have multiple domains across multiple IdPs. | Example: `safemarch.com` Specify the exact domain that is present in the SAML NameID field. For example, if your user’s NameID is john.doe@corp.company.com, then enter `corp.company.com`. | This install option allows users to skip the app enrollment page. If SSO is enabled for your organization, users are taken directly to your organization's SSO login page. |
+| cloudname | The name of the cloud on which your organization is provisioned. If your organization is provisioned on more than one cloud, your users are asked to select the cloud where their traffic is sent during the enrollment process. With this install option, you can specify the cloud where the app sends user traffic, so your users don't have to make the selection during enrollment. | If your cloud name is zscalertwo.net, enter `zscalertwo`. | Do not use this option if your organization is provisioned on one cloud. The app automatically sends traffic to the proper cloud and your users don't need to make a selection during enrollment. This option is required if you use the strictEnforcement option. |
+| strictEnforcement | Allows you to require users to enroll with the app before accessing the internet and blocks traffic in the following situations: The user has not yet logged in after a new installation.; A user logs in and logs out.; An administrator removes a device from the Zscaler Admin Console. | `1` = Enable `0` = Disable (default) | If you enable Strict Enforcement, you must use the policyToken configuration key. Excluded URLs must also be defined in a device configuration policy or excludeList in an app configuration policy. |
+| excludeList | Allows you to exclude domains and IP addresses that should never be tunneled by Zscaler Client Connector with or without strictEnforcement. If you are using strictEnforcement, enter your MDM server or anything else the user should have access to before enrollment. | Enter a value, for example, `apple.com`, `airwatch.com`. | If you use the Private Access service, you must enter `authsp.prod.zpath.net`. For a list of additional requirements, refer to your MDM's requirements for this parameter. For a list of Apple's recommendations for destinations that should be excluded, refer to the [Apple documentation](https://support.apple.com/en-us/101555). |
+| newBindFlow | Enables multithreaded implementation of Zscaler Client Connector microservices binding with Zscaler Client Connector virtual interface. | `1` = Enable (default) `0` = Disable | Applicable to per-app VPN deployments only. |
+| deviceToken | The appropriate device token from the Zscaler Admin Console if you want to use the [Zscaler Admin Console as an IdP](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider). The Zscaler service silently provisions and authenticates users even if you don't have an authentication mechanism in place. | Example: `123456677754` | This option applies only to Internet & SaaS. It is not supported by Private Access unless you also use Authentication Service. Before adding this option, you must generate a device token in the Zscaler Admin Console and complete the full configuration in [Using Zscaler Client Connector Portal as an IdP](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider). |
+| policyToken | Allows you to specify which app profile policy you want to enforce for the app before the user enrolls. All relevant settings associated with the policy apply, including the bypass of the IdP login page. After the user enrolls, this policy is replaced with an app profile policy that matches the user based on group affiliation. | Example: 393837313A313A64666131313635652D376536372D343032312D393232362D363264393931666135762960 | Applies only, and is required if you use the strictEnforcement option. In the Zscaler Admin Console, you must configure the app profile policy that you want to enforce and ensure that the custom PAC file associated with that policy includes a bypass for your IdP login page. This allows the user to access the IdP page to log in as necessary before enrolling with the app. |
+| username | The username of the user. You can also use an MDM macro to auto-populate this value. Refer to your MDM's documentation for available macros. | A maximum of 255 alphanumeric and special characters. For example, if the username is j.doe@zscaler.com, enter `j.doe` | If you use this option, the userDomain option must not be empty. |
+| authByTunnel | The auto-enrollment settings for users if you want to use the [Zscaler Admin Console as an IdP](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-portal-identity-provider) for authentication. | `1`= Users will always auto-enroll even if they are logged out manually or forcefully removed from the Zscaler Admin Console `2`= One-time auto-enrollment `0`= Disable auto-enrollment | This option applies only to Internet & SaaS. If Private Access is enabled, users would log in manually with their user credentials. |
+| ownership | If you use the Ownership Variable device posture type, add the key `ownership`. You can enter up to 32 alphanumeric characters in the **Configuration value**field. To learn more, see [Configuring Device Posture Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-device-posture-profiles). | Example: `acmecorp` | The ownership variable must be configured and pushed exclusively through the managed app configuration using your MDM solution and should not be included in the VPN profile. |
+| SkipInterfaceInstallation | When enabled, only shows VPN icon in iOS when user is logged into Zscaler Client Connector. | `1` = Enable `0` = Disable (default) | Requires Tunnel SDK version 3.7 and later. |
+| DropNonRoutingTraffic | Drops traffic without routes. | `1` = Enable `0` = Disable (default) |  |
+| PAVConnectionSynced | Delays Per-app VPN connection until Zscaler Client Connector is connected. | `1` = Enable `0` = Disable (default) | Applicable to per-app VPN deployments only. |
+| externalDeviceId | The identifier that associates devices in an MDM solution with devices in the Zscaler Admin Console. You can use an MDM macro to auto-populate this value. Refer to your MDM's documentation for available macros. | `0` = Disable (default) Enter a custom value to identify the device (e.g., `123456677754`). |  |
+| enableFips | Indicates whether Zscaler Client Connector uses FIPS-compliant libraries for communication with the Zscaler infrastructure. | `1` = Enable `0`= Disable (default) | Enable this option only if you require FIPS-level security within your organization. |
+| MatchDomainsNoSearch | When enabled, Private Access match domains are not appended as search domains on the device. | `1` = Enable `0`= Disable | For Zscaler Client Connector version 5.0 and later for iOS, the default is 1 (Enabled). |
+| disableCaptivePortalNotification | When enabled, Zscaler Client Connector suppresses notifications when it detects a captive portal. | `1` = Enable `0`= Disable (default) |  |
+| SystemDNSEnabled | Zscaler Client Connector uses this parameter to resolve DNS queries which aren't forwarded to the Zscaler cloud. If Zscaler Client Connector fails to resolve the DNS using the system DNS domain, it falls back to Google DNS. | `1` = Enable `2` = Disable (default) |  |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-macos","lastmod":"2026-11-09T14:32Z","nid":"1532589"} -->
+## Supported Parameters for Zscaler Client Connector for macOS
+
+- Source: https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-macos
+- Product: Client Connector
+- Path: Zscaler Client Connector Help > Downloading & Deployment > Zscaler Configuration Parameters for Deployment Guides > Supported Parameters for Zscaler Client Connector for macOS
+- Last modified: 2026-11-09T14:32Z
+- Summary: Configurable Zscaler parameters list for Mobile Device Management (MDM) systems when deploying Zscaler Client Connector for macOS.
+
+This table lists the available parameters for devices running Zscaler Client Connector for macOS. You can preconfigure these parameters when deploying Zscaler Client Connector using a pkg installation process with property list (PLIST) configuration settings deployed from a mobile device management (MDM) solution.
+
+For Zscaler Client Connector version 5.0 and later for macOS, installation parameters configured in the PLIST file always override legacy configurations in the `config.ini` file.
+
+To learn more, see [Deploying Zscaler Client Connector with Microsoft Intune for macOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-microsoft-intune-macos) and [Deploying Zscaler Client Connector with Jamf Pro for macOS](https://help.zscaler.com/zscaler-client-connector/deploying-zscaler-client-connector-jamf-pro-macos).
+
+| Parameter | Description | Value | Notes |
+| --- | --- | --- | --- |
+| `userDomain` | Your organization's domain name. If your instance has multiple domains associated with it, enter the primary domain for your instance. The primary domain is only valid if you are using a single IdP with multiple domains. The primary domain won't work if you have multiple domains across multiple IdPs. | Example: `safemarch.com` Specify the exact domain that is present in the SAML NameID field. For example, if your user's NameID is john.doe@corp.company.com, then enter `corp.company.com`. | This install option allows users to skip the app enrollment page. If single sign-on (SSO) is enabled for your organization, users are taken directly to your organization's SSO login page. If you've integrated SSO with the app (i.e., using a mechanism like Microsoft Enterprise SSO plug-In), users can also skip the SSO login page and are automatically enrolled with the Zscaler service and logged in. |
+| `cloudName` | The name of the cloud on which your organization is provisioned. To learn more, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names). If your organization is provisioned on more than one cloud, your users are asked to select the cloud where their traffic is sent during the enrollment process. With this install option, you can specify the cloud where the app sends user traffic, so your users don't have to make the selection during enrollment. | If your cloud name is zscalertwo.net, enter `zscalertwo` or `zscalertwo.net` | Do not use this option if your organization is provisioned on one cloud. The app automatically sends traffic to the proper cloud and your users don't need to make a selection during enrollment. This option is required if you use the `strictEnforcement` option. |
+| `deviceToken` | The appropriate device token from the Zscaler Admin Console if you want to use the [Zscaler Admin Console as an Identity Provider](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider). The Zscaler service silently provisions and authenticates users even if you don't have an authentication mechanism in place. | Example: `123456677754` | This option applies only to Internet & SaaS. It is not supported by Private Access unless you also use Authentication Service. Before adding this option, you must generate a device token in the Zscaler Admin Console and complete the full configuration in [Using Zscaler Admin Console as an Identity Provider](https://help.zscaler.com/zscaler-client-connector/using-zscaler-admin-console-identity-provider). |
+| `userName` | The username of the user. You can also use an MDM macro to auto-populate this value. Refer to your MDM's documentation. | A maximum of 255 alphanumeric and special characters. For example, if the username is j.doe@zscaler.com, enter `j.doe` | If you use this option, the `userDomain` option must not be empty. |
+| `enableFips` | Indicates whether Zscaler Client Connector uses FIPS-compliant libraries for communication with the Zscaler infrastructure. | `1` = Enable `0` = Disable (default) | Enable this option only if you require FIPS-level security within your organization. |
+| `externalDeviceId` | The identifier that associates devices in an MDM solution with devices in the Zscaler Admin Console. You can use an MDM macro to auto-populate this value. Refer to your MDM's documentation. | `0` = Disable (default) Enter a custom value to identify the device (e.g., `123456677754`). | Not supported on Zscaler Client Connector version 4.1 and earlier for macOS. |
+| `hideAppUIOnLaunch` | Forces the app window to stay hidden before users enroll. Users can always open the window by clicking the app icon in the system tray. | `1` = Enable `0` = Disable (default) |  |
+| `policyToken` | Allows you to specify which app profile policy you want to enforce for the app before the user enrolls. All relevant settings associated with the policy apply, including the bypass of the IdP login page. After the user enrolls, this policy is replaced with an app profile policy that matches the user based on group affiliation. | Example: `123456677754` | Applies only, and is required, in the following situations: You use the `strictEnforcement` option.; You configure the machine tunnel and want the users to access Private Access applications before logging in to the device.In the Zscaler Admin Console, you must configure the app profile policy that you want to enforce and ensure that the custom PAC file associated with that policy includes a bypass for your IdP login page. This allows the user to access the IdP page to log in as necessary before enrolling with the app. |
+| `strictEnforcement` | Allows you to require users to enroll with the app before accessing the internet and blocks traffic in the following situations: The user has not yet logged in after a new install.; A user logs in and logs out.; An administrator removes a device. | `1` = Enable `0` = Disable (default) | If you enable this option, the following options are required: `cloudName`; `policyToken`This option only works when the forwarding profile action for Zscaler Client Connector is Tunnel or Tunnel with Local Proxy. This option does not affect users who remain logged in and disable the Internet & SaaS service. |
+| `launchTray` | By default, Zscaler Client Connector starts its services and user interface after installation. To change this, you can disable this install option to prevent Zscaler Client Connector from automatically starting after installation. If you disable the option, users must open Zscaler Client Connector manually to start the app, or Zscaler Client Connector automatically runs after the next reboot. | `1` = Enable `0` = Disable (default) |  |
+| `externalRedirect` | Redirects authentication to your organization's SAML IdP through the default browser and Safari. When redirected to the browser for the first time, your users must select Remember Me on their IdP log-in screen. For any subsequent authentications, the browser remembers the user and automatically logs them in. | `1` = Enable `0` = Disable (default) |  |
+| `bcpConfigFilePath` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a predownloaded configuration file with Business Continuity settings from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | The path to the downloaded bcp config file. This will be unique to every customer. | If you pass this install option, you must also pass the `bcpMAPublicKeyHash` option. This option is available only in Zscaler Client Connector version 4.7.0.64 and later for macOS. |
+| `bcpMAPublicKeyHash` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a public key provided by Private Access and copied from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | Specify the bcp thumbprint. For example, `sYzSOjdj9DP1Ksw3LQ/FrHsBPfcsURrM5vNuH7Kmf0A=`. | If you pass this install option, you must also pass the `bcpConfigFilePath` option. This option is available only in Zscaler Client Connector version 4.7.0.64 and later for macOS. |
+| `enableAntiTampering` | Prevents end users from [stopping, modifying, and deleting Zscaler products and services](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector). | `1` = Enable `0` = Disable (default) | You can override this option by enabling the [Override Anti-tampering Install Parameter](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#mac-adv) option in app profiles. |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows","lastmod":"2026-11-10T12:33Z","nid":"1532587"} -->
 ## Supported Parameters for Zscaler Client Connector for Windows
 
 - Source: https://help.zscaler.com/zscaler-client-connector/supported-parameters-zscaler-client-connector-windows
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Zscaler Configuration Parameters for Deployment Guides > Supported Parameters for Zscaler Client Connector for Windows
-- Last modified: 2026-10-26T14:04Z
+- Last modified: 2026-11-10T12:33Z
 - Summary: Configurable Zscaler parameters list for Mobile Device Management (MDM) systems when deploying Zscaler Client Connector for Windows.
 
 This table lists the available parameters for devices running Zscaler Client Connector for Windows. You can preconfigure these parameters when manually installing Zscaler Client Connector on a Windows device or deploying Zscaler Client Connector using GPO, SCCM, or other device management methods. The parameter names are different based on whether you are using an MSI file or an EXE file.
@@ -38,6 +116,7 @@ To learn more, see [Customizing Zscaler Client Connector with Install Options fo
 | MSI: `ENABLEIMPRIVATAINTEGRATION` EXE: `enableImprivataIntegration` | Enables [integration with Imprivata OneSign](https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-and-imprivata-integration). If enabled, Zscaler Client Connector silently logs in an Imprivata OneSign user to Zscaler Client Connector, applies security policies, and logs the end user activity in Zscaler Client Connector. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 4.4 and later for Windows. |
 | MSI: `BCPCONFIGFILEPATH` EXE: `bcpConfigFilePath` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a predownloaded configuration file with Business Continuity settings from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | `<path to downloaded bcp config file>` | If you pass this install option, you must also pass the `BCPMAPUBKEYHASH` or `bcpMAPublicKeyHash` option. This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
 | MSI: `BCPMAPUBKEYHASH` EXE: `bcpMAPublicKeyHash` | Allows you to install Zscaler Client Connector to enroll new users during a Private Access-related cloud outage or Internet Service Provider (ISP) outage. You can pass a public key provided by Private Access and copied from the Zscaler Admin Console. To learn more, see [About Business Continuity](https://help.zscaler.com/zscaler-client-connector/about-business-continuity). | `<bcp thumbprint>` Example: sYxSOjkj9DP1Ksw3LQ/FrPsBPfcsURrM5vNuH7Kmf1A= | If you pass this install option, you must also pass the `BCPCONFIGFILEPATH` or `bcpConfigFilePath` option. This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
+| MSI: `ENABLEBCPNETWORKFALLBACK` EXE: `enableBcpNetworkFallback` | Enables Business Continuity mode during enrollment if users experience a network or authentication issue (e.g., a connection timeout or an unreachable authentication service provider). Business Continuity is not enabled if the server is reachable (but can’t handle the request) or if authentication fails due to user errors such as invalid credentials. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 5.0 and later for Windows. |
 | MSI: `IMPORTSEFAILCLOSECONFIG` EXE: `importSEFailCloseConfig` | Allows you to pass a [predownloaded configuration file with fail-close settings](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#zcc-fail-close-settings) to use when Zscaler Client Connector is in strict enforcement mode. | `<path to downloaded fail close config file>` | If you pass this install option, you must also pass these options: `STRICTENFORCEMENT` or `strictEnforcement`; `SEFAILCLOSECONFIGTHUMBPRINT` or `failCloseConfigThumbprint`This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
 | MSI: `SEFAILCLOSECONFIGTHUMBPRINT` EXE: `failCloseConfigThumbprint` | Allows you to pass [the public key for a predownloaded configuration file with fail-close settings](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#zcc-fail-close-settings) to use when Zscaler Client Connector is in strict enforcement mode. | `<fail close thumbprint>` Example: `GjqjzPQ3Vk35+o3Yo2EsPOSV3rOJaeYTpcBmotISts=` | If you pass this install option, you must also pass these options: `STRICTENFORCEMENT` or `strictEnforcement`; `IMPORTSEFAILCLOSECONFIG` or `importSEFailCloseConfig`This option is available only in Zscaler Client Connector version 4.6 and later for Windows. |
 | MSI: Not supported EXE: `revertzcc` | Allows you to silently revert Zscaler Client Connector to the previous version. | `1` = Enable `0`= Disable (default) | If you pass this install option, you must use the installer path of the version before the upgrade. To learn more, see [Reverting Zscaler Client Connector to the Previous Version](https://help.zscaler.com/zscaler-client-connector/reverting-zscaler-client-connector#windows-revert). |
@@ -55,7 +134,7 @@ To learn more, see [Customizing Zscaler Client Connector with Install Options fo
 | MSI: `UPGRADEPASSWORDCMDLINE` EXE: `upgradePasswordCmdLine` | Allows you to silently [upgrade Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/upgrading-zscaler-client-connector). | The password you add for this option must match the [Upgrade Password configured for access in unattended mode](https://help.zscaler.com/zscaler-client-connector/configuring-passwords-access-unattended-mode). |  |
 | MSI: `ENABLECUSTOMPROXYDETECTION` EXE: `enableCustomProxyDetection` | Indicates how Zscaler Client Connector identifies the system proxy before the initial policy download. | `1` = Enable `0`= Disable (default) | If enabled, Zscaler Client Connector downloads the PAC and parses the proxy instead of using the default Microsoft APIs. After the initial policy download, Zscaler Client Connector uses the Detect External Proxy Using Custom Method from the[app profile](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles#pac-proxy) and returns to this setting after a user logs out. |
 | MSI: `LAUNCHTRAY` EXE: `launchTray` | By default, Zscaler Client Connector starts its services and user interface after installation. To change this, you can disable this install option to prevent Zscaler Client Connector from automatically starting after installation. If you disable the option, users must open Zscaler Client Connector manually to start the app, or Zscaler Client Connector automatically runs after the next reboot. | `1` = Enable (default) `0`= Disable |  |
-| MSI: `KIOSKMODE` EXE: `kioskMode` | By default, Zscaler Client Connector waits for a full-screen app (e.g., Windows Autopilot) to complete and for the Windows desktop to be visible before enrolling a new user. To change this, you can enable this option to allow Zscaler Client Connector to launch without waiting for the Windows desktop to display. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 4.10.0.463 and later. |
+| MSI: `ENABLEKIOSKMODE` EXE: `enableKioskMode` | By default, Zscaler Client Connector waits for a full-screen app (e.g., Windows Autopilot) to complete and for the Windows desktop to be visible before enrolling a new user. To change this, you can enable this option to allow Zscaler Client Connector to launch without waiting for the Windows desktop to display. | `1` = Enable `0`= Disable (default) | This option is available only in Zscaler Client Connector version 4.10.0.463 and later. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -114,13 +193,13 @@ The Zscaler Client Connector groups sync with the Internet & SaaS groups every t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui","lastmod":"2026-10-21T21:06Z","nid":"1364391"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui","lastmod":"2026-11-10T10:45Z","nid":"1364391"} -->
 ## Troubleshooting Zscaler Client Connector in the Classic UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-classic-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Troubleshooting Zscaler Client Connector in the Classic UI
-- Last modified: 2026-10-21T21:06Z
+- Last modified: 2026-11-10T10:45Z
 - Summary: Information on the Troubleshoot section features of Zscaler Client Connector in the Classic UI.
 
 This article provides information about the Classic UI version of the app available with Zscaler Client Connector versions earlier than 5.0. To learn more about the Modern UI version of the app available with Zscaler Client Connector version 5.0, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
@@ -140,10 +219,10 @@ The **Troubleshoot** section includes the following features on Windows devices:
 
 - **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. To modify the settings for Start Packet Capture, see [Enabling Packet Capture for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
 - **Report an Issue:**If your organization's admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
-- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization’s support admin.
+- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization's support admin.
 - **Restart Service:**Click to restart the app. Restarting does not impact security enforcement.
 - **Repair App:**If you select this option, the app attempts to repair itself by reinstalling app drivers and services. Zscaler recommends trying this option before reporting an issue.
-- **Revert App:** If your organization’s admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization’s policies, you might be required to enter a password.
+- **Revert App:** If your organization's admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization's policies, you might be required to enter a password.
 - **Disable Tamper Protection**: Click this option to disable anti-tampering protection. When prompted, provide the [Disable Anti-Tampering OTP](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). To learn more, see [Anti-Tampering for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector).
 - **Clear Logs:**Click this option to clear stored logs.
 - **Log Mode:**Change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode. To see where the logs are stored, click **Report an Issue** andthen click **Show/Hide logs**. To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
@@ -159,7 +238,7 @@ The **Troubleshoot** section includes the following features on macOS devices:
 - **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. For instructions on using this option, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
 - **Report an Issue**:If your organization's admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
 - **Restart Service**:Click to restart the app. Restarting does not impact security enforcement.
-- **Revert App:** If your organization’s admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization’s policies, you might be required to enter a password.
+- **Revert App:** If your organization's admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization's policies, you might be required to enter a password.
 - **Clear Logs**:Click this option to clear stored logs.
 - **Log Mode**:Change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**:Logs only when the app encounters an error and functionality is affected.
@@ -167,17 +246,19 @@ The **Troubleshoot** section includes the following features on macOS devices:
   - **Info**:Logs general app activity, or logs when conditions for the Warn log mode are met.
   - **Debug**: Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
 - **Run Zscaler Diagnostics**: Provides a one-time snapshot of the system's network state by performing various diagnostic tests. To run diagnostics using CLI, see [Interacting with Zscaler Client Connector Remotely](https://help.zscaler.com/zscaler-client-connector/interacting-zscaler-client-connector-remotely).
-- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization’s support admin.
+- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization's support admin.
+- **Disable Tamper Protection**: Click this option to disable anti-tampering protection. When prompted, provide the [Disable Anti-Tampering OTP](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). To learn more, see [Anti-Tampering for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector).
+- **Switch UI**: Click this option to view the Zscaler Client Connector app using the Modern UI used with Zscaler Client Connector versions 5.0 and later.
 
 The **Troubleshoot** section includes the following features on Android devices:
 
 [Image: Troubleshooting Options on Zscaler Client Connector for Android]
 
 - **Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. For instructions on using this option, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
-- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
 - **Restart Service**: Tap this option to restart the app. Restarting does not impact security enforcement. However, you can click **Restart Service** only once within a 30-second period.
 - **Clear Logs**: Tap this option to clear stored logs.
-- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization's support admin.
 - **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**: Logs only when the app encounters an error and functionality is affected.
   - **Warn**: Logs when the app is functioning but is encountering potential issues or when conditions for the Error log mode are met.
@@ -190,10 +271,10 @@ The **Troubleshoot** section includes the following features on Android on Chrom
 [Image: Troubleshooting Options on Zscaler Client Connector for Chrome OS]
 
 - **Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. For instructions on using this option, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
-- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
 - **Restart Service**: Tap this option to restart the app. Restarting does not impact security enforcement. However, you can click **Restart Service** only once within a 30-second period.
 - **Clear Logs**: Tap this option to clear stored logs.
-- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization's support admin.
 - **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**: Logs only when the app encounters an error and functionality is affected.
   - **Warn**: Logs when the app is functioning but is encountering potential issues or when conditions for the Error log mode are met.
@@ -205,9 +286,9 @@ The **Troubleshoot** section includes the following features on iOS devices:
 [Image: The Troubleshoot Option on Zscaler Client Connector for iOS]
 
 - **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. For instructions on using this option, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
-- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue. When you submit the form, depending on your organization's setup, Zscaler Client Connector can send an email to your organization's support admin or submit a ticket directly to Zscaler Support. Your support admin receives a copy of this ticket. After you submit the form, you receive an email acknowledging the support request. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
 - **Restart Service**: Tap this option to restart the app. Restarting does not impact security enforcement.
-- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization's support admin.
 - **Clear Logs**: Tap this option to clear stored logs.
 - **Log Level**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**: Logs only when the app encounters an error and functionality is affected.
@@ -220,7 +301,7 @@ The **Troubleshoot** section includes the following features on Linux devices:
 [Image: Zscaler Client Connector More page in Linux highlighting the Troubleshoot section]
 
 - **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. For instructions on using this option, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-app#using-start-packet-capture).
-- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization’s support admin.
+- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization's support admin.
 - **Restart Service**: Click this option to restart the app. Restarting does not impact security enforcement.
 - **Clear Logs**: Click this option to clear stored logs.
 - **Log Mode:**Change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode:
@@ -232,18 +313,19 @@ The **Troubleshoot** section includes the following features on Linux devices:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui","lastmod":"2026-11-05T07:37Z","nid":"1546663"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui","lastmod":"2026-11-10T10:54Z","nid":"1546663"} -->
 ## Troubleshooting Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/troubleshooting-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Troubleshooting Zscaler Client Connector in the Modern UI
-- Last modified: 2026-11-05T07:37Z
+- Last modified: 2026-11-10T10:54Z
 - Summary: Information on the Troubleshooting window of Zscaler Client Connector.
 
 This article details the Troubleshooting page features of Zscaler Client Connector on different OSs:
 
 - Windows
+- macOS
 - Android
 - Android on ChromeOS
 
@@ -253,10 +335,10 @@ The **Troubleshooting** page includes the following features on Windows devices:
 
 This section displays the following actions:
 
-- **Restart Service:**Click **Restart** to restart the app. Restarting does not impact security enforcement.
-- **Repair App:**If you click **Repair**, the app attempts to repair itself by reinstalling app drivers and services. Zscaler recommends trying this option before reporting an issue.
-- **Start Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. To modify the settings for Start Packet Capture, see [Enabling Packet Capture for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
-- **Report an Issue:**If your organization's admin enabled in-app support access, use this feature to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
+- **Restart Service**: Click **Restart** to restart the app. Restarting does not impact security enforcement.
+- **Repair App**: If you click **Repair**, the app attempts to repair itself by reinstalling app drivers and services. Zscaler recommends trying this option before reporting an issue.
+- **Start Packet Capture**: If your organization's admin enabled packet captures, use this feature when reproducing an issue. To modify the settings for Start Packet Capture, see [Enabling Packet Capture for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
 - **Advanced Settings**: Shows Zscaler Deception information if enabled for this user. To learn more, see [Deploying Endpoint Deception with Zscaler Client Connector for Windows](https://help.zscaler.com/deception/deploying-endpoint-deception-zscaler-client-connector-windows).
 - **Revert App:** If your organization's admin enabled the revert option, click this option to revert to the previous version of Zscaler Client Connector. Depending on your organization's policies, you might be required to enter a password.
 - **Disable Tamper Protection**: Click this option to disable anti-tampering protection. When prompted, provide the [Disable Anti-Tampering OTP](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). To learn more, see [Anti-Tampering for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector).
@@ -267,13 +349,42 @@ This section displays the following actions:
 
 This section displays the following log options:
 
-- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization’s support admin.
-- **Clear Logs:**Click **Clear** to remove the existing application logs.
-- **Log Mode:**Change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode. To see where the logs are stored, click **Report an Issue** andthen click **Show/Hide logs**. To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
-  - **Error:**Logs only when the app encounters an error and functionality is affected.
-  - **Warn:**Logs when the app is functioning but is encountering potential issues, or logs when conditions for the Error log mode are met.
-  - **Info:**Logs general app activity, or logs when conditions for the Warn log mode are met.
-  - **Debug:** Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
+- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization's support admin.
+- **Clear Logs**: Click **Clear** to remove the existing application logs.
+- **Log Mode**: Select one of the following options from the drop-down menu to change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode. To see where the logs are stored, click **Report an Issue** and then click **Show/Hide logs**. To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#win).
+  - **Error**: Logs only when the app encounters an error and functionality is affected.
+  - **Warn**: Logs when the app is functioning but is encountering potential issues, or logs when conditions for the Error log mode are met.
+  - **Info**: Logs general app activity, or logs when conditions for the Warn log mode are met.
+  - **Debug**: Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
+
+[Image: Select options in the Logs section in the Troubleshooting window on Zscaler Client Connector]
+
+The **Troubleshooting** page includes the following features on macOS devices:
+
+## Actions
+
+This section displays the following actions:
+
+- **Restart Service**: Click **Restart** to restart the app. Restarting does not impact security enforcement.
+- **Report An Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue. For instructions on completing the form, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#macos).
+- **Packet Capture:**If your organization's admin enabled packet captures, use this feature when reproducing an issue. To modify the settings for Packet Capture, see [Enabling Packet Capture for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
+- **Run Diagnostics**: Click **Run** to provide a one-time snapshot of the system's network state by performing various diagnostic tests. To run diagnostics using CLI, see [Interacting with Zscaler Client Connector Remotely](https://help.zscaler.com/zscaler-client-connector/interacting-zscaler-client-connector-remotely).
+- **Revert App**: If your organization's admin enabled the revert option, click **Revert** to revert to the previous version of Zscaler Client Connector. Depending on your organization's policies, you might be required to enter a password.
+- **Tamper Protection**: Click **Turn off** to disable anti-tampering protection. When prompted, provide the [Disable Anti-Tampering OTP](https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device). To learn more, see [Anti-Tampering for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/anti-tampering-zscaler-client-connector).
+
+[Image: Select options in the Actions section in the Troubleshooting window on Zscaler Client Connector]
+
+## Logs
+
+This section displays the following log options:
+
+- **Export Logs**: Click this option to export logs to a ZIP file, then email that folder to your organization's support admin.
+- **Clear Logs**: Click **Clear** to remove the existing application logs.
+- **Log Mode**: Select one of the following options from the drop-down menu to change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode. To see where the logs are stored, click **Report an Issue** and then click **Show/Hide logs**. To learn more, see [Reporting an Issue with Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/reporting-issue-zscaler-client-connector#macos).
+  - **Error**: Logs only when the app encounters an error and functionality is affected.
+  - **Warn**: Logs when the app is functioning but is encountering potential issues, or logs when conditions for the Error log mode are met.
+  - **Info**: Logs general app activity, or logs when conditions for the Warn log mode are met.
+  - **Debug**: Logs all app activity that could assist Zscaler Support in debugging issues, or logs when conditions for the Info log mode are met.
 
 [Image: Select options in the Logs section in the Troubleshooting window on Zscaler Client Connector]
 
@@ -282,7 +393,7 @@ This section displays the following log options:
 The Troubleshooting page includes the following features on Android devices:
 
 - **Restart Service**: Tap **Restart**to restart the app. Restarting does not impact security enforcement. However, you can tap **Restart Service** only once within a 30-second period.
-- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue.
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue.
 - **Packet Capture**: If your organization's admin enabled packet capture, tap **Start**to use this feature when reproducing an issue. To learn more, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
 - **Certificate Installation**: Tap **Install**to install the Zscaler root or custom root certificate.
 
@@ -292,9 +403,9 @@ The Troubleshooting page includes the following features on Android devices:
 
 This section displays the following log options:
 
-- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Export Logs**: Tap this option to export logs to a ZIP file, then email that file to your organization's support admin.
 - **Clear Logs**: Tap **Clear**to clear stored logs.
-- **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
+- **Log Mode**: Select one of the following options from the drop-down menu to change the mode in which Zscaler Client Connector generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**: Logs only when the app encounters an error and functionality is affected.
   - **Warn**: Logs when the app is functioning but is encountering potential issues or when conditions for the Error log mode are met.
   - **Info**: Logs general app activity or when conditions for the Warn log mode are met.
@@ -308,7 +419,7 @@ The Troubleshooting page includes the following features on Android on ChromeOS 
 ## Actions
 
 - **Restart Service**: Click or tap **Restart**to restart the app. Restarting does not impact security enforcement. However, you can click or tap **Restart Service** only once within a 30-second period.
-- **Report an Issue**: If your organization’s admin enabled in-app support access, use this feature to report an issue.
+- **Report an Issue**: If your organization's admin enabled in-app support access, use this feature to report an issue.
 - **Packet Capture**: If your organization's admin enabled packet capture, click or tap **Start**to use this feature when reproducing an issue. To learn more, see [Using the Start Packet Capture Option](https://help.zscaler.com/zscaler-client-connector/enabling-packet-capture-zscaler-client-connector).
 - **Certificate Installation**: Click or tap **Install** to install the Zscaler root or custom root certificate.
 
@@ -318,7 +429,7 @@ The Troubleshooting page includes the following features on Android on ChromeOS 
 
 This section displays the following troubleshooting information:
 
-- **Export Logs**: Click or tap this option to export logs to a ZIP file, then email that file to your organization’s support admin.
+- **Export Logs**: Click or tap this option to export logs to a ZIP file, then email that file to your organization's support admin.
 - **Clear Logs**: Click or tap **Clear**to clear stored logs.
 - **Log Mode**: Change the mode in which the app generates logs. The change is effective for that connection session only. At the start of the next connection session, the app returns to the default log mode set by your organization. The following is a description of each log mode.
   - **Error**: Logs only when the app encounters an error and functionality is affected.
@@ -372,13 +483,13 @@ If the return statement does not include an alternative domain, Zscaler Client C
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-10-26T15:58Z","nid":"1285451"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads","lastmod":"2026-11-09T20:06Z","nid":"1285451"} -->
 ## Understanding Zscaler Client Connector App Downloads
 
 - Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-app-downloads
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Downloading & Deployment > Understanding Zscaler Client Connector App Downloads
-- Last modified: 2026-10-26T15:58Z
+- Last modified: 2026-11-09T20:06Z
 - Summary: How to navigate to the Zscaler Admin Console and manually download Zscaler Client Connector from the Zscaler Client Connector App Store page.
 
 IT Admins can download installation files to use when deploying Zscaler Client Connector to end users.
@@ -916,13 +1027,13 @@ If you choose to keep running older versions of Zscaler Client Connector on devi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector","lastmod":"2026-10-29T13:31Z","nid":"1317671"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector","lastmod":"2026-11-12T20:06Z","nid":"1317671"} -->
 ## Uploading a Custom SSL Certificate for Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/uploading-custom-ssl-certificate-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Support Settings > Advanced Configuration > Uploading a Custom SSL Certificate for Zscaler Client Connector
-- Last modified: 2026-10-29T13:31Z
+- Last modified: 2026-11-12T20:06Z
 - Summary: How to upload the custom SSL certificate in the Zscaler Admin Console.
 
 Uploading your organization's custom SSL certificate is an optional step you can complete when [configuring SSL inspection for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-ssl-inspection-zscaler-app).
@@ -1531,13 +1642,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-11-06T16:32Z","nid":"1392841"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-zscaler-notification-framework","lastmod":"2026-11-11T15:33Z","nid":"1392841"} -->
 ## Using the Zscaler Notification Framework
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-zscaler-notification-framework
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Administration > Zscaler Client Connector Notifications > Using the Zscaler Notification Framework
-- Last modified: 2026-11-06T16:32Z
+- Last modified: 2026-11-11T15:33Z
 - Summary: Information on the Zscaler Notifications Framework for Zscaler Client Connector.
 
 This article provides an overview of the Zscaler Notification Framework that, when enabled, overrides the Windows-based and macOS-based notification systems. Only administrators can enable and disable the Zscaler Notification Framework in the Zscaler Admin Console.
@@ -1660,13 +1771,13 @@ If you want to delay a rollout beyond the 180-day maximum (e.g., you encountered
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-10-27T21:06Z","nid":"1317631"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-device-fingerprint-enrolled-device","lastmod":"2026-11-09T11:59Z","nid":"1317631"} -->
 ## Viewing Device Fingerprint for an Enrolled Device
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-device-fingerprint-enrolled-device
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Viewing Device Fingerprint for an Enrolled Device
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-09T11:59Z
 - Summary: How to view device fingerprint information for enrolled devices in the Zscaler Client Connector Portal.
 
 From the Zscaler Admin Console, you can view device fingerprint information for [enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices).
@@ -1748,7 +1859,7 @@ See image.
     - **Disable ZPA OTP**: The password users must enter to disable the Private Access service.
     - **Disable ZDX OTP**: The password users must enter to disable the ZDX service.
     - **Deception Settings OTP**: The password users must enter to disable the Deception service. Applies to Zscaler Client Connector version 4.0 and later for Windows.
-    - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. Applies to Zscaler Client Connector version 4.1 and later for Windows.
+    - **Disable Anti-Tampering OTP**: The password used to disable anti-tampering protection. Applies to Zscaler Client Connector version 4.1 and later for Windows and Zscaler Client Connector version 5.0 and later for macOS.
     - **Disable Endpoint DLP OTP**: The password users must enter to disable data protection in Zscaler Client Connector. Applies to Zscaler Client Connector version 4.3 and later for Windows and Zscaler Client Connector version 4.2 and later for macOS.
   - **Device Trust Level**: Displays the device trust level based on the configured levels in [Internet & SaaS posture profiles](https://help.zscaler.com/zscaler-client-connector/adding-internet-saas-posture-profiles). Trust levels are **Low**, **Medium**, **High**, or **Unknown**.
   - **Anti-Tampering Status**: Displays whether anti-tampering is enabled or disabled.
@@ -3206,13 +3317,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-10-19T16:40Z","nid":"1534304"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-11-12T04:38Z","nid":"1534304"} -->
 ## ZDX Module Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zdx-module-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector - ZDX Module Release Notes (per OS) > ZDX Module Release Summary (2026)
-- Last modified: 2026-10-19T16:40Z
+- Last modified: 2026-11-12T04:38Z
 - Summary: Zscaler Client Connector ZDX module summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Digital Experience (ZDX) Module in the Zscaler Client Connector app.
@@ -3605,13 +3716,13 @@ If you use Jamf Pro or another MDM to deploy Zscaler Client Connector, you can r
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-pop-notifications","lastmod":"2026-05-06T12:32Z","nid":"1506376"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-pop-notifications","lastmod":"2026-11-13T14:35Z","nid":"1506376"} -->
 ## Zscaler Client Connector: Pop-Up Notifications
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-pop-notifications
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Classic UI > Zscaler Client Connector: Pop-Up Notifications
-- Last modified: 2026-05-06T12:32Z
+- Last modified: 2026-11-13T14:35Z
 - Summary: A list of pop-up notifications that can display for Zscaler Client Connector users
 
 The following table provides a list of pop-up notifications for Zscaler Client Connector.
@@ -3627,7 +3738,7 @@ There are 6 types of notifications:
 - **Private Access Reauthentication**: Notifications that users must reauthenticate Private Access.
 - **Critical:** Notifications that display regardless of end user notification configuration. These notifications cannot be turned off.
 
-The types of notifications that display are based on the end user notifications configuration in the Zscaler Admin Console. Users can disable or pause notifications. To learn more, see [Configuring End User Notifications for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-end-user-notifications-zscaler-client-connector) and [Viewing Notifications on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector).
+The types of notifications that display are based on the end user notifications configuration in the Zscaler Admin Console. Users can disable or pause notifications. To learn more, see [Configuring Notification Templates for Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-notification-templates-zscaler-client-connector) and [Viewing Notifications on Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/viewing-notifications-zscaler-client-connector).
 
 If a customizable [Strict Enforcement Notification](https://help.zscaler.com/zscaler-client-connector/configuring-fail-open-settings-zscaler-client-connector) is configured, an additional notification is displayed if users try to access the internet before enrolling in Zscaler Client Connector.
 
@@ -3732,13 +3843,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-08T06:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-15T06:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.
@@ -3838,17 +3949,14 @@ Allowlist the entire path of the following files:
 Allowlist the entire path of the following files:
 
 - `/Applications/Zscaler/Zscaler.app/`
-- `/Applications/Zscaler/.Updater/autoupdate-osx.app/Contents/MacOS/ZscalerUpdater`
-
-This file is required only for Zscaler Client Connector version 3.7 and earlier for macOS.
-
+- `/Applications/Zscaler/.Updater/autoupdate-osx.app/Contents/MacOS/ZscalerUpdater` This file is required only for Zscaler Client Connector version 3.7 and earlier for macOS.
 - `/Library/Application Support/Zscaler/UPM/UPMServiceController`
-- `com.zscaler.zscaler`
-
-`com.zscaler.zscaler` is the Zscaler Client Connector identifier.
-
+- `com.zscaler.zscaler` `com.zscaler.zscaler` is the Zscaler Client Connector identifier.
 - `/Library/Application Support/Zscaler/ZDP`
 - `com.zscaler.zscaler.TRPTunnel` This file is required only if you use Transparent Proxy-based Traffic Interception.
+- `/Applications/Zscaler/ZEP.app/`
+- `/Library/Application Support/Zscaler/ZEP/`
+- `com.zscaler.zep.at2`
 
 You must also include all binaries (executables) under each path.
 

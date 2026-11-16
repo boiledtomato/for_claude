@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 60
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-08T06:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-15T06:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -2875,13 +2875,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-08T06:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-15T06:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -4200,13 +4200,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-08T06:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-15T06:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: Information about the Incidents Details drawer and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -5095,8 +5095,8 @@ The key benefits of using Workflow Automation are:
 ## Access Policy Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/access-policy-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > Access Policy Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZPA Deployments & Operations > Access Policy Deployment and Operations Guide
 - Last modified: 2025-04-18T10:07Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Private Access (ZPA) Access Policies.
 
@@ -5371,8 +5371,8 @@ For more App Connector information and troubleshooting instructions, see the [Zs
 ## Application Discovery Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/application-discovery-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > Application Discovery Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZPA Deployments & Operations > Application Discovery Deployment and Operations Guide
 - Last modified: 2026-02-25T09:16Z
 - Summary: Describes the benefits of and the steps necessary to enable Application Discovery in Zscaler Private Access (ZPA).
 
@@ -5708,8 +5708,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## Browser Access Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/browser-access-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > Browser Access Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZPA Deployments & Operations > Browser Access Deployment and Operations Guide
 - Last modified: 2026-05-13T07:06Z
 - Summary: Describes the benefits of and the steps necessary to enable Browser Access on Zscaler Private Access (ZPA).
 
@@ -6410,8 +6410,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## Local Breakouts Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/local-breakouts-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Local Breakouts Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Local Breakouts Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to integrate Zscaler Internet Access (ZIA) using Software-Defined Wide Area Networking (SD-WAN) local breakouts.
 
@@ -6499,8 +6499,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## SaaS Security Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/saas-security-api-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > SaaS Security Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > SaaS Security Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable SaaS Security for Zscaler Internet Access (ZIA).
 
@@ -7139,8 +7139,8 @@ For more User Provisioning and Authentication information and troubleshooting in
 ## Disaster Recovery Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zia-disaster-recovery-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Disaster Recovery Deployment and Operations Guide
+- Product: Deployment & Operations
+- Path: Deployment & Operations > ZIA Deployments & Operations > Disaster Recovery Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) disaster recovery.
 

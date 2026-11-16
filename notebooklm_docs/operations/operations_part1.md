@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 94
 
 ---
@@ -668,7 +668,7 @@ Announcement date: August 30, 2026
 
 - Source: https://help.zscaler.com/product-usage-terms/eos-and-eol-policy
 - Product: Product Usage Terms & Policies
-- Path: Product Usage Terms & Policies > Software Policy & Support > EOS and EOL Policy
+- Path: Product Usage Terms & Policies > Product Policy & Support > EOS and EOL Policy
 - Last modified: 2025-02-03T07:01Z
 - Summary: Description of the Zscaler End-of-Sale (EOS) and End-of-Life (EOL) policies.
 
@@ -1042,13 +1042,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-10-16T09:13Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-11-10T16:22Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Product Policy & Support > Supported Versions
-- Last modified: 2026-10-16T09:13Z
+- Last modified: 2026-11-10T16:22Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1123,7 +1123,7 @@ These versions of Zscaler Client Connector for iOS are supported by Zscaler, and
 
 | Compatible OS |  |  |  |
 | --- | --- | --- | --- |
-| OS Version | [4.4.4](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=4.4.4) | [4.5](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=4.5) | [4.5.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=4.5.1) |
+| OS Version | [4.5](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=4.5) | [4.5.1](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=4.5.1) | [5.0](https://help.zscaler.com/zscaler-client-connector/client-connector-app-release-summary-2026?applicable_category=iOS&applicable_version=5.0%20) |
 | iOS (17) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | iOS (18) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
 | iOS (26) | [Image: Supported] | [Image: Supported] | [Image: Supported] |
@@ -1768,8 +1768,8 @@ See image.
 ## How to Capture HTTP Headers (HAR file) on the Client System
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/how-capture-http-headers-har-file-client-system
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Capture HTTP Headers (HAR file) on the Client System
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Debugging Tools > How to Capture HTTP Headers (HAR file) on the Client System
 - Last modified: 2026-10-13T07:06Z
 - Summary: The method to capture HTTP headers depends on how an end user accesses the website or the web application.
 
@@ -6814,8 +6814,8 @@ To learn more, see [Monitoring App Connector Performance](https://help.zscaler.c
 ## Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/private-access-log-streaming-service-lss-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook
 - Last modified: 2026-09-20T07:06Z
 - Summary: The Private Access Log Streaming Service (LSS) Support Troubleshooting Runbook outlines troubleshooting steps for LSS performance issues.
 
@@ -6991,8 +6991,8 @@ The following section describes resolutions.
 ## Specific Criteria in the Access Control Policy Do Not Match
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/specific-criteria-access-control-policy-do-not-match
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Specific Criteria in the Access Control Policy Do Not Match
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Specific Criteria in the Access Control Policy Do Not Match
 - Last modified: 2026-10-13T07:06Z
 - Summary: This help article defines how a URL gets rejected if the specific criteria in the access control policy do not match.
 
@@ -7051,8 +7051,8 @@ If none of the above steps help, submit a case to [Zscaler Support](https://help
 ## SSL Policy Reason Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/ssl-policy-reason-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > SSL Policy Reason Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > SSL Policy Reason Runbook
 - Last modified: 2026-10-13T07:06Z
 - Summary: This Zscaler runbook discusses various SSL policies and how they are applied to URLs.
 
@@ -7375,8 +7375,8 @@ If none of the previous steps help, submit a case to [Zscaler Support](https://h
 ## Undecryptable Traffic Block
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/undecryptable-traffic-block
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Undecryptable Traffic Block
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Undecryptable Traffic Block
 - Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to determine whether a URL wasn't inspected due to an undecryptable traffic block.
 
@@ -7457,8 +7457,8 @@ Possible solutions include:
 ## Zscaler Client Connector Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/zscaler-client-connector-performance-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Zscaler Client Connector Performance Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Zscaler Client Connector Performance Support Troubleshooting Runbook
 - Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler Client Connector runbook outlines troubleshooting steps for general Internet & SaaS with Zscaler Client Connector performance issues, categorized into three scopes: the type of traffic impacted, whether Zscaler Tunnel (Z-Tunnel) is affected, and if the Public Service Edge is affected.
 
@@ -13384,13 +13384,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-08T06:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-15T06:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-15T06:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

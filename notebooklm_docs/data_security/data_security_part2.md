@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 24
 
 ---
@@ -470,8 +470,8 @@ View the AI agent identities that can access the resource.
 ## Viewing the Graph for Databases
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-databases
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Databases
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Graph for Databases
 - Last modified: 2026-10-04T21:37Z
 - Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
 
@@ -891,8 +891,8 @@ To view the malware details:
 ## Viewing the Onboarded Account Details
 
 - Source: https://help.zscaler.com/dspm/viewing-onboarded-account-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarded Account Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Onboarded Account Details
 - Last modified: 2026-10-07T09:07Z
 - Summary: Information about the Cloud Accounts page and the actions available in the Zscaler Admin Console.
 
@@ -1132,8 +1132,8 @@ See image.
 ## Viewing the Public Exposure Path
 
 - Source: https://help.zscaler.com/dspm/viewing-public-exposure-path
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Public Exposure Path
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Public Exposure Path
 - Last modified: 2026-10-04T21:41Z
 - Summary: How to view the graph related to the public exposure path in the Zscaler Admin Console.
 
@@ -1290,8 +1290,8 @@ See image.
 ## Viewing the Resource Inventory Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-inventory-graph
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Resource Inventory Graph
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Resource Inventory Graph
 - Last modified: 2026-10-04T21:39Z
 - Summary: Viewing the resource details and its associated vulnerabilities as a graph in the Zscaler Admin Console.
 
@@ -1363,8 +1363,8 @@ The following table lists the nodes represented on the graph:
 ## Viewing the Roles and Templates
 
 - Source: https://help.zscaler.com/dspm/viewing-roles-and-templates
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Roles and Templates
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Cloud Accounts Onboarding > Cloud Account Management > Viewing the Roles and Templates
 - Last modified: 2026-10-07T09:07Z
 - Summary: Information on how to view roles and download onboarding templates in the Zscaler Admin Console.
 

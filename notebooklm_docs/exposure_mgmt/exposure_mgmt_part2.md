@@ -1,7 +1,7 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 195
 
 ---
@@ -199,13 +199,13 @@ The following use cases highlight how EASM empowers organizations in different s
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-11-05T05:37Z","nid":"1538787"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/about-alerts","lastmod":"2026-11-11T08:40Z","nid":"1538787"} -->
 ## About Alerts
 
 - Source: https://help.zscaler.com/identity-protection/about-alerts
 - Product: Identity Protection
 - Path: Identity Protection Help > Alerts > About Alerts
-- Last modified: 2026-11-05T05:37Z
+- Last modified: 2026-11-11T08:40Z
 - Summary: Information on how the Alerts page in Identity Protection helps you monitor alert activity.
 
 Alerts are triggered to notify you about anomalous activities related to identities. Alerts provide details about the detected activity, associated user or entity, and the risk level. Alerts for similar kinds of anomalous activities are correlated and grouped into incidents to help security teams investigate potential threats and remediate issues. Alerts aggregate data from different sources such as [ITDR Change Detection AD](https://help.zscaler.com/itdr/about-active-directory-change-detection) and [ITDR Change Detection Entra](https://help.zscaler.com/itdr/about-entra-id-change-detection).
@@ -223,35 +223,42 @@ On the Alerts page (Identities > Alerts), you can do the following:
 2. Search for an alert.
 3. [Save the current view](https://help.zscaler.com/identity-protection/managing-saved-views).
 4. [Filter](https://help.zscaler.com/identity-protection/using-filters) the alert information.
-5. View the number of alerts triggered for each integrated product (e.g., Okta, Gmail)
+5. View the number of alerts triggered for each integrated product (e.g., Okta, Gmail).
 6. View the distribution of alerts across different severity score ranges, and identify the overall risk level to prioritize high severity alerts and remediate the issues.
-7. View the number of alerts detected, the number of incidents created by grouping similar type of alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
-8. Select alerts from the list, and click **Update**to change the following settings: See image.
-  - **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  - **Status**: Select the status for the alert (**Discovered**, **Acknowledged**, **Remediated**or**Confirmed**).
-  - **Title**: Enter a title for the alert.
-  - **Verdict**: Select the inference for the alert (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
-9. Select similar alerts from the list, and click **Create Incident**to create a new incident to group the selected alerts. On the **Create Incident from Alerts** window: See image.
-  1. **Severity**: Select the severity level for an incident (**Critical**, **High**, **Low**, **Medium**, or **None**).
-  2. **Status**: Select the status for an incident (**New**, **Acknowledged**, **Remediated**, **Pending Remediation,** or **Closed**).
-  3. **Title**: Enter a title for the incident.
-  4. **Verdict**: Select the inference for the incident (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
-  5. Click **Create Incident**.
+7. View the number of alerts detected, the number of incidents created by grouping similar types of alerts, and the number of active incidents. This overview depicts the alert volume versus the actual investigated incidents.
+8. Select alerts from the list, and click **Update**to change the settings.
+  - See instructions.
+9. Select similar alerts from the list, and click **Create Incident**to create a new incident from the selected alerts.
+  - See instructions.
 10. Group the alerts by category (**Alert First Seen**, **Alert Last Seen**, **Alert Tags**,etc.).
 11. Refresh the alerts table to reflect the most current information.
 12. Export the list of alerts and their associated details as a CSV file.
-13. [Modify the table columns](https://help.zscaler.com/unified/managing-table-columns).
+13. [Modify the columns displayed in the table](https://help.zscaler.com/unified/managing-table-columns).
 14. View the list of alerts. For each alert, you can see: Click the alert row to [view its details](https://help.zscaler.com/identity-protection/viewing-managing-alerts).
   - **ID**: The unique identifier of the alert.
   - **Severity**: The severity level of the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
   - **Severity Score**: The severity score of the alert.
   - **Title**: The title of the alert.
   - **Created**: The date the alert was created.
-  - **Sources**: The source of the alert (e.g., alerts triggered by Zscaler have the Zscaler logo).
+  - **Sources**: The source of the alert (alerts triggered by Zscaler have the Zscaler logo).
   - **Tactic**: The MITRE ATT&CK tactic for which the alert is triggered.
   - **Technique**: The MITRE ATT&CK technique for which the alert is triggered.
 
-[Image: The Alerts page in the Identities app]
+[Image: The Alerts page in Identity Protection]
+
+1. **Severity**: Select the severity level for the alert (**Critical**, **High**, **Low**, **Medium**, or **None**).
+2. **Status**: Select the status for the alert (**Discovered**, **Acknowledged**, **Remediated**or**Confirmed**).
+3. **Title**: Enter a title for the alert.
+4. **Verdict**: Select the inference for the alert (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
+5. Click **Save**. See image.
+
+In the **Create Incident from Alerts** window:
+
+1. **Severity**: Select the severity level for an incident (**Critical**, **High**, **Low**, **Medium**, or **None**).
+2. **Status**: Select the status for an incident (**New**, **Acknowledged**, **Remediated**, **Pending Remediation,** or **Closed**).
+3. **Title**: Enter a title for the incident.
+4. **Verdict**: Select the inference for the incident (**Benign**, **False Positive**, **Inconclusive**, **Malicious, Suspicious**, or **True Positive**).
+5. Click **Create Incident**. See image.
 
 [Image: Update Alerts]
 
@@ -505,13 +512,13 @@ To learn more, see [About Server Agent Settings](https://help.zscaler.com/itdr/a
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-11-02T08:18Z","nid":"1539537"} -->
+<!-- ZS-ARTICLE {"url":"/identity-protection/release-upgrade-summary-2026","lastmod":"2026-11-10T09:55Z","nid":"1539537"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/identity-protection/release-upgrade-summary-2026
 - Product: Identity Protection
 - Path: Identity Protection Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-02T08:18Z
+- Last modified: 2026-11-10T09:55Z
 - Summary: Identity Protection Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Identity Protection.
@@ -5985,16 +5992,16 @@ To learn more, refer to the [Microsoft documentation](https://learn.microsoft.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2026-08-16T00:47Z","nid":"1532592"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2026-11-12T13:38Z","nid":"1532592"} -->
 ## Configuring Azure DevOps Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-devops-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Azure DevOps Outegration
-- Last modified: 2026-08-16T00:47Z
+- Last modified: 2026-11-12T13:38Z
 - Summary: How to configure the Azure DevOps outegration to dispatch tickets.
 
-The Azure DevOps outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
+The Azure DevOps outegration is used to dispatch tickets from the Agentic Security Operations Platform platform applications (e.g., Unified Vulnerability Management (UVM)) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
 
 This article is a step-by-step guide to configuring the Azure DevOps work management outegration.
 
@@ -6019,6 +6026,7 @@ Before configuring the outegration, ensure that you complete the authentication 
 8. Click **Configure**.
 9. In the left-side navigation, go to **Manage**> **API Permissions**.
 10. Click **Add a permission**and add the following permissions:
+  - Azure DevOps: user_impersonation
   - Azure DevOps: vso.project_manage
   - Azure DevOps: vso.work_write
   - Microsoft Graph: offline_access
@@ -6054,35 +6062,37 @@ To configure the Azure DevOps outegration, complete the following steps:
 
 To establish a secure connection with the Azure DevOps project, you need to authenticate with the client ID, tenant ID, and client secret you previously saved.
 
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create** and select **Azure DevOps**.
-3. In the **Details** section: See image.
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Outegrations**.
+3. Click **Create**. The **Connect a New Outegration** page appears.
+4. On the **Connect a New Outegration page**, select **Azure DevOps**. See image. The **Create** **Azure DevOps Outegration** page appears.
+5. In the **Details** section: See image.
   1. **Display Name**: Enter a name for your outegration from the Azure DevOps dashboard.
   2. **Organization**: Enter the name of your organization from the Azure DevOps dashboard.
   3. **Project**: Enter the name of the project.
   4. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
   5. (Optional) **Refresh Token** and **Access Token**: Enter the values if required.
-4. Click **Test** in the bottom-right corner of the page to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue.
-5. After the connection is verified, click **Next**to proceed to the **Settings**step.
+6. Click **Test** to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue.
+7. After the test passes, click **Next** to advance to the **Settings** step.
 
-[Image: List of outegrations]
+[Image: Azure DevOps outegration tile]
 
 [Image: Azure DevOps outegration setup details]
 
 [Image: Azure DevOps outegration authentication setup]
 
-In this step, you need to set the SecOps entity that triggers the Azure DevOps ticket dispatch, the Azure DevOps ticket type that the SecOps ticket should be dispatched to, and when the Create Azure DevOps Ticket button should appear in the application. The Create Azure DevOps Ticket button allows users with access to SecOps tickets to dispatch these tickets to an Azure DevOps project directly from the SecOps ticket drawer or from the SecOps tickets page.
+In this step, you need to set the Agentic SecOps Platform entity that triggers the Azure DevOps ticket dispatch, the Azure DevOps ticket type that the Agentic SecOps Platform ticket should be dispatched to, and when the Create Azure DevOps Ticket button should appear in the application. The Create Azure DevOps Ticket button allows users with access to Agentic SecOps Platform tickets to dispatch these tickets to an Azure DevOps project directly from the Agentic SecOps Platform ticket drawer or from the Agentic SecOps Platform tickets page.
 
 1. In the **Advanced Settings** section:
-  1. **Create Azure DevOps item from**:Select the entity that you want to configure the outegration for. This selection affects the view you configure in the <Entity> **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the apps enabled in your account. See image.
+  1. **Create Azure DevOps item from**:Select the entity that you want to configure the outegration for. This selection affects the view you configure in the **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the applications enabled in your account. See image.
     - **UVM**: Select **Ticket**.
     - **AEM**: Select **Policy Violation** or **Violation Ticket**.
   2. **Work Item Type**:Select the work item. The schema associated with the selected work item is retrieved from your Azure DevOps project and made available for mapping in the Mapping step. See image.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create Azure DevOps**button. This setting can be modified at any time. See image. The **Create****Azure DevOps****Ticket**button appears at two locations:
+2. In the **View** section, select how the Agentic SecOps Platform ticket should display the **Create Azure DevOps**button. This setting can be modified at any time. See image. The **Create Azure DevOps Ticket**button appears at two locations:
   - **Always**: Select to display the button on all tickets, allowing users to dispatch all tickets to an Azure DevOps issue.
-  - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
+  - **Never**: Select to hide the button on all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
   - **For specific tickets**: Display the button for specific tickets. For example, if your organization uses multiple ticketing systems, you can display the button only to users who work with Azure DevOps, while excluding those using other ticketing systems (e.g., ServiceNow).
-  - In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/uvm/managing-violation-tickets-aem)). See image.
+  - In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/aem/viewing-managing-tickets-aem)). See image.
   - On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
 3. Click **Map**to proceed to the **Mapping** step.
 
@@ -6096,46 +6106,51 @@ In this step, you need to set the SecOps entity that triggers the Azure DevOps t
 
 [Image: Create Azure DevOps button on the Tickets page]
 
-Map the SecOps and Azure DevOps tickets to enable exchange of data.
+Map the Agentic SecOps Platform and Azure DevOps tickets to enable exchange of data.
 
-The objective of the mapping process is to map SecOps ticket fields (left) to Azure DevOps fields (right). To map values to fields, configure values on the left to populate the fields selected on the right.
+The objective of the mapping process is to map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right). To map values to fields, configure values on the left to populate the fields selected on the right.
 
 See image.
 
 There are three mapping components:
 
-- Tickets initially dispatched to Azure DevOps: Map SecOps ticket fields (left) to Azure DevOps fields (right) for the initial dispatch of a ticket to an Azure DevOps issue. You can also add an attachment to your Azure DevOps issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to Azure DevOps: Map SecOps ticket fields (left) to Azure DevOps fields (right) for syncing ticket updates to Azure DevOps, including configuring comments and adding an attachment to your Azure DevOps ticket. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from Azure DevOps to ticket: Map Azure DevOps fields (left) to SecOps ticket fields (right) for syncing Azure DevOps updates to tickets. This step also requires setting up an Azure DevOps webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
+- Tickets initially dispatched to Azure DevOps: Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for the initial dispatch of a ticket to an Azure DevOps issue. You can also add an attachment to your Azure DevOps issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
+- (Optional) Sync from ticket to Azure DevOps: Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for syncing ticket updates to Azure DevOps, including configuring comments and adding an attachment to your Azure DevOps ticket. Commonly mapped fields include Status and Due Date.
+- (Optional) Sync from Azure DevOps to ticket: Map Azure DevOps fields (left) to Agentic SecOps Platform ticket fields (right) for syncing Azure DevOps updates to tickets. This step also requires setting up an Azure DevOps webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
 
 The initial Azure DevOps outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
 
 ### Creating a New Mapping
 
-To create a new mapping from a SecOps ticket to an Azure Devops ticket:
+To create a new mapping:
 
-1. Select a field (right): See image.
-  1. Click**Mapping**.
-  2. Select a field on the right. The field's schema details open on the right of the page. The schema lists the Azure DevOps fields that can be used for mapping. This is the list of fields configured in your Azure DevOps project for the Work Item Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available:
-    - Required
-    - Input Type
-    - Available Options
-2. Configure the field value (left):
-  1. Click **Add value** on the left. The **Field Editor** appears.
-  2. In the **Field Editor**, select one of the following methods to configure the value of the field:
-    - Field (Dictionary)
-    - Smart Text
-    - Script
+1. Click **Mapping**.
+2. Under **Select which field to populate** (right), select a field. See image. The field's schema details open on the right of the page. The schema lists the Azure DevOps fields that can be used for mapping. This is the list of fields configured in your Azure DevOps project for the Work Item Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available:
+  - Required
+  - Input Type
+  - Available Options
+3. Under **Define How to populate field** (left), click **Add value**. The **Field Editor** appears.
+4. In the **Field Editor**, select one of the following methods to configure the value of the field:
+  - Field (Dictionary)
+  - Smart Text
+  - Script
+5. Click **Save**, then repeatthe mapping process for any other fields you want to map.
+6. (Optional) You can set a field as mandatory to guarantee that critical fields (e.g., Assignee) are always populated before a ticket is dispatched to Azure DevOps. To set a field as mandatory, click the **Column Menu**icon, then select the **Set as Mandatory**checkbox. Required fields are defined by your Azure DevOps schema, whereas mandatory fields are mandatory for Agentic SecOps Platform ticket dispatch. Attempts to dispatch an incident without a value in a mandatory field will trigger an error message.
+7. (Optional) You can add attachments to the ticket dispatch to simplify the review and management of findings dispatched from a ticket:
+  - See instructions to add attachments to the ticket dispatch.
+8. (Optional) You can configure comments synchronization to push comments to Azure DevOps or to set conditions to trigger a comment when specific fields are modified.
+  - See instructions to configure comments synchronization.
+9. (Optional) Click **Preview** to review the Azure DevOps mapping. You can select, filter, or search tickets and preview the mapping to their corresponding Azure DevOps ticket. You can also open the Agentic SecOps Platform incident in a new tab for a more in-depth review. See image.
+10. Click **Finish** to complete the outegration setup.
 
-Repeatthe mapping process for all required Azure DevOps fields and for any other fields you want to map.
+### Common Mapping Examples
 
-In addition to the mapping of fields on the right to fields on the left, you can perform a set of actions when setting up the Azure DevOps outegration mapping, each relevant to a specific part of the mapping.
+These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
 
-- Set a ticket field as mandatory.
-- Add attachments to the ticket dispatch.
-- Configure comments synchronization.
-
-### Mapping Ticket Title to Summary
+- Ticket Title to Summary
+- Ticket to Azure DevOps Description
+- Ticket SLA to Azure DevOps Due Date Sync
+- Azure DevOps to Ticket Status Sync
 
 To illustrate the mapping process, consider the mapping of the required Azure DevOps Summary field. The final result of the mapping process should show the Summary field on the right, and the Ticket Title field on the left.
 
@@ -6147,22 +6162,6 @@ To map the Ticket Title field to the Summary field:
 2. Select the **Ticket Title**field on the left: See image.
   1. Click**Add Value**.
   2. Under the **Field** tab, select the **Ticket Title** field, which is the equivalent to the Azure DevOps **Summary**field.
-
-### Previewing the Ticket to Azure DevOps Mapping
-
-After completing the SecOps ticket to Azure DevOps dispatch mapping, preview the mapping to review the configuration. This helps ensure that ticket dispatch is behaving as expected and that the Azure DevOps issue fields are populated correctly.
-
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to Azure DevOps section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Azure DevOps issue. You can also open the actual ticket in a new tab for a more in-depth review.
-
-See image.
-
-### Common Mapping Examples
-
-These mapping examples highlight commonly used field configurations in your outegration. While some might be preconfigured by default, Zscaler recommends reviewing and customizing them to ensure they align with your workflow.
-
-- Ticket to Azure DevOps Description
-- Ticket SLA to Azure DevOps Due Date Sync
-- Azure DevOps to Ticket Status Sync
 
 [Image: Mapping fields to populate on the right]
 
@@ -6218,7 +6217,7 @@ Tickets dispatched to Azure DevOps will now include the configured description.
 
 In the Ticket to Azure DevOps sync, map the Azure DevOps Due Date field to keep timelines in sync with Ticket SLA changes.
 
-To configure the Ticket SLA to Azure Devops Due Date mapping:
+To configure the Ticket SLA to Azure DevOps Due Date mapping:
 
 1. Click**Mapping**.
 2. Select**Due Date** as the field on the right.
@@ -6239,16 +6238,6 @@ To configure the Azure DevOps to Ticket Status mapping:
 Azure DevOps issue Status changes will now automatically update the Ticket Status.
 
 [Image: Mapping Preview details]
-
-You can set a SecOps ticket field as mandatory by selecting the **Set as Mandatory**checkbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
-
-See image.
-
-Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched, so Azure DevOps tickets are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
-
-Required fields are defined by your Azure DevOps schema, whereas mandatory fields are for SecOps ticket dispatch.
-
-[Image: Select the Set as Mandatory checkbox to set a SecOps ticket field as mandatory]
 
 You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Azure DevOps issue. Adding an attachment to your Azure DevOps issue simplifies the review and management of findings dispatched from a ticket.
 
@@ -6328,7 +6317,7 @@ An Azure DevOps webhook is only needed to sync updates from Azure DevOps to the 
 
 [Image: Sync update details]
 
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create Azure DevOps Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
+When the outegration setup is complete, you can begin dispatching Agentic SecOps Platform tickets using the Create Azure DevOps Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9527,24 +9516,24 @@ Select the checkbox to retrieve all fields, including any custom fields configur
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2026-08-18T02:06Z","nid":"1527961"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-jira-outegration","lastmod":"2026-11-09T10:13Z","nid":"1527961"} -->
 ## Configuring the Jira Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-jira-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Jira Outegration
-- Last modified: 2026-08-18T02:06Z
+- Last modified: 2026-11-09T10:13Z
 - Summary: How to configure the Jira outegration for disptaching tickets to the Jira Data Center or Jira Cloud work management systems.
 
-The Jira outegration is used to dispatch tickets from the Zscaler Security Operations (SecOps) platform applications (e.g., UVM) to your Jira project, creating a Jira issue that can then be tracked, assigned, and managed by your remediation teams working with Jira.
+The Jira outegration is used to dispatch tickets from Agentic Security Operations Platform (Agentic SecOps Platform) applications (e.g., UVM) to your Jira project, creating a Jira issue that can then be tracked, assigned, and managed by your remediation teams working with Jira.
 
-This article is a step-by-step guide to setting up the Jira work management outegration. The process involves setting up authentication, outegration visibility in the platform, outegration mapping, and when relevant, configuring a Jira webhook to enable bidirectional synchronization.
+This article is a step-by-step guide to setting up the Jira work management outegration. The process involves setting up authentication, outegration visibility in the Agentic SecOps Platform, outegration mapping, and when relevant, configuring a Jira webhook to enable bidirectional synchronization.
 
 Each Jira issue type (e.g., Bug, Task, Feature) requires a separate outegration configuration.
 
 ## Prerequisites
 
-Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
+Before getting started, identify the Jira platform your organization uses: Jira Cloud or Jira Data Center. While the setup process for both Jira outegrations is mostly similar, Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-agentic-security-operations-platform-gateway).
 
 Retrieve the required authentication parameters based on your Jira deployment type (i.e., Jira Cloud or Jira Data Center), and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
 
@@ -9564,9 +9553,12 @@ Obtain the following required parameters for the Jira Cloud outegration:
 
 - Jira Organization Domain
 - Project Key
-- Choose one of the following authentication methods and retrieve the necessary parameters:
-  - Email Password Domain
-  - API Key Domain
+
+Choose one of the following authentication methods and retrieve the necessary parameters:
+
+- Email Password Domain
+- API Key Domain
+- Service Account Credentials
 
 The Jira organization domain is the unique domain that identifies your organization's Jira instance, in the format `<Domain Name>``.atlassian.net`. For example, if your Jira Cloud URL is `https://``acme``.atlassian.net`, then your Jira organization domain is `acme.atlassian.net`.
 
@@ -9576,13 +9568,13 @@ Your Jira project key is the shortened version of the Jira project name that you
 
 Your project key can be found in the following locations:
 
-- All Projects list:The Key column displays the project key for each of your projects.
-- Jira Issue ID Prefix:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
-- Project URL:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
+- **All Projects list**:The Key column displays the project key for each of your projects.
+- **Jira Issue ID Prefix**:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
+- **Project URL**:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
 
-For the Email Password Domain authentication method, you’ll need to provide the email and password (API Token) associated with a Jira user account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
+For the Email Password Domain authentication method, you'll need to provide the email and password (API Token) associated with a Jira user account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
 
-For the API Key Domain authentication method, you’ll need to provide the Jira API key that was generated using a Jira user account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
+For the API Key Domain authentication method, you'll need to provide the Jira API key that was generated using a Jira user account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
 
 To generate an API key:
 
@@ -9590,19 +9582,36 @@ To generate an API key:
 2. Click your avatar in the bottom left of the management interface.
 3. Click**API info**.
 4. Click **Create key**.
-5. Enter a key name that clearly indicates its association with the SecOps platform application (e.g., UVM, AEM).
+5. Enter a key name that clearly indicates its association with the Agentic SecOps Platform application (e.g., UVM, AEM).
 6. Click**Confirm**.
 7. Copy and securely save the key to be used in the Connect step.
 
-Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-security-operations-platform-gateway).
+To use a service account in authentication, you must create one before creating an API token for the service account. When you create an API token for a service account, the service account can authenticate and run scripts for the applications you give them access to.
+
+To create an API token for a service account:
+
+1. Log in to your Jira instance using an admin account.
+2. Select your organization if you have more than one.
+3. Select **Directory** > **Service accounts**.
+4. For the service account, select **Actions** > **Create credential**.
+5. Select **Authentication type** > **API token**.
+6. Select the following API scopes to decide what the API token can do in your application: `read:me read:account read:jira-work read:jira-user read:attachment:jira read:comment:jira write:jira-work write:comment:jira write:attachment:jira`
+7. Click **Create** to save the API token.
+8. Copy your API token and save it in a safe location. You cannot recover the API token later.
+
+[Image: Jira organization domain]
+
+Before proceeding, make sure a Zscaler Gateway has been configured. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-agentic-security-operations-platform-gateway).
 
 Obtain the following required parameters for the Jira Data Center outegration:
 
 - Jira Organization Domain
 - Project Key
-- Choose one of the following authentication methods and retrieve the necessary parameters:
-  - Email Password Domain
-  - API Key Domain
+
+Choose one of the following authentication methods and retrieve the necessary parameters:
+
+- Email Password Domain
+- API Key Domain
 - Gateway
 
 The Jira organization domain is the unique domain that identifies your organization's Jira instance, typically the domain name or host name of your Jira server. For example, if your Jira Data Center URL is `https://jira.acme.com`, your Jira organization domain is `jira.acme.com`.
@@ -9611,17 +9620,17 @@ See image.
 
 The domain for Jira Data Center can vary depending on how your Jira instance is configured and hosted.
 
-Your Jira project key is the shortened version of the Jira project name that you want the platform to dispatch tickets to.
+Your Jira project key is the shortened version of the Jira project name that you want the Agentic SecOps Platform to dispatch tickets to.
 
 Your project key can be found in the following locations:
 
-- All Projects list:The Key column displays the project key for each of your projects.
-- Jira Issue ID Prefix:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
-- Project URL:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
+- **All Projects list**:The Key column displays the project key for each of your projects.
+- **Jira Issue ID Prefix**:The project key is often used as a prefix for issue IDs (e.g., `PROJ-123`).
+- **Project URL**:The project key is included in the URL of your project, after `/projects/`. For example, the project key in the URL `https://acme.atlassian.net/projects/PROJ/summary` is `PROJ`.
 
-For the Email Password Domain authentication method, you’ll need to provide the email and password (API Token) associated with the Jira admin account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
+For the Email Password Domain authentication method, you'll need to provide the email and password (API Token) associated with the Jira admin account. This account is used to authenticate with Jira and will be displayed as the issue reporter in Jira by default, unless an alternative reporter is specified in the Jira mapping.
 
-For the API Key Domain authentication method, you’ll need to provide the Jira API key that was generated using a Jira admin account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
+For the API Key Domain authentication method, you'll need to provide the Jira API key that was generated using a Jira admin account. To learn more, refer to the [Jira Atlassian documentation](https://support.atlassian.com/statuspage/docs/create-and-manage-api-keys/).
 
 To generate an API key:
 
@@ -9629,31 +9638,38 @@ To generate an API key:
 2. Click your avatar in the bottom left of the management interface.
 3. Click**API info**.
 4. Click **Create key**.
-5. Enter a key name that clearly indicates its association with the SecOps platform application (e.g., UVM, AEM).
+5. Enter a key name that clearly indicates its association with the Agentic SecOps Platform application (e.g., UVM, AEM).
 6. Click**Confirm**.
 7. Copy and securely save the key to be used in the Connect step.
 
-Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Zscaler Gateway](https://help.zscaler.com/uvm/configuring-zscaler-gateway).
+Jira Data Center users must first set up a gateway and then proceed to follow the standard Jira outegration setup process. To learn more, see [Configuring the Agentic Security Operations Platform Gateway](https://help.zscaler.com/unified/configuring-agentic-security-operations-platform-gateway).
 
 If you already have a gateway configured, select the gateway from the drop-down menu.
 
-The first step in setting up your Jira outegration is to authenticate using valid credentials to establish a secure connection with your Jira project. With the required parameters retrieved in the prerequisites, you can begin the Jira outegration setup in the SecOps platform.
+[Image: Jira organization domain]
+
+The first step in setting up your Jira outegration is to authenticate using valid credentials to establish a secure connection with your Jira project. With the required parameters retrieved in the prerequisites, you can begin the Jira outegration setup in the Agentic SecOps Platform.
 
 To create an outegration:
 
-1. In the SecOps platform, go to **Configure** > **Outegrations**. See image.
-2. Click **Create**, then select either **Jira Cloud** or **Jira Data Center**, depending on your organization's Jira deployment. The **Connect** step appears. See image.
-3. In the **Details** section:
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
+2. In the left-side navigation, click **Outegrations**. See image.
+3. Click **Create**. The **Connect a New Outegration** page appears.
+4. Select either **Jira Cloud** or **Jira Data Center**, depending on your organization's Jira deployment. The **Connect** step appears.
+5. In the **Details** section: See image.
   1. **Display Name**: Enter a name for your outegration.
   2. **Active**: Enable to activate the Jira outegration.
   3. **Project Key**: Enter the key of the Jira project where the tickets should be created.
-  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. To learn more, see [Configuring Authentications](https://help.zscaler.com/uvm/configuring-authentications).
-4. Click **Test** in the bottom-right corner of the page to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
-5. After the test passes, click **Next**to advance to the **Settings**step.
+  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. To learn more, see [Configuring Authentication for Data Sources and Outegrations](https://help.zscaler.com/unified/configuring-authentication-data-sources-and-outegrations).
+  5. **Browser Domain**: Enter a browser domain to support authentication using service account credentials. This field is used to build links to Jira issues.
+6. Click **Test** in the bottom-right corner of the page to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
+7. After the test passes, click **Next**to advance to the **Settings**step.
 
-[Image: create jira cloud outegration page connect step]
+[Image: Clicking Outegrations from the left side navigation in the Agentic SecOps Platform Admin Portal]
 
-In the Settings step of the outegration setup wizard, configure your Jira outegration's visibility and behavior within the relevant application in the SecOps platform (e.g., UVM, AEM). In this step, you'll set the SecOps entity that triggers the Jira issue dispatch (e.g., ticket, violation ticket), the Jira Issue Type that the SecOps ticket should be dispatched to, and when the Create Jira Ticket button should appear in the application. The Create Jira Ticket button allows end users with access to SecOps tickets to dispatch these tickets to a Jira project directly from the SecOps ticket drawer or from the SecOps tickets page.
+[Image: Create Jira Cloud Outegration page connect step in the Agentic SecOps Platform Admin Portal]
+
+In the Settings step of the outegration setup wizard, configure your Jira outegration's visibility and behavior within the relevant application in the Agentic SecOps Platform (e.g., UVM, AEM). In this step, you'll set the Agentic SecOps entity that triggers the Jira issue dispatch (e.g., ticket, violation ticket), the Jira Issue Type that the Agentic SecOps ticket should be dispatched to, and when the Create Jira Ticket button should appear in the application. The Create Jira Ticket button allows end users with access to Agentic SecOps tickets to dispatch these tickets to a Jira project directly from the Agentic SecOps ticket drawer or from the Agentic SecOps tickets page.
 
 To configure the outegration's visibility and behavior:
 
@@ -9662,7 +9678,7 @@ To configure the outegration's visibility and behavior:
     - **UVM**: Select **Ticket**.
     - **AEM**: Select **Violation Ticket**.
   2. **Issue Type**:Select the Jira issue type that the ticket should be dispatched to (e.g., **Task**, **Bug**). The schema associated with the selected issue type will be retrieved from your Jira project and made available for mapping in the Mapping step. See image.
-2. In the <Entity> **View** section, select how the SecOps ticket should display the **Create Jira Ticket** button. This setting can be modified at any time. See image.
+2. In the <Entity> **View** section, select how the Agentic SecOps ticket should display the **Create Jira Ticket** button. This setting can be modified at any time. See image.
   - **Always**: Select to display the button in all tickets, allowing users to dispatch tickets to a Jira issue without exception.
   - **Never**: Select to hide the button in all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
   - **For specific tickets**: Define custom conditions to control when the button is displayed, allowing you to target specific tickets. For example, if your organization uses multiple ticketing systems, you can grant access to the button only to users who work with Jira, while excluding those who use other ticketing systems (e.g., ServiceNow).
@@ -9670,10 +9686,20 @@ To configure the outegration's visibility and behavior:
 
 The **Create Jira Ticket**button appears in two locations:
 
-- In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/uvm/managing-violation-tickets-aem)). See image.
-- On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
+- In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/viewing-managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/aem/viewing-violation-tickets-aem)). See image.
+- On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets) in UVM, on the [Violation Tickets page](https://help.zscaler.com/aem/about-violation-tickets) in AEM). See image.
 
-The third step in setting up your Jira outegration is configuring the field mapping between your SecOps tickets and Jira issues. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The SecOps platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Jira projects, facilitating highly customized workflows that align with your organization's requirements.
+[Image: Selecting the entity you want to configure the outegration for on the Advanced Settings page in the Agentic SecOps Platform Admin Portal]
+
+[Image: Selecting the Jira issue type the ticket is dispatched to from the Issue Type drop-down menu in the Agentic SecOps Platform Admin Portal]
+
+[Image: Selecting how the Create Jira Ticket button is displayed from the Tickets View drop-down menu in the Agentic SecOps Platform Admin Portal]
+
+[Image: Where the Create Jira Ticket button appears in the Agentic SecOps Platform Admin Portal]
+
+[Image: Where the Create Jira Data Center button appears in the Agentic SecOps Platform Admin Portal]
+
+The third step in setting up your Jira outegration is configuring the field mapping between your Agentic SecOps tickets and Jira issues. This defines how data is exchanged and synchronized between the two systems upon initial dispatch and subsequent updates. The Agentic SecOps Platform's unique mapping capabilities allow for flexible mapping of any custom field or logic to any field in your Jira projects, facilitating highly customized workflows that align with your organization's requirements.
 
 The main objective of the mapping process is to map values to fields. To map values to fields, configure values on the left to populate the fields selected on the right.
 
@@ -9681,9 +9707,9 @@ See image.
 
 There are three mapping components:
 
-- Tickets initially dispatched to Jira: Map SecOps ticket fields (left) to Jira fields (right) for the initial dispatch of a ticket to a Jira issue. You can also add an attachment to your Jira issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to Jira: Map SecOps ticket fields (left) to Jira fields (right) for syncing ticket updates to Jira, including configuring comments and adding an attachment to your Jira issue. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from Jira to ticket: Map Jira fields (left) to SecOps ticket fields (right) for syncing Jira updates to tickets. This step also requires setting up a Jira webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
+- Tickets initially dispatched to Jira: Map Agentic SecOps ticket fields (left) to Jira fields (right) for the initial dispatch of a ticket to a Jira issue. You can also add an attachment to your Jira issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
+- (Optional) Sync from ticket to Jira: Map Agentic SecOps ticket fields (left) to Jira fields (right) for syncing ticket updates to Jira, including configuring comments and adding an attachment to your Jira issue. Commonly mapped fields include Status and Due Date.
+- (Optional) Sync from Jira to ticket: Map Jira fields (left) to Agentic SecOps ticket fields (right) for syncing Jira updates to tickets. This step also requires setting up a Jira webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
 
 The initial Jira outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
 
@@ -9718,6 +9744,8 @@ In addition to the mapping of fields on the right to fields on the left, you can
 
 To illustrate the mapping process, consider the mapping of the required Jira Summary field. The final result of the mapping process should show the Summary field on the right, and the Ticket Title field on the left.
 
+[Image: Mapping process in the Agentic SecOps Platform Admin Portal]
+
 To map the Ticket Title field to the Summary field:
 
 1. Select **Summary**as the Jira field on the right. See image. Selecting the Jira Summary field opens the field's details in the schema. The schema specifies that the field is required and thus must be mapped before the outegration can be saved, and that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
@@ -9727,9 +9755,9 @@ To map the Ticket Title field to the Summary field:
 
 ### Previewing the Ticket to Jira Mapping
 
-After completing the SecOps ticket to Jira dispatch mapping, preview the mapping to review the configuration. This helps ensure that SecOps ticket dispatch is behaving as expected and that the Jira issue fields are populated correctly.
+After completing the Agentic SecOps ticket to Jira dispatch mapping, preview the mapping to review the configuration. This helps ensure that Agentic SecOps ticket dispatch is behaving as expected and that the Jira issue fields are populated correctly.
 
-To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to Jira section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the SecOps tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Jira issue. You can also open the actual SecOps ticket in a new tab for a more in-depth review.
+To preview the mapping, click **Preview**on the bottom right of the ticket initially dispatched to Jira section. The Mapping Preview window appears. On the left of the Mapping Preview window, there is a sample of the Agentic SecOps tickets in your account, organized by ticket ID. You can select, filter, or search tickets and preview the mapping to their corresponding Jira issue. You can also open the actual Agentic SecOps ticket in a new tab for a more in-depth review.
 
 See image.
 
@@ -9741,6 +9769,8 @@ These mapping examples highlight commonly used field configurations in your oute
 - Ticket SLA to Jira Due Date Sync
 - Jira to Ticket Status Sync
 
+[Image: Outegration schema fields]
+
 The Required attribute is TRUE if a field is required by Jira. If a field is not required, the attribute is not displayed. A required Jira field is also indicated by a red asterisk (*) on the Jira field in the first mapping step.
 
 Required Jira fields must be mapped before saving the outegration.
@@ -9748,6 +9778,10 @@ Required Jira fields must be mapped before saving the outegration.
 The Input Type specifies the data type of the Jira field, such as TEXT (e.g., Summary), DATE (e.g., Due Date), or NUMBER (e.g., Risk Score). This indicates the format that the selected source field must match in order to successfully map to the Jira field.
 
 For Jira fields with fixed values, the Available Options column displays the available values. For example, if the Jira field Priority is configured to include the following fixed values—High, Low, Medium, Lowest, Highest—the corresponding values in the Ticket Severity field can be mapped to these values.
+
+[Image: Mapping process in the Agentic SecOps Platform Admin Portal]
+
+[Image: Summary Schema]
 
 Select a field on the left to populate the field on the right.
 
@@ -9759,6 +9793,8 @@ For example, if your JiraPriority field includes the following fixed values—Hi
 
 See image.
 
+[Image: Field Dictionary]
+
 Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
 
 To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name.
@@ -9767,7 +9803,11 @@ This option is commonly used to configure the value of fields like Ticket Title 
 
 See image.
 
+[Image: Smart Text Editor]
+
 For use cases that require more advanced configuration than either of the two methods above, you can use Python scripts to configure the field value to be mapped to the target field.
+
+[Image: Mapping process in the Agentic SecOps Platform Admin Portal]
 
 When dispatching tickets to Jira, map the Jira Description field with a summary of the Ticket content to provide remediation teams with a brief overview of the ticket.
 
@@ -9803,13 +9843,17 @@ To configure the Jira to Ticket Status mapping:
 
 Jira issue Status changes will now automatically update the Ticket Status.
 
-You can set a SecOps ticket field as mandatory, by selecting the Set as Mandatorycheckbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
+[Image: Mapping Preview]
+
+You can set an Agentic SecOps ticket field as mandatory, by selecting the Set as Mandatorycheckbox in the Column Menu to the right of the mapping. Some fields can be set as mandatory by default.
 
 See image.
 
 Setting a field as mandatory guarantees that critical fields (e.g., Ticket Assignee) are always populated before a ticket is dispatched to Jira, so Jira issues are always actionable for your remediation teams. Attempts to dispatch a ticket without a value in a mandatory field will trigger an error message.
 
-Required fields are defined by your Jira schema, whereas Mandatory fields are mandatory for SecOps ticket dispatch.
+Required fields are defined by your Jira schema, whereas Mandatory fields are mandatory for Agentic SecOps ticket dispatch.
+
+[Image: Column Menu to select Set as Mandatory]
 
 You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Jira issue. Adding an attachment to your Jira issue simplifies the review and management of findings dispatched from a ticket.
 
@@ -9820,13 +9864,19 @@ You can configure file attachments in two of the mapping steps:
 
 When configured in the Ticket to Jira sync section, the attachment is included in the Jira issue alongside existing attachments as a downloadable file in the selected format.
 
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
+Use the File Format drop-down menu on the top left of the attachment page to select from the available formats (CSV, PDF, JSONL, Excel).
 
 See image.
 
 To provide your Jira remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
 
 - Recommended Attachment Fields
+
+[Image: Add attachment to ticket]
+
+[Image: Add attachment to ticket]
+
+[Image: Adding an attachment and selecting the File Format in the Agentic SecOps Platform Admin Portal]
 
 - Finding Severity
 - Finding Title
@@ -9869,15 +9919,23 @@ Ticket severity changed from: MEDIUM to: CRITICAL
 <URL to ticket>
 ```
 
-[Image: jira outegration mapping]
+[Image: Comment Sync button in the mapping process of the Agentic SecOps Platform Admin Portal]
 
-The Jira outegration webhook enables automatic syncing of Jira issue updates (e.g., Status or SLA changes) to their corresponding SecOps tickets, reducing the need for manual changes. This step is required when configuring the Jira to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration Webhook](https://help.zscaler.com/uvm/configuring-jira-outegration-webhook).
+[Image: Toggling Sync Comments on the Manage comments sync page of the Agentic SecOps Platform Admin Portal]
+
+[Image: Togglign Sync Trigger Comments on the Manage comments sync page of the Agentic SecOps Platform Admin Portal]
+
+[Image: Jira Outegration mapping]
+
+The Jira outegration webhook enables automatic syncing of Jira issue updates (e.g., Status or SLA changes) to their corresponding Agentic SecOps tickets, reducing the need for manual changes. This step is required when configuring the Jira to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Jira Outegration Webhook](https://help.zscaler.com/uvm/configuring-jira-outegration-webhook).
 
 See image.
 
 A Jira webhook is only needed to sync updates from Jira to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to Jira.
 
-When the outegration setup is complete, you can begin dispatching SecOps tickets using the Create Jira Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
+[Image: Sync from Jira Data Center to ticket]
+
+When the outegration setup is complete, you can begin dispatching Agentic SecOps tickets using the Create Jira Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/unified/creating-managing-third-party-tickets).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13403,13 +13461,13 @@ To learn more, see [Zscaler UVM and Snyk Deployment Guide](https://help.zscaler.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-splunk-outegration","lastmod":"2026-10-30T09:28Z","nid":"1546093"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-splunk-outegration","lastmod":"2026-11-12T13:19Z","nid":"1546093"} -->
 ## Configuring the Splunk Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-splunk-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring the Splunk Outegration
-- Last modified: 2026-10-30T09:28Z
+- Last modified: 2026-11-12T13:19Z
 - Summary: How to configure the Splunk outegration.
 
 The Splunk outegration is used to send data from [Agentic SOC](https://help.zscaler.com/agentic-soc/what-zscaler-agentic-soc) to Splunk, creating a Splunk security incident that can be tracked, assigned, and enriched by your remediation teams working with Splunk.
@@ -15664,13 +15722,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-11-05T14:32Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-11-12T03:30Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-05T14:32Z
+- Last modified: 2026-11-12T03:30Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).

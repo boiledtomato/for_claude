@@ -1,8 +1,8 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
-Articles in this file: 56
+Generated: 2026-11-16 10:10 UTC
+Articles in this file: 58
 
 ---
 
@@ -195,33 +195,77 @@ On the Root Certificates page (Zero Trust Browser > Browser Isolation Private Ap
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-11-06T09:48Z","nid":"1463131"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-sandbox-integration-zero-trust-browser","lastmod":"2026-11-13T08:13Z","nid":"1463131"} -->
 ## About Sandbox Integration with Zero Trust Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/about-sandbox-integration-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > About Sandbox Integration with Zero Trust Browser
-- Last modified: 2026-11-06T09:48Z
+- Last modified: 2026-11-13T08:13Z
 - Summary: Information about Zscaler's Sandbox integration with Zscaler Zero Trust Browser (formerly Zscaler Isolation)
 
-Sandboxing is a method of protecting your organization from file-based zero-day threats. Internet & SaaS (ZIA) provides admins with the ability to define advanced [sandbox policies](https://help.zscaler.com/zia/configuring-sandbox-policy). For example, a file with active content can be downloaded to the sandbox for analysis and only viewed or downloaded by the user if the defined policy approves it. While analyzing the file in the sandbox, based on the policy defined, Internet & SaaS can quarantine the file so the user sees a temporary quarantine page. The analysis of the file can take anywhere between 5 to 10 minutes. If the sandbox environment determines that the file is malicious, it blocks the file download. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
+Sandboxing is a method of protecting your organization from file-based zero-day threats. Internet & SaaS (ZIA) provides admins with the ability to define advanced [sandbox policies](https://help.zscaler.com/zia/configuring-sandbox-policy). For example, a file with active content can be downloaded to the sandbox for analysis and only viewed or downloaded by the user if the defined policy approves it. While analyzing the file in the sandbox, based on the policy defined, Internet & SaaS can quarantine the file, so the user sees a temporary quarantine page. The analysis of the file can take anywhere between 5 and 10 minutes. If the sandbox environment determines that the file is malicious, it blocks the file download. To learn more, see [About Sandbox](https://help.zscaler.com/zia/about-sandbox) and [Configuring the Sandbox Policy](https://help.zscaler.com/zia/configuring-sandbox-policy).
 
 With quarantine and isolate actions in the sandbox policies, files can be scanned with the additional protection of [Zero Trust Browser (formerly Isolation)](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser). When a user downloads a document file that meets the criteria to be sandboxed, they are redirected to an isolated browser session and can view the file in the isolated container while the sandbox analysis is in progress. After the sandbox analysis is complete, if the verdict from the sandbox is Malicious, the user can continue viewing the file in isolation, or download a flattened PDF version of the file with no active content onto the local computer. If the sandbox verdict is Benign, the user can download the original file onto their device. To learn more, see [Using Sandbox Integration with Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/using-sandbox-integration-with-zero-trust-browser).
 
 To allow sandboxing files for isolation users, enable this feature through the isolation profile. To learn more, see [Creating Isolation Profiles for Internet & SaaS](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas).
 
-[Image: Sandbox Integration with Isolation diagram flow]
+## Sandbox & Isolation Flow
+
+The following animated diagram illustrates the Sandbox integration with Zero Trust Browser:
+
+1. The user makes a request to download a document via Internet & SaaS.
+2. Internet & SaaS evaluates the file as a zero-day file and forwards the file to the sandbox for analysis.
+3. Internet & SaaS redirects the user to an isolation browser.
+4. The isolation browser downloads the document and renders it in isolation. The user can view the file in isolation.
+5. The isolation browser makes an API call to the sandbox with the MD5 of the file to get a verdict.
+  1. If the verdict is benign, the user is allowed to download the original file.
+  2. If the verdict is malicious, the user is allowed to download a flattened version of the file in PDF format with no active content.
+
+[Image: Sandbox integration with isolation flow diagram]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-10-29T15:39Z","nid":"1417561"} -->
-## Accessing Multiple Sessions In Isolation
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-zero-trust-browser-posture-profiles","lastmod":"2026-11-10T07:50Z","nid":"1547124"} -->
+## About Zero Trust Browser Posture Profiles
+
+- Source: https://help.zscaler.com/zero-trust-browser/about-zero-trust-browser-posture-profiles
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Posture Profiles > About Zero Trust Browser Posture Profiles
+- Last modified: 2026-11-10T07:50Z
+- Summary: Information about the Zero Trust Browser Posture Profiles page in the Zscaler Admin Console.
+
+On the Zero Trust Browser Posture Profiles page in the Zscaler Admin Console, you can create a Zero Trust Browser Posture Profile to verify whether incoming traffic originates from Zero Trust Browser—either the Enterprise Browser or Browser Extension. You can then select and apply the posture profile when configuring isolation policy rules in Private Access (ZPA) to control application access based on whether the user is connecting via Zero Trust Browser. To learn more, see [Configuring a Zero Trust Browser Posture Profile](https://help.zscaler.com/zero-trust-browser/configuring-zero-trust-browser-posture-profile).
+
+The Zero Trust Browser Posture Profiles page provides the following benefits and enables you to:
+
+- Create a Zero Trust Browser Posture Profile to verify incoming traffic from the Enterprise Browser or Browser Extension.
+- Edit and delete your Zero Trust Browser Posture Profile per your organization's requirements.
+
+## About the Zero Trust Browser Posture Profiles Page
+
+On the Zero Trust Browser Posture Profiles page (Zero Trust Browser > Browser Isolation Private Apps > Browser Posture Profiles), you can do the following:
+
+1. [Add a posture profile](https://help.zscaler.com/zero-trust-browser/configuring-zero-trust-browser-posture-profile).
+2. Customize the columns shown in the table. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+3. View a list of existing posture profiles.
+4. Edit a posture profile.
+5. Delete a posture profile.
+6. Display more rows or a different page of the table.
+
+[Image: Zero Trust Browser Posture Profiles page]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/accessing-multiple-sessions-isolation","lastmod":"2026-11-10T13:35Z","nid":"1417561"} -->
+## Accessing Multiple Sessions in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/accessing-multiple-sessions-isolation
 - Product: Zero Trust Browser
-- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Multiple Sessions In Isolation
-- Last modified: 2026-10-29T15:39Z
+- Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Accessing Multiple Sessions in Isolation
+- Last modified: 2026-11-10T13:35Z
 - Summary: Information about the capability for Zero Trust Browser users to enter multiple isolation sessions at once.
 
 Users can access multiple active isolation sessions at a time, using multiple internet browsers or incognito windows. For example, if a user begins an isolation session in a Chrome browser window, they can start an additional isolation session for a different web page in a Firefox browser window.
@@ -478,6 +522,52 @@ Bandwidth Control is disabled for all traffic from the isolated browser destined
 [Image: The URL Filtering Page shows the various functions and a list of existing policies]
 
 [Image: Choose the Isolate action and Isolation Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-zero-trust-browser-posture-profile","lastmod":"2026-11-10T07:51Z","nid":"1547064"} -->
+## Configuring a Zero Trust Browser Posture Profile
+
+- Source: https://help.zscaler.com/zero-trust-browser/configuring-zero-trust-browser-posture-profile
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Profiles > Posture Profiles > Configuring a Zero Trust Browser Posture Profile
+- Last modified: 2026-11-10T07:51Z
+- Summary: How to configure a Zero Trust Browser Posture Profile in the Zscaler Admin Console.
+
+You can create a Zero Trust Browser Profile in the Zscaler Admin Console to verify whether incoming traffic originates from Zero Trust Browser—either the Enterprise Browser or Browser Extension. To learn more, see [Understanding Enterprise Browser](https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser) and [Understanding Browser Extension](https://help.zscaler.com/zero-trust-browser/understanding-browser-extension).
+
+You can then select and apply the posture profile when configuring isolation policy rules in Private Access (ZPA) to control application access based on whether the user is connecting via Zero Trust Browser. To learn more, see [Configuring Isolation Policies](https://help.zscaler.com/zpa/configuring-isolation-policies).
+
+## Prerequisites
+
+Before configuring a Zero Trust Browser Posture Profile, you must configure a Device Posture Profile in Zscaler Client Connector with the following specifications:
+
+- **Posture Type**: Select **Domain Joined**.
+- **Domain**: Enter `ZeroTrustBrowser`.
+
+See image.
+
+To learn more, see [Configuring Device Posture Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-device-posture-profiles).
+
+## Configuring a Zero Trust Browser Posture Profile
+
+To configure a Zero Trust Browser posture profile:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser** > **Browser Isolation Private Apps** > **Browser Posture Profiles**.
+2. Click **+ Add Posture Profile**. See image. The **Add Posture Profile** drawer opens.
+3. In the **Add Posture Profile** drawer: See image.
+  - **Profile Name**: Enter a name for the posture profile.
+  - **Device Posture**: Select the device posture that you created previously. Additional postures are not required.
+4. Click **Save**.
+
+The posture profile is added to the Zero Trust Browser Posture Profiles page.
+
+[Image: Device Posture Profile configured for Zero Trust Browser]
+
+[Image: Add Posture Profile button on Zero Trust Browser Profiles page]
+
+[Image: Add Posture Profile drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1624,16 +1714,16 @@ For the complete procedure on how to configure Votiro and Zero Trust Browser for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/user-experience-modes-isolation","lastmod":"2026-10-20T09:53Z","nid":"1386596"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/user-experience-modes-isolation","lastmod":"2026-11-10T13:37Z","nid":"1386596"} -->
 ## User Experience Modes in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/user-experience-modes-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > User Experience Modes in Isolation
-- Last modified: 2026-10-20T09:53Z
+- Last modified: 2026-11-10T13:37Z
 - Summary: Information about the types of user experience modes in isolation.
 
-Zero Trust Browser allows admins to select an isolation browser experience for their [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-for-internet-and-saas) and [Private Access (ZPA)](https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-zpa) users. The two options are Native Browser Experience and Browser-in-Browser Experience.
+Zero Trust Browser allows admins to select an isolation browser experience for their [Internet & SaaS (ZIA)](https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-for-internet-and-saas) and [Private Access (ZPA)](https://help.zscaler.com/zero-trust-browser/about-isolation-profiles-private-access) users. The two options are Native Browser Experience and Browser-in-Browser Experience.
 
 ## Native Browser Experience
 
@@ -1727,13 +1817,13 @@ To learn more about limitations related to clipboard data, see [Ranges & Limitat
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-debug-mode-isolation","lastmod":"2026-09-30T21:06Z","nid":"1479256"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-debug-mode-isolation","lastmod":"2026-11-10T13:46Z","nid":"1479256"} -->
 ## Using Debug Mode for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-debug-mode-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Debug Mode for Isolation
-- Last modified: 2026-09-30T21:06Z
+- Last modified: 2026-11-10T13:46Z
 - Summary: Information about using Debug Mode for isolation.
 
 When an issue occurs during an isolated session, users can start Debug Mode to troubleshoot the issue. This allows users to decipher whether the issue occurring is related to the isolated session itself or something else related to their web browsing. Native browsers allow users to troubleshoot in a few ways, usually with developer tools. An end user of Zero Trust Browser, however, cannot see these details that are typically available in the native browser. Debug Mode allows users to troubleshoot the issue without revealing confidential information.
@@ -1774,13 +1864,13 @@ To end a debug mode session:
     - Flow details (Internet & SaaS Flow/IdP Proxy Flow/Private Access Flow)
     - Correlation IDs (endpoint session ID, pod ID, etc.)
 
-[Image: Isolation Menu - start debug]
+[Image: Start Debug Mode in Zero Trust Mode menu]
 
-[Image: A view of the debug mode confirmation window.]
+[Image: Start Debug Mode confirmation window]
 
-[Image: A view of an isolated web page.]
+[Image: Activated Debug Mode in the Zero Trust Mode menu]
 
-[Image: Isolation Menu - Stop debug]
+[Image: Stop Debug Mode in Zero Trust Mode menu]
 
 [Image: Stop Debug Mode confirmation window]
 <!-- /ZS-ARTICLE -->
@@ -1809,13 +1899,13 @@ If a user attempts to restore a session three or more times without success, or 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-redactive-sensitive-text-isolation","lastmod":"2026-10-21T09:52Z","nid":"1530774"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/using-redactive-sensitive-text-isolation","lastmod":"2026-11-10T13:34Z","nid":"1530774"} -->
 ## Using Redactive Sensitive Text for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/using-redactive-sensitive-text-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Using Redactive Sensitive Text for Isolation
-- Last modified: 2026-10-21T09:52Z
+- Last modified: 2026-11-10T13:34Z
 - Summary: Information about using the Redactive Sensitive Text feature for Zero Trust Browser.
 
 [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a capability that organizations use to provide access to critical applications for users. It gives admins the ability to enforce security controls on multiple levels, such as:
@@ -1826,7 +1916,7 @@ If a user attempts to restore a session three or more times without success, or 
 
 In this way, Zero Trust Browser helps an organization ensure that critical data does not get exposed. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention).
 
-Enabling redactive sensitive text on your [Internet & SaaS isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) or [Private Access isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) allows you to manage which sensitive information from which Internet & SaaS DLP engines is redacted for users during isolation. This information can include Social Security numbers, financial information, and other personal, private data that you want extra protection for.
+Enabling redactive sensitive text in your [Internet & SaaS isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) or [Private Access isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) allows you to manage which sensitive information from which Internet & SaaS DLP engines is redacted for users during isolation. This information can include Social Security numbers, financial information, and other personal, private data that you want extra protection for.
 
 When you enable redaction, you configure an isolation profile to hide certain text data. During an isolated session, the sensitive data on a web page is replaced with password-blocking symbols (e.g., ●●●●●) in real time. Printing is also subject to redaction. If a user tries to print sensitive data, Zero Trust Browser replaces the text with the password-blocking symbols.
 

@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 28
 
 ---
@@ -1376,18 +1376,18 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-09-18T02:33Z","nid":"1542250"} -->
+<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-11-11T21:03Z","nid":"1542250"} -->
 ## What Is Zscaler Deception?
 
 - Source: https://help.zscaler.com/deception/what-zscaler-deception
 - Product: Deception
 - Path: Deception Help > Getting Started > What Is Zscaler Deception?
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-11T21:03Z
 - Summary: Introductory information about Zscaler  Deception and its cloud-based infrastructure.
 
-Zscaler Deception is a simple, faster, and more effective threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats such as agentic attackers, advanced persistent threats (APTs), zero-day exploits, reconnaissance, lateral movement, and human-operated ransomware.
+Zscaler Deception is a simple, fast, and effective threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats such as agentic attackers, advanced persistent threats (APTs), zero-day exploits, reconnaissance, lateral movement, and human-operated ransomware.
 
-By embedding these traps, the platform safeguards critical attack surfaces such as Active Directory, the software supply chain, and industrial control systems (SCADA/ ICS).
+By embedding these traps, Deception safeguards critical attack surfaces such as Active Directory, the software supply chain, and industrial control systems like supervisory control and data acquisition (SCADA).
 
 As an integral part of the Zscaler Zero Trust Exchange, Deception integrates with Zero Trust, tracking the full attack sequence and initiating automated response actions across the Zscaler platform. To learn more, see [Zscaler Deception Overview](https://www.zscaler.com/products/deception-technology).
 

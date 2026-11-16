@@ -1,7 +1,7 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 93
 
 ---
@@ -118,13 +118,13 @@ On the Integrations page (Zero Trust Branch > Resources > Integrations), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-objects","lastmod":"2026-11-03T19:32Z","nid":"1533894"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/about-objects","lastmod":"2026-11-12T04:59Z","nid":"1533894"} -->
 ## About Objects
 
 - Source: https://help.zscaler.com/zero-trust-branch/about-objects
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Objects > About Objects
-- Last modified: 2026-11-03T19:32Z
+- Last modified: 2026-11-12T04:59Z
 - Summary: Information about the objects in the Zscaler Admin Console.
 
 Zero Trust Branch allows you to create, organize, and manage reusable logical objects. These objects help you simplify policy creation by grouping related resources such as devices, networks, applications, and ports, so they can be referenced consistently across [security](https://help.zscaler.com/zero-trust-branch/understanding-security-policies), [forwarding](https://help.zscaler.com/zero-trust-branch/understanding-forwarding-policies), and [DNS](https://help.zscaler.com/zero-trust-branch/configuring-site-dns-policies) policies.
@@ -224,13 +224,13 @@ Manage Microsoft AD objects on the Microsoft AD tab:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-app-connector-site","lastmod":"2026-11-03T17:54Z","nid":"1529430"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-app-connector-site","lastmod":"2026-11-12T05:01Z","nid":"1529430"} -->
 ## Adding App Connectors to a Site
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-app-connector-site
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Adding App Connectors to a Site
-- Last modified: 2026-11-03T17:54Z
+- Last modified: 2026-11-12T05:01Z
 - Summary: How to add App Connectors to a site in Zero Trust Branch.
 
 App Connectors provide an authenticated interface between a site and the Private Access (ZPA) cloud. Adding an App Connector to a Zero Trust Branch site provides inbound access to private applications hosted at the branch location, such as allowing Remote Desktop Protocol (RDP) to a server. You need the provisioning key for the App Connector in order to add it to the site. To learn more, see [About App Connector Provisioning Keys](https://help.zscaler.com/zpa/about-connector-provisioning-keys).
@@ -267,13 +267,13 @@ Depending on the high availability (HA) topology, the embedded App Connectors op
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-bgp-site","lastmod":"2026-11-04T17:44Z","nid":"1525631"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-bgp-site","lastmod":"2026-11-12T05:01Z","nid":"1525631"} -->
 ## Adding a Border Gateway Protocol to a Site
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-bgp-site
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Adding a Border Gateway Protocol to a Site
-- Last modified: 2026-11-04T17:44Z
+- Last modified: 2026-11-12T05:01Z
 - Summary: How to add border gateway protocols (BGPs) to a site in Zero Trust Branch.
 
 A border gateway protocol (BGP) governs routing among devices within a site.
@@ -344,13 +344,13 @@ To add a new hub:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-objects","lastmod":"2026-11-03T00:18Z","nid":"1533897"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/adding-objects","lastmod":"2026-11-12T04:59Z","nid":"1533897"} -->
 ## Adding Objects
 
 - Source: https://help.zscaler.com/zero-trust-branch/adding-objects
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Objects > Adding Objects
-- Last modified: 2026-11-03T00:18Z
+- Last modified: 2026-11-12T04:59Z
 - Summary: How to create an object in the Zscaler Admin Console.
 
 Zero Trust Branch supports several different types of objects (e.g., devices, networks, ports, DNS gateways, etc.). You can add groups of objects and enforce security policies dynamically to prevent lateral movement of threats.
@@ -607,13 +607,13 @@ Your custom gateway is ready.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-dhcp-options-site","lastmod":"2026-11-04T17:46Z","nid":"1538823"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-dhcp-options-site","lastmod":"2026-11-12T05:00Z","nid":"1538823"} -->
 ## Configuring DHCP Options for a Site
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-dhcp-options-site
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Configuring DHCP Options for a Site
-- Last modified: 2026-11-04T17:46Z
+- Last modified: 2026-11-12T05:00Z
 - Summary: How to configure DHCP options for a site in Zero Trust Branch.
 
 You can configure Dynamic Host Configuration Protocol (DHCP) options to provide additional network configuration parameters for devices that obtain IP addresses from the Zero Trust Branch appliance when the [DHCP service is enabled while configuring a site](https://help.zscaler.com/zero-trust-branch/adding-site). These options allow admins to automatically provide settings such as DNS servers, domain names, Network Basic Input/Output System (NetBIOS) information, or vendor-specific parameters to clients when they join the network.
@@ -667,13 +667,13 @@ The following table lists of supported DHCP options:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-forwarding-policies","lastmod":"2026-11-04T14:18Z","nid":"1525141"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-forwarding-policies","lastmod":"2026-11-12T04:52Z","nid":"1525141"} -->
 ## Configuring Forwarding Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-forwarding-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Routing Policies > Configuring Forwarding Policies
-- Last modified: 2026-11-04T14:18Z
+- Last modified: 2026-11-12T04:52Z
 - Summary: How to configure forwarding policies in the Zscaler Admin Console.
 
 Zero Trust Branch forwarding policies provide a secure, scalable, and highly available framework for branch network traffic, enabling you to control traffic from branch sites to specific destinations.
@@ -724,13 +724,13 @@ Based on your requirements, you can edit, reorder, or delete policies and config
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ha-site-vrrp","lastmod":"2026-11-03T00:25Z","nid":"1529555"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ha-site-vrrp","lastmod":"2026-11-12T04:59Z","nid":"1529555"} -->
 ## Configuring a High Availability Site with Virtual Router Redundancy Protocol
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-ha-site-vrrp
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > VLAN > Configuring a High Availability Site with Virtual Router Redundancy Protocol
-- Last modified: 2026-11-03T00:25Z
+- Last modified: 2026-11-12T04:59Z
 - Summary: How to set up a high availability (HA) site utilizing Virtual Router Redundancy Protocol (VRRP).
 
 To ensure that mission-critical systems in a network remain resilient to failures, you can configure Zero Trust Branch with a dedicated high availability (HA) link that uses Virtual Router Redundancy Protocol (VRRP). VRRP allows multiple Zero Trust Branch appliances to share a virtual IP address, minimizing downtime and enhancing overall reliability and security.
@@ -771,13 +771,13 @@ To configure an HA site:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ip-reservation-assets-within-vlan","lastmod":"2026-11-02T04:30Z","nid":"1533840"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-ip-reservation-assets-within-vlan","lastmod":"2026-11-12T05:00Z","nid":"1533840"} -->
 ## Configuring IP Address Reservation for Assets within a VLAN
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-ip-reservation-assets-within-vlan
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > VLAN > Configuring IP Address Reservation for Assets within a VLAN
-- Last modified: 2026-11-02T04:30Z
+- Last modified: 2026-11-12T05:00Z
 - Summary: How to configure IP address reservation for assets within a VLAN.
 
 Zero Trust Branch allows admins to reserve IP addresses for specific assets within a VLAN, ensuring predictable and stable connectivity for critical endpoints such as servers, Internet of Things devices, and infrastructure components. IP address reservation is supported only when the VLAN is configured with Zero Trust Branch operating as its DHCP server. In a Zero Trust Branch environment, Airgap VLANs provide strong endpoint isolation by assigning unique IP addressing policies per VLAN. When the Zero Trust Branch gateway functions as the DHCP server, admins can fully control how IP addresses are assigned. This includes reserving IP addresses for known assets so that these devices always receive the same IP address during DHCP lease renewals.
@@ -940,13 +940,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-security-policies","lastmod":"2026-11-03T00:13Z","nid":"1532549"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-security-policies","lastmod":"2026-11-12T04:50Z","nid":"1532549"} -->
 ## Configuring Security Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-security-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Firewall Policies > Configuring Security Policies
-- Last modified: 2026-11-03T00:13Z
+- Last modified: 2026-11-12T04:50Z
 - Summary: How to configure a security policy in the Zero Trust Branch Admin Portal.
 
 Security policies in Zero Trust Branch allow you to define how traffic is controlled between zones, sites, or network segments. Policies are essential for defining and enforcing access controls between different network segments, applications, and user groups, thereby enhancing security and compliance. Policies can apply to individual sources and destinations or to source and destination zones, and be based on networks, MAC addresses, devices, and Software as a Service (SaaS) apps. To learn more, see [Managing Objects](https://help.zscaler.com/zero-trust-branch/managing-objects).
@@ -1082,13 +1082,13 @@ To configure a site for DNS policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-vlan","lastmod":"2026-11-05T19:07Z","nid":"1533839"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-vlan","lastmod":"2026-11-12T05:00Z","nid":"1533839"} -->
 ## Configuring a VLAN
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-vlan
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > VLAN > Configuring a VLAN
-- Last modified: 2026-11-05T19:07Z
+- Last modified: 2026-11-12T05:00Z
 - Summary: How to configure a VLAN for Zero Trust Branch in the Zscaler Admin Console
 
 After deploying a Zero Trust Branch appliance or virtual machine (VM), you need to configure the VLAN that must be protected in the Zscaler Admin Console.
@@ -1359,13 +1359,13 @@ Proxmox simulates endpoints that are microsegmented by the ZT800 appliance and c
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-10-27T11:48Z","nid":"1532667"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels","lastmod":"2026-11-10T20:06Z","nid":"1532667"} -->
 ## Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
 
 - Source: https://help.zscaler.com/zero-trust-branch/configuring-zero-trust-branch-site-site-connectivity-over-routed-tunnels
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Zero Trust SD-WAN > Configuring Zero Trust Branch Site-to-Site Connectivity Over Routed Tunnels
-- Last modified: 2026-10-27T11:48Z
+- Last modified: 2026-11-10T20:06Z
 - Summary: Information about configuring legacy applications running in branches for direct site-to-site connectivity.
 
 Routed tunnels provide a secure way to connect branch locations over IP networks. Some applications, like VoIP phones, TACACS+, and Active FTP running in branches require direct source IP address visibility. Zscaler Zero Trust Branch supports remote site connectivity over Zero Trust Branch Routed Tunnels (RTs) and preserves the IP addresses required for these applications to function. The applications are deployed in a hub-and-spoke architecture, where a physical or virtual Zero Trust Branch appliance in a data center (the hub) and Zero Trust Branch appliances in the branch offices (the spokes) connect via the RTs. RTs use state cryptography to secure connections and are easy to implement.
@@ -1460,12 +1460,12 @@ This procedure uses these example values:
 - **Web proxy**: hub3.goairgap.com:1883
 
 - a. Configure the network.
-- b. Configure the web proxy.
+- b. Configure the web proxy (Required only if the Zero Trust Branch appliance is deployed behind a firewall).
 - c. Activate the appliance.
 
 This method uses the URL that you saved during the [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites#adding-a-site) procedure in the Zscaler Admin Console. The URL contains the configuration data for the WAN interface and the activation code.
 
-1. Connect a laptop directly to the [Management port (GE1)](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping#ZT400) on the appliance. The laptop automatically gets an IP address directly from the appliance. See image.
+1. Connect a laptop directly to the [management port](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping) on the appliance. The laptop automatically gets an IP address directly from the appliance. See image.
 2. Open a browser on the laptop and paste the URL that you copied when you created the site. After the appliance processes the configuration, it displays an **Activation is completed** message on the web page. See image.
 3. Go to **Zero Trust Branch** > **Deployments**> **Sites**and click the site in the **Site Name**column. In the site details, verify that the appliance is activated. The **State**field value for an activated appliance is: Show image.
   - **Standalone**for a standalone appliance
@@ -2210,13 +2210,13 @@ Create a firewall policy to restrict the Airgap+ endpoints' communication within
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-enhanced-wan-edge-high-availability-cluster","lastmod":"2026-11-02T06:22Z","nid":"1535048"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-enhanced-wan-edge-high-availability-cluster","lastmod":"2026-11-12T05:02Z","nid":"1535048"} -->
 ## Creating a Zero Trust Branch Enhanced WAN Edge High Availability Cluster
 
 - Source: https://help.zscaler.com/zero-trust-branch/creating-zero-trust-branch-enhanced-wan-edge-high-availability-cluster
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Templates > High Availability Clusters > Creating a Zero Trust Branch Enhanced WAN Edge High Availability Cluster
-- Last modified: 2026-11-02T06:22Z
+- Last modified: 2026-11-12T05:02Z
 - Summary: How to create a Zero Trust Branch enhanced high availability (WAN Edge HA) cluster.
 
 A Zscaler Zero Trust Branch Enhanced high availability (HA) configuration, also known as a WAN Edge HA cluster, enhances the standard HA cluster by enabling an active-active traffic distribution for Zero Trust Branch appliances in an HA mode. By leveraging a dedicated WAN Transit Link between the active and standby nodes, Enhanced HA ensures both appliances actively participate in WAN traffic routing. By leveraging a dedicated WAN Transit Link between the active and standby nodes, it ensures both appliances actively participate in WAN traffic routing. This optimized configuration eliminates dependency on Layer 2 switches and ensures uninterrupted services while maintaining redundancy and load balancing under real world SD-WAN and high-traffic conditions.
@@ -2414,13 +2414,13 @@ After saving the rule, the cluster begins forwarding traffic matching the policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster","lastmod":"2026-11-05T19:07Z","nid":"1533622"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster","lastmod":"2026-11-12T05:02Z","nid":"1533622"} -->
 ## Creating a Zero Trust Branch High Availability Cluster
 
 - Source: https://help.zscaler.com/zero-trust-branch/creating-zero-trust-branch-high-availability-cluster
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Templates > High Availability Clusters > Creating a Zero Trust Branch High Availability Cluster
-- Last modified: 2026-11-05T19:07Z
+- Last modified: 2026-11-12T05:02Z
 - Summary: How to create a Zero Trust Branch high availability (HA) cluster
 
 A Zscaler Zero Trust Branch high availability (HA) cluster consists of two identical Zero Trust Branch appliances (or *nodes*). One node is the primary node and has the active role. The other node is the secondary node and has the standby role. If the primary node fails, the secondary node takes over as the primary, active node. The nodes coordinate stateful failover and traffic handling using protocols such as traffic session state synchronization and Virtual Router Redundancy Protocol (VRRP).
@@ -2987,13 +2987,13 @@ Before proceeding, configure LACP (802.3ad) on the switch where the WAN interfac
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi","lastmod":"2026-10-28T08:48Z","nid":"1533836"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi","lastmod":"2026-11-11T20:06Z","nid":"1533836"} -->
 ## Deploying Zero Trust Branch as a Virtual Machine on VMware ESXi
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-virtual-machine-vmware-esxi
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment > Deploying Zero Trust Branch as a Virtual Machine on VMware ESXi
-- Last modified: 2026-10-28T08:48Z
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to deploy Zero Trust Branch as a virtual machine on VMware ESXi.
 
 Zero Trust Branch supports deployment as either a hardware appliance or a virtual machine (VM), allowing you to choose the model that best fits your branch environments.
@@ -3692,13 +3692,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-forwarding-policies","lastmod":"2026-11-02T02:24Z","nid":"1532642"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-forwarding-policies","lastmod":"2026-11-12T04:52Z","nid":"1532642"} -->
 ## Managing Forwarding Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-forwarding-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Routing Policies > Managing Forwarding Policies
-- Last modified: 2026-11-02T02:24Z
+- Last modified: 2026-11-12T04:52Z
 - Summary: How to manage forwarding policies in the Zscaler Admin Console.
 
 You can view, edit, delete, or organize forwarding policies and configure routing settings when required.
@@ -3787,13 +3787,13 @@ To configure route preference:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-objects","lastmod":"2026-11-02T04:13Z","nid":"1525226"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-objects","lastmod":"2026-11-12T04:58Z","nid":"1525226"} -->
 ## Managing Objects
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-objects
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Objects > Managing Objects
-- Last modified: 2026-11-02T04:13Z
+- Last modified: 2026-11-12T04:58Z
 - Summary: How to manage objects in the Zero Trust Branch Admin Portal.
 
 You can view, edit, clone, or delete user-defined, system default objects. Microsoft Active Directory (AD) objects are read-only objects.
@@ -3851,13 +3851,13 @@ To delete a user-defined group object:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-security-policies","lastmod":"2026-11-03T00:10Z","nid":"1509381"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-security-policies","lastmod":"2026-11-12T03:58Z","nid":"1509381"} -->
 ## Managing Security Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-security-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Firewall Policies > Managing Security Policies
-- Last modified: 2026-11-03T00:10Z
+- Last modified: 2026-11-12T03:58Z
 - Summary: Information about managing security policies in the Zscaler Admin Console.
 
 You can view, edit, clone, delete, or organize security policies at global, template, or site levels. Thesystem (default) policiescreated for each site are editable but cannot be reordered.
@@ -3931,13 +3931,13 @@ To delete a policy:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-11-04T21:35Z","nid":"1525146"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-sites","lastmod":"2026-11-12T05:01Z","nid":"1525146"} -->
 ## Managing Sites
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-sites
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Sites > Managing Sites
-- Last modified: 2026-11-04T21:35Z
+- Last modified: 2026-11-12T05:01Z
 - Summary: How to add new sites, manage site-specific DNS configurations, and configure static routes in Zero Trust Branch.
 
 Sites are where Zero Trust Branch appliances are deployed. From the Zscaler Admin Console, you can add new sites, manage site-specific DNS configurations, and configure static routes. To learn more about templates, see [Managing Templates](https://help.zscaler.com/zero-trust-branch/managing-templates).
@@ -4148,18 +4148,18 @@ To configure SNMPv3, enable it and manage its configuration via SNMP profiles.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-templates","lastmod":"2026-11-05T19:07Z","nid":"1525136"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/managing-templates","lastmod":"2026-11-10T19:11Z","nid":"1525136"} -->
 ## Managing Templates
 
 - Source: https://help.zscaler.com/zero-trust-branch/managing-templates
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Templates > Managing Templates
-- Last modified: 2026-11-05T19:07Z
+- Last modified: 2026-11-10T19:11Z
 - Summary: How to manage site templates in Zero Trust Branch.
 
 In a large-scale global deployment of Zero Trust Branch, managing each site individually is time-consuming and prone to errors. Zscaler provides a set of templates so that you can build sites quickly. You can also create custom templates based on the default set. Templates support both standalone and high availability (HA) configurations.
 
-After you have created or selected the template you want to use, see [Adding a Site](https://help.zscaler.com/zero-trust-branch/adding-site#adding-a-site) to create a site using that template.
+After you have created or selected the template you want to use, see [Adding a Site](https://help.zscaler.com/zero-trust-branch/managing-sites#adding-a-site) to create a site using that template.
 
 ## Predefined Templates
 
@@ -4314,13 +4314,13 @@ If you are upgrading across multiple versions, review the release notes for all 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-11-04T11:15Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-11-14T06:15Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-04T11:15Z
+- Last modified: 2026-11-14T06:15Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -4724,13 +4724,13 @@ To learn more, see [Return Merchandise Authorization (RMA) Process and Policy](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/testing-routing-policies","lastmod":"2026-10-30T07:52Z","nid":"1532643"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/testing-routing-policies","lastmod":"2026-11-12T04:51Z","nid":"1532643"} -->
 ## Testing Forwarding Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/testing-routing-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Routing Policies > Testing Forwarding Policies
-- Last modified: 2026-10-30T07:52Z
+- Last modified: 2026-11-12T04:51Z
 - Summary: How to test forwarding policies configured in the Zero Trust Branch Admin Portal.
 
 You can test [forwarding policies](https://help.zscaler.com/zero-trust-branch/understanding-forwarding-policies) to verify that network traffic is correctly routed through the intended interfaces in your Zero Trust Branch configuration. This helps ensure that the routing logic you defined is functioning as expected.
@@ -4843,13 +4843,13 @@ The following diagram illustrates the topology for Zero Trust Branch bonding int
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-forwarding-policies","lastmod":"2026-10-30T07:52Z","nid":"1532641"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-forwarding-policies","lastmod":"2026-11-12T04:52Z","nid":"1532641"} -->
 ## Understanding Forwarding Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-forwarding-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Routing Policies > Understanding Forwarding Policies
-- Last modified: 2026-10-30T07:52Z
+- Last modified: 2026-11-12T04:52Z
 - Summary: Information about forwarding policies in Zero Trust Branch.
 
 Zero Trust Branch allows you to create forwarding policies and control traffic from branch sites to specific destinations based on defined criteria, ensuring secure and optimized routing. These policies allow granular control over how traffic flows to Internet & SaaS (ZIA), Private Access (ZPA), or directly to the internet.
@@ -5372,13 +5372,13 @@ This example highlights how the Ransomware Kill Switch enables dynamic, color-co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-security-policies","lastmod":"2026-10-30T07:52Z","nid":"1532548"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-security-policies","lastmod":"2026-11-12T04:51Z","nid":"1532548"} -->
 ## Understanding Security Policies
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-security-policies
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Firewall Policies > Understanding Security Policies
-- Last modified: 2026-10-30T07:52Z
+- Last modified: 2026-11-12T04:51Z
 - Summary: Information about the firewall policies in Zero Trust Branch.
 
 Zero Trust Branch allows you to create firewall policies to isolate and control communication between various network environments. Built on Zscaler's Zero Trust framework, these policies ensure that no connection is trusted by default, effectively preventing lateral movement and minimizing attack surfaces.
@@ -5412,13 +5412,13 @@ To learn more, see [Configuring Security Policies](https://help.zscaler.com/zero
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-11-02T07:24Z","nid":"1532522"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/understanding-zero-trust-branch-access-roles","lastmod":"2026-11-12T05:02Z","nid":"1532522"} -->
 ## Understanding Zero Trust Branch Access Roles
 
 - Source: https://help.zscaler.com/zero-trust-branch/understanding-zero-trust-branch-access-roles
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Deployment Preparation > Understanding Zero Trust Branch Access Roles
-- Last modified: 2026-11-02T07:24Z
+- Last modified: 2026-11-12T05:02Z
 - Summary: Information about access roles in the Zero Trust Branch.
 
 Zero Trust Branch uses role-based access control (RBAC) to determine the granted permissions that enable admins and users to perform their job functions. By separating duties across clearly defined roles, RBAC minimizes the risk of misconfigurations, unauthorized access, and insider threats while maintaining operational efficiency and compliance.
@@ -6870,8 +6870,8 @@ To activate an eSIM:
 ## Managing Tags for Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/managing-tags-zscaler-sims
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > SIMs > Managing Tags for Zscaler SIMs
+- Product: Cellular
+- Path: Cellular Help > SIMs > Managing Tags for Zscaler SIMs
 - Last modified: 2026-10-30T11:01Z
 - Summary: How to create and manage tags for Zscaler SIMs.
 
@@ -6911,13 +6911,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-cellular/release-upgrade-summary-2026","lastmod":"2026-11-06T11:56Z","nid":"1534297"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-cellular/release-upgrade-summary-2026","lastmod":"2026-11-09T06:40Z","nid":"1534297"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-cellular/release-upgrade-summary-2026
 - Product: Cellular
 - Path: Cellular Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-06T11:56Z
+- Last modified: 2026-11-09T06:40Z
 - Summary: Zscaler Cellular Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zscaler Cellular.
@@ -7012,8 +7012,8 @@ To learn more, see [About the SIM Location Groups](https://help.zscaler.com/zsca
 ## Understanding the Zscaler Cellular Architecture
 
 - Source: https://help.zscaler.com/zscaler-cellular/understanding-zscaler-cellular-architecture
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > Understanding the Zscaler Cellular Architecture
+- Product: Cellular
+- Path: Cellular Help > Understanding the Zscaler Cellular Architecture
 - Last modified: 2026-03-27T21:06Z
 - Summary: Understanding the Zscaler Cellular Architecture Securing IoT and mobile devices with Zscaler SIM and Cellular Edge.
 
@@ -7131,8 +7131,8 @@ See image.
 ## Viewing and Monitoring Cellular Edge Deployments
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-and-monitoring-cellular-edge-deployments
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Viewing and Monitoring Cellular Edge Deployments
+- Product: Cellular
+- Path: Cellular Help > Dashboard, Deployment, and Configuration > Viewing and Monitoring Cellular Edge Deployments
 - Last modified: 2026-10-21T21:06Z
 - Summary: How to view and request regional Cellular Edge deployments.
 
@@ -7158,8 +7158,8 @@ You can also request deployment of new Cellular Edges. To learn more, see [Deplo
 ## Viewing the Anomaly Dashboard
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-anomaly-dashboard
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > Anomaly Detection > Viewing the Anomaly Dashboard
+- Product: Cellular
+- Path: Cellular Help > Anomaly Detection > Viewing the Anomaly Dashboard
 - Last modified: 2026-10-27T09:16Z
 - Summary: Explaining all the features and insights available on the Zscaler Cellular Anomaly Detection dashboard.
 
@@ -7234,8 +7234,8 @@ To view the details of a specific network event:
 ## Viewing SIM Details
 
 - Source: https://help.zscaler.com/zscaler-cellular/viewing-sim-details
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > SIMs > Viewing SIM Details
+- Product: Cellular
+- Path: Cellular Help > SIMs > Viewing SIM Details
 - Last modified: 2026-10-21T21:06Z
 - Summary: How to view details of each SIM card.
 
@@ -7310,8 +7310,8 @@ See image.
 ## What Is Zscaler Cellular?
 
 - Source: https://help.zscaler.com/zscaler-cellular/what-zscaler-cellular
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > What Is Zscaler Cellular?
+- Product: Cellular
+- Path: Cellular Help > What Is Zscaler Cellular?
 - Last modified: 2026-04-03T21:06Z
 - Summary: Information on Zscaler Cellular, its features, benefits, and use cases to secure IoT and mobile devices.
 

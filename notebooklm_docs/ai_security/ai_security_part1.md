@@ -1,7 +1,7 @@
 # Zscaler Help — AI Security (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 92
 
 ---
@@ -980,13 +980,13 @@ To access latency information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-multilingual-support","lastmod":"2026-07-24T09:41Z","nid":"1541624"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/ai-guard-multilingual-support","lastmod":"2026-11-10T11:56Z","nid":"1541624"} -->
 ## AI Guard Multilingual Support
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/ai-guard-multilingual-support
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > AI Guard for Apps > Getting Started > AI Guard Multilingual Support
-- Last modified: 2026-07-24T09:41Z
+- Last modified: 2026-11-10T11:56Z
 - Summary: This article contains a list of languages supported by the AI Guard interface.
 
 AI Guard currently supports the following languages with more being added in the future:
@@ -994,6 +994,7 @@ AI Guard currently supports the following languages with more being added in the
 - English
 - French
 - German
+- Italian
 - Japanese
 - Portuguese
 - Spanish
@@ -3846,13 +3847,13 @@ To register a Red Teaming broker, do the following:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-11-06T08:28Z","nid":"1539124"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-apps-infra/release-upgrade-summary-2026","lastmod":"2026-11-12T02:45Z","nid":"1539124"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-apps-infra/release-upgrade-summary-2026
 - Product: Secure AI Apps & Infrastructure
 - Path: Secure AI Apps & Infrastructure Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-06T08:28Z
+- Last modified: 2026-11-12T02:45Z
 - Summary: Secure AI Apps & Infrastructure Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure AI Apps & Infrastructure.
@@ -5406,13 +5407,13 @@ To access latency information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-multilingual-support","lastmod":"2026-07-21T12:45Z","nid":"1541873"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/ai-guard-multilingual-support","lastmod":"2026-11-10T11:56Z","nid":"1541873"} -->
 ## AI Guard Multilingual Support
 
 - Source: https://help.zscaler.com/secure-ai-users/ai-guard-multilingual-support
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > AI Guard for Users > Getting Started > AI Guard Multilingual Support
-- Last modified: 2026-07-21T12:45Z
+- Last modified: 2026-11-10T11:56Z
 - Summary: This article contains a list of languages supported by the AI Guard interface.
 
 AI Guard currently supports the following languages with more being added in the future:
@@ -5420,6 +5421,7 @@ AI Guard currently supports the following languages with more being added in the
 - English
 - French
 - German
+- Italian
 - Japanese
 - Portuguese
 - Spanish
@@ -7404,13 +7406,13 @@ To create a Microsoft 365 Copilot application policy control:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-11-06T08:29Z","nid":"1539123"} -->
+<!-- ZS-ARTICLE {"url":"/secure-ai-users/release-upgrade-summary-2026","lastmod":"2026-11-12T04:19Z","nid":"1539123"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/secure-ai-users/release-upgrade-summary-2026
 - Product: Secure Access to AI Apps
 - Path: Secure Access to AI Apps Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-06T08:29Z
+- Last modified: 2026-11-12T04:19Z
 - Summary: Secure Access to AI Apps Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Secure Access to AI Apps.

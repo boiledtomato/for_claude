@@ -1,8 +1,557 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 155
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels","lastmod":"2026-07-08T09:13Z","nid":"1400336"} -->
+## Determining Optimal MTU for GRE or IPSec Tunnels
+
+- Source: https://help.zscaler.com/zia/determining-the-optimal-mtu-for-gre-or-ipsec-tunnels
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Determining Optimal MTU for GRE or IPSec Tunnels
+- Last modified: 2026-07-08T09:13Z
+- Summary: Information on how to determine the optimal MTU for your organization's tunnels.
+
+A suboptimal maximum transmission unit (MTU) for your organization's GRE or IPSec tunnel results in severe performance degradation. This article teaches you how to determine the optimal MTU for your organization's tunnels.
+
+## Overview
+
+When a user from your organization requests a website, the user's traffic first travels from your organization's edge network appliance (for example, a router or firewall) to a Public Service Edge for Internet & SaaS (ZIA) via a primary or secondary GRE or IPSec tunnel. From there, the Public Service Edge sends the traffic out to the requested destination web server if it complies with your organization's security and compliance policies.
+
+**[Image: Flow of user traffic through the Public Service Edge and GRE Tunnel to the user’s appliance]**
+
+When you configure a GRE or IPSec tunnel to the Public Service Edge, you must set an MTU for the tunnel. The MTU determines the maximum packet size that can be sent over that tunnel, and setting an optimal MTU here is crucial. A suboptimal MTU for the tunnel results in significantly poorer performance for your users.
+
+An optimal tunnel MTU is equal to or lower than the following key values:
+
+- The Network Appliance MTU: The maximum total data per packet allowed by the edge network appliance from which the tunnel is built
+- The Path MTU: The maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+
+If your tunnel MTU is larger than either value, the network or path appliance divides each packet into fragments. The appliance then places each fragment into its own packet, with its own header. (The appliance thus must ensure that the maximum size of each fragment is its own MTU minus the header size.) The appliance also records in the header the following information so that the receiving appliance can properly identify the fragments and reassemble them into the original packet that was sent:
+
+- **Total Length:** The size of the fragment.
+- **Identification:** The value that identifies the original packet the fragment belongs to.
+- **More Fragments (MF):** A flag set to a 1 for all fragments except the last one, which is set to 0. A flag set to a 1 indicates to the receiving appliance that more fragments of this packet are coming, while a flag set to a 0 indicates that the appliance has received the last fragment of the packet.
+- **Fragment Offset:** A value that helps the receiving appliance reassemble the packet fragments into the right sequence.
+
+When this fragmentation process occurs for each packet sent through your tunnel, your users experience significant performance issues.
+
+To help avoid this scenario and ensure efficient packet transport, Zscaler recommends you complete the following tasks to determine and set the optimal MTU for your tunnels.
+
+## Configuration Instructions
+
+- 1. Determine the Network Appliance MTU: the maximum total data per packet allowed by your network appliance
+- 2. Determine the Maximum Segment Size (MSS): the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+- 3. Calculate the path MTU value: the maximum total data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge
+- 4. Compare your Network Appliance MTU and path MTU and set the lesser value as the MTU for your tunnel
+
+After you complete these tasks, the packets transported through your tunnel do not exceed the network appliance MTU or the path MTU. This helps ensure the most efficient transport for your packets and vastly improves performance.
+
+Refer to your network appliance documentation to learn how to determine the appliance MTU. For example, if you have a Cisco appliance, you can find instructions [here](http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/25sg/configuration/guide/conf/sw_int.html#wp1049274).
+
+You must determine the network appliance MTU before proceeding to the next step.
+
+Before you begin, make sure you have the following information ready:
+
+- Your network appliance MTU (referenced above)
+- The IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic. Click to learn how to locate this information for your organization.
+
+You can determine the MSS for your appliance using the following procedures based on the OS of the appliance:
+
+- For macOS
+- For Windows
+- For Linux
+
+The `-g` component of the ping command applies only to appliances running macOS.
+
+1. Execute the following ping command to the Public Service Edge or VPN hostname using the appliance from which you're building the GRE or IPSec tunnels:
+
+```
+ping -g [network appliance MTU value minus 50] -G 1600 -h 10 -D [destination]
+```
+
+- This command allows you to discover a range for the MSS⁠—that is, a range for the maximum payload data per packet allowed by appliances that stand in the path between your network appliance and the Public Service Edge. It directs your appliance to send to the destination ping sweeps—a sequence of packets that incrementally increase in size (by 10 bytes, in this case)⁠—until the packets reach a specified size, or until the packets reach a point at which adding another 10 bytes makes the packets exceed the MSS.
+- Following is a more detailed explanation of the command components and the values to use.
+  - `-g`: Packet size to start with when sending the ping sweep. The value to plug in for g must equal the network appliance MTU minus 50. For example, if your network appliance MTU is 1450, the value is 1400.
+  - `-G`: Packet segment size to end with when sending the ping sweep. For this command, use the value 1600.
+  - `-h`: Increment (in number of bytes) by which to increase the size of packets when sending the ping sweep. For this command, use the value 10.
+  - `-D`: Prevents the tunnel from fragmenting packets. This is critical to ultimately discovering the MSS. Even if the appliance doesn't reach the G value (the size with which to end the ping sweep), because of this component, the appliance stops sending packets once it finds it has to fragment packets to keep them from exceeding the MSS. Without this limitation, the appliance simply continues to send packets by fragmenting them. For example, if the MSS is 1470, and your packet size was 1478, it fragments that packet into two packets so that the first is 1400 bytes, and the second packet 8 bytes.
+  - `[destination]`: This is the packet destination**.** These are the IP addresses of the primary and secondary Public Service Edges to which your organization forwards traffic.
+- For example, if your organization's network appliance MTU is 1450, and your destination IP address is 10.10.10.13, your ping command is:
+
+```
+ping -g [1400] -G 1600 -h 10 -D 10.10.10.13
+```
+
+1. When the appliance ends the ping sweeps, identify the packet size at which your pings stopped. You now know that the MSS is somewhere between this value and this value plus 10.
+2. Execute the same ping command, but change the values entered for -g and -h.
+  - For `-g`, enter the packet size at which your appliance stopped sending packets, as identified in step 2.
+  - For `-h`, use 1 so that the appliance increases the packet size by increments of 1.
+
+```
+ping -g [packet size at which appliance stopped sending packets, identified in step 2] -G 1600 -h 1 -D [destination]
+```
+
+- For example, if the value you identified in step 2 was 1450, your ping command is:
+
+```
+ping -g [1450] -G 1600 -h 1 -D 10.10.10.13
+```
+
+1. Again, identify the packet size at which your pings stopped. That value is your MSS.
+
+- See an example.
+
+For appliances running Windows, execute the following bash loop command to perform a ping sweep:
+
+```
+for /l %i in(
+<Sweep Min Size, Sweep Count Increase By, Sweep Max Size>
+)do @ping -n 1 -w 100
+<Ping Destination IP>
+-l %i -f.
+```
+
+- See an example.
+
+The command:
+
+```
+for /l %i in (1400,1,1404) do @ping -n 1 -w 100 8.8.8.8 -l %i -f
+```
+
+The expected output of the command:
+
+```
+C:\Windows\system32>for /l %i in (1400,1,1404) do @ping -n 1 -w 8.8.8.8 -l %i -f
+
+Pinging 8.8.8.8. with 1400 bytes of data:
+Reply from 8.8.8.8: bytes=1400 time=6ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 6ms, Maximum = 6ms, Average = 6ms
+
+Pinging 8.8.8.8 with 1401 bytes of data:
+Reply from 8.8.8.8: bytes=1401 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging 8.8.8.8 with 1402 bytes of data:
+Reply from 8.8.8.8: bytes=1402 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+Pinging 8.8.8.8 with 1403 bytes of data:
+Reply from 8.8.8.8: bytes=1403 time<1ms TTL=64
+
+Ping statistics for 8.8.8.8:
+Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+Minimum = 0ms, Maximum = 0ms, Average = 0ms
+```
+
+For appliances running Linux, enter the following bash loop command to perform a ping sweep:
+
+```
+for size in {
+<Sweep Min Size>
+..
+<Sweep Max Size>
+..
+<Sweep Count Increase By>
+}; do ping -s $size -c 1 -M do
+<Ping Destination IP>
+; done
+```
+
+- See an example.
+
+The command:
+
+```
+for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
+```
+
+The expected output of the command:
+
+```
+root@user1-ubuntu:~# for size in {900..904..1}; do ping -s $size -c 1 -M do 8.8.8.8; done
+PING 8.8.8.8 (8.8.8.8) 900(928) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 22.078/22.078/22.078/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 901(929) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 17.283/17.283/17.283/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 902(930) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 22.515/22.515/22.515/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 903(931) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 16.494/16.494/16.494/0.000 ms
+PING 8.8.8.8 (8.8.8.8) 904(932) bytes of data.
+76 bytes from 8.8.8.8: icmp_seq=1 ttl=114 (truncated)
+
+— 8.8.8.8 ping statistics —
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 8.494/8.494/8.494/0.000 ms
+```
+
+- GRE Tunnels: If you're building GRE tunnels, Zscaler Customer Support can provide you with the IP addresses of the primary and secondary Public Service Edges to which your organization must forward traffic. See [Configuring GRE Tunnels](https://help.zscaler.com/zia/configuring-gre-tunnels) for more information.
+- IPSec Tunnels: If you're building IPSec tunnels, see [Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS](https://help.zscaler.com/zia/locating-hostnames-and-ip-addresses-zia-public-service-edges).
+
+In this example:
+
+- The network appliance MTU is 1330.
+- The destination Public Service Edge IP address is 192.152.0.19.
+
+In this case, execute the following ping command:
+
+```
+ping -g 1330 -G 1600 -h 10 -D 192.152.0.19
+```
+
+The appliance sent to the IP address 192.152.0.19 pings starts at a packet segment size of 1330 bytes, increasing the size by increments of 10.
+
+The appliance stopped sending packets once they reached 1468 bytes (even before they reached the G value of 1600 bytes). Since the command specified that packets cannot be fragmented, the appliance stopped sending packets when adding another 10 bytes to 1468 makes the packet size exceed the MSS—in other words, the point at which the appliance begins fragmenting packets in order to transport them.
+
+From this, you can deduce that the MSS is somewhere between 1468 and 1478.
+
+```
+PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
+1338 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
+1348 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
+1358 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1368 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1378 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1388 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1398 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1408 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1418 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1428 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1438 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1448 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1458 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1468 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+ping: sendto: Message too long
+ping: sendto: Message too long
+ping: sendto: Message too long
+```
+
+With the information from the first ping command, execute the following second ping command:
+
+```
+ping -g 1468 -G 1478 -h 1 -D 192.152.0.19
+```
+
+From this result, you can conclude that your MSS is 1472 bytes.
+
+```
+PING 192.152.0.19 (10.152.0.19): (1330 ... 1600) data bytes
+1468 bytes from 192.152.0.19: icmp_seq=0 ttl=121 time=418.883 ms
+1469 bytes from 192.152.0.19: icmp_seq=1 ttl=121 time=441.258 ms
+1470 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1471 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+1472 bytes from 192.152.0.19: icmp_seq=2 ttl=121 time=289.218 ms
+ping: sendto: Message too long
+ping: sendto: Message too long
+ping: sendto: Message too long
+```
+
+With your MSS, you can now calculate the path MTU⁠—the maximum packet size allowed by appliances that stand in the path between your network appliance and the Public Service Edge. The path MTU is the MSS value plus the values for the IP header (20 bytes) and the ICMP header (8 bytes). Use the following calculation.
+
+```
+Path MTU = MSS + 20 Bytes (IP Header) + 8 bytes (ICMP Header)
+```
+
+For example, if your MSS is 1472, your path MTU is 1500 (that is, 1472 + 20 + 8).
+
+Compare your network appliance MTU and your path MTU. Subtract the tunnel header length from the lower of these two MTU values to set your tunnel MTU.
+
+For example, if your network appliance MTU is 1500, and your path MTU is 1300, the value you set as the tunnel MTU is:
+
+```
+Tunnel MTU = Path MTU - Tunnel Header Length in bytes
+```
+
+For GRE tunnel, the header length = 24 bytes.
+For IPSec tunnel, the header length is variable and can be up to 64 bytes.
+
+This ensures that packets traveling through your GRE or IPSec tunnel do not exceed the packet size limitations of your network appliance or other appliances in the path between your network appliance and the Public Service Edge.
+
+If you experience issues performing the tasks above, Zscaler recommends that you use a tunnel MTU of 1400.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/distributing-pac-file-url-my-users","lastmod":"2026-09-02T07:40Z","nid":"1399431"} -->
+## Distributing a PAC File URL to Users
+
+- Source: https://help.zscaler.com/zia/distributing-pac-file-url-my-users
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > PAC Files > Using PAC Files > Distributing a PAC File URL to Users
+- Last modified: 2026-09-02T07:40Z
+- Summary: How to distribute PAC file URL to users and to enforce the PAC file settings.
+
+If your organization uses Active Directory along with Microsoft Internet Explorer, Microsoft Edge, Google Chrome, Mozilla Firefox, or Opera, you can use Group Policy Objects (GPOs) to distribute a PAC file URL to all Windows (Professional, Enterprise, Education, and Ultimate Editions only) and Windows Server devices in your organization. When you configure Internet Explorer to use a PAC file, browsers such as Microsoft Edge, Google Chrome, and Opera follow the same configuration. However, Mozilla Firefox requires a separate method of configuration. To distribute a PAC file URL to Firefox browsers using GPOs, download the ADMX templates for Firefox at [https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows](https://support.mozilla.org/en-US/kb/customizing-firefox-using-group-policy-windows).
+
+## Distributing a PAC File URL to Mozilla Firefox
+
+To distribute a PAC file URL to Mozilla Firefox:
+
+- 1. Download and install GPO templates for Mozilla Firefox.
+- 2. Create a new GPO.
+- 3. Deploy and enforce PAC file setting for Mozilla Firefox using GPO.
+
+## Distributing a PAC File URL to Other Browsers
+
+To distribute a PAC file URL using browsers other than Mozilla Firefox, such as Microsoft Internet Explorer, Microsoft Edge, Google Chrome, or Opera:
+
+- 1. Create a new GPO.
+- 2. Distribute the PAC file URL.
+- 3. Enforce the PAC file setting.
+
+Mozilla Firefox does not follow the system proxy configuration like the other browsers do. You must download and install separate Group Policy templates for Firefox to use GPOs to deploy and enforce the PAC file setting.
+
+- Download and install Mozilla Firefox GPO templates for Windows Server Core.
+- Download and install Mozilla Firefox GPO templates for Windows Server with Desktop Experience.
+
+1. Log in to a domain-joined Windows 10 client as a user with administrative permissions on the domain.
+2. Open a remote PowerShell session into your domain controller.
+3. Execute the following PowerShell commands:
+
+```
+Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
+Expand-Archive -Path .\master.zip -DestinationPath .\master
+Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
+Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
+```
+
+If you are using a Group Policy Central Store, replace the file path in the `Destination` parameter with that of your Central Store.
+
+1. Log in to your domain controller with administrative permissions on the domain.
+2. Open the **Start Menu >** **Windows PowerShell** folder. Right-click on **Windows PowerShell** and select **Run as administrator**.
+3. Execute the following PowerShell commands:
+
+```
+Invoke-WebRequest -Uri https://github.com/mozilla/policy-templates/archive/master.zip -OutFile .\master.zip
+Expand-Archive -Path .\master.zip -DestinationPath .\master
+Copy-Item -Path .\master\policy-templates-master\windows\*.admx -Destination C:\Windows\PolicyDefinitions
+Copy-Item -Path .\master\policy-templates-master\windows\en-US\*.adml -Destination C:\Windows\PolicyDefinitions\en-US
+```
+
+If you are using a Group Policy Central Store, replace the file path in the Destination parameter with that of your Central Store.
+
+You can use the Group Policy Management Console (GPMC) to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access the GPMC on a Windows Server Core, you need a Windows client machine (Professional, Enterprise, Education, and Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
+
+Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
+On a Windows Server with Desktop Experience, the GPMC is already installed.
+
+To create a new GPO:
+
+1. Open the GPMC.
+2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
+3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**.
+
+The **New GPO** window appears.
+
+1. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
+2. Click **OK**.
+
+A new GPO is created under your domain or organizational unit.
+
+1. Right-click on the newly created GPO and then select **Link Enabled**.
+
+See image.
+
+1. Select your forest, domain, or organizational unit and then move the new GPO to **Link Order 1** under the **Linked Group Policy Objects** tab.
+
+See image.
+
+It might take up to 20 minutes for the GPO to be replicated to your Windows client machine.
+
+To deploy and enforce the PAC file setting for Mozilla Firefox:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
+
+See image.
+
+1. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Mozilla > Firefox**.
+
+See image.
+
+1. From the **Firefox** folder, double-click **Proxy Settings**.
+
+The **Proxy Settings** window appears.
+
+1. Under **Proxy Settings**, select **Enabled**.
+2. Under **Options**, configure the following fields:
+
+See image.
+
+- **Don’t allow proxy settings to be changed:** Select this option to enforce the PAC file settings.
+- **Connection Type:** Select **Manual proxy configuration** to configure your custom proxy settings. To use the proxy configured in your system, choose **Use system proxy settings**.
+- **SOCKS Version:** Select **SOCKS v5**.
+- **Automatic proxy configuration URL:** Enter the PAC file URL in this field if you selected **Manual proxy configuration** in the **Connection Type** field.
+
+1. Click **OK**.
+
+Users can no longer modify the proxy settings in Mozilla Firefox.
+
+[Image: Computer configuration for Firefox in GPMC]
+
+[Image: User configuration for Firefox in GPMC]
+
+[Image: Proxy setting for Firefox browser to distribute a PAC file URL]
+
+You can use the GPMC to create a new GPO for distributing a PAC file URL to the Windows devices in your organization. To access GPMC from a Windows server core, you need a Windows client machine (Professional, Enterprise, Education, or Ultimate Editions only) that is installed with Remote Server Administration Tools (RSAT).
+
+Ensure that your client machine is compatible with your server version and has the appropriate administrative permissions on your domain.
+On a Windows server with Desktop Experience, the GPMC is already installed.
+
+To create a new GPO:
+
+1. Open the GPMC.
+2. In the **Group Policy** management tree, navigate to the forest, domain, or organizational unit to which you are applying the GPO.
+3. Right-click on the forest, domain, or organizational unit and select **Create a GPO in this domain, and Link it here**. The **New GPO** window appears.
+4. In the**New GPO**window, provide a name for the GPO and leave the **Source Starter GPO** field blank.
+5. Click **OK**.
+
+To distribute the PAC file URL using the GPO:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. Navigate to **User Configuration > Preferences > Control Panel Settings**.
+5. Right-click on **Internet Settings** and select **New > Internet Explorer 10**.
+
+See image.
+
+1. From the **Connections** tab, click **LAN settings**.
+
+See image.
+
+1. Enter the PAC file URL in the **Address** field.
+
+If you see a red dotted underline in the **Address** field, ensure to place your cursor in the text box and press the **F6** function key. This enables the field and is indicated by a solid green underline.
+
+See image.
+
+1. Click **OK**.
+2. (Optional) If you want to apply the GPO to the entire computer irrespective of the signed in user:
+  1. Navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer** in the GPMC.
+  2. From the **Internet Explorer** folder, double-click **Make proxy settings per-machine (rather than per-user)**. The **Make proxy settings per-machine (rather than per-user)** window appears.
+  3. Under **Make proxy settings per-machine (rather than per-user)**, select **Enabled** and click **OK**.
+
+See image.
+
+You can use the Group Policy Results wizard to verify the policy settings of the users or computers in the domain.
+
+[Image: Screenshot of Link Enabled option selected for the new GPO]
+
+[Image: Screenshot of the new GPO's Link Order in the organizational unit page]
+
+[Image: Internet settings for IE in GPMC]
+
+[Image: Internet Explorer Properties in GPMC]
+
+[Image: Internet Explorer PAC URL Settings in GPMC]
+
+[Image: Internet Explorer Optional configuration in GPMC]
+
+You can enforce the PAC file setting so that the users in your organization cannot modify it even when logged in as an administrator.
+
+To enforce the PAC file setting:
+
+1. Open the GPMC.
+2. Navigate to the domain or organizational unit to which you applied the GPO and expand it.
+3. Right-click on the newly created GPO and select **Edit**.
+4. To apply the policy to the entire computer, navigate to **Computer Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
+5. To apply the policy only for the domain users, navigate to **User Configuration > Policies > Administrative Templates > Windows Components > Internet Explorer**.
+6. From the **Internet Explorer** folder, double-click **Disable changing Automatic Configuration settings**.
+
+The **Disable changing Automatic Configuration settings** window appears.
+
+1. Under **Disable changing Automatic Configuration settings**, select **Enabled** and click **OK**.
+
+See image.
+
+1. Double-click **Prevent changing proxy settings**. The **Prevent changing proxy settings** window appears.
+2. Under **Prevent changing proxy settings**, select **Enabled** and click **OK**.
+
+See image.
+
+Users can no longer change the proxy settings.
+
+Based on your authentication configuration, your users must log in to the service at least once for the service to start protecting their web traffic. If the users log in to a captive portal, such as those present on public Wi-Fi networks (e.g., Starbucks and McDonalds), they must close the browser and open it again to reload the PAC file. The browser tries to fetch the PAC file only when there is a PAC URL timeout.
+
+[Image: Internet Explorer Disable Changing Auto Config Settings]
+
+[Image: Internet Explorer Prevent Changing Proxy Settings]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/dlp-policy-configuration-example-match-only","lastmod":"2026-11-11T14:59Z","nid":"1401736"} -->
+## DLP Policy Configuration Example: Match Only
+
+- Source: https://help.zscaler.com/zia/dlp-policy-configuration-example-match-only
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Policy Configuration Example: Match Only
+- Last modified: 2026-11-11T14:59Z
+- Summary: Information on how using Data Loss Prevention (DLP) policy Allow rules with the Match Only option affects how DLP policy evaluates its rules.
+
+Using rules with the Match Only option selected or unselected affects how the Data Loss Prevention (DLP) policy evaluates its rules when inspecting transactions. A rule with Match Only selected exclusively triggers when transactions match the rule’s specified DLP engines and no other engines from different rules. This allows you to prevent users from leaking sensitive data when sending out non-sensitive data.
+
+The following example illustrates how the Match Only option affects how the DLP policy evaluates its rules.
+
+In this scenario, your organization’s DLP policy includes the following rules:
+
+[Image: DLP Match Only policy example]
+
+- Rule 1 allows your organization’s finance team to send out credit card numbers.
+- Rule 2 allows your organization’s human resources team to send out social security numbers.
+- Rule 3 blocks the rest of your organization from sending out credit card numbers and social security numbers.
+
+A member of the finance team sends out a document that includes both credit card numbers and social security numbers. Your DLP policy's action for this transaction depends on whether your Allow rules (i.e., Rule 1 and Rule 2) have the Match Only option selected or unselected.
+
+For example, you have selected Match Only for Rule 1 and Rule 2.
+
+- The document does not match Rule 1, despite belonging to a finance team member (the user is in Human Resources). This is because Rule 1 only triggers if a document only contains credit card numbers and no additional content that triggers other engines from different rules.
+- The document does not match Rule 2, because the document’s owner is not a human resources team member. This results in the DLP policy blocking the transaction, and the finance team member is unsuccessful in sending out the social security numbers.
+- Because Rule 1 and Rule 2 did not match, Rule 3 is matched and blocks for credit card numbers and social security numbers. The user group does not matter in this case.
+
+If you did not select Match Only for both rules, the DLP policy will take a different action instead.
+
+For example, if you have not selected Match Only for Rule 1 and Rule 2, Rule 1 matches (and overrides Rule 3) because it takes precedence due to the rule order. The document matches Rule 1, because it contains credit card numbers and the user belongs to the Finance group. Without Match Only, Rule 1 triggers even if the document contains additional sensitive data. This results in the DLP policy allowing the transaction, and the finance team member succeeds in sending out the credit card numbers and social security numbers.
+
+Without Match Only enabled, the engine can trigger on the first partial match, which can result in overlapping rule scenarios. When combined with Rule Order, Match Only ensures exclusivity and that appropriately scoped users and content are allowed or blocked as intended.
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -443,8 +992,8 @@ To learn more, see [Configuring the DNS Control Policy](https://help.zscaler.com
 ## DNS Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/dns-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Columns
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > DNS Insights Logs: Columns
 - Last modified: 2026-10-06T07:18Z
 - Summary: Information on the different columns in the DNS Insights Logs page in the Zscaler Admin Console.
 
@@ -834,8 +1383,8 @@ This CSV file can't be used to [import departments](https://help.zscaler.com/zia
 ## Downloading Group Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-group-information-csv-file
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Downloading Group Information to a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > User Management > Groups > Downloading Group Information to a CSV File
 - Last modified: 2026-10-23T14:07Z
 - Summary: How to obtain a list of groups configured in the ZIA Admin Portal.
 
@@ -854,8 +1403,8 @@ This CSV file can't be used to [import groups](https://help.zscaler.com/zia/impo
 ## Downloading Location and Sublocation Information to a CSV File
 
 - Source: https://help.zscaler.com/zia/downloading-location-info-to-CSV
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Downloading Location and Sublocation Information to a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Location Management > Downloading Location and Sublocation Information to a CSV File
 - Last modified: 2026-10-13T21:06Z
 - Summary: How to obtain a list of locations and sublocations that identify the various networks from which an organization sends its Internet traffic to the Zscaler service.
 
@@ -893,38 +1442,38 @@ This CSV file can't be used to [import users](https://help.zscaler.com/zia/impor
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398926"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas","lastmod":"2026-11-12T02:25Z","nid":"1398926"} -->
 ## Downloading Virtual Service Edge Certificates for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
-- Last modified: 2026-10-20T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
+- Last modified: 2026-11-12T02:25Z
 - Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
 
 Downloading a Virtual Service Edge certificate for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
 
-The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you'll need to download two certificates. You will upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
+The Virtual Service Edge certificate is used to authenticate each Virtual Service Edge instance to the Zscaler cloud. You must download the certificate for each Virtual Service Edge instance that you added. For example, if your cluster has two Virtual Service Edges, you must download two certificates. You upload each certificate to the appropriate vSphere client. To learn more, see [Adding Virtual Service Edge Instances for Internet & SaaS](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas).
 
 To download a Virtual Service Edge certificate:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure**> **Internet & SaaS** >**Virtual Service Edges**.
 2. In the**SSL Certificate** column, click **Download** for the [Virtual Service Edge](https://help.zscaler.com/zia/adding-virtual-service-edge-instances-internet-saas) that you added previously, and then save the certificate. See image.
 
-If you're downloading multiple certificates, you might want to change the certificate name so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
+If you're downloading multiple certificates, you might want to change the certificate names so that you can differentiate between them. For example, if the Virtual Service Edge instances in a cluster are called VSE1 and VSE2, you can rename the certificate's ZIP files to VSE1.zip and VSE2.zip.
 
 [Image: SSL Certificate column and download link on the Virtual Service Edges page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-vm-internet-saas","lastmod":"2026-10-20T21:06Z","nid":"1398931"} -->
+<!-- ZS-ARTICLE {"url":"/zia/downloading-virtual-service-edge-vm-internet-saas","lastmod":"2026-11-12T02:12Z","nid":"1398931"} -->
 ## Downloading a Virtual Service Edge VM for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-vm-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading a Virtual Service Edge VM for Internet & SaaS
-- Last modified: 2026-10-20T21:06Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading a Virtual Service Edge VM for Internet & SaaS
+- Last modified: 2026-11-12T02:12Z
 - Summary: How to download a Virtual Service Edge virtual machine (VM) for Internet & SaaS (ZIA) when deploying Virtual Service Edge clusters for the Zscaler service.
 
 Downloading a Virtual Service Edge virtual machine (VM) for Internet & SaaS (ZIA) is one of the tasks you must complete when deploying Virtual Service Edge clusters for production. To learn more, see [Configuring Virtual Service Edge Clusters for Internet & SaaS](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters-internet-saas).
@@ -932,9 +1481,9 @@ Downloading a Virtual Service Edge virtual machine (VM) for Internet & SaaS (ZIA
 To download a Virtual Service Edge VM for each Virtual Service Edge in a cluster:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Internet & SaaS** >**Virtual Service Edges**.
-2. Click **Download VM**and select **Virtual Service Edge VM**. See image.
+2. Click **Download Images and Files**and select **Virtual Service Edge VM**. See image.
 
-[Image: Download Virtual Service Edge VM link in the Download Virtual Service Edge VM window]
+[Image: The Virtual Service Edges page showing the Download Images and Files drop-down menu]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1460,268 +2009,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-11-02T15:26Z","nid":"1546094"} -->
-## Editing Domain Profiles
+<!-- ZS-ARTICLE {"url":"/zia/editing-dlp-engines","lastmod":"2026-11-12T01:30Z","nid":"1400091"} -->
+## Editing DLP Engines
 
-- Source: https://help.zscaler.com/zia/editing-domain-profiles
+- Source: https://help.zscaler.com/zia/editing-dlp-engines
 - Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
-- Last modified: 2026-11-02T15:26Z
-- Summary: How to edit domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
-
-Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
-
-To edit domain profiles:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Data Security**> **Email DLP**> **Email Domain Profiles**.
-2. Find a domain profile in the list, then click the **Edit** icon. The **Edit Domain Profile**drawer appears.
-3. In the **Edit Domain Profile** drawer: See image.
-  - **Profile Name**: Enter a name for the domain profile.
-  - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
-  - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Organization Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
-  - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
-4. Click **Save**.
-
-[Image: Edit the Domain Profile]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-11-08T06:06Z","nid":"1492716"} -->
-## Editing Email Tenants
-
-- Source: https://help.zscaler.com/zia/editing-email-tenants
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Email Tenants
-- Last modified: 2026-11-08T06:06Z
-- Summary: How to edit email tenants for use in Zscaler Outbound Email Policy rules.
-
-Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you edit are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), and [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp).
-
-For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
-
-- Strictly enforces SSL/TLS for secure SMTP connections.
-- Performs server certificate validation that requires the presented certificate to be valid and trusted.
-- Does not allow self-signed, expired, or otherwise invalid certificates.
-
-To edit an email tenant:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Email DLP** > **Email Tenants**.
-2. Locate a tenant in the list, then click **Edit**. The **Edit Email Tenant**page appears.
-3. On the **Edit Email Tenant** page**,** edit the options based on the email service provider (i.e., **Secure Email Gateway**, **Gmail**, or **Exchange**).
-  - Configure Secure Email Gateway
-  - Configure Gmail
-  - Configure Exchange
-4. Click save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
-2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
-
-Under **Email Tenant Security Options**, the **Workflow Automation** option is available for Exchange only.
-
-1. Click **Next**.
-2. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
-3. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
-4. Click **Next**.
-5. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
-  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Next Hop Address**: Enter `smtp-relay.gmail.com` as the address of the relay host for the Gmail domain.
-  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
-6. Click **Save**. See image. The tenant information is added to the email tenant.
-
-[Image: Email Tenant Domain Configuration]
-
-1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
-2. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
-3. Click **Next**.
-4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
-5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
-6. Click **Next**.
-7. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
-  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
-  - **Next Hop Address**: Enter the address of the relay host for the email domain of the tenant you're configuring.
-    - Locate the relay host address for your Microsoft domain.
-  - **Port Number**: Enter the port number for the email domain (e.g., `25`).
-
-See image.
-
-1. Click **Next**.
-2. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
-3. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
-4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the Tenant ID should now be populated in the Zscaler Admin Console. See image.
-5. Under **Assign Role**, click **Assign Role**. See image. The [Azure portal](https://portal.azure.com) opens. You must assign an Exchange admin role to be able to grant assignments and access.
-6. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
-7. Select the checkbox next to Exchange Administrator.
-8. Click **Add Assignments**. See image.
-9. On the **Add assignments** page, click **No Member selected**. See image.
-10. In the Zscaler Admin Console, under **Authorize the SaaS Application**, copy the Zscaler Saas Connector ID. See image.
-11. In the Azure portal, on the **Select a member** page, paste the Zscaler SaaS Connector ID into the search box. See image.
-12. Select the checkbox next to your Zscaler SaaS Connector ID. See image.
-13. On the **Add assignments**page, click **Next**.
-14. Enter a justification into the text box then click **Assign**.
-15. In the Zscaler Admin Console, click **Save**.
-
-[Image: Select SaaS Connector ID]
-
-[Image: Search for your SaaS Connector ID]
-
-[Image: Click No member selected]
-
-[Image: Select Add assignments in MS Azure]
-
-[Image: Search for role in the MS Exchange Portal]
-
-[Image: Select Assign Role]
-
-[Image: View your SaaS Connector ID]
-
-[Image: View your Tenant ID]
-
-[Image: Workflow Automation check box]
-
-1. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
-2. In the left-side navigation, go to **Settings > Domains**. See image. The **Domains** page appears.
-3. In the list of domains, click the name of the email domain you're using to configure your outbound email policy. The **Overview** page for the domain appears. See image.
-4. On the **Overview** page, click **DNS Records**. The **DNS Records** page appears.
-5. On the **DNS Records** page, click the name of the mail exchange (MX) record for the domain. The **MX record** page appears.
-6. On the **MX record** page, in the **Expected record** row, copy the value from the **Points to address or Value** column. See image.
-7. In the Zscaler Admin Console, paste the copied value into the **Next Hop Address** field.
-
-[Image: Domains menu option in the Microsoft M365 Admin Center]
-
-[Image: Domain Overview page in the Microsoft M365 Admin Center]
-
-[Image: Copy the MX record value in the Microsoft M365 Admin Center]
-
-[Image: Configure Connectors and Rules for Email Tenants]
-
-[Image: Configure Connectors and Rules for Email Tenants]
-
-[Image: Email Tenant Domain Configuration]
-
-If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
-
-1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
-2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
-3. Click **Next**.
-4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
-5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
-6. Click **Next**.
-7. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain:
-  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile). For explicitly configured domains, the Zscaler service uses the source IP address for the incoming connection to determine the mapping to the next hop. Domains that you do not explicitly configure are considered default domains. If you select **Default domain** from the list, the Zscaler service uses the source IP of the incoming connection to map messages to the corresponding next hop servers. For this routing to occur, your SEG must include the `X-Zscaler-TenantID: <tenant-key>` header in messages sent to the Zscaler smart host. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp).
-  - **Next Hop Address**: Specify information for the next hop, which is where the Zscaler service sends email content after inspection. You can enter an IPv4 address, an IPv6 address, or a valid domain name.
-  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
-  - **Client Certificate Common Name**: Enter the common name associated with the client certificate (e.g., `example.com` or `www.example.com`) then click **Add Items**. This field does not support wildcard characters for subdomain matching (e.g., `*.example.com`). However, if the common name of the connecting client has a wildcard certificate, then the configured common name should match exactly, including wildcard characters.
-  - **Source IP Allow list**: Enter the IP addresses for allowed SMTP traffic (e.g., `10.20.30.0/24` allows SMTP traffic originating from 10.20.30.0 to 10.20.30.255) then click **Add Items**.
-
-See image.
-
-[Image: Configure Connectors and Rules section for email tenant onboarding]
-
-[Image: Email Domain Configuration section for email tenant onboarding]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-10-29T21:06Z","nid":"1535315"} -->
-## Editing Locations
-
-- Source: https://help.zscaler.com/zia/editing-locations
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
-- Last modified: 2026-10-29T21:06Z
-- Summary: Information on editing locations in the Zscaler Admin Console.
-
-In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
-
-## Editing Locations
-
-To edit an existing location:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
-2. Click **Edit** for the location you want to modify. The**Edit Location** window appears.
-3. In the **Edit Location** window, modify the location parameters. See image.
-4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-## Deleting Locations
-
-To delete an existing location:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
-2. Click **Edit** for the location you want to delete. The **Edit Location** window appears.
-3. In the **Edit Location** window, click **Delete**. See image.
-4. Read the warning message that appears and then click **Confirm** to delete the location. See image.
-
-[Image: The Edit Location window to modify the existing details on the Locations page]
-
-[Image: The Edit Location window displaying the Delete button on the Locations page]
-
-[Image: The warning message that appears when deleting a location]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-dictionaries","lastmod":"2026-10-06T14:00Z","nid":"1400071"} -->
-## Editing Predefined DLP Dictionaries
-
-- Source: https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing Predefined DLP Dictionaries
-- Last modified: 2026-10-06T14:00Z
-- Summary: How to edit predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
-
-Modifying a predefined Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
-
-You can use the predefined DLP dictionaries as is, or modify them to suit your needs. To learn more, see [Understanding Predefined DLP Dictionaries](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
-
-To edit a predefined DLP dictionary:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **Dictionaries & Engines**.
-2. On the DLP Dictionaries page, locate the predefined dictionary and click the **Edit**icon.
-
-The **Edit DLP Dictionary** window appears.
-
-1. In the **Edit DLP Dictionary** window:
-  - **Confidence Score Threshold**: Choose a value of **Low**, **Medium**, or **High**. To learn about configuring the Confidence Score Threshold for a specific dictionary, see [Understanding Predefined DLP Dictionaires](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
-  - **Proximity Length**: This field appears only when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. The proximity length defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0–10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern). For example, you configure a proximity length of 50 bytes for the Credit Cards dictionary. With this dictionary, the DLP policy detects a document containing the phrase “Amex” within 30 bytes right of a credit card number and counts this transaction as a match.
-  - **High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. This field displays all of Zscaler's default high confidence phrases that the dictionary matches when scanning content.
-  - **Custom High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. Enter up to 256 custom phrases you want the dictionary to match in addition to its default phrases when scanning content. You must enter phrases one at a time (i.e., one phrase per line).
-    - General Guidelines for Phrases
-  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific Bank Identification Numbers (BINs), then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
-  - **Social Security Numbers**: This field appears only for the predefined Social Security Numbers (US) dictionary or its clones. Specify whether to include or exclude specific Social Security numbers, then enter up to 512 values. You must enter numbers one at a time (i.e., one number per line). See image.
-2. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-You can also add a custom dictionary. Any combination of predefined and custom dictionaries can be added to a DLP engine, which is what you must reference when creating DLP policies. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary) and [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
-
-## Configuring the Confidence Score Threshold
-
-Depending on the predefined DLP dictionary, you can edit the dictionary and modify the Confidence Score Threshold. For this setting, you can choose a value of Low, Medium, or High.
-
-For dictionaries where you can specify the Confidence Score Threshold, a lower confidence score threshold means the dictionary is more aggressive in identifying violations and requires less matching content to be found before it triggers. Conversely, a higher confidence score threshold means that the dictionary needs more exact format and verification requirements to be met for matching content, and that it also might need more instances of matching content to be found before it triggers.
-
-[Image: The BIN Number section in the Edit DLP Dictionary window]
-
-[Image: The Social Security Numbers section in the Edit DLP Dictionary window]
-
-- Each phrase can contain a minimum of 3 bytes and a maximum of 128 bytes.
-- Dictionary phrase-matching is not case-sensitive and ignores punctuation.
-- You can place quotes around phrases to specify that the dictionary only detects phrases that exactly match the phrase in the order given within the quotes.
-
-The Zscaler service uses fuzzy matching techniques to ensure that phrases do not go undetected by dictionaries because of capitalization or spacing discrepancies and the existence of noise words (such as spurious words or HTML tags) between words. For example, the configured phrase “security service” would match the text “security <b>service</b>.”
-
-Sometimes this fuzzy matching results in matching phrases from an irrelevant context and can cause false positives. In such cases, quotes or double quotes can be placed around the words of a phrase to disable fuzzy matching and match only the phrase within the quotes. Zscaler then ignores the different types of whitespace between the words. For example, “security service” matches “security-service,” “security,service,” and other such unrelated phrases.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-engines","lastmod":"2026-10-08T21:06Z","nid":"1400091"} -->
-## Editing Predefined DLP Engines
-
-- Source: https://help.zscaler.com/zia/editing-predefined-dlp-engines
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing Predefined DLP Engines
-- Last modified: 2026-10-08T21:06Z
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing DLP Engines
+- Last modified: 2026-11-12T01:30Z
 - Summary: How to add custom and predefined Data Loss Prevention (DLP) dictionaries to a predefined DLP engine in the Zscaler Admin Console.
 
 The Zscaler service provides predefined Data Loss Prevention (DLP) engines:
@@ -1749,36 +2043,38 @@ You can edit a predefined DLP engine to detect content that is relevant to your 
 
 You can also add a custom DLP engine. To learn more, see [Adding Custom DLP Engines](https://help.zscaler.com/zia/adding-custom-dlp-engine).
 
-1. Go to **Data Security**> **Common Resources**> **DLP Dictionaries & Engines**> **DLP Engines**.
-2. In the **DLP Engines**tab, click the **Edit** icon for the predefined DLP engine.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **Dictionaries & Engines**.
+2. Select the **DLP Engines** tab.
+3. In the **DLP Engines**tab, click the **Edit** icon for the predefined DLP engine. The **Edit DLP Engine** page appears.
+4. On the **Edit DLP Engine** page, you can configure the **DLP Engine** general details and the **Engine Builder** details:
+  - General Details
+  - Engine Builder Details
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-The **Edit DLP Engine** window appears.
+For the **Engine Builder**, under the **Expression**section, add operators and DLP dictionaries to [build an expression](https://help.zscaler.com/zia/understanding-dlp-engines#building-expressions). You can see your expression in the **Expression Preview**:
 
-1. For **Channels**, select the channels to which the engine applies. Excluding a channel can reduce the extra noise that comes from engines being used unnecessarily. When editing a DLP engine, you must select a channel. You can optionally override the channels associated with an engine directly from the **DLP Engines** page:
-  1. On the **DLP Engines** page, select the checkbox next to an engine in the list. You can't remove a channel from an engine that is used in an active policy.
-  2. In the **Actions** drop-down menu, select the channels to apply to the engine from the **Select** drop-down menu. See image.
-  3. Click **Apply**. The icons in the **Channel** column are updated to reflect the override setting.
+1. Select an operator to build your expression. The operators include **All** (`AND`), **Any** (`OR`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine. See image. For the root expression, only **All** (`AND`), **Any**(`OR`), and **Sum** operators are allowed.
+2. Select a dictionary from the drop-down menu, then specify a [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count) as needed. If you use a parent dictionary to configure the engine, you have the option to select a subdictionary, as well. If the parent dictionary doesn't have patterns or phrases defined (i.e., it is being used simply as a container for subdictionaries), then you must select a subdictionary from the drop-down menu. See image. When you use parent and subdictionaries as part of an engine, the Zscaler service evaluates them separately (i.e., parent and subdictionaries can match independently of one another). To learn more about configuring parent and subdictionaries, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionaries).
+3. Click **Add** to add a **Dictionary** or a **Subexpression**. Click the **Delete** icon to delete dictionaries or subexpressions.
+  - If you use the **Sum** operator, select two or more predefined or custom DLP dictionaries. You must set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000.
+  - If you use **All**, **Any**, or **Exclude** operators, you must select a predefined or custom DLP dictionary. Certain dictionaries require you to set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000. See image.
+  - If you click **Subexpression**, you must select an operator. The operators include **All** (`AND`), **Any** (`OR`), **Exclude**(`AND NOT`), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (e.g., Credit Cards, Social Security Numbers) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the subexpression. You can use the **Sum** operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the **Sum** operator. See image.
+4. Continue adding dictionaries and operators to the expression as needed. At each level, you can create up to 4 subexpressions, use up to 4 operators, and add up to 16 dictionaries per operator.
 
-- For **Engine Builder**, add operators and DLP dictionaries to [build an expression](https://help.zscaler.com/zia/understanding-dlp-engines#building-expressions). You can see your expression in the **Expression Preview**. See image.
+1. **Name:**Enter a namefor the custom DLP engine.
+2. **Channels**: Select the channels to which the engine applies. Excluding a channel can reduce the extra noise that comes from engines being used unnecessarily. For creating a DLP engine, channel selection is mandatory. You can optionally override the channels associated with an engine directly from the **DLP Engines** table:
+  1. Go to the **DLP Engines** tab and select the checkbox next to an engine from the table. You can't remove a channel from an engine that is used in an active policy.
+  2. Click **Edit Channels**, then select the channels to apply to the engine from the **Edit Channels** window. See image.
+  3. Click **Apply**. The icons in the **Channels** column are updated to reflect the override setting.
+3. **Description**:Enter any additional notes or information. The description cannot exceed 255 characters.
 
-Under **Expression**:
+[Image: The DLP Engine Expression Builder Using a Parent dictionary and Sub dictionary]
 
-1. Select an operator to build your expression. The operators include **All** (AND), **Any** (OR), **Exclude**(AND NOT), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (i.e., Credit Cards, Social Security Numbers, etc.) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the DLP engine.
+[Image: Operators for DLP Engine Expression]
 
-For the root expression, only the **All** (AND), **Any**(OR), and **Sum** operators are allowed.
+[Image: The Match Count for DLP Dictionaries in the DLP Engine]
 
-1. Click **Add** to add a **Dictionary** or a **Subexpression**. Click the **Remove** icon () to delete dictionaries or subexpressions.
-
-- If you use the **Sum** operator, select two or more predefined or custom DLP dictionaries. You must set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000.
-- If you use the **All**, **Any**, or **Exclude** operators, you must select a predefined or custom DLP dictionary. Certain dictionaries require you to set a value for the [match count](https://help.zscaler.com/zia/understanding-dlp-engines#match-count). You can enter any value less than 1,000. See image.
-- If you click **Subexpression**, you must select an operator. The operators include **All** (AND), **Any** (OR), **Exclude**(AND NOT), and **Sum**. The **Sum** operator is available for count-based DLP dictionaries (i.e., Credit Cards, Social Security Numbers, etc.) and allows you to specify the sum total of matches that trigger a group of dictionaries specified in the subexpression.
-
-You can use the **Sum** operator as part of a subexpression; however, you cannot add a subexpression to an expression or subexpression that uses the **Sum** operator.
-
-See image.
-
-1. Continue adding dictionaries and operators to the expression as needed. At each level, you can create up to 4 subexpressions, use up to 4 operators, and add up to 16 dictionaries per operator.
-2. Click **Save** and [activate the change](https://help.zscaler.com/zia/saving-and-activating-changes-admin-portal).
+[Image: Operators for the DLP Engine Subexpression]
 
 This engine detects Health Insurance Portability and Accountability Act (HIPAA) violations, using the Social Security Numbers (US) and Medical Information dictionaries.
 
@@ -1868,13 +2164,279 @@ The following engines detect Personal Information Protection and Electronic Docu
 - **High Volume**: PIPEDA violations at a high threshold (i.e., more than 25 matches).
 - **Low Volume**: PIPEDA violations at a low threshold (i.e., more than one match).
 
-[Image: The DLP Engine Expression Builder]
-
-[Image: The Match Count for DLP Dictionaries in the Engine]
-
-[Image: Operators for the DLP Engine Expression]
-
 [Image: The Channel Override for DLP Engines]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-11-02T15:26Z","nid":"1546094"} -->
+## Editing Domain Profiles
+
+- Source: https://help.zscaler.com/zia/editing-domain-profiles
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
+- Last modified: 2026-11-02T15:26Z
+- Summary: How to edit domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
+
+Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
+
+To edit domain profiles:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal%20), go to **Data Security**> **Email DLP**> **Email Domain Profiles**.
+2. Find a domain profile in the list, then click the **Edit** icon. The **Edit Domain Profile**drawer appears.
+3. In the **Edit Domain Profile** drawer: See image.
+  - **Profile Name**: Enter a name for the domain profile.
+  - **Top Personal Email Service Providers**: Select from a list of email service providers to include and click **Done**.
+  - **Include Organizational Domains**: Selecting this option automatically includes the domains listed on your Organization Profile. To learn more, see [About the Company Profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Custom Domains**: Enter one or more domain names separated by line breaks, then click **Add**.
+  - **Description (Optional)**: Enter additional notes or information. The description cannot exceed 256 characters.
+4. Click **Save**.
+
+[Image: Edit the Domain Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-email-tenants","lastmod":"2026-11-12T11:24Z","nid":"1492716"} -->
+## Editing Email Tenants
+
+- Source: https://help.zscaler.com/zia/editing-email-tenants
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Email Tenants
+- Last modified: 2026-11-12T11:24Z
+- Summary: How to edit email tenants for use in Zscaler Outbound Email Policy rules.
+
+Email tenants allow you to use the Zscaler service as a smart host for inspecting email content sent to external domains as part of your [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules). The email tenants you edit are used as part of the mail flow rules that you configure on your email server to act on content that violates your outbound email policy rules. You can also configure a tenant to use the Zscaler Data Security Add-in for Outlook to provide users with real-time feedback about possible policy violations. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-segs-zscaler-outbound-email-dlp), [Configuring Microsoft Exchange for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp), [Configuring Gmail for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-gmail-zscaler-outbound-email-dlp), and [Configuring the Zscaler Data Security Add-in for Outlook](https://help.zscaler.com/zia/configuring-zscaler-data-security-add-outlook).
+
+For next-hop validation to enforce strict security checks during SMTP connections, the Zscaler service:
+
+- Strictly enforces SSL/TLS for secure SMTP connections.
+- Performs server certificate validation that requires the presented certificate to be valid and trusted.
+- Does not allow self-signed, expired, or otherwise invalid certificates.
+
+To edit an email tenant:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Email DLP** > **Email Tenants**.
+2. Locate a tenant in the list, then click **Edit**. The **Edit Email Tenant**page appears.
+3. On the **Edit Email Tenant** page**,** edit the options based on the email service provider (i.e., **Secure Email Gateway**, **Gmail**, or **Exchange**).
+  - Configure Secure Email Gateway
+  - Configure Gmail
+  - Configure Exchange
+4. Click save and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
+
+Under **Email Tenant Security Options**, the **Workflow Automation** option is available for Exchange only.
+
+1. Click **Next**.
+2. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears. See image.
+3. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server.
+4. Click **Next**.
+5. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Next Hop Address**: Enter `smtp-relay.gmail.com` as the address of the relay host for the Gmail domain.
+  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
+6. Click **Save**. See image. The tenant information is added to the email tenant.
+
+[Image: Email Tenant Domain Configuration]
+
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. Under **Email Tenant Security Options**, select an **Email Security Mode**:
+  - Outbound Email Security
+  - Outlook Email Add-in
+
+Select this option to have the Exchange server route outbound emails sent to external domains to the Zscaler smart host via SMTP.
+
+1. (Optional) Under **Email Tenant Security Options**, select **Workflow Automation**. See image. This setting allows you to review and manage quarantined emails from Workflow Automation and is available only for Exchange Online. When you select this option, the **Authorize the SaaS Application** and **Assign Role**sections become available.
+2. Click **Next**.
+3. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Key for Transport Rules** information appears.
+4. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the email server. See image.
+5. Click **Next**.
+6. Under **Email Domain Configuration**specify the information for the email domain next hop, which is where the Zscaler service sends email content after inspection:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+  - **Next Hop Address**: Enter the address of the relay host for the email domain of the tenant you're configuring.
+    - Locate the relay host address for your Microsoft domain.
+  - **Port Number**: Enter the port number for the email domain (e.g., `25`).
+
+See image.
+
+1. Click **Next**.
+2. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. This option is available only if you previously selected **Workflow Automation** in the **Email Tenant Security Options** section. The Microsoft Exchange Admin Portal opens.
+3. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens.
+4. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the **Tenant ID** should be populated in the Zscaler Admin Console. See image.
+5. Under **Assign Role**, click **Assign Role**. See image. The [Azure portal](https://portal.azure.com) opens. You must assign an Exchange admin role to be able to grant assignments and access.
+6. On the **All Roles** page, use the search bar to search for **Exchange Administrator**. See image.
+7. Select the checkbox next to Exchange Administrator.
+8. Click **Add Assignments**. See image.
+9. On the **Add assignments** page, click **No Member selected**. See image.
+10. In the Zscaler Admin Console, under **Authorize the SaaS Application**, copy the Zscaler Saas Connector ID. See image.
+11. In the Azure portal, on the **Select a member** page, paste the Zscaler SaaS Connector ID into the search box. See image.
+12. Select the checkbox next to your Zscaler SaaS Connector ID. See image.
+13. On the **Add assignments**page, click **Next**.
+14. Enter a justification into the text box then click **Assign**.
+15. In the Zscaler Admin Console, click **Save**.
+
+[Image: Select SaaS Connector ID]
+
+[Image: Search for your SaaS Connector ID]
+
+[Image: Click No member selected]
+
+[Image: Select Add assignments in MS Azure]
+
+[Image: Search for role in the MS Exchange Portal]
+
+[Image: Select Assign Role]
+
+[Image: View your SaaS Connector ID]
+
+[Image: View your Tenant ID]
+
+[Image: Workflow Automation check box]
+
+1. Sign in to the [Microsoft 365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+2. In the left-side navigation, go to **Settings > Domains**. See image. The **Domains** page appears.
+3. In the list of domains, click the name of the email domain you're using to configure your outbound email policy. The **Overview** page for the domain appears. See image.
+4. On the **Overview** page, click **DNS Records**. The **DNS Records** page appears.
+5. On the **DNS Records** page, click the name of the mail exchange (MX) record for the domain. The **MX record** page appears.
+6. On the **MX record** page, in the **Expected record** row, copy the value from the **Points to address or Value** column. See image.
+7. In the Zscaler Admin Console, paste the copied value into the **Next Hop Address** field.
+
+[Image: Domains menu option in the Microsoft M365 Admin Center]
+
+[Image: Domain Overview page in the Microsoft M365 Admin Center]
+
+[Image: Copy the MX record value in the Microsoft M365 Admin Center]
+
+[Image: Configure Connectors and Rules for Email Tenants]
+
+[Image: Configure Connectors and Rules for Email Tenants]
+
+[Image: Email Tenant Domain Configuration]
+
+Select this option if you want users to receive real-time feedback on policy violations in Outlook before sending messages to external domains. To learn more, see [Configuring the Zscaler Data Security Add-in for Outlook](https://help.zscaler.com/zia/understanding-outbound-email-policy-enforcement).
+
+1. Click **Next**.
+2. Under **Email Domain Configuration**, in the **Domain** drop-down menu, select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile).
+3. Click **Next**. See image.
+4. Under **Authorize the SaaS Application**, click **Provide Admin Credentials**. The Microsoft Exchange Admin Portal opens.
+5. Log in to the [Microsoft Exchange Admin Portal](https://admin.cloud.microsoft/exchange#/homepage) with your administrator account. The **Permissions requested** window opens. See image.
+6. Click **Accept**to authorize the permissions. After successfully authorizing the SaaS Application, the **Tenant ID** should be populated in the Zscaler Admin Console. See image.
+7. Click **Next**.
+
+[Image: View your Tenant ID]
+
+If your organization uses a secure email gateway (SEG) (e.g., Mimecast, Cisco IronPort), you can onboard your SEG tenant to use as part of your outbound email DLP policies. After you onboard SEG tenants on the **Email Tenants** page, you can then select those tenants when creating [outbound email policy rules](https://help.zscaler.com/zia/configuring-outbound-email-policy-rules).
+
+1. Under **Name Email Tenant**, enter a unique **Tenant Name**.
+2. Under **Email Tenant Security Options**, the setting for **Outbound Email Security**is automatically selected and is not configurable.
+3. Click **Next**.
+4. Under **Configure Connectors and Rules**, click **Get Configuration Info**. The **Smart Host FQDN** and **Key for Transport Rules** information appears. See image.
+5. Copy the values for **Smart Host FQDN** and for **Key for Transport Rules** and save them for later configuration on the SEG.
+6. Click **Next**.
+7. Under **Email Domain Configuration**,click **Add Domain** then specify information for the email domain:
+  - **Domain**: Select a domain from the list. The domains in the list are listed in your [company profile](https://help.zscaler.com/zia/about-company-profile). For explicitly configured domains, the Zscaler service uses the source IP address for the incoming connection to determine the mapping to the next hop. Domains that you do not explicitly configure are considered default domains. If you select **Default domain** from the list, the Zscaler service uses the source IP of the incoming connection to map messages to the corresponding next hop servers. For this routing to occur, your SEG must include the `X-Zscaler-TenantID: <tenant-key>` header in messages sent to the Zscaler smart host. To learn more, see [Configuring SEGs for Zscaler Outbound Email DLP](https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp).
+  - **Next Hop Address**: Specify information for the next hop, which is where the Zscaler service sends email content after inspection. You can enter an IPv4 address, an IPv6 address, or a valid domain name.
+  - **Port Number**: Enter the port number for the email domain (e.g., `587`).
+  - **Client Certificate Common Name**: Enter the common name associated with the client certificate (e.g., `example.com` or `www.example.com`) then click **Add Items**. This field does not support wildcard characters for subdomain matching (e.g., `*.example.com`). However, if the common name of the connecting client has a wildcard certificate, then the configured common name should match exactly, including wildcard characters.
+  - **Source IP Allow list**: Enter the IP addresses for allowed SMTP traffic (e.g., `10.20.30.0/24` allows SMTP traffic originating from 10.20.30.0 to 10.20.30.255) then click **Add Items**.
+
+See image.
+
+[Image: Configure Connectors and Rules section for email tenant onboarding]
+
+[Image: Email Domain Configuration section for email tenant onboarding]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-locations","lastmod":"2026-10-29T21:06Z","nid":"1535315"} -->
+## Editing Locations
+
+- Source: https://help.zscaler.com/zia/editing-locations
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Editing Locations
+- Last modified: 2026-10-29T21:06Z
+- Summary: Information on editing locations in the Zscaler Admin Console.
+
+In the Zscaler Admin Console, you can edit or delete an existing location from the Locations page. You can also use a CSV file to [add and remove multiple locations and sublocations](https://help.zscaler.com/zia/configuring-multiple-locations-and-sublocations).
+
+## Editing Locations
+
+To edit an existing location:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
+2. Click **Edit** for the location you want to modify. The**Edit Location** window appears.
+3. In the **Edit Location** window, modify the location parameters. See image.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+## Deleting Locations
+
+To delete an existing location:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure > Location Management > Legacy Locations**.
+2. Click **Edit** for the location you want to delete. The **Edit Location** window appears.
+3. In the **Edit Location** window, click **Delete**. See image.
+4. Read the warning message that appears and then click **Confirm** to delete the location. See image.
+
+[Image: The Edit Location window to modify the existing details on the Locations page]
+
+[Image: The Edit Location window displaying the Delete button on the Locations page]
+
+[Image: The warning message that appears when deleting a location]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/editing-predefined-dlp-dictionaries","lastmod":"2026-11-12T01:25Z","nid":"1400071"} -->
+## Editing Predefined DLP Dictionaries
+
+- Source: https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Editing Predefined DLP Dictionaries
+- Last modified: 2026-11-12T01:25Z
+- Summary: How to edit predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
+
+Modifying a predefined Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
+
+You can use the predefined DLP dictionaries as is, or modify them to suit your needs. To learn more, see [Understanding Predefined DLP Dictionaries](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
+
+To edit a predefined DLP dictionary:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**> **Dictionaries & Engines**.
+2. Select the **DLP Dictionaries** tab.
+3. On the **DLP Dictionaries** tab, locate the predefined dictionary and click the **Edit**icon. The **Edit DLP Dictionary** page appears.
+4. On the **Edit DLP Dictionary** page:
+  - **Confidence Score Threshold**: Choose a value of **Low**, **Medium**, or **High**. To learn about configuring the Confidence Score Threshold for a specific dictionary, see [Understanding Predefined DLP Dictionaires](https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries).
+  - **Proximity Length**: This field appears only when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. The proximity length defines how close a high confidence phrase must be to an instance of the pattern (that the dictionary detects) to count as a match. The phrase can be located in any direction from the pattern within the document. Enter a value from 0 to 10,000 bytes. A proximity length of 0 disables this option (i.e., the phrase can be any distance from the pattern). For example, you configure a proximity length of 50 bytes for the Credit Cards dictionary. With this dictionary, the DLP policy detects a document containing the phrase “Amex” within 30 bytes right of a credit card number and counts this transaction as a match.
+  - **High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. This field displays all of Zscaler's default high confidence phrases that the dictionary matches when scanning content.
+  - **Custom High Confidence Phrases**: This field only appears when the dictionary’s **Confidence Score Threshold** is **High**, if applicable. Enter up to 256 custom phrases you want the dictionary to match, in addition to its default phrases when scanning content. You must enter phrases one at a time (i.e., one phrase per line).
+    - General Guidelines for Phrases
+  - **BIN Number**: This field appears only for the predefined credit card dictionary or its clones. Specify whether to include or exclude specific Bank Identification Numbers (BINs), then enter up to 512 BIN values. You must enter numbers one at a time (i.e., one number per line). See image.
+  - **Social Security Numbers**: This field appears only for the predefined Social Security Numbers (US) dictionary or its clones. Specify whether to include or exclude specific Social Security numbers, then enter up to 512 values. You must enter numbers one at a time (i.e., one number per line). See image.
+  - **Description**: (Optional) Enter any additional notes or information. The description cannot exceed 255 characters.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You can also add a custom dictionary. Any combination of predefined and custom dictionaries can be added to a DLP engine, which is what you must reference when creating DLP policies. To learn more, see [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary) and [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
+
+## Configuring the Confidence Score Threshold
+
+Depending on the predefined DLP dictionary, you can edit the dictionary and modify the Confidence Score Threshold. For this setting, you can choose a value of Low, Medium, or High.
+
+For dictionaries where you can specify the Confidence Score Threshold, a lower confidence score threshold means the dictionary is more aggressive in identifying violations and requires less matching content to be found before it triggers. Conversely, a higher confidence score threshold means that the dictionary needs more exact format and verification requirements to be met for matching content, and that it also might need more instances of matching content to be found before it triggers.
+
+[Image: The BIN Number section in the Edit DLP Dictionary window]
+
+[Image: The Social Security Numbers section in the Edit DLP Dictionary window]
+
+- Each phrase can contain a minimum of 3 bytes and a maximum of 128 bytes.
+- Dictionary phrase-matching is not case-sensitive and ignores punctuation.
+- You can place quotes around phrases to specify that the dictionary only detects phrases that exactly match the phrase in the order given within the quotes.
+
+The Zscaler service uses fuzzy matching techniques to ensure that phrases do not go undetected by dictionaries because of capitalization or spacing discrepancies and the existence of noise words (such as spurious words or HTML tags) between words. For example, the configured phrase “security service” would match the text “security <b>service</b>.”
+
+Sometimes this fuzzy matching results in matching phrases from an irrelevant context and can cause false positives. In such cases, quotes or double quotes can be placed around the words of a phrase to disable fuzzy matching and match only the phrase within the quotes. Zscaler then ignores the different types of whitespace between the words. For example, “security service” matches “security-service,” “security,service,” and other such unrelated phrases.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2333,13 +2895,13 @@ Displays Email DLP data associated with users. The trend chart does not support 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-columns","lastmod":"2026-10-05T07:31Z","nid":"1479356"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-columns","lastmod":"2026-11-12T18:35Z","nid":"1479356"} -->
 ## Email DLP Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-columns
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Columns
-- Last modified: 2026-10-05T07:31Z
+- Last modified: 2026-11-12T18:35Z
 - Summary: Information on the different columns in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
 You can customize your Email Data Loss Prevention (DLP) logs by using the column fields. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -2356,6 +2918,7 @@ The following are the Email DLP column fields:
 - **DLP Identifier**: A unique identifier used to search for the activity. Whenever a DLP rule is hit, and the appropriate alert is configured, an email containing this ID is sent to your auditors.
 - **DLP Dictionaries**: Indicates if data leakage was detected by a DLP dictionary.
 - **DLP Engine**: Indicates if data leakage was detected by a DLP engine.
+- **Justification Reason**: The justification reason provided by the user on real-time policy violation feedback before sending the message to an external domain.
 - **Severity**: The severity of the activity as per the triggered rule (e.g., Information, Medium).
 - **Action Taken**: The action taken on the user activity per the configured rule.
 - **File Name**: The name of the file that was attached with the email. You can click the file name to view attachments that have details such as file name, document type, file size, file type category, and MD5.
@@ -2373,13 +2936,13 @@ The following are the Email DLP column fields:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-10-05T07:32Z","nid":"1479671"} -->
+<!-- ZS-ARTICLE {"url":"/zia/email-dlp-insights-logs-filters","lastmod":"2026-11-12T18:38Z","nid":"1479671"} -->
 ## Email DLP Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/email-dlp-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Filters
-- Last modified: 2026-10-05T07:32Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Email DLP Insights Logs: Filters
+- Last modified: 2026-11-12T18:38Z
 - Summary: Information on the different filters in the Email DLP Insights Logs page in the Zscaler Admin Console.
 
 Filters define the traffic information that you view in your Email Data Loss Prevention (DLP) Insights Logs. To learn more about logs, see [About Insights Logs](https://help.zscaler.com/zia/about-insights-logs).
@@ -2428,9 +2991,11 @@ Following are the Email DLP Insights Logs filters that you can select:
 - **File MD5**: Use this filter to enter the 32-character file MD5 in the text field.
 - **File Name:** Use this filter to limit emails by specific file name. Enter all or part of the file name in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**,**Not Null**, or **Is Null**.
 - **File Types**: Use this filter to limit emails by specific file types.
+- **Justification Reason**: Use this filter to limit emails associated with Zscaler Data Security Add-in, where users provided justification for policy violations before sending messages to external domains. Enter all or part of the justification reason in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**,**Not Null**, or **Is Null**.
 - **Message ID:** Use this filter to limit emails by the unique email message identifier. Enter all or part of the message ID in the text field, and choose **Contains**, **Starts With**, **Ends With**, **Exact Match**, **Does Not Contain**, **Does Not End With**, **Does Not Start With**,**Not Null**, or **Is Null**.
 - **Other Domains**: Use this filter to limit emails from domains that did not trigger an incident.
 - **Other Recipients**: Use this filter to limit emails from recipients who did not trigger an incident.
+- **Outlook Addin Logs**: Use this filter to limit emails associated with Zscaler Data Security Add-in for Outlook, where users receive real-time feedback on policy violations before sending messages to external domains.
 - **Personal Email**: Use this filter to limit the emails for a specific personal email address.
 - **Record Type**: Use this filter to limit the email activities associated with a specific record type. The following record types appear under this filter:
   - DLP Incident
@@ -2517,8 +3082,8 @@ To enable the firewall for a location:
 ## Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > ICAP Receivers > Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
 - Last modified: 2026-10-02T02:06Z
 - Summary: Information on how to enable the ICAP receiver for Private Service Edges and Virtual Service Edges for Internet & SaaS (ZIA).
 
@@ -3536,8 +4101,8 @@ To duplicate a report:
 ## Exporting Your Client IDs from Atlassian
 
 - Source: https://help.zscaler.com/zia/exporting-your-client-ids-atlassian
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Client IDs from Atlassian
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Find Your Application IDs > Exporting Your Client IDs from Atlassian
 - Last modified: 2024-03-05T05:06Z
 - Summary: How to export your Client IDs from Atlassian.
 
@@ -3940,8 +4505,8 @@ Following are the Extranet Insights Log filters that you can select:
 ## Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
 
 - Source: https://help.zscaler.com/zia/firewall-configuration-requirements-private-service-edge-internet-saas-deployments
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Firewall Configuration Requirements: Private Service Edge for Internet & SaaS Deployments
 - Last modified: 2026-09-25T21:06Z
 - Summary: Instructions and requirements for properly configuring your corporate firewall and Zscaler PAC files for Private Service Edge for Internet & SaaS deployments.
 
@@ -3965,8 +4530,8 @@ To review your firewall configuration requirements, as well as cloud enforcement
 ## Firewall Data Types and Filters
 
 - Source: https://help.zscaler.com/zia/firewall-data-types-and-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Firewall Data Types and Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Firewall Data Types and Filters
 - Last modified: 2026-10-30T02:30Z
 - Summary: Information on Firewall data types and filters to define Firewall traffic information in a dashboard, report widget, or charts in Firewall Insights.
 
@@ -4693,8 +5258,8 @@ When you use Source IP Anchoring for the URL or domain, Zscaler doesn't log the 
 ## Firewall Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/firewall-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Firewall Insights Logs: Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Firewall Insights Logs: Filters
 - Last modified: 2026-10-06T08:15Z
 - Summary: Information on the different filters in the Firewall Insights Logs page in the Zscaler Admin Console.
 
@@ -4831,13 +5396,13 @@ Following are the Firewall Insights Log filters that you can select:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/forward-traffic-based-on-users-location","lastmod":"2026-10-28T11:59Z","nid":"1398651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/forward-traffic-based-on-users-location","lastmod":"2026-11-11T20:06Z","nid":"1398651"} -->
 ## Forwarding Traffic Based on User's Location Using PAC Files
 
 - Source: https://help.zscaler.com/zia/forward-traffic-based-on-users-location
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > PAC Files > Using PAC Files > Forwarding Traffic Based on User's Location Using PAC Files
-- Last modified: 2026-10-28T11:59Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > PAC Files > Using PAC Files > Forwarding Traffic Based on User's Location Using PAC Files
+- Last modified: 2026-11-11T20:06Z
 - Summary: This page explains how to write a PAC file so the browser forwards traffic based on the user's location.
 
 You can [use PAC files to forward your traffic to the Zscaler service](https://help.zscaler.com/zia/using-default-pac-files-forward-traffic-internet-saas). When the Zscaler service receives traffic, it checks whether the traffic is from a known location (a location that is configured in the Zscaler Admin Console), or from an unknown location (remote user traffic). Typically, traffic from a known location is sent to port 80, where the service performs SSL inspection according to the location's policies, and remote user traffic is forwarded to port 9443, where the service always performs SSL inspection.
@@ -5536,8 +6101,8 @@ Go to [ip.zscaler.com](http://ip.zscaler.com)to verify the data center that rece
 ## GRE Configuration Guide for Juniper SRX
 
 - Source: https://help.zscaler.com/zia/gre-configuration-example-juniper-srx
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > GRE Configuration Guide for Juniper SRX
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > GRE > GRE Configuration Guide for Juniper SRX
 - Last modified: 2026-10-06T21:06Z
 - Summary: How to configure a GRE tunnel between a Juniper SRX and Public Service Edges for Internet & SaaS (ZIA) in the Zscaler service.
 
@@ -6421,8 +6986,8 @@ This CSV file cannot be used to import custom IPS signature rules because the im
 ## Importing GRE Tunnels from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-gre-tunnels-csv-file
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > GRE > Importing GRE Tunnels from a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > GRE > Importing GRE Tunnels from a CSV File
 - Last modified: 2026-10-06T21:06Z
 - Summary: Information on how to add new GRE tunnels, edit existing GRE tunnels, and delete GRE tunnels with a CSV file.
 
@@ -6504,8 +7069,8 @@ See image.
 ## Importing Location and Sublocation Information from a CSV File
 
 - Source: https://help.zscaler.com/zia/importing-locations-using-a-csv
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Location Management > Importing Location and Sublocation Information from a CSV File
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Location Management > Importing Location and Sublocation Information from a CSV File
 - Last modified: 2026-10-15T23:30Z
 - Summary: How to import a CSV file in order to add, edit, or delete locations and sublocations for the Zscaler service using the Zscaler Admin Console.
 
@@ -6796,8 +7361,8 @@ To install the LB:
 ## Installing Private Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/installing-private-service-edges-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edges for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Private Service Edge > Installing Private Service Edges for Internet & SaaS
 - Last modified: 2026-09-30T21:06Z
 - Summary: Instructions for properly installing Private Service Edge for Internet & SaaS (ZIA) within your organization.
 
@@ -7089,8 +7654,8 @@ Your Airtable organization is now connected. After integration is completed, a s
 ## Integrating with Bitwarden
 
 - Source: https://help.zscaler.com/zia/integrating-bitwarden
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Bitwarden
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Bitwarden
 - Last modified: 2026-02-03T06:34Z
 - Summary: How to connect Bitwarden to Advanced SSPM.
 
@@ -7176,8 +7741,8 @@ For a list of SIEMs that integrate with the VM-based NSS, see [Integrating VM-Ba
 ## Integrating with CrowdStrike
 
 - Source: https://help.zscaler.com/zia/integrating-crowdstrike
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with CrowdStrike
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Partner Integrations > Integrating with CrowdStrike
 - Last modified: 2026-10-30T21:06Z
 - Summary: How to integrate the Zscaler service with CrowdStrike for endpoint detection and response visibility.
 
@@ -7459,8 +8024,8 @@ Your Kintone organization is now connected. After integration is completed, a su
 ## Integrating with Lucid
 
 - Source: https://help.zscaler.com/zia/integrating-lucid
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Lucid
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Lucid
 - Last modified: 2026-03-24T02:33Z
 - Summary: How to connect Lucid to Advanced SSPM.
 
@@ -7878,8 +8443,8 @@ See image.
 ## Integrating with Microsoft Defender for Endpoint
 
 - Source: https://help.zscaler.com/zia/integrating-microsoft-defender-endpoint
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Integrating with Microsoft Defender for Endpoint
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Partner Integrations > Integrating with Microsoft Defender for Endpoint
 - Last modified: 2026-10-30T21:06Z
 - Summary: How to integrate the Zscaler service with Microsoft Defender for Endpoint for endpoint detection and response visibility.
 
@@ -7933,8 +8498,8 @@ If your Microsoft Defender for Endpoint credentials are valid, the Zscaler servi
 ## Integrating with Okta
 
 - Source: https://help.zscaler.com/zia/integrating-okta
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Okta
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Okta
 - Last modified: 2026-05-11T21:06Z
 - Summary: How to connect Okta to 3rd-Party App Governance.
 
@@ -8112,8 +8677,8 @@ Your OneLogin organization is now connected. After integration is completed, a s
 ## Integrating with OpenAI
 
 - Source: https://help.zscaler.com/zia/integrating-openai
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with OpenAI
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with OpenAI
 - Last modified: 2026-06-17T23:45Z
 - Summary: How to connect OpenAI to Advanced SSPM.
 
@@ -8247,8 +8812,8 @@ The following table lists the permissions and data collected after integration:
 ## Integrating with Sentry
 
 - Source: https://help.zscaler.com/zia/integrating-sentry
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Sentry
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Sentry
 - Last modified: 2026-02-03T06:40Z
 - Summary: How to connect Sentry to Advanced SSPM.
 
@@ -8383,8 +8948,8 @@ For a list of SIEMs that integrate with Cloud NSS, see [Integrating Cloud NSS wi
 ## Integrating with Atlassian
 
 - Source: https://help.zscaler.com/zia/integrating-with-atlassian
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Atlassian
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Atlassian
 - Last modified: 2026-04-22T01:14Z
 - Summary: How to connect Atlassian to 3rd-Party App Governance.
 
@@ -8522,8 +9087,8 @@ The following table lists the permissions and data collected after integration:
 ## Integrating with Google Workspace
 
 - Source: https://help.zscaler.com/zia/integrating-with-google-workspace
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Google Workspace
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > 3rd-Party App Governance > Getting Started > Connecting Your Platforms > Integrating with Google Workspace
 - Last modified: 2026-09-23T12:03Z
 - Summary: How to connect Google Workspace to 3rd-Party App Governance.
 
@@ -8879,8 +9444,8 @@ Although the app is requesting an "Administer a workspace" permission, 3rd-Party
 ## Integrating with Zendesk
 
 - Source: https://help.zscaler.com/zia/integrating-zendesk
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Zendesk
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Posture Management - Advanced > Integrating with Zendesk
 - Last modified: 2026-03-24T01:54Z
 - Summary: How to connect Zendesk to Advanced SSPM.
 
@@ -8932,8 +9497,8 @@ Your Zendesk organization is now connected. After integration is completed, a su
 ## Internet & SaaS and Application Layer Gateway Enabled Applications
 
 - Source: https://help.zscaler.com/zia/internet-saas-and-application-layer-gateway-enabled-applications
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Internet & SaaS and Application Layer Gateway Enabled Applications
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Internet & SaaS and Application Layer Gateway Enabled Applications
 - Last modified: 2026-09-01T09:03Z
 - Summary: Information on how application layer gateway (ALG)-enabled applications work with the Zscaler service.
 
@@ -9739,8 +10304,8 @@ port 500
 ## IPSec VPN Configuration Guide for Cisco ASA 55xx
 
 - Source: https://help.zscaler.com/zia/ipsec-vpn-configuration-guide-cisco-asa-55xx
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco ASA 55xx
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > IPSec > IPSec VPN Configuration Guide for Cisco ASA 55xx
 - Last modified: 2026-10-12T06:06Z
 - Summary: How to configure two IPSec VPN tunnels between a Cisco Adaptive Security Appliance (ASA) 55xx (5505, 5510, 5520, 5525-X, 5540, 5550, 5580-20, 5580-40) firewall and two Public Service Edges for Internet & SaaS (ZIA).
 
@@ -12808,13 +13373,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-10-30T04:57Z","nid":"1399561"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-authentication-deployment-guidelines","lastmod":"2026-11-13T20:06Z","nid":"1399561"} -->
 ## Kerberos Authentication Deployment Guidelines
 
 - Source: https://help.zscaler.com/zia/kerberos-authentication-deployment-guidelines
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Authentication Deployment Guidelines
-- Last modified: 2026-10-30T04:57Z
+- Last modified: 2026-11-13T20:06Z
 - Summary: Guidelines and deployment options for deploying Kerberos authentication.
 
 Before you [deploy Kerberos](https://help.zscaler.com/zia/how-do-i-deploy-kerberos), review the following guidelines:
@@ -12860,13 +13425,13 @@ To use Kerberos authentication for remote users, ensure the remote users meet th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-linux-server","lastmod":"2026-10-30T08:30Z","nid":"1399581"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-linux-server","lastmod":"2026-11-13T20:06Z","nid":"1399581"} -->
 ## Kerberos Trust Relationship Configuration for Linux Server
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-linux-server
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Linux Server
-- Last modified: 2026-10-30T08:30Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Linux Server
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to build a trust relationship between a Linux server and the Zscaler service.
 
 Kerberos support in Linux is provided by either the MIT Kerberos package or the Heimdal package. Use the appropriate version available with your distribution. The Kerberos configuration file is in `/etc/krb5.conf`. The following image is a sample configuration file. Only the text in blue is the Zscaler-specific configuration. It is assumed that Kerberos authentication has been configured and is operational.
@@ -12898,13 +13463,13 @@ To troubleshoot your Kerberos configuration, see [Troubleshooting Kerberos Authe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push","lastmod":"2026-10-30T08:18Z","nid":"1399571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push","lastmod":"2026-11-13T20:06Z","nid":"1399571"} -->
 ## Kerberos Trust Relationship Configuration for Windows Server & GPO Push
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Windows Server & GPO Push
-- Last modified: 2026-10-30T08:18Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Windows Server & GPO Push
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to establish a one-way cross-realm trust from a Windows Server to the Zscaler service.
 
 his article provides you the information on how to establish a one-way cross-realm trust from your organization's server to the Zscaler service. This one-way trust enables Zscaler to trust the authenticated users of the domain and *not*the reverse. Administrator access to the domain controller is required to establish a cross-realm trust and to use GPO to push configuration settings. To learn more about Kerberos, see [Understanding Kerberos Authentication](https://help.zscaler.com/zia/about-kerberos-authentication). To learn more about deploying Kerberos, see [Deploying Kerberos Authentication](https://help.zscaler.com/zia/how-do-i-deploy-kerberos).
@@ -13216,8 +13781,8 @@ return splitPublicTraffic();
 ## Local Inspection with ZIA Private Service Edge and Virtual Service Edge
 
 - Source: https://help.zscaler.com/zia/local-inspection-zia-private-service-edge-and-virtual-service-edge
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Reference Architecture > Local Inspection with ZIA Private Service Edge and Virtual Service Edge
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Reference Architecture > Local Inspection with ZIA Private Service Edge and Virtual Service Edge
 - Last modified: 2024-09-01T07:06Z
 - Summary: The Local Inspection with Zscaler Internet Access (ZIA) Private Service Edge and Virtual Service Edge reference architecture guide steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
@@ -13234,8 +13799,8 @@ ZIA Service Edge devices are where Zscaler secure internet and Software as a Ser
 ## Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/locating-hostnames-and-ip-addresses-zia-public-service-edges
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > IPSec > Locating the Hostnames and IP Addresses for Public Service Edges for Internet & SaaS
 - Last modified: 2026-05-04T21:06Z
 - Summary: How to locate the hostnames and IP addresses of the Public Service Edges for Internet & SaaS (ZIA) for IPSec VPN tunnels.
 
@@ -13278,13 +13843,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/logging-out-zscaler-while-using-saml","lastmod":"2026-10-30T16:43Z","nid":"1402241"} -->
+<!-- ZS-ARTICLE {"url":"/zia/logging-out-zscaler-while-using-saml","lastmod":"2026-11-13T20:06Z","nid":"1402241"} -->
 ## Logging Out from Zscaler While Using SAML
 
 - Source: https://help.zscaler.com/zia/logging-out-zscaler-while-using-saml
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Logging Out from Zscaler While Using SAML
-- Last modified: 2026-10-30T16:43Z
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to log out from Zscaler and trigger reauthentication for users who are using SAML with auto-provisioning or Hosted DB authentication.
 
 You can choose from a variety of methods to log out of Zscaler to trigger reauthentication for users who are using SAML with auto-provisioning or Hosted DB authentication. You should also choose one of the following methods if SCIM is not supported for the identity provider (IdP) server being used.
@@ -13379,8 +13944,8 @@ You can also look up URLs directly from the Zscaler Admin Console. To learn more
 ## Looking Up URLs in the Zscaler Admin Console
 
 - Source: https://help.zscaler.com/zia/looking-up-urls-zscaler-admin-console
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Looking Up URLs in the Zscaler Admin Console
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > URL Filtering > Looking Up URLs in the Zscaler Admin Console
 - Last modified: 2026-10-28T03:07Z
 - Summary: How to look up URL categories by using the Zscaler Admin Console.
 
@@ -14167,13 +14732,13 @@ You can delete any resource by selecting the resource from the list and clicking
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-rule","lastmod":"2026-11-04T07:51Z","nid":"1541040"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-portable-device-rule","lastmod":"2026-11-09T06:06Z","nid":"1541040"} -->
 ## Managing a Portable Device Rule
 
 - Source: https://help.zscaler.com/zia/managing-portable-device-rule
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Portable Device Rule
-- Last modified: 2026-11-04T07:51Z
+- Last modified: 2026-11-09T06:06Z
 - Summary: Information on how to add and edit a portable device rule to prevent data loss on endpoints.
 
 You can define and set up policy rules for device usage based on criteria, severity, action, etc. Additionally, you can create a single rule to manage multiple portable devices, associating them with specific users. The admins can perform the following operations:
@@ -14740,13 +15305,13 @@ After this, the token is immediately removed and invalidated.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/managing-sd-wan-partner-keys","lastmod":"2026-10-26T12:16Z","nid":"1400586"} -->
+<!-- ZS-ARTICLE {"url":"/zia/managing-sd-wan-partner-keys","lastmod":"2026-11-09T20:06Z","nid":"1400586"} -->
 ## Managing SD-WAN Partner Keys
 
 - Source: https://help.zscaler.com/zia/managing-sd-wan-partner-keys
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Managing SD-WAN Partner Keys
-- Last modified: 2026-10-26T12:16Z
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Partner Integrations > Managing SD-WAN Partner Keys
+- Last modified: 2026-11-09T20:06Z
 - Summary: How to configure an SD-WAN partner integration for the Zscaler service.
 
 On the Partner Integrations page (Internet Access > Partner Integrations - SDWAN), you can view information regarding your organization's SD-WAN partner keys. For the partner key, you can see:
@@ -14977,13 +15542,13 @@ The following section outlines the best practices for migrating [source IP-ancho
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/migrating-new-saml-idp","lastmod":"2026-10-30T16:35Z","nid":"1402196"} -->
+<!-- ZS-ARTICLE {"url":"/zia/migrating-new-saml-idp","lastmod":"2026-11-13T20:06Z","nid":"1402196"} -->
 ## Migrating to a New SAML IdP
 
 - Source: https://help.zscaler.com/zia/migrating-new-saml-idp
 - Product: Internet & SaaS
 - Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Migrating to a New SAML IdP
-- Last modified: 2026-10-30T16:35Z
+- Last modified: 2026-11-13T20:06Z
 - Summary: How to migrate to another SAML identity provider in the Zscaler Admin Console.
 
 This guide contains information on how to migrate from one [identity provider](https://help.zscaler.com/zia/about-identity-providers) (IdP) to another in the Zscaler Admin Console. Zscaler recommends editing the existing IdP to migrate to a new IdP. Adding a new IdP for migration can duplicate groups and departments, and your existing policies might no longer apply.
@@ -15790,8 +16355,8 @@ Displays mobile traffic data organized by user. The trend chart does not support
 ## Mobile Insights Logs: Columns
 
 - Source: https://help.zscaler.com/zia/mobile-insights-logs-columns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Columns
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Columns
 - Last modified: 2026-10-06T08:20Z
 - Summary: Information on the different columns in the Mobile Insights Logs page in the Zscaler Admin Console
 
@@ -15902,8 +16467,8 @@ You can select the following mobile field columns:
 ## Mobile Insights Logs: Filters
 
 - Source: https://help.zscaler.com/zia/mobile-insights-logs-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Filters
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Dashboard & Analytics > Insights > Logs > Mobile Insights Logs: Filters
 - Last modified: 2026-07-30T00:46Z
 - Summary: Information on the different filters in the Mobile Insights Logs page in the Zscaler Admin Console.
 
@@ -16813,8 +17378,8 @@ You can customize all attributes of the rule, rule conditions, action, and end u
 ## Modifying Predefined Network Services
 
 - Source: https://help.zscaler.com/zia/modifying-predefined-network-services
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > Firewall Policy Resources > Modifying Predefined Network Services
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Firewall > Firewall Policy Resources > Modifying Predefined Network Services
 - Last modified: 2026-10-05T21:06Z
 - Summary: How to modify the ports of a predefined network service in the Zscaler Admin Console.
 
@@ -16877,8 +17442,8 @@ See image.
 ## Monitoring or Blocking Outbound Content by Data Size
 
 - Source: https://help.zscaler.com/zia/monitoring-or-blocking-outbound-content-data-size
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Monitoring or Blocking Outbound Content by Data Size
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Monitoring or Blocking Outbound Content by Data Size
 - Last modified: 2026-10-31T12:37Z
 - Summary: How to create a Data Loss Prevention (DLP) policy to monitor or block outbound content by file size using the Zscaler service.
 
@@ -16892,240 +17457,4 @@ To configure rules for this scenario:
 
 1. [Configure your DLP notification templates](https://help.zscaler.com/zia/configuring-dlp-notification-templates). When configured, email notifications are sent to your organization's auditor when DLP rules are applied to users' content.
 2. [Define your DLP policy rule without content inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-without-content-inspection#Add).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/monitoring-virtual-service-edge-clusters-internet-saas","lastmod":"2026-10-04T23:21Z","nid":"1398876"} -->
-## Monitoring Virtual Service Edge Clusters for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/monitoring-virtual-service-edge-clusters-internet-saas
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Monitoring Virtual Service Edge Clusters for Internet & SaaS
-- Last modified: 2026-10-04T23:21Z
-- Summary: Information on how to monitor a Virtual Service Edge cluster for Internet & SaaS (ZIA) with a management system that supports SNMPv3. Listed are MIB objects queried to retrieve Virtual Service Edge cluster information.
-
-If you configure a GRE tunnel or Layer 2 forwarding from your router to a Virtual Service Edge for Internet & SaaS (ZIA), you can enable IPSLAs to monitor the tunnels. Additionally, Virtual Service Edges support NET-SNMP, a collection of applications that are used to implement the SNMP protocol. To learn more about NET-SNMP and the Management Information Base (MIB) files distributed with NET-SNMP, refer to the [NET-SNMP documentation](http://net-snmp.sourceforge.net/).
-
-You can use a management system that supports SNMPv3 to monitor a Virtual Service Edge cluster. Virtual Service Edge clusters include an SNMP agent that collects data and stores them as objects in MIBs. To learn more about accessing Zscaler SNMP MIBs, see [Accessing the Zscaler SNMP MIBs](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs). You can query the objects in the MIBs to retrieve information about the Virtual Service Edge. The SNMP agent can also send traps (or notifications) to alert you when certain events occur on the network or in the Virtual Service Edge.
-
-## Enabling SNMP for Virtual Service Edge
-
-To enable SNMP for Virtual Service Edge:
-
-1. Edit the `rc.conf` file: vi /etc/rc.conf
-2. Set the following setting to `YES`: snmpd_enable="YES"By default, this entry is set to `NO`.
-3. Ensure that the path of the `snmp.conf` file is as follows: snmpd_conffile="/usr/local/etc/snmpd.conf"
-4. Save the `rc.conf` file.
-5. Start the SNMP agent daemon (snmpd) service: service snmpd start
-6. Restart the Virtual Service Edge: sudo vzen restart
-
-## Zscaler-Recommended MIBs for Monitoring Virtual Service Edges
-
-The following are the Zscaler-recommended MIB objects for monitoring Virtual Service Edges:
-
-| VSE-MIB ( .1.3.6.1.4.1.46262) |  |
-| --- | --- |
-| Object | Description |
-| VSE-MIB::vseName ( .1.3.6.1.4.1.46262.9.2) | The name of the Virtual Service Edge. |
-| VSE-MIB::ca_connectivity (.1.3.6.1.4.1.46262.9.2.1.5) | The Virtual Service Edge connection to Zscaler Central Authority (CA). It's set to 3 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler Central Authority (CA) if one of the following values is returned: 0: Virtual Service Edge is not authenticated; 1: Virtual Service Edge authentication is bypassed; 2: Virtual Service Edge authentication is bypassed with probe; 4: Virtual Service Edge is down |
-| VSE-MIB::smsm_connectivity (.1.3.6.1.4.1.46262.9.2.1.6) | The Virtual Service Edge connection to Zscaler log and reporting infrastructure. It's set to 4 or 5 if the connection is established. The connection is not established between Virtual Service Edge and Zscaler log and reporting infrastructure if one of the following values is returned: 2: Initiated logging server connection; 3: Waiting for the logging server to connect to Virtual Service Edge; 6: Closing logging server connection; 7: Closed logging server connection |
-| VSE-MIB::cpu_percentage (.1.3.6.1.4.1.46262.4.2.1.12.1) | The CPU usage percentage. It's in integer values (e.g., 5,000); divide the integer value by 100 to get a percentage value (e.g., 5,000/100 = 50%). A CPU usage percentage less than 90% is acceptable. If the CPU usage percentage is more than 90%, an alert must be triggered. |
-| VSE-MIB::swapinfo (.1.3.6.1.4.1.46262.6.2.1.11) | The swap memory usage percentage. It's in integer values (e.g., 3,500); divide the integer value by 100 to get a percentage value (e.g., 3,500/100 = 35%). A swap memory usage percentage of less than 50% is acceptable. If the swap memory usage percentage is more than 50%, an alert must be triggered. |
-
-The following Object Identifiers (OIDs) generate SNMP alert traps by default:
-
-- Process Monitoring – UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2)
-- Disk Monitoring – UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9)
-- System Load – UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10)
-- Interface Events – IF-MIB::linkDown (.1.3.6.1.6.3.1.1.5.3) and IF-MIB::linkUp (.1.3.6.1.6.3.1.1.5.4)
-
-## SNMP MIB Objects
-
-The following are the MIB objects that can be queried to retrieve information about the Virtual Service Edge cluster. To learn more about the objects, refer to the [NET-SNMP documentation](http://www.net-snmp.org/docs/mibs/ucdavis.html).
-
-| UCD-SNMP-MIB (.1.3.6.1.4.1.2021) |  |
-| --- | --- |
-| Object | Description |
-| UCD-SNMP-MIB::prTable (.1.3.6.1.4.1.2021.2) | A table containing information on running programs/daemons configured for monitoring in the snmpd.conf file of the agent. Processes violating the number of running processes required by the agent's configuration file are flagged with numerical and textual errors. |
-| UCD-SNMP-MIB::prNames | The process name you're counting or checking on. |
-| UCD-SNMP-MIB::prCount | The number of current processes running with the name in question. |
-| UCD-SNMP-MIB::prErrorFlag | An error flag to indicate trouble with a process. It goes to 1 if there is an error, 0 if there is no error. |
-| UCD-SNMP-MIB::prErrMessage | An error message describing the problem (if one exists). |
-| UCD-SNMP-MIB::dskTable (.1.3.6.1.4.1.2021.9) | Disk-watching information. Partitions to be watched are configured by the snmpd.conf file of the agent. |
-| UCD-SNMP-MIB::dskPath | Path where the disk is mounted. |
-| UCD-SNMP-MIB::dskDevice | Path of the device for the partition. |
-| UCD-SNMP-MIB::dskMinPercent | Percentage of minimum space required on the disk before the errors are triggered. |
-| UCD-SNMP-MIB::dskTotal | Total size of the disk or partition (kBytes). For large disks (>2Tb), this value latches at INT32_MAX (2147483647). |
-| UCD-SNMP-MIB::dskAvail | Available space on the disk. For large lightly used disks (>2Tb), this value latches at INT32_MAX (2147483647). |
-| UCD-SNMP-MIB::laTable (.1.3.6.1.4.1.2021.10) | Load average information. |
-| UCD-SNMP-MIB::laLoad | The 1-, 5-, and 15-minute load averages (one per row). |
-| UCD-SNMP-MIB::laErrorFlag | An error flag to indicate that the load average has crossed its threshold value defined in the snmpd.conf file. It is set to 1 if the threshold is crossed, 0 if not. |
-| UCD-SNMP-MIB::laErrMessage | An error message describing the load average and its surpassed watch-point value. |
-| UCD-SNMP-MIB::systemStats (.1.3.6.1.4.1.2021.11) | System statistics. |
-| UCD-SNMP-MIB::memory (.1.3.6.1.4.1.2021.4) | Memory-related information. |
-
-| IF-MIB (.1.3.6.1) |  |
-| --- | --- |
-| Object | Description |
-| IF-MIB::interfaces (.1.3.6.1.2.1.2) | Information about the interfaces. |
-| IF-MIB::ifNumber (.1.3.6.1.2.1.2.1) | The number of network interfaces (regardless of their current state) present on this system. |
-| IF-MIB::ifTable - (.1.3.6.1.2.1.2.2) | A list of interface entries. The number of entries is given by the value of ifNumber. |
-| IF-MIB::ifDescr | A textual string containing information about the interface. This string should include the name of the manufacturer, the product name, and the version of the interface hardware or software. |
-| IF-MIB::ifType | The type of interface. Additional values for ifType are assigned by the Internet Assigned Numbers Authority (IANA), through updating the syntax of the IANAifType textual convention. |
-| IF-MIB::ifMtu | The size of the largest packet that can be sent or received on the interface, specified in octets. |
-| IF-MIB::ifPhysAddress | The interface's address at its protocol sublayer. For example, for an 802.x interface, this object normally contains a MAC address. The interface's media-specific MIB must define the bit and byte ordering and the format of the value of this object. |
-| IF-MIB::ifAdminStatus | The desired state of the interface. The testing(3) state indicates that no operational packets can be passed. When a managed system initializes, all interfaces start with ifAdminStatus in the down(2) state. As a result of either explicit management action or per-configuration information retained by the managed system, ifAdminStatus is then changed to either the up(1) or testing(3) states (or remains in the down(2) state). |
-| IF-MIB::ifOperStatus | The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed. If ifAdminStatus is down(2), then ifOperStatus should be down(2). If ifAdminStatus is changed to up(1), then ifOperStatus changes to up(1) if the interface is ready to transmit and receive network traffic. It changes to dormant(5) if the interface is waiting for external actions (such as a serial line waiting for an incoming connection). It remains in the down(2) state if and only if there is a fault that prevents it from going to the up(1) state. It remains in the notPresent(6) state if the interface has missing (typically, hardware) components. |
-| IF-MIB::ifInOctets | The total number of octets received on the interface, including framing characters. |
-| IF-MIB::ifInUcastPkts | The number of packets, delivered by this sublayer to a higher sublayer, which were not addressed to a multicast or broadcast address at this sublayer. |
-| IF-MIB::ifOutOctets | The total number of octets transmitted out of the interface, including framing characters. |
-| IF-MIB::ifOutUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were not addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
-| IF-MIB::ifOutNUcastPkts | The total number of packets that higher-level protocols requested be transmitted, and which were addressed to a multicast or broadcast address at this sublayer, including those that were discarded or not sent. |
-| IF-MIB::ifPromiscuousMode | This object has a value of false(2) if this interface only accepts packets/frames that are addressed to this station. This object has a value of true(1) if the station accepts all packets or frames transmitted on the media. |
-| IF-MIB::linkDown  (.1.3.6.1.6.3.1.1.5.3) | The interface link is down. |
-| IF-MIB::linkUp  (.1.3.6.1.6.3.1.1.5.4) | The interface link is up. |
-
-| HOST-RESOURCES-MIB (.1.3.6.1.2.1.25) |  |
-| --- | --- |
-| Object | Description |
-| HOST-RESOURCES-MIB::hrSystem (.1.3.6.1.2.1.25.1) | Information about the host. |
-| HOST-RESOURCES-MIB::hrSystemUptime | The amount of time since this host was last initialized. |
-| HOST-RESOURCES-MIB::hrSystemDate | The host's notion of the local date and time of day. |
-| HOST-RESOURCES-MIB::hrSystemProcesses | The number of process contexts currently loaded or running on this system. |
-| HOST-RESOURCES-MIB::hrSystemMaxProcesses | The number of processes that the system can support. The maximum number of process contexts this system can support. If there is no fixed maximum, the value should be zero. On systems that have a fixed maximum, this object can help diagnose failures that occur when this maximum is reached. |
-| HOST-RESOURCES-MIB::hrStorage (.1.3.6.1.2.1.25.2) | Information about the storage areas of the host. |
-| HOST-RESOURCES-MIB::hrStorageType | The type of storage represented by this entry. |
-| HOST-RESOURCES-MIB::hrStorageDescr | A description of the type and instance of the storage described by this entry. |
-| HOST-RESOURCES-MIB::hrStorageSize | The size of the storage represented by this entry, in units of hrStorageAllocationUnits. |
-| HOST-RESOURCES-MIB::hrStorageUsed | The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits. |
-| HOST-RESOURCES-MIB::hrStorageAllocationUnits | The size, in bytes, of the data objects allocated from this pool. If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number is commonly greater than one. Otherwise, this number is typically one. |
-
-| SNMPv2-MIB::system (.1.3.6.1.2.1.1) |  |
-| --- | --- |
-| Object | Description |
-| SNMPv2-MIB::sysContact | The textual identification of the contact person for this managed node, together with information on how to contact this person. If no contact information is known, the value is the zero-length string. |
-| SNMPv2-MIB::sysName | An administratively assigned name for this managed node. By convention, this is the node's FQDN. If the name is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysLocation | The physical location of this node (e.g., "telephone closet, 3rd floor"). If the location is unknown, the value is the zero-length string. |
-| SNMPv2-MIB::sysServices | A value that indicates the set of services that this entity may potentially offer. The value is a sum. This sum initially takes the value 0. Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node that performs only routing functions has a value of 4 (2^(3-1)). In contrast, a node that is a host offering application services has a value of 72 (2^(4-1) + 2^(7-1)). In the context of the internet suite of protocols, values should be calculated accordingly: **Layer** **Functionality** 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., supports IP) 4 end-to-end (e.g., supports TCP) 7 applications (e.g., supports SMTP) For systems including OSI protocols, Layers 5 and 6 can also be counted. |
-| SNMPv2-MIB::snmpEnableAuthenTraps | Indicates whether the SNMP entity is permitted to generate authenticationFailure traps. The value of this object overrides any configuration information; as such, it provides a means whereby you can disable all authenticationFailure traps. |
-| SNMPv2-MIB::snmpInPkts | The total number of messages delivered to the SNMP entity from the transport service. |
-| SNMPv2-MIB::snmpOutPkts | The total number of SNMP messages that were passed from the SNMP protocol entity to the transport service. |
-| SNMPv2-MIB::snmpInGetRequests | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has accepted and processed. |
-| SNMPv2-MIB::snmpOutGetResponses | The total number of SNMP Get-Request PDUs that the SNMP protocol entity has generated. |
-| SNMPv2-MIB::snmpOutTraps | The total number of SNMP Trap PDUs that the SNMP protocol entity has generated. |
-
-| TCP-MIB (.1.3.6.1.2.1.6) |  |
-| --- | --- |
-| Object | Description |
-| TCP-MIB::tcpActiveOpens | The number of times that TCP connections have made a direct transition to the SYN-SENT state from the CLOSED state. |
-| TCP-MIB::tcpPassiveOpens | The number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state. |
-| TCP-MIB::tcpCurrEstab | The number of TCP connections for which the current state is either ESTABLISHED or CLOSE-WAIT. |
-| TCP-MIB::tcpConnectionTable | A table containing information about existing TCP connections. |
-| TCP-MIB::tcpListenerTable | A table containing information about TCP listeners. A listening application can be represented in three possible ways: An application that is willing to accept both IPv4 and IPv6 datagrams is represented by a tcpListenerLocalAddressType of unknown (0) and a tcpListenerLocalAddress of ''h (a zero-length octet-string).; An application that is willing to accept only IPv4 or IPv6 datagrams is represented by a tcpListenerLocalAddressType of the appropriate address type and a tcpListenerLocalAddress of '0.0.0.0' or '::' respectively.; An application that is listening for data destined only to a specific IP address, but from any remote system, is represented by a tcpListenerLocalAddressType of an appropriate address type, with tcpListenerLocalAddress as the specific local address.The address type in this table represents the address type used for the communication, irrespective of the higher-layer abstraction. For example, an application using IPv6 sockets to communicate via IPv4 between ::ffff:10.0.0.1 and ::ffff:10.0.0.2 would use InetAddressType ipv4(1))." |
-
-## Virtual Service Edge Traps
-
-The Virtual Service Edge SNMP agent generates traps when the following events occur:
-
-### Process Monitoring
-
-- The snmpd restarts
-- The SME goes down and the link to the Zscaler cloud becomes inactive
-- The number of mountd processes is more than 1
-- The number of ntalkd processes goes out of range (0–4)
-- The number of sendmail processes goes out of range (1–10)
-
-### Disk Monitoring
-
-- The root partition has less than 10 MBs of space
-- Any of the other partitions have less than 10% space
-
-### System Load
-
-- The load average crosses the threshold: 3 for 1 minute, 2 for 5 minutes, 1 for 15 minutes
-- CPU usage goes beyond 90%
-
-### Interface events
-
-The link goes down or comes up
-
-## Virtual Service Edge Health Monitoring
-
-The Zscaler service performs ICMP and HTTP monitoring from the Load Balancer (LB) to the Virtual Service Edge in order to monitor the health of the instance and ensure that traffic is distributed appropriately. If you want to perform this monitoring yourself, you can enable an HTTP server on a Virtual Service Edge by implementing the following commands:
-
-1. Go to the /sc/sme/conf folder: cd /sc/sme/conf
-2. Create a custom configuration file (e.g., vzen_custom.conf): touch vzen_custom.conf
-3. Edit the vzen_custom.conf file: vi vzen_custom.conf
-4. Enter the following port in the vzen_custom.conf file and save: [SME] serv_port=3128 [-end-of-SME-]
-5. Ensure that the entries are saved in the vzen_custom.conf file: cat vzen_custom.conf
-6. Restart the SME instance: /sc/update/vzen stop sme /sc/update/vzen start sme
-7. Ensure that the SME is running: vzen statusYou can check whether the Virtual Service Edge is listening to port 3128 using the following command: ZSINSTANCE=/sc/sme/ /sc/sme/bin/smmgr -ys smnet="netstat" | grep LISTEN | grep 3128
-8. Enter the following command prompt: curl -v http://<Virtual Service Edge IP>:3128/index.html?=100The number 100 represents the size of the response sent back to the client making the cURL request. Therefore, if the monitoring tool makes a request to the URL http://<Virtual Service Edge IP>:3128/index.html?=100, the Virtual Service Edge responds with a 200 OK and a payload size of 100 bytes.
-
-After the commands have been applied, you can use the LB to fetch the page and investigate the availability of a particular Virtual Service Edge. This does not include ICMP monitoring.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-for-euns","lastmod":"2026-09-16T03:53Z","nid":"1399646"} -->
-## Multiple Language Support for EUNs
-
-- Source: https://help.zscaler.com/zia/multiple-language-support-for-euns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Browser EUNs > Global Configuration > Multiple Language Support for EUNs
-- Last modified: 2026-09-16T03:53Z
-- Summary: Information about the languages that are supported in the end-user notifications and how users can change the language.
-
-The Zscaler service supports the following languages for [end user notifications](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) (EUNs):
-
-- English
-- Simplified Chinese
-- Traditional Chinese
-- Dutch
-- French
-- German
-- Japanese
-- Brazilian Portuguese
-- European Portuguese
-- Russian
-- Spanish
-- Spanish (Latin America)
-- Italian
-- Indonesian
-- Korean
-- Turkish
-- Thai
-- Vietnamese
-
-To have users view EUNs in one of these languages, ensure that the language setting in your users' browser is set to that language. TheZscaler service automatically detects the browser language setting and displays EUNs in that language. See the browser documentation for instructions on changing the language setting of that browser. If you configure your browser to display a language the service doesn't support, the service displays the EUNs in English.
-
-If you redirect users to an external site that hosts EUNs, keep in mind that those pages are global for the entire organization. Therefore, to enable your non-English speaking users to view EUNs in a specific language, ensure that your external site has browser language detection enabled.
-
-The Zscaler service only displays the Authentication dialog box in English. When configuring the [Acceptable Use Policy](https://help.zscaler.com/zia/configuring-browser-based-global-end-user-notifications) notification, you can create a message containing multiple languages, because it's a free-form text field. However, a browser language check won't take place.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/multiple-language-support-zscaler-client-connector-based-euns","lastmod":"2026-08-25T09:11Z","nid":"1505071"} -->
-## Multiple Language Support for Zscaler Client Connector-Based EUNs
-
-- Source: https://help.zscaler.com/zia/multiple-language-support-zscaler-client-connector-based-euns
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Multiple Language Support for Zscaler Client Connector-Based EUNs
-- Last modified: 2026-08-25T09:11Z
-- Summary: Information about the languages that are supported in the Zscaler Client Connector-based end user notifications.
-
-Zscaler Client Connector supports the following languages for [end user notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications) (EUNs):
-
-- English
-- Chinese (Traditional)
-- French
-- German
-- Japanese
-- Spanish
-
-The EUN language is based on the OS language setting in your system. The Zscaler Client Connector automatically detects your system's OS language and displays EUNs in that language. If your system's OS language is different from the EUN supported languages, Zscaler Client Connector displays EUNs in English, by default.
-
-Only the default messages are translated to all the languages that the Zscaler Client Connector supports. You can modify the default messages per language. Modifying the message in a specific language does not impact the respective message in other languages. Zscaler Client Connector does not automatically translate customized messages.
 <!-- /ZS-ARTICLE -->

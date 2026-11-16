@@ -1,7 +1,7 @@
 # Zscaler Help — Zscaler Deception (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-09 10:16 UTC
+Generated: 2026-11-16 10:10 UTC
 Articles in this file: 296
 
 ---
@@ -2836,29 +2836,29 @@ You can create decoy AD user accounts that mimic sensitive business-critical acc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-landmine-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542558"} -->
+<!-- ZS-ARTICLE {"url":"/deception/best-practice-guide-landmine-decoys","lastmod":"2026-11-11T01:39Z","nid":"1542558"} -->
 ## Best Practice Guide for Landmine Decoys
 
 - Source: https://help.zscaler.com/deception/best-practice-guide-landmine-decoys
 - Product: Deception
 - Path: Deception Help > Getting Started > Best Practices > Best Practice Guide for Landmine Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-11T01:39Z
 - Summary: Best practice guidelines for deploying landmine decoys.
 
 This guide provides use cases and deployment recommendations for landmine decoys.
 
 Landmine decoys are deployed in endpoint machines to lure attackers, typically within an organization. Landmine decoys are typically deployed to detect different types of techniques, defined in the MITRE ATT&CK framework, such as defense evasion ([T1562.001](https://attack.mitre.org/techniques/T1562/001/)), impact ([T1489](https://attack.mitre.org/techniques/T1489/)and [T1485](https://attack.mitre.org/techniques/T1485/)), credential access ([T1552.001](https://attack.mitre.org/techniques/T1552/001/) and [T1557.001](https://attack.mitre.org/techniques/T1557/001/)), and collection ([T1005](https://attack.mitre.org/techniques/T1005/)).
 
-Landmine decoys are deployed via [landmine policies](https://help.zscaler.com/deception/v4_23/about-policies). To deploy landmine decoys, Zscaler recommends having two different types of policies: a policy for simple detections that requires no customization, and a policy for advanced detections that requires minimal customization to detect adversarial techniques.
+Landmine decoys are deployed via [landmine policies](https://help.zscaler.com/deception/about-policies). To deploy landmine decoys, Zscaler recommends having two different types of policies: a policy for simple detections that requires no customization, and a policy for advanced detections that requires minimal customization to detect adversarial techniques.
 
 - Policy for Simple Detections
 - Policy for Advanced Detections
 
 In addition, a custom policy must be created for each department in the organization based on the function for which the department is responsible. Typically, a department can have up to 4 policies tailored for them, and at least two policies must be configured for business-critical departments.
 
-To learn how to create a landmine policy, see [Creating a Landmine Policy](https://help.zscaler.com/deception/v4_23/creating-landmine-policy).
+To learn how to create a landmine policy, see [Creating a Landmine Policy](https://help.zscaler.com/deception/creating-landmine-policy).
 
-- Before configuring a landmine policy, ensure that you have customized the landmine installer name. To learn more, see [Customizing Landmine Installer](https://help.zscaler.com/deception/v4_23/customizing-landmine-installer).
+- Before configuring a landmine policy, ensure that you have customized the landmine installer name. To learn more, see [Customizing Landmine Installer](https://help.zscaler.com/deception/customizing-landmine-installer).
 - The deployment can be done in phases for each department, starting from the highest priority based on the department's security risk. See example
 
 A typical deployment must have one policy for simple detections, and one policy for advanced detections covering all endpoints and a custom policy tailored for the department.
@@ -2881,30 +2881,30 @@ The following table provides information on the recommended configurations of a 
 
 | Landmine Policy Module | Recommended Configurations |
 | --- | --- |
-| Privilege Escalation | Enable **Man-in-the-Middle Attack Detection** with the following configurations:Enable **LLMNR**poisoning.; Set **Interval**to 5 minutes.; Enable **In-Memory Credentials**with the following configurations (for all Windows-based endpoints):Enable **Use AD Decoy Users**.; Select an AD Decoy User.; (Optional) Select **Use additional Custom Credentials** and add **Domain**and **User**values as required.To learn more, see [Configuring the Privilege Escalation Module](https://help.zscaler.com/deception/v4_23/configuring-privilege-escalation-module). |
-| File Decoys | Create a credential file decoy with the following configurations: **Name**: `password1.txt`; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/v4_23/configuring-file-decoys-module). |
-| Password Policy | Configure a password policy similar to your Active Directory (AD) password policy. If you do not have an AD password policy, then you can create a policy with the following configurations: Enable **Must have special characters**.; Set **Min Length**to `8`.; Set **Max Length**to `12`.To learn more, see [Configuring the Password Settings Module](https://help.zscaler.com/deception/v4_23/configuring-password-settings-module). |
+| Privilege Escalation | Enable **Man-in-the-Middle Attack Detection** with the following configurations:Enable **LLMNR**poisoning.; Set **Interval**to 5 minutes.; Enable **In-Memory Credentials**with the following configurations (for all Windows-based endpoints):Enable **Use AD Decoy Users**.; Select an AD Decoy User.; (Optional) Select **Use additional Custom Credentials** and add **Domain**and **User**values as required.To learn more, see [Configuring the Privilege Escalation Module](https://help.zscaler.com/deception/configuring-privilege-escalation-module). |
+| File Decoys | Create a credential file decoy with the following configurations: **Name**: `password1.txt`; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/configuring-file-decoys-module). |
+| Password Policy | Configure a password policy similar to your Active Directory (AD) password policy. If you do not have an AD password policy, then you can create a policy with the following configurations: Enable **Must have special characters**.; Set **Min Length**to `8`.; Set **Max Length**to `12`.To learn more, see [Configuring the Password Settings Module](https://help.zscaler.com/deception/configuring-password-settings-module). |
 
 The following table provides information on the recommended configurations of a landmine policy for advanced detections.
 
 | Landmine Policy Module | Recommended Configurations |
 | --- | --- |
-| Defense Evasion | Enable **Fake Security Processes** and configure fake security processes resembling popular applications that are usually targeted by adversaries. Some examples of fake security processes for popular applications are listed as follows: Symantec Endpoint Protection:**Name**: `ccSvcHst.exe`; **Path**: `C:\Program Files\Symantec\Symantec Endpoint Protection\`; Microsoft Word:**Name**: `winword.exe`; **Path**: `C:\Program Files\Microsoft Office\Word`; Acronis:**Name**: `AcronisAgent.exe`; **Path**: `C:\Program Files\tmp_shared\`While configuring fake process paths, ensure that you do not use the actual paths of the legitimate applications as they might cause some issues. However, Zscaler recommends using paths that look similar to the default paths of the legitimate application. For example, if Symantec uses `C:\Program Files\Symantec\ccsvchost.exe` as the default path, then the fake process path can be `C:\Program Files\Common Files\Symantec\ccsvchost.exe`. To learn more, see [Configuring the Defense Evasion Module](https://help.zscaler.com/deception/v4_23/configuring-defense-evasion-module). |
-| Advanced Deception Capabilities | Enable the following options: **PsExec Detection**; **Ransomware Detection**; **Triage**To learn more, see [Configuring the Advanced Deception Capabilities Module](https://help.zscaler.com/deception/v4_23/configuring-advanced-deception-capabilities-module). |
+| Defense Evasion | Enable **Fake Security Processes** and configure fake security processes resembling popular applications that are usually targeted by adversaries. Some examples of fake security processes for popular applications are listed as follows: Symantec Endpoint Protection:**Name**: `ccSvcHst.exe`; **Path**: `C:\Program Files\Symantec\Symantec Endpoint Protection\`; Microsoft Word:**Name**: `winword.exe`; **Path**: `C:\Program Files\Microsoft Office\Word`; Acronis:**Name**: `AcronisAgent.exe`; **Path**: `C:\Program Files\tmp_shared\`While configuring fake process paths, ensure that you do not use the actual paths of the legitimate applications as they might cause some issues. However, Zscaler recommends using paths that look similar to the default paths of the legitimate application. For example, if Symantec uses `C:\Program Files\Symantec\ccsvchost.exe` as the default path, then the fake process path can be `C:\Program Files\Common Files\Symantec\ccsvchost.exe`. To learn more, see [Configuring the Defense Evasion Module](https://help.zscaler.com/deception/configuring-defense-evasion-module). |
+| Advanced Deception Capabilities | Enable the following options: **PsExec Detection**; **Ransomware Detection**; **Triage**To learn more, see [Configuring the Advanced Deception Capabilities Module](https://help.zscaler.com/deception/configuring-advanced-deception-capabilities-module). |
 
 | Landmine Policy Module | Recommended Configurations |
 | --- | --- |
-| Cloud Lures | Enable one or more AWS or Azure lures and select appropriate **Target Decoys**for each lure. To learn more, see [Configuring the Cloud Lures Module](https://help.zscaler.com/deception/v4_23/configuring-cloud-lures-module). |
-| Browser Lures | Enable browser lures for Chrome, Firefox, Edge, and Internet Explorer, and enable **Cookies**, **Favorites**, and **Credentials**options as applicable. Select the appropriate **Target Decoys**for each department. To learn more, see [Configuring the Browser Lures Module](https://help.zscaler.com/deception/v4_23/configuring-browser-lures-module). |
-| Session Lures | Enable session lures based on the applications used in a department, and select the appropriate **Target Decoys** for each department. For example, you can enable FileZilla, PuTTY, RDP, WinSCP, Windows Credentials, etc. To learn more, see [Configuring the Session Lures Module](https://help.zscaler.com/deception/v4_23/configuring-session-lures-module). |
-| File Decoys | Create file decoys using **Pre-Configured File Datasets** for each department: **Dataset**: Based on the department, select a dataset (**IT Security**, **Information Technology - General**, **Finance** **- Banking**, **Finance - Strategy**, **Human Resources**,etc.).; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/v4_23/configuring-file-decoys-module). |
+| Cloud Lures | Enable one or more AWS or Azure lures and select appropriate **Target Decoys**for each lure. To learn more, see [Configuring the Cloud Lures Module](https://help.zscaler.com/deception/configuring-cloud-lures-module). |
+| Browser Lures | Enable browser lures for Chrome, Firefox, Edge, and Internet Explorer, and enable **Cookies**, **Favorites**, and **Credentials**options as applicable. Select the appropriate **Target Decoys**for each department. To learn more, see [Configuring the Browser Lures Module](https://help.zscaler.com/deception/configuring-browser-lures-module). |
+| Session Lures | Enable session lures based on the applications used in a department, and select the appropriate **Target Decoys** for each department. For example, you can enable FileZilla, PuTTY, RDP, WinSCP, Windows Credentials, etc. To learn more, see [Configuring the Session Lures Module](https://help.zscaler.com/deception/configuring-session-lures-module). |
+| File Decoys | Create file decoys using **Pre-Configured File Datasets** for each department: **Dataset**: Based on the department, select a dataset (**IT Security**, **Information Technology - General**, **Finance** **- Banking**, **Finance - Strategy**, **Human Resources**,etc.).; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/configuring-file-decoys-module). |
 
 | Landmine Policy Module | Recommended Configurations |
 | --- | --- |
-| Cloud Lures | Enable one or more AWS or Azure lures and select appropriate **Target Decoys**for each lure. To learn more, see [Configuring the Cloud Lures Module](https://help.zscaler.com/deception/v4_23/configuring-cloud-lures-module). |
-| Browser Lures | Enable browser lures for Chrome, Firefox, Edge, and Internet Explorer, and enable **Cookies**, **Favorites**, and **Credentials**options as applicable. Select the appropriate **Target Decoys**for the business-critical function. To learn more, see [Configuring the Browser Lures Module](https://help.zscaler.com/deception/v4_23/configuring-browser-lures-module). |
-| Session Lures | Enable session lures based on the applications used in a department, and select the appropriate **Target Decoys** for the business-critical function. For example, you can enable FileZilla, PuTTY, RDP, WinSCP, Windows Credentials, etc. To learn more, see [Configuring the Session Lures Module](https://help.zscaler.com/deception/v4_23/configuring-session-lures-module). |
-| File Decoys | Create file decoys using **Custom Files**with the following configurations: **Dataset**: Select a custom file dataset; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/v4_23/configuring-file-decoys-module). |
+| Cloud Lures | Enable one or more AWS or Azure lures and select appropriate **Target Decoys**for each lure. To learn more, see [Configuring the Cloud Lures Module](https://help.zscaler.com/deception/configuring-cloud-lures-module). |
+| Browser Lures | Enable browser lures for Chrome, Firefox, Edge, and Internet Explorer, and enable **Cookies**, **Favorites**, and **Credentials**options as applicable. Select the appropriate **Target Decoys**for the business-critical function. To learn more, see [Configuring the Browser Lures Module](https://help.zscaler.com/deception/configuring-browser-lures-module). |
+| Session Lures | Enable session lures based on the applications used in a department, and select the appropriate **Target Decoys** for the business-critical function. For example, you can enable FileZilla, PuTTY, RDP, WinSCP, Windows Credentials, etc. To learn more, see [Configuring the Session Lures Module](https://help.zscaler.com/deception/configuring-session-lures-module). |
+| File Decoys | Create file decoys using **Custom Files**with the following configurations: **Dataset**: Select a custom file dataset; **Path**: `%userprofile%\Imp`; **Hidden**: EnabledTo learn more, see [Configuring the File Decoys Module](https://help.zscaler.com/deception/configuring-file-decoys-module). |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3314,22 +3314,26 @@ After configuring an AD decoy personality, you can use it to create and deploy [
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/configuring-advanced-deception-capabilities","lastmod":"2026-05-08T07:06Z","nid":"1542297"} -->
+<!-- ZS-ARTICLE {"url":"/deception/configuring-advanced-deception-capabilities","lastmod":"2026-11-13T05:49Z","nid":"1542297"} -->
 ## Configuring Advanced Deception Capabilities
 
 - Source: https://help.zscaler.com/deception/configuring-advanced-deception-capabilities
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Configuring Advanced Deception Capabilities
-- Last modified: 2026-05-08T07:06Z
+- Last modified: 2026-11-13T05:49Z
 - Summary: How to configure landmine policies with Advanced Deception Capabilities, such as PsExec Detection, Ransomware, and Triage.
 
 The Advanced Deception Capabilities module enables you to deploy enhanced threat detection on endpoints, including the following detection methods:
 
-- PsExec Detection: PsExec is a system administration utility that executes programs on remote Windows hosts. PsExec uses Windows file shares or server message block (SMB) protocol to connect to the remote system and installs a Windows service that runs the commands. If a system has the Admin$ read or write share option enabled, PsExec runs commands with the highest privileges on the system. When the PsExec Detection feature is enabled on a target system, it monitors connections to the Windows share and any subsequent creation of the services.
-- Ransomware Detection: The Ransomware feature deploys special files and processes decoys that are generally targeted by ransomware. It also detects if the shadow copy is deleted from the endpoint, which is a common activity of ransomware. Zscaler Deception adds in-memory mutex to the system, which inoculates it against certain strains of ransomware.
-- Triage: The Triage feature monitors and raises events for processes on the system that make an outbound connection to your network or Threat Intelligence (TI) decoys. This feature provides additional contextual information regarding events, such as process names, process hashes, user details, etc.
+- **PsExec Detection**: A system administration utility that executes programs on remote Windows hosts. PsExec uses Windows file shares or server message block (SMB) protocol to connect to the remote system and installs a Windows service that runs the commands. If a system has the Admin$ read or write share option enabled, PsExec runs commands with the highest privileges on the system. When the PsExec Detection feature is enabled on a target system, it monitors connections to the Windows share and any subsequent creation of the services.
+- **Ransomware Detection**: Enhances protection for Windows endpoints running the Endpoint Deception Agent. The agent automatically deploys decoy files and processes that are commonly targeted by ransomware, and continuously monitors the endpoints for suspicious activity. The agent identifies the following ransomware tactics: When the agent detects ransomware activity, Zscaler Deception generates an event in [Investigate](https://help.zscaler.com/deception/about-investigate). This event captures details about the impacted file, process, user, or command line. Additionally, the agent deploys an in‑memory mutex to inoculate endpoints against specific ransomware strains. This approach ensures early detection and protection without disrupting legitimate administrative operations.
+  - In-place encryption of decoy files
+  - Encrypt-and-rename or rename-then-encrypt activity
+  - Copy-encrypt-delete sequences
+  - Attempts to delete Windows volume shadow copies
+- **Triage**: Monitors and raises events for processes on the system that make an outbound connection to your network or Threat Intelligence (TI) decoys. This feature provides additional contextual information regarding events, such as process names, process hashes, user details, etc.
 
-Advanced Deception Capabilities module is supported on Windows and macOS endpoints via Landmine Agents only.
+The Advanced Deception Capabilities module is supported on Windows and macOS endpoints via Landmine Agents only.
 
 To enable advanced deception features via a landmine policy:
 
@@ -3339,7 +3343,7 @@ To enable advanced deception features via a landmine policy:
   - **PsExec Detection**
   - **Ransomware Detection**
   - **Triage** Triage is supported on Windows and macOS endpoints via Landmine Agents only.
-  - **Kerberoast Detection (Decoy)** The**Kerberoast Detection (Decoy)**option is shown in the **Advanced Deception Module** for tenants with Deception-only licenses. For tenants with Deception and ITDR licenses, this option is included in the **Active Directory Threat Detection Module**under **ITDR** > **Manage**> **Threat Detection**. It is supported on Windows endpoints via Landmine Agent only.
+  - **Kerberoast Detection (Decoy)** TheKerberoast Detection (Decoy) option is shown in the Advanced Deception Module for tenants with Deception-only licenses. For tenants with Deception and ITDR licenses, this option is included in the Active Directory Threat Detection Module under ITDR > Manage > Threat Detection. It is supported on Windows endpoints via Landmine Agent only.
 4. Click **Save**.
 
 [Image: Edit a landmine policy]
@@ -8903,13 +8907,13 @@ After the selection criterion is specified, you can configure the required lure 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-10-28T08:57Z","nid":"1542465"} -->
+<!-- ZS-ARTICLE {"url":"/deception/creating-managed-identity-decoy-azure","lastmod":"2026-11-11T20:06Z","nid":"1542465"} -->
 ## Creating a Managed Identity Decoy in Azure
 
 - Source: https://help.zscaler.com/deception/creating-managed-identity-decoy-azure
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Creating a Managed Identity Decoy in Azure
-- Last modified: 2026-10-28T08:57Z
+- Last modified: 2026-11-11T20:06Z
 - Summary: How to configure a managed identity decoy in Microsoft Azure.
 
 Managed identities provide an automatically managed identity in Azure AD (Entra ID) for applications to use when connecting to resources that support Azure AD (Entra ID) authentication. You can create a managed identity decoy (user-defined) that has access to all other decoy resources in a decoy resource group (Decoys Resource Group) [configured by Zscaler Deception](https://help.zscaler.com/deception/setting-cloud-deception-microsoft-azure). If an adversary uses the managed identity to access decoy resources, an alert is generated.
