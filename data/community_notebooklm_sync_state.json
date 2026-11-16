@@ -25,8 +25,8 @@
   "community_deception_part1.md": {
    "added_at": "2026-10-12T11:16:56Z",
    "rel": "deception/community_deception_part1.md",
-   "sha256": "f6db2192cadab7760756fa5ceca0fbf808e1151199312915ceb3e479ff5e5851",
-   "source_id": "185ec03e-3863-4d2f-a76b-93ffb785b0fe"
+   "sha256": "03f4cf244b165d765b8b348fd0989ac252dc4fc6c59cd363750b3b6e77918d5f",
+   "source_id": "398932bc-d7ea-42ce-92f1-2b2c11537eec"
   },
   "community_other_part1.md": {
    "added_at": "2026-10-05T10:49:40Z",
@@ -37,14 +37,14 @@
   "community_platform_part1.md": {
    "added_at": "2026-10-05T10:50:12Z",
    "rel": "platform/community_platform_part1.md",
-   "sha256": "8d7cb8bd1b3eb23d9da9a551c1f6a23eb892dc2a5bf5baeefa5fa7f1b81edc6a",
-   "source_id": "606addca-fe36-4c68-b6bd-cb2314e074cb"
+   "sha256": "8fbd6d1046faf95b619aabbb06531b25adff9f1bd5e22635bd525dc6c926b2c7",
+   "source_id": "e455bd06-5f94-4e39-91b8-f965ea335a30"
   },
   "community_platform_part2.md": {
    "added_at": "2026-10-05T10:50:37Z",
    "rel": "platform/community_platform_part2.md",
-   "sha256": "66761acf45629586c47f1bdd6cbd49dca81f0cfb5aa9b423b46d48b43f41fb34",
-   "source_id": "26bb63fc-cfdf-4343-8572-084021556560"
+   "sha256": "ba577febb6ca3d51a40279bab5bb4c415fb0c4d0e2e879a4cffb929a811b953f",
+   "source_id": "b8911de6-50e7-4245-b1d2-978a92fec17c"
   },
   "community_zcc_part1.md": {
    "added_at": "2026-10-05T10:51:09Z",
@@ -103,9 +103,9 @@
   "community_zpa_part1.md": {
    "added_at": "2026-10-19T09:23:07Z",
    "rel": "zpa/community_zpa_part1.md",
-   "sha256": "8efe5b776127693da003c3bf4b0e0fdc04ae16e84d6709ce42b9f321be7c14ed",
-   "source_id": "0915cbff-9194-46b0-9195-1e2b990f7a87"
+   "sha256": "03d78627afde5a311694fa20bb193cfea2fab703dae740e611680845c5668477",
+   "source_id": "23ef70a2-7b61-48fc-b032-fba2937fa709"
   }
  },
- "synced_at": "2026-11-09T12:02:39Z"
+ "synced_at": "2026-11-16T11:59:13Z"
 }
