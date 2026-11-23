@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZIA — Internet & SaaS (part 4)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-02 11:37 UTC
-Posts in this file: 176
+Generated: 2026-11-23 13:33 UTC
+Posts in this file: 178
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -41186,4 +41186,242 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 ZIA shows “No scopes available” on my OneAPI API client in ZiDentity
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000016ZGhE0AW/google-ai-mode-uploadonly-block","lastmod":"2026-11-17T10:37:34.000Z","id":"0D5PJ000016ZGhE0AW"} -->
+## Google AI Mode Upload-Only Block
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000016ZGhE0AW/google-ai-mode-uploadonly-block
+- Type: Q&A
+- Last activity: 2026-11-17T10:37:34.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - CASB
+
+hansa.sethi199907
+
+(Partner) asked a question
+
+15h ago
+
+Google AI Mode Upload-Only Block
+
+We are currently looking into means to apply upload block restrictions to Google AI Mode at a customer environment (not Gemini), instead of implementing an all-or-nothing block on the application. Upload policies are not applying correctly as of now. Upon research, sources mention that blocking the link
+
+lensfrontend-pa.clients6.google.com/v1/crupload
+
+via URL filtering can restrict uploads.
+
+Has anyone implemented this solution successfully as of now and can confirm, or completed this use case through other means?
+
+ZIA - CASB
+
+Associated Tags
+
+accesspolicy
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+4/6/2025
+
+at
+
+05:57 PM
+
+Cloud App Control - Google Drive subactions
+
+ZIA - CASB
+
+Danielo
+
+669
+
+669 Views
+
+0 Likes
+
+7 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+Google AI Mode Upload-Only Block
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000016ZR1Q0AW/ms-copilot-implementing-tenant-restriction","lastmod":"2026-11-21T06:42:05.000Z","id":"0D5PJ000016ZR1Q0AW"} -->
+## MS Copilot - Implementing Tenant Restriction
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000016ZR1Q0AW/ms-copilot-implementing-tenant-restriction
+- Type: Q&A
+- Last activity: 2026-11-21T06:42:05.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZIA - CASB
+
+hansa.sethi199907
+
+(Partner) asked a question
+
+Edited 15h ago
+
+MS Copilot - Implementing Tenant Restriction
+
+We need to implement tenant/domain-based controls in a customer environment specifically for Copilot. While we are able to apply tenant restrictions at other required apps (such as OneDrive), we are unable to do the same for Copilot.
+
+We have looked into injecting the header sec-Restrict-Tenant-Access-Policy as per the following documentation:
+
+https://learn.microsoft.com/en-us/entra/external-id/tenant-restrictions-v2
+
+, however as per our understanding, this applies restrictions on the entire O365 environment. Our requirements are strictly confined to Copilot.
+
+Are there any other means in order to accomplish this use case?
+
+ZIA - CASB
+
+Associated Tags
+
+accesspolicy
+
+casb
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+4/6/2025
+
+at
+
+05:57 PM
+
+Cloud App Control - Google Drive subactions
+
+ZIA - CASB
+
+Danielo
+
+673
+
+673 Views
+
+0 Likes
+
+7 Comments
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+MS Copilot - Implementing Tenant Restriction
 <!-- /ZS-POST -->

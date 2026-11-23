@@ -1,8 +1,8 @@
 # Zscaler Zenith Community — ZPA — Private Access (part 1)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-16 11:57 UTC
-Posts in this file: 324
+Generated: 2026-11-23 13:33 UTC
+Posts in this file: 325
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
 
@@ -67036,4 +67036,209 @@ FAQ
 Copyright 2008-2026 Zscaler
 
 4.2.1.124 DEB client for Ubuntu keeps Freezing and Glitching
+<!-- /ZS-POST -->
+
+---
+
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000016cxRO0AY/how-dns-with-zpa-works","lastmod":"2026-11-20T17:59:18.000Z","id":"0D5PJ000016cxRO0AY"} -->
+## How DNS with ZPA works?
+
+- Source: https://community.zscaler.com/s/question/0D5PJ000016cxRO0AY/how-dns-with-zpa-works
+- Type: Q&A
+- Last activity: 2026-11-20T17:59:18.000Z
+- Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
+
+ZPA - Forwarding
+
+zerotrustwarrior
+
+(Customer) asked a question
+
+November 18, 2026 at 6:33 AM
+
+How DNS with ZPA works?
+
+Hi,
+
+I would like to understand how DNS traffic is forwarded for resolution for ZPA. We have various wildcard domains (i.e
+
+.example.com, *.abc.com etc).
+
+While I understand that my users do not want to type in the full FQDN and just want to type the hostname, they expect things to resolve and work. The problem we are facing or the confusion I have is -
+
+1. When users send dns queries for these domains, where would this be forwarded to - to my internal DNS servers reachable via App Connectors or somewhere else?
+
+2. Considering not all the hosts behind these wildcard domains will resolve to RFC1918 or any private IPs and gets resolved to a public IP, where would my traffic go after the resolution - since its resolved to public to ZIA or still to ZPA?
+
+ZPA - Forwarding
+
+Associated Tags
+
+dns
+
+dns-control
+
+Do you like what
+
+you read?
+
+Please show your appreciation if you like the content on this post.
+
+Click the Like icon if you find the content of this post useful and you would like to show your appreciation.
+
+Solutions
+
+7/5/2024
+
+at
+
+09:21 PM
+
+Remote Tanium PXE Boot Server with ZPA allowing local ports to pass.
+
+ZPA - Forwarding
+
+User16182582818315999266
+
+560
+
+560 Views
+
+0 Likes
+
+6 Comments
+
+5/5/2025
+
+at
+
+06:17 AM
+
+wifi issue with zpa
+
+ZPA - Forwarding
+
+Athees
+
+446
+
+446 Views
+
+0 Likes
+
+3 Comments
+
+7/25/2025
+
+at
+
+12:13 AM
+
+A single server group vs two or more server groups
+
+ZPA - Forwarding
+
+jaicybersec
+
+472
+
+472 Views
+
+0 Likes
+
+3 Comments
+
+7/30/2025
+
+at
+
+08:47 AM
+
+Difference between SIPA and ZPA
+
+ZPA - Forwarding
+
+Dhananjay_Bhakte
+
+1,274
+
+1274 Views
+
+0 Likes
+
+8 Comments
+
+4/23/2026
+
+at
+
+05:00 PM
+
+App Segments populating in Edge Appliance
+
+ZPA - Forwarding
+
+BlueSocks
+
+450
+
+450 Views
+
+0 Likes
+
+1 Comment
+
+See More >>
+
+Zenith Community
+
+An open, collaborative knowledge base for customers, users, and partners
+
+Community
+
+Tech Thoughts
+
+Support
+
+Support plans
+
+Best practices
+
+Service Level Agreement
+
+Zscaler
+
+Zscaler.com
+
+Zenith Live
+
+Zscaler Zero Trust
+
+CXO REvolutionaries
+
+CXO Home
+
+Insights
+
+CXO Knowledge Base
+
+Sign up for our Community Newsletter
+
+Click below to stay up to date on all things community activities
+
+Subscribe
+
+Top
+
+Privacy
+
+Terms of service
+
+About
+
+FAQ
+
+Copyright 2008-2026 Zscaler
+
+How DNS with ZPA works?
 <!-- /ZS-POST -->

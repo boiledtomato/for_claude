@@ -1,7 +1,7 @@
 # Zscaler Zenith Community — Platform / 認証 / 管理 / ログ (part 2)
 
 Source: https://community.zscaler.com
-Generated: 2026-11-16 11:57 UTC
+Generated: 2026-11-23 13:33 UTC
 Posts in this file: 138
 
 > これはユーザー投稿のコミュニティフォーラムの内容であり、Zscaler の公式ドキュメントではない。
@@ -24209,12 +24209,12 @@ Installing the Zscaler MCP Server on Linux: two errors I hit
 
 ---
 
-<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication","lastmod":"2026-11-12T20:01:27.000Z","id":"0D5PJ000015xHQB0A2"} -->
+<!-- ZS-POST {"url":"https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication","lastmod":"2026-11-16T02:46:04.000Z","id":"0D5PJ000015xHQB0A2"} -->
 ## ZAB for user provisioning and Hosted DB for authentication
 
 - Source: https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication
 - Type: Q&A
-- Last activity: 2026-11-12T20:01:27.000Z
+- Last activity: 2026-11-16T02:46:04.000Z
 - Note: ユーザー投稿であり Zscaler の公式見解ではない。内容が古い場合があるため投稿日を確認すること。
 
 ZIA - Authentication
@@ -24223,7 +24223,7 @@ samp
 
 (Partner) asked a question
 
-11h ago
+Edited November 16, 2026 at 2:46 AM
 
 ZAB for user provisioning and Hosted DB for authentication
 
@@ -24234,6 +24234,80 @@ I am deploying ZAB for user provisioning, as i have an on-prem AD. while deployi
 Appreciate any help or support if this is deployed by anyone
 
 ZIA - Authentication
+
+Chris Henson
+
+(Employee)
+
+10 days ago
+
+Hi Samp,
+
+ZAB can do both provisioning and authentication, so it’s normal to still see the Authentication URL / Authentication Agent Address during setup. If you use ZAB just for provisioning, it simply syncs users/groups from your on-prem AD into Zscaler’s hosted user database. In that setup, authentication can still be done against the hosted database rather than back to AD through ZAB.
+
+Usually, if ZAB is used _solely_ for provisioning, it's paired with *SAML (SSO)* or *Kerberos* for authentication. This way, ZAB syncs the accounts/groups (so ZIA knows what policies to apply), and SAML handles the actual password checking  + syncs users, groups, and departments from your on-prem AD into the Zscaler Hosted User Database
+
+For this part of our question: "Also it was suggested in the help articles even though we use ZAB for user provisioning we can leverage hosted zscaler database for authentication. how does that work"
+
+Hosted DB handles authentication: once those users exist in the hosted database, Zscaler can authenticate them there instead of sending the login back through ZAB to AD.
+
+So in that model, AD is the source for user identity data, but Zscaler Hosted DB is the place users authenticate against.
+
+Helpful docs:
+
+About Zscaler Authentication Bridge
+
+Configuring Hosted User Database
+
+Choosing Provisioning and Authentication Methods
+
+Configuring Default Authentication Profile
+
+Managing Forced Reauthentication
+
+So the short version is:
+
+ZAB for provisioning only = sync from AD, auth can still be Hosted DB
+
+ZAB for auth + provisioning = AD remains the password source, and users should only reauthenticate based on policy/session timing
+
+If your setup is behaving differently, or the authentication URL piece still doesn’t look right, it’d be worth opening a Zscaler Support case so they can confirm the exact auth/provisioning mode configured in your tenant.
+
+Cheers!
+
+samp
+
+(Employee)
+
+5 days ago
+
+Hi Thanks for your reply, we went ahead with ZAB for user provisioning and authentication as well. The users are populated in user management and are visible in device overview whenever the users login in ZCC, but when I am creating separate user app profiles I can see a strikethrough on the users in device overview and no users populate in app profile as well.  Have you encountered such issue? Due to this its taking default app policy with no SSL certificate installed.
+
+Ben_Garrison
+
+(Employee)
+
+9 days ago
+
+I’m not a ZAB expert, but these Zscaler guides may help. The *deployment guide* explains the Authentication Agent Address field, and *this guide* covers using ZAB for provisioning with the Hosted User Database for authentication. Important: ZAB syncs user information from AD, but it does not sync passwords. For ZAB authentication against AD and reauthentication behavior, see *About ZAB* and *Authentication Frequency*. Links are broken for some reason having IT check into it.
+
+Links in order:
+
+https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge
+
+https://help.zscaler.com/zia/configuring-hosted-user-database
+
+https://help.zscaler.com/zia/about-zscaler-authentication-bridge
+
+https://help.zscaler.com/zia/understanding-user-authentication-frequency
+
+samp
+
+(Employee)
+
+5 days ago
+
+Hi Thanks for your reply, we went ahead with ZAB for user provisioning and authentication as well. The users are populated in user management and are visible in device overview whenever the users login in ZCC, but when I am creating separate user app profiles I can see a strikethrough on the users in device overview and no users populate in app profile as well.  Have you encountered such issue? Due to this its taking default app policy with no SSL certificate installed.
 
 Associated Tags
 
@@ -24333,9 +24407,9 @@ ZIA - Authentication
 
 Muhammad
 
-464
+491
 
-464 Views
+491 Views
 
 0 Likes
 

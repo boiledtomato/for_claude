@@ -1,6 +1,6 @@
 {
  "fetch_mode": "prerender",
- "generated_at": "2026-11-16T11:57:42Z",
+ "generated_at": "2026-11-23T13:33:23Z",
  "posts": {
   "https://community.zscaler.com/s/Articles/aSmPJ000009yj3V0AQ/exciting-news-new-content-types-now-available-on-zenith-community": {
    "category": "platform",
@@ -27255,9 +27255,30 @@
   },
   "https://community.zscaler.com/s/question/0D5PJ000015xHQB0A2/zab-for-user-provisioning-and-hosted-db-for-authentication": {
    "category": "platform",
-   "hash": "dfe6e1f4654a3530",
-   "lastmod": "2026-11-12T20:01:27.000Z",
+   "hash": "d15c9b8d1d919fcb",
+   "lastmod": "2026-11-16T02:46:04.000Z",
    "title": "ZAB for user provisioning and Hosted DB for authentication",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000016ZGhE0AW/google-ai-mode-uploadonly-block": {
+   "category": "zia",
+   "hash": "b9d4885f0ff83bd5",
+   "lastmod": "2026-11-17T10:37:34.000Z",
+   "title": "Google AI Mode Upload-Only Block",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000016ZR1Q0AW/ms-copilot-implementing-tenant-restriction": {
+   "category": "zia",
+   "hash": "7050c82497b2074a",
+   "lastmod": "2026-11-21T06:42:05.000Z",
+   "title": "MS Copilot - Implementing Tenant Restriction",
+   "type": "question"
+  },
+  "https://community.zscaler.com/s/question/0D5PJ000016cxRO0AY/how-dns-with-zpa-works": {
+   "category": "zpa",
+   "hash": "290e91192a354eed",
+   "lastmod": "2026-11-20T17:59:18.000Z",
+   "title": "How DNS with ZPA works?",
    "type": "question"
   }
  },

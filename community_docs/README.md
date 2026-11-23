@@ -1,8 +1,8 @@
 # Zenith Community — NotebookLM ソース
 
-生成: 2026-11-16 11:57 UTC  
+生成: 2026-11-23 13:33 UTC  
 取得モード: `prerender`  
-収録: 3,894 件 / 17 ファイル / 約 1,782,439 語
+収録: 3,897 件 / 17 ファイル / 約 1,783,958 語
 
 出典: <https://community.zscaler.com>
 
@@ -18,7 +18,7 @@
 | `deception/community_deception_part1.md` | Deception / Threat | 7,936 |
 | `other/community_other_part1.md` | その他 | 93,308 |
 | `platform/community_platform_part1.md` | Platform / 認証 / 管理 / ログ | 166,963 |
-| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 57,849 |
+| `platform/community_platform_part2.md` | Platform / 認証 / 管理 / ログ | 58,417 |
 | `zcc/community_zcc_part1.md` | ZCC — Zscaler Client Connector | 176,661 |
 | `zcc/community_zcc_part2.md` | ZCC — Zscaler Client Connector | 177,712 |
 | `zcc/community_zcc_part3.md` | ZCC — Zscaler Client Connector | 178,316 |
@@ -27,5 +27,5 @@
 | `zia/community_zia_part1.md` | ZIA — Internet & SaaS | 172,003 |
 | `zia/community_zia_part2.md` | ZIA — Internet & SaaS | 177,861 |
 | `zia/community_zia_part3.md` | ZIA — Internet & SaaS | 177,750 |
-| `zia/community_zia_part4.md` | ZIA — Internet & SaaS | 99,332 |
-| `zpa/community_zpa_part1.md` | ZPA — Private Access | 170,882 |
+| `zia/community_zia_part4.md` | ZIA — Internet & SaaS | 99,863 |
+| `zpa/community_zpa_part1.md` | ZPA — Private Access | 171,302 |
