@@ -1,7 +1,7 @@
 # Zscaler Help — ZDX — Digital Experience Monitoring (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 124
 
 ---
@@ -10,8 +10,8 @@ Articles in this file: 124
 ## About Administrators
 
 - Source: https://help.zscaler.com/zdx/about-administrators
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > About Administrators
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Administration > About Administrators
 - Last modified: 2026-10-19T12:32Z
 - Summary: Provide overview information for the Administrators page for ZDX admins.
 
@@ -761,13 +761,13 @@ On the Digital Experience Role Management page (Administration > Role Management
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-11-09T20:06Z","nid":"1358811"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/adding-zdx-roles","lastmod":"2026-11-18T14:25Z","nid":"1358811"} -->
 ## Adding ZDX Roles
 
 - Source: https://help.zscaler.com/zdx/adding-zdx-roles
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Administration > Admin Configuration > Adding ZDX Roles
-- Last modified: 2026-11-09T20:06Z
+- Last modified: 2026-11-18T14:25Z
 - Summary: Information on how to create administration roles for Digital Experience (ZDX) in the Zscaler Admin Console.
 
 Digital Experience (ZDX) roles are used by admins to create levels of permissions for other admin users within an organization. To learn more, see [About ZDX Role-Based Administration](https://help.zscaler.com/zdx/about-zdx-role-based-administration).
@@ -787,21 +787,21 @@ To add a ZDX role:
     - Device And User Information
     - UCaaS Monitoring
     - Analytics
-    - Remediation
     - Configuration Access
+    - Diagnostics
     - Administrator Management
+    - Alerts
     - Locations
+    - Webhooks
     - User Management
+    - Zscaler Client Connector
     - Remote Assistance Management
+    - Remediation
     - Self Service
     - Wi-Fi Dashboard
     - Device Health Scoring
     - Inventory Management
-    - ZAgent
-    - Diagnostics
-    - Alerts
-    - Webhooks
-    - Zscaler Client Connector
+    - Digital Experience Agent
     - VIP
     - Time Duration
 4. Click **Save** and [activate the changes](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
@@ -1142,11 +1142,11 @@ Choose one of the following permissions for access to Self Service:
 
 To learn more, see [Monitoring the Self Service Dashboard](https://help.zscaler.com/zdx/monitoring-self-service-dashboard).
 
-Choose one of the following permissions for access to ZAgent:
+Choose one of the following permissions for access to Digital Experience agent:
 
-- **Full**: Allows admins to access and utilize ZAgent.
-- **View Only**: Allows admins to view ZAgent.
-- **None**: Does not allow admins to access ZAgent.
+- **Full**: Allows admins to access and utilize Digital Experience agent.
+- **View Only**: Allows admins to view Digital Experience agent.
+- **None**: Does not allow admins to access Digital Experience agent.
 
 To learn more, see [About ZAgent](https://help.zscaler.com/unified/about-zagent).
 
@@ -1350,21 +1350,21 @@ ZDX can report error codes for the following Private Access errors. These errors
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-10-19T12:40Z","nid":"1364456"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-alert-rule","lastmod":"2026-11-18T13:13Z","nid":"1364456"} -->
 ## Configuring an Alert Rule
 
 - Source: https://help.zscaler.com/zdx/configuring-alert-rule
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Alerts > Alert Rule Configuration > Configuring an Alert Rule
-- Last modified: 2026-10-19T12:40Z
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Alerts > Alert Rule Configuration > Configuring an Alert Rule
+- Last modified: 2026-11-18T13:13Z
 - Summary: How to configure alert rules for Digital Experience (ZDX).
 
 For Digital Experience (ZDX), you can configure alert rules to modify an expression to create criteria based on real-time user experience.
 
 To configure a rule for an alert:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Digital Experience** > **Rules**.
-2. Click **Add Alert Rule**. The **Add Alert Rule** window appears. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Alerts** > **Digital Experience**.
+2. Under the **Rules** tab, click **Add Alert Rule**. The **Add Alert Rule** window appears. See image.
 3. In the **Add Alert Rule** window:
   - a. Configure Rule
   - b. Filters
@@ -1426,7 +1426,7 @@ You can change the Boolean logic of the metrics for the alert rule. Select **All
 
 See image.
 
-You can select additional metrics for the alert rule type by clicking **Add**. Depending on the metric, the criteria can use the <, >, **<=**,or **>=** symbols and the time (in ms) or percent (%) options to set up the criteria for your alert rule. For ZDX Score, choose between 1 and 100 for your alert rule. For ZDX Score Drops, you can choose the threshold sensitivity (e.g., high, medium, low), which is based on a baseline score.
+You can select additional metrics for the alert rule type by clicking **Add**. Depending on the metric, the criteria can use the **<**, **>**, **<=**,or **>=** symbols and the time (in ms) or percent (%) options to set up the criteria for your alert rule. For **ZDX Score**, enter a number within the range of `1` and `100` for your alert rule. For **ZDX Score Drops**, you can choose the threshold sensitivity (e.g., **High - 20%**, **Medium - 30%**, **Low - 40%**), which is based on the percentage dropped from the baseline score.
 
 Click **Show Preview** to show the modified expression of your selected criteria, or click **Hide Preview** to hide them.
 
@@ -1498,13 +1498,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-10-30T15:54Z","nid":"1487146"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-data-explorer-views","lastmod":"2026-11-18T14:53Z","nid":"1487146"} -->
 ## Configuring Data Explorer Views
 
 - Source: https://help.zscaler.com/zdx/configuring-data-explorer-views
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Configuration > Configuring Data Explorer Views
-- Last modified: 2026-10-30T15:54Z
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Configuration > Configuring Data Explorer Views
+- Last modified: 2026-11-18T14:53Z
 - Summary: How to configure Data Explorer views in the Zscaler Admin Console.
 
 Data Explorer provides the flexibility to build and organize your own customized views of applications and metrics to analyze data. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
@@ -1540,15 +1540,18 @@ To create a view for End User Monitoring:
   - d. Operations
   - e. View Type
 4. Apply filters such as **User Groups** to analyze interactions tied to a specific group or **Geolocations**to focus on data based on user locations.
-5. Click **Run Query** to display your customized view:
-  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing Predefined Reports](https://help.zscaler.com/zdx/viewing-predefined-reports). See image.
+5. Click **Run Query** to display your customized view.
+  - The chart format displays individual charts for your selected applications and metrics. For details about the interaction and format of Data Explorer charts, see [Viewing Predefined Reports](https://help.zscaler.com/zdx/viewing-predefined-reports).
+  - The range format displays your selected applications and metrics as dispersed data points across a continuous range of values, helping you analyze distribution patterns. See image.
   - The tabular format provides the flexibility to filter your selected applications and metrics for an instant view of the data. To capture your configured table information in a CSV file, click **Export**, then click the **Download**icon. See image.
 6. Click **Save**to keep your view for future access. To learn more, see [Monitoring Data Explorer Views](https://help.zscaler.com/zdx/monitoring-data-explorer-views).
 7. Enter a name for your view in the dialog window, and click **Save**to save your configuration.
 
-The total number of views you can save depends on your ZDX subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+[Image: Tabular view]
 
 [Image: Tabular view]
+
+The total number of views you can save depends on your ZDX subscription level. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 
 ### Create a View for Managed Monitoring
 
@@ -1556,7 +1559,7 @@ To create a view for Managed Monitoring:
 
 1. On the **Untitled View** page, select **Managed Monitoring** from the **Data Source** drop-down menu.
 2. Use the time range filter to narrow the results of your view. The default time range is 24 Hours. Your time range also determines the granularity of the data displayed in your views.
-3. Under **Filters**, select the **Zscaler Managed Locations** filter to select the Zscaler data centers to run your probes. You can select the following:
+3. Under **Filters**, select the **Zscaler Managed Locations** filter to select the Zscaler service locations to run your probes. You can select the following:
   - List of Zscaler Managed Locations
 4. Structure your view:
   - a. Probes
@@ -1633,7 +1636,7 @@ After selecting your metrics, you can apply Metrics-Based filters to refine the 
 
 [Image: Adding Metrics to your view]
 
-Click **Add** to select filters for your view.
+Click **Add** to select filters for your view. You can select from **Properties**, **Departments**, **User Groups**, **Zscaler Locations**, **Geolocations**, **Last Mile ISPs**, **Wi-Fi SSID**, **Wireless Connectivity**, **Zscaler Data Centers**, **Models**, and **Operating Systems**.
 
 [Image: Filters Selection]
 
@@ -1641,6 +1644,7 @@ You can group data based on selected filters and select how data is aggregated.
 
 - Group By
 - Aggregation Type
+- Sort By
 
 Click **Add**to specify the metrics for your view. You can add up to 10 metrics for Managed Monitoring.
 
@@ -1650,7 +1654,7 @@ After selecting your metrics, you can apply Metrics-based filters to refine the 
 
 [Image: Adding Metrics to Managed Monitoring]
 
-Select an option to group data by **Zscaler Locations**, **Geolocations**, **Departments**, **Applications, Last Mile ISPs,**or **Zscaler Data Center**. If you group by Applications, views are rendered for each metric. If you group by other options in the drop-down menu, views are rendered for each application and metric.
+Select an option to group data by **Zscaler Locations**, **Geolocations**, **Departments**, **Applications, Last Mile ISPs,**or **Zscaler Data Centers**. If you group by Applications, views are rendered for each metric. If you group by other options in the drop-down menu, views are rendered for each application and metric.
 
 If you've selected more than one metric for your view in chart format, your **Group By** option is limited to **Applications**.
 
@@ -1659,6 +1663,10 @@ If you've selected more than one metric for your view in chart format, your **Gr
 Select the option to group data by**Probes**or **Zscaler Managed Locations**.
 
 If you've selected more than one metric for your view in chart format, your **Group By** option is limited to **Probes**.
+
+[Image: Select how to group data]
+
+Select an option to sort data by **Descending**or **Ascending**.
 
 [Image: Select how to group data]
 
@@ -1699,7 +1707,7 @@ Select the **Average**, **Minimum**, **Maximum**, or **Median**method for data a
 
 [Image: Select Aggregation Type]
 
-Select a **View Type** icon to display views in a chart or tabular format.
+Select a **View Type** icon to display views in a chart, range, or tabular format.
 
 [Image: Select View Type options]
 
@@ -1831,13 +1839,13 @@ To delete the Microsoft Intune integration from the **Data Collection** page:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-microsoft-teams-call-quality-zdx","lastmod":"2026-11-04T20:06Z","nid":"1386186"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-microsoft-teams-call-quality-zdx","lastmod":"2026-11-16T10:50Z","nid":"1386186"} -->
 ## Configuring Microsoft Teams Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/configuring-microsoft-teams-call-quality-zdx
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Applications > Configuring Microsoft Teams Call Quality for ZDX
-- Last modified: 2026-11-04T20:06Z
+- Last modified: 2026-11-16T10:50Z
 - Summary: How to configure a new tenant to monitor Microsoft Teams Call Quality.
 
 You can configure Microsoft Teams Call Quality to monitor audio calls among two or more users. Call Quality can help you pinpoint issues that are unique to a device or the network by working in parallel with its Cloud Path probe. When onboarding a Microsoft Teams Call Quality tenant for the first time, a ZDX Autosense Cloud Path probe is automatically generated that detects the destination IP address. To learn more, see [Understanding Microsoft Teams Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-microsoft-teams-call-quality-zdx).
@@ -1857,7 +1865,7 @@ Verify the following before onboarding a Microsoft Teams Call Quality tenant:
 
 In the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**> **End User** > **Unified Communication Collection** > **Microsoft Teams Call Quality**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**> **End User** > **Unified Communication Collection** > **Microsoft Teams Web App**.
 2. From the **Actions** menu (vertical ellipsis), select **Onboard Application**. See image.
 3. In the **Microsoft Teams Call Quality** drawer, click **Authenticate**. See image.
 4. Sign in and enter your password. Verify your identity if multi-factor authentication is required. See image. To authenticate M365 for application integration, you must be a Global Administrator in the Azure Active Directory (AD). To learn more, refer to the [Azure AD documentation](https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference).
@@ -1869,7 +1877,7 @@ In the Zscaler Admin Console:
 
 In the Zscaler Admin Console:
 
-1. Go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Microsoft Teams Call Quality**.
+1. Go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Microsoft Teams Web App**.
 2. Click **Add** and then click **Tenant** to begin configuring a Unified Communications as a Service (UCaaS) tenant. See image.
 3. For **Select an Application**: Select a UCaaS application (i.e., Microsoft Teams Call Quality). See image.
 4. For **Configure Tenant**: See image.
@@ -1912,13 +1920,13 @@ To learn more about managing your collections, see [Managing Collections](https:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-predefined-application","lastmod":"2026-11-03T10:23Z","nid":"1355646"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-predefined-application","lastmod":"2026-11-17T20:06Z","nid":"1355646"} -->
 ## Configuring a Predefined Application
 
 - Source: https://help.zscaler.com/zdx/configuring-predefined-application
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Applications > Configuring a Predefined Application
-- Last modified: 2026-11-03T10:23Z
+- Last modified: 2026-11-17T20:06Z
 - Summary: Information about how to configure a predefined application for ZDX.
 
 Predefined applications are made with readily available data for ZDX to allow fast and seamless configuration. To learn more, see [About Applications](https://help.zscaler.com/zdx/about-applications).
@@ -2187,13 +2195,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-remediation-settings","lastmod":"2026-11-03T17:37Z","nid":"1531248"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-remediation-settings","lastmod":"2026-11-18T14:45Z","nid":"1531248"} -->
 ## Configuring Remediation Settings
 
 - Source: https://help.zscaler.com/zdx/configuring-remediation-settings
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Administration > Configuring Remediation Settings
-- Last modified: 2026-11-03T17:37Z
+- Last modified: 2026-11-18T14:45Z
 - Summary: Provides steps on the configuration settings for Remediation settings.
 
 Remediation empowers IT administrators to remotely and securely schedule script jobs to remediate IT issues. When enabled for your users, you can run certified PowerShell scripts remotely on compatible devices.
@@ -2229,8 +2237,8 @@ If Remediation is enabled and the jobs have started to run scripts, you can revi
 ## Configuring Self Service Settings
 
 - Source: https://help.zscaler.com/zdx/configuring-self-service-settings
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Configuring Self Service Settings
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Administration > Configuring Self Service Settings
 - Last modified: 2026-10-29T16:10Z
 - Summary: Provides steps on the configuration settings for Self Service settings.
 
@@ -2265,13 +2273,13 @@ If Self Service is enabled and notifications have started, you can review the no
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-webex-call-quality-zdx","lastmod":"2026-11-11T11:31Z","nid":"1443551"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-webex-call-quality-zdx","lastmod":"2026-11-16T10:48Z","nid":"1443551"} -->
 ## Configuring Webex Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/configuring-webex-call-quality-zdx
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Applications > Configuring Webex Call Quality for ZDX
-- Last modified: 2026-11-11T11:31Z
+- Last modified: 2026-11-16T10:48Z
 - Summary: How to configure a new tenant to monitor Webex Call Quality.
 
 You can configure Webex Call Quality to monitor audio calls or meetings among two or more users. Call Quality can help you pinpoint issues that are unique to a device or the network by working in parallel with its Cloud Path probe. To learn more, see [Understanding Webex Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-webex-call-quality-zdx).
@@ -2289,7 +2297,7 @@ Before onboarding a Webex Call Quality tenant, ensure:
 
 In the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**> **Unified Communication Collection** > **Webex Call Quality**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**> **Unified Communication Collection** > **Webex**. See image.
 2. Click **Onboard Application**. The Webex Call Quality drawer appears. See image.
 3. Click **Authenticate**. You must authenticate with Webex before you can save the new tenant. You must also reauthenticate whenever you update the Monitoring Criteria settings.
 4. Enter your Webex credentials to sign in. See image.
@@ -2302,7 +2310,7 @@ In the Zscaler Admin Console:
 
 In the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configurations** > **Probes**>**End User** > **Unified Communication Collection** > **Webex Call Quality**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configurations** > **Probes**>**End User** > **Unified Communication Collection** > **Webex**.
 2. Click **Add** and then click **Tenant** to begin configuring a Unified Communications as a Service (UCaaS) tenant. See image.
 3. For **Select an Application**: Select a UCaaS application (i.e., Webex Call Quality). See image.
 4. For **Configure Tenant**: See image.
@@ -2427,13 +2435,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/configuring-zoom-call-quality-zdx","lastmod":"2026-11-11T14:31Z","nid":"1386326"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/configuring-zoom-call-quality-zdx","lastmod":"2026-11-16T10:52Z","nid":"1386326"} -->
 ## Configuring Zoom Call Quality for ZDX
 
 - Source: https://help.zscaler.com/zdx/configuring-zoom-call-quality-zdx
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Applications > Configuring Zoom Call Quality for ZDX
-- Last modified: 2026-11-11T14:31Z
+- Last modified: 2026-11-16T10:52Z
 - Summary: How to configure Zoom Call Quality monitoring for ZDX.
 
 You can configure Zoom Call Quality to monitor calls among two or more users. Call Quality can help you pinpoint issues that are unique to a device or the network by working in parallel with its Cloud Path probe. To learn more, see [Understanding Zoom Call Quality for ZDX](https://help.zscaler.com/zdx/understanding-zoom-call-quality-zdx).
@@ -2453,8 +2461,8 @@ Before onboarding a Zoom Call Quality tenant, ensure:
 
 In the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Zoom Call Quality** > **Onboard Application**. See image
-2. On the **Zoom Call Quality** window, click **Authenticate**. See image.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Zoom** > **Onboard Application**. See image
+2. On the **Zoom** window, click **Authenticate**. See image.
 3. Sign in with your email and password, and then click **Authorize**to accept the Zoom permissions. A Zoom API tenant is created under **Zoom Call Quality** on the Applications page. You can either onboard the Zoom API tenant or onboard a Zoom Quality of Service Subscription (QSS) tenant for Zoom's data streaming service. See image. You cannot onboard both a Zoom API tenant and a Zoom QSS tenant at the same time.
 4. (Optional) Click **Validate**to verify your setup with Zoom was successful.
 5. Click **Save**.
@@ -2464,7 +2472,7 @@ In the Zscaler Admin Console:
 
 In the Zscaler Admin Console:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Zoom Call Quality**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience** > **Settings & Configurations**> **Probes**>**End User** > **Unified Communication Collection** > **Zoom**.
 2. Click **Add** and then click **Tenant** to begin configuring a Unified Communications as a Service (UCaaS) tenant. See image.
 3. For **Select an Application**: Click **Next**. See image.
   - **Add To Application**: Select a UCaaS application (i.e., Zoom Call Quality).
@@ -2801,13 +2809,13 @@ To edit an application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/editing-probe","lastmod":"2026-11-11T11:11Z","nid":"1355656"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/editing-probe","lastmod":"2026-11-17T16:13Z","nid":"1355656"} -->
 ## Editing a Probe
 
 - Source: https://help.zscaler.com/zdx/editing-probe
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Probes > Editing a Probe
-- Last modified: 2026-11-11T11:11Z
+- Last modified: 2026-11-17T16:13Z
 - Summary: Information about how to edit a probe for ZDX.
 
 After adding an application and configuring its probes, you can edit any probe details that are not preconfigured.
@@ -2817,7 +2825,7 @@ You cannot reconfigure preset probe configurations. To learn more about configur
 To edit a probe:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Digital Experience**> **Settings & Configurations**> **Probes**> **<collection name>**> **<application name>**.
-2. Under the **Actions**column, click the **Kebab**icon (3 vertical dots), and then click **Edit**. See image.
+2. Under the **Actions**column, click the **Column Menu**icon (3 vertical dots), and then click **Edit**. See image.
 3. In the **Edit Probe** window, configure the fields as needed. To learn more about the fields, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe). See image. Some fields cannot be edited due to the nature of the previously selected probe configuration. Click **Next**.
 4. **Submit** your settings on the **Review** tab.
 5. [Activate your changes.](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console)
@@ -3207,8 +3215,8 @@ By default, the lists are sorted by the Start Time, displaying the session with 
 ## Evaluating Individual Alert Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-individual-alert-details
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Alerts > Evaluating Individual Alert Details
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Alerts > Evaluating Individual Alert Details
 - Last modified: 2026-10-07T12:36Z
 - Summary: Information on individual alert details where you can view the impacted devices and their respective departments and locations.
 
@@ -3318,13 +3326,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-11-03T20:06Z","nid":"1391316"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/evaluating-user-details","lastmod":"2026-11-18T14:21Z","nid":"1391316"} -->
 ## Evaluating User Details
 
 - Source: https://help.zscaler.com/zdx/evaluating-user-details
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Users > Evaluating User Details
-- Last modified: 2026-11-03T20:06Z
+- Last modified: 2026-11-18T14:21Z
 - Summary: Information about the user details page, accessed from the Users Dashboard.
 
 To better understand the digital experience for a user, view the user details page for user and device metrics.
@@ -3332,7 +3340,7 @@ To better understand the digital experience for a user, view the user details pa
 To access user details, choose one of the following options:
 
 - From the User Overview page, select one or more applications from the Applications filter drop-down menu and click **Apply.**Click the table cell for User or Devices to view a page with details about the user's digital experience.
-- Search for a user in the Search panel and view their page. To learn more, see [Searching in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
+- Search for a user in the Search panel and view their page. To learn more, see [Using Search in the Zscaler Admin Console](https://help.zscaler.com/unified/searching-zscaler-admin-console).
 
 Any filters used on the User Overview page remain in place after selecting a user or the user's device. Click **Reset**to adjust or remove the filters.
 
@@ -3351,7 +3359,21 @@ Alternatively, if you would like to troubleshoot device issues or share user det
 - [Run Remediation](https://help.zscaler.com/zdx/viewing-and-managing-remediation-jobs#start)
 - [Share a ZDX Snapshot](https://help.zscaler.com/zdx/sharing-zdx-snapshots)
 
-This section displays the devices in use and specific device information, such as the OS type and version, CPU, Memory, Private IP, Public IP, etc. If there is more than one device, the first device is automatically selected. You can also use the scroll bar on the left to select and view device information when multiple devices are in use. The device remains selected even with time range and other filter changes. Devices in this section are displayed depending on the time selected and factors such as device network issues, offline/sleep status, etc. The data on the remainder of the page also populates depending on the device selected.
+## Multiple Users for a Single Device
+
+When a device is shared between multiple users, the user count is higher than the device count.
+
+For example:
+
+- User A is on Device X.
+- User B is also on Device X.
+- Therefore, User A and User B access Device X at different times.
+
+In this scenario, there are two users and one device.
+
+This section displays the devices in use and specific device information, such as the OS type and version, CPU, Memory, Private IP, Public IP, etc. IPv6 is displayed in canonical form.
+
+If there is more than one device, the first device is automatically selected. You can also use the scroll bar on the left to select and view device information when multiple devices are in use. The device remains selected even with time range and other filter changes. Devices in this section are displayed depending on the time selected and factors such as device network issues, offline/sleep status, etc. The data on the remainder of the page also populates depending on the device selected.
 
 The Tunnel Type that displays depends on the device profile. The available tunnel types are:
 
@@ -3364,15 +3386,15 @@ If a Tunnel Type is Unknown, it means ZDX could not detect it.
 
 [Image: View device details in the user details page]
 
-The User Device Information window displays additional device information organized under the Hardware, Network, or Software tabs. Click the different tabs to view additional information. For example, on the Software tab, you can view the ZDX and Zscaler Client Connector versions for the device.
+The User Device Information window displays additional device information organized under the Hardware, Network, or Software tabs. Click the different tabs to view additional information. For example, on the Capabilities tab, you can view the ZDX and Zscaler Client Connector versions for the device.
 
-[Image: View Additional User Device Details]
+[Image: View Capabilities Details]
 
 All the applications selected in the Applications filter are shown. You can see the period of time that is covered above the applications.
 
 Each application has a ZDX Score. If the application has [Real User Monitoring](https://help.zscaler.com/zdx/understanding-real-user-monitoring) enabled, then the Real User score is displayed. Compare the different applications to understand how they are impacting a user's particular ZDX Score. If there are more than three applications, scroll left or right to see more applications. By default, the application with the lowest ZDX Score is selected.
 
-[Image: Select an application on user details page]
+[Image: Select an application on the user details page]
 
 Selecting an application updates the information that appears in the page. By changing the application, the subsequent sections update accordingly. Each of these allow you to further understand the application and its impact to the user for the selected point in time. The metric information is based on what was chosen when setting up a probe. To learn more, see [Configuring a Probe](https://help.zscaler.com/zdx/configuring-probe).
 
@@ -3420,7 +3442,7 @@ Automated analysis for Poor ZDX Scores is not applicable to ZDX Call Quality app
 
 If you select a different data point on the graph for a Poor score at a specific date and time, click **Analyze Score** within the tooltip to, again, trigger potential factors that might have contributed to the score.
 
-[Image: Analyze Score button in tooltip of ZDX Score Over Time graph with corresponding table]
+[Image: Click Analyze Score]
 
 The analysis table provides the following information for a particular date and time in the graph:
 
@@ -3579,9 +3601,9 @@ The side panel reveals a granular breakdown that includes timestamps, category, 
 
 [Image: User Device Events]
 
-The Category drop-down menu provides the option to filter the event categories for Zscaler, Hardware, Software, and Network:
+The Category drop-down menu provides the option to filter the event categories for Zscaler, Hardware, Software, Network, and Microsoft Endpoint:
 
-[Image: Screen shows the category drop-down menu]
+[Image: Screen shows the device event icons and the category drop-down menu]
 
 To learn more, see [Viewing Device Events Reports](https://help.zscaler.com/zdx/viewing-device-events-reports).
 
@@ -4790,18 +4812,18 @@ Only the Super Admin, or the admin who created the view, can edit or delete a co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-11-03T20:06Z","nid":"1529520"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-devices-overview","lastmod":"2026-11-18T14:30Z","nid":"1529520"} -->
 ## Monitoring the Devices Overview
 
 - Source: https://help.zscaler.com/zdx/monitoring-devices-overview
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Monitoring the Devices Overview
-- Last modified: 2026-11-03T20:06Z
+- Last modified: 2026-11-18T14:30Z
 - Summary: Information on devices and their Device Health Score to determine the overall device health across an organization.
 
 The Devices Overview uses existing user and device data to create a comprehensive device health scoreboard that monitors the performance of Windows and macOS devices. The dashboard provides useful data in evaluating trends to identify and understand the root causes of poor-performing devices. Then you can proactively collect device data and identify which devices require an IT admin's attention to remedy the device's poor performance (e.g., high CPU usage). With a dedicated dashboard, you can target hardware upgrades based on the device's usage for greater cost-effectiveness.
 
-The Device Health Score provides a comprehensive view of struggling devices across an entire organization, department, user group, or location. The score is determined by individual contributing metrics (e.g., CPU usage, memory usage, disk usage). The Device Health Scores are categorized as:
+The Device Health Score provides a comprehensive view of struggling devices across an entire organization, department, user group, or location. The score is determined by individual contributing metrics (e.g., CPU usage, memory usage, disk usage). The Device Health Score is categorized as:
 
 - **Good**: The usage profile has an acceptable Device Health Score and ranges from 66-100. The color for this range is green.
 - **Okay**: The usage profile has an acceptable Device Health Score and ranges from 34-65. The color for this range is amber.
@@ -4824,19 +4846,19 @@ Access the Summary, Device List, or Hardware Analysis tab to monitor device perf
 
 ### Summary
 
-The Summary provides device health analysis, a geographical map of impacted devices, and profiles based on device usage. You can filter by **User Priority**, **Vendors**, **Models**, **Profiles**, **Operating System**, **Geolocations**, **User Groups**, or **Departments**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 days. Use the time range filter and page filters to help narrow your scope of information.
+The Summary provides device health analysis, a geographical map of impacted devices, and profiles based on device usage. You can filter by **User Priority**, **Vendors**, **Models**, **Profiles**, **Operating System**, **Zscaler** **Locations**, **Geolocations**, **User Groups**, or **Departments**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 days. Use the time range filter and page filters to help narrow your scope of information.
 
 You can view the following:
 
 1. **Organization Device Health Score**: Displays the overall health of devices across the organization by using key performance indicators (e.g., CPU Usage, Memory Usage, Disk Usage).
 2. **Impacted Devices Over Time**: View how devices are impacted over time. Switch between the **Impacted Devices** and **Device Health Trend**views. You can click a data point to view the Health Score and impacted devices' distribution for the selected time range.
-  - **Impacted Devices**: Displays the number of impacted devices over time.
+  - **Impacted Device**: Displays a bar chart of impacted devices over time.
   - **Device Health Trend**: Displays the health of devices using the categories of Good, Okay, and Poor devices. See image.
 3. **Device Health by Region**: A map to highlight the most impacted geolocations with a high number of impacted devices with poor experience.
 4. **Useful Links**: Navigate to additional device monitoring data pages in the Zscaler Admin Console.
 5. **Hardware Usage Analysis**: Devices are categorized into usage profiles based on their average CPU and memory usage.
-6. **Device Count By Usage Profile**: The number of impacted devices are categorized into Light, Normal, and Power based on their device usage profile.
-7. **Device Count by Hardware Profile**: The number of impacted devices are categorized into Low, Standard, and High based on the hardware profiles.
+6. **Device Count By Usage Profile**: The number of impacted devices is categorized into Light, Normal, and Power based on their device usage profile.
+7. **Device Count by Hardware Profile**: The number of impacted devices is categorized into Low, Standard, and High based on the hardware profiles.
 
 See image.
 
@@ -4844,7 +4866,7 @@ See image.
 
 The Device List provides an exportable list of impacted devices for viewing purposes.
 
-You can filter by **Device Scores**, **Vendors**, **Models**, **Profiles**, **Operating System**, **Geolocations**, **User Groups**, **Departments**,**Users**, or **Devices**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 days. Use the time range filter and page filters to help narrow your scope of information.
+You can filter by **User Priority**, **Device Scores**, **Vendors**, **Models**, **Profiles**, **Operating System**, **Zscaler** **Locations**, **Geolocations**, **User Groups**, **Departments**,**Users**, or **Devices**. Time range options are available in increments from the previous **2 Hours** to **48 Hours**, or a **Custom Range** within the last 14 days. Use the time range filter and page filters to help narrow your scope of information.
 
 On the **Device List** tab, you can view a list of impacted devices with the following information:
 
@@ -4914,7 +4936,7 @@ You can switch between the **Usage Analysis** and **Inventory** views.
 
 Usage Analysis provides a comprehensive analysis of device usage (e.g., hardware usage, CPU usage, memory usage) and the number of impacted devices. This information is useful in identifying devices that are using a high number of resources based on their usage. An IT admin can focus and analyze the data to determine if a remediation solution is required. The Usage Analysis analyzes every 7 days, and you can look up to the previous 14 days of data.
 
-You can filter by **Vendors**, **Models**, **Profiles**, **Operating System**, **Geolocations**, **User Groups**, **Departments**, **CPU**, and **Memory**.
+You can filter by **Vendors**, **Models**, **Profiles**, **Operating System**, **Zscaler** **Locations**, **Geolocations**, **User Groups**, **Departments**, **CPU**, and **Memory**.
 
 You can view:
 
@@ -4943,12 +4965,14 @@ You can view:
     - **User Groups**: View the number of devices associated with a user group.
 - A Device List table with the following information: There might be inaccurate metrics or scores due to insufficient data if the device is unavailable for the majority of the time. You can disable **Hide Insufficient Metrics** to see these data points on the Device List.
   - **Name**: The name of the device. Clicking the device name allows you to [evaluate user details](https://help.zscaler.com/zdx/evaluating-user-details).
-  - **User**: The user associated with the device name. Clicking the user allows you to [evaluate user details](https://help.zscaler.com/zdx/evaluating-user-details).
-  - **Device Health**: The Device Health Score and its classification.
-  - **User Groups**: The user group of the user.
-  - **OS**: The OS of the device.
+  - **User Name**: The user associated with the device name. Clicking the user allows you to [evaluate user details](https://help.zscaler.com/zdx/evaluating-user-details).
+  - **Operating System**: The OS of the device.
+  - **Geolocation**: The geolocation of the user.
+  - **Average CPU (P95)**: The 95th percentile of the device's average CPU usage over the selected analysis period.
+  - **Average Memory (P95)**: The 95th percentile of the device's average memory usage over the selected analysis period.
   - **Hardware Profile**: The hardware profile classification of the device.
   - **Usage Profile**: The usage profile classification of the device.
+  - **Usage Assessment**: The assessment of whether the device is right-sized, over-provisioned, or under-provisioned by comparing the device's hardware profile with its usage profile.
 
 See image.
 
@@ -4956,7 +4980,7 @@ See image.
 
 Inventory allows you to view all current hardware information (e.g., **OS**, **Vendor**, **Memory**, **Disk**) and provide a holistic view of your organization's device inventory. The device data are gathered from the previous 14 days.
 
-You can filter by **Vendors**, **Models**, **Operating System**, **Geolocations**, **User Groups**, **Departments**, **CPU**, and **Memory**.
+You can filter by **Vendors**, **Models**, **Operating System**, **Zscaler** **Locations**, **Geolocations**, **User Groups**, **Departments**, **CPU**, and **Memory**.
 
 You can view:
 
@@ -5052,14 +5076,16 @@ In this scenario, there are two users and one device.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-incidents-dashboard","lastmod":"2026-11-03T20:06Z","nid":"1459026"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-incidents-dashboard","lastmod":"2026-11-19T15:28Z","nid":"1459026"} -->
 ## Monitoring the Incidents Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-incidents-dashboard
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Monitoring the Incidents Dashboard
-- Last modified: 2026-11-03T20:06Z
+- Last modified: 2026-11-19T15:28Z
 - Summary: Information on the Incidents dashboard and accessible data within the Zscaler Admin Console.
+
+[Watch a video about Incidents.](https://fast.wistia.net/embed/iframe/gkj13dpxgq)
 
 The Incidents Dashboard displays incidents in 7 area types: Device, Wi-Fi, Last Mile ISP, Intermediate ISP, ZIA (Internet & SaaS) Public Service Edge, ZPA (Private Access), or Application. Incidents are issues that impact the device performance of multiple users. ZDX uses AI and machine learning (ML) to detect and identify incidents using the best metrics that correlate to the issues. The incidents displayed are based on the selected time range in the UI and show incidents over time, impacted users, and where on the map they occur.
 
@@ -5910,13 +5936,13 @@ To learn more about user and device details, see [Evaluating User Details](https
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/monitoring-wi-fi-dashboard","lastmod":"2026-11-13T13:43Z","nid":"1503411"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/monitoring-wi-fi-dashboard","lastmod":"2026-11-18T09:14Z","nid":"1503411"} -->
 ## Monitoring the Wi-Fi Dashboard
 
 - Source: https://help.zscaler.com/zdx/monitoring-wi-fi-dashboard
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Monitoring the Wi-Fi Dashboard
-- Last modified: 2026-11-13T13:43Z
+- Last modified: 2026-11-18T09:14Z
 - Summary: Information about Wi-Fi access point status on user devices.
 
 The Wi-Fi Dashboard utilizes existing user and device Wi-Fi data in your organization to monitor device performance. This data can help identify specific locations in which users might have issues with their Wi-Fi access points.
@@ -6236,8 +6262,8 @@ See image.
 ## PagerDuty Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/pagerduty-webhook-configuration-guide
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > PagerDuty Webhook Configuration Guide
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > PagerDuty Webhook Configuration Guide
 - Last modified: 2026-10-16T21:06Z
 - Summary: Information on configuring webhooks for alerts using PagerDuty.
 
@@ -6337,13 +6363,13 @@ export function transform(PD) {
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/predefined-applications-zdx","lastmod":"2026-11-13T20:06Z","nid":"1355886"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/predefined-applications-zdx","lastmod":"2026-11-18T14:36Z","nid":"1355886"} -->
 ## Predefined Applications for ZDX
 
 - Source: https://help.zscaler.com/zdx/predefined-applications-zdx
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Configuration > Applications > Predefined Applications for ZDX
-- Last modified: 2026-11-13T20:06Z
+- Last modified: 2026-11-18T14:36Z
 - Summary: Information about predefined applications and how to configure them for ZDX.
 
 Predefined applications are available for ZDX when you log in. The predefined applications provide quick and seamless application onboarding for admins.
@@ -6360,25 +6386,36 @@ Your available predefined applications depend upon your particular ZDX subscript
 The Standard subscription provides the following applications:
 
 - Box
-- ServiceNow
-- Salesforce Classic
-- Salesforce Lightning
+- ChatGPT
+- Claude
+- Google Docs
+- Google Drive
+- Gemini
+- Gmail
+- Google Account
+- Google Meet
+- Google Meet Lens
+- Microsoft Copilot
+- Microsoft Login
+- Microsoft Teams Web App
+- Network App
 - Okta
 - OneDrive for Business
 - Outlook Online
+- Salesforce Classic
+- Salesforce Lightning
+- ServiceNow
 - SharePoint Online
-- Microsoft Login
-- Microsoft Teams Web App
-- Webex Web App
-- Zoom Web App
+- Webex
+- Zoom
 
 The Microsoft 365 subscription provides the following applications:
 
 - Unified Communication
   - Microsoft Teams Call Quality
 - Web Applications
-  - Microsoft Teams Web App
   - Microsoft Login
+  - Microsoft Teams Web App
   - OneDrive for Business
   - Outlook Online
   - SharePoint Online
@@ -6391,17 +6428,27 @@ The Advanced subscription provides the following applications:
   - Zoom Call Quality
 - Web Applications
   - Box
-  - ServiceNow
-  - Salesforce Classic
-  - Salesforce Lightning
+  - ChatGPT
+  - Claude
+  - Google Docs
+  - Google Drive
+  - Gemini
+  - Gmail
+  - Google Account
+  - Google Meet
+  - Google Meet Lens
+  - Microsoft Copilot
+  - Microsoft Login
+  - Microsoft Teams Web App
+  - Network App
   - Okta
   - OneDrive for Business
   - Outlook Online
+  - Salesforce Classic
+  - Salesforce Lightning
+  - ServiceNow
   - SharePoint Online
-  - Microsoft Login
-  - Microsoft Teams Web App
-  - Webex Web App
-  - Zoom Web App
+  - Slack
 
 The Advanced Plus subscription provides the following applications:
 
@@ -6411,17 +6458,26 @@ The Advanced Plus subscription provides the following applications:
   - Zoom Call Quality
 - Web Applications
   - Box
-  - ServiceNow
-  - Salesforce Classic
-  - Salesforce Lightning
-  - Okta
+  - ChatGPT
+  - Claude
+  - Google Docs
+  - Google Drive
+  - Gemini
+  - Gmail
+  - Google Account
+  - Google Meet
+  - Google Meet Lens
+  - Microsoft Copilot
+  - Microsoft Login
   - OneDrive for Business
   - Outlook Online
+  - Salesforce Classic
+  - Salesforce Lightning
+  - ServiceNow
   - SharePoint Online
-  - Microsoft Login
-  - Microsoft Teams Web App
-  - Webex Web App
-  - Zoom Web App
+  - Slack
+  - Webex
+  - Zoom
 
 The Microsoft 365 subscription and Advanced subscription both support Unified Communications as a Service (UCaaS) voice monitoring. However, only Microsoft Teams Call Quality is currently supported for the Microsoft 365 subscription.
 
@@ -6819,13 +6875,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2025","lastmod":"2026-07-13T17:31Z","nid":"1515696"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2025","lastmod":"2026-11-18T17:59Z","nid":"1515696"} -->
 ## Release Upgrade Summary (2025)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2025
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Release Notes > Release Upgrade Summary (2025)
-- Last modified: 2026-07-13T17:31Z
+- Last modified: 2026-11-18T17:59Z
 - Summary: Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2025.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -6833,13 +6889,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-11-12T03:30Z","nid":"1534310"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/release-upgrade-summary-2026","lastmod":"2026-11-20T10:34Z","nid":"1534310"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zdx/release-upgrade-summary-2026
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-12T03:30Z
+- Last modified: 2026-11-20T10:34Z
 - Summary: Digital Experience (ZDX) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Digital Experience (ZDX). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -6909,8 +6965,8 @@ The following table provides a list of error messages you might encounter when r
 ## ServiceNow Webhook Configuration Guide
 
 - Source: https://help.zscaler.com/zdx/servicenow-webhook-configuration-guide
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > ServiceNow Webhook Configuration Guide
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Alerts > Webhook Configuration Guides for Supported Platforms > ServiceNow Configuration Guides > ServiceNow Webhook Configuration Guide
 - Last modified: 2026-10-16T21:06Z
 - Summary: Information on configuring webhook integration for ServiceNow Incident Management and Event Management.
 
@@ -8351,8 +8407,8 @@ To learn more, see [Preparing Custom Script Signing](https://help.zscaler.com/zd
 ## Understanding the Admin Scope
 
 - Source: https://help.zscaler.com/zdx/understanding-admin-scope
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Administration > Understanding the Admin Scope
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Administration > Understanding the Admin Scope
 - Last modified: 2026-03-31T15:26Z
 - Summary: Provides in-depth information on the admin scope, such as the benefits of using a role and scope for ZDX admins.
 
@@ -8481,8 +8537,8 @@ An alert status can be:
 ## Understanding Alert Triggers
 
 - Source: https://help.zscaler.com/zdx/understanding-alert-triggers
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Alerts > Understanding Alert Triggers
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Alerts > Understanding Alert Triggers
 - Last modified: 2026-10-29T16:06Z
 - Summary: Detailed information about how alerts are triggered for Digital Experience (ZDX).
 
@@ -9332,13 +9388,13 @@ If you do not find any results, Zscaler recommends reducing the amount of criter
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/understanding-real-user-monitoring","lastmod":"2026-11-03T20:06Z","nid":"1535279"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/understanding-real-user-monitoring","lastmod":"2026-11-18T11:51Z","nid":"1535279"} -->
 ## Understanding Real User Monitoring
 
 - Source: https://help.zscaler.com/zdx/understanding-real-user-monitoring
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Users > Understanding Real User Monitoring
-- Last modified: 2026-11-03T20:06Z
+- Last modified: 2026-11-18T11:51Z
 - Summary: Information on Real User Monitoring that captures metrics to analyze user interactions with applications and their web browsers.
 
 Real User Monitoring (RUM) captures metrics where you can analyze user interactions with applications through their web browsers on Windows and macOS devices. RUM creates a comprehensive view into the web application's Digital Experience (ZDX). The application can be either a Single-Page Application (SPA) or Multi-Page Application (MPA, also known as Traditional Web Application). Use RUM to identify bottlenecks a user encounters while they are accessing their applications through their web browsers. RUM provides web page metrics for SPAs or MPAs such as Page Fetch Time, Page Loading Time, and Core Web Vitals (i.e., Largest Contentful Paint).
@@ -9353,7 +9409,7 @@ Before RUM can gather metrics, you must have the following:
   - View user information and the performance dashboard.
 - The appropriate version compatibility for Zscaler Client Connector and ZDX Module. To learn more, see [Supported Versions & Feature Compatibility](https://help.zscaler.com/zdx/supported-versions-feature-compatibility).
 - The device's browser has installed the latest RUM browser extension. For Chrome browsers, refer to [Chrome Web Store - Zscaler Real User Monitoring (RUM)](https://chromewebstore.google.com/detail/zscaler-real-user-monitor/eojpolfgdcogokpbcgejpgeblcjellak?utm_source=item-share-cb). For Microsoft Edge browsers, refer to [Microsoft Edge Add-ons - RealTimeUserMonitoring](https://microsoftedge.microsoft.com/addons/detail/realtimeusermonitoring/dggndchpbpgadddajngjekkkegacfaea).
-- You must allowlist `ZUpmApplication.exe` on the device. To learn more, see [ZDX Module Processes to Allowlist](https://help.zscaler.com/zdx/zdx-module-processes-allowlist).
+- You must allowlist `ZUpmApplication.exe` on the device. To learn more, see [ZDX Module Processes to Allowlist](https://help.zscaler.com/zdx/zdx-module-processes-allowlist). If you are managing Chrome Policy with Intune, you must allowlist `com.zscaler.zdx.rum.native.app` for the **NativeMessagingAllowlist**. To learn more, refer to [Chrome Enterprise's - NativeMessagingAllowlist](https://chromeenterprise.google/policies/native-messaging-allowlist/).
 
 ## Configuring for Real User Monitoring
 
@@ -9733,8 +9789,8 @@ See image.
 ## Understanding the ZDX Cloud Architecture
 
 - Source: https://help.zscaler.com/zdx/understanding-zdx-cloud-architecture
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Understanding the ZDX Cloud Architecture
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Understanding the ZDX Cloud Architecture
 - Last modified: 2026-03-31T12:57Z
 - Summary: Information on the Digital Experience (ZDX) service and key components.
 
@@ -10052,13 +10108,13 @@ If all three metrics for latency, jitter, and packet loss are unavailable, the Z
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/user-search-zdx","lastmod":"2026-11-11T15:13Z","nid":"1358886"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/user-search-zdx","lastmod":"2026-11-19T15:36Z","nid":"1358886"} -->
 ## User Search for ZDX
 
 - Source: https://help.zscaler.com/zdx/user-search-zdx
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Users > User Search for ZDX
-- Last modified: 2026-11-11T15:13Z
+- Last modified: 2026-11-19T15:36Z
 - Summary: User Search for Digital Experience (ZDX).
 
 To help you find users quickly, you can use User Search for Digital Experience (ZDX). User Search is available by Users and Devices.
@@ -10081,7 +10137,7 @@ The **Search** keeps a history of the last 5 users whose details you viewed. If 
 
 See image.
 
-[Image: User Search Example on the ZDX Admin Portal]
+[Image: User Search Example in the Zscaler Admin Console]
 
 [Image: Click View All Search Results]
 
@@ -10125,13 +10181,13 @@ The protocol used is visible in the Cloud Path section on the user details page.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-11-05T11:22Z","nid":"1528756"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-and-managing-jobs","lastmod":"2026-11-19T16:30Z","nid":"1528756"} -->
 ## Viewing and Managing Jobs
 
 - Source: https://help.zscaler.com/zdx/viewing-and-managing-jobs
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Troubleshoot > Remediation > Viewing and Managing Jobs
-- Last modified: 2026-11-05T11:22Z
+- Last modified: 2026-11-19T16:30Z
 - Summary: Information about viewing and managing Remediation jobs.
 
 Remediation Jobs runs a script on selected devices as a job, and you can schedule the job as needed. Scripts are useful for remediating software issues by running PowerShell scripts on the selected devices. The Jobs page gathers parameter support and script output to categorize each job into the In Progress, Completed, or Scheduled tables for easy visibility and management. If a script fails, you can re-run the job or edit the script as required to run the job again.
@@ -10854,22 +10910,22 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-11-11T16:13Z","nid":"1456566"} -->
+<!-- ZS-ARTICLE {"url":"/zdx/viewing-predefined-reports","lastmod":"2026-11-19T16:22Z","nid":"1456566"} -->
 ## Viewing Predefined Reports
 
 - Source: https://help.zscaler.com/zdx/viewing-predefined-reports
 - Product: Digital Experience (ZDX)
 - Path: Digital Experience (ZDX) Help > Dashboard & Analytics > Viewing Predefined Reports
-- Last modified: 2026-11-11T16:13Z
+- Last modified: 2026-11-19T16:22Z
 - Summary: Provides details about predefined reports, available in the Zscaler Admin Console.
 
 Predefined reports allow you to view user data across your organization that can reveal distinctive patterns among various metrics and applications. Details for each report are aggregated day-to-day and most reports are captured in a rolling 14-day cycle.
 
 ## Prerequisites
 
-To access and view system-generated reports, ensure:
+To access and view predefined reports, ensure:
 
-- Your Digital Experience (ZDX) subscription level supports viewing system-generated reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
+- Your Digital Experience (ZDX) subscription level supports viewing predefined reports. To learn more, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations#digital-experience).
 - Your admin role is configured to view predefined reports using the System Generated Reports permission. To learn more, see [Adding ZDX Roles](https://help.zscaler.com/zdx/adding-zdx-roles).
 
 ## Accessing Reports
@@ -10884,18 +10940,18 @@ On the Predefined Reports page, you can:
 - Search for a specific report. Search for any character string that might be part of the report name.
 - Configure the column settings to display which fields
 - View the following report information in a table:
-  - **Name**: The name of the system-generated report.
+  - **Name**: The name of the predefined report.
   - **Type**: Indicates the report is predefined.
   - **Applications**: Indicates either a particular application or all applications.
   - **Data Source**: Specifies which data is captured (**All Cloud Path**, **All Web Probes**, **All Devices**).
   - **Metrics**: Identifies the type of metrics reflected in the report.
   - **Last Updated On**: Indicates the date and time when the report was revised.
 
-[Image: View a list of predefined system-generated reports]
+[Image: View a list of predefined reports]
 
 ## Viewing Report Details
 
-View details for each of the following system-generated reports:
+View details for each of the following predefined reports:
 
 - Cloud Path: End-to-End
 - Last Mile ISP Performance
@@ -10906,13 +10962,13 @@ View details for each of the following system-generated reports:
 - Active Users by Zscaler Destination
 - Top Users with Poor ZDX Scores
 - Probe Assignments
-- User Location
+- User Location Report
 
 The Cloud Path: End-to-End report captures the average latency in the Cloud Path within a 14-day time range.
 
 Filter by **User Priority**, **Departments**, **Zscaler Locations**, **Geolocations**, or **Applications**. You can hide the filters or reset your selection.
 
-Similar to other system-generated reports, you can view a more granular time range:
+Similar to other predefined reports, you can view a more granular time range:
 
 1. Select a point in the graph. A tooltip displays the latency metrics for the selected locations.
 2. Drag your mouse from left-to-right to capture your time range. The graph automatically adjusts to show the latency within the new timeline.
@@ -10926,7 +10982,7 @@ The Last Mile ISP Performance report captures ISP latency within a 14-day time r
 
 Filter by **User Priority**, **Departments**, **Zscaler Locations**, or **Geolocations**. You can hide the filters or reset your selection.
 
-Similar to other system-generated reports, you can view a more granular time range:
+Similar to other predefined reports, you can view a more granular time range:
 
 1. Select a point in the graph. A tooltip displays the latency metrics for the selected ISPs.
 2. Drag your mouse from left-to-right to capture your time range. The graph automatically adjusts to show the latency within the new timeline.
@@ -10940,7 +10996,7 @@ The DNS Performance report captures the average DNS latency within a 14-day time
 
 Filter by **User Priority**, **Departments**, **Zscaler Locations**, **Geolocations**, or **Applications**. You can hide the filters or reset your selection.
 
-Similar to other system-generated reports, you can view a more granular time range:
+Similar to other predefined reports, you can view a more granular time range:
 
 1. Select a point in the graph. A tooltip displays the latency metrics for the selected locations.
 2. Drag your mouse from left-to-right to capture your time range. The graph automatically adjusts to show the latency within the new timeline.
@@ -10962,7 +11018,7 @@ The ZDX Score by Application report captures the average ZDX Score per applicati
 
 Filter by **User Priority**, **Departments**, **Zscaler Locations**, or **Geolocations**. You can hide the filters or reset your selection.
 
-Similar to other system-generated reports, you can view a more granular time range:
+Similar to other predefined reports, you can view a more granular time range:
 
 1. Select a point in the graph. A tooltip displays the ZDX Scores for all active applications selected on the right-side of the graph.
 2. Drag your mouse from left-to-right to capture your time range. The graph automatically adjusts to show the latency within the new timeline.
@@ -11033,7 +11089,7 @@ If the report query finds more than 1,000 impacted users, then the report displa
 
 [Image: View Probe Assignments report to identify number probes assigned to a user]
 
-The User Location report provides an overview of your user devices' geolocations and granular information about the user device's geolocation in Location History.
+The User Location Report provides an overview of your user devices' geolocations and granular information about the user device's geolocation in Location History.
 
 The report provides the following information:
 
@@ -11442,8 +11498,8 @@ The details page for a specific user provides the following software patch infor
 ## Visualizing User Connectivity with Zscaler Digital Experience
 
 - Source: https://help.zscaler.com/zdx/visualizing-user-connectivity-zscaler-digital-experience
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Reference Architecture > Visualizing User Connectivity with Zscaler Digital Experience
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Reference Architecture > Visualizing User Connectivity with Zscaler Digital Experience
 - Last modified: 2025-06-07T07:06Z
 - Summary: The Visualizing User Connectivity with Digital Experience (ZDX) reference architecture guide steers you through the architecture process, and provides technical deep dives into specific platform functionality and integrations.
 
@@ -11835,8 +11891,8 @@ ZDX measures and calculates the following telemetry metrics:
 ## ZDX Module Processes to Allowlist
 
 - Source: https://help.zscaler.com/zdx/zdx-module-processes-allowlist
-- Product: Digital Experience Monitoring (ZDX)
-- Path: Digital Experience Monitoring (ZDX) Help > Getting Started > ZDX Module Processes to Allowlist
+- Product: Digital Experience (ZDX)
+- Path: Digital Experience (ZDX) Help > Getting Started > ZDX Module Processes to Allowlist
 - Last modified: 2026-10-19T13:17Z
 - Summary: Information on binaries and processes that the users' devices should allowlist for ZDX Module.
 

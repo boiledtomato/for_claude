@@ -1,8 +1,161 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 117
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 116
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-endpoint-dlp","lastmod":"2026-09-21T21:39Z","nid":"1486511"} -->
+## Configuring EUNs for Endpoint DLP
+
+- Source: https://help.zscaler.com/zia/configuring-euns-endpoint-dlp
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Endpoint DLP
+- Last modified: 2026-09-21T21:39Z
+- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by Endpoint DLP policy in the Zscaler Admin Console.
+
+You can customize the Zscaler Client Connector-based notifications displayed to end users when an [Endpoint Data Loss Prevention (DLP) policy](https://help.zscaler.com/zia/about-endpoint-dlp) is triggered by their activity. For example, you can block your organization's users from transferring sensitive corporate data from their endpoints to their personal cloud storage accounts and display a notification explaining policy violation. In another scenario, you can allow your users to print documents containing sensitive data using a network printer, but display a notification that cautions them about the associated risks.
+
+These end user notifications (EUNs) are triggered by Zscaler service based on your policy configuration and are delivered by Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification for each supported Endpoint DLP channel including Printing, Removable Storage, Network Share, and Personal Cloud Storage. You can also create custom messages and associate distinct notifications with individual Endpoint DLP rules based on context. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
+
+The following sections describe the steps required to create custom notification messages for supported Endpoint DLP policy channels.
+
+- Removable Storage
+- Printing
+- Network Share
+- Personal Cloud Storage
+
+You can edit custom notification messages, but the **Channel** field cannot be modified.
+
+After customizing the notification message, you must enable the EUN for an [Endpoint DLP rule](https://help.zscaler.com/zia/configuring-endpoint-dlp-policy-rules) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Removable Storage**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
+    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
+    - **Protect**: Customize the notification message that appears when an end user's activity triggers a rule and the service encrypts an affected file. When a file is encrypted, users who receive the file must use the Zscaler service to decrypt the file.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    - **File Name**: Include the name of the file that triggered the rule.
+    - **Destination**: Include the destination IP address or domain name that triggered the rule.
+    - **Rule Name**: Include the name of the triggered rule.
+    - **DLP Engines**: Include the DLP engines that triggered the rule.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Printing**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
+    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    - **File Name**: Include the name of the file that triggered the rule.
+    - **Destination**: Include the destination IP address or domain name that triggered the rule.
+    - **Rule Name**: Include the name of the triggered rule.
+    - **DLP Engines**: Include the DLP engines that triggered the rule.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Network Share**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
+    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    1. **File Name**: Include the name of the file that triggered the rule.
+    2. **Destination**: Include the destination IP address or domain name that triggered the rule.
+    3. **Rule Name**: Include the name of the triggered rule.
+    4. **DLP Engines**: Include the DLP engines that triggered the rule.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Personal Cloud Storage**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. Preconfigured messages appear for supported policy actions in the selected language. You can customize this message for each policy action as needed: You can embed links in the message content by using the following format: `__url[Link text | example.com]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When you modify one or more preconfigured messages, a **Reset All** option appears. Clicking this option restores the original messages for all available actions. For Endpoint DLP rules that are configured with the Confirm action, the Zscaler service provides an EUN message that is customized separately. To learn more, see [Configuring User Confirmation Notification Templates](https://help.zscaler.com/zia/configuring-user-confirmation-notification-templates).
+    - **Allow**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule, but the service allows the traffic and logs the activity.
+    - **Block**: Customize the notification message that appears when an end user's activity triggers an Endpoint DLP rule and the service blocks the activity.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    1. **File Name**: Include the name of the file that triggered the rule.
+    2. **Destination**: Include the destination IP address or domain name that triggered the rule.
+    3. **Rule Name**: Include the name of the triggered rule.
+    4. **DLP Engines**: Include the DLP engines that triggered the rule.
+  4. Under **Preview**, you can view your configured notification messages by clicking the respective message tabs. You can view the full message by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+[Image: Configuring custom Zscaler Client Connector EUN message for Removable Storage channel]
+
+[Image: Configuring custom Zscaler Client Connector EUN message for Printing channel]
+
+[Image: Configuring custom Zscaler Client Connector EUN message for Network Share channel]
+
+[Image: Configuring custom Zscaler Client Connector EUN message for Personal Cloud Storage channel]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/configuring-euns-firewall-filtering","lastmod":"2026-09-15T12:37Z","nid":"1532832"} -->
+## Configuring EUNs for Firewall Filtering
+
+- Source: https://help.zscaler.com/zia/configuring-euns-firewall-filtering
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Authentication & Administration > End User Notifications (EUNs) > Zscaler Client Connector EUNs > Configuring EUNs for Firewall Filtering
+- Last modified: 2026-09-15T12:37Z
+- Summary: How to customize notification messages for Zscaler Client Connector-based EUNs triggered by the Firewall Filtering policy in the Zscaler Admin Console.
+
+When the [Firewall Filtering policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) blocks specific non-web traffic from your users' devices, the Zscaler service can notify users of the policy action through Zscaler Client Connector installed on users' endpoints. The Zscaler service provides a default notification message that can be readily associated with policy rules. Additionally, you can create custom messages and associate distinct notification messages with individual Firewall Filtering rules, depending on your requirements. To learn more, see [About Zscaler Client Connector-Based End User Notifications](https://help.zscaler.com/zia/about-zscaler-client-connector-based-end-user-notifications).
+
+- This feature configuration requires Advanced Firewall.
+- The Firewall Filtering policy EUN is designated specifically for non-web traffic and the EUN is triggered only when there is a policy match with non-web traffic (i.e., non-HTTP/HTTPS traffic). Traffic mapped to standard web ports such as 80, 443, and 8080 and identified as HTTP or HTTPS do not trigger this EUN.
+- The EUN is supported on Windows devices running Zscaler Client Connector version 4.8 or later over Z-Tunnel 2.0. You must also have configured the required settings in Zscaler Client Connector in the Zscaler Admin Console to display these EUNs for DNS Control. To learn more, see [Configuring Zscaler Client Connector App Profiles](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-app-profiles).
+
+To add a custom notification message:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **End User Notification** > **End User Notifications**.
+2. Select the **Client Connector** tab.
+3. Click **Add Custom Message**. The **Add Custom Message** drawer appears.
+4. In the **Add Custom Message** drawer: See image.
+  1. Under **General**:
+    - **Name**: Enter a unique name for the custom message.
+    - **Channel**: Select **Firewall**.
+  2. Under **Message**, select the language in which you want to customize the notification message from the drop-down menu. A preconfigured message appears for the Block action in the selected language. In the **Block** field, you can customize the notification message that appears when the service blocks the user activity. The EUN applies to all block actions of the Firewall Filtering policy, including **Block/Drop**, **Block/ICMP**, and **Block/Reset** actions. You can embed links in the message content by using the following format: `__url[``Link text``|``example.com``]` (note the double underscore at the beginning). For example, `__url[Learn more | https://acme.com/policy]`. You can also introduce line breaks in the message content by using the `//n` character. When the preconfigured message is modified, a **Reset All** option that allows you to restore the original message appears.
+  3. Under **Additional Information**, select the matched rule details that you want to display in the notification:
+    - **Network Service**: The network service that was matched.
+    - **Server Destination IP**: The destination server's IP address or domain that was matched.
+    - **Network Application**: The network application that was matched.
+    - **Application Service Group**: The network application service group that was matched.
+    - **Client Source IP**: The client's source IP address that was matched.
+    - **Server Destination Port**: The destination server's port that was matched.
+    - **Server Destination Protocol**: The protocol defined in the network service criteria that was matched.
+  4. Under **Preview**, you can view your configured notification message. You can view the full notification by clicking **Show more**. The notification preview also includes the customization made under [Settings](https://help.zscaler.com/zia/configuring-settings-zscaler-client-connector-based-euns), which are general settings applicable to all Zscaler Client Connector-based EUNs.
+5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+You can edit custom notification messages, but the **Channel** field cannot be modified.
+
+After customizing the notification message, you must enable the EUN for a [Firewall Filtering rule](https://help.zscaler.com/zia/configuring-firewall-filtering-policy) and associate the appropriate notification message. To learn more, see the [Step-by-Step Configuration Guide for Zscaler Client Connector-Based EUNs](https://help.zscaler.com/zia/step-step-configuration-guide-zscaler-client-connector-based-euns).
+
+[Image: Add custom message for Firewall channel of Zscaler Client Connector EUN]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1666,13 +1819,13 @@ It is also recommended that you create a minimal set of root CA certificates for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-11-15T06:06Z","nid":"1443226"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-amazon-web-services","lastmod":"2026-11-22T06:06Z","nid":"1443226"} -->
 ## Configuring the Index Tool with Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-amazon-web-services
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Amazon Web Services
+- Last modified: 2026-11-22T06:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 Before you can create index templates for DLP dictionaries (i.e.,[Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Amazon Web Services (AWS), Azure, or VMware.
@@ -1910,13 +2063,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-11-15T06:06Z","nid":"1467486"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-azure-vms","lastmod":"2026-11-22T06:06Z","nid":"1467486"} -->
 ## Configuring the Index Tool with Azure
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-azure-vms
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with Azure
+- Last modified: 2026-11-22T06:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool VM in Azure. The Index Tool is used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 To create index templates for DLP dictionaries (i.e., [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) and [Indexed Document Match (IDM)](https://help.zscaler.com/zia/about-indexed-document-match) templates), you must configure the virtual machine (VM) image for the Index Tool with Azure, Amazon Web Services (AWS), or VMware.
@@ -2291,13 +2444,13 @@ sudo zadp start
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-11-15T06:06Z","nid":"1400651"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-index-tool-vmware","lastmod":"2026-11-22T06:06Z","nid":"1400651"} -->
 ## Configuring the Index Tool with VMware
 
 - Source: https://help.zscaler.com/zia/configuring-index-tool-vmware
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMware
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > Configuring the Index Tool with VMware
+- Last modified: 2026-11-22T06:06Z
 - Summary: Instructions on how to install, configure, and access the Zscaler Index Tool virtual machine for Data Loss Prevention (DLP), which is used to create index templates that can be applied to custom DLP dictionaries and engines for the Zscaler service.
 
 New or clean deployment of Index Tool requires VM image running on Zscaler OS version 24.
@@ -2323,7 +2476,6 @@ With your Index Tool VM running, you can update and customize the VM based on yo
 - Update the Index Tool VM
 - Run the Index Tool VM in Explicit Proxy Mode
 - Configure the Index Tool Service to Run without Elevated Privileges
-- Enable Remote Access for Zscaler Support
 
 ## Index Tool VM Commands
 
@@ -2469,30 +2621,6 @@ sudo zadp stop
 
 ```
 sudo zadp start
-```
-
-An admin can request remote assistance and allow Zscaler Support to log in to an Index Tool without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Index Tool:
-
-```
-sudo zadp support-access-start
-```
-
-This creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Index Tool.
-
-- To disable Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-stop
-```
-
-This brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Index Tool:
-
-```
-sudo zadp support-access-status
 ```
 
 [Image: Download Index Tool]
@@ -3095,8 +3223,8 @@ To add a location:
 ## Configuring the Malware Protection Policy
 
 - Source: https://help.zscaler.com/zia/configuring-malware-protection-policy
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Malware Protection > Configuring the Malware Protection Policy
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Malware Protection > Configuring the Malware Protection Policy
 - Last modified: 2026-11-04T15:31Z
 - Summary: How to configure the Malware Protection policy, which uses Zscaler technologies to detect and block malicious software.
 
@@ -3192,13 +3320,13 @@ To edit or delete a manual location group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-11-15T06:06Z","nid":"1492736"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp","lastmod":"2026-11-22T06:06Z","nid":"1492736"} -->
 ## Configuring Microsoft Exchange for Zscaler Outbound Email DLP
 
 - Source: https://help.zscaler.com/zia/configuring-microsoft-exchange-zscaler-outbound-email-dlp
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Configuring Microsoft Exchange for Zscaler Outbound Email DLP
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information on how to configure Microsoft Excchange for Zscaler Outbound Email Data Loss Prevention (DLP).
 
 Zscaler Outbound Email Data Loss Prevention (DLP) allows you to establish a connection between your Exchange server and Zscaler's cutting-edge Data Loss Prevention (DLP) tools to prevent the exfiltration of sensitive data in outbound emails sent to external domains. To do so, you must configure connectors to allow bidirectional communication between your Exchange server and the Zscaler smart host, and you must configure mail flow rules (also known as transport rules) to determine how mail flows from your Exchange server to the Zscaler service, and vice versa.
@@ -4666,13 +4794,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-policies-for-unauthenticated-traffic","lastmod":"2026-11-02T03:37Z","nid":"1398691"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-policies-for-unauthenticated-traffic","lastmod":"2026-11-19T10:42Z","nid":"1398691"} -->
 ## Configuring Policies for Unauthenticated Traffic
 
 - Source: https://help.zscaler.com/zia/configuring-policies-for-unauthenticated-traffic
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Configuring Policies for Unauthenticated Traffic
-- Last modified: 2026-11-02T03:37Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Configuring Policies for Unauthenticated Traffic
+- Last modified: 2026-11-19T10:42Z
 - Summary: For policies where users and departments are specified, Zscaler enables specifying which rules the service applies to unauthenticated traffic.
 
 There might be scenarios in which the Zscaler service does not identify the user sending traffic to the service. For example, the service does not authenticate user traffic to URLs or cloud apps you have selected to [exempt from authentication](https://help.zscaler.com/zia/exempting-urls-cloud-apps-authentication). In another example, the service might not authenticate user traffic because it is encrypted and [SSL/TLS Inspection](https://help.zscaler.com/zia/deploying-ssl-inspection)is not enabled.
@@ -4701,13 +4829,14 @@ To configure a policy for unauthenticated traffic:
     2. In the **Users**drop-down menu, select any users from the following user categories:
       - **General Users**: The users to which you want the rule to apply.
       - **Special Users**: The users you can select the types of unauthenticated traffic for and also apply the rule to. The types of unauthenticated traffic are: The following image is for a rule under the URL Filtering policy. See image.
-        - **Unauthenticated User Agent**:User traffic that cannot be authenticated because the user agent cannot be authenticated by the configured authentication method.
-        - **Unsupported Method**: User traffic that cannot be authenticated because of HTTP methods that are not normally supported, such as FIND or PROPBIND.
+        - **Authentication Bypass URL**: User traffic to URLs or cloud apps you have exempted from authentication. HTTP requests that do not support cookie-based authentication, such as CONNECT and OPTIONS, are logged in this category.
+        - **Fallback User**: User traffic from Source IP Anchoring-enabled organizations that cannot be authenticated because the Zscaler service can't verify the user or device against your organization. This can happen during brief service or upgrade transitions and is most common for users connected via Zscaler Tunnel (Z-Tunnel) 1.0.
+        - **Miscellaneous Unauthenticated Transactions**:User traffic that cannot be authenticated due to miscellaneous issues.
         - **Unauthenticated Protocol**: User traffic that cannot be authenticated by the configured authentication method (for example, un-decrypted HTTPS traffic).
         - **Unauthenticated Proxy Port User**: User traffic that is coming from port 9480. Public Service Edges accept web requests on ports 80, 443, 9400, 9480, and 9443. Any traffic generated from a known gateway location and destined to Public Service Edges with the proxy port of 9480 bypass authentication.
-        - **Miscellaneous Unauthenticated Transactions**:User traffic that cannot be authenticated due to miscellaneous issues.
-        - **Authentication Bypass URL**: User traffic to URLs or cloud apps you have exempted from authentication. HTTP requests that do not support cookie-based authentication, such as CONNECT and OPTIONS, are logged in this category.
+        - **Unauthenticated User Agent**:User traffic that cannot be authenticated because the user agent cannot be authenticated by the configured authentication method.
         - **Unknown Kerberos User**: User traffic that cannot be authenticated because it comes from an unknown Kerberos user.
+        - **Unsupported Method**: User traffic that cannot be authenticated because of HTTP methods that are not normally supported, such as FIND or PROPBIND.
     3. If you have chosen to apply this rule to unauthenticated traffic for either **Users** or **Departments**, don't select a groupfrom the **Groups** drop-down menu. If you don't select a value for a criterion, the system ignores it in the policy evaluation.
     4. After specifying other criteria for the rule as necessary, click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
   - To apply a rule to all unauthenticated traffic:
@@ -5912,43 +6041,6 @@ To configure SSO for the Index Tool:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-smart-browser-isolation-policy","lastmod":"2026-09-25T04:17Z","nid":"1402926"} -->
-## Configuring Smart Browser Isolation Policy
-
-- Source: https://help.zscaler.com/zia/configuring-smart-browser-isolation-policy
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Secure Browsing > Configuring Smart Browser Isolation Policy
-- Last modified: 2026-09-25T04:17Z
-- Summary: Information on how to configure the Smart Browser Isolation policy in the Zscaler Admin Console.
-
-You can configure a Smart Browser Isolation policy that automatically isolates potentially malicious web content using the AI/ML models. This policy identifies suspicious websites and decrypts them using SSL/TLS Inspection and presents the users with a rendition of the actual websites in a remote browser using [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation).
-
-Enable the **Inspect Inbound Traffic** and **Inspect Outbound Traffic** toggles on the **Malware Protection** page (**Cyberthreat Protection** > **Policy** > **Malware Protection** > **Malware Policy**) for the Smart Browser Isolation policy to work.
-
-To configure the Smart Browser Isolation policy:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Zero Trust Browser**> **Browser Isolation Internet Access** >**Smart Isolation**. The **Smart Isolation** page appears.
-2. On the **Smart Isolation** page:
-  1. Click **Edit**.
-  2. You can configure the following sections: See image.
-    - Smart Browser Isolate
-    - Cloud Browser Isolate
-3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-**Enable AI/ML based Smart Browser Isolation**: Enable this option to protect users from suspicious websites hosting malicious active content using AI/ML models, which continually identify suspicious domains. Enabling this option automatically creates an editable SSL/TLS Inspection rule to decrypt suspicious websites. When this feature is enabled, the following options appear:
-
-- **Users**: Select the users to which the policy applies. You can select up to 32 users. If you select no values, policy evaluation ignores this criterion.
-- **Groups**: Select the groups to which the policy applies. You can select up to 32 groups. If you select no values, policy evaluation ignores this criterion. Contact Zscaler Support to increase the limit of **Users** or **Groups**.
-
-**Browser Isolation Profile**: You can choose the isolation profile to which the policy applies.
-
-Ensure to [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization in the Zscaler Admin Console for them to be available in this field.
-
-[Image: Smart Isolate page showing the Smart Browser Isolate and Cloud Browser Isolation sections]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/configuring-software-protection-intermediate-ca-certificate","lastmod":"2026-11-01T22:01Z","nid":"1402641"} -->
 ## Configuring Software Protection Intermediate CA Certificate
 
@@ -6915,14 +7007,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-url-filtering-policy","lastmod":"2026-10-28T02:51Z","nid":"1399426"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-url-filtering-policy","lastmod":"2026-11-16T21:41Z","nid":"1399426"} -->
 ## Configuring the URL Filtering Policy
 
 - Source: https://help.zscaler.com/zia/configuring-url-filtering-policy
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > Configuring the URL Filtering Policy
-- Last modified: 2026-10-28T02:51Z
+- Last modified: 2026-11-16T21:41Z
 - Summary: How to create and configure the URL Filtering policy in the Zscaler Admin Console. With URL Filtering policies, you can limit your exposure to liability by managing access to web content based on a site's categorization.
+
+[Watch a video about URL Filtering Policy, including how to configure policy rules.](https://fast.wistia.net/embed/iframe/cc9z48peqy)
 
 You can add a new URL Filtering rule from the beginning or copy an existing rule and change its settings. There is also a [recommended URL Filtering policy](https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy). You can capture and store traffic blocked through this policy as PCAP files. To learn more, see [About Traffic Capture Essentials](https://help.zscaler.com/zia/about-traffic-capture-essentials).
 
@@ -8926,76 +9020,218 @@ To configure the Virtual Service Edge on the Hyper-V manager:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-ntp-server-synchronization","lastmod":"2026-05-05T21:06Z","nid":"1401161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-virtual-service-edge-internet-saas-ntp-server-synchronization","lastmod":"2026-11-19T20:43Z","nid":"1401161"} -->
 ## Configuring Virtual Service Edge for Internet & SaaS and NTP Server Synchronization
 
 - Source: https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-ntp-server-synchronization
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS and NTP Server Synchronization
-- Last modified: 2026-05-05T21:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Configuring Virtual Service Edge for Internet & SaaS and NTP Server Synchronization
+- Last modified: 2026-11-19T20:43Z
 - Summary: Information on how to synchronize the Virtual Service Edge for Internet & SaaS (ZIA) and cloud times.
 
-[Virtual Service Edges](https://help.zscaler.com/zia/about-virtual-service-edges) for Internet & SaaS (ZIA) are extremely sensitive to the virtual machine (VM) and cloud times being in sync. By default, the VM synchronizes the time with public NTP servers (e.g., `pool.ntp.org`). However, if you have a local NTP server, you can configure the Virtual Service Edge to synchronize time with it.
+[Virtual Service Edges](https://help.zscaler.com/zia/about-virtual-service-edges) for Internet & SaaS (ZIA) are extremely sensitive to the virtual machine (VM) and cloud times being in sync. By default, the Virtual Service Edges synchronize their time with public NTP servers (`pool.ntp.org`) when the Virtual Service Edge services start. However, if you have a local NTP server, you can configure the Virtual Service Edges to synchronize time with it.
 
-## Custom Configuration of NTP Servers Using CLI
+You can enable the NTP daemon (`ntpd`) to synchronize its time, using your local NTP servers or `pool.ntp.org`, with the following command:
 
-To custom configure NTP servers using CLI:
+```
+vzen ntp-manager
+```
 
-1. Log in to the Virtual Service Edge.
-2. Run the following command: `sudo vzen enable-ntpd`This command prompts you to enter the custom NTP servers. After adding the NTP servers, you are prompted to restart NTPD immediately. Zscaler recommends you enter `y` to restart NTPD immediately. The Virtual Service Edge and NTP service are restarted in this process. Ensure that your organization is prepared for the services to shut down momentarily before restarting. Sample output of this command. You can stop the configured NTP servers using the `vzen disable-ntpd`command.
+- The commands `vzen enable-ntpd`, `vzen disable-ntpd`, and `vzen modify-ntpd-servers` are deprecated and replaced by `vzen ntp-manager`.
+- Modifying the NTP configuration causes the Virtual Service Edge services to stop and restart. This restart takes several minutes longer than a standard restart due to NTP synchronization. Ensure that you apply NTP changes during a maintenance window and that the Virtual Service Edge management interface can reach your NTP servers over UDP port 123.
 
-## Modify Custom NTP Servers Using CLI
+## Configuring NTP Servers
 
-You can either add or remove custom NTP servers from the configuration file using CLI. Using CLI to add or remove custom NTP servers prevents configuration files from being corrupted because of syntax errors, and it avoids duplicate entries of the servers in the configuration file.
+For the first-time deployment, configure the Virtual Service Edge to use either your local NTP servers or the public servers.
 
-### Adding Custom NTP Servers Using CLI
-
-To add custom NTP servers using CLI:
-
-1. Log in to the Virtual Service Edge.
-2. Run the following command: `sudo vzen modify-ntpd-servers`This command prompts you to enter either `add` or `remove`.
-3. Enter `add`. This prompts you to enter the custom NTP server addresses. If an NTP server address has already been entered or exists in the configuration file, then this command skips the duplicate entry.
-4. After you enter the NTP server addresses, enter `q` to quit the addition of the NTP servers. After you quit adding the NTP servers, you are prompted to start NTPD immediately. Zscaler recommends you enter `y` to restart NTPD immediately. The Virtual Service Edge and NTP service are restarted in this process. Ensure that your organization is prepared for the services to shut down momentarily before restarting. Sample output of this command.
-
-### Removing Custom NTP Servers Using CLI
-
-To remove custom NTP servers using CLI:
+To configure the Virtual Service Edge to use your local NTP servers:
 
 1. Log in to the Virtual Service Edge.
-2. Run the following command: `sudo vzen modify-ntpd-servers`This command prompts you to enter either `add` or `remove`.
-3. Enter `remove`. This command lists the current NTP servers in the configuration file and prompts you to enter the index associated with an NTP server that you want to remove. After you remove the NTP server, the updated list of current NTP servers appears.
-4. After you remove the NTP servers, enter `q` to quit the removal of the NTP servers. After you quit removing the NTP servers, you are prompted to start NTPD immediately. Zscaler recommends you enter `y` to restart NTPD immediately. The Virtual Service Edge and NTP service are restarted in this process. Ensure that your organization is prepared for the services to shut down momentarily before restarting. Sample output of this command.
+2. Run the following command with your NTP server IPv4 addresses or hostnames that resolve to a single address, separated by commas: `sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>`After you enter the NTP server addresses, you are prompted to apply the changes immediately. See image.
+3. Apply the changes immediately by entering `y`. Zscaler recommends applying the changes immediately.
 
-## Synchronizing Times
+Alternatively, you can configure the public servers (`pool.ntp.org`).
 
-You can synchronize times using one of the following methods:
+To configure the Virtual Service Edge to use public servers:
 
-- Create a Cron Job
-- Edit the /etc/hosts File
+1. Log in to the Virtual Service Edge.
+2. Run the following command: `sudo vzen ntp-manager --enable`See image.
+3. Press `Enter` at the server prompt.
+4. Apply the changes immediately by entering `y`. Zscaler recommends applying the changes immediately.
 
-Adding alternate NTP servers to the `/etc/ntp.conf` file is not supported. However, you can modify the `/etc/hosts` file as described in the [Edit the /etc/hosts File](https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-ntp-server-synchronization#hosts-file) section.
+- Your servers are the preferred time sources. The public servers (`pool.ntp.org`) are kept as a fallback.
+- For Virtual Service Edges deployed on VMware ESXi, ensure that the ESXi host's clock is synchronized with NTP and that the **Synchronize guest time with host** option is disabled in the VM's **VMware Tools** settings.
 
-To create a cron job to synchronize the time from the configured local NTP servers:
+### Checking NTP Server Status
 
-1. Run the following as root: `crontab -e`
-2. Add the following line: `*/10 * * * * ntpdate` `<ntp-server-name>` Replace <ntp-server-name> with your local NTP server's FQDN or IP address.
-3. Save and exit. This time-synchronization command will run every 10 minutes.
+To check the NTP server status, run the following command:
 
-To make pool.ntp.org hostnames resolve to your local NTP server IP address by manipulating the /etc/hosts file:
+```
+sudo vzen ntp-manager --status
+```
 
-1. Open the `/etc/hosts` file.
-2. Add up to 4 NTP servers by adding the following lines:
-  - `<ntp-server-IP-address1>``0.pool.ntp.org`
-  - `<ntp-server-IP-address2>``1.pool.ntp.org`
-  - `<ntp-server-IP-address3>``2.pool.ntp.org`
-  - `<ntp-server-IP-address4>``3.pool.ntp.org`
-3. Save your changes.
+See image.
 
-[Image: Screenshot of the Sample Output of VZEN Enable NTPD]
+The output shows whether `ntpd` is running and its time is synchronized, and lists your configured servers.
 
-[Image: Outcome of Adding NTP Servers Using the CLI Command]
+Synchronization can take a few minutes after the first start.
 
-[Image: Outcome of Removing NTP Servers Using the CLI Command]
+### Modifying NTP Servers
+
+You can perform the following operations on NTP servers:
+
+- Add
+- Remove
+- Replace
+
+### Disabling NTP
+
+Zscaler doesn't recommend disabling NTP.
+
+To disable NTP:
+
+1. Run the following command: `sudo vzen ntp-manager --disable`After disabling NTP, you are prompted to apply the changes immediately. See image.
+2. Apply the changes immediately by entering `y`.
+
+Disabling NTP stops the `ntpd`, and the Virtual Service Edges synchronize their time with public servers (`pool.ntp.org`) when services start. If the Virtual Service Edges cannot reach the public servers, their time might drift. The configured server list is preserved, allowing you to re-enable NTP later.
+
+### Command Summary
+
+| Command | Description |
+| --- | --- |
+| `sudo vzen ntp-manager` | Shows interactive menu |
+| `sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>` | Enables NTP with your organization's NTP servers |
+| `sudo vzen ntp-manager --enable` | Enables NTP with the public servers (`pool.ntp.org`) |
+| `sudo vzen ntp-manager --disable` | Disables NTP |
+| `sudo vzen ntp-manager --status` | Shows current NTP status |
+| `sudo vzen ntp-manager --validate` | Checks the node before making changes |
+
+## Updating an Existing NTP Configuration
+
+If you configured NTP on an existing deployment, standardize the NTP configuration on all the Virtual Service Edges with `vzen ntp-manager`.
+
+To see the steps that apply to your node, run the following command:
+
+```
+sudo vzen ntp-manager --validate
+```
+
+See image.
+
+If the validation fails, follow the steps shown in the output or contact Zscaler Support.
+
+### Standardizing the NTP Configuration
+
+Standardize the NTP configuration on all the Virtual Service Edges if NTP is configured on an existing deployment, based on the following scenarios:
+
+- Configured or Modified Custom NTP Servers Using CLI
+- Created a Cron Job
+- Edited the /etc/hosts File
+
+## Verifying NTP Configuration
+
+Run the following command:
+
+```
+sudo vzen ntp-manager --status
+```
+
+Make sure you see the following:
+
+- `ntpd process`: Running
+- `ntpstat`: Synchronized to NTP server
+- `Configured servers`: Lists your servers
+
+If you used the `vzen enable-ntpd` command to configure custom NTP servers or the `vzen modify-ntpd-servers` command to modify custom NTP servers, re-enable NTP with your NTP servers.
+
+The `vzen ntp-manager` command replaces the `vzen enable-ntpd` and `vzen modify-ntpd-servers` commands.
+
+To re-enable NTP with your NTP servers:
+
+1. Run the following command and note your NTP servers: `sudo vzen ntp-manager --status`Ignore the `pool.ntp.org` entries.
+2. Run the following command with your NTP server IPv4 addresses or hostnames that resolve to a single address, separated by commas: `sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>`After you enter the NTP server addresses, you are prompted to apply the changes immediately.
+3. Apply the changes immediately by entering `y`.
+
+If you created a cron job, remove the NTP setting from cron and re-enable NTP with your NTP servers.
+
+1. Run the following command: `sudo crontab -e`
+2. Delete only the line `*/10 * * * * ntpdate <ntp-server-name>`.
+3. Save and exit.
+4. Run the following command with your NTP server IPv4 addresses or hostnames that resolve to a single address, separated by commas: `sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>`After you enter the NTP server addresses, you are prompted to apply the changes immediately.
+5. Apply the changes immediately by entering `y`.
+
+If you edited the `/etc/hosts` file, your `/etc/hosts` entries continue to work with `ntpd`.
+
+To configure your NTP servers directly:
+
+1. Run the following command with your NTP server IPv4 addresses or hostnames that resolve to a single address, separated by commas: `sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>`After you enter the NTP server addresses, you are prompted to apply the changes immediately.
+2. Apply the changes immediately by entering `y`.
+
+Optionally, if the Virtual Service Edges can reach the public servers (`pool.ntp.org`), you can remove the `pool.ntp.org` entries from `/etc/hosts` file.
+
+To add NTP servers:
+
+1. Run the following command: `sudo vzen ntp-manager`See image. This prompts you to enter a number between 1 and 5.
+  - `1` - `Enable ntpd`
+  - `2` - `Disable ntpd`
+  - `3` - `Manage NTP servers`
+  - `4` - `Show status`
+  - `5` - `Exist`
+2. Enter `3` (`Manage NTP Servers`). This prompts you to enter one of the following to modify servers in ntp.conf:
+  - `add`
+  - `remove`
+  - `replace`
+3. Enter `add`. This prompts you to confirm adding NTP servers.
+4. Enter `y`.
+
+To remove NTP servers:
+
+1. Run the following command: `sudo vzen ntp-manager`This prompts you to enter a number between 1 and 5.
+  - `1` - `Enable ntpd`
+  - `2` - `Disable ntpd`
+  - `3` - `Manage NTP servers`
+  - `4` - `Show status`
+  - `5` - `Exist`
+2. Enter `3` (`Manage NTP Servers`). This prompts you to enter one of the following to modify servers in ntp.conf:
+  - `add`
+  - `remove`
+  - `replace`
+3. Enter `remove`. This prompts you to confirm removing NTP servers.
+4. Enter `y`.
+
+To replace NTP servers:
+
+1. Run the following command: `sudo vzen ntp-manager`This prompts you to enter a number between 1 and 5.
+  - `1` - `Enable ntpd`
+  - `2` - `Disable ntpd`
+  - `3` - `Manage NTP servers`
+  - `4` - `Show status`
+  - `5` - `Exist`
+2. Enter `3` (`Manage NTP Servers`). This prompts you to enter one of the following to modify servers in ntp.conf:
+  - `add`
+  - `remove`
+  - `replace`
+3. Enter `replace`.
+4. This prompts you to confirm replacing NTP servers.
+5. Enter `y`.
+
+To replace the whole list in one step, run the following command and enter `y` to apply:
+
+```
+sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...>
+```
+
+[Image: Output of the sudo vzen ntp-manager --enable --servers <ip1,ip2,ip3,...> command - to add your local NTP servers]
+
+[Image: Output of the sudo vzen ntp-manager --enable command - to add public NTP servers]
+
+[Image: Output of the sudo vzen ntp-manager --status command - to see the NTP server status]
+
+[Image: Output of the sudo vzen ntp-manager command - to see the interactive menu]
+
+[Image: Output of the sudo vzen ntp-manager --disable command - to disable NTP]
+
+[Image: Output of the sudo vzen ntp-manager --validate command - to validate NTP]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -9939,13 +10175,13 @@ To set up SSO with ShareFile:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-11-04T20:06Z","nid":"1401726"} -->
+<!-- ZS-ARTICLE {"url":"/zia/configuring-zscaler-incident-receiver","lastmod":"2026-11-19T11:47Z","nid":"1401726"} -->
 ## Configuring the Zscaler Incident Receiver for On-Premises VMs
 
 - Source: https://help.zscaler.com/zia/configuring-zscaler-incident-receiver
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
-- Last modified: 2026-11-04T20:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Incident Receiver > Configuring the Zscaler Incident Receiver for On-Premises VMs
+- Last modified: 2026-11-19T11:47Z
 - Summary: How to configure the Zscaler Incident Receiver virtual machine (VM) for on-premises VMs.
 
 New or clean deployment of a Zscaler Incident Receiver requires a virtual machine (VM) image running on Zscaler OS version 24.
@@ -9970,7 +10206,6 @@ With your Incident Receiver VM running, you can update and customize the VM base
 - Run the Incident Receiver VM in Explicit Proxy Mode
 - Run the Incident Receiver VM With Mutual Transport Security Enabled
 - Configuring the Zscaler Incident Receiver VM to Allow Multiple SFTP Connections
-- Enabling Remote Access for Zscaler Support
 - Upgrade SSH Key to ED25519
 - Install a New Server Certificate
 
@@ -10253,30 +10488,6 @@ scp sudo zirsvr restart
 - Be sure to conduct thorough end-to-end testing before enabling this setting in your production environment.
 - If changing this setting does not solve the problem of the Zscaler Incident Receiver internal queue filling up, you might also need to increase the specifications on your SFTP server to ensure faster throughput, or you might need to configure multiple Incident Receivers with load balancing.
 - If you need assistance enabling this setting in your environment, contact Zscaler Support.
-
-An admin can request remote assistance and allow Zscaler Support to log in to an Incident Receiver without having to open a firewall connection for inbound traffic. This feature is disabled by default and must be enabled explicitly for the duration that remote support assistance is required.
-
-- To enable Zscaler Support to access your Incident Receiver:
-
-```
-sudo zirsvr support-access-start
-```
-
-This command creates a long-lived SSH tunnel to the Zscaler cloud and sets up remote port forwarding. Zscaler Support can then use this tunnel to log in to your Incident Receiver.
-
-- To disable Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-stop
-```
-
-This command brings down the long-lived SSH tunnel to the Zscaler cloud and all the remote connections.
-
-- To check the status of the Zscaler Support access to your Incident Receiver:
-
-```
-sudo zirsvr support-access-status
-```
 
 If your organization requires you to update your SSH key, upgrade to the ED25519 key. To upgrade:
 
@@ -11553,102 +11764,99 @@ When you copy a report, it’s added to the **Custom Reports** tab. You can do t
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-11-15T06:06Z","nid":"1400656"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-exact-data-match-template","lastmod":"2026-11-22T06:14Z","nid":"1400656"} -->
 ## Creating an Exact Data Match Template
 
 - Source: https://help.zscaler.com/zia/creating-exact-data-match-template
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Creating an Exact Data Match Template
+- Last modified: 2026-11-22T06:14Z
 - Summary: How to create, modify, or delete an Exact Data Match index template using the Zscaler Index Tool for Data Loss Prevention (DLP).
 
-Using the [Index Tool](https://help.zscaler.com/zia/about-index-tool) you can create, modify, or delete an Exact Data Match (EDM) index template.
+Using the [Index Tool,](https://help.zscaler.com/zia/about-index-tool) you can create, modify, or delete an Exact Data Match (EDM) index template.
 
 ## Creating an EDM Template
 
 To create a new EDM template:
 
 1. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. Log in to the Index Tool with your Zscaler Admin Console login credentials. See image.
-2. In the **Exact Data Match Templates** dashboard, click **Create New Template**.
+2. In the Index Tool, go to the **Exact Data Match Templates** dashboard and click **Create New Template**.
 3. In the **New Exact Data Match Template** window:
-  1. Type in a **Template Name**. After the template is saved, this name appears in **Data Security**> **Common Resources**> **Index Templates** within the Zscaler Admin Console.
+  1. Enter a **Template Name**. After the template is saved, this name appears in **Data Security**> **Common Resources**> **Index Templates** > **Exact Data Match**within the Zscaler Admin Console.
   2. Drag and drop a comma-separated values (.csv) file into the window or click **Browse**to select a file.
   3. Click **Next**. See image.
 4. Define the fields you want to include in the template:
-  1. From the drop-down menu, select a **DATA TYPE** for the field.
+  1. From the drop-down menu, select a **DATA TYPE** for the field. Be sure to select the type that best matches your data. For example, a field named SSN with sample data from the United States in the format of 123-45-6789 might need the **Social Security Number (US)** type applied, not **Numeric**. Also, for all data types, the Index Tool removes leading and trailing spaces in the data after you submit it. The following data types and formats are supported:
+    - Aadhaar Card Number (India)
+    - ABA Bank Routing Number
+    - Alphabetical
+    - Alphanumeric
+    - Citizen Service Numbers (Netherlands)
+    - Company Number (Japan)
+    - CNPJ Number (Brazil)
+    - Credit Card Numbers
+    - Date
+    - Email Address
+    - Identity Card Number (China)
+    - Identity Card Number (Malaysia)
+    - Identity Card Number (Poland)
+    - Identity Card Number (Thailand)
+    - Individual Taxpayer Registry ID (Brazil)
+    - Medicare Number (Australia)
+    - Multi-Alphanumeric Identity
+    - Multiple Alphanumeric
+    - Multi-Word Alphabetical
+    - MyNumber (Japan)
+    - National Document ID (Uruguay)
+    - National Economic Registry Number (Poland)
+    - National Health Service Number (UK)
+    - National Identification Card Number (Taiwan)
+    - National Identification Number (Bulgaria)
+    - National Identification Number (Chile)
+    - National Identification Number (France)
+    - National Identification Number (Peru)
+    - National Identification Number (Spain)
+    - National Insurance Number (UK)
+    - National Provider Identifier (US)
+    - National Registry Identity Card (Singapore)
+    - Numeric
+    - Passport Number (Australia)
+    - Resident Registration Number (Korea)
+    - Social Insurance Number (Canada)
+    - Social Security Number (Austria)
+    - Social Security Number (Spain)
+    - Social Security Number (Switzerland)
+    - Social Security Number (US)
+    - Standardized Bank Code (Mexico)
+    - Tax File Number (Australia)
+    - Tax Identification Number (Austria)
+    - Tax Identification Number (Belgium)
+    - Tax Identification Number (Denmark)
+    - Tax Identification Number (France)
+    - Tax Identification Number (Germany)
+    - Tax Identification Number (Greece)
+    - Tax Identification Number (Hungary)
+    - Tax Identification Number (Indonesia)
+    - Tax Identification Number (Luxembourg)
+    - Tax Identification Number (New Zealand)
+    - Tax Identification Number (Peru)
+    - Tax Identification Number (Poland)
+    - Tax Identification Number (Portugal)
+    - Tax Identification Number (Spain)
+    - Tax Identification Number (Sweden)
+    - Tax Identification Number (US)
+    - Unique Master Citizen Number
+  2. Select the **INCLUDE FIELD IN TEMPLATE** checkbox.
+  3. Select the **PRIMARY FIELD** checkbox for the field that you want to designate as the primary criteria for data matching. You must select at least one primary field, and no more than two. Also, the primary field must be unique for the selected data type. You can configure EDM to function without primary or secondary fields. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
+  4. Click **Submit.** See image.
 
-Be sure to select the type that best matches your data. For example, a field named SSN with sample data from the United States in the format of 123-45-6789 might need the **Social Security Number (US)** type applied, not **Numeric**. Also, for all data types, the Index Tool removes leading and trailing spaces in the data after you submit.
+You are redirected back to the **Exact Data Match Templates** dashboard, and the tool processes the template. If the template was created properly, **Completed** is shown in the **Status** column. If the template was not created properly, then an**Error** is shown.
 
-The following data types and formats are supported:
+Click the template row to view the **Template Details** page. If an error occurs, details about the error are displayed. Be sure to read the **Error Detail**, which includes a **Recommended Action**, while troubleshooting the issue.
 
-- Aadhaar Card Number (India)
-- ABA Bank Routing Number
-- Alphabetical
-- Alphanumeric
-- Citizen Service Numbers (Netherlands)
-- Company Number (Japan)
-- CNPJ Number (Brazil)
-- Credit Card Numbers
-- Date
-- Email Address
-- Identity Card Number (China)
-- Identity Card Number (Malaysia)
-- Identity Card Number (Poland)
-- Identity Card Number (Thailand)
-- Individual Taxpayer Registry ID (Brazil)
-- Medicare Number (Australia)
-- Multi-Alphanumeric Identity
-- Multiple Alphanumeric
-- Multi-Word Alphabetical
-- MyNumber (Japan)
-- National Document ID (Uruguay)
-- National Economic Registry Number (Poland)
-- National Health Service Number (UK)
-- National Identification Card Number (Taiwan)
-- National Identification Number (Bulgaria)
-- National Identification Number (Chile)
-- National Identification Number (France)
-- National Identification Number (Peru)
-- National Identification Number (Spain)
-- National Insurance Number (UK)
-- National Provider Identifier (US)
-- National Registry Identity Card (Singapore)
-- Numeric
-- Passport Number (Australia)
-- Resident Registration Number (Korea)
-- Social Insurance Number (Canada)
-- Social Security Number (Austria)
-- Social Security Number (Spain)
-- Social Security Number (Switzerland)
-- Social Security Number (US)
-- Standardized Bank Code (Mexico)
-- Tax File Number (Australia)
-- Tax Identification Number (Austria)
-- Tax Identification Number (Belgium)
-- Tax Identification Number (Denmark)
-- Tax Identification Number (France)
-- Tax Identification Number (Germany)
-- Tax Identification Number (Greece)
-- Tax Identification Number (Hungary)
-- Tax Identification Number (Indonesia)
-- Tax Identification Number (Luxembourg)
-- Tax Identification Number (New Zealand)
-- Tax Identification Number (Peru)
-- Tax Identification Number (Poland)
-- Tax Identification Number (Portugal)
-- Tax Identification Number (Spain)
-- Tax Identification Number (Sweden)
-- Tax Identification Number (US)
-- Unique Master Citizen Number
+See image.
 
-1. Select the **INCLUDE FIELD IN TEMPLATE** checkbox.
-2. Select the **PRIMARY FIELD** checkbox for the field that you want to designate as the primary criteria for data matching.
-
-You must select at least one primary field, and no more than two. Also, the primary field must be unique for the selected data type.
-
-You can configure EDM to function without primary or secondary fields. To learn more, see [Configuring DLP Advanced Settings](https://help.zscaler.com/zia/configuring-dlp-advanced-settings).
-
-1. Click **Submit.** See image.
+When an EDM template is created, it appears on the [Exact Data Match Index Templates](https://help.zscaler.com/zia/about-exact-data-match) page of the Zscaler Admin Console, where you can view the template's details or delete it. You cannot change the template name after creation. Also, after creation, you cannot update the included fields or the selected primary fields within the template. In order to make these modifications, you must create a new template.
 
 | **Supported Format** | **Examples** |
 | --- | --- |
@@ -11864,7 +12072,7 @@ You can configure EDM to function without primary or secondary fields. To learn 
 | **Supported Format** | **Examples** |
 | --- | --- |
 | A German-issued tax identification number (DETIN) is an 11-digit ID begininning with a 10-digit number (0–9) followed by a checksum. | 65929 970 489; 65 929 970 480 |
-| With popular format check: a 10-digit number (0–9) followed by a checksum (NNNNNNNNNNC) or NN-NNN-NNN-NNC. Delimiters can include hyphens, slashes, spaces, or periods. If the number is not in the popular format, it's not supported. | 3023217600053; 65-929-970-489; 86-095742-719 |
+| With a popular format check: a 10-digit number (0–9) followed by a checksum (NNNNNNNNNNC) or NN-NNN-NNN-NNC. Delimiters can include hyphens, slashes, spaces, or periods. If the number is not in the popular format, it's not supported. | 3023217600053; 65-929-970-489; 86-095742-719 |
 
 | **Supported Format** | **Examples** |
 | --- | --- |
@@ -11921,30 +12129,17 @@ You can configure EDM to function without primary or secondary fields. To learn 
 | The Unique Master Citizen number is a 13-digit number using the format of DDMMYYYRRBBBK, where: DD: day of birth; MM: month of birth; YYY: last three digits of the year of birth; RR: political region of birth; BBB: unique number of the particular RR; K: checksum | 0407 9894 04655; 04.0798-940 4655; 04 -07/ .989 404...-655 |
 | With popular format check: A 13-digit number using the format DDMMYYYRRBBBK. No delimiters are supported. If the number is not in the popular format, it's not supported. | 0407989404655 |
 
-You are redirected back to the **Exact Data Match Templates** dashboard, and the tool processes the template. If the template was created properly, **Completed** is shown in the **Status** column. If the template was not created properly, then**Error** is shown.
-
-Click the template row to view the **Template Details** page. If an error occurred, details about the error are displayed. Be sure to read the **Error Detail**, which includes a **Recommended Action**, while troubleshooting the issue.
-See image.
-
-When an EDM template is created, it appears on the [Index Templates](https://help.zscaler.com/zia/about-exact-data-match) page of the Zscaler Admin Console, where you can view the template's details or delete it. You cannot change the template name after creation. Also, after creation, you cannot update the included fields or the selected primary fields within the template. In order to make these modifications, you must create a new template.
-
 ## Submitting New EDM Template Data
 
 To submit new data for an EDM template:
 
 1. Log in to the Index Tool.
 2. In the **Exact Data Match Templates** dashboard, locate the template you want to modify.
-3. In the **Actions**column:
+3. In the **Actions**column: The selected included fields and primary fields you originally selected for the template are not updated. You must create a new template to modify fields.
   - If you need to resubmit data for a template that was processed successfully (i.e., has a **Completed**status), click the **Submit New Data** icon. The data types, included fields, and primary fields you originally selected for the template are not updated. You must create a new template to modify the data types and selected fields.
-  - If you need to resubmit data for a template that did not process successfully (i.e., has an **Error**status), click the **Submit New Data** icon or click the **Edit Template** icon. The ability to edit a template only becomes available if there was an error when you originally submitted the data. If you edit a template, you are able to modify the data types and selected fields to resolve the issue. See image.
-
-You can also click the template row and, in the **Template Detail** page that appears, click **Submit New Data** or **Edit Template** (if available).
-See image.
-
-The selected included fields and primary fields you originally selected for the template are not updated. You must create a new template to modify fields.
-
-1. In the **Upload File** window that appears, drag and drop the .csv file into the window or click**Browse** to select the file.
-2. Click **Submit**.
+  - If you need to resubmit data for a template that did not process successfully (i.e., has an **Error**status), click the **Submit New Data** icon or click the **Edit Template** icon. The ability to edit a template only becomes available if there was an error when you originally submitted the data. If you edit a template, you are able to modify the data types and selected fields to resolve the issue. See image. You can also click the template row and, in the **Template Detail** page that appears, click **Submit New Data** or **Edit Template** (if available). See image.
+4. In the **Upload File** window that appears, drag and drop the .csv file into the window or click**Browse** to select the file.
+5. Click **Submit**.
 
 ## Scheduling Updates for an EDM
 
@@ -11955,48 +12150,35 @@ To schedule regular updates for your EDM Template:
 1. Log in to the Index Tool.
 2. In the**Exact Data Match Templates** dashboard, locate the template you want to schedule updates for.
 3. Perform one of the following actions:
-
-- In the **Actions** column, click the **Schedule** icon. See image.
-- Click the template row. The **Template Detail** page appears. In this window, click **Create Schedule**. See image.
-
-1. In the **Schedule Template Update** window, select the following:
+  - In the **Actions** column, click the **Schedule** icon. See image.
+  - Click the template row. The **Template Detail** page appears. In this window, click **Create Schedule**. See image.
+4. In the **Schedule Template Update** window, select the following:
   1. **File Path**: The file path is automatically populated with the location that you uploaded your file to. Ensure that the file is still at this location.
   2. **Status**: Select whether to **Enable** or **Disable** your schedule
   3. **Repeat**: Choose if the update repeats **Monthly**, **Weekly**, or **Daily**.
-  4. **Every**: If you selected **Monthly** or **Weekly**, choose when in the selected period the update repeats. For example, if you selected **Weekly**, you can choose to have the update happen every Friday.
-
-If you select **Monthly**, index updates are converted to and trigger in UTC. It is possible that after being converted, your update might occur between the 29th and 31st UTC. If a month doesn't contain the converted date, that update is skipped.
-
-For example, if you schedule your update to occur on the 28th of every month at 5:00 PM PST, it does not trigger in February since the UTC time is already 1:00 AM February 29 and that date does not exist (excluding leap years). If you schedule your update to occur on the first of every month at 8:00 AM IST, it also does not happen every month. As the UTC time is 3:00 AM on the 31st, it does not occur in February, April, June, September, or November.
-
-Zscaler recommends you schedule your monthly updates to occur between the 2nd and the 27th.
-
-1. **At**: Choose what time the scheduled update happens on.
-2. **Time Zone**: Select the time zone your update happens in.
-3. **Update Now**: Select to immediately update the template. See image.
-4. Click **Save**.
+  4. **Every**: If you selected **Monthly** or **Weekly**, choose when in the selected period the update repeats. For example, if you selected **Weekly**, you can choose to have the update happen every Friday. If you select **Monthly**, index updates are converted to a trigger in UTC. It is possible that after being converted, your update might occur between the 29th and 31st UTC. If a month doesn't contain the converted date, that update is skipped. For example, if you schedule your update to occur on the 28th of every month at 5:00 PM PST, it does not trigger in February since the UTC time is already 1:00 AM February 29th and that date does not exist (excluding leap years). If you schedule your update to occur on the first of every month at 8:00 AM IST, it also does not happen every month. As the UTC time is 3:00 AM on the 31st, it does not occur in February, April, June, September, or November. Therefore, Zscaler recommends you schedule your monthly updates to occur between the 2nd and the 27th.
+  5. **At**: Choose what time the scheduled update happens on.
+  6. **Time Zone**: Select the time zone your update happens in.
+  7. **Update Now**: Select to immediately update the template. See image.
+5. Click **Save**.
 
 To edit your schedule:
 
 1. Log in to the Index Tool.
 2. In the **Exact Data Match Templates** dashboard, locate the template whose schedule you want to edit.
 3. Perform one of the following actions:
-
-- In the**Actions** column, click the **Schedule** icon. The **Schedule Index Update** window appears.
-- Click the template row. The **Template Detail** page appears. Click**Edit Schedule**. The **Schedule Index Update** window appears.
-
-1. Make your desired changes and click **Save**.
+  - In the**Actions** column, click the **Schedule** icon. The **Schedule Index Update** window appears.
+  - Click the template row. The **Template Detail** page appears. Click**Edit Schedule**. The **Schedule Index Update** window appears.
+4. Make your desired changes and click **Save**.
 
 To delete your schedule:
 
 1. Log in to the Index Tool.
 2. In the **Exact Data Match Templates** dashboard, locate the template whose schedule you want to delete.
 3. Perform one of the following actions:
-
-- In the **Actions** column, click the **Schedule** icon. The **Schedule Index Update** window appears.
-- Click the template row. The **Template Detail** page appears. Click **Edit Schedule**. The **Schedule Index Update** window appears.
-
-1. In the **Schedule Index Update** window, click **Delete** in the lower right-hand corner.
+  - In the **Actions** column, click the **Schedule** icon. The **Schedule Index Update** window appears.
+  - Click the template row. The **Template Detail** page appears. Click **Edit Schedule**. The **Schedule Index Update** window appears.
+4. In the **Schedule Index Update** window, click **Delete** in the lower right-hand corner.
 
 To temporarily disable your schedule, set the status to **Disable**.
 
@@ -12004,22 +12186,18 @@ To temporarily disable your schedule, set the status to **Disable**.
 
 To delete an EDM template, do one of the following sets of steps:
 
-- Delete from the **Exact Data Match Templates** dashboard
+- Delete from the **Exact Data Match Templates** dashboard within the Index Tool:
+  1. Log in to the Index Tool.
+  2. In the **Exact Data Match Templates** dashboard, locate the template you want to remove.
+  3. In the **Actions** column, click the **Delete** icon. You can also click the template row and, on the **Template Details** page, click **Delete Template**.
+  4. In the confirmation window that appears, click **Delete**.
+- Delete from the **Exact Data Match**tab dashboard within the Zscaler Admin Console:
+  1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Data Security**> **Common Resources**> **Index Templates**> **Exact Data Match**.
+  2. Locate the template you want to remove and click the **Delete** icon. The **Delete Exact Data Match** window appears.
+  3. In the **Delete Exact Data Match** window, enter `Confirm` in the text box to proceed. See image.
+  4. Click **Delete**.
 
-1. Log in to the Index Tool.
-2. In the **Exact Data Match Templates** dashboard, locate the template you want to remove.
-3. In the **Actions** column, click the **Delete** icon.
-
-You can also click the template row and, on the **Template Details** page, click **Delete Template**.
-
-1. In the confirmation window that appears, click **Delete**.
-
-- Delete from the **Index Templates**dashboard
-
-1. Go to**Data Security**> **Common Resources**> **Index Templates.**
-2. Locate the template you want to remove and click the **View** icon.
-3. In the **View Template** window, click **Delete**.
-4. In the confirmation window that appears, click **Confirm**.
+[Image: The Delete Exact Data Match window displaying the text box to enter the confirmation message]
 
 **[Image: Log in to the Zscaler Index Tool]**
 
@@ -12031,50 +12209,46 @@ You can also click the template row and, on the **Template Details** page, click
 
 [Image: Example Data match with and without errors]
 
-**[Image: Submit New Data or Edit Templates]**
+**[Image: Submit New Data and Edit Template buttons for the template]**
 
-[Image: Select the Schedule icon in the Actions column]
+[Image: Selecting the Schedule icon in the Actions column]
 
-[Image: Screenshot showing the Create Schedule button view]
+[Image: The Create Schedule button with the template details]
 
-[Image: Screenshot of the Schedule Template Update window]
+[Image: The Schedule Template Update window]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/creating-indexed-document-match-template","lastmod":"2026-11-06T12:51Z","nid":"1402026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/creating-indexed-document-match-template","lastmod":"2026-11-22T06:16Z","nid":"1402026"} -->
 ## Creating an Indexed Document Match Template
 
 - Source: https://help.zscaler.com/zia/creating-indexed-document-match-template
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Creating an Indexed Document Match Template
-- Last modified: 2026-11-06T12:51Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Creating an Indexed Document Match Template
+- Last modified: 2026-11-22T06:16Z
 - Summary: How to create, modify, or delete an Indexed Document Match index template using the Index Tool for Data Loss Prevention (DLP).
 
-Using the Index Tool, you can create, modify, or delete an Indexed Document Match (IDM) index template.
+[Watch a video on Indexed Document Matching](https://fast.wistia.net/embed/iframe/5jnzyl383a)(shows legacy UI).
 
-You can create up to 512 IDM templates for your organization. The largest file you can upload to an IDM template is 100 MB. You can index up to 100 GB of files for your organization.
+Using the Index Tool, you can create, modify, or delete an Indexed Document Match (IDM) index template. You can create up to 512 IDM templates for your organization. The largest file you can upload to an IDM template is 100 MB and you can index up to 100 GB of files for your organization.
 
 ## Creating an IDM Template
 
 You can create manual or scheduled IDM templates:
 
-- Manual IDM Templates: A manual IDM template allows you to manually upload your organization’s critical documents.
-- Scheduled IDM Templates: A scheduled IDM template allows you to set up an SSH connection and schedule updates between the template and your organization’s storage server for the critical documents.
+- **Manual IDM Templates**: A manual IDM template allows you to manually upload your organization’s critical documents.
+- **Scheduled IDM Templates**: A scheduled IDM template allows you to set up an SSH connection and schedule updates between the template and your organization’s storage server for the critical documents.
 
 To create an IDM template:
 
-1. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. Log in to the Index Tool with your Zscaler Admin Console login credentials.
+1. Go to https://<IP Address of the Index Tool VM> to access the Index Tool. Log in to the Index Tool with your Zscaler Admin Console login credentials. See image.
+2. Click **Indexed Document Match Templates**.
+3. In the **Indexed Document Match Templates** dashboard, click **Create New Template** and then click one of the following templates:
+  - Manual IDM Template
+  - Scheduled IDM Template
 
-See image.
-
-1. Click **Indexed Document Match Templates**.
-2. In the **Indexed Document Match Templates** dashboard, click **Create New Template** and then click one of the following templates:
-
-- Manual IDM Template
-- Scheduled IDM Template
-
-After saving the template, you are redirected to the **Indexed Document Match Template** dashboard, and the tool processes the template. If the template was created properly, **Completed** is shown in the **Status** column. If the template was created, but the documents are not indexed yet, then **Created** is shown. If the template was not created properly, then **Error** is shown.
+After saving the template, you are redirected to the **Indexed Document Match Template** dashboard, and the tool processes the template. If the template was created properly, **Completed** is shown in the **Status** column. If the template was created, but the documents are not indexed yet, then **Created** is shown. If the template was not created properly, then an **Error** is shown.
 
 When an IDM template is created, it appears on the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page of the Zscaler Admin Console (Data Security > Common Resources > Index Templates > Indexed Document Match), where you can view the template’s details or delete it. You cannot change the template name after creation. To change the name, you must create a new template.
 
@@ -12089,70 +12263,48 @@ See image.
 To modify a manual IDM template:
 
 1. Log in to the Index Tool.
-2. In the **Indexed Document Match Templates** dashboard, locate the manual template you want to modify.
-
-In the **Template Name** column, you can click the **Search** icon to search for a specific template.
-
-1. In the **Actions** column, click the **Edit** icon.
-
-See image.
-
-1. In the **Manual Indexed Document Match Template**:
+2. In the **Indexed Document Match Templates** dashboard, locate the manual template you want to modify. In the **Template Name** column, you can click the **Search** icon to search for a specific template.
+3. In the **Actions** column, click the **Edit** icon. See image.
+4. In the **Manual Indexed Document Match Template**: In the **File Name** column, you can click the **Search** icon to search for a specific file.
   - If you need to submit a new document for the template, click **Upload File**. In the window that appears, drag and drop the file into the window or click **Browse** to select the file.
   - If you need to delete a document from the template, locate the document in the table and click the **Delete** icon.
-
-In the **File Name** column, you can click the **Search** icon to search for a specific file.
-
-1. Click **Save**.
+5. Click **Save**.
 
 ## Deleting an IDM Template
 
-To delete a manual or scheduled IDM template:
+To delete a manual or scheduled IDM template, do one of the following sets of steps:
 
-1. Log in to the Index Tool.
-2. In the **Indexed Document Match Templates** dashboard, locate the template you want to remove.
-
-In the **Template Name** column, you can click the **Search** icon to search for a specific template.
-
-1. In the **Actions** column, click the **Delete** icon.
-2. In the confirmation window that appears, click **Delete**.
-
-You can also delete the IDM template from the Zscaler Admin Console:
-
-1. Go to **Policies**> **Data Protection**> **Common Resources**>**Index Templates**.
-2. In the **Indexed Document Match** tab, locate the template you want to remove.
-3. Click the **Delete** icon.
-
-See image.
-
-1. In the confirmation window that appears, click **OK**.
+- Delete from the **Indexed Document Match Templates**dashboard within the Index Tool:
+  - Log in to the Index Tool.
+  - In the **Indexed Document Match Templates** dashboard, locate the template you want to remove. In the **Template Name** column, you can click the **Search** icon to search for a specific template.
+  - In the **Actions** column, click the **Delete** icon.
+  - In the confirmation window that appears, click **Delete**.
+- Delete from the **Indexed Document Match**tab within the Zscaler Admin Console:
+  1. Go to**Data Security**> **Common Resources**> **Index Templates** > **Indexed Document Match**.
+  2. Locate the template you want to remove and click the **Delete** icon. The **Delete Indexed Document Match** window appears.
+  3. In the **Delete Indexed Document Match** window, enter `Confirm` in the text box to proceed. See image.
+  4. Click **Delete**.
 
 When you first create a new manual IDM template, you can only upload one file. When you save the template, you can edit the template to add more files.
 
 In the **Manual Indexed Document Match Template** window:
 
-1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. You can view your templates in the Zscaler Admin Console. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match**.
-2. Click **Upload File**.
-
-The **Select File** window appears.
-
-1. In the **Select File** window, drag and drop a file into the window or click **Choose File** to select a file.
-2. Click **Upload**.
-3. Click **Save**.
+1. Enter a **Template Name**. After the template is saved, this name appears on the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. To view your templates, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match**.
+2. Click **Upload File**. The **Select File** window appears.
+3. In the **Select File** window, drag and drop a file into the window or click **Choose File** to select a file.
+4. Click **Upload**.
+5. Click **Save**.
 
 When you create a scheduled IDM template, you must set up an SSH connection between the template and your organization’s document server. You must then schedule regular updates between the template and server.
 
 In the **Scheduled Indexed Document Match Template** window:
 
-1. Under **General**:
-  1. Enter a **Template Name**. After the template is saved, this name appears in the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. You can view your templates by going to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match** in the Zscaler Admin Console.
+1. Under **General**: See image.
+  1. Enter a **Template Name**. After the template is saved, this name appears on the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page in the Zscaler Admin Console. To view your templates, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security** > **Common Resources** > **Index Templates** > **Indexed Document Match**.
   2. For **Host**, enter the IP address or domain for the document server.
   3. Specify the **Port** for the document server.
   4. Specify the **File Path** for the directory where the documents are located in the document server.
-
-See image.
-
-1. Under **SSH Configuration**:
+2. Under **SSH Configuration**: See image.
   1. Click **Download** to download the SSH key.
   2. Copy the username. Use this username to create a user in your document server.
   3. Go to your document server and complete the following steps:
@@ -12160,20 +12312,16 @@ See image.
     2. Add the downloaded SSH key to the user’s trusted keys.
     3. Ensure that the user has read access to the directory in the specified file path.
   4. Click **Verify** in the template to verify the SSH setup configuration. You cannot save the template until the setup is configured properly and verified.
-
-See image.
-
-1. Under **Schedule**:
-  1. **Repeat**: Choose if the update will repeat **Monthly**, **Weekly**, or **Daily**.
-  2. **Every**: If you selected **Monthly** or **Weekly**, choose when in the selected period the update will repeat. For example, if you selected Weekly, you can choose to have the update happen every Friday.
-  3. **Time**: Select what time the schedule update will happen on.
-  4. **Time Zone**: Select the time zone your update will happen in.
+3. Under **Schedule**: See image.
+  1. **Repeat**: Choose if the update should repeat **Monthly**, **Weekly**, or **Daily**.
+  2. **Every**: If you selected **Monthly** or **Weekly**, choose when in the selected period the update should repeat. For example, if you selected Weekly, you can choose to have the update happen every Friday.
+  3. **Time**: Select what time the schedule update should happen.
+  4. **Time Zone**: Select the time zone your update should happen.
   5. **Update Now**: Select to immediately update the template.
+4. (Optional) Enter a **Description** for the template.
+5. Click **Save**.
 
-See image.
-
-1. (Optional) Enter a **Description** for the template.
-2. Click **Save**.
+[Image: The Delete Indexed Document Match window displaying the text for entering the confirmation message]
 
 [Image: Logging in to the Zscaler Index Tool]
 
@@ -12186,8 +12334,6 @@ See image.
 [Image: The Calendar icon for rescheduling updates for a scheduled IDM template]
 
 [Image: The Edit icon for updating manual IDM templates]
-
-[Image: Deleting an Indexed Document Match template]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12625,13 +12771,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/defining-idm-match-accuracy-custom-dlp-dictionaries","lastmod":"2026-11-06T12:47Z","nid":"1402031"} -->
+<!-- ZS-ARTICLE {"url":"/zia/defining-idm-match-accuracy-custom-dlp-dictionaries","lastmod":"2026-11-22T06:17Z","nid":"1402031"} -->
 ## Defining IDM Match Accuracy for Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/defining-idm-match-accuracy-custom-dlp-dictionaries
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Defining IDM Match Accuracy for Custom DLP Dictionaries
-- Last modified: 2026-11-06T12:47Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > Defining IDM Match Accuracy for Custom DLP Dictionaries
+- Last modified: 2026-11-22T06:17Z
 - Summary: How to add Indexed Document Match (IDM) index templates and define match accuracy to custom Data Loss Prevention (DLP) dictionaries within the Zscaler Admin Console.
 
 You can add Indexed Document Match (IDM) templates to custom Data Loss Prevention (DLP) dictionaries that represent critical documents that you want to protect in your organization. When adding an IDM template, you must also choose the match accuracy level for the template in the dictionary. To learn more, see [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template) and [Adding Custom DLP Dictionaries](https://help.zscaler.com/zia/adding-custom-dlp-dictionary).
@@ -12639,15 +12785,14 @@ You can add Indexed Document Match (IDM) templates to custom Data Loss Preventio
 To add an IDM template:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Security**> **Common Resources**>**Dictionaries & Engines**.
-2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit** icon for an existing dictionary.
-
-The **Add/Edit DLP Dictionary** window appears.
-
-1. In the **Add/Edit DLP Dictionary** window:
-  1. From **Dictionary Type**, choose **Indexed Document Match**.
-  2. Select **Yes** for the **Exclude 100% Match** option if you do not want Zscaler to trigger the dictionary for documents that are a 100% match of already-indexed documents.
-  3. From the **Index Template** drop-down menu, select the IDM templates you want to use for the dictionary.
-  4. Choose the **Match Accuracy** for the IDM templates you selected. This is the level of accuracy (i.e., the percentage of similarity) that a user-uploaded document must meet to count as a match for an indexed document.
+2. On the **DLP Dictionaries** tab, click **Add DLP Dictionary** or click the **Edit** icon for an existing dictionary. The **Add/Edit DLP Dictionary** page appears.
+3. On the **Add/Edit DLP Dictionary** page, you can do the following: See image.
+  1. **Name**: Enter the name for the dictionary.
+  2. **Dictionary Type**: Choose **Indexed Document Match**.
+  3. **Exclude 100% Match**: Select **Yes** if you do not want Zscaler to trigger the dictionary for documents that are a 100% match of already-indexed documents.
+  4. **Description**: (Optional) Enter additional information or notes about the dictionary.
+  5. **Index Template**: Select the IDM templates you want to use for the dictionary.
+  6. **Match Accuracy**: Choose the match accuracy for the IDM templates you selected. This is the level of accuracy (i.e., the percentage of similarity) that a user-uploaded document must meet to count as a match for an indexed document.
     - **Low**: Zscaler detects a low-accuracy match when one of the following occurs:
       - A user-uploaded document matches at least 25% of an indexed document.
       - An indexed document matches at least 50% of a user-uploaded document.
@@ -12655,10 +12800,9 @@ The **Add/Edit DLP Dictionary** window appears.
       - A user-uploaded document matches at least 50% of an indexed document.
       - An indexed document matches at least 75% of a user-uploaded document.
     - **High**: Zscaler detects a high-accuracy match when a user-uploaded document matches at least 75% of an indexed document.
+4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-[Image: Defining the Match Accuracy for selected Indexed Document Match templates]
-
-1. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+[Image: The Add DLP Dictionary page displaying the dictionary name, dictionary type, index template, and the match accuracy selected for the index templates]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -12974,8 +13118,8 @@ To add phrases for a DLP dictionary:
 ## Defining Time Intervals
 
 - Source: https://help.zscaler.com/zia/defining-time-intervals
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Time Intervals > Defining Time Intervals
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Time Intervals > Defining Time Intervals
 - Last modified: 2026-11-03T14:52Z
 - Summary: How to define time intervals for use in policies in the Zscaler Admin Console.
 
@@ -13442,8 +13586,8 @@ In general, client certificate authentication is part of the mutual TLS authenti
 ## Deploying a Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/deploying-zscaler-authentication-bridge
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Deploying a Zscaler Authentication Bridge
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > Deploying a Zscaler Authentication Bridge
 - Last modified: 2026-11-03T10:50Z
 - Summary: How to deploy a Zscaler Authentication Bridge (ZAB).
 
@@ -13873,115 +14017,4 @@ The Zscaler Reference Architecture series delivers best practices based on real-
 Accessing the internet from China is a well-known issue for many organizations. Where in most of the world you can expect consistent and unregulated access, China is unique in its complexity as both the technical and regulatory environments change rapidly. To successfully operate within this environment requires a new approach to network operations. To help you navigate this difficult environment, Zscaler has developed solutions with service providers inside of China. Zscaler's partnership includes deploying ZIA Public Service Edge data centers within China, and ZIA Private Service Edge devices within the service providers themselves.
 
 [Deploying Zscaler Internet Access in China](https://help.zscaler.com/downloads/zia/reference-architecture/deploying-zscaler-internet-access-china/Deploying-Zscaler-Internet-Access-in-China-Reference-Architecture.pdf) [Download PDF](https://help.zscaler.com/downloads/zia/reference-architecture/deploying-zscaler-internet-access-china/Deploying-Zscaler-Internet-Access-in-China-Reference-Architecture.pdf)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-25T04:55Z","nid":"1401941"} -->
-## Deployment Scenarios for SSL/TLS Inspection
-
-- Source: https://help.zscaler.com/zia/deployment-scenarios-ssltls-inspection
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Deployment Scenarios for SSL/TLS Inspection
-- Last modified: 2026-09-25T04:55Z
-- Summary: Information on various deployment scenarios for SSL/TLS Inspection using the Zscaler Admin Console.
-
-Zscaler's SSL/TLS Inspection can be deployed in different scenarios. The following scenarios show how the service applies SSL/TLS Inspection based on traffic source and whether authentication or other features are enabled.
-
-- HTTPS Traffic from Known Locations
-- HTTPS Traffic from Remote Users
-
-Be aware of whether you protect HTTPS traffic by deploying SSL/TLS Inspection or by blocking specific HTTPS traffic. The Zscaler Admin Console must first identify the host in an HTTPS request through an explicit or transparent [proxy mode](https://help.zscaler.com/zia/what-proxy-mode).
-
-The Zscaler service supports TLS 1.0, 1.1, and 1.2. When SSL/TLS Inspection is enabled, the service inspects all SSL/TLS sessions, regardless of version.
-
-When an organization’s traffic is forwarded from a known location (an internet gateway configured in the Zscaler Admin Console), the Zscaler service applies [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control) policies as described in the following list, depending on whether user authentication is enabled.
-
-- **Authentication Enabled**: Zscaler recommends this configuration because it enables the service to enforce granular URL and Cloud App Control policies at the user level.
-- **Authentication Disabled**: The service applies location-based URL and Cloud App Control policies. It cannot apply any user or group policies because authentication is disabled. Ensure that the appropriate location is specified in the Location setting of the URL and Cloud App Control policies.
-
-There are some extra steps needed when dealing with remote users, or users from an unknown location. The following are some options:
-
-## Zscaler Client Connector
-
-The recommended option is to install and use Zscaler Client Connector on the client machines of your remote users.
-
-## Dedicated Proxy Port
-
-If your organization has subscribed to a dedicated port and has gateway locations created using the dedicated port, your organization’s users might forward traffic to Zscaler on said port.
-
-Whether SSL/TLS traffic should be inspected or not is something that can be defined by the location configuration. As the port is unique to the organization, it would be used as an identifier to apply your organization's SSL/TLS and authentication bypasses.
-
-However, if the first transaction from a user is from an unregistered IP and is an HTTPS request, the identity of the user is unknown and to accept the traffic the transaction needs to be authenticated. This is to ensure Zscaler is not used as an open proxy by unauthorized users.
-
-If the organization has Show Notifications enabled under Internet Access > Policy > SSL/TLS Inspection in the Zscaler Admin Console, then the transaction is intercepted and checked for a valid authentication cookie. If the cookie is not present, the user is redirected for authentication. After authentication, the traffic is accepted by Zscaler and appropriate policies applied.
-
-The user would need to have appropriate root certificates installed on the user’s browsers to avoid certificate warnings.
-
-If the organization has Show Notifications disabled, then the transaction is dropped. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
-
-## TCP Port 9443
-
-Users can connect to Public Service Edges for Internet & SaaS (ZIA) on port 9443 and all HTTPS connections are subject to SSL/TLS Inspection. The drawback of this method is that the capability to bypass certain traffic based on URLs and URL categories from SSL/TLS scanning and authentication is lost.
-
-Users should also have the appropriate SSL/TLS certificate installed. If it is not installed and a user forwards traffic to port 9443, the browser displays certificate warnings.
-
-## TCP Port 80/443/9400/9480
-
-Remote users might forward traffic to Zscaler on ports 80/443/9400 and 9480. However, there are a few issues to be aware of:
-
-- SSL/TLS traffic is not intercepted and policies are not implemented on SSL/TLS traffic.
-- If the first transaction from an unregistered IP address and is on HTTPS, the transaction is blocked. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
-- SSL/TLS and authentication bypass are not applied.
-
-## TCP Port 8800
-
-Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Internet Access > Policy > SSL/TLS Inspection.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/detecting-and-controlling-dns-tunnels","lastmod":"2026-05-25T21:06Z","nid":"1400861"} -->
-## Detecting and Controlling DNS Tunnels
-
-- Source: https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Detecting and Controlling DNS Tunnels
-- Last modified: 2026-05-25T21:06Z
-- Summary: Information on the Zscaler service's tunneling detection techniques.
-
-The Zscaler service can detect DNS tunneling occurring in your network by using sophisticated machine learning techniques. You can [create granular rules](https://help.zscaler.com/zia/configuring-dns-control-policy) to control DNS tunnels as part of your [DNS Control](https://help.zscaler.com/zia/about-dns-control) policy. You can also analyze and visualize your DNS tunnels and network applications. The service logs all detected DNS tunnels and network apps in [DNS Insights](https://help.zscaler.com/zia/about-insights). You can also view the most commonly encountered tunnels and apps in the DNS Overview [dashboard](https://help.zscaler.com/zia/about-dashboards).
-
-## DNS Tunnels
-
-DNS tunneling is commonly used to circumvent security. Tunneling can be used for benign reasons. For example, an antivirus update done by endpoint software. However, it is also used for more malicious purposes, such as evading captive portals.
-
-To create a DNS tunnel, a user sets up a tunnel client that sends out a request on port 53 to a DNS tunnel server. The DNS tunnel server can use this newly created tunnel to compromise the TXT field of the DNS response message. These payloads can introduce a variety of security hazards which are often not detected due to the trusted character of DNS traffic. If malicious DNS tunneling goes unobserved it creates significant risk, with companies leaving themselves open to data exfiltration, command and control activity, as well as other hazards.
-
-[Image: Diagram showing basic tunneling process]
-
-## How Zscaler DNS Tunneling Detection Works
-
-The Zscaler service enables you to detect and control DNS tunneling occurring in your networks. The service provides a DNS proxy. You can use this proxy as a firewall to DNS traffic. All traffic that goes through this proxy is logged by the service. The Zscaler analytics system then fetches these logs, processes them, and sends them to the DNS tunneling detection engine. The detection engine uses advanced machine learning techniques to compute a risk score to classify domains. When the engine detects a tunnel hostname, the information is propagated to all [Public Service Edges for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas). The proxy server then acts according to your policy configuration.
-
-[Image: Diagram demonstrating how Zscaler's tunneling detection works]
-
-The service places any tunnels it detects into one of three categories:
-
-- **Commonly Allowed DNS Tunnels**: This contains tunnels that use DNS tunneling for productive reasons. It is mostly composed of traffic from security services.
-- **Commonly Blocked DNS Tunnels**: This contains tunnels that are malicious, can cause a loss of productivity, or can cause a loss of data.
-- **Unknown DNS Tunnels**: This contains tunnels that are not yet classified.
-
-### DNS Applications
-
-There are 4 additional categories that you can control alongside the DNS tunnels:
-
-- **Network Service**: This contains different network protocols, such as TCP and UDP.
-- **Social Networking**: This contains popular websites with social networking components, such as Facebook and LinkedIn.
-- **Web**: This contains widely used websites, such as Amazon and CNN.
-- **Web Search**: This contains popular search engines, such as Google and Bing.
-
-These categories give administrators the flexibility to control any of these items at the DNS level.
-
-From these categories, users can either select the whole category or individual items to make up a DNS Application Group. To learn more, see [About DNS Application Groups](https://help.zscaler.com/zia/about-dns-application-groups).
 <!-- /ZS-ARTICLE -->

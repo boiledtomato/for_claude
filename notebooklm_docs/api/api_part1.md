@@ -1,7 +1,7 @@
 # Zscaler Help — API / SDK (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 89
 
 ---
@@ -1864,13 +1864,13 @@ Gets Zscaler locations. All configured Zscaler locations are returned if the sea
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/advanced-settings","lastmod":"2026-06-02T07:06Z","nid":"1510456"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/advanced-settings","lastmod":"2026-11-20T00:08Z","nid":"1510456"} -->
 ## Advanced Settings
 
 - Source: https://help.zscaler.com/legacy-apis/advanced-settings
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Advanced Settings
-- Last modified: 2026-06-02T07:06Z
+- Last modified: 2026-11-20T00:08Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -2880,13 +2880,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-10-22T23:11Z","nid":"1400476"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/api-rate-limit-summary","lastmod":"2026-11-18T22:41Z","nid":"1400476"} -->
 ## API Rate Limit Summary
 
 - Source: https://help.zscaler.com/legacy-apis/api-rate-limit-summary
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > API Rate Limit Summary
-- Last modified: 2026-10-22T23:11Z
+- Last modified: 2026-11-18T22:41Z
 - Summary: Summarization of Zscaler's API resources and their rate limits for each method.
 
 The following table summarizes the Zscaler Internet Access (ZIA) API resources and their rate limits for each method.
@@ -3297,6 +3297,7 @@ Rate limits are subject to change. To learn more, see [Understanding Rate Limiti
 | /vpnCredentials | 2/sec and 1000/hr | 1/sec and 400/hr | - | - |
 | /vpnCredentials/{vpnId} | 2/sec and 1000/hr | - | 1/sec and 400/hr | 1/sec and 400/hr |
 | /vpnCredentials/bulkDelete | - | 1/min and 4/hr (100 VPN credentials per call) | - | - |
+| /vpnCredentials/ppk/{ppkId} | 2/sec and 1000/hr | - | - | - |
 | /webApplicationRules/ruleTypeMapping | 1/sec and 400/hr | - | - | - |
 | /webApplicationRules/{rule_type} | 1/sec and 400/hr | 10/min and 40/hr | - | - |
 | /webApplicationRules/{rule_type}/availableActions | - | 10/min and 40/hr | - | - |
@@ -8695,13 +8696,13 @@ To access detailed ZPA API documentation, including references and use cases, re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-10-16T02:33Z","nid":"1500121"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-app-control-policy","lastmod":"2026-11-17T06:06Z","nid":"1500121"} -->
 ## Cloud App Control Policy
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-app-control-policy
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud App Control Policy
-- Last modified: 2026-10-16T02:33Z
+- Last modified: 2026-11-17T06:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 
@@ -10076,13 +10077,13 @@ Gets all configured Cloud Connector groups for the specified customer.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-15T06:06Z","nid":"1510451"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/cloud-nanolog-streaming-service-nss","lastmod":"2026-11-22T06:06Z","nid":"1510451"} -->
 ## Cloud Nanolog Streaming Service (NSS)
 
 - Source: https://help.zscaler.com/legacy-apis/cloud-nanolog-streaming-service-nss
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Cloud Nanolog Streaming Service (NSS)
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

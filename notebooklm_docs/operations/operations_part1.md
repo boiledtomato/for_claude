@@ -1,7 +1,7 @@
 # Zscaler Help — Deployment / Operations / Terms (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 94
 
 ---
@@ -1042,13 +1042,13 @@ As designed, Offerings may produce Outputs that reveal latent security vulnerabi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-11-10T16:22Z","nid":"1269771"} -->
+<!-- ZS-ARTICLE {"url":"/product-usage-terms/supported-versions","lastmod":"2026-11-18T11:14Z","nid":"1269771"} -->
 ## Supported Versions
 
 - Source: https://help.zscaler.com/product-usage-terms/supported-versions
 - Product: Product Usage Terms & Policies
 - Path: Product Usage Terms & Policies > Product Policy & Support > Supported Versions
-- Last modified: 2026-11-10T16:22Z
+- Last modified: 2026-11-18T11:14Z
 - Summary: Matrix of the supported endpoint application versions for Zscaler.
 
 ## Zscaler Client Connector Supported Versions
@@ -1109,6 +1109,7 @@ These versions of Zscaler Client Connector for Linux are supported by Zscaler, a
 | Red Hat (RHEL) 9.3 (GNOME 40.4) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Red Hat (RHEL) 9.4 (GNOME 40.4) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
 | Red Hat (RHEL) 9.5 (GNOME 40.4) | [Image: Supported] | [Image: Supported] | [Image: Supported] | [Image: Supported] |  |
+| Red Hat (RHEL) 10 (GNOME 49) | [Image: Not supported] | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |  |
 | Rocky Linux 9 (GNOME 40) | [Image: Not supported] | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |  |
 | Rocky Linux 9.7 (GNOME 40.4) | [Image: Not supported] | [Image: Not supported] | [Image: Supported] | [Image: Supported] |  |
 | Rocky Linux 10 (GNOME 47) | [Image: Not supported] | [Image: Not supported] | [Image: Not supported] | [Image: Supported] |  |
@@ -1333,8 +1334,8 @@ The following steps provide solution options:
 ## Access Denied Due to Domain Fronting
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/access-denied-due-domain-fronting
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Access Denied Due to Domain Fronting
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Access Denied Due to Domain Fronting
 - Last modified: 2026-10-13T07:06Z
 - Summary: In a domain fronting attack, the domain used in the Server Name Indication (SNI) extension or in the Connect request is different from the one supplied later in the Host header. In other words, an attacker hides an HTTP request for a bad website inside a TLS connection to a good website.
 
@@ -1591,8 +1592,8 @@ The following are solution options:
 ## Blocked Due to Server Probe Failure
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/blocked-due-server-probe-failure
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Blocked Due to Server Probe Failure
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Web Access Issues > Blocked Due to Server Probe Failure
 - Last modified: 2026-10-13T07:06Z
 - Summary: This runbook article describes if a policy action is triggered and the Zscaler Service Edge cannot make a successful TCP or TLS connection to the target web server. This happens when a web server either does not tolerate SSL Inspection or doesn't complete the TCP handshake with the ZZscaler Service Edge.
 
@@ -1627,8 +1628,8 @@ The following items are possible solutions for the issue:
 ## Bypassed Due to Missing Config
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/bypassed-due-missing-config
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Firewall Issues > Bypassed Due to Missing Config
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > Firewall Issues > Bypassed Due to Missing Config
 - Last modified: 2026-10-13T07:06Z
 - Summary: This action is logged in the rare circumstances when the Zscaler Service Edge fails to establish a connection with the Central Authority and consequently some traffic is allowed through Zscaler Firewall without policy enforcement.
 
@@ -2103,8 +2104,8 @@ When the Internet & SaaS (ZIA) Public Service Edge either cannot complete the ha
 ## Inspected Despite a Do Not Inspect Action
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/inspected-despite-do-not-inspect-action
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Inspected Despite a Do Not Inspect Action
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Access Control Policies Troubleshooting Runbook > SSL Inspection Issues > Inspected Despite a Do Not Inspect Action
 - Last modified: 2026-10-13T07:06Z
 - Summary: This article describes how to check why Internet & SaaS access policies inspected a URL despite a configured Do Not Inspect action.
 
@@ -2776,8 +2777,8 @@ Compare the identified file type with the policy rules. If the true type is bloc
 ## Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-nanolog-streaming-service-nss-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Nanolog Streaming Service Support Troubleshooting Runbook
 - Last modified: 2026-10-21T07:06Z
 - Summary: The Internet & SaaS Nanolog Streaming Service (NSS) Support Troubleshooting Runbook outlines troubleshooting steps for diagnosing issues with Nanolog Streaming Service (NSS) deployment.
 
@@ -3755,8 +3756,8 @@ Avoid fetching bulk logs and leverage SIEM (NSS) tools for bulk logs. The time t
 ## Internet & SaaS Performance Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-performance-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Performance Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Performance Support Troubleshooting Runbook
 - Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for general Internet & SaaS performance issues, categorized into three scopes: the type of traffic impacted, whether Z-Tunnel is affected, and if the Public Service Edge is affected.
 
@@ -4219,8 +4220,8 @@ Compile all the data collected and open a support case with [Zscaler Support](ht
 ## Internet & SaaS Security Policies Support Troubleshooting Runbook
 
 - Source: https://help.zscaler.com/troubleshooting-runbooks/internet-saas-security-policies-support-troubleshooting-runbook
-- Product: Zscaler Support Troubleshooting Runbooks
-- Path: Zscaler Support Troubleshooting Runbooks > Internet & SaaS Security Policies Support Troubleshooting Runbook
+- Product: Support Troubleshooting Runbooks
+- Path: Support Troubleshooting Runbooks > Internet & SaaS Security Policies Support Troubleshooting Runbook
 - Last modified: 2026-09-20T07:06Z
 - Summary: This Zscaler runbook outlines troubleshooting steps for Internet & SaaS security policies.
 
@@ -9370,13 +9371,13 @@ You can also integrate Workflow Automation with SaaS applications sanctioned for
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-10-16T08:16Z","nid":"1495211"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-microsoft-teams-notification-templates","lastmod":"2026-11-17T06:06Z","nid":"1495211"} -->
 ## Adding Microsoft Teams Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-microsoft-teams-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Microsoft Teams Notification Templates
-- Last modified: 2026-10-16T08:16Z
+- Last modified: 2026-11-17T06:06Z
 - Summary: Information on how to configure various Microsoft Teams notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Microsoft Teams notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Microsoft Teams clients.
@@ -9416,13 +9417,13 @@ To add a Microsoft Teams notification template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-10-16T08:14Z","nid":"1495206"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/adding-slack-notification-templates","lastmod":"2026-11-17T06:06Z","nid":"1495206"} -->
 ## Adding Slack Notification Templates
 
 - Source: https://help.zscaler.com/workflow-automation/adding-slack-notification-templates
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Notifications > Adding Slack Notification Templates
-- Last modified: 2026-10-16T08:14Z
+- Last modified: 2026-11-17T06:06Z
 - Summary: Information on how to configure various Slack notification templates on the Notification Template page in Workflow Automation.
 
 Workflow Automation allows you to create various Slack notification templates using the notification template builder to send notifications to the Data Loss Prevention (DLP) admins, managers, approvers, and end users. The notification template builder ensures that the notification template displays properly to all Slack clients.
@@ -10806,13 +10807,13 @@ To learn more, see [Managing DLP Azure Application Integrations in Workflow Auto
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-10-14T12:44Z","nid":"1531119"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver","lastmod":"2026-11-20T06:06Z","nid":"1531119"} -->
 ## Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
 
 - Source: https://help.zscaler.com/workflow-automation/configuring-azure-dlp-application-integration-using-zscaler-incident-receiver
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Configuring the Azure DLP Application Integration Using Zscaler Incident Receiver
-- Last modified: 2026-10-14T12:44Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on how to configure Workflow Automation Azure DLP application integration using Zscaler Incident Receiver.
 
 To configure Workflow Automation DLP application integration using Zscaler Incident Receiver (ZIR), you must deploy a ZIR Azure instance. Doing so enables your organization to receive Data Loss Prevention (DLP) incident metadata files and the evidence file from ZIR and upload them to your organization's Azure storage containers in your Azure account.
@@ -12120,13 +12121,13 @@ Configure the DLP Cloud-to-Cloud Incident Forwarding on a GCP instance for Workf
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-10-12T09:29Z","nid":"1418021"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-account-settings","lastmod":"2026-11-20T10:54Z","nid":"1418021"} -->
 ## Managing Account Settings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-account-settings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Account Settings
-- Last modified: 2026-10-12T09:29Z
+- Last modified: 2026-11-20T10:54Z
 - Summary: How to manage account settings for Workflow Automation.
 
 Managing account settings is one of the tasks for configuring Workflow Automation. Admins with access to Workflow Automation can manage the account settings for Workflow Automation. In account settings, admins can:
@@ -12145,9 +12146,8 @@ Managing account settings is one of the tasks for configuring Workflow Automatio
 
 On the Account Settings page, you can do the following:
 
-- Enter Expiration Periods for Justification Links on User and Escalation Notifications
+- Enter Justification Links Expiration Periods and Notification Reminders for End Users, Managers, and Approvers
 - Enable Digest Notifications and Enter Expiration Periods for Justification Links in Digest Notifications
-- Enable Notification Reminders and Specify Their Frequency for End Users, Managers, and Approvers
 - Add Trusted Email Domains for Approvers
 - Copy Customer Information
 - Select a Primary User Data Source
@@ -12172,17 +12172,41 @@ To delete all unsaved changes, click **Reset**.
 
 See image.
 
-Workflow Automation generates user and escalation notifications that contain links for users, managers, and approvers to provide justification for an incident. You can set the number of days after which the justification links expire.
+Workflow Automation generates user and escalation notifications that contain links for users, managers, and approvers to provide justification for an incident. It also allows you to enable or disable notification reminders and specify their frequency for end users, managers, and approvers. To learn more, see [Understanding Notification Reminders](https://help.zscaler.com/workflow-automation/understanding-notification-reminders).
 
-To enter expiration periods for justification links on user and escalation notifications:
+To enter expiration periods for justification links and specify frequency for notification reminders:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Advanced Account Settings**. The **Account Settings** page appears.
-2. On the **Account Settings**page, expand the **Notifications**section.
-3. Click the **End User Notifications** tab.
-4. In the **Expiration Period** field for the**End User**, **Manager**, and **Approver**, enter the number of days before the justification link expires for recipients in the user and escalation (manager and approver) notifications. If you do not enter an expiration period, one day appears by default. The maximum number of days for an expiration period is 30 days. If you enter a value greater than 30 days, the system automatically changes it to 30 days.
-5. Click **Save**.
-
-See image.
+2. On the **Account Settings**page, expand the **Notifications**section and click the **User Notifications** tab.
+3. On the **User Notifications** tab, do the following:
+  - End User: See image.
+    - **Expiration Period**: Enter the number of days before the justification link expires for recipients of the user notifications. If you do not enter an expiration period, one day appears by default. The maximum number of days for an expiration period is 30 days. If you enter a value greater than 30 days, the system automatically changes it to 30 days.
+    - **Quarantine Release Confirmation**: Enable this option to view the **Quarantine Release Confirmation** details on the **State Changes** tab in the **Incident Details** drawer. This option is available for end users only when **Email Quarantine Release for End Users** is enabled in the **Incident Management**section.
+    - **Enable Reminders**: Enable or disable reminders for the end user and enter the frequency for the reminders. To enter the frequency:
+      - In the **Interval field**, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
+      - In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are Hours, Days, and Weeks.
+      - In the **Max Reminder** Count field, enter the maximum number of reminders to be sent to an end user. The minimum number you can enter is 1, and 99 is the maximum number.
+  - Manager: See image.
+    - **Expiration Period**: Enter the number of days before the justification link expires for manager escalation notifications. If you do not enter an expiration period, one day appears by default. The maximum number of days for an expiration period is 30 days. If you enter a value greater than 30 days, the system automatically changes it to 30 days.
+    - **Quarantine Release Confirmation**: Enable this option to update the **Channel**, **Template Family**, and **Language** for the manager notifications.
+      - Select a **Channel**, Email, Teams, or Slack. You can select one or more than one channel.
+      - Select a **Template Family** from the drop-down menu for success and failure notifications. The drop-down menu lists template families based on the channel selection. If more than one channel is selected, the drop-down menu lists the template families that are common to selected channels.
+      - Select a **Language** from the drop-down menu for success and failure notifications.
+    - **Enable Reminders**: Enable or disable reminders for the end user and enter the frequency for the reminders. To enter the frequency:
+      - In the **Interval field**, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
+      - In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are Hours, Days, and Weeks.
+      - In the **Max Reminder** Count field, enter the maximum number of reminders to be sent to an end user. The minimum number you can enter is 1, and 99 is the maximum number.
+  - Approver: See image.
+    - **Expiration Period**: Enter the number of days before the justification link expires for approver escalation notifications. If you do not enter an expiration period, one day appears by default. The maximum number of days for an expiration period is 30 days. If you enter a value greater than 30 days, the system automatically changes it to 30 days.
+    - **Quarantine Release Confirmation**: Enable this option to update the **Channel**, **Template Family**, and **Language** for the manager notifications.
+      - Select a **Channel**, Email, Teams, or Slack. You can select one or more than one channel.
+      - Select a **Template Family** from the drop-down menu for success and failure notifications. The drop-down menu lists template families based on the channel selection. If more than one channel is selected, the drop-down menu lists the template families that are common to selected channels.
+      - Select a **Language** from the drop-down menu for success and failure notifications.
+    - **Enable Reminders**: Enable or disable reminders for the end user and enter the frequency for the reminders. To enter the frequency:
+      - In the **Interval field**, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
+      - In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are Hours, Days, and Weeks.
+      - In the **Max Reminder** Count field, enter the maximum number of reminders to be sent to an end user. The minimum number you can enter is 1, and 99 is the maximum number.
+4. Click **Save**.
 
 Workflow Automation allows you to enable or disable digest notifications by channel (i.e., email, Slack, or Microsoft Teams) for the end users and the DLP admins:
 
@@ -12224,35 +12248,6 @@ If you enable the DLP admin digest notification by channel, Workflow Automation 
 To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates), [Managing Incident and Digest Template Mappings](https://help.zscaler.com/workflow-automation/managing-incident-and-digest-template-mappings), and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
 
 All system default DLP admin digest notifications provide the number of all new incidents, the number of all open incidents, and the number of state changes. They also provide a justification link to the Incident page where the admins can view and manage these incidents. To learn more, see [Responding to a DLP Admin Digest Notification](https://help.zscaler.com/workflow-automation/responding-dlp-admin-digest-notification).
-
-Workflow Automation allows you to enable or disable notification reminders and specify their frequency for end users, managers, and approvers. To learn more, see [Understanding Notification Reminders](https://help.zscaler.com/workflow-automation/understanding-notification-reminders).
-
-To enable or disable notification reminders:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Advanced Account Settings**. The **Account Settings** page appears.
-2. On the **Account Settings**page, expand the **Notifications**section.
-3. Click the **Notification Reminders** tab and do the following:
-  - End User:
-    1. Enable or disable reminders for the end user.
-    2. Enter the frequency for the reminders. To enter the frequency:
-      1. In the **Interval** field, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
-      2. In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are **Hours**, **Days**, and **Weeks**.
-    3. In the **Max Reminder Count** field, enter the maximum number of reminders to be sent to an end user. The minimum number you can enter is 1, and 99 is the maximum number.
-  - Manager:
-    1. Enable or disable reminders for managers.
-    2. Enter the frequency for the reminders. To enter the frequency:
-      1. In the **Interval** field, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
-      2. In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are **Hours**, **Days**, and **Weeks**.
-    3. In the **Max Reminder Count** field, enter the maximum number of reminders to be sent to a manager. The minimum number you can enter is 1, and 99 is the maximum number.
-  - Approver:
-    1. Enable or disable reminders for approvers.
-    2. Enter the frequency for the reminders. To enter the frequency:
-      1. In the **Interval** field, enter the interval number for the reminders. The minimum number you can enter is 1, and 99 is the maximum number.
-      2. In the **Frequency** drop-down menu, select the frequency for the reminders. Frequencies are **Hours**, **Days**, and **Weeks**.
-    3. In the **Max Reminder Count** field, enter the maximum number of reminders to be sent to an approver. The minimum number you can enter is 1, and 99 is the maximum number.
-4. Click **Save**.
-
-See image.
 
 When you configure the DLP application integration in Amazon Web Services (AWS), you create a CloudFormation stack in AWS. On the Account Settings page, the required parameters include the Customer GUID and the AWS environment information fields under the Customer Information section. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services.](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services)
 
@@ -12322,19 +12317,19 @@ To select release email quarantine settings:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation** > **Advanced Account Settings**. The **Account Settings** page appears.
 2. On the **Account Settings**page, expand the **Incident Management** section.
 3. In the **Incident Management**section: See image.
-  - If you want the end user of a quarantined email incident to be able to release one or more of its recipients from quarantine through an end user notification, enable **Enable Email Quarantine for End User Notification**.
-  - If you want the **False Positive** checkbox to be automatically selected for the incident by default when the user releases the email to all recipients, enable **Mark Incident as False Positive for All Recipients**. After you enable this option, the **Mark Incident as False Positive for One or More Recipients** option becomes available.
-  - If you want the **False Positive** checkbox to be automatically selected for the incident by default when the user releases the email to one or more recipients, enable **Mark Incident as False Positive for One or More Recipients**.
+  - If you want the end user of a quarantined email incident to be able to release its recipients from quarantine through an end user notification, enable **Email Quarantine Release for End Users**.
+  - If you want the **False Positive** checkbox to be automatically selected for the incident by default when a user closes an incident where the email was released from quarantine to all recipients, enable **Mark Incident as False Positive When Releasing Email to All Recipients**. After you enable this option, the **Mark Incident as False Positive When Releasing Email to One or More Recipients** option becomes available.
+  - If you want the **False Positive** checkbox to be automatically selected for the incident by default when the user closes an incident where the email was released from quarantine to one or more recipients, enable **Mark Incident as False Positive When Releasing Email to One or More Recipients**.
 
 To learn more, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details), [Responding to an End User Notification](https://help.zscaler.com/workflow-automation/responding-end-user-notification), and [Responding to an Escalation Notification](https://help.zscaler.com/workflow-automation/responding-escalation-notification).
 
-[Image: Viewing the Account Settings page with the Notifications section expanded and displaying the information on the End User Notifications tab. This tab contains expiration period fields for the justification links on the user and escalation (manager and approver) notifications.]
+[Image: The Account Settings page with the User Notifications - End User tab displaying the information on the end user Justification Link Expiration and Notification Reminder Frequency.]
+
+[Image: The Account Settings page with the User Notifications - Manager tab displaying the information on the end user Justification Link Expiration, Channel, and Notification Reminder Frequency.]
 
 [Image: Viewing the Account Settings page with the Notifications section expanded and displaying the information on the Digest Notifications tab. This tab contains channel options (email, Slack, and Teams) that can be enabled for user and DLP admin digest notifications. It also contains expiration period fields for the justification links on the user and DLP admin digest notifications and a Digest Frequency field for user digest notifications.]
 
-[Image: Viewing the Account Settings page with the Notifications section expanded and displaying the information on the Notification Reminders tab. This tab contains options to enable or disable notification reminders for End Users, Managers, and Approvers. It also contains fields where you can specify the frequency of these notification reminders.]
-
-[Image: Viewing the Account Settings page with the Customer Information section expanded]
+[Image: The Account Settings page with the User Notifications - Approver tab displaying the information on the end user Justification Link Expiration and Notification Reminder Frequency.]
 
 [Image: Viewing the Account Settings page with the Primary User Data Source section expanded]
 
@@ -12695,13 +12690,13 @@ To view the details for a custom email domain:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1417866"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation","lastmod":"2026-11-21T06:06Z","nid":"1417866"} -->
 ## Managing DLP Amazon Web Services Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-aws-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Amazon Web Services Application Integrations in Workflow Automation
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-11-21T06:06Z
 - Summary: How to manage Data Loss Prevention (DLP) Amazon Web Services application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Amazon Web Services (AWS) application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services).
@@ -12763,7 +12758,7 @@ To edit a DLP AWS application integration in Workflow Automation:
   - In the tile view, under **Connected Apps,**click anywhere on the **DLP** AWS tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the DLP AWS app integration.
 5. On the **Zscaler DLP Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **Zscaler DLP Integration** page appears. See image.
-6. On the edit **Zscaler DLP Integration** page, edit any of the fields that are displayed except for the **IAM-Cross-Account Role External ID** field. For integrations with a Deleted status, you can only edit the data privacy field settings.
+6. On the edit **Zscaler DLP Integration** page, edit any of the fields that are displayed except for the **IAM-Cross-Account Role External ID** field. For integrations with a Deleted status, you can only edit the data privacy field settings. If you have overridden privacy settings for end users, managers, and approvers on the **Privacy Settings** page, a banner appears at the top of the **Privacy Settings** section stating that the privacy setting override is currently active. You cannot edit those privacy settings on this page. You can edit or reset those privacy settings on the [Privacy Settings](https://help.zscaler.com/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers) page. See image.
 7. Click **Validate**.The system validates the account credentials that are entered with the AWS integration. It verifies that the IAM Cross-Account Role ARN entry is valid, and it also checks if the format is correct for the SNS Topic ARN. The integration can only be changed if it passes validation. If the validation fails for any reason or if the configuration has been created or updated with the wrong values, the admin must disable and re-enable the integration after they have corrected the values for the integration.
 8. Click **Save Changes**.
 
@@ -12850,17 +12845,19 @@ See image.
 [Image: Viewing information that displays for the AWS DLP integrations in the list view on the Integrations dashboard]
 
 [Image: Viewing details for all the existing Zscaler DLP integrations on the Zscaler DLP Integration details page]
+
+[Image: Viewing the privacy settings banner on the edit Zscaler DLP Integration page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1452631"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation","lastmod":"2026-11-21T06:06Z","nid":"1452631"} -->
 ## Managing DLP Azure Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-azure-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP Azure Application Integrations in Workflow Automation
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-11-21T06:06Z
 - Summary: How to manage Data Loss Prevention (DLP) Azure application integrations in Workflow Automation.
 
 Application integration is the step required to connect the source of the DLP incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Azure application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, the DLP Azure application integration must be configured. To learn more, see [Configuring the DLP Application Integration Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure).
@@ -12923,7 +12920,7 @@ To edit a DLP Azure application integration in Workflow Automation:
   - In the tile view, under **Connected Apps,**click anywhere on the **DLP Azure** tile.
   - In the list view, in the **Connected Apps** section, click **View Details**next to the DLP Azure app integration.
 5. On the **Zscaler DLP Azure Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **Zscaler DLP Azure Integration** page appears. See image.
-6. On the edit **Zscaler DLP Azure Integration** page, edit any of the fields that are displayed. For integrations with a Deleted status, you can only edit the data privacy field settings.
+6. On the edit **Zscaler DLP Azure Integration** page, edit any of the fields that are displayed. For integrations with a Deleted status, you can only edit the data privacy field settings. If you have overridden privacy settings for end users, managers, and approvers on the **Privacy Settings** page, a banner appears at the top of the **Privacy Settings** section stating that the privacy setting override is currently active. You cannot edit those privacy settings on this page. You can edit or reset those privacy settings on the [Privacy Settings](https://help.zscaler.com/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers) page. See image.
 7. Click **Validate**. The system validates the account credentials that are entered with the Azure integration. It also checks whether the format is correct for the **Event Grid System Topic Resource ID** You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
 8. Click **Save Changes**.
 
@@ -13010,17 +13007,19 @@ See image.
 [Image: Viewing all the DLP Azure integrations in the list view on the Integrations dashboard]
 
 [Image: Viewing last modified details for DLP Azure integrations on the Zscaler DLP Azure Integration details page]
+
+[Image: Viewing the privacy settings banner on the edit Zscaler DLP Azure Integration page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-10-01T21:06Z","nid":"1532120"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation","lastmod":"2026-11-20T06:06Z","nid":"1532120"} -->
 ## Managing DLP GCP Application Integrations in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/managing-dlp-gcp-application-integrations-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Integrations > Managing DLP GCP Application Integrations in Workflow Automation
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: How to manage Data Loss Prevention (DLP) GCP application integrations in Workflow Automation.
 
 Application integration connects the source of Data Loss Prevention (DLP) incidents (i.e., Internet & SaaS (ZIA)) to Workflow Automation. Super admins or admins with Full or Restricted access to Workflow Automation can configure the DLP Google Cloud Platform (GCP) application integration. Before your organization's DLP incidents are available for review and remediation on the Incidents page in the Zscaler Admin Console, you must configure DLP GCP application integration. To learn more, see [Configuring the DLP Application Integration Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
@@ -13080,7 +13079,7 @@ To edit a DLP GCP application integration in Workflow Automation:
   - In the tile view, click anywhere on the **DLP GCP** tile under **Connected Apps**.
   - In the list view, click **View Details**next to the DLP GCP app integration in the **Connected Apps** section.
 5. On the **Zscaler DLP GCP Integration** details page, click the **Edit** icon next to the connected account you want to edit. The edit **Zscaler DLP GCP Integration** page appears. See image.
-6. On the edit **Zscaler DLP GCP Integration** page, edit any of the fields. For integrations with a Deleted status, you can only edit the data privacy field settings. See image.
+6. On the edit **Zscaler DLP GCP Integration** page, edit any of the fields. For integrations with a Deleted status, you can only edit the data privacy field settings. If you have overridden privacy settings for end users, managers, and approvers on the **Privacy Settings** page, a banner appears at the top of the **Privacy Settings** section stating that the privacy setting override is currently active. You cannot edit those privacy settings on this page. You can edit or reset those privacy settings on the [Privacy Settings](https://help.zscaler.com/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers) page. See image.
 7. Click **Validate**. The system validates the account credentials that are entered with the GCP integration. You can only add the integration if it passes validation. If the validation fails for any reason, or if the configuration has been created or updated with the wrong values, you must disable and re-enable the integration after you correct the values for the integration.
 8. Click **Save Changes**.
 
@@ -13139,8 +13138,6 @@ To view DLP GCP application integrations in Workflow Automation:
 
 [Image: Zscaler DLP GCP Integration details page displaying the Edit icon]
 
-[Image: Editing a Zscaler DLP GCP integration on the edit Zscaler GCP DLP Integration page]
-
 [Image: Editing an integration to delete the integration on the Zscaler DLP GCP Integration details page]
 
 [Image: Deleting a Zscaler DLP GCP integration on the edit Zscaler GCP DLP Integration page]
@@ -13158,6 +13155,8 @@ To view DLP GCP application integrations in Workflow Automation:
 [Image: Viewing all the DLP GCP integrations in the list view on the Integrations dashboard]
 
 [Image: Viewing last modified details for DLP GCP integrations on the Zscaler DLP GCP Integration details page]
+
+[Image: Viewing the privacy settings banner on the edit Zscaler DLP GCP Integration page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -13384,13 +13383,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-15T06:06Z","nid":"1418161"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incident-group-mappings","lastmod":"2026-11-22T06:06Z","nid":"1418161"} -->
 ## Managing Incident Group Mappings
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incident-group-mappings
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incident Group Mappings
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: How to manage incident group mappings in Workflow Automation.
 
 An incident group mapping specifies the incidents that are associated with the incident group. Only admins with full access to Workflow Automation can map the incident groups. Incident groups are mapped to one or more of the attributes available in an incident transaction. These mappings can be simple or more complex to meet your requirements. After incident groups are configured, admins with full access can then assign these incident groups to the admins with restricted access who will be responsible for them. They do these assignments in the Zscaler Admin Console, on the Admin Assignment page. To learn more, see [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).

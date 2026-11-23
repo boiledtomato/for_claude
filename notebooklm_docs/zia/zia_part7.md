@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 7)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 97
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 95
 
 ---
 
@@ -16,6 +16,8 @@ Articles in this file: 97
 - Summary: Information about the Assets with Incidents page, which is part of the Assets Report. It provides a comprehensive view for each selected application and tenant in the main report page.
 
 When you click to further analyze an application or tenant in the main [Assets Report](https://help.zscaler.com/zia/saas-assets-report) page, you are redirected to the Assets with Incidents page, which provides a comprehensive view of each selected application and tenant. The filters are preset to the application or tenant, and time frame you choose to further analyze, but you can click **Clear** to reset the filtersat any time. You can also go back to the main Assets Report page by clicking the **SaaS Security Assets**link next to the page's title.
+
+For GitLab and Bitbucket, file deletion behavior differs from other apps. Deleting a file from the repository does not remove the file from the Assets with Incidents page. The original asset entry remains visible. The delete event is logged as a new transaction in [SaaS Security Insights Logs](https://help.zscaler.com/zia/about-saas-security-insights-logs). The delete transaction is not linked to the original asset because its File ID and File Source Location differ from the original file.
 
 To view your assets with incidents:
 
@@ -1667,13 +1669,13 @@ To modify the Confidence Score Threshold of a predefined dictionary, you must co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-edm-index-templates","lastmod":"2026-05-15T21:06Z","nid":"1468391"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-edm-index-templates","lastmod":"2026-11-22T06:03Z","nid":"1468391"} -->
 ## Understanding Exact Data Match Index Templates
 
 - Source: https://help.zscaler.com/zia/understanding-edm-index-templates
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Exact Data Match > Understanding Exact Data Match Index Templates
-- Last modified: 2026-05-15T21:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > Understanding Exact Data Match Index Templates
+- Last modified: 2026-11-22T06:03Z
 - Summary: Information about Exact Data Match (EDM) templates and how they are configured, evaluated, and reported as part of your Data Loss Prevention (DLP) policy.
 
 When creating an [Exact Data Match (EDM)](https://help.zscaler.com/zia/about-exact-data-match) index template, you must define your tokens (i.e., criteria) for your data records, and specify at least one primary field. The primary field is a unique key that your DLP policy rules are based on. It is a required field that must be unique based on your data records.
@@ -1699,64 +1701,64 @@ Zscaler recommends considering the following before creating an EDM index templa
 
 Let's use the following example:
 
-You're a bank with an employee database and you want to protect your employees' personally identifiable information (PII), as well as their company credit card information.
+You're a bank with an employee database, and you want to protect your employees' personally identifiable information (PII), as well as their company credit card information.
 
-Your database records contain the following data fields: First Name (FName), Last Name (LName), Social Security Number (SSN), Credit Card Number (CCN), Mobile Phone Number, Postal Code, Street Address, and so on.
+Your database records contain the following data fields: First Name (Fname), Last Name (Lname), Social Security Number (SSN), Credit Card Number (CCN), Mobile Phone Number, Postal Code, Street Address, and so on.
 
 The DLP dictionaries or engines you need to create within the Zscaler Admin Console, which can then be used in your DLP policies, must cover a series of field combinations to adequately protect your employees' information. So, based on your records in this example, any of the following data field combinations could be used to create a DLP dictionary:
 
-- SSN, FName, LName
-- CCN, FName, LName
-- SSN, CCN, LName
-- SSN, CCN, FName, LName
+- SSN, Fname, Lname
+- CCN, Fname, Lname
+- SSN, CCN, Lname
+- SSN, CCN, Fname, Lname
 
 However, the EDM index template you create using the Index Tool must allow the dictionary to cover the field combination you require. You can do this by selecting a primary field based on the data field combination you need.
 
 Using the example described in the previous section, specifying a primary field allows you to create a single EDM index template to protect your employees' information, where:
 
-- All of the data field combinations you require for an employee PII DLP dictionary and associated policies are covered.
-- All of the data field combinations you require for a credit card DLP dictionary and associated policies are covered whenever a company credit card is issued to an employee.
+- All the data field combinations you require for an employee PII DLP dictionary and associated policies are covered.
+- All the data field combinations you require for a credit card DLP dictionary and associated policies are covered whenever a company credit card is issued to an employee.
 - Your employee data records only need to be indexed once.
 
 So, using the Index Tool, you would create an EDM index template that includes the following fields:
 
 - SSN
 - CCN
-- FName
-- LName
+- Fname
+- Lname
 
-To create the employee PII DLP dictionary you require, you'd select SSN as a primary field. However, in order to create the company-issued employee credit card DLP dictionary using the same template, you also need to select CCN as a secondary primary field. The other included fields (i.e., FName, LName) are applied as Secondary Fields for both dictionaries.
+To create the employee PII DLP dictionary you require, you'd select SSN as a primary field. However, in order to create the company-issued employee credit card DLP dictionary using the same template, you also need to select CCN as a secondary primary field. The other included fields (i.e., Fname, Lname) are applied as Secondary Fields for both dictionaries.
 
 Finally, in this example, BankNum is not a required data field for the DLP policies we want to create later, so it is not included within the template.
 
 See image.
 
-When you create the PII-specific DLP dictionary within the Zscaler Admin Console, it needs to cover a data field combination that includes: SSN with FName and LName. So you would select **Exact Data Match** as your **Dictionary Type**, and add the following definition based on the EDM index template you created:
+When you create the PII-specific DLP dictionary within the Zscaler Admin Console, it needs to cover a data field combination that includes: SSN with Fname and LNname. So you would select **Exact Data Match** as your **Dictionary Type**, and add the following definition based on the EDM index template you created:
 
 - Employee PII Definition
   - **SSN** selected as the **Primary Field**
-  - **FName** and **LName** selected as the **Secondary Fields**
+  - **Fname** and **Lname** selected as the **Secondary Fields**
   - **All Fields** selected for **Secondary Match On**
 
 See image.
 
-The Zscaler service assumes an AND Boolean operation between the **Primary Field** and the **Secondary Fields**. Also, for **Secondary Match On**, "Any" (i.e., **Match at Least 1 from Secondary Fields**, **Match at Least 2 from Secondary Fields**) assumes an OR operation, while "All" (i.e., **All Fields**) assumes an AND operation.
+The Zscaler service assumes an AND Boolean operation between the **Primary Field** and the **Secondary Fields**. Also, for **Secondary Match On**, "Any" (i.e., **At Least 1 Field**, **At Least 2 Fields**) assumes an OR operation, while "All" (i.e., **All Fields**) assumes an AND operation.
 
-In other words, the definition above is evaluated by the Zscaler service as: "SSN AND (FName AND LName)."
+In other words, the definition above is evaluated by the Zscaler service as: "SSN AND (Fname AND Lname)."
 
-Because CCN is included as your secondary primary field within the EDM index template, you can use the same template for your company credit card-specific DLP dictionary. In this example, it needs to cover the data field combination that includes: CCN with FName or LName. So, you can add the following definition without having to re-index your employees' data records:
+Because CCN is included as your secondary primary field within the EDM index template, you can use the same template for your company credit card-specific DLP dictionary. In this example, it needs to cover the data field combination that includes: CCN with Fname or Lname. So, you can add the following definition without having to re-index your employees' data records:
 
 - Company-Issued Employee CCN Definition See image.
   - **CCN** selected as the **Primary Field**
-  - **FName** and **LName** selected as the **Secondary Fields**
-  - **Match at Least 1 from Secondary Fields** selected for **Secondary Match On**
+  - **Fname** and **Lname** selected as the **Secondary Fields**
+  - **At Least 1 Field** selected for **Secondary Match On**
 
-In other words, the definition above is evaluated by the Zscaler service as: "CCN AND (FName OR LName)."
+In other words, the definition above is evaluated by the Zscaler service as: "CCN AND (Fname OR Lname)."
 
 Using these two DLP dictionaries, the service can then evaluate the following data field combinations when they are added to a DLP engine, which is used to create your DLP policy rules:
 
-- SSN AND (FName AND LName)
-- CCN AND (FName OR LName)
+- SSN AND (Fname AND Lname)
+- CCN AND (Fname OR Lname)
 
 To learn more, see [About DLP Engines](https://help.zscaler.com/zia/about-dlp-engines).
 
@@ -1772,12 +1774,10 @@ For example, you need a PII-specific DLP dictionary that includes SSN with First
 
 You then create a dictionary with the following definition based on your EDM index template:
 
-- Employee PII Definition
+- Employee PII Definition See image.
   - **SSN**selected as the **Primary Field**
-  - **First Name** and **Last Name** selected as the **Secondary Fields**
-  - **Match at Least 1 from Secondary Fields** selected for **Secondary Match On**
-
-See image.
+  - **Fname** and **Lname** selected as the **Secondary Fields**
+  - **At Least 1 Field** selected for **Secondary Match On**
 
 With this definition, the match occurs when the primary field and at least one secondary field are present. However, if the secondary field is blank, then the match doesn't occur.
 
@@ -1785,12 +1785,10 @@ If an employee uploads a file containing the SSN "123456789" and First Name "Joh
 
 You decide to increase the number of secondary fields for your definition:
 
-- Employee PII Definition
+- Employee PII Definition See image.
   - **SSN** selected as the **Primary Field**
-  - **First Name**, **Last Name**, and **Date of Birth** selected as the **Secondary Fields**
-  - **Match at Least 2 from Secondary Fields** selected for **Secondary Match On**
-
-See image.
+  - **Fname**, **Lname**, and **File Number** selected as the **Secondary Fields**
+  - **At Least 2 Fields** selected for **Secondary Match On**
 
 With this definition, the match occurs when the primary field and at least two secondary fields are present. However, if at least one of the secondary fields is blank, then the match doesn't occur.
 
@@ -1816,7 +1814,7 @@ This information provides insight on how to correct an EDM template that is in e
 
 #### Examples of Primary Duplicate Keys Being Exceeded for EDM Templates
 
-The following examples illustrate how primary duplicate keys can be exceeded across one or multiple EDM templates. All of the examples use the 512 duplicate key limit for an individual EDM template and the 2,048 duplicate key limit across multiple EDM templates.
+The following examples illustrate how primary duplicate keys can be exceeded across one or multiple EDM templates. All the examples use the 512 duplicate key limit for an individual EDM template and the 2,048 duplicate key limit across multiple EDM templates.
 
 - Example of Duplicate Primary Keys Being Exceeded with One EDM Template
 - Example of Duplicate Primary Keys Being Exceeded Across Multiple EDM Templates Using a Single Field
@@ -1826,49 +1824,49 @@ In this example, the duplicates occur within one EDM template.
 
 | Template Name | Fields in Template |  |  |  |
 | --- | --- | --- | --- | --- |
-| EDM Template 1 | SSN (Primary Key) 600 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
+| EDM Template 1 | SSN (Primary Key) 600 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
 
-For this example, after EDM Template 1 is processed it receives an error status in the Index Tool with *Too many primary key duplicates* as the error type. This template contains 600 duplicates, which exceeds the 512 duplicate limit for an individual EDM template.
+For this example, after EDM Template 1 is processed, it receives an error status in the Index Tool with *Too many primary key duplicates* as the error type. This template contains 600 duplicates, which exceeds the 512 duplicate limit for an individual EDM template.
 
-In this example, the duplicates are the same for one type of field across multiple EDM templates. The same SSN is duplicated across all of the EDM templates.
+In this example, the duplicates are the same for one type of field across multiple EDM templates. The same SSN is duplicated across all the EDM templates.
 
 | Template Name | Fields in Template |  |  |  |
 | --- | --- | --- | --- | --- |
-| EDM Template 1 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 2 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 3 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 4 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 5 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 6 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
+| EDM Template 1 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 2 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 3 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 4 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 5 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 6 | SSN (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
 
 For this example, after the EDM templates are processed, EDM Template 1 through EDM Template 5 receive a completed status in the Index Tool. Each of these templates does not exceed the 512 primary duplicate limit for an individual EDM template and the combined number of primary duplicates across your organization is 1,800, which is below the 2,048 duplicate key limit across multiple EDM templates.
 
 EDM Template 6 receives an error status in the Index Tool with a *primary key limit* error type and an EDM Indexing Failed Schemas notification is displayed on the Notification pane of the Zscaler Admin Console listing this template name. This template does not exceed the 512 primary duplicate limit for an individual template, but with the addition of this template, the 2,048 primary duplicate key limit across multiple EDM templates has been exceeded for your organization. There were 1,800 duplicates after EDM Template 5 was processed, but now with the addition of EDM Template 6 of 300, that would make 2,100 duplicates.
 
-To correct the primary duplicate error that occurred in EDM Template 6, you need to analyze not only that template but all of the other templates that preceded it to identify how to correct and rectify the primary duplicate error.
+To correct the primary duplicate error that occurred in EDM Template 6, you need to analyze not only that template but all the other templates that preceded it to identify how to correct and rectify the primary duplicate error.
 
 In this example, the duplicates are the same for different types of fields across multiple EDM templates. The same number is duplicated across SSN, Account Number, Gambler Number, and Patient ID.
 
 | Template Name | Fields in Template |  |  |  |
 | --- | --- | --- | --- | --- |
-| EDM Template 1 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 2 | Account Number (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 3 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 4 | Gambler Number (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 5 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
-| EDM Template 6 | Patient ID (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | FName No Duplicates | LName No Duplicates |
+| EDM Template 1 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 2 | Account Number (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 3 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 4 | Gambler Number (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 5 | SSN (Primary Key) 400 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
+| EDM Template 6 | Patient ID (Primary Key) 300 Duplicates | CCN (Primary Key) No Duplicates | Fname No Duplicates | Lname No Duplicates |
 
 For this example, after the EDM templates are processed, EDM Template 1 through EDM Template 5 receive a completed status in the Index Tool. Each of these templates does not exceed the 512 primary duplicate limit for an individual EDM template and the combined number of primary duplicates across your organization is 1,800, which is below the 2,048 duplicate key limit across multiple EDM templates.
 
 EDM Template 6 receives an error status in the Index Tool with a *primary key limit* error type and an EDM Indexing Failed Schemas notification is displayed on the Notification pane of the Zscaler Admin Console listing this template name. This template does not exceed the 512 primary duplicate limit for an individual template, but with the addition of this template, the 2,048 primary duplicate key limit across multiple EDM templates has been exceeded for your organization. There were 1,800 duplicates after EDM Template 5 was processed, but now with the addition of EDM Template 6 of 300, that would make 2,100 duplicates.
 
-To correct the primary duplicate error that occurred in EDM Template 6, you would need to analyze not only that template but all of the other templates that preceded it to identify how to correct and rectify the primary duplicate error.
+To correct the primary duplicate error that occurred in EDM Template 6, you would need to analyze not only that template but all thecriteria other templates that preceded it to identify how to correct and rectify the primary duplicate error.
 
-[Image: Adding a DLP dictionary with an Exact Data Match definition for company-issued employee credit cards]
+[Image: Defining an Exact Data Match dictionary type for employee PII CCN criteria on the Add DLP Dictionary page]
 
-[Image: Defining Exact Data Match Criteria on the Add DLP Dictionary Page]
+[Image: Defining an Exact Data Match dictionary type for employee PII SSN criteria on the Add DLP Dictionary Page]
 
-[Image: Defining Exact Data Match Criteria on the Add DLP Dictionary Page]
+[Image: Defining an Exact Data Match dictionary type for employee PII SSN criteria on the Add DLP Dictionary Page]
 
 For reporting purposes, the Zscaler service provides a total `matchCount`, as well as the `triggers` that help determine that count. Total `matchCount` logic is based on the number of unique sets of matches found in the content. The logic also applies to multiple templates used in the same dictionary.
 
@@ -2105,7 +2103,7 @@ aaa
 
 [Image: Zscaler Index Tool on EDM Index Template field selection page]
 
-[Image: Adding a DLP dictionary with an Exact Data Match definition for employee PII]
+[Image: Defining an Exact Data Match dictionary type for employee PII SSN criteria on the Add DLP Dictionary page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4298,13 +4296,13 @@ To learn more about how to view and analyze the Post-Quantum Visibility Report, 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-11-15T06:06Z","nid":"1447026"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-predefined-dlp-dictionaries","lastmod":"2026-11-22T06:06Z","nid":"1447026"} -->
 ## Understanding Predefined DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/understanding-predefined-dlp-dictionaries
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Understanding Predefined DLP Dictionaries
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information about the predefined Data Loss Prevention (DLP) dictionaries in the Zscaler Admin Console.
 
 Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictionaries marked with an asterisk (*) are *not*supported for Endpoint Data Loss Prevention (DLP). To learn more, see [About Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp). To learn more about configuring predefined DLP dictionaries, see [Editing Predefined DLP Dictionaries](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries).
@@ -4313,6 +4311,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - ABA Bank Routing Numbers
 - Addresses (Japan)
 - Adult Content
+- Argentina National Identity Document (DNI)
 - Argentina Uniform Bank Code: Detect Leakage of CBU
 - Australia Passport Number
 - Bulgaria Uniform Civil Number
@@ -4326,6 +4325,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Credentials and Secrets
 - Credit Cards
 - Credit Card Image
+- Czech Republic Personal Identification Number
 - Diseases Information
 - Driver’s License (United States)
 - Drugs Information
@@ -4352,6 +4352,9 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - International Bank Account Number (IBAN)
 - Invoice Document
 - Israel National Identification Number
+- Kenya Passport Number
+- KRA Tax Registration PIN (Kenya)
+- Latvia Personal Identification Number
 - Last Names (Japan)
 - Legal Document
 - Medical Document
@@ -4373,6 +4376,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - National Identification Card Number (Taiwan)
 - National Identification Number (Chile)*
 - National Identification Number (France)
+- National Identification Number (Kenya)
 - National Identification Number (Poland)
 - National Identification Number (Spain)
 - National Identification Number (Turkey)
@@ -4385,8 +4389,11 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Passport Number (European Union)
 - Permanent Account Number (India)
 - Personal Identification Number (Croatia)
+- Portugal Social Security Number (SSN)
+- QR Code
 - Real Estate Document
 - Resident Registration Number (Korea)
+- Romanian Personal Identification Number
 - Salesforce.com Data
 - Satellite Data
 - Schematic Data
@@ -4402,6 +4409,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Tax File Numbers (Australia)
 - Tax Identification Number (Austria)
 - Tax Identification Number (Belgium)
+- Tax Identification Number (Cyprus)
 - Tax Identification Number (Denmark)
 - Tax Identification Number (Finland)
 - Tax Identification Number (France)
@@ -4419,6 +4427,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - Tax Identification Number (Sweden)
 - Tax Identification Number (US)
 - Technical Document
+- Telephone Number (Asia)
 - Transportation and Motor Department Document
 - Treatments Information
 - Unique Identification Code (Peru)*
@@ -4431,6 +4440,7 @@ Zscaler provides the following Data Loss Prevention (DLP) dictionaries. Dictiona
 - VAT Number (Ireland)
 - VAT Number (Luxembourg)
 - VAT Number (Netherlands)
+- Venezuela Personal Identification Number
 - Weapons
 
 This dictionary detects the Turkish National Identification Number.
@@ -5670,6 +5680,18 @@ The following table lists the Confidence Score Threshold criteria for this dicti
 | **Medium** | The dictionary counts an instance as a violation if: The requirements of Low Confidence are met.; The PIN (Croatia) number is in a popular format. | The number formats that can trigger the dictionary are: HR69435151531; HR 69435151531; 24631579813The number formats that do not trigger the dictionary are: 94 577 403194; hr.-12345678911; HR69435 151538; hr.- 12345678911 |
 | **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The PIN (Croatia) number is accompanied by any of the dictionary’s default High Confidence phrases. For example, *OIB*, *Osobni identifikacijski broj*, and *Personal identification number*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom High Confidence phrases are: HR69435151531; HR 69435151531; 24631579813The number formats that do not trigger the dictionary are: 94 577 403194; hr.-12345678911; HR69435 151538; hr.- 12345678911 |
 
+This dictionary detects images of QR codes for file types such as JPEG and PNG. To detect sensitive content, this dictionary requires at least 1 KB to 8 MB from a supported file type.
+
+This DLP identifier does not use a checksum because it classifies content based on image categories rather than numerical patterns.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria |
+| --- | --- |
+| **Low** | This dictionary counts an instance as a violation if the machine learning (ML) match score is 50 or more. |
+| **Medium** | This dictionary counts an instance as a violation if the ML match score is 70 or more. |
+| **High** | This dictionary counts an instance as a violation if the ML match score is 90 or more. |
+
 This dictionary detects real estate documents, like personal or commercial lease agreements, property buying or selling agreements, etc.
 
 Zscaler supports only the following document types for real estate documents: RTF, PDF, MSG, DOC, DOCX, DOCM, DOTX, DOTM, XLS, XLSX, XLSM, XLTM, PPT, PPTX, PPSX, PPTM, POTM, POTX, and IWORK (pages, numbers, and keynote). To detect sensitive content, this dictionary requires at least 1 KB of extracted content from a real estate document file.
@@ -6262,6 +6284,197 @@ This dictionary detects content related to weapons. It detects weapons such as f
 This dictionary does not use a checksum.
 
 You can modify the Confidence Score Threshold. Confidence scores inform the dictionary how high it must raise the bar, or threshold, for identifying violations and triggering them. To learn more, see [Configuring the Confidence Score Threshold.](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence)
+
+This dictionary detects the Kenya Revenue Authority Number, also known as the Tax Registration PIN.
+
+The popular format is an 11-digit alphanumeric code. The first character is a letter followed by a 9-digit number and it ends with a letter.
+
+This dictionary does not use a checksum. The validation of the PIN is based on a fixed letter-digit-letter structure of 11-digits. The PIN is invalid if it has trivial numbers.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Kenya tax registration PIN is in a popular format. | The number formats that can trigger the dictionary are: A038527149JThe number formats that do not trigger the dictionary are: B001234567J; A000000000J; A111111111K; A123456789L; A987654321M; A121212121N |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Kenya tax registration PIN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:KRA PIN; Kenya Revenue Authority; Tax Registration; PIN Number; Taxpayer PIN; Personal Identification Number; PIN Certificate; iTax PIN; Kenya Revenue Authority; KRA; iTax; Commissioner of Domestic Taxes; PIN Certificate; Tax Compliance Certificate; TCC; Acknowledgement Receipt; P9 Form; VAT Certificate; Income Tax; Value Added Tax; VAT; PAYE; Turnover Tax; TOT; Excise Duty; Certificate of Incorporation; CR12; Business Registration; Trading Name | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: KRA PIN A038527149JThe number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Order number B001234567J; KRA PIN A000000000J (has trivial repeated zeros); KRA PIN A123456789L (has trivial ascending digits); KRA PIN A987654321M (has trivial descending digits) |
+
+This dictionary detects Kenya's National ID number. The popular format is entirely numeric, a 7- to 9-digit number with no spaces or separators.
+
+This dictionary does not use a checksum. The national ID validation is based on the number length and numeric only structure. The dictionary invalidates fake or trivial patterns.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if Kenya's national ID is in a popular format. | The number formats that can trigger the dictionary are: 38527194The number formats that do not trigger the dictionary are: 1111111; 0000000; 1234567; 7654321; 1212121; 111111111; 123456789; 987654321; 121212121 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Kenya's national ID is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *ID Card No*,*National ID No*,*Holder's ID Number*,*Identification Number*,or *Copy of ID.* | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Holder's ID Number 38527194The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Letter-prefixed AB1234567 is not a National ID.; National ID 1111111 has repeated trivial digits |
+
+This dictionary detects Kenya Passport Number.
+
+The popular format is 7-digit to 9-digit character. The first and sometimes the second character is a letter followed by the numbers. For example, BN483726.
+
+This dictionary does not use a checksum. The passport number validation is based on the letter followed by numbers structure and the overall length. The dictionary invalidates fake or trivial patterns.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Kenya passport number is in a popular format. | The number formats that can trigger the dictionary are: A3852719; BN483726; EF385271The number formats that do not trigger the dictionary are: 1111111; 0000000; 1234567; 7654321; 1212121; 111111111; 123456789; 987654321; AAAAAAA; ABCDEFG; ZZZZZZZZZ; ABCDEFGHI |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Kenya passport number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *Passport No.*, *Nambari ya Pasi*, *Republic of Kenya*, *KEN*, *Passport Holder*, or *Travel Document*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Travel Document BN483726; Nambari ya Pasi EF385271; KEN CD847295The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: ABC123; A12345678901; Passport 1111111 (has repeated digits); Passport 1234567 (has ascending digits) |
+
+This dictionary detects the Argentina National Identity Document (DNI) number.
+
+There are two popular formats:
+
+- An 8-digit number without delimiters. For example, 67278182.
+- An 8-digit number with dot (`.`) as delimiters. For example, 67.278.182.
+
+This dictionary does not use a checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Argentina DNI numbers are in a popular format. | The number formats that can trigger the dictionary are: 14262032; 62.971.791The number formats that do not trigger the dictionary are: 629.717.91; 43257187911 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Argentina DNI number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:documento nacional de identidad; cédula; dni; registro nacional de las persona; registro nacional de las personas; argentina national identity number; documento numero; rnp; nic national registry of persons; documento número | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: dni 14262032; argentina national identity number 62.971.791The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 629.717.91; 14262032 |
+
+This dictionary detects telephone numbers for Asian countries. There are 12 Asian countries under the predefined parent dictionary and each Asian country is a subdictionary.
+
+The 12 Asian countries are:
+
+- Cambodia
+- China
+- Hong Kong
+- Indonesia
+- Japan
+- Laos
+- Malaysia
+- Philippines
+- Singapore
+- Taiwan
+- Thailand
+- Vietnam
+
+The popular format is all Asian countries' telephone numbers. For example, +85512-345-678 is Cambodia’s telephone number.
+
+This dictionary does not use a checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the telephone numbers of the Asian countries' (subdictionary) are in a popular format. | The numbers that can trigger the dictionary when you create an engine with Cambodia and China as a subdictionary are: +85512-345-678 (Cambodia); +86 10 12345678 (China)The number formats that do not trigger the dictionary are: +91 0134-765-497 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The telephone numbers of the Asian countries' (subdictionary) are accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *Cellular number*,*Telephone number*,*Cellular telephone number*,*Phone number*,*Phone#*,*Telephone#*, or*Cellular#*. | The numbers that can trigger the dictionary if accompanied by the dictionary’s high confidence phrases when you create an engine with Cambodia and China as a subdictionary are: Cellular number +85512-345-678 (Cambodia); Cellular number +86 10 12345678 (China)The numbers that do not trigger the dictionary if accompanied by the dictionary’s default or custom high confidence phrases when you create an engine with Cambodia and China as a subdictionary are: +85512-345-678; +86 10 12345678 |
+
+This dictionary detects Cyprus Tax Identification Numbers.
+
+The popular format is an 8-digit number followed by a checksum letter at the end. It has no delimiter. For example, 01234567U.
+
+This dictionary uses the *Mod 26* checksum, which is similar to *Luhn* checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Cyprus tax identification number is in the popular format. | The number formats that can trigger the dictionary are: 01234567U; 99010203LThe number formats that do not trigger the dictionary are: 012 3456 7U; 012345671; 0123.456.7U |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Cyprus tax identification number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:vergi kimlik kodu; vergi kimlik numarası; αριθμός φορολογικού μητρώου; κωδικός φορολογικού μητρώου; φορολογική ταυτότητα; φορολογικού κωδικού | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: vergi kimlik kodu 01234567U; vergi kimlik numarası 99010203LThe number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 01234567U; vergi kimlik numarası 990.102.03L |
+
+This dictionary detects leakage of Latvian Personal Identification Number. The popular format is `DDMMYY-XNNNZ`, an 11-digit number with a hyphen as a delimiter after the first 6 digits where:
+
+- DD = Day of birth (01–31)
+- MM = Month of Birth (01–12)
+- YY = Last two digits of birth year
+- X = Century code
+  - 0 for years 1800–1899
+  - 1 for years 1900–1999
+  - 2 for years 2000–2099
+- NNN = Individual birth serial number
+- Z = Checksum digit
+
+This dictionary uses the *Weighted Modulo 11* checksum.
+
+For people born after July 1, 2017, checksum validation is not required.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Latvian personal ID is in a popular format. | The number formats that can trigger the dictionary are: 010190-10001; 15068512347; 290200-21001The number formats that do not trigger the dictionary are: 290200/21001; 29.02.00.21001 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Latvian personal ID is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:personas kods; Latvijas personas kods; personas kods Latvijā; personas koda numurs; personas koda; Latvian personal code; Latvia personal code; Latvian Personal Code; Latvian personal ID code; Latvia personal identification number; Personas kods:; Personas kods- | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: personas kods; 010190-10001; 15068512347The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Latvijas personas kods; 010190-10005 (Invalid checksum); 011390-10006 (Valid checksum; incorrect month >12) |
+
+This dictionary detects the Romanian Personal Identification Numbers, also known as the Personal Numerical Code.
+
+The popular format is `S YY MM DD JJ NNN C`, a 13-digit unique identifier (for example, 7991231520017) where:
+
+- S = Gender or Century code (1–9; cannot be 0)
+- YY = Birth year (00–99)
+- MM = Birth month (01–12)
+- DD = Birth day (01–31)
+- JJ = County code (01–52 or 99)
+- NNN = Individual unquie sequence (000–999)
+- C = Checksum digit
+
+This dictionary uses *Mod 11* checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Romanian personal identification numbers are in a popular format. | The number formats that can trigger the dictionary are: 6010101529990; 7991231520017The number formats that do not trigger the dictionary are: 19605234211411; 19605234211 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Romanian personal identification number is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *cnp#*, *cnp*,*cod identificare personal*,*cod numeric personal*,*cod unic identificare*,*codnumericpersonal#*, or*codul fiscal nr*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: cnp 6010101529990; cnp# 7991231520017The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 6010101529990; 19605234211 |
+
+This dictionary detects the Venezuelan Personal Identification Number.
+
+The popular format is an 8-digit number with a period `(.)` as a delimiter. For example, 51.833.451.
+
+The first digit of the personal ID cannot be `0`.
+
+This dictionary does not use a checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Venezuelan personal ID are in a popular format. | The number formats that can trigger the dictionary are: 25.618.268; 43.257.181The number formats that do not trigger the dictionary are: 43257181; 25.6182.68 |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Venezuelan personal ID is accompanied by any of the dictionary’s default or custom high confidence phrases. For example, *numero de cédula*,*cédula de identidad*,*cédula única de identidad*, or *cui*. | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: cui 25.618.268; numero de cédula 43.257.181The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: 25.618.268; numero de cédula 432.571.81 |
+
+This dictionary detects Portugal's Social Security Number (SSN).
+
+The popular format is a single 11-digit number with no spaces, dashes, or other separators and the last digit is the checksum. For example, 12345678902.
+
+This dictionary uses the *Mod 10* checksum.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Portugal SSN is in a popular format and checksum validation. | The number formats that can trigger the dictionary are: 21345678906; 14378256904; 73829164506; 53124867209; 82461573807; 46039518275; 11122233301The number formats that do not trigger the dictionary are: 12345 678902; 53124867203; 10000000001A |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Portugal SSN is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:nic; portugal bi number; niss; nic#; niss#; número de identificação civil; documento de identidade; número de cartão de cidadão; bilhete de identidade; civil id no; número nacional de identificação; documento de identificação; número bi de portugal; número de identificação de segurança social; número do documento | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: número bi de portugal82461573807; número de identificação segurança so 14378256904The number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: NISS 53124867203; niss# 10000000000 |
+
+This dictionary detects the Czech Republic Personal Identification Number. It is also known as the rodné číslo (birth number).
+
+The popular format is a unique 9- or 10-digit code:
+
+- 9 digits for people born before 1954. For example, YYMMDD/NNN or YYMMDDNNN.
+- 10 digits for people born on or after January 1, 1954. For example, YYMMDD/NNNN or YYMMDDNNNN.
+
+where:
+
+- YY = Year of birth
+- MM = Month of birth For women, number 50 added to the month's value. For example, the code for January is 51.
+- DD = Day of birth
+- NNN/NNNN = Individual unique suffix (NNN for a 9-digit code and NNNN for a 10-digit code).
+
+This dictionary only validates checksum for a 10-digit personal ID. If the 10-digit ID is divisible by 11, the checksum is valid.
+
+There is no checksum required for a 9-digit personal ID.
+
+The following table lists the Confidence Score Threshold criteria for this dictionary. You can modify the [Confidence Score Threshold](https://help.zscaler.com/zia/editing-predefined-dlp-dictionaries#confidence).
+
+| Confidence Score | Threshold Criteria | Examples of Data |
+| --- | --- | --- |
+| **Medium** | The dictionary counts an instance as a violation if the Czech Republic personal ID is in a popular format and the checksum is valid for the 10-digit ID. | The number formats that can trigger the dictionary are: 9082121246 (10-digit); 907112/1235 (10-digit); 515312/123 (9-digit); 407212/123 (9-digit)The number formats that do not trigger the dictionary are: 90 82 121246 (not in popular format); 907112/1234 (10-digit ID, not divisible by 11); 907143/1235 (10-digit ID, incorrect date); 90-71-12/1235 (not in popular format); 40-81-12123 (not in popular format) |
+| **High** | The dictionary counts an instance as a violation if: The requirements of Medium Confidence are met.; The Czech Republic personal ID is accompanied by any of the dictionary’s default or custom high confidence phrases. For example:pojištění číslo; personal identification number; tin id; ssn#; identifikační číslo; taxidnumber#; insurance number; tax no; pid#; taxidno#; taxnumber#; identityno; identity number; tin no; birth number; national identification number; czechidno#; identityno#; tax identification no; pid; tax no#; taxno#; personal number; personal id number; rč; ssn; tax id; tax registration number; nationalnumber#; national number; taxid#; social security number; tax number; czech republic id; tin#; personalidnumber#,; průkaz totožnosti; taxnumber osobní identifikační číslo; czechidno; daňové číslo; osobní číslo; unique identification number; rodné číslo; tax identification number; identity no | The number formats that can trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Need examplesThe number formats that do not trigger the dictionary if accompanied by any of the dictionary’s default or custom high confidence phrases are: Need examples |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6882,13 +7095,13 @@ For example, you create and start a scan for a file sharing tenant on May 1, 202
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-09-25T03:05Z","nid":"1529918"} -->
+<!-- ZS-ARTICLE {"url":"/zia/understanding-saas-security-supported-capabilities","lastmod":"2026-11-20T02:34Z","nid":"1529918"} -->
 ## Understanding SaaS Security Supported Capabilities
 
 - Source: https://help.zscaler.com/zia/understanding-saas-security-supported-capabilities
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > SaaS Security > SaaS Application Tenants > Understanding SaaS Security Supported Capabilities
-- Last modified: 2026-09-25T03:05Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Understanding SaaS Security Supported Capabilities
+- Last modified: 2026-11-20T02:34Z
 - Summary: Information on the supported administrative capabilities and actions for all SaaS Security apps.
 
 This article lists the supported administrative capabilities and actions for all SaaS Security applications:
@@ -6932,6 +7145,7 @@ The following is a list of supported activities for SaaS Security applications:
 - Email Apps
 - CRM Apps
 - ITSM Apps
+- Gen AI Apps
 
 | Application | Onboarding Privileges | Webhooks | Historical Scan | Malware Support | Incident Management (Workflow Automation) | Activity Alerts and Monitoring | Licensing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -6980,7 +7194,8 @@ The following is a list of supported activities for SaaS Security applications:
 
 | Application | Onboarding Privileges | Webhooks | Historical Scan | Malware Support | Incident Management (Workflow Automation) | Activity Alerts and Monitoring | Licensing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ChatGPT | Admin | Not Supported | 6 years | Supported | Supported | Not Supported | Not Supported |
+| ChatGPT | Admin | Not Supported | 1 month | Supported | Supported | Not Supported | ChatGPT Enterprise |
+| Claude | Admin | Not Supported | 6 years | Supported | Supported | Supported | Claude Enterprise |
 
 | Application | Scan Content | Automatic Remediation Actions | Manual Remediation Actions | Malware Actions | Watermarking |
 | --- | --- | --- | --- | --- | --- |
@@ -7029,7 +7244,8 @@ The following is a list of supported activities for SaaS Security applications:
 
 | Application | Scan Content | Automatic Remediation Actions | Manual Remediation Actions | Malware Actions | Watermarking |
 | --- | --- | --- | --- | --- | --- |
-| ChatGPT | Messages, Files Uploaded, and Files Generated by ChatGPT | Report Incident | None | Report Malware | Supported |
+| ChatGPT | Messages, Files Uploaded, and Files Generated by ChatGPT | Report Incident | None | Report Malware | Not Supported |
+| Claude | Messages, Files Uploaded, and Files Generated by Claude | Remove; Report Incident | None | Remove Malware; Report Malware | Not Supported |
 
 | SaaS Application | Supported Activities For User Role | Supported Activities For Admin Role |
 | --- | --- | --- |
@@ -7072,6 +7288,10 @@ The following is a list of supported activities for SaaS Security applications:
 | --- | --- | --- |
 | AWS | Create; Delete; Download; Login Fail; Login Pass; Upload | NA |
 | GCP | Collaboration Change; Collaboration Revoked; Delete; Download; Edit; Login Fail; Login Pass; Risk Share; Upload | NA |
+
+| **SaaS Application** | **Supported Activities for User Role** | **Supported Activities for Admin Role** |
+| --- | --- | --- |
+| Claude | Upload; Create User | NA |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -7814,8 +8034,8 @@ Zscaler also exposes the API to update the information via third-party IdP vendo
 ## Understanding User Risk Score
 
 - Source: https://help.zscaler.com/zia/understanding-user-risk-score
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Advanced Threat Protection > Understanding User Risk Score
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Advanced Threat Protection > Understanding User Risk Score
 - Last modified: 2026-11-05T20:06Z
 - Summary: Information on the User Risk Score functionality, how User Risk Score is evaluated, and how customers can use it.
 
@@ -8806,8 +9026,8 @@ To use the default PAC file that is hosted by the Zscaler service:
 ## Using the Default Zscaler Kerberos PAC File
 
 - Source: https://help.zscaler.com/zia/using-default-zscaler-kerberos-pac-file
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Using the Default Zscaler Kerberos PAC File
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Using the Default Zscaler Kerberos PAC File
 - Last modified: 2026-11-13T20:06Z
 - Summary: How to use the default Kerberos PAC file to forward user traffic to the Zscaler service when using Kerberos authentication.
 
@@ -9763,8 +9983,8 @@ For the applications that support two levels of instance discovery, select the c
 ## Viewing or Restoring Policies and Configurations from a Restore Point
 
 - Source: https://help.zscaler.com/zia/viewing-restoring-policies-configurations-from-restore-point
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > Backup & Restore > Viewing or Restoring Policies and Configurations from a Restore Point
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > Viewing or Restoring Policies and Configurations from a Restore Point
 - Last modified: 2026-11-05T14:35Z
 - Summary: How to view or restore policies and configurations from a restore point in the Zscaler Admin Console.
 
@@ -9915,48 +10135,6 @@ When configuring the Sandbox policy, you also can enable AI Quarantine to analyz
 [Image: An unpatched, vulnerable report with the Threat Score, Zero Day Report, and Virus and Malware highlighted.] [Image: A patched, secure analysis with Threat Score, Regular Report, and Virus and Malware highlighted.]
 
 [Image: Machine Learning Analysis widget in the Sandbox Detail Report.]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/viewing-secure-browsing-reports","lastmod":"2026-10-07T21:44Z","nid":"1399841"} -->
-## Viewing Secure Browsing Reports
-
-- Source: https://help.zscaler.com/zia/viewing-secure-browsing-reports
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Policies > Browser Control > Viewing Secure Browsing Reports
-- Last modified: 2026-10-07T21:44Z
-- Summary: How to view Secure Browsing reports that track the use of vulnerable browsers, plugins, and applications.
-
-The Zscaler service has Secure Browsing reports, which you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your [Browser Control policy](https://help.zscaler.com/zia/configuring-browser-control-policy) if needed.
-
-## Viewing Secure Browsing Reports
-
-To view Secure Browsing reports:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**>**Interactive Reports**.
-2. On the **Standard Reports** tab, go to the **Secure Browsing** section to see the available browsing reports. See image.
-
-To learn more about Interactive Reports, see [About Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports).
-
-## Viewing Top Users with Vulnerable Browsers, Plugins, and Applications
-
-Additionally, on the Web Insights page, you can view a list of the top users with vulnerable browsers, plugins, and applications. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights).
-
-To view top users with vulnerable browsers, plugins, and applications:
-
-1. Go to **Data Explorer** > **Internet & SaaS** >**Web Insights**.
-2. Select the **Insights**tab.
-3. At the top, choose**User**as the **Data Type**.
-4. In the left pane, choose a time frame and chart type.
-5. Select the **Secure Browsing Status** filter, and then select **Vulnerable**.
-6. Click **Apply Filters**.
-
-The service lists users who are using vulnerable browsers, plugins, and applications for which you set warnings. <a class="image-icon" href="#web-insights">See image.</a>
-
-[Image: Secure Browsing reports section under Standard Reports tab]
-
-<div class="subc"> <p> <a class="ck-anchor" id="web-insights"></a><img src="/downloads/zia/policies/browser-control/viewing-secure-browsing-reports/Internet-SaaS-Web-Insights-Page-Secure-Browsing-Status.png" data-entity-uuid="0" data-entity-type="image" alt="Secure Browsing Status filter for list of top users with vulnerable browsers" title="Secure Browsing Status Filter with Vulnerable" width="1593" height="929"> </p> </div>
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10537,2424 +10715,4 @@ To restart the Virtual Service Edge:
 [Image: Serial Console window]
 
 [Image: Serial Console window]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/web-data-types-and-filters","lastmod":"2026-10-30T02:08Z","nid":"1399471"} -->
-## Web Data Types and Filters
-
-- Source: https://help.zscaler.com/zia/web-data-types-and-filters
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Web Data Types and Filters
-- Last modified: 2026-10-30T02:08Z
-- Summary: Information on web data types and filters to define web traffic information in a dashboard, report widget, or when analyzing charts in Web Insights.
-
-There are two ways you work with web data types and filters to define the web traffic information that you want to view: in a dashboard or report [widget](https://help.zscaler.com/zia/about-widgets), or when analyzing charts on an Insights page. To learn more about how to analyze your Insights traffic, see [Analyzing Traffic Using Insights](https://help.zscaler.com/zia/analyzing-traffic-using-insights).
-
-When you add or edit a widget in a [dashboard](https://help.zscaler.com/zia/about-dashboards) or [report](https://help.zscaler.com/zia/about-interactive-reports) and select **Web**in the Widget Settings window, you select a data type to view from the **Data Type** drop-down menu and apply filters that you choose from the **Add Filter** drop-down menu.
-
-See image.
-
-On the [Web Insights page](https://help.zscaler.com/zia/about-insights), select a data type to view from the menu above the chart and apply filters that you choose from the **Select Filters** menu on the left side.
-
-See image.
-
-[Image: New Widget Window Data Type and Filters Menus]
-
-[Image: Web Insights Data Type and Filters Menus]
-
-The **User**, **Department**, and **Location**filters list 200 results at a time. They provide search fields where you can enter a few characters and the results narrow down to match your input until you find what you want.
-
-## Data Types and Filters
-
-Certain filters, likeUsers, Departments, Locations, and others, support the selection of multiple values. For these, you can select up to 200 values in a single filter. You can also choose to include or exclude the selected values.
-
-There are certain filter combinations that don't appear together in Insights, but appear together in [Insights Logs](https://help.zscaler.com/zia/about-insights-logs). For example, the **Department**and **Location**filters don't appear together in Insights, but appear together in Insights Logs when applied.
-
-Certain data types only appear on the Web Insights page and not on the Dashboard > New Widget window.
-
-The following are the Web data types and their associated filters that appear in both locations:
-
-- Advanced Threat Category
-- Application Segment
-- Bandwidth by Data Center
-- Bandwidth by Department
-- Bandwidth by Location
-- Bandwidth by Location Groups
-- Bandwidth by Rule
-- Bandwidth Class
-- Bandwidth Consumption
-- Client Side Cipher
-- Client Side TLS Version
-- Cloud Application
-- Cloud Application Class
-- DLP Dictionary
-- DLP Engine
-- DLP Rule Name
-- Download File Type
-- File Share Activity
-- IM Activity
-- Isolation Policy Reason
-- Location Group
-- Location Type
-- Overall Traffic
-- Protocol
-- Response HTTP Version
-- Sandbox
-- Sandbox Action
-- Secure Browsing Class
-- Secure Browsing Status
-- Secure Browsing Type
-- Server Side Cipher
-- Server Side TLS Version
-- Social Networking Activity
-- Streaming Activity
-- Threat Category
-- Threat Class
-- Threat Super Category
-- Traffic Direction
-- Upload File Type
-- URL Category
-- URL Class
-- URL Super Category
-- Policy Action
-- Webmail Activity
-
-The following are the web data types that only appear on the Web Insights page:
-
-- Client External IP
-- Client IP
-- Department
-- Domain
-- Location
-- PQC vs. Classical Key Exchange
-- Server IP
-- Threat Name
-- Top Client PQC Key Exchange
-- Top Users with PQC Key Exchange
-- URL Host
-- User
-- User Agent
-
-Displays data about advanced threats that the service detected in your organization's web traffic. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view transactions in which advanced threats were detected. These advanced threats are detected by **Advanced Threat Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPs added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Use this filter to see the protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS (ZIA) IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
-  - All
-  - Allow
-  - Block
-
-Displays data about traffic associated with each application segment. You can apply the following filters:
-
-- **Application Segment**: Use this filter to view data about traffic for a specific application segment.
-- **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
-  - All
-  - Allow
-  - Block
-- **Protocol:**Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-
-Displays data about a data center's bandwidth. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Department**: Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about a department's bandwidth. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Department**: Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about a location's bandwidth usage. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Location**:Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can choose to include or exclude certain locations and sublocations.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about a location group's bandwidth usage. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Department**:Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**:Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays bandwidth data for each rule in the Bandwidth Control policy. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Department**: Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**:Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays bandwidth usage in bits-per-second (bps) for each bandwidth class. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Department**:Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**:Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays information on the internet gateway location IP addresses. You can view this information by number of transactions, bytes, or time.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays source IP address information, either the internet gateway location IP address or the IP address of the client device. You can view this information by number of transactions, bytes, or time.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays a 7-day view of your organization's bandwidth usage in a trend chart. You can drill down to a 5-minute view. You can apply the following filters:
-
-- **Bandwidth Action**: Use this filter to limit the data to throttled traffic. The default option for this filter is **Total**. You can search for specific actions. The following actions appear under this filter:
-  - Throttled
-  - Total
-- **Bandwidth Rule**: Use this filter to limit the data to specific rules in the [Bandwidth Control](https://help.zscaler.com/zia/about-bandwidth-control) policy. The default option for this filter is **All**. You can search for specific rules.
-- **Department**: Use this filter to limit the data to a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**:Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays cipher suites used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection.
-
-- **Client Connection Ciphers:** Use this filter to limit the data based on the cipher suites used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection. The default option for this filter is **None**. You can search for specific suites.
-
-The cipher suite names are listed in OpenSSL format. To view them in RFC format, use this [link](https://testssl.sh/openssl-iana.mapping.html) to map between the two notations.
-
-- **Protocol:**Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Policy Action:** Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays the versions of SSL used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection.
-
-- **Client Connection TLS Version**: Use this filter to limit the data based on the version of SSL used on the client side (client to Public Service Edge for Internet & SaaS) of the SSL connection. The default option for this filter is **None**. You can search for specific versions. The following versions appear under this filter:
-  - SSL 2.0
-  - SSL 3.0
-  - TLS 1.0
-  - TLS 1.1
-  - TLS 1.2
-  - TLS 1.3
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Policy Action:** Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data for social media applications.
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific application class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain applications.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-
-The Miscellaneous <Cloud Application Category> Apps (e.g., Miscellaneous Finance Apps) represent the newly added lesser-known predefined applications for a category (e.g., Finance). Selecting this option shows the cumulative data associated with all the applications grouped inside it.
-
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain applications. The following classes appear under this filter:
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - Human Resources
-  - Instant Messaging
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol:**Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **Streaming Activity**: Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-- **Webmail Activity**: Use this filter to view transactions associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail** **Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays web traffic data grouped by application class.
-
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain cloud application classes. The following classes appear under this filter:
-  - Administration
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - General Browsing
-  - Hosting Providers
-  - Human Resources
-  - Instant Messaging
-  - IT Services
-  - Peer-to-Peer
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-  - Web Search
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol:**Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about transactions in which data leakage was detected. The data are grouped according to the DLP (Data Loss Prevention) dictionaries that were used to detect data loss. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **DLP Dictionary**: Use this filter to see which transactions contain this dictionary as a trigger. If a dictionary is triggered, the name of the dictionary is displayed along with a match count indicating the search score or match count for this dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about transactions in which data leakage was detected. The data is grouped according to the DLP (Data Loss Prevention) engines that were used to detect data loss. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **DLP Engine**: Use this filter to limit the data to a specific DLP engine. The default option for this filter is **Any**. You can search for specific DLP engines.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays the unique name of the Data Loss Prevention (DLP) rule that matched or triggered the transaction. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. You can choose to include or exclude certain departments.
-- **DLP Rule Name**: Use this filter to search for transactions by the unique name of the DLP rule that triggered the match.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
-  - All
-  - Allow
-  - Block
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about the web traffic of each department in your organization.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays data grouped by domain. The unit **Time** appears, and you can select it to view the duration of time spent on each URL.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays web traffic data grouped by the downloaded file type.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Download File Type**: Use this filter to view data for a specific downloaded file type. The default option is **Any**.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data associated with file sharing activities. You can apply the following filters:
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain cloud applications.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. Use the Search function to find a specific location. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol:**Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. This data type uses only the unit **Bytes**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data grouped by the Response HTTP version. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Response HTTP Version**: Use this filter to limit the data to the Response HTTP Version. The default option for this filter is **None**. The following versions appear under this filter:
-  - 1.0
-  - 1.1
-  - 2.0
-  - None
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about the web traffic of instant messaging applications. The trend chart does not support this data type. You can apply the following filters:
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain cloud applications.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. Use the Search function to find a specific location. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about the web traffic of your organization's locations.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays data about the web traffic of your organization’s location group. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view data for a specific advanced threat that was detected by the service. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPss added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Cloud Application**: Use this filter to limit the data to a specific application, such as Facebook. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain apps. To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain cloud app classes. The following classes appear under this filter:
-  - Administration
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - General Browsing
-  - Hosting Providers
-  - Human Resources
-  - Instant Messaging
-  - IT Services
-  - Peer-to-Peer
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-  - Web Search
-- **DLP Dictionary**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
-- **DLP Engine**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP engine. The default option for this filter is **Any**. You can search for specific DLP engines.
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **Streaming Activity**: Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **All**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions
-  - **Block**: View blocked transactions
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays data about the web traffic of your organization's location type. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view data for a specific advanced threat that was detected by the service. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPss added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Cloud Application**: Use this filter to limit the data to a specific application, such as Facebook. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain apps. To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain cloud app classes. The following classes appear under this filter:
-  - Administration
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - General Browsing
-  - Hosting Providers
-  - Human Resources
-  - Instant Messaging
-  - IT Services
-  - Peer-to-Peer
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-  - Web Search
-- **DLP Dictionary**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
-- **DLP Engine**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP engine. The default option for this filter is **Any**. You can search for specific DLP engines.
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to a specific location. The default option for this filter is **All**. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Sandbox**: Use this filter to view file downloads based on the Sandbox result. The default option for this filter is **None**. You can search for specific results. The following results appear under this filter:
-  - **Sandbox Adware**:View known malicious results. This category refers to any malicious file sample installing persistent components to push advertising content to the user’s device. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**:View known malicious results. This category refers to any malicious file sample exhibiting behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Benign**:View known non-malicious results. This is a catchall category for any non-malicious file sample with a Sandbox Threat Score equal to or less than 70. The Zscaler service refers to file samples that have a score between 40 and 70 as “suspicious” because they might need additional review.
-  - **Sandbox Malware**:View known malicious results. This is a catchall category for any malicious file sample that doesn't fall under the other Sandbox categories. Most Sandbox-classified file samples aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sent for Analysis**: View unknown results that have been sent to the Sandbox for behavioral analysis.
-- **Sandbox Action**:
-  - Blocked
-  - Quarantined
-  - Sent for Analysis
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All Publish View
-- **Streaming Activity**: Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **Upload File Type**: Use this filter to view data for a specific uploaded file type. The default option is **Any**.
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **All**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays data about the overall web traffic for the selected time period. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view transactions in which advanced threats were detected. These advanced threats are detected by **Advanced Threat Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPss added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Cloud Application**: Use this filter to view transactions associated with a specific application class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain applications.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain applications. The following classes appear under this filter:
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - Human Resources
-  - Instant Messaging
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. You can choose to include or exclude certain departments.
-- **DLP Dictionary**: Use this filter to see which transactions contain this dictionary as a trigger. If a dictionary is triggered, the name of the dictionary is displayed along with a match count indicating the search score or match count for this dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
-- **DLP Engine**: Use this filter to limit the data to a specific DLP engine. The default option for this filter is **Any**. You can search for specific DLP engines.
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **Response HTTP Version**: Use this filter to limit the data to the ResponseHTTP Version. The default option for this filter is **None**. The following versions appear under this filter:
-  - 1.0
-  - 1.1
-  - 2.0
-  - None
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Use this filter to see the protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Sandbox**: Use this filter to view file downloads based on the Sandbox result. The default option for this filter is **None**. You can search for specific results. The following results appear under this filter:
-  - **Sandbox Adware**:View known malicious results. This category refers to any malicious file sample installing persistent components to push advertising content to the user’s device. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**:View known malicious results. This category refers to any malicious file sample exhibiting behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Benign**:View known non-malicious results. This is a catchall category for any non-malicious file sample with a Sandbox Threat Score equal to or less than 70. The Zscaler service refers to file samples that have a score between 40 and 70 as “suspicious” because they might need additional review.
-  - **Sandbox Malware**:View known malicious results. This is a catchall category for any malicious file sample that doesn't fall under the other Sandbox categories. Most Sandbox-classified file samples aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sent for Analysis**: View unknown results that have been sent to the Sandbox for behavioral analysis.
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **Secure Browsing Type**: Use this filter to limit the data to web traffic associated with a specific browser, plug-in or application. This filter cannot be used in a trend chart. The default option for this filter is **Any**. You can search for specific types. The following types appear under this filter:
-  - .NET
-  - Adblock Plus
-  - Add N Edit Cookies add-on
-  - Adobe Acrobat
-  - Adobe Flash (swf)
-  - AIR
-  - Arora
-  - BitComet
-  - BitTorrent
-  - Camino
-  - Chrome
-  - DivX
-  - Epiphany
-  - Firebug
-  - Firefox
-  - Flash Lite
-  - Flock
-  - Galeon
-  - Google Gears
-  - Google Toolbar
-  - GreaseMonkey
-  - HotJava
-  - iCab
-  - IE Tab
-  - IE View
-  - Internet Explorer
-  - Internet Explorer or Avant
-  - Java
-  - JS View
-  - K-Meleon
-  - Konquerer
-  - Live HTTP Headers
-  - Lunascape
-  - Maxthon
-  - Microsoft Office
-  - Microsoft Silverlight
-  - Mobile Firefox
-  - Mobile IE
-  - Mobile Mozilla
-  - Mobile Opera
-  - Mobile Safari
-  - Netscape
-  - OmniWeb
-  - Opera
-  - Outlook Express
-  - Pando
-  - Prism
-  - QuickTime
-  - RealPlayer
-  - Safari
-  - SeaMonkey
-  - Shiira
-  - Shockwave
-  - Skyfire
-  - Skype
-  - Sleipner
-  - Songbird
-  - spooFX
-  - Strata
-  - StumbleUpon
-  - Switch Proxy
-  - Sylera
-  - Tor
-  - Torbutton
-  - Torrent-Search
-  - Totem
-  - Unrecognized Gecko-based
-  - User Agent Switcher
-  - Windows Media Player
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **Streaming Activity**: **(in current docs, listed as Streaming & File Sharing Activity).**Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **All**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
-  - All
-  - Allow
-  - Block
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays a comparison between (Post-Quantum Cryptography) PQC vs. classical key exchange for web traffic. The following categories appear under this filter:
-
-- **Classical**: Click to view all transactions where the Client Key Exchange filter has either Classical or Unknown type set.
-- **PQC**: Click to view all transactions where the Client Key Exchange has either PQC or the Hybrid type set.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays client-side negotiated PQC or Hybrid key exchange algorithms, ranked by their frequency.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays users who could negotiate PQC or Hybrid key exchange algorithms, ranking them by their transaction count.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays data about the protocols of web traffic. You can apply the following filters:
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain classes. The following classes appear under this filter:
-  - Administration
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - General Browsing
-  - Hosting Providers
-  - Human Resources
-  - Instant Messaging
-  - IT Services
-  - Peer-to-Peer
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-  - Web Search
-- **File Share Activity**: Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **Streaming Activity**: Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **Any**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays data about the Windows executable files, DLLs (dynamic link libraries) and other files that the service analyzed.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Sandbox**: Use this filter to view file downloads based on the Sandbox result. The default option for this filter is **None**. You can search for specific results. The following results appear under this filter:
-  - **Sandbox Adware**:View known malicious results. This category refers to any malicious file sample installing persistent components to push advertising content to the user’s device. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**:View known malicious results. This category refers to any malicious file sample exhibiting behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Benign**:View known non-malicious results. This is a catchall category for any non-malicious file sample with a Sandbox Threat Score equal to or less than 70. The Zscaler service refers to file samples that have a score between 40 and 70 as “suspicious” because they might need additional review.
-  - **Sandbox Malware**:View known malicious results. This is a catchall category for any malicious file sample that doesn't fall under the other Sandbox categories. Most Sandbox-classified file samples aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sent for Analysis**: View unknown results that have been sent to the Sandbox for behavioral analysis.
-- **Sandbox Category**:
-  - Malicious
-  - Non malicious
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data grouped according to transactions that were allowed or blocked due to the Sandbox policy.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Sandbox Action**:
-  - Blocked
-  - Quarantined
-  - Sent for Analysis
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays web traffic data by Secure Browsing class. It only uses samples as its data unit.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about web traffic from all installed browsers, plug-ins and applications, and from installed browsers, plug-ins and applications that the service considers vulnerable. It only uses samples as its data unit.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **Secure Browsing Type**: Use this filter to limit the data to web traffic associated with a specific browser, plug-in or application. This filter cannot be used in a trend chart. The default option for this filter is **Any**. You can search for specific types. The following types appear under this filter:
-  - .NET
-  - Adblock Plus
-  - Add N Edit Cookies add-on
-  - Adobe Acrobat
-  - Adobe Flash (swf)
-  - AIR
-  - Arora
-  - BitComet
-  - BitTorrent
-  - Camino
-  - Chrome
-  - DivX
-  - Epiphany
-  - Firebug
-  - Firefox
-  - Flash Lite
-  - Flock
-  - Galeon
-  - Google Gears
-  - Google Toolbar
-  - GreaseMonkey
-  - HotJava
-  - iCab
-  - IE Tab
-  - IE View
-  - Internet Explorer
-  - Internet Explorer or Avant
-  - Java
-  - JS View
-  - K-Meleon
-  - Konquerer
-  - Live HTTP Headers
-  - Lunascape
-  - Maxthon
-  - Microsoft Office
-  - Microsoft Silverlight
-  - Mobile Firefox
-  - Mobile IE
-  - Mobile Mozilla
-  - Mobile Opera
-  - Mobile Safari
-  - Netscape
-  - OmniWeb
-  - Opera
-  - Outlook Express
-  - Pando
-  - Prism
-  - QuickTime
-  - RealPlayer
-  - Safari
-  - SeaMonkey
-  - Shiira
-  - Shockwave
-  - Skyfire
-  - Skype
-  - Sleipner
-  - Songbird
-  - spooFX
-  - Strata
-  - StumbleUpon
-  - Switch Proxy
-  - Sylera
-  - Tor
-  - Torbutton
-  - Torrent-Search
-  - Totem
-  - Unrecognized Gecko-based
-  - User Agent Switcher
-  - Windows Media Player
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays data about web traffic associated with specific browsers, plug-ins and applications. It only uses samples as its data unit. This data type cannot be used with a trend chart.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Secure Browsing Class**: Use this filter to limit the data to web traffic associated with a specific Secure Browsing class. The default option for this filter is **Any**. You can search for specific classes. The following classes appear under this filter:
-  - Applications
-  - Browsers
-  - Plugins and Extensions
-- **Secure Browsing Status**: Use this filter to limit the data to web traffic from all installed browsers, plug-ins and applications, or only from installed browsers, plug-ins and applications that the service considers vulnerable. The default option for this filter is **Any**. You can search for specific statuses. The following statuses appear under this filter:
-  - Any
-  - Installed
-  - Vulnerable
-- **Secure Browsing Type**: Use this filter to limit the data to web traffic associated with a specific browser, plug-in or application. This filter cannot be used in a trend chart. The default option for this filter is **Any**. You can search for specific types. The following types appear under this filter:
-  - .NET
-  - Adblock Plus
-  - Add N Edit Cookies add-on
-  - Adobe Acrobat
-  - Adobe Flash (swf)
-  - AIR
-  - Arora
-  - BitComet
-  - BitTorrent
-  - Camino
-  - Chrome
-  - DivX
-  - Epiphany
-  - Firebug
-  - Firefox
-  - Flash Lite
-  - Flock
-  - Galeon
-  - Google Gears
-  - Google Toolbar
-  - GreaseMonkey
-  - HotJava
-  - iCab
-  - IE Tab
-  - IE View
-  - Internet Explorer
-  - Internet Explorer or Avant
-  - Java
-  - JS View
-  - K-Meleon
-  - Konquerer
-  - Live HTTP Headers
-  - Lunascape
-  - Maxthon
-  - Microsoft Office
-  - Microsoft Silverlight
-  - Mobile Firefox
-  - Mobile IE
-  - Mobile Mozilla
-  - Mobile Opera
-  - Mobile Safari
-  - Netscape
-  - OmniWeb
-  - Opera
-  - Outlook Express
-  - Pando
-  - Prism
-  - QuickTime
-  - RealPlayer
-  - Safari
-  - SeaMonkey
-  - Shiira
-  - Shockwave
-  - Skyfire
-  - Skype
-  - Sleipner
-  - Songbird
-  - spooFX
-  - Strata
-  - StumbleUpon
-  - Switch Proxy
-  - Sylera
-  - Tor
-  - Torbutton
-  - Torrent-Search
-  - Totem
-  - Unrecognized Gecko-based
-  - User Agent Switcher
-  - Windows Media Player
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-
-Displays information associated with a destination server. You can view this information by number of transactions, bytes, or time.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays the cipher suites used on the server side (Public Service Edge for Internet & SaaS to server) of the SSL connection.
-
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Server Connection Ciphers**:Use this filter to limit the data to the cipher suites used on the server side (Public Service Edge for Internet & SaaS to server) of the SSL connection. The default option for this filter is **None**. You can search for specific suites.
-
-The cipher suite names are listed in OpenSSL format. To view them in RFC format, use this [link](https://testssl.sh/openssl-iana.mapping.html) to map between the two notations.
-
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays the versions of SSL used on the server side (Public Service Edge for Internet & SaaS to server) of the SSL connection.
-
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Server Connection TLS Version**: Use this filter to limit the data to the version of SSL used on the server side (Public Service Edge for Internet & SaaS to server) of the SSL connection. The default option for this filter is **None**. You can search for specific versions. The following versions appear under this filter:
-  - SSL 2.0
-  - SSL 3.0
-  - TLS 1.0
-  - TLS 1.1
-  - TLS 1.2
-  - TLS 1.3
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about web traffic associated with the access and usage of social networking sites. The trend chart does not support this data type. You can apply the following filters:
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions
-  - **Block**: View blocked transactions.
-
-Displays data about the web traffic associated with the access and usage of streaming media sites. The trend chart does not support this data type. You can apply the following filters:
-
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Streaming Activity**: Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions
-  - **Block**: View blocked transactions.
-
-Displays data about detected viruses or spyware. The trend chart does not support this data type. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Super Category**: Use this filter to limit the data to a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about the threats that the service detected in the web traffic of your organization. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about the top threat names.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays data about the detected viruses and spyware for each virus and spyware super category. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays data about the web traffic of each HTTP request method. It displays data for HTTP GET requests to retrieve data and POST requests to submit data to be processed. POST requests include email that was sent through webmail or posted on a social networking site or blog. This data type uses only the unit **Bytes**. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view transactions in which advanced threats were detected. These advanced threats are detected by **Advanced Threat Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPss added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Cloud Application**: Use this filter to view transactions associated with a specific app class. The default option for this filter is **Any**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain classes. The following classes appear under this filter:
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - Hosting Providers
-  - Human Resources
-  - Instant Messaging
-  - IT Services
-  - Peer-to-Peer
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-  - Web Search
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to limit the data to advanced threats detected in web traffic that was either allowed or blocked by the service. The default option for this filter is **All**. You can search for specific actions. The following actions appear under this filter:
-  - All
-  - Allow
-  - Block
-
-Displays web traffic data grouped by the uploaded file type.
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Upload File Type**: Use this filter to view data for a specific uploaded file type. The default option is **Any**.
-- **User**: Use this filter to limit the data to the bandwidth usage of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions. This is the default option.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data grouped by URL category. The trend chart does not support this data type. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **Any**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**:Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data grouped by [URL class](https://help.zscaler.com/zia/about-url-categories). You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data grouped by host. The unit **Time** appears, and you can select it to view the duration of time spent on each URL.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays web traffic data grouped by URL super category. You can apply the following filters:
-
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**:Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-
-Displays web traffic data organized by user. The trend chart does not support this data type. Additional filters are available in **Web insights** only.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays web traffic associated with the unknown user-agent strings that the browser included in its GET request. The user-agent string contains browser and system information that the destination server can use to provide appropriate content. This allows you to see potential malicious activity coming from unknown use agents.
-
-To view the full filter list, see [Web Insights Logs: Filters](https://help.zscaler.com/zia/web-insights-logs-filters).
-
-Displays web traffic data grouped according to transactions that were allowed or blocked. You can apply the following filters:
-
-- **Advanced Threat Category**: Use this filter to view data for a specific advanced threat that was detected by the service. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Adware/Spyware Sites**: This category refers to any detections of websites known to contain adware or spyware based on the URL or IP reputation. The URLs or IPss added in this category would be associated with distributing adware or spyware, which can collect information related to the user’s browsing activities and display unwanted advertisements without the user’s consent.
-  - **Any**
-  - **Botnet Callback**: This is the most important threat category because the Sandbox detects post-infection activity, which requires you to follow up and remediate. There are two types of detections: destination URL reputation and content IPS signature, which are both part of Advanced Threat Protection. URL reputation-based detections, especially those that match only a domain or even an IP address, are lower fidelity and have a lower chance of the affected endpoint actually being infected by a botnet agent. This is because some indicators detect when a user happens to visit a web destination that is known to serve or be associated with malicious botnet payloads or communication, so the user is protected from preinfection. The IPS signature-based detections generally match the botnet communication pattern or protocol, so they are more likely to signal that the affected endpoint is actually infected by a botnet agent.
-  - **Browser Exploit**: This category refers to any detections of known exploits against web browsers. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Cross-site Scripting**: This category refers to any detections that try to abuse an end user via a type of injection, in which malicious scripts are injected into benign and trusted websites. Cross-site scripting (XSS) attacks occur when an attacker uses a web application to send malicious code, typically through browser-side scripting, to a different end user. These detections are often IPS signature-based detections, so they are high fidelity.
-  - **Crypto Mining & Blockchain**: This category refers to any detections of crypto mining or crypto-jacking activity or sites associated with malicious cryptocurrency activity. General cryptocurrency websites and content aren't blocked by this category, but those that are designed to abuse user's devices without their consent via browser-based scripts that mine cryptocurrency. These detections are often IPS signature-based detections with the actual scripts hiding on or behind web pages, so they are high fidelity.
-  - **Domain Generation Algorithm (DGA) Domains**: This category refers to the domains that are suspected to be generated using domain generation algorithms (DGA). These algorithms are used in various malware families to periodically generate a large number of domain names that can be used by malware-infected devices to connect with command and control servers in order to circumvent the identification and shutting down of malicious domains.
-  - **Malicious Content**: This category refers to any detections of malware or websites known to host malware and other malicious content that isn't attributed to a specific threat type or category. The detection capabilities in this category are often based upon various signature types and patterns, such as URL reputation, IPS signatures, etc.
-  - **Other Threat**: This is a catchall category for any detections that might not have an appropriate mapping to a specific category.
-  - **Peer-to-Peer**: This category refers to any detections of peer-to-peer traffic via applications such as BitTorrent, Tor, and other anonymizer or file sharing applications. These applications can be across any port. You also must have a Firewall for the Zscaler service to detect and block these applications.
-  - **Phishing**: This category is one of the most powerful detection capabilities in the Advanced Threat Protection policy. It refers to any detections that are both URL reputation and IPS content signature-based. The ThreatLabZ operations team focuses on writing new phishing IPS signatures based on the patterns discovered and extracted from the phishing attacks observed by the Zscaler service and outside threat intelligence sources and partners. ThreatLabZ proactively scans and reviews all newly registered domains to discover new phishing and credential-stealing URLs and ensure phishing IPS signature coverage for any new phishing patterns.
-  - **Spyware Callback**: This category refers to any detections of communication and callback traffic associated with spyware agents and data transmission. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-  - **Suspicious Content**: This category refers to any detections from the Suspicious Content Protection (PageRisk) engine. You can configure the Zscaler service to block users from accessing web pages with a high [Page Risk Index (PRI) score](https://help.zscaler.com/zia/configuring-advanced-threat-protection-policy#pagerisk). The Zscaler service analyzes malicious content on a web page (e.g, injected scripts, vulnerable ActiveX, zero-pixel iFrames, etc.) and creates a Page Risk Index. The service also analyzes data from the domain (e.g., hosting country, domain age, past results, links to high-risk top-level domains, etc.) and creates a Domain Risk Index. The Page Risk and Domain Risk Index are combined to produce a single PRI score. This score is then evaluated against the value you set.
-  - **Suspicious Destination**: This category refers to any detections of internet activity destined for specific countries where the website IP address is geographically located and hosted from. This detection is based on the countries you decide to block access to in your policies.
-  - **Unauthorized Communication**: This category refers to any detections of unauthorized, tunneling, or anonymizer traffic such as IRC traffic, SSH tunneling, Tor anonymizer traffic, etc. The Zscaler service detects this content via specialized IPS content signatures that match the traffic patterns associated with this kind of communication.
-  - **Web Spam**: This category refers to any URL detections from web-based email spam scams and specific phishing attacks within web email content. The Zscaler service detects this content using high-fidelity IPS signatures that match content patterns in web traffic.
-- **Cloud Application**: Use this filter to limit the data to a specific application, such as Facebook. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Cloud Application Class**: Use this filter to limit the data to applications in a specific application class. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain classes. The following classes appear under this filter:
-  - Collaboration and Online Meetings
-  - Consumer
-  - DNS over HTTPS Services
-  - File Sharing
-  - Human Resources
-  - Instant Messaging
-  - Productivity and CRM Tools
-  - Sales & Marketing
-  - Social Networking
-  - Streaming Media
-  - System & Development
-  - Web Mail
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **DLP Dictionary**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP dictionary. The default option for this filter is **All**. You can search for specific DLP dictionaries.
-- **DLP Engine**: Use this filter to limit the data to data leakage detected by the service, based on a specific DLP engine. The default option for this filter is **Any**. You can search for specific DLP engines.
-- **File Share Activity**:Use this filter to view transactions associated with file sharing activities. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **File Sharing**. From the **File Sharing Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - With File Uploads Only
-  - Without File Uploads
-- **IM Activity**: Use this filter to view transactions associated with instant messaging applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Instant Messaging**. For the**IM Activity** filter, the default option is **Any**. You can search for specific activities. The following activities appear under the**IM Activity** filter:
-  - All
-  - Receive File
-  - Receive Message
-  - Send File
-  - Send Message
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **FTP**: Transactions from native FTP servers.
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel**: Transactions from unidentified encrypted traffic. For example, tunneling applications (e.g., Telnet or SSH) that are encapsulated in HTTP or HTTPS.
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **Social Networking Activity**: Use this filter to view transactions associated with social networking sites. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Social Networking**. From the **Social Networking Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the**Social Networking Activity** filter:
-  - All
-  - Publish
-  - View
-- **Streaming Activity**: **(in current docs, listed as Streaming & File Sharing Activity).**Use this filter to view transactions associated with streaming media. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Streaming Media**. From the **Streaming** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Streaming** **Activity**filter:
-  - All
-  - Listen
-  - Upload
-- **Threat Category**: Use this filter to view transactions associated with a specific threat category. These threats are detected by **Malware Protection**. The default option for this filter is **Any**. You can search for specific categories. The following categories appear under this filter:
-  - **Any**
-  - **Adware**: This category refers to any detections of adware-related installers or content through file reputation or signature matching (e.g., antivirus or YARA). Adware is software that persistently serves ads to the user and increases the risk of installing spyware or other unwanted software.
-  - **Archive Bomb**: This category refers to any detections of archive bomb-related content through file reputation or signature matching (e.g., antivirus). An archive bomb is a ZIP or other archive file that was small when compressed or recursively compressed/archived several times; however, when expanded, the file can become extremely large. It can overwhelm antivirus scanning engines or the user’s device by completely filling the hard disk or memory.
-  - **Backdoor**: This category refers to any detections of backdoor-related installer payloads or content through file reputation or signature matching (e.g., antivirus or YARA). Backdoors are software that allows attackers to gain remote network access to devices for future exploitation.
-  - **Benign**: This category refers to any clean file.
-  - **Boot Virus**: This category refers to any detections of viruses that embed themselves into the boot sectors of users' devices. The Zscaler service detects boot virus-related content through file reputation or signature matching (e.g., antivirus).
-  - **Dialer**: This category refers to any detections of dialer software that infects users' devices and enables outbound dialing for malicious purposes. The Zscaler service detects dialer-related content through file reputation or signature matching (e.g., antivirus).
-  - **Downloader**: This category refers to any detections of malware that downloads additional botnets or other malicious payloads on users' devices. The Zscaler service detects downloader-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Exploit**: This category refers to any detections of various exploits and exploit-related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Macro Virus**: This category refers to any detections of macro viruses and other related content through file reputation or signature matching (e.g., antivirus or YARA).
-  - **MalwareTool**: This category refers to any detections of malware tools used to generate viruses, exploits, or denial-of-service (DoS) attacks through file reputation or signature matching (e.g., antivirus).
-  - **Misdisinfection**: This category refers to any file detections that another security service tried to disinfect but failed to do so completely because there are traces of malware in the file. The Zscaler service detects this content through file reputation or signature matching (e.g., antivirus).
-  - **Other Malware**: This category refers to any malware detections that don't fit into the more specific malware categories. The Zscaler service detects other malware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Spyware**: This category refers to any spyware detections that don't fit into the more specific malware or spyware categories. The Zscaler service detects other spyware content through file reputation or signature matching (e.g., antivirus).
-  - **Other Virus**: This category refers to any viruses that don't fit into the more specific malware categories. The Zscaler service detects other viruses through file reputation or signature matching (e.g., antivirus).
-  - **Password Stealer**: This category refers to any detections of password-stealing payloads, installers, or related content through file reputation or signature matching (e.g., antivirus).
-  - **Privacy Risk**: This category refers to any detections of content, installers, or programs that are related to data exfiltration or attempt to access sensitive data. The Zscaler service detects privacy risks through file reputation or signature matching (e.g., antivirus).
-  - **Proxy**: This category refers to any malware detections that allow unauthorized connections to occur with the infected device. This type of malware allows a person to use the infected device to attack other devices, send spam, or impersonate your device. The Zscaler service detects proxy-related content through file reputation or signature matching (e.g., antivirus).
-  - **Ransomware**: This category refers to any detections of ransomware installers, agents, or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Sandbox Adware**: This category refers to any known malicious Sandbox file detections that install persistent components to push advertising content to users' devices. Often, these advertisements are unwanted and can lead to spyware or other grayware-oriented privacy violations.
-  - **Sandbox Anonymizer**: This category refers to any known malicious Sandbox file detections that exhibit behavior consistent with anonymizer programs, such as Tor Browser or other VPN services, that essentially make a user’s internet activity untraceable.
-  - **Sandbox Malware**: This is a catchall category for any known malicious Sandbox file detections that don't fall under the other Sandbox categories. Most Sandbox-classified files aren't clearly known to be a specific threat or malware family-oriented because there aren't specific signatures or indicators to categorize the file. Instead, the Zscaler service categorizes the file based on an aggregation of the file’s OS and application behaviors and network activity.
-  - **Sandbox Offensive Security** **Tools**: This category refers to the threat actors that can use offensive security tools for malicious reasons. They can also be used by cybersecurity professionals.
-  - **Sandbox Ransomware**: This category refers to the type of malware that prevents or limits users from accessing their system, either by locking the system or by locking the users' files, until a ransom is paid.
-  - **Sent for Analysis**: This category refers to any unknown file detections that have been sent to the Sandbox for behavioral analysis.
-  - **Trojan**: This category refers to any detections of trojan installers or related content through file reputation, signature matching (e.g., antivirus or YARA), or machine learning model techniques.
-  - **Suspicious**: This category refers to files that exhibit some malicious behaviors but are not fully classified as malware.
-  - **Unrecognized Virus**: This category refers to any suspected viruses that don't fall under a specific virus family. The Zscaler service detects this content through signature matching (e.g., antivirus).
-  - **Unwanted Application**: This category refers to any detections of applications that are potentially unwanted, such as password crackers or other grayware software applications. The Zscaler service detects unwanted applications through file reputation or signature matching (e.g., antivirus or YARA).
-  - **Worm**: This category refers to any detections of worms, which are stand-alone malware files that replicate themselves in order to spread to other devices. They often use a computer network to propagate themselves. The Zscaler service detects worms through file reputation or signature matching (e.g., antivirus or YARA).
-- **Threat Class**: Use this filter to view transactions associated with a specific threat class. The default option for this filter is **Advanced Threats**. You can search for specific classes. The following classes appear under this filter:
-  - Advanced Threats
-  - Sandbox
-  - Viruses & Spyware
-- **Threat Super Category**: Use this filter to view transactions associated with a specific threat super category. The default option for this filter is **None**. You can search for specific categories. The following categories appear under this filter:
-  - Malware
-  - Sandbox
-  - Spyware
-  - Virus
-- **Traffic Direction**: Use this filter to limit the data to either inbound or outbound traffic. The default option for this filter is **All**. You can search for specific directions. The following directions appear under this filter:
-  - All
-  - Inbound
-  - Outbound
-- **URL Category**: Use this filter to limit the data to a specific URL category. This filter cannot be used in a trend chart. The default option for this filter is **All**. You can search for specific categories. You can choose to include or exclude certain categories.
-- **URL Class**: Use this filter to limit the data to a specific URL class. The default option for this filter is **All**. You can search for specific classes. The following classes appear under this filter:
-  - All
-  - Bandwidth Loss
-  - Business Use
-  - General Surfing
-  - Legal Liability
-  - Privacy Risk
-  - Productivity Loss
-- **URL Super Category**: Use this filter to limit the data to a specific URL super category. The default option for this filter is **All**. You can search for specific categories. The following categories appear under this filter:
-  - All
-  - Adult Material
-  - Business and Economy
-  - Custom
-  - Drugs
-  - Education
-  - Entertainment/Recreation
-  - Gambling
-  - Games
-  - Government and Politics
-  - Health
-  - Illegal or Questionable
-  - Information Technology
-  - Internet Communication
-  - Job/Employment Search
-  - Militancy/Hate and Extremism
-  - Miscellaneous
-  - News and Media
-  - Religion
-  - Security
-  - Shopping and Auctions
-  - Social and Family Issues
-  - Society and Lifestyle
-  - Special Interests/Social Organizations
-  - Sports
-  - Tasteless
-  - Travel
-  - User-Defined
-  - Vehicles
-  - Violence
-  - Weapons/Bombs
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions
-  - **Block**: View blocked transactions
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays data about webmail traffic. The trend chart does not support this data type.
-
-- **Cloud Application**: Use this filter to limit the data to a specific application, such as Facebook. The default option for this filter is **All**. You can search for specific apps. You can choose to include or exclude certain apps.
-  - To view all the applications that appear under this filter, see [Cloud App Categories](https://help.zscaler.com/zia/cloud-app-categories).
-- **Department**: Use this filter to view data for advanced threats detected in the web traffic of a specific department. It lists 200 results at a time. The default option for this filter is **Any**. You can search for specific departments. You can choose to include or exclude certain departments.
-- **Location**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location. Choose a location from the list of internet gateway locations specified on the Locations page. The list includes **Road Warrior**, the default location for transactions that did not originate from a predefined location. This filter lists 200 results at a time. You can search for specific locations. You can choose to include or exclude certain locations.
-- **Location Group**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific location group. The default option for this filter is **None**. You can search for specific location groups.
-- **Location Type**: Use this filter to limit the data to a specific location type. The default option for this filter is **None**. The following location types appear under this filter:
-  - Corporate User Traffic Group
-  - Guest Wifi Group
-  - IoT Traffic Group
-  - Server Traffic Group
-  - Unassigned Locations
-  - Workload Traffic Group
-- **Protocol**: Improve the visibility of protocols that traverse within Zscaler’s cloud. The default option for this filter is **None**. You can search for specific protocols. The following protocols appear under this filter:
-  - **DNS over HTTPS**: Transactions from sites that are used for DNS resolution over an encrypted and secure connection with [DNS Over HTTPS Services](https://help.zscaler.com/zia/adding-dns-over-https-services-rule-cloud-app-control).
-  - **HTTP**: Transactions from HTTP websites.
-  - **HTTP Proxy**: Transactions from HTTP CONNECT requests destined to a Public Service Edge for Internet & SaaS IP address.
-  - **HTTPS**: HTTPS transactions that have been inspected.
-  - **SSL**: Transactions from SSL/TLS connections that have not been inspected. For example, hosts you've [exempted from SSL inspection](https://help.zscaler.com/zia/about-ssl-inspection#configure-ssl-inspection-policy).
-  - **Tunnel SSL**: Undecodable protocol within an SSL connection.
-- **User**: Use this filter to limit the data to advanced threats detected in the web traffic of a specific user. It lists 200 results at a time. The default option for this filter is **All**. You can search for specific users. You can choose to include or exclude certain users. This filter cannot be used in a trend chart.
-- **User Group**: Use this filter to view transactions associated with a specific user group. You can choose to include or exclude the selected groups. The default option for this filter is **All**. You can search for specific user groups.
-- **Policy Action**: Use this filter to view transactions based on the service's action. The default option for this filter is **All**. You can search for specific actions. The following categories appear under this filter:
-  - **All**: View all transactions.
-  - **Allow**: View allowed transactions.
-  - **Block**: View blocked transactions.
-- **Webmail Activity**: Use this filter to limit the data to the web traffic associated with webmail applications. When you select this filter, the window automatically adds the **Cloud Application Class** filter set to **Web Mail**. From the **Webmail Activity** filter, the default option is **All**. You can search for specific activities. The following activities appear under the **Webmail Activity**filter:
-  - All
-  - Send
-  - Send Attachment
-  - View
-
-Displays data for [Isolation Policy](https://help.zscaler.com/zpa/about-isolation-policy) information. You can apply the following filters:
-
-- Allowed for Isolation - Cloud App
-- Allowed for Isolation - URL Category
-- Allowed for Suspicious Isolation
-- Isolate and Scan
 <!-- /ZS-ARTICLE -->

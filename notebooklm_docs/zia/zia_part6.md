@@ -1,8 +1,8 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 6)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 108
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 107
 
 ---
 
@@ -246,8 +246,8 @@ Only the default messages are translated to all the languages that the Zscaler C
 ## NSS Collector Deployment Guide for VMware vSphere
 
 - Source: https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Collector Deployment Guide for VMware vSphere
 - Last modified: 2026-11-12T20:06Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) Collector via the VMware vSphere platform to collect logs from your third-party security devices and stream them to the Zscaler cloud.
 
@@ -579,8 +579,8 @@ This configuration uses a captive portal as the authentication mechanism. Howeve
 ## NSS Deployment Guide for Amazon Web Services
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-amazon-web-services
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Amazon Web Services
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Amazon Web Services
 - Last modified: 2026-11-11T20:06Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Amazon Web Services (AWS).
 
@@ -3632,8 +3632,8 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 ## NSS Deployment Guide for Nutanix
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-nutanix
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Nutanix
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for Nutanix
 - Last modified: 2026-11-12T20:06Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via Nutanix.
 
@@ -4328,8 +4328,8 @@ To learn more about NSS for Web, NSS for Firewall, and NSS Log Recovery subscrip
 ## NSS Deployment Guide for VMware vSphere
 
 - Source: https://help.zscaler.com/zia/nss-deployment-guide-vmware-vsphere
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for VMware vSphere
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Deployment Guides > NSS Deployment Guide for VMware vSphere
 - Last modified: 2026-11-12T20:06Z
 - Summary: Information on the tasks required to deploy Nanolog Streaming Service (NSS) via VMware vSphere.
 
@@ -5270,13 +5270,13 @@ Fields that support obfuscation are documented in the following tables with the 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-11-02T13:01Z","nid":"1400571"} -->
+<!-- ZS-ARTICLE {"url":"/zia/nss-feed-output-format-dns-logs","lastmod":"2026-11-16T20:06Z","nid":"1400571"} -->
 ## NSS Feed Output Format: DNS Logs
 
 - Source: https://help.zscaler.com/zia/nss-feed-output-format-dns-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-11-02T13:01Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
+- Last modified: 2026-11-16T20:06Z
 - Summary: Information on the DNS log fields and their sample values.
 
 The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
@@ -8218,13 +8218,13 @@ For convenience, Zscaler recommends creating the admin role first so you can ass
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-10-15T01:12Z","nid":"1532890"} -->
+<!-- ZS-ARTICLE {"url":"/zia/permissions-onboarding-saas-apps-SSPM","lastmod":"2026-11-19T01:06Z","nid":"1532890"} -->
 ## Permissions for Onboarding SaaS Apps for SSPM
 
 - Source: https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > SaaS Security > Posture Management > Permissions for Onboarding SaaS Apps for SSPM
-- Last modified: 2026-10-15T01:12Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > Posture Management > Permissions for Onboarding SaaS Apps for SSPM
+- Last modified: 2026-11-19T01:06Z
 - Summary: Information on the read-only permissions for SaaS apps.
 
 You can onboard Software as a Service (SaaS) applications for the SaaS Security Posture Management (SSPM) scan with read-only permissions. SSPM typically requires read-only access to perform posture assessments.
@@ -8236,6 +8236,7 @@ The following tables list the permissions required for SaaS apps:
 - Google Workspace
 - Jira/Confluence
 - Microsoft 365
+- Microsoft Copilot
 - Okta
 - Salesforce
 - ServiceNow
@@ -8267,6 +8268,24 @@ A user with Global Administrator privileges is required to onboard Microsoft 365
 | Exchange.ManageAsApp | Application (Admin) | No | No | Yes | Yes | To access all config options in Exchange and provide management |
 | Sites.ReadWrite.All | Application (Admin) | No | No | Yes | Yes | To scan and remediate SharePoint/ OneDrive SSPM |
 | Sites.FullControl.All | Application (Admin) | No | No | Yes | Yes | To enable product functionality via powershell usage to access additional attributes not available via API |
+
+**Prerequisites**
+
+- A tenant administrator account for the Microsoft Power Platform.
+- An Azure AD application for the Zscaler Connector (with `Sites.Read.All` and `User.Read.All` granted and admin‑consented).
+- A PowerShell module for the installed Microsoft Power Platform.
+- Ensure that the Exchange Administrator and Compliance Administrator roles are assigned to the Copilot application.
+
+| Scope Requested | Onboarding User Role | Read-Only Scope | API | Required for Onboarding Validation | Required for DLP Scan | Required for DLP Policy Action | Required for SSPM Scan | Required for SSPM Remediation Support |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Sites.Read.All | Application | Yes | Microsoft Graph | No | No | No | Yes | No |
+| User.Read.All | Application | Yes | Microsoft Graph | Yes | No | No | Yes | No |
+| Mail.ReadBasic.All | Application | Yes | Microsoft Graph | No | Yes | No | No | No |
+| Mail.Read | Application | Yes | Microsoft Graph | No | Yes | No | No | No |
+| Files.Read.All | Application | Yes | Microsoft Graph | No | Yes | No | No | No |
+| Domain.Read.All | Application | Yes | Microsoft Graph | No | Yes | No | No | No |
+
+The scopes in the preceding table are required for the custom connector. To learn more, contact Zscaler Support.
 
 **Prerequisite**
 A user with Super Administrator privileges is required to onboard Google Workspace for SSPM.
@@ -8847,27 +8866,6 @@ Zscaler recommends the following configuration for the [Advanced Threat Protecti
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/recommended-browser-control-policy","lastmod":"2026-09-29T22:20Z","nid":"1399836"} -->
-## Recommended Browser Control Policy
-
-- Source: https://help.zscaler.com/zia/recommended-browser-control-policy
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Browser Control > Recommended Browser Control Policy
-- Last modified: 2026-09-29T22:20Z
-- Summary: View the Zscaler-recommended configuration for the Browser Control policy.
-
-Zscaler recommends that you configure the following [Browser Control](https://help.zscaler.com/zia/configuring-browser-control-policy) policy when using vulnerable browsers:
-
-- Enable **Enable Checks & User Notification**
-- Disable **Allow All Browsers**
-
-Browser Control policy settings only work for non-Zscaler Client Connector traffic. If Zscaler Client Connector is enabled, the Browser Vulnerability Protection settings do not take effect. Browser Blocking settings still take effect if Zscaler Client Connector is enabled.
-
-[Image: Enable Checks and User Notification and disable Allow All Browsers on the Browser Control page]
-<!-- /ZS-ARTICLE -->
-
----
-
 <!-- ZS-ARTICLE {"url":"/zia/recommended-file-type-control-policy","lastmod":"2026-09-24T10:47Z","nid":"1398801"} -->
 ## Recommended File Type Control Policy
 
@@ -9377,13 +9375,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2022","lastmod":"2026-11-12T04:38Z","nid":"1402321"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2022","lastmod":"2026-11-16T22:15Z","nid":"1402321"} -->
 ## Release Upgrade Summary (2022)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2022
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2022)
-- Last modified: 2026-11-12T04:38Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2022)
+- Last modified: 2026-11-16T22:15Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2022.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -9409,8 +9407,8 @@ This article provides a summary of all new features and enhancements per Zscaler
 ## Release Upgrade Summary (2024)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2024
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2024)
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2024)
 - Last modified: 2026-11-04T02:02Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2024.
 
@@ -9433,13 +9431,13 @@ This article provides a summary of all new features and enhancements per Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-11-14T14:15Z","nid":"1534325"} -->
+<!-- ZS-ARTICLE {"url":"/zia/release-upgrade-summary-2026","lastmod":"2026-11-20T18:45Z","nid":"1534325"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zia/release-upgrade-summary-2026
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-14T14:15Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Release Notes > Internet & SaaS Service Release Notes > Release Upgrade Summary (2026)
+- Last modified: 2026-11-20T18:45Z
 - Summary: Zscaler Internet Access (ZIA) Release Upgrade Summary for service updates deployed per cloud in 2026.
 
 This article provides a summary of all new features and enhancements per Zscaler cloud for Zscaler Internet Access (ZIA). Zscaler will email a notification to your organization's registered support contacts approximately one week before your cloud is upgraded. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -10284,8 +10282,8 @@ If you are using PAC files, enter the AD FS URL in the [PAC file](https://help.z
 ## SAML Configuration Guide for AD FS 3.0
 
 - Source: https://help.zscaler.com/zia/saml-configuration-guide-adfs-3.0
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for AD FS 3.0
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > SAML Configuration Guide for AD FS 3.0
 - Last modified: 2026-11-13T20:06Z
 - Summary: How to configure a Windows Server 2012 R2 running AD FS 3.0 as the identity provider for the Zscaler service.
 

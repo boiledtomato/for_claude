@@ -1,8 +1,8 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 252
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 254
 
 ---
 
@@ -55,13 +55,13 @@ On the Authentication Service Issued Tokens page (Administration > API > Tokens)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-10-14T10:15Z","nid":"1499221"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-administrative-entitlements","lastmod":"2026-11-16T21:42Z","nid":"1499221"} -->
 ## About Administrative Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/about-administrative-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > About Administrative Entitlements
-- Last modified: 2026-10-14T10:15Z
+- Last modified: 2026-11-16T21:42Z
 - Summary: Information about the Administrative Entitlements page in the variable:zscaler-admin-console]].
 
 The Administrative Entitlements page shows the list of Zscaler services that your organization is subscribed to. You can assign Authentication Service users as service admins to these Zscaler services and with a role that is created in the Zscaler Admin Console. Admins can view only the assigned services in the Zscaler Admin Console. To learn more, see [Managing Entitlements](https://help.zscaler.com/zidentity/managing-entitlements).
@@ -82,8 +82,9 @@ On the Administrative Entitlements page (Administration > Role Management > Admi
   - **Cloud Name**: The Zscaler cloud name.
   - **Organization Name**: The name of your organization.
 2. Select a Zscaler service to view or [assign individual users or user groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#admin-entitlements) as service admins for that service. You can also edit or delete the administrative entitlements for a service, if required.
+3. Modify the columns displayed in the table.
 
-[Image: Viewing the Administrative Entitlements]
+[Image: Administrative Entitlements page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -180,13 +181,13 @@ On the API Clients and AI Agents page (Administration > API > API Clients), you 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499296"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-attributes","lastmod":"2026-11-16T21:39Z","nid":"1499296"} -->
 ## About Attributes
 
 - Source: https://help.zscaler.com/authentication-service/about-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > About Attributes
-- Last modified: 2026-09-20T21:05Z
+- Last modified: 2026-11-16T21:39Z
 - Summary: Information about the user and session attributes available in Authentication Service.
 
 Authentication Service (formerly ZIdentity) supports user attributes and session attributes that are necessary to configure SAML-based single sign-on (SSO) access for users. For both these attributes, Authentication Service allows you to define custom attributes in addition to the default system-defined attributes.
@@ -212,33 +213,35 @@ The following table lists the system-defined attributes in each category:
 
 On the Attributes page (Administration > Authentication > Attributes), you can do the following:
 
-1. [Add a user attribute](https://help.zscaler.com/zidentity/adding-user-attributes).
-2. Import a CSV file that contains a list of user attributes.
-3. Delete multiple user attributes. This option is visible only when you select more than one user attribute.
-4. Search for an attribute.
-5. View a list of system-defined and user-defined user and session attributes. By default, the **User Attribute** tab is selected. For each user attribute, you can see:
+1. Search for an attribute.
+2. Reset the page to the default view.
+3. Import a CSV file that contains a list of user attributes.
+4. [Add a user attribute](https://help.zscaler.com/zidentity/adding-user-attributes).
+5. Modify the columns displayed in the table.
+6. Delete multiple user attributes. This option is visible only when you select more than one user attribute.
+7. View a list of system-defined and user-defined user and session attributes. By default, the **User Attribute** tab is selected. For each user attribute, you can see:
   - **Display Name**: The name that is visible throughout Authentication Service.
   - **Attribute Name**: The name of the attribute with proper syntax.
   - **Data Type**: The data type (**String**, **Integer**, **Boolean**, etc.) of the attribute.
   - **Required**: Whether the user attribute is a mandatory requirement.
   - **Origin**: Whether the attribute is system-defined or user-defined. You cannot edit or delete a system-defined attribute.
-6. Select attributes to perform bulk deletion. Select more than one user attribute to view the **Delete**option.
-7. Edit a user-defined attribute.
-8. Delete a user-defined attribute.
-9. Click the **Session Attribute** tab to view session attribute details and [add a session attribute](https://help.zscaler.com/zidentity/adding-session-attributes). Session attribute can only be used when the user is authenticated by an IdP.; Select the required session attribute in the IdP configuration to make sure that they are passed to Zscaler services (e.g., Internet & SaaS, Private Access) during authentication.
+8. Select attributes to perform bulk deletion. Select more than one user attribute to view the **Delete**option.
+9. Edit a user-defined attribute.
+10. Delete a user-defined attribute.
+11. Click the **Session Attribute** tab to view session attribute details and [add a session attribute](https://help.zscaler.com/zidentity/adding-session-attributes). Session attribute can only be used when the user is authenticated by an IdP.; Select the required session attribute in the IdP configuration to make sure that they are passed to Zscaler services (e.g., Internet & SaaS, Private Access) during authentication.
 
-[Image: Attributes page with User Attribute and Session Attribute tabs.]
+[Image: Attributes page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-audit-logs","lastmod":"2026-09-17T21:16Z","nid":"1499166"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-audit-logs","lastmod":"2026-11-18T22:31Z","nid":"1499166"} -->
 ## About Audit Logs
 
 - Source: https://help.zscaler.com/authentication-service/about-audit-logs
 - Product: Authentication Service
 - Path: Authentication Service Help > Audit Logs > About Audit Logs
-- Last modified: 2026-09-17T21:16Z
+- Last modified: 2026-11-18T22:31Z
 - Summary: Information regarding audit logs, including policy and configuration change logs, within the Authentication Service.
 
 Audit logs are records of activities performed by users in Authentication Service. These logs enable administrators to track configuration changes, user management (e.g., creating, updating, and deleting users), tenant management, authentication settings changes, service assignments, and authentication events.
@@ -262,10 +265,11 @@ Audit logs provide the following benefits and enable you to:
 On the Audit Logs page (Data Explorer > Audit Logs > Authentication Service), you can do the following:
 
 1. Filter the data by time range, action, category, subcategory, interface, or result.
-2. Refresh audit logs to sync new data.
-3. Search for the logs by resource, admin ID, or client IP.
-4. Download a CSV file. The times in the CSV file are in PDT.
-5. View logs. For each user, you can see:
+2. Download a CSV file. The times in the CSV file are in PDT.
+3. Refresh audit logs to sync new data.
+4. Modify the columns displayed in the table.
+5. Search for the logs by resource, admin ID, or client IP.
+6. View logs. For each user, you can see:
   - **Timestamp**: The date and time when the user performed the activity.
   - **Action**:The action performed by the user in Authentication Service. List of actions
   - **Category**: A UI page in the Zscaler Admin Console where the action is performed. List of categories
@@ -275,8 +279,7 @@ On the Audit Logs page (Data Explorer > Audit Logs > Authentication Service), yo
   - **Client IP**: The IP address for the user.
   - **Interface**: The means by which the user performs their actions. The interface is either UI, Zscaler Client Connector, or API-based.
   - **Result**: The outcome of an action (Success, Failure, or Partially Failed)
-6. See configuration changes.
-7. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+7. See configuration changes.
 
 [Image: Audit Logs page]
 
@@ -304,11 +307,11 @@ There are two types of changes you can view:
 [Image: Audit Logs Icons]
 
 - View updates. The following is an example of the modification: See image.
-- View additions or deletions. The following is an example of an addition: See image.
-
-[Image: Viewing addition changes in audit logs page]
+- View additions or deletions. The following is an example of a deletion: See image.
 
 [Image: Viewing update changes in audit logs page]
+
+[Image: Viewing addition changes in audit logs page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -448,13 +451,13 @@ On the Authorization Grants page (Administration > API > Authorization Grants), 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-departments","lastmod":"2026-10-01T14:58Z","nid":"1499456"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-departments","lastmod":"2026-11-16T21:39Z","nid":"1499456"} -->
 ## About Departments
 
 - Source: https://help.zscaler.com/authentication-service/about-departments
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Departments > About Departments
-- Last modified: 2026-10-01T14:58Z
+- Last modified: 2026-11-16T21:39Z
 - Summary: Information about managing departments in the Zscaler Admin Console.
 
 This article describes how to add and manage departments. When you add administrators, you can define their scope by department. Administrators can have control over a set of users in a department. An administrator can belong to only one department.
@@ -467,17 +470,20 @@ Departments provide the following benefits and enable you to:
 
 On the Departments page (Administration > Authentication > Departments), you can do the following:
 
-1. [Add a department](https://help.zscaler.com/zidentity/adding-departments).
+1. Search for a specific department.
 2. [Import departments using a CSV file](https://help.zscaler.com/zidentity/adding-departments).
-3. Refresh the page.
-4. Search for a specific department.
-5. View the list of configured departments. For each department, you can see:
+3. [Add a department](https://help.zscaler.com/zidentity/adding-departments).
+4. Refresh the page.
+5. Modify the columns displayed in the table.
+6. Delete multiple departments. This option is visible only when you select more than one department.
+7. View the list of configured departments. For each department, you can see:
   - **Name**: The name of the department.
   - **Description**: A short description about the department.
-6. Edit a department.
-7. Delete a department.
+8. Select departments to perform bulk deletion. Select more than one department to view the **Delete**option.
+9. Edit a department.
+10. Delete a department.
 
-[Image: View the list of departments]
+[Image: Departments page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -678,13 +684,13 @@ On the Linked Services page (Administration > Subscription > Linked Services), y
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-10-12T06:26Z","nid":"1539480"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-log-streaming","lastmod":"2026-11-16T21:41Z","nid":"1539480"} -->
 ## About Log Streaming
 
 - Source: https://help.zscaler.com/authentication-service/about-log-streaming
 - Product: Authentication Service
 - Path: Authentication Service Help > Audit Logs > About Log Streaming
-- Last modified: 2026-10-12T06:26Z
+- Last modified: 2026-11-16T21:41Z
 - Summary: Information regarding the Log Streaming page within Authentication Service.
 
 The integration of Nanolog Streaming Service (NSS) and Cloud NSS with Authentication Service enables administrators to stream authentication, admin audit, and [System for Cross-domain Identity Management (SCIM)](https://help.zscaler.com/zidentity/understanding-scim) logs to external security information and event management (SIEM) systems that are linked with Zscaler services (e.g., Internet & SaaS (ZIA)) for centralized monitoring and analysis. By enabling log streaming, you can securely export Authentication Service logs in real time, which helps to investigate security incidents, such as unauthorized access attempts, brute force attacks, or unusual login patterns.
@@ -711,19 +717,20 @@ On the Log Streaming page (Data Explorer > Log Streaming > Authentication Servic
   - [Adding Cloud NSS Feeds for Authentication Logs](https://help.zscaler.com/zia/adding-cloud-nss-feeds-zidentity-logs)
   - [Adding NSS Feeds for SCIM Logs](https://help.zscaler.com/zia/adding-nss-feeds-zidentity-scim-logs)
   - [Adding Cloud NSS Feeds for SCIM Logs](https://help.zscaler.com/zia/adding-cloud-nss-feeds-zidentity-scim-logs)
+3. Modify the columns displayed in the table.
 
-[Image: The Log Streaming page shows tenant information and the option to enable Authentication Service Log Streaming]
+[Image: Log Streaming page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-service-entitlements","lastmod":"2026-11-10T20:06Z","nid":"1499241"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-service-entitlements","lastmod":"2026-11-16T21:42Z","nid":"1499241"} -->
 ## About Service Entitlements
 
 - Source: https://help.zscaler.com/authentication-service/about-service-entitlements
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Entitlements > About Service Entitlements
-- Last modified: 2026-11-10T20:06Z
+- Last modified: 2026-11-16T21:42Z
 - Summary: Information about the subscribed Zscaler services, users and user groups in the Zscaler Admin Console.
 
 The Service Entitlements page shows the list of Zscaler services that your organization is subscribed to. You can assign end users to these Zscaler services.
@@ -744,7 +751,7 @@ On the Service Entitlements page (Administration > Subscription > End User Entit
   - **Name**: The name of the Zscaler service.
   - **Cloud Name**: The Zscaler cloud name.
   - **Organization Name**: The name of your organization.
-2. [Manage table columns](https://help.zscaler.com/unified/managing-table-columns).
+2. Modify the columns displayed in the table.
 3. Select a service to view or [assign users and user groups](https://help.zscaler.com/zidentity/assigning-entitlements-users-and-user-groups#service-entitlements) to that service.
 
 [Image: Service Entitlements page]
@@ -752,13 +759,13 @@ On the Service Entitlements page (Administration > Subscription > End User Entit
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-sign-on-policies","lastmod":"2026-09-17T20:46Z","nid":"1499066"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-sign-on-policies","lastmod":"2026-11-16T21:40Z","nid":"1499066"} -->
 ## About Sign-On Policies
 
 - Source: https://help.zscaler.com/authentication-service/about-sign-on-policies
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > About Sign-On Policies
-- Last modified: 2026-09-17T20:46Z
+- Last modified: 2026-11-16T21:40Z
 - Summary: Information about the Sign-On Policy page in the Zscaler Admin Console.
 
 The Admin Sign-On Policy page displays all the sign-on rules configured for the users. The sign-on rules determine whether to allow or deny a user from accessing the Zscaler service. You can use different attributes to configure rules and apply them to the users.
@@ -777,17 +784,20 @@ Sign-on policies provide the following benefits and enable you to:
 
 On the Admin Sign-On Policy page (Administration > Authentication > Admin Sign-On Policy), you can do the following:
 
-1. [Add a sign-on rule](https://help.zscaler.com/zidentity/configuring-sign-on-policy).
-2. View a list of all configured sign-on rules. For each rule, you can see:
-  - **Rule Order**: The policy rule's order number. Sign-on rules are evaluated in ascending numerical order.
+1. Search for a specific rule.
+2. [Add a sign-on rule](https://help.zscaler.com/zidentity/configuring-sign-on-policy).
+3. Refresh the page.
+4. Modify the columns displayed in the table.
+5. View a list of all configured sign-on rules. For each rule, you can see:
   - **Rule Name**: The name of the rule.
+  - **Rule Order**: The policy rule's order number. Sign-on rules are evaluated in ascending numerical order.
   - **Criteria**: The criteria that triggers the rule.
   - **Rule Action**: The action (Allow or Deny) taken when a rule is triggered. Authentication Service follows the Allow rule by default, so unless a Deny rule is created, it implicitly allows everything.
   - **Rule Status**: The status (Enabled or Disabled) of the rule.
   - **Description**: The description of the rule, if available.
-3. Edit a sign-on rule.
-4. Delete a sign-on rule.
-5. Enable or disable a sign-on rule.
+6. Edit a sign-on rule.
+7. Enable or disable a sign-on rule.
+8. Delete a sign-on rule.
 
 [Image: Admin Sign-On Policy page]
 <!-- /ZS-ARTICLE -->
@@ -890,13 +900,13 @@ On the User Groups page (Administration > Authentication > User Groups), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-10-07T21:06Z","nid":"1499096"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/about-users","lastmod":"2026-11-18T19:47Z","nid":"1499096"} -->
 ## About Users
 
 - Source: https://help.zscaler.com/authentication-service/about-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > About Users
-- Last modified: 2026-10-07T21:06Z
+- Last modified: 2026-11-18T19:47Z
 - Summary: Information on the Users page and its features in Authentication Service.
 
 You can add users to Authentication Service by creating them [locally within Authentication Service](https://help.zscaler.com/zidentity/adding-users) or via an [external identity provider (IdP) provider](https://help.zscaler.com/zidentity/about-external-identity-providers). In addition, you can assign them [admin entitlements](https://help.zscaler.com/zidentity/about-administrative-entitlements) to make them administrators for a Zscaler service (e.g., Internet & SaaS (ZIA), Private Access (ZPA)) or you can assign them [service entitlements](https://help.zscaler.com/zidentity/about-service-entitlements) so they are able to authenticate to a Zscaler service as an end user.
@@ -1223,13 +1233,13 @@ Set the access level to **Data Explorer**> **Log Streaming**> **Authentication S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-departments","lastmod":"2026-10-01T15:17Z","nid":"1499356"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-departments","lastmod":"2026-11-16T21:39Z","nid":"1499356"} -->
 ## Adding Departments
 
 - Source: https://help.zscaler.com/authentication-service/adding-departments
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Departments > Adding Departments
-- Last modified: 2026-10-01T15:17Z
+- Last modified: 2026-11-16T21:39Z
 - Summary: How to add departments to Authentication Service.
 
 You can add [departments](https://help.zscaler.com/zidentity/about-departments) in the Zscaler Admin Console and assign the specific department to users. A user can belong to only one department.You can manually add each department or upload a CSV file that contains a list of departments.
@@ -1254,36 +1264,34 @@ You can import up to 1,000 departments using a CSV file. If you want to add mult
 To import new departments or modify existing departments, using a CSV file:
 
 1. Go to **Administration** > **Authentication**> **Departments**.
-2. Click **Import CSV**. See image. The **Import Department** window appears.
-3. In the **Import Department** window, click **Download Sample** to download a sample CSV template. See image.
+2. Click **Import CSV**. See image. The **Import Department** drawer appears.
+3. In the **Import Department** drawer, click **Download Sample** to download a sample CSV template. See image.
 4. Enter the department details in the CSV file.
-5. When you have the CSV file in the correct format, in the **Import Department** window, click **Browse File**.
+5. When you have the CSV file in the correct format, in the **Import Department** drawer, click the **Upload icon**.
 6. Locate the CSV file in your local folder, then click **Open**.
 7. Click **Override Existing Entries** if you want to replace the existing list of departments with those specified in the CSV file.
 8. Click **Import**.
-9. After the CSV file is successfully imported, the **Import Department**window appears, showing the total number of records that are added. See image.
+9. After the CSV file is successfully imported, the **Import Department**window appears, showing the total number of records that are added.
 10. Check the details, then click **Close**. The newly added departments are displayed on the **Departments** page.
 
-[Image: Add the department details]
+[Image: Add Department drawer]
 
-[Image: Clicking Add Department button]
+[Image: Add Department button]
 
-[Image: Clicking Import CSV button]
+[Image: Import CSV button]
 
-[Image: The Import Department window]
-
-[Image: Imported Department details]
+[Image: Import Department drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-guest-domains","lastmod":"2026-09-30T19:10Z","nid":"1499281"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-guest-domains","lastmod":"2026-11-18T08:36Z","nid":"1499281"} -->
 ## Adding Guest Domains
 
 - Source: https://help.zscaler.com/authentication-service/adding-guest-domains
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Adding Guest Domains
-- Last modified: 2026-09-30T19:10Z
+- Last modified: 2026-11-18T08:36Z
 - Summary: How to add additional guest domains in the Zscaler Admin Console.
 
 You can add a list of guest domains to allow third-party users (guest users) to access the Zscaler service. Arbitrary guest domains allow you to enable guest users to access the Zscaler service from any domain. You can add users as guests and assign them with specific permissions to access these guest domains.
@@ -1293,15 +1301,20 @@ You can assign guest domains to only those guest users who do not have Zscaler C
 To add a guest domain:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** >**Authentication**> **Domains.**
-2. On the **Domains**page: See image.
-  - **Guest Domain**: Enter the domain name and then click **Add**.
-  - **Arbitrary Guest Domains**: (optional) Enable to allow third-party users to authenticate using any domain even if it is not added to the list of guest domains. Arbitrary Guest Domains are supported only with [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access).
-3. Click **Save**.
+2. On the **Domains**page, click **Edit**. See image.
+3. In the **Guest Domains Settings**section: See image.
+  1. **Arbitrary Guest Domains**: Enable to allow third-party users to authenticate using any domain even if it is not added to the list of guest domains. Arbitrary Guest Domains are supported only with [Privileged Remote Access (PRA)](https://help.zscaler.com/zpa/understanding-privileged-remote-access).
+  2. **Guest Domains**: Enter the domain name and click **Add**. The domain is added to the table.
+  3. Repeat the process as necessary.
+  4. (Optional) Click the **Delete**icon to remove the domain.
+  5. Click **Save**.
 4. After you add the guest domains:
   - Add the third-party users to the Zscaler Admin Console. To learn more, see [Adding Users](https://help.zscaler.com/zidentity/adding-users).
   - [Add these guest domains to the required identity provider (IdP)](https://help.zscaler.com/zidentity/adding-saml-identity-providers), so the third-party users can authenticate using single sign-on (SSO) and access the guest domains.
 
-[Image: Domains page displaying the list of available domains]
+[Image: Domains page]
+
+[Image: Edit Domain page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1552,13 +1565,13 @@ The bearer token is visible only to admins with Full permission enabled for exte
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-session-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499291"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-session-attributes","lastmod":"2026-11-18T08:42Z","nid":"1499291"} -->
 ## Adding Session Attributes
 
 - Source: https://help.zscaler.com/authentication-service/adding-session-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > Adding Session Attributes
-- Last modified: 2026-09-20T21:05Z
+- Last modified: 2026-11-18T08:42Z
 - Summary: How to add session attributes in Authentication Service.
 
 You can add session attributes related to the user's session in Authentication Service, so they can be made available to the linked Zscaler services. Session attributes (system-defined or custom) that are mapped with identity provider (IdP) attributes are sent to Zscaler services (e.g., Internet & SaaS (ZIA), Private Access (ZPA)) with the values received from the external IdP as part of SAML assertions or OIDC tokens.
@@ -1584,8 +1597,6 @@ For system-defined device attributes, Authentication Service accepts the followi
 
 If you are configuring an identity proxy for cloud apps, you must map the `is_device_managed` attribute to an IdP attribute, and then configure the managed devices settings in Internet & SaaS. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps).
 
-See image.
-
 ## Adding a Session Attribute
 
 To add a session attribute:
@@ -1608,24 +1619,21 @@ To import a CSV file that contains a list of session attributes:
 
 1. Go to **Administration**>**Authentication**>**Attributes**.
 2. On the **Attributes** page, click the **Session Attribute** tab.
-3. Click **Import CSV**. See image. The **Import Attributes**window appears.
-4. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
+3. Click **Import CSV**. See image. The **Import Attributes**drawer appears.
+4. In the **Import Attributes** drawer, click the **Download Sample** link to download a sample CSV file. See image.
 5. Add the attributes to the CSV file and save it in your local folder.
-6. Click **Browse** to locate the saved CSV file, then click **Open**. The file is uploaded.
-7. Click **Import**. The records are displayed in the **Import Attributes** window. See image.
-8. Review the list, then click **Close**. The attributes are added to the existing list and displayed on the **Attributes** page.
+6. Click **Upload**icon to locate the saved CSV file, then click **Open**. The file is uploaded.
+7. If you want to replace the existing list of session attributes, select the **Override Existing Entries** checkbox.
+8. Click **Import**. The records are displayed in the **Import Attributes** window.
+9. Review the list, then click **Close**. The attributes are added to the existing list and displayed on the **Attributes** page.
 
-[Image: Click the Add Attribute button on the Session Attribute tab]
+[Image: Add Attribute button]
 
-[Image: Add the session attribute details]
+[Image: Add Attribute drawer]
 
-[Image: The Session Attribute page showing a list of attributes and annotation around Import CSV button.]
+[Image: Import CSV button]
 
-[Image: The Import Attributes window showing a CSV file and the Download Sample link next to it.]
-
-[Image: The Import Attributes window showing the results of an imported CSV file.]
-
-[Image: View the session attribute mapping]
+[Image: Import Attributes drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1635,7 +1643,7 @@ To import a CSV file that contains a list of session attributes:
 
 - Source: https://help.zscaler.com/authentication-service/adding-token-validator
 - Product: Authentication Service
-- Path: Authentication Service Help > Integration > Token Validators > Adding a Token Validator
+- Path: Authentication Service Help > Token Validators > Adding a Token Validator
 - Last modified: 2026-09-30T19:21Z
 - Summary: How to add a token validator for OneAPI in the Zscaler Admin Console.
 
@@ -1666,13 +1674,13 @@ To add a token validator:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-attributes","lastmod":"2026-09-20T21:05Z","nid":"1499451"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-user-attributes","lastmod":"2026-11-18T08:38Z","nid":"1499451"} -->
 ## Adding User Attributes
 
 - Source: https://help.zscaler.com/authentication-service/adding-user-attributes
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Attributes > Adding User Attributes
-- Last modified: 2026-09-20T21:05Z
+- Last modified: 2026-11-18T08:38Z
 - Summary: How to add user attributes in Authentication Service.
 
 You can add user attributes or import them using a CSV file. You can add up to 128 attributes.
@@ -1688,7 +1696,7 @@ To add a user attribute:
   - **Display Name**: Enter the display name for the attribute.
   - **Description**: Enter a description for the attribute.
   - **Data Type**: Select the type of data (**String**, **Integer**, **Boolean**, **Date**, or **Decimal**) the user needs to enter for this attribute.
-  - **Attribute Required**: Select to mandate the attribute information when [adding a user](https://help.zscaler.com/zidentity/adding-users).
+  - **Attribute Required**: Enable to mandate the attribute information when [adding a user](https://help.zscaler.com/zidentity/adding-users).
 4. Click **Save**.
 
 ## Importing a CSV File
@@ -1698,21 +1706,21 @@ You can add multiple user attributes to Authentication Service by importing a CS
 To import a CSV file that contains a list of user attributes:
 
 1. Go to **Administration**>**Authentication**>**Attributes**.
-2. On the **User Attribute**tab, click **Import CSV**. See image. The **Import Attributes** window appears.
-3. In the **Import Attributes** window, click the **Download Sample** link to download a sample CSV file. See image.
+2. On the **User Attribute**tab, click **Import CSV**. See image. The **Import Attributes** drawer appears.
+3. In the **Import Attributes** drawer, click the **Download Sample** link to download a sample CSV file. See image.
 4. Add the user attributes to the CSV file and save it in your local folder.
-5. In the **Import Attributes** window, click **Browse File** to locate and upload the saved CSV file.
+5. Click **Upload**icon to upload the saved CSV file. The file is uploaded.
 6. If you want to replace the existing list of user attributes, select the **Override Existing Entries** checkbox.
 7. Click **Import**. The records are displayed in the **Import Attributes** window.
 8. Review the list, then click **Close**. The attributes are displayed on the **User** **Attributes** tab.
 
-[Image: Add the user attribute details]
+[Image: Add Attribute drawer]
 
-[Image: Click the Add Attribute button to add the attribute details]
+[Image: Add Attribute button]
 
-[Image: The Import Attributes window showing a CSV file and the Download Sample link next to it.]
+[Image: Import Attributes drawer]
 
-[Image: The User Attribute page showing a list of attributes and annotation around Import CSV button.]
+[Image: Import CSV button]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1750,13 +1758,13 @@ To add a new group:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-10-07T08:57Z","nid":"1499101"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/adding-users","lastmod":"2026-11-18T19:52Z","nid":"1499101"} -->
 ## Adding Users
 
 - Source: https://help.zscaler.com/authentication-service/adding-users
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Adding Users
-- Last modified: 2026-10-07T08:57Z
+- Last modified: 2026-11-18T19:52Z
 - Summary: How to add user accounts for Authentication Service.
 
 You can add individual user accounts in Authentication Service. A user account can belong to up to 1,024 groups. You can use a [CSV file to add multiple users](https://help.zscaler.com/zidentity/importing-user-details-csv-file) at once.
@@ -2085,13 +2093,13 @@ If a user is assigned to a service's admin role individually, but they are also 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-09-15T05:45Z","nid":"1539868"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/automatic-upgrade-to-zscaler-admin-console","lastmod":"2026-11-16T21:37Z","nid":"1539868"} -->
 ## Automatic Upgrade to Zscaler Admin Console
 
 - Source: https://help.zscaler.com/authentication-service/automatic-upgrade-to-zscaler-admin-console
 - Product: Authentication Service
 - Path: Authentication Service Help > Automatic Upgrade to Zscaler Admin Console
-- Last modified: 2026-09-15T05:45Z
+- Last modified: 2026-11-16T21:37Z
 - Summary: Information on upgrading Authentication Service tenants to Zscaler Admin Console.
 
 Zscaler is upgrading organizations to Zscaler Admin Console, a centralized unified platform that provides a more secure and streamlined user experience. Administrators can now access and manage all the Zscaler products, unified policies and security analytics in one place.
@@ -2127,13 +2135,13 @@ After the automatic upgrade is completed, the following changes to the login and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-admin-sign-on-policy","lastmod":"2026-09-17T20:46Z","nid":"1499071"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-admin-sign-on-policy","lastmod":"2026-11-18T08:51Z","nid":"1499071"} -->
 ## Configuring an Admin Sign-On Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-admin-sign-on-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring an Admin Sign-On Policy
-- Last modified: 2026-09-17T20:46Z
+- Last modified: 2026-11-18T08:51Z
 - Summary: How to configure Admin Sign-On policies for service admins in the Zscaler Admin Console.
 
 The article describes how to add a sign-on policy from the [Sign-On Policy](https://help.zscaler.com/zidentity/about-sign-on-policies) page. You can add up to 256 policies.
@@ -2150,16 +2158,16 @@ The **Add Admin** **Sign-On Policy**drawer appears.
 1. In the **Add** **Admin Sign-On Policy**drawer:
   - **Rule Order**: Select the rule order. The sign-on policy automatically assigns the **Rule Order** number. Policy rules are evaluated in ascending numerical order (Rule 1 before Rule 2, and so on), and the rule order reflects this rule's place in the order.
   - **Name**: Enter a name for the rule. The maximum length is 31 characters.
-  - **Rule Status**: Enabled or disabled the sign-on rule.
+  - **Rule Status**: Enable or disable the sign-on rule.
   - **Description**: Enter additional notes or information. The description cannot exceed 10,240 characters.
-  - Under the **Criteria**section, configure the criteria to either deny or allow the sign-on request. To add multiple criteria to the rule, click **Add More**. You can add up to 256 criteria.
-  - **Action**: Select whether you want to **Allow** or **Deny** the access request for the matching rule.
+  - **Criteria**: Configure the criteria to either deny or allow the sign-on request. To add multiple criteria to the rule, click **Add More**. You can add up to 256 criteria.
+  - **Action**: Select whether to **Allow** or **Deny** the access request for the matching rule.
 
 See image.
 
 1. Click **Save**.
 
-[Image: Adding Admin Sign-On Policy]
+[Image: Add Admin Sign-on Policy drawer]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2347,13 +2355,13 @@ If you have configured an external IdP for authentication via OIDC, you need to 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-09-29T02:12Z","nid":"1499401"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-authentication-session","lastmod":"2026-11-18T08:47Z","nid":"1499401"} -->
 ## Configuring the Authentication Session
 
 - Source: https://help.zscaler.com/authentication-service/configuring-authentication-session
 - Product: Authentication Service
 - Path: Authentication Service Help > Authentication > Configuring the Authentication Session
-- Last modified: 2026-09-29T02:12Z
+- Last modified: 2026-11-18T08:47Z
 - Summary: How to set up the authentication session for service enrollment in the Zscaler Admin Console.
 
 Authentication Service uses session-based authentication to keep track of the authenticated users or enrolled services.
@@ -2363,14 +2371,14 @@ To configure the authentication session:
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Authentication Session**.
 2. On the **Authentication Session**page, click **Edit**and configure the following: See image.
   - **Administrator Inactivity Timeout Duration (in Minutes)**: Enter the timeout period after which the user is logged out of the Authentication Service session. You can set the timeout period from 5 to 600 minutes (10 hours).
-  - **Authentication Session for Service Entitlement**: Enable to apply the authenticated session of Authentication Service to Zscaler services during user enrollment. This option is disabled by default, as Authentication Service sends users to the organization's identity provider (IdP) for authentication. If enabled, Authentication Service can locally verify active sessions based on the **Service Enrollment Session Timeout** value, instead of always redirecting users to the IdP. For example:
+  - **Authentication Session for Service Entitlement**: Enable to apply the authenticated session of Authentication Service to Zscaler services during user enrollment. This option is disabled by default, as Authentication Service sends users to the organization's identity provider (IdP) for authentication. If enabled, Authentication Service can locally verify active sessions based on the **Service Enrollment Session Timeout (in Minutes)** value, instead of always redirecting users to the IdP. For example:
     - **Private Access (ZPA) reauthentication through Zscaler Client Connector**: During reauthentication, if the existing session is still valid, Authentication Service authenticates the user locally. If the session is expired, the user is redirected to the external IdP.
     - **Browser-based access through Internet & SaaS (ZIA) or Private Access**: During user's access to Zscaler service through a browser, if the existing session is still valid, Authentication Service authenticates the user locally. If the session is expired, the user is redirected to the external IdP.
-  - **Service Enrollment Session Timeout (in Minutes)**: Enter the timeout period after which the user's service session expires, and the user is required to reauthenticate. You can set the timeout period from 5 to 600 minutes (10 hours).
+  - **Service Enrollment Session Timeout (in Minutes)**: Enter the timeout period after which the user's service session expires, and the user is required to reauthenticate. You can set the timeout period from 5 to 600 minutes (10 hours). This field only appears when you enable **Authentication Session for Service Entitlement.**
   - **Force Authentication for Private Access Reauthentication**: This option determines whether to prompt the users to reauthenticate when Private Access requests reauthentication. When this option is disabled, the IdP decides if reauthentication is required for a user. When enabled, Authentication Service instructs the IdP to ignore existing user sessions and force reauthentication each time Private Access requests it by sending a parameter (for SAML protocol: `forceauth=true` and for OIDC protocol: `prompt=login`). This option is shown only when User Single Sign-On (SSO) is enabled for your tenant. By default, only the **Hosted**option is shown for all tenants. The options for third-party IdPs are also listed, depending on the [external IdPs configured](https://help.zscaler.com/zidentity/about-external-identity-providers) for the tenant.
 3. Click **Save**.
 
-[Image: Authentication Session page displaying the configured values for session]
+[Image: Authentication Session page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3435,13 +3443,13 @@ You can provision Entra ID users for Authentication Service using Just-in-time (
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-09-30T19:15Z","nid":"1499196"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-multi-factor-authentication","lastmod":"2026-11-16T21:38Z","nid":"1499196"} -->
 ## Configuring Multi-Factor Authentication
 
 - Source: https://help.zscaler.com/authentication-service/configuring-multi-factor-authentication
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Configuring Multi-Factor Authentication
-- Last modified: 2026-09-30T19:15Z
+- Last modified: 2026-11-16T21:38Z
 - Summary: Information on configuring the authentication method in the Zscaler Admin Console.
 
 Authentication Service (formerly ZIdentity) supports multi-factor authentication (MFA) for enhanced security, and it is required by default for all admins. Zscaler strongly recommends keeping MFA enabled. You can authenticate users with a password and a second factor (i.e., time-based OTP (TOTP), and Fast IDentity Online (FIDO) authentication). In addition, you can configure passwordless authentication by setting up FIDO2 as the primary authenticator.
@@ -3451,7 +3459,7 @@ Authentication Service (formerly ZIdentity) supports multi-factor authentication
 To set up MFA or FIDO2:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Authentication**> **Authentication Methods**.
-2. On the **Authentication Methods** page: See image.
+2. On the **Authentication Methods** page, click **Edit**to modify the following settings: See image.
   - **Enable Multi-Factor Authentication (MFA) for Service Enrollment**: This option is shown only when the user single sign-on (SSO) feature is enabled for your tenant. You can choose to disable this option for your [users](https://help.zscaler.com/zidentity/about-users) when required.
   - **Allow FIDO2 as Primary Authenticator**: Enable this option to allow users to configure a passwordless authentication method for their Authentication Service account. When you enable this option, users can skip the password and configure any of the Fast IDentity Online 2 (FIDO2) methods available on their device in the subsequent log-in attempt. The following scenarios occur when you disable FIDO2 authentication method as your primary authenticator:
     - If MFA is enabled, users are required to log in using their MFA credentials. If not already configured, users can request the password reset option and set up MFA.
@@ -3550,9 +3558,9 @@ To verify:
 2. After the verification is successful, you are redirected to authenticate via the external IdP.
 3. After the IdP authentication is successful, you can configure MFA in Authentication Service.
 
-[Image: The authentication methods MFA and FIDO2 in a list with their respective toggles]
+[Image: Authentication Methods page]
 
-[Image: A message describing what happens when you disable FIDO2]
+[Image: Disable FIDO2 window]
 
 [Image: Multi-factor Authentication page displaying authentication methods in Authentication Service for external IdP admins]
 
@@ -4748,13 +4756,13 @@ You can configure the necessary policies in the following Zscaler services as re
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-09-17T20:45Z","nid":"1499076"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/configuring-password-policy","lastmod":"2026-11-18T08:49Z","nid":"1499076"} -->
 ## Configuring the Password Policy
 
 - Source: https://help.zscaler.com/authentication-service/configuring-password-policy
 - Product: Authentication Service
 - Path: Authentication Service Help > Policies > Configuring the Password Policy
-- Last modified: 2026-09-17T20:45Z
+- Last modified: 2026-11-18T08:49Z
 - Summary: How to configure password policy for administrators logging in to the Zscaler Admin Console.
 
 The password policy is a set of rules that you can use to create or reset passwords for users accessing the Zscaler Admin Console.
@@ -4762,18 +4770,19 @@ The password policy is a set of rules that you can use to create or reset passwo
 To configure the password policy:
 
 1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**> **Authentication**> **Password Policy**.
-2. Under the **Configuration**section, set the **Configuration Type** to **Default**or **Custom**. Zscaler recommends enabling **Default**.If you select **Custom,** you need to configure the following fields:
-  - **Password Length**: Set the minimum length of the password.
-  - **Minimum No. of Lowercase Letters**: Set the minimum number of lowercase letters required in the password.
-  - **Minimum No. of Uppercase Letters**: Set the minimum number of uppercase letters required in the password.
-  - **Minimum No. of Numeric Characters**: Set the minimum number of numeric characters required in the password.
-  - **Minimum No. of Special Characters**: Set the minimum number of special characters required in the password.
-  - **Password must not include company name, username, first name, or last name**: Turn on to restrict the user from including their company name, username, first name, or last name in the password.
-  - **Reject reuse of last 5 passwords**: Turn on and set the number to restrict users from reusing their previous passwords. By default, the value is set to 5, but you can set the number between 3 and 10. If this option is turned off, users can reuse their old passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changed within 24 hours is ignored by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is ignored and it can be reused.
-  - **Deactivate user after 10 unsuccessful attempts**: Turn on and set the number to deactivate the user account after unsuccessful login attempts. By default, the value is set to 10, but you can set the number between 3 and 10.
-  - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to allow the administrator to create or change the user's password.
-  - **Enforce password change after the initial login**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Turn on to prompt users to change their password after the initial login.
-  - **Password expiration period (in days)**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Set the password expiration period after which users can reset their passwords. You can set the expiration period from 15 to 365 days.
+2. On the **Password Policy**page, click **Edit**and configure the following:
+  - Under the **Configuration**section, set the **Configuration Type** to **Default**or **Custom**. Zscaler recommends enabling **Default**.If you select **Custom,** you need to configure the following fields:
+    - **Password Length**: Set the minimum length of the password.
+    - **Minimum No. of Lowercase Letters**: Set the minimum number of lowercase letters required in the password.
+    - **Minimum No. of Uppercase Letters**: Set the minimum number of uppercase letters required in the password.
+    - **Minimum No. of Numeric Characters**: Set the minimum number of numeric characters required in the password.
+    - **Minimum No. of Special Characters**: Set the minimum number of special characters required in the password.
+    - **Password must not include company name, username, first name, or last name**: Turn on to restrict the user from including their company name, username, first name, or last name in the password.
+    - **Reject reuse of last 5 passwords**: Turn on and set the number to restrict users from reusing their previous passwords. By default, the value is set to 5, but you can set the number between 3 and 10. If this option is turned off, users can reuse their old passwords. Passwords that are changed after a 24-hour gap fall under this criterion. Any password changed within 24 hours is ignored by Authentication Service. For example, if you reset your password 3 times (the second reset being after 24 hours of the first reset, and the third reset being within 24 hours of the second reset), the second password change is ignored and it can be reused.
+    - **Deactivate user after 10 unsuccessful attempts**: Enable and set the number to deactivate the user account after unsuccessful login attempts. By default, the value is set to 10, but you can set the number between 3 and 10.
+    - **Allow administrator to create or change user's password**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Enable to allow the administrator to create or change the user's password.
+    - **Enforce password change after the initial login**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Enable to prompt users to change their password after the initial login.
+    - **Password expiration period (in days)**: &amp;amp;amp;amp;amp;amp;lt;!--td {border: 1px solid #cccccc;}br {mso-data-placement:same-cell;}--&amp;amp;amp;amp;amp;amp;gt; Set the password expiration period after which users can reset their passwords. You can set the expiration period from 15 to 365 days.
 
 See image.
 
@@ -6030,13 +6039,13 @@ To import a CSV file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/importing-user-details-csv-file","lastmod":"2026-10-01T11:56Z","nid":"1499106"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/importing-user-details-csv-file","lastmod":"2026-11-18T19:53Z","nid":"1499106"} -->
 ## Importing User Details from a CSV File
 
 - Source: https://help.zscaler.com/authentication-service/importing-user-details-csv-file
 - Product: Authentication Service
 - Path: Authentication Service Help > Administration > Users > Importing User Details from a CSV File
-- Last modified: 2026-10-01T11:56Z
+- Last modified: 2026-11-18T19:53Z
 - Summary: How to add new users, edit existing user details, and delete users with a CSV file.
 
 You can import up to 1,000 users into Authentication Service at one time by using CSV files.
@@ -6349,13 +6358,13 @@ You can only migrate 1000 test users. After this, you must perform end user migr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-10-29T15:46Z","nid":"1499436"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/migrating-zscaler-service-admins-authentication-service","lastmod":"2026-11-16T21:37Z","nid":"1499436"} -->
 ## Migrating Zscaler Service Admins to Authentication Service
 
 - Source: https://help.zscaler.com/authentication-service/migrating-zscaler-service-admins-authentication-service
 - Product: Authentication Service
 - Path: Authentication Service Help > Migrating Zscaler Service Admins to Authentication Service
-- Last modified: 2026-10-29T15:46Z
+- Last modified: 2026-11-16T21:37Z
 - Summary: How to migrate admins of various Zscaler services to Authentication Service.
 
 Authentication Service (formerly ZIdentity) migration includes customer-driven migration. Customers that authenticate their Zscaler administrators with an external IdP can request for Authentication Service migration.
@@ -6450,7 +6459,7 @@ Authentication Service does not support users with both IdP mapping and password
 
 [Image: Options to change password for users and admins  in Authentication Service]
 
-[Image: The Edit User drawer showing the Security Settings tab where you can change passwords for users and admins]
+[Image: Edit User page]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6497,13 +6506,13 @@ This article provides a summary of all new features and enhancements for Authent
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-11-13T09:35Z","nid":"1534313"} -->
+<!-- ZS-ARTICLE {"url":"/authentication-service/release-upgrade-summary-2026","lastmod":"2026-11-16T23:45Z","nid":"1534313"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/authentication-service/release-upgrade-summary-2026
 - Product: Authentication Service
 - Path: Authentication Service Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-13T09:35Z
+- Last modified: 2026-11-16T23:45Z
 - Summary: Authentication Service Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Authentication Service.
@@ -11309,6 +11318,34 @@ To learn more, see [Understanding Business Insights Architecture](https://help.z
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/ai-access-graph-logs","lastmod":"2026-11-20T20:15Z","nid":"1547852"} -->
+## AI Access Graph Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/ai-access-graph-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > AI Access Graph Logs
+- Last modified: 2026-11-20T20:15Z
+- Summary: Information about AI Access Graph Logs.
+
+By accessing the AI Access Graph service, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For AI Access Graph, *logs* include:
+
+- Cloud configuration data
+- Cloud Service Provider (CSP) activity audit logs
+- Connector logs
+- Cloud user directory information
+
+In addition, subject to your configuration and enablement, the following logs are also processed:
+
+- Data residing in cloud data stores such as databases, storage services, and data volumes (disks) is scanned and classified. Raw data is not saved, only metadata is stored and reported.
+- Data systems are scanned for security vulnerabilities, and information about any discovered security vulnerabilities is stored.
+
+All logs that describe active cloud resources or issues are retained by Zscaler for the duration of the subscription. Once the resources are no longer present in the CSP, AI Access Graph maintains the logs for a rolling period of 180 days during the term of the subscription. When the subscription term ends or expires, Zscaler deletes the logs after the 180-day retention cycle or earlier upon request.
+
+AI Access Graph logs are stored in the United States.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/logs-fair-use/authentication-service-logs","lastmod":"2026-08-11T12:05Z","nid":"1541005"} -->
 ## Authentication Service Logs
 
@@ -11327,59 +11364,67 @@ Zscaler Authentication Service provides centralized authentication and identity 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-licensing-and-fair-use","lastmod":"2025-06-14T15:20Z","nid":"1483321"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-licensing-and-fair-use","lastmod":"2026-11-20T20:15Z","nid":"1483321"} -->
 ## DSPM Licensing and Fair Use
 
 - Source: https://help.zscaler.com/logs-fair-use/dspm-licensing-and-fair-use
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Licensing & Fair Use > DSPM Licensing and Fair Use
-- Last modified: 2025-06-14T15:20Z
+- Last modified: 2026-11-20T20:15Z
 - Summary: Information about Zscaler Data Security Posture Management (DSPM) licensing and fair use.
 
-Zscaler Data Security Posture Management (DSPM) is a Software as a Service (SaaS) product that is licensed according to the number of data stores purchased for the subscription term in an order. A *data store* is a subscription for a single cloud service instance such as virtual machines (VMs), storage buckets, or databases that your organization utilizes in your public cloud environments.
+Zscaler Data Security Posture Management (DSPM) is licensed according to the number of instances purchased for the subscription term in an order. An *instance* is a subscription for a single cloud or on-premise environment that your organization utilizes that is in-scope for DSPM.
 
-The number of data stores required is determined by counting the total number of unique individual VMs (every instance is counted as one data store), storage buckets, databases, and any additional supported service that was configured as a scanned service by the customer over the subscription period.
+The number of instances required is determined by counting the total number of unique environments configured as a scanned environment by you over the subscription period. The size of the instance license required is determined by the average volume of stored data in an environment.
 
-An average volume cap for scanned data is considered as part of the fair use policy. If you exceed that average volume cap, additional volume add-on is required.
+An average volume cap per scanned environment is considered as part of the fair use policy. If you exceed that average volume cap, additional (or larger) instances may be required.
 
-Ensure that you order the correct number of data stores. If additional data stores are needed during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of data stores that the service monitors to ensure license compliance.
-
-You should deploy DSPM for the number of licenses ordered using selective account onboarding. Zscaler periodically reviews the number of monitored data stores and can work with you to purchase additional licenses as needed, based on usage.
+Ensure that you order the correct number (and sizes) of instances. If additional instances are needed during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of instances purchased against the environments that the service monitors to ensure license compliance.
 
 ## Fair Use Policy
 
-The usage of DSPM is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy). The average volume of scanned data per data store is expected to be less than two times the observed average across Zscaler customers (currently 1TB per data store).
+The usage of DSPM is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/legal/acceptable-use-policy). The average volume of stored data in the environment that an instance is servicing must not exceed:
 
-On average, across all subscribed data stores, the volume of scanned data should not exceed 1TB per data store. The volume of some data stores can exceed 1TB, provided that the average volume when calculated across all subscribed data stores remains below 1TB.
-
-If the usage exceeds the acceptable amount, contact Zscaler Sales or your Channel Partner to discuss available options.
+| Instance Size | Stored Data Volume Cap |
+| --- | --- |
+| Small | 100TB |
+| Medium | 1PB |
+| Large | 3PB |
+| X-Large | 8PB |
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2026-09-25T08:59Z","nid":"1483311"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/dspm-logs","lastmod":"2026-11-20T20:13Z","nid":"1483311"} -->
 ## DSPM Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/dspm-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > DSPM Logs
-- Last modified: 2026-09-25T08:59Z
+- Last modified: 2026-11-20T20:13Z
 - Summary: Information about Zscaler Data Security Posture Management (DSPM) logs.
 
-Cloud configuration data, Cloud Service Provider (CSP) activity audit logs, and cloud user directory information are processed by Zscaler in connection with your organization's use of Zscaler Data Security Posture Management (DSPM).
+By accessing the Data Security Posture Management (DSPM) service, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Zscaler-hosted and Outpost (hybrid) deployments of DSPM, *logs* include:
 
-In addition, subject to customer configuration and enablement, the following logs are also processed:
+- Cloud configuration data
+- Cloud Service Provider (CSP) activity audit logs
+- Connector logs
+- Cloud user directory information
 
-- Data residing in cloud data stores such as databases, storage services and data volumes (disks) is scanned and classified. Raw data is not saved, only static metadata is stored and reported.
-- CSP-hosted virtual machines operating system drive is scanned for installed packages and vulnerabilities (CVEs).
+In addition, subject to your configuration and enablement, the following logs are also processed:
 
-All logs that describe active cloud resources or issues are retained by Zscaler for the duration of the subscription. Once the resources are no longer present in the CSP, DSPM maintains the logs for a rolling period of 180 days during the term of the subscription. When the subscription term ends or expires, Zscaler deletes the logs after the 180-day retention cycle or earlier upon request. By accessing the DSPM service, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs.
+- Data residing in cloud data stores such as databases, storage services, and data volumes (disks) is scanned and classified. Raw data is not saved, only metadata is stored and reported.
+- Data systems are scanned for security vulnerabilities, and information about any discovered security vulnerabilities is stored.
+
+All logs that describe active cloud resources or issues are retained by Zscaler for the duration of the subscription. Once the resources are no longer present in the CSP, DSPM maintains the logs for a rolling period of 180 days during the term of the subscription. When the subscription term ends or expires, Zscaler deletes the logs after the 180-day retention cycle or earlier upon request.
+
+For customer-hosted deployments of DSPM, Zscaler does not process or store any data.
 
 During the deployment process, you can choose to have the logs stored in either the United States or the European Union.
 
 ## Feature-Specific Information
 
-- **ZAgent:** Certain DSPM features operate through the ZAgent service, which may use one or more sub-agents. For information about supported services and logs, see [ZAgent Logs](https://help.zscaler.com/logs-fair-use/zagent-logs).
+If you choose to enable the storage of evidence samples, logs will also include raw data samples.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11489,13 +11534,13 @@ The usage of ZDX is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-09-25T09:01Z","nid":"1390936"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zdx-logs","lastmod":"2026-11-19T10:05Z","nid":"1390936"} -->
 ## ZDX Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zdx-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZDX Logs
-- Last modified: 2026-09-25T09:01Z
+- Last modified: 2026-11-19T10:05Z
 - Summary: Information about Digital Experience (ZDX) logs.
 
 In order to provide the Digital Experience (ZDX) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -11517,6 +11562,7 @@ In order to provide the Digital Experience (ZDX) service, Zscaler has the right 
 - **ZDX Network Intelligence:** Aggregated logs are retained by Zscaler for a period of one year.
 - **ZDX Remediation:** ZDX Remediation allows for the execution of remote scripts on user devices. Enabling this feature allows the collection of script output and device telemetry data. All script results and telemetry collected through this feature are retained by Zscaler for 180 days. Authorized users can delete script results at any time via the ZDX Admin Portal.
 - **ZDX Snapshot:** The ZDX Snapshot feature captures the current state of a UI page, and provides a URL that admins can share with ZDX users or other admins for view-only access. ZDX Snapshots are retained by Zscaler for 90 days.
+- **Zero Trust Exchange Agentic Operations:** Zero Trust Exchange Agentic Operations logs may include operational or audit data associated with supported ZDX and Analytics API MCP tool invocations.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11657,13 +11703,13 @@ The usage of ZIA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-08-05T11:50Z","nid":"1391021"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zia-logs","lastmod":"2026-11-19T09:57Z","nid":"1391021"} -->
 ## ZIA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zia-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZIA Logs
-- Last modified: 2026-08-05T11:50Z
+- Last modified: 2026-11-19T09:57Z
 - Summary: Information about Zscaler Internet Access (ZIA) logs.
 
 In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
@@ -11679,6 +11725,7 @@ In order to provide the Zscaler Internet Access (ZIA) service, Zscaler has the r
 - **Gen AI Security:** Gen AI Security logs will also include classifications of end user prompts to generative AI applications. By default, end user prompts to supported generative AI applications are not captured in logs. They are captured in the logs only if your administrator enables this feature via the toggle in the Admin Portal.
 - **IoT Advanced Security:** For the IoT Advanced Security service, unauthenticated, non-user-identifying web logs that are associated with the customer at the org level will be retained by Zscaler for a rolling period of three months during the term of subscription. When the subscription term ends or expires, these logs are deleted by Zscaler after the three month retention cycle. For the IoT Advanced Security service, the logs will be stored in the United States.
 - **Endpoint Context:** Endpoint Context service logs also capture telemetry about user devices. This telemetry may include software process level information of the device.
+- **Zero Trust Exchange Agentic Operations:** Zero Trust Exchange Agentic Operations logs may include operational or audit data associated with supported ZIA and Analytics API MCP tool invocations.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11756,25 +11803,26 @@ The usage of ZPA is expected to be in accordance with the [Acceptable Use Policy
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2026-09-02T11:40Z","nid":"1390951"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zpa-logs","lastmod":"2026-11-19T10:03Z","nid":"1390951"} -->
 ## ZPA Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zpa-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > ZPA Logs
-- Last modified: 2026-09-02T11:40Z
+- Last modified: 2026-11-19T10:03Z
 - Summary: Information about Zscaler Private Access (ZPA) logs.
 
 In order to access the Zscaler Private Access (ZPA) service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs. For ZPA, *logs* are defined as follows:
 
-- User Logs: Activity logs of authorized users who access your internal applications through ZPA. These logs capture end-user requests to Applications or information related to an end user's availability and connection to ZPA. To learn more, see [User Activity Log Fields](https://help.zscaler.com/zpa/user-activity-log-fields) and [User Status Log Fields](https://help.zscaler.com/zpa/user-status-log-fields).
-- App Connector Logs: Activity logs of the App Connector, which allow authorized users access to your internal applications through ZPA. These logs capture information on an App Connector's availability and connection to ZPA. To learn more, see [App Connector Status Log Fields](https://help.zscaler.com/zpa/connector-status-log-fields).
-- AppProtection Logs: Activity logs relating to the inspection of traffic destined to or from internal applications through ZPA.
-- API Discovery Logs: Activity logs (derived from AppProtection Logs) that capture information about discovered APIs within your environment and associated users of those APIs.
-- Audit Logs: Activity logs of configuration changes you made via the ZPA Admin Portal. To learn more, see [About Audit Logs](https://help.zscaler.com/zpa/about-audit-logs) and [Audit Log Fields](https://help.zscaler.com/zpa/about-audit-log-fields).
-- Privileged Session Recordings: Screen recordings of RDP, SSH, VNC systems by users accessed in Privileged Remote Access (PRA) configured with the Record Session Privileged Capability. To learn more, see [About Consoles Policy](https://help.zscaler.com/zpa/about-consoles-policy) and Viewing Recordings in [Accessing Privileged Sessions](https://help.zscaler.com/zpa/accessing-privileged-sessions).
-- Privileged Session Files: Files uploaded by users within PRA configured with a Portal Policy. To learn more, see [About Portals Policy](https://help.zscaler.com/zpa/about-portals-policy).
-- Zscaler Microsegmentation Agent Logs: Agent logs that include information such as hostname, operating system name, operating system version, network addresses, cloud environment details (i.e., Cloud Name, Cloud Account ID, Cloud Region, VPC/VNET details, Cloud Subnet details, user defined tags in cloud), traffic connection information and host resource telemetry (i.e., CPU, memory, file descriptor utilization).
+- **User Logs:** Activity logs of authorized users who access your internal applications through ZPA. These logs capture end-user requests to Applications or information related to an end user's availability and connection to ZPA. To learn more, see [User Activity Log Fields](https://help.zscaler.com/zpa/user-activity-log-fields) and [User Status Log Fields](https://help.zscaler.com/zpa/user-status-log-fields).
+- **App Connector Logs:** Activity logs of the App Connector, which allow authorized users access to your internal applications through ZPA. These logs capture information on an App Connector's availability and connection to ZPA. To learn more, see [App Connector Status Log Fields](https://help.zscaler.com/zpa/connector-status-log-fields).
+- **AppProtection Logs:** Activity logs relating to the inspection of traffic destined to or from internal applications through ZPA.
+- **API Discovery Logs:** Activity logs (derived from AppProtection Logs) that capture information about discovered APIs within your environment and associated users of those APIs.
+- **Audit Logs:** Activity logs of configuration changes you made via the ZPA Admin Portal. To learn more, see [About Audit Logs](https://help.zscaler.com/zpa/about-audit-logs) and [Audit Log Fields](https://help.zscaler.com/zpa/about-audit-log-fields).
+- **Privileged Session Recordings:** Screen recordings of RDP, SSH, VNC systems by users accessed in Privileged Remote Access (PRA) configured with the Record Session Privileged Capability. To learn more, see [About Consoles Policy](https://help.zscaler.com/zpa/about-consoles-policy) and Viewing Recordings in [Accessing Privileged Sessions](https://help.zscaler.com/zpa/accessing-privileged-sessions).
+- **Privileged Session Files:** Files uploaded by users within PRA configured with a Portal Policy. To learn more, see [About Portals Policy](https://help.zscaler.com/zpa/about-portals-policy).
+- **Zscaler Microsegmentation Agent Logs:** Agent logs that include information such as hostname, operating system name, operating system version, network addresses, cloud environment details (i.e., Cloud Name, Cloud Account ID, Cloud Region, VPC/VNET details, Cloud Subnet details, user defined tags in cloud), traffic connection information and host resource telemetry (i.e., CPU, memory, file descriptor utilization).
+- **Zero Trust Exchange Agentic Operations:** Zero Trust Exchange Agentic Operations logs may include operational or audit data associated with supported ZPA and Analytics API MCP tool invocations.
 
 Logs do not include your internal system logs.
 
@@ -11784,8 +11832,8 @@ During the deployment process, you can choose to have the logs stored in either 
 
 If you order the VPN Connectivity service, logs also include:
 
-- VPN Connector Logs: Activity logs of the VPN Connector, which allow authorized users access to your internal applications through ZPA VPN Connectivity. These logs capture information on a VPN Connector’s availability and connection to ZPA.
-- VPN Service Edge Logs: Activity logs of the VPN Service Edge which enables secure VPN tunnels from the user and from the VPN Connector and routes data from authorized users to internal destination applications.
+- **VPN Connector Logs:** Activity logs of the VPN Connector, which allow authorized users access to your internal applications through ZPA VPN Connectivity. These logs capture information on a VPN Connector’s availability and connection to ZPA.
+- **VPN Service Edge Logs:** Activity logs of the VPN Service Edge which enables secure VPN tunnels from the user and from the VPN Connector and routes data from authorized users to internal destination applications.
 
 If you configure the Session Recording for PRA, session recordings will be retained by Zscaler for a period of one year during the term of subscription. When the subscription term ends or expires, these logs are deleted by Zscaler. For the PRA Session Recording service, the session recordings will be encrypted and stored in the geographical region in which your tenant is located.
 
@@ -11862,14 +11910,14 @@ When the subscription term ends or expires, the logs are deleted by Zscaler acco
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use","lastmod":"2026-10-06T14:33Z","nid":"1541024"} -->
-## Zscaler Agentic Security Operations Platform Licensing and Fair Use
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-soc-licensing-and-fair-use","lastmod":"2026-11-20T09:54Z","nid":"1547839"} -->
+## Zscaler Agentic SOC Licensing and Fair Use
 
-- Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-licensing-and-fair-use
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-soc-licensing-and-fair-use
 - Product: Logs & Fair Use
-- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Agentic Security Operations Platform Licensing and Fair Use
-- Last modified: 2026-10-06T14:33Z
-- Summary: Information about Zscaler Agentic Security Operations Platform Licensing and Fair Use.
+- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Agentic SOC Licensing and Fair Use
+- Last modified: 2026-11-20T09:54Z
+- Summary: Information about Zscaler Agentic SOC Licensing and Fair Use.
 
 Zscaler Agentic SOC is a Software as a Service (SaaS) product that is licensed according to the number of entities purchased for the subscription term in an order. An *entity* is defined as a unique identity, endpoint, or cloud resource. The number of entities required is determined by counting the total number of entities processed and stored in Agentic SOC.
 
@@ -11881,20 +11929,21 @@ The usage of Agentic Security Operations Platform (Agentic SecOps Platform) is e
 
 - The average data processing (uncompressed) is expected to be no more than 10MB per entity on a daily basis.
 - The average number of daily queries per account is expected to be no more than 8,000 queries per day.
+- The average AI token consumption is expected to be no more than 50K tokens per entity on an annual basis.
 
 If your usage exceeds the acceptable amount, contact Zscaler Sales or your Channel Partner to discuss available options.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-secops-logs","lastmod":"2026-10-06T14:32Z","nid":"1541023"} -->
-## Zscaler Agentic Security Operations Platform Logs
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-agentic-soc-logs","lastmod":"2026-11-20T09:41Z","nid":"1547838"} -->
+## Zscaler Agentic SOC Logs
 
-- Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-secops-logs
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-agentic-soc-logs
 - Product: Logs & Fair Use
-- Path: Logs & Fair Use > Logs & Data > Zscaler Agentic Security Operations Platform Logs
-- Last modified: 2026-10-06T14:32Z
-- Summary: Information about Zscaler Agentic Security Operations Platform Logs.
+- Path: Logs & Fair Use > Logs & Data > Zscaler Agentic SOC Logs
+- Last modified: 2026-11-20T09:41Z
+- Summary: Information about Zscaler Agentic SOC Logs.
 
 In order to provide the Zscaler Agentic Security Operations Platform (Agentic SecOps Platform) and the Agentic SOC service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article.
 
@@ -11906,10 +11955,10 @@ In order to provide the Zscaler Agentic Security Operations Platform (Agentic Se
 
 - **Mapping Copilot:** For the Mapping Copilot feature, prompts and responses are stored by Zscaler for 90 days as part of the session history. Mapping Copilot is not trained using any customer data.
 - **Configuration Audit Logs:** Configuration Audit Logs are available in the Agentic SecOps Platform Admin Portal and by subscribing to export to S3/GCP on an hourly basis. Audit logs are retained on the platform for 180 days with the preceding 90 days available in the Admin Portal.
+- **Entity Data:** Information related to entities is retained for the duration of your subscription. When the subscription term ends or expires, this data is deleted within 45 days.
+- **Agentic Historical Investigation Widgets:** User prompts and conversation metadata are stored by Zscaler for 90 days. The agent is not trained using any customer data.
 
 ## Feature-Specific information
-
-###### Agentic SOC:
 
 - **Incident:** For incidents identified by Agentic SOC, the information related to such incidents is stored by Zscaler for one year.
 - **Comments:** For the Comments feature, your comments are stored by Zscaler for up to one year, as long as the related incident remains on the platform.
@@ -12415,13 +12464,13 @@ In order to provide the Zscaler Endpoint AI Security Security service, you grant
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-11-06T08:57Z","nid":"1541815"} -->
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-experience-center-logs","lastmod":"2026-11-20T15:26Z","nid":"1541815"} -->
 ## Zscaler Experience Center Logs
 
 - Source: https://help.zscaler.com/logs-fair-use/zscaler-experience-center-logs
 - Product: Logs & Fair Use
 - Path: Logs & Fair Use > Logs & Data > Zscaler Experience Center Logs
-- Last modified: 2026-11-06T08:57Z
+- Last modified: 2026-11-20T15:26Z
 - Summary: Information about Zscaler Experience Center Logs.
 
 By accessing Zscaler Experience Center, you provide Zscaler the right to process, use, reproduce, store, modify, and display the information from logs. For Experience Center, *logs* are defined as follows:
@@ -12432,7 +12481,68 @@ By accessing Zscaler Experience Center, you provide Zscaler the right to process
 
 ## Feature-Specific Information
 
-- **Agentic Onboarding:** For the Agentic Onboarding feature, logs also include the onboarding inputs you upload or enter and conversations with the onboarding agent. Zscaler retains onboarding inputs and conversations for a rolling period of 90 days. Agentic Onboarding logs are stored in the United States.
+For the Agentic Onboarding feature, logs also include the onboarding inputs you upload or enter and conversations with the onboarding agent. Zscaler retains onboarding inputs and conversations for a rolling period of 90 days. Agentic Onboarding logs are stored in the United States.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-exposure-management-licensing-and-fair-use","lastmod":"2026-11-20T11:51Z","nid":"1547842"} -->
+## Zscaler Exposure Management Licensing and Fair Use
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-exposure-management-licensing-and-fair-use
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Licensing & Fair Use > Zscaler Exposure Management Licensing and Fair Use
+- Last modified: 2026-11-20T11:51Z
+- Summary: Information about Zscaler Exposure Management Licensing and Fair Use.
+
+Zscaler Exposure Management is a Software as a Service (SaaS) product that is licensed according to the number of entities purchased for the subscription term in an order. An *entity* is defined as a unique identity, endpoint, or cloud resource. The number of entities required is determined by counting the total number of entities processed and stored in Exposure Management.
+
+Ensure that you order the correct number of entities. If you require additional entities during a subscription term, contact Zscaler Sales or your Channel Partner. Zscaler periodically reviews the number of entities to ensure license compliance.
+
+## Fair Use Policy
+
+The usage of Exposure Management is expected to be in accordance with the [Acceptable Use Policy](https://help.zscaler.com/product-usage-terms/acceptable-use-policy). The Fair Use Policy for Exposure Management is:
+
+- The average data processing (uncompressed) is expected to be no more than 3MB per entity on a daily basis.
+- The average number of daily queries per account is expected to be no more than 4,000 queries per day.
+- The average AI token consumption is expected to be no more than 20K tokens per entity on an annual basis.
+
+If your usage exceeds the acceptable amount, contact Zscaler Sales or your Channel Partner to discuss available options.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/logs-fair-use/zscaler-exposure-management-logs","lastmod":"2026-11-20T11:45Z","nid":"1547237"} -->
+## Zscaler Exposure Management Logs
+
+- Source: https://help.zscaler.com/logs-fair-use/zscaler-exposure-management-logs
+- Product: Logs & Fair Use
+- Path: Logs & Fair Use > Logs & Data > Zscaler Exposure Management Logs
+- Last modified: 2026-11-20T11:45Z
+- Summary: Information about Zscaler Exposure Management Logs.
+
+In order to provide the Zscaler Agentic Security Operations Platform and the Zscaler Exposure Management service, Zscaler has the right to process, use, reproduce, store, modify, and display the information from logs as defined in this article. Exposure Management includes Unified Vulnerability Management (UVM), Asset Exposure Management (AEM), External Attack Surface Management (EASM), and Identity Protection.
+
+- **Definition:** For Exposure Management, *logs* are defined as the configuration and transaction data collected for actions performed by users authorized by you who are acting within the applicable Exposure Management SaaS application.
+- **Retention:** Retention periods vary by feature and subscription, as set out in the Feature-specific information section below. Logs are retained for a rolling period of up to 180 days. When the subscription term ends or expires, the logs are deleted by Zscaler according to applicable retention cycles. Retention for individual products or features may differ and are listed below.
+- **Storage Location:** During the deployment process, you can choose to have Exposure Management logs stored in either the United States or the European Union.
+
+## Platform-Specific Information
+
+- **Mapping Copilot**: Prompts and responses are stored for 90 days as part of the session history. Mapping Copilot is not trained using any customer data.
+- **Configuration Audit Logs:** Configuration audit logs are available on the platform and by subscribing to export to S3/GCP on an hourly basis. Audit logs are retained on the platform for 180 days with the preceding 90 days available in the Admin Portal.
+- **Entity Data:** Information related to entities is retained for the duration of your subscription. When the subscription term ends or expires, the data is deleted within 45 days.
+- **Agentic Historical Investigation Widgets:** User prompts and conversation metadata are stored for 90 days. The agent is not trained using any customer data.
+
+## Feature-Specific Information
+
+- **Remediation ZAgent:** Prompts and responses are stored for 90 days as part of the session history. The Remediation ZAgent is not trained using any customer data.
+- **External Attack Surface Management (EASM):** For EASM, *logs* consist of public internet-facing assets that are discovered and scanned by Zscaler to identify and analyze potential external attack surfaces. These assets include: Logs are retained for a rolling period of 14 days during the term of the subscription. When the subscription term ends or expires, the logs are deleted by Zscaler after the 14-day retention cycle or earlier upon request. EASM logs are stored in the United States.
+  - Domains
+  - Hosts
+  - Web pages
+  - SSL/TLS certificates
+  - IP addresses
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -14729,13 +14839,13 @@ On the Role Management page (Administration > Role Management > Role Management)
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/about-role-management-audit-logs","lastmod":"2026-09-29T10:50Z","nid":"1545466"} -->
+<!-- ZS-ARTICLE {"url":"/unified/about-role-management-audit-logs","lastmod":"2026-11-20T06:06Z","nid":"1545466"} -->
 ## About Role Management Audit Logs
 
 - Source: https://help.zscaler.com/unified/about-role-management-audit-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Audit Logs > About Role Management Audit Logs
-- Last modified: 2026-09-29T10:50Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on the Audit Logs page for Role Management in the Zscaler Admin Console.
 
 The Zscaler service records the activity of each admin that uses the [Role Management page](https://help.zscaler.com/unified/about-role-management). The audit log displays information related to creating, updating, and deleting admin roles.
@@ -15554,46 +15664,4 @@ To remove multiple users' content permissions:
 [Image: Select Permission Set/s to Remove]
 
 [Image: Select the role permission sets]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-10-27T12:15Z","nid":"1545204"} -->
-## Attribute Reconciliation Default Functions
-
-- Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
-- Product: Getting Started with Zscaler
-- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
-- Last modified: 2026-10-27T12:15Z
-- Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
-
-Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
-
-For example, when merging multiple Asset records into a single asset, the Asset Operating System field might contain multiple values. In such cases, the system automatically selects the value that appears most frequently among the merged records.
-
-By default, every field has system-defined reconciliation logic based on industry best practices. These defaults can be adjusted upon request or manually replaced with Priority By Source reconciliation logic in field unification. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
-
-## Default Functions by Field Type
-
-The following table outlines the system's default functions for determining field values during entity deduplication conflict resolution, categorized by field type.
-
-| Icon | Field Type | Default Function | Populated Value | Examples |
-| --- | --- | --- | --- | --- |
-| [Image: Text icon in Data Model] | Text | MAJORITY | The most frequent value from the set of values | Asset Owner ID Ticket Assignee |
-| [Image: Repeated message icon][Image: Repeated text icon] | Repeated (all types) | COLLECT_DISTINCT_FLAT | A list of distinct values | Ticket Sources |
-| [Image: Number icon] | Number | MAX | The maximum value for number type fields. MAX is the highest value. | Ticket Severity Score |
-| [Image: Boolean icon] | Boolean | MAX | The maximum value for Boolean fields is TRUE if at least one value is TRUE | Asset Is Behind Firewall Asset Is Critical Asset |
-| [Image: Date icon] | Date | MAX | The most recent date | Ticket SLA |
-| [Image: IP icon] | IP | COLLECT_DISTINCT_FLAT | A list of distinct IP addresses | External IP Addresses |
-| [Image: Fix icon] | Fix | COLLECT_DISTINCT_FLAT | A list of distinct fixes | Optimal Fix |
-|  | Message | MAX | The structured message data returned for the entity | Summary Attributes |
-
-## Commonly Used Fields
-
-The following table shows the default functions for commonly used fields:
-
-| Icon | Field | Default Function | Populated Value | Examples |
-| --- | --- | --- | --- | --- |
-| [Image: Date icon] | First Seen (for all entity types) | MIN | The earliest date value | Finding First Seen |
-| [Image: Date icon] | Last Seen (for all entity types) | MAX | Themost recent date value | Asset Last Seen |
 <!-- /ZS-ARTICLE -->

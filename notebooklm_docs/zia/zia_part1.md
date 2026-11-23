@@ -1,7 +1,7 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 174
 
 ---
@@ -515,8 +515,8 @@ On the Advanced Threat Protection Policy page (Policies > Cybersecurity > Intern
 ## About Alert History
 
 - Source: https://help.zscaler.com/zia/about-alert-history
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Security & UEBA Alerts > About Alert History
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Security & UEBA Alerts > About Alert History
 - Last modified: 2026-11-12T20:06Z
 - Summary: Information about all the disabled or ended alerts under the Security Alerts page in the Zscaler Admin Console.
 
@@ -1303,8 +1303,8 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 ## About the Application Investigation Overview
 
 - Source: https://help.zscaler.com/zia/about-application-investigation-overview
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > About the Application Investigation Overview
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > About the Application Investigation Overview
 - Last modified: 2026-11-04T07:37Z
 - Summary: This article contains information about Application Investigation Overview in Endpoint Data Scan.
 
@@ -2148,13 +2148,13 @@ On the Authentication Profiles page (Administration > Internet & SaaS Authentica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-11-15T06:06Z","nid":"1398956"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-backup-and-restore","lastmod":"2026-11-22T06:06Z","nid":"1398956"} -->
 ## About Backup and Restore
 
 - Source: https://help.zscaler.com/zia/about-backup-and-restore
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > Backup & Restore > About Backup and Restore
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Backup & Restore > About Backup and Restore
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information about backing up and restoring policies and configuration settings in the Zscaler Admin Console.
 
 [Watch a video about Backup & Restore.](https://fast.wistia.net/embed/iframe/t0q87g3oly)
@@ -4700,13 +4700,13 @@ On the Device Control page (Data Security > Endpoint DLP > Endpoint Data Scan > 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-10-12T10:22Z","nid":"1402251"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-device-groups","lastmod":"2026-11-18T08:00Z","nid":"1402251"} -->
 ## About Device Groups
 
 - Source: https://help.zscaler.com/zia/about-device-groups
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Devices > About Device Groups
-- Last modified: 2026-10-12T10:22Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Device Groups
+- Last modified: 2026-11-18T08:00Z
 - Summary: Information on the Device Groups page in the Zscaler Admin Console.
 
 The Device Groups page displays a list of predefined groups. These groups are defined based on the OS types of the devices in your organization. The devices that have Zscaler Client Connector deployed are categorized under respective groups based on their OS type.
@@ -4729,7 +4729,7 @@ On the Device Groups page (Administration > Internet & SaaS Authentication > Int
   - **Description**: The description of the device
 4. View more information about the device group.
 5. [Go to the Devices page](https://help.zscaler.com/zia/about-devices).
-6. Go to the VDI Devices and VDI Device Groups pages.
+6. Go to the [VDI Devices](https://help.zscaler.com/zia/about-vdi-devices) and [VDI Device Groups](https://help.zscaler.com/zia/about-vdi-device-groups) pages.
 
 [Image: The Device Groups page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
@@ -4740,8 +4740,8 @@ On the Device Groups page (Administration > Internet & SaaS Authentication > Int
 ## About Device Investigation
 
 - Source: https://help.zscaler.com/zia/about-device-investigation
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > About Device Investigation
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > About Device Investigation
 - Last modified: 2026-11-04T07:28Z
 - Summary: Information about the Device Investigation page for Endpoint Data Loss Prevention (DLP) (DLP) in the Data Protection Portal.
 
@@ -4785,14 +4785,14 @@ Use the arrows at the bottom of the page to go to view the next entries. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-11-13T01:06Z","nid":"1402246"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-devices","lastmod":"2026-11-18T08:00Z","nid":"1402246"} -->
 ## About Devices
 
 - Source: https://help.zscaler.com/zia/about-devices
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Devices > About Devices
-- Last modified: 2026-11-13T01:06Z
-- Summary: Information on the Device Management page in the Zscaler Admin Console.
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About Devices
+- Last modified: 2026-11-18T08:00Z
+- Summary: Information about Devices on the Device Management page in the Zscaler Admin Console.
 
 The Internet & SaaS Device Management page displays all the devices in your organization that have the Zscaler Client Connector deployed. You can select devices when you configure policies​​​​​.
 
@@ -4818,7 +4818,7 @@ On the Devices page (Administration > Internet & SaaS Authentication > Internet 
   - **Device Owner**: The owner of the device.
   - **Description**: The description of the device.
 5. View more information about the device.
-6. Go to the [Device Groups](https://help.zscaler.com/zia/about-device-groups), VDI Devices, and VDI Device Groups pages.
+6. Go to the [Device Groups](https://help.zscaler.com/zia/about-device-groups), [VDI Devices](https://help.zscaler.com/zia/about-vdi-devices), and [VDI Device Groups](https://help.zscaler.com/zia/about-vdi-device-groups) pages.
 
 [Image: The Device Groups tab in the Internet & SaaS Device Management page]
 <!-- /ZS-ARTICLE -->
@@ -5469,16 +5469,20 @@ You can use one of the following pages to create DLP and endpoint resources in t
 - About the Endpoint Resources Page
 - About the DLP & Endpoint Resources Page
 
-The **Endpoint DLP Resources**page is available if your organization has licensed Endpoint DLP but not Endpoint Context.
+The DLP Resources page is available if your organization has licensed Endpoint DLP but not Endpoint Context.
 
-On the **DLP Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
+On the DLP Resources page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
 
 - Network Shares
+- Network Share Tags
 - Printers
+- Printer Tags
 - Removable Storage Devices
-- Applications
+- Removable Storage Device Tags
+- Endpoint Applications
+- Endpoint Application Tags
 
-On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Network Shares), you can do the following:
+On the **Network Shares** page, you can do the following:
 
 1. Search for a network share.
 2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
@@ -5490,15 +5494,35 @@ On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Reso
 6. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 8. Go to the **Printers** page.
-9. Go to the **Printer Tags** page.
+9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
-11. Go to the **Removable Storage Device** **Tags**page.
+11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
-13. Go to the **Endpoint Application Tags** page.
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[[Image: About Network Shares in DLP & Endpoint Resources]](https://help.zscaler.com/downloads/zia/policies/endpoint-data-loss-prevention/about-dlp-endpoint-resources/networkshares.png)
+[Image: About Network Shares in DLP Resources]
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
+On the **Network Share Tags** page, you can do the following:
+
+1. Search for a network share tag.
+2. [Add and configure a network share tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP network share tags for your organization. For network share tags, you can see the following:
+  1. **Tag Name**: The network share tag's name. You can sort this column.
+  2. **Count**: The number of network shares associated with the tag.
+  3. **Description**: The network share tag's description.
+5. [Edit or delete a network share tag](https://help.zscaler.com/zia/editing-resource-tag-edlp).
+6. Go to the **Network Shares** page.
+7. Go to the **Printers** page.
+8. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+9. Go to the **Removable Storage Devices** page.
+10. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Endpoint Applications** page.
+12. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: About Network Share Tags in DLP Resources]
+
+On the **Printers** page, you can do the following:
 
 1. Search for a printer.
 2. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
@@ -5507,21 +5531,41 @@ On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources 
 5. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
   - **Name**: The printer's name. You can sort this column.
   - **Domain**: The name of the domain where the network printer is located.
-  - **Printer Name**: The printer's name as it appears in the OS list of printers.
+  - **Printer Name**: The printer's name as it appears in the operating system list of printers.
   - **IP Address**: The printer's IP address.
   - **Description**: The printer's description.
 6. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-7. Go to the **Network**page.
-8. Go to the **Network Share Tags** page.
+7. Go to the **Network Shares** page.
+8. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
 11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
 13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: About Printers in DLP & Endpoint Resources]
+[Image: About Printers in DLP Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Removable Storage Devices), you can do the following:
+On the **Printer Tags** page, you can do the following:
+
+1. Search for a printer tag.
+2. [Add and configure a printer tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
+  - **Tag Name**: The name of the printer tag. You can sort this column.
+  - **Count**: The number of printers associated with the tag.
+  - **Description**: The printer tag's description.
+5. [Edit or delete a printer tag](https://help.zscaler.com/zia/editing-resource-tag-edlp).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. Go to the **Printers** page.
+9. Go to the **Removable Storage Devices** page.
+10. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Endpoint Applications** page.
+12. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: About Printer Tags in DLP Resources]
+
+On the **Removable Storage Devices** page, you can do the following:
 
 1. Search for a removable storage device.
 2. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
@@ -5535,25 +5579,46 @@ On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoi
   - **Description**: The removable storage device's description.
 6. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 9. Go to the **Printers** page.
 10. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 12. Go to the **Endpoint Applications**page.
 13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: `About Removeable Storage Devices in Endpoint DLP Resources]
+[Image: `About Removable Storage Devices in DLP Resources]
+
+On the **Removable Storage Device Tags** page, you can do the following:
+
+1. Search for a removable storage device tag.
+2. [Add and configure a removable storage device tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
+  - **Tag Name**: The name of the removable storage device tag. You can sort this column.
+  - **Count**: The number of removable storage device tags associated with the tag.
+  - **Description**: The removable storage device tag's description.
+5. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. Go to the **Printers** page.
+9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. Go to the **Removable Storage Devices** page.
+11. Go to the **Endpoint Applications**page.
+12. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: `About Removable Storage Device Tags in DLP Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Endpoint Applications), you can do the following:
+On the **Endpoint Applications** page, you can do the following:
 
 1. Search for an application.
 2. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. Filter by OS or Application Type.
-6. View a list of all configured applications for your organization. For applications, you can see the following:
+5. Select the filtering options for the endpoint applications in the table.
+6. Filter by Operating System or Application Type.
+7. View a list of all configured applications for your organization. For applications, you can see the following:
   - **Name**: The name of the application.
   - **Operating System**: The OS that the application uses.
   - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
@@ -5564,33 +5629,53 @@ On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint D
     - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
     - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
     - **Custom**: Applications added to a tenant by an administrator.
-  - **Version**: The version number of the application.
-  - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
-    - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
-    - **High**: The application presents a high risk, based on analysis by the Zscaler service.
-    - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
-    - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
-7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-8. [Go to the Network Shares page.](https://help.zscaler.com/zia/adding-resource-tags)
-9. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-10. [Go to the Printers page.](https://help.zscaler.com/zia/adding-resource-tags)
-11. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-12. [Go to the Removable Storage Devices page.](https://help.zscaler.com/zia/adding-resource-tags)
-13. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-14. [Go to the Endpoint Application Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+9. Go to the **Network Shares** page.
+10. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Printers** page.
+12. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. Go to the **Removable Storage Devices** page.
+14. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+15. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: About Applications in Endpoint DLP Resources]
+[Image: About Endpoint Applications in DLP Resources]
 
-The **Endpoint Resources**page is available if your organization has licensed Endpoint Context but not Endpoint DLP.
+To access this feature, contact your Zscaler Account team.
 
-On the **Endpoint Applications**(Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Endpoint Application Tags** page, you can do the following:
+
+1. Search for an application tag.
+2. [Add and configure an endpoint application tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured application tags for your organization. For application tags, you can see the following:
+  - **Tag Name**: The name of the endpoint application tag. You can sort this column.
+  - **Description**: The endpoint application tag's description.
+  - **Endpoint Applications**: The endpoint applications associated with the tag.
+5. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. Go to the **Printers** page.
+9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. Go to the **Removable Storage Devices** page.
+11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+12. Go to the **Endpoint Applications**page.
+
+[Image: About Endpoint Application Tags in DLP Resources]
+
+The Endpoint Resources page is available if your organization has licensed Endpoint Context but not Endpoint DLP.
+
+On the DLP & Endpoint Resources page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
+
+- Endpoint Applications
+- Endpoint Application Tags
+
+On the **Endpoint Applications** page, you can do the following:
 
 1. Search for an application.
 2. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
 3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
-4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. Filter by OS or Application Type.
-6. View a list of all configured applications for your organization. For applications, you can see the following:
+4. Filter by Operating System or Application Type.
+5. View a list of all configured applications for your organization. For applications, you can see the following:
   - **Name**: The name of the application.
   - **Operating System**: The OS that the application uses.
   - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
@@ -5601,79 +5686,131 @@ On the **Endpoint Applications**(Data Security > Endpoint DLP > Endpoint DLP Res
     - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
     - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
     - **Custom**: Applications added to a tenant by an administrator.
-  - **Version**: The version number of the application.
   - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
     - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
     - **High**: The application presents a high risk, based on analysis by the Zscaler service.
     - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
     - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
+6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources). You cannot delete applications identified as **Discovered** or **Well-Known** by the Zscaler service.
-8. [Go to the Network Shares page.](https://help.zscaler.com/zia/adding-resource-tags)
-9. [Go to the Network Share Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-10. [Go to the Printers page.](https://help.zscaler.com/zia/adding-resource-tags)
-11. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-12. [Go to the Removable Storage Devices page.](https://help.zscaler.com/zia/adding-resource-tags)
-13. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
-14. [Go to the Endpoint Application Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. [Go to the Endpoint Application Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
 
 [Image: Endpoint Resources Page with the Endpoint Applications page selected]
 
-The **DLP & Endpoint Resources**page is available if your organization has licensed both Endpoint DLP and Endpoint Context.
+On the **Endpoint Application Tags** page, you can do the following:
 
-On the **DLP & Endpoint Resources** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
+1. Search for an application tag.
+2. [Add and configure an endpoint application tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured application tags for your organization. For application tags, you can see the following:
+  1. **Tag Name**: The name of the endpoint application tag. You can sort this column.
+  2. **Description**: The endpoint application tag's description.
+  3. **Endpoint Applications**: The endpoint applications associated with the tag.
+5. [Edit or delete an application tag](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Go to the **Endpoint Applications**page.
+
+[Image: Endpoint Resources Page with the Endpoint Application Tags page selected]
+
+The DLP & Endpoint Resources page is available if your organization has licensed both Endpoint DLP and Endpoint Context.
+
+On the DLP & Endpoint Resources page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can view and add the following resources:
 
 - Network Shares
+- Network Share Tags
 - Printers
+- Printer Tags
 - Removable Storage Devices
-- Applications
+- Removable Storage Device Tags
+- Endpoint Applications
+- Endpoint Application Tags
 
-On the **Network Shares** page (Data Security > Endpoint DLP > Endpoint DLP Resources), you can do the following:
+On the **Network Shares** page, you can do the following:
 
 1. Search for a network share.
-2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
+2. [Import network shares](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources) via CSV file.
 3. [Add and configure a network share](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. View a list of all configured DLP network shares for your organization. For network shares, you can see the following:
-  - **Name**: The network share's name. You can sort this column.
-  - **Server Name**: The name of the server where the network share is located.
+  1. **Name**: The network share's name. You can sort this column.
+  2. **Server Name**: The name of the server where the network share is located.
 6. [Edit or delete a network share](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
-7. [Go to the Network Share Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 8. Go to the **Printers** page.
-9. Go to the **Printer Tags** page.
+9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
-11. Go to the **Removable Storage Device Tags** page.
+11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
-13. Go to the **Endpoint Application Tags** page.
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: Network Shares in DLP & Endpoint Resources]
+[Image: About Network Shares in DLP & Endpoint Resources]
 
-On the **Printers** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Printers), you can do the following:
+On the **Network Share Tags** page, you can do the following:
 
-1. Search for a network printer.
-2. [Import network printers](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
+1. Search for a network share tag.
+2. [Add and configure a network share tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP network share tags for your organization. For network share tags, you can see the following:
+  1. **Tag Name**: The network share tag's name. You can sort this column.
+  2. **Count**: The number of network shares associated with the tag.
+  3. **Description**: The network share tag's description.
+5. [Edit or delete a network share tag](https://help.zscaler.com/zia/editing-resource-tag-edlp).
+6. Go to the **Network Shares** page.
+7. Go to the **Printers** page.
+8. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+9. Go to the **Removable Storage Devices** page.
+10. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Endpoint Applications** page.
+12. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: About Network Share Tags in DLP & Endpoint Resources]
+
+On the **Printers** page, you can do the following:
+
+1. Search for a printer.
+2. [Import network printers](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
 3. [Add and configure a network printer](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
   - **Name**: The printer's name. You can sort this column.
   - **Domain**: The name of the domain where the network printer is located.
-  - **Printer Name**: The printer's name as it appears in the OS list of printers.
+  - **Printer Name**: The printer's name as it appears in the operating system list of printers.
   - **IP Address**: The printer's IP address.
   - **Description**: The printer's description.
 6. [Edit or delete a printer](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. Go to the **Network Share Tags** page.
-9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+9. [Go to the Printer Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 10. Go to the **Removable Storage Devices** page.
-11. Go to the **Removable Storage Device Tags** page.
+11. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 12. Go to the **Endpoint Applications** page.
-13. Go to the **Endpoint Application Tags** page.
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: Printers in DLP & Endpoint Resources]
+[Image: About Printers in DLP & Endpoint Resources]
 
-On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Removable Storage Devices), you can do the following:
+On the **Printer Tags** page, you can do the following:
+
+1. Search for a printer tag.
+2. [Add and configure a printer tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP network printers for your organization. For network printers, you can see the following:
+  - **Tag Name**: The name of the printer tag. You can sort this column.
+  - **Count**: The number of printers associated with the tag.
+  - **Description**: The printer tag's description.
+5. [Edit or delete a printer tag](https://help.zscaler.com/zia/editing-resource-tag-edlp).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Share Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+8. Go to the **Printers** page.
+9. Go to the **Removable Storage Devices** page.
+10. [Go to the Removable Storage Device Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Endpoint Applications** page.
+12. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: About Printer Tags in DLP & Endpoint Resources]
+
+On the **Removable Storage Devices** page, you can do the following:
 
 1. Search for a removable storage device.
-2. [Import removable storage devices](https://help.zscaler.com/zia/adding-dlp-resources) via CSV file.
+2. [Import removable storage devices](https://help.zscaler.com/legacy-zia/adding-dlp-resources) via CSV file.
 3. [Add and configure a removable storage device](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 5. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
@@ -5684,25 +5821,46 @@ On the **Removable Storage Devices** page (Data Security > Endpoint DLP > Endpoi
   - **Description**: The removable storage device's description.
 6. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
 7. Go to the **Network Shares** page.
-8. Go to the **Network Share Tags** page.
+8. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 9. Go to the **Printers** page.
-10. Go to the **Printer Tags** page.
-11. [Go to the Removable Storage Device Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+10. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
 12. Go to the **Endpoint Applications**page.
-13. Go to the **Endpoint Application Tags**page.
+13. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: Removeable Storages in DLP & Endpoint Resources]
+[Image: `About Removable Storage Devices in DLP & Endpoint Resources]
+
+On the **Removable Storage Device Tags** page, you can do the following:
+
+1. Search for a removable storage device tag.
+2. [Add and configure a removable storage device tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured DLP removable storage devices for your organization. For removable storage devices, you can see the following:
+  - **Tag Name**: The name of the removable storage device tag. You can sort this column.
+  - **Count**: The number of removable storage device tags associated with the tag.
+  - **Description**: The removable storage device tag's description.
+5. [Edit or delete a removable storage device](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. Go to the **Printers** page.
+9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. Go to the **Removable Storage Devices** page.
+11. Go to the **Endpoint Applications**page.
+12. [Go to the Endpoint Applications Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+
+[Image: `About Removable Storage Device Tags in DLP & Endpoint Resources]
 
 To access this feature, contact your Zscaler Account team.
 
-On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint DLP Resources > Endpoint Applications), you can do the following:
+On the **Endpoint Applications** page, you can do the following:
 
 1. Search for an application.
-2. [Add a Windows application.](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources)
-3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-resources#add-application-single).
+2. [Add a Windows application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
+3. [Add a macOS application](https://help.zscaler.com/zia/adding-dlp-and-endpoint-resources).
 4. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-5. Filter by OS or Application Type.
-6. View a list of all configured applications for your organization. For applications, you can see the following:
+5. Select the filtering options for the endpoint applications in the table.
+6. Filter by Operating System or Application Type.
+7. View a list of all configured applications for your organization. For applications, you can see the following:
   - **Name**: The name of the application.
   - **Operating System**: The OS that the application uses.
   - **Original File Name**: (Windows only) The original file name of the executable. This name is located on the **Details** tab in the **Properties** for the executable file in Windows.
@@ -5713,22 +5871,38 @@ On the **Endpoint Applications** page (Data Security > Endpoint DLP > Endpoint D
     - **Well-Known**: Applications that are frequently seen within the Zero Trust Exchange (ZTE) security cloud. This is a dynamic classification that includes more applications as they become more prevalent over time.
     - **Discovered**: Applications that are discovered on endpoints by the Zscaler service.
     - **Custom**: Applications added to a tenant by an administrator.
-  - **Version**: The version number of the application.
-  - **Endpoint Application Risk Level**: The calculated risk level of the application based on multiple properties and behaviors, including static and dynamic properties of the application. Risk is an independent property and can change based on the latest data. The Zscaler service uses four risk levels:
-    - **Unknown**: All applications might initially appear as an unknown risk until the risk identification and quantification process by the Zscaler service is complete.
-    - **High**: The application presents a high risk, based on analysis by the Zscaler service.
-    - **Medium**: The application presents a medium risk, based on analysis by the Zscaler service.
-    - **Low**: The application presents a low risk, based on analysis by the Zscaler service.
-7. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources). You cannot delete applications identified as **Discovered** or **Well-Known** by the Zscaler service.
-8. Go to the **Network Shares** page.
-9. Go to the **Network Share Tags**page.
-10. Go to the **Printers** page.
-11. Go to the **Printer Tags** page.
-12. Go to the **Removable Storage Devices**page.
-13. Go to the **Removable Storage Device Tags**page.
-14. [Go to the Endpoint Application Tags](https://help.zscaler.com/zia/adding-resource-tags) page.
+8. [Edit or delete an application](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+9. Go to the **Network Shares** page.
+10. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+11. Go to the **Printers** page.
+12. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+13. Go to the **Removable Storage Devices** page.
+14. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+15. [Go to the Endpoint Application Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
 
-[Image: DLP & Endpoint Resources page]
+[Image: About Endpoint Applications in DLP & Endpoint Resources]
+
+To access this feature, contact your Zscaler Account team.
+
+On the **Endpoint Application Tags** page, you can do the following:
+
+1. Search for an application tag.
+2. [Add and configure an endpoint application tag](https://help.zscaler.com/zia/adding-resource-tags-edlp).
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all configured application tags for your organization. For application tags, you can see the following:
+  - **Tag Name**: The name of the endpoint application tag. You can sort this column.
+  - **Description**: The endpoint application tag's description.
+  - **Endpoint Applications**: The endpoint applications associated with the tag.
+5. [Edit or delete an application tag](https://help.zscaler.com/zia/editing-dlp-and-endpoint-resources).
+6. Go to the **Network Shares** page.
+7. [Go to the Network Shares Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+8. Go to the **Printers** page.
+9. [Go to the Printer Tags page.](https://help.zscaler.com/zia/adding-resource-tags)
+10. Go to the **Removable Storage Devices** page.
+11. [Go to the Removable Storage Device Tags page](https://help.zscaler.com/zia/adding-resource-tags).
+12. Go to the **Endpoint Applications**page.
+
+[Image: About Endpoint Application Tags in DLP & Endpoint Resources]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5860,8 +6034,8 @@ On the DLP Operational page (Data Security > Endpoint DLP > Endpoint Data Scan >
 ## About DLP User Confirmation Templates
 
 - Source: https://help.zscaler.com/zia/about-dlp-user-confirmation-templates
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Notification Templates > About DLP User Confirmation Templates
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Notification Templates > About DLP User Confirmation Templates
 - Last modified: 2026-11-05T08:43Z
 - Summary: Information on Data Loss Prevention (DLP) user confirmation notification templates. These are sent to your organization’s auditors when a DLP policy is triggered in the Zscaler service.
 
@@ -6178,8 +6352,8 @@ On the DNS64 Prefix page (Infrastructure > Internet & SaaS > IPv6 Configuration 
 ## About Domain Profiles
 
 - Source: https://help.zscaler.com/zia/about-domain-profiles
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > About Domain Profiles
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > About Domain Profiles
 - Last modified: 2026-11-02T15:11Z
 - Summary: Information on the Domain Profiles page as part of your Zscaler Data Loss Prevention (DLP) policies.
 
@@ -6270,13 +6444,13 @@ On the EDNS Client Subnet page (Internet Access > Resources > EDNS Client Subnet
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-11-15T06:06Z","nid":"1444161"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-email-labels","lastmod":"2026-11-22T06:06Z","nid":"1444161"} -->
 ## About Email Labels
 
 - Source: https://help.zscaler.com/zia/about-email-labels
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > About Email Labels
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information on how to create email labels for Gmail and Microsoft Exchange clients.
 
 Email labels provide the option of adding response actions to Gmail and Microsoft Exchange clients based on the email content. Applying email labels creates categories in the users' email accounts automatically. These labels serve as indications to the users about the type of email content and the level of sensitivity.
@@ -6440,8 +6614,8 @@ On the Email Tenants page (Data Security > Email DLP > Email Tenants), you can d
 ## About Endpoint Context
 
 - Source: https://help.zscaler.com/zia/about-endpoint-context
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Context > About Endpoint Context
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > About Endpoint Context
 - Last modified: 2026-11-07T06:06Z
 - Summary: Information on how data from Zscaler Endpoint Context protects your organization from data loss by monitoring endpoint application activity from end to end.
 
@@ -6562,8 +6736,8 @@ On the Endpoint Data Scan page (Data Security > Endpoint DLP > Endpoint Data Sca
 ## About Endpoint Data Scan Sensitive Information: Exact Data Match
 
 - Source: https://help.zscaler.com/zia/about-endpoint-data-scan-sensitive-information-exact-data-match
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Sensitive Information > About Endpoint Data Scan Sensitive Information: Exact Data Match
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Sensitive Information > About Endpoint Data Scan Sensitive Information: Exact Data Match
 - Last modified: 2026-11-04T08:05Z
 - Summary: Information about Endpoint Exact Data Matching (EDM) page in the Endpoint Data Scan.
 
@@ -6622,8 +6796,8 @@ On the Exact Data Matching (EDM) Page (Data Security > Endpoint DLP > Endpoint D
 ## About Endpoint Data Scan Sensitive Information: Share Files Externally
 
 - Source: https://help.zscaler.com/zia/about-endpoint-data-scan-sensitive-information-share-files-externally
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Sensitive Information > About Endpoint Data Scan Sensitive Information: Share Files Externally
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Sensitive Information > About Endpoint Data Scan Sensitive Information: Share Files Externally
 - Last modified: 2026-11-04T08:07Z
 - Summary: Information about the Share Files Externally page for Endpoint DLP in Endpoint Data Scan.
 
@@ -6805,14 +6979,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-exact-data-match","lastmod":"2026-10-21T10:29Z","nid":"1400851"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-exact-data-match","lastmod":"2026-11-22T06:00Z","nid":"1400851"} -->
 ## About Exact Data Match
 
 - Source: https://help.zscaler.com/zia/about-exact-data-match
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Exact Data Match > About Exact Data Match
-- Last modified: 2026-10-21T10:29Z
+- Last modified: 2026-11-22T06:00Z
 - Summary: Information about Exact Data Match (EDM) templates and how they are applied within custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
+
+[Watch a video on Exact Data Match](https://fast.wistia.net/embed/iframe/5jnzyl383a) (shows legacy UI).
 
 Using [Exact Data Match (EDM) index templates](https://help.zscaler.com/zia/creating-exact-data-match-template) allows the Zscaler service to identify a record from a structured data source that matches predefined criteria. For example, your organization might want to protect personally identifiable information (PII) from being lost or might want to give your employees the ability to share their own PII data using a personal email or file sharing account. In either case, identifying and correlating multiple tokens that contribute to a particular record, to identify ownership of that data, is crucial. To learn more, see [Understanding Exact Data Match Index Templates](https://help.zscaler.com/zia/understanding-edm-index-templates).
 
@@ -6832,20 +7008,20 @@ To learn more, see [About the Index Tool](https://help.zscaler.com/zia/about-ind
 
 ## About the Exact Data Match Page
 
-On the Exact Data Match page (Data Security > Common Resources > Index Templates), you can do the following:
+On the Exact Data Match page (Data Security > Common Resources > Index Templates > Exact Data Match), you can do the following:
 
 1. Search for an EDM index template.
-2. View a list of all EDM templates that are configured for your organization. For the templates, you can see the following:
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View a list of all EDM templates that are configured for your organization. For the templates, you can see the following:
   - **Template Name**: The name of the template, as specified in the [Index Tool](https://help.zscaler.com/zia/creating-exact-data-match-template). You can sort this column.
   - **VM Name**: The virtual machine (VM) ID, as specified in the [Index Tool Configuration](https://help.zscaler.com/zia/adding-index-tool-configuration). You can sort this column.
   - **Number of Cells**: The total number of cells currently in use by the template.
   - **Last Modified**: The date and time the template was last modified.
   - **Modified By**: The last admin user to modify the template.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 4. View EDM index template details, or [delete a template](https://help.zscaler.com/zia/creating-exact-data-match-template#DeleteTemplate). You can also view template details within the [Index Tool](https://help.zscaler.com/zia/creating-exact-data-match-template).
 5. Go to the [Indexed Document Match](https://help.zscaler.com/zia/about-indexed-document-match) page, where you can view a list of all IDM templates configured for your organization.
 
-[Image: About the Exact Data Match page]
+[Image: The Exact Data Match tab on the Index Templates page under Data Security]
 
 [Image: Creating an EDM Index Template diagram]
 <!-- /ZS-ARTICLE -->
@@ -7630,13 +7806,13 @@ You can't delete the default IdP. You must set another existing IdP as the defau
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-identity-proxy-settings","lastmod":"2026-11-02T11:22Z","nid":"1400186"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-identity-proxy-settings","lastmod":"2026-11-16T20:06Z","nid":"1400186"} -->
 ## About Identity Proxy Settings
 
 - Source: https://help.zscaler.com/zia/about-identity-proxy-settings
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > Identity Proxy Settings > About Identity Proxy Settings
-- Last modified: 2026-11-02T11:22Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > Identity Proxy Settings > About Identity Proxy Settings
+- Last modified: 2026-11-16T20:06Z
 - Summary: Information on the Identity Proxy Settings page. This is where Zscaler users can view and modify Identity Proxy settings for cloud apps (Box, Google Apps, Salesforce, ShareFile, or GitHub).
 
 You can view and modify Identity Proxy settings for [cloud apps](https://help.zscaler.com/zia/about-cloud-app-control). Enabling Identity Proxy settings for certain cloud apps (e.g., Box, Google Apps, Microsoft 365, Salesforce, ServiceNow, Slack, etc.) will allow you to configure the Zscaler Identity Proxy for cloud apps. To learn more, see [Configuring the Zscaler Identity Proxy for Cloud Apps](https://help.zscaler.com/zia/configuring-zscaler-identity-proxy-cloud-apps).
@@ -7666,13 +7842,13 @@ On the Identity Proxy Settings page (Administration > Internet & SaaS Authentica
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-11-15T06:06Z","nid":"1400641"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-index-tool","lastmod":"2026-11-22T06:06Z","nid":"1400641"} -->
 ## About the Index Tool
 
 - Source: https://help.zscaler.com/zia/about-index-tool
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Index Tool > About the Index Tool
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information on Index Tool Configurations and the Index Tool virtual machine (VM), which are used to create index templates that can be applied to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
 
 The Index Tool allows you to configure index templates that can be applied when creating custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
@@ -7711,18 +7887,20 @@ On the Index Tool page (Data Security > Common Resources > Index Tool), you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-11-10T05:36Z","nid":"1402021"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-indexed-document-match","lastmod":"2026-11-22T06:10Z","nid":"1402021"} -->
 ## About Indexed Document Match
 
 - Source: https://help.zscaler.com/zia/about-indexed-document-match
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Indexed Document Match > About Indexed Document Match
-- Last modified: 2026-11-10T05:36Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Indexed Document Match > About Indexed Document Match
+- Last modified: 2026-11-22T06:10Z
 - Summary: Information on Indexed Document Match (IDM) templates and how to apply them to custom Data Loss Prevention (DLP) dictionaries and engines for the Zscaler service.
+
+[Watch a video on Indexed Document Matching](https://fast.wistia.net/embed/iframe/5jnzyl383a)(shows legacy UI).
 
 [Indexed Document Match (IDM) templates](https://help.zscaler.com/zia/creating-indexed-document-match-template) allow you to fingerprint your organization’s critical documents that contain sensitive data. By fingerprinting and indexing your documents, you can create a document repository that the Zscaler service can use to identify completely or partially matching documents when evaluating outbound traffic with the Data Loss Prevention (DLP) policy.
 
-Creating an IDM template in the [Index Tool](https://help.zscaler.com/zia/about-index-tool) allows you to upload and fingerprint your documents. You can upload text-based files and non-text-based documents (e.g., binary files). Once you create an IDM template, you can then apply the template to a custom DLP dictionary. When adding the template to the dictionary, you must choose the match accuracy level for the template. Match accuracy is the level of accuracy (i.e., the percentage of similarity) that a document must meet to count as a match for an indexed document.
+Creating an IDM template in the [Index Tool](https://help.zscaler.com/zia/about-index-tool) allows you to upload and fingerprint your documents. You can upload text-based files and non-text-based documents (e.g., binary files). After you create an IDM template, you can then apply the template to a custom DLP dictionary. When adding the template to the dictionary, you must choose the match accuracy level for the template. Match accuracy is the level of accuracy (i.e., the percentage of similarity) that a document must meet to count as a match for an indexed document.
 
 To learn more, see [Creating an Indexed Document Match Template](https://help.zscaler.com/zia/creating-indexed-document-match-template) and [Defining Indexed Document Match Accuracy for Custom DLP Dictionaries](https://help.zscaler.com/zia/defining-idm-match-accuracy-custom-dlp-dictionaries).
 
@@ -7735,14 +7913,14 @@ For example, your organization uses employee information forms for new employees
 On the Indexed Document Match page (Data Security > Common Resources > Index Templates > Indexed Document Match), you can do the following:
 
 1. Search for an index template.
-2. View a list of IDM templates that are configured for your organization. For the templates, you can see the following:
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View a list of IDM templates that are configured for your organization. For the templates, you can see the following:
   - **Template Name**: The name of the template, as specified in the [Index Tool](https://help.zscaler.com/zia/creating-indexed-document-match-template). You can sort this column.
   - **VM Name**: The virtual machine (VM) ID, as specified in the [Index Tool Configuration](https://help.zscaler.com/zia/adding-index-tool-configuration). You can sort this column.
   - **Number of Documents**: The total number of documents currently indexed by the template.
   - **Last Modified**: The date and time the template was last modified. You can sort this column.
   - **Modified By**: The last admin user to modify the template. You can sort this column.
-3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-4. [Delete an IDM index template](https://help.zscaler.com/zia/creating-indexed-document-match-template#delete-IDM-template).
+4. Delete an IDM index template.
 5. Go to the [Exact Data Match](https://help.zscaler.com/zia/about-exact-data-match) page, where you can view a list of all Exact Data Match (EDM) templates that are configured for your organization.
 
 [Image: Viewing and managing Indexed Document Match index templates in the Zscaler Admin Console]
@@ -7904,8 +8082,8 @@ On the Insights Logs pages(Data Explorer > Internet & SaaS > [choose the Insight
 ## About the Instance Discovery Report
 
 - Source: https://help.zscaler.com/zia/about-instance-discovery-report
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Dashboard & Analytics > Reports > About the Instance Discovery Report
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Dashboard & Analytics > Reports > About the Instance Discovery Report
 - Last modified: 2026-11-12T18:47Z
 - Summary: Information about the Instance Discovery report, which enables organizations to monitor and review application instances accessed by users at the organization, project, and resource hierarchical levels.
 
@@ -8079,8 +8257,8 @@ On the Instance Discovery Report, for the applications supporting level two of d
 ## About Indicators of Intent
 
 - Source: https://help.zscaler.com/zia/about-intent-control
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > About Indicators of Intent
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > About Indicators of Intent
 - Last modified: 2026-11-04T07:54Z
 - Summary: Information about Indicators of Intent in Endpoint DLP.
 
@@ -9387,13 +9565,13 @@ On the Network Services page (Internet Access > Resources > Network Services > S
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-10-27T21:06Z","nid":"1463371"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-collector-servers","lastmod":"2026-11-19T14:54Z","nid":"1463371"} -->
 ## About NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Collector Servers
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-19T14:54Z
 - Summary: Information on NSS Collectors that are used to collect logs from third-party security devices in your organization's network perimeter and stream them to the Zscaler cloud in near real time.
 
 The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
@@ -9412,9 +9590,9 @@ Zscaler supports log ingestion from Palo Alto Networks, Blue Coat, and Fortinet.
 
 ## About the NSS Collector Servers Page
 
-On the NSS Collector Servers page (Data Explorer > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
+On the NSS Collector Servers page (Data Explorer > Log Streaming > Nanolog Streaming Service), you can do the following:
 
-1. [Add an NSS Collector server.](https://help.zscaler.com/zia/adding-nss-collector-servers)
+1. [Add an NSS Collector server](https://help.zscaler.com/zia/adding-nss-collector-servers).
 2. Search for an NSS Collector server.
 3. View the list of all configured NSS Collector servers. By default, the table displays the following information:
 
@@ -9423,11 +9601,11 @@ On the NSS Collector Servers page (Data Explorer > Log Streaming > Internet Log 
 - **Status**: The server status that indicates whether it is enabled or disabled.
 - **SSL Certificate**: The option to download the SSL certificate for the server.
 
-1. [Modify the table and its columns.](https://help.zscaler.com/unified/using-tables)
+1. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 2. Download the SSL certificate for an NSS Collector server.
-3. [Add a new SSL Certificate for an NSS Collector Server.](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers)
-4. [Edit an NSS Collector server.](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal)
-5. Go to the [NSS Servers](https://help.zscaler.com/zia/about-nss-servers), [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), or [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds) tabs.
+3. [Add a new SSL Certificate for an NSS Collector Server](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers).
+4. [Edit an NSS Collector server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
+5. Go to the [NSS Servers](https://help.zscaler.com/zia/about-nss-servers), [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), and [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds) tabs.
 
 [Image: A screenshot of the NSS Collector Servers page]
 <!-- /ZS-ARTICLE -->
@@ -9476,13 +9654,13 @@ On the NSS Feeds page (Data Explorer > Log Streaming > Internet Log Streaming - 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-10-28T21:06Z","nid":"1402076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-nss-servers","lastmod":"2026-11-19T14:18Z","nid":"1402076"} -->
 ## About NSS Servers
 
 - Source: https://help.zscaler.com/zia/about-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > About NSS Servers
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-19T14:18Z
 - Summary: Information on the NSS Servers page in the Zscaler Admin Console.
 
 An NSS server is the representation of the NSS virtual machine (VM) in the Zscaler Admin Console. After you create a server, Zscaler issues a client certificate and private key that you can install on the NSS VM so that it can authenticate to the Zscaler service.
@@ -9494,7 +9672,7 @@ NSS servers provide the following benefits and enable you to:
 
 ## About the NSS Servers Page
 
-On the NSS Servers page (Data Explorer > Log Streaming > Internet Log Streaming - Nanolog Streaming Service), you can do the following:
+On the NSS Servers page (Data Explorer > Log Streaming > Nanolog Streaming Service), you can do the following:
 
 1. [Add an NSS server](https://help.zscaler.com/zia/adding-nss-servers).
 2. Deploy an NSS virtual appliance. To learn more about adding an NSS server and deploying an NSS virtual appliance, see the [NSS Deployment Guides](https://help.zscaler.com/zia/documentation-knowledgebase/analytics/nss/nss-deployment-guides).
@@ -9508,9 +9686,9 @@ On the NSS Servers page (Data Explorer > Log Streaming > Internet Log Streaming 
   - **SSL Certificate**: The option to download the SSL certificate.
 6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
 7. Download the SSL Certificate for an NSS server.
-8. [Add a new SSL Certificate for an NSS Server.](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers)
+8. [Add a new SSL Certificate for an NSS Server](https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers).
 9. [Edit an NSS server](https://help.zscaler.com/zia/how-do-i-edit-delete-or-duplicate-items-admin-portal).
-10. Go to the [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds), or [NSS Collector Servers](https://help.zscaler.com/zia/about-nss-collector-servers) tabs.
+10. Go to the [NSS Feeds](https://help.zscaler.com/zia/about-nss-feeds), [Cloud NSS Feeds](https://help.zscaler.com/zia/about-cloud-nss-feeds), and [NSS Collector Servers](https://help.zscaler.com/zia/about-nss-collector-servers) tabs.
 
 ****[Image: NSS Servers page]****
 <!-- /ZS-ARTICLE -->
@@ -10194,8 +10372,8 @@ You can delete a rule label only if it's not associated with any policy rule.
 ## About SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/about-saas-application-tenants
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > SaaS Security > SaaS Application Tenants > About SaaS Application Tenants
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > About SaaS Application Tenants
 - Last modified: 2026-11-05T02:23Z
 - Summary: Information on SaaS Application tenants for Data at Rest Scanning.
 
@@ -14849,14 +15027,16 @@ The number under each column displays up to 20 values when you click it. You can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/about-url-filtering","lastmod":"2026-10-29T23:38Z","nid":"1399306"} -->
+<!-- ZS-ARTICLE {"url":"/zia/about-url-filtering","lastmod":"2026-11-16T21:43Z","nid":"1399306"} -->
 ## About URL Filtering
 
 - Source: https://help.zscaler.com/zia/about-url-filtering
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > About URL Filtering
-- Last modified: 2026-10-29T23:38Z
+- Last modified: 2026-11-16T21:43Z
 - Summary: Information about the Zscaler service's URL Filtering policy. This limits your exposure to liability by managing access to web content based on a site's categorization.
+
+[Watch a video about URL Filtering Policy.](https://fast.wistia.net/embed/iframe/cc9z48peqy)
 
 The URL Filtering policy consists of [rules](https://help.zscaler.com/zia/configuring-url-filtering-policy) that you define. When you add a rule, you specify criteria, such as [URL categories](https://help.zscaler.com/zia/about-url-categories), [users](https://help.zscaler.com/zia/about-internet-saas-users), [groups](https://help.zscaler.com/zia/about-groups), [departments](https://help.zscaler.com/zia/about-departments), [locations](https://help.zscaler.com/zia/about-locations), and [time intervals](https://help.zscaler.com/zia/about-time-intervals). There is also a [recommended policy](https://help.zscaler.com/zia/recommended-url-cloud-app-control-policy) for URL Filtering.
 
@@ -15097,6 +15277,82 @@ On the **Details** tab, you can view general information about the user, such as
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zia/about-vdi-device-groups","lastmod":"2026-11-18T07:51Z","nid":"1547780"} -->
+## About VDI Device Groups
+
+- Source: https://help.zscaler.com/zia/about-vdi-device-groups
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About VDI Device Groups
+- Last modified: 2026-11-18T07:51Z
+- Summary: Information on the VDI Device Groups tab on the Internet & SaaS Device Management page in the Zscaler Admin Console.
+
+The VDI Device Groups page displays a list of predefined Virtual Desktop Infrastructure (VDI) device groups. The VDI devices that have Zscaler Client Connector for VDI deployed are categorized under respective groups based on their OS type.
+
+The VDI Device Groups page provides you with the following benefits and enables you to:
+
+- Apply Internet & SaaS (ZIA) security policies to many VDI devices at once.
+- View the details of the VDI devices contained in a predefined VDI group.
+
+## About the VDI Device Groups Page
+
+On the VDI Device Groups page (Administration > Internet & SaaS Authentication > Internet & SaaS Device Management > VDI Device Groups), you can do the following:
+
+1. Search for a VDI device group.
+2. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+3. View a list of all configured VDI device groups. For each VDI device group, you can view the following information:
+  - **Group Name**: The name of the VDI device group.
+  - **OS Type**: The OS type of the VDI device.
+  - **No. of Devices**: The number of devices belonging to the VDI device group.
+  - **Description**: The description of the VDI device
+4. View more information about the VDI device group.
+5. Go to the [Devices](https://help.zscaler.com/zia/about-devices), [Device Groups](https://help.zscaler.com/zia/about-device-groups), and [VDI Devices](https://help.zscaler.com/zia/about-vdi-devices) pages.
+
+[Image: The VDI Device Groups tab on the Internet & SaaS Device Management page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-vdi-devices","lastmod":"2026-11-18T07:51Z","nid":"1547779"} -->
+## About VDI Devices
+
+- Source: https://help.zscaler.com/zia/about-vdi-devices
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Devices > About VDI Devices
+- Last modified: 2026-11-18T07:51Z
+- Summary: Information on the VDI Devices tab on the Internet & SaaS Device Management page in the Zscaler Admin Console.
+
+The Internet & SaaS Device Management page displays all the Virtual Desktop Infrastructure (VDI) devices in your organization that have Zscaler Client Connector for VDI deployed. You can select these VDI devices when configuring security policies​​​​​.
+
+The VDI Devices page provides the following benefits and enables you to:
+
+- View the VDI devices with Zscaler Client Connector for VDI installed.
+- Assess the VDI device status and details.
+
+## About the VDI Devices Page
+
+On the VDI Devices page (Administration > Internet & SaaS Authentication > Internet & SaaS Device Management > VDI Devices), you can do the following:
+
+1. Select a search parameter from the drop-down menu (e.g., Device Hostname).
+2. Search for a VDI device.
+3. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+4. View a list of all VDI devices. For each VDI device, you can view the following information:
+  - **Device ID**: The ID of the VDI device.
+  - **Device Name**: The name of the VDI device.
+  - **Device Hostname**: The hostname of the VDI device. This field displays values only if you have configured [Zscaler Client Connector](https://help.zscaler.com/zscaler-client-connector/configuring-zscaler-client-connector-collect-hostnames) to collect the hostname information.
+  - **OS Type**: The OS type of the VDI device.
+  - **OS Version**: The OS version of the VDI device.
+  - **Device Model**: The model of the VDI device.
+  - **Device Owner**: The owner of the VDI device.
+  - **Description**: The description of the VDI device.
+5. View more information about the VDI device.
+6. Go to the [Devices](https://help.zscaler.com/zia/about-devices) and [Device Groups](https://help.zscaler.com/zia/about-device-groups) pages.
+7. [Go to the VDI Device Groups page](https://help.zscaler.com/zia/about-vdi-device-groups).
+
+[Image: The VDI Devices tab on the  Internet & SaaS Device Management page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edge-clusters-internet-saas","lastmod":"2026-11-12T01:29Z","nid":"1401231"} -->
 ## About Virtual Service Edge Clusters for Internet & SaaS
 
@@ -15135,162 +15391,4 @@ On the Virtual Service Edge Clusters page (Infrastructure > Internet & SaaS > Vi
 6. [View the Virtual Service Edges page](https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas).
 
 [[Image: Different features on the Virtual Service Edge Clusters page.]](https://help.zscaler.com/downloads/zia/documentation-knowledgebase/traffic-forwarding/zscaler-enforcement-nodes/virtual-service-edge/about-virtual-service-edge-clusters/ZIA-Virtual-Service-Edge-Clusters-Page.png)
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-11-12T01:43Z","nid":"1401226"} -->
-## About Virtual Service Edges for Internet & SaaS
-
-- Source: https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
-- Last modified: 2026-11-12T01:43Z
-- Summary: Information about Virtual Service Edge for Internet & SaaS (ZIA), which uses virtual machines (VMs) to function as a Public Service Edge for Internet & SaaS in the Zscaler cloud.
-
-New or clean deployment of Virtual Service Edge requires a virtual machine (VM) image running on Zscaler OS version 24 or later.
-
-Zscaler typically recommends that organizations forward traffic to the [Public Service Edges](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) for Internet & SaaS in the Zscaler cloud. However, some organizations might require different traffic flow because of factors such as:
-
-- Locations with certain geopolitical requirements and regulations.
-- Locations that experience high latency when connecting to a Public Service Edge.
-- Applications that require an organization's IP address as the source IP address.
-- Users who need to see localized content.
-
-If your organization has similar requirements, then with Zscaler's approval, you can extend the Zscaler patented cloud architecture to your organization's premises by licensing and deploying Virtual Service Edges. Virtual Service Edges use a VM to function as a full-featured Public Service Edge dedicated to your organization's traffic. Virtual Service Edges perform the same service as the Public Service Edges in the Zscaler cloud, including support for features, such as Firewall, Sandbox, and Data Loss Prevention (DLP).
-
-The Source IP Anchoring feature is not supported with Virtual Service Edges.
-
-Virtual Service Edges provide the following benefits and allow you to:
-
-- Retain your organization's Source IP address when accessing SaaS or internet applications that require it.
-- Let users access certain geolocal content.
-- Use a fully managed, on-premises Service Edge with automated, non-intrusive, and periodic software upgrades and security updates.
-
-Virtual Service Edges are part of the Zscaler cloud. They communicate with the Zscaler cloud for user authentication, policy updates, logging, and reporting. Admins define policies only once through the Zscaler Admin Console. Additionally, after users are signed in and authenticated to the Zscaler service, the service always applies their policies, whether they connect to an on-premises Virtual Service Edge or to a Public Service Edge anywhere in the world. Logs are transmitted to and stored on the Zscaler cloud as a central repository for integrated analytics, so you can view and monitor internet traffic activity on the dashboard and make full use of the real-time logging and interactive reporting capabilities of the service. Your organization has full access to the Virtual Service Edges for monitoring and configuration. Zscaler does not require access to the Virtual Service Edges.
-
-Virtual Service Edges are supported on [VMware ESX/ESXi](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters), [Microsoft Azure](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-azure), [Amazon Web Services (AWS) EC2](https://help.zscaler.com/zia/configuring-virtual-service-edge-amazon-web-services), [Microsoft Hyper-V](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v), and [Google Cloud Platform (GCP)](https://help.zscaler.com/zia/configuring-virtual-service-edge-google-cloud-platform).
-
-[Image: Diagram showing how a Virtual Service Edge forwards traffic.]
-
-Ensure that your firewall allows the outbound connections listed on the Virtual Service Edge config page (i.e., config.zscaler.com/<Zscaler Cloud Name>/zia-v-sedge) and access to and from the IP addresses on the Zscaler Hub IP Addresses page (i.e., config.zscaler.com/<Zscaler Cloud Name>/hubs).
-
-You can find the name of your cloud in the [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings) menu. For example, if your organization's Zscaler cloud name is zscalertwo.net. In this case, you should go to config.zscaler.com/zscalertwo.net/zia-v-sedge. To learn more about Zscaler cloud names, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
-
-## Specifications and Sizing
-
-Virtual Service Edges are available in a single-sized VM that supports up to 600 Mbps of total throughput. An SSL acceleration card (sold separately) is recommended for deployments requiring a throughput of 100 Mbps or more in order to perform SSL inspection on Virtual Service Edges. Alternately, you can horizontally scale (deploy more) Virtual Service Edges for processing throughput in excess of 100 Mbps.
-
-Following are the Virtual Service Edge specifications and sizing:
-
-| Virtual Service Edge |  |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
-| Hypervisor Support | VMware ESXi 6.0 and later | Microsoft Azure | AWS EC2 | Microsoft Hyper-V | GCP |
-| Number of Public Service Edge Instances per VM | 1 | 1 | 1 | 1 | 1 |
-| Number of Load Balancers per VM | 1 | 1 | 1 | 1 | - |
-| Maximum VMs per Cluster | 16 | - | - | 16 | - |
-| vMotion Support | VMware ESXi 7.0 or later | - | - | - | - |
-| **Hypervisor Resource Requirements** |  |  |  |  |  |
-| Number of V-CPUs | 4 | 4 | 4 | 4 | 4 |
-| Minimum Required Memory Allocation for Standalone Deployments | 48 GB | 48 GB | 48 GB | 48 GB | 48 GB |
-| Minimum Required Memory Allocation for Cluster Deployments | 48 GB | - | - | 48 GB | - |
-| Virtual Interfaces | 3 | 3 | 3 | 3 | 3 |
-| SSL Acceleration Card per VM | 1 x Marvell NITROX CNN3510-500-C5-NHB-2.0-G | - | - | - | - |
-| Disk Space | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
-| **Throughput & SSL Specifications** |  |  |  |  |  |
-| Total Throughput | 600 Mbps | - | - | - | - |
-| SSL CPS with Acceleration Card | 3500 CPS | - | - | - | - |
-| SSL CPS without Acceleration Card | 400 CPS | 400 CPS | 400 CPS | 400 CPS | 400 CPS |
-
-Zscaler recommends Virtual Service Edge clusters with at least two Virtual Service Edge instances to provide n+1 redundancy for production. In the VMware ESXi and Microsoft Hyper-V environments, Zscaler recommends utilizing the in-built load balancer for Virtual Service Edges deployed in cluster mode. In certain [situations](https://help.zscaler.com/zia/using-external-load-balancer-virtual-service-edge-clusters), the Virtual Service Edges with an External Load Balancer are deployed. In public cloud environments such as Microsoft Azure, AWS EC2, Microsoft Hyper-V, and GCP, the native cluster mode of deployment is not supported, and you can use public cloud load balancers to ensure redundancy between the Virtual Service Edges.
-
-## Maintenance
-
-The Zscaler service automatically upgrades Virtual Service Edges during scheduled maintenance windows. The dates of these maintenance windows are published in the [Zscaler Trust Portal](https://trust.zscaler.com/). This does not require intervention from an admin or Zscaler Cloud Operations. In addition, the Virtual Service Edges aren't monitored or managed by the Zscaler Cloud Operations team.
-
-## Hardening
-
-The Virtual Service Edge virtual appliance is locked down by allowing only a limited number of commands to be run on the appliance. This setup is commonly referred to as a "jailed environment." The operating system itself is hardened and all unnecessary packages and libraries are removed to minimize the attack surface.
-
-Zscaler also hardens the TCP stack used for proxying and keeps up with any Common Vulnerabilities and Exposures (CVEs) that are disclosed. CVEs are patched immediately if they can potentially cause harm to the system. Updates and patches are also automatically downloaded and applied, so no manual updating or patching is required.
-
-Access to the Virtual Service Edge virtual appliance is limited to the VMware console and Microsoft Azure web console view, and Hyper-V Manager console, as well as the management interface for SSH access. Access to the Virtual Service Edge can be locked down by setting up proper access control to the console and the management interface. Consider using methods such as access control lists, authentication, and authorization to achieve this.
-
-Authentication attempts as well as an audit log of the commands run on the appliance, are accessible and stored in /var/log/auth.log. You can monitor this file remotely or check it periodically to detect unauthorized commands or authentication attempts.
-
-## About the Virtual Service Edges Page
-
-On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Virtual Service Edges), you can do the following:
-
-1. Search for a Virtual Service Edge.
-2. Download VM images or SNMP MIB files:
-  - [Download a Virtual Service Edge VM](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm).
-  - [Download the SNMP MIB files](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs).
-  - [Download the Hyper-V VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v#download-hyper-v).
-  - [Download the Nutanix VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-nutanix).
-3. [Add a Virtual Service Edge instance](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
-4. [Modify the column options to view the Virtual Service Edge instances accordingly](https://help.zscaler.com/unified/using-tables).
-5. View a list of all Virtual Service Edges that were configured for your organization. For each Virtual Service Edge, you can see the following:
-  - **Name**: The name of the Virtual Service Edge. You can sort this column.
-  - **Status**: Displays whether the Virtual Service Edge is enabled or disabled. You can sort this column.
-  - **Type**: The Virtual Service Edge subscription type.
-  - **Deployment Status**: The Virtual Service Edge deployment status (**In Production** or **Trial**).
-  - **Deployment Mode**: The Virtual Service Edge deployment mode (**Cluster**or **Standalone**). You can sort this column.
-  - **Load Balancer IP Address**: The load balancer IP address for Virtual Service Edges in **Cluster**deployment mode. You can sort this column.
-  - **Proxy IP Address**: The proxy IP address for the Virtual Service Edge. You can sort this column.
-  - **Cluster Name**: The Virtual Service Edge cluster name. You can sort this column.
-  - **IPSec Local Termination**: The status of IPSec local termination for the Virtual Service Edge.
-6. [Download the Virtual Service Edge SSL certificate](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas).
-7. [Edit or delete a Virtual Service Edge instance](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-8. Open the New Client Certificate window. You can upload provisioning blob data or file.
-9. [View the Virtual Service Edge Clusters page](https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas).
-
-[Image: The Virtual Service Edges page with annotations of different features]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/about-vpn-credentials","lastmod":"2026-10-21T15:00Z","nid":"1399481"} -->
-## About VPN Credentials
-
-- Source: https://help.zscaler.com/zia/about-vpn-credentials
-- Product: Internet & SaaS (ZIA)
-- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > About VPN Credentials
-- Last modified: 2026-10-21T15:00Z
-- Summary: Information on Virtual Private Network (VPN) credentials and how they are used for configuring IPSec VPN Tunnels for the Zscaler service.
-
-In an IPSec VPN Tunnel, two peers use a negotiation process called IKE (Internet Key Exchange) to define the security mechanisms they use to protect their communications. IKE has two phases. In the first negotiation phase, the peers define the security parameters they use to communicate in the second phase. The peers exchange VPN credentials to identify each other and authenticate. The VPN credentials can either be a pre-shared key or XAUTH; however, both peers must use the same VPN credential method and key for successful authentication.
-
-Zscaler no longer supports adding a new XAUTH VPN credential, but you can edit or delete the existing entries from the Zscaler Admin Console.
-
-In the Zscaler Admin Console , you can configure VPN credentials by either adding each credential individually or adding multiple credentials with a CSV file.
-
-Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel).
-
-The VPN Credentials page provides the following benefits and enables you to:
-
-- Configure VPN credentials for your organization for establishing IPSec VPN tunnels between your organization and the Zscaler data centers for forwarding internet-bound traffic to the Zscaler service.
-- Import or delete multiple VPN credentials for different authentication types using a CSV file to reduce the configuration effort for the administrator.
-
-## About the VPN Credentials Page
-
-On the VPN Credentials page (Infrastructure > Location Management > VPN Credentials), you can do the following:
-
-1. Filter a VPN credential search by **Authentication Type**.
-2. Search for a VPN credential.
-3. [Import VPN credentials using a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
-4. Download a **Sample Import CSV file** and use it as a template to add or remove VPN credentials. Using the sample CSV file as a guide ensures that the format of your entries is correct before you [import the information](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
-5. [Add a VPN credential](https://help.zscaler.com/zia/adding-individual-vpn-credentials).
-6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
-7. View a list of VPN credentials that are configured for your organization. For each VPN credential, you can see the following:
-  - **User/Certificate ID**: The User ID or IP address for the VPN credential. You can sort this column.
-  - **Authentication Type**: The authentication type used to identify the peer, FQDN, XAUTH, or IP. You can sort this column.
-  - **Location**: The name of the location associated with the VPN credential.
-  - **PPK ID**: The post-quantum pre-shared ID.
-  - **Comments**: Displays any comments about the VPN credential, if available. You can sort this column.
-  - **Status**: The status of the VPN credential.
-  - **Managed By**: The name of the partner that manages the VPN credential. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
-8. [Edit or delete the VPN credential](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
-
-[Image: The VPN Credentials page where you can view and manage VPN credentials]
 <!-- /ZS-ARTICLE -->

@@ -1,8 +1,8 @@
 # Zscaler Help — Risk & Exposure Management (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 196
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 198
 
 ---
 
@@ -71,7 +71,7 @@ The Assets page includes system views with predefined filter selections, providi
 ## About Policy Violations
 
 - Source: https://help.zscaler.com/aem/about-policy-violations
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > About Policy Violations
 - Last modified: 2025-11-19T14:58Z
 - Summary: Information on the Policy Violations page in the Asset Exposure Management (AEM) application in the SecOps platform.
@@ -125,7 +125,7 @@ On the Policy Violations page (Assets > Policy Violations), you can do the follo
 ## About Violation Tickets
 
 - Source: https://help.zscaler.com/aem/about-violation-tickets
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > About Violation Tickets
 - Last modified: 2025-11-11T13:49Z
 - Summary: Information on the Violation Tickets page in the Asset Exposure Management (AEM) application in the SecOps platform.
@@ -508,7 +508,7 @@ The rules within a grouping rule set are run sequentially by their order of appe
 ## Configuring Violation Ticket Workflows
 
 - Source: https://help.zscaler.com/aem/configuring-violation-ticket-workflows
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Configuring Violation Ticket Workflows
 - Last modified: 2026-05-22T07:06Z
 - Summary: How to configure ticket workflows in AEM.
@@ -683,7 +683,7 @@ To configure automated rules for creating third-party work management items and 
 ## Exporting Reports for Discovery Profiles
 
 - Source: https://help.zscaler.com/aem/exporting-reports-discovery-profiles
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > External Attack Surface Management for AEM > Exporting Reports for Discovery Profiles
 - Last modified: 2026-05-22T07:06Z
 - Summary: How to generate and export reports for EASM asset discovery profiles, which present key aggregated data and insights into the organization's external security posture.
@@ -828,7 +828,7 @@ To delete multiple discovery profiles:
 ## Managing Grouping Rules in AEM
 
 - Source: https://help.zscaler.com/aem/managing-grouping-rules-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Managing Grouping Rules in AEM
 - Last modified: 2026-01-26T06:06Z
 - Summary: How to manage grouping rule sets and rules in the Assets app.
@@ -1136,13 +1136,13 @@ This article provides a summary of all new features and enhancements for Asset E
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-11-13T14:45Z","nid":"1534298"} -->
+<!-- ZS-ARTICLE {"url":"/aem/release-upgrade-summary-2026","lastmod":"2026-11-18T11:40Z","nid":"1534298"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/aem/release-upgrade-summary-2026
 - Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > 	Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-13T14:45Z
+- Last modified: 2026-11-18T11:40Z
 - Summary: Asset Exposure Management Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Asset Exposure Management.
@@ -1240,7 +1240,7 @@ The following use cases highlight how EASM capabilities empower organizations in
 ## Updating Asset Records in the CMDB
 
 - Source: https://help.zscaler.com/aem/updating-asset-records-cmdb
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Updating Asset Records in the CMDB
 - Last modified: 2026-01-09T06:06Z
 - Summary: How to update an asset in your CMDB.
@@ -1400,7 +1400,7 @@ Each option targets a specific stage of the OS lifecycle, requiring a separate p
 ## Using the Tool Coverage Policy
 
 - Source: https://help.zscaler.com/aem/using-tool-coverage-policy
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Settings for AEM > Using the Tool Coverage Policy
 - Last modified: 2025-11-11T14:13Z
 - Summary: How to use the tool coverage system asset compliance policy for the AEM app in the SecOps platform.
@@ -1435,13 +1435,13 @@ For more complex policy scenarios not supported by the template, use the Advance
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/aem/viewing-managing-assets-aem","lastmod":"2026-09-16T10:26Z","nid":"1538663"} -->
+<!-- ZS-ARTICLE {"url":"/aem/viewing-managing-assets-aem","lastmod":"2026-11-17T04:44Z","nid":"1538663"} -->
 ## Viewing & Managing Assets in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-managing-assets-aem
 - Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing & Managing Assets in AEM
-- Last modified: 2026-09-16T10:26Z
+- Last modified: 2026-11-17T04:44Z
 - Summary: How to view and manage asset details in the Zscaler Asset Exposure Management (AEM) application in the SecOps platform.
 
 An asset in Asset Exposure Management (AEM) represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in AEM](https://help.zscaler.com/aem/about-assets-aem).
@@ -1458,6 +1458,7 @@ To view the asset drawer:
   - Details
   - Asset Merging
   - Findings
+  - Child Resources
   - Tickets
 3. Click **Apply Changes** after making changes to the asset, or close the drawer.
 
@@ -1489,26 +1490,34 @@ On the **Asset Merging**tab, you can view the original source records that the a
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed assets by relevant attributes (e.g., filtering the original source records owner ID or first seen date).
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/aem/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 - Click the **Export as CSV**icon to export the list of assets that the current asset was merged from as a CSV file.
 
-On the **Findings**tab, you can explore the findings that were detected on the asset.
-
-To view the finding's details (e.g., descriptions and score calculation logic), you can either expand the finding or drill down to the finding drawer.
+On the **Findings**tab, you can explore the findings that were detected on the asset. To view the finding's details (e.g., descriptions and score calculation logic), you can either expand the finding or drill down to the finding drawer.
 
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed findings by relevant attributes and to explore the asset's risk portfolio (e.g., filtering the findings by a particular state, title, or severity score).
-- To update key finding details, select the findings and click **Update**. The fields available to update include fields that were enabled for manual override in Configure > Data Model.
+- To update key finding details, select the findings and click **Update**. The fields available to update include fields that were enabled for manual override on the [Data Model](https://help.zscaler.com/unified/about-data-model-management) page.
 - Click the**Export as CSV**icon to export findings on the asset to a CSV file.
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/aem/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
+
+On the **Child Resources** tab, you can view the resources associated with the selected asset. This helps you understand the relationships between cloud resources and investigate related assets. For example, a virtual machine can have associated network interfaces and disks. You can view these child resources and use available filters to find specific resources.
+
+Additionally, you can perform the following actions:
+
+- Apply filters to adjust the displayed assets by relevant attributes (e.g., filtering the asset by child asset name).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
+- Click the **Export as CSV**icon to export the list of child assets as a CSV file.
+- Select and update the child asset.
+- Click the **Drilldown**icon for a child asset to view the parent asset information.
 
 On the **Tickets**tab, you can view all tickets related to the asset and a summary of their details, sources, status, and remediation percentage.
 
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed tickets by relevant attributes (e.g., filtering the tickets by type, title, or severity score).
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/aem/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 
 Clicking a ticket opens its drawer. To return to the asset drawer, click the asset name in the top-left corner of the ticket drawer.
 
@@ -1523,7 +1532,7 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 ## Viewing & Managing Tickets in AEM
 
 - Source: https://help.zscaler.com/aem/viewing-managing-tickets-aem
-- Product: Asset Exposure Management
+- Product: Asset Exposure Management (AEM)
 - Path: Asset Exposure Management (AEM) Help > Remediate for AEM > Viewing & Managing Tickets in AEM
 - Last modified: 2026-10-30T12:05Z
 - Summary: How to view and manage ticket details in Asset Exposure Management (AEM) in the Agentic Security Operations Platform.
@@ -5994,6 +6003,94 @@ If a full scan is already initiated or completed, the bucket or folder is exclud
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-devops","lastmod":"2026-11-17T21:41Z","nid":"1546230"} -->
+## Configuring Scan Rule for Azure DevOps
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-azure-devops
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for SaaS > Configuring Scan Rule for Azure DevOps
+- Last modified: 2026-11-17T21:41Z
+- Summary: How to configure the scan rule for Azure DevOps in the AI Security Admin Portal.
+
+You can configure the scan rule to scan Azure DevOps repositories after onboarding the Azure DevOps repositories. To learn more, see [Onboarding an Azure DevOps Organization](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-devops-organization).
+
+To configure a scan rule for Azure DevOps repositories, complete the following steps in the AI Security Admin Portal:
+
+- 1. Provide the general information.
+- 2. Select the cloud and resource type.
+- 3. Select the repositories that must be scanned.
+- 4. Exclude repository path.
+- 5. Select the scan type.
+- 6. Select the scan schedule.
+- 7. Review and complete the configuration.
+
+The scan rule must be enabled on the **Overview**page to initiate the scan.
+
+1. Go to **Administration** > **Scan Settings**.
+2. Select the **Scan Rules**tab.
+3. Click **Add Scan Rule**. See image. The **General Information** page appears.
+4. On the **General Information**page: See image.
+  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
+  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
+5. Click **Next**.
+
+1. On the **Select Cloud and Resource Type** page: See image.
+  - For **Cloud Type**, select **SaaS**.
+  - For **Service Type**, select **Azure DevOps**.
+2. Click **Next**.
+
+1. On the **Select Repositories** page, select one of the following: See image.
+  - **Scan All Repositories**: To scan all current and future repositories from your connected account.
+  - **Scan Specific Repositories**: To scan the specific repositories that you want to include in the scan rule.
+2. Click **Next**.
+
+On the **Exclusions** page, you can specify the paths in the repositories that must be excluded from the scan.
+
+Define the path exclusion rules per repository.
+
+1. Select the repositories you would like to set an exclusion for the scan rule.
+2. Set rules: To set the rules, do the following:
+  - **Path field**: Enter the file path or pattern you want to exclude. For example, src/**/*.ts excludes all TypeScript files inside the src folder and its subfolders.
+  - **Regex toggle (</> Regex):** Switch to Regex mode if you need more advanced pattern matching instead of glob patterns.
+3. Click **Add** to add the entered path rule to the exclusion list. See image.
+4. Click **Next**.
+
+On the **Scan Type** page, choose how scans are triggered and what type of scan to run.
+
+1. Select **Scheduled Full Scan**to run a complete scan of all files across every selected repository on a recurring schedule. See image.
+2. Click **Next**.
+
+On the **Scan Schedule** page, choose one of the following options:
+
+- **Daily:** To scan the data every day.
+- **Weekly:** To scan the data every week.
+- **Monthly:** To scan the data once a month.
+- **On Demand:**To scan the data on demand.
+
+See image.
+
+1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
+2. Click **Finish**.
+
+[Image: Add Scan Rules in the Scan Setting Page.]
+
+[Image: Add scan rule name and description in the General Information Window.]
+
+[Image: Select SaaS as Cloud Type and GitHub as the Service Type in the Select Cloud and Resource Type Window.]
+
+[Image: Select repositories that you wish to include in the scan rule.]
+
+[Image: Select the scan type you would like to configure.]
+
+[Image: Define exclusions for repositories in the Exclusion Window.]
+
+[Image: Select the scan frequency you wish to set.]
+
+[Image: Review the scan rules you have configured.]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-azure-file-shares","lastmod":"2026-06-05T21:06Z","nid":"1540302"} -->
 ## Configuring Scan Rule for Azure File Shares
 
@@ -6411,13 +6508,13 @@ On the **Exclude Virtual Machines (Optional)** page, you can specify the VMs tha
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-github","lastmod":"2026-08-29T07:06Z","nid":"1541470"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-github","lastmod":"2026-11-17T21:01Z","nid":"1541470"} -->
 ## Configuring Scan Rule for GitHub
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-github
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for SaaS > Configuring Scan Rule for GitHub
-- Last modified: 2026-08-29T07:06Z
+- Last modified: 2026-11-17T21:01Z
 - Summary: How to configure the scan rule for GitHub resources in the AI Security Admin Portal.
 
 You can configure the scan rule to scan GitHub resources and repositories after onboarding the GitHub repositories. To learn more, see [Onboarding GitHub Tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-github-tenant).
@@ -6427,7 +6524,7 @@ To configure a scan rule for GitHub repositories, complete the following steps i
 - 1. Provide the general information.
 - 2. Select the cloud and resource type.
 - 3. Select the repositories that must be scanned.
-- 4. Exclude repositories
+- 4. Exclude repository paths.
 - 5. Select the scan type.
 - 6. Select the scan schedule.
 - 7. Review and complete the configuration.
@@ -6447,7 +6544,9 @@ The scan rule must be enabled on the Overview page to initiate the scan.
   - For **Service Type**, select **GitHub**.
 2. Click **Next**.
 
-1. On the **Select Repositories** page, select the repositories from GitHub that you want to include in the scan rule. See image.
+1. On the **Select Repositories** page, choose one of the following: See image.
+  - **Scan All Repositories**: To scan all current and future repositories from your connected account.
+  - **Scan Specific Repositories**: To scan the specific repositories that you want to include in the scan rule.
 2. Click **Next**.
 
 On the **Exclusions** page, you can specify the paths in the repositories that must be excluded from the scan.
@@ -6493,6 +6592,110 @@ See image.
 [Image: Select the scan frequency you wish to set.]
 
 [Image: Review the scan rules you have configured.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/configuring-scan-rule-gitlab","lastmod":"2026-11-17T20:53Z","nid":"1541629"} -->
+## Configuring Scan Rule for GitLab
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/configuring-scan-rule-gitlab
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Administration > Scan Rules > Scan Rules for SaaS > Configuring Scan Rule for GitLab
+- Last modified: 2026-11-17T20:53Z
+- Summary: How to configure the scan rule for GitLab resources in the AI Security Admin Portal.
+
+You can configure the scan rule to scan GitLab resources and repositories after onboarding the GitLab repositories. When a code repository is configured with a pull request (PR) scan rule and a merge request (MR) is created against it, an Agentic Radar scan runs automatically and posts findings directly to the MR. To learn more, see [Onboarding GitLab Group](https://help.zscaler.com/ai-asset-mgmt/onboarding-gitlab-group).
+
+To configure a scan rule for GitLab repositories, complete the following steps in the AI Security Admin Portal:
+
+- 1. Provide the general information.
+- 2. Select the cloud and resource type.
+- 3. Select the repositories that must be scanned.
+- 4. Exclude repository paths.
+- 5. Select the scan type.
+- 6. Select the scan schedule (applicable if Scheduled Full Scan is selected as scan type).
+- 7. Review and complete the configuration.
+
+The scan rule must be enabled on the Overview page to initiate the scan.
+
+1. Go to **Administration** > **Scan Settings**.
+2. Select the **Scan Rules**tab.
+3. Click **Add Scan Rule**. See image. The **General Information** page appears.
+4. On the **General Information**page: See image.
+  1. **Scan Rule Name**: Enter a unique and descriptive name for the scan rule.
+  2. **Scan Rule Description (Optional)**: Enter a description for the scan rule (maximum is 500 characters).
+5. Click **Next**.
+
+1. On the **Select Cloud and Resource Type** page: See image.
+  - For **Cloud Type**, select **SaaS**.
+  - For **Service Type**, select **GitLab**.
+2. Click **Next**.
+
+1. On the **Select Repositories** page, choose one of the following: See image.
+  - **Scan All Repositories**: To scan all current and future repositories from your connected account.
+  - **Scan Specific Repositories**: To scan the specific repositories that you want to include in the scan rule.
+2. Click **Next**.
+
+On the **Exclusions** page, you can specify the repositories that must be excluded from the scan.
+
+Define the path exclusion rules per repository.
+
+1. Select the repositories you would like to set an exclusion for the scan rule.
+2. Set rules: To set the rules, do the following:
+  - **Path field**: Enter the file path or pattern you want to exclude. For example, src/**/*.ts excludes all TypeScript files inside the src folder and its subfolders.
+  - **Regex toggle (</> Regex):** Switch to Regex mode if you need more advanced pattern matching instead of glob patterns.
+3. Click **Add** to add the entered path rule to the exclusion list. See image.
+4. Click **Next**.
+
+On the **Configure** **Scan Type** page, choose how scans are triggered and what type of scan to run.
+
+1. Select one of the following: See image.
+  - Scheduled Full Scan
+  - Automated PR Scanning
+2. Click **Next**.
+
+On the **Configure** **Scan Schedule** page, choose one of the following options:
+
+- **Daily:** To scan the data every day.
+- **Weekly:** To scan the data every week.
+- **Monthly:** To scan the data once a month.
+- **On Demand:**To scan the data on demand.
+
+See image.
+
+1. Review the scan rule. Click the **Edit** icon to change any values, if required. See image.
+2. Click **Finish**.
+
+To run a complete scan of all files across every selected repository on a recurring schedule is performed.
+
+To automatically scan files that have changed whenever a pull or merge request targeting the main branch is created or updated in the selected repositories.
+
+In the **PR Scan Mode** section, select one of the following:
+
+- **Monitor Mode (Scan Only):** To scan pull requests and report findings without blocking the merge.
+- **Monitor and Block Mode:**To monitor the PR against the fail criteria and block the merge if any fail condition meets the configured threshold). If the fail condition is not met, then the PR passes.
+  - **Fail Criteria:** Set the severity-based thresholds that determine pass or fail outcomes for a PR check. The check fails and blocks the merge when any of the conditions defined by severity level and finding count is met.
+
+See image.
+
+[Image: Add Scan Rules in the Scan Setting Page.]
+
+[Image: Add scan rule name and description in the General Information Window.]
+
+[Image: Select SaaS as Cloud Type and GitHub as the Service Type in the Select Cloud and Resource Type Window.]
+
+[Image: Select repositories that you wish to include in the scan rule.]
+
+[Image: Select the scan type you would like to configure.]
+
+[Image: Define exclusions for repositories in the Exclusion Window.]
+
+[Image: Select the scan frequency you wish to set.]
+
+[Image: Review the scan rules you have configured.]
+
+[Image: Select the PR Scan mode you wish to perform.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8779,6 +8982,67 @@ See image.
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-code-repository-integrations","lastmod":"2026-11-17T20:15Z","nid":"1546952"} -->
+## Managing Code Repository Integrations
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/managing-code-repository-integrations
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Code Repository Onboarding > Managing Code Repository Integrations
+- Last modified: 2026-11-17T20:15Z
+- Summary: Information about how to manage code repository integrations in AI Security
+
+After onboarding a code repository, you can manage the integration using the available actions in the Manage menu. These actions allow you to validate the integration configuration, rotate the client secret or certificate used for authentication (for Azure DevOps integrations only), update an access token (for GitLab), and delete any integration if it is no longer needed.
+
+To manage a code repository integration, do the following:
+
+1. Go to **Administration**> **Account Onboarding**.
+2. Select a code repository (GitHub, GitLab, or Azure DevOps) from the **Configured Integrations** section.
+3. Click **Manage**, and choose one of the following options:
+  - On-Demand Validation
+  - Delete Integration
+  - Update Token (GitLab only)
+  - Rotate Secret (Azure DevOps only)
+  - Rotate Certificate (Azure DevOps only)
+  - Download Certificate (Azure DevOps only)
+
+Click **On-Demand Validation** to trigger a manual validation of the integration. You can use this when:
+
+- A new repository has been added to the integration.
+- A configuration issue has been fixed and needs to be verified.
+
+When triggered, the on-demand validation:
+
+- Validates the integration configuration, including setup and permissions.
+- Fetches any newly added repositories.
+- Identifies repositories that have been deleted.
+- Updates the UI with the latest repository information.
+
+Click **Delete Integration** to permanently remove an integration. This action is irreversible and a deleted integration cannot be recovered.
+
+Click **Update Token** to update a token if the **Issues**tab displays an error such as an expired or invalid access token. You can generate the token in the GitLab portal. To learn more, see [Onboarding a GitLab Tenant](https://help.zscaler.com/ai-asset-mgmt/onboarding-gitlab-tenant).
+
+To update a token, enter the following information and click **Update.**
+
+- Token Type: By default, **Group Access Token** is set.
+- Access Token: Enter the token generated in the GitLab portal.
+
+Click **Download Certificate** to download the existing certificate without rotating it. This option is available only if you selected **Client Certificate** as the authentication method during onboarding, and is applicable only for Azure DevOps integrations. Use this option if the original certificate was misplaced. After downloading the certificate, re-upload it to the Azure portal.
+
+Click **Rotate Certificate** to generate a new key pair for the Microsoft Entra app registration associated with your current integration. To rotate the certificate, do the following:
+
+1. Under **Rotate App Credentials**, click **Rotate** to generate a new client certificate. The credentials are rotated.
+2. Click **Download Certificate**.
+3. Upload the downloaded certificate to the Microsoft Entra app registration associated with this integration.
+4. Click **Validate**to confirm that Zscaler can authenticate using the new certificate.
+
+A client secret expires based on the expiry date set during service principal creation in the Azure portal. You can rotate a client secret if it expires or is compromised. To rotate a client secret:
+
+1. Regenerate the secret in the **Azure portal** under **Certificates & secrets > New client secret**. To learn more, see [Onboarding Azure DevOps Organization](https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-devops-organization).
+2. Copy the new secret value and enter it in the **Rotate Secret** window.
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/managing-issues","lastmod":"2026-06-05T21:06Z","nid":"1540787"} -->
 ## Managing Issues
 
@@ -9472,6 +9736,131 @@ To create the AWSCloudFormationStackSetExecutionRole role:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-devops-organization","lastmod":"2026-11-17T20:12Z","nid":"1546182"} -->
+## Onboarding an Azure DevOps Organization
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-azure-devops-organization
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Code Repository Onboarding > Onboarding an Azure DevOps Organization
+- Last modified: 2026-11-17T20:12Z
+- Summary: Information about adding Azure DevOps organizations and select repositories to scan in the AI Security Admin Portal.
+
+Onboarding an Azure DevOps organization to AI Security Admin Portal connects your organization’s Azure DevOps environment (organizations and projects) to the AI Security Admin Portal. This connection enables AI Security to discover, assess, and help you govern AI-related activity and risks across your codebase.
+
+When onboarding, you must select an authentication type to establish a secure connection between Zscaler and Azure DevOps. You can choose either Client Secret, which uses a shared secret key generated in your Azure app registration, or Certificate, which uses a PEM file for certificate-based authentication. The authentication type you select determines the credentials you need to provide during the onboarding process.
+
+## Prerequisites
+
+Before onboarding a Azure DevOps organization, ensure you have completed the following:
+
+- 1. Registered an app in the Azure Portal.
+- 2. Granted access to your organization.
+
+## Onboarding Azure DevOps Organization
+
+To onboard an Azure DevOps organization, do the following:
+
+1. Go to **Administration**> **Account Onboarding**.
+2. Click + **Add New**. The **Start Onboarding** window appears.
+3. Select **Code Repository**. See image.
+4. In the **Select Code Repository** window, select the **Azure DevOps**tile. See image. The **Add Azure DevOps Organization**page appears.
+5. In the **Configuration**window, do the following:
+  1. **Tenant Alias:**Enter a unique name for the tenant as registered in the Azure DevOps Portal.
+  2. **Tenant ID:** Enter the Microsoft Entra tenant ID.
+  3. **Organization Name**: Enter the name of the organization that you created in the Azure DevOps Portal.
+  4. **Authentication Type:**Select one of the following from the drop-down menu.
+    - Client Secret
+    - Client Certificate
+6. Return to the **Account Onboarding** page to verify onboarding.
+
+### Limitations
+
+After successful onboarding, access to any projects created subsequently is not granted automatically. The user or service principal must be manually granted access to each new project. You can also run an **On-Demand Validation** if you require your projects to be discovered immediately.
+
+To grant access to a newly created project, do the following:
+
+1. Go to **Azure DevOps** > **Organization Settings** > **Users**.
+2. Select the user or service principal created during onboarding.
+3. Click **Manage Access Level**.
+4. Under **Projects**, select the newly created project. You can select more than one project at a time.
+5. Click **Save**.
+
+To discover newly added projects immediately in Zscaler, do the following:
+
+1. In the AI Security portal, go to **Administration**> **Account Onboarding**.
+2. Select the Azure DevOps integration.
+3. Click **Manage**.
+4. Select **On-Demand Validation** to initiate immediate discovery of newly added projects. To learn more, see [Managing Code Repository Integrations](https://help.zscaler.com/ai-asset-mgmt/managing-code-repository-integrations).
+
+If immediate discovery is not required, Zscaler automatically checks for new repositories twice a day, at 12:00 AM and 12:00 PM UTC.
+
+To create an app in Entra ID:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Go to **App Registrations**.
+3. Click **+ New registration**. See image.
+4. In the **Register an application** page:
+  1. **Name:** Enter a unique name for the application.
+  2. **Supported account types:** Retain the default selection.
+5. Click **Register**. See image.
+
+The application is registered and details are displayed in the **Essentials** section of the **Overview**page. Copy the **Application (client) ID** details, **Directory (Tenant ID)**, and ensure you have saved the details. The client ID is required while updating the Configuration Details in the AI Security Admin Portal.
+
+See image.
+
+Enter the following information:
+
+1. **Client ID**: The Application (client) ID you copied and saved from the **Overview**page in the Azure portal.
+2. **Client Secret**: The client secret created for the app registration. To create a client secret, do the following:
+  1. In the [Microsoft Entra admin center](https://entra.microsoft.com) or [Azure portal](https://portal.azure.com), click the newly created application.
+  2. In the left-side navigation, go to **Manage**> **Certificates & secrets**.
+  3. In the **Client secrets** tab, click **+ New client secret**.
+  4. In the **Add a client secret** drawer:
+    1. **Description**: Enter a description for the client secret.
+    2. **Expires**: Select the expiration time from the drop-down menu. By default, 180 days (6 months) is selected.
+  5. Click **Add**. See image. The client secret is generated and displayed. See image.
+  6. Copy the secret immediately and paste it in the Client Secret field in the Configuration window in AI Security.
+  7. Click **Save**.
+
+See image.
+
+Enter the following information:
+
+1. **Client ID**: The Application (client) ID you copied and saved from the **Overview**page in the Azure portal. See image.
+2. Click **Save & Next**. The system generates a PEM file.
+3. Click **Download Certificate**to download the certificate as a PEM file.
+4. In the **Azure portal**, go to**App registration > Certificates & secrets > Certificates** and upload the certificate. See image.
+5. Click **Validate**to confirm that Zscaler can successfully authenticate with the connection. See image.
+
+To grant an organization access, do the following:
+
+1. In **Azure DevOps**, go to **Organization Settings > Users**.
+2. Select **Organization Settings > Users > Add new users.** See image.
+3. Click **Add new users.**
+4. In the **Add new users**drawer, enter the following:
+  1. **Users or Service Principals:** Select the User or Service Principal created via the app registration.
+  2. **Access level:** Select the access level as **Basic**.
+  3. **Add to Projects:** Select the projects you want to add.
+  4. **Azure DevOps Groups:** Assign the user to the required projects with **Project Reader**permissions (minimum required).
+5. Click **Add**. See image. The user is added to the organization. Use this while onboarding your Azure DevOps organization.
+
+[Image: Select Code Repository in the Start Onboarding Window.]
+
+[Image: Create an app registration in the Microsoft Azure registrations page.]
+
+[Image: Enter details to register an app.]
+
+[Image: Steps to illustrate how to add Client secrets]
+
+[Image: The added Client Secret is displayed.]
+
+[Image: Add users to your organization in the Azure DevOps.]
+
+[Image: Select client secret as a method to authenticate your organization with Zscaler.]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-azure-subscription","lastmod":"2026-10-29T23:40Z","nid":"1542892"} -->
 ## Onboarding an Azure Subscription
 
@@ -9842,13 +10231,13 @@ If the templates are successfully deployed, you are directed to the [Overview](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-07-30T09:34Z","nid":"1539955"} -->
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gcp-organization","lastmod":"2026-11-20T00:01Z","nid":"1539955"} -->
 ## Onboarding a GCP Organization
 
 - Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-gcp-organization
 - Product: AI Asset Management
 - Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > GCP Cloud Accounts > Onboarding a GCP Organization
-- Last modified: 2026-07-30T09:34Z
+- Last modified: 2026-11-20T00:01Z
 - Summary: Information about how to onboard a GCP organization in the Zscaler Admin Console.
 
 You can onboard a Google Cloud Platform (GCP) account and its associated projects to AI Security. AI Security monitors and scans the Cloud Storage buckets in the onboarded projects to identify sensitive data, misconfigurations, vulnerabilities, and more.
@@ -10081,11 +10470,11 @@ Custom tags are assigned to the resources created by AI Security that enable you
 To add custom tags:
 
 1. Click **Add Custom Tags**.
-2. On the **Add Custom Tags** page, enter a key and value pair for the tag. Ensure to [follow the guidelines](https://help.zscaler.com/dspm/managing-custom-tags) while entering key-value pairs for custom tags.
+2. On the **Add Custom Tags** page, enter a key and value pair for the tag. Ensure to [follow the guidelines](https://help.zscaler.com/ai-asset-mgmt/managing-custom-tags) while entering key-value pairs for custom tags.
 3. Click **Add More**, to add additional tags.
 4. Click **Done**.
 
-ai-security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing bucket or add a new one to store these evidence snippets.
+AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing bucket or add a new one to store these evidence snippets.
 
 To add evidence storage:
 
@@ -10220,6 +10609,70 @@ To onboard a GitHub tenant, do the following:
 [Image: Install the Zscaler AI Security app on the selected repositories.]
 
 [Image: Select the GitHub organizations you want to configure the Zscaler app for.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-gitlab-group","lastmod":"2026-11-17T20:30Z","nid":"1541544"} -->
+## Onboarding GitLab Group
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-gitlab-group
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Code Repository Onboarding > Onboarding GitLab Group
+- Last modified: 2026-11-17T20:30Z
+- Summary: Information about adding GitLab group and selecting repositories in the AI Security Admin Portal to enable discovery of AI-related activity and risks across your organization.
+
+Onboarding a GitLab group to AI Security Admin Portal connects your organization’s GitLab environment (enterprise, organizations, and projects) to the AI Security Admin Portal. This connection enables AI Security to discover, assess, and help you govern AI-related activity and risks across your codebase.
+
+## Prerequisites
+
+Before you begin, create a GitLab access token based on your use case. You can create the following types of tokens:
+
+- Personal Access Token
+- Group Access Token
+
+To onboard a GitLab group, do the following:
+
+1. Go to **Administration**> **Account Onboarding**.
+2. Click + **Add New**. The **Start Onboarding** window appears.
+3. Select **Code Repository**. See image.
+4. In the **Select Code Repository** window, select the **GitLab** tile. See image.
+5. In the **Add GitLab Group**window, enter the following details. See image.
+  - **Integration Alias:** Enter a user-friendly name to identify this integration.
+  - **GitLab Host:** Displays gitlab.com by default. This field is non-editable, as only public GitLab is supported.
+  - **Token Type:** Select one of the following:
+    - **Personal Access Token:** To provide access to repositories the token owner has access to.
+    - **Group Access Token:**To create a group access token that is tied to a specific GitLab group and to provide access to all repositories within that group.
+  - **Access Token:** Enter the group access token created in your GitLab Group in the GitLab portal.
+6. Click **Save**. Zscaler creates the integration and begins discovering repositories under the configured group.
+
+A group access token is tied to a specific GitLab group and provides access to all repositories within that group. This is the recommended authentication method. If the token is created at the parent group level, it provides access to all underlying subgroups and their repositories. If the token is created at a subgroup level, access is limited to repositories within that subgroup only. To create a group access token, do the following:
+
+1. Log in to [Gitlab portal](https://about.gitlab.com/).
+2. Go to your **Group**,and select **Settings > Access tokens**. See image.
+3. Click **Add Group Access** token.
+4. In the **Group access tokens**page, enter the following:
+  1. **Token name:** Enter a suitable name.
+  2. **Token description:** Provide a suitable description for the token.
+  3. **Expiration date:** Set the expiration date.
+  4. **Select Roles:**Select the following from the drop-down menu.
+    - **For SCM Scanning:** Reporter.
+    - **For PR-Based Scanning:** Maintainer.
+  5. **Select Scopes:** Set the scope to define the token's permission levels: See image.
+    - **For SCM Scanning: read_api** and **read_repository**.
+    - **For PR-Based Scanning: api, read_api, read_repository**,and **write_repository**.
+5. Click **Create group access token**.
+6. Copy the token and paste in the AI Security Admin Portal Onboarding GitLab - Access Token field.
+
+Personal token access is suitable for demos or proof-of-concept use only. It provides access to repositories the token owner has access to. To learn more, refer to [GitLab Docs](https://docs.gitlab.com/user/profile/personal_access_tokens/#create-a-personal-access-token).
+
+[Image: Select GitLab as the Code Repository in the Account Onboarding page.]
+
+[Image: Select Code Repository in the Start Onboarding Page.]
+
+[Image: Select Token Type from the drop-down menu.]
+
+[Image: Select Access tokens from Settings in the Group Access Tokens Page.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -10897,6 +11350,265 @@ To onboard an AWS account:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-zscaler-hosted-azure-tenant-or-management-group","lastmod":"2026-11-12T23:37Z","nid":"1546645"} -->
+## Onboarding Zscaler Hosted Azure Tenant or Management Group
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/onboarding-zscaler-hosted-azure-tenant-or-management-group
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Zscaler Hosted Cloud Accounts Onboarding > Microsoft Azure Cloud Accounts > Onboarding Zscaler Hosted Azure Tenant or Management Group
+- Last modified: 2026-11-12T23:37Z
+- Summary: Information on how to onboard an Azure tenant and management group.
+
+You can onboard an Azure tenant or management group and their associated subscriptions. AI Security monitors and scans the data stores (e.g., virtual machines, storage accounts) in the onboarded subscriptions to identify sensitive data, misconfigurations, and vulnerabilities.
+
+## Prerequisites
+
+Before onboarding an Azure tenant or management group, ensure you have completed the following:
+
+- Create the following in the Microsoft Entra ID:
+  1. Azure application or service principal: To provide AI Security access to the resources within the target subscriptions. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/entra/identity-platform/app-objects-and-service-principals?tabs=browser). See instructions.
+  2. Client secret: If you want to create an integration using client secret which is a confidential string that is used as a password for the application created. See instructions.
+  3. API permissions: Add API permissions and grant admin consent to the application to access resources within the subscription. See instructions.
+- Ensure you have the following roles to deploy the templates and grant API permissions.
+- Install the latest versions of Terraform and Azure CLIs to run the templates. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
+- Identify the storage containers where Terraform state files must be stored. The state files are required to manage resources created by the AI Security Terraform templates and to [upgrade to new templates](https://help.zscaler.com/dspm/viewing-roles-and-templates). You can also create the following new storage containers to store the state files:
+  - Resource Group
+  - Storage Account
+  - Storage Account Container
+
+## Onboarding an Azure Tenant or Management Group
+
+To onboard an Azure tenant or management group:
+
+- 1. Select a Deployment Mode.
+- 2. Select an Onboarding Scope.
+- 3. Select a Configuration Creation Mode.
+- 4. Complete Tenant Discovery.
+- 5. Define Scope Selection.
+- 6. Configure Business Unit Mapping.
+- 7. Select Services.
+- 8. Provide Configuration Details.
+- 9. Review & Deploy.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, click **+ New registration**. The **Register an application** page appears.
+4. On the **Register an application** page, provide the following details and click **Register**.
+  - **Name**: Enter a unique name for the application.
+  - **Supported account types**: Select the subscription.
+
+The application is created in the Entra ID. Copy the **Application (client) ID** and save them on your system as this is required while onboarding.
+
+See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
+5. On the **Client secrets** tab, click **+ New client secret**. See image. The **Add a client secret** drawer appears.
+6. In the **Add a client secret** drawer:
+  - **Description**: Enter a description for the client secret.
+  - **Expires**: Select the expiration date from the drop-down menu.
+7. Click **Add**.
+8. In the **Client secrets** table, under **Value**, click the **Copy**icon to copy the string to the clipboard. See image.
+
+1. Sign in to the Azure portal and go to **Microsoft Entra ID**.
+2. In the left-side navigation, go to **Manage**> **App registrations**. The **App registrations** page appears.
+3. On the **App registrations** page, search for and select the applicationyou created.
+4. In the left-side navigation, go to **Manage**> **API permissions**.
+5. Click **+ Add a permissions**. The **Request API permissions** drawer appears.
+6. On the **Request API permissions** drawer, select **Microsoft Graph** and add the following permissions: See image. Entitlements are affected if the optional API permissions are not configured.
+  | API or Permissions Name | State | Type | Description |
+  | --- | --- | --- | --- |
+  | Application.Read.All | Mandatory | Application | Read all applications |
+  | User.Read | Mandatory | Delegated | Sign in and read user profile |
+  | AuditLog.Read.All | Optional | Application | Read all audit log data |
+  | Directory.Read.All | Optional | Application | Read directory data |
+  | Organization.Read.All | Optional | Application | Read organization information |
+  | Reports.Read.All | Optional | Application | Read all usage reports |
+  | RoleManagement.Read.Directory | Optional | Application | Read all directory RBAC settings |
+  | RoleManagementPolicy.Read.Directory | Optional | Application | Read all policies for privileged role assignments of your company's directory |
+  | UserAuthenticationMethod.Read.All | Optional | Application | Read all users' authentication methods |
+7. On the **API permissions** page, click **Grant admin consent for <application name>**.
+8. In the **Grand admin consent confirmation** window, click **Yes**.
+
+Resource groups are logical containers that comprises a group of Azure resources. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+To create a resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Resource groups**.
+2. Click **+Create**. See image. The **Create a resource group** drawer appears
+3. In the **Create a resource group** drawer, on the **Basics** tab:
+  1. **Subscription**: Select the orchestrator subscription from the drop-down menu.
+  2. **Resource group**: Enter a unique name for the resource group.
+  3. **Region**: Select a region where the resource group must be created.
+4. Click **Review + create**. See image.
+
+Storage accounts store data objects such as files, queues, tables, and Terraform state files. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview).
+
+To create a storage account:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Click **+Create**. See image. The **Create a storage account** drawer appears.
+3. In the **Create a storage account** window, on the **Basics** tab:
+  1. **Subscription**: Select your Azure subscription.
+  2. **Resource group**: Select the resource group that you created.
+  3. **Storage account name**: Enter a unique name for the storage account.
+  4. **Region**: Select location where the storage account must be created.
+4. Click **Review + create**. See image.
+
+A storage account container is a set of blobs similar to a directory in a file system. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+
+To create a storage account container:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) and go to **Storage account**.
+2. Locate the storage account you created and click the storage account.
+3. In the left-side navigation, under **Data storage**, select **Containers**. See image.
+4. Click **+Container**. See image.
+5. In the **New container** drawer: See image.
+  1. **Name**: Enter a unique name for the container.
+  2. **Anonymous access level**: Select the access level for the container.
+6. Click **Create**.
+
+| Environment | Terraform Version | Azure CLI Version | PowerShell or Bash Version |
+| --- | --- | --- | --- |
+| Mac | v1.10.3 | 2.65.0 | version 3.2.57(1)-release (arm64-apple-darwin23) |
+| Cloud Shell - Bash | v1.9.5 | 2.65.0 | version 5.1.8(1)-release (x86_64-pc-linux-gnu) |
+| Cloud Shell - PowerShell | v1.9.5 | 2.65.0 | 7.4.5 |
+| Windows - Command line | v1.7.5 | 2.67.0 | NA |
+| Windows - PowerShell | v1.9.8 | 2.67.0 | 7.4.6 |
+
+| Scope | Role |
+| --- | --- |
+| Root Tenant Management Group Target Subscription | User Access Administrator (Based on your onboarding scope) |
+| Storage account | Storage Account Contributor (For Terraform State File) |
+| Microsoft Entra ID | Privileged Role Administrator (For granting the API permission) |
+
+To onboard an Azure tenant or management group, you must first select the deployment mode.
+
+1. In the Zscaler Admin Console, go to **Administration**> **Account Onboarding**.
+2. Click **Add New**.
+3. In the **Select Cloud Provider** window, for **Select Cloud Type**, click the**Azure** tile. See image.
+4. Click **Next**.
+5. In the **Select Deployment Mode** window, choose Zscaler Hosted. See image.
+6. Click **Next**.
+
+In the **Select Onboarding Scope** section, select one of the following and click **Next**.
+
+- **Tenant:** To onboard the entire Azure AD tenant. A role assignment is created at the tenant root management group, enabling discovery of every subscription in the tenant.
+- **Management Group:** To onboard subscriptions under a specific management group and its descendants. This is the recommended approach when Zscaler coverage is needed for only part of the tenant.
+- **Subscription:**To onboard a single Azure subscription without requiring tenant enumeration. See image.
+
+In the **Configuration Creation Mode** section, select one of the following and click **Next**.
+
+- **Automated Role Creation:** To allow Zscaler to generate Terraform modules for the custom role and role assignment using the `azurerm` provider. See image.
+- **Manual Role Creation:** To create a custom role and assign roles using the existing workflow.
+
+In the **Tenant Discovery** section, provide the following Azure AD tenant details so Zscaler can enumerate management groups and subscriptions in scope and click **Next**.
+
+1. **Azure Tenant Details:**
+  - **Integration Alias:** Enter a user-friendly name for the subscription.
+  - **Tenant ID:** Enter the Microsoft Entra tenant ID. You can find the tenant ID in the Azure portal in multiple ways. For example:
+    1. Sign in to the **Azure portal**.
+    2. On the top right, select your account and then click **Switch directory**.
+    3. On the **Portal Settings | Directories + subscriptions** page, under **All Directories**, copy the **Directory ID** of the corresponding tenant that you want to onboard.
+  - **Zscaler App (Client) ID:** Enter the application or client ID.
+  - **Management Group ID:** Enter the Management Group ID. This field appears if you have selected **Management Group** as an option in the **Select Onboarding Scope** section. You can find the management group ID under **Resource Manager > Organization > Management groups**in Azure Portal. See image.
+  - **Notification Emails (Optional):** Enter the email addresses of the recipients who must be notified of any configuration or permissions issues encountered with the onboarded tenant. You can add up to 30 email addresses to receive notifications about the issues. You can also add email addresses after completing the onboarding process.
+2. **App Registration Credentials:** This is required for Zscaler to authenticate your Azure AD app registration before the tenant enumeration begins. Select from one of the following
+  - Client Secret
+  - Certificate
+3. **Grant Reader Role to Zscaler:** Copy the PowerShell one-liner and run it in the **Azure Portal** to assign the built-in **Reader** role to the Zscaler service principal at the tenant root scope. See image. Discovery in the next step fails if this step is not completed. Ensure the Az PowerShell module is installed, and you are signed in with Connect-AzAccount as a User Access Administrator or Owner on the target scope. The Zscaler app must also have admin consent granted in your Azure AD.
+4. **Discover Tenant Hierarchy:** Click **Discover** to enumerate the management groups and subscriptions that Zscaler has read access to. If discovery fails, click **Re-Discover.**
+
+In the **Scope selection** section, select the management groups and subscriptions to include in the scan. Enable autodetection on any management group where all current subscriptions are selected to automatically onboard future subscriptions.
+
+See image.
+
+Custom role definitions are created at the tenant root level and propagate to the selected subscriptions. You can add or remove subscriptions from the integration's Accounts tab with re-onboarding required.
+
+To use client secret as authentication for app registration, do the following:
+
+1. **Client Secret:** Enter the client secret generated as a pre-requisite in the Azure portal.
+2. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID. See image.
+
+Zscaler Generate the client certificate to use a certificate-based authentication for app registration. To generate a client certificate, do the following:
+
+1. **Save Integration:** To register the integration in the Zscaler backend. Subsequent onboarding steps reference the returned integration ID.
+2. **Download and Validate the Certificate:** Download the client certificate generated by Zscaler for this integration. Upload it to your **Azure AD app registration** under **Certificates & secrets > Certificates**.
+
+See image.
+
+In the **Business Unit Mapping** section, you can do the following and click **Next**.
+
+1. Select a subscription to map a subscription to a business unit for filtering and reporting inside Zscaler.
+2. Click **+ New Business Unit** to add a new business unit.
+3. All subscriptions are assigned to a business unit. If no mapping is specified, then the **Default** option is applied. See image.
+
+In the **Service Selection** section, select the scanning services you want to enable for this integration. Each service you enable adds a specific, scoped set of Azure permissions to the Scanning custom role, ensuring that only the permissions required for the selected services are granted.
+
+See image.
+
+In the **Configuration**section, provide the following details and click **Next**.
+
+1. **Integration and Identity**:
+  - **Integration Alias:** User name set at the time of tenant discovery is autopopulated.
+  - **Application (Client ID):**The application or client ID set at the time of tenant discovery is autopopulated.
+2. **Custom Roles**
+  - **If you choose automated role creation:** The following role names are used for the Azure custom role by the Terraform modules: See image.
+    - Asset Discovery Role Name
+    - Scanning Role Name
+  - **If you choose manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope. Use the Application (Client) ID name as the `principalld`. Ensure your custom role is defined at the Management Group or Tenant scope depending on your onboarding scope. The role assignment is performed at the Subscription scope. See image.
+3. **Evidence Storage (Optional):** AI Security discovers files and tables containing sensitive data and generates snippets of evidence data to investigate and validate the findings. You can choose an existing storage account container or add a new one to store these evidence snippets. See image.
+  - **Evidence Role Name:**The name of the evidence role.
+  - **Storage Account Resource ID:**The resource ID of the storage account.
+  - **Container Name:** The name of the container.
+  - **In case of manual role creation:**Assign a custom role definition with the required Azure permissions to the Zscaler service principal at your target scope so it can write evidence collected during scans. Use the **Application (Client) ID** above as the principalId. Ensure your custom role is defined at the Storage account Subscription scope and the role assignment is performed at the evidence Storage accoun
+4. **Tags (Optional):** Configure custom tags to identify the resources created by AI Security.
+  - **Click Add Tag**, and enter key-value pairs to add more tags.
+
+In the **Review & Deploy**section, do the following:
+
+- If you have selected **Automated Role Creation**option**:**Download and deploy the Terraform modules in your Azure environment and then validate that Zscaler can access the scoped APIs before completing onboarding. See image. After deploying the Terraform module against the target scope, click **Save & Complete Onboarding**.
+- If you have selected the **Manual Role Creation** option: Zscaler authenticates using the Application (Client) ID and validates that each custom role assignment grants the required permissions. See image. After creating the custom roles and assigning them at the target scope, click **Save & Complete Onboarding**.
+
+[Image: Resource groups page showing a list of resource groups and an annotation around the Create option]
+
+[Image: Create a resource group page showing the Basics tab with annotation around Review + create button]
+
+[Image: Storage accounts page showing a list of storage accounts and an annotation around the Create option]
+
+[Image: Create a storage account page showing the Basics tab with annotation around Review + create button]
+
+[Image: A storage account page with the left-side navigation that shows an annotation around the Containers page]
+
+[Image: A storage account page with the annotation around the Container option]
+
+[Image: New container drawer with fields filled out]
+
+[Image: The app registrations page with annotation around Application ID]
+
+[Image: The Certificate and Secrets page with annotations around New client secret]
+
+[Image: The Client secrets page with annotation around value]
+
+[Image: Select the Cloud Type]
+
+[Image: Select Zscaler Hosted in the Deployment Mode window]
+
+[Image: Select the Onboarding Scope as Tenant.]
+
+[Image: Select Automated Role Creation to allow Zscaler to generate the Terraform modules.]
+
+[Image: Add Azure Tenant Details in the Tenant Discovery section.]
+
+[Image: Select Certificate if you want to perform tenant discovery using client certificate.]
+
+[Image: The Request API permissions drawer with the list of Application permissions]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/onboarding-zscaler-hosted-single-azure-subscription","lastmod":"2026-10-14T06:37Z","nid":"1546717"} -->
 ## Onboarding Zscaler Hosted Single Azure Subscription
 
@@ -11280,6 +11992,98 @@ To run an On-Demand scan, complete the following steps in the AI Security Admin 
 [Image: Scan rule page with an annotation for On-Demand Scan action.]
 
 [Image: Confirmation window to confirm the on-demand scan.]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope","lastmod":"2026-11-20T05:05Z","nid":"1539925"} -->
+## Selecting the AWS Orchestrator and Monitoring Scope
+
+- Source: https://help.zscaler.com/ai-asset-mgmt/selecting-aws-orchestrator-and-monitoring-scope
+- Product: AI Asset Management
+- Path: AI Asset Management Help > Account Onboarding > Cloud Accounts Onboarding > AWS Cloud Accounts > AWS Organization > Selecting the AWS Orchestrator and Monitoring Scope
+- Last modified: 2026-11-20T05:05Z
+- Summary: Information about how to select the network configuration, AWS orchestrator account, and AWS target accounts that must be monitored.
+
+After deploying the [tree discovery](https://help.zscaler.com/ai-asset-mgmt/deploying-aws-tree-discovery-template) template for the [onboarding process](https://help.zscaler.com/ai-asset-mgmt/onboarding-aws-organization), select the network configuration, orchestrator, and monitoring scope in the AI Security Admin Portal.
+
+Before you select the AWS orchestrator and monitoring scopes, ensure you have configured the AWS network. To learn more, see [Configuring AWS Network](https://help.zscaler.com/ai-asset-mgmt/configuring-aws-network).
+
+Under the **Orchestrator & Monitoring Scope** section:
+
+- 1. Select the network configuration.
+- 2. Configure the orchestrator.
+- 3. Set a monitoring scope.
+
+To modify the configured accounts, click **Reset.**
+
+When you have configured the network and scopes successfully, you are directed to the Additional Configuration section.
+
+In the **Additional Configuration**section, you can configure custom tags, evidence storage, and data events. Click **Skip This Step** to configure the additional details after completing the onboarding process and go to the [Grant Permissions section](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates).
+
+- Custom Tags
+- Evidence Storage
+
+After the configuration is completed, you are directed to the [Grant Permissions](https://help.zscaler.com/ai-asset-mgmt/deploying-orchestrator-and-monitoring-scope-templates) section to deploy the orchestrator and monitoring scope templates.
+
+You can choose the custom network configurations:
+
+- **Custom**: Use your organization's resources to deploy the orchestrator and monitoring scope.
+
+By default, the custom configuration is selected. Changing the network configuration resets the existing configurations.
+
+To configure the orchestrator, click **Configure Orchestrator**.
+
+The orchestrator configuration depends on the network configuration you chose earlier.
+
+- If you selected the Zscaler network configuration
+- If you selected the custom network configuration
+
+1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template and click **Next**. You need to specify this primary region while creating the StackSets.
+2. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. The Unmanaged Database service is disabled for Zscaler network configuration.; AI Security automatically excludes Amazon S3 buckets used for storing logs.
+3. On the **Configure Regions** **for monitoring and scanner's configuration**page, select the regions that AI Security must monitor. AI Security creates and deploys resources required for scanning only in the selected regions. You need to specify these regions while deploying the orchestrator template.
+4. Click **Done**.
+
+1. On the **Configure an Orchestrator Account** page, select an account and the primary region where you want to deploy the orchestrator template, and then provide the following details for that selected region: You need to specify this primary region while creating StackSets.
+  1. **Subnet ARN**: Enter the private subnet ARN for the orchestrator instance.
+  2. **Security Group ID**: Enter the secruity group ID for the orchestrator instance.
+2. Click **Next**.
+3. On the **Select which services to monitor** page, select the services that AI Security must monitor. By default, all the services are selected. AI Security permissions are restricted to monitor and scan the data only in the selected services. AI Security automatically excludes Amazon S3 buckets used for storing logs.
+4. On the **Configure regions for monitoring and scanner configuration** page, select the regions that AI Security must monitor, and enter the following for each selected region: You need to specify these regions while deploying the orchestrator template.
+  1. **Subnet ARN**: Enter the subnet where the scanner instances must be launched.
+  2. **Security Group ID**: Enter the ID of the security group that controls network traffic to and from the scanner instances.
+  3. **DB Subnet Group ARN**: Enter the ARN of the database subnet group. This is required for AI Security to scan the RDS databases.
+5. Click **Done**.
+
+1. Click **Set Monitoring Scope**.
+2. On the **Configure Monitoring Scope** page, select the target accounts that AI Security must monitor, then click **Next**. If you want all the accounts in an organizational unit (OU) to be scanned, select the OU. An OU is a logical group of accounts that perform similar or related functions. To learn more about OUs, refer to the [AWS documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html). Select **Autodetection** at the OU level if you want AI Security to automatically include and scan new accounts that are added to the OU in the future. This eliminates the need to manually onboard the new accounts. You must activate automatic deployment in AWS to automatically deploy stack instances for newly added accounts in the future.
+3. On the **Assign Business Units** page, assign a business unit to the OU. All the accounts in the OU are mapped to the selected business unit. The default business unit is assigned to the OU. You can change the business units for the OU if required, after completing the onboarding process.
+4. Click **Done.**
+
+AI Security discovers files and tables containing sensitive data and generates evidence data to investigate and validate the findings. You can choose an existing S3 bucket or configure a new one to store these evidence snippets.
+
+1. Click **Add Evidence Storage**.
+2. On the **Evidence Configuratio**n, select one of the following: When configured, the S3 bucket cannot be modified. You can only enable or disable the evidence configuration.
+  - Custom S3 bucket
+  - Zscaler Managed S3 bucket
+3. Click **Done**.
+
+Custom tags are attached to the resources created by AI Security that enable you to distinguish resources in the organization.
+
+To add custom tags:
+
+1. Click **Add Custom Tags**.
+2. On the **Add Custom Tags** page, enter a key and value pair for the tag. Ensure to follow the guidelines while entering key-value pairs for custom tags.
+3. Click **Add More**, and enter key-value pairs to add more tags.
+4. Click **Done**.
+
+You can use an existing S3 bucket to configure evidence data. AI Security uploads the classified data into the specified S3 bucket.
+
+- **S3 Bucket Name**: The name of the S3 bucket name.
+- **S3 Bucket Account ID**: The 12-digit account ID.
+- **KMS Key ARN**: The KMS key ARN. This key is used to encrypt the evidence data in the S3 bucket.
+
+AI Security creates an S3 bucket in the orchestrator account to upload the classified data.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -15570,361 +16374,4 @@ The data on the Lookalike Domains page is specific to the organization selected 
 - Summary: EASM Release Upgrade Summary for service updates deployed in 2025.
 
 This article provides a summary of all new features and enhancements for EASM.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/setting-up-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503546"} -->
-## Setting Up Asset Discovery
-
-- Source: https://help.zscaler.com/easm/setting-up-asset-discovery
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Setting Up Asset Discovery
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on how to configure and initiate the Asset Discovery process in Zscaler External Attack Surface Management (EASM).
-
-Asset Discovery, a core function of EASM, enables an organization to identify and inventory all their internet-facing assets and gain insights into an organization's external attack surface. To initiate a scan and discover assets, EASM requires seeds. A seed is a known legitimate asset of your organization. Domains, IP addresses, and IP blocks are assets that can be configured as seeds. While setting up asset discovery, EASM allows you to configure seeds by creating a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles). A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, or acquisitions that are part of your company. For each organization, you can configure distinct discovery profiles with seeds for known legitimate assets of that specific organization.
-
-When a discovery profile is created and submitted, EASM initially scans the configured seeds to discover assets that are immediately connected to the seeds. Then the first level of connections are scanned further to discover a second level of connected assets, followed by each consecutive level of connections being recursively scanned, leading up to the formation of a discovery chain and ultimately mapping the organization's attack surface. The assets discovered in each level of connections are evaluated to determine if their relationship with the previous seed is strong enough before being recursively scanned to discover subsequent connections. This recursive scanning continues until the weak links exposed in your online infrastructure, including unknown and unmonitored assets, are discovered. The scanning stops when all the internet-facing assets which your organization is responsible for managing are identified and tracked.
-
-After discovering and inventorying the assets, EASM investigates a number of asset parameters to identify the associated risks, such as known vulnerabilities, misconfigurations, exposed credentials, sensitive enterprise information, etc. that can be potentially exploited as attack vectors. EASM continuously monitors the discovered assets and the changing attack landscape using periodic scans to provide real-time visibility into the risk exposure of your internet-facing asset infrastructure and to help prioritize risks with contextual and actionable information for risk remediation.
-
-You need to complete the following steps to enable EASM to start discovering your internet-facing assets and building visibility into the attack surface:
-
-- 1. Set up an organization.
-- 2. Create a discovery profile for the organization by including seeds.
-
-EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. You can also add custom organizations per your requirements.
-
-To add a custom organization:
-
-Only super admins can create and manage organization-specific configurations.
-
-1. Go to **Administration** > **Organizations**. The Organization window appears.
-2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. See image.
-  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
-  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
-
-After creating an organization, you can set up a discovery profile for the organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
-
-To create a discovery profile for an organization:
-
-Only admins with full access permission to the target organization can perform this action.
-
-1. Go to **Administration** > **Organizations**. The **Organization** window appears.
-2. In the **Organization** window:
-  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
-  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
-3. In the **Profile Details** window:
-  1. **Name**: Enter a name for the discovery profile.
-  2. **Description**: Enter a brief description for the profile.
-  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
-  4. Under **Manage Seeds** section:
-    1. Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
-    2. When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include**section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
-4. Click **Save**. See image.
-
-When you save the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization's attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
-
-The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds** tab appears for the organization where you can view the list of seeds configured for the entire organization. To learn more, see [Configuring & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-
-See image.
-
-[Image: Adding a new organization for attack surface discovery and management]
-
-[Image: New organization added for attack surface discovery and management]
-
-[Image: The Add Discovery Profile button is annotated]
-
-[Image: Creating discovery profile by configuring seeds in EASM]
-
-[Image: Discovery profile details in EASM Admin Portal]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/step-step-configuration-guide-easm","lastmod":"2024-11-29T06:06Z","nid":"1503641"} -->
-## Step-by-Step Configuration Guide for EASM
-
-- Source: https://help.zscaler.com/easm/step-step-configuration-guide-easm
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Getting Started > Step-by-Step Configuration Guide for EASM
-- Last modified: 2024-11-29T06:06Z
-- Summary: A step-by-step guide to set up and configure Zscaler EASM for your organization.
-
-This guide takes you through the configuration steps you need to complete to begin using EASM for your organization. Each step guides you through essential tasks, ensuring you are fully equipped to start securing and monitoring your external attack surface efficiently.
-
-Zscaler recommends reviewing the following articles to learn more about the EASM configuration:
-
-- [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
-- [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery)
-- [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-navigating-easm-admin-portal)
-
-## Configuring EASM
-
-To configure EASM, complete the following steps:
-
-- Step 1: Set Up Your Account
-- Step 2: Create Your Organization
-- Step 3: Configure a Discovery Profile
-- Step 4: Get Your Asset Inventory Information
-- Step 5: Monitor Your Attack Surface Using Dashboards
-
-After Zscaler provisions an EASM tenant for your organization, an email with instructions to complete your account registration is sent to you. To gain access to the EASM Admin Portal, you need to complete the account registration process by following the instructions in the email. To learn more, see [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal).
-
-Following your account setup, you can provision users on Authentication Service, Zscaler's centralized identity management platform, to provide them access to EASM. To do this, ensure that you have Authentication Service enabled for your organization. After provisioning is complete, you can assign roles to users to manage controlled access to specific organizations within the EASM Admin Portal. To learn more, see [Creating & Managing Roles](https://help.zscaler.com/easm/creating-managing-roles).
-
-The first step in setting up your attack surface discovery is to create an organization and configure a discovery profile for the organization. EASM offers a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM.
-
-In addition, you can create new organizations to discover and distinctly monitor the attack surface associated with different entities of your enterprise. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
-
-To begin the discovery process for your internet-facing assets, EASM requires a known, legitimate asset from your organization, referred to as a "seed". This seed acts as the central node to discover connected assets in your digital asset infrastructure that are exposed to the internet, using various open-source intelligence (OSINT) methods employed by EASM. A discovery profile allows you to group multiple seeds and submit them for scanning. You can configure different types of assets as seeds, including domains, IP addresses, and IP blocks. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
-
-After the initial scan, EASM compiles extensive data on the internet-facing assets that are discovered and inventoried as part of your organization's digital attack surface. This asset inventory consists of a vast amount of data that includes critical information such as asset details, key insights into vulnerabilities and risks, and the asset's relationship to your organization. The asset inventory is continuously updated through periodic scans, ensuring it reflects your evolving digital landscape with the latest data in the EASM Admin Portal.
-
-To get a high-level view of your threat landscape and assess your organization's security posture, you can start with the key metrics presented in EASM's dashboards. These dashboards summarize key information about your digital attack surface in highly interactive, visual representations that are easy to understand. Using these dashboards, you can identify the most critical threats in your asset infrastructure and then drill down on the individual assets or risk findings for further analysis. The dashboards essentially serve as the starting points for understanding your asset infrastructure, identifying key areas of concerns, and efficiently planning risk-mitigation strategies. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-
-To analyze the individual assets in your inventory, EASM offers a customizable, tabulated list of the assets on the Assets page. You can customize the list by using filters to view specific asset data and further access detailed information to investigate each asset from this page. To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory) and [Understanding Assets Details](https://help.zscaler.com/easm/understanding-asset-details).
-
-EASM also catalogs the risk findings discovered for the assets in a separate, highly customizable Findings page (Insights > Findings). This page provides essential information to help you assess the severity of risks, prioritize them, and plan mitigation strategies. To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
-
-EASM continuously monitors your asset infrastructure through periodic scans, ensuring your asset inventory is always up to date with the latest information. These scans can detect changes such as new assets detected in your attack surface through connections to existing assets or removal of previously discovered assets. You can track and monitor these changes in your digital attack surface and take remediation actions by using the key metrics presented on assets and risk findings in EASM's dashboards. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-details","lastmod":"2025-10-23T03:47Z","nid":"1503571"} -->
-## Understanding Asset Details
-
-- Source: https://help.zscaler.com/easm/understanding-asset-details
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Inventory > Understanding Asset Details
-- Last modified: 2025-10-23T03:47Z
-- Summary: Information on understanding and analyzing asset inventory details in Zscaler External Attack Surface Management (EASM).
-
-The assets discovered as part of your digital attack surface are automatically added to your inventory and appear on the Assets page. These assets are continuously monitored through periodic scans, and they are subsequently used as targets to identify other linked assets that can be attributed to your organization. This process involves scanning across the internet recursively to uncover connected assets. Your external attack surface is constantly monitored and any changes to the attack surface, including new assets discovered and changes in the inventoried assets and their risk associations, are promptly reflected on the Assets page.
-
-The Assets page offers a highly customizable, tabulated list of assets, where you can click on each record to access detailed information and perform specific actions on a per-asset basis. The asset details consist of contextual information tailored to each asset type, helping you understand key aspects such as the technologies and services running on the asset, SSL/TLS certificates used, the asset's risk score and risk level, vulnerabilities and risks associated with the asset, and the asset's relationship to your organization through the discovery chain. The vulnerabilities and risks are evaluated based on a wide range of factors, including the technologies and services running on the asset, digital certificates used by the asset, domain registration, host names, HTTP headers used, other exposures, etc. The assets are mapped to their risk findings in a many-to-many relationship (i.e., one asset can have multiple risk findings and vice-versa). The discovered assets are categorized into one or more of the following types, with the details varying across asset types to ensure relevant and actionable insights for each category.
-
-- Domain
-- Host
-- Web Page
-- Certificate
-- ASN
-- IP Address
-- IP Block
-
-The asset details are presented in two different views, offering users the flexibility to drill down on the asset details as required. When you click on a row of the assets table, a right-side drawer referred to as the Asset Details drawer, opens, providing a quick overview of essential information. This drawer features a tabbed interface for the asset details and its associated findings. To further drill down on the asset information, from the Asset Details drawer, you can access a comprehensive, full-page view, referred to as the Asset Details page. This page offers more extensive details compared to the Asset Details drawer. To access the full-page view, click the View More Details button on the Asset Details tab of the Asset Details drawer.
-
-See image.
-
-The Asset Details page provides extensive information about the asset and also mirrors the tabbed interface for the asset details and findings, as seen in the Asset Details drawer. The Asset Details drawer serves as a streamlined, condensed version of the Asset Details page, allowing you to quickly switch between different assets to view their details from the list view with ease. On the other hand, the Asset Details page is designed for deeper analysis of a specific asset, offering full access to the complete data set available. This makes it particularly useful when a more thorough examination of the asset details is required. When you are in the Asset Details page, you can go back to the assets list view to access details of other assets.
-
-See image.
-
-The following sections provide a detailed overview of all the asset details that are available, following the presentation layout and the comprehensive information tracked in the Asset Details page. On the Asset Details page (Insights > [Asset record] > Asset Details > View More Details), the asset name is displayed at the top along with the asset's overview, details, and risks.
-
-Some of the following documented fields under each section are exclusive to the Asset Details page and might not appear in the Asset Details drawer and vice-versa. Additionally, the content organization differs between the two views to optimize the user experience for each.
-
-## Asset Overview
-
-This section provides the following high-level information about the asset:
-
-- **Type**: The type of the asset categorized into Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block. Depending on the type, the asset details presented in the inventory differ.
-- **Risk Level**: The risk level quantifies the amount of risk posed by an asset, and it is derived from the risk score calculated for the associated findings. The risk level ranges from Minimum to Critical, giving users an immediate sense of asset's criticality and providing guidance in prioritizing business-critical or concerning assets. For example, a critical or high risk level indicates that an asset poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk or commonly found issues. A medium risk level might indicate that the asset should be safeguarded but might have a lower priority compared to higher-risk assets. Available risk levels: Minimum, Low, Medium, High, and Critical.
-- **ID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
-- **First Seen**: The timestamp when the asset was first discovered in a scan.
-- **Last Seen**: The timestamp when the asset was last observed in a scan.
-- **Status**: Indicates the status of the asset's relationship with your organization and allows you to review and determine whether an asset must be included in the inventory. You can modify the status of the asset using the drop-down menu. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements: Available Statuses
-
-See image.
-
-## Asset Details
-
-On the Details tab, you can access extensive information including the asset metadata, comprehensive information about the asset registry obtained from the Whois database, technologies and services observed to be running on the asset, and the digital certificates associated with it. This tab includes the following sections:
-
-- **General Information**: This section provides basic information about the asset, which varies across the different types of asset, as captured in the following table. Available Fields for Each Asset Type
-- **Whois**: The Whois protocol is a query-and-response system used to retrieve registration and ownership data of internet resources. EASM uses this protocol to provide detailed information about the registry of an asset using Whois for different types of assets including domains, hosts, web pages, ASNs, IP addresses, and IP blocks. Available Fields
-- **Discovery Chain**: This section presents the full path of asset discovery in a sequential link chain, originating from the seed asset and interconnected to a series of assets identified in the subsequent mapping, leading up to the discovery of the current asset. It enables asset source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery path is presented as a link chain, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. See Examples The following actions are supported: When an asset is discovered in more than one way, the discovery path with the highest confidence is shown.
-  - Each asset node in the discovery chain is clickable and takes you to the corresponding asset page for further investigation.
-  - To view the asset link with more contextual text, you can turn off the toggle button on the top right of this section. This displays the asset links in a series of steps with additional information about each asset node.
-  - You can zoom in and out of the discovery chain when viewing it in the link chain view and move it around the canvas.
-- **Technologies**: This section provides a tabulated list of technologies used on the asset and their associated details, such as the version number, CVE ID for any associated vulnerabilities or exploits, and more. This data highlights risky technologies used on the asset, such as those with known vulnerabilities or deprecated technologies (e.g., ISC BIND, Apache HTTP Server, etc.). This data helps you quickly identify potential weakness in your external attack surface.
-- **Services**: This section provides a tabulated list of services that are observed to be running on the asset. It includes details such as open ports and their associated services, allowing you to identify any risky or unsecured ports that should not be accessible from the internet (e.g., insecure remote services commonly targeted by attackers). Information such as port number, protocol, and dates when the open port was first and last observed is available.
-- **SSL/TLS Certificates**: This section provides a tabulated list of SSL/TLS certificates used by the asset, highlighting old or outdated certificate versions that are often targeted by nefarious actors or versions that can be reverted to a previous version. The information provided includes SSL/TLS version, the server name protected by the certificate, issued date and expiration date for the certificate, and dates when the certificate was first and last observed in a scan.
-
-See image.
-
-## Risk Insights
-
-On the Risk tab, you can access information about the vulnerabilities and risks identified in the asset. This information helps you identify and remediate these issues by applying patches to mitigate the CVEs, retiring old technologies and services that are not in commission anymore, and adopting an access solution that can avoid exposure to unauthorized parties.
-
-This tab includes an overview of the asset's risk metrics and a list of risk findings associated with the asset, as explained in the following sections:
-
-- **Findings by Risk Level**: The findings associated with the asset plotted against risk levels in a bar graph, providing an overview of the distribution of findings across the risk levels. You can hover over each bar to view the number of findings marked with that specific risk level.
-- **Findings**: A tabulated list of all risk findings identified in the asset along with the number of findings indicated in the table header. This information provides visibility into all vulnerabilities, misconfigurations, and exposures detected in the asset, helping you assess the asset's potential threat vectors and address the issues. Available Fields
-
-You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
-
-See image.
-
-- **Approved**: Indicates that the asset comes under your organization's responsibility or management. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. All seed assets are marked as Approved by default.
-- **Candidate**: Indicates that the asset needs further investigation into whether it comes under the responsibility of your organization. This is the default status for all attributed assets before they are validated and marked as Approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, if an asset's connection with your organization needs to be reviewed, you can change the asset's status to Candidate. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
-- **Archived**: Indicates that the assets are reviewed and are confirmed to have no link to your organization, or can be permanently removed from scanning for other reasons. Assets in this state and their successive connections are removed from the scanning process.
-
-See image.
-
-Approved assets are continuously monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard) that highlights key metrics on approved assets and the Assets page that lists the approved assets by default.
-
-- **Name**: An identifier for the finding sourced from the scan or assigned by EASM. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
-- **Risk Level**: The amount of risk quantified for the finding using one of the following values: Low, Medium, High, and Critical.
-- **Category**: The classification of the finding as Exposure, Vulnerability, or Misconfiguration, which provides context about the finding instantly.
-- **Scan Type**: The scanning service that was used to uncover the risk finding. The available scan types are Web, Network, Certificate, and DNS scans.
-- **First Seen**: The timestamp when the finding was first detected in the asset.
-- **Last Seen**: The timestamp when the finding was last observed in the asset.
-
-You can access detailed information about each finding from the Findings page. To learn more, see [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
-
-| Asset Type | Field Name | Description |
-| --- | --- | --- |
-| **Domain** | No of Subdomains | The number of subdomains associated with the asset. |
-| Registration Expiration | The date when the asset's registration expires. |  |
-| WHOIS Registrar | The registrar listed in the Whois record. |  |
-| **Host** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
-| TLS Versions Supported | The TLS versions supported by the asset. |  |
-| Country | The country of origin detected for the asset. |  |
-| IP Address | The IP address detected for the asset. |  |
-| **Web Page** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
-| TLS Versions Supported | The TLS versions supported by the asset. |  |
-| **Certificate** | Certificate Issued | The date when the certificate was issued. |
-| Certificate Expires | The date when the certificate expires. |  |
-| Issuer Organization Name | The name of the entity (i.e., Certificate Authority) that was responsible for issuing the certificate. |  |
-| Country | The country where the subject's organization is located. |  |
-| Signature Algorithm | The signature key algorithm used to encrypt the certificate. |  |
-| Subject Common Name | The server name protected by the SSL certificate. |  |
-| Subject Organization Name | The name of the organization to which the certificate is issued. |  |
-| **ASN** | Allocation Date | The date when the Internet Assigned Numbers Authority (IANA) allocated an Autonomous System Number (ASN). |
-| Registry | The IANA registry which is responsible for overseeing the global coordination of the internet's unique identifiers, such as IP addresses, domain names, and protocol parameters. |  |
-| IPv4 Addresses | The IPv4 address space controlled by the AS. |  |
-| IPv6 Prefixes | The IPv6 prefix owned by the AS. |  |
-| Registrant Organization | The organization that owns the registered entity. |  |
-| AS Full Name | The full name of ASN. |  |
-| **IP Address** | Country | The country of origin detected for the asset. |
-| ASN | The ASN associated with the asset. |  |
-| WHOIS Registrant Organization | The organization that owns the registered entity as listed in the Whois record. |  |
-| WHOIS Registrar | The internet company whose service was used to register the entity as listed in the Whois record. |  |
-
-- **Registrant Organization**: The organization that owns the registered entity.
-- **Registrant Email**: Any contact email addresses provided by the registrant.
-- **Registrar**: The internet company that was used to register the asset. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
-
-These fields are available for all asset types except for certificates.
-
-- **Web Page**: In this example, the source is a seed domain configured by the admin. A Whois query for the registrant organization reveals a domain, and subsequently, a web page is discovered via the HTTP header for URL redirection. See image.
-- **IP Address**: The source is a seed domain. The domain host is identified, and the IP address is obtained using DNS records. See image.
-- **TLS Certificate**: The source is a seed domain. The domain host is identified, and then the host certificate is obtained through TLS discovery. See image.
-
-[Image: Accessing asset details page from the list view in EASM]
-
-[Image: Going back to the list view from asset details page in EASM]
-
-[Image: Asset overview section providing general information]
-
-[Image: Asset details tab providing extensive information about the asset in EASM]
-
-[Image: Risk findings associated with asset in EASM]
-
-[Image: Asset status change from the asset details page in EASM]
-
-[Image: Asset discovery chain for a web page]
-
-[Image: Asset discovery chain for an IP address]
-
-[Image: Asset discovery chain for a TLS certificate]
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503541"} -->
-## Understanding Asset Discovery
-
-- Source: https://help.zscaler.com/easm/understanding-asset-discovery
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Asset Discovery > Understanding Asset Discovery
-- Last modified: 2024-11-29T06:06Z
-- Summary: Information on Zscaler EASM asset discovery, its features, benefits and use cases for securing internet-facing assets.
-
-In the modern digital landscape, organizations deal with increasingly complex external attack surfaces, driven by their expanding online presence. As organizations expand digitally, their attack surfaces grow, introducing new potential vulnerabilities. Unknown or unmonitored assets are particularly dangerous because they might not be regularly updated or secured, leaving them exposed to attacks. This expansion includes assets resulting from mergers and acquisitions or third-party services that were once used but have since been forgotten.
-
-Asset discovery, a core function of EASM, helps organizations identify, inventory, and continuously monitor their internet-facing assets. This capability provides critical visibility into risks and potential vulnerabilities. Asset discovery involves identifying and inventorying all internet-facing assets an organization owns or manages. These assets include domains, hosts, web pages, certificates, ASNs, IP addresses, and IP blocks exposed to the public internet. In EASM, asset discovery provides organizations with a clear view of their external attack surface by mapping out these assets and any risks associated with them. The discovery process ensures that even unknown, unmanaged, or forgotten assets—often referred to as "shadow IT"—are identified and brought under security management.
-
-Effective asset discovery enables organizations to:
-
-- **Gain Visibility**: Establish a complete inventory of all internet-facing assets, which is critical for managing external threats.
-- **Identify Risks**: Proactively uncover and address risks from both known and unknown assets.
-- **Prioritize Remediation**: Prioritize actions to mitigate vulnerabilities, based on the risks associated with each asset.
-- **Monitor Changes**: Continuously track changes in the asset inventory, allowing security teams to respond quickly to new risks.
-
-To learn more about the use cases of EASM, see [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
-
-## How Asset Discovery Works in EASM
-
-EASM's asset discovery process starts with the use of seeds. A seed is a legitimate asset provided by the organization, such as a known domain, IP address, or IP block, which serves as the starting point for discovery. EASM then uses this seed to begin mapping the organization’s external attack surface through a recursive process.
-
-Seeds are part of the discovery profile and EASM allows you to create distinct discovery profiles for different business entities (e.g., parent companies, subsidiaries), allowing organizations to have granular control over how they manage their attack surface.
-
-The following sections outline the key steps in EASM's asset discovery and monitoring process:
-
-1. **Seed-based Scanning**: EASM starts by scanning the seed, mapping its direct connections and discovering related assets.
-2. **Discovery Chain**: When the first level of assets connected to the seed is found, EASM recursively scans subsequent levels of connections, ultimately building a comprehensive map of the organization's attack surface.
-3. **Risk Evaluation**: After assets are discovered, EASM evaluates each asset against a set of risk parameters. This includes identifying known vulnerabilities, misconfigurations, and exposed sensitive services. Risks are continuously monitored as part of the asset inventory to provide real-time updates on the organization's external exposure.
-4. **Automated Monitoring**: After the discovery process is complete, EASM continues to monitor the organization's external attack surface through periodic scans. This ensures that any new risks are detected promptly and that any changes to existing assets are tracked.
-
-To learn how to set up asset discovery in EASM, see [Step-by-Step Configuration Guide for EASM](https://help.zscaler.com/easm/step-step-configuration-guide-easm).
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/easm/understanding-dashboards","lastmod":"2025-01-28T00:36Z","nid":"1503521"} -->
-## Understanding Dashboards
-
-- Source: https://help.zscaler.com/easm/understanding-dashboards
-- Product: External Attack Surface Management
-- Path: External Attack Surface Management Help > Dashboards & Analytics > Understanding Dashboards
-- Last modified: 2025-01-28T00:36Z
-- Summary: Information on dashboards in Zscaler External Attack Surface Management (EASM), their features, and how they help in monitoring digital assets and assessing risk insights.
-
-Dashboards are essential tools for presenting key information from related data sources in a format that is easy to interpret, using various data visualization elements, such as graphs, tables, and charts. Zscaler EASM provides two dynamic and interactive dashboards, namely Assets Overview and Insights Overview. The Assets Overview dashboard provides a summary of the approved asset inventory that constitutes your organization's external attack surface, while the Insights Overview dashboard provides information on the vulnerabilities and risks associated with those assets. These dashboards are designed to aggregate and display key metrics related to assets and risk insights, helping you quickly identify areas of concern. By offering a near real-time view of your organization's evolving attack surface, these dashboards enable you to prioritize and address business-critical vulnerabilities, ensuring the protection of your internet-exposed asset infrastructure from potential threats.
-
-The Assets Overview and Insights Overview dashboards serve as valuable starting points for identifying and understanding the threat landscape of your digital assets. Each dashboard features a collection of widgets specifically designed to present key metrics relating to assets or risk findings. These dashboards are highly interactive, allowing you to perform various actions within each widget, such as adjusting time frames, hovering over data points to view detailed information, and clicking on specific data points to access a filtered view of relevant entities on a different page in EASM. After identifying the most critical threats in your infrastructure using the information presented on the dashboard, you can drill down on the assets or risk findings for further analysis.
-
-The following sections provide a detailed breakdown of each dashboard.
-
-## Insights Overview Dashboard
-
-The Insights Overview dashboard provides a comprehensive summary of risk findings within your organization's digital attack surface, using clear graphical representations to highlight critical risk metrics. These findings include undetected vulnerabilities, misconfigurations, and compliance violations across your internet-exposed digital assets, which have been discovered and inventoried by EASM.
-
-The dashboard presents key metrics across various parameters, such as risk trends, distribution of findings by risk levels and predefined categories, and the top locations with the highest concentration of risks. Additionally, it summarizes critical findings in specific areas, such as exposed sensitive services, VPN appliances, and risks associated with SSL/TLS certificate expiration and domain registration expiration. Specific examples of risk findings include Common Vulnerabilities and Exposures (CVEs), SSL/TLS misconfigurations or outdated versions, expired digital certificates, domain registration expiration, insecure HTTP headers, exposed VPN appliances, and sensitive services such as RDP, SSH, VNC, Telnet, and SNMP.
-
-The dashboard also monitors lookalike domains—fraudulent domains created by bad actors to resemble legitimate domain names associated with your organization, which are often used to deceive users into downloading malware, divulging sensitive information, and perpetrating other forms of cyberattacks.
-
-Each of these key metrics is displayed within an interactive widget on the dashboard, allowing you to drill down into specific data points for further analysis. You can easily switch between different EASM organizations by selecting the desired organization within the user interface, enabling you to effectively monitor and address the most critical threats to your infrastructure.
-
-See image.
-
-To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
-
-## Assets Overview Dashboard
-
-The Assets Overview dashboard provides a comprehensive summary of your organization's internet-facing digital assets, which have been verified as part of your digital infrastructure. This dashboard offers visibility into your external attack surface, presenting key metrics related to the risks and vulnerabilities associated with these assets. EASM uses advanced scanning techniques and intelligence-gathering tools to identify and analyze exposed assets across the internet, including unknown or forgotten assets. When discovered, these assets are inventoried, classified, and monitored through periodic scans. The latest data is then presented on the Assets Overview dashboard using graphical representations.
-
-This dashboard allows you to quickly assess the security posture of your asset infrastructure, providing real-time updates on vulnerabilities, misconfigurations, and compliance violations. By offering a high-level view of your organization's external attack surface, the dashboard enables timely identification of business-critical assets and the remediation of vulnerabilities, helping to prevent potential exploits.
-
-See image.
-
-To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
-
-[Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
-
-[Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
 <!-- /ZS-ARTICLE -->

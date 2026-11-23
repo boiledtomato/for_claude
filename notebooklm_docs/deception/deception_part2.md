@@ -1,18 +1,291 @@
 # Zscaler Help — Zscaler Deception (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 28
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 30
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-cloud-deception","lastmod":"2026-02-04T04:42Z","nid":"1542479"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-and-building-queries","lastmod":"2026-11-17T20:49Z","nid":"1545894"} -->
+## Understanding and Building Queries
+
+- Source: https://help.zscaler.com/deception/understanding-and-building-queries
+- Product: Deception
+- Path: Deception Help > Getting Started > Admin Portal > Understanding and Building Queries
+- Last modified: 2026-11-17T20:49Z
+- Summary: Information on Zscaler Deception Query Language.
+
+Zscaler Deception uses a purpose-built rule engine to evaluate queries used to build user-defined conditions and filters across different modules. The rules are built using Boolean expressions based on a custom query language. You can use the query language to build custom conditions or filters in the following modules:
+
+- [Filter](https://help.zscaler.com/deception/viewing-and-managing-zscaler-deception-dashboard#filter-alert-queries) in Dashboard
+- Conditions in [Orchestration Rules](https://help.zscaler.com/deception/about-orchestration-rules)
+- Event Filters in [SIEM Integrations](https://help.zscaler.com/deception/about-siem-integrations)
+- [ThreatParse rules](https://help.zscaler.com/deception/configuring-threatparse-rule) in Miragemaker
+
+## Query Syntax
+
+In Deception, the queries for conditions and filters are built using Boolean expressions. The syntax is modeled based on [Python Boolean expressions](https://docs.python.org/3/reference/expressions.html). A simple Boolean expression has the following syntax:
+
+```
+<operand> <comparison_operator> <operand> <boolean_operator> <operand> ...
+```
+
+where,
+
+- `operand`can be an identifier, constant, or an expression that evaluates to a value. Examples of operands: `x`, `5`, `true`, and `false`.
+- `comparison_operator` is used to compare two operands and returns a Boolean value (`true` or `false`) based on the comparison result. Comparison operators: == (equal to), `!=` (not equal to), `>` (greater than), `<` (less than), `>=` (greater than or equal to), and `<=` (less than or equal to).
+- `boolean_operator` is used to combine multiple Boolean expressions and returns a Boolean value based on the combination. Boolean operators: `and`, `or`, and `not`.
+
+In addition, you can use parentheses to group sub-expressions and establish the order of evaluation. They are useful when combining multiple Boolean expressions to create complex expressions. The following example is a complex expression:
+
+```
+(attacker.ip is "192.168.1.1" and attacker.port > 200) or decoy.port > 200
+```
+
+where,
+
+- `attacker.ip`is an identifier.
+- `is`is a comparison operator.
+- `"192.168.1.1"` is a constant.
+- `attacker.ip is "192.168.1.1"` is an expression.
+- `attacker.port > 200` is also an expression.
+- `decoy.port > 200` is also an expression.
+
+These three expressions are combined together using Boolean operators `and/or` to create a complex Boolean expression. In this example, the expression evaluates to true if the `attacker.ip` field is equal to `"192.168.1.1"` and`attacker.port` is greater than `200`or just `decoy.port` is greater than `200`.
+
+## Building a Query
+
+Based on your requirements, you can construct queries by using the appropriate values for each component, conforming to the syntax.
+
+- Fields
+- Operators
+- Operator Precedence
+- Constants
+
+Fields are used as operands in the query. A field is always placed on the left side of a simple Boolean expression. Depending on the module, Deception provides a list of supported values for fields. The fields can be of different data types. To fetch a list of supported values, type a relevant text in the query editor, and a list of all possible fields is shown in a drop-down menu.
+
+The query editor is available in the following sections in Deception:
+
+- Under **Investigate**, an interactive query builder is located on the top of the dashboard to filter dashboard items. See image.
+- Under the **General**section of the **Rule Details** window to create rule conditions: To access the **Rule Details** window, go to **Orchestrate > Rules**, and add (by clicking **Add Rule**) or edit (by clicking the edit icon) a rule. See image.
+- Under the **General**section of the SIEM integration details window to create filters for various SIEM integrations: To access the respective SIEM integration details window, go to **Orchestrate > SIEM Integrations**, and add a new integration (by clicking **Add Integration** and choosing a preferred solution) or edit (by clicking the edit icon) an existing integration. See image.
+
+The availability of fields varies between each module.
+
+[Image: A screenshot capturing the query language editor on the Ivestigate page]
+
+[Image: A screenshot capturing the query language editor in the Orchestrate Rules window]
+
+[Image: A screenshot capturing query language editor in SIEM integration]
+
+The rule engine in Deception provides different types of operators to perform different operations, such as binary comparisons, bound tests, regular expression tests, and membership tests. You can build complex conditions and filters based on your requirements by using different supported operations.
+
+- Binary Comparisons
+- Bound Tests
+- Regular Expression Operators
+- Membership Tests
+- Logical Operators
+
+Binary comparisons are operations in which two operands are compared using different operators and a truth value is established. All comparison operators are binary operators. The general syntax of binary comparison expressions is:
+
+```
+<operand> <comparison_operator> <operand>
+```
+
+The following table lists all supported comparison operators with examples:
+
+| Operation | Operator | Alternative Keywords | Description |
+| --- | --- | --- | --- |
+| Equality (comparison) | `==` | `is` | Checks if two values are equal or the same. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `attacker.ip is "192.168.1.1"` |
+| Lesser than or earlier (comparison) | `<` | `less than` or `before` | Checks if the value of the left side of the operator is lesser or occurs before the value on the right side of the operator. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `attacker.port less than 128` |
+| Lesser than or equal to/before or equal to (comparison) | `<=` | Not applicable | Checks if the value of the left side of the operator is equal/lesser or occurs before the value of on the right side of the operator. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `attacker.score < 50` |
+| Greater than or after | `>` | `greater than` or `after` | Checks if the value of the left side of the operator is greater or occurs after the value on the right side of the operator. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `decoy.port > 100` |
+| Greater than or equal to/after or equal to (comparison) | `>=` | Not applicable | Checks if the value of the left side of the operator is equal/greater or occurs after the value on the right side of the operator. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `decoy.port >= 100` |
+| Non-equality (comparison) | `!=` | `is not` | Checks if two values are not the same. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `decoy.type is not "recon"` |
+
+Bound tests are performed using ternary operators to check whether a given field (identifier) occurs (or does not occur) between two values (constants). The constants can be integers, fractional numbers, or dates. The general syntax of bound test expressions is:
+
+```
+<operand> <bound_operator> <constant_1> and <constant_2>
+```
+
+where,
+
+- `operand` is a field.
+- `bound_operator` is either `between` or`not between` based on the bound test.
+- `constant_1` and `constant_2` are any two [supported constants](https://help.zscaler.com/deception/query-language#zd-query-language-constants).
+
+The following table lists all supported bound test operators with examples:
+
+| Operation | Operator | Description |
+| --- | --- | --- |
+| Is within range? | `between`/`and` | Checks if the field value occurs between two constants. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `timestamp between '2023-10-12 12:22' and '2023-11-3 12:22'` |
+| Is outside range? | `not between`/`and` | Checks if the field value is outside the range of two constants. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `decoy.port not between 50 and 100` |
+
+Symbols in binary comparison operators can be used as an alternative to keyword-based bound test operations. The binary comparison operators (<=and >=) can be used to define the range limits.
+
+| Operation | Keyword-based bound test expression | Equivalent Expression |
+| --- | --- | --- |
+| Is within range? | `timestamp between '10am' and '8pm'` | `timestamp >= '10am' and timestamp <= '8pm'` |
+| Is outside range? | `network.orig_bytes not between 2000 and 3000` | `network.orig_bytes >= 2000 and network.orig_bytes <= 3000` |
+
+The regular expression test allows you to compare a field value against a regular expression constant. The general syntax of the regex test expressions is:
+
+```
+identifier regex_operator regex_expression
+```
+
+where,
+
+- `identifier`is always a supported field.
+- `regex` operator is `~` or `like`.
+- `regex_expression` is any standard regular expression string.
+
+Regular expressions can only be compared to string-type fields.
+
+The `regex` operator checks if the field value on the left side of the operator matches with the regular expression on the right side of the operator.
+
+For example, consider the following regex test expression:
+
+```
+web.method like /.*get.*/I
+```
+
+The expression checks if the value of `web.method` matches with the `get` string irrespective of the text case. An equivalent expression using the symbol is:
+
+```
+web.method ~ /.*get.*/I
+```
+
+- The regular expressions are built using the JavaScript regex notation.
+- The regular expression constant follows the JavaScript notation of forward slashes at the beginning and the end. Example: `/[0-9a-b]+(a|b)/`.
+- The expression accepts flags that have the same meaning as [Python's re flags](https://docs.python.org/2/library/re.html#re.I).
+  - `I`: Performs case-insensitive matching. Expressions like `[A-Z]` will match lowercase letters, too. This is not affected by the current locale configured in the Zscaler Deception Admin Portal. To achieve this effect on non-ASCII Unicode characters such as `ü` and `Ü`, add the UNICODE flag. This flag is not supported in the [Filters](https://help.zscaler.com/deception/viewing-and-managing-zscaler-deception-dashboard#filter-alert-queries) in Dashboard. However, you can use it in regular expression queries in conditions in [Orchestration Rules](https://help.zscaler.com/deception/about-orchestration-rules), event filters in [SIEM Integrations](https://help.zscaler.com/deception/about-siem-integrations), and [ThreatParse rules](https://help.zscaler.com/deception/configuring-threatparse-rule) in Miragemaker.
+  - `L`: Makes `\w`, `\W`, `\b`, `\B`, `\s`, and `\S` dependent on the current locale configured in the Deception Admin Portal.
+  - `M`: When specified, the pattern character `^` matches at the beginning of the string and at the beginning of each line (immediately following each newline), and the pattern character `$` matches at the end of the string and at the end of each line (immediately preceding each newline). By default, `^` matches only at the beginning of the string, `$` only at the end of the string, and immediately before the newline (if any) at the end of the string.
+  - `S`: Makes the '`.`' special character match any character at all, including a newline; without this flag, '`.`' will match anything except a new line.
+
+The membership operation is used to check whether a value is within a `string` or `list` constant. The membership operators are binary operators and can have a constant or a field on either of the sides. However, at least one of the operands must be a field (identifier). The general syntax of the membership test expressions is:
+
+```
+operand_1 membership_operator operand_2
+```
+
+where,
+
+- `operand_1` and `operand_2` are either an identifier or a constant.
+- `membership_operator` is either `in` or `not in`.
+
+| Operation | Operator | Description |
+| --- | --- | --- |
+| Is a member? | `in` | Checks if a value is part of another string or list constant. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Examples: `windows.Version in [5, 2]`; `"powershell" in windows.CommandLine` |
+| Not a member? | `not`/`in` | Checks if a value is not a part of another string or list constant. If yes, the expression evaluates to `true`. Otherwise, the expression evaluates to `false`. Example: `attacker.ip not in ["10.10.2.2", "10.10.2.1"]` |
+
+The Boolean logical operators are used to combine two or more simple expressions to build compound Boolean expressions. The general syntax of Boolean expressions is:
+
+```
+expression_1 logical_operator expression_2
+```
+
+where,
+
+- `expression_1` and `expression_2` are simple Boolean expressions that independently evaluate to `true` or `false`.
+- `logical_operator` is either `logical AND` or `logical OR`.
+
+The following table lists all supported logical operators with examples:
+
+| Operation | Operator | Description |
+| --- | --- | --- |
+| Logical AND | `and` | Checks if both sides of the operator evaluate to `true`. If yes, the expression evaluates to true. Otherwise, the expression evaluates to `false`. Example: `attacker.ip is "192.168.1.1" and attacker.port > 200` |
+| Logical OR | `or` | Checks if either of the sides of the operator evaluates to `true`. If yes, the expression evaluates to true. Otherwise, the expression evaluates to `false`. Example: `attacker.ip is "192.168.1.1" or decoy.port > 200` |
+| Logical NOT | `not` | Inverts the truth value of a constant or an expression. If an expression or a constant evaluates to true, then the logical NOT operation changes the truth value to false and vice versa. Example: `attacker.ip is not "192.168.1.1"` |
+
+When building a compound Boolean expression, the rule engine must evaluate the expression starting from one of the operators. The rule engine uses the operator precedence to determine the order of evaluation as described in the following table:
+
+| Precedence (Rank) | Operators | Description |
+| --- | --- | --- |
+| 1 | `between`...`and`... | Ternary comparisons, including membership tests and identity tests |
+| 2 | `>`, `after`, `greater than`, `>=`, `<`, `before`, `less than`, `<=`, `==`, `is`, `!=`, `is not`, `in`, `not in`, `~`, `like` | Binary comparisons, including membership tests and identity tests |
+| 3 | `and` | Logical AND |
+| 4 | `or` | Logical OR |
+
+Within a compound expression, the rule engine evaluates expressions from the highest-ranked operations and then proceeds to evaluate lower-ranked expressions.
+
+Deception supports different types of constants to build expressions for filters and rule conditions. The following table lists all types of supported constants:
+
+| Constant | Description |
+| --- | --- |
+| `True, true` | Boolean True |
+| `False, false` | Boolean False |
+| `null` | Represents an undefined value |
+| `1`, `2`,`-3`,... | Integer constant |
+| `1`, `0.1`, `-.2`,... | Decimal constant |
+| `"something"` | String constant |
+| `'2016-10-12T6:7:8Z'` | DateTime constant |
+| `'2016-10-9'` | Date constant |
+| `'6:7:8Z'`, `'7am'` | Time constant |
+| `[1,2,"test",0.1]` | List constant |
+
+- String constants are enclosed in double quotation marks.
+- Date, Time, and DateTime constants are enclosed in single quotation marks.
+- Dates cannot be extracted from the `timestamp` identifier in the Investigate module.
+- The format for date constant is `timestamp::date is '2016-10-24'`.
+- `12 AM` denotes midnight and `12 PM` denotes noon.
+- List constants are enclosed in square brackets. Lists can be heterogeneous (containing items of different data types) or homogeneous (containing items of the same data type). However, heterogeneous lists are supported only in the [Orchestrate module](https://help.zscaler.com/deception/about-orchestration-rules).
+- Lists cannot contain identifiers. However, it allows all constants including `null`. You can also have nested lists (lists within a list) and recursive lists (lists containing the same items). Example: `[["Get-Alias", "Out-Default"], ["Get-Alias"], "Set-StrictMode"]`.
+- The keyword `now` can be used with date and time constants to add or subtract values relative to the current date or time. Example: `timestamp after 'now - 7 days' and timestamp between 'now - 2 hours' and 'now + 2 hours'`.
+
+#### Single Constant or Identifier Expressions
+
+The simplest expressions you can write can contain simple constants such as:
+
+- `true` returns all events.
+- `0` evaluates to false and returns nothing.
+- `1` evaluates to true and returns all events.
+- `"Hello"` evaluates to false and returns all events.
+- `false` returns nothing.
+- `[1,2,3]` evaluates to `true` and returns all events.
+- `null` returns nothing.
+
+While single constant expressions have no identifiers, they are still valid and are checked against all events. The evaluation of a single constant expression depends on whether the constant is truthful. The truthfulness of single constants is determined as follows:
+
+- Boolean `true` evaluates to `true`.
+- `null`is always `false`.
+- Integers other than `0` evaluate to `true`.
+- Decimals other than `0` evaluate to `true`.
+- Strings evaluate to `true` for non-empty strings.
+- Dates/times are always `true`.
+- Lists evaluate to `true` for non-empty lists.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-application-datasets","lastmod":"2026-11-17T20:49Z","nid":"1545940"} -->
+## Understanding Application Datasets
+
+- Source: https://help.zscaler.com/deception/understanding-application-datasets
+- Product: Deception
+- Path: Deception Help > Miragemaker > Application Datasets > Understanding Application Datasets
+- Last modified: 2026-11-17T20:49Z
+- Summary: Understanding different types of application datasets.
+
+Application datasets are resources used to build and deploy decoy web applications. You can create static, dynamic, or high-interaction web application decoys by deploying the datasets using [Threat Intelligence (TI) decoys](https://help.zscaler.com/deception/about-threat-intelligence-decoys) or [web services on network decoys](https://help.zscaler.com/deception/configuring-services-network-decoy#configuring-web-service). The following list of application datasets in Miragemaker allows you to create different types of application decoys:
+
+- **Static Application Datasets**: Allows you to configure the front ends of web application decoys. These datasets consist of static HTML files, CSS files, JavaScript files, etc. To learn more, see [About Static Application Datasets](https://help.zscaler.com/deception/about-static-application-datasets).
+- **Vulnerable Application Datasets**: Allows you to configure requests and responses to mimic dynamic web applications. Typically, the requests and responses are created based on CVE disclosures for specific applications. You can also create custom requests and responses for dynamic web applications that mimic any vulnerability. To learn more, see [About Vulnerable Application Datasets (CVE Datasets)](https://help.zscaler.com/deception/about-vulnerable-application-datasets-cve-datasets).
+- **Dynamic Application Datasets**: Combines appropriate front ends (static application datasets) and dynamic interactions (vulnerable application datasets) to create interactive decoy web applications. To learn more, see [About Dynamic Application Datasets](https://help.zscaler.com/deception/about-dynamic-application-datasets).
+- **High-Interaction Container Datasets**: Self-contained docker container datasets that are fully interactive application decoys. To learn more, see [About High-Interaction Containers](https://help.zscaler.com/deception/about-high-interaction-containers).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/deception/understanding-cloud-deception","lastmod":"2026-09-18T03:01Z","nid":"1545883"} -->
 ## Understanding Cloud Deception
 
 - Source: https://help.zscaler.com/deception/understanding-cloud-deception
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Understanding Cloud Deception
-- Last modified: 2026-02-04T04:42Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: Information on Cloud Deception with Azure and AWS.
 
 Cloud Deception is a set of tools that allow you to configure and deploy decoys that mimic legitimate resources and assets in public cloud platforms. You can integrate a supported public cloud platform with Zscaler Deception and deploy decoy resources specific to the cloud platform. Depending on the type of decoy and its configuration, an adversary can access, interact, or perform malicious operations with the cloud decoys in different ways. Such activities are considered malicious activities and they are logged as attacks. You can view and analyze the attack details from the Deception dashboard.
@@ -38,13 +311,13 @@ The following diagram illustrates the interactions between various components in
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-09-18T02:33Z","nid":"1542597"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-event-notification-templates","lastmod":"2026-11-17T20:49Z","nid":"1546001"} -->
 ## Understanding Event Notification Templates
 
 - Source: https://help.zscaler.com/deception/understanding-event-notification-templates
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Event Templates > Understanding Event Notification Templates
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information about event notification templates.
 
 Zscaler Deception allows you to send event notifications as emails when a threat is detected. You can enable notifications and customize the notification subject and the event fields included in the email body to provide the information most relevant to your organization.
@@ -66,13 +339,13 @@ To learn more, see [Customizing Event Notification Templates](https://help.zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-aws-deployment-script","lastmod":"2026-09-18T02:33Z","nid":"1542550"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-aws-deployment-script","lastmod":"2026-11-17T20:49Z","nid":"1545954"} -->
 ## Understanding the Functions of the AWS Resources Used for Cloud Deception
 
 - Source: https://help.zscaler.com/deception/understanding-functions-aws-deployment-script
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > AWS > Understanding the Functions of the AWS Resources Used for Cloud Deception
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with AWS.
 
 Zscaler Deception relies on Amazon Web Services (AWS) logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with AWS decoys. Depending on the deployment method, the [CloudShell deployment script](https://help.zscaler.com/deception/obtaining-deployment-script-aws) of the Terraform script is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the AWS cloud. To collect and store logs, Deception creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources to generate events.
@@ -107,13 +380,13 @@ The following table lists the details of AWS logging resources utilized by Decep
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-09-18T02:33Z","nid":"1542552"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-functions-azure-deployment-script","lastmod":"2026-11-17T20:49Z","nid":"1545956"} -->
 ## Understanding the Functions of the Azure Deployment Script
 
 - Source: https://help.zscaler.com/deception/understanding-functions-azure-deployment-script
 - Product: Deception
 - Path: Deception Help > Deceive  > Cloud Deception > Azure > Understanding the Functions of the Azure Deployment Script
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information on the tasks and functions performed by the deployment script for Cloud Deception with Azure.
 
 Zscaler Deception relies on Azure logs to generate events in the [Deception dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) for interactions with Azure decoys. The deployment script for Azure Cloud Deception is responsible for creating logging resources, deploying decoys, deleting decoys, and enabling logging for the decoys via the logging resources in the Azure cloud. To collect and store logs, the deployment script creates various resources. The Zscaler Deception Admin Portal polls logs every 3 minutes from the logging resources created by the deployment script to generate events.
@@ -154,13 +427,13 @@ To learn how to obtain the deployment script for Azure Cloud Deception, see [Obt
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-gen-ai-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542564"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-gen-ai-decoys","lastmod":"2026-11-17T20:49Z","nid":"1545968"} -->
 ## Understanding Gen AI Decoys
 
 - Source: https://help.zscaler.com/deception/understanding-gen-ai-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > Gen AI Decoys > Understanding Gen AI Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information about Gen AI decoys.
 
 Generative AI (Gen AI) is an emerging attack vector. Organizations are increasingly adopting Gen AI technologies, such as large language models (LLMs) in their products, services, and internal operations. Adversaries target Gen AI infrastructure for data exfiltration, asset compromise, organizational intelligence gathering, etc. Attackers target datasets for data poisoning and data exfiltration. They also use interactive attacks such as prompt injection to target AI systems and extract valuable data.
@@ -206,13 +479,13 @@ The responses or content generated by the Deception AI is for informational purp
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-keyword-datasets","lastmod":"2026-09-18T02:33Z","nid":"1542491"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-keyword-datasets","lastmod":"2026-11-17T20:49Z","nid":"1545895"} -->
 ## Understanding Keyword Datasets
 
 - Source: https://help.zscaler.com/deception/understanding-keyword-datasets
 - Product: Deception
 - Path: Deception Help > Miragemaker > Keyword Datasets > Understanding Keyword Datasets
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Understanding the keywords datasets
 
 Zscaler Deception allows you to configure a set of keywords that can be used to autogenerate recommendations for decoy parameters, such as hostnames, file and folder names, network decoy names, etc. Zscaler uses a proprietary algorithm to randomly generate recommendations for decoy parameters.
@@ -226,13 +499,13 @@ To learn how to configure keyword datasets, see [Configuring Keyword Datasets](h
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-miragemaker-module","lastmod":"2026-09-18T02:33Z","nid":"1542535"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-miragemaker-module","lastmod":"2026-11-17T20:49Z","nid":"1545939"} -->
 ## Understanding the Miragemaker Module
 
 - Source: https://help.zscaler.com/deception/understanding-miragemaker-module
 - Product: Deception
 - Path: Deception Help > Miragemaker > Understanding the Miragemaker Module
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Understanding the capabilities of the Miragemaker module.
 
 The Miragemaker module in Zscaler Deception allows you to configure and manage various ready-to-use resources that are typically used to build and deploy different types of decoys. By default, the Miragemaker module includes preconfigured resources such as datasets, ThreatParse rules, templates, strategies, decoy personalities, banners, and tags. You can also create custom resources based on your business requirements. The various resources that you can configure and manage in the Miragemaker module are as follows:
@@ -283,13 +556,13 @@ Tags are used to group various resources across Deception. For example, you can 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-mitm-detection","lastmod":"2026-09-18T02:33Z","nid":"1542538"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-mitm-detection","lastmod":"2026-11-17T20:49Z","nid":"1545942"} -->
 ## Understanding MITM Detection
 
 - Source: https://help.zscaler.com/deception/understanding-mitm-detection
 - Product: Deception
 - Path: Deception Help > Deceive  > MITM Detection > Understanding MITM Detection
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Understanding MITM detection.
 
 Zscaler Deception can detect and alert certain types of Man-in-the-Middle (MITM) attacks, such as Link-Local Multicast Name Resolution (LLMNR) poisoning, NetBIOS Name Service (NBT-NS) poisoning, and multicast DNS (mDNS) poisoning. With these types of MITM attacks, the adversaries listen to name resolution requests from devices and send a malicious response. To detect these MITM attacks, Deception enables you to configure your [internal network decoys](https://help.zscaler.com/deception/creating-internal-network-decoy) to broadcast decoy name resolution requests across the subnet at specified intervals. If an adversary responds to the request using tools like Responder or Inveigh, then the activity is logged as an MITM attack. You can view and analyze the attack details from the [Deception Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard).
@@ -299,13 +572,13 @@ To learn how to configure MITM detection, see [Configuring MITM Attack Detection
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-quality-service-qos-events","lastmod":"2025-12-22T06:06Z","nid":"1542577"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-quality-service-qos-events","lastmod":"2026-09-18T03:02Z","nid":"1545981"} -->
 ## Understanding Quality of Service Events
 
 - Source: https://help.zscaler.com/deception/understanding-quality-service-qos-events
 - Product: Deception
 - Path: Deception Help > Getting Started > Admin Portal > Understanding Quality of Service Events
-- Last modified: 2025-12-22T06:06Z
+- Last modified: 2026-09-18T03:02Z
 - Summary: Information on QoS events in the Zscaler Deception Admin Portal.
 
 Zscaler Deception generates Quality of Service (QoS) events to maintain platform integrity and prevent malicious actors from overwhelming resources. This mechanism helps preserve resource availability for legitimate detections and analytics while throttling abusive or automated tools that exceed reasonable event generation limits.
@@ -324,13 +597,13 @@ When an attacker or automated tool repeatedly triggers a TI decoy, Deception mon
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-radius-decoys","lastmod":"2026-09-18T02:33Z","nid":"1542578"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-radius-decoys","lastmod":"2026-11-17T20:49Z","nid":"1545982"} -->
 ## Understanding RADIUS Decoys
 
 - Source: https://help.zscaler.com/deception/understanding-radius-decoys
 - Product: Deception
 - Path: Deception Help > Deceive  > RADIUS Decoys > Understanding RADIUS Decoys
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information about RADIUS decoys.
 
 Organizations use the Remote Authentication Dial-in User Service (RADIUS) protocol for centralized authentication, authorization, and accounting (AAA) to securely manage users who access a remote network.
@@ -362,13 +635,13 @@ To learn more, see [Viewing ThreatParse Details](https://help.zscaler.com/decept
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-strategy-builder","lastmod":"2026-09-18T02:33Z","nid":"1542537"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-strategy-builder","lastmod":"2026-11-17T20:49Z","nid":"1545941"} -->
 ## Understanding Strategy Builder
 
 - Source: https://help.zscaler.com/deception/understanding-strategy-builder
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Understanding Strategy Builder
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Understanding different features in strategy builder
 
 Strategy Builder allows you to deploy different types of decoys in your environment with a single click using strategies. The Strategy Builder includes the following components:
@@ -382,13 +655,13 @@ Strategy Builder allows you to deploy different types of decoys in your environm
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-08-31T20:57Z","nid":"1542251"} -->
+<!-- ZS-ARTICLE {"url":"/deception/understanding-zscaler-deception-architecture","lastmod":"2026-09-18T03:01Z","nid":"1545655"} -->
 ## Understanding the Zscaler Deception Architecture
 
 - Source: https://help.zscaler.com/deception/understanding-zscaler-deception-architecture
 - Product: Deception
 - Path: Deception Help > Getting Started > Understanding the Zscaler Deception Architecture
-- Last modified: 2026-08-31T20:57Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: Information on the Zscaler Deception architecture and key components.
 
 Zscaler Deception is a threat-detection solution built on the Zero Trust architecture, which is designed for seamless integration with the Zscaler service and other parts of your security environment. Deception is cloud-delivered and scalable, and requires minimal on-premises computing.
@@ -433,13 +706,13 @@ To learn more about ZPA architecture, see [Understanding the ZPA Cloud Architect
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/uninstalling-or-deleting-landmine-agents","lastmod":"2024-03-15T07:06Z","nid":"1542300"} -->
+<!-- ZS-ARTICLE {"url":"/deception/uninstalling-or-deleting-landmine-agents","lastmod":"2026-09-18T03:01Z","nid":"1545704"} -->
 ## Uninstalling or Deleting Landmine Agents
 
 - Source: https://help.zscaler.com/deception/uninstalling-or-deleting-landmine-agents
 - Product: Deception
 - Path: Deception Help > Settings > Endpoint Settings > Agents > Agent Management > Uninstalling or Deleting Landmine Agents
-- Last modified: 2024-03-15T07:06Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: How to uninstall or delete landmine agents in the Zscaler Deception Admin Portal.
 
 This article provides instructions for uninstalling or deleting landmine agents.
@@ -500,13 +773,13 @@ To delete a landmine agent:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/using-network-decoy-personalities-and-services","lastmod":"2026-09-18T02:33Z","nid":"1542265"} -->
+<!-- ZS-ARTICLE {"url":"/deception/using-network-decoy-personalities-and-services","lastmod":"2026-11-17T20:49Z","nid":"1545669"} -->
 ## Using Network Decoy Personalities and Services
 
 - Source: https://help.zscaler.com/deception/using-network-decoy-personalities-and-services
 - Product: Deception
 - Path: Deception Help > Deceive  > Network Decoys > Using Network Decoy Personalities and Services
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Information about using Zscaler Deception network decoy personalities and services.
 
 Zscaler Deception provides a set of ready-to-use templates to create network decoys (Internal or Zero Trust Network). These templates are known as personalities and are built based on different types of servers, applications, etc. You can use these personalities when configuring [network decoys manually](https://help.zscaler.com/deception/about-network-decoys), or deploying [deception strategy](https://help.zscaler.com/deception/about-deploy-strategy) to create decoys. Zscaler Deception provides a list of preconfigured network decoy personalities for various business use cases. You can also create custom personalities based on your business requirements. To learn more, see [About Network Decoy Personalities](https://help.zscaler.com/deception/about-network-decoy-personalities).
@@ -526,13 +799,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/validating-strategy","lastmod":"2025-05-21T20:32Z","nid":"1542441"} -->
+<!-- ZS-ARTICLE {"url":"/deception/validating-strategy","lastmod":"2026-09-18T03:01Z","nid":"1545845"} -->
 ## Validating a Strategy
 
 - Source: https://help.zscaler.com/deception/validating-strategy
 - Product: Deception
 - Path: Deception Help > Miragemaker > Strategy Builder > Deception Strategy > Validating a Strategy
-- Last modified: 2025-05-21T20:32Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: How to validate a Deception strategy.
 
 You can [create a strategy](https://help.zscaler.com/deception/creating-deception-strategy) with landmine policies and personalities. These landmine personalities have browser, session, and memory credential lures that place decoys such as Network, Active Directory (AD), Threat Intelligence (TI) as breadcrumbs on the endpoint to lure adversaries. You can validate the strategy to ensure that the corresponding Network, AD, and TI decoys are available for the configured landmine lures.
@@ -557,13 +830,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-active-directory-decoy-computers","lastmod":"2026-09-18T02:33Z","nid":"1542571"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-active-directory-decoy-computers","lastmod":"2026-11-17T20:49Z","nid":"1545975"} -->
 ## Viewing Active Directory Decoy Computers
 
 - Source: https://help.zscaler.com/deception/viewing-active-directory-decoy-computers
 - Product: Deception
 - Path: Deception Help > Deceive  > Active Directory Decoys > Viewing Active Directory Decoy Computers
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view the AD decoy computer details.
 
 You can [add an Internal network decoy to an Active Directory (AD) and AD DNS as a decoy computer object](https://help.zscaler.com/deception/adding-network-decoy-active-directory) to make it look like a legitimate domain-joined system. AD decoy computers detect AD enumeration activities and AD-related exploits.
@@ -590,13 +863,13 @@ To view AD decoy computers:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-and-managing-decoy-deployment","lastmod":"2025-12-30T20:48Z","nid":"1542585"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-and-managing-decoy-deployment","lastmod":"2026-09-18T03:02Z","nid":"1545989"} -->
 ## Viewing and Managing Decoy Deployment
 
 - Source: https://help.zscaler.com/deception/viewing-and-managing-decoy-deployment
 - Product: Deception
 - Path: Deception Help > Deceive  > Viewing and Managing Decoy Deployment
-- Last modified: 2025-12-30T20:48Z
+- Last modified: 2026-09-18T03:02Z
 - Summary: How to view and manage decoy deployment.
 
 The Deceive Summary page (Deceive > Summary) allows you to view and manage decoy deployment. On the Summary page, you can do the following:
@@ -659,13 +932,13 @@ Click **Show Only Failed**to view only the failed deployment log details.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-attack-chronology-details","lastmod":"2026-09-18T02:33Z","nid":"1542353"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-attack-chronology-details","lastmod":"2026-11-17T20:49Z","nid":"1545757"} -->
 ## Viewing Attack Chronology Details
 
 - Source: https://help.zscaler.com/deception/viewing-attack-chronology-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Attack Chronology Details
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view Chronology details in the Zscaler Deception Admin Portal
 
 The Chronology page provides a temporal overview and heatmap of the attacker's activities. This information helps you to identify periods of activity with unusual volumes of alerts. The Chronology page provides graphical representations of the number of events generated in Zscaler Deception over time. This helps you gain insights into attackers' activity using the weekly heatmap generated based on the volume of activity during the time of day.
@@ -688,13 +961,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-blocked-identities","lastmod":"2026-09-18T02:33Z","nid":"1542387"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-blocked-identities","lastmod":"2026-11-17T20:49Z","nid":"1545791"} -->
 ## Viewing the Blocked Identities
 
 - Source: https://help.zscaler.com/deception/viewing-blocked-identities
 - Product: Deception
 - Path: Deception Help > Orchestrate  > Containment Integrations > Viewing the Blocked Identities
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view and manage the contained attacker IP address details.
 
 You can view the following details of contained attackers or endpoints depending on the containment integration:
@@ -734,13 +1007,13 @@ To view and delete the details of the containment:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-extended-details","lastmod":"2026-09-18T02:33Z","nid":"1542357"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-extended-details","lastmod":"2026-11-17T20:49Z","nid":"1545761"} -->
 ## Viewing Extended Details
 
 - Source: https://help.zscaler.com/deception/viewing-extended-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Extended Details
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view additional details of attacker events in the Zscaler Deception Admin Portal.
 
 Attacker activities are recorded as events and displayed as a graph on the Investigate page. You can evaluate the attacker's actions and how they interact with Zscaler Deception elements (decoys, decoy connectors, etc.). You can also see additional details of these activities from ThreatParse along with timelines and network maps to know when and how the attack happened, view the event logs, and download evidence like PCAP files, RDP session recordings, and IoCs for a detailed investigation.
@@ -766,13 +1039,13 @@ To view the extended details:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-investigate-dashboard","lastmod":"2026-09-18T02:33Z","nid":"1542582"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-investigate-dashboard","lastmod":"2026-11-17T20:49Z","nid":"1545986"} -->
 ## Viewing the Investigate Dashboard
 
 - Source: https://help.zscaler.com/deception/viewing-investigate-dashboard
 - Product: Deception
 - Path: Deception Help > Investigate  > Viewing the Investigate Dashboard
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view the Investigate dashboard in the Zscaler Deception Admin Portal.
 
 The Zscaler Deception Investigate dashboard is an interactive graphical representation of real-time alerts that indicate attacker activities. When an attacker interacts with the decoys, Deception detects threats, collects information on the attacker's actions and intentions, and generates high-fidelity and real-time alerts that are displayed on the dashboard.
@@ -957,13 +1230,13 @@ To apply additional filters:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-event-logs","lastmod":"2026-09-18T02:33Z","nid":"1542355"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-event-logs","lastmod":"2026-11-17T20:49Z","nid":"1545759"} -->
 ## Viewing and Managing Event Logs
 
 - Source: https://help.zscaler.com/deception/viewing-managing-event-logs
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Event Logs
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view and manage event logs in the Zscaler Deception Admin Portal.
 
 When an attacker engages with a decoy, Zscaler Deception immediately triggers an alert and records the activity in the event logs. Event logs provide detailed insights into attempted attacks by malicious actors who have infiltrated the network and interacted with deployed decoys. Security teams can investigate these incidents, analyze attacker behavior and intent, and use the findings to strengthen threat response and containment strategies. For deeper analysis and proactive defense planning, event logs can be downloaded in multiple formats.
@@ -1067,13 +1340,13 @@ To export event logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-10-12T21:13Z","nid":"1542356"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-managing-evidence","lastmod":"2026-11-17T20:49Z","nid":"1545760"} -->
 ## Viewing and Managing Evidence
 
 - Source: https://help.zscaler.com/deception/viewing-managing-evidence
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing and Managing Evidence
-- Last modified: 2026-10-12T21:13Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view and manage evidence files in the Zscaler Deception Admin Portal.
 
 When an attacker interacts with a decoy, Zscaler Deception generates evidence files that capture details of the attack. These files provide valuable information to investigate the incident and understand the attacker's tactics, techniques, and procedures (TTPs). They can be analyzed through integration with Zscaler Sandbox or third-party sandbox solutions, with reports available directly from the Zscaler Deception Admin Portal. Evidence files can also be downloaded in their original format for external analysis, and records of files generated for individual attack events can be exported for further review.
@@ -1092,19 +1365,12 @@ To view the evidence files:
     - Packet Capture (PCAP)
     - Remote Desktop Protocol (RDP) recording files
     - Indicators of Compromise (IOC)
-    - Quality of Service (QOS)
+    - email
+    - (QOS)
     - HTTP Request (http_request)
   - **Metadata**: The attribute associated with each log file.
 
-For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both [TI decoys](https://help.zscaler.com/deception/v9.0/about-threat-intelligence-decoys) and internal decoys with the [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page) Services type. You can download the evidence that contains the attacker's request payload as a text file.
-
-Provides a packet capture for a specific session where an attacker interacts with a decoy. It records the raw network traffic exchanged during the session, revealing the attacker's behavior and techniques for threat analysis.
-
-Provides video recordings of attacker interaction generated during an RDP session by capturing sequential screenshots. These attack screenshots are sent to the backend server, where they are combined and converted into downloadable MP4 and SRT (subtitle) files.
-
-Identifies new files that an attacker copies to a Windows RDP decoy and makes them available for download for analysis.
-
-Captures instances where an attacker sends excessive requests. When the request volume exceeds the threshold, it gets removed from the event log and stored as evidence.
+For web events across static, dynamic, and high‑interaction containers, attackers send POST requests with unusually large payloads. Large payloads are uploaded as evidence as **http_request**. This applies to both TI decoys and internal decoys where the Services type is [Web](https://help.zscaler.com/deception/configuring-services-network-decoy#evidence_page). You can download the evidence that contains the attacker's request payload as a text file.
 
 [Image: Evidence type]
 
@@ -1205,7 +1471,7 @@ To delete specific files:
 
 To delete all evidence files:
 
-1. From the **Actions** drop-down menu, select **Delete All**. See image. All evidence files for the specified time period on the [Deception Investigate Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) are permanently deleted from the Decoy Connectors.
+1. From the **Actions** drop-down menu, select **Delete All**. See image. All evidence files for the specified time period on the[Deception Investigate Dashboard](https://help.zscaler.com/deception/viewing-investigate-dashboard) are permanently deleted from the Decoy Connectors.
 2. In the confirmation window, click **OK**. All the evidence files are deleted.
 
 [Image: Delete selected evidence files]
@@ -1246,13 +1512,13 @@ To export an evidence file:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-network-details","lastmod":"2026-09-18T02:33Z","nid":"1542354"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-network-details","lastmod":"2026-11-17T20:49Z","nid":"1545758"} -->
 ## Viewing Network Details
 
 - Source: https://help.zscaler.com/deception/viewing-network-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing Network Details
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view network details in the Zscaler Deception Admin Portal.
 
 The Network page shows information about the attacker's activity on your network based on the telemetry generated by network decoys. It displays a graph that shows the path that an attacker used to interact with the network decoys. It lists event logs that include the attacker's IP address, decoy IP address and port, network protocol, network service, and network connection duration.
@@ -1282,13 +1548,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-policy-details","lastmod":"2026-02-04T04:28Z","nid":"1542395"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-policy-details","lastmod":"2026-09-18T03:01Z","nid":"1545799"} -->
 ## Viewing Policy Details
 
 - Source: https://help.zscaler.com/deception/viewing-policy-details
 - Product: Deception
 - Path: Deception Help > Deceive  > Landmine Decoys > Policies > Policy Management > Viewing Policy Details
-- Last modified: 2026-02-04T04:28Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: How to view the details of landmine deception modules in a policy that is deployed on a system.
 
 You can view the details of the configured landmine deception modules in a policy that is deployed on a system. On the policy details page, you can view:
@@ -1317,13 +1583,13 @@ To view the details of the configured deception modules applied to a system usin
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-private-access-app-connector-update-logs","lastmod":"2026-06-24T21:06Z","nid":"1542545"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-private-access-app-connector-update-logs","lastmod":"2026-09-18T03:01Z","nid":"1545949"} -->
 ## Viewing Private Access App Connector Update Logs
 
 - Source: https://help.zscaler.com/deception/viewing-private-access-app-connector-update-logs
 - Product: Deception
 - Path: Deception Help > Settings > Topology > ZPA App Connectors > Viewing Private Access App Connector Update Logs
-- Last modified: 2026-06-24T21:06Z
+- Last modified: 2026-09-18T03:01Z
 - Summary: How to view Private Access App Connector update logs.
 
 Update logs provide valuable information that you can use to troubleshoot Private Access (ZPA) App Connector update issues.
@@ -1342,13 +1608,13 @@ To view the update logs:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/viewing-threatparse-details","lastmod":"2026-09-18T02:33Z","nid":"1542352"} -->
+<!-- ZS-ARTICLE {"url":"/deception/viewing-threatparse-details","lastmod":"2026-11-17T20:49Z","nid":"1545756"} -->
 ## Viewing ThreatParse Details
 
 - Source: https://help.zscaler.com/deception/viewing-threatparse-details
 - Product: Deception
 - Path: Deception Help > Investigate  > Extended Details > Viewing ThreatParse Details
-- Last modified: 2026-09-18T02:33Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: How to view ThreatParse details in the Zscaler Deception Admin Portal.
 
 ThreatParse is a technology that conducts natural language reconstruction of attacks by summarizing and translating log information into plain English. It also links this information to the MITRE ATT&CK framework and includes the risk scores assigned to attackers. The information on the ThreatParse details page helps your analysts to understand what the attacker is trying to accomplish. They can prioritize the most pressing threats first and take necessary actions to stop lateral movement.
@@ -1376,18 +1642,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-11-11T21:03Z","nid":"1542250"} -->
+<!-- ZS-ARTICLE {"url":"/deception/what-zscaler-deception","lastmod":"2026-11-17T20:49Z","nid":"1545654"} -->
 ## What Is Zscaler Deception?
 
 - Source: https://help.zscaler.com/deception/what-zscaler-deception
 - Product: Deception
 - Path: Deception Help > Getting Started > What Is Zscaler Deception?
-- Last modified: 2026-11-11T21:03Z
+- Last modified: 2026-11-17T20:49Z
 - Summary: Introductory information about Zscaler  Deception and its cloud-based infrastructure.
 
-Zscaler Deception is a simple, fast, and effective threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats such as agentic attackers, advanced persistent threats (APTs), zero-day exploits, reconnaissance, lateral movement, and human-operated ransomware.
-
-By embedding these traps, Deception safeguards critical attack surfaces such as Active Directory, the software supply chain, and industrial control systems like supervisory control and data acquisition (SCADA).
+Zscaler Deception is a simple, faster, and more effective targeted threat detection solution built on the Zscaler Zero Trust architecture. Deception uses advanced lures and decoys to detect and disrupt sophisticated threats that consistently bypass traditional defenses, such as advanced persistent threats (APT), exploits, reconnaissance, lateral movement, active directory, supply chain, human-operated ransomware, supervisory control and data acquisition (SCADA), and industrial control system (ICS) attacks.
 
 As an integral part of the Zscaler Zero Trust Exchange, Deception integrates with Zero Trust, tracking the full attack sequence and initiating automated response actions across the Zscaler platform. To learn more, see [Zscaler Deception Overview](https://www.zscaler.com/products/deception-technology).
 

@@ -1,8 +1,119 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 5)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 155
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 157
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/deployment-scenarios-ssltls-inspection","lastmod":"2026-09-25T04:55Z","nid":"1401941"} -->
+## Deployment Scenarios for SSL/TLS Inspection
+
+- Source: https://help.zscaler.com/zia/deployment-scenarios-ssltls-inspection
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Policies > SSL/TLS Inspection > Deployment Scenarios for SSL/TLS Inspection
+- Last modified: 2026-09-25T04:55Z
+- Summary: Information on various deployment scenarios for SSL/TLS Inspection using the Zscaler Admin Console.
+
+Zscaler's SSL/TLS Inspection can be deployed in different scenarios. The following scenarios show how the service applies SSL/TLS Inspection based on traffic source and whether authentication or other features are enabled.
+
+- HTTPS Traffic from Known Locations
+- HTTPS Traffic from Remote Users
+
+Be aware of whether you protect HTTPS traffic by deploying SSL/TLS Inspection or by blocking specific HTTPS traffic. The Zscaler Admin Console must first identify the host in an HTTPS request through an explicit or transparent [proxy mode](https://help.zscaler.com/zia/what-proxy-mode).
+
+The Zscaler service supports TLS 1.0, 1.1, and 1.2. When SSL/TLS Inspection is enabled, the service inspects all SSL/TLS sessions, regardless of version.
+
+When an organization’s traffic is forwarded from a known location (an internet gateway configured in the Zscaler Admin Console), the Zscaler service applies [URL Filtering](https://help.zscaler.com/zia/about-url-filtering) and [Cloud App Control](https://help.zscaler.com/zia/about-cloud-app-control) policies as described in the following list, depending on whether user authentication is enabled.
+
+- **Authentication Enabled**: Zscaler recommends this configuration because it enables the service to enforce granular URL and Cloud App Control policies at the user level.
+- **Authentication Disabled**: The service applies location-based URL and Cloud App Control policies. It cannot apply any user or group policies because authentication is disabled. Ensure that the appropriate location is specified in the Location setting of the URL and Cloud App Control policies.
+
+There are some extra steps needed when dealing with remote users, or users from an unknown location. The following are some options:
+
+## Zscaler Client Connector
+
+The recommended option is to install and use Zscaler Client Connector on the client machines of your remote users.
+
+## Dedicated Proxy Port
+
+If your organization has subscribed to a dedicated port and has gateway locations created using the dedicated port, your organization’s users might forward traffic to Zscaler on said port.
+
+Whether SSL/TLS traffic should be inspected or not is something that can be defined by the location configuration. As the port is unique to the organization, it would be used as an identifier to apply your organization's SSL/TLS and authentication bypasses.
+
+However, if the first transaction from a user is from an unregistered IP and is an HTTPS request, the identity of the user is unknown and to accept the traffic the transaction needs to be authenticated. This is to ensure Zscaler is not used as an open proxy by unauthorized users.
+
+If the organization has Show Notifications enabled under Internet Access > Policy > SSL/TLS Inspection in the Zscaler Admin Console, then the transaction is intercepted and checked for a valid authentication cookie. If the cookie is not present, the user is redirected for authentication. After authentication, the traffic is accepted by Zscaler and appropriate policies applied.
+
+The user would need to have appropriate root certificates installed on the user’s browsers to avoid certificate warnings.
+
+If the organization has Show Notifications disabled, then the transaction is dropped. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
+
+## TCP Port 9443
+
+Users can connect to Public Service Edges for Internet & SaaS (ZIA) on port 9443 and all HTTPS connections are subject to SSL/TLS Inspection. The drawback of this method is that the capability to bypass certain traffic based on URLs and URL categories from SSL/TLS scanning and authentication is lost.
+
+Users should also have the appropriate SSL/TLS certificate installed. If it is not installed and a user forwards traffic to port 9443, the browser displays certificate warnings.
+
+## TCP Port 80/443/9400/9480
+
+Remote users might forward traffic to Zscaler on ports 80/443/9400 and 9480. However, there are a few issues to be aware of:
+
+- SSL/TLS traffic is not intercepted and policies are not implemented on SSL/TLS traffic.
+- If the first transaction from an unregistered IP address and is on HTTPS, the transaction is blocked. The user would need to access an HTTP page and provide a valid authentication cookie or go through the authentication process before accessing the HTTPS page.
+- SSL/TLS and authentication bypass are not applied.
+
+## TCP Port 8800
+
+Remote users might use port 8800 to forward traffic to Zscaler, and Public Service Edges attempt to authenticate the user using the Kerberos method of authentication. The organization might choose to inspect HTTPS traffic by enabling Enable SSL/TLS Inspection for Remote Users with Kerberos under Internet Access > Policy > SSL/TLS Inspection.
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/detecting-and-controlling-dns-tunnels","lastmod":"2026-05-25T21:06Z","nid":"1400861"} -->
+## Detecting and Controlling DNS Tunnels
+
+- Source: https://help.zscaler.com/zia/detecting-and-controlling-dns-tunnels
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Firewall > DNS Control > Detecting and Controlling DNS Tunnels
+- Last modified: 2026-05-25T21:06Z
+- Summary: Information on the Zscaler service's tunneling detection techniques.
+
+The Zscaler service can detect DNS tunneling occurring in your network by using sophisticated machine learning techniques. You can [create granular rules](https://help.zscaler.com/zia/configuring-dns-control-policy) to control DNS tunnels as part of your [DNS Control](https://help.zscaler.com/zia/about-dns-control) policy. You can also analyze and visualize your DNS tunnels and network applications. The service logs all detected DNS tunnels and network apps in [DNS Insights](https://help.zscaler.com/zia/about-insights). You can also view the most commonly encountered tunnels and apps in the DNS Overview [dashboard](https://help.zscaler.com/zia/about-dashboards).
+
+## DNS Tunnels
+
+DNS tunneling is commonly used to circumvent security. Tunneling can be used for benign reasons. For example, an antivirus update done by endpoint software. However, it is also used for more malicious purposes, such as evading captive portals.
+
+To create a DNS tunnel, a user sets up a tunnel client that sends out a request on port 53 to a DNS tunnel server. The DNS tunnel server can use this newly created tunnel to compromise the TXT field of the DNS response message. These payloads can introduce a variety of security hazards which are often not detected due to the trusted character of DNS traffic. If malicious DNS tunneling goes unobserved it creates significant risk, with companies leaving themselves open to data exfiltration, command and control activity, as well as other hazards.
+
+[Image: Diagram showing basic tunneling process]
+
+## How Zscaler DNS Tunneling Detection Works
+
+The Zscaler service enables you to detect and control DNS tunneling occurring in your networks. The service provides a DNS proxy. You can use this proxy as a firewall to DNS traffic. All traffic that goes through this proxy is logged by the service. The Zscaler analytics system then fetches these logs, processes them, and sends them to the DNS tunneling detection engine. The detection engine uses advanced machine learning techniques to compute a risk score to classify domains. When the engine detects a tunnel hostname, the information is propagated to all [Public Service Edges for Internet & SaaS (ZIA)](https://help.zscaler.com/zia/about-public-service-edges-internet-saas). The proxy server then acts according to your policy configuration.
+
+[Image: Diagram demonstrating how Zscaler's tunneling detection works]
+
+The service places any tunnels it detects into one of three categories:
+
+- **Commonly Allowed DNS Tunnels**: This contains tunnels that use DNS tunneling for productive reasons. It is mostly composed of traffic from security services.
+- **Commonly Blocked DNS Tunnels**: This contains tunnels that are malicious, can cause a loss of productivity, or can cause a loss of data.
+- **Unknown DNS Tunnels**: This contains tunnels that are not yet classified.
+
+### DNS Applications
+
+There are 4 additional categories that you can control alongside the DNS tunnels:
+
+- **Network Service**: This contains different network protocols, such as TCP and UDP.
+- **Social Networking**: This contains popular websites with social networking components, such as Facebook and LinkedIn.
+- **Web**: This contains widely used websites, such as Amazon and CNN.
+- **Web Search**: This contains popular search engines, such as Google and Bing.
+
+These categories give administrators the flexibility to control any of these items at the DNS level.
+
+From these categories, users can either select the whole category or individual items to make up a DNS Application Group. To learn more, see [About DNS Application Groups](https://help.zscaler.com/zia/about-dns-application-groups).
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -1446,8 +1557,8 @@ This CSV file can't be used to [import users](https://help.zscaler.com/zia/impor
 ## Downloading Virtual Service Edge Certificates for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-configuration-files-internet-saas
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > Service Edges > Virtual Service Edge > Downloading Virtual Service Edge Certificates for Internet & SaaS
 - Last modified: 2026-11-12T02:25Z
 - Summary: Information on how to download Virtual Service Edge certificates for Internet & SaaS (ZIA), which are used to validate Virtual Service Edge instances within the Zscaler cloud.
 
@@ -2169,13 +2280,13 @@ The following engines detect Personal Information Protection and Electronic Docu
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-11-02T15:26Z","nid":"1546094"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-domain-profiles","lastmod":"2026-11-16T20:06Z","nid":"1546094"} -->
 ## Editing Domain Profiles
 
 - Source: https://help.zscaler.com/zia/editing-domain-profiles
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
-- Last modified: 2026-11-02T15:26Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Domain Profiles
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to edit domain profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -2441,13 +2552,13 @@ Sometimes this fuzzy matching results in matching phrases from an irrelevant con
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/editing-recipient-profiles","lastmod":"2026-11-02T15:31Z","nid":"1546092"} -->
+<!-- ZS-ARTICLE {"url":"/zia/editing-recipient-profiles","lastmod":"2026-11-16T20:06Z","nid":"1546092"} -->
 ## Editing Recipient Profiles
 
 - Source: https://help.zscaler.com/zia/editing-recipient-profiles
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Editing Recipient Profiles
-- Last modified: 2026-11-02T15:31Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Editing Recipient Profiles
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to edit recipient profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler's email profiles allow you to make custom sets of [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) and [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -3078,13 +3189,13 @@ To enable the firewall for a location:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas","lastmod":"2026-10-02T02:06Z","nid":"1540054"} -->
+<!-- ZS-ARTICLE {"url":"/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas","lastmod":"2026-11-20T06:06Z","nid":"1540054"} -->
 ## Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
 
 - Source: https://help.zscaler.com/zia/enabling-icap-receiver-private-service-edge-virtual-service-edge-internet-saas
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > URL Filtering > ICAP Receivers > Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
-- Last modified: 2026-10-02T02:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > URL Filtering > ICAP Receivers > Enabling ICAP Receiver: Private Service Edge and Virtual Service Edge for Internet & SaaS
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on how to enable the ICAP receiver for Private Service Edges and Virtual Service Edges for Internet & SaaS (ZIA).
 
 Zscaler's [ICAP Receiver](https://help.zscaler.com/zia/about-icap-receivers) feature works only with Private Service Edges and Virtual Service Edges for Internet & SaaS (ZIA). However, this feature is not enabled by default on Service Edges.
@@ -13429,8 +13540,8 @@ To use Kerberos authentication for remote users, ensure the remote users meet th
 ## Kerberos Trust Relationship Configuration for Linux Server
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-linux-server
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Linux Server
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Linux Server
 - Last modified: 2026-11-13T20:06Z
 - Summary: How to build a trust relationship between a Linux server and the Zscaler service.
 
@@ -13467,8 +13578,8 @@ To troubleshoot your Kerberos configuration, see [Troubleshooting Kerberos Authe
 ## Kerberos Trust Relationship Configuration for Windows Server & GPO Push
 
 - Source: https://help.zscaler.com/zia/kerberos-trust-relationship-configuration-guide-windows-server-gpo-push
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Windows Server & GPO Push
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Kerberos Authentication > Kerberos Trust Relationship Configuration for Windows Server & GPO Push
 - Last modified: 2026-11-13T20:06Z
 - Summary: How to establish a one-way cross-realm trust from a Windows Server to the Zscaler service.
 
@@ -14132,8 +14243,8 @@ To disable alerts:
 ## Managing a CD/DVD Rule
 
 - Source: https://help.zscaler.com/zia/managing-cddvd-rule
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a CD/DVD Rule
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a CD/DVD Rule
 - Last modified: 2026-11-04T07:50Z
 - Summary: Information on how to add and edit CD/DVD rules to prevent data loss on endpoints.
 
@@ -14364,8 +14475,8 @@ This feature doesn't apply to users with Zscaler Client Connector.
 ## Managing an Intent Rule
 
 - Source: https://help.zscaler.com/zia/managing-intent-rule
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > Managing an Intent Rule
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Indicators of Intent > Managing an Intent Rule
 - Last modified: 2026-11-04T08:18Z
 - Summary: Information on how to edit an intent rule and add an exception to prevent data loss on endpoints.
 
@@ -14544,8 +14655,8 @@ When you configure and deploy the backup solution, you must:
 ## Managing a Nearby Sharing Rule
 
 - Source: https://help.zscaler.com/zia/managing-nearby-share-rule
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Nearby Sharing Rule
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Nearby Sharing Rule
 - Last modified: 2026-11-04T07:49Z
 - Summary: Information on how to add and edit a nearby sharing rule to prevent data loss on endpoints.
 
@@ -14736,8 +14847,8 @@ You can delete any resource by selecting the resource from the list and clicking
 ## Managing a Portable Device Rule
 
 - Source: https://help.zscaler.com/zia/managing-portable-device-rule
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Portable Device Rule
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Device Control > Managing a Portable Device Rule
 - Last modified: 2026-11-09T06:06Z
 - Summary: Information on how to add and edit a portable device rule to prevent data loss on endpoints.
 
@@ -15110,8 +15221,8 @@ To create a security policy:
 ## Managing a Removable Storage Resource
 
 - Source: https://help.zscaler.com/zia/managing-removable-storage-resource
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Removable Storage Resource
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Data Loss Prevention > Endpoint Data Scan > Resources > Managing a Removable Storage Resource
 - Last modified: 2026-11-04T07:56Z
 - Summary: Information on how to add, edit, and delete a removable storage resource to prevent data loss on endpoints.
 
@@ -15309,8 +15420,8 @@ After this, the token is immediately removed and invalidated.
 ## Managing SD-WAN Partner Keys
 
 - Source: https://help.zscaler.com/zia/managing-sd-wan-partner-keys
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Partner Integrations > Managing SD-WAN Partner Keys
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Partner Integrations > Managing SD-WAN Partner Keys
 - Last modified: 2026-11-09T20:06Z
 - Summary: How to configure an SD-WAN partner integration for the Zscaler service.
 

@@ -1,102 +1,8 @@
 # Zscaler Help — Other (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 53
-
----
-
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-dns-logs","lastmod":"2026-11-01T23:53Z","nid":"1420841"} -->
-## NSS Feed Output Format: DNS Logs
-
-- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-dns-logs
-- Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
-- Last modified: 2026-11-01T23:53Z
-- Summary: Information about DNS log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
-
-The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
-
-The following tables display information about the DNS fields and possible values for those fields.
-
-## Date/Time
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{eventtime} | The time and date the transaction happened. This excludes the time zone. | Mon Oct 28 22:55:48 2024 |
-| %s{time} | The date and time the event was logged. | Mon Oct 28 22:55:53 2024 |
-| %s{tz} | The time zone. This is the same as the time zone you specified when you configured the NSS feed. | GMT |
-| %02d{ss} | Second of timestamp (0–59) | 48 |
-| %02d{mm} | Minute of timestamp (0–59) | 55 |
-| %02d{hh} | Hour of timestamp (0–23) | 22 |
-| %02d{dd} | Day of timestamp (1–31) | 28 |
-| %02d{mth} | Month of timestamp (1-12) | 10 |
-| %04d{yyyy} | Year of timestamp | 2024 |
-| %s{mon} | The name of the month | Oct |
-| %s{day} | The day of the week | Mon |
-
-## Transaction Action
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{req_rulename} | Name of the rule that was applied to the DNS request | Private Access Resolver |
-| %s{req_action} | Name of the action that was applied to the DNS request | REQ_ALLOW REQ_BLOCK |
-| %s{res_rulename} | Name of the rule that was applied to the DNS response | Default Connector DNS Rule |
-| %s{res_action} | Name of the action that was applied to the DNS response | Allow |
-
-## Transaction Information
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %d{inbytes} | Number of bytes sent from the server to the client. | 10,000 |
-| %d{outbytes} | Number of bytes sent from the client to the server. | 10,000 |
-| %s{clt_ip} | The IP address of the user. This can be the internal IP address if it is visible—for example, traffic sent through a GRE tunnel or an internal IP address indicated using XFF. Otherwise, it's the client internet (NAT Public) IP address. | 192.0.2.135 |
-| %ld{req_duration} | Duration of the DNS request in milliseconds | 65 |
-| %s{resolver} | Server IP address of the request | 203.0.113.200 |
-| %ld{recordid} | Unique record identifier for each log | sys_cloud_branch_id |
-| %s{location} | Gateway location or sublocation of the source | Headquarters |
-| %s{dom_str} | Fully Qualified Domain Name (FQDN) in the DNS request | mail.safemarch.com |
-| %s{odom_str} | Obfuscated FQDN in the DNS request |  |
-| %s{res_type} | Response type |  |
-| %s{resp_val_str} | Response value | 51.xx.192.49 blob.xxz21prdxxxx7a.store.core.windows.net |
-| %{oresp_val_str} | Obfuscated response value |  |
-| %s{req_type} | DNS record being requested | A record |
-| %d{srv_port} | Server port of the request | 80 |
-| %d{num_resp} | Number of DNS responses | 52 |
-| %s{dns_err} | DNS error, if any | DNS server not available; NXDOMAIN; SERVFAIL |
-| %s{protocol} | Protocol used | TCP; UDP; DOH |
-| %s{dnsgw_flags} | Flags indicating the DNS Gateway status | PRIMARY_SERVER_RESPONSE_PASS; FO_DEST_ERR |
-| %s{dnsgw_slot} | DNS Gateway rule |  |
-
-## Cloud Connector or Branch Connector Information
-
-| Field | Description | Example |
-| --- | --- | --- |
-| %s{name} | Cloud Connector or Branch Connector name | CC_304 |
-| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vpc-xxxx |
-| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-west-2x |
-| %s{region_name} | Cloud Connector or Branch Connector region name | (US) West US 2 |
-| %s{platform_name} | Cloud Connector or Branch Connector platform name | Azure |
-| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name (availability zone) | San Jose, United States |
-| %s{account_id} | AWS account ID, or Azure subscription ID, or GCP project ID | 506xxx032xxx (AWS); f60abxxx-bb7d-43xx-84xx-4axxxx7xxxxx (Azure); gcs-xxx-cc-gcp-project (GCP) |
-
-## Base64 Fields
-
-A SIEM can have parsing issues whenever a string field has nonprintable or delimiter characters. For that reason, the Zscaler service has URL encoding for fields such as `dom_str`. Several other fields have the same parsing issue, but URL encoding is not suitable. Such fields are encoded using Base64.
-
-Turning on Base64 encoding for all supported fields may result in approximately a 20% drop in performance.
-
-The following fields have been added as Base64 fields:
-
-- b64dom_str
-- b64resp_val_str
-
-## Hex-Encoded Fields
-
-When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable ASCII characters that are in URLs. Any URL character that is less than or equal to 0x20, or greater than or equal to 0x7F, is encoded as `%HH`. This ensures that your SIEM parses the URLs that contain control characters. For example, a `\n` character in a URL is encoded as `0A`, and a space is encoded as `%20`.
-
-edom_str has been added as a hex-encoded field.
-<!-- /ZS-ARTICLE -->
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 52
 
 ---
 
@@ -1061,13 +967,13 @@ This article provides a summary of all new features and enhancements for Zscaler
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-12T03:30Z","nid":"1534301"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/release-upgrade-summary-2026","lastmod":"2026-11-16T04:10Z","nid":"1534301"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/release-upgrade-summary-2026
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud Service Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-12T03:30Z
+- Last modified: 2026-11-16T04:10Z
 - Summary: Zero Trust Cloud (formerly Cloud & Branch Connector) Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Cloud (formerly Cloud & Branch Connector). To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com).
@@ -1075,13 +981,13 @@ This article provides a summary of all new features and enhancements for Zero Tr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/rotating-zscaler-service-account-passwords","lastmod":"2026-11-10T15:58Z","nid":"1532225"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/rotating-zscaler-service-account-passwords","lastmod":"2026-11-17T09:22Z","nid":"1532225"} -->
 ## Rotating Zscaler Service Account Passwords
 
 - Source: https://help.zscaler.com/zero-trust-cloud/rotating-zscaler-service-account-passwords
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Rotating Zscaler Service Account Passwords
-- Last modified: 2026-11-10T15:58Z
+- Last modified: 2026-11-17T09:22Z
 - Summary: Information about rotating passwords on Cloud & Branch Connector.
 
 Zscaler Cloud & Branch Connector virtual devices contain a Zscaler Service Account called `zsroot`. This account is a privileged user that enables secure administrative access and management of the virtual device. In order to safeguard your organization, Zscaler strongly recommends implementing routine password rotation as a best practice.
@@ -1090,7 +996,7 @@ Zscaler Cloud & Branch Connector virtual devices contain a Zscaler Service Accou
 
 Zscaler Cloud Connectors are typically accessed with the SSH key that your cloud provider provides when you create the connector. Although your `zsroot` password is not required for logging in, Zscaler recommends periodically changing the password.
 
-1. Log in to the VM as user `zsroot`.
+1. Log in to the virtual machine (VM) as user `zsroot`.
 2. Change the password:
   1. Enter the following command:
 
@@ -1530,13 +1436,13 @@ To learn more about bypasses, see [Configuring VDI Forwarding Profiles](https://
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-11-09T15:13Z","nid":"1420756"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector","lastmod":"2026-11-17T15:34Z","nid":"1420756"} -->
 ## Step-by-Step Configuration Guide for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/step-step-configuration-guide-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Step-by-Step Configuration Guide for Zscaler Cloud Connector
-- Last modified: 2026-11-09T15:13Z
+- Last modified: 2026-11-17T15:34Z
 - Summary: This guide takes you step-by-step through the configuration tasks you must complete for Zscaler Cloud Connector.
 
 This guide takes you through the configuration steps you need to complete before using Zscaler Cloud Connector for your organization.
@@ -1598,7 +1504,7 @@ Firewall filtering policies are comprised of source IP groups, destination IP gr
 Gateway forwarding methods allow you to control and forward traffic. To learn more, see:
 
 - [About Zscaler Internet Access Gateways](https://help.zscaler.com/cloud-branch-connector/about-zia-gateways)
-- [Configuring a ZIA Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zia-gateway)
+- [Configuring an Internet Access Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-zia-gateway)
 - [About Log and Control Gateways](https://help.zscaler.com/cloud-branch-connector/about-log-and-control-gateways)
 - [Configuring a Log and Control Gateway](https://help.zscaler.com/cloud-branch-connector/configuring-log-and-control-gateway)
 
@@ -1611,9 +1517,9 @@ Forwarding allows you to set up traffic forwarding, log and control forwarding, 
 - [About DNS Policies](https://help.zscaler.com/cloud-branch-connector/about-dns-policies)
 - [Configuring the DNS Filtering Rule](https://help.zscaler.com/cloud-branch-connector/configuring-dns-filtering-rule)
 
-The Zscaler service provides real-time log consolidation across the globe, so you can view every transaction performed by your users regardless of where they are in the world. It also presents the deployment status, activity status, and geographical view of your deployed Cloud Connector. To learn more, see:
+The Zscaler service provides real-time log consolidation across the globe, so you canview every transaction your users perform, regardless of where they are in the world. It also presents the deployment status, activity status, and geographical view of your deployed Cloud Connector. To learn more, see:
 
-- [Accessing Cloud & Branch Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring)
+- [Accessing Cloud Connector Monitoring](https://help.zscaler.com/cloud-branch-connector/accessing-cloud-branch-connector-monitoring)
 - [About Insights](https://help.zscaler.com/cloud-branch-connector/about-insights)
 - [About Insights Logs](https://help.zscaler.com/cloud-branch-connector/about-insights-logs)
 <!-- /ZS-ARTICLE -->
@@ -2760,20 +2666,24 @@ From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-11-11T14:26Z","nid":"1529197"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups","lastmod":"2026-11-20T13:29Z","nid":"1529197"} -->
 ## Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-cloud-connector-deployments-amazon-web-services-auto-scaling-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Understanding Cloud Connector Deployments with Amazon Web Services Autoscaling Groups
-- Last modified: 2026-11-11T14:26Z
+- Last modified: 2026-11-20T13:29Z
 - Summary: Information about Autoscaling Groups with Zscaler Cloud Connector.
 
 An AWS Elastic Compute Cloud (EC2) Autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs), which are EC2 instances, to an Autoscaling group to meet the current load, and removes Cloud Connector VMs from the group when the load decreases. You define the desired capacity and the minimum and maximum number of VMs in the group.
 
 Autoscaling also constantly monitors the health of each VM in the group. It removes unhealthy VMs from the group and replaces them with healthy ones. If someone manually terminates a VM that is part of an autoscaling group from the Amazon EC2 Console, the VM is likewise replaced.
 
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an ASG from the Amazon E2 Console could cause the VM to be terminated.
+When deploying and using autoscaling groups (ASGs), take note of the following:
+
+- Only deploy an ASG with an ASG template or a non-ASG with a non-ASG template.
+- Stopping or rebooting a VM that is part of an ASG from the Amazon E2 Console could cause the VM to be terminated.
+- If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 AWS autoscaling provides the following benefits:
 
@@ -3044,8 +2954,8 @@ The autoscaling group name and instance IDs in the Amazon EC2 Console map to the
 
 To view the status:
 
-1. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups.** The value of the **Auto Scaling** field is **true**if the Cloud Connector Group maps to an AWS autoscaling group.
-2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**and scroll to the **Geo View** section. Active VMs in the group are displayed in green. Inactive VMs in the group are displayed in orange. You can watch the status of the VMs change as they are added to or removed from an autoscaling group. See image. [Image: The Geo View section of the Monitoring page in the Admin Portal, where inactive VMs are red and active VMs are green. This gives a visual display of VMs in an Auto Scaling group as their status changes due to Auto Scaling events. A pop-up window shows details about a VM whose image is hovered over.]
+1. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups.** The value of the **Auto Scaling** column is **true**if the Cloud Connector Group maps to an AWS autoscaling group.
+2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**and scroll to the **Geo View** section. Active VMs in the group are displayed in green. Inactive VMs in the group are displayed in orange. You can watch the status of the VMs change as they are added to or removed from an autoscaling group. Click a VM to see its details. See image. [Image: The Geo View section of the Monitoring page in the Admin Portal, where inactive VMs are red and active VMs are green. This gives a visual display of VMs in an Auto Scaling group as their status changes due to Auto Scaling events. A pop-up window shows details about a VM whose image is hovered over.]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3260,212 +3170,307 @@ For information about creating managed identities and assigning roles, see [Depl
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-11-01T23:53Z","nid":"1535452"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling","lastmod":"2026-11-20T12:54Z","nid":"1535452"} -->
 ## Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-cloud-connector-deployments-google-cloud-platform-managed-instance-groups-autoscaling
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Understanding Cloud Connector Deployments with Google Cloud Platform Managed Instance Groups with Autoscaling
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-20T12:54Z
 - Summary: Information about Google Cloud Platform autoscaling managed instance group (MIG) deployment with Zscaler Cloud Connector
 
-A Google Cloud Platform (GCP) Managed Instance Group (MIG) with autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs) to an instance group to meet the current load when it increases, and it removes Cloud Connector VMs from the instance group when the load decreases. For example, consider a virtual Windows workstation deployment where users log in to their own virtual workstations at the beginning of the work day and log out at the end of the day. This causes fluctuations in the number of users and the amount of traffic flow during these periods.
+An AWS Elastic Compute Cloud (EC2) Autoscaling deployment dynamically adds Cloud Connector virtual machines (VMs), which are EC2 instances, to an Autoscaling group to meet the current load, and removes Cloud Connector VMs from the group when the load decreases. You define the desired capacity and the minimum and maximum number of VMs in the group.
 
-Instance groups also constantly monitor the health of each Cloud Connector VM in the instance group. They remove unhealthy VMs from the instance group and replace them with healthy ones. If someone manually terminates a VM that is part of an instance group from the Google Cloud console, the instance group replaces the VM.
+Autoscaling also constantly monitors the health of each VM in the group. It removes unhealthy VMs from the group and replaces them with healthy ones. If someone manually terminates a VM that is part of an autoscaling group from the Amazon EC2 Console, the VM is likewise replaced.
 
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, stopping or rebooting a VM that is part of an instance group from the Google Cloud console could cause the VM to be terminated.
+When deploying and using autoscaling groups (ASGs), take note of the following:
 
-Instance groups with autoscaling provide the following benefits:
+- Only deploy an ASG with an ASG template or a non-ASG with a non-ASG template.
+- Stopping or rebooting a VM that is part of an ASG from the Amazon E2 Console could cause the VM to be terminated.
+- If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
-- Dynamically scale the number of VMs in the instance group to match demand.
-- Automatically remove unhealthy VMs and replaces them with healthy ones.
-- Deploy VMs across availability zones for high availability. Load balancing distributes traffic among the VMs.
+AWS autoscaling provides the following benefits:
 
-This article describes instance groups and how they work in a Cloud Connector deployment. The deployment template prompts you to configure certain instance group settings mentioned in this article. For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform) and [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-google-cloud-platform). For comprehensive autoscaling information, refer to the [GCP product documentation](https://docs.cloud.google.com/compute/docs/autoscaler).
+- Dynamically scales the number of VMs in the autoscaling group to match demand.
+- Automatically removes unhealthy VMs and replaces them with healthy ones.
+- Deploys VMs across availability zones for high availability. A Gateway Load Balancer (GWLB) distributes traffic among the VMs.
+
+This article describes AWS autoscaling and how it works in a Cloud Connector deployment. The deployment template prompts you to configure certain autoscaling settings mentioned in this article. After deployment, you can modify the settings in the [Amazon EC2 Console](https://console.aws.amazon.com/ec2/). For information about the deployment template and the deployment steps, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector) and [Deploying Zscaler Cloud Connector with Amazon Web Services](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services). For comprehensive autoscaling information, refer to the [AWS product documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
 
 ## Topology
 
-The following sections provide a diagram depicting the topology of an autoscaling deployment and a description of its components and flow.
+The following sections provide a diagram depicting the topology of an autoscale deployment and a description of its components and flow.
 
 - Topology diagram
 - Topology details
 
-[Image: Diagram showing a Cloud Connector autoscaling deployment on the Google Cloud Platorm]
+[Image: Diagram showing a Cloud Connector Auto Scaling deployment in AWS]
 
-- The security stack is deployed in either a dedicated GCP project or within the same project as the workloads, based on your organizational architecture. GCP has an architectural limitation where instances with multiple network interfaces require separate virtual private cloud (VPC) networks for each interface. Cloud Connector deployments therefore require the creation of two distinct VPCs: one for management and one for service and security operations. After the security stack is in place, you must configure custom routes in the workload VPCs to direct appropriate traffic to the load balancer in front of the Cloud Connectors. This load balancer serves as the central entry point for the security stack.
-- Zonal MIGs with autoscaling are deployed in each configured region or zone, ensuring high availability and automatic failover across zones.
-- A Cloud NAT gateway is deployed in each region for the Cloud Connectors. This arrangement provides managed, scalable outbound internet access and allocates dedicated external IPs for each gateway.
-- Two Google Cloud Run functions are deployed: The Resource Sync Cloud Run function uses RESTful APIs to communicate with the Cloud Connector API endpoint securely over HTTPS. The functions do not directly interact with individual Cloud Connector VMs; instead, they orchestrate via the Admin API.
-  - **Health Monitoring**: This function uses custom metrics exported from each Cloud Connector VM (for example, via Cloud Monitoring/Operations) to determine the health status of the VM. The instance group automatically terminates unhealthy Cloud Connector VMs and replaces them with new ones. The Health Monitoring function is triggered every minute by default using Cloud Scheduler.
-  - **Resource Sync**: This function ensures that the VMs registered in the Zscaler Admin Console match the membership of each Cloud Connector instance group. If the function discovers a Cloud Connector in the Zscaler Admin Console that is not part of any instance group, it issues an API call to the Zscaler Admin Console to delete the VM. This function runs every 10 minutes by default.
-- Each Cloud Function is packaged in a [ZIP file](https://zscaler-cc-functions-artifacts.s3.amazonaws.com/zscaler-cc-functions/latest/cloud-functions-latest.zip) and deployed via Google Cloud Storage. The ZIP file is uploaded either to a newly created storage bucket during deployment or to an existing bucket specified in the deployment configuration. The Cloud Functions retrieve their code from this bucket during initialization.
+- The workload servers and the autoscaling group are deployed in separate subnets in the VPC. They are deployed into a single regional availability zone to simplify the management of resources. Alternatively, you can deploy multiple autoscaling groups in multiple availability zones to provide additional reliability and redundancy.
+- A GWLB is deployed in front of the Cloud Connectors. It is the entry point for traffic from the endpoints to the security stack. After the security stack is deployed, in the route tables in the workload subnets, you define a route that steers traffic to the GWLB. To learn more, see [Deploying Zscaler Cloud Connector with Amazon Web Services](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services).
+- A NAT gateway used for outbound traffic from the Cloud Connectors is deployed in a public subnet in the availability zone. The NAT gateway has a dedicated IP address associated with it.
+- The following services run in the AWS namespace associated with your account. Zscaler Lambda; CloudWatch; EventBridge
+- After a termination event, Lambda initiates a REST API call to the Zscaler Admin Console so the terminated VM can be removed from the Cloud Connector group.
+
+The Zscaler Lambda function:
+
+- Evaluates custom health metrics published by each VM. If the VM does not publish health metrics, Lambda treats missing data points as unhealthy by default. If you want Lambda to ignore missing data points, change the value of the `MISSING_DATAPOINTS_UNHEALTHY` environment variable in the Lambda console (Functions > <Auto Scaling group function> > Configuration > Environment variables).
+- Cleans up the Zscaler cloud resources associated with the VM when the VM is terminated. This includes resources allocated to Internet & SaaS (ZIA) and Private Access (ZPA).
+- Ensures smooth termination of autoscaling lifecycle events after cleaning up the cloud resources.
+- Manages the termination of VMs in a warm pool.
+
+The following conditions trigger Lambda via AWS EventBridge:
+
+- **Periodic execution**: Triggered every minute to check VM health.
+- **EC2 instance termination events**: Triggered asynchronously after a VM termination event completes.
+- **EC2 lifecycle termination events**: Triggered asynchronously after a lifecycle termination event completes.
+
+After any of these events triggers the Zscaler Lamba function, it runs for a maximum of three minutes and then terminates automatically.
+
+Amazon CloudWatch monitors your AWS resources and security stack in real time. CloudWatch collects and stores logs, displays data on the CloudWatch dashboard, and triggers alarms based on specific metrics identified in the logs.
+
+For additional information about CloudWatch, refer to the [AWS product documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
+
+- Metrics
+- Alarms
+- Logs
+
+A metric is a time-ordered set of data points that is published to CloudWatch. The metric is the entity being monitored, and the data points are evaluation periods during which metric values change over time. Amazon EC2 autoscaling metrics that collect information about autoscaling groups are in the `AWS/AutoScaling` namespace. Amazon EC2 instance metrics that collect CPU and other usage data from VMs in autoscaling groups are in the `Zscaler/Cloud Connectors` namespace.
+
+CloudWatch enables you to create the following types of alarms:
+
+- **Metric Alarm**: Monitors a single CloudWatch metric or the result of a math expression based on CloudWatch metrics. The alarm performs one or more actions based on a metric and target value during a number of data points. By default, the number of data points is 10, so if the metric value reaches the threshold for 10 consecutive minutes, the alarm is triggered. An alarm's possible actions include performing an Amazon EC2 autoscaling action, performing an Amazon EC2 action, and sending a notification to EventBridge. The Target Tracking Policy automatically configures the CloudWatch alarms for scale-out and scale-in events. A high alarm triggers a scale-out event, and a low alarm triggers a scale-in event.
+- **Composite Alarm**: Includes a rule expression that considers the status of other alarms you created. The composite alarm goes into an Alarm state if all the rule conditions are met. The rule expression can include metric alarms or other composite alarms.
+
+The AWS CloudWatch Logs service allows you to monitor, store, and access logs from Amazon EC2 instances and other systems, applications, and AWS services in a centralized way. The CloudWatch Logs service presents all your logs from any source as a single and consistent flow of events sorted by date and time. This makes it easy to view logs, search logs for specific error codes or patterns, filter logs based on specific fields, and archive logs securely for future analysis.
+
+You can also query your logs with a powerful query language, audit and mask sensitive information in logs, and use filters or an embedded log format to generate metrics from logs. For more information, refer to the [AWS product documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html).
+
+This EC2 service generates events based on state changes, such as the termination of a VM. Amazon EventBridge listens for the events and routes them from sources to targets based on predefined rules. For example, the EC2 Lifecycle Termination rule sends a termination event to the Lambda function that handles lifecycle termination.
 
 ## Scale-Out and Scale-In
 
-Each Cloud Connector independently posts data plane CPU utilization metrics at one-minute intervals to GCP Cloud Monitoring as a user-defined metric. The MIG autoscaling policy uses the aggregate CPU utilization value across all VMs in the instance group to determine whether a scale-in or scale-out event should happen based on a target percentage value.
+Each Cloud Connector independently reports custom CPU utilization metrics to Amazon CloudWatch at one-minute intervals to advertise the load it is handling. AWS autoscaling uses the aggregate CPU utilization of all VMs in the autoscaling group to determine when to trigger scale-out and scale-in events and how aggressively to do so.
 
-Auto Scaling uses custom CPU utilization metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage. In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
+Autoscaling uses custom CPU metrics instead of VM-level metrics because custom metrics provide more detailed and precise information about CPU usage.
 
 - Scaling Policy
-- Cooldown Period
+- Cooldown Period and Tolerance
+- Capacity and Sizing
 - Examples
 
-The scaling policy manages scale-out and scale-in events using the following variables:
+A Target Tracking Scaling Policy, which is a type of Dynamic Scaling Policy, manages scale-out and scale-in events. The policy defines when to increase or decrease the *desired capacity* of the group based on the aggregate custom CPU utilization metric for all VMs in the group and a target value defined in the policy. The policy defines what action to take when an Alarm-level CloudWatch alarm is triggered. You can view the policy on the details page for the autoscaling group in the EC2 Portal.
 
-- **Target value**: By default, the target value is 80% aggregate CPU utilization across all VMs in the instance group over a period of two to three minutes. Autoscaling maintains CPU utilization as close to the target value as possible without exceeding it.
-- **Instance group size**: When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the aggregate CPU utilization metric closer to the target value. By default, the maximum size of an instance group is 10 VMs and the minimum size is one VM. (The maximum cannot exceed the [Cloud Connector group limit of 16 VMs per group](https://help.zscaler.com/unified/ranges-limitations).)
+The Target Tracking Policy has a default target value of 80%. The policy automatically configures the CloudWatch alarms for scale-out and scale-in events:
 
-You can view the policy in the instance group details in the Google Cloud console.
+- **Scale-Out**: A scale-out event is triggered automatically if the aggregate CPU utilization is more than 80% for 180 seconds (three minutes).
+- **Scale-In**: A scale-in event is triggered automatically if the aggregate CPU utilization is less than 80% for 900 seconds (15 minutes).
 
-While your VMs are initializing, the utilization metric might not reflect normal conditions. As a safeguard, autoscaling provides a cooldown (or initialization) period, which is the number of seconds between scaling actions.
+In logs and reports, the CPU utilization metric is displayed as `smedge_cpu_utilization`.
 
-- For scale-in events, autoscaling takes into account utilization data from all VMs, even those that are still in the cooldown period.
-- For scale-out events, autoscaling ignores utilization data from VMs that are still in the cooldown period.
+Target Tracking provides the following safeguards:
 
-By default, the initialization period is 900 seconds (15 minutes).
+- **Cooldown Period:** When a scale-out or scale-in event occurs, autoscaling automatically applies a cooldown period, during which it ignores new metric changes to give the system time to stabilize. By default, the cooldown period is 300 seconds (5 minutes).
+- **Tolerance Level**: Autoscaling adds *error bands* around the target level. This margin prevents small fluctuations from triggering scale-out or scale-in actions. For example, with the 80% target level, autoscaling does not act immediately when the metric reaches 80.1% or 79.9%.
 
-The following examples demonstrate how scaling events affect the size of an instance group with a minimum size of two, a maximum size of 5, and the default target value (80%):
+During deployment, you configure the maximum size, minimum size, and desired capacity for an autoscaling group. When a scaling event happens, autoscaling automatically determines the number of VMs to add or remove to bring the metric closer to the target value. The autoscaling group adjusts the desired capacity based on that target level.
 
-**Scale-Out**: Because the minimum instance group size is two, at least two VMs must always be running.
+The desired capacity cannot exceed the maximum size or fall below the minimum size defined for the group. For example, suppose the desired capacity is two VMs, the minimum size is one, and the maximum size is 10. Eight scale-out events bring the desired capacity to the maximum size of 10 VMs. Scale-out actions stop. If another spike occurs, traffic responses could be delayed or random traffic could be dropped.
 
-- No scaling event happens in normal conditions with two VMs running at 60% aggregate CPU utilization.
-- If the aggregate CPU utilization exceeds 80%, a scale-out event happens, bringing the number of VMs in the instance group to three.
-- After the cooldown period, if the aggregated CPU utilization still exceeds 80%, another scale-out event adds one more VM to the instance group, bringing the number of VMs to 4. This continues after the cooldown period ends until the average is less than 80%.
+The following examples show how an autoscaling group with a Target Tracking Policy can change the desired capacity of an autoscaling group:
 
-**Scale-In**: GCP autoscaling uses its own logic to determine what to do when the aggregate CPU utilization is less than 80%:
+- **Initial State (3 VMs)**
+  1. The VMs report CPU utilizations of 80%, 90%, and 85%, so the aggregate CPU utilization is 85%.
+  2. Because the aggregate is slightly above the 80% target, the system waits through the cooldown period to see whether the condition persists.
+  3. The condition persists for a few minutes after the cooldown period ends, so a scale-out action is triggered, increasing the desired capacity to 4 VMs.
+- **State After Scale-Out (4 VMs)**
+  1. The VMs report CPU utilizations of 50%, 40%, 25%, and 35%, so the aggregate CPU utilization is 37.5%.
+  2. The aggregate is well below the 80% target, but autoscaling does not immediately scale in. Instead, it waits through the cooldown period and checks whether the low utilization remains consistent and significantly below target.
+  3. If the low utilization is confirmed, a scale-in event reduces the desired capacity back to 3 VMs.
+- **Stable State (2 VMs)**
+  1. The VMs report CPU utilizations of 65% and 55%, so the aggregate CPU utilization is 60%.
+  2. Although the aggregate is below the 80% target, it is close enough that autoscaling considers the system stable.
+  3. No scale-out or scale-in action is triggered, because this level of utilization efficiently uses the current capacity.
 
-- Wait because the value is too close to 80% or has not been under 80% long enough.
-- Trigger a scale-in event because, based on the time sample and the individual CPU utilization of each VM, removing one VM will meet the following criteria:
-  - The number of VMs will be at or above the minimum target group size.
-  - The average fluctuation for the remaining VM will likely remain below the target CPU utilization value.
+## Health Monitoring
 
-## Cloud Connector Health Monitoring
+Autoscaling uses health checks to determine the status of a VM in the InService state.
 
-Health monitoring includes the following entities:
+- Health Checks
+- Grace Period
 
-- **Custom Metric Publishing**: Each Cloud Connector publishes a VM-level custom metric at one-minute intervals. This metric value is either 0 for an unhealthy VM or 100 for a healthy VM. Custom metrics also include dataplane CPU utilization metrics published at one-minute intervals, described in the previous section.
-- **Health Monitoring**: The Health Monitor function consumes the health metric at one-minute intervals and initiates the termination of a VM that it determines is unhealthy. It uses two criteria to determine whether to terminate the VM: Recent Health Data; Missing Metrics Unhealthy VMs are terminated in iterations. By default, in a single iteration, 16 VMs can be terminated. After a VM is terminated, it is replaced immediately.
+- Amazon EC2 Status Checks evaluate whether the VM is running and look for underlying hardware or software issues that might compromise the VM. Autoscaling performs these status checks at one-minute intervals. If all checks pass, the overall status of the VM is **OK**. If one or more checks fail, the overall status is **Impaired**.
+- Custom Health Checks expand the scope of health monitoring.Each Cloud Connector posts an individual custom health metric at one-minute intervals to the `Zscaler/Cloud Connectors` custom namespace in CloudWatch. The custom metric value is 0 for an unhealthy VM or 100 for a healthy VM. The Lambda function evaluates recent health data using sliding window logic with the following configurable environment variables: If either the 5- or 7-minute threshold is crossed, the VM is determined to be unhealthy.
+  - The size of the sliding window. The default value is 10 consecutive minutes.
+  - The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
+  - The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
 
-The Health Monitor function evaluates recent health data using sliding window logic with the following configurable environment variables:
+In logs and reports, the custom health metric is displayed as `cloud_connector_aggr_health`.
 
-- The size of the sliding window. The default is 10 consecutive minutes.
-- The amount of time the VM was in an unhealthy state. The default value for defining a VM as unhealthy is 5 consecutive minutes.
-- The tolerance for flapping values in the sliding window. The default value is 7 unhealthy counts in 10 consecutive minutes.
+A new Cloud Connector has a specific amount of time after it is in service before AWS autoscaling checks its health status. This gives the VM time to boot up and become healthy before autoscaling can determine it to be unhealthy and terminate it. This amount of time is called a grace period. By default, the grace period is 900 seconds (15 minutes). If the VM is healthy after the grace period ends, it remains in service. Otherwise, autoscaling makes an API call to remove the VM from the Zscaler Admin Console and it is then terminated.
 
-The Health Monitor function uses the following configurable environment variables to handle scenarios in which a running VM does not post metrics:
+## Lifecycle Management
 
-- If the VM does not report metrics for two minutes, the function generates a warning log.
-- If the VM does not report metrics for 5 minutes, the function generates a critical log.
-- If the VM does not report metrics for 10 minutes, the function generates a termination log and starts the process of deleting the VM.
+- Warm Pool
+- Lifecycle Hooks
 
-In logs and reports, the health metric is displayed as `cloud_connector_aggr_health`.
+A warm pool contains pre-initialized VMs that are ready to start handling traffic. This reduces latency caused by situations such as long boot times. When a scale-out event happens, the autoscaling group draws from its warm pool to meet the new desired capacity. VMs that leave the warm pool count toward the desired capacity of the group. This process is called a warm start.
+
+The VMs in the warm pool are in either the **Stopped**or **Running**state, based on your selection during deployment. Keeping the VMs in a **Stopped**state saves on cost, because you only pay for VMs that are running. In the Zscaler Admin Console, stopped VMs are shown as inactive (red).
+
+- Warm Pool Sizing Options
+- Warm Pool Reuse Policy
+
+The following warm pool sizing options are available:
+
+- By default, the size of a warm pool is dynamic, being calculated as the difference between the autoscaling group's maximum capacity and its desired capacity. For example, if the desired capacity of your autoscaling group is 5 and the maximum capacity is 8, the initial size of the warm pool is 3.
+- During deployment, you can use the `MaxGroupPreparedCapacity` option to specify a custom value that is greater than the current capacity for the group. In this case, the warm pool size is the difference between the custom value and the desired capacity of the group. For example, if the desired capacity of your autoscaling group is 6, the maximum capacity is 18, and the custom value is 8, the size of the warm pool is 2. This option is useful for managing the cost-effectiveness of warm pools for large autoscaling groups.
+- To set the warm pool size to a static value, set a warm pool minimum size during deployment. This ensures that a certain number of warmed VMs are always available to handle traffic. No minimum size is set by default.
+
+By default, when a scale-in event happens, AWS autoscaling terminates a VM and then launches a new VM into the warm pool to replace it. You can instead enable the reuse policy during deployment. The reuse policy returns VMs that are already configured and able to handle traffic to the warm pool.
+
+An autoscaling group takes custom actions to keep a VM in a wait state due to a lifecycle hook. There are two types of lifecycle hooks available for VMs in autoscaling groups:
+
+- **Launch Lifecycle Hook**:Triggered when a new VM in an autoscaling group is about to be launched. The custom actions perform any necessary initialization or configuration steps before the VM goes into service.
+- **Termination Lifecycle Hook**: Triggered when a VM in an autoscaling group is about to be terminated. The custom actions perform any necessary cleanup or data backup steps before the VM is terminated.
+
+The lifecycle depends on whether the VM is active or in a warm pool.
+
+- Active VM Lifecycle
+- Warm VM Lifecycle
+
+The following sections describe the lifecycle of an active VM during its launch and termination.
+
+- Launch Lifecycle
+- Termination Lifecycle
+
+Autoscaling launches a VM into an autoscaling group in response to any of the following events:
+
+- An increase in demand triggers a scale-out action.
+- An unhealthy VM is terminated and needs replacing.
+- You manually increase the size of the group.
+
+The launch lifecycle proceeds as follows:
+
+1. The autoscaling group starts to launch the VM and puts it into the **Pending**state.
+2. The launch lifecycle hook puts the VM in the **Pending:Wait** state and performs the custom actions associated with the hook, including registering the VM and reporting that the VM is healthy. The VM remains in that state for 30 minutes (the Zscaler default value). If it completes the custom actions before 30 minutes elapse, the autoscaling group continues the launch process.
+3. The VM enters the **Pending:Proceed** state.
+4. The autoscaling group moves the VM into the **InService**state.
+
+Autoscaling terminates a VM in response to any of the following events:
+
+- A decrease in demand triggers a scale-in action.
+- Lambda determines that a VM is unhealthy.
+- You manually decrease the size of the group.
+
+The termination lifecycle proceeds as follows:
+
+1. The autoscaling group starts to terminate the VM and puts it into the **Terminating**state.
+2. The termination lifecycle hook puts the VM into the **Terminating:Wait** state and performs the custom actions associated with the hook. These actions include making an API call to remove the VM from the Cloud Connector Group in the Zscaler Admin Console and notifying the autoscaling group that the VM is ready to be terminated. The VM remains in that state for 15 minutes (the Zscaler default value). If the custom actions complete before 15 minutes elapse, the autoscaling group continues the termination process.
+3. When the autoscaling group receives the notification from the lifecycle hook that the custom actions are complete, it moves the VM into the **Terminating:Proceed** state.
+4. The autoscaling group moves the VM into the **Terminated** state.
+
+You can use lifecycle hooks with warm pools. Reasons for using them include ensuring there is enough time for VMs entering the warm pool to initialize and for VMs leaving the warm pool to become ready to handle traffic.
+
+The lifecycle of a VM in a warm pool is as follows:
+
+This description applies to warm pools where VMs are configured to be in a **Stopped**state. If VMs are configured to be in a **Running**state, the state is **Warmed:Running** instead of **Warmed:Stopped**.
+
+1. The new VM in the warm pool starts up and enters the **Warmed:Pending** state.
+2. After the VM enters the **Warmed:Pending:Wait** state, it pauses to perform a custom action.
+3. The VM waits for the custom action to complete before the VM stops and enters the **Warmed:Stopped** state.
+4. A launch event such as a scale-out action occurs.
+5. After the VM reaches the **Pending:Wait** state, it pauses to perform a custom action.
+6. When the custom action completes, the VM restarts and enters the **InService** state.
+
+If traffic is high enough to deplete the warm pool, the autoscaling group can launch a VM directly into itself, if the group is not at its maximum capacity. If the autoscaling group launches a VM directly, the VM pauses only to perform a custom action when it enters the **Pending:Wait** state.
 
 ## Viewing Metrics and Logs
 
-- Instance Group Details
-- Cloud Connector VM Details
+- Autoscaling group details
+- Activity History
+- CloudWatch Metrics
+- CloudWatch Logs
+- Zscaler Admin Console
 
-The details page for an instance group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
+The details page for an autoscaling group contains comprehensive information about the group, such as the capacity overview, configuration settings, scaling policy, instance management, activity history, metrics, and so on.
 
-To view the instance group details:
+To view autoscaling group details:
 
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details. The **Overview**tab opens. See image.
-4. Click the **Details**tab to review the instance status, template, configuration, location, group size, and autoscaling policy. See image.
-5. Click the **Monitoring** tab to review instance group metrics over a period of time. See image.
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
+2. In the navigation pane, click **Auto Scaling Groups**.
+3. Select the autoscaling group for which you want to view activity.
 
-To view details about a VM in the instance group:
+See image.
 
-1. Open the Google Cloud console.
-2. In the navigation pane, click **Instance Groups**.
-3. Select the instance group for which you want to view details.
-4. On the **Overview**tab, in the **VM instances** section, click an instance in the **Name** column.
-5. Click **Observability** to monitor VM health, behavior, and performance. See image.
+[Image: Capacity overview section in the Amazon EC2 Console showing sections for Desired capacity, Scaling limits, Desired capacity type, and Status. Below this section, the Details, Integrations, Automatic scaling, Instance management, Instance refresh, Activity, and Monitoring tabs provide additional details.]
 
-## Access to GCP Resources
+You can see the current status of a scaling action that is in progress and whether it was successful.
 
-Service accounts provide secure access to Google Cloud resources. Three service accounts are required in a GCP autoscaling deployment:
+To view activity history:
 
-- Deployment Service Account
-- Cloud Connector VM Service Account
-- Cloud Function Service Account
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
+2. In the navigation pane, click **Auto Scaling Groups**.
+3. Select the autoscaling group for which you want to view activity.
+4. On the details page for the autoscaling group, click the **Activity**tab.
+5. Scroll to the **Activity history** section.
 
-This service account allows Terraform to run during deployment. It needs the following roles:
+You can view autoscaling group metrics in the Amazon EC2 Console and the CloudWatch console.
 
-- Compute Instance Admin (v1)
-- Compute Network Admin
-- Compute Security Admin
-- Service Account Admin
-- Service Account User
-- Secret Manager Admin
-- Project IAM Admin
-- DNS Administrator (optional)
-- Cloud Functions Admin (Autoscaling only)
-- Cloud Scheduler Admin (Autoscaling only)
-- Storage Admin (Autoscaling only)
+To view the metrics from the details page of an autoscaling group:
 
-This service account also needs the following APIs enabled:
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/).
+2. In the navigation pane, click **Auto Scaling Groups**.
+3. Select the autoscaling group for which you want to view metrics.
+4. On the autoscaling group details page, click the **Monitoring**tab.
+5. (Optional) If you want to see monitoring graphs of aggregated VM metrics for the group, click the **EC2**tab.
 
-- Compute Engine API
-- Cloud DNS API
-- Cloud Resource Manager API
-- Identity and Access Management (IAM) API
-- Secret Manager API
-- Autoscaling deployments only:
-  - Cloud Functions API
-  - Cloud Scheduler API
-  - Cloud Monitoring API
-  - Cloud Logging API
-  - Cloud Build API
+See image.
 
-This service account allows Cloud Connectors to access secret credentials. It needs the following roles:
+[Image: Viewing Auto Scaling group metrics from the Amazon EC2 Console]
 
-- Monitoring Metric Writer
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKeys.get,
-    - iam.serviceAccounts.signJwt
+To view metrics on the CloudWatch dashboard:
 
-This service account allows the Cloud Run Functions (Health Monitor and Resource Sync) to make API calls to perform operations such as reading metrics, terminating VMs, and replacing VMs. It needs the following roles:
+1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/).
+2. Do one of the following:
+  - Go to **Dashboards**> **Custom dashboards** > <Your Dashboard>.
+  - Go to **Dashboards**> **Automatic dashboards** > **AutoScaling**.
 
-- Compute Instance Admin (v1)
-- Monitoring Viewer
-- Logs Writer
-- Cloud Run Invoker
-- One of the following roles, depending on the method you use to manage and store your secret credentials:
-  - Secret Manager Secret Accessor (for GCP Secret Manager)
-  - Service Account Token Creator (for HashiCorp Vault) with the following permissions assigned to it:
-    - compute.instanceGroups.list
-    - compute.instances.get
-    - iam.serviceAccounts.get
-    - iam.serviceAccountKays.get
-    - iam.serviceAccounts.sign.Jwt
+See image.
 
-For information about creating service accounts and assigning roles, see [Deploying Zscaler Cloud Connector on the Google Cloud Platform](https://help.zscaler.com/tech-pubs-drafts/deploying-zscaler-cloud-connector-google-cloud-platform-draft-doc-57264).
+[Image: Viewing Auto Scaling metrics from the CloudWatch Dashboard]
 
-[Image: Cloud Connector instance group Overview tab, showing status and other details, and the VM instances in the group]
+Lambda writes logs to Amazon CloudWatch in a designated log group that contains log streams for each invocation of the Lambda function.
 
-[Image: Cloud Connector instance group Details tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
+To view the logs:
 
-[Image: Cloud Connector instance group Monitoring tab, where you can view the group size and CPU utilization over a period of time]
+1. In the Lambda console, open the **Functions**page.
+2. Locate and then select the Lambda function.
+3. Click the **Monitor**tab and scroll to the **CloudWatch Logs** section.
 
-[Image: Cloud Connector instance Observability tab, where you can view the CPU utilization, memory utilization, network traffic, disk space utilization, new connections, and disk throughputDetails tab, where you can view status, the instance template, configuration, and location, the group size, and autoscaling parameters]
+See image.
+
+[Image: Tables in the Lambda console listing invocations, with columns for #, Timestamp, Request ID, Log Stream, Billed duration, and Memory.]
+
+By default, CloudWatch retains the logs for three days. You can change the retention period via the **Actions**menu on the Log groups page in the CloudWatch console.
+
+The autoscaling group name and instance IDs in the Amazon EC2 Console map to the Cloud Connector Group name and VM names in the Zscaler Admin Console. You can view the status of each VM in the Zscaler Admin Console.
+
+To view the status:
+
+1. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Groups.** The value of the **Auto Scaling** column is **true**if the Cloud Connector Group maps to an AWS autoscaling group.
+2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Cloud Connector Overview**and scroll to the **Geo View** section. Active VMs in the group are displayed in green. Inactive VMs in the group are displayed in orange. You can watch the status of the VMs change as they are added to or removed from an autoscaling group. Click a VM to see its details. See image. [Image: The Geo View section of the Monitoring page in the Admin Portal, where inactive VMs are red and active VMs are green. This gives a visual display of VMs in an Auto Scaling group as their status changes due to Auto Scaling events. A pop-up window shows details about a VM whose image is hovered over.]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-repository-certificate-expiry-and-renewal","lastmod":"2026-11-01T23:53Z","nid":"1546120"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-cloud-connector-repository-certificate-expiry-and-renewal","lastmod":"2026-11-20T08:41Z","nid":"1546120"} -->
 ## Understanding Cloud Connector Repository Certificate Expiry and Renewal
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-cloud-connector-repository-certificate-expiry-and-renewal
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Troubleshooting > Understanding Cloud Connector Repository Certificate Expiry and Renewal
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-20T08:41Z
 - Summary: Information on Cloud Connector repository certificate expiry and renewal.
 
 This article provides troubleshooting information and guidelines about the TLS server certificate for Cloud Connector expiration of the software update repository (`pkg-repo.zscaler.com`). When this certificate is renewed, the repository uses a new DigiCert G2 certificate chain. To learn more, see [End-of-Support for Cloud Connector Repository Certificate](https://help.zscaler.com/product-usage-terms/end-support-cloud-connector-repository-certificate).
@@ -3490,6 +3495,8 @@ For new Cloud Connector deployments, Zscaler-provided Infrastructure as Code (Ia
 - Google Cloud Platform (GCP): Use image version zs-cc-ga-03092026 or later.
 
 For autoscaling group (ASG) deployments, you must update your launch/instance template to reference the new marketplace image. If you do not update your launch/instance template, new instances cannot connect to the software update repository.
+
+If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 To determine whether you are impacted:
 
@@ -3638,13 +3645,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-disaster-recovery","lastmod":"2026-11-05T11:54Z","nid":"1539697"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-disaster-recovery","lastmod":"2026-11-17T14:44Z","nid":"1539697"} -->
 ## Understanding Disaster Recovery
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-disaster-recovery
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Global Profiles > Understanding Disaster Recovery
-- Last modified: 2026-11-05T11:54Z
+- Last modified: 2026-11-17T14:44Z
 - Summary: Overview information on Disaster Recovery (DR) Gateways with respect to BCC and Global Profiles in Zscaler Admin Console.
 
 The Disaster Recovery (DR) solution is built around two primary, independent operational pillars designed to address different disaster scenarios:
@@ -3678,13 +3685,13 @@ The following list describes the approach for recovering from control plane and 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-high-availability-and-failover","lastmod":"2026-11-11T10:31Z","nid":"1455436"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/understanding-high-availability-and-failover","lastmod":"2026-11-17T11:43Z","nid":"1455436"} -->
 ## Understanding High Availability and Failover
 
 - Source: https://help.zscaler.com/zero-trust-cloud/understanding-high-availability-and-failover
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Understanding High Availability and Failover
-- Last modified: 2026-11-11T10:31Z
+- Last modified: 2026-11-17T11:43Z
 - Summary: Information on High Availability and Failover for Zscaler Cloud Connector.
 
 High Availability (HA) is critical to ensure continued secure access to applications for workloads routing through Zscaler Cloud Connector. The various areas to consider when deploying are, but not limited to:
@@ -4478,7 +4485,7 @@ The following list describes what each process is used for:
 
 - Source: https://help.zscaler.com/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2024
 - Product: Zero Trust Cloud
-- Path: Zero Trust Cloud Help > Release Notes > Zero Trust Cloud VDI Release Notes (per OS) > Zscaler Client Connector for VDI Release Summary (2024)
+- Path: Zero Trust Cloud Help > Release Notes > Zscaler Client Connector for VDI Release Notes > Zscaler Client Connector for VDI Release Summary (2024)
 - Last modified: 2026-11-01T23:53Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2024 on Zscaler Cloud & Branch Connector.
 
@@ -4501,13 +4508,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-12T13:16Z","nid":"1534300"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026","lastmod":"2026-11-20T09:15Z","nid":"1534300"} -->
 ## Zscaler Client Connector for VDI Release Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-cloud/zscaler-client-connector-vdi-release-summary-2026
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Release Notes > Zscaler Client Connector for VDI Release Notes > Zscaler Client Connector for VDI Release Summary (2026)
-- Last modified: 2026-11-12T13:16Z
+- Last modified: 2026-11-20T09:15Z
 - Summary: Zscaler Client Connector for VDI release summary for updates deployed, per OS and version, in 2026 on Zscaler Cloud & Branch Connector.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Client Connector for VDI on Zscaler Cloud & Branch Connector.

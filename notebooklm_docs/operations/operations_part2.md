@@ -1,18 +1,18 @@
 # Zscaler Help — Deployment / Operations / Terms (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 60
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 61
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-15T06:06Z","nid":"1420341"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-incidents","lastmod":"2026-11-22T06:06Z","nid":"1420341"} -->
 ## Managing Incidents
 
 - Source: https://help.zscaler.com/workflow-automation/managing-incidents
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Managing Incidents
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information about the Incidents page in the Zscaler Admin Console.
 
 The Incidents page in Workflow Automation captures and displays a list of the transactions that have violated the Data Protection policies (Inline DLP, Endpoint DLP, Email DLP, and SaaS Security DLP) that your organization has configured in the Zscaler Admin Console. Each such recorded transaction is known as an incident. This page enables you to review and remediate Data Loss Prevention (DLP) incidents.
@@ -52,7 +52,10 @@ On the Incidents page (Data Security > Workflow Automation > Incidents), you can
   - **Response Available**: Displays the number of incidents where a user has provided a response from a user notification, or where a manager or approver has provided a response from an escalation notification (i.e., incidents with the status **Received Justification Response**).
 9. Perform actions against one or more incidents available on a single page or bulk actions against all incidents available across different pages.
 10. Search for an incident by **All** or **Transaction ID**. The search only shows results that match the search string.
-  - **All**: This option allows you to enter free-form text that can match multiple incidents. This search is not case sensitive. You can search for incidents associated with a URL by entering a complete URL (e.g., https://www.jumpshare.com/https-post) or the complete host name (e.g., www.jumpshare.com) for a URL. You can also enter multiple strings within a single text string. If you enter multiple strings within a text string, each string is treated with an AND operation. For example, if you enter `Microsoft Office` as the text string, all incidents containing both Microsoft and Office are returned with this search, such as Microsoft Office, Microsoft Office 365, and Office 365 Microsoft. This search does not return incidents containing only Microsoft or Office. If you choose user attributes for obfuscation, you cannot search for incidents using these obfuscated user attributes. In addition, there might be times when you perform a free-form text search for incidents and some of the incidents might not display in the search results due to the obfuscation settings. A notification message appears at the top of the incidents table to inform you of this situation. See image. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **All**: This option allows you to enter free-form text that can match multiple incidents. This search is not case-sensitive, and you can: If you choose user attributes for obfuscation, you cannot search for incidents using these obfuscated user attributes. In addition, there might be times when you perform a free-form text search for incidents and some of the incidents might not display in the search results due to the obfuscation settings. A notification message appears at the top of the incidents table to inform you of this situation. See image. To learn more about obfuscation settings, see [Managing Account Settings](https://help.zscaler.com/workflow-automation/managing-account-settings) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+    - Search using partial or complete incident attribute values that are associated with text-based attributes (e.g., Destination and File Source Location).
+    - Search for incidents associated with a URL by entering a complete or partial URL (e.g., https://www.jumpshare.com/https-post), www.jumpshare.com, or jumpshare).
+    - Enter multiple strings within a single text string. If you enter multiple strings within a text string, each string is treated with an AND operation. For example, if you enter `Microsoft Office` as the text string, all incidents containing both Microsoft and Office are returned with this search, such as Microsoft Office, Microsoft Office 365, and Office 365 Microsoft. This search does not return incidents containing only Microsoft or Office.
   - **Transaction ID**: This option allows you to search for one or more incidents by their transaction IDs. To search for multiple incidents, enter the transaction IDs separated by a comma. You can search for up to 10 incidents. You can also search for an incident using its duplicate transaction ID. The search result provides the actual transaction ID of the incident. To learn more about duplicated incidents, see [Viewing & Managing Incident Details](https://help.zscaler.com/workflow-automation/viewing-managing-incident-details#Duplicate-Incidents).
 11. View a list of incidents that have occurred in your organization. For each incident, you can view:
   - **Transaction ID**: The transaction ID for the incident. If duplicate incidents exist for an incident, this column also displays the total count of the duplicate incidents next to the transaction ID. To learn more, see [Understanding Duplicate Incidents in Workflow Automation](https://help.zscaler.com/workflow-automation/understanding-duplicate-incidents-workflow-automation).
@@ -816,6 +819,54 @@ To view incident group priorities:
 [Image: Adding a priority to an incident group on the Priorities page in the Zscaler Admin Console]
 
 [Image: Viewing incident groups and their assigned priorities on the Priorities page in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers","lastmod":"2026-11-19T01:34Z","nid":"1546081"} -->
+## Managing Privacy Settings for End Users, Managers, and Approvers
+
+- Source: https://help.zscaler.com/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers
+- Product: Workflow Automation
+- Path: Workflow Automation Help > Workflow Automation for Data Protection > Alerts and Settings > Managing Privacy Settings for End Users, Managers, and Approvers
+- Last modified: 2026-11-19T01:34Z
+- Summary: How to manage privacy settings for end users, managers, and approvers in Workflow Automation.
+
+On the Privacy Settings page, you can override the privacy settings for the different data types for the end users, as well as the managers and approvers that were set during the configuration of all the DLP application integrations for your organization. These privacy settings control which types of incident data are visible to the end users, managers, and approvers when they are responding to end user notifications or escalation notifications they receive for an incident. If you override the privacy settings, the system uses these privacy settings to determine the types of incident data that are visible for the incidents, and it ignores the privacy settings configured for the data types for all the DLP application integrations for your organization.
+
+To learn more about configuring privacy settings for the different data types for the DLP application integrations, see [Configuring the DLP Application Integration Using Amazon Web Services](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-amazon-web-services), [Configuring the DLP Application Using Azure](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-azure), and [Configuring the DLP Application Using Google Cloud Platform](https://help.zscaler.com/workflow-automation/configuring-dlp-application-integration-using-google-cloud-platform).
+
+## Overriding Privacy Settings
+
+To override privacy settings:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation**> **Privacy Settings**. The **Privacy Settings** page appears, displaying the different data types (**Evidence Data**, **Trigger Data**, **Policy Details**, and **Policy Details - Non-Triggered Matches**) without any privacy settings configured for those data types for the end user, or the manager and approver. See image.
+2. Click the **Override** link at the top of the page. The **Override Data Privacy Settings** dialog window appears, displaying a message that states that changing this setting overrides integration-level data privacy, allowing both global and granular data access definition, and asking whether you want to continue.
+3. Click **Yes**.
+4. Select the privacy settings for all the different data types that are displayed for the end user and the manager and approver by selecting one of the following options: You cannot select the privacy settings for the **Policy Details - Non-Triggered Matches**data type, unless the privacy setting for the **Policy Details** data type is set to **Show** or **Custom**. See image. If you do not configure a privacy setting for a data type, the system uses the DLP application integration setting by default for that data type.
+  - **Show**: The data is visible to the selected type of user role (e.g., end user or manager and approver).
+  - **Hide**: The data is hidden from the selected type of user.
+  - **Custom**: The data is visible to the selected type of user only for incidents that belong to one or more of the incident groups you configure on this page. For incidents that contain incident groups that are not configured on this page, the data is hidden. To configure the custom setting:
+    1. Select **Custom**. An incident group field appears.
+    2. From the incident group drop-down menu, select one or more incident groups. All the incident groups that exist on the [Incident Group](https://help.zscaler.com/workflow-automation/managing-incident-groups) page are available for selection. See image.
+
+## Resetting Privacy Settings
+
+If you have previously overridden the privacy settings, you can choose to reset the privacy settings back to the DLP application integrations privacy settings.
+
+To reset privacy settings:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Workflow Automation**> **Privacy Settings**. The **Privacy Settings** page appears, displaying the overridden privacy settings for the different data types (i.e., **Evidence Data**, **Trigger Data**, **Policy Details**, and **Policy Details - Non-Triggered Matches**) for the end user, and the manager and approver. See image.
+2. Click the **Reset** link at the top of the page. The **Reset Settings?** dialog window appears, displaying a message that states that resetting will restore settings to their original integration-level defaults, and asking whether you want to continue. The **Reset** link is only available on the page if you have previously overridden the DLP application integration privacy settings.
+3. Click **Yes**. The privacy settings for the different data types are reset. The **Privacy Settings** page reappears, with no privacy settings configured for any of the data types.
+
+[Image: Viewing the Privacy Settings page before any privacy settings have been overridden for the different data types. No privacy settings are selected for any of the data types.]
+
+[Image: Viewing the Privacy Settings page with the Evidence Data data type set to custom for the end user. The privacy settings fields are highlighted. The Custom setting appears in blue and the incident groups are displayed.]
+
+[Image: Viewing the Privacy Settings page with all the different privacy settings configured for the different data types. A few of the privacy settings are set to Hide, a few are set to Show, and a few are set to Custom.]
+
+[Image: Viewing the Privacy Settings page with all the different privacy settings configured for the different data types]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2135,13 +2186,13 @@ To learn more about adding workflows, see [Managing Workflows](https://help.zsca
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-09-17T06:22Z","nid":"1455941"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/managing-workflows","lastmod":"2026-11-19T01:31Z","nid":"1455941"} -->
 ## Managing Workflows
 
 - Source: https://help.zscaler.com/workflow-automation/managing-workflows
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Workflows > Managing Workflows
-- Last modified: 2026-09-17T06:22Z
+- Last modified: 2026-11-19T01:31Z
 - Summary: How to manage predefined and custom workflows in Workflow Automation.
 
 Workflows enable remediation actions to be performed against an incident that occurs in your organization without manual user intervention. You can add a predefined workflow in Workflow Automation based on a workflow template that specifies one or more actions and the order in which those actions are to be performed against an incident, or you can add a custom workflow where you choose and configure the different steps and actions required for the workflow without using a template. In either case, you must then map the workflow to one or more of the attributes available on an incident transaction. Then, when an incident occurs in your organization that contains those attributes, the workflow automatically triggers those actions specified in the workflow.
@@ -2362,21 +2413,23 @@ To add a custom workflow:
 
 To add a Notify tile for a user notification:
 
-1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** Rich Text Editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** Rich Text Editor appears on the right side of the page where you can configure the options for the tile.
+1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** rich text editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** rich text editor appears on the right side of the page where you can configure the options for the tile.
 2. In the **Configure Notify Node** window, select the tile configuration settings: See image.
-  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which policy context(s) would you like to configure?
+  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which action context would you like to configure?
   2. For the next question that appears, click **Notify**. Question: Would you like to notify the end user or escalate?
-  3. For the next question that appears, click one of the buttons to select the channel (**Email**, **Slack**, or **Teams**) by which the user receives the notification. Question: How do you want to notify the user?
+  3. For the next question that appears, select the checkbox next to one or more of the channels (**Email**, **Slack**, or **Teams**) by which the user receives the notification and then click **Continue**. Question: How do you want to notify the user?
   4. (Optional) For the next question that appears, enter the number of days, hours, and minutes that the workflow waits to receive a response from the user. If you don't enter a wait time, the workflow immediately performs the action without waiting. Question: Would you like to set a wait time for a response? (Optional)
   5. Click **Continue**. A summary of the configuration settings you selected appears in the window along with the next question.
   6. For the next question that appears, click **Confirm.** Question: Would you like to confirm this configuration?
-  7. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** Rich Text Editor appears on the right side of the page. The configuration settings you selected appear in the Rich Text Editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
-3. In the **Notify** Rich Text Editor, configure the remaining configuration settings: See image.
+  7. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** rich text editor appears on the right side of the page. The configuration settings you selected appear in the rich text editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
+3. In the **Notify** rich text editor, configure the remaining configuration settings: See image.
   - **Action Context**: (Optional) From the drop-down menu, if you want the user to be able to approve or reject a policy exception from the user notification, select **Policy Exception**. The **Policy Exception** action context is not allowed for a user notification tile unless it is preceded by a Policy Exception tile. To learn more, see Adding Policy Exception Tiles.
-  - **Notification Template**: (Optional) From the drop-down menu, select the notification template for the user notification. After you select the notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a notification template, the system uses the system default notification template for the notification channel you selected.
-  - **Notification Language**: From the drop-down menu, select the language in which the user receives the user notification.
-  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Survey Template**: (Optional) From the drop-down menu, select the survey template for the user notification. After you select the survey template, the **Survey Language** field appears. If you don't require a user response, do not select a survey template. Even if you do not select a survey template, the user notification still contains the content for the system default survey template. If the user wants, they can provide a justification for the incident, but the workflow doesn't depend on it.
+  - **Email Notification Template**: (Optional) If you selected **Email** for the notification channel, from the drop-down menu, select the email notification template for the user notification. This field only appears if you select **Email** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select an email notification template, the system uses the default notification template.
+  - **Slack Notification Template**: (Optional) If you selected **Slack** for the notification channel, from the drop-down menu, select the Slack notification template for the user notification. This field only appears if you select **Slack** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Slack notification template, the system uses the default notification template.
+  - **Teams Notification Template**: (Optional) If you selected **Teams** for the notification channel, from the drop-down menu, select the Teams notification template for the user notification. This field only appears if you select **Teams** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Teams notification template, the system uses the default notification template.
+  - **Notification Language**: From the drop-down menu, select the language in which the user receives the user notification. If you have selected multiple channels, all the notifications appear in this language. If the language you select is not available for one or more of the notification templates, the system defaults the language to English for those templates.
+  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the user notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. If you have selected multiple channels, all the merge tags for those notifications are represented in this time zone. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Survey Template**: (Optional) From the drop-down menu, select the survey template for the user notification. If you have selected multiple channels, all the notifications use this one survey template. After you select the survey template, the **Survey Language** field appears. If you don't require a user response, do not select a survey template. Even if you do not select a survey template, the user notification still contains the content for the default survey template. If the user wants, they can provide a justification for the incident, but the workflow doesn't depend on it.
   - **Survey Language**: From the drop-down menu, select the language in which the user receives the survey.
 4. Click **OK**. The **Notify**tile appears in the custom workflow design area.
 5. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this notify tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. To add an edge connector:
@@ -2387,25 +2440,26 @@ To add a Notify tile for a user notification:
 
 To add a Notify tile for an escalation notification to a manager:
 
-1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** Rich Text Editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** Rich Text Editor appears on the right side of the page where you can configure the options for the tile.
+1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** rich text editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** rich text editor appears on the right side of the page where you can configure the options for the tile.
 2. In the **Configure Notify Node** window, select the tile configuration settings: See image.
-  1. For the first question that appears, click **None.** Question: I can help you configure this Notify node. Which policy context(s) would you like to configure?
+  1. For the first question that appears, click **None.** Question: I can help you configure this Notify node. Which action context would you like to configure?
   2. For the next question that appears, click **Escalate**. Question: Would you like to notify the end user or escalate?
   3. For the next question that appears, click **Manager**. Question: Who are we escalating to?
   4. For the next question that appears, click **Yes** or **No**. If the manager doesn't exist, and you want to send the escalation notification to another approver, click **Yes**. If the manager doesn't exist, and you do not want to send the escalation notification to another approver, click **No**. Question: If the manager doesn't exist, would you like to send the approval to an approver instead?
-  5. If you selected **Yes** to the previous question, from the drop-down menu select the approver's email address for the statement that appears. If you selected **No** to the previous question, this statement is not displayed. Statement: Please select the approver email address to use as the fallback.
-  6. Click **Continue.**
-  7. For the next question that appears, enter the number of days, hours, and minutes that the workflow waits to receive a response from the manager or approver before timing out. Question: How long should we wait for a response before timing out?
-  8. Click **Continue**.
-  9. For the next question that appears, click one of the buttons to select the channel (**Email**, **Slack**, or **Teams**) by which the manager or approver receives the notification. After you click a channel button, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
-  10. For the next question that appears, click **Confirm**. Question: Would you like to confirm this configuration?
-  11. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** Rich Text Editor appears on the right side of the page. The configuration settings you selected appear in the Rich Text Editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
-3. In the **Notify** Rich Text Editor, configure the remaining configuration settings: See image.
+  5. If you selected **Yes** to the previous question, from the drop-down menu select the approver's email address for the statement that appears and then click **Continue**. The approver must exist on the [Approvers](https://help.zscaler.com/workflow-automation/managing-approvers) page. If you selected **No** to the previous question, this statement is not displayed. Statement: Please select the approver email address to use as the fallback.
+  6. For the next question that appears, enter the number of days, hours, and minutes that the workflow waits to receive a response from the manager or approver before timing out. Question: How long should we wait for a response before timing out?
+  7. Click **Continue**.
+  8. For the next question that appears, select the checkbox next to one or more of the channels (**Email**, **Slack**, or **Teams**) by which the manager receives the notification and then click **Continue**. After you select one or more channels, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
+  9. For the next question that appears, click **Confirm**. Question: Would you like to confirm this configuration?
+  10. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** rich text editor appears on the right side of the page. The configuration settings you selected appear in the rich text editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
+3. In the **Notify** rich text editor, configure the remaining configuration settings: See image.
   - **Action Context**: (Optional) From the drop-down menu, if you want the manager or approver to be able to approve or reject a policy exception from the escalation notification, select **Policy Exception**. To learn more, see Adding Policy Exception Tiles.
-  - **Notification Template**: (Optional) From the drop-down menu, select the notification template for the escalation notification. After you select the notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a notification template, the system uses the system default notification template for the notification channel you selected.
-  - **Notification Language**: From the drop-down menu, select the language in which the manager or approver receives the escalation notification.
-  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the manager or approver receives to respond to the escalation notification. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the system default survey template.
+  - **Email Notification Template**: (Optional) If you selected **Email** for the notification channel, from the drop-down menu, select the email notification template for the escalation notification. This field only appears if you select **Email** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select an email notification template, the system uses the default notification template.
+  - **Slack Notification Template**: (Optional) If you selected **Slack** for the notification channel, from the drop-down menu, select the Slack notification template for the escalation notification. This field only appears if you select **Slack** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Slack notification template, the system uses the default notification template.
+  - **Teams Notification Template**: (Optional) If you selected **Teams** for the notification channel, from the drop-down menu, select the Teams notification template for the escalation notification. This field only appears if you select **Teams** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Teams notification template, the system uses the default notification template.
+  - **Notification Language**: From the drop-down menu, select the language in which the manager or approver receives the escalation notification. If you have selected multiple channels, all the notifications appear in this language. If the language you selected is not available for one or more of the notification templates, the system defaults the language to English for those templates.
+  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. If you have selected multiple channels, all the merge tags for those notifications are represented in this time zone. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the manager or approver receives to respond to the escalation notification. If you have selected multiple channels, all the notifications use this one survey template. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the default survey template.
   - **Survey Language**: From the drop-down menu, select the language in which the manager or approver receives the survey.
 4. Click **OK**. The **Notify**tile appears in the custom workflow design area.
 5. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. To add an edge connector:
@@ -2416,24 +2470,26 @@ To add a Notify tile for an escalation notification to a manager:
 
 To add a Notify tile for an escalation notification to an approver:
 
-1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** Rich Text Editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** Rich Text Editor appears on the right side of the page where you can configure the options for the tile.
+1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** rich text editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** rich text editor appears on the right side of the page where you can configure the options for the tile.
 2. In the **Configure Notify Node** window, select the tile configuration settings: See image.
-  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which policy context(s) would you like to configure?
+  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which action context would you like to configure?
   2. For the next question that appears, click **Escalate**. Question: Would you like to notify the end user or escalate?
   3. For the next question that appears, click **Approver**. Question: Who are we escalating to?
-  4. For the statement that appears, from the drop-down menu, select the approver's email address. Statement: Please select the approver email.
+  4. For the statement that appears, from the drop-down menu, select the approver's email address. The approver must exist on the [Approvers](https://help.zscaler.com/workflow-automation/managing-approvers) page. Statement: Please select the approver email address.
   5. Click **Continue**.
   6. For the next question that appears, enter the number of days, hours, and minutes that the workflow waits to receive a response from the manager or approver before timing out. Question: How long should we wait for a response before timing out?
   7. Click **Continue**.
-  8. For the next question that appears, click one of the buttons to select the channel (**Email**, **Slack**, or **Teams**) by which the manager or approver receives the notification. After you click a button, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
+  8. For the next question that appears, select the checkbox next to one or more of the channels (**Email**, **Slack**, or **Teams**) by which the approver receives the notification and then click **Continue**. After you select one or more channels, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
   9. For the next question that appears, click **Confirm**. Question: Would you like to confirm this configuration?
-  10. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** Rich Text Editor appears on the right side of the page. The configuration settings you selected appear in the Rich Text Editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
-3. In the **Notify** Rich Text Editor, configure the remaining configuration settings: See image.
+  10. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** rich text editor appears on the right side of the page. The configuration settings you selected appear in the rich text editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
+3. In the **Notify** rich text editor, configure the remaining configuration settings: See image.
   - **Action Context**: (Optional) From the drop-down menu, if you want the approver to be able to approve or reject a policy exception from the escalation notification, select **Policy Exception**. To learn more, see Adding Policy Exception Tiles.
-  - **Notification Template**: (Optional) From the drop-down menu, select the notification template for the escalation notification. After you select the notification template, the **Notification** **Language**and**Time Zone** fields appear. If you do not select a notification template, the system uses the system default notification template for the notification channel you selected.
-  - **Notification Language**: From the drop-down menu, select the language in which the manager receives the escalation notification.
-  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the approver receives to respond to the escalation notification. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the system default survey template.
+  - **Email Notification Template**: (Optional) If you selected **Email** for the notification channel, from the drop-down menu, select the email notification template for the escalation notification. This field only appears if you select **Email** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select an email notification template, the system uses the default notification template.
+  - **Slack Notification Template**: (Optional) If you selected **Slack** for the notification channel, from the drop-down menu, select the Slack notification template for the escalation notification. This field only appears if you select **Slack** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Slack notification template, the system uses the default notification template.
+  - **Teams Notification Template**: (Optional) If you selected **Teams** for the notification channel, from the drop-down menu, select the Teams notification template for the escalation notification. This field only appears if you select **Teams** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Teams notification template, the system uses the default notification template.
+  - **Notification Language**: From the drop-down menu, select the language in which the manager receives the escalation notification. If you have selected multiple channels, all the notifications appear in this language. If the language you selected is not available for one or more of the notification templates, the system defaults the language to English for those templates.
+  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. If you have selected multiple channels, all the merge tags for those notifications are represented in this time zone. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the approver receives to respond to the escalation notification. If you have selected multiple channels, all the notifications use this one survey template. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the default survey template.
   - **Survey Language**: From the drop-down menu, select the language in which this person receives the survey.
 4. Click **OK**. The **Notify**tile appears in the custom workflow design area.
 5. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. To add an edge connector:
@@ -2444,24 +2500,26 @@ To add a Notify tile for an escalation notification to an approver:
 
 To add a Notify tile for an escalation notification to someone other than a manager or approver:
 
-1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** Rich Text Editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** Rich Text Editor appears on the right side of the page where you can configure the options for the tile.
+1. In the **Tile** pane, click the **Notify** tile, then drag and drop it to the custom workflow design area. The **Configure Notify Node** window appears, displaying the first tile configuration question that you must answer to configure the tile. This window is conversation based and assists you with configuring the tile. To configure the tile directly in the **Notify** rich text editor without using the **Configure Notify Node** window, close the **Configure Notify Node** window and click the **Notify** tile in the custom workflow design area. After you click the tile, the **Notify** rich text editor appears on the right side of the page where you can configure the options for the tile.
 2. In the **Configure Notify Node** window, select the tile configuration settings: See image.
-  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which policy context(s) would you like to configure?
+  1. For the first question that appears, click **None**. Question: I can help you configure this Notify node. Which action context would you like to configure?
   2. For the next question that appears, click **Escalate**. Question: Would you like to notify the end user or escalate?
   3. For the next question that appears, click **Other**. Question: Who are we escalating to?
-  4. For the statement that appears, from the drop-down menu, enter the email address of the person to receive the escalation notification. Statement: Please enter the email address to escalate to.
+  4. For the statement that appears, enter the email address of the person to receive the escalation notification. Statement: Please enter the email address to escalate to.
   5. Click **Continue.**
   6. For the next question that appears, enter the number of days, hours, and minutes that the workflow waits to receive a response from the person before timing out. Question: How long should we wait for a response before timing out?
   7. Click **Continue**.
-  8. For the next question that appears, click one of the buttons to select the channel (**Email**, **Slack**, or **Teams**) by which the person receives the notification. After you click a button, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
+  8. For the next question that appears, select the checkbox next to one or more of the channels (**Email**, **Slack**, or **Teams**) by which the person receives the notification and click **Continue.** After you select one or more channels, a summary of the configuration settings you selected appears in the window along with the next question. Question: Which channel should we use for escalation?
   9. For the next question that appears, click **Confirm.** Question: Would you like to confirm this configuration?
-  10. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** Rich Text Editor appears on the right side of the page. The configuration settings you selected appear in the Rich Text Editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
-3. In the **Notify** Rich Text Editor, configure the remaining configuration settings: See image.
+  10. For the last statement that appears on the window, click **Apply Configuration**. The **Notify** rich text editor appears on the right side of the page. The configuration settings you selected appear in the rich text editor. Statement: Your configuration is ready. Click "Apply Configuration" to save it.
+3. In the **Notify** rich text editor, configure the remaining configuration settings: See image.
   - **Action Context**: (Optional) From the drop-down menu, if you want the other person to be able to approve or reject a policy exception from the escalation notification, select **Policy Exception**. To learn more, see Adding Policy Exception Tiles.
-  - **Notification Template**: (Optional) From the drop-down menu, select the notification template for the escalation notification. After you select the notification template, the **Notification** **Language**and **Time Zone** fields appears. If you do not select a notification template, the system uses the system default notification template for the notification channel you selected.
-  - **Notification Language**: From the drop-down menu, select the language in which this person receives the escalation notification.
-  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone that appears for those merge tags in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone that appears for those merge tags in the notification. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign the time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
-  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the person receives to respond to the escalation notification. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the system default survey template.
+  - **Email Notification Template**: (Optional) If you selected **Email** for the notification channel, from the drop-down menu, select the email notification template for the escalation notification. This field only appears if you select **Email** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select an email notification template, the system uses the default notification template.
+  - **Slack Notification Template**: (Optional) If you selected **Slack** for the notification channel, from the drop-down menu, select the Slack notification template for the escalation notification. This field only appears if you select **Slack** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Slack notification template, the system uses the default notification template.
+  - **Teams Notification Template**: (Optional) If you selected **Teams** for the notification channel, from the drop-down menu, select the Teams notification template for the escalation notification. This field only appears if you select **Teams** for the notification channel. After you select a notification template, the **Notification** **Language** and **Time Zone** fields appear. If you do not select a Teams notification template, the system uses the default notification template.
+  - **Notification Language**: From the drop-down menu, select the language in which this person receives the escalation notification. If you have selected multiple channels, all the notifications appear in this language. If the language you selected is not available for one or more of the notification templates, the system defaults the language to English for those templates.
+  - **Time Zone:**(Optional) If the notification template you selected is configured with one or more time-related merge tags, you can select the time zone in which those merge tags are represented in the escalation notification. The **Time** merge tag represents the time when the incident occurred. From the drop-down menu, select the time zone in which those merge tags are represented in the notification. If you have selected multiple channels, all the merge tags for those notifications are represented in this time zone. In Workflow Automation, you can configure the time zone for the time-related merge tags for a notification on a few different pages. Because of this, the time zones the system uses for these merge tags when it creates a notification from a workflow is based on the following priority. If you select the time zone when you configure a notify tile for a workflow on the custom workflow builder page, then the system uses that time zone. If you did not select the time zone, then the system uses the time zone configured for the notification template on the Notification Template page. If you did not configure the time zone for the notification template, then the system uses the time zone assigned to the admin on the Admin Assignment page. If you did not assign a time zone to the admin, then the system uses the UTC+00:00 time zone, by default. To learn more, see [Managing Notification Templates](https://help.zscaler.com/workflow-automation/managing-notification-templates) and [Managing Admin Assignments](https://help.zscaler.com/workflow-automation/managing-admin-assignments).
+  - **Survey Template**: (Optional) From the drop-down menu, select the survey template that the person receives to respond to the escalation notification. If you have selected multiple channels, all the notifications use this one survey template. After you select the survey template, the **Survey Language** field appears. If you do not select a survey template, the system uses the default survey template.
   - **Survey Language**: From the drop-down menu, select the language in which this person receives the survey.
 4. Click **OK**. The **Notify**tile appears in the custom workflow design area.
 5. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. To add an edge connector:
@@ -2472,8 +2530,8 @@ To add a Notify tile for an escalation notification to someone other than a mana
 
 To add a Close Incident tile:
 
-1. In the **Tile** pane, click the **Close Incident** tile, then drag and drop it in the custom workflow design area. The **Close Incident** Rich Text Editor appears on the right side of the page.
-2. In the **Close Incident** Rich Text Editor, configure the Close Incident tile:
+1. In the **Tile** pane, click the **Close Incident** tile, then drag and drop it in the custom workflow design area. The **Close Incident** rich text editor appears on the right side of the page.
+2. In the **Close Incident** rich text editor, configure the Close Incident tile:
   - **Notes**: Enter notes to associate with the incident when the workflow closes the incident.
   - **Resolution Label Name**: From the drop-down menu, select a resolution label name to apply to the incident.
   - **Resolution Label Value**: From the drop-down menu, select a resolution label value to apply to the incident. You can only associate one resolution label value with a resolution label name when closing an incident.
@@ -2496,8 +2554,8 @@ Workflow Automation supports custom workflows with Policy Exceptions tiles only 
 
 To add a Policy Exception tile by dragging and dropping the Policy Exception tile from the Tile pane:
 
-1. In the **Tile** pane, click the **Policy Exception** tile, then drag and drop it in the custom workflow design area. The **Policy Exception** Rich Text Editor appears on the right side of the page.
-2. In the **Policy Exception** Rich Text Editor, enter the number of days, hours, and minutes for the default duration for the policy exception.
+1. In the **Tile** pane, click the **Policy Exception** tile, then drag and drop it in the custom workflow design area. The **Policy Exception** rich text editor appears on the right side of the page.
+2. In the **Policy Exception** rich text editor, enter the number of days, hours, and minutes for the default duration for the policy exception.
 3. Click **OK**.
 4. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this Policy Exception tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. You only connect **Policy Exception** tiles to **Notify** tiles that have been configured with an **Action** **Context** of **Policy Exception**. To add an edge connector:
   1. Hover over the small circles on the tile to reveal the connection pointer.
@@ -2515,7 +2573,7 @@ To add a Policy Exception tile from a Notify tile with a policy exception action
 4. In the **Justification Condition** dialog window, from the **Justification Conditions** drop-down menu, select one of the justification types or policy exception types, or select **Any Response** or **No Response**for when the **Policy Exception** tileis executed. The justification types that appear in this menu are based on the survey template that you selected when configuring the Notify tile.
 5. Click **OK**. See image.
 6. Configure the default policy exception duration:
-  1. In the custom workflow design area, click the **Policy Exception** tile. The **Policy Exception** Rich Text Editor appears.
+  1. In the custom workflow design area, click the **Policy Exception** tile. The **Policy Exception** rich text editor appears.
   2. Enter the number of days, hours, and minutes for the default policy exception duration. See image.
   3. Click **OK**.
 7. In the custom workflow design area, depending on the workflow, add one or more edge connectors (i.e., connection lines) between this Notify tile and the other existing tiles in the custom workflow design area. The edge connectors link the tiles in the appropriate order for the workflow. To add an edge connector:
@@ -2586,7 +2644,7 @@ To edit a draft custom workflow:
 3. (Optional) On the **Workflows** page, use the **Search** field to locate the workflow you want to edit.
 4. Click the **Edit**icon in the **Action** column next to a draft custom workflow. The custom workflow builder page appears, displaying the custom workflow. See image.
 5. On the custom workflow page, you can change the workflow description and any of the workflow detail fields in the existing tiles, configure additional tiles for the workflow, or delete existing tiles in the workflow. You can also change the justification condition on an edge connector. You cannot change the name of the custom workflow. To change the justification condition on an edge connector: To learn more, see Adding Custom Workflows and Deleting Tiles.
-  1. Click an edge connector. The **Update Justification Condition** Rich Text Editor appears on the right side of the page. See image.
+  1. Click an edge connector. The **Update Justification Condition** rich text editor appears on the right side of the page. See image.
   2. In the **Justification Conditions** field, delete the existing justification condition and then select another condition from the drop-down menu.
   3. Click **Ok**.
 6. (Optional) Click **Validate**to have the systemvalidate the overall structure and configuration details of the workflow. If there are any validation errors in the workflow, the tiles where there are errors are highlighted in red. Click the Information icon on a tile to get an explanation of the error.
@@ -2607,7 +2665,7 @@ To edit a published custom workflow:
 3. (Optional) On the **Workflows** page, use the **Search** field to locate the workflow you want to edit.
 4. Click the **Edit**icon in the **Action** column next to a published custom workflow. The custom workflow page appears, displaying the custom workflow. See image.
 5. On the custom workflow page, you can change the workflow description and any of the workflow detail fields in the existing tiles, configure additional tiles for the workflow, or delete existing tiles in the workflow. You can also change the justification condition on an edge connector. You cannot change the name of the custom workflow. To change the justification condition on an edge connector: To learn more, see Adding Custom Workflows and Deleting Tiles.
-  1. Click an edge connector. The **Update Justification Condition** Rich Text Editor appears on the right side of the page. See image.
+  1. Click an edge connector. The **Update Justification Condition** rich text editor appears on the right side of the page. See image.
   2. In the **Justification Conditions** field, delete the existing justification condition and then select another condition from the drop-down menu.
   3. Click **Ok**.
 6. (Optional) Click **Validate**to have the systemvalidate the overall structure and configuration details of the workflow. If there are any validation errors in the workflow, the tiles where there are errors are highlighted in red.
@@ -2746,9 +2804,9 @@ To view workflow mappings:
 
 [Image: Icons for viewing workflow mappings on the Workflows page]
 
-[Image: Viewing the Workflows page with the Clone icon highlighted for a couple of draft custom workflows]
+[Image: Viewing the Workflows page with the Clone icon highlighted for a few of the draft custom workflows]
 
-[Image: Viewing the Workflows page with the Clone icon highlighted for a published custom workflow]
+[Image: Viewing the Workflows page with the Clone icon highlighted for a couple of published custom workflows]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -2795,13 +2853,13 @@ This article provides a summary of all new features and enhancements for Workflo
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-11-05T07:10Z","nid":"1534330"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/release-upgrade-summary-2026","lastmod":"2026-11-19T08:49Z","nid":"1534330"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/workflow-automation/release-upgrade-summary-2026
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-05T07:10Z
+- Last modified: 2026-11-19T08:49Z
 - Summary: Workflow Automation Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Workflow Automation.
@@ -2875,13 +2933,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-15T06:06Z","nid":"1421056"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/responding-end-user-notification","lastmod":"2026-11-22T06:06Z","nid":"1421056"} -->
 ## Responding to an End User Notification
 
 - Source: https://help.zscaler.com/workflow-automation/responding-end-user-notification
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Responding to an End User Notification
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information on how to review and respond to an end user notification from the Zscaler Admin Console.
 
 The format of the notification and survey might not be the same as illustrated in this article. It depends upon the notification and the survey template that your organization configured in Workflow Automation.
@@ -3774,13 +3832,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/step-step-configuration-guide-workflow-automation-data-protection","lastmod":"2026-05-04T12:13Z","nid":"1417806"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/step-step-configuration-guide-workflow-automation-data-protection","lastmod":"2026-11-19T01:37Z","nid":"1417806"} -->
 ## Step-by-Step Configuration Guide for Workflow Automation for Data Protection
 
 - Source: https://help.zscaler.com/workflow-automation/step-step-configuration-guide-workflow-automation-data-protection
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Step-by-Step Configuration Guide for Workflow Automation for Data Protection
-- Last modified: 2026-05-04T12:13Z
+- Last modified: 2026-11-19T01:37Z
 - Summary: Step-by-Step Configuration Guide for Workflow Automation for Data Protection.
 
 This guide takes you through the configuration steps you must complete to begin using Workflow Automation for your organization.
@@ -3816,6 +3874,7 @@ To configure Workflow Automation, complete the following steps:
 - Step 14: (Optional) Configure Labels in Workflow Automation
 - Step 15: (Optional) Configure Workflows in Workflow Automation
 - Step 16: (Optional) Configure Custom Email Domains in Workflow Automation
+- Step 17: (Optional) Override Privacy Settings for End Users, Managers, and Approvers in Workflow Automation
 
 To manage incidents in Workflow Automation, admins must be provisioned in Internet & SaaS with a role that has the **Workflow Access** permission configured. You can configure admins with full or restricted workflow access to Workflow Automation.
 
@@ -3921,6 +3980,10 @@ To configure and map workflows, see:
 Admins can configure custom email domains for their organization. Workflow Automation generates and sends email notifications for the various actions that you can perform, such as notifying the user of an incident, escalating an incident to an approver or manager, and performing bulk actions. After you configure a custom email domain, Workflow Automation uses that custom email domain as the sender for these email notifications.
 
 To configure custom email domains, see [Managing Custom Email Domains](https://help.zscaler.com/workflow-automation/managing-custom-email-domains).
+
+Admins can override the privacy settings for the different data types for the end users, and the managers and approvers that were set during the configuration of all the DLP application integrations for your organization. These privacy settings control which types of incident data are visible to the end users, and the managers and approvers when they are responding to end user notifications or escalation notifications they receive for an incident.
+
+To override privacy settings for the end users, and the managers and approvers, see [Managing Privacy Settings for End Users, Managers, and Approvers](https://help.zscaler.com/workflow-automation/managing-privacy-settings-end-users-managers-and-approvers).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4029,13 +4092,13 @@ After you configure a predefined or custom workflow, you must specify the incide
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-10-28T06:26Z","nid":"1468511"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/using-incident-filters-workflow-automation","lastmod":"2026-11-19T01:07Z","nid":"1468511"} -->
 ## Using Incident Filters in Workflow Automation
 
 - Source: https://help.zscaler.com/workflow-automation/using-incident-filters-workflow-automation
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Using Incident Filters in Workflow Automation
-- Last modified: 2026-10-28T06:26Z
+- Last modified: 2026-11-19T01:07Z
 - Summary: How to use and manage incident filters in Workflow Automation.
 
 In the Zscaler Admin Console, the incidents that occur in your organization are displayed on the Incidents page. You can use filters to modify the incidents that are displayed on the page. Some of the filters have predefined values that you select, some of the filters require you to enter a text string value, and a couple of the filters require you to select an operator (>, ≥, <, ≤, or =) and the number of matches. The following filters have predefined values:
@@ -4093,11 +4156,12 @@ You must enter a text string for the following filters:
 - **User Groups**
 - **Workspace**
 
-The text string values are not case sensitive. In addition, you can:
+The text string values are not case-sensitive. In addition, you can:
 
+- Enter a partial or complete incident attribute value.
 - Enter multiple values for these filters by entering a comma between the text string values.
 - Enter multiple strings within a single text string value. If you enter multiple strings within a text string value, each string is treated with an AND operation. For example, if you select the **Application Name** filter and enter `Microsoft Office` as the text string value, all incidents with an application name containing Microsoft and Office are returned with this filter, such as Microsoft Office, Microsoft Office 365, and Office 365 Microsoft. This filter does not return incidents with an application name containing only Microsoft or Office.
-- For the Referrer URL filter and the URL filter, enter a complete URL (e.g., https://www.jumpshare.com/https-post) or enter a complete host name (e.g., www.jumpshare.com) for the URL.
+- For the filters associated with a URL, enter a complete or partial URL (e.g., https://www.jumpshare.com/https-post, www.jumpshare.com, or jumpshare).
 
 You must enter an operator and the number of matches for the following filters:
 
@@ -4200,13 +4264,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-15T06:06Z","nid":"1420336"} -->
+<!-- ZS-ARTICLE {"url":"/workflow-automation/viewing-managing-incident-details","lastmod":"2026-11-22T06:06Z","nid":"1420336"} -->
 ## Viewing & Managing Incident Details
 
 - Source: https://help.zscaler.com/workflow-automation/viewing-managing-incident-details
 - Product: Workflow Automation
 - Path: Workflow Automation Help > Workflow Automation for Data Protection > Incident Management > Viewing & Managing Incident Details
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information about the Incidents Details drawer and how to manage incidents in the Zscaler Admin Console.
 
 Workflow Automation provides access to the Incident Details drawer, which displays detailed information about an incident, such as an overview of the incident, violation details, violation content, and the state changes for the incident. This drawer also allows you to manage and take action on an incident.
@@ -5473,8 +5537,8 @@ For more application discovery information and troubleshooting instructions, see
 ## Authentication Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/authentication-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Authentication Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZIA Deployments & Operations > Authentication Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enforce authentication in Zscaler Internet Access (ZIA).
 
@@ -6335,8 +6399,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## IPS Control Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/ips-control-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > IPS Control Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZIA Deployments & Operations > IPS Control Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Intrusion Prevention System (IPS) Control for Zscaler Internet Access (ZIA).
 
@@ -6588,8 +6652,8 @@ For more SaaS Security information and troubleshooting instructions, see the [Zs
 ## SIEM and ZIA Integration Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/siem-zia-integration-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > SIEM and ZIA Integration Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZIA Deployments & Operations > SIEM and ZIA Integration Deployment and Operations Guide
 - Last modified: 2026-06-24T02:16Z
 - Summary: Describes the benefits of and the steps necessary to integrate Zscaler Internet Access (ZIA) and a security information and event management (SIEM) system.
 
@@ -6683,8 +6747,8 @@ For more SIEM integration information and troubleshooting instructions, see the 
 ## SIEM and ZPA Integration Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/siem-zpa-integration-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > SIEM and ZPA Integration Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZPA Deployments & Operations > SIEM and ZPA Integration Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to integrate Zscaler Private Access (ZPA) and a security information and event management (SIEM) system.
 
@@ -6859,8 +6923,8 @@ For more SSL Inspection information and troubleshooting instructions, see the [Z
 ## Threat Protection Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/threat-protection-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > Threat Protection Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZIA Deployments & Operations > Threat Protection Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Threat Protection for Zscaler Internet Access (ZIA).
 
@@ -6938,8 +7002,8 @@ For more Threat Protection information and troubleshooting instructions, see the
 ## URL Filtering Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/url-filtering-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZIA Deployments & Operations > URL Filtering Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZIA Deployments & Operations > URL Filtering Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Internet Access (ZIA) URL filtering.
 
@@ -7038,8 +7102,8 @@ For more URL Filtering information and troubleshooting instructions, see the [Zs
 ## User Provisioning and Authentication Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/user-provisioning-and-authenticating-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > User Provisioning and Authentication Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZPA Deployments & Operations > User Provisioning and Authentication Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable User Provisioning and Authentication in Zscaler Private Access (ZPA).
 
@@ -8368,8 +8432,8 @@ To learn more, see [Configuring SSL Inspection Policy](https://help.zscaler.com/
 ## Disaster Recovery Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zpa-disaster-recovery-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > Disaster Recovery Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZPA Deployments & Operations > Disaster Recovery Deployment and Operations Guide
 - Last modified: 2025-08-06T23:32Z
 - Summary: Describes the benefits of and the steps necessary to enable Zscaler Private Access (ZPA) disaster recovery.
 
@@ -8496,8 +8560,8 @@ For more disaster recovery information and troubleshooting instructions, see the
 ## ZPA Leading Practices Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zpa-leading-practices-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > ZPA Deployments & Operations > ZPA Leading Practices Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > ZPA Deployments & Operations > ZPA Leading Practices Guide
 - Last modified: 2026-06-05T15:51Z
 - Summary: The ZPA Leading Practices Guide provides a set of best practices for configuring and deploying Zscaler Private Access (ZPA) in an organization's environment.
 
@@ -8727,8 +8791,8 @@ To learn more, see [About the Log Streaming Service](https://help.zscaler.com/zp
 ## Zscaler Client Connector Deployment and Operations Guide
 
 - Source: https://help.zscaler.com/zscaler-deployments-operations/zscaler-client-connector-deployment-and-operations-guide
-- Product: Zscaler Deployments & Operations
-- Path: Zscaler Deployments & Operations > Zscaler Client Connector Deployments & Operations > Zscaler Client Connector Deployment and Operations Guide
+- Product: Deployments & Operations
+- Path: Deployments & Operations > Zscaler Client Connector Deployments & Operations > Zscaler Client Connector Deployment and Operations Guide
 - Last modified: 2026-08-06T21:06Z
 - Summary: Describes the benefits of and the steps necessary to enable and configure the Zscaler Client Connector.
 

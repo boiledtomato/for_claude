@@ -1,8 +1,8 @@
 # Zscaler Help — Zero Trust Browser (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 58
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 65
 
 ---
 
@@ -68,6 +68,63 @@ On the Isolation Banners page (Zero Trust Browser > Browser Isolation Private Ap
 [Image: The ZIA Root Certificates page.]
 
 [Image: Click an isolation banner to open a drawer with its details]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/about-isolation-policy","lastmod":"2026-11-19T10:52Z","nid":"1547233"} -->
+## About Isolation Policy
+
+- Source: https://help.zscaler.com/zero-trust-browser/about-isolation-policy
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Private Access Policies > About Isolation Policy
+- Last modified: 2026-11-19T10:52Z
+- Summary: Information about isolation policy rules and the Isolation Policy page for Zero Trust Browser within Private Access.
+
+Using the isolation policy for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) within Private Access (ZPA), you can create rules that define when application requests are redirected to isolation. This requires having isolation enabled for your organization and creating [an isolation profile](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access) prior to setting up the isolation policy rule.
+
+Isolation policy rules allow you to:
+
+- Define policies to provide secure clientless access to critical applications via a containerized isolated browser on the Zscaler cloud, ensuring that the posture of a user's machine doesn't affect the related applications.
+- Reduce the surface area of attacks by providing true application-level Zero Trust access to critical applications (e.g., hiding all application-level transactions between the browser and the related applications).
+- Enforce data exfiltration controls by ensuring that users are unable to copy, paste, upload, or download files between their computers and the applications they are accessing.
+
+When the user is authenticated, the session timeout value is the minimum timeout across all configured [timeout policies](https://help.zscaler.com/zpa/about-timeout-policy). After the timeout happens, the user needs to reauthenticate with Private Access to access applications via isolation.
+
+Along with [defining an isolation policy](https://help.zscaler.com/zero-trust-browser/configuring-isolation-policies), you also must [define an access policy](https://help.zscaler.com/zpa/configuring-access-policies) for the application to be accessible from within the browser isolation environment. Application requests not directed to isolation are reviewed based on [access policies](https://help.zscaler.com/zpa/about-access-policy).
+
+If Private Access is undergoing a maintenance period, isolation might not be available.
+
+Isolation policy rules are comprised of two main building blocks:
+
+- **Criteria**: These are the conditions of a policy rule. A user's application request must match all the conditions within a policy rule.
+- **Boolean Operators**: These are the operands used between criteria. Isolation policy rules use AND and OR operators only.
+
+## About the Isolation Policy Page
+
+On the Isolation Policy page (Zero Trust Browser > Browser Isolation Private Apps > Isolation Policy), you can do the following:
+
+1. Review the default rule. You cannot edit this rule. See image.
+2. [Add a new isolation policy rule](https://help.zscaler.com/zero-trust-browser/configuring-isolation-policies).
+3. Filter the information that appears in the table. By default, no filters are applied. To learn more, see [Using Tables](https://help.zscaler.com/unified/using-tables).
+4. Search for an isolation policy rule.
+5. [Expand the rows in the table](https://help.zscaler.com/unified/using-tables).
+6. [Modify the columns displayed in the table](https://help.zscaler.com/unified/using-tables).
+7. View a list of all configured isolation policy rules. For each rule, you can see:
+  - **Rule Order**: The [policy evaluation order](https://help.zscaler.com/zpa/about-access-and-application-group-policies#PolicyEvalOrder) number for the rule. Private Access applies policy rules based on the order they are listed here. Change the rule order by clicking the number and manually entering in a new value.
+  - **Name**: The name of the rule. The description is also displayed here, if available.
+  - **Rule Action**: Indicates whether the rule is to allow or bypass isolation. When the row is expanded, it provides a visual representation of the criteria (e.g., [SAML attributes](https://help.zscaler.com/zpa/about-saml-attributes), application segments, posture profiles, etc.) and Boolean logic used within the rule.
+  - **Users**: The users to which the rule applies.
+  - **Applications**: The application segments to which the rule applies.
+8. Edit the rule order.
+9. Copy an existing isolation policy rule's criteria and use it to create a new rule.
+10. [Edit an existing isolation policy rule](https://help.zscaler.com/zero-trust-browser/editing-isolation-policies).
+11. Delete an isolation policy rule.
+12. Display more rows or a different page of the table.
+
+[Image: The Isolation Policy page in the Zscaler Admin Console]
+
+[Image: The default rule for Isolation Policy]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -473,6 +530,50 @@ If a user shares the bookmarked isolation URL with another user, the other user 
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-browser-control-policy","lastmod":"2026-11-18T06:56Z","nid":"1547238"} -->
+## Configuring the Browser Control Policy
+
+- Source: https://help.zscaler.com/zero-trust-browser/configuring-browser-control-policy
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Configuring the Browser Control Policy
+- Last modified: 2026-11-18T06:56Z
+- Summary: Information on the Browser Control policy and how to enable warnings for browsers, plugins, and applications as well as block browsers and their versions.
+
+You can define a Browser Control policy to warn users about going to the internet when they are using outdated or vulnerable browsers, plugins, and applications. To learn more and view the recommended Browser Control policy, see [Understanding the Browser Control Policy](https://help.zscaler.com/zero-trust-browser/understanding-browser-control-policy).
+
+The Zscaler service has Secure Browsing reports that you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your Browser Control policy if needed. To learn more, see [Viewing Secure Browsing Reports](https://help.zscaler.com/zero-trust-browser/viewing-secure-browsing-reports).
+
+To configure the Browser Control policy:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Zero Trust Browser**> **Browser Isolation Internet Access** >**Browser Control**. The **Browser Control** page appears.
+2. On the **Browser Control** page:
+  1. Click **Edit**.
+  2. You can configure the following sections: See image.
+    - Browser Vulnerability Protection
+    - Browser Blocking
+3. Click **Save**and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+**Enable Checks & User Notification**: Enable to warn users when they are using outdated or vulnerable browsers, plugins, and applications. When this feature is enabled, the following options appear:
+
+- **How Often to Check**: Choose how frequently the service checks browsers and relevant applications. It can check **Daily**, **Monthly**, or **Weekly**.
+- **Disable Notification for Browsers**:Enable to disable warnings for all browsers.
+- **Disable Notification for Plugins**: Choose the plugins to exempt from warnings. You can search for plugins and choose any number of them.
+- **Disable Notification for Applications**: Choose the applications to exempt from warnings. You can search for applications and choose any number of them. This feature is only applicable when you are using browser-based authentication (non-Zscaler Client Connector).
+
+**Allow All Browsers**: Enable to allow all browsers and their respective versions access to the internet. If disabled, the following browser options appear, and you can block specific browsers and their versions:
+
+- Chrome
+- Firefox
+- Microsoft Browsers
+- Opera
+- Safari
+- Brave
+
+[Image: Browser Control policy]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-internet-and-saas-for-zero-trust-browser","lastmod":"2026-11-06T09:47Z","nid":"1447181"} -->
 ## Configuring Internet & SaaS for Zero Trust Browser
 
@@ -522,6 +623,228 @@ Bandwidth Control is disabled for all traffic from the isolated browser destined
 [Image: The URL Filtering Page shows the various functions and a list of existing policies]
 
 [Image: Choose the Isolate action and Isolation Profile]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-isolation-policies","lastmod":"2026-11-19T10:53Z","nid":"1547234"} -->
+## Configuring Isolation Policies
+
+- Source: https://help.zscaler.com/zero-trust-browser/configuring-isolation-policies
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Private Access Policies > Configuring Isolation Policies
+- Last modified: 2026-11-19T10:53Z
+- Summary: How to configure an isolation policy rule for Zero Trust Browser within Private Access.
+
+fIsolation policy rules allow you to implement controls based on [isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-private-access). For a complete list of ranges and limitations for isolation policy rules, see [Ranges & Limitations](https://help.zscaler.com/unified/ranges-limitations).
+
+To configure an access policy rule:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Private Apps**>**Isolation Policy**.
+2. Click **Add Rule**. The **Add Rule** page appears.
+3. On the **Add Rule** page: See image.
+  - For **Action**: Select **Allow Isolation** or **Bypass Isolation**.
+    - **Isolation Profile**: Select an isolation profile for the rule to use for allowing isolation. This field is required for creating an isolation policy that has the **Action** set to **Allow Isolation**.
+    - **Zero Trust Browser Posture Profile**: (Optional) Select a Zero Trust Browser Posture Profile to control application access based on whether the user is connecting via Zero Trust Browser. To learn more, see [Configuring a Zero Trust Browser Posture Profile](https://help.zscaler.com/zero-trust-browser/configuring-zero-trust-browser-posture-profile).
+  - For **Details**:
+    - **Rule Name**: Enter an isolation policy name. The name cannot contain special characters, with the exception of periods (.), hyphens (-), and underscores ( _ ).
+    - **Add Description**: (Optional) Enter a description.
+  - For **Criteria**:
+    - **Client Types**: The **Web Browser** client type is required for isolation policy rules, and it is the only client type available. It is preselected for the rule. To learn more, [About Browser Access](https://help.zscaler.com/zpa/about-browser-access). Rules using the **Web Browser** client type cannot also use the **Client Connector Posture Profiles**, **Client Connector Trusted Networks**, or **Machine Groups** criteria.
+    - **Add Criteria**: Add any of the available criteria types.
+      - View the criteria.
+4. Click **Add Rule**.
+
+[Image: Add Rule window]
+
+The **Client Connector Posture Profiles**, **Client Connector Trusted Networks**, and **Machine Groups** criteria might appear in the drop-down menu, but they are not supported with **Web Browser** client type, which is required for isolation policies.
+
+- **Who**:
+  - SAML and SCIM Attributes
+  - External IAM IdPs
+- **What**:
+  - Applications
+  - Chrome Enterprise Browser
+  - Client Connector Posture Profiles
+  - Client Connector Trusted Networks
+  - Cloud Connector Groups
+  - Machine Groups
+  - Platforms
+
+- If you are subscribed to Authentication Service for users, the **SAML and SCIM Attributes** criteria are replaced with **Session and User Attributes**. To learn more, see [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+- The SAML and SCIM Attributes criteria type cannot be configured with the Cloud Connector Groups criteria type.
+
+To use SAML or SCIM criteria:
+
+1. Click the **Select IdP** drop-down menu and choose the identity provider (IdP) configuration you want to include in the policy rule. The IdP must be configured for **User** SSO. To learn more, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/about-idp/new#IdP_BothSSO). If you need to include multiple IdPs in the policy rule, click the **Select IdP** drop-down menu again.
+2. Click an option to add the criteria to which this rule applies:
+
+- Add SAML Attributes or Session Attributes
+- Add SCIM Attributes or User Attributes
+- Add SCIM Group Attributes
+
+These criteria appear under **SAML and SCIM Attributes** > **<IdP Name>**, where **<IdP Name>** is the name of the IdP configuration you selected in step a.
+
+See image.
+
+In order for Private Access (ZPA) to process SAML and SCIM criteria in a rule, you must enable the **SAML Attributes for Policy** setting for SAML and the **SCIM Attributes and Groups for Policy** setting for SCIM when configuring an IdP. To learn more, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign).
+
+If you added multiple attributes or groups to the policy rule, Private Access uses an OR Boolean operator between them by default. However, you can toggle this to an AND operator by clicking it.
+
+See image.
+
+If the corresponding [IdP setting](https://help.zscaler.com/zpa/configuring-idp-single-sign) (**SAML Attributes for Policy**) is disabled for SAML, but the policy rule has criteria for SAML attributes, Private Access evaluates the rule differently depending on the Boolean operator between the criteria:
+
+- **OR**: Private Access skips evaluating the criteria for SAML attributes, but continues to evaluate the criteria for SCIM attributes and SCIM groups.
+- **AND**: Private Access does not evaluate this policy rule. You must remove the criteria under SAML Attributes in order for Private Access to process the policy rule.
+
+If the corresponding [IdP setting](https://help.zscaler.com/zpa/configuring-idp-single-sign) (**SCIM Attributes and Groups for Policy**) is disabled for SCIM, but the policy rule has criteria for SCIM attributes or SCIM groups, Private Access evaluates the rule differently depending on the Boolean operator between the criteria:
+
+- **OR**: Private Access skips evaluating the criteria for SCIM attributes and SCIM groups, but continues to evaluate the criteria for SAML attributes.
+- **AND**: Private Access does not evaluate this policy rule. You must remove the criteria for SCIM attributes and SCIM groups in order for Private Access to process the policy rule.
+
+If you selected multiple IdPs for the policy rule, Private Access uses an OR Boolean operator between them by default. However, you can toggle this to an AND operator by clicking it.
+
+See image.
+
+If your [IdP configuration for SSO](https://help.zscaler.com/zpa/about-idp/new#IdP_BothSSO) includes SAML attributes or SCIM attributes from multiple IdPs, Zscaler recommends that you do not use the AND Boolean operator between policy rules.
+
+By default, the policy rule for **SAML Attributes** is set to **Any SAML Attribute**. Keep this if you want to apply the rule action to any user (i.e., the rule applies to all users, groups, departments, etc.).
+
+Alternatively, choose a specific [SAML attribute](https://help.zscaler.com/zpa/about-saml-attributes) from the drop-down menu if you want to apply the rule action to specific users, groups, departments, etc.:
+
+1. You can search for a specific attribute, select a listed attribute, or click the**Delete** icon to remove a selected attribute.
+2. After you make a selection, enter the SAML attribute value (i.e., the users to whom the rule applies) in the text field that appears.
+3. Click **More SAML Attributes** to add multiple attributes, if necessary.
+
+If you are subscribed to Authentication Service for users, the **SAML Attributes** option is replaced with **Session Attributes**. The user attributes are populated from Authentication Service and are used for defining various sign-on policies. To learn more, see [About Attributes](https://help.zscaler.com/authentication-service/about-attributes) and [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+
+Choose a specific SCIM attribute from the drop-down menu to apply the rule action to specific users, groups, departments, etc:
+
+1. You can search for a specific attribute, select a listed attribute, or click the**Delete** icon to remove a selected attribute.
+2. After you make a selection, select the SCIM attribute value (i.e., the users to whom the rule applies) from the drop-down menu that appears.
+3. Click **More SCIM Attributes** to add multiple attributes, if necessary.
+
+If you are subscribed to Authentication Service for users, the **SCIM Attributes** option is replaced with **User Attributes**. The group attributes are populated from Authentication Service and are used for defining various sign-on policies. To learn more, see [About Attributes](https://help.zscaler.com/authentication-service/about-attributes) and [What Is Authentication Service?](https://help.zscaler.com/authentication-service/what-authentication-service)
+
+Choose a specific SCIM group from the drop-down menu to apply the rule action to a specific group:
+
+1. You can search for a specific group, select a listed group, or click the**Delete** icon to remove a selected group.
+2. Click **More SCIM Group Attributes** to add multiple groups, if necessary.
+
+To use External IAM IdP, select the IdP from the drop-down menu. You can search for a specific IAM IdP, click **Select All** to apply the IdPs listed, click **Remove All** to remove all selections, or click the **Delete**icon to the right of a selected IdP to remove it from your list. There is no limit to the number you can select. Click **Cancel**to exit the drop-down menu.
+
+This criterion is the external IdP attribute configured in Authentication Service and is only supported for IdPs created in Authentication Service.
+
+Choose the [application segments](https://help.zscaler.com/zpa/about-applications) and [segment groups](https://help.zscaler.com/zpa/about-segment-groups) to which this rule applies:
+
+- **Application Segments**: Click **Add Application Segments** and select [application segments that you've configured](https://help.zscaler.com/zpa/about-applications) from the drop-down menu. You can search for a specific application segment, click **Select All** to apply all applications segments, or click **Remove All** to remove all selections. There is no limit to the number you can select.
+
+If you added multiple application segments to the policy rule, Private Access uses an OR Boolean operator between them.
+
+Ensure that the application segments are configured for Browser Access. To learn more, see [About Browser Access](https://help.zscaler.com/zpa/about-browser-access) and [Configuring Defined Application Segments](https://help.zscaler.com/zpa/configuring-defined-application-segments).
+
+- **Segment Groups**: Click **Add Segment Groups** and select [segment groups that you've configured](https://help.zscaler.com/zpa/about-segment-groups) from the drop-down menu. You can search for a specific segment group, click **Select All** to apply all segment groups, or click **Remove All** to remove all selections. There is no limit to the number you can select.
+
+If you added multiple segment groups to the policy rule, Private Access uses an OR Boolean operator between them.
+
+Enable **Chrome Enterprise Browser** to verify that users are accessing private applications via the Chrome Enterprise browser. Make sure you have configured [Chrome Enterprise Browser Connector settings](https://help.zscaler.com/zpa/configuring-chrome-enterprise-browser-connector-settings) to allow the Chrome Enterprise browser to integrate with Private Access. When enabled, you can also select a [configured Chrome posture profile](https://help.zscaler.com/zpa/about-chrome-posture-profiles) to evaluate criteria for access to private applications.
+
+Choose the condition sets to which the rule applies. You can add up to 10 Client Connector posture profile condition sets to the rule. Click **More Posture Profiles** to include additional sets.
+
+Each condition set can contain multiple posture profiles to enforce on a user's device. For each profile, select one of the following:
+
+- **Verified**: Zscaler Client Connector verified the user's device against the criteria specified in the posture profile.
+- **Verification Failed**: Zscaler Client Connector was unable to verify the user's device against the criteria specified in the posture profile.
+
+Make sure you have [configured the posture profiles](https://help.zscaler.com/zscaler-client-connector/configuring-device-posture-profiles) within Zscaler Client Connector. The posture profiles you configure in Zscaler Client Connector appear in the drop-down menu, where you can search for a specific profile.
+
+If you added multiple posture profile condition sets to the policy rule, Private Access uses an AND Boolean operator between them. Private Access evaluates each posture profile condition set individually.
+
+See image.
+
+If you added multiple posture profiles within a posture profile condition set, Private Access uses an OR Boolean operator between them by default. However, you can toggle this to an AND operator by clicking it.
+
+See image.
+
+When selecting client types from **Client Connector Posture Profiles**, you can select one client type at a time. Private Access uses an OR Boolean operator to join them together.
+
+You must select a **Client Connector Posture Profile** prior to selecting a client type.
+
+Choose the trusted networks to which the rule applies. You can search for a specific trusted network, click **Select All**to have the rule apply to all trusted networks, or click **Remove All** to remove all selections. The trusted networks you've configured appear in the menu. There is no limit to the number you can select.
+
+A [forwarding profile](https://help.zscaler.com/zscaler-client-connector/about-forwarding-profiles) tells Zscaler Client Connector how to treat traffic from your users' systems in different network environments for Private Access. When a user connects to a network, Zscaler Client Connector checks to determine what type of network the user is connected to.
+
+If you added multiple trusted networks to the policy rule, Private Access uses an OR Boolean operator between them.
+
+Make sure you have [configured your Trusted Network Criteria](https://help.zscaler.com/zscaler-client-connector/configuring-forwarding-profiles-zscaler-client-connector) within Zscaler Client Connector. The trusted networks you configure in Zscaler Client Connector appear in the drop-down menu.
+
+The **Cloud Connector Groups** criteria type cannot be configured with the SAML and SCIM Attributes criteria type.
+
+Choose the Cloud Connector groups to which the policy applies. You can search for a specific Cloud Connector group, click **Select All** to apply all Cloud Connector groups, or click **Remove All**to remove all selections. The [Cloud Connector groups you've configured](https://help.zscaler.com/zpa/about-cloud-connector-groups) appear in the menu. There is no limit to the number you can select.
+
+If you've added multiple Cloud Connector groups to the policy rule, Private Access uses an AND Boolean operator between them.
+
+Choose the machine groups to which this rule applies. You can search for a specific machine group, click **Select All** to apply all groups, or click **Remove All** to remove all selections. The [machine groups you've configured](https://help.zscaler.com/zpa/about-machine-groups) appear in the menu. There is no limit to the number you can select.
+
+If you select a machine group, **Machine Tunnel** as a client type is also required.
+
+Choose the platforms to which the rule applies. This allows you to control which applications are designated to which devices. The valid platform types are:
+
+- Windows
+- macOS
+- Linux
+- iOS
+- Android
+
+If you added multiple platforms to the policy rule, Private Access uses an OR Boolean operator between them.
+
+[Image: View identity provider, criteria, attribute]
+
+[Image: Add Isolation Policy window with SAML Attributes setting]
+
+[Image: Add Isolation Policy window with SAML Attributes setting]
+
+[Image: Add Access Policy window with Posture Profile Condition Set Boolean]
+
+[Image: Add Access Policy window with Posture Profile Condition Set Boolean]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/configuring-smart-browser-isolation-policy","lastmod":"2026-11-18T07:02Z","nid":"1547236"} -->
+## Configuring Smart Browser Isolation Policy
+
+- Source: https://help.zscaler.com/zero-trust-browser/configuring-smart-browser-isolation-policy
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Configuring Smart Browser Isolation Policy
+- Last modified: 2026-11-18T07:02Z
+- Summary: Information on how to configure the Smart Browser Isolation policy in the Zscaler Admin Console.
+
+You can configure a Smart Browser Isolation policy that automatically isolates potentially malicious web content using AI/ML models. This policy identifies suspicious websites and decrypts them using SSL/TLS Inspection and presents the users with a rendition of the actual websites in a remote browser using [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) (formerly Isolation).
+
+For the Smart Browser Isolation policy to work, enable the **Inspect Inbound Traffic** and **Inspect Outbound Traffic** toggles on the **Malware Protection** page (**Cyberthreat Protection** > **Policy** > **Malware Protection** > **Malware Policy**).
+
+To configure the Smart Browser Isolation policy:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to**Zero Trust Browser**> **Browser Isolation Internet Access** >**Smart Isolation**. The **Smart Isolation** page appears.
+2. On the **Smart Isolation** page:
+  1. Click **Edit**.
+  2. You can configure the following sections: See image.
+    - Smart Browser Isolate
+    - Cloud Browser Isolate
+3. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
+
+**Enable AI/ML based Smart Browser Isolation**: Enable this option to protect users from suspicious websites hosting malicious active content using AI/ML models, which continually identify suspicious domains. Enabling this option automatically creates an editable SSL/TLS Inspection rule to decrypt suspicious websites. When this feature is enabled, the following options appear:
+
+- **Users**: Select the users to which the policy applies. You can select up to 32 users. If you select no values, policy evaluation ignores this criterion.
+- **Groups**: Select the groups to which the policy applies. You can select up to 32 groups. If you select no values, policy evaluation ignores this criterion. Contact Zscaler Support to increase the limit of **Users** or **Groups**.
+
+**Browser Isolation Profile**: You can choose the isolation profile to which the policy applies.
+
+Ensure that you [create isolation profiles](https://help.zscaler.com/zero-trust-browser/creating-isolation-profiles-for-internet-and-saas) for your organization in the Zscaler Admin Console for them to be available in this field.
+
+[Image: Smart Isolation page showing the Smart Browser Isolate and Cloud Browser Isolate sections]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -995,6 +1318,27 @@ To edit a banner theme:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-policies","lastmod":"2026-11-19T10:54Z","nid":"1547235"} -->
+## Editing Isolation Policies
+
+- Source: https://help.zscaler.com/zero-trust-browser/editing-isolation-policies
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Private Access Policies > Editing Isolation Policies
+- Last modified: 2026-11-19T10:54Z
+- Summary: How to edit an existing isolation policy rule for Zero Trust Browser within Private Access.
+
+To edit an isolation policy rule:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Browser**>**Browser Isolation Private Apps**>**Isolation Policy**.
+2. Locate the isolation policy rule you want to modify and click the **Edit** icon. If you only want to change an isolation policy rule's place in the **Rule Order**, you can manually enter in a new value on the [Isolation Policy](https://help.zscaler.com/zero-trust-browser/about-isolation-policy) page.
+3. In the **Edit Rule**window, modify fields as necessary. For more information about each field, see [Configuring Isolation Policies](https://help.zscaler.com/zero-trust-browser/configuring-isolation-policies). See image.
+4. Click **Save**.
+
+[Image: Edit Isolation Policy window in the Zscaler Admin Console]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-browser/editing-isolation-profile-internet-and-saas","lastmod":"2026-10-08T21:06Z","nid":"1447276"} -->
 ## Editing an Isolation Profile for Internet & SaaS
 
@@ -1125,13 +1469,13 @@ You can enable this feature per Private Access isolation profile. To learn more,
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-10-01T21:06Z","nid":"1471036"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/mobile-user-experience-isolation","lastmod":"2026-11-18T07:13Z","nid":"1471036"} -->
 ## Mobile User Experience in Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/mobile-user-experience-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Mobile User Experience in Isolation
-- Last modified: 2026-10-01T21:06Z
+- Last modified: 2026-11-18T07:13Z
 - Summary: Information about Mobile User Experience in isolation.
 
 Zero Trust Browser is supported on iOS and Android mobile platforms. When traffic is generated from a mobile browser and triggers a policy on Private Access (ZPA) that has the action as Isolate, that traffic is isolated. Isolation is only intended to work on mobile browser-based applications, not native mobile applications.
@@ -1140,7 +1484,7 @@ The mobile experience in isolation is only available for Android version 13 and 
 
 The isolation browser connects to the web application using a mobile user agent and retrieves the mobile version of the web page. The content is rendered in the isolation container and streamed to the mobile device, applying the format automatically depending on the device. You can also use the same touch capabilities of the mobile onscreen keyboard to interact with the isolated web page. The mobile isolation experience nearly mirrors the desktop experience, with the only differences depending on the capabilities of the mobile device used. The mobile experience has varying support for handling HTML canvas, adjusting screen sizes, touch capabilities, and mobile OS de-fragmentation depending on the device used in isolation. To learn more, see [Transferring and Viewing Files in Isolation](https://help.zscaler.com/zero-trust-browser/transferring-and-viewing-files-isolation).
 
-When in the mobile experience, some functions are in different places, but are still accessible. For example, the ability to type is found by clicking the keyboard icon. This icon appears when you click a field on the web page that allows text input.
+When in the mobile experience, some functions are in different places, but are still accessible. For example, the ability to type is found by tapping the keyboard icon. This icon appears when you tap a field on the web page that allows text input.
 
 See image.
 
@@ -1453,6 +1797,41 @@ To print from your isolated browser:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-control-policy","lastmod":"2026-11-18T06:57Z","nid":"1547239"} -->
+## Understanding the Browser Control Policy
+
+- Source: https://help.zscaler.com/zero-trust-browser/understanding-browser-control-policy
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Policy Management > Internet & SaaS Policies > Understanding the Browser Control Policy
+- Last modified: 2026-11-18T06:57Z
+- Summary: Information on the Browser Control policy and how to enable warnings for browsers, plugins, and applications as well as block browsers and their versions.
+
+You can define a Browser Control policy to warn users about going to the internet when they are using outdated or vulnerable browsers, plugins, and applications. The Zscaler service examines browser versions and patches (including beta browsers), internet applications (e.g., Adobe Flash, Sun Java, Apple QuickTime), and media-download applications (e.g., Windows Media Player).
+
+You can also reduce the security risk of your organization by blocking the use of browsers or specific browser versions that are older or that have known vulnerabilities. The Zscaler Admin Console displays the latest 12 versions for most browsers.
+
+The Zscaler service has Secure Browsing reports that you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your Browser Control policy if needed. To learn more, see [Viewing Secure Browsing Reports](https://help.zscaler.com/zero-trust-browser/viewing-secure-browsing-reports).
+
+To see how this policy fits into the overall order of policy enforcement, see [Understanding Policy Enforcement](https://help.zscaler.com/zia/understanding-policy-enforcement).
+
+## Recommended Browser Control Policy
+
+Zscaler recommends that you configure the following Browser Control policy when using vulnerable browsers:
+
+- Enable **Enable Checks & User Notification**.
+- Disable **Allow All Browsers**.
+
+See image.
+
+Browser Control policy settings only work for non-Zscaler Client Connector traffic. If Zscaler Client Connector is enabled, the Browser Vulnerability Protection settings do not take effect. Browser Blocking settings still take effect if Zscaler Client Connector is enabled.
+
+To learn more, see [Configuring a Browser Control Policy](https://help.zscaler.com/zero-trust-browser/configuring-browser-control-policy).
+
+[Image: Enable Checks & User Notification and disable Allow All Browsers on the Browser Control page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-browser-extension","lastmod":"2026-11-06T14:19Z","nid":"1535457"} -->
 ## Understanding Browser Extension
 
@@ -1525,13 +1904,13 @@ Each user redirected to Cloud Browser is allocated an endpoint container, and al
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-09-15T08:17Z","nid":"1541211"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-enterprise-browser","lastmod":"2026-11-19T08:20Z","nid":"1541211"} -->
 ## Understanding Enterprise Browser
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-enterprise-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Enterprise Browser > Understanding Enterprise Browser
-- Last modified: 2026-09-15T08:17Z
+- Last modified: 2026-11-19T08:20Z
 - Summary: Information about Enterprise Browser for Zero Trust Browser.
 
 Enterprise Browser for [Zero Trust Browser](https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser) is a dedicated, hardened Chromium browser that protects users from everyday browser-based threats and allows them to securely access SaaS applications and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.
@@ -1550,7 +1929,7 @@ Enterprise Browser prevents common attacks on users that occur in daily operatio
 - Browsing internal and external websites
 - Sharing sensitive information through collaboration tools
 
-To get Enterprise Browser, contact Zscaler Support. For deployment information, refer to [https://deployztbrowser.com/docs/](https://deployztbrowser.com/docs/).
+To get Enterprise Browser, contact Zscaler Support. For deployment information, see [Zero Trust Browser Documentation](https://deployztbrowser.com/docs/).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -1640,18 +2019,18 @@ To learn more, see [Editing an Isolation Profile for Internet & SaaS](https://he
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-11-06T06:30Z","nid":"1519151"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/understanding-language-translate-isolation","lastmod":"2026-11-18T07:12Z","nid":"1519151"} -->
 ## Understanding Language Translate for Isolation
 
 - Source: https://help.zscaler.com/zero-trust-browser/understanding-language-translate-isolation
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > Cloud Browser > End User Isolation Experience > Understanding Language Translate for Isolation
-- Last modified: 2026-11-06T06:30Z
+- Last modified: 2026-11-18T07:12Z
 - Summary: Information about translation services provided by Google Translate for Zero Trust Browser.
 
 Zero Trust Browser is beneficial to admins who want to provide their users with a secure web page browsing experience. Isolation provides a near-native browsing experience for users by utilizing various browser capabilities, including translation services.
 
-For organizations that have global users, the majority of internet web pages can be served to them in multiple different languages. Common commercial browsers provide the ability to translate a web page from the language that appears by default into the language of the user’s browser. Isolation provides the same capability, automatically translating a web page to the user's language when they begin a new isolated session. Depending on their local browser settings, the isolation container knows which language to render on the web page.
+For organizations that have global users, the majority of internet web pages can be served to them in multiple different languages. Common commercial browsers provide the ability to translate a web page from the language that appears by default into the language of the user's browser. Isolation provides the same capability, automatically translating a web page to the user's language when they begin a new isolated session. Depending on their local browser settings, the isolation container knows which language to render on the web page.
 
 If a user would like to change the language settings, Zero Trust Browser also provides the option to manually select the desired language. After the isolation container fully renders, the user can access the translation settings by going to the Zero Trust Mode menu or the default options in the right-click menu. To learn more, see [Using the Zero Trust Mode Menu in Native Browser Experience](https://help.zscaler.com/zero-trust-browser/using-zero-trust-mode-menu-native-browser-experience) and [Using the Right-Click Menu in Isolation](https://help.zscaler.com/zero-trust-browser/using-right-click-menu-isolation).
 
@@ -2106,13 +2485,55 @@ To access the Zero Trust Mode menu:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-11-08T06:06Z","nid":"1447296"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/viewing-secure-browsing-reports","lastmod":"2026-11-18T06:57Z","nid":"1547240"} -->
+## Viewing Secure Browsing Reports
+
+- Source: https://help.zscaler.com/zero-trust-browser/viewing-secure-browsing-reports
+- Product: Zero Trust Browser
+- Path: Zero Trust Browser Help > Cloud Browser > Analytics > Viewing Secure Browsing Reports
+- Last modified: 2026-11-18T06:57Z
+- Summary: How to view Secure Browsing reports that track the use of vulnerable browsers, plugins, and applications.
+
+The Zscaler service has Secure Browsing reports, which you can run to track the use of vulnerable browsers, plugins, and applications, and then modify your [Browser Control policy](https://help.zscaler.com/zero-trust-browser/configuring-browser-control-policy) if needed.
+
+## Viewing Secure Browsing Reports
+
+To view Secure Browsing reports:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Reports**>**Interactive Reports**.
+2. On the **Standard Reports** tab, go to the **Secure Browsing** section to see the available browsing reports. See image.
+
+To learn more about Interactive Reports, see [About Interactive Reports](https://help.zscaler.com/zia/about-interactive-reports).
+
+## Viewing Top Users with Vulnerable Browsers, Plugins, and Applications
+
+Additionally, on the Web Insights page, you can view a list of the top users with web traffic from vulnerable browsers, plugins, and applications. To learn more, see [About Insights](https://help.zscaler.com/zia/about-insights).
+
+To view top users with web traffic from vulnerable browsers, plugins, and applications:
+
+1. Go to **Data Explorer** > **Internet & SaaS** >**Web Insights**.
+2. Click the **Insights**tab.
+3. At the top, choose**User**as the **Data Type**.
+4. In the left pane, choose a time frame and chart type.
+5. Select the **Secure Browsing Status** filter, and then select **Vulnerable**.
+6. Click **Apply Filters**.
+
+The service lists users who are using vulnerable browsers, plugins, and applications for which you set warnings. <a class="image-icon" href="#web-insights">See image.</a>
+
+[Image: Secure Browsing section under Standard Reports tab]
+
+<div class="subc"> <p> <a class="ck-anchor" id="web-insights"></a><img src="/downloads/zia/policies/browser-control/viewing-secure-browsing-reports/Internet-SaaS-Web-Insights-Page-Secure-Browsing-Status.png" data-entity-uuid="0" data-entity-type="image" alt="Secure Browsing Status filter for list of top users with vulnerable browsers" title="Secure Browsing Status Filter with Vulnerable" width="1593" height="929"> </p> </div>
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-browser/what-is-zero-trust-browser","lastmod":"2026-11-19T08:20Z","nid":"1447296"} -->
 ## What Is Zero Trust Browser?
 
 - Source: https://help.zscaler.com/zero-trust-browser/what-is-zero-trust-browser
 - Product: Zero Trust Browser
 - Path: Zero Trust Browser Help > What Is Zero Trust Browser?
-- Last modified: 2026-11-08T06:06Z
+- Last modified: 2026-11-19T08:20Z
 - Summary: Information about Zscaler Zero Trust Browser (formerly Zscaler Isolation) and its three components: Cloud Browser, Browser Extension, and Enterprise Browser.
 
 Zero Trust Browser (formerly Zscaler Isolation) is a secure platform that protects organizations against web-based threats while enabling high-performance access to the internet, SaaS applications, and private web, Remote Desktop Protocol (RDP), SSH, and Virtual Network Computing (VNC) applications.

@@ -1,8 +1,8 @@
 # Zscaler Help — API / SDK (part 3)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 115
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 116
 
 ---
 
@@ -5320,6 +5320,2015 @@ Retrieves a paginated list of policy rules created by the partner for applicatio
 | `name` | string | no |
 | `idpId` | integer(int64) | no |
 | `idpName` | string | no |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/legacy-apis/policy-controller","lastmod":"2026-11-16T20:46Z","nid":"1547032"} -->
+## Policy Controller
+
+- Source: https://help.zscaler.com/legacy-apis/policy-controller
+- Product: Legacy Zscaler APIs
+- Path: Legacy Zscaler APIs Help > Zscaler Client Connector API > API Developer & Reference Guide > Reference Guide > Policy Controller
+- Last modified: 2026-11-16T20:46Z
+
+Api Documentation
+
+**Servers:** `http://localhost:8080/papi`
+
+### `GET /public/v2/policies/{id}`
+
+**Retrieve policy**
+
+Retrieves specific details of a policy by its ID.
+
+- Operation ID: `getPolicy`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}`
+
+**Update policy**
+
+Updates a policy by its ID.
+
+- Operation ID: `updatePolicy`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → PolicyContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `DELETE /public/v2/policies/{id}`
+
+**Delete policy**
+
+Deletes a policy by its ID.
+
+- Operation ID: `deletePolicy`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}`
+
+**Partially update policy**
+
+Partially updates a policy by its ID.
+
+- Operation ID: `patchPolicy`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/zpa-auth-config`
+
+**Retrieve Private Access (ZPA) authentication configuration**
+
+Retrieves details of a Private Access (ZPA) authentication configuration by its ID.
+
+- Operation ID: `getZpaAuthConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/zpa-auth-config`
+
+**Update Private Access (ZPA) authentication configuration**
+
+Updates a Private access (ZPA) authentication configuration by its ID.
+
+- Operation ID: `updateZpaAuthConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → ZpaAuthConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/zpa-auth-config`
+
+**Partially update Private Access (ZPA) authentication configuration**
+
+Partially updates a Private Access (ZPA) authentication configuration by its ID.
+
+- Operation ID: `patchZpaAuthConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/ui-language-config`
+
+**Retrieve Unique Identifier (UI) language configuration**
+
+Retrieves details of a UI language configuration by its ID.
+
+- Operation ID: `getUiLanguageConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/ui-language-config`
+
+**Update UI language configuration**
+
+Updates a UI language configuration by its ID.
+
+- Operation ID: `updateUiLanguageConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → UiLanguageConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/ui-language-config`
+
+**Partially update UI language configuration**
+
+Partially updates a UI language configuration by ID.
+
+- Operation ID: `patchUiLanguageConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/traffic-steering-advanced-config`
+
+**Retrieve traffic steering advanced configuration**
+
+Retrieves details of a traffic steering advanced configuration by its ID.
+
+- Operation ID: `getTrafficSteeringAdvancedConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/traffic-steering-advanced-config`
+
+**Update traffic steering advanced configuration**
+
+Updates a traffic steering advanced configuration by its ID.
+
+- Operation ID: `updateTrafficSteeringAdvancedConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → TrafficSteeringAdvancedConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/traffic-steering-advanced-config`
+
+**Partially update traffic steering advanced configuration**
+
+Partially updates a traffic steering advanced configuration by its ID.
+
+- Operation ID: `patchTrafficSteeringAdvancedConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/telemetry-config`
+
+**Retrieve telemetry configuration**
+
+Retrieves details of a telemetry configuration by its ID.
+
+- Operation ID: `getTelemetryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/telemetry-config`
+
+**Update telemetry configuration**
+
+Updates a telemetry configuration by its ID.
+
+- Operation ID: `updateTelemetryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → TelemetryConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/telemetry-config`
+
+**Partially update telemetry configuration**
+
+Partially updates a telemetry configuration by its ID.
+
+- Operation ID: `patchTelemetryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/sccm-client-config`
+
+**Retrieve System Center Configuration Manager (SCCM) client configuration**
+
+Retrieves details of a SCCM client configuration by its ID.
+
+- Operation ID: `getSccmClientConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/sccm-client-config`
+
+**Update SCCM client configuration**
+
+Updatea a SCCM client configuration by its ID.
+
+- Operation ID: `updateSccmClientConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → SccmClientConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/sccm-client-config`
+
+**Partially update SCCM client configuration**
+
+Partially updates a SCCM client configuration by its ID.
+
+- Operation ID: `patchSccmClientConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/password-config`
+
+**Retrieve password configuration**
+
+Retrieves details of a password configuration by its ID.
+
+- Operation ID: `getPasswordConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/password-config`
+
+**Update password configuration**
+
+Updates a password configuration by its ID.
+
+- Operation ID: `updatePasswordConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → PasswordConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/password-config`
+
+**Partially update password configuration**
+
+Partially updates a password configuration by its ID.
+
+- Operation ID: `patchPasswordConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/pac-config`
+
+**Retrieve Proxy Auto-Config (PAC) configuration**
+
+Retrieves details of a PAC configuration by its ID.
+
+- Operation ID: `getPacConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/pac-config`
+
+**Update PAC configuration**
+
+Updates a PAC configuration by its ID.
+
+- Operation ID: `updatePacConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → PacConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/pac-config`
+
+**Partially update PAC configuration**
+
+Partially updates a PAC configuration by its ID.
+
+- Operation ID: `patchPacConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/notification-config`
+
+**Retrieve notification configuration**
+
+Retrieves details of a notification configuration by its ID.
+
+- Operation ID: `getNotificationConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/notification-config`
+
+**Update notification configuration**
+
+Updates a notification configuration by its ID.
+
+- Operation ID: `updateNotificationConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → NotificationConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/notification-config`
+
+**Partially update notification configuration**
+
+Partially updates a notification configuration by its ID.
+
+- Operation ID: `patchNotificationConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/logging-config`
+
+**Retrieve logging configuration**
+
+Retrieves details of a logging configuration by its ID.
+
+- Operation ID: `getLoggingConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/logging-config`
+
+**Update logging configuration**
+
+Updates a logging configuration by its ID.
+
+- Operation ID: `updateLoggingConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → LoggingConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/logging-config`
+
+**Partially update logging configuration**
+
+Partially updates a logging configuration by its ID.
+
+- Operation ID: `patchLoggingConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/location-policy-config`
+
+**Retrieve location policy configuration**
+
+Retrieves details of a location policy configuration by its ID.
+
+- Operation ID: `getLocationPolicyConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/location-policy-config`
+
+**Update location policy configuration**
+
+Updates a location policy configuration by its ID.
+
+- Operation ID: `updateLocationPolicyConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → LocationPolicyConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/location-policy-config`
+
+**Partially update location policy configuration**
+
+Partially updates a location policy configuration by its ID.
+
+- Operation ID: `patchLocationPolicyConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/ip-bypass-config`
+
+**Retrieve IP bypass configuration**
+
+Retrieves details of a IP bypass configuration by its ID.
+
+- Operation ID: `getIpBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/ip-bypass-config`
+
+**Update IP bypass configuration**
+
+Updates a IP bypass configuration by its ID.
+
+- Operation ID: `updateIpBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → IpBypassConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/ip-bypass-config`
+
+**Partially update IP bypass configuration**
+
+Partially updates a IP bypass configuration by its ID.
+
+- Operation ID: `patchIpBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/group-section-config`
+
+**Retrieve group section configuration**
+
+Retrieves details of a group section configuration by its ID.
+
+- Operation ID: `getGroupSectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/group-section-config`
+
+**Update group section configuration**
+
+Updates a group section configuration by its ID.
+
+- Operation ID: `updateGroupSectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → GroupSectionConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/group-section-config`
+
+**Partially update group section configuration**
+
+Partially updates a group section configuration by its ID.
+
+- Operation ID: `patchGroupSectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/global-bypass-config`
+
+**Retrieve global bypass configuration**
+
+Retrieves details of a global bypass configuration by its ID.
+
+- Operation ID: `getGlobalBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/global-bypass-config`
+
+**Update global bypass configuration**
+
+Updates a global bypass configuration by its ID.
+
+- Operation ID: `updateGlobalBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → GlobalBypassConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/global-bypass-config`
+
+**Partially update global bypass configuration**
+
+Partially updates a global bypass configuration by its ID.
+
+- Operation ID: `patchGlobalBypassConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/firewall-config`
+
+**Retrieve firewall configuration**
+
+Retrieves details of a firewall configuration by its ID.
+
+- Operation ID: `getFirewallConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/firewall-config`
+
+**Update firewall configuration**
+
+Updates a firewall configuration by its ID.
+
+- Operation ID: `updateFirewallConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → FirewallConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/firewall-config`
+
+**Partially update firewall configuration**
+
+Partially updates a firewall configuration by its ID.
+
+- Operation ID: `patchFirewallConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/fail-close-config`
+
+**Retrieve fail close configuration**
+
+Retrieves details of a fail close configuration by its ID.
+
+- Operation ID: `getFailCloseConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/fail-close-config`
+
+**Update fail close configuration**
+
+Updates a fail close configuration by its ID.
+
+- Operation ID: `updateFailCloseConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → FailCloseConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/fail-close-config`
+
+**Partially update fail close configuration**
+
+Partially updates a fail close configuration by its ID.
+
+- Operation ID: `patchFailCloseConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/dns-config`
+
+**Retrieve Domain Name System (DNS) configuration**
+
+Retrieves details of a DNS configuration by its ID.
+
+- Operation ID: `getDnsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/dns-config`
+
+**Update DNS configuration**
+
+Updates a DNS configuration by its ID.
+
+- Operation ID: `updateDnsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → DnsConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/dns-config`
+
+**Partially update DNS configuration**
+
+Partially updates a DNS configuration by its ID.
+
+- Operation ID: `patchDnsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/disaster-recovery-config`
+
+**Retrieve disaster recovery configuration**
+
+Retrieves details of a disaster recovery configuration by its ID.
+
+- Operation ID: `getDisasterRecoveryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/disaster-recovery-config`
+
+**Update disaster recovery configuration**
+
+Updates a disaster recovery configuration by its ID.
+
+- Operation ID: `updateDisasterRecoveryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → DisasterRecoveryConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/disaster-recovery-config`
+
+**Partially update disaster recovery configuration**
+
+Partially updates a disaster recovery configuration by its ID.
+
+- Operation ID: `patchDisasterRecoveryConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/data-protection-config`
+
+**Retrieve data protection configuration**
+
+Retrieves details of a data protection configuration by its ID.
+
+- Operation ID: `getDataProtectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/data-protection-config`
+
+**Update data protection configuration**
+
+Updates a data protection configuration by its ID.
+
+- Operation ID: `updateDataProtectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → DataProtectionConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/data-protection-config`
+
+**Partially update data protection configuration**
+
+Partially updates a data protection configuration by its ID.
+
+- Operation ID: `patchDataProtectionConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/command-line-config`
+
+**Retrieve command line configuration**
+
+Retrieves details of a command line configuration by its ID.
+
+- Operation ID: `getCommandLineConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/command-line-config`
+
+**Update command line configuration**
+
+Updatea a command line configuration by its ID.
+
+- Operation ID: `updateCommandLineConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → CommandLineConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/command-line-config`
+
+**Partially update command line configuration**
+
+Partially updates a command line configuration by its ID.
+
+- Operation ID: `patchCommandLineConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/cellular-quota-config`
+
+**Retrieve cellular quota configuration**
+
+Retrieves details of a cellular quota configuration by its ID.
+
+- Operation ID: `getCellularQuotaConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/cellular-quota-config`
+
+**Update cellular quota configuration**
+
+Updates a cellular quota configuration by its ID.
+
+- Operation ID: `updateCellularQuotaConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → CellularQuotaConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/cellular-quota-config`
+
+**Partially update cellular quota configuration**
+
+Partially updates a cellular quota configuration by its ID.
+
+- Operation ID: `patchCellularQuotaConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/captive-portal-config`
+
+**Retrieve captive portal configuration**
+
+Retrieves details of a captive portal configuration by its ID.
+
+- Operation ID: `getCaptivePortalConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/captive-portal-config`
+
+**Update captive portal configuration**
+
+Updates a captive portal configuration by ID.
+
+- Operation ID: `updateCaptivePortalConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → CaptivePortalConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/captive-portal-config`
+
+**Partially update captive portal configuration**
+
+Partially update captive portal configuration by its ID.
+
+- Operation ID: `patchCaptivePortalConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/app-failover-config`
+
+**Retrieve application failover configuration**
+
+Retrieve application failover configuration by its ID.
+
+- Operation ID: `getAppFailoverConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/app-failover-config`
+
+**Update application failover configuration**
+
+Update application failover configuration by ID.
+
+- Operation ID: `updateAppFailoverConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → AppFailoverConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/app-failover-config`
+
+**Partially update application failover configuration**
+
+Partially update application failover configuration by its ID.
+
+- Operation ID: `patchAppFailoverConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies/{id}/advanced-settings-config`
+
+**Retrieve advanced settings configuration**
+
+Retrieve advanced settings configuration by its ID.
+
+- Operation ID: `getAdvancedSettingsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PUT /public/v2/policies/{id}/advanced-settings-config`
+
+**Update advanced settings configuration**
+
+Update advanced settings configuration by its ID.
+
+- Operation ID: `updateAdvancedSettingsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → AdvancedSettingsConfigV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `PATCH /public/v2/policies/{id}/advanced-settings-config`
+
+**Partially update advanced settings configuration**
+
+Partially update advanced settings configuration by its ID.
+
+- Operation ID: `patchAdvancedSettingsConfig`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `id` | path | yes | string | Unique identifier of the policy. |
+
+**Request body:** `application/json` → string
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `GET /public/v2/policies`
+
+**Retrieve list of policies.**
+
+Retrieve a list of policies by its keyword.
+
+- Operation ID: `listPolicies`
+
+**Parameters:**
+
+| Name | In | Required | Type | Description |
+| --- | --- | --- | --- | --- |
+| `keyword` | query | no | string | Search keyword to filter list of polices by name or other attributes. |
+| `skip` | query | no | integer(int32) | Zero-based number of matching records to skip. Used for pagination to offset the starting point of results. Must be a non-negative integer. |
+| `perPage` | query | no | integer(int32) | Requested page size for paginated results. Default is 50. |
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### `POST /public/v2/policies`
+
+**Create a policy.**
+
+Create a new policy using the specified configuration and setting.
+
+- Operation ID: `createPolicy`
+
+**Request body:** `application/json` → PolicyContractV2
+
+**Responses:**
+
+| Code | Description |
+| --- | --- |
+| 200 | OK |
+
+### Schemas
+
+**`PolicyContractV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `id` | integer(int64) | no |
+| `name` | string | no |
+| `description` | string | no |
+| `platform` | string (enum: IOS, ANDROID, WINDOWS, MAC, LINUX) | no |
+| `enabled` | boolean | no |
+| `ruleOrder` | integer(int32) | no |
+| `createTime` | string | no |
+| `updateTime` | string | no |
+| `forwardingProfileId` | integer(int64) | no |
+| `ziaPostureProfileId` | integer(int32) | no |
+| `notificationTemplateId` | integer(int64) | no |
+| `installSslCertificate` | boolean | no |
+| `installWfpDriver` | boolean | no |
+| `enableTunnelReconnectOnWakeup` | boolean | no |
+| `enableLocationPolicyOverride` | boolean | no |
+| `enableCustomTheme` | boolean | no |
+| `uiExperience` | string (enum: FOLLOW_GLOBAL_SETTINGS, MODERN_UI_EXPERIENCE, LEGACY_UI) | no |
+| `groupSectionConfig` | GroupSectionConfigV2 | no |
+| `pacConfig` | PacConfigV2 | no |
+| `globalBypassConfig` | GlobalBypassConfigV2 | no |
+| `ipBypassConfig` | IpBypassConfigV2 | no |
+| `dnsConfig` | DnsConfigV2 | no |
+| `locationPolicyConfig` | LocationPolicyConfigV2 | no |
+| `trafficSteeringAdvancedConfig` | TrafficSteeringAdvancedConfigV2 | no |
+| `disasterRecoveryConfig` | DisasterRecoveryConfigV2 | no |
+| `appFailoverConfig` | AppFailoverConfigV2 | no |
+| `firewallConfig` | FirewallConfigV2 | no |
+| `dataProtectionConfig` | DataProtectionConfigV2 | no |
+| `failCloseConfig` | FailCloseConfigV2 | no |
+| `passwordConfig` | PasswordConfigV2 | no |
+| `zpaAuthConfig` | ZpaAuthConfigV2 | no |
+| `notificationConfig` | NotificationConfigV2 | no |
+| `loggingConfig` | LoggingConfigV2 | no |
+| `captivePortalConfig` | CaptivePortalConfigV2 | no |
+| `sccmClientConfig` | SccmClientConfigV2 | no |
+| `commandLineConfig` | CommandLineConfigV2 | no |
+| `telemetryConfig` | TelemetryConfigV2 | no |
+| `cellularQuotaConfig` | CellularQuotaConfigV2 | no |
+| `advancedSettingsConfig` | AdvancedSettingsConfigV2 | no |
+| `uiLanguageConfig` | UiLanguageConfigV2 | no |
+| `reauthPeriodHours` | integer(int32) | no |
+
+**`ZpaAuthConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `machineToken` | string | no |
+| `nonce` | string | no |
+| `expireOnSleep` | boolean | no |
+| `expireOnSystemRestart` | boolean | no |
+| `expireOnNetworkIpChange` | boolean | no |
+| `expireOnWindowsLogonSession` | boolean | no |
+| `expireOnWindowsSessionLock` | boolean | no |
+| `sessionLockMinTimeSeconds` | integer(int32) | no |
+| `preventAutoReauthDuringDeviceLock` | boolean | no |
+| `browserAuthType` | string (enum: FOLLOW_GLOBAL, DEFAULT, BROWSER_BASED, WEBAUTH_POPUP) | no |
+| `useDefaultBrowser` | boolean | no |
+| `enableMachineIdpAuth` | boolean | no |
+| `enableOneIdMachineTunnelAuth` | boolean | no |
+| `cacheClientCertificate` | boolean | no |
+| `showCertConfirmationDialog` | boolean | no |
+| `instantEnforceZpaReauth` | boolean | no |
+| `followGlobalZpaReauth` | boolean | no |
+| `autoReauthByLocation` | NetworkStateConfigV2 | no |
+| `autoReauthTimeoutMinutes` | integer(int32) | no |
+| `showUiDuringAutoReauth` | boolean | no |
+| `reauthPeriodHours` | integer(int32) | no |
+
+**`UiLanguageConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `defaultLanguage` | integer(int32) | no |
+
+**`TrafficSteeringAdvancedConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `ipv6Mode` | string (enum: IPV6_CLEAN_OUT, IPV6_BLOCK_IN_DUAL_STACK, IPV6_BLOCK, IPV6_NAT64_ONLY, IPV6_NATIVE) | no |
+| `addIfscopeRoute` | boolean | no |
+| `clearArpCache` | boolean | no |
+| `useWsaPollForZpa` | boolean | no |
+| `enableTunnelInternalTraffic` | boolean | no |
+| `interceptZiaTrafficAllAdapters` | boolean | no |
+| `enableIpv4Priority` | boolean | no |
+| `enableQuicTrafficDrop` | boolean | no |
+| `followRoutingTable` | boolean | no |
+| `reactivateWebSecurityMinutes` | integer(int32) | no |
+| `deleteDhcpOption121Routes` | NetworkStateConfigV2 | no |
+| `useTunnelSdkV4` | boolean | no |
+| `blockPrivateRelay` | boolean | no |
+| `enableTransparentProxy` | boolean | no |
+| `enableProcessMapping` | boolean | no |
+| `useEndpointLocationForDcSelection` | boolean | no |
+
+**`TelemetryConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `zdxLiteConfig` | ZdxLiteConfigV2 | no |
+
+**`SccmClientConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `sccmConfiguration` | NetworkStateConfigV2 | no |
+| `forceLocationRefreshOnSccm` | boolean | no |
+
+**`PasswordConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logoutPassword` | string | no |
+| `ziaDisablePassword` | string | no |
+| `zpaDisablePassword` | string | no |
+| `zdxDisablePassword` | string | no |
+| `exitPassword` | string | no |
+| `uninstallPassword` | string | no |
+| `deceptionDisablePassword` | string | no |
+| `iosProfilePasscode` | string | no |
+| `endpointDlpDisablePassword` | string | no |
+
+**`PacConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `pacUrlLocation` | string (enum: AUTO, LOCAL_PROXY, CUSTOM_URL, REGISTRY) | no |
+| `customPacUrl` | string | no |
+| `registryPath` | string | no |
+| `registryName` | string | no |
+| `enableFallbackToGatewayDomain` | boolean | no |
+| `useProxyPortForTunnel1` | boolean | no |
+| `useProxyPortForTunnel2` | boolean | no |
+| `allowPacExclusionsOnly` | boolean | no |
+| `enableWpadOverride` | boolean | no |
+| `disableLoopbackRestriction` | boolean | no |
+| `removeExemptedContainers` | boolean | no |
+| `restartWinHttpService` | boolean | no |
+| `useV8JsEngine` | boolean | no |
+| `setProxyOnVpnAdapters` | boolean | no |
+| `enableCustomProxyDetection` | boolean | no |
+| `enableSystemProxyCache` | boolean | no |
+| `recacheSystemProxy` | boolean | no |
+
+**`NotificationConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableNotificationFramework` | boolean | no |
+| `bringNotificationToFocus` | boolean | no |
+| `enableZpaReauthNotification` | boolean | no |
+| `zpaReauthNotificationMinutes` | integer(int32) | no |
+| `showVpnTunnelNotification` | boolean | no |
+
+**`LoggingConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `logMode` | string (enum: DEFAULT, ERROR, WARN, INFO, DEBUG) | no |
+| `logLevel` | string (enum: LOW, NORMAL, HIGH) | no |
+| `logFileSizeMb` | integer(int32) | no |
+| `flowLogging` | FlowLoggingConfigV2 | no |
+| `enableVerboseLogging` | boolean | no |
+| `enableCrashReporting` | boolean | no |
+| `enableLocalPacketCapture` | boolean | no |
+| `enableLocalPacketCaptureV2` | string (enum: DISABLED, NPCAP, PKTMON) | no |
+| `enableAutomaticPacketCapture` | boolean | no |
+| `enableAutoCaptureCriticalScenarios` | boolean | no |
+| `enableAutoCaptureOtherScenarios` | boolean | no |
+| `enableAdditionalCaptureSpace` | boolean | no |
+| `additionalCaptureSpaceMb` | integer(int32) | no |
+
+**`LocationPolicyConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `trustedNetworkRulesetId` | integer(int64) | no |
+| `trustedNetworkRulesetName` | string | no |
+| `offTrustedNetworkRulesetId` | integer(int64) | no |
+| `offTrustedNetworkRulesetName` | string | no |
+| `vpnTrustedNetworkRulesetId` | integer(int64) | no |
+| `vpnTrustedNetworkRulesetName` | string | no |
+| `splitVpnTrustedNetworkRulesetId` | integer(int64) | no |
+| `splitVpnTrustedNetworkRulesetName` | string | no |
+
+**`IpBypassConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `predefinedIpBypassIds` | array<integer(int64)> | no |
+| `customIpBypassIds` | array<integer(int64)> | no |
+| `ipv4Inclusions` | array<string> | no |
+| `ipv4Exclusions` | array<string> | no |
+| `ipv6Inclusions` | array<string> | no |
+| `ipv6Exclusions` | array<string> | no |
+
+**`GroupSectionConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `userGroupIds` | array<integer(int32)> | no |
+| `userGroupNames` | array<string> | no |
+| `userIds` | array<integer(int64)> | no |
+| `userNames` | array<string> | no |
+| `enableAllGroups` | boolean | no |
+| `deviceGroupIds` | array<integer(int64)> | no |
+| `deviceGroupNames` | array<string> | no |
+| `enableDeviceGroups` | boolean | no |
+| `followGlobalPartnerLogin` | boolean | no |
+| `allowPartnerLogin` | boolean | no |
+| `partnerDomains` | array<string> | no |
+
+**`GlobalBypassConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `processBasedBypassIds` | array<integer(int64)> | no |
+| `sourcePortBasedBypasses` | array<string> | no |
+| `vpnGatewayBypasses` | array<string> | no |
+| `androidAppBypasses` | array<string> | no |
+| `mmsAppBypasses` | array<string> | no |
+| `enableMacProcessBasedBypasses` | boolean | no |
+| `macProcessBasedBypassIds` | array<integer(int64)> | no |
+
+**`FirewallConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableFirewall` | boolean | no |
+| `enablePersistentFirewall` | boolean | no |
+| `blockAllInboundTraffic` | NetworkStateConfigV2 | no |
+| `installInboundFirewallRule` | boolean | no |
+| `triggerDomainProfileDetection` | boolean | no |
+| `domainProfileDetectionConfig` | NetworkStateConfigV2 | no |
+
+**`FailCloseConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `applicationBypassIds` | array<integer(int64)> | no |
+| `ipAddressBypasses` | array<string> | no |
+| `exitUninstallPassword` | string | no |
+| `thumbprint` | string | no |
+| `lockdownOnTunnelProcessExit` | boolean | no |
+| `lockdownOnFirewallError` | boolean | no |
+| `lockdownOnDriverError` | boolean | no |
+
+**`DnsConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `domainInclusions` | array<string> | no |
+| `domainExclusions` | array<string> | no |
+| `customDnsServer` | string | no |
+| `disableDnsRouteExclusion` | boolean | no |
+| `disableParallelIpv4Ipv6` | boolean | no |
+| `enforceSplitDns` | boolean | no |
+| `truncateLargeUdpDnsResponse` | boolean | no |
+| `dnsPriorityForTrustedCriteria` | string | no |
+| `dnsPriorityOrdering` | string | no |
+| `updateDnsSearchOrder` | boolean | no |
+| `prioritizeDnsExclusions` | boolean | no |
+| `bypassDnsTrafficUsingUdpProxy` | boolean | no |
+| `bindTrustedDnsToDefaultAdapter` | boolean | no |
+| `enableSystemDns` | boolean | no |
+
+**`DisasterRecoveryConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableZiaDr` | boolean | no |
+| `ziaDrMethod` | string (enum: DIRECT_CONNECTION, CUSTOM_PAC) | no |
+| `ziaCustomDbUrl` | string | no |
+| `useZiaGlobalDb` | boolean | no |
+| `ziaGlobalDbUrl` | string | no |
+| `ziaGlobalDbUrlV2` | string | no |
+| `ziaDomainName` | string | no |
+| `ziaRsaPublicKeyName` | string | no |
+| `ziaRsaPublicKey` | string | no |
+| `allowZiaTest` | boolean | no |
+| `enableZpaDr` | boolean | no |
+| `zpaDomainName` | string | no |
+| `zpaRsaPublicKeyName` | string | no |
+| `zpaRsaPublicKey` | string | no |
+| `allowZpaTest` | boolean | no |
+| `ddilConfig` | DdilConfigV2 | no |
+
+**`DataProtectionConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableEndpointDlp` | boolean | no |
+
+**`CommandLineConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableCli` | boolean | no |
+| `allowZpaDisableWithoutPassword` | boolean | no |
+| `allowZiaDisableWithoutPassword` | boolean | no |
+| `allowZdxDisableWithoutPassword` | boolean | no |
+| `cliPasswordType` | string (enum: ZPA, ZIA, ZDX) | no |
+
+**`CellularQuotaConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableCellularQuota` | boolean | no |
+| `enforceQuotaOnlyForRoaming` | boolean | no |
+| `monthlyBillingDay` | integer(int32) | no |
+| `quotaMb` | integer(int32) | no |
+| `wifiSsid` | string | no |
+| `blockNotificationMessage` | string | no |
+| `allowlistedApps` | array<string> | no |
+
+**`CaptivePortalConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `captivePortalDetection` | CaptivePortalDetectionConfigV2 | no |
+
+**`AppFailoverConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `proxyUnreachablePolicy` | string (enum: FOLLOW_GLOBAL, SEND_DIRECT, DISABLE_INTERNET, FOLLOW_DR) | no |
+| `tunnelFailurePolicy` | string (enum: FOLLOW_GLOBAL, SEND_DIRECT, DISABLE_INTERNET, FOLLOW_DR) | no |
+
+**`AdvancedSettingsConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableAntiTampering` | boolean | no |
+| `reactivateAntiTamperingMinutes` | integer(int32) | no |
+| `overrideAntiTamperingInstallParam` | boolean | no |
+| `sendDisableServiceReason` | boolean | no |
+| `enableZccRevert` | boolean | no |
+| `zccRevertPassword` | string | no |
+| `enableActiveControlHighlight` | boolean | no |
+| `clearKerberosDcCache` | boolean | no |
+| `refreshKerberosTokenAfterZpaReauth` | boolean | no |
+| `rscModeOnAllAdapters` | string (enum: DEFAULT, DISABLED, ENABLED) | no |
+| `enableAdapterHardwareOffloading` | boolean | no |
+| `zpaSearchDomainsInTrpTunnel` | boolean | no |
+| `enablePavConnectionSynced` | boolean | no |
+
+**`NetworkStateConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `trusted` | boolean | no |
+| `vpnTrusted` | boolean | no |
+| `offTrusted` | boolean | no |
+| `splitVpnTrusted` | boolean | no |
+
+**`DdilConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `ddilEnabled` | boolean | no |
+| `businessContinuityActivationDomain` | string | no |
+| `businessContinuityTestModeEnabled` | boolean | no |
+| `zpaBccRsaPublicKeyName` | string | no |
+| `zpaBccRsaPublicKey` | string | no |
+
+**`FlowLoggingConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `zpa` | boolean | no |
+| `vpn` | boolean | no |
+| `vpnTunnel` | boolean | no |
+| `direct` | boolean | no |
+| `loopback` | boolean | no |
+| `zccBlockedTraffic` | boolean | no |
+| `intranet` | boolean | no |
+
+**`CaptivePortalDetectionConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `enableCaptivePortalDetection` | boolean | no |
+| `enableFailOpen` | boolean | no |
+| `captivePortalWebSecDisableMinutes` | integer(int32) | no |
+| `enableEmbeddedCaptivePortal` | boolean | no |
+| `automaticCapture` | boolean | no |
+
+**`ZdxLiteConfigV2`**
+
+| Property | Type | Required |
+| --- | --- | --- |
+| `localMetrics` | boolean | no |
+| `endToEndDiagnostics` | NetworkStateConfigV2 | no |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -21918,13 +23927,13 @@ Updates the Traffic Capture settings for an organization
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/legacy-apis/traffic-forwarding-0","lastmod":"2026-01-06T23:49Z","nid":"1402501"} -->
+<!-- ZS-ARTICLE {"url":"/legacy-apis/traffic-forwarding-0","lastmod":"2026-11-18T22:34Z","nid":"1402501"} -->
 ## Traffic Forwarding
 
 - Source: https://help.zscaler.com/legacy-apis/traffic-forwarding-0
 - Product: Legacy Zscaler APIs
 - Path: Legacy Zscaler APIs Help > ZIA API > API Developer & Reference Guide > Reference Guide > Traffic Forwarding
-- Last modified: 2026-01-06T23:49Z
+- Last modified: 2026-11-18T22:34Z
 
 API Reference Guide for the ZIA Cloud Service and Sandbox Submission APIs
 

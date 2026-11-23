@@ -1,8 +1,166 @@
 # Zscaler Help — ZIA — Internet & SaaS (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 114
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 115
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-virtual-service-edges-internet-saas","lastmod":"2026-11-12T01:43Z","nid":"1401226"} -->
+## About Virtual Service Edges for Internet & SaaS
+
+- Source: https://help.zscaler.com/zia/about-virtual-service-edges-internet-saas
+- Product: Internet & SaaS
+- Path: Internet & SaaS Help > Traffic Forwarding > Service Edges > Virtual Service Edge > About Virtual Service Edges for Internet & SaaS
+- Last modified: 2026-11-12T01:43Z
+- Summary: Information about Virtual Service Edge for Internet & SaaS (ZIA), which uses virtual machines (VMs) to function as a Public Service Edge for Internet & SaaS in the Zscaler cloud.
+
+New or clean deployment of Virtual Service Edge requires a virtual machine (VM) image running on Zscaler OS version 24 or later.
+
+Zscaler typically recommends that organizations forward traffic to the [Public Service Edges](https://help.zscaler.com/zia/about-public-service-edges-internet-saas) for Internet & SaaS in the Zscaler cloud. However, some organizations might require different traffic flow because of factors such as:
+
+- Locations with certain geopolitical requirements and regulations.
+- Locations that experience high latency when connecting to a Public Service Edge.
+- Applications that require an organization's IP address as the source IP address.
+- Users who need to see localized content.
+
+If your organization has similar requirements, then with Zscaler's approval, you can extend the Zscaler patented cloud architecture to your organization's premises by licensing and deploying Virtual Service Edges. Virtual Service Edges use a VM to function as a full-featured Public Service Edge dedicated to your organization's traffic. Virtual Service Edges perform the same service as the Public Service Edges in the Zscaler cloud, including support for features, such as Firewall, Sandbox, and Data Loss Prevention (DLP).
+
+The Source IP Anchoring feature is not supported with Virtual Service Edges.
+
+Virtual Service Edges provide the following benefits and allow you to:
+
+- Retain your organization's Source IP address when accessing SaaS or internet applications that require it.
+- Let users access certain geolocal content.
+- Use a fully managed, on-premises Service Edge with automated, non-intrusive, and periodic software upgrades and security updates.
+
+Virtual Service Edges are part of the Zscaler cloud. They communicate with the Zscaler cloud for user authentication, policy updates, logging, and reporting. Admins define policies only once through the Zscaler Admin Console. Additionally, after users are signed in and authenticated to the Zscaler service, the service always applies their policies, whether they connect to an on-premises Virtual Service Edge or to a Public Service Edge anywhere in the world. Logs are transmitted to and stored on the Zscaler cloud as a central repository for integrated analytics, so you can view and monitor internet traffic activity on the dashboard and make full use of the real-time logging and interactive reporting capabilities of the service. Your organization has full access to the Virtual Service Edges for monitoring and configuration. Zscaler does not require access to the Virtual Service Edges.
+
+Virtual Service Edges are supported on [VMware ESX/ESXi](https://help.zscaler.com/zia/configuring-virtual-service-edge-clusters), [Microsoft Azure](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-azure), [Amazon Web Services (AWS) EC2](https://help.zscaler.com/zia/configuring-virtual-service-edge-amazon-web-services), [Microsoft Hyper-V](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v), and [Google Cloud Platform (GCP)](https://help.zscaler.com/zia/configuring-virtual-service-edge-google-cloud-platform).
+
+[Image: Diagram showing how a Virtual Service Edge forwards traffic.]
+
+Ensure that your firewall allows the outbound connections listed on the Virtual Service Edge config page (i.e., config.zscaler.com/<Zscaler Cloud Name>/zia-v-sedge) and access to and from the IP addresses on the Zscaler Hub IP Addresses page (i.e., config.zscaler.com/<Zscaler Cloud Name>/hubs).
+
+You can find the name of your cloud in the [Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings) menu. For example, if your organization's Zscaler cloud name is zscalertwo.net. In this case, you should go to config.zscaler.com/zscalertwo.net/zia-v-sedge. To learn more about Zscaler cloud names, see [Understanding Zscaler Cloud Names](https://help.zscaler.com/unified/understanding-zscaler-cloud-names).
+
+## Specifications and Sizing
+
+Virtual Service Edges are available in a single-sized VM that supports up to 600 Mbps of total throughput. An SSL acceleration card (sold separately) is recommended for deployments requiring a throughput of 100 Mbps or more in order to perform SSL inspection on Virtual Service Edges. Alternately, you can horizontally scale (deploy more) Virtual Service Edges for processing throughput in excess of 100 Mbps.
+
+Following are the Virtual Service Edge specifications and sizing:
+
+| Virtual Service Edge |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Hypervisor Support | VMware ESXi 6.0 and later | Microsoft Azure | AWS EC2 | Microsoft Hyper-V | GCP |
+| Number of Public Service Edge Instances per VM | 1 | 1 | 1 | 1 | 1 |
+| Number of Load Balancers per VM | 1 | 1 | 1 | 1 | - |
+| Maximum VMs per Cluster | 16 | - | - | 16 | - |
+| vMotion Support | VMware ESXi 7.0 or later | - | - | - | - |
+| **Hypervisor Resource Requirements** |  |  |  |  |  |
+| Number of V-CPUs | 4 | 4 | 4 | 4 | 4 |
+| Minimum Required Memory Allocation for Standalone Deployments | 48 GB | 48 GB | 48 GB | 48 GB | 48 GB |
+| Minimum Required Memory Allocation for Cluster Deployments | 48 GB | - | - | 48 GB | - |
+| Virtual Interfaces | 3 | 3 | 3 | 3 | 3 |
+| SSL Acceleration Card per VM | 1 x Marvell NITROX CNN3510-500-C5-NHB-2.0-G | - | - | - | - |
+| Disk Space | 500 GB | 500 GB | 500 GB | 500 GB | 500 GB |
+| **Throughput & SSL Specifications** |  |  |  |  |  |
+| Total Throughput | 600 Mbps | - | - | - | - |
+| SSL CPS with Acceleration Card | 3500 CPS | - | - | - | - |
+| SSL CPS without Acceleration Card | 400 CPS | 400 CPS | 400 CPS | 400 CPS | 400 CPS |
+
+Zscaler recommends Virtual Service Edge clusters with at least two Virtual Service Edge instances to provide n+1 redundancy for production. In the VMware ESXi and Microsoft Hyper-V environments, Zscaler recommends utilizing the in-built load balancer for Virtual Service Edges deployed in cluster mode. In certain [situations](https://help.zscaler.com/zia/using-external-load-balancer-virtual-service-edge-clusters), the Virtual Service Edges with an External Load Balancer are deployed. In public cloud environments such as Microsoft Azure, AWS EC2, Microsoft Hyper-V, and GCP, the native cluster mode of deployment is not supported, and you can use public cloud load balancers to ensure redundancy between the Virtual Service Edges.
+
+## Maintenance
+
+The Zscaler service automatically upgrades Virtual Service Edges during scheduled maintenance windows. The dates of these maintenance windows are published in the [Zscaler Trust Portal](https://trust.zscaler.com/). This does not require intervention from an admin or Zscaler Cloud Operations. In addition, the Virtual Service Edges aren't monitored or managed by the Zscaler Cloud Operations team.
+
+## Hardening
+
+The Virtual Service Edge virtual appliance is locked down by allowing only a limited number of commands to be run on the appliance. This setup is commonly referred to as a "jailed environment." The operating system itself is hardened and all unnecessary packages and libraries are removed to minimize the attack surface.
+
+Zscaler also hardens the TCP stack used for proxying and keeps up with any Common Vulnerabilities and Exposures (CVEs) that are disclosed. CVEs are patched immediately if they can potentially cause harm to the system. Updates and patches are also automatically downloaded and applied, so no manual updating or patching is required.
+
+Access to the Virtual Service Edge virtual appliance is limited to the VMware console and Microsoft Azure web console view, and Hyper-V Manager console, as well as the management interface for SSH access. Access to the Virtual Service Edge can be locked down by setting up proper access control to the console and the management interface. Consider using methods such as access control lists, authentication, and authorization to achieve this.
+
+Authentication attempts as well as an audit log of the commands run on the appliance, are accessible and stored in /var/log/auth.log. You can monitor this file remotely or check it periodically to detect unauthorized commands or authentication attempts.
+
+## About the Virtual Service Edges Page
+
+On the Virtual Service Edges page (Infrastructure > Internet & SaaS > Virtual Service Edges), you can do the following:
+
+1. Search for a Virtual Service Edge.
+2. Download VM images or SNMP MIB files:
+  - [Download a Virtual Service Edge VM](https://help.zscaler.com/zia/downloading-virtual-service-edge-vm).
+  - [Download the SNMP MIB files](https://help.zscaler.com/zia/about-the-zscaler-snmp-mibs).
+  - [Download the Hyper-V VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-microsoft-hyper-v#download-hyper-v).
+  - [Download the Nutanix VM](https://help.zscaler.com/zia/configuring-virtual-service-edge-internet-saas-nutanix).
+3. [Add a Virtual Service Edge instance](https://help.zscaler.com/zia/adding-virtual-service-edge-instances).
+4. [Modify the column options to view the Virtual Service Edge instances accordingly](https://help.zscaler.com/unified/using-tables).
+5. View a list of all Virtual Service Edges that were configured for your organization. For each Virtual Service Edge, you can see the following:
+  - **Name**: The name of the Virtual Service Edge. You can sort this column.
+  - **Status**: Displays whether the Virtual Service Edge is enabled or disabled. You can sort this column.
+  - **Type**: The Virtual Service Edge subscription type.
+  - **Deployment Status**: The Virtual Service Edge deployment status (**In Production** or **Trial**).
+  - **Deployment Mode**: The Virtual Service Edge deployment mode (**Cluster**or **Standalone**). You can sort this column.
+  - **Load Balancer IP Address**: The load balancer IP address for Virtual Service Edges in **Cluster**deployment mode. You can sort this column.
+  - **Proxy IP Address**: The proxy IP address for the Virtual Service Edge. You can sort this column.
+  - **Cluster Name**: The Virtual Service Edge cluster name. You can sort this column.
+  - **IPSec Local Termination**: The status of IPSec local termination for the Virtual Service Edge.
+6. [Download the Virtual Service Edge SSL certificate](https://help.zscaler.com/zia/downloading-virtual-service-edge-certificates-internet-saas).
+7. [Edit or delete a Virtual Service Edge instance](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+8. Open the New Client Certificate window. You can upload provisioning blob data or file.
+9. [View the Virtual Service Edge Clusters page](https://help.zscaler.com/zia/about-virtual-service-edge-clusters-internet-saas).
+
+[Image: The Virtual Service Edges page with annotations of different features]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zia/about-vpn-credentials","lastmod":"2026-10-21T15:00Z","nid":"1399481"} -->
+## About VPN Credentials
+
+- Source: https://help.zscaler.com/zia/about-vpn-credentials
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Traffic Forwarding > IPSec > About VPN Credentials
+- Last modified: 2026-10-21T15:00Z
+- Summary: Information on Virtual Private Network (VPN) credentials and how they are used for configuring IPSec VPN Tunnels for the Zscaler service.
+
+In an IPSec VPN Tunnel, two peers use a negotiation process called IKE (Internet Key Exchange) to define the security mechanisms they use to protect their communications. IKE has two phases. In the first negotiation phase, the peers define the security parameters they use to communicate in the second phase. The peers exchange VPN credentials to identify each other and authenticate. The VPN credentials can either be a pre-shared key or XAUTH; however, both peers must use the same VPN credential method and key for successful authentication.
+
+Zscaler no longer supports adding a new XAUTH VPN credential, but you can edit or delete the existing entries from the Zscaler Admin Console.
+
+In the Zscaler Admin Console , you can configure VPN credentials by either adding each credential individually or adding multiple credentials with a CSV file.
+
+Configuring a VPN credential is one of the tasks you must complete when configuring an IPSec VPN tunnel. To learn more, see [Configuring an IPSec VPN Tunnel](https://help.zscaler.com/zia/configuring-ipsec-vpn-tunnel).
+
+The VPN Credentials page provides the following benefits and enables you to:
+
+- Configure VPN credentials for your organization for establishing IPSec VPN tunnels between your organization and the Zscaler data centers for forwarding internet-bound traffic to the Zscaler service.
+- Import or delete multiple VPN credentials for different authentication types using a CSV file to reduce the configuration effort for the administrator.
+
+## About the VPN Credentials Page
+
+On the VPN Credentials page (Infrastructure > Location Management > VPN Credentials), you can do the following:
+
+1. Filter a VPN credential search by **Authentication Type**.
+2. Search for a VPN credential.
+3. [Import VPN credentials using a CSV file](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
+4. Download a **Sample Import CSV file** and use it as a template to add or remove VPN credentials. Using the sample CSV file as a guide ensures that the format of your entries is correct before you [import the information](https://help.zscaler.com/zia/importing-vpn-credentials-csv-file).
+5. [Add a VPN credential](https://help.zscaler.com/zia/adding-individual-vpn-credentials).
+6. [Modify the table and its columns](https://help.zscaler.com/unified/using-tables).
+7. View a list of VPN credentials that are configured for your organization. For each VPN credential, you can see the following:
+  - **User/Certificate ID**: The User ID or IP address for the VPN credential. You can sort this column.
+  - **Authentication Type**: The authentication type used to identify the peer, FQDN, XAUTH, or IP. You can sort this column.
+  - **Location**: The name of the location associated with the VPN credential.
+  - **PPK ID**: The post-quantum pre-shared ID.
+  - **Comments**: Displays any comments about the VPN credential, if available. You can sort this column.
+  - **Status**: The status of the VPN credential.
+  - **Managed By**: The name of the partner that manages the VPN credential. To learn more, see [Understanding Partner Integrations](https://help.zscaler.com/zia/understanding-partner-integrations).
+8. [Edit or delete the VPN credential](https://help.zscaler.com/zia/editing-deleting-duplicating-items).
+
+[Image: The VPN Credentials page where you can view and manage VPN credentials]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -127,8 +285,8 @@ On the Workload Groups (Internet Access > Resources > Workload Groups) page, you
 ## About the Zscaler Authentication Bridge
 
 - Source: https://help.zscaler.com/zia/about-zscaler-authentication-bridge
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > About the Zscaler Authentication Bridge
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > Zscaler Authentication Bridge > About the Zscaler Authentication Bridge
 - Last modified: 2026-11-03T10:22Z
 - Summary: Information on the Zscaler Authentication Bridge, a virtual appliance that you can use to provision and authenticate users.
 
@@ -1346,8 +1504,8 @@ To configure a Cloud NSS feed for 3rd-Party App Governance logs:
 ## Adding Cloud NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-admin-audit-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Admin Audit Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Admin Audit Logs
 - Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for admin audit logs in the Zscaler Admin Console.
 
@@ -1649,8 +1807,8 @@ To configure a Cloud NSS feed for Email Data Loss Prevention (DLP) logs:
 ## Adding Cloud NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-endpoint-dlp-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Endpoint DLP Logs
 - Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
@@ -1702,8 +1860,8 @@ To configure a Cloud NSS feed for Endpoint Data Loss Prevention (DLP) logs:
 ## Adding Cloud NSS Feeds for Firewall Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-for-firewall-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Firewall Logs
 - Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for Firewall logs in the Zscaler Admin Console.
 
@@ -2163,8 +2321,8 @@ To configure a Cloud NSS feed for SCIM logs:
 ## Adding Cloud NSS Feeds for Tunnel Logs
 
 - Source: https://help.zscaler.com/zia/adding-cloud-nss-feeds-tunnel-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Tunnel Logs
 - Last modified: 2026-11-12T20:06Z
 - Summary: How to add Cloud NSS feeds for tunnel logs in the Zscaler Admin Console.
 
@@ -3659,13 +3817,13 @@ To add a custom cloud application:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-11-15T06:06Z","nid":"1400076"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-custom-dlp-dictionary","lastmod":"2026-11-22T06:06Z","nid":"1400076"} -->
 ## Adding Custom DLP Dictionaries
 
 - Source: https://help.zscaler.com/zia/adding-custom-dlp-dictionary
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > DLP Dictionaries & Engines > Adding Custom DLP Dictionaries
+- Last modified: 2026-11-22T06:06Z
 - Summary: How to add a custom Data Loss Prevention (DLP) dictionary to the Zscaler service.
 
 Adding a custom Data Loss Prevention (DLP) dictionary is one of the tasks you can complete when configuring DLP policy rules. To learn more, see [Configuring DLP Policy Rules with Content Inspection](https://help.zscaler.com/zia/configuring-dlp-policy-rules-content-inspection).
@@ -4720,13 +4878,13 @@ To add an ECS prefix:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-11-15T06:06Z","nid":"1444181"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-email-label","lastmod":"2026-11-22T06:06Z","nid":"1444181"} -->
 ## Adding an Email Label
 
 - Source: https://help.zscaler.com/zia/adding-email-label
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
-- Last modified: 2026-11-15T06:06Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Data Loss Prevention > Labels and Tags > Adding an Email Label
+- Last modified: 2026-11-22T06:06Z
 - Summary: How to add an email label for a Gmail or Microsoft Exchange client.
 
 The Zscaler service allows you to create email labels to group Gmail and Microsoft Exchange clients under the Data at Rest Scanning policy into categories based on the sensitivity of the email data.
@@ -6809,8 +6967,8 @@ If you want to use ICAP receivers for web traffic filtering, see [Adding an ICAP
 ## Adding Identity Providers
 
 - Source: https://help.zscaler.com/zia/adding-identity-providers
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding Identity Providers
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Authentication & Administration > User Management & Authentication Settings > SAML & SCIM > Adding Identity Providers
 - Last modified: 2026-11-13T20:06Z
 - Summary: How to add identity providers in the Zscaler Admin Console and configure the Zscaler service as the service provider for SAML Single Sign-On (SSO).
 
@@ -7998,13 +8156,13 @@ To show all notes again, click the **Show Notes**icon.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-10-27T21:06Z","nid":"1463361"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-collector-servers","lastmod":"2026-11-19T15:02Z","nid":"1463361"} -->
 ## Adding NSS Collector Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-collector-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Collector Servers
-- Last modified: 2026-10-27T21:06Z
+- Last modified: 2026-11-19T15:02Z
 - Summary: Information on how to configure an NSS Collector server in the Zscaler Admin Console.
 
 The NSS Collector functionality and the data collected using this functionality are exclusive to the [SaaS Security Report](https://help.zscaler.com/zia/about-saas-security-report). To enable this feature for your organization, contact Zscaler Support.
@@ -8013,27 +8171,28 @@ You can configure the [NSS Collector server](https://help.zscaler.com/zia/about-
 
 To add an NSS Collector server:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
-2. From the **NSS Collector Servers** tab, click **Add NSS Collector Server**.
-3. In the **Add NSS Collector Server** window:
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Nanolog Streaming Service**.
+2. Select the **NSS Collector Servers** tab.
+3. From the **NSS Collector Servers** tab, click **Add NSS Collector Server**. The **Add NSS Collector Server** window appears.
+4. In the **Add NSS Collector Server** window:
 
 - **Name**: Enter a name for the NSS Collector server.
 - **Vendor**: Select the vendor of the third-party firewall or web proxy service used by your organization for which the logs must be integrated with Zscaler.
-- **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions.
+- **Status**: Select **Enabled** to allow the NSS Collector to process and stream logs from the third-party firewalls or web proxies to the Zscaler service. When disabled, the NSS Collector does not process or stream logs from third-party security solutions. See image.
 
 1. Click **Save**.
-
-See image.
 
 When the NSS Collector server is added to the Zscaler Admin Console, Zscaler generates the packaged software for installation and issues an SSL certificate to the server.
 
 To download the packaged software and the SSL certificate for the server:
 
-1. Click the **Edit** icon displayed against the NSS Collector server.
+1. Click the **Edit** icon displayed against the NSS Collector server. The **Edit NSS Collector Server** window appears.
 2. In the **Edit NSS Collector Server** window:
 
 - Under the **SSL Certificate** field, you can download the SSL certificate issued for the NSS Collector server. You can also regenerate a new certificate for the server as required. The SSL certificate must be installed on the NSS Collector VM so that the NSS Collector can authenticate as a client with the Zscaler service.
 - Under the **Software Package** field, you can download the packaged software generated for the server. This packaged software must be deployed in your organization's network perimeter. To learn more about the deployment procedure, see [NSS Collector Deployment Guide for VMware vSphere](https://help.zscaler.com/zia/nss-collector-deployment-guide-vmware-vsphere).
+
+1. Click **Save**.
 
 See image.
 
@@ -8052,13 +8211,13 @@ An organization can have up to 4 NSS Collector servers.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-10-28T21:06Z","nid":"1400036"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-nss-servers","lastmod":"2026-11-19T14:50Z","nid":"1400036"} -->
 ## Adding NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding NSS Servers
-- Last modified: 2026-10-28T21:06Z
+- Last modified: 2026-11-19T14:50Z
 - Summary: How to add an NSS server in the Zscaler Admin Console.
 
 Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
@@ -8072,19 +8231,21 @@ Before reading this article, see the Nanolog Streaming Service (NSS) deployment 
 
 To add an NSS server:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
-2. From the **NSS Servers**tab, click **Add NSS Server**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Nanolog Streaming Service**.
+2. From the **NSS Servers**tab, click **Add NSS Server**. The **Add NSS Server** window appears.
 3. In the **Add NSS Server**window: See image.
   - **Name**: Enter a name for the NSS server.
   - **Type**: The **NSS for Web**type is selected by default. To configure NSS for firewall logs, select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, the **NSS for Firewall** (NSS type) is displayed as **NSS for Firewall, Cloud & Branch Connector**.
   - **Status**: Enable or disable the status of the NSS server.
   - **State**: The health of the NSS server. This field is not able to be configured.
-4. Click **Save**. The NSS server is added to the Zscaler Admin Console.
+4. Click **Save**.
+5. The NSS server is added to the Zscaler Admin Console.
 
 To download the SSL certificate:
 
-1. Click the **Edit** icon corresponding to the NSS server.
+1. Click the **Edit** icon corresponding to the NSS server. The **Edit NSS Server** window appears.
 2. In the **Edit NSS Server** window, under the **SSL Certificate** field, you can either download the SSL certificate or generate a new certificate for that NSS server. You can upload this SSL certificate to the desired platform. See image.
+3. Click **Save**.
 
 [Image: NSS Server window]
 
@@ -8368,13 +8529,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-recipient-profiles","lastmod":"2026-11-04T14:39Z","nid":"1546011"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-recipient-profiles","lastmod":"2026-11-18T20:06Z","nid":"1546011"} -->
 ## Adding Recipient Profiles
 
 - Source: https://help.zscaler.com/zia/adding-recipient-profiles
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Outbound Email Data Loss Prevention > Adding Recipient Profiles
-- Last modified: 2026-11-04T14:39Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Outbound Email Data Loss Prevention > Adding Recipient Profiles
+- Last modified: 2026-11-18T20:06Z
 - Summary: How to add recipient profiles for use in Zscaler Data Loss Prevention (DLP) policy rules.
 
 Zscaler allows you to make custom sets of email [recipient profiles](https://help.zscaler.com/zia/about-recipient-profiles) and [domain profiles](https://help.zscaler.com/zia/about-domain-profiles) that you can easily use with Data Loss Prevention (DLP) tools across channels. To learn more, see [About Data Loss Prevention](https://help.zscaler.com/zia/about-data-loss-prevention), [About Data at Rest Scanning DLP](https://help.zscaler.com/zia/about-data-rest-scanning-dlp), and [About Outbound Email Policy](https://help.zscaler.com/zia/about-outbound-email-policy).
@@ -8398,8 +8559,8 @@ To add recipient profiles:
 ## Adding Resource Tags
 
 - Source: https://help.zscaler.com/zia/adding-resource-tags
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > Endpoint Context > Adding Resource Tags
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > Endpoint Context > Adding Resource Tags
 - Last modified: 2026-11-07T06:06Z
 - Summary: Information on how to add DLP and endpoint resource tags to use in Endpoint Data Loss Prevention (DLP) policy rules and for Endpoint Context.
 
@@ -8846,13 +9007,13 @@ For information on the order in which the service enforces all policies, includi
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-11-06T04:29Z","nid":"1401256"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-saas-application-tenants","lastmod":"2026-11-20T02:41Z","nid":"1401256"} -->
 ## Adding SaaS Application Tenants
 
 - Source: https://help.zscaler.com/zia/adding-saas-application-tenants
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
-- Last modified: 2026-11-06T04:29Z
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Policies > SaaS Security > SaaS Application Tenants > Adding SaaS Application Tenants
+- Last modified: 2026-11-20T02:41Z
 - Summary: How to add a SaaS application tenant for Data at Rest Scanning.
 
 Zscaler Data at Rest Scanning provides visibility and security for [sanctioned SaaS applications](https://help.zscaler.com/zia/about-saas-application-tenants) used in your organization. You can authorize sanctioned SaaS applications with Zscaler by adding them as tenants. Most apps require configuration to provide Zscaler access and enable their full functionality.
@@ -8891,6 +9052,7 @@ Complete the specific configuration steps for your chosen application:
 - Bitbucket
 - Box
 - ChatGPT
+- Claude
 - Confluence
 - Docusign
 - Dropbox
@@ -9297,6 +9459,25 @@ To configure ChatGPT:
 [Image: Workspace ID]
 
 [Image: Enter the Workspace Name, ID, and Secret Key]
+
+To configure Claude:
+
+1. Sign in to the [Claude.ai](https://claude.ai/login) with your admin credentials.
+2. Go to **Organizational Settings** > **API**> **Keys**section.
+3. Under **Compliance Access Keys**, click **Create key**. See image.
+4. Enter a name for your key and choose its scope. Select all three scopes mentioned below: See image. If the Compliance API is enabled for your organization, Admin keys created here are automatically granted the `read:compliance_activities` scope. If the Compliance API is not yet enabled, contact your Anthropic representative to request access.
+  - `read:compliance_activities`
+  - `read:compliance_user_data`
+  - `delete:compliance_user_data`
+5. Your secret access key is generated. Save your key to use during onboarding. It can only be copied and viewed once. If you lose it, you need to generate a new one.
+6. In the Zscaler Admin Console under **Register and Authorize**, enter your **Admin Email ID**, **Compliance API Key**, and click **Authorize**. See image.
+7. Click **Next**.
+
+[Image: The Claude Create Key button]
+
+[Image: The Scopes required for Claude onboarding]
+
+[Image: Enter Claude Admin Email ID, Compliance API Key and authorize]
 
 To configure Confluence:
 
@@ -9920,16 +10101,15 @@ See image.
 - Zscaler Defined
 - Custom
 
-1. Click **Provide Admin Credentials**.
+To learn more about the prerequisites and permissions for onboarding Microsoft Copilot, see [Permissions for Onboarding SaaS Apps for SSPM](https://help.zscaler.com/zia/permissions-onboarding-saas-apps-SSPM#ms-copilot).
 
-The Azure portal appears.
+1. Click **Provide Admin Credentials**. The Azure portal appears.
+2. Log in to Azure.
+3. Review the required permissions for the Internet & SaaS service to access the Copilot account and click **Accept**.
+4. After accepting, you return to Internet & SaaS and your **Zscaler SaaS Connector** and **Tenant ID** information is visible. Copy these for use later.
+5. To complete the app registration for Copilot, run the following script in Azure via Power Platform API or PowerShell for Power Platform administrators. Use the **Zscaler Connector ID** you copied earlier: `# Replace with your Azure AD application's client ID $appId = "<CLIENT_ID_FROM_AZURE_APP>" # Zscaler Connector ID# Login interactively with a tenant administrator for Power Platform Add-PowerAppsAccount -Endpoint prod -TenantID $tenantId # Register a new management application# This grants the service principal the same permissions in Power Platform New-PowerAppManagementApp -ApplicationId $appId`
 
-1. Log in to Azure.
-2. Review the required permissions for the Internet & SaaS service to access the Copilot account and click **Accept**.
-3. After accepting, you return to Internet & SaaS and your **Zscaler SaaS Connector** and **Tenant ID** information is visible. Copy these for use later.
-4. To complete the app registration for Copilot, run the following script in Azure via Power Platform API or PowerShell for Power Platform administrators. Use the **Zscaler Connector ID** you copied earlier: `$appId = "<Zscaler Connector ID>" # log in interactively with a tenant administrator for Power Platform Add-PowerAppsAccount -Endpoint prod -TenantID $tenantId # Register a new application, this gives the SPN/client application the same permissions New-PowerAppManagementApp -ApplicationId $appId`
-
-To create a custom Copilot connector, you must first configure permissions in Azure so that you can provide the **Client ID**, **Client Secret**, and **Tenant ID** for the account in the Zscaler Admin Console. To learn more, see [Authorizing a Custom Zscaler Connector for Microsoft Applications](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications).
+To create a custom Copilot connector, you must first configure permissions in Azure so that you can provide the **Client ID**, **Client Secret**, and **Tenant ID** for the account in the Zscaler Admin Console. To learn more, see [Authorizing a Custom Zscaler Connector for Microsoft Applications](https://help.zscaler.com/zia/authorizing-custom-zscaler-connector-microsoft-applications#copilot).
 
 To configure Microsoft Exchange:
 
@@ -11417,13 +11597,13 @@ This action is available only if Zero Trust Browser is enabled for your organiza
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zia/adding-ssl-certificates-nss-servers","lastmod":"2026-10-23T21:06Z","nid":"1546714"} -->
+<!-- ZS-ARTICLE {"url":"/zia/adding-ssl-certificates-nss-servers","lastmod":"2026-11-19T14:30Z","nid":"1546714"} -->
 ## Adding SSL Certificates for NSS Servers
 
 - Source: https://help.zscaler.com/zia/adding-ssl-certificates-nss-servers
 - Product: Internet & SaaS (ZIA)
 - Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > Adding SSL Certificates for NSS Servers
-- Last modified: 2026-10-23T21:06Z
+- Last modified: 2026-11-19T14:30Z
 - Summary: Information about adding a new SSL certificate for NSS server configuration in the Zscaler Admin Console.
 
 Before reading this article, see the Nanolog Streaming Service (NSS) deployment guide for your platform:
@@ -11437,15 +11617,15 @@ Before reading this article, see the Nanolog Streaming Service (NSS) deployment 
 
 To add an SSL certificate:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Internet Log Streaming**- **Nanolog Streaming Service**.
-2. From the **NSS Servers**tab, click the **New Client Certificate** icon for the NSS server.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer**> **Log Streaming** > **Nanolog Streaming Service**.
+2. From the **NSS Servers**tab, click the **New Client Certificate** icon for the NSS server. The **New Client Certificate** window appears.
 3. In the **New Client Certificate**window:
   - **Download Config (Optional)**: Download the configuration script for the new certificate.
-  - **Upload Provisioning Blob**: Select to either enter the blob data in the text field, or to upload the blob file. If you select **Upload Blob File**, click **Choose File**, and select a file from your device.
-  - Click **View Details** to view a dropdown of the certificate information.
-4. Click **Save**. See image.
+  - **Upload Provisioning Blob**: Select to either enter the blob data in the text field or to upload the blob file. If you select **Upload Blob File**, click **Choose File**, and select a file from your device. See image.
+  - Click the **View Details** dropdown to see the certificate information.
+4. Click **Save**.
 
-[Image: NSS Server window]
+[Image: The New Client Certificate window where you can add an SSL certificate]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11861,8 +12041,8 @@ To configure a TCP NSS feed for 3rd-Party App Governance logs:
 ## Adding TCP NSS Feeds for Admin Audit Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-admin-audit-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Admin Audit Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Admin Audit Logs
 - Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for admin audit logs in the Zscaler Admin Console.
 
@@ -12162,8 +12342,8 @@ To configure a TCP NSS feed for Email DLP logs:
 ## Adding TCP NSS Feeds for Endpoint DLP Logs
 
 - Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-endpoint-dlp-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
+- Product: Internet & SaaS (ZIA)
+- Path: Internet & SaaS (ZIA) Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Endpoint DLP Logs
 - Last modified: 2026-11-11T20:06Z
 - Summary: How to add TCP NSS feeds for Endpoint Data Loss Prevention (DLP) logs in the Zscaler Admin Console.
 
@@ -12208,126 +12388,4 @@ To configure a TCP NSS feed for Endpoint DLP logs:
 - **DLP Dictionaries**: Use this filter to limit the logs to transactions in which data leakage was detected based on specific [DLP dictionaries](https://help.zscaler.com/zia/about-dlp-dictionaries). Multiple selections are allowed.
 - **Severity**: Use this filter to limit the logs based on the severity of the incidents detected by the [Endpoint DLP](https://help.zscaler.com/zia/about-endpoint-dlp) policy. Multiple selections are allowed.
 - **Record Type**: Use this filter to limit the logs based on record type. DLP incidents are user activities in which DLP policy rules were violated. Sensitive activities are activities in which movement of sensitive data was detected based on the file content. Multiple selections are allowed.
-<!-- /ZS-ARTICLE -->
-
----
-
-<!-- ZS-ARTICLE {"url":"/zia/adding-tcp-nss-feeds-firewall-logs","lastmod":"2026-11-11T20:06Z","nid":"1399076"} -->
-## Adding TCP NSS Feeds for Firewall Logs
-
-- Source: https://help.zscaler.com/zia/adding-tcp-nss-feeds-firewall-logs
-- Product: Internet & SaaS
-- Path: Internet & SaaS Help > Nanolog Streaming Service > NSS Feeds > Adding TCP NSS Feeds > Adding TCP NSS Feeds for Firewall Logs
-- Last modified: 2026-11-11T20:06Z
-- Summary: How to add TCP NSS feeds for Firewall logs in the Zscaler Admin Console.
-
-You can configure up to TCP 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Firewall logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple filter types. For example, you can configure separate feeds for each location or for different policy rules. A large number of filters or complex filters, such as string searches, can impact the NSS performance.
-
-Before you start configuring a feed for Firewall logs, consider the [guidelines for configuring feeds](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats).
-
-To configure a TCP NSS feed for Firewall logs:
-
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Log Streaming** > **Internet Log Streaming** - **Nanolog Streaming Service**.
-2. On the **NSS Feeds** tab, click **Add TCP NSS Feed**. The **Add TCP NSS Feed** window appears.
-3. In the**Add TCP NSS Feed** window:
-  - **Feed Name**:Enter or edit the name of the feed. Each feed is a connection between NSS and your SIEM.
-  - **NSS Type**: Select **NSS for Firewall**. If you have Zscaler Cloud & Branch Connector, the **NSS for Firewall** (NSS type) is displayed as **NSS for Firewall, Cloud & Branch Connector**.
-  - **NSS Server**:Select an NSS server from the list. A [configured NSS server](https://help.zscaler.com/zia/adding-nss-servers) is required to add an NSS feed.
-  - **Status**: It is**Enabled** by default. Click **Disabled** if you want to activate it at a later time.
-  - **SIEM Destination Type**: Select the type of destination:
-    - **SIEM IP Address**:Appears when **IP Address** is selected as the destination type. Enter the IP address of the SIEM to which the logs are streamed.
-    - **SIEM FQDN**: Appears when **FQDN** is selected as the destination type. Enter the destination for the TCP connection to which the logs are streamed. This allows failover from one IP to the other without manual intervention, but rather relying on updating the DNS entry. The NSS re-resolves the FQDN only when the existing connection goes down. This feature cannot be used for DNS-based load balancing.
-  - **SIEM TCP Port**: Enter the port number of the SIEM to which the logs are streamed. Ensure that the SIEM is configured to accept the feed from the NSS.
-  - **SIEM Rate**: Leave as **Unlimited**, unless you need to throttle the output stream due to licensing or other constraints.
-    - **SIEM Rate Limit (Events per Second)**: This is only applicable if you selected **Limited** under SIEM Rate. Enter an appropriate rate limit for the events per second that you want streamed to your SIEM. This number must be between 100 and 1,000,000. A limit that is too low for the traffic volume causes log loss.
-  - **Log Domain**:
-    - If you want to configure NSS for Internet Access (ZIA) Firewall logs, choose **Firewall** and follow the successive steps.
-    - If you want to configure NSS for Cloud & Branch Connector logs, choose **Cloud & Branch Connector**and see [Adding NSS Feeds](https://help.zscaler.com/cloud-branch-connector/adding-nss-feeds) for applicable log types.
-  - **Log Type**:Choose **Firewall Logs**.
-  - Choose the **Firewall Log Type**:
-    - **Full Session Logs**: Logs each session that matches the rule individually, except for web (HTTP/HTTPS) and FTP/FTPS sessions that match the same Allow rule over a time window. These web sessions are managed by the secure web gateway, and the transactions are logged in detail in Web logs. Firewall logs always record those web and FTP sessions as aggregated entries. To learn more, see [Configuring the Firewall Filtering Policy](https://help.zscaler.com/zia/configuring-firewall-filtering-policy). Full session logs do not include sessions that are recorded as part of aggregated entries.
-    - **Aggregate Logs**: Groups individual sessions based on {user, rule, network service, network application}, and records them periodically within an approximately 15-minute time window.
-    - **Both Session and Aggregate Logs**: Includes all log data captured in full session logs and aggregated logs. The exception for web (HTTP/HTTPS) and FTP/FTPS sessions matching Allow rules still applies. These sessions are always available as aggregated entries in Firewall logs (with detailed web and FTP transactions in Web logs).
-  - **Feed Output Type**:The output is a comma-separated (**CSV**) list by default. You can choose **Name-Value Pairs** or **Tab-separated** if your SIEM accepts any of these formats.
-  - **Feed Escape Character**: Optionally, type a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (`,`) to encode it as `%2C`. This is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If custom encoding was done for a record, the `%s{eedone}` field is `YES` for that record.
-  - **Feed Output Format**: These are the fields that are displayed in the output. To learn more about the available fields and their syntax, see [NSS Feed Output Format: Firewall Logs](https://help.zscaler.com/zia/nss-feed-output-format-firewall-logs).
-  - **Time Zone**: By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone database. Direct GMT offsets can also be specified.
-  - **Duplicate Logs**: To ensure that no logs are skipped during downtime, specify the number of minutes that the NSS sends duplicate logs. Zscaler recommends setting the number to 5 minutes, or more if required. This allows the NSS to send up to 60 minutes (one hour) of logs to the SIEM after the connection is restored. To learn more, see [General Guidelines for NSS Feeds and Feed Formats](https://help.zscaler.com/zia/general-guidelines-nss-feeds-and-feed-formats#duplicate-logs-example).
-4. Define the filters:
-  - Action
-  - Who
-  - Source
-  - Server Traffic
-  - Session
-  - Protocol Classification
-  - Security
-5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
-
-- **DNAT Policy Action**:Use this filter to limit the logs to traffic on which the service performed [destination NAT](https://help.zscaler.com/zia/about-nat-control) and redirected traffic to specific IP addresses and optionally, ports.
-- **DNAT Destination Names**: Use this filter to limit the logs to traffic that was redirected to specific FQDNs after the service performed destination NAT. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Firewall & IPS Policy Actions**: Use this filter to limit the logs based on the action the service took, in accordance with the Firewall Filtering and IPS policies. You can choose multiple actions:
-  - **Allow**: Packets that were allowed through the Firewall or IPS due to policy.
-  - **Block/Drop**: Packets that were silently dropped due to Firewall policy.
-  - **Block/ICMP**: Packets that were dropped because they matched a Firewall rule and sent the client an ICMP error message of Type 3 (Destination Unreachable) and code 9 or 10 (network/host administratively prohibited).
-  - **Block/Reset**: For TCP traffic, the Zscaler service drops all packets that match the Firewall rule and sends the client a TCP reset. (A TCP packet with the reset (RST) flag is set to 1 in the TCP header, indicating that the TCP connection must be instantly stopped.) For non-TCP traffic, it's the same as Block/Drop.
-  - **IPS Drop**: Packets that were silently dropped due to IPS policy.
-  - **IPS Reset**: Packets that were reset due to IPS policy.
-- **Firewall Filtering Rule Name**: Use this filter to limit the logs based on specific rules in your Firewall policies. Choose the rules from the list.
-- **IPS Rule Name**: Use this filter to limit the logs based on specific rules in your IPS policies. Choose the rules from the list.
-
-- **Users**: Use this filter to limit the logs to specific users who generated transactions. You can search for users by username or email address. Click **Select All** to select all results. Deleted users appear with a strikethrough line. Select **Hide Deleted** to hide these deleted users from the list.
-- **Departments**: Use this filter to limit the logs to specific departments that generated transactions. You can search for departments. Click **Select All** to select all results. Deleted departments appear with a strikethrough line. Select **Hide Deleted** to hide these deleted departments from the list.
-
-- **Locations**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/zia/about-locations) from which transactions were generated. You can search for locations. Click **Select All** to select all results. Deleted locations appear with a strikethrough line. Select **Hide Deleted** to hide these deleted locations from the list.
-- **Location Groups**: Use this filter to limit the logs to specific [location groups](https://help.zscaler.com/zia/about-location-groups) from which transactions were generated. You can search for location groups. Multiple selections are allowed.
-- **Client Source IP Addresses**: Use this filter to limit the logs based on a client’s private IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Client Source Ports**:Use this filter to limit the logs to specific client source ports. For aggregated sessions, this is the client source port of the last session in the aggregate. You can specify individual ports and a range of ports. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Client Destination Names**: For Advanced Firewall, use this filter to limit the logs to traffic associated with a specific destination FQDN.
-- **Client Destination IP Addresses**:Use this filter to limit the logs to specific client destination IP addresses. For aggregated sessions, this is the client destination IP address of the last session in the aggregate. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Client Destination Ports**: Use this filter to limit the logs to specific client destination ports. For aggregated sessions, this is the client destination port of the last session in the aggregate. You can specify individual ports and a range of ports. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Client Public IP Addresses**: Use this filter to limit the logs based on a client’s public IP address. The internal IP address is available if traffic forwarding is forwarded to the service through a GRE tunnel or from the XFF header. If the internal IP address is not available, the value is the same as the client IP address. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Traffic Forwarding**: Use this filter to limit the logs based on the traffic forwarding method used to send traffic to the Zscaler Firewall. Choose one or more of the listed methods or choose **Any**.
-
-- **Server Source IP Addresses**: Use this filter to limit the logs to specific server source IP addresses. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Server Source Ports**: Use this filter to limit the logs to specific server source ports. For aggregated sessions, this is the server source port of the last session in the aggregate. You can specify individual ports and a range of ports. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Server Destination IP Addresses**: Use this filter to limit the logs to specific server destination IP addresses. For aggregated sessions, this is the server destination IP address of the last session in the aggregate. You can enter: You can enter multiple entries. Press `Enter` after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-  - An IP address (e.g., 198.51.100.100)
-  - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
-  - An IP address with a netmask (e.g., 203.0.113.0/24)
-- **Server Destination Port**: Use this filter to limit the logs to specific server destination ports. For aggregated sessions, this is the server destination port of the last session in the aggregate. You can specify individual ports and a range of ports. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Tunnel IP Addresses**: Tunnel IP address of the server. For aggregated sessions, this is the server's tunnel IP address corresponding to the last session in the aggregate. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Server IP Classes**: The [URL class](https://help.zscaler.com/zia/about-url-categories) that corresponds to the server IP address.
-- **Server IP Super Categories**: The [URL super category](https://help.zscaler.com/zia/about-url-categories) that corresponds to the server IP address.
-- **Server IP Categories**: The [URL category](https://help.zscaler.com/zia/about-url-categories) that corresponds to the server IP address.
-- **Countries**: The country code that corresponds to the server IP address.
-
-- **Inbound Bytes**: Use this filter to limit the logs based on the number of bytes sent from the server to the client. For aggregated sessions, this is the total bytes sent from the server across all sessions in the aggregate. You can specify numbers or ranges. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Outbound Bytes**: Use this filter to limit the logs based on the number of bytes received by the server. For aggregated sessions, this is the total bytes received by the server across all sessions in the aggregate. You can specify numbers or ranges. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Durations**: Use this filter to limit the logs based on the duration of the sessions, in seconds. For aggregated sessions, this indicates the average session duration. You can specify numbers or ranges. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-- **Number of Sessions**: For aggregated logs, you can filter by the number of sessions. You can specify numbers or ranges. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-
-- **Network Applications**: Use this filter to limit the logs to specific [network applications](https://help.zscaler.com/zia/about-network-applications) associated with the session or aggregated sessions.
-  - **Include**: Use this filter to include selected network applications in the logs. This filter is enabled by default. The default value for this filter is **Any**.
-  - **Exclude**: Use this filter to exclude selected network applications from the logs. The default value for this filter is **None**.
-- **Network Services**: Use this filter to limit the logs to specific [network services](https://help.zscaler.com/zia/about-network-services) associated with the session or aggregated sessions.
-
-- **Threat Names**: Use this filter to limit the logs to specific threat names. You can specify the threats.
-  - Use the guidelines: Multiple strings are allowed. Enter one string per line. String search is not case-sensitive. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
-    - *string -> Suffix matching match threat names ending with ‘string’
-    - String* -> Prefix matching match threat names beginning with ‘string’
-    - *string* -> Substring matching match threat names containing ‘string’
-    - String -> Exact matching match threat names that are exactly ‘string’
-- **Advanced Threat Category**: Use this filter to limit the logs to specific threat categories. Choose the categories from the list.
 <!-- /ZS-ARTICLE -->

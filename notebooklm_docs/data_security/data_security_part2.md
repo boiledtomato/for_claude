@@ -1,7 +1,7 @@
 # Zscaler Help — Data Security — DSPM (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 24
 
 ---
@@ -80,8 +80,8 @@ The size of the circles is relative to each other. A bigger circle indicates tha
 ## Viewing the Graph for AI Services
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-ai-services
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AI Services
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Graph for AI Services
 - Last modified: 2026-10-04T21:40Z
 - Summary: Information on the Resource Inventory graph for AI services that have access to sensitive data.
 
@@ -244,8 +244,8 @@ View details of the primary resource.
 ## Viewing the Graph for AWS Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-aws-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for AWS Data Stores
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Graph for AWS Data Stores
 - Last modified: 2026-09-25T09:58Z
 - Summary: Information on the Resource Inventory graph that depict the AWS data stores containing sensitive data.
 
@@ -353,8 +353,8 @@ View the external entities that can access the resource. These entities are part
 ## Viewing the Graph for Azure Data Stores
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-azure-data-stores
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the Graph for Azure Data Stores
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the Graph for Azure Data Stores
 - Last modified: 2026-10-16T07:06Z
 - Summary: Information on the Resource Inventory graph that depicts AWS data stores containing sensitive data.
 
@@ -466,13 +466,13 @@ View the AI agent identities that can access the resource.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-10-04T21:37Z","nid":"1532158"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-graph-databases","lastmod":"2026-11-20T06:06Z","nid":"1532158"} -->
 ## Viewing the Graph for Databases
 
 - Source: https://help.zscaler.com/dspm/viewing-graph-databases
 - Product: Data Security Posture Management
 - Path: Data Security Posture Management Help > Graphs > Viewing the Graph for Databases
-- Last modified: 2026-10-04T21:37Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Graph for a database (unmanaged, on-premises, or Snowflake) is a visual representation of the scan result.
 
 After DSPM completes the [data scan](https://help.zscaler.com/dspm/about-scan-settings) of the resources, scan results are displayed in the [Resource Inventory](https://help.zscaler.com/dspm/about-resource-inventory) graph. The graph illustrates data stores containing sensitive records, matching DLP engines and dictionaries, public internet exposure paths, and the entities (users, roles, and services) with access permissions. Security administrators use these graphs to evaluate risk relationships, inspect access paths, and remediate misconfigurations.
@@ -851,8 +851,8 @@ To view the investigation results:
 ## Viewing the Malware Details
 
 - Source: https://help.zscaler.com/dspm/viewing-malware-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Malware Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Resource Inventory > Resource Details > Viewing the Malware Details
 - Last modified: 2026-09-30T02:16Z
 - Summary: Information on malware and malicious files in the cloud resources that are scanned and displayed on the Zscaler Admin Console.
 
@@ -1081,8 +1081,8 @@ To view the orchestrator status:
 ## Viewing the Policy Details
 
 - Source: https://help.zscaler.com/dspm/viewing-policy-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Data Posture Policies > Viewing the Policy Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Data Posture Policies > Viewing the Policy Details
 - Last modified: 2026-10-04T21:58Z
 - Summary: Information about the data posture policy details in the Zscaler Admin Console.
 
@@ -1286,13 +1286,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-10-04T21:39Z","nid":"1478111"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-resource-inventory-graph","lastmod":"2026-11-20T06:06Z","nid":"1478111"} -->
 ## Viewing the Resource Inventory Graph
 
 - Source: https://help.zscaler.com/dspm/viewing-resource-inventory-graph
 - Product: Data Security Posture Management
 - Path: Data Security Posture Management Help > Graphs > Viewing the Resource Inventory Graph
-- Last modified: 2026-10-04T21:39Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Viewing the resource details and its associated vulnerabilities as a graph in the Zscaler Admin Console.
 
 After DSPM [scans a resource](https://help.zscaler.com/dspm/about-scan-settings), the graph provides information about the primary resource, its associated resources, and its security posture. It displays details such as the cloud account, resource type, resource ID, file path, sensitive data, and access levels. The graph also displays applicable attack paths, including public exposure, malware, IAM access, and vulnerabilities. These paths help you identify potential security risks associated with the resource.
@@ -1426,13 +1426,13 @@ Download the following templates to your local system, extract the ZIP file, and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-saas-overview-dashboard","lastmod":"2026-09-28T22:49Z","nid":"1542064"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-saas-overview-dashboard","lastmod":"2026-11-20T06:06Z","nid":"1542064"} -->
 ## Viewing the SaaS Overview Dashboard
 
 - Source: https://help.zscaler.com/dspm/viewing-saas-overview-dashboard
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Dashboards > Viewing the SaaS Overview Dashboard
-- Last modified: 2026-09-28T22:49Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Dashboards > Viewing the SaaS Overview Dashboard
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on the SaaS Overview dashboard in DSPM.
 
 Software as a Service (SaaS) applications often handle sensitive data, including customer information, financial data, and intellectual property. This data needs to be protected from unauthorized access, breaches, and data loss. Identifying and addressing vulnerabilities within SaaS applications reduces the risk of security incidents, such as data breaches, malware infections, or insider threats.
@@ -1478,8 +1478,8 @@ This table shows details about the SaaS applications with the most data exposure
 ## Viewing the Sensitive Data Details
 
 - Source: https://help.zscaler.com/dspm/viewing-sensitive-data-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Sensitive Data Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Resource Inventory > Resource Details > Viewing the Sensitive Data Details
 - Last modified: 2026-10-09T07:06Z
 - Summary: Information about cloud resources containing sensitive data that is detected by DSPM.
 
@@ -1555,13 +1555,13 @@ To view the events related to a resource:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-10-04T21:43Z","nid":"1482986"} -->
+<!-- ZS-ARTICLE {"url":"/dspm/viewing-user-access-path","lastmod":"2026-11-21T06:06Z","nid":"1482986"} -->
 ## Viewing the User Access Path
 
 - Source: https://help.zscaler.com/dspm/viewing-user-access-path
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Graphs > Viewing the User Access Path
-- Last modified: 2026-10-04T21:43Z
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Graphs > Viewing the User Access Path
+- Last modified: 2026-11-21T06:06Z
 - Summary: Information about the graph that depicts the user access to cloud resources.
 
 The user access path includes details of identity and access management (IAM) entities that can access the primary resource containing sensitive data. The nodes in the graph are interactive. You can click each node to view granular details of each entity.
@@ -1670,8 +1670,8 @@ See image.
 ## Viewing the Vulnerability Details
 
 - Source: https://help.zscaler.com/dspm/viewing-vulnerability-details
-- Product: Data Security Posture Management (DSPM)
-- Path: Data Security Posture Management (DSPM) Help > Resource Inventory > Resource Details > Viewing the Vulnerability Details
+- Product: Data Security Posture Management
+- Path: Data Security Posture Management Help > Resource Inventory > Resource Details > Viewing the Vulnerability Details
 - Last modified: 2026-09-29T21:47Z
 - Summary: Information about viewing the vulnerabilities associated with the cloud resources in the Zscaler Admin Console.
 

@@ -1,8 +1,8 @@
 # Zscaler Help — ZPA — Private Access (part 4)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 50
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 51
 
 ---
 
@@ -2364,6 +2364,61 @@ For each Private Service Edge, you can view more information about it by hoverin
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-idp-configuration-details","lastmod":"2026-11-19T16:04Z","nid":"1547817"} -->
+## Viewing IdP Configuration Details
+
+- Source: https://help.zscaler.com/zpa/viewing-idp-configuration-details
+- Product: Private Access (ZPA)
+- Path: Private Access (ZPA) Help > Authentication > IdP Configuration > Viewing IdP Configuration Details
+- Last modified: 2026-11-19T16:04Z
+- Summary: How to view a user's detailed information for identity provider (IdP) configurations.
+
+You can view detailed information about information associated with an [identity provider (IdP) configuration](https://help.zscaler.com/zpa/about-idp-configuration), and can also edit or delete an IdP configuration.
+
+To view the IdP configuration details:
+
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Private Access Authentication** > **IdP Configuration**. The **IdP Configuration**page appears.
+2. Click the name of the IdP configuration. The **IdP Configuration Details** drawer opens.
+3. In the **IdP Configuration Details** drawer, you can view the following: See image.
+  - **ZPA (SP) SAML Request**: Indicates if Private Access is the service provider (SP) for a **Signed**or **Unsigned**SAML request towards the IdP.
+  - **HTTP-Redirect**: This field is set to **Enabled** if Private Access needs to send the SAML response as an HTTP redirect.
+  - **Single Sign-On URL**: The URL of the IdP portal to which users are directed for authentication. If you want users to authenticate from the internet, ensure that it is publicly resolvable. Additionally, ensure that it is protected using HTTPS.
+  - **Force Authentication**: This field is set to **Enabled** if you want users for that specific IdP to re-enter their login credentials at the time of reauthentication, regardless of any session state/cookie for SAML IdP. The default is set to **Disabled**.
+  - **Login Hint**: When enabled, the username of the admin or user is sent in the authentication request to the IdP and can be prepopulated on the sign-in page of the external IdP. By default, **Enabled**is selected.
+  - **SAML Attributes for Policy**: Indicates if SAML attributes are allowed from this IdP when configuring [Access Policies](https://help.zscaler.com/zpa/configuring-access-policies), [Client Forwarding Policies](https://help.zscaler.com/zpa/configuring-client-forwarding-policies), and [Timeout Policies](https://help.zscaler.com/zpa/configuring-timeout-policies). This setting must be enabled for Zscaler to process SAML attributes in policy rules.
+  - **Authentication Domains**: The authentication domains associated to this IdP. The domains shown here are the [primary and secondary authentication domains](https://help.zscaler.com/zpa/configuring-authentication-settings) configured for your organization. A domain can only be associated to one IdP.
+  - **Import SAML Attributes**: Click **Import** to [import your SAML attributes](https://help.zscaler.com/zpa/importing-saml-attributes).
+  - **SAML Attributes**: Click **Show Attributes**to go to the [SAML Attributes](https://help.zscaler.com/zpa/about-saml-attributes) page.
+4. For **Service Provider SAML Metadata for User SSO**, you can view the following: See image.
+  - **Service Provider Metadata**: Click **Download Metadata** to download the SP metadata file.
+  - **Service Provider Certificate**: Click **Download Certificate** to download the SP certificate.
+  - **Service Provider URL**: The SP URL. Click the **Copy** icon ([Image: Copy icon]) to copy the URL.
+  - **Service Provider Entity ID**: The SP entity ID. Click the **Copy** icon to copy the entity ID.
+5. For **IdP Certificate**, you can view the following: See image.
+  - **Common Name**: The common name of the IdP certificate.
+  - **Serial Number**: The serial number of the IdP certificate.
+  - **Created On**: The creation date of the IdP certificate.
+  - **Expires On**: The expiration date of the IdP certificate.
+6. For **SCIM Configuration**, you can view the following: See image. In the top-right of the drawer, the **Actions**drop-down menu contains the following actions: See image.
+  - **SCIM Sync**: When enabled, allows Zscaler to more quickly remove users from Private Access when a user is disabled or deleted in your user directory and to enforce policies based on SCIM attributes and SCIM groups. To complete the SCIM enablement process, see [Enabling SCIM for Identity Management](https://help.zscaler.com/zpa/enabling-scim-identity-management).
+  - **SCIM attributes for Policy**: When enabled, allows SCIM attributes and SCIM groups from this IdP to be used when configuring [Access Policies](https://help.zscaler.com/zpa/configuring-access-policies), [Client Forwarding Policies](https://help.zscaler.com/zpa/configuring-client-forwarding-policies), and [Timeout Policies](https://help.zscaler.com/zpa/configuring-timeout-policies).
+  - **SCIM Service Provider Endpoint**: The SCIM service provider endpoint. Click the **Copy**icon to copy the endpoint.
+  - **Edit**: Select this option to [edit the IdP configuration](https://help.zscaler.com/zpa/editing-idp-configuration).
+  - **Delete**: Select this option to delete the IdP configuration.
+
+[Image: IdP Configuration Details drawer]
+
+[Image: Service Provider SAML Metadata for User SSO]
+
+[Image: IdP Certificate details]
+
+[Image: SCIM Configuration details]
+
+[Image: Actions drop-down menu]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/zpa/viewing-network-connectors-dashboard","lastmod":"2026-10-08T11:55Z","nid":"1525456"} -->
 ## Viewing the Network Connectors Dashboard
 
@@ -3159,13 +3214,13 @@ To download and view the reports:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-restore-activities-and-restore-reports","lastmod":"2026-09-17T13:52Z","nid":"1485871"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-restore-activities-and-restore-reports","lastmod":"2026-11-18T10:59Z","nid":"1485871"} -->
 ## Viewing Restore Activities and Restore Reports
 
 - Source: https://help.zscaler.com/zpa/viewing-restore-activities-and-restore-reports
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Administration > Backup & Restore > Viewing Restore Activities and Restore Reports
-- Last modified: 2026-09-17T13:52Z
+- Last modified: 2026-11-18T10:59Z
 - Summary: How to view restore activities and restore reports for the backup and restore feature in the Zscaler Admin Console.
 
 After a [backup](https://help.zscaler.com/zpa/about-backup-and-restore) is created [manually](https://help.zscaler.com/zpa/adding-backups-manually) or [automatically](https://help.zscaler.com/zpa/creating-scheduled-backup-configurations), you can view a list of restore activities, or you can view the post-restore reports for the particular backup.
@@ -3174,7 +3229,7 @@ After a [backup](https://help.zscaler.com/zpa/about-backup-and-restore) is creat
 
 To access a list of restore activities for a particular backup:
 
-1. Go to **Administration**>**Back Up and Restore**>**Private Access**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration**>**Back Up and Restore**>**Private Access**.
 2. In the table, locate the backup you want to view the restore activities and restore reports for, and click on the individual backup name in the **Backup Name** column. The **Restore Activities**drawer appears. See image.
 3. In the **Restore Activities** drawer, you can:
   - Click the **Restore**icon () to open the **View Report and Restore** drawer. In the **View Report and Restore** drawer, you can [view the inconsistency reports before restoring a backup](https://help.zscaler.com/zpa/restoring-policies-and-configurations-backup).
@@ -3380,13 +3435,13 @@ This widget displays the top users by tunnel count in the selected time frame. T
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-10-08T13:17Z","nid":"1542720"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/viewing-vpn-service-edges-dashboard","lastmod":"2026-11-17T15:19Z","nid":"1542720"} -->
 ## Viewing the VPN Service Edges Dashboard
 
 - Source: https://help.zscaler.com/zpa/viewing-vpn-service-edges-dashboard
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > VPN (for Legacy Apps) > Dashboard & Diagnostics > Viewing the VPN Service Edges Dashboard
-- Last modified: 2026-10-08T13:17Z
+- Last modified: 2026-11-17T15:19Z
 - Summary: Information about the VPN Service Edge dashboard and widgets available in the Zscaler Admin Console.
 
 The VPN Service Edges Dashboard provides information about the VPN Service Edges for your organization. To view the dashboard in the Zscaler Admin Console, go to Private Access >VPN (for Legacy Apps) > VPN Service Edge.
@@ -3413,7 +3468,7 @@ The following widgets are available:
 - **Bytes Received from Client Connectors**: Displays the volume of data traffic received from Zscaler Client Connectors to monitor inbound traffic from users.
 - **Bytes Sent to Client Connectors**: Displays the volume of data traffic sent to Zscaler Client Connectors to monitor outbound traffic to users.
 
-## Network Connector s Widgets
+## Network Connectors Widgets
 
 The Network Connector s widgets show traffic from your private network locations. You can use these widgets to monitor traffic loads and plan ahead for potential network issues. This information helps you decide when to add Network Connectors for proper scaling and ensures service reliability.
 
@@ -3709,13 +3764,13 @@ Zero trust has become a popular model for secure user access to applications and
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-11-13T18:23Z","nid":"1485956"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-app-connector-software-by-platform","lastmod":"2026-11-19T11:47Z","nid":"1485956"} -->
 ## App Connector Software by Platform
 
 - Source: https://help.zscaler.com/zpa/zpa-app-connector-software-by-platform
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > App Connector Management > App Connector Deployment Guides for Supported Platforms > App Connector Software by Platform
-- Last modified: 2026-11-13T18:23Z
+- Last modified: 2026-11-19T11:47Z
 - Summary: The current App Connector software downloads by platform.
 
 App Connectors are supported on [many different platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms). Each supported platform has an App Connector image you can use to deploy App Connectors on that platform. To learn more, see [App Connector Deployment Guides for Supported Platforms](https://help.zscaler.com/zpa/app-connector-management/app-connector-deployment-guides-supported-platforms) for detailed deployment instructions.
@@ -3724,7 +3779,7 @@ The following platforms support App Connector software packages. Where applicabl
 
 | Platform | Software |
 | --- | --- |
-| Colocation / Data Centers |  |
+| Colocation / Service Centers |  |
 | [Nutanix AHV](https://help.zscaler.com/zpa/app-connector-deployment-guide-nutanix-ahv#deploy) | [STIG OVA](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-connector-el9-2026.07.ova) [STIG OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-connector-el9-2026.07.ova.sha256sum) |
 | [VMware](https://help.zscaler.com/zpa/connector-deployment-vmware-appliance-vmware-vcenter) | [STIG OVA](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-connector-el9-2026.07.ova) [STIG OVA checksum](https://dist.private.zscaler.com/vms/VMware/2026.07/zpa-connector-el9-2026.07.ova.sha256sum) |
 | Clouds |  |
@@ -3738,7 +3793,7 @@ The following platforms support App Connector software packages. Where applicabl
 | [Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes) | To learn more, see the [App Connector Deployment Guide for Kubernetes](https://help.zscaler.com/zpa/app-connector-deployment-guide-kubernetes). |
 | [OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#deploy) | A Helm Chart must be installed in order to deploy an App Connector on OpenShift. To learn more, see the [App Connector Deployment Guide for OpenShift](https://help.zscaler.com/zpa/app-connector-deployment-guide-openshift#get-helm-chart). |
 | Linux Operating Systems |  |
-| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.58.5-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.58.5-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
+| [App Connector Deployment Guide for Linux](https://help.zscaler.com/zpa/connector-deployment-guide-centos-oracle-and-redhat#Deployment) | The following RPM packages are supported for RHEL App Connector deployments: RHEL 8-based: [RPM package](https://yum.private.zscaler.com/yum/el8/zpa-connector-26.59.1-1.el8.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el8/gpg)RHEL 9-based: [RPM package](https://yum.private.zscaler.com/yum/el9/zpa-connector-26.59.1-1.el9.x86_64.rpm); [GPG public key](https://yum.private.zscaler.com/yum/el9/gpg)You must have the RHEL operating system deployed and running. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -4119,13 +4174,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-11-10T10:35Z","nid":"1534307"} -->
+<!-- ZS-ARTICLE {"url":"/zpa/zpa-private-service-edge-release-summary-2026","lastmod":"2026-11-19T11:03Z","nid":"1534307"} -->
 ## ZPA Private Service Edge Release Summary (2026)
 
 - Source: https://help.zscaler.com/zpa/zpa-private-service-edge-release-summary-2026
 - Product: Private Access (ZPA)
 - Path: Private Access (ZPA) Help > Release Notes > ZPA Private Service Edge Release Notes > ZPA Private Service Edge Release Summary (2026)
-- Last modified: 2026-11-10T10:35Z
+- Last modified: 2026-11-19T11:03Z
 - Summary: Zscaler Private Access (ZPA) Private Service Edge release summary for updates deployed, per version, in 2026.
 
 This article provides a summary of all new features and enhancements released per Zscaler Private Access (ZPA) Private Service Edge version.

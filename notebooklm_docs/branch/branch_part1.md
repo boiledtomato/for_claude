@@ -1,8 +1,8 @@
 # Zscaler Help — Branch / Cellular / Cloud Connector (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 93
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 94
 
 ---
 
@@ -2653,13 +2653,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-11-05T20:16Z","nid":"1532526"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/deploying-zero-trust-branch-appliance","lastmod":"2026-11-20T08:23Z","nid":"1532526"} -->
 ## Deploying a Zero Trust Branch Appliance
 
 - Source: https://help.zscaler.com/zero-trust-branch/deploying-zero-trust-branch-appliance
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Installation > Deploying a Zero Trust Branch Appliance
-- Last modified: 2026-11-05T20:16Z
+- Last modified: 2026-11-20T08:23Z
 - Summary: Information about deploying a Zero Trust Branch appliance and passing traffic through it.
 
 You can deploy Zero Trust Branch to establish connectivity and pass traffic with minimal initial configuration. After activation:
@@ -2714,7 +2714,7 @@ The GE4 interface is fixed in an HA deployment, but in a standalone deployment i
 | WAN | GE3* | GE2, GE5* | GE2*, GE7, GE8 | GE2*, XE7, XE8, XE9, XE10 |
 | HA | GE4* | GE4* | GE4* | GE4* |
 
-A Zero Trust Branch appliance requires ports to be open on a Layer 3 (L3) device, such as an upstream firewall or a router, for initial activation and ongoing management. For a complete list of ports, refer to [Ports that need to be open for appliance activation and upgrade](https://config.zscaler.com/zscaler.net/ztb).
+A Zero Trust Branch appliance requires ports to be open on a Layer 3 (L3) device, such as an upstream firewall or a router, for initial activation and ongoing management. For a complete list of ports, refer to [Ports that need to be open for appliance activation and upgrade](https://config.zscaler.com/goairgap.com/ztb).
 
 Test that the primary WAN interface can reach the internet.
 
@@ -4314,13 +4314,13 @@ If you are upgrading across multiple versions, review the release notes for all 
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-11-14T06:15Z","nid":"1534294"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/release-upgrade-summary-2026","lastmod":"2026-11-21T13:15Z","nid":"1534294"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/zero-trust-branch/release-upgrade-summary-2026
 - Product: Zero Trust Branch
 - Path: Zero Trust Branch Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-14T06:15Z
+- Last modified: 2026-11-21T13:15Z
 - Summary: Zero Trust Branch Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Zero Trust Branch.
@@ -4720,6 +4720,90 @@ A rich set of upgrade options are available from the **Sites**page in the Zscale
 Zscaler Support works with you to troubleshoot and diagnose Zero Trust Branch appliance issues remotely. If the issue cannot be resolved remotely or is determined to be a hardware fault, Zscaler offers comprehensive advanced replacement services.
 
 To learn more, see [Return Merchandise Authorization (RMA) Process and Policy](https://help.zscaler.com/product-usage-terms/hardware-rma).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-branch/supported-sfp-transceivers-zero-trust-branch-appliances","lastmod":"2026-11-18T21:09Z","nid":"1547219"} -->
+## Supported SFP Transceivers on Zero Trust Branch Appliances
+
+- Source: https://help.zscaler.com/zero-trust-branch/supported-sfp-transceivers-zero-trust-branch-appliances
+- Product: Zero Trust Branch
+- Path: Zero Trust Branch Help > Installation > Supported SFP Transceivers on Zero Trust Branch Appliances
+- Last modified: 2026-11-18T21:09Z
+- Summary: About the qualified SFP and SFP+ transceivers supported on Zero Trust Branch appliances.
+
+Zero Trust Branch appliances support small form-factor pluggable (SFP, 1 GbE) and enhanced small form-factor pluggable (SFP+, 10 GbE) optical and copper transceivers. This article details the appliance models and ports that support SFP and SFP+ transceivers, validated transceiver models, and deployment considerations for link types and distances. Select a transceiver that matches the appropriate appliance model, port speed, fiber type, and required link distance.
+
+Zero Trust Branch appliances support the following fiber and range standards:
+
+- **Multimode Fiber (MMF)**: Uses wider fiber cores designed for shorter distance links.
+- **Single Mode Fiber (SMF)**: Uses narrower fiber cores designed for longer distance links.
+- **Short Range (SR)**: Uses MMF and supports link distances up to 550 meters.
+- **Long Range (LR)**: Uses SMF and supports link distances up to 10 kilometers.
+
+## Hardware Port Capability
+
+Zero Trust Branch hardware appliances support the following SFP and SFP+ transceivers as follows:
+
+| Appliance Model | Port Capability | Supported SFP or SFP+ Interfaces | SFP or SFP+ Transceiver Support |
+| --- | --- | --- | --- |
+| ZT 400 | 1 GbE RJ45 copper ports only (no SFP slots) | N/A | N/A |
+| ZT 600 | 1 GbE RJ45 copper ports only (no SFP slots) | N/A | N/A |
+| ZT 800 | 2 x 1 GbE SFP ports and multiple 1 GbE RJ45 WAN or LAN ports | WAN: `GE2` LAN: `GE1` | Supported (1 GbE SFP only, SFP+ not supported) |
+| ZT 8010 | 8 x 10 GbE SFP+ ports (WAN and LAN) and multiple 1 GbE RJ45 WAN or LAN ports | WAN: `XE7`, `XE8`, `XE9`, `XE10` LAN: `XE15`, `XE16`, `XE17`, `XE18` | Supported (10 GbE SFP+ required) |
+
+The ZT 400 and ZT 600 appliances use 1 GbE RJ45 copper ports only and do not include SFP slots.
+
+## Supported SFP and SFP+ Transceiver Modules
+
+The following sections detail the supported interfaces and validated SFP and SFP+ transceiver modules for the ZT 800 and ZT 8010 appliances.
+
+### ZT 800 (1 GbE SFP)
+
+On the ZT 800 appliance, 1 GbE SFP transceivers are supported on the following interfaces:
+
+- WAN: `GE2`
+- LAN: `GE1`
+
+- SFP+ transceivers are not supported on the ZT 800 appliance.
+- Zscaler does not provide SFP transceivers for the ZT 800 appliance.
+
+The following 1 GbE SP transceivers have been tested and verified for the ZT 800:
+
+| Manufacturer, Model, and Reach Category | Type | Wavelength | Connector | Max Distance | Required Cable or Fiber | DOM or DDM | Operating Temp. | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Finisar FTLF8519P3BNL (SR) | 1000BASE-SX 1G or 2G fiber channel (up to 2.125 Gbps) | 850 nm | Duplex LC | 300 m (62.5 to 125 µm) 500 m (50 to 125 µm) | MMF | Yes | Approximately -20°C to 85°C | Uses a vertical-cavity surface-emitting laser (VCSEL) transmitter, suitable for service location or campus runs. |
+| Finisar FTLF1318P3BTL (LR) | 1000BASE-LX 1G fiber channel (up to 1.25 Gbps) | 1,310 nm | Duplex LC | 10 km | SMF (typically 9 to 125 µm) | Yes | Approximately -40°C to 85°C | Industrial-temperature optical transceivers suitable for longer building-to-building or plant and factory environments. |
+| Finisar FCLF8522P2BTL (SR) | 1000BASE-T (10, 100, or 1,000 Mbps) | N/A | RJ45 | 100 m | Cat5e or better copper Ethernet cable | Yes | Approximately -40°C to 85°C | Online Insertion and Removal (OIR) can take up to 10 minutes for the link to restore. This is expected behavior. |
+
+### ZT 8010 (10 GbE SFP+)
+
+On the ZT 8010 appliance, 10 GbE SFP+ transceivers are supported on the following interfaces:
+
+- WAN: `XE7`, `XE8`, `XE9`, `XE10`
+- LAN: `XE15`, `XE16`, `XE17`, `XE18`
+
+Keep the following considerations in mind for the ZT 8010 appliance:
+
+- The ZT 8010 appliance requires SFP+ transceivers. (1 GbE SFP transceivers are not supported in the SFP+ slots.)
+- Zscaler provides 4 MMF SFP+ optical transceivers with the ZT 8010 appliance as a courtesy to facilitate deployments for most environments. If the supplied transceivers do not match your specific environment, you must acquire Zscaler-approved SFP+ transceivers for the appliance. Zscaler does not provide additional discounts or accommodations if you cannot use the supplied transceivers.
+- Although Zscaler does not explicitly test every model, additional Trade Agreements Act (TAA)-compliant and non-TAA-compliant SFP+ transceivers are supported for Zero Trust Branch as long as they are fully compatible with the specific validated SFP+ transceivers listed in the tables.
+- A *fully compatible SFP+*transceiver is a drop-in replacement module that matches the original transceiver's form factor, data rate, wavelength, fiber type, connector, Digital Optical Monitoring (DOM) or Digital Diagnostics Monitoring (DDM) support, reach distance, and host-appliance coding requirements. It must function identically to the validated module in the supported platform.
+
+The following 10 GbE SFP+ transceivers and direct attach copper (DAC) cables have been tested and verified for the ZT 8010:
+
+| Manufacturer, Model, and Reach Category | Type | Wavelength | Connector | Max Distance | Required Cable or Fiber | DOM or DDM | Operating Temp. | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Arista-CAB-SFP-SFP-1M (SR) | 10GBASE-CR passive DAC | N/A | Fixed twinax | 1 m | Passive copper twinax DAC cable | N/A | Typically, 0°C to 70°C | Low-latency, low-power intra-rack connection for switch-to-appliance links. |
+| Cisco 10G-SFP-SR or SFP-10G-SR (SR) | 10GBASE-SR | 850 nm | Duplex LC | 300 m (OM3); 400 m (OM4) | MMF (OM3 or OM4 preferred) | Yes | Typically, 0°C to 70°C | Standard 10 GbE short-reach optical transceiver for service location MMF links. |
+| Finisar FTLX1475D3BCL (LR) | 10GBASE-LR or 10GBASE-LW 10G fiber channel (9.95 to 10.5 Gbps) | 1,310 nm | Duplex LC | 10 km | SMF (9 to 125 µm) | Yes | Approximately -5°C to 70°C | Uses a 1,310 nm distributed feedback (DFB) laser where MMF optical transceivers cannot meet distance requirements. |
+| Finisar FTLX8574D3BCL (SR) | 10GBASE-SR or 10GBASE-SW 10G fiber channel (9.95 to 10.5 Gbps) | 850 nm | Duplex LC | 33 m (OM1); 82 m (OM2); 300 m (OM3); 400 m (OM4) | MMF | Yes | Approximately -5°C to 70°C | 10 GbE-only variant (distinct from dual-rate variants such as FTLX8574D3BCV). |
+| FS SFP-10G-T-30 (SR) | 10GBASE-T | N/A | RJ45 | 30 m | Cat6a or Cat7 copper Ethernet cable | Yes (varies by host) | Typically, 0°C to 70°C | Higher power and heat than optical SFP+ modules. Verify host switch support. |
+| FS or FSPP-H7-M85-X3D (SR) | 10GBASE-SR or 10GBASE-SW 10G fiber channel (8.5 to 11.32 Gbps) | 850 nm | Duplex LC | 33 m (OM1); 82 m (OM2); 300 m (OM3); 400 m (OM4) | MMF | Yes | Typically, 0°C to 70°C | VCSEL-based optical transceivers, verify vendor coding and compatibility if ordering FS-branded versus Ficer-branded modules. |
+| Ficer FSPP-H7-M85-X3D (SR) TAA-Compliant | 10GBASE-SR or 10GBASE-SW 10G fiber channel (8.5 to 11.32 Gbps) | 850 nm | Duplex LC | 33 m (OM1); 82 m (OM2); 300 m (OM3); 400 m (OM4) | MMF | Yes | Typically, 0°C to 70°C | Same functional class as Finisar FTLX8574D3BCL, with TAA-compliant sourcing designation. Suitable for public-sector and federal procurement. |
+
+For complete physical port layouts and interface mappings, see [Zero Trust Branch Physical Port Mapping](https://help.zscaler.com/zero-trust-branch/zero-trust-branch-physical-port-mapping).
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -6606,8 +6690,8 @@ On the Zscaler Cellular Audit Logs page (Data Explorer > Audit Logs > Cellular),
 ## Adding a SIM Location Group
 
 - Source: https://help.zscaler.com/zscaler-cellular/adding-sim-location-group
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > Anomaly Detection > Adding a SIM Location Group
+- Product: Cellular
+- Path: Cellular Help > Anomaly Detection > Adding a SIM Location Group
 - Last modified: 2026-10-27T09:16Z
 - Summary: Explaining how to add a SIM Location Group.
 
@@ -6682,8 +6766,8 @@ To change the IMEI association for a Zscaler SIM:
 ## Changing the Status of Zscaler SIMs
 
 - Source: https://help.zscaler.com/zscaler-cellular/changing-status-zscaler-sims
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > SIMs > Changing the Status of Zscaler SIMs
+- Product: Cellular
+- Path: Cellular Help > SIMs > Changing the Status of Zscaler SIMs
 - Last modified: 2026-10-30T11:01Z
 - Summary: How to modify the status of Zscaler SIMs.
 
@@ -6795,8 +6879,8 @@ To add a new anomaly detection policy:
 ## Deploying New Cellular Edges
 
 - Source: https://help.zscaler.com/zscaler-cellular/deploying-new-cellular-edges
-- Product: Zscaler Cellular
-- Path: Zscaler Cellular Help > Dashboard, Deployment, and Configuration > Deploying New Cellular Edges
+- Product: Cellular
+- Path: Cellular Help > Dashboard, Deployment, and Configuration > Deploying New Cellular Edges
 - Last modified: 2026-10-21T21:06Z
 - Summary: How to request deployment of additional Cellular Edges.
 

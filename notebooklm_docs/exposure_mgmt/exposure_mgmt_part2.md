@@ -1,8 +1,365 @@
 # Zscaler Help — Risk & Exposure Management (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 195
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 200
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/setting-up-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503546"} -->
+## Setting Up Asset Discovery
+
+- Source: https://help.zscaler.com/easm/setting-up-asset-discovery
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Setting Up Asset Discovery
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on how to configure and initiate the Asset Discovery process in Zscaler External Attack Surface Management (EASM).
+
+Asset Discovery, a core function of EASM, enables an organization to identify and inventory all their internet-facing assets and gain insights into an organization's external attack surface. To initiate a scan and discover assets, EASM requires seeds. A seed is a known legitimate asset of your organization. Domains, IP addresses, and IP blocks are assets that can be configured as seeds. While setting up asset discovery, EASM allows you to configure seeds by creating a [discovery profile](https://help.zscaler.com/easm/about-discovery-profiles). A discovery profile adds a layer of granular control to build the attack surface by including specific seeds. In addition, EASM allows you to set up [organizations](https://help.zscaler.com/easm/creating-managing-organizations) to help keep your attack surface discovery and inventory management separate for distinct entities, such as parent companies, subsidiaries, or acquisitions that are part of your company. For each organization, you can configure distinct discovery profiles with seeds for known legitimate assets of that specific organization.
+
+When a discovery profile is created and submitted, EASM initially scans the configured seeds to discover assets that are immediately connected to the seeds. Then the first level of connections are scanned further to discover a second level of connected assets, followed by each consecutive level of connections being recursively scanned, leading up to the formation of a discovery chain and ultimately mapping the organization's attack surface. The assets discovered in each level of connections are evaluated to determine if their relationship with the previous seed is strong enough before being recursively scanned to discover subsequent connections. This recursive scanning continues until the weak links exposed in your online infrastructure, including unknown and unmonitored assets, are discovered. The scanning stops when all the internet-facing assets which your organization is responsible for managing are identified and tracked.
+
+After discovering and inventorying the assets, EASM investigates a number of asset parameters to identify the associated risks, such as known vulnerabilities, misconfigurations, exposed credentials, sensitive enterprise information, etc. that can be potentially exploited as attack vectors. EASM continuously monitors the discovered assets and the changing attack landscape using periodic scans to provide real-time visibility into the risk exposure of your internet-facing asset infrastructure and to help prioritize risks with contextual and actionable information for risk remediation.
+
+You need to complete the following steps to enable EASM to start discovering your internet-facing assets and building visibility into the attack surface:
+
+- 1. Set up an organization.
+- 2. Create a discovery profile for the organization by including seeds.
+
+EASM provides a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM. You can also add custom organizations per your requirements.
+
+To add a custom organization:
+
+Only super admins can create and manage organization-specific configurations.
+
+1. Go to **Administration** > **Organizations**. The Organization window appears.
+2. In the **Organization** window: A new organization is added with options to configure the discovery profile and other details for the organization shown on the right side. By default, the organization is enabled and this is required to initiate the asset discovery scan. See image.
+  1. Click the **Add** icon on the left pane. If this is your first organization, you can alternatively use the **Add Organization** button. A text box to enter the name for the organization appears on the left pane.
+  2. Enter a name for the organization in the text box and click the **Tick** icon. See image.
+
+After creating an organization, you can set up a discovery profile for the organization. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
+
+To create a discovery profile for an organization:
+
+Only admins with full access permission to the target organization can perform this action.
+
+1. Go to **Administration** > **Organizations**. The **Organization** window appears.
+2. In the **Organization** window:
+  1. Locate and click the organization for which you want to create a discovery profile on the left pane.
+  2. Click the **Add Discovery Profile** button. See image. The **Profile Details** window appears.
+3. In the **Profile Details** window:
+  1. **Name**: Enter a name for the discovery profile.
+  2. **Description**: Enter a brief description for the profile.
+  3. The **Scan Frequency** is automatically set to **Weekly** and is non-editable.
+  4. Under **Manage Seeds** section:
+    1. Select the type of the seed asset by clicking the respective tab. Currently, you can configure domains, IP addresses, and IP blocks as seed assets.
+    2. When you are in the respective tab for adding seeds of a specific asset type, you can add seeds for that particular asset type. To add the list of seeds that must be included in the discovery profile, enter the seed name in the text box provided under the **Include** section. To add multiple seeds manually, press `Enter` or click **Add** after specifying each item. Alternatively, you can import a list of seeds from a CSV file by using the **Upload File** option. When you add the seeds manually, the seeds are displayed in a list under the **Include**section. To remove any seeds from the list, use the **Delete** icon that appears next to the seed name.
+4. Click **Save**. See image.
+
+When you save the discovery profile, EASM starts scanning the internet for asset connections using the seeds to map your organization's attack surface and build an inventory of the internet-exposed assets. This process typically takes 24–48 hours and then you can view the asset inventory and the associated risks identified for the assets within the EASM Admin Portal.
+
+The discovery profile is saved and displayed under a new **Discovery Profile** tab created for the organization. Additionally, an **Included Seeds** tab appears for the organization where you can view the list of seeds configured for the entire organization. To learn more, see [Configuring & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+
+See image.
+
+[Image: Adding a new organization for attack surface discovery and management]
+
+[Image: New organization added for attack surface discovery and management]
+
+[Image: The Add Discovery Profile button is annotated]
+
+[Image: Creating discovery profile by configuring seeds in EASM]
+
+[Image: Discovery profile details in EASM Admin Portal]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/step-step-configuration-guide-easm","lastmod":"2024-11-29T06:06Z","nid":"1503641"} -->
+## Step-by-Step Configuration Guide for EASM
+
+- Source: https://help.zscaler.com/easm/step-step-configuration-guide-easm
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Getting Started > Step-by-Step Configuration Guide for EASM
+- Last modified: 2024-11-29T06:06Z
+- Summary: A step-by-step guide to set up and configure Zscaler EASM for your organization.
+
+This guide takes you through the configuration steps you need to complete to begin using EASM for your organization. Each step guides you through essential tasks, ensuring you are fully equipped to start securing and monitoring your external attack surface efficiently.
+
+Zscaler recommends reviewing the following articles to learn more about the EASM configuration:
+
+- [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
+- [Understanding Asset Discovery](https://help.zscaler.com/easm/understanding-asset-discovery)
+- [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-navigating-easm-admin-portal)
+
+## Configuring EASM
+
+To configure EASM, complete the following steps:
+
+- Step 1: Set Up Your Account
+- Step 2: Create Your Organization
+- Step 3: Configure a Discovery Profile
+- Step 4: Get Your Asset Inventory Information
+- Step 5: Monitor Your Attack Surface Using Dashboards
+
+After Zscaler provisions an EASM tenant for your organization, an email with instructions to complete your account registration is sent to you. To gain access to the EASM Admin Portal, you need to complete the account registration process by following the instructions in the email. To learn more, see [Accessing and Navigating the EASM Admin Portal](https://help.zscaler.com/easm/accessing-and-navigating-easm-admin-portal).
+
+Following your account setup, you can provision users on Authentication Service, Zscaler's centralized identity management platform, to provide them access to EASM. To do this, ensure that you have Authentication Service enabled for your organization. After provisioning is complete, you can assign roles to users to manage controlled access to specific organizations within the EASM Admin Portal. To learn more, see [Creating & Managing Roles](https://help.zscaler.com/easm/creating-managing-roles).
+
+The first step in setting up your attack surface discovery is to create an organization and configure a discovery profile for the organization. EASM offers a default organization out of the box, which you can configure to set up your discovery profile. Additionally, if your organization uses Zscaler's Risk Management platform, [Risk360](https://help.zscaler.com/risk360/what-risk360), and if you have a Risk360 tenant, an organization is created for you in the EASM Admin Portal through the seamless integration between Risk360 and EASM.
+
+In addition, you can create new organizations to discover and distinctly monitor the attack surface associated with different entities of your enterprise. To learn more, see [Creating & Managing Organizations](https://help.zscaler.com/easm/creating-managing-organizations).
+
+To begin the discovery process for your internet-facing assets, EASM requires a known, legitimate asset from your organization, referred to as a "seed". This seed acts as the central node to discover connected assets in your digital asset infrastructure that are exposed to the internet, using various open-source intelligence (OSINT) methods employed by EASM. A discovery profile allows you to group multiple seeds and submit them for scanning. You can configure different types of assets as seeds, including domains, IP addresses, and IP blocks. To learn more, see [Creating & Managing Discovery Profiles](https://help.zscaler.com/easm/creating-managing-discovery-profiles).
+
+After the initial scan, EASM compiles extensive data on the internet-facing assets that are discovered and inventoried as part of your organization's digital attack surface. This asset inventory consists of a vast amount of data that includes critical information such as asset details, key insights into vulnerabilities and risks, and the asset's relationship to your organization. The asset inventory is continuously updated through periodic scans, ensuring it reflects your evolving digital landscape with the latest data in the EASM Admin Portal.
+
+To get a high-level view of your threat landscape and assess your organization's security posture, you can start with the key metrics presented in EASM's dashboards. These dashboards summarize key information about your digital attack surface in highly interactive, visual representations that are easy to understand. Using these dashboards, you can identify the most critical threats in your asset infrastructure and then drill down on the individual assets or risk findings for further analysis. The dashboards essentially serve as the starting points for understanding your asset infrastructure, identifying key areas of concerns, and efficiently planning risk-mitigation strategies. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+
+To analyze the individual assets in your inventory, EASM offers a customizable, tabulated list of the assets on the Assets page. You can customize the list by using filters to view specific asset data and further access detailed information to investigate each asset from this page. To learn more, see [About Asset Inventory](https://help.zscaler.com/easm/about-asset-inventory) and [Understanding Assets Details](https://help.zscaler.com/easm/understanding-asset-details).
+
+EASM also catalogs the risk findings discovered for the assets in a separate, highly customizable Findings page (Insights > Findings). This page provides essential information to help you assess the severity of risks, prioritize them, and plan mitigation strategies. To learn more, see [About Findings](https://help.zscaler.com/easm/about-findings) and [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
+
+EASM continuously monitors your asset infrastructure through periodic scans, ensuring your asset inventory is always up to date with the latest information. These scans can detect changes such as new assets detected in your attack surface through connections to existing assets or removal of previously discovered assets. You can track and monitor these changes in your digital attack surface and take remediation actions by using the key metrics presented on assets and risk findings in EASM's dashboards. To learn more, see [Accessing & Interacting with Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard) and [Accessing & Interacting with Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-details","lastmod":"2025-10-23T03:47Z","nid":"1503571"} -->
+## Understanding Asset Details
+
+- Source: https://help.zscaler.com/easm/understanding-asset-details
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Inventory > Understanding Asset Details
+- Last modified: 2025-10-23T03:47Z
+- Summary: Information on understanding and analyzing asset inventory details in Zscaler External Attack Surface Management (EASM).
+
+The assets discovered as part of your digital attack surface are automatically added to your inventory and appear on the Assets page. These assets are continuously monitored through periodic scans, and they are subsequently used as targets to identify other linked assets that can be attributed to your organization. This process involves scanning across the internet recursively to uncover connected assets. Your external attack surface is constantly monitored and any changes to the attack surface, including new assets discovered and changes in the inventoried assets and their risk associations, are promptly reflected on the Assets page.
+
+The Assets page offers a highly customizable, tabulated list of assets, where you can click on each record to access detailed information and perform specific actions on a per-asset basis. The asset details consist of contextual information tailored to each asset type, helping you understand key aspects such as the technologies and services running on the asset, SSL/TLS certificates used, the asset's risk score and risk level, vulnerabilities and risks associated with the asset, and the asset's relationship to your organization through the discovery chain. The vulnerabilities and risks are evaluated based on a wide range of factors, including the technologies and services running on the asset, digital certificates used by the asset, domain registration, host names, HTTP headers used, other exposures, etc. The assets are mapped to their risk findings in a many-to-many relationship (i.e., one asset can have multiple risk findings and vice-versa). The discovered assets are categorized into one or more of the following types, with the details varying across asset types to ensure relevant and actionable insights for each category.
+
+- Domain
+- Host
+- Web Page
+- Certificate
+- ASN
+- IP Address
+- IP Block
+
+The asset details are presented in two different views, offering users the flexibility to drill down on the asset details as required. When you click on a row of the assets table, a right-side drawer referred to as the Asset Details drawer, opens, providing a quick overview of essential information. This drawer features a tabbed interface for the asset details and its associated findings. To further drill down on the asset information, from the Asset Details drawer, you can access a comprehensive, full-page view, referred to as the Asset Details page. This page offers more extensive details compared to the Asset Details drawer. To access the full-page view, click the View More Details button on the Asset Details tab of the Asset Details drawer.
+
+See image.
+
+The Asset Details page provides extensive information about the asset and also mirrors the tabbed interface for the asset details and findings, as seen in the Asset Details drawer. The Asset Details drawer serves as a streamlined, condensed version of the Asset Details page, allowing you to quickly switch between different assets to view their details from the list view with ease. On the other hand, the Asset Details page is designed for deeper analysis of a specific asset, offering full access to the complete data set available. This makes it particularly useful when a more thorough examination of the asset details is required. When you are in the Asset Details page, you can go back to the assets list view to access details of other assets.
+
+See image.
+
+The following sections provide a detailed overview of all the asset details that are available, following the presentation layout and the comprehensive information tracked in the Asset Details page. On the Asset Details page (Insights > [Asset record] > Asset Details > View More Details), the asset name is displayed at the top along with the asset's overview, details, and risks.
+
+Some of the following documented fields under each section are exclusive to the Asset Details page and might not appear in the Asset Details drawer and vice-versa. Additionally, the content organization differs between the two views to optimize the user experience for each.
+
+## Asset Overview
+
+This section provides the following high-level information about the asset:
+
+- **Type**: The type of the asset categorized into Domain, Host, Web Page, Certificate, ASN, IP Address, or IP Block. Depending on the type, the asset details presented in the inventory differ.
+- **Risk Level**: The risk level quantifies the amount of risk posed by an asset, and it is derived from the risk score calculated for the associated findings. The risk level ranges from Minimum to Critical, giving users an immediate sense of asset's criticality and providing guidance in prioritizing business-critical or concerning assets. For example, a critical or high risk level indicates that an asset poses significant risk without mitigation controls, whereas a low risk level might indicate an acceptable risk or commonly found issues. A medium risk level might indicate that the asset should be safeguarded but might have a lower priority compared to higher-risk assets. Available risk levels: Minimum, Low, Medium, High, and Critical.
+- **ID**: A Universally Unique Identifier (UUID) generated and assigned to the asset by EASM.
+- **First Seen**: The timestamp when the asset was first discovered in a scan.
+- **Last Seen**: The timestamp when the asset was last observed in a scan.
+- **Status**: Indicates the status of the asset's relationship with your organization and allows you to review and determine whether an asset must be included in the inventory. You can modify the status of the asset using the drop-down menu. The following three statuses are supported for assets, and assets can be transitioned from one status to any other status depending on the requirements: Available Statuses
+
+See image.
+
+## Asset Details
+
+On the Details tab, you can access extensive information including the asset metadata, comprehensive information about the asset registry obtained from the Whois database, technologies and services observed to be running on the asset, and the digital certificates associated with it. This tab includes the following sections:
+
+- **General Information**: This section provides basic information about the asset, which varies across the different types of asset, as captured in the following table. Available Fields for Each Asset Type
+- **Whois**: The Whois protocol is a query-and-response system used to retrieve registration and ownership data of internet resources. EASM uses this protocol to provide detailed information about the registry of an asset using Whois for different types of assets including domains, hosts, web pages, ASNs, IP addresses, and IP blocks. Available Fields
+- **Discovery Chain**: This section presents the full path of asset discovery in a sequential link chain, originating from the seed asset and interconnected to a series of assets identified in the subsequent mapping, leading up to the discovery of the current asset. It enables asset source traceability and provides attestation of auto-attributed assets based on a seed, allowing you to self-validate your assets using the investigative trail provided. The discovery path is presented as a link chain, featuring the seed asset, intermediate nodes, and the current asset in a sequence, along with the services and attributes used to identify assets in each discovery hop as applicable. See Examples The following actions are supported: When an asset is discovered in more than one way, the discovery path with the highest confidence is shown.
+  - Each asset node in the discovery chain is clickable and takes you to the corresponding asset page for further investigation.
+  - To view the asset link with more contextual text, you can turn off the toggle button on the top right of this section. This displays the asset links in a series of steps with additional information about each asset node.
+  - You can zoom in and out of the discovery chain when viewing it in the link chain view and move it around the canvas.
+- **Technologies**: This section provides a tabulated list of technologies used on the asset and their associated details, such as the version number, CVE ID for any associated vulnerabilities or exploits, and more. This data highlights risky technologies used on the asset, such as those with known vulnerabilities or deprecated technologies (e.g., ISC BIND, Apache HTTP Server, etc.). This data helps you quickly identify potential weakness in your external attack surface.
+- **Services**: This section provides a tabulated list of services that are observed to be running on the asset. It includes details such as open ports and their associated services, allowing you to identify any risky or unsecured ports that should not be accessible from the internet (e.g., insecure remote services commonly targeted by attackers). Information such as port number, protocol, and dates when the open port was first and last observed is available.
+- **SSL/TLS Certificates**: This section provides a tabulated list of SSL/TLS certificates used by the asset, highlighting old or outdated certificate versions that are often targeted by nefarious actors or versions that can be reverted to a previous version. The information provided includes SSL/TLS version, the server name protected by the certificate, issued date and expiration date for the certificate, and dates when the certificate was first and last observed in a scan.
+
+See image.
+
+## Risk Insights
+
+On the Risk tab, you can access information about the vulnerabilities and risks identified in the asset. This information helps you identify and remediate these issues by applying patches to mitigate the CVEs, retiring old technologies and services that are not in commission anymore, and adopting an access solution that can avoid exposure to unauthorized parties.
+
+This tab includes an overview of the asset's risk metrics and a list of risk findings associated with the asset, as explained in the following sections:
+
+- **Findings by Risk Level**: The findings associated with the asset plotted against risk levels in a bar graph, providing an overview of the distribution of findings across the risk levels. You can hover over each bar to view the number of findings marked with that specific risk level.
+- **Findings**: A tabulated list of all risk findings identified in the asset along with the number of findings indicated in the table header. This information provides visibility into all vulnerabilities, misconfigurations, and exposures detected in the asset, helping you assess the asset's potential threat vectors and address the issues. Available Fields
+
+You can use the **Settings** icon to select the columns that must be shown or hidden from the asset table. In addition, you can sort the list by specific table columns using the **Sort** icon that appears in the column header.
+
+See image.
+
+- **Approved**: Indicates that the asset comes under your organization's responsibility or management. Assets in this state are periodically scanned to update their inventory details and their connections are also scanned. After assets are attributed to your organization through the discovery process, they are validated by EASM and the verified assets are marked with this status. All seed assets are marked as Approved by default.
+- **Candidate**: Indicates that the asset needs further investigation into whether it comes under the responsibility of your organization. This is the default status for all attributed assets before they are validated and marked as Approved. Attributed assets are automatically validated by EASM after discovery. However, specific assets that are not validated by EASM need to be manually verified by admins. Additionally, if an asset's connection with your organization needs to be reviewed, you can change the asset's status to Candidate. Scanning of assets in this state is temporarily suspended, and the asset's successive connections are also not scanned.
+- **Archived**: Indicates that the assets are reviewed and are confirmed to have no link to your organization, or can be permanently removed from scanning for other reasons. Assets in this state and their successive connections are removed from the scanning process.
+
+See image.
+
+Approved assets are continuously monitored and are given higher visibility in the EASM Admin Portal to help you easily identify, prioritize, and manage them. This is reflected in the [Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard) that highlights key metrics on approved assets and the Assets page that lists the approved assets by default.
+
+- **Name**: An identifier for the finding sourced from the scan or assigned by EASM. Depending on the type of finding, this field can contain a wide variety of identifiers, such as CVE ID, VPN, Self-Signed Certificate, etc.
+- **Risk Level**: The amount of risk quantified for the finding using one of the following values: Low, Medium, High, and Critical.
+- **Category**: The classification of the finding as Exposure, Vulnerability, or Misconfiguration, which provides context about the finding instantly.
+- **Scan Type**: The scanning service that was used to uncover the risk finding. The available scan types are Web, Network, Certificate, and DNS scans.
+- **First Seen**: The timestamp when the finding was first detected in the asset.
+- **Last Seen**: The timestamp when the finding was last observed in the asset.
+
+You can access detailed information about each finding from the Findings page. To learn more, see [Understanding Finding Details](https://help.zscaler.com/easm/understanding-finding-details).
+
+| Asset Type | Field Name | Description |
+| --- | --- | --- |
+| **Domain** | No of Subdomains | The number of subdomains associated with the asset. |
+| Registration Expiration | The date when the asset's registration expires. |  |
+| WHOIS Registrar | The registrar listed in the Whois record. |  |
+| **Host** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
+| TLS Versions Supported | The TLS versions supported by the asset. |  |
+| Country | The country of origin detected for the asset. |  |
+| IP Address | The IP address detected for the asset. |  |
+| **Web Page** | Revealing Hostname | A Boolean value indicating whether the hostname exposes sensitive information about your asset infrastructure. |
+| TLS Versions Supported | The TLS versions supported by the asset. |  |
+| **Certificate** | Certificate Issued | The date when the certificate was issued. |
+| Certificate Expires | The date when the certificate expires. |  |
+| Issuer Organization Name | The name of the entity (i.e., Certificate Authority) that was responsible for issuing the certificate. |  |
+| Country | The country where the subject's organization is located. |  |
+| Signature Algorithm | The signature key algorithm used to encrypt the certificate. |  |
+| Subject Common Name | The server name protected by the SSL certificate. |  |
+| Subject Organization Name | The name of the organization to which the certificate is issued. |  |
+| **ASN** | Allocation Date | The date when the Internet Assigned Numbers Authority (IANA) allocated an Autonomous System Number (ASN). |
+| Registry | The IANA registry which is responsible for overseeing the global coordination of the internet's unique identifiers, such as IP addresses, domain names, and protocol parameters. |  |
+| IPv4 Addresses | The IPv4 address space controlled by the AS. |  |
+| IPv6 Prefixes | The IPv6 prefix owned by the AS. |  |
+| Registrant Organization | The organization that owns the registered entity. |  |
+| AS Full Name | The full name of ASN. |  |
+| **IP Address** | Country | The country of origin detected for the asset. |
+| ASN | The ASN associated with the asset. |  |
+| WHOIS Registrant Organization | The organization that owns the registered entity as listed in the Whois record. |  |
+| WHOIS Registrar | The internet company whose service was used to register the entity as listed in the Whois record. |  |
+
+- **Registrant Organization**: The organization that owns the registered entity.
+- **Registrant Email**: Any contact email addresses provided by the registrant.
+- **Registrar**: The internet company that was used to register the asset. Popular registrars include GoDaddy, Namecheap, Bluehost, Domain.com, etc.
+
+These fields are available for all asset types except for certificates.
+
+- **Web Page**: In this example, the source is a seed domain configured by the admin. A Whois query for the registrant organization reveals a domain, and subsequently, a web page is discovered via the HTTP header for URL redirection. See image.
+- **IP Address**: The source is a seed domain. The domain host is identified, and the IP address is obtained using DNS records. See image.
+- **TLS Certificate**: The source is a seed domain. The domain host is identified, and then the host certificate is obtained through TLS discovery. See image.
+
+[Image: Accessing asset details page from the list view in EASM]
+
+[Image: Going back to the list view from asset details page in EASM]
+
+[Image: Asset overview section providing general information]
+
+[Image: Asset details tab providing extensive information about the asset in EASM]
+
+[Image: Risk findings associated with asset in EASM]
+
+[Image: Asset status change from the asset details page in EASM]
+
+[Image: Asset discovery chain for a web page]
+
+[Image: Asset discovery chain for an IP address]
+
+[Image: Asset discovery chain for a TLS certificate]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-asset-discovery","lastmod":"2024-11-29T06:06Z","nid":"1503541"} -->
+## Understanding Asset Discovery
+
+- Source: https://help.zscaler.com/easm/understanding-asset-discovery
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Asset Discovery > Understanding Asset Discovery
+- Last modified: 2024-11-29T06:06Z
+- Summary: Information on Zscaler EASM asset discovery, its features, benefits and use cases for securing internet-facing assets.
+
+In the modern digital landscape, organizations deal with increasingly complex external attack surfaces, driven by their expanding online presence. As organizations expand digitally, their attack surfaces grow, introducing new potential vulnerabilities. Unknown or unmonitored assets are particularly dangerous because they might not be regularly updated or secured, leaving them exposed to attacks. This expansion includes assets resulting from mergers and acquisitions or third-party services that were once used but have since been forgotten.
+
+Asset discovery, a core function of EASM, helps organizations identify, inventory, and continuously monitor their internet-facing assets. This capability provides critical visibility into risks and potential vulnerabilities. Asset discovery involves identifying and inventorying all internet-facing assets an organization owns or manages. These assets include domains, hosts, web pages, certificates, ASNs, IP addresses, and IP blocks exposed to the public internet. In EASM, asset discovery provides organizations with a clear view of their external attack surface by mapping out these assets and any risks associated with them. The discovery process ensures that even unknown, unmanaged, or forgotten assets—often referred to as "shadow IT"—are identified and brought under security management.
+
+Effective asset discovery enables organizations to:
+
+- **Gain Visibility**: Establish a complete inventory of all internet-facing assets, which is critical for managing external threats.
+- **Identify Risks**: Proactively uncover and address risks from both known and unknown assets.
+- **Prioritize Remediation**: Prioritize actions to mitigate vulnerabilities, based on the risks associated with each asset.
+- **Monitor Changes**: Continuously track changes in the asset inventory, allowing security teams to respond quickly to new risks.
+
+To learn more about the use cases of EASM, see [What is Zscaler EASM?](https://help.zscaler.com/easm/what-zscaler-easm)
+
+## How Asset Discovery Works in EASM
+
+EASM's asset discovery process starts with the use of seeds. A seed is a legitimate asset provided by the organization, such as a known domain, IP address, or IP block, which serves as the starting point for discovery. EASM then uses this seed to begin mapping the organization’s external attack surface through a recursive process.
+
+Seeds are part of the discovery profile and EASM allows you to create distinct discovery profiles for different business entities (e.g., parent companies, subsidiaries), allowing organizations to have granular control over how they manage their attack surface.
+
+The following sections outline the key steps in EASM's asset discovery and monitoring process:
+
+1. **Seed-based Scanning**: EASM starts by scanning the seed, mapping its direct connections and discovering related assets.
+2. **Discovery Chain**: When the first level of assets connected to the seed is found, EASM recursively scans subsequent levels of connections, ultimately building a comprehensive map of the organization's attack surface.
+3. **Risk Evaluation**: After assets are discovered, EASM evaluates each asset against a set of risk parameters. This includes identifying known vulnerabilities, misconfigurations, and exposed sensitive services. Risks are continuously monitored as part of the asset inventory to provide real-time updates on the organization's external exposure.
+4. **Automated Monitoring**: After the discovery process is complete, EASM continues to monitor the organization's external attack surface through periodic scans. This ensures that any new risks are detected promptly and that any changes to existing assets are tracked.
+
+To learn how to set up asset discovery in EASM, see [Step-by-Step Configuration Guide for EASM](https://help.zscaler.com/easm/step-step-configuration-guide-easm).
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/easm/understanding-dashboards","lastmod":"2025-01-28T00:36Z","nid":"1503521"} -->
+## Understanding Dashboards
+
+- Source: https://help.zscaler.com/easm/understanding-dashboards
+- Product: External Attack Surface Management
+- Path: External Attack Surface Management Help > Dashboards & Analytics > Understanding Dashboards
+- Last modified: 2025-01-28T00:36Z
+- Summary: Information on dashboards in Zscaler External Attack Surface Management (EASM), their features, and how they help in monitoring digital assets and assessing risk insights.
+
+Dashboards are essential tools for presenting key information from related data sources in a format that is easy to interpret, using various data visualization elements, such as graphs, tables, and charts. Zscaler EASM provides two dynamic and interactive dashboards, namely Assets Overview and Insights Overview. The Assets Overview dashboard provides a summary of the approved asset inventory that constitutes your organization's external attack surface, while the Insights Overview dashboard provides information on the vulnerabilities and risks associated with those assets. These dashboards are designed to aggregate and display key metrics related to assets and risk insights, helping you quickly identify areas of concern. By offering a near real-time view of your organization's evolving attack surface, these dashboards enable you to prioritize and address business-critical vulnerabilities, ensuring the protection of your internet-exposed asset infrastructure from potential threats.
+
+The Assets Overview and Insights Overview dashboards serve as valuable starting points for identifying and understanding the threat landscape of your digital assets. Each dashboard features a collection of widgets specifically designed to present key metrics relating to assets or risk findings. These dashboards are highly interactive, allowing you to perform various actions within each widget, such as adjusting time frames, hovering over data points to view detailed information, and clicking on specific data points to access a filtered view of relevant entities on a different page in EASM. After identifying the most critical threats in your infrastructure using the information presented on the dashboard, you can drill down on the assets or risk findings for further analysis.
+
+The following sections provide a detailed breakdown of each dashboard.
+
+## Insights Overview Dashboard
+
+The Insights Overview dashboard provides a comprehensive summary of risk findings within your organization's digital attack surface, using clear graphical representations to highlight critical risk metrics. These findings include undetected vulnerabilities, misconfigurations, and compliance violations across your internet-exposed digital assets, which have been discovered and inventoried by EASM.
+
+The dashboard presents key metrics across various parameters, such as risk trends, distribution of findings by risk levels and predefined categories, and the top locations with the highest concentration of risks. Additionally, it summarizes critical findings in specific areas, such as exposed sensitive services, VPN appliances, and risks associated with SSL/TLS certificate expiration and domain registration expiration. Specific examples of risk findings include Common Vulnerabilities and Exposures (CVEs), SSL/TLS misconfigurations or outdated versions, expired digital certificates, domain registration expiration, insecure HTTP headers, exposed VPN appliances, and sensitive services such as RDP, SSH, VNC, Telnet, and SNMP.
+
+The dashboard also monitors lookalike domains—fraudulent domains created by bad actors to resemble legitimate domain names associated with your organization, which are often used to deceive users into downloading malware, divulging sensitive information, and perpetrating other forms of cyberattacks.
+
+Each of these key metrics is displayed within an interactive widget on the dashboard, allowing you to drill down into specific data points for further analysis. You can easily switch between different EASM organizations by selecting the desired organization within the user interface, enabling you to effectively monitor and address the most critical threats to your infrastructure.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Insights Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-insights-overview-dashboard).
+
+## Assets Overview Dashboard
+
+The Assets Overview dashboard provides a comprehensive summary of your organization's internet-facing digital assets, which have been verified as part of your digital infrastructure. This dashboard offers visibility into your external attack surface, presenting key metrics related to the risks and vulnerabilities associated with these assets. EASM uses advanced scanning techniques and intelligence-gathering tools to identify and analyze exposed assets across the internet, including unknown or forgotten assets. When discovered, these assets are inventoried, classified, and monitored through periodic scans. The latest data is then presented on the Assets Overview dashboard using graphical representations.
+
+This dashboard allows you to quickly assess the security posture of your asset infrastructure, providing real-time updates on vulnerabilities, misconfigurations, and compliance violations. By offering a high-level view of your organization's external attack surface, the dashboard enables timely identification of business-critical assets and the remediation of vulnerabilities, helping to prevent potential exploits.
+
+See image.
+
+To learn more about this dashboard and how to interact with the dashboard widgets, see [Accessing & Interacting with the Assets Overview Dashboard](https://help.zscaler.com/easm/accessing-interacting-assets-overview-dashboard).
+
+[Image: Insights Overview dashboard that provides a summary of risks and vulnerabilities discovered in the digital attack surface]
+
+[Image: Assets Overview dashboard that provides a summary of most concerning assets discovered in the digital attack surface]
+<!-- /ZS-ARTICLE -->
 
 ---
 
@@ -2842,13 +3199,13 @@ This article provides a summary of all new features and enhancements for Risk360
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-10-26T09:50Z","nid":"1534327"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/release-upgrade-summary-2026","lastmod":"2026-11-20T01:45Z","nid":"1534327"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/risk360/release-upgrade-summary-2026
 - Product: Risk360
 - Path: Risk360 Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-10-26T09:50Z
+- Last modified: 2026-11-20T01:45Z
 - Summary: Risk360 Advanced Release Upgrade Summary for service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Risk360 Advanced.
@@ -4073,13 +4430,13 @@ There are a variety of font sizes for the Help Browser. You can click the **Font
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/risk360/viewing-asset-level-risk","lastmod":"2026-10-13T23:45Z","nid":"1546768"} -->
+<!-- ZS-ARTICLE {"url":"/risk360/viewing-asset-level-risk","lastmod":"2026-11-16T09:00Z","nid":"1546768"} -->
 ## Viewing Asset-Level Risk
 
 - Source: https://help.zscaler.com/risk360/viewing-asset-level-risk
 - Product: Risk360
 - Path: Risk360 Help > Dashboard & Analytics > Viewing Asset-Level Risk
-- Last modified: 2026-10-13T23:45Z
+- Last modified: 2026-11-16T09:00Z
 - Summary: Information about assets and their risk score significance in your organization's overall risk.
 
 Asset-level risk (Analytics > Risk360 > Assets) aggregates and visualizes the total number of assets in your organization, highlights risky assets, and further provides drill-downs on these risky assets to understand what's driving the risk. In progression to Risk360's organizational-level risk score representation, and over 100 factors that can drill down to show specific users and locations at risk, asset-level risk helps view the risk score assigned at the asset level. It facilitates the monitoring and remediation of risky assets.
@@ -4120,7 +4477,7 @@ The table shows the top 1,000 risky asset details. For each asset, you can view 
 - **Authentication Status**: Indicates whether the asset is authenticated or not.
 - **Risk Score**: The risk score computed for the asset.
 - **Last Seen**: The time and date when the last activity was observed on the asset.
-- **Location**: The city where the asset is located. Displays Road Warrior if the asset isn't tied to a location. Click an asset row to view additional details about the risky assets on the [Asset Details](https://help.zscaler.com/unified/viewing-assets-risk) page. You can use the following operators for the table:
+- **Location**: The city where the asset is located. Displays Road Warrior if the asset isn't tied to a location. Click an asset row to view additional details about the risky assets on the [Asset Details](https://help.zscaler.com/risk360/viewing-assets-risk) page. You can use the following operators for the table:
   - Filter the data for specific Asset ID, Asset Type, or Location.
   - Download the table data into a CSV file.
   - Search for a specific asset using the asset ID.
@@ -5992,30 +6349,30 @@ To learn more, refer to the [Microsoft documentation](https://learn.microsoft.co
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2026-11-12T13:38Z","nid":"1532592"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/configuring-azure-devops-outegration","lastmod":"2026-11-19T16:18Z","nid":"1532592"} -->
 ## Configuring Azure DevOps Outegration
 
 - Source: https://help.zscaler.com/uvm/configuring-azure-devops-outegration
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Data Sources & Outegration Configuration Guides > Outegration Configuration Guides > Configuring Azure DevOps Outegration
-- Last modified: 2026-11-12T13:38Z
+- Last modified: 2026-11-19T16:18Z
 - Summary: How to configure the Azure DevOps outegration to dispatch tickets.
 
-The Azure DevOps outegration is used to dispatch tickets from the Agentic Security Operations Platform platform applications (e.g., Unified Vulnerability Management (UVM)) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
+The Azure DevOps outegration is used to dispatch tickets from Agentic Security Operations Platform (Agentic SecOps Platform) [applications](https://help.zscaler.com/unified/what-agentic-security-operations-platform) to your Azure DevOps project, enabling you to track and assign tickets to a specific team for analysis and remediation.
 
-This article is a step-by-step guide to configuring the Azure DevOps work management outegration.
+This article is a step-by-step guide to configuring the Azure DevOps outegration.
 
 Each Azure DevOps ticket type (e.g., Bug, Task, Feature) requires a separate outegration configuration.
 
 ## Prerequisites
 
-Before configuring the outegration, ensure that you complete the authentication and retrieve the Client ID, Client Secret, Tenant ID, organization name, and project name.
+To configure the Azure DevOps outegration, you need to register and configure an application with the correct permissions and authentication. You also need the source authentication configuration, including the client ID, tenant ID, client secret, organization name, and project name. Retrieve the required authentication parameters and enter them in the corresponding fields during the Connect step of the outegration setup wizard.
 
 - Authentication Workflow
 
-1. Log in to the [Azure portal.](https://portal.azure.com/#home)
+1. Log in to the [Azure portal](https://portal.azure.com/#home).
 2. Go to **App registrations**. See image.
-3. Create a new application. The **Overview**page appears when the application is created. If you have already registered an application, then proceed to create the client secret.
+3. Create a new application. [Image: The page to register a new application] The **Overview**page appears when the application is created. If you have already registered an application, then proceed to create the client secret.
   1. On the **Register an application** page, enter a name for the application.
   2. Select **Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)**.
   3. Click **Register**. See image.
@@ -6033,15 +6390,8 @@ Before configuring the outegration, ensure that you complete the authentication 
   - Microsoft Graph: User.Read
 11. In the left-side navigation, go to **Manage**> **Certificates & Secrets**.
 12. Create a new client secret, select an expiration time, and save the value. See image.
-13. Enter all the retrieved credentials (client ID, tenant ID, and client secret) in the **Authentication**section on the Create Azure DevOps Outegration page. A unique**Authentication ID**is generated when the authentication is successful. See image.
-14. On the Azure DevOps dashboard, copy your organization's name displayed at the top of the left-side navigation.
-15. On the **Projects** tab, copy the project name. See image.
-
-[Image: Details to add a client secret]
-
-[Image: Organization and project names in the Azure DevOps portal]
-
-[Image: The unique authentication ID generated]
+13. On the Azure DevOps dashboard, copy your organization's name displayed at the top of the left-side navigation.
+14. On the **Projects** tab, copy the project name. See image.
 
 [Image: App Registration option in Azure portal]
 
@@ -6049,7 +6399,9 @@ Before configuring the outegration, ensure that you complete the authentication 
 
 [Image: Redirect URI on Configure Web page]
 
-[Image: The page to register a new application]
+[Image: Details to add a client secret]
+
+[Image: Organization and project names in the Azure DevOps portal]
 
 ## Configuring the Azure DevOps Outegration
 
@@ -6060,51 +6412,26 @@ To configure the Azure DevOps outegration, complete the following steps:
 - Step 3: Map the Outegration Fields (Mapping)
 - Step 4: Configure the Azure DevOps Webhook
 
-To establish a secure connection with the Azure DevOps project, you need to authenticate with the client ID, tenant ID, and client secret you previously saved.
+The first step in setting up your Azure DevOps outegration is to authenticate using valid credentials to establish a secure connection with your Azure DevOps instance. With the required parameters retrieved in the prerequisites, you can begin the Azure DevOps outegration setup in the Agentic SecOps Platform.
+
+To create an outegration:
 
 1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Configure**.
 2. In the left-side navigation, click **Outegrations**.
 3. Click **Create**. The **Connect a New Outegration** page appears.
-4. On the **Connect a New Outegration page**, select **Azure DevOps**. See image. The **Create** **Azure DevOps Outegration** page appears.
-5. In the **Details** section: See image.
-  1. **Display Name**: Enter a name for your outegration from the Azure DevOps dashboard.
+4. On the **Connect a New Outegration**page, search for and select **Azure DevOps**. See image. The **Create** **Azure DevOps Outegration** page appears.
+5. In the **Details** section: [Image: Azure DevOps outegration authentication setup] See image.
+  1. **Display Name**: Enter a name for your outegration.
   2. **Organization**: Enter the name of your organization from the Azure DevOps dashboard.
-  3. **Project**: Enter the name of the project.
-  4. **Authentication**: Select an existing authentication ID, or click **Create New** to set up a new authentication and enter the required parameters you retrieved earlier into the corresponding fields. See image.
-  5. (Optional) **Refresh Token** and **Access Token**: Enter the values if required.
-6. Click **Test** to verify the connection. If the credentials are invalid, an error message is displayed along with the remediation steps to resolve the issue.
-7. After the test passes, click **Next** to advance to the **Settings** step.
+  3. **Project**: Enter the name of the project from the Azure DevOps dashboard.
+  4. **Authentication**: Select an existing authentication, or click **Create New** to set up a new authentication, and enter the required parameters you retrieved earlier into the corresponding fields. See image.
+  5. **Active**: Enable to activate the outegration.
+6. Click **Test** to verify the connection. Invalid credentials trigger error messages to assist with troubleshooting connectivity issues.
+7. After the test passes, click **Next**.
 
 [Image: Azure DevOps outegration tile]
 
 [Image: Azure DevOps outegration setup details]
-
-[Image: Azure DevOps outegration authentication setup]
-
-In this step, you need to set the Agentic SecOps Platform entity that triggers the Azure DevOps ticket dispatch, the Azure DevOps ticket type that the Agentic SecOps Platform ticket should be dispatched to, and when the Create Azure DevOps Ticket button should appear in the application. The Create Azure DevOps Ticket button allows users with access to Agentic SecOps Platform tickets to dispatch these tickets to an Azure DevOps project directly from the Agentic SecOps Platform ticket drawer or from the Agentic SecOps Platform tickets page.
-
-1. In the **Advanced Settings** section:
-  1. **Create Azure DevOps item from**:Select the entity that you want to configure the outegration for. This selection affects the view you configure in the **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the applications enabled in your account. See image.
-    - **UVM**: Select **Ticket**.
-    - **AEM**: Select **Policy Violation** or **Violation Ticket**.
-  2. **Work Item Type**:Select the work item. The schema associated with the selected work item is retrieved from your Azure DevOps project and made available for mapping in the Mapping step. See image.
-2. In the **View** section, select how the Agentic SecOps Platform ticket should display the **Create Azure DevOps**button. This setting can be modified at any time. See image. The **Create Azure DevOps Ticket**button appears at two locations:
-  - **Always**: Select to display the button on all tickets, allowing users to dispatch all tickets to an Azure DevOps issue.
-  - **Never**: Select to hide the button on all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
-  - **For specific tickets**: Display the button for specific tickets. For example, if your organization uses multiple ticketing systems, you can display the button only to users who work with Azure DevOps, while excluding those using other ticketing systems (e.g., ServiceNow).
-  - In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/aem/viewing-managing-tickets-aem)). See image.
-  - On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
-3. Click **Map**to proceed to the **Mapping** step.
-
-[Image: Advanced Settings options]
-
-[Image: List of work item types]
-
-[Image: Tickets View details]
-
-[Image: Create Azure DevOps Ticket button in a ticket]
-
-[Image: Create Azure DevOps button on the Tickets page]
 
 Map the Agentic SecOps Platform and Azure DevOps tickets to enable exchange of data.
 
@@ -6112,11 +6439,13 @@ The objective of the mapping process is to map Agentic SecOps Platform ticket fi
 
 See image.
 
+[Image: Azure DevOps Mapping]
+
 There are three mapping components:
 
-- Tickets initially dispatched to Azure DevOps: Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for the initial dispatch of a ticket to an Azure DevOps issue. You can also add an attachment to your Azure DevOps issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
-- (Optional) Sync from ticket to Azure DevOps: Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for syncing ticket updates to Azure DevOps, including configuring comments and adding an attachment to your Azure DevOps ticket. Commonly mapped fields include Status and Due Date.
-- (Optional) Sync from Azure DevOps to ticket: Map Azure DevOps fields (left) to Agentic SecOps Platform ticket fields (right) for syncing Azure DevOps updates to tickets. This step also requires setting up an Azure DevOps webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
+- **Tickets initially dispatched to Azure DevOps**: Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for the initial dispatch of a ticket to an Azure DevOps issue. You can also add an attachment to your Azure DevOps issue. Commonly mapped fields include Summary, Description, Assignee, Priority, Due Date, and Status.
+- **Sync from ticket to Azure DevOps**: (Optional) Map Agentic SecOps Platform ticket fields (left) to Azure DevOps fields (right) for syncing ticket updates to Azure DevOps, including configuring comments and adding an attachment to your Azure DevOps ticket. Commonly mapped fields include Status and Due Date.
+- **Sync from Azure DevOps to ticket**: (Optional) Map Azure DevOps fields (left) to Agentic SecOps Platform ticket fields (right) for syncing Azure DevOps updates to tickets. This step also requires setting up an Azure DevOps webhook. Commonly mapped fields include Ticket Status and Ticket SLA.
 
 The initial Azure DevOps outegration mapping includes preconfigured default mappings for each part, based on common use cases and industry best practices. These defaults can be modified and customized as needed.
 
@@ -6125,23 +6454,46 @@ The initial Azure DevOps outegration mapping includes preconfigured default mapp
 To create a new mapping:
 
 1. Click **Mapping**.
-2. Under **Select which field to populate** (right), select a field. See image. The field's schema details open on the right of the page. The schema lists the Azure DevOps fields that can be used for mapping. This is the list of fields configured in your Azure DevOps project for the Work Item Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available:
+2. Under **Select which field to populate** (right), select a field. See image. The field's schema details open on the right of the page. The schema lists the Azure DevOps fields that can be used for mapping. This is the list of fields configured in your Azure DevOps project for the Work Item Type selected in the Settings step (e.g., Bug). See image. The following details are specified for fields, when available: The Required attribute is TRUE if a field is required by Azure DevOps. If a field is not required, the attribute is not displayed. A required Azure DevOps field is also indicated by a red asterisk (*) on the Azure DevOps field in the first mapping step. Required Azure DevOps fields must be mapped before saving the outegration. The Input Type specifies the data type of the Azure DevOps field, such as TEXT (e.g., Summary), DATE (e.g., Due Date), or NUMBER (e.g., Risk Score). This indicates the format that the selected source field must match to successfully map to the Azure DevOps field. For Azure DevOps fields with fixed values, the Available Options column displays the available values. For example, if the Azure DevOps field Priority is configured to include the following fixed values—High, Low, Medium, Lowest, Highest—the corresponding values in the Ticket Severity field can be mapped to these values.
   - Required
   - Input Type
   - Available Options
 3. Under **Define How to populate field** (left), click **Add value**. The **Field Editor** appears.
-4. In the **Field Editor**, select one of the following methods to configure the value of the field:
+4. In the **Field Editor**, select one of the following methods to configure the value of the field: Select a field on the left to populate the field on the right. The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and a field to populate it with on the left. For example, if your Azure DevOps Priority field includes the following fixed values—Highest, High, Medium, Low, Lowest—you can use the dictionary to map the corresponding Ticket Severity values to each of the Priority field values. See image. [Image: Create mappings between specific values from the field on the right and values from the field on the left] Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs. To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name. This option is commonly used to configure the value of fields like Ticket Title and Ticket Description. See image. [Image: Adding a Smart Text field] For use cases that require more advanced configuration than either of the previous two methods, you can use Python scripts to configure the field value to be mapped to the target field.
   - Field (Dictionary)
   - Smart Text
   - Script
 5. Click **Save**, then repeatthe mapping process for any other fields you want to map.
 6. (Optional) You can set a field as mandatory to guarantee that critical fields (e.g., Assignee) are always populated before a ticket is dispatched to Azure DevOps. To set a field as mandatory, click the **Column Menu**icon, then select the **Set as Mandatory**checkbox. Required fields are defined by your Azure DevOps schema, whereas mandatory fields are mandatory for Agentic SecOps Platform ticket dispatch. Attempts to dispatch an incident without a value in a mandatory field will trigger an error message.
-7. (Optional) You can add attachments to the ticket dispatch to simplify the review and management of findings dispatched from a ticket:
-  - See instructions to add attachments to the ticket dispatch.
-8. (Optional) You can configure comments synchronization to push comments to Azure DevOps or to set conditions to trigger a comment when specific fields are modified.
-  - See instructions to configure comments synchronization.
+7. (Optional) You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Azure DevOps issue. Adding an attachment to your Azure DevOps issue simplifies the review and management of ticket findings. You can configure file attachments in two of the mapping steps: Initial ticket dispatch See image.; Sync from ticket to Azure DevOps See image.[Image: Field details of the ticket dispatched to Azure DevOps] [Image: Sync update details] When configured in the ticket to the Azure DevOps sync section, the attachment is included in the Azure DevOps issue alongside existing attachments as a downloadable file in the selected format. Use the **File Format** drop-down menu on the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**). See image. [Image: List of file formats to add an attachment] To provide your Azure DevOps remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment: Finding Severity; Finding Title; Finding CVE; Component Name; Asset Name; Asset Operating System; Finding Optimal Fix; Finding Description; Finding Sources
+  - See instructions
+8. (Optional) You can push comments to Azure DevOps, or set conditions to trigger a comment when specific fields are modified. In the Ticket to Azure DevOps sync step, click **Comment Sync**. See image. The Manage comments sync window appears.; Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding Azure DevOps issue. See image.; Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding Azure DevOps issue. For example, you can configure a trigger to post a comment in Azure DevOps when the Ticket Severity changes from Medium to Critical. See image.Select the field you want to monitor (e.g., **Severity**).; Set the value change that should trigger the comment:**From**: Select the original value.; **To**: Select the updated value.[Image: Sync ticket comments to Azure DevOps issue comments] [Image: Enable ticket comments to push to Azure DevOps issue] [Image: Enable to trigger comments when fields are modified] When the specified change occurs in the ticket, a comment is automatically created and added to the Azure DevOps issue. The following is an example of a trigger comment: `Linked UVM ticket updated: Ticket severity changed from: MEDIUM to: CRITICAL <URL to ticket>`
+  - See instructions
 9. (Optional) Click **Preview** to review the Azure DevOps mapping. You can select, filter, or search tickets and preview the mapping to their corresponding Azure DevOps ticket. You can also open the Agentic SecOps Platform incident in a new tab for a more in-depth review. See image.
 10. Click **Finish** to complete the outegration setup.
+
+[Image: Mapping fields to populate on the right]
+
+In this step, you need to set the Agentic SecOps Platform entity that triggers the Azure DevOps ticket dispatch, the Azure DevOps ticket type that the Agentic SecOps Platform ticket should be dispatched to, and when the Create Azure DevOps Ticket button should appear in the application. The Create Azure DevOps Ticket button allows users with access to Agentic SecOps Platform tickets to dispatch these tickets to an Azure DevOps project directly from the Agentic SecOps Platform ticket drawer or from the Agentic SecOps Platform tickets page.
+
+1. In the **Advanced Settings** section: [Image: Advanced Settings options] [Image: List of work item types]
+  1. **Create Azure DevOps item from**:Select the entity that you want to configure the outegration for. This selection affects the view you configure in the **View**step (e.g., selecting Ticket displays the Tickets View setting). Other entity types might be visible depending on the applications enabled in your account. See image.
+    - For UVM: Select **Ticket**.
+    - For AEM: Select **Policy Violation** or **Violation Ticket**.
+  2. **Work Item Type**:Select the work item. The schema associated with the selected work item is retrieved from your Azure DevOps project and made available for mapping in the Mapping step. See image.
+2. In the **View** section, select how the Agentic SecOps Platform ticket should display the **Create Azure DevOps**button. This setting can be modified at any time. See image. The **Create Azure DevOps Ticket**button appears in two locations: [Image: Create Azure DevOps Ticket button in a ticket] [Image: Create Azure DevOps button on the Tickets page]
+  - **Always**: Select to display the button on all tickets, allowing users to dispatch all tickets to an Azure DevOps issue.
+  - **Never**: Select to hide the button on all tickets. This is useful during the outegrationsetup process to hide the button from users while still keeping the outegration active.
+  - **For specific tickets**: Select to display the button for specific tickets. For example, if your organization uses multiple ticketing systems, you can display the button only to users who work with Azure DevOps, while excluding those using other ticketing systems (e.g., ServiceNow).
+  - In the individual entity drawer (e.g., in the [UVM ticket drawer](https://help.zscaler.com/uvm/managing-tickets-uvm), in the [AEM violation ticket drawer](https://help.zscaler.com/aem/viewing-managing-tickets-aem)). See image.
+  - On the entity page in the relevant application (e.g., on the [Tickets page](https://help.zscaler.com/uvm/about-tickets-operational-view-uvm) in UVM, on the [Violation Tickets page](https://help.zscaler.com/uvm/about-violation-tickets-operational-view-aem) in AEM). See image.
+3. Click **Map**to proceed to the **Mapping** step.
+
+[Image: Tickets View details]
+
+[Image: Outegration schema field options]
+
+[Image: Mapping Preview details]
 
 ### Common Mapping Examples
 
@@ -6160,46 +6512,12 @@ To map the Ticket Title field to the Summary field:
 
 1. Select **Summary**as the Azure DevOps field on the right. See image. Selecting the Azure DevOps Summary field opens the field's details in the schema. The schema specifies that the field is required and thus must be mapped before the outegration can be saved, and that the field expects a TEXT input type. Therefore, the field for which a value is being configured must also be of TEXT type. See image.
 2. Select the **Ticket Title**field on the left: See image.
-  1. Click**Add Value**.
-  2. Under the **Field** tab, select the **Ticket Title** field, which is the equivalent to the Azure DevOps **Summary**field.
-
-[Image: Mapping fields to populate on the right]
-
-[Image: Outegration schema field options]
-
-The Required attribute is TRUE if a field is required by Azure DevOps. If a field is not required, the attribute is not displayed. A required Azure DevOps field is also indicated by a red asterisk (*) on the Azure DevOps field in the first mapping step.
-
-Required Azure DevOps fields must be mapped before saving the outegration.
-
-The Input Type specifies the data type of the Azure DevOps field, such as TEXT (e.g., Summary), DATE (e.g., Due Date), or NUMBER (e.g., Risk Score). This indicates the format that the selected source field must match to successfully map to the Azure DevOps field.
-
-For Azure DevOps fields with fixed values, the Available Options column displays the available values. For example, if the Azure DevOps field Priority is configured to include the following fixed values—High, Low, Medium, Lowest, Highest—the corresponding values in the Ticket Severity field can be mapped to these values.
+  1. Click**Add Value**. The **Field Editor** appears.
+  2. On the **Field** tab, select the **Ticket Title** field, which is the equivalent to the Azure DevOps **Summary**field.
 
 [Image: Data Mapping details]
 
 [Image: Field details in the schema]
-
-Select a field on the left to populate the field on the right.
-
-The field dictionary allows you to create mappings between specific values from the field on the right and values of the field on the left. To use the dictionary, you must first select a field on the right and a field to populate it with on the left.
-
-For example, if your Azure DevOps Priority field includes the following fixed values—Highest, High, Medium, Low, Lowest—you can use the dictionary to map the corresponding Ticket Severity values to each of the Priority field values.
-
-See image.
-
-[Image: Create mappings between specific values from the field on the right and values from the field on the left]
-
-Configure the field value using free text, or create a template using a combination of free text and selected fields. This allows you to dynamically insert specific field values (e.g., Ticket SLA, Ticket Assignee, or Asset Name) into customized free text sentences or paragraphs.
-
-To add a Smart Text field, enclose it in double curly brackets (e.g., `{{Ticket Assignee}}`). The field's display name automatically translates to its system name.
-
-This option is commonly used to configure the value of fields like Ticket Title and Ticket Description.
-
-See image.
-
-[Image: Adding a Smart Text field]
-
-For use cases that require more advanced configuration than either of the previous two methods, you can use Python scripts to configure the field value to be mapped to the target field.
 
 [Image: Define the Ticket Title field using the Field Editor]
 
@@ -6210,8 +6528,7 @@ To configure the Ticket to Azure DevOps Description mapping:
 1. Click**Mapping**.
 2. Select**Description** as the field on theright.
 3. Click **Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Smart Text**.
-5. Enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
+4. On the **Smart Text**tab, enter a ticket description, including dynamic fields (e.g., `{{SLA}}`).
 
 Tickets dispatched to Azure DevOps will now include the configured description.
 
@@ -6222,7 +6539,7 @@ To configure the Ticket SLA to Azure DevOps Due Date mapping:
 1. Click**Mapping**.
 2. Select**Due Date** as the field on the right.
 3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Ticket SLA** as the field on the left.
+4. On the **Field** tab, select the **Ticket SLA** field.
 
 Ticket SLA changes will now automatically update Azure DevOps issue due dates.
 
@@ -6233,89 +6550,18 @@ To configure the Azure DevOps to Ticket Status mapping:
 1. Click**Mapping**.
 2. Select**Ticket Status** as the field on the right.
 3. Click**Add Value** on the left. The **Field Editor** appears.
-4. In the **Field Editor**, select **Field**, and select **Status** as the field on the left. Use the dictionary to map your Azure DevOps **Status** types to **Ticket Status** types.
+4. On the **Field**,select the **Status** field.
+5. Click **Dictionary** to map your Azure DevOps **Status** types to **Ticket Status** types.
 
 Azure DevOps issue Status changes will now automatically update the Ticket Status.
 
-[Image: Mapping Preview details]
-
-You can create a file attachment that summarizes your ticket content and set the trigger to automatically add it to your Azure DevOps issue. Adding an attachment to your Azure DevOps issue simplifies the review and management of findings dispatched from a ticket.
-
-You can configure file attachments in two of the mapping steps:
-
-- Initial ticket dispatch See image.
-- Sync from ticket to Azure DevOps See image.
-
-When configured in the ticket to the Azure DevOps sync section, the attachment is included in the Azure DevOps issue alongside existing attachments as a downloadable file in the selected format.
-
-Use the **File Format** drop-down menu on the top left of the attachment page to select from the available formats (**CSV**, **PDF**, **JSONL**, **Excel**).
+The Azure DevOps outegration webhook enables automatic syncing of Azure DevOps issue updates (e.g., Status or SLA changes) to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Azure DevOps to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Azure Outegration Webhook](https://help.zscaler.com/uvm/configuring-azure-devops-outegration-webhook).
 
 See image.
-
-To provide your Azure DevOps remediation teams with a comprehensive view of the findings in the ticket, consider including the following fields in your attachment:
-
-- Finding Severity
-- Finding Title
-- Finding CVE
-- Component Name
-- Asset Name
-- Asset Operating System
-- Finding Optimal Fix
-- Finding Description
-- Finding Sources
-
-[Image: Field details of the ticket dispatched to Azure DevOps]
 
 [Image: Sync update details]
-
-[Image: List of file formats to add an attachment]
-
-In the Ticket to Azure DevOps sync step, you can configure how ticket comments are synchronized with Azure DevOps issue comments. To configure comments, click **Comment Sync**.
-
-See image.
-
-#### Sync Comments
-
-Enable **Sync Comments**to automatically push comments from the ticket's Comments tab to the corresponding Azure DevOps issue.
-
-See image.
-
-#### Trigger Comments
-
-Enable **Sync Trigger Comments**and set conditions to trigger a comment when specific fields are modified. Syncing trigger comments is useful when you want to be notified of important changes to tickets without updating the corresponding Azure DevOps issue. For example, you can configure a trigger to post a comment in Azure DevOps when the Ticket Severity changes from Medium to Critical.
-
-See image.
-
-To add a trigger condition:
-
-1. Select the field you want to monitor (e.g., **Severity**).
-2. Set the value change that should trigger the comment:
-  - **From**: Select the original value.
-  - **To**: Select the updated value.
-
-When the specified change occurs in the ticket, a comment is automatically created and added to the Azure DevOps issue. The following is an example of a trigger comment:
-
-```
-Linked UVM ticket updated:
-Ticket severity changed from: MEDIUM to: CRITICAL
-<URL to ticket>
-```
-
-[Image: Sync ticket comments to Azure DevOps issue comments]
-
-[Image: Enable ticket comments to push to Azure DevOps issue]
-
-[Image: Enable to trigger comments when fields are modified]
-
-[Image: Azure DevOps Mapping]
-
-The Azure DevOps outegration webhook enables automatic syncing of Azure DevOps issue updates (e.g., Status or SLA changes) to their corresponding tickets, reducing the need for manual changes. This step is required when configuring the Azure DevOps to Ticket mapping to keep issues and tickets in sync. To learn more, see [Configuring the Azure Outegration Webhook.](https://help.zscaler.com/uvm/configuring-azure-devops-outegration-webhook)
-
-See image.
 
 An Azure DevOps webhook is only needed to sync updates from Azure DevOps to the ticket. It is not required for the initial ticket dispatch or for syncing updates from the ticket to Azure DevOps.
-
-[Image: Sync update details]
 
 When the outegration setup is complete, you can begin dispatching Agentic SecOps Platform tickets using the Create Azure DevOps Ticket button that appears in the Create Ticket menu within individual tickets, as well as in the Create Issue menu in the Tickets View. To learn more, see [Creating & Managing Third-Party Tickets](https://help.zscaler.com/uvm/creating-managing-third-party-tickets).
 <!-- /ZS-ARTICLE -->
@@ -15722,13 +15968,13 @@ This article provides a summary of all new features and enhancements for Unified
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-11-12T03:30Z","nid":"1534299"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/release-upgrade-summary-2026","lastmod":"2026-11-18T11:39Z","nid":"1534299"} -->
 ## Release Upgrade Summary (2026)
 
 - Source: https://help.zscaler.com/uvm/release-upgrade-summary-2026
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Release Notes > Release Upgrade Summary (2026)
-- Last modified: 2026-11-12T03:30Z
+- Last modified: 2026-11-18T11:39Z
 - Summary: Unified Vulnerability Management (UVM) Release Upgrade Summary for commercial service updates deployed in 2026.
 
 This article provides a summary of all new features and enhancements for Unified Vulnerability Management (UVM).
@@ -16481,30 +16727,31 @@ On the **Finding Evidence** tab, you can view:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-09-16T10:27Z","nid":"1531065"} -->
+<!-- ZS-ARTICLE {"url":"/uvm/viewing-managing-assets-uvm","lastmod":"2026-11-18T01:47Z","nid":"1531065"} -->
 ## Viewing & Managing Assets in UVM
 
 - Source: https://help.zscaler.com/uvm/viewing-managing-assets-uvm
 - Product: Unified Vulnerability Management (UVM)
 - Path: Unified Vulnerability Management (UVM) Help > Remediate for UVM > Viewing & Managing Assets in UVM
-- Last modified: 2026-09-16T10:27Z
+- Last modified: 2026-11-18T01:47Z
 - Summary: How to view and manage asset details in the Unified Vulnerability Management (UVM) application in the SecOps Platform.
 
-A Unified Vulnerability Management (UVM) asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in UVM](https://help.zscaler.com/uvm/about-assets-operational-view-uvm).
+A Unified Vulnerability Management (UVM) asset represents a single asset in your environment, unified (i.e., merged) and enriched with information from multiple sources. Selecting an asset on the Assets page opens its drawer, where you can view detailed information and perform multiple actions for the asset. To learn more, see [About Assets in UVM](https://help.zscaler.com/uvm/about-assets-uvm).
 
-The actions you can perform in the asset drawer depend on your user role in the UVM app. To learn more, see [Understanding System Roles](https://help.zscaler.com/uvm/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/uvm/creating-custom-roles).
+The actions you can perform in the asset drawer depend on your user role in UVM. To learn more, see [Understanding System Roles](https://help.zscaler.com/unified/understanding-system-roles) and [Creating Custom Roles](https://help.zscaler.com/unified/creating-custom-roles).
 
-The asset drawer can be configured by admins and might look different in your account. The information provided in this article refers to the default asset drawer settings. To learn more, see [Configuring Entity Drawers in UVM](https://help.zscaler.com/uvm/configuring-ticket-ui-vulnerabilities-app).
+The asset drawer can be configured by admins and might look different in your account. The information provided in this article refers to the default asset drawer settings. To learn more, see [Configuring Entity Drawers](https://help.zscaler.com/unified/configuring-entity-drawers).
 
 To view the asset drawer:
 
-1. Go to **Vulnerabilities**> **Assets**. See image.
-2. Optionally, you can [apply filters](https://help.zscaler.com/uvm/using-filters) to refine the data and display the assets you want to view. To view the assets discovered by Zscaler's [External Attack Surface Management (EASM) capabilities](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities), click the **Sources** filter and select **EASM Assets**. Available Asset Types
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Vulnerabilities**.
+2. In the left-side navigation, click **Assets**. See image. You can [apply filters](https://help.zscaler.com/unified/using-filters) to refine the data and display the assets you want to view. To view the assets discovered by Zscaler's [External Attack Surface Management (EASM) capabilities](https://help.zscaler.com/uvm/understanding-zscaler-easm-capabilities), click the **Sources** filter and select **EASM Assets**. Available Asset Types
 3. Click the asset you want to view. See image. A drawer appears with the following details and tabs:
   - Top Panel
   - Details
   - Asset Merging
   - Findings
+  - Child Resources
   - Tickets
 4. Click **Apply Changes** after making changes to the asset, or close the drawer.
 
@@ -16536,26 +16783,24 @@ On the **Asset Merging**tab, you can view the original source records that the a
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed assets by relevant attributes (e.g., filtering the original source records owner ID or first seen date).
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 - Click the **Export as CSV**icon to export the list of assets that the current asset was merged from as a CSV file.
 
-On the **Findings**tab, you can explore the findings that were detected on the asset.
-
-To view the finding's details (e.g., descriptions and [score calculation logic](https://help.zscaler.com/uvm/configuring-severity-score-formulas)), you can either expand the finding or drill down to the finding drawer.
+On the **Findings**tab, you can explore the findings that were detected on the asset. To view the finding's details (e.g., descriptions and [score calculation logic](https://help.zscaler.com/uvm/configuring-severity-score-formulas)), you can either expand the finding or drill down to the finding drawer.
 
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed findings by relevant attributes and to explore the asset's risk portfolio (e.g., filtering the findings by a particular state, title, or severity score).
-- To update key finding details, select the findings and click **Update**. The fields available to update include fields that were enabled for manual override in Configure > Data Model.
+- To update key finding details, select the findings and click **Update**. The fields available to update include fields that were enabled for manual override on the [Data Model](https://help.zscaler.com/unified/about-data-model-management) page.
 - Click the**Export as CSV**icon to export findings on the asset to a CSV file.
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 
 On the **Tickets**tab, you can view all tickets related to the asset and a summary of their details, sources, status, and remediation percentage.
 
 Additionally, you can perform the following actions:
 
 - Apply filters to adjust the displayed tickets by relevant attributes (e.g., filtering the tickets by type, title, or severity score).
-- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/uvm/managing-table-columns).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
 
 Clicking a ticket opens its drawer. To return to the asset drawer, click the asset name in the top-left corner of the ticket drawer.
 
@@ -16563,6 +16808,16 @@ Clicking a ticket opens its drawer. To return to the asset drawer, click the ass
 - **Domain**: Includes domains, subdomains, and hosts.
 - **Edge Server**: Includes IP addresses.
 - **Git Repository**: Includes GitHub repositories.
+
+On the **Child Resources** tab, you can view the resources associated with the selected asset. This helps you understand the relationships between cloud resources and investigate related assets. For example, a virtual machine can have associated network interfaces and disks. You can view these child resources and use available filters to find specific resources.
+
+Additionally, you can perform the following actions:
+
+- Apply filters to adjust the displayed assets by relevant attributes (e.g., filtering the asset by child asset name).
+- Adjust the displayed columns and their sorting settings. To learn more, see [Managing Table Columns](https://help.zscaler.com/unified/managing-table-columns).
+- Click the **Export as CSV**icon to export the list of child assets as a CSV file.
+- Select and update the child asset.
+- Click the **Drilldown**icon for a child asset to view the parent asset information.
 
 [Image: The Assets page in UVM]
 

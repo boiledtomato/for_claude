@@ -1,7 +1,7 @@
 # Zscaler Help — ZCC — Zscaler Client Connector (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
+Generated: 2026-11-23 11:12 UTC
 Articles in this file: 67
 
 ---
@@ -517,41 +517,38 @@ After downloading the file, you can use it to deploy Zscaler Client Connector to
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-10-26T10:59Z","nid":"1296751"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/understanding-zscaler-client-connector-dashboard","lastmod":"2026-11-19T16:28Z","nid":"1296751"} -->
 ## Understanding the Zscaler Client Connector Dashboard
 
 - Source: https://help.zscaler.com/zscaler-client-connector/understanding-zscaler-client-connector-dashboard
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Monitoring Usage > Understanding the Zscaler Client Connector Dashboard
-- Last modified: 2026-10-26T10:59Z
+- Last modified: 2026-11-19T16:28Z
 - Summary: Information on the Zscaler Client Connector Portal Dashboard and its widgets, which display information about enrolled devices.
 
-The Zscaler Client Connector Dashboard provides information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
+The Zscaler Client Connector dashboards provide information [about enrolled devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices) for your organization, including information about service status.
 
-From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Infrastructure**> **Platform Details**.
+## Dashboards
 
-## Dashboard
-
-The Dashboard option in the left-side navigation covers the following information:
-
-[Image: Zscaler Client Connector Dashboard]
+To view the dashboards, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Analytics**> **Infrastructure**> **Platform Details**
 
 - Platform Details
+- Device Overview
 - Device Posture
 - Device Events
 
-This page provides OS platform details such as device model and device state.
+The Platform Details dashboard provides OS platform details such as device model and device state.
 
-### Dashboard Filters
+### Filtering
 
-Use the following filters to modify the content shown in the Platform Details page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
+Filter data: Click the filters in the top-left corner to limit the data shown. Each filter allows you to include or exclude individual options.
 
 - **States**: View data for devices with all device states, or a specific state (i.e., **Registered**, **Unregistered**, **Removal Pending**, **Removed**, **Quarantined**).
 - **OS**: View data for all operating systems or a specific operating system.
 
-### Widgets
+After you choose your filters, click **Apply** to update the dashboard with your selections. To remove all applied filter selections, click **Reset**.
 
-The Platform Details page provides the following details:
+### Dashboard Widgets
 
 - Version Distribution
 - Device Model
@@ -641,17 +638,63 @@ This widget displays the number of devices installed with supported and unsuppor
 
 Hover over the chart to view the number of devices installed with supported and unsupported versions of Zscaler Client Connector, shown by percentage for each OS. Click the graph to view a list of all devices, by User ID, installed with either supported or unsupported versions of Zscaler Client Connector in [Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/about-enrolled-devices). You can use this list to view which Zscaler Client Connector versions are installed and identify users who must update to a supported version of Zscaler Client Connector.
 
-This page provides information about Internet & SaaS and Private Access service status and about users turning off the services via passwords.
+The Device Overview dashboard provides an overview of the devices in use in your organization. This allows you to see at a glance information such as models and operating systems in use, device enrollment state, operating system status, and more.
 
-This page is available for Windows users only. You must also have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
+### Filtering
 
-### Dashboard Filter
+**Filter data**: Click the filters in the top-left corner to limit the data shown. Each filter allows you to include or exclude individual options.
 
-Use the **Time Range** filter to view data for the selected time range. After you select the filter, click**Apply** in the upper-right corner of the page.
+- **Users**: The email addresses of individual users of devices in your organization.
+- **State**: The state of the device (e.g., **Registered**, **Unregistered**, **Removal Pending**, **Removed**, or **Quarantined**).
+- **Platform**: The software platform of the device (e.g., **iOS**, **Android**, **Windows**, **macOS**, or **Linux**).
 
-### Widgets
+After you choose your filters, click **Apply**to update the dashboard with your selections. To remove all applied filter selections, click **Reset**.
 
-The Device Events page provides the following widgets:
+### Dashboard Widgets
+
+- User Devices
+- Version Distribution
+- Device Operating System
+- Device Model
+- Device State
+
+This bar graph shows the distribution of operating systems for all the devices in your organization.
+
+[Image: Chart showing Traffic Volume Across Service widget on the Connector Activity dashboard]
+
+This ring chart shows the number of devices in your organization that are using supported and unsupported versions of software.
+
+[Image: Chart showing Session Across Service on the Connector Activity dashboard]
+
+This bar chart shows the operating systems in use in your organization.
+
+[Image: Chart showing Session Across Service on the Connector Activity dashboard]
+
+This bar chart shows the device models in use in your organization.
+
+[Image: Chart showing Session Across Service on the Connector Activity dashboard]
+
+This ring chart shows the enrollment state of devices in your organization.
+
+- **Registered**: Devices enrolled in your organization.
+- **Unregistered**:Devices that are logged out or have been removed by an admin.
+- **Removal Pending**: Devices that have been soft-removed and are pending full removal.
+- **Removed**: Devices that have been removed from the organization.
+- **Quarantined**: Devices that are quarantined and can't be used to log in again.
+
+To learn more about device enrollment states, see [Device States for Enrolled Devices](https://help.zscaler.com/zscaler-client-connector/device-states-enrolled-devices).
+
+[Image: Chart showing Session Across Service on the Connector Activity dashboard]
+
+The Device Events dashboard provides information about Internet & SaaS and Private Access service status and about users turning off the services via passwords.
+
+This dashboard is available for Windows users only. You must also have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
+
+### Filtering
+
+**Time Range**: Use the Time Range filter to view data for the selected time range. After you select the filter, click**Apply** in the upper-right corner of the page.
+
+### Dashboard Widgets
 
 - ZIA and ZPA Device Service Status
 - ZIA Service Turn Off
@@ -696,20 +739,20 @@ This widget displays information about the passwords used to turn off the servic
 - **ZPA Master**: The number of times ZPA was turned off using the Disable Password ZPA password.
 - **ZIA Master**: The number of times ZIA was turned off using the Disable Password ZIA password.
 
-This page provides information about devices that fail their [device posture checks](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles).
+The Device Posture dashboard provides information about devices that fail their [device posture checks](https://help.zscaler.com/zscaler-client-connector/about-device-posture-profiles).
 
-The Device Posture page is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
+This dashboard is available only if you have Digital Experience (ZDX) or Zscaler Client Connector Telemetry enabled.
 
-### Dashboard Filters
+### Filtering
 
-Use the following filters to modify the content shown in the Device Posture page widgets. After you select filters, click **Apply** in the upper-right corner of the page.
+**Filter data**: Click the filters in the top-left corner to limit the data shown. Each filter allows you to include or exclude individual options.
 
 - **Time**: Modify the failed postures times ranging from three-hour intervals up to 24 hours. You can set the filter to show data up to the past 7 days.
 - **OS**: View devices for either Windows or macOS or for both of the operating systems. By default, both operating systems are shown.
 
-### Widgets
+After you choose your filters, click **Apply** to update the dashboard with your selections. To remove all applied filter selections, click **Reset**.
 
-The Device Posture page provides the following widgets:
+### Dashboard Widgets
 
 - Top 10 Failed Device Posture Trend
 - Top 50 Failed Posture Profiles
@@ -1050,13 +1093,13 @@ To upload the custom certificate:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-fiddler-zscaler-client-connector","lastmod":"2026-04-29T16:25Z","nid":"1333356"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/using-fiddler-zscaler-client-connector","lastmod":"2026-11-17T17:07Z","nid":"1333356"} -->
 ## Using Fiddler with Zscaler Client Connector
 
 - Source: https://help.zscaler.com/zscaler-client-connector/using-fiddler-zscaler-client-connector
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Using Fiddler with Zscaler Client Connector
-- Last modified: 2026-04-29T16:25Z
+- Last modified: 2026-11-17T17:07Z
 - Summary: How to configure Zscaler Client Connector to use the Telerik Fiddler application.
 
 To use the Telerik Fiddler application with Zscaler Client Connector, you must configure Zscaler Client Connector to use a PAC file to point to a specific port. Then, you must ensure that Fiddler is listening to that port.
@@ -2177,18 +2220,19 @@ This section displays the following troubleshooting information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui","lastmod":"2026-11-04T16:36Z","nid":"1546661"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui","lastmod":"2026-11-16T18:15Z","nid":"1546661"} -->
 ## Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-digital-experience-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Digital Experience on Zscaler Client Connector in the Modern UI
-- Last modified: 2026-11-04T16:36Z
+- Last modified: 2026-11-16T18:15Z
 - Summary: Information on the Digital Experience window on Zscaler Client Connector.
 
 This article provides an overview of the Digital Experience screen of Zscaler Client Connector. This screen features connectivity information and troubleshooting options for [Digital Experience](https://help.zscaler.com/zdx/what-is-zscaler-digital-experience).
 
 - Windows
+- iOS
 - Android
 - Android on ChromeOS
 
@@ -2214,6 +2258,27 @@ This section displays the following troubleshooting information:
 - **Restart ZDX Services**: Click **Restart** to restart the core services for Digital Experience monitoring.
 
 [Image: Perform Troubleshooting actions in the Digital Experience window]
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to turn off the Zscaler Tunnel (Z-Tunnel) and disable the Digital Experience (ZDX) service while remaining logged in to the app. A password might be required if configured by your IT admin. The Digital Experience service is disabled until you tap **Turn On**.
+- **Authentication Status**: Displays the current authentication state, i.e., whether you are currently authenticated or not.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **ZDX Service Version**: Displays the Digital Experience version your organization is using.
+- **Server**: Displays the IP Address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Digital Experience screen of Zscaler Client Connector for iOS devices]
+
+## Troubleshooting
+
+This section displays the following troubleshooting information:
+
+- **Clear ZDX Data**: Tap **Clear** to remove historical data collected by Digital Experience.
+- **Restart ZDX Services**: Tap **Restart** to restart the core services for Digital Experience monitoring.
+
+[Image: Troubleshooting details on the Digital Experience screen of Zscaler Client Connector for iOS devices]
 
 ## Zero Trust Connectivity
 
@@ -2259,18 +2324,21 @@ This section displays the following troubleshooting information:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui","lastmod":"2026-11-04T16:24Z","nid":"1546639"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui","lastmod":"2026-11-16T17:57Z","nid":"1546639"} -->
 ## Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-information-about-internet-saas-zscaler-client-connector-modern-ui
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > End User Guide for the Modern UI > Viewing Information About Internet & SaaS on Zscaler Client Connector in the Modern UI
-- Last modified: 2026-11-04T16:24Z
+- Last modified: 2026-11-16T17:57Z
 - Summary: Information on the Internet & SaaS page of the Zscaler Client Connector in the Modern UI
 
-This article provides an overview of the **Internet & SaaS** (ZIA) window on Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
+This article provides an overview of theInternet & SaaS (ZIA) window on Zscaler Client Connector for different OSs. This window features connectivity information and traffic statistics for [Internet & SaaS](https://help.zscaler.com/zia/understanding-zscaler-cloud-architecture).
 
 - Windows
+- iOS
+- Android
+- Android on ChromeOS
 
 For information about other Zscaler Client Connector features, see [Using Zscaler Client Connector in the Modern UI](https://help.zscaler.com/zscaler-client-connector/using-zscaler-client-connector-modern-ui).
 
@@ -2297,6 +2365,78 @@ This section displays the following traffic statistics:
 - **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the app.
 
 [Image: View Statistics details in the Internet & SaaS window]
+
+This screen includes the following features on iOS devices.
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you tap **Turn On**.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **Network Type**: Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
+- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
+- **Client**: Displays your client IP address.
+- **Server**: Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Internet & SaaS screen for iOS]
+
+## Statistics
+
+This section displays the following traffic statistics:
+
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the app.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the app.
+
+[Image: Statistics details on the Internet & SaaS screen for iOS]
+
+This screen includes the following features on Android devices.
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you tap **Turn On**.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **Network Type**: Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
+- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
+- **Client**: Displays your client IP address.
+- **Server**: Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Internet & SaaS screen for Android]
+
+## Statistics
+
+This section displays the following traffic statistics:
+
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the app.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the app.
+
+[Image: Statistics details on the Internet & SaaS screen for Android]
+
+This screen includes the following features on Android on ChromeOS devices.
+
+## Zero Trust Connectivity
+
+This section displays the following connectivity information:
+
+- **Service Status**: Displays the app connection status. Click or tap **Turn Off** if you want to disable the Internet & SaaS service while remaining logged in to the app. Depending on your organization's policies, you might be required to enter a password. The Internet & SaaS service is disabled until you click or tap **Turn On**.
+- **Time Connected**: Displays your initial connection time for the present session.
+- **Network Type**: Displays the type of network you are connected to (Trusted Network, VPN Trusted Network, Split VPN Trusted Network, or Off-Trusted Network).
+- **Tunnel Version**: Displays the version of the Zscaler Tunnel (Z-Tunnel) that Zscaler Client Connector forwards your traffic through.
+- **Client**: Displays your client IP address.
+- **Server**: Displays the IP address of the server to which your traffic is being forwarded.
+
+[Image: Zero Trust Connectivity section on the Internet & SaaS screen for Android on ChromeOS]
+
+## Statistics
+
+This section displays the following traffic statistics:
+
+- **Total Traffic Sent**: Displays, in real time, bytes of traffic sent from your computer through the app.
+- **Total Traffic Received**: Displays, in real time, bytes of traffic received by your computer through the app.
+
+[Image: Statistics section on the Internet & SaaS screen for Android on ChromeOS]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -3032,13 +3172,13 @@ To display notifications on the app icon:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-10-06T21:06Z","nid":"1328911"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile","lastmod":"2026-11-16T11:03Z","nid":"1328911"} -->
 ## Viewing the Policy Token for a Zscaler Client Connector App Profile
 
 - Source: https://help.zscaler.com/zscaler-client-connector/viewing-policy-token-zscaler-client-connector-app-profile
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Zscaler Client Connector Profile Management > Viewing the Policy Token for a Zscaler Client Connector App Profile
-- Last modified: 2026-10-06T21:06Z
+- Last modified: 2026-11-16T11:03Z
 - Summary: How to view the policy token, which is automatically generated for each saved Zscaler Client Connector app profile.
 
 After you save your Zscaler Client Connector [app profile](https://help.zscaler.com/zscaler-client-connector/about-zscaler-app-profiles), a policy token is automatically generated for the profile.
@@ -3047,7 +3187,7 @@ You need this policy token if you want to use the [STRICTENFORCEMENT install opt
 
 To view the policy token for an app profile:
 
-1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connectors** > **Select Your OS**.
+1. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console), go to **Infrastructure** > **Client Connector** > <**OS**>.
 2. On the **App Profiles** tab, click the **Edit** icon beside the profile.
 
 [Image: Configured App Profile Policies Example]
@@ -3317,13 +3457,13 @@ This article provides a summary of all new features and enhancements released pe
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-11-12T04:38Z","nid":"1534304"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zdx-module-release-summary-2026","lastmod":"2026-11-19T03:40Z","nid":"1534304"} -->
 ## ZDX Module Release Summary (2026)
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zdx-module-release-summary-2026
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Release Notes > Zscaler Client Connector - ZDX Module Release Notes (per OS) > ZDX Module Release Summary (2026)
-- Last modified: 2026-11-12T04:38Z
+- Last modified: 2026-11-19T03:40Z
 - Summary: Zscaler Client Connector ZDX module summary for updates deployed, per OS and version, in 2026.
 
 This article provides a summary of all new features and enhancements released per operating system (OS) for the Zscaler Digital Experience (ZDX) Module in the Zscaler Client Connector app.
@@ -3843,13 +3983,13 @@ The table below provides a list of error messages your users might see for Zscal
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-15T06:06Z","nid":"1285511"} -->
+<!-- ZS-ARTICLE {"url":"/zscaler-client-connector/zscaler-client-connector-processes-allowlist","lastmod":"2026-11-22T06:06Z","nid":"1285511"} -->
 ## Zscaler Client Connector Processes to Allowlist
 
 - Source: https://help.zscaler.com/zscaler-client-connector/zscaler-client-connector-processes-allowlist
 - Product: Client Connector
 - Path: Zscaler Client Connector Help > Interoperability > Zscaler Client Connector Processes to Allowlist
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information on Zscaler Client Connector binaries and processes that the users' devices should allowlist.
 
 Zscaler recommends that your users' devices have inbound rules that allow the Zscaler Client Connector binaries and processes.

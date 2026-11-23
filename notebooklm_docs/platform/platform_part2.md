@@ -1,120 +1,199 @@
 # Zscaler Help — Unified Platform / Admin / Logs (part 2)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 141
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 142
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-10-29T21:06Z","nid":"1545215"} -->
+<!-- ZS-ARTICLE {"url":"/unified/attribute-reconciliation-default-functions","lastmod":"2026-10-27T12:15Z","nid":"1545204"} -->
+## Attribute Reconciliation Default Functions
+
+- Source: https://help.zscaler.com/unified/attribute-reconciliation-default-functions
+- Product: Getting Started with Zscaler
+- Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Data Management > Data Unification > Attribute Reconciliation Default Functions
+- Last modified: 2026-10-27T12:15Z
+- Summary: Information about the attribute reconciliation default functions for reconciling conflicting values during data unification.
+
+Attribute reconciliation is the process of resolving conflicts that arise when merging duplicate entities during entity unification. This process ensures that the most accurate and up-to-date data is retained across your system, eliminating inconsistencies and inaccuracies. To learn more, see [What Is Data Unification?](https://help.zscaler.com/unified/what-data-unification) and [Configuring Entity Unification](https://help.zscaler.com/unified/configuring-entity-unification).
+
+For example, when merging multiple Asset records into a single asset, the Asset Operating System field might contain multiple values. In such cases, the system automatically selects the value that appears most frequently among the merged records.
+
+By default, every field has system-defined reconciliation logic based on industry best practices. These defaults can be adjusted upon request or manually replaced with Priority By Source reconciliation logic in field unification. To learn more, see [Configuring Field Unification](https://help.zscaler.com/unified/configuring-field-unification).
+
+## Default Functions by Field Type
+
+The following table outlines the system's default functions for determining field values during entity deduplication conflict resolution, categorized by field type.
+
+| Icon | Field Type | Default Function | Populated Value | Examples |
+| --- | --- | --- | --- | --- |
+| [Image: Text icon in Data Model] | Text | MAJORITY | The most frequent value from the set of values | Asset Owner ID Ticket Assignee |
+| [Image: Repeated message icon][Image: Repeated text icon] | Repeated (all types) | COLLECT_DISTINCT_FLAT | A list of distinct values | Ticket Sources |
+| [Image: Number icon] | Number | MAX | The maximum value for number type fields. MAX is the highest value. | Ticket Severity Score |
+| [Image: Boolean icon] | Boolean | MAX | The maximum value for Boolean fields is TRUE if at least one value is TRUE | Asset Is Behind Firewall Asset Is Critical Asset |
+| [Image: Date icon] | Date | MAX | The most recent date | Ticket SLA |
+| [Image: IP icon] | IP | COLLECT_DISTINCT_FLAT | A list of distinct IP addresses | External IP Addresses |
+| [Image: Fix icon] | Fix | COLLECT_DISTINCT_FLAT | A list of distinct fixes | Optimal Fix |
+|  | Message | MAX | The structured message data returned for the entity | Summary Attributes |
+
+## Commonly Used Fields
+
+The following table shows the default functions for commonly used fields:
+
+| Icon | Field | Default Function | Populated Value | Examples |
+| --- | --- | --- | --- | --- |
+| [Image: Date icon] | First Seen (for all entity types) | MIN | The earliest date value | Finding First Seen |
+| [Image: Date icon] | Last Seen (for all entity types) | MAX | Themost recent date value | Asset Last Seen |
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/unified/building-queries-and-searching-logs","lastmod":"2026-11-16T10:15Z","nid":"1545215"} -->
 ## Building Queries and Searching Logs
 
 - Source: https://help.zscaler.com/unified/building-queries-and-searching-logs
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Agentic Security Operations Platform Analytics > Data Exploration > Building Queries and Searching Logs
-- Last modified: 2026-10-29T21:06Z
+- Last modified: 2026-11-16T10:15Z
 - Summary: How to build queries and search for logs in the Agentic Security Operations Platform.
 
-You can search logs to view data collected by the Agentic Security Operations Platform (Agentic SecOps Platform) before it's processed and analyzed. This helps you to understand the raw data that's pulled from connected sources and subsequently pushed into the data model. You can search logs by building and using queries.
+You can search logs ingested from sources connected to the Agentic Security Operations Platform (Agentic SecOps Platform) on the Logs page. You can use the basic query builder or write more complex analytical queries using an advanced query builder to search for specific log records and investigate critical information quickly.
 
-## Building a Query
+- Build a Basic Query
+- Build an Advanced Query
+- Add a Query to the Queries Library
+- Filter Search Results
+- Analyze Data
 
-To create a query using the basic query builder:
+The basic query builder is a visual tool that makes it easy to explore logs and add filter conditions. Security analysts can use this tool to review logs for specific events, gather evidence for auditors, or troubleshoot configuration or mapping issues.
+
+To build a basic query:
 
 1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
-2. In the left-side navigation, click**Logs**. [Image: Build a basic query to search the logs] If you have not previously created a query, you can select from a list of prebuilt queries to get started. You can also select a saved query from the Queries Library. See image.
-3. Click the **+** icon to add a new query. A new query tab appears.
-4. Click the **Search Logs** box to open the query builder. [Image: Build a query]
-5. Select a field or enter a field name manually.
-6. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
-7. Enter or select the value you want to filter by.
-8. (Optional) Use **AND** or **OR** operators to add conditions to the query.
-9. (Optional) Click **Save**to save your query.
-10. Click **Search**. Log data appears.
-11. Use the time filter to filter results to a specific time frame. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+2. In the left-side navigation, click**Logs**. See image.
+3. Click the **+** icon to add a new query tab.
+4. If you have not previously created a query, you can select a prebuilt query from the list to get started or click **Library**and select a saved query. See image.
+5. To filter results to a specific time frame, use the time filter. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+6. To filter results by source, select one or more from the **Sources**list.
+7. To add other filter conditions, click the **Search Logs** field to open the query builder. See image.
+8. Select a field or enter a field name manually.
+9. Select an operator (e.g., **Equals**, **Contains**, **Starts With**, etc.).
+10. Enter or select the value you want to filter by.
+11. (Optional) Use **AND** or **OR** operators to add conditions to the query.
+12. (Optional) Click **Save**to save your query to the Queries Library.
+13. Click **Search**. The query results appear.
+14. (Optional) Click **Export as CSV** to export the data as a CSV file. See image.
 
-Click **Export as CSV** at the top right of the logs table to export the data as a CSV file.
+You can use the advanced query builder to write queries using [PostgreSQL](https://www.postgresql.org/docs/current/sql-syntax.html) syntax. This allows you to have control over search logic to perform complex analysis, such as joins, nested queries, and aggregations, or who need access to a function library for dynamic data processing (e.g., string and date manipulation, aggregate or window functions).
+
+To create an advanced query:
+
+1. In the [Agentic SecOps Platform Admin Portal](https://help.zscaler.com/unified/signing-security-operations-platform-admin-portal#navigating-secops-platform), click **Explore.**
+2. In the left-side navigation, click**Logs**. See image.
+3. Click the **+** icon to add a new query tab.
+4. In the query builder, click **Basic**to switch from basic to advanced mode.
+5. To filter results to a specific time frame, use the time filter. To learn more, see [Using Filters](https://help.zscaler.com/unified/using-filters). The selected time frame is not saved as part of the query, and must be configured for every result.
+6. To view the available tables and columns you can reference in your query, search for or click a source in the **Tables**section. A drawer opens with details about the source.
+7. Click **Query this table** to generate a sample SQL query. The sample query replaces the current query on the **Query**tab. See image.
+8. In the query field, modify the sample query as necessary.
+9. Click **Search**. The query results appear.
+10. (Optional) Click **Export as CSV** to export the data as a CSV file. See image.
+
+The Queries Library includes all saved queries. You can save queries and add them to the library for quick access.
+
+To add a query to the Queries Library:
+
+1. After creating a query, click **Save**at the top right of the page.
+2. See image. The **Edit Details**window appears.
+3. In the **Edit Details** window, enter a name for the query and add a description.
+4. Click **Save**. The query is saved to the library. See image.
+5. (Optional) Click **Save as New** to update the existing query and save it as a new query. See image.
+
+To run a saved search:
+
+1. On the **Logs**page, click **Library**. The **Queries Library** window appears.
+2. In the **Queries Library** window, click the query you want to search for.
+3. Click **Search**. The query results appear.
+
+After you run a search for a query, results appear under the query field. Click a record to review the fields in a drawer. You can search for a specific field, or copy all the fields using the **Copy Log** icon in the top-right corner.
+
 See image.
+
+Hover over a field in the drawer to display the following icons:
+
+- **Remove Column**: Hide a column in the log table.
+- **Copy Value**: Copy the value of the field.
+
+You can filter and analyze the query results using the Time Series chart or Pie Chart.
+
+## Time Series Chart
+
+The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
+
+See image.
+
+You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
+
+See image.
+
+The selected time filter is not saved as part of the query, and must be configured each time.
+
+## Pie Chart
+
+The Pie Chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
+
+See image.
+
+Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
+
+See image.
+
+To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the**Remove slicer**icon under the chart.
+
+See image.
+
+[Image: Build a basic query to search the logs]
+
+**[Image: Build a basic query to search the logs]**
+
+[Image: Build a query]
 
 [Image: Select a prebuilt query to search for the logs]
 
 [Image: Export logs as CSV]
 
-To create an advanced query, you can use QL syntax in the advanced query editor. Click **Advanced**and enter values as necessary.
+[Image: Export logs as CSV]
 
-[Image: Build an advanced query]
+[Image: Save the created query]
 
-The basic query builder and the advanced query editor are completely independent, even when they are within the same query. If you make changes to one, the other remains unchanged.
+[Image: View all the saved queries]
 
-### Adding a Query to the Queries Library
-
-You can save queries and add them to the Queries Library for quick access.
-
-To add a query to the Queries Library:
-
-1. Click **Save**at the top right of the page. [Image: Save the created query] The **Edit Detail** page appears.
-2. Enter a name for the query.
-3. Click **Save**. The query is saved to the library. [Image: View all the saved queries]
-
-Use the **Save As New** option to save a modified version of the current query to your library.
 [Image: Save a modified version of the query to the library]
 
-Click **Library** to access your saved queries.
-[Image: Click Library to access saved queries]
-
-## Searching Logs
-
-After you configure and run your query, a Logs table appears. Click a log in the table to open its drawer. You can search within the log using the search field, and copy the log using the Copy icon in the top-right corner of the drawer.
 [Image: Search for the logs]
-
-Hover over a field in the drawer to display the following icons:
-
-- **Breakdown By Field**: Use the selected field as the breakdown by field in the pie chart pane.
-- **Exclude**: Add a Not Equal filter to the query builder to return all logs for which the field's value is different from the value of the current log.
-- **Add to Search**: Add a filter to the basic query builder to return all logs for which the field's value is equal to the value in the current log.
-- **Add/Remove Column**: Add or remove a column in the log table.
-- **Copy Value**: Copy the value of the field.
-
-## Analyzing the Data
-
-You can filter and analyze the retrieved log data using the Time Series chart or a pie chart.
-
-### Time Series Chart
-
-The Time Series chart shows the number of logs (on the y-axis) that match the query conditions, retrieved from your sources within the time frame selected in the time filter.
 
 [Image: Number of logs that match the query conditions on the Time Series chart]
 
-You can click and drag the time filter to select a portion of the chart to define your desired time frame. This updates the table view as shown in the following image.
-
 [Image: Click and drag the time filter to view an updated view based on the desired time frame]
-
-The selected time filter is not saved as part of the query, and must be configured each time.
-
-### Pie Chart
-
-The pie chart displays all logs filtered by your query. Use the**Breakdown by** drop-down menu to select the field you want the logs to be grouped in, and the number of top values you want to be presented in the legend.
 
 [Image: Logs filtered by the query displayed on the Pie Chart]
 
-Select any number of slices to filter by their value. This also adds your selection as a filter in the table of logs.
-
 [Image: Filter the pie chart by the selected value]
 
-To remove a value from the filter created by the pie chart, deselect the slice on the chart itself or click the remove slicericon under the chart.
-
 [Image: Deselect a slice using the Remove Slicer icon in the Pie Chart]
+
+[Image: Logs page]
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-administrator-roles","lastmod":"2026-10-19T17:57Z","nid":"1545462"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-administrator-roles","lastmod":"2026-11-20T06:06Z","nid":"1545462"} -->
 ## Configuring Administrator Roles
 
 - Source: https://help.zscaler.com/unified/configuring-administrator-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Role Management > Configuring Administrator Roles
-- Last modified: 2026-10-19T17:57Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on configuring roles for role based administration in the Zscaler Admin Console
 
 Role-based access control in the Zscaler Admin Console allows you to configure granular permissions for administrators on the Zscaler service.
@@ -1642,13 +1721,13 @@ To share metadata with Zscaler:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-obfuscation-administrator-roles","lastmod":"2026-09-29T10:49Z","nid":"1545465"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-obfuscation-administrator-roles","lastmod":"2026-11-20T06:06Z","nid":"1545465"} -->
 ## Configuring Obfuscation for Administrator Roles
 
 - Source: https://help.zscaler.com/unified/configuring-obfuscation-administrator-roles
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Role Management > Configuring Obfuscation for Administrator Roles
-- Last modified: 2026-09-29T10:49Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on configuring obfuscation for administrator roles in the Zscaler Admin Console.
 
 You can obfuscate various types of information that appear in the Zscaler Admin Console by enabling obfuscation for an [admin role](https://help.zscaler.com/unified/about-role-management) with permissions that expose that type of information.
@@ -2053,13 +2132,13 @@ To configure your Private Access Tenant:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/configuring-role-assignments","lastmod":"2026-09-29T10:47Z","nid":"1545463"} -->
+<!-- ZS-ARTICLE {"url":"/unified/configuring-role-assignments","lastmod":"2026-11-20T06:06Z","nid":"1545463"} -->
 ## Configuring Role Assignments
 
 - Source: https://help.zscaler.com/unified/configuring-role-assignments
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Unified Administration > Role Management > Configuring Role Assignments
-- Last modified: 2026-09-29T10:47Z
+- Last modified: 2026-11-20T06:06Z
 - Summary: Information on configuring assignments for administrator roles in the Zscaler Admin Console
 
 You can control access to the features in the Zscaler Admin Console by assigning roles to your administrators. After you [create a role](https://help.zscaler.com/unified/configuring-administrator-roles), assignments can be added to the role.
@@ -3526,13 +3605,13 @@ If a source behaves unexpectedly, you can also review audit logs to track change
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-15T06:06Z","nid":"1545218"} -->
+<!-- ZS-ARTICLE {"url":"/unified/deploying-outegration-configurations","lastmod":"2026-11-22T06:06Z","nid":"1545218"} -->
 ## Deploying Outegration Configurations
 
 - Source: https://help.zscaler.com/unified/deploying-outegration-configurations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Agentic Security Operations Platform > Data Sources, Outegrations, & Data Management > Outegration Configuration > Deploying Outegration Configurations
-- Last modified: 2026-11-15T06:06Z
+- Last modified: 2026-11-22T06:06Z
 - Summary: Information about deploying outegration configuration in the Agentic Security Operations Platform.
 
 The Agentic Security Operations Platform (Agentic SecOps Platform) enables you to send security findings, alerts, remediation tasks, and operational context to a wide array of external tools, including ticketing systems, work management platforms, cloud storage services, streaming platforms, and other third-party systems. Connecting these external destinations to your account establishes outbound workflows that move Agentic SecOps Platform data and actions into the systems where security, IT, and engineering teams already work.
@@ -6423,13 +6502,13 @@ Review the information and click **Next**to continue.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-10-22T09:37Z","nid":"1543658"} -->
+<!-- ZS-ARTICLE {"url":"/unified/ranges-limitations","lastmod":"2026-11-17T15:32Z","nid":"1543658"} -->
 ## Ranges & Limitations
 
 - Source: https://help.zscaler.com/unified/ranges-limitations
 - Product: Getting Started with Zscaler
 - Path: Getting Started with Zscaler > Getting Started with Experience Center > Experience Center Set Up, Onboarding, & Access > Zscaler Admin Console Access & Navigation > Ranges & Limitations
-- Last modified: 2026-10-22T09:37Z
+- Last modified: 2026-11-17T15:32Z
 - Summary: Information about product and feature ranges and limitations.
 
 This article lists the ranges and limitations of rules, policies, fields, and other features. All values are per organization unless noted otherwise.
@@ -7183,18 +7262,17 @@ The following table shows the ranges and limitations for VPN (for Legacy Apps):
 
 | **Feature** | **Limit** |
 | --- | --- |
-| Number of Network Connectors per customer | 100 per customer |
-| Number of VPN Service Edge regions | 3 per customer |
-| Number of VPN Service Edges per customer | 3 per customer |
-| Number of retries Zscaler Client Connector makes to the current VPN Service Edge after a network issue causes disconnection | 3 retries, 15 seconds apart After 3 retries, Zscaler Client Connector switches to a different VPN Service Edge. |
-| Number of Network Connector groups per customer | 100 per customer |
-| Number of LAN subnets (Network segments) per Network Connector group | 64 per Network Connector group |
-| Number of client subnets per VPN Service Edge | 16 per VPN Service Edge |
-| Number of client IP pools per VPN Service Edge | 16 per customer |
-| Number of LAN subnets per Network Connector group | 1,024 |
-| Number of LAN IP addresses and subnets per Network segment | 64 per Network segment |
-| VPN access policy | 1,000 access policy rules 64 IP subnets or IP addresses for source network per policy 64 IP subnets or IP addresses for destination network per policy 128 address book objects 64 IP subnets or IP addresses per address book object |
-| Number of external routers | 64 per customer |
+| Number of Network Connectors per Customer | 100 per customer |
+| Number of Summary Routes per Customer | 250 per customer |
+| Number of VPN Service Edge Regions | 3 per customer |
+| Number of VPN Service Edges per Customer | 3 per customer |
+| Number of Network Connector Groups per Customer | 100 per customer |
+| Number of LAN Subnets (Network Segments) per Network Connector Group | 64 per Network Connector group |
+| Number of Client Subnets per VPN Service Edge | 16 per VPN Service Edge |
+| Number of LAN Subnets per Connector Group | 1,024 |
+| Number of LAN IP Addresses and Subnets per Network Segment | 64 per Network segment |
+| VPN Access Policy | 1,000 access policy rules 64 IP subnets or IP addresses for source network per policy 64 IP subnets or IP addresses for destination network per policy 128 address book objects 64 IP subnets or IP addresses per address book object |
+| Number of External Routers | 64 per customer |
 
 Some limits can be adjusted based on user count and onboarded applications.
 

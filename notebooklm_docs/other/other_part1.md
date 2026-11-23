@@ -1,8 +1,8 @@
 # Zscaler Help — Other (part 1)
 
 Source: https://help.zscaler.com / help.zscaler.com
-Generated: 2026-11-16 10:10 UTC
-Articles in this file: 211
+Generated: 2026-11-23 11:12 UTC
+Articles in this file: 214
 
 ---
 
@@ -1503,13 +1503,13 @@ On the Event Logs page (Data Explorer > Microsegmentation > Event Logs), you can
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/about-flow-log-aggregations","lastmod":"2026-11-01T23:33Z","nid":"1545453"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/about-flow-log-aggregations","lastmod":"2026-11-16T13:24Z","nid":"1545453"} -->
 ## About Flow Log Aggregations
 
 - Source: https://help.zscaler.com/microsegmentation/about-flow-log-aggregations
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Analytics > About Flow Log Aggregations
-- Last modified: 2026-11-01T23:33Z
+- Last modified: 2026-11-16T13:24Z
 - Summary: Information about the Flow Log Aggregations page for Microsegmentation in the Zscaler Admin Console.
 
 The Flow Log Aggregations page for Microsegmentation in the Zscaler Admin Console provides insight into your organization's aggregated network flows. You can view flows within a specific time period (up to the last 14 days) and filter the flows by AppZone and further by the source and destination resource groups within that AppZone.
@@ -1525,13 +1525,12 @@ The Flow Log Aggregations page provides the following benefits and enables you t
 
 On the Flow Log Aggregations page (Data Explorer > Microsegmentation > Flow Log Aggregations), you can do the following:
 
-1. Filter the flows by AppZone.
-2. Filter the time range up to the last 14 days.
-3. Refresh the page to reflect the most current information.
-4. Show or hide available columns.
-5. Show or hide available filters.
-6. Filter the flows by **Source Resource Groups** and **Destination Resource Groups**. After configuring your preferred filters, click the button to apply the filters (e.g., **Apply 1 filter**, **Apply 2 filters**) and view the results. By default, no filters are applied. See image.
-7. View a list of all flows that are configured for your organization. For each admin, you can see:
+1. Filter the time range up to the last 14 days.
+2. Refresh the page to reflect the most current information.
+3. Show or hide available columns.
+4. Show or hide available filters.
+5. Filter the flows by **AppZone**, **Source Resource Groups**, and **Destination Resource Groups**. After configuring your preferred filters, click the button to apply the filters (e.g., **Apply 1 filter**, **Apply 2 filters**) and view the results. By default, no filters are applied. See image.
+6. View a list of all flows that are configured for your organization. For each admin, you can see:
   - **Source**: The hostname or IP address of the source resource.
   - **Source Resource Groups**: The resource groups to which the source resource belongs.
   - **Destination**: The hostname or IP address of the destination resource.
@@ -1697,18 +1696,18 @@ On the Resource Policies page (Zero Trust Cloud > Microsegmentation > Policy Rul
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/about-ml-recommendations-resource-groups","lastmod":"2026-11-01T23:33Z","nid":"1531949"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/about-ml-recommendations-resource-groups","lastmod":"2026-11-16T11:52Z","nid":"1531949"} -->
 ## About ML Recommendations for Resource Groups
 
 - Source: https://help.zscaler.com/microsegmentation/about-ml-recommendations-resource-groups
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Resource Management > About ML Recommendations for Resource Groups
-- Last modified: 2026-11-01T23:33Z
+- Last modified: 2026-11-16T11:52Z
 - Summary: Information about the ML Recommendations for Resource Groups page for Microsegmentation in the Zscaler Admin Console.
 
 When [configuring resource groups](https://help.zscaler.com/zpa/configuring-resource-groups) for [Microsegmentation policies](https://help.zscaler.com/zpa/configuring-microsegmentation-policies), admins can eliminate manual time and effort spent on reviewing [resources](https://help.zscaler.com/zpa/about-resources). To help admins easily find resources with enough similarities to group together, admins can generate machine-learning (ML) recommendations to provide suggestions for configuration. To learn more, see [About Resources](https://help.zscaler.com/zpa/about-resources).
 
-ML recommendations automatically find and generate suggestions for resource groups based on user-defined cloud tags, cloud environment metadata, and host data. Admins can review an ML recommendation and accept and approve it, edit and approve it, or ignore it for resource group configuration. Selecting a recommendation for approval means it is automatically configured as a resource group. Selecting a recommendation to be ignored means that its specific data won't be regenerated in a future recommendation.
+ML recommendations automatically find and generate suggestions for resource groups based on user-defined cloud tags, cloud environment metadata, and host data. Admins can review a ML recommendation and accept and approve it, edit and approve it, or ignore it for resource group configuration. Selecting a recommendation for approval means it is automatically configured as a resource group. Selecting a recommendation to be ignored means that its specific data won't be regenerated in a future recommendation.
 
 Admins must first accept the terms agreement that appears on the ML Recommendations for Resource Groups page in order to begin seeing recommendations. To disable it, admins must contact Zscaler Support.
 
@@ -3174,6 +3173,24 @@ To manage an agent group:
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/microsegmentation/release-upgrade-summary-2026","lastmod":"2026-11-19T17:25Z","nid":"1547080"} -->
+## Release Upgrade Summary (2026)
+
+- Source: https://help.zscaler.com/microsegmentation/release-upgrade-summary-2026
+- Product: Microsegmentation
+- Path: Microsegmentation Help > Release Notes > Release Upgrade Summary (2026)
+- Last modified: 2026-11-19T17:25Z
+- Summary: Release Upgrade Summary for Microsegmentation deployed per cloud in 2026.
+
+This article provides a summary of all new features and enhancements per Zscaler cloud for the Zscaler Admin Console. To see scheduled maintenance updates for your cloud, visit the [Trust Portal](https://trust.zscaler.com/).
+
+When Zscaler cloud and the Zscaler Admin Console updates are deploying, some functionality will not be available until the deployment process completes.
+
+Release notes published prior to November 2026 can be found in the [Private Access release notes](https://help.zscaler.com/release-notes/private-access-zpa-release-notes/zpa-service-release-notes).
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/microsegmentation/reviewing-policy-recommendations-resource-groups","lastmod":"2026-11-01T23:34Z","nid":"1542954"} -->
 ## Reviewing Policy Recommendations for Resource Groups
 
@@ -3248,13 +3265,13 @@ To resolve conflicts in a policy recommendation:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-11-01T23:33Z","nid":"1531938"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/supported-versions-os-compatibility-microsegmentation","lastmod":"2026-11-16T12:11Z","nid":"1531938"} -->
 ## Supported Versions & OS Compatibility for Microsegmentation
 
 - Source: https://help.zscaler.com/microsegmentation/supported-versions-os-compatibility-microsegmentation
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Supported Versions & OS Compatibility for Microsegmentation
-- Last modified: 2026-11-01T23:33Z
+- Last modified: 2026-11-16T12:11Z
 - Summary: Information on version compatibility and operating systems that a user needs to deploy to use agents for Microsegmentation.
 
 Before configuring [Microsegmentation policies](https://help.zscaler.com/zpa/about-microsegmentation-policies), you must configure and deploy agents to your physical or virtual machine (VM) based on your operating system (OS).
@@ -3271,7 +3288,7 @@ Each OS requires a specific compatible version to configure Microsegmentation. A
 | --- | --- | --- |
 | Amazon Linux | AL2 AL 2023 | N/A |
 | Red Hat Enterprise Linux (RHEL) Distribution | RHEL 7.9 (A minimum kernel version of 3.10.0-1160.160.1.el7.x86_64 is required.) RHEL 8 RHEL 9 RHEL 10 | N/A |
-| SUSE Linux Enterprise | SLES 15 SLES 16 | Agent version 1.11.1; Agent manager version 1.11.1 |
+| SUSE Linux Enterprise | SLES 12 SP5 (A minimum kernel version of 4.12.14-122.296.1 is required.) SLES 15 SLES 16 | SLES 12Agent version 1.18.1; Agent manager version 1.18.1; SLES 15 and 16Agent version 1.11.1; Agent manager version 1.11.1 |
 | Ubuntu Distribution | 16.04.7+ LTS 18.04 LTS 20.04 LTS 22.04 LTS 24.04 LTS 26.04 LTS | N/A |
 | Windows | Server 2012 R2 Server 2016 Server 2019 Server 2022 Server 2025 | N/A |
 
@@ -3314,6 +3331,66 @@ For enabling anti-tamper protection on agents and agent groups, see [Enabling An
 
 ---
 
+<!-- ZS-ARTICLE {"url":"/microsegmentation/understanding-implicit-policies","lastmod":"2026-11-18T12:05Z","nid":"1547278"} -->
+## Understanding Implicit Policies
+
+- Source: https://help.zscaler.com/microsegmentation/understanding-implicit-policies
+- Product: Microsegmentation
+- Path: Microsegmentation Help > Policy Management > Understanding Implicit Policies
+- Last modified: 2026-11-18T12:05Z
+- Summary: Information about implicit policies in Microsegmentation.
+
+Microsegmentation agents enforce your configured policies with the host's native firewall: Windows Filtering Platform on Windows and nftables on Linux. A restrictive policy, such as a [perimeter policy](https://help.zscaler.com/microsegmentation/about-perimeter-policies) or the [default resource policy rule](https://help.zscaler.com/microsegmentation/enabling-microsegmentation-policy-settings) set to Block, can cut off the host from the basic services that it requires. As a result, the host can lose its DHCP lease, fail to resolve DNS names, drift out of time sync, or lose access to its cloud platform's services.
+
+To prevent these issues, every agent applies a set of implicit policies that *always* allow essential infrastructure traffic. These policies are built into the agent—you don’t configure them, and they don’t appear on the [Resource Policies](https://help.zscaler.com/microsegmentation/about-microsegmentation-policies) or [Perimeter Policies](https://help.zscaler.com/microsegmentation/about-perimeter-policies) pages in the Zscaler Admin Console. Each implicit policy is limited to specific protocols, ports, and destinations.
+
+## Evaluation Order
+
+The Microsegmentation agent evaluates implicit policies before any user-defined rules, including [resource policies](https://help.zscaler.com/microsegmentation/about-microsegmentation-policies), [perimeter policies](https://help.zscaler.com/microsegmentation/about-perimeter-policies), and the [default resource policy rule](https://help.zscaler.com/microsegmentation/enabling-microsegmentation-policy-settings). When a [flow](https://help.zscaler.com/microsegmentation/about-flow-logs) matches an implicit policy, the agent allows it immediately and evaluates no further rules.
+
+By design, you can't override or disable implicit policies. These policies are required for Microsegmentation to work properly, and for core Windows and Linux infrastructure, such as DNS and DHCP. A Block or Sim Block rule that matches this traffic has no effect (i.e., the traffic is still allowed).
+
+## Implicit Policies
+
+The following table lists the implicit policies that are built into Microsegmentation agents:
+
+| Policy | Direction | Source Addresses | Destination Addresses | Protocol | Source Ports | Destination Ports |
+| --- | --- | --- | --- | --- | --- | --- |
+| Allow IMDS | Outbound | Any (local host) | 169.254.169.254, fd00:ec2::254/128 | TCP | Any | 80 |
+| Allow DNS | Outbound | Any (local host) | Any IPv4, Any IPv6 | TCP, UDP | Any | 53 |
+| Allow Intra-Host | Outbound | Local host | 127.0.0.0/8, all of the host's own addresses | TCP, UDP | Any | 1–65535 |
+| Allow Intra-Host | Inbound | 127.0.0.0/8, all of the host's own addresses | Local host | TCP, UDP | 1–65535 | Any |
+| Allow DHCP | Outbound | Any (local host) | Any IPv4, Any IPv6 | UDP | Any | 67 (v4), 547 (v6) |
+| Allow DHCP | Inbound | Any IPv4, Any IPv6 | Any (local host) | UDP | Any | 68 (v4), 546 (v6) |
+| Allow NTP | Outbound | Any (local host) | Any IPv4, Any IPv6 | UDP | Any | 123 |
+| Allow Azure Server | Outbound | Any (local host) | 168.63.129.16/32 | TCP | Any | 80, 32526 |
+
+When viewing the information in the table, consider the following:
+
+- **IMDS**: 169.254.169.254 is the instance metadata endpoint used by Amazon Web Services (AWS), Microsoft Azure, and Google Cloud. fd00:ec2::254 is the AWS IPv6 endpoint.
+- **DNS**, **DHCP**, and **NTP**: Allowed to any destination address, but only on the listed protocol and port.
+- **Azure Server**: Applies to Microsoft Azure only. 168.63.129.16 is the Azure platform IP address (WireServer). The Azure VM agent uses it for provisioning, extensions, and health reporting. To learn more, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
+## Traffic Flows
+
+Traffic flows allowed by an implicit policy appear on the Flow Logs page in the Zscaler Admin Console. You can identify them by the Action (Allow) and Rule Name (Infrastructure Traffic) columns.
+
+Infrastructure traffic flows are expected on every enforced host and do not mean a policy is misconfigured.
+
+To view traffic flows allowed by implicit policies:
+
+1. In the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Data Explorer** > **Microsegmentation** > **Flow Logs**.
+2. Click the **Gear** icon to show the list of available columns for the table.
+3. Check the **Rule Name** column, then click **Apply**. See image.
+4. Narrow the results with available filters, such as the **Destination IP** or **Destination Port**.
+
+To learn more, see [About Flow Logs](https://help.zscaler.com/microsegmentation/about-flow-logs).
+
+[Image: Rule Name column on the Flow Logs page]
+<!-- /ZS-ARTICLE -->
+
+---
+
 <!-- ZS-ARTICLE {"url":"/microsegmentation/viewing-agent-dashboard","lastmod":"2026-11-01T23:33Z","nid":"1498186"} -->
 ## Viewing the Agent Dashboard
 
@@ -3341,33 +3418,50 @@ The Agent dashboard displays the following information and functionality:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/microsegmentation/viewing-application-map","lastmod":"2026-11-01T23:33Z","nid":"1534383"} -->
+<!-- ZS-ARTICLE {"url":"/microsegmentation/viewing-application-map","lastmod":"2026-11-16T13:29Z","nid":"1534383"} -->
 ## Viewing the Application Map
 
 - Source: https://help.zscaler.com/microsegmentation/viewing-application-map
 - Product: Microsegmentation
 - Path: Microsegmentation Help > Dashboard > Viewing the Application Map
-- Last modified: 2026-11-01T23:33Z
+- Last modified: 2026-11-16T13:29Z
 - Summary: How to view the Application Map for Microsegmentation in the Zscaler Admin Console.
 
 The Application Map visualizes network data in your organization. It provides a high-level view of how resource groups and their connected resources are performing, as well as options to view each group in detail.
 
 To view the Application Map, from the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Dashboard** > **Microsegmentation Application Map**.
 
-By default, the Application Map displays the first resource group in alphabetical order. Use the Resource Group filter to select another group or reset it to show all resource groups. You can use additional filters to view data about your organization's resource groups or VPCs/VNETs within a specific timeframe and AppZone. You can use the search function to quickly locate a specific resource group on the map.
+You can use the search function to quickly locate a specific resource group on the map. The Application Map also supports the following filters for targeted data analysis:
 
-[Image: Filter and adjust the Application Map]
+- **Time Range**: Filter data based on a specific time range, up to 14 days in the past.
+- **AppZone**: Filter data based on a specific AppZone. To learn more, see [About AppZones](https://help.zscaler.com/microsegmentation/about-appzones).
+- **Group By**: Filter data by resource groups or virtual private clouds (VPCs) and virtual networks (VNETs).
+- **Resource Group**: Filter data based on a single resource group. You can reset the filter to load all resource groups for viewing on the map.
+
+See image.
+
+You can click the **Question** icon to leverage keyboard shortcuts for quickly navigating and reading the map. To view the legacy version of the Application Map, click the **Filter** icon.
+
+See image.
+
+The map supports both dark and light modes. To select your preferred mode, see [Customizing Your Account Settings](https://help.zscaler.com/unified/customizing-your-account-settings).
 
 The Application Map provides information about the following:
 
-- Managed Resource Groups
-- Unmanaged Resource Groups
+- Managed Resource Groups (denoted with the **M** icon)
+- Unmanaged Resource Groups (denoted with the **UM** icon)
 - Unmapped Resource Groups
 - Public Internet
 - Private Infrastructure
-- VPC/VNET
+- VPCs/VNETs
 
-You can click a resource group to open a drawer containing its details. Additionally, when you click a resource group, the map displays information about the group's managed and unmanaged flows, and if applicable, provides the option to review policy recommendations for the resource group based on those flows.
+You can click a resource group to open a drawer containing its details. Additionally, when you click on a resource group, the map displays information about the group's managed and unmanaged flows, and if applicable, provides the option to review policy recommendations for the resource group based on those flows.
+
+See image.
+
+[Image: Filter and adjust the Application Map]
+
+[Image: Keyboard shortcuts on the Microsegmentation Application Map]
 
 [Image: Resource group details on the Application Map]
 
@@ -3801,13 +3895,13 @@ On the API Key Management page (Administration > API > Legacy API > Cloud & Bran
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-connector-groups","lastmod":"2026-11-06T10:59Z","nid":"1420476"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-connector-groups","lastmod":"2026-11-20T12:52Z","nid":"1420476"} -->
 ## About Cloud Connector Groups
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-cloud-connector-groups
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Group Management > About Cloud Connector Groups
-- Last modified: 2026-11-06T10:59Z
+- Last modified: 2026-11-20T12:52Z
 - Summary: Information on Cloud Connector Groups in the Zscaler Admin Console.
 
 Cloud Connector groups are automatically created when you deploy a Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
@@ -3817,7 +3911,7 @@ Cloud Connector groups provide the following benefits and enable you to:
 - Apply policies to a group of deployed Cloud Connectors.
 - Upgrade Cloud Connectors belonging to a group to maintain redundancy while upgrades are being executed.
 
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
+When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, if you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 ## About the Cloud Connector Groups Page
 
@@ -3903,18 +3997,18 @@ A Cloud NSS feed behaves differently according to HTTP/S response status codes f
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-provisioning-templates","lastmod":"2026-11-01T23:52Z","nid":"1420426"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-cloud-provisioning-templates","lastmod":"2026-11-20T12:42Z","nid":"1420426"} -->
 ## About Cloud Provisioning Templates
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-cloud-provisioning-templates
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Provisioning & Configuration > About Cloud Provisioning Templates
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-20T12:42Z
 - Summary: Information on the Provisioning Templates page in the Zscaler Admin Console.
 
 The cloud provisioning URL is a prerequisite for deploying the Cloud Connector as a virtual machine (VM) in Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). To obtain a provisioning URL, you must configure the provisioning template.
 
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
+When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, if you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 Cloud Connector Provisioning Templates provide the following benefits and enable you to:
 
@@ -4602,22 +4696,22 @@ On the Log and Control Gateway page (Zero Trust Cloud > Gateways > Log and Contr
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-microsoft-azure-accounts","lastmod":"2026-11-01T23:53Z","nid":"1507556"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/about-microsoft-azure-accounts","lastmod":"2026-11-17T12:53Z","nid":"1507556"} -->
 ## About Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/zero-trust-cloud/about-microsoft-azure-accounts
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > About Microsoft Azure Accounts
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-17T12:53Z
 - Summary: Information on the Microsoft Azure accounts page in the Zscaler Admin Console.
 
 Microsoft Azure partner integrations enable you to use user-defined tags and resource attributes in Zscaler security policies. To fetch this information from the Azure tenant and subscriptions, you must provide a service principal. Zscaler configuration requires a service account called an Azure account, which maps to service principal credentials that have access to a set of subscriptions in the same tenant.
 
-Tag discovery services for Azure are in Limited Availability (LA). To learn more, contact Zscaler Support.
+Tag-discovery services for Azure are in Limited Availability (LA). To learn more, contact Zscaler Support.
 
 Partner integrations provide the following benefits and enable you to:
 
-- Configure permissions for Zscaler to discover workloads and associated metadata from a set of Azure subscriptions.
+- Configure permissions for the Zscaler service to discover workloads and associated metadata from a set of Azure subscriptions.
 - View discovered workloads and the associated metadata.
 - Associate a Cloud Connector with the workload information to enforce Zscaler security policies.
 
@@ -4627,22 +4721,20 @@ On the Azure page (Zero Trust Cloud > Common Resources > Azure), you can do the 
 
 1. [Add an Azure account](https://help.zscaler.com/cloud-branch-connector/configuring-workload-discovery-service-microsoft-azure-accounts).
 2. Search for an account.
-3. View a list of all accounts. For each account, you can view:
-  - **Application ID**: The ID of the Azure application. Select the application ID to [view the dashboard details](https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details).
+3. Refresh the table.
+4. Modify the table and its columns.
+5. View a list of all accounts. For each account, you can view:
+  - **Application ID**: The ID of the Azure application. Click the application ID to [view the dashboard details](https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details).
   - **Name**: The name of the account.
   - **Last Modified By**: The last admin to modify the account.
   - **Last Modified On**: The date and time when the account was last modified.
   - **Regions**: The number of regions in the account.
   - **Subscriptions**: The number of subscriptions in the account.
-  - **Cloud Connectors**: The number of Cloud Connectors in the account.
-  - **Event Grid**: The number of event grids in the account. You can select the **Regions**, **Subscriptions**, **Cloud Connectors**, or **Event Grid** number in an account to [view the dashboard details](https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details).
-4. Modify the table and its columns.
-5. Edit an account.
-6. Delete an account.
-7. Go to the [Amazon Web Services (AWS) Accounts](https://help.zscaler.com/cloud-branch-connector/about-amazon-web-services-accounts) page.
-8. Go to the [Google Cloud Platform (GCP) Accounts](https://help.zscaler.com/cloud-branch-connector/about-google-cloud-platform-accounts) page.
+  - **Cloud Connectors**: The number of Cloud Connectors in the account. You can click the **Regions**, **Subscriptions**, or **Cloud Connector** number in an account to [view the dashboard details](https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details).
+6. Edit an account.
+7. Delete an account.
 
-[Image: The Azure tab on the Partner Integrations page of the Zscaler Admin Console]
+[Image: The Azure page in the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -5738,13 +5830,13 @@ A Cloud NSS feed specifies the data from the logs that the Cloud NSS sends to th
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-11-01T23:53Z","nid":"1452746"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-dns-logs","lastmod":"2026-11-16T20:06Z","nid":"1452746"} -->
 ## Adding Cloud NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-cloud-nss-feeds-dns-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for DNS Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to add Cloud NSS feeds for DNS logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for DNS logs:
@@ -5820,13 +5912,13 @@ You can enter multiple entries separated by commas. For item lists, you can view
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-event-logs","lastmod":"2026-11-01T23:53Z","nid":"1458976"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-event-logs","lastmod":"2026-11-16T20:06Z","nid":"1458976"} -->
 ## Adding Cloud NSS Feeds for Event Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-cloud-nss-feeds-event-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Event Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to add Cloud NSS feeds for Event logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Event logs:
@@ -5872,13 +5964,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-metrics-logs","lastmod":"2026-11-01T23:53Z","nid":"1458981"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-metrics-logs","lastmod":"2026-11-16T20:06Z","nid":"1458981"} -->
 ## Adding Cloud NSS Feeds for Metrics Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-cloud-nss-feeds-metrics-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Metrics Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to add Cloud NSS feeds for Metrics logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Metrics logs:
@@ -5924,13 +6016,13 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-session-logs","lastmod":"2026-11-01T23:53Z","nid":"1452741"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-cloud-nss-feeds-session-logs","lastmod":"2026-11-16T20:06Z","nid":"1452741"} -->
 ## Adding Cloud NSS Feeds for Session Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-cloud-nss-feeds-session-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding Cloud NSS Feeds > Adding Cloud NSS Feeds for Session Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T20:06Z
 - Summary: How to add Cloud NSS feeds for Session logs in the Zscaler Cloud & Branch Connector Admin Portal.
 
 To configure a Cloud Nanolog Streaming Service (NSS) feed for Session logs:
@@ -6200,13 +6292,13 @@ A Nanolog Streaming Service (NSS) feed specifies the data from the logs that the
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-dns-logs","lastmod":"2026-11-01T23:52Z","nid":"1420716"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-dns-logs","lastmod":"2026-11-19T08:14Z","nid":"1420716"} -->
 ## Adding NSS Feeds for DNS Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-nss-feeds-dns-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for DNS Logs
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-19T08:14Z
 - Summary: Information on how to add NSS feeds for DNS logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -6227,10 +6319,11 @@ To configure a feed for DNS logs:
   - **SIEM Rate**: The SIEM rate is **Unlimited** by default. Select **Limited**ifyou need to control the output stream due to SIEM licensing or other constraints.
   - **Log Type**: Select **DNS**.
   - **Feed Output Type**:The output is a comma-separated values (**CSV**) list by default. You can also select **Custom**, **JSON**, **Name Value Pairs**, or **Tab Separated** if your SIEM accepts any of these formats.
-  - **Feed Escape Character**: (Optional) Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If you custom encoded a record, the `%s{eedone}` field displays **YES** for that record.
-  - **Feed Output Format**: These are the fields that are displayed in the output.
+  - **Feed Escape Character (optional)**: (Optional) Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If you custom encoded a record, the `%s{eedone}` field displays **YES** for that record.
+  - **Feed Output Format (optional)**: These are the fields that are displayed in the output.
   - **Timezone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone Database. Direct GMT offsets can also be specified.
   - **Duplicate Logs**: To ensure that no logs are skipped during any downtime, specify the number of minutes that the NSS sends duplicate logs. This is **Disabled** by default.
+  - **User Obfuscation**: User obfuscation is set to **Disabled**by default. Select **Enabled**if you need to obfuscate usernames in the logs.
 4. Define the following filters:
   - Action
   - Source
@@ -6238,59 +6331,59 @@ To configure a feed for DNS logs:
   - Transactions
 5. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 
-- **Policy Actions**
+- **Policy Actions (optional)**
   - **Allow**: Use this filter to limit the logs to allowed DNS requests and responses.
   - **Block**: Use this filter to limit the logs to DNS requests and responses that the service dropped.
   - **Redirect to ZPA**:Use this filter to limitthe logs to resolve DNS requests using the IP pool.
-- **Rule Name**: Use this filter to limit the logs based on specific rules in the [DNS Control policy](https://help.zscaler.com/cloud-branch-connector/configuring-dns-filtering-rule). Choose the rules from the list.
+- **Rule Name (optional)**: Use this filter to limit the logs based on specific rules in the [DNS Control policy](https://help.zscaler.com/cloud-branch-connector/configuring-dns-filtering-rule). Choose the rules from the list.
 
-- **Locations**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
-- **Branch Connector Groups**: Use this filter to limit the logs to specific Branch Connector groups.
-- **Branch Connector**: Use this filter to limit the logs to specific Branch Connectors.
-- **Client IP Addresses**: Use this filter to limit the logs based on a client’s IP address. You can enter:
+- **Locations (optional)**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
+- **Branch Connector Groups (optional)**: Use this filter to limit the logs to specific Branch Connector groups.
+- **Branch Connector (optional)**: Use this filter to limit the logs to specific Branch Connectors.
+- **Client IP Addresses (optional)**: Use this filter to limit the logs based on a client’s IP address. You can enter:
   - An IP address (e.g., 198.51.100.100)
   - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
   - An IP address with a netmask (e.g., 203.0.113.0/24)
 
 You can enter multiple entries. Press **Enter** after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-- **Server IP Addresses**: Use this filter to limit the logs to specific server IP addresses. You can enter:
+- **Server IP Addresses (optional)**: Use this filter to limit the logs to specific server IP addresses. You can enter:
   - An IP address (e.g., 198.51.100.100)
   - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
   - An IP address with a netmask (e.g., 203.0.113.0/24)
 
 You can enter multiple entries. Press **Enter** after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-- **Server IP Ports**: Use this filter to limit the logs to specific server ports. You can specify individual ports and a range of ports.
+- **Server IP Ports (optional)**: Use this filter to limit the logs to specific server ports. You can specify individual ports and a range of ports.
 
 For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-- **Domains**: Use this filter to limit the logs to sessions associated with specific domains.
+- **Domains (optional)**: Use this filter to limit the logs to sessions associated with specific domains.
 
 For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-- **DNS Request Types**: Use this filter to limit the logs to sessions associated with specific DNS request types.
-- **DNS Responses**: Use this filter to limit the logs to sessions that contain specific data in the DNS responses. You can specify domain names, IPv4, and IPv6 addresses. For IPv4 addresses, you can enter:
+- **DNS Request Types (optional)**: Use this filter to limit the logs to sessions associated with specific DNS request types.
+- **DNS Responses (optional)**: Use this filter to limit the logs to sessions that contain specific data in the DNS responses. You can specify domain names, IPv4, and IPv6 addresses. For IPv4 addresses, you can enter:
   - An IP address (e.g., 198.51.100.100)
   - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10)
   - An IP address with a netmask (e.g., 203.0.113.0/24)
 
 You can enter multiple entries separated by commas. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
-- **Durations**: Use this filter to limit the logs based on the duration of the sessions, in seconds.
+- **Durations (optional)**: Use this filter to limit the logs based on the duration of the sessions, in seconds.
 
 For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-event-logs","lastmod":"2026-11-01T23:53Z","nid":"1458956"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-event-logs","lastmod":"2026-11-19T08:08Z","nid":"1458956"} -->
 ## Adding NSS Feeds for Event Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-nss-feeds-event-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Event Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-19T08:08Z
 - Summary: Information on how to add NSS feeds for Event logs in the Zscaler Admin Console.
 
 You can configure up to 16 Nanolog Streaming Service (NSS) feeds to specify the data from the Event logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -6315,21 +6408,22 @@ To configure a feed for Event logs:
   - **Feed Output Format**: These are the fields that are displayed in the output.
   - **Timezone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone Database. You can also specify direct GMT offsets.
   - **Duplicate Logs**: To ensure that no logs are skipped during any downtime, specify the number of minutes that the NSS sends duplicate logs. This is **Disabled** by default.
-  - **Locations**: Use this filter to limit the logs to specific[locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
-  - **Cloud/Branch Connector Groups**: Use this filter to limit the logs to specific Cloud or Branch Connector groups.
-  - **Cloud/Branch Connector VM**: Use this filter to limit the logs to specific Cloud or Branch Connector VMs.
+  - **User Obfuscation**: User obfuscation is set to **Disabled**by default. Select **Enabled**if you need to obfuscate usernames in the logs.
+  - **Locations (optional)**: Use this filter to limit the logs to specific[locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
+  - **Cloud/Branch Connector Groups (optional)**: Use this filter to limit the logs to specific Cloud or Branch Connector groups.
+  - **Cloud/Branch Connector VM (optional)**: Use this filter to limit the logs to specific Cloud or Branch Connector VMs.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-metrics-logs","lastmod":"2026-11-01T23:53Z","nid":"1458961"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-metrics-logs","lastmod":"2026-11-19T08:53Z","nid":"1458961"} -->
 ## Adding NSS Feeds for Metrics Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-nss-feeds-metrics-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Metrics Logs
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-19T08:53Z
 - Summary: Information on how to add NSS feeds for Metrics logs in the Zscaler Admin Console.
 
 You can configure up to 16 NSS feeds to specify the data from the Metrics logs that the Nanolog Streaming Service (NSS) sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -6351,28 +6445,30 @@ To configure a feed for Metrics logs:
   - **Log Type**: Select **Metrics**.
   - **Metrics Record Type**: Select **VM**, **Instance**, and/or **Resource**.
   - **Feed Output Type**:The output is a comma-separated values (**CSV**) list by default. You can also select **Custom**, **JSON**, **Name Value Pairs**, or **Tab Separated** if your SIEM accepts any of these formats.
-  - **Feed Escape Character**: (Optional) Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If you custom encoded a record, the `%s{eedone}` field displays **YES** for that record.
-  - **Feed Output Format**: These are the fields that are displayed in the output.
+  - **Feed Escape Character (optional)**: Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If you custom encoded a record, the `%s{eedone}` field displays **YES** for that record.
+  - **Feed Output Format (optional)**: These are the fields that are displayed in the output.
     - **VM**: Metrics that are applicable at the VM level.
     - **Instance**: Metrics that are applicable at an individual data processing instance level. There are multiple data processing instances in a single Cloud or Branch Connector.
     - **Resource**: Metrics that are applicable at an individual resource level. There are physical and logical resources in a Cloud or Branch Connector that are used by all data processing instances.
   - **Timezone**:By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone Database. You can also specify direct GMT offsets.
   - **Duplicate Logs**: To ensure that no logs are skipped during any downtime, specify the number of minutes that the NSS sends duplicate logs. This is **Disabled** by default.
-  - **Locations**: Use this filter to limit the logs to specific[locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
-  - **Cloud/Branch Connector Groups**: Use this filter to limit the logs to specific Cloud or Branch Connector groups.
-  - **Cloud/Branch Connector VM**: Use this filter to limit the logs to specific Cloud or Branch Connector VMs.
+  - **User Obfuscation**: User obfuscation is set to **Disabled**by default. Select **Enabled**if you need to obfuscate usernames in the logs.
+  - **Filters**:
+    - **Locations (optional)**: Use this filter to limit the logs to specific[locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
+    - **Cloud/Branch Connector Groups (optional)**: Use this filter to limit the logs to specific Cloud or Branch Connector groups.
+    - **Cloud/Branch Connector VM (optional)**: Use this filter to limit the logs to specific Cloud or Branch Connector VMs.
 4. Click **Save** and [activate the change](https://help.zscaler.com/unified/saving-and-activating-changes-admin-console).
 <!-- /ZS-ARTICLE -->
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-session-logs","lastmod":"2026-11-01T23:52Z","nid":"1420721"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/adding-nss-feeds-session-logs","lastmod":"2026-11-19T08:24Z","nid":"1420721"} -->
 ## Adding NSS Feeds for Session Logs
 
 - Source: https://help.zscaler.com/zero-trust-cloud/adding-nss-feeds-session-logs
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Adding NSS Feeds > Adding NSS Feeds for Session Logs
-- Last modified: 2026-11-01T23:52Z
+- Last modified: 2026-11-19T08:24Z
 - Summary: Information on how to add NSS feeds for Session logs in the Zscaler Admin Console.
 
 You can configure up to 8 Nanolog Streaming Service (NSS) feeds to specify the data from the Session logs that the NSS sends to the security information and event management (SIEM) system. For each feed, you can configure multiple types of filters. A large number of filters or complex filters, such as string searches, can impact the performance of the NSS.
@@ -6396,11 +6492,12 @@ To configure a feed for Session logs:
     - **Full Session Logs**: Logs all sessions of the rule individually, except HTTP and HTTPS.
     - **Aggregate Logs**: Individual sessions are grouped together based on {user, rule, network service, network application} and recorded periodically.
     - **Both Session and Aggregate Logs**
-  - **Feed Output Type**:The output is a comma-separated value (**CSV**) list by default. You can select from **Name Value Pairs**, **Tab Separated**, **JSON**, or **Custom**if your SIEM accepts any of these formats.
-  - **Feed Escape Character**: (Optional) Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If a record was custom encoded, the `%s{eedone}` field displays **YES** for that record.
+  - **Feed Output Type (optional)**:The output is a comma-separated value (**CSV**) list by default. You can select from **Name Value Pairs**, **Tab Separated**, **JSON**, or **Custom**if your SIEM accepts any of these formats.
+  - **Feed Escape Character (optional)**: Enter a character that you want to hex encode when it appears in a URL, hostname, or referrer URL. For example, enter a comma (,) to encode it as `%2C`. This feature is useful if you are using this character as your delimiter and want to ensure it does not cause erroneous delimitation. If a record was custom encoded, the `%s{eedone}` field displays **YES** for that record.
   - **Feed Output Format**: These are the fields that are displayed in the output.
   - **Timezone**: By default, this is set to the organization's time zone. The time zone you set applies to the time field in the output file. The time zone automatically adjusts to changes in daylight savings in the specific time zone. The configured time zone can be output to the logs as a separate field. The list of time zones is derived from the IANA Time Zone Database. Direct GMT offsets can also be specified.
   - **Duplicate Logs**: To ensure that no logs are skipped during any downtime, specify the number of minutes that the NSS sends duplicate logs.
+  - **User Obfuscation**: User obfuscation is set to **Disabled**by default. Select **Enabled**if you need to obfuscate usernames in the logs.
 4. Define the following filters:
   - Action
   - Source
@@ -6411,15 +6508,16 @@ To configure a feed for Session logs:
 - **Policy Actions**: Use this filter to limit the logs based on the action the service took, in accordance with the[traffic forwarding](https://help.zscaler.com/cloud-branch-connector/about-traffic-forwarding) rules.
 - **Rule Name**: Use this filter to limit the logs based on the [configured traffic forwarding rule](https://help.zscaler.com/cloud-branch-connector/configuring-traffic-forwarding-rule). Select the rule name(s) from the list.
 
-- **Locations**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
-- **Branch Connector Groups**: Use this filter to limit the logs to specific Branch Connector groups.
-- **Branch Connector**: Use this filter to limit the logs to specific Branch Connectors.
-- **Client IP Addresses**: Use this filter to limit the logs based on a client’s IP address. You can enter:
+- **Locations (optional)**: Use this filter to limit the logs to specific [locations](https://help.zscaler.com/cloud-branch-connector/about-locations). To use the search function, enter the location name in the search box and click **Search**. There is no limit on the number of locations that you can select. Locations that are deleted after they are selected appear with a strikethrough line.
+- **Device Type (optional)**: Use this filter to limit the logs to specific types of devices.
+- **Cloud/Branch Connector Groups (optional)**: Use this filter to limit the logs to specific Cloud or Branch Connector groups.
+- **Cloud/Branch Connector (optional)**: Use this filter to limit the logs to specific cloud Branch Connectors.
+- **Client IP Addresses (optional)**: Use this filter to limit the logs based on a client’s IP address. You can enter:
   - An IP address (e.g., 198.51.100.100).
   - A range of IP addresses (e.g., 192.0.2.1-192.0.2.10).
   - An IP address with a netmask (e.g., 203.0.113.0/24).
 
-You can enter multiple entries. Press **Enter** after each entry, then click **Add Items**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
+You can enter multiple entries. Press **Enter** after each entry, then click **Add**. For item lists, you can view up to 500 items on a page; filter the list by searching for a word, phrase, or number contained in an item; and remove all items from the list (**Remove All**) or only items from a specific page (**Remove Page**). If you select **Remove All** or **Remove Page**, a confirmation window appears.
 
 **Network Services**: Select **Any**to apply the NSS feed to all [network services](https://help.zscaler.com/cloud-branch-connector/about-network-services), or use the drop-down menu to select specific network services.
 
@@ -7661,16 +7759,16 @@ In the table, you can view the following for each test:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/analyzing-microsoft-azure-account-details","lastmod":"2026-11-01T23:53Z","nid":"1507806"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/analyzing-microsoft-azure-account-details","lastmod":"2026-11-17T13:27Z","nid":"1507806"} -->
 ## Analyzing Microsoft Azure Account Details
 
 - Source: https://help.zscaler.com/zero-trust-cloud/analyzing-microsoft-azure-account-details
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Analyzing Microsoft Azure Account Details
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-17T13:27Z
 - Summary: Information on the Microsoft Azure account details in the Zscaler Admin Console.
 
-The Microsoft Azure Account Details page provides general and management information for a selected Azure account. You can access the Azure Account Details page by clicking the **Regions**, **Subscriptions**, **Cloud Connectors**, or **Event Grid** number on the [Azure accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts) page for a selected Azure account.
+The Microsoft Azure Account Details page provides general and management information for a selected Azure account. You can access the Azure Account Details page by clicking the **Regions**, **Subscriptions**, or **Cloud Connectors** number on the [Azure accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts) page for a selected Azure account.
 
 Workload discovery services for Azure are in Limited Availability (LA). To request this feature, contact Zscaler Support.
 
@@ -7679,21 +7777,30 @@ Workload discovery services for Azure are in Limited Availability (LA). To reque
 On the Azure account details page, you can view the following:
 
 - General
-- Regions Workload Inventory
-- Permissions
+- Regions
 - Cloud Connectors
-- Event Grid
-- Storage Account
+- Subscriptions
 
-- **Account Name**: The name used when creating the Azure account.
-- **Directory ID**: The Directory (tenant) ID used in the service principal credential.
-- **Application ID**: The client/application ID used in the service principal credential.
+In the **Tenant** section:
+
+- **Name**: The name used when creating the Azure account.
+- **Cloud Provider Type**: The type of cloud provider, which is Azure.
+- **ID**: The ID associated with the integration used for troubleshooting purposes.
 - **Last Modified By**: The last admin to modify the account.
-- **Last Modified On**: The date and time the account was last modified.
+- **Last Modified On**: The date and time when the account was last modified.
 
-The Regions Workload Inventory section shows a list of selected regions for the Azure account.
+In the **Azure Identity** section:
 
-See image.
+- **Application ID**: The client/application ID used in the service principal credential.
+- **Azure Directory ID**: The Directory (tenant) ID used in the service principal credential.
+
+In the **Resources** section:
+
+- **Regions**: The number of regions in the Azure account.
+- **Subscriptions**: The number of subscriptions in the Azure account.
+- **Cloud Connectors**: The number of Cloud Connectors in the Azure account.
+
+The **Regions** section shows a list of selected regions for the Azure account.
 
 Supported regions for Azure include:
 
@@ -7713,22 +7820,21 @@ Supported regions for Azure include:
 
 You can select a region to find the workload inventory. If you select a region, you can view the following:
 
-- **Subscriptions**: The subscriptions associated with the region. You can select a subscription to view its details. If you select a subscription, you can view the following:
-  - **Private IP Address**: The private IP address of the workload. You can select a private IP address to view its details. If you select a private IP address, you can view the following:
-    - **Attributes**: The following attributes listed apply to the workload group. When you create a workload group, you do not see the virtual network (VNet), but you do see the virtual private cloud (VPC). You can only use certain attributes in policies. The following list indicates which attributes you can use:
-      - **Resource Group**: The name of the resource group assigned to the workload.
-      - **Image ID**: The virtual machine (VM) image SKU assigned to the workload. You can use this attribute in policies.
-      - **Platform**: The platform (i.e., **Linux/UNIX** or **Windows**) that the workload is operating on. You can use this attribute in policies.
-      - **VM ID**: The ID of the VM assigned to the workload.
-      - **Security Group ID**: The ID of the network security group assigned to the workload. You can use this attribute in policies.
-      - **VNET**: The VNet assigned to the workload. In policies, when creating workload groups, the drop-down field to configure this field is **VPC**. Although it is labeled VPC, you can enter VNet ID values. You can use this attribute in policies.
-      - **Subnet ID**: The ID of the subnet assigned to the workload.
-      - **Network Interface ID**: The ID of the network interface assigned to the workload.
-      - **Security Group Name**: The name of the security group assigned to the workload. You can use this attribute in policies.
-    - **User Defined Tags**: The following user-defined tags apply to the workload group in Azure subscriptions:
-      - **Resource Type**: The type of resource is listed (i.e., **VM**, **VPC**, or **ENI**). VPCs can relay to VNets in Azure. Elastic network interfaces (ENIs) are specific to AWS.
-      - **Key**: The tag key string information for user-defined tags.
-      - **Value**: The tag value string information for user-defined tags.
+- **Subscriptions**: The subscriptions associated with the region. You can select a subscription to view its details. If you select a subscription, you can view the **Private IP Address**, which is the private IP address of the workload. You can select a private IP address to view its details. If you select a private IP address, you can view the following:
+  - **Attributes**: The following attributes listed apply to the workload group. When you create a workload group, you do not see the virtual network (VNet), but you do see the virtual private cloud (VPC). You can only use certain attributes in policies. The following list indicates which attributes you can use:
+    - **Resource Group**: The name of the resource group assigned to the workload.
+    - **Image ID**: The virtual machine (VM) image SKU assigned to the workload. You can use this attribute in policies.
+    - **Platform**: The platform (i.e., **Linux/UNIX** or **Windows**) that the workload is operating on. You can use this attribute in policies.
+    - **VM ID**: The ID of the VM assigned to the workload.
+    - **Security Group ID**: The ID of the network security group assigned to the workload. You can use this attribute in policies.
+    - **VNET**: The VNet assigned to the workload. In policies, when creating workload groups, the drop-down field to configure this field is **VPC**. Although it is labeled VPC, you can enter VNet ID values. You can use this attribute in policies.
+    - **Subnet ID**: The ID of the subnet assigned to the workload.
+    - **Network Interface ID**: The ID of the network interface assigned to the workload.
+    - **Security Group Name**: The name of the security group assigned to the workload. You can use this attribute in policies.
+  - **User Defined Tags**: The following user-defined tags apply to the workload group in Azure subscriptions:
+    - **Resource Type**: The type of resource is listed (i.e., **VM**, **VPC**, or **ENI**). VPCs can relay to VNets in Azure. Elastic network interfaces (ENIs) are specific to AWS.
+    - **Key**: The tag key string information for user-defined tags.
+    - **Value**: The tag value string information for user-defined tags.
 - **User Defined Tags**: The number of user-defined tags assigned to the workload.
 - **Namespace**: The namespace assigned to the workload.
 - **VNET**: The VNet assigned to the workload.
@@ -7739,44 +7845,17 @@ You can select a region to find the workload inventory. If you select a region, 
 - **Sent Count**: The number of messages sent over the partner topic.
 - **Discovery Service Status**: The status of the discovery service (i.e., **Starting**, **Success**, or **Error**).
 
-The Permissions list shows you a list of subscriptions that your credentials can access and that you have selected for this account.
+The Subscriptions list shows you a list of subscriptions that your credentials can access and that you have selected for this account.
 
-- **Azure Subscription ID**: The subscription ID of the Azure account.
-- **Permission**: The permission status of the Azure account (i.e., **Pending**, **Allowed**, or **Denied**). When you click **Refresh**, the state of the permission updates.
-- **Last Sync**: The last time the Azure account was refreshed. If you have never refreshed the account, it is **Pending**. See image.
+- **Name**: The name of the subscription.
+- **External ID**: The subscription ID of the Azure account.
+- **Status**: The subscription status of the Azure account (i.e., **Pending**, **Allowed**, or **Denied**). When you click **Refresh**, the state of the subscription updates.
+- **Last Sync**: The last time the Azure account was refreshed. If you have never refreshed the account, it is **Pending**.
 
 The Cloud Connectors list shows you the Cloud Connectors associated with the Azure account.
 
 - **Cloud Connector Groups**: The Cloud Connector group(s) that receive the tag information.
-- **Namespace (Optional)**: The namespace that limits the IP addresses sent to the Cloud Connector and ensures that duplicate IP addresses map correctly. See image.
-
-The Event Grid list shows the event grids and their details that are associated with the Azure account. The workload discovery service communicates through API calls and a publish-subscribe mechanism based on the event grid and storage queue.
-
-- **Regions**: The list of regions selected when the Event Grid was created.
-- **Subscriptions**: The subscription associated with the event grid.
-- **Resource Groups**: The resource group associated with the event grid.
-- **Topic Status**: The topic status of the Azure account (i.e., **Activated**, **Created**, or **Unavailable**).
-- **Destination Status**: The destination status of the Azure account (i.e., **Activated**, **Created**, or **Unavailable**).
-- **Received Messages**: The number of messages that the partner destination has received since the creation of this destination.
-- **Sent Messages**: The number of messages that the partner topic has sent since the creation of this topic.
-- **Last Sync**: The last time the Azure account was refreshed. See image.
-
-The Storage Account list shows you the storage account details associated with the Azure account.
-
-- **Regions**: The list of regions selected when the Event Grid was created.
-- **Resource Groups**: The resource group associated with the storage account used to create the partner topic and partner destination.
-- **Storage Account**: The storage account associated with the storage account used to create the partner topic and partner destination.
-- **Prefix**: The name of the storage queue which is added to the name of the queue so you can organize the queues. See image.
-
-[Image: Regions Workload Inventory information from the Microsoft Azure account details page in the Zscaler Admin Console]
-
-[Image: Permissions information from the Microsoft Azure account details page in the Zscaler Admin Console]
-
-[Image: Cloud Connectors information from the Microsoft Azure account details page in the Zscaler Admin Console]
-
-[Image: Event Grid information from the Microsoft Azure account details page in the Zscaler Admin Console]
-
-[Image: Storage Account information from the Microsoft Azure account details page in the Zscaler Admin Console]
+- **Namespace (Optional)**: The namespace that limits the IP addresses sent to the Cloud Connector and ensures that duplicate IP addresses map correctly.
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -8062,16 +8141,16 @@ See image.
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-advanced-settings-cloud-connector","lastmod":"2026-11-11T09:24Z","nid":"1420861"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-advanced-settings-cloud-connector","lastmod":"2026-11-19T15:09Z","nid":"1420861"} -->
 ## Configuring Advanced Settings for Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-advanced-settings-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Configuring Advanced Settings for Cloud Connector
-- Last modified: 2026-11-11T09:24Z
+- Last modified: 2026-11-19T15:09Z
 - Summary: Information on how to configure advanced settings in the Zscaler Admin Console.
 
-On the Cloud Provider Account Import page, your imported ID is added to your [session logs](https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns)to correlate your workloads with your Amazon Web Services (AWS) account, Microsoft Azure subscription, and/or Google Cloud Platform (GCP) subscription.
+On the Cloud Provider Account Import page, your imported ID is added to your [session logs](https://help.zscaler.com/cloud-branch-connector/session-insights-logs-columns) to correlate your workloads with your Amazon Web Services (AWS) account, Microsoft Azure subscription, and/or Google Cloud Platform (GCP) subscription.
 
 To configure advanced settings:
 
@@ -9637,16 +9716,16 @@ To add a VDI template:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-11-01T23:53Z","nid":"1507561"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/configuring-workload-discovery-service-microsoft-azure-accounts","lastmod":"2026-11-17T12:56Z","nid":"1507561"} -->
 ## Configuring the Workload Discovery Service for Microsoft Azure Accounts
 
 - Source: https://help.zscaler.com/zero-trust-cloud/configuring-workload-discovery-service-microsoft-azure-accounts
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Administration > Cloud Connector Partner Integrations > Azure Partner Integrations > Configuring the Workload Discovery Service for Microsoft Azure Accounts
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-17T12:56Z
 - Summary: How to configure a Microsoft Azure account using the Workload Discovery Service on the Azure tab of the Partner Integrations page of the Zscaler Admin Console.
 
-This article provides information on how to onboard a Microsoft Azure account to enable workload discovery services within the Zscaler Admin Console. To learn more, see [About Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts).
+This article provides information on how to onboard a Microsoft Azure account to enable the workload discovery service within the Zscaler Admin Console. To learn more, see [About Microsoft Azure Accounts](https://help.zscaler.com/cloud-branch-connector/about-microsoft-azure-accounts).
 
 Workload discovery services for Azure are in Limited Availability (LA). To learn more, contact Zscaler Support.
 
@@ -9657,10 +9736,6 @@ Before you configure an Azure account, ensure that the following prerequisites a
 - [Configure your IAM roles and permissions in Azure](https://help.zscaler.com/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure).
 - Ensure that the managed identity is updated with the list of Cloud Connectors you want to deploy. To learn more, see [Deploying Zscaler Cloud Connector with Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-microsoft-azure).
 - Verify that your region is supported. To learn more, see [Analyzing Microsoft Azure Account Details](https://help.zscaler.com/cloud-branch-connector/analyzing-microsoft-azure-account-details#regionsworkloadinventory).
-- Create a resource group in Azure where your event grid topic for your Azure account is hosted.
-- Create a storage account for Cloud Connector to create storage queues to receive messages from the event grid. The Cloud Connector requires a storage account.
-- If you are using the event grid to distribute tags, create a partner configuration in Azure. For security reasons, Zscaler must authorize the partner configuration prior to onboarding.
-  - To create a partner configuration in Azure:
 
 ## Adding an Azure Account
 
@@ -9670,175 +9745,28 @@ To add an Azure account:
 2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Common Resources** > **Azure**.
 3. Click **Add Account**. See image. The **Add Azure Account window** appears.
 4. In the **Add Azure Account** window:
-  1. On the **Credentials** tab:
+  1. On the **Credentials** tab: See image.
     - **Account Name**: Enter a name for the Azure account used in the service principal credential. It does not have to be the same name used in the Azure portal.
     - **Directory (tenant) ID**: Enter the Directory (tenant) ID used in the service principal credential. Use the Directory (tenant) ID from Azure.
     - **Client/Application ID**: Enter the client/application ID used in the service principal credential. Use the Application (client) ID from Azure.
-    - **Client/Application Secret**: Enter the client/application secret used in the service principal credential. Use the client secret from Azure. To learn more about obtaining the **Directory (tenant) ID**, **Client/Application ID**, and **Client/Application Secret** credentials, see [Configuring IAM Roles and Permissions for Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure). See image.
-  2. On the **Subscription Groups** tab:
+    - **Client/Application Secret**: Enter the client/application secret used in the service principal credential. Use the client secret from Azure. To learn more about obtaining the **Directory (tenant) ID**, **Client/Application ID**, and **Client/Application Secret** credentials, see [Configuring IAM Roles and Permissions for Microsoft Azure](https://help.zscaler.com/cloud-branch-connector/configuring-iam-roles-and-permissions-microsoft-azure).
+  2. On the **Subscription Groups** tab: See image.
     - **Region**: Select the region(s) you want the Zscaler service to read the resource tag from.
-    - **Subscriptions**: Select the subscription(s) you want the service to read the resource tag from. See image.
-  3. On the **Groups & Namespace** tab: See image.
+    - **Subscriptions**: Select the subscription(s) you want the service to read the resource tag from.
+  3. On the **Groups and Namespace** tab: See image.
     - **Cloud Connector Groups**: (Optional) Select the Cloud Connector group(s) to which to send the mapping of IP address to tag. Ensure that the Cloud Connector groups you select receive the workload traffic from the subscriptions and regions you choose on the **Subscription Groups** tab. If you do not select a Cloud Connector group, the workload discovery service only discovers assets but cannot use the tags in policies. It can only view the policy.
-    - **Namespace (Optional)**: Enter a namespace to limit the IP addresses sent to the Cloud Connector. This ensures that duplicate IP addresses do not map incorrectly. If you have a duplicate CIDR block in your virtual networks (VNets) in the same subscription, you can partition the subscription tags to make one partition the namespace. You can then send the traffic to the Cloud Connector group, because in the Cloud Connector group you cannot see duplicate IP addresses.
-  4. On the **Add** **Event Grid** tab:
-    - **Regions**: Select the regions where you want Zscaler to create the event grid topics. The event grid topics are used to notify the Zscaler service of real-time tag updates to ensure that real-time tag mapping updates in the Zscaler service.
-    - **Subscriptions**: Select a subscription where Zscaler creates an instance of the partner topic and partner destination.
-    - **Resource Groups**: Select a resource group where Zscaler creates an instance of the partner topic and partner destination. The event grid is optional and depends on storage account creation in Azure. The queue that the Cloud Connector creates depends on the storage account for Cloud Connector to be able to create the queue. The Zscaler service can only attempt to create a partner topic and a partner destination after you provide the **Resource Group** and **Subscription ID**. See image.
-  5. On the **Storage Account** tab:
-    - **Regions**: All regions selected on the **Event Grid** tab are listed. Select a subscription and storage account for each region.
-    - **Subscriptions**: Select a subscription where your storage account is located.
-    - **Storage Account**: Select a storage account where the Cloud Connector creates a storage queue for the event grid. To learn more about creating a storage account, refer to the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
-    - **Prefix**: (Optional) Enter a prefix to name and create a storage queue. This prefix is added to the name of the queue so you can organize the queues. See image.
-  6. On the **Review** tab, confirm that the information is correct and click **Save and Next**. See image.
+    - **Namespace (Optional)**: Enter a namespace to limit the IP addresses sent to the Cloud Connector. This ensures that duplicate IP addresses do not map incorrectly. If you have a duplicate CIDR block in your virtual networks (VNets) in the same subscription, you can partition the subscription tags to make one partition the namespace. You can then send the traffic to the Cloud Connector group, because in the Cloud Connector group, you cannot see duplicate IP addresses.
+  4. On the **Review** tab, confirm that the information is correct and click **Save and Next**. See image.
 
-## Post-Configuration Requirements
+[Image: Add Account button on the Azure page of the Zscaler Admin Console]
 
-If you are using the event grid, the following post-configuration requirements are mandatory. After you configure an Azure account in the Zscaler Admin Console, ensure that the following requirements are met:
+[Image: The Credentials tab in the Add Azure Account window accessed from the Azure page of the Zscaler Admin Console]
 
-- Activate the partner topic and/or partner destination
-- Create the system topic
+[Image: The Subscription Groups tab in the Add Azure Account window accessed from the Azure page of the Zscaler Admin Console]
 
-Activating the partner topic allows you to receive tags soon after activation. Activating the partner destination allows you to send messages from your account to the Zscaler service when changes are happening.
+[Image: The Groups and Namespace tab in the Add Azure Account window accessed from the Azure page of the Zscaler Admin Console]
 
-To activate the partner topic and/or partner destination:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **Search resources, services, and docs (G+/) field**, enter `event grid`.
-3. From the drop-down menu, select **Event Grid**. The **Event Grid** page appears.
-4. On the **Event Grid** page, from the left-side navigation, select **Partner configurations**. The **Partner configurations** page appears. See image.
-5. On the **Partner configurations** page, select the **Resource group** you created. On the **Resource group** page:
-  1. Copy your **Resource Group** and **Subscription ID** to be shared with the Zscaler service when [Adding a Microsoft Azure Account](https://help.zscaler.com/cloud-branch-connector/adding-microsoft-azure-account). The Zscaler service can only attempt to create a partner topic and a partner destination after you provide the **Resource Group** and **Subscription ID**. See image.
-  2. From the **Resources** list, select the partner topic or partner destination. See image.
-  3. On the **Event Grid Partner Topic** or **Event Grid Partner Destination** page, on the **Overview** tab, click **Activate**. See image.
-
-The partner topic and/or partner destination is activated. After the partner destination is activated, you must configure the system topic to send messages in the partner destination.
-
-You must go to the resource group for every region you are activating and activate the partner topic and/or partner destination in that region.
-
-Creating the system topic allows you to send messages in the partner destination and alerts the Zscaler service that a change has occurred in your subscription so that tags are immediately extracted. You can either manually create the system topic or use the [Terraform template](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#t-templates-azure-standalone).
-
-To create the system topic:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the **Search resources, services, and docs (G+/) field**, enter `event grid`.
-3. From the drop-down menu, select **Event Grid**. The **Event Grid** page appears.
-4. On the **Event Grid** page, from the left-side navigation, under **Azure service events**, select **System topics**. The **Event Grid | System topics** page appears. See image.
-5. On the **Event Grid | System topics** page, click **Create**. See image.
-6. On the **Event Grid System Topic** page, configure the following:
-  1. On the **Basics** tab:
-    1. In the **Topic Details** section:
-      - **Topic Types**: From the drop-down menu, select **Azure Resource Notifications - Resource Management events**.
-      - **Subscription**: From the drop-down menu, select your subscription. Only one system topic can be created per subscription. See image.
-    2. In the **System Topic Details** section:
-      - **Resource group**: From the drop-down menu, select your resource group created as a prerequisite.
-      - **Name**: Enter a name for the system topic.
-      - **Location**: **Global** is selected by default and you cannot change it. See image.
-    3. In the **Identity** section, leave the settings unchanged.
-  2. On the **Tags** tab, leave the settings unchanged.
-  3. On the **Review + create** tab, click **Create**.
-7. On the system topic **Deployment** page, after the deployment succeeds, click **Go to resource**. Alternatively, in the top-right corner, click **Go to resource**. Your **Event Grid System Topic** page appears. See image.
-8. On your **Event Grid System Topic** page, from the left-side navigation, under **Entities**, select **Event Subscriptions**. The **Event Subscriptions** page appears. See image.
-9. On the **Event Subscriptions** page, click **Event Subscription**. See image.
-10. On the **Create Event Subscription** page, configure the following:
-  1. On the **Basics** tab:
-    1. In the **Event Subscription Details** section:
-      - **Name**: Enter a name for the event subscription.
-      - **Event Schema**: From the drop-down menu, select **Cloud Event Schema v1.0**. See image.
-    2. In the **Topic Details** section, you can view the **Topic Type**, **Source Resource**, and **Topic Name** details.
-    3. In the **Event Types** section, from the **Filter to Event Types** drop-down menu, select the **Resource Created or Updated** checkbox. See image.
-    4. In the **Endpoint Details** section:
-      - **Endpoint Type**: From the drop-down menu, select **Partner Destination**.
-      - **Endpoint**: Click **Configure an endpoint**. The **Select Partner Destination** window appears. See image.
-      - In the **Select Partner Destination** window:
-        - **Subscription**: Select your subscription. This is the subscription you provided when [adding an Azure account](https://help.zscaler.com/cloud-branch-connector/adding-microsoft-azure-account#eventgrid) in the Zscaler Admin Console.
-        - **Resource group**: Select your resource group. This is the resource group you provided when [adding an Azure account](https://help.zscaler.com/cloud-branch-connector/adding-microsoft-azure-account#eventgrid) in the Zscaler Admin Console.
-        - **Partner Destination**: From the drop-down menu, select the partner destination. Select **Confirm Selection**. See image.
-  2. On the **Filters** tab, leave the settings unchanged.
-  3. On the **Additional Features** tab, leave the settings unchanged.
-  4. On the **Delivery Properties** tab, leave the settings unchanged.
-  5. Click **Create**.
-
-After your deployment succeeds, Zscaler can send and receive event notifications for a designated subscription.
-
-[Image: Selecting the Resource group you created on the Partner configurations page of the Microsoft Azure Portal]
-
-[Image: Activating the Partner Topic or Partner Destination on the Overview tab of the Event Grid Partner Topic page in the Microsoft Azure Portal]
-
-[Image: Selecting your Partner Topic or Partner Destination from the list in your Resource group in the Microsoft Azure Portal]
-
-[Image: Copying your Subscription and Subscription ID from your Resource group in the Microsoft Azure Portal]
-
-[Image: Selecting System topics from the Event Grid page left-side navigation in the Microsoft Azure Portal]
-
-[Image: Clicking Create on the System topics page in the Microsoft Azure Portal]
-
-[Image: Entering the topic details in the Topic Details section on the Basics tab of the Event Grid System Topic page in the Microsoft Azure Portal]
-
-[Image: Entering the system topic details in the System Topic Details section on the Basics tab of the Event Grid System Topic page in the Microsoft Azure Portal]
-
-[Image: Clicking Go to resource on the system topic Deployment page in the Microsoft Azure Portal]
-
-[Image: Selecting Event Subscriptions from the Event Grid System Topic page left-side navigation in the Microsoft Azure Portal]
-
-[Image: Clicking Event Subscription on the Event Subscriptions page in the Microsoft Azure Portal]
-
-[Image: Entering the event subscription details in the Event Subscription Details section on the Basics tab of the Create Event Subscription page in the Microsoft Azure Portal]
-
-[Image: Entering the event type details in the Event Types section on the Basics tab of the Create Event Subscription page in the Microsoft Azure Portal]
-
-[Image: Entering the endpoint details in the Endpoint Details section on the Basics tab of the Create Event Subscription page in the Microsoft Azure Portal]
-
-[Image: Configuring the partner destination in the Select Partner Destination window on the Create Event Subscription page of the Microsoft Azure Portal]
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the **Event Grid** page.
-3. On the Event Grid page, from the left-side navigation, select **Partner configurations**. See image.
-4. On the **Partner configurations** page, click **Create**. See image. The **Create Partner Configuration** page appears.
-5. On the **Create Partner Configuration** page, on the Basics tab:
-  1. Under **Project Details**: See image.
-    - **Subscription**: Your subscription is set in this field, but you can change it.
-    - **Resource group**: From the drop-down menu, select your resource group.
-  2. Under **Partner Authorizations**:
-    1. **Default maximum partner authorization expiration time (in days)**: Enter the number of days to create an authorization that lasts for the specified time period. During this time period, the Zscaler service attempts to create a partner topic and a partner destination in your tenant. After expiry, this authorization is invalid, and the Zscaler service cannot create a partner topic or partner destination in your tenant. Zscaler only requires this authorization to create the partner topic or partner destination. If the authorization expires after the Zscaler service has created the partner topic or partner destination in your tenant, the partner topic or partner destination remains operational. If the user who creates the authorization in Azure and the user who creates the Azure account in the Zscaler Admin Console are different, enter a number of days that allows both users to coordinate the amount of time necessary to share credentials. If you create new accounts over the course of a year, you can give a one-time authorization of 365 days or give an authorization before every new account is created for 7 days at a time. If the same user creates the authorization in Azure and the Azure account in the Zscaler Admin Console, Zscaler recommends setting the authorization expiration to 7 days as no coordination is required.
-    2. Click **Partner Authorization**. See image. The **Add partner authorization to create resources** window appears. Zscaler is working on being added to the Microsoft verified partner list. Currently, you must add Zscaler as a non-verified partner.
-    3. In the **Add partner authorization to create resources** window, select the **Authorize non-verified partner** checkbox, and then configure the following: See image.
-      - **Partner registration ID**: Enter `ad8a5905-16a9-48f8-9f1e-30d750625b8e`.
-      - **Authorization expiration time**: Configure the expiration time as necessary.
-      - **Authorization expiration time UTC**: This field displays the expiration time in Coordinated Universal Time (UTC).
-    4. Click **Add**.
-6. On the **Basics** tab, click **Review + create**. See image.
-7. On the **Review + create** tab, click **Create**. See image.
-
-The partner configuration authorization is created.
-
-[Image: Selecting Partner configurations from the Event Grid page left-side navigation in the Microsoft Azure Portal]
-
-[Image: Selecting Create on the Event Grid Partner configurations page in the Microsoft Azure Portal]
-
-[Image: Entering the project details in the Project Details section on the Basics tab of the Create Partner Configuration page in the Microsoft Azure Portal]
-
-[Image: Configuring the partner authorization and selecting Partner Authorization in the Partner Authorizations section of the Basics tab on the Create Partner Configuration page in the Microsoft Azure Portal]
-
-[Image: Selecting the Authorize non-verified partner checkbox and configuring the settings in the Add partner authorization to create resources window in the Microsoft Azure Portal]
-
-[Image: Selecting Review + create on the Basics tab of the Create Partner Configuration page in the Microsoft Azure Portal]
-
-[Image: Clicking Create after selecting the Review + create tab of the Create Partner Configuration page in the Microsoft Azure Portal]
-
-[Image: Add Account button on the Azure tab of the Zscaler Admin Console]
-
-[Image: The Credentials tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
-
-[Image: The Subscription Groups tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
-
-[Image: The Groups and Namespace tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
-
-[Image: The Add Event Grid tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
-
-[Image: The Storage Account tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
-
-[Image: The Review tab in the Add Azure Account window accessed from the Partner Integrations page of the Zscaler Admin Console]
+[Image: The Review tab in the Add Azure Account window accessed from the Azure page of the Zscaler Admin Console]
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -11236,18 +11164,16 @@ passwd zsroot
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-12T15:03Z","nid":"1420746"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services","lastmod":"2026-11-20T13:30Z","nid":"1420746"} -->
 ## Deploying Zscaler Cloud Connector with Amazon Web Services
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-amazon-web-services
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for AWS > Deploying Zscaler Cloud Connector with Amazon Web Services
-- Last modified: 2026-11-12T15:03Z
+- Last modified: 2026-11-20T13:30Z
 - Summary: Information on deploying Zscaler Cloud Connector with Amazon Web Services.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as an Amazon Machine Image (AMI) on Amazon Web Services (AWS), and post-deployment configurations.
-
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both ASG and non-ASG deployments within the same Virtual Private Cloud (VPC).
 
 ## Prerequisites
 
@@ -11495,6 +11421,12 @@ To create an Amazon S3 bucket:
 
 You need to select the **S3 Bucket Name**and **S3 Key** when defining parameters for the stack creation in the [AWS CloudFormation console with autoscaling](https://help.zscaler.com/cloud-branch-connector/deploying-zscaler-cloud-connector-amazon-web-services#autoscaling).
 
+When deploying and using autoscaling groups (ASGs), take note of the following:
+
+- Only deploy an ASG with an ASG template or a non-ASG with a non-ASG template.
+- Do not run both ASG and non-ASG deployments within the same Virtual Private Cloud (VPC).
+- If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
+
 ## Deploying the Cloud Connector
 
 This procedure describes the steps for deploying Zscaler Cloud Connector using a CloudFormation template. To learn more about deploying Zscaler Cloud Connector using a Terraform script, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector).
@@ -11655,18 +11587,16 @@ If you face any issues with your Cloud Connector deployment, see[Troubleshooting
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-11-01T23:53Z","nid":"1461611"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-google-cloud-platform","lastmod":"2026-11-20T12:57Z","nid":"1461611"} -->
 ## Deploying Zscaler Cloud Connector on the Google Cloud Platform
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-google-cloud-platform
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for GCP > Deploying Zscaler Cloud Connector on the Google Cloud Platform
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-20T12:57Z
 - Summary: Information on deploying Zscaler Cloud Connector on the Google Cloud Platform.
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as a virtual machine (VM) on the Google Cloud Platform (GCP), and post-deployment configurations. This procedure describes the steps for deploying Zscaler Cloud Connector using Terraform. To learn more about the resources created when deploying Zscaler Cloud Connector, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector).
-
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
 
 ## Prerequisites
 
@@ -11706,7 +11636,7 @@ If your organization uses Unified Role-Based Access Control (RBAC), administrato
 To configure a new [admin role](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles):
 
 1. Log in to the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) as a super admin.
-2. Go to **Administration** > **Role Management**> **Branch and Cloud Connector**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management**> **Branch and Cloud Connector**.
 3. Click**Add Admin Role**.
 4. In the **Add Admin Role** window:
   - **Name**: Enter a unique name for the admin role (e.g., CloudConnector-Deployment-Role).
@@ -11726,7 +11656,7 @@ For a Cloud Connector tenant linked to a Authentication Service service, after c
 To retrieve the API key:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Administration** > **API** > **Cloud & Branch Connector API**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **API** > **Cloud & Branch Connector API**.
 3. From the [API Key Management](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the GCP with Zscaler.
 
 See image.
@@ -11734,7 +11664,7 @@ See image.
 You do not need to configure location templates because [locations](https://help.zscaler.com/cloud-branch-connector/about-locations) are created automatically when you deploy Cloud Connector to a cloud provider such as GCP. Optionally, you can configure your own location template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Infrastructure** > **Location Management** > **Location Templates**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Infrastructure** > **Location Management** > **Location Templates**.
 3. Click [**Add Location Template**](https://help.zscaler.com/cloud-branch-connector/configuring-location-template).
   - In the **Name**field, enter a name for the location template.
   - In the **Template Prefix** field, enter a prefix for the location template. All locations created using this location template contain this prefix.
@@ -11753,7 +11683,7 @@ See image.
 Configure a [cloud provisioning template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template) and copy the cloud provisioning URL. To configure a cloud provisioning template:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Zero Trust Cloud** > **Cloud Connector** > **Provisioning Templates**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Zero Trust Cloud** > **Cloud Connector** > **Provisioning Templates**.
 3. Click **Add Cloud Connector Provisioning Template**.
 4. On the**Cloud Provisioning Template**page:
   - **Name**: Enter a name for the cloud provisioning template.
@@ -11857,6 +11787,11 @@ Each Cloud Run Function needs a service account assigned to it. You can let Terr
     2. Assign the following permissions to the role you just added: **compute.instanceGroups.list**, **compute.instances.get**, **iam.serviceAccounts.get**, **iam.serviceAccountKeys.get**, **iam.serviceAccounts.signJwt**.
 9. Click **Done** to create the service account.
 
+When deploying and using autoscaling groups (ASGs), take note of the following:
+
+- When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
+- If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
+
 ## Deploying the Cloud Connector
 
 After you have met all the prerequisites, deploy the Cloud Connector using Terraform and then modify your route table and associated subnet to send workload traffic to the Cloud Connector.
@@ -11955,16 +11890,14 @@ After verifying deployment, you can configure the following policies:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-11-11T16:00Z","nid":"1420751"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure","lastmod":"2026-11-20T13:31Z","nid":"1420751"} -->
 ## Deploying Zscaler Cloud Connector with Microsoft Azure
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deploying-zscaler-cloud-connector-microsoft-azure
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Cloud Connector Deployment Management > Cloud Connector Deployment Management for Azure > Deploying Zscaler Cloud Connector with Microsoft Azure
-- Last modified: 2026-11-11T16:00Z
+- Last modified: 2026-11-20T13:31Z
 - Summary: How to deploy Zscaler Cloud Connector on Microsoft Azure, including prerequisites and post-deployment verification checks.
-
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, do not run both Virtual Machine Scale Sets (VMSS) and non-VMSS deployments within the same virtual network (VNet).
 
 This deployment guide provides information on prerequisites, how to deploy Zscaler Cloud Connector as a virtual machine (VM) in Microsoft Azure, and post-deployment configurations.
 
@@ -11973,7 +11906,7 @@ The Azure Routing Intent and Routing Policies feature for secured virtual Wide A
 This procedure describes two methods for deploying Cloud Connector:
 
 - **Zscaler Cloud Connector Application in the Azure Marketplace**: This method is available for static deployment of Cloud Connector. The Zscaler Cloud Connector Application in the Azure Marketplace is available in all regions except China. If you are deploying Cloud Connector from the China region, you must use Terraform.
-- **Terraform**: This method provides support for a richer set of functions, including the option to deploy using VMSS. To learn more about the resources created when deploying Cloud Connector using a Terraform script, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform). To learn more about VMSS, see [Understanding Cloud Connector Deployments with Azure Virtual Machine Sets](https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets). VMSS is the name of the feature in the Azure Marketplace and the Terraform templates. Auto Scaling is the name of the same feature in the Cloud Provisioning template.
+- **Terraform**: This method provides support for a richer set of functions, including the option to deploy using Virtual Machine Scale Sets (VMSS). To learn more about the resources created when deploying Cloud Connector using a Terraform script, see [Deployment Templates for Zscaler Cloud Connector](https://help.zscaler.com/cloud-branch-connector/deployment-templates-zscaler-cloud-connector#azure-terraform). To learn more about VMSS, see [Understanding Cloud Connector Deployments with Azure Virtual Machine Sets](https://help.zscaler.com/cloud-branch-connector/understanding-cloud-connector-deployments-azure-virtual-machine-scale-sets). VMSS is the name of the feature in the Azure Marketplace and the Terraform templates. Auto Scaling is the name of the same feature in the Cloud Provisioning template.
 
 ## Prerequisites
 
@@ -12000,7 +11933,7 @@ If your organization uses Unified Role-Based Access Control (RBAC), administrato
 To configure a new [admin role](https://help.zscaler.com/cloud-branch-connector/adding-admin-roles):
 
 1. Log in to the [Zscaler Admin Console](https://help.zscaler.com/unified/signing-zscaler-admin-console) as a super admin.
-2. Go to **Administration** > **Role Management** > **Branch and Cloud Connector**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **Role Management** > **Branch and Cloud Connector**.
 3. Click**Add Admin Role**.
 4. In the **Add Admin Role** window: See image.
   - **Name**: Enter a unique name for the admin role (e.g., `CloudConnector-Deployment-Role`).
@@ -12019,7 +11952,7 @@ For a Cloud Connector tenant linked to a Authentication Service service, after c
 To retrieve the API key:
 
 1. Log in to the Zscaler Admin Console.
-2. Go to **Administration** > **API** > **Cloud & Branch Connector API**.
+2. From the [navigation menu](https://help.zscaler.com/unified/signing-zscaler-admin-console#navigating-admin-portal), go to **Administration** > **API** > **Cloud & Branch Connector API**.
 3. From the [API Key Management](https://help.zscaler.com/cloud-branch-connector/about-api-key-management) page, copy the API key and store it in a secure location. Cloud Connector uses the API key to authenticate and register the VM with the Zscaler service.
 
 See image.
@@ -12030,7 +11963,7 @@ Locations identify the various networks from which your organization sends its t
 
 Configure a [cloud provisioning template](https://help.zscaler.com/cloud-branch-connector/configuring-cloud-provisioning-template) and copy the cloud provisioning URL to deploy Cloud Connector as a virtual machine (VM) in Azure.
 
-Ensure that you have enough address space for the virtual network. The minimum IPv4 address space for the VNet is 24 (`/24`). The minimum IPv4 address space for the subnet (`zsccSubnet`) into which Cloud Connectors are deployed is 28 (`/28`).
+Ensure that you have enough address space for the virtual network. The minimum IPv4 address space for the virtual network (VNet) is 24 (`/24`). The minimum IPv4 address space for the subnet (`zsccSubnet`) into which Cloud Connectors are deployed is 28 (`/28`).
 
 The Cloud Connector instance requires only outbound connections to the Zscaler cloud. It does not require any inbound connections to your network from the Zscaler cloud. To view the outbound access requirements for your specific account, go to the following URL: https://config.zscaler.com/<Zscaler Cloud Name>/cloud-branch-connector.
 
@@ -12154,6 +12087,12 @@ To create an SSH key pair:
 4. Click **Next: Tags >**.
 5. On the **Tags** tab, configure tags to categorize resources, then click **Next: Review + create >**.
 6. On the **Review + create**tab, review your SSH key configurations, and then click**Create**.
+
+When deploying and using autoscaling groups (ASGs), take note of the following:
+
+- When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
+- Do not run both VMSS and non-VMSS deployments within the same VNet.
+- If you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 ## Deploying the Cloud Connector
 
@@ -12351,13 +12290,13 @@ If you are deploying Cloud Connector in China, Zscaler recommends creating a cus
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-branch-connector-app-connector","lastmod":"2026-11-10T16:33Z","nid":"1444481"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-branch-connector-app-connector","lastmod":"2026-11-16T08:55Z","nid":"1444481"} -->
 ## Deployment Templates for Branch Connector & App Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deployment-templates-branch-connector-app-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Zscaler Branch Connector Management > Deployment Management for Virtual Devices > Deployment Templates for Branch Connector & App Connector
-- Last modified: 2026-11-10T16:33Z
+- Last modified: 2026-11-16T08:55Z
 - Summary: Information about the Zscaler Branch Connector Deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Branch Connector or Branch Connector & App Connector in VMware ESXi or Linux KVM. IaC deployment templates are not available for Branch Connector deployment on Hyper-V platforms.
@@ -12381,7 +12320,7 @@ Use the Starter Deployment Template (bc) to deploy your Branch Connector. The fo
 - Management interface
 - Service interface
 
-Use the Starter Deployment Template with High-Availability (bc_ha) to deploy your Branch Connector with high availability. The following resources are created:
+Use the Starter Deployment Template with High Availability (bc_ha) to deploy your Branch Connector with high availability. The following resources are created:
 
 - Two Zscaler Branch Connector VMs
 - Key pair for SSH access
@@ -12397,7 +12336,7 @@ Use the Starter Deployment Template with App Connector (bc_ac) to deploy your Br
 - Control interface
 - App Connector provisioning key
 
-Use the Starter Deployment Template with App Connector and High-Availability (bc_ha_ac) to deploy your Branch Connector & App Connector with high availability. The following resources are created:
+Use the Starter Deployment Template with App Connector and High Availability (bc_ha_ac) to deploy your Branch Connector & App Connector with high availability. The following resources are created:
 
 - Two Zscaler Branch Connector VMs
 - Key pair for SSH access
@@ -12425,7 +12364,7 @@ Use the Starter Deployment Template (bc) to deploy your Branch Connector. The fo
 - Cloud-init provisioning ISO
 - KVM storage volume
 
-Use the Starter Deployment Template with High-Availability (bc_ha) to deploy your Branch Connector with high availability. The following resources are created:
+Use the Starter Deployment Template with High Availability (bc_ha) to deploy your Branch Connector with high availability. The following resources are created:
 
 - Two Zscaler Branch Connector VMs
 - Key pair for SSH access
@@ -12445,7 +12384,7 @@ Use the Starter Deployment Template with App Connector (bc_ac) to deploy your Br
 - KVM storage volume
 - App Connector provisioning key
 
-Use the Starter Deployment Template with App Connector and High-Availability (bc_ha_ac) to deploy your Branch Connector & App Connector with high availability. The following resources are created:
+Use the Starter Deployment Template with App Connector and High Availability (bc_ha_ac) to deploy your Branch Connector & App Connector with high availability. The following resources are created:
 
 - Two Zscaler Branch Connector VMs
 - Key pair for SSH access
@@ -12459,18 +12398,18 @@ Use the Starter Deployment Template with App Connector and High-Availability (bc
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-zscaler-cloud-connector","lastmod":"2026-11-11T09:17Z","nid":"1443361"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/deployment-templates-zscaler-cloud-connector","lastmod":"2026-11-20T13:27Z","nid":"1443361"} -->
 ## Deployment Templates for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/deployment-templates-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Deployment Templates for Zscaler Cloud Connector
-- Last modified: 2026-11-11T09:17Z
+- Last modified: 2026-11-20T13:27Z
 - Summary: Information about the Zscaler Cloud Connector deployment templates on GitHub.
 
 Infrastructure as Code (IaC) deployment templates are available in [GitHub](https://github.com/zscaler) to assist in the deployment of Zscaler Cloud Connector in Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). AWS deployment templates are available in CloudFormation and Terraform repositories. Azure and GCP deployment templates are available in Terraform repositories. Links to the repositories are included in this article and in the Zscaler Admin Console (**Zero Trust Cloud** > **Cloud Connector** > **Deployment Templates**).
 
-When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template.
+When deploying a Cloud Connector, only deploy an autoscaling group (ASG) with an ASG template or a non-ASG with a non-ASG template. Additionally, if you provision a non-ASG URL for a Cloud Connector and try to configure a Cloud Connector in ASG mode, Cloud Connector rejects the deployment.
 
 ## AWS Deployment Templates
 
@@ -15970,13 +15909,13 @@ To enable remote assistance:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-11-01T23:53Z","nid":"1420831"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/general-guidelines-nss-feeds-and-feed-formats","lastmod":"2026-11-16T20:06Z","nid":"1420831"} -->
 ## General Guidelines for NSS Feeds and Feed Formats
 
 - Source: https://help.zscaler.com/zero-trust-cloud/general-guidelines-nss-feeds-and-feed-formats
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > General Guidelines for NSS Feeds and Feed Formats
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T20:06Z
 - Summary: Guidelines on how to format NSS field outputs in the Zscaler Admin Console.
 
 This article provides guidelines and information about the different feeds and fields that you can include in the Nanolog Streaming Service (NSS) output for the logs.
@@ -16056,23 +15995,23 @@ The following table provides information on how Zscaler Branch Connector handles
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/handling-dns-resolutions-zscaler-cloud-connector","lastmod":"2026-11-01T23:53Z","nid":"1443521"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/handling-dns-resolutions-zscaler-cloud-connector","lastmod":"2026-11-16T08:58Z","nid":"1443521"} -->
 ## Handling DNS Resolutions for Zscaler Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/handling-dns-resolutions-zscaler-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Handling DNS Resolutions for Zscaler Cloud Connector
-- Last modified: 2026-11-01T23:53Z
+- Last modified: 2026-11-16T08:58Z
 - Summary: Information on how Zscaler Cloud Connector handles DNS resolution for various traffic forwarding methods.
 
 The following table provides information on how Zscaler Cloud Connector handles DNS resolutions for various traffic forwarding methods:
 
 | Traffic Forwarding Method | DNS Resolution Handling |
 | --- | --- |
-| Private Access Traffic Forwarding | The DNS request arrives at any destination IP address for an FQDN request that matches a Private Access application. Cloud Connector intercepts requests and responds with a customer-defined synthetic IP address from the customer-defined[IP pool](https://help.zscaler.com/cloud-branch-connector/about-ip-pool). |
-| Internet & SaaS Traffic Forwarding | The DNS request arrives at Cloud Connector from a workload configured with a custom DNS server destination IP address (e.g., 8.8.8.8). Cloud Connector encapsulates the request with a client source IP and destination DNS IP address (e.g., 8.8.8.8) and forwards the request to Internet & SaaS. You need to configure the Internet & SaaS DNS control and firewall filtering policies to allow the DNS response back to the workload. |
+| Private Access (ZPA) Traffic Forwarding | The DNS request arrives at any destination IP address for an FQDN request that matches a Private Access application. Cloud Connector intercepts requests and responds with a customer-defined synthetic IP address from the customer-defined [IP pool](https://help.zscaler.com/cloud-branch-connector/about-ip-pool). |
+| Internet & SaaS (ZIA) Traffic Forwarding | The DNS request arrives at Cloud Connector from a workload configured with a custom DNS server destination IP address (e.g., 8.8.8.8). Cloud Connector encapsulates the request with a client source IP and destination DNS IP address (e.g., 8.8.8.8) and forwards the request to Internet & SaaS. You need to configure the Internet & SaaS DNS control and firewall filtering policies to allow the DNS response back to the workload. |
 | Direct Traffic Forwarding | The DNS request arrives at Cloud Connector from a workload configured with a custom DNS server destination IP address (e.g., 8.8.8.8). The custom traffic forwarding policy matches the client source IP address, the destination IP address (e.g., 8.8.8.8), or network service (UDP 53) with the forwarding action set to direct. Cloud Connector forwards this request to the destination IP address, modifying the source IP from the client to its own service IP address (Source NAT). |
-| Direct Traffic Forwarding with Global VIP | The DNS request arrives at Cloud Connector from a workload configured with a custom DNS server destination that matches a Zscaler[Global Public Service Edge](https://help.zscaler.com/zia/about-global-public-service-edges) IP address (e.g., 185.46.212.88). The custom traffic forwarding policy matches the client source IP address, the destination IP address, or network service (UDP 53) with the forwarding action set to direct. Cloud Connector performs both source and destination NAT on the DNS request. The source IP is replaced with Cloud Connector's own service IP address and the destination IP is replaced with the current DNS server configured on the Cloud Connector. |
+| Direct Traffic Forwarding with Global VIP | The DNS request arrives at Cloud Connector from a workload configured with a custom DNS server destination that matches a Zscaler [Global Public Service Edge](https://help.zscaler.com/zia/about-global-public-service-edges) IP address (e.g., 185.46.212.88). The custom traffic forwarding policy matches the client source IP address, the destination IP address, or network service (UDP 53) with the forwarding action set to direct. Cloud Connector performs both source and destination NAT on the DNS request. The source IP is replaced with Cloud Connector's own service IP address and the destination IP is replaced with the current DNS server configured on the Cloud Connector. |
 <!-- /ZS-ARTICLE -->
 
 ---
@@ -16387,13 +16326,13 @@ To install the Zero Trust SD-WAN Device 800:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-cloud-branch-connector-upgrades","lastmod":"2026-11-10T16:32Z","nid":"1446991"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/managing-cloud-branch-connector-upgrades","lastmod":"2026-11-17T09:21Z","nid":"1446991"} -->
 ## Managing Cloud & Branch Connector Upgrades
 
 - Source: https://help.zscaler.com/zero-trust-cloud/managing-cloud-branch-connector-upgrades
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Managing Cloud & Branch Connector Upgrades
-- Last modified: 2026-11-10T16:32Z
+- Last modified: 2026-11-17T09:21Z
 - Summary: Information on Zscaler Cloud & Branch Connector periodic software upgrades.
 
 When Cloud or Branch Connectors are deployed, the software is upgraded to the latest version. The upgrade patch can include OS upgrades and Zscaler software upgrades. OS upgrades do not happen in the same way other packages do. After the latest images are posted in the public cloud for Cloud Connector, you must create new deployments for the OS upgrade. The public cloud for Cloud Connector is hosted in the Zscaler Admin Console for download for Branch Connector virtual machines (VMs). The devices are reprovisioned with the latest images.
@@ -16511,13 +16450,13 @@ To modify the default DNS Control rule:
 
 ---
 
-<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/networking-flows-cloud-connector","lastmod":"2026-11-11T09:47Z","nid":"1452806"} -->
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/networking-flows-cloud-connector","lastmod":"2026-11-17T11:42Z","nid":"1452806"} -->
 ## Networking Flows for Cloud Connector
 
 - Source: https://help.zscaler.com/zero-trust-cloud/networking-flows-cloud-connector
 - Product: Zero Trust Cloud
 - Path: Zero Trust Cloud Help > Deployment Management for Virtual Devices > Networking Flows for Cloud Connector
-- Last modified: 2026-11-11T09:47Z
+- Last modified: 2026-11-17T11:42Z
 - Summary: Information on Zscaler Cloud Connector networking flows via traffic forwarding and DNS forwarding.
 
 Every Zscaler Cloud Connector has a minimum of two network interfaces that communicate with the Zscaler cloud for different purposes.
@@ -16610,4 +16549,98 @@ See image.
 [Image: Private Access Non Match (Internet & SaaS) flows for Cloud Connector]
 
 [Image: Cloud Connector DNS rules configured to allocate Private Access synthetic IP pools]
+<!-- /ZS-ARTICLE -->
+
+---
+
+<!-- ZS-ARTICLE {"url":"/zero-trust-cloud/nss-feed-output-format-dns-logs","lastmod":"2026-11-01T23:53Z","nid":"1420841"} -->
+## NSS Feed Output Format: DNS Logs
+
+- Source: https://help.zscaler.com/zero-trust-cloud/nss-feed-output-format-dns-logs
+- Product: Zero Trust Cloud
+- Path: Zero Trust Cloud Help > Nanolog Streaming Service > NSS Feeds > Formatting NSS Feeds > NSS Feed Output Format: DNS Logs
+- Last modified: 2026-11-01T23:53Z
+- Summary: Information about DNS log fields that the Nanolog Streaming Service (NSS) sends to security information and event management (SIEM) systems.
+
+The DNS Nanolog Streaming Service (NSS) feed specifies the data from the DNS logs that the NSS sends to the security information and event management (SIEM) system. You can configure an NSS feed by including one or more fields. The fields and their values display in the NSS feed output.
+
+The following tables display information about the DNS fields and possible values for those fields.
+
+## Date/Time
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{eventtime} | The time and date the transaction happened. This excludes the time zone. | Mon Oct 28 22:55:48 2024 |
+| %s{time} | The date and time the event was logged. | Mon Oct 28 22:55:53 2024 |
+| %s{tz} | The time zone. This is the same as the time zone you specified when you configured the NSS feed. | GMT |
+| %02d{ss} | Second of timestamp (0–59) | 48 |
+| %02d{mm} | Minute of timestamp (0–59) | 55 |
+| %02d{hh} | Hour of timestamp (0–23) | 22 |
+| %02d{dd} | Day of timestamp (1–31) | 28 |
+| %02d{mth} | Month of timestamp (1-12) | 10 |
+| %04d{yyyy} | Year of timestamp | 2024 |
+| %s{mon} | The name of the month | Oct |
+| %s{day} | The day of the week | Mon |
+
+## Transaction Action
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{req_rulename} | Name of the rule that was applied to the DNS request | Private Access Resolver |
+| %s{req_action} | Name of the action that was applied to the DNS request | REQ_ALLOW REQ_BLOCK |
+| %s{res_rulename} | Name of the rule that was applied to the DNS response | Default Connector DNS Rule |
+| %s{res_action} | Name of the action that was applied to the DNS response | Allow |
+
+## Transaction Information
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %d{inbytes} | Number of bytes sent from the server to the client. | 10,000 |
+| %d{outbytes} | Number of bytes sent from the client to the server. | 10,000 |
+| %s{clt_ip} | The IP address of the user. This can be the internal IP address if it is visible—for example, traffic sent through a GRE tunnel or an internal IP address indicated using XFF. Otherwise, it's the client internet (NAT Public) IP address. | 192.0.2.135 |
+| %ld{req_duration} | Duration of the DNS request in milliseconds | 65 |
+| %s{resolver} | Server IP address of the request | 203.0.113.200 |
+| %ld{recordid} | Unique record identifier for each log | sys_cloud_branch_id |
+| %s{location} | Gateway location or sublocation of the source | Headquarters |
+| %s{dom_str} | Fully Qualified Domain Name (FQDN) in the DNS request | mail.safemarch.com |
+| %s{odom_str} | Obfuscated FQDN in the DNS request |  |
+| %s{res_type} | Response type |  |
+| %s{resp_val_str} | Response value | 51.xx.192.49 blob.xxz21prdxxxx7a.store.core.windows.net |
+| %{oresp_val_str} | Obfuscated response value |  |
+| %s{req_type} | DNS record being requested | A record |
+| %d{srv_port} | Server port of the request | 80 |
+| %d{num_resp} | Number of DNS responses | 52 |
+| %s{dns_err} | DNS error, if any | DNS server not available; NXDOMAIN; SERVFAIL |
+| %s{protocol} | Protocol used | TCP; UDP; DOH |
+| %s{dnsgw_flags} | Flags indicating the DNS Gateway status | PRIMARY_SERVER_RESPONSE_PASS; FO_DEST_ERR |
+| %s{dnsgw_slot} | DNS Gateway rule |  |
+
+## Cloud Connector or Branch Connector Information
+
+| Field | Description | Example |
+| --- | --- | --- |
+| %s{name} | Cloud Connector or Branch Connector name | CC_304 |
+| %s{vm_name} | Cloud Connector or Branch Connector virtual machine (VM) name | zs-cc-vpc-xxxx |
+| %s{group_name} | Cloud Connector or Branch Connector group name | zs-cc-vpc-xxxx-us-west-2x |
+| %s{region_name} | Cloud Connector or Branch Connector region name | (US) West US 2 |
+| %s{platform_name} | Cloud Connector or Branch Connector platform name | Azure |
+| %s{platformgeo_name} | Cloud Connector or Branch Connector platform geolocation name (availability zone) | San Jose, United States |
+| %s{account_id} | AWS account ID, or Azure subscription ID, or GCP project ID | 506xxx032xxx (AWS); f60abxxx-bb7d-43xx-84xx-4axxxx7xxxxx (Azure); gcs-xxx-cc-gcp-project (GCP) |
+
+## Base64 Fields
+
+A SIEM can have parsing issues whenever a string field has nonprintable or delimiter characters. For that reason, the Zscaler service has URL encoding for fields such as `dom_str`. Several other fields have the same parsing issue, but URL encoding is not suitable. Such fields are encoded using Base64.
+
+Turning on Base64 encoding for all supported fields may result in approximately a 20% drop in performance.
+
+The following fields have been added as Base64 fields:
+
+- b64dom_str
+- b64resp_val_str
+
+## Hex-Encoded Fields
+
+When the Zscaler service sends logs to the NSS, it hex encodes all nonprintable ASCII characters that are in URLs. Any URL character that is less than or equal to 0x20, or greater than or equal to 0x7F, is encoded as `%HH`. This ensures that your SIEM parses the URLs that contain control characters. For example, a `\n` character in a URL is encoded as `0A`, and a space is encoded as `%20`.
+
+edom_str has been added as a hex-encoded field.
 <!-- /ZS-ARTICLE -->
