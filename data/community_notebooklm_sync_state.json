@@ -37,14 +37,14 @@
   "community_platform_part1.md": {
    "added_at": "2026-10-05T10:50:12Z",
    "rel": "platform/community_platform_part1.md",
-   "sha256": "8fbd6d1046faf95b619aabbb06531b25adff9f1bd5e22635bd525dc6c926b2c7",
-   "source_id": "e455bd06-5f94-4e39-91b8-f965ea335a30"
+   "sha256": "751e7e8e074161823a13bff41d8df5b373bda94266533526bd1e0b42204119d1",
+   "source_id": "194ebf37-adb3-4157-9c93-f36f7b0c107b"
   },
   "community_platform_part2.md": {
    "added_at": "2026-10-05T10:50:37Z",
    "rel": "platform/community_platform_part2.md",
-   "sha256": "ba577febb6ca3d51a40279bab5bb4c415fb0c4d0e2e879a4cffb929a811b953f",
-   "source_id": "b8911de6-50e7-4245-b1d2-978a92fec17c"
+   "sha256": "4806b2279b5e74c6b57181e82c13e6c1d66fb5d77b17ff14e46ac5007c3b7443",
+   "source_id": "a821a1d6-c956-4f3e-8064-2af60c2feb3c"
   },
   "community_zcc_part1.md": {
    "added_at": "2026-10-05T10:51:09Z",
@@ -79,33 +79,33 @@
   "community_zia_part1.md": {
    "added_at": "2026-10-05T10:53:12Z",
    "rel": "zia/community_zia_part1.md",
-   "sha256": "e878bf47a44ba3dad611c6da565a909816c89bcbb9c71a1aceba8b556c723cf4",
-   "source_id": "3f494569-3089-4ee1-9a1a-f3eb08583f5d"
+   "sha256": "6b9d550f0a72192ff30c9fd244482edf36e323c58b2bfae50cac8ba7263da5e0",
+   "source_id": "15bb7696-88e3-4f73-a72f-82ea7f58f710"
   },
   "community_zia_part2.md": {
    "added_at": "2026-10-05T10:53:44Z",
    "rel": "zia/community_zia_part2.md",
-   "sha256": "3835026f6bf99b09afd41d00b7d228e98e4ead95e67d2b8931abaf638dc221eb",
-   "source_id": "6aa430ce-e06e-4e1e-8122-c1ade2fbae61"
+   "sha256": "f024976417ee85ab065956f53ef4df801c88d41b12749bd93b23fa00a522e5a4",
+   "source_id": "2db9e4a1-c816-4d02-afdb-9b17eac095ad"
   },
   "community_zia_part3.md": {
    "added_at": "2026-10-05T10:54:27Z",
    "rel": "zia/community_zia_part3.md",
-   "sha256": "6616863735a1c8c8397bab3053fd495e5ebdcf497bb53dd065f099ab90db738e",
-   "source_id": "6fcf5fcd-4dc3-4364-8071-6c80c3511d6a"
+   "sha256": "e1a5e379c6326460be0fce016635e3568815f1f0fb22930ff4378e98992e0315",
+   "source_id": "53b07542-461f-45a4-97dd-fd2ff24bd92a"
   },
   "community_zia_part4.md": {
    "added_at": "2026-10-05T10:54:59Z",
    "rel": "zia/community_zia_part4.md",
-   "sha256": "d4d2eb34d7f161f254370d5d95a87dc496bc9f82451c2e1202efbfb570471857",
-   "source_id": "54fcf469-12d2-4d14-bc08-f80be2b5313e"
+   "sha256": "0d40a28c39a87d69fd3ae47f99b3a0d86a2152238ff750c0289c83b99acf4057",
+   "source_id": "0b65b286-849a-4f92-a2a2-af203ac57446"
   },
   "community_zpa_part1.md": {
    "added_at": "2026-10-19T09:23:07Z",
    "rel": "zpa/community_zpa_part1.md",
-   "sha256": "03d78627afde5a311694fa20bb193cfea2fab703dae740e611680845c5668477",
-   "source_id": "23ef70a2-7b61-48fc-b032-fba2937fa709"
+   "sha256": "3fd76f9713700deeb7184b9843a3c6cd5323305d2d1f98b475502bccab591ad9",
+   "source_id": "7d2b3d7b-9522-4ce3-a299-1465b258717b"
   }
  },
- "synced_at": "2026-11-16T11:59:13Z"
+ "synced_at": "2026-11-23T13:37:29Z"
 }
