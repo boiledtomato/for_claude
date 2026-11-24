@@ -1,5 +1,36 @@
 {
-  "last_updated": "2026-11-23T05:08:55Z",
-  "total": 0,
-  "articles": []
+  "last_updated": "2026-11-24T07:54:22Z",
+  "total": 3,
+  "articles": [
+    {
+      "id": "ce2c122eeb6fc68a",
+      "title": "CrowdStrike Makes AI Security Push With Blockbuster Zscaler Deal",
+      "url": "https://www.darkreading.com/endpoint-security/crowdstrike-ai-security-push-zscaler-deal",
+      "summary": "CrowdStrike's $44 billion acquisition of Zscaler would unite endpoint protection and zero-trust network security to obtain greater control over AI agents.",
+      "date": "2026-11-23T21:21:42Z",
+      "source": "Dark Reading",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "3942343bca26c3f6",
+      "title": "CrowdStrike to acquire Zscaler for $43.9 billion",
+      "url": "https://www.helpnetsecurity.com/2026/11/23/crowdstrike-zscaler-43-9-billion-acquisition/",
+      "summary": "CrowdStrike has agreed to acquire Zscaler in an all-stock deal with an enterprise value of about $43.9 billion. Deal terms Zscaler shareholders will receive 1.135 CrowdStrike shares for each Zscaler share. Based on CrowdStrike’s November 20, 2026 closing price, that implies approximately $260.41 per Zscaler share, a premium of roughly 34% over Zscaler&#8217;s closing share price on the same date. ",
+      "date": "2026-11-23T12:41:18Z",
+      "source": "Help Net Security",
+      "category": "industry_news",
+      "tags": []
+    },
+    {
+      "id": "02207daefe6b9999",
+      "title": "CrowdStrike to Acquire Zscaler in $43.9 Billion Deal",
+      "url": "https://www.securityweek.com/crowdstrike-to-acquire-zscaler-in-43-9-billion-deal/",
+      "summary": "CrowdStrike expects the combined company to have more than $10 billion in annual recurring revenue. The post CrowdStrike to Acquire Zscaler in $43.9 Billion Deal appeared first on SecurityWeek.",
+      "date": "2026-11-23T11:31:44Z",
+      "source": "SecurityWeek",
+      "category": "industry_news",
+      "tags": []
+    }
+  ]
 }
