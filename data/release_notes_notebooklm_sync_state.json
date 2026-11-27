@@ -207,7 +207,13 @@
    "rel": "2026-11-20/Zscaler_release_20261114-20261120.md",
    "sha256": "1141eb836280789821fa0afc09826670cadbfe94891060c1f498abb0add380ae",
    "source_id": "2b5eec85-85ae-43ef-b6f4-326ee266422a"
+  },
+  "Zscaler_release_20261121-20261127.md": {
+   "added_at": "2026-11-27T03:55:07Z",
+   "rel": "2026-11-27/Zscaler_release_20261121-20261127.md",
+   "sha256": "cb50d21dca3d8c41e4b2d9efab112fea941fb1dc0a1300a778fb62d79f459d62",
+   "source_id": "25d62219-0d7c-4dd6-a1f4-55c4b992a1d5"
   }
  },
- "synced_at": "2026-11-20T02:49:00Z"
+ "synced_at": "2026-11-27T03:55:07Z"
 }
